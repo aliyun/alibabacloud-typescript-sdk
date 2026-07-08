@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the contact.
+   * 
    * This parameter is required.
    * 
    * @example

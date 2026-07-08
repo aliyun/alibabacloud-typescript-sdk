@@ -2,49 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribePhoneNumberAnalysisTransparentResponseBodyData extends $dara.Model {
+export class VirtualThreeElementsVerificationResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 示例值示例值示例值
+   * 81
    */
-  deviceRisk?: string;
-  /**
-   * @example
-   * 示例值示例值
-   */
-  ipRisk?: string;
-  /**
-   * @example
-   * 0.6
-   */
-  score1?: string;
-  /**
-   * @example
-   * 0.2
-   */
-  score2?: string;
-  /**
-   * @example
-   * 0.8
-   */
-  score3?: string;
+  isConsistent?: number;
   static names(): { [key: string]: string } {
     return {
-      deviceRisk: 'Device_risk',
-      ipRisk: 'Ip_risk',
-      score1: 'Score1',
-      score2: 'Score2',
-      score3: 'Score3',
+      isConsistent: 'IsConsistent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceRisk: 'string',
-      ipRisk: 'string',
-      score1: 'string',
-      score2: 'string',
-      score3: 'string',
+      isConsistent: 'number',
     };
   }
 
@@ -57,10 +29,10 @@ export class DescribePhoneNumberAnalysisTransparentResponseBodyData extends $dar
   }
 }
 
-export class DescribePhoneNumberAnalysisTransparentResponseBody extends $dara.Model {
+export class VirtualThreeElementsVerificationResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   code?: string;
-  data?: DescribePhoneNumberAnalysisTransparentResponseBodyData;
+  data?: VirtualThreeElementsVerificationResponseBodyData;
   message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -77,7 +49,7 @@ export class DescribePhoneNumberAnalysisTransparentResponseBody extends $dara.Mo
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: DescribePhoneNumberAnalysisTransparentResponseBodyData,
+      data: VirtualThreeElementsVerificationResponseBodyData,
       message: 'string',
       requestId: 'string',
     };

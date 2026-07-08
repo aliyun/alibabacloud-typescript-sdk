@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CompanyFourElementsVerificationResponseBodyDataDetailInfo extends $dara.Model {
   /**
    * @remarks
-   * The business status of the enterprise.
+   * The operating status of the enterprise.
    * 
    * @example
-   * Active
+   * 在营（开业）
    */
   enterpriseStatus?: string;
   /**
@@ -45,24 +45,28 @@ export class CompanyFourElementsVerificationResponseBodyDataDetailInfo extends $
 export class CompanyFourElementsVerificationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the enterprise.
+   * The enterprise details.
+   * 
+   * @example
+   * { "enterpriseStatus": "在营（开业）", 
+   * "openTime": "2023-05-25/2053-05-24" }
    */
   detailInfo?: CompanyFourElementsVerificationResponseBodyDataDetailInfo;
   /**
    * @remarks
-   * The fields to be verified.
+   * The fields that failed verification.
    */
   inconsistentData?: string[];
   /**
    * @remarks
-   * The code of the verification result. Valid values:
+   * The verification result code. Valid values:
    * 
-   * *   0: The four elements belong to the same enterprise.
-   * *   1: The four elements belong to the same enterprise, but the business status of the enterprise is abnormal.
-   * *   2: The legal representative information cannot match the enterprise information.
-   * *   3: The four elements do not belong to the same enterprise.
-   * *   4: No information about the enterprise is found.
-   * *   5: No information about the legal representative is found.
+   * - 0: Verification passed.
+   * - 1: Verification passed, but the enterprise is not operating normally.
+   * - 2: The legal person and enterprise information are inconsistent.
+   * - 3: The enterprise four-element verification failed.
+   * - 4: The enterprise was not found.
+   * - 5: The legal person was not found in the database.
    * 
    * @example
    * 0
@@ -71,9 +75,8 @@ export class CompanyFourElementsVerificationResponseBodyData extends $dara.Model
   /**
    * @remarks
    * The verification result. Valid values:
-   * 
-   * *   true: The four elements belong to the same enterprise and the business status of the enterprise is Active.
-   * *   false: The four elements do not belong to the same enterprise.
+   * -   true: The information is consistent and the enterprise is operating normally.
+   * -   false: Verification failed.
    * 
    * @example
    * true
@@ -123,7 +126,7 @@ export class CompanyFourElementsVerificationResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
    * @example
    * OK
@@ -131,12 +134,12 @@ export class CompanyFourElementsVerificationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The structure.
    */
   data?: CompanyFourElementsVerificationResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The description of the returned status code.
    * 
    * @example
    * OK
@@ -144,7 +147,7 @@ export class CompanyFourElementsVerificationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID. It is a common parameter and can be used to troubleshoot issues.
+   * The common parameter. The ID returned for each request is unique and can be used to troubleshoot and locate issues.
    * 
    * @example
    * CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47

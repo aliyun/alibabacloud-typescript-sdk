@@ -4,24 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryPackageTypeInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
+   * - OK indicates that the request is successful.
+   * 
+   * - For other error codes, see the [error code list](https://help.aliyun.com/document_detail/109196.html).
+   * 
    * @example
-   * 示例值示例值
+   * Example
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   * 
+   * @example
+   * {"efactorVerification":"平台风控-二要素核验查询套餐包"}
+   */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Example
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Example
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
-   * false
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

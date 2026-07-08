@@ -4,34 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryTaskListShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 80
    */
   currentPage?: number;
   ownerId?: number;
   /**
+   * @remarks
+   * The page size. Maximum value: 1000.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The task statuses.
+   */
   resultShrink?: string;
   /**
+   * @remarks
+   * The tag ID. You can call the [QueryTagListPage](~~QueryTagListPage~~) operation to query tag IDs.
+   * 
    * @example
    * 15
    */
   tagId?: number;
   /**
+   * @remarks
+   * The task ID. You can call the DescribeTasks operation to query the list of task IDs.
+   * 
    * @example
    * 91
    */
   taskId?: number;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
-   * 示例值示例值
+   * Example
    */
   taskName?: string;
+  /**
+   * @remarks
+   * An array of task types.
+   */
   taskTypeShrink?: string;
   static names(): { [key: string]: string } {
     return {

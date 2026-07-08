@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateContactsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The email address of the contact.
+   * 
    * @example
    * XXXX@alibaba-inc.com
    */
   contactEmail?: string;
   /**
    * @remarks
+   * The ID of the contact to update. You can retrieve the ID by calling the ListContacts operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,32 +22,63 @@ export class UpdateContactsRequest extends $dara.Model {
    */
   contactId?: number;
   /**
+   * @remarks
+   * The name of the contact.
+   * 
    * @example
    * XXX
    */
   contactName?: string;
   /**
+   * @remarks
+   * The mobile phone number of the contact.
+   * 
    * @example
    * 192XXXXXXXX
    */
   contactPhone?: string;
   /**
+   * @remarks
+   * Enables or disables email alerts. Valid values:
+   * 
+   * - 0: disabled.
+   * 
+   * - 1: enabled.
+   * 
    * @example
    * 1
    */
   mailStatus?: number;
   /**
+   * @remarks
+   * Enables or disables alerts for number status.
+   * Valid values:
+   * 
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
+   * 
    * @example
    * false
    */
   openStatusWarning?: boolean;
   /**
+   * @remarks
+   * Enables or disables alerts for number attribution queries. Valid values: -**true**: enabled. -**false**: disabled.
+   * 
    * @example
    * true
    */
   opentAttributionWarning?: boolean;
   ownerId?: number;
   /**
+   * @remarks
+   * Enables or disables phone call alerts. Valid values:
+   * 
+   * - 0: disabled.
+   * 
+   * - 1: enabled.
+   * 
    * @example
    * 1
    */

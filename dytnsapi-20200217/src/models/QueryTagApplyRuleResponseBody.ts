@@ -5,23 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTagApplyRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The requirements for application materials.
+   * The application material requirements. This parameter is returned when NeedApplyMaterial=1.
    * 
    * @example
-   * Requirements for application materials
+   * 申请材料的要求是XXX
    */
   applyMaterialDesc?: string;
   /**
    * @remarks
-   * Indicates whether the application is automatically approved.
+   * Indicates whether to automatically approve. Valid values:
+   * 
+   * - 0: do not automatically approve.
+   * 
+   * - 1: automatically approve.
    * 
    * @example
-   * 16
+   * 1
    */
   autoAudit?: number;
   /**
    * @remarks
-   * The URL for the billing documentation.
+   * The billing standard description link.
    * 
    * @example
    * aliyundoc.com
@@ -29,23 +33,31 @@ export class QueryTagApplyRuleResponseBodyData extends $dara.Model {
   chargingStandardLink?: string;
   /**
    * @remarks
-   * indicates whether encrypted queries are supported.
+   * Indicates whether encrypted query is supported. Valid values:
+   * 
+   * - 0: not supported.
+   * 
+   * - 1: supported.
    * 
    * @example
-   * 99
+   * 0
    */
   encryptedQuery?: number;
   /**
    * @remarks
-   * Indicates whether application materials are required.
+   * Indicates whether application materials need to be provided. Valid values:
+   * 
+   * - 0: not required.
+   * 
+   * - 1: required.
    * 
    * @example
-   * 46
+   * 1
    */
   needApplyMaterial?: number;
   /**
    * @remarks
-   * The URL for the service agreement.
+   * The service agreement link.
    * 
    * @example
    * example.aliyundoc.com
@@ -85,7 +97,7 @@ export class QueryTagApplyRuleResponseBodyData extends $dara.Model {
 export class QueryTagApplyRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **OK** indicates that the request is successful.
+   * The request status code. **OK** indicates success.
    * 
    * @example
    * OK
@@ -98,7 +110,7 @@ export class QueryTagApplyRuleResponseBody extends $dara.Model {
   data?: QueryTagApplyRuleResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The description of the returned status code.
    * 
    * @example
    * OK
@@ -116,11 +128,12 @@ export class QueryTagApplyRuleResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: successful.
+   * 
+   * - false: failed.
    * 
    * @example
-   * false
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

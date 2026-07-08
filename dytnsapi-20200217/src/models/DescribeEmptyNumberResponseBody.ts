@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEmptyNumberResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The specified phone number.
+   * 传入的手机号。
    * 
    * @example
    * 189****1234
@@ -13,12 +13,15 @@ export class DescribeEmptyNumberResponseBodyData extends $dara.Model {
   number?: string;
   /**
    * @remarks
-   * The returned status for the queried phone number. Valid values:
+   * 检测手机号返回状态。取值：
    * 
-   * *   **EMPTY**: The queried phone number is a nonexistent number.
-   * *   **NORMAL**: The queried phone number is valid.
-   * *   **SUSPECT_EMPTY**: The queried phone number is suspected to be a nonexistent number.
-   * *   **UNKNOWN**: The queried phone number is unknown.
+   * - **EMPTY**：空号。
+   * 
+   * - **NORMAL**：正常。
+   * 
+   * - **SUSPECT_EMPTY**：疑似空号。
+   * 
+   * - **UNKNOWN**：未知。
    * 
    * @example
    * EMPTY
@@ -50,10 +53,11 @@ export class DescribeEmptyNumberResponseBodyData extends $dara.Model {
 export class DescribeEmptyNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * 返回状态码。取值：
    * 
-   * *   **OK**: The request is successful.
-   * *   **InvalidPhoneNumber.Check**: The phone number is invalid.
+   * - **OK**：成功。
+   * 
+   * - **InvalidPhoneNumber.Check**：手机号非法。
    * 
    * @example
    * OK
@@ -61,12 +65,12 @@ export class DescribeEmptyNumberResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * 返回结果。
    */
   data?: DescribeEmptyNumberResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * 状态码的描述。
    * 
    * @example
    * OK
@@ -74,7 +78,7 @@ export class DescribeEmptyNumberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID. It is a common parameter and can be used to troubleshoot issues.
+   * 公共参数，每个请求返回的ID都是唯一的，可用于排查和定位问题。
    * 
    * @example
    * CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47

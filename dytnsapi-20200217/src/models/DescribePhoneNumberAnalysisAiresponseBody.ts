@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePhoneNumberAnalysisAIResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The returned code.
+   * The returned result code.
    * 
-   * *   YES: The specified phone number is valid.
-   * *   NO: The specified phone number is invalid.
-   * *   UNKNOWN: The specified phone number is unknown
+   * - YES: valid
+   * - NO: invalid
+   * - UNKNOWN: unknown
    * 
    * @example
    * YES
@@ -17,7 +17,7 @@ export class DescribePhoneNumberAnalysisAIResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The specified phone number.
+   * The phone number that was passed in.
    * 
    * @example
    * 187****5620
@@ -47,12 +47,18 @@ export class DescribePhoneNumberAnalysisAIResponseBodyData extends $dara.Model {
 }
 
 export class DescribePhoneNumberAnalysisAIResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * -
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. Valid values:
-   * 
-   * *   OK: The request is successful.
+   * The request status code. Valid values:
+   * - OK: success
    * 
    * @example
    * OK
@@ -60,12 +66,12 @@ export class DescribePhoneNumberAnalysisAIResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The returned result.
    */
   data?: DescribePhoneNumberAnalysisAIResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The description of the returned status code.
    * 
    * @example
    * OK

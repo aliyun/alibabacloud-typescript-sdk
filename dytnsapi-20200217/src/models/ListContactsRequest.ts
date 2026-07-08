@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListContactsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business type. Set the value to `dytns`.
+   * 
    * @example
    * dytns
    */
   bizType?: string;
   /**
+   * @remarks
+   * The contact ID.
+   * 
    * @example
    * 1298647
    */

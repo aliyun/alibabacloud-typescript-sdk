@@ -7,7 +7,7 @@ export class PhoneNumberEncryptRequest extends $dara.Model {
    * @remarks
    * The authorization code.
    * 
-   * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
+   * > On the **My Applications** page of the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), obtain the authorization ID, which is the authorization code.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class PhoneNumberEncryptRequest extends $dara.Model {
    * @remarks
    * The phone number to be queried.
    * 
-   * >  You can query only one phone number at a time.
+   * > Currently, only single phone number queries are supported.
    * 
    * This parameter is required.
    * 
@@ -29,9 +29,10 @@ export class PhoneNumberEncryptRequest extends $dara.Model {
   inputNumber?: string;
   /**
    * @remarks
-   * The encryption method of the phone number. Set the value to **NORMAL**.
+   * The encryption method of the phone number. Valid value: **NORMAL**.
    * 
-   * >  Only the NORMAL encryption method is supported.
+   * 
+   * >Notice: Currently, only the NORMAL encryption method is supported.
    * 
    * This parameter is required.
    * 
@@ -39,6 +40,13 @@ export class PhoneNumberEncryptRequest extends $dara.Model {
    * NORMAL
    */
   mask?: string;
+  /**
+   * @remarks
+   * The user-defined outId. This parameter is optional. The format is not limited, and the length must be less than or equal to 64 characters.
+   * 
+   * @example
+   * 213e367117422635749191493eea68
+   */
   outId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;

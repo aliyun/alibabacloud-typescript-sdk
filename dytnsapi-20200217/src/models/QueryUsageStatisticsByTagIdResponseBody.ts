@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUsageStatisticsByTagIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The authorization code.
+   * 授权码。
    * 
    * @example
    * g61I8UV5zd
@@ -13,7 +13,7 @@ export class QueryUsageStatisticsByTagIdResponseBodyData extends $dara.Model {
   authorizationCode?: string;
   /**
    * @remarks
-   * The numbers for which the query failed.
+   * 查询失败号码数。
    * 
    * @example
    * 71
@@ -21,7 +21,7 @@ export class QueryUsageStatisticsByTagIdResponseBodyData extends $dara.Model {
   failTotal?: number;
   /**
    * @remarks
-   * The creation time.
+   * 创建时间。
    * 
    * @example
    * 20230312
@@ -29,39 +29,39 @@ export class QueryUsageStatisticsByTagIdResponseBodyData extends $dara.Model {
   gmtDateStr?: string;
   /**
    * @remarks
-   * The ID of the authorization code usage record.
+   * 授权码使用记录ID。
    * 
    * @example
-   * 17
+   * 4d32c9ef-c8b0-4d69-a437-cca5****185d
    */
   id?: number;
   /**
    * @remarks
-   * The industry name.
+   * 行业名称。
    * 
    * @example
-   * Home security
+   * 家政安保
    */
   industryName?: string;
   /**
    * @remarks
-   * The customer product ID (PID).
+   * 客户pid。
    * 
    * @example
-   * 89
+   * 10000013****071
    */
   partnerId?: number;
   /**
    * @remarks
-   * The scene name.
+   * 场景名称。
    * 
    * @example
-   * Return visit
+   * 电话回访1
    */
   sceneName?: string;
   /**
    * @remarks
-   * The numbers for which the query succeeded.
+   * 查询成功号码数。
    * 
    * @example
    * 93
@@ -69,7 +69,7 @@ export class QueryUsageStatisticsByTagIdResponseBodyData extends $dara.Model {
   successTotal?: number;
   /**
    * @remarks
-   * The tag name.
+   * 标签名称。
    * 
    * @example
    * 69
@@ -77,15 +77,15 @@ export class QueryUsageStatisticsByTagIdResponseBodyData extends $dara.Model {
   tagId?: number;
   /**
    * @remarks
-   * The tag name.
+   * 标签名称。
    * 
    * @example
-   * Alibaba Cloud Query
+   * 阿里云查询
    */
   tagName?: string;
   /**
    * @remarks
-   * The total quantity of numbers that are involved in the query.
+   * 查询总号码数。
    * 
    * @example
    * 41
@@ -135,7 +135,7 @@ export class QueryUsageStatisticsByTagIdResponseBodyData extends $dara.Model {
 export class QueryUsageStatisticsByTagIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **OK** indicates that the request is successful.
+   * 请求状态码。 **OK**为成功。
    * 
    * @example
    * OK
@@ -143,12 +143,12 @@ export class QueryUsageStatisticsByTagIdResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * 返回的数据内容。
    */
   data?: QueryUsageStatisticsByTagIdResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * 返回状态码描述。
    * 
    * @example
    * OK
@@ -156,7 +156,7 @@ export class QueryUsageStatisticsByTagIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * D45CC751-34DF-5797-81FB-9A2ED6DC024B
@@ -164,10 +164,9 @@ export class QueryUsageStatisticsByTagIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * *   true
-   * *   false
+   * 表示是否调用成功。
+   * - true：调用成功。             
+   *  - false：调用失败。
    * 
    * @example
    * true

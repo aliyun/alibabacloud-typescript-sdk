@@ -7,7 +7,7 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $dara.Model {
    * @remarks
    * The authorization code.
    * 
-   * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
+   * > On the **My Applications** page of the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), obtain the authorization ID, which is the authorization code.
    * 
    * This parameter is required.
    * 
@@ -16,19 +16,23 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $dara.Model {
    */
   authCode?: string;
   /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
    * @example
-   * 示例值
+   * -
    */
   flowName?: string;
   /**
    * @remarks
-   * The phone number to be queried.
+   * The phone number that you want to query.
    * 
-   * *   If the value of Mask is NORMAL, specify an 11-digit phone number in plaintext.
-   * *   If the value of Mask is MD5, specify a 32-bit string that is encrypted by using MD5.
-   * *   If the value of Mask is SHA256, specify a 64-bit string that is encrypted by using SHA256.
+   * - If Mask is set to NORMAL, this field is an 11-digit phone number.
+   * - If Mask is set to MD5, this field is a 32-character encrypted string.
+   * - If Mask is set to SHA256, this field is a 64-character encrypted string.
+   * - If Mask is set to SM3, this field is a 64-character encrypted string.
    * 
-   * >  Letters in the encrypted strings are not case-sensitive.
+   * >Notice: The letters in the encrypted string are not case-sensitive.</notice>
    * 
    * This parameter is required.
    * 
@@ -40,11 +44,12 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $dara.Model {
    * @remarks
    * The encryption method of the phone number. Valid values:
    * 
-   * *   **NORMAL**: The phone number is not encrypted.
-   * *   **MD5**: The phone number is MD5-encrypted.
-   * *   **SHA256**: The phone number is SHA256-encrypted.
+   * - **NORMAL**: no encryption
+   * - **MD5**: MD5 encryption
+   * - **SHA256**: SHA256 encryption
+   * - **SM3**: SM3 encryption
    * 
-   * > Letters in the string must be uppercase.
+   * >Notice: All letters in the string must be uppercase.</notice>
    * 
    * This parameter is required.
    * 
@@ -56,8 +61,11 @@ export class DescribePhoneNumberOperatorAttributeRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * A system parameter. You do not need to specify this parameter.
+   * 
    * @example
-   * 示例值示例值示例值
+   * -
    */
   resultCount?: string;
   static names(): { [key: string]: string } {

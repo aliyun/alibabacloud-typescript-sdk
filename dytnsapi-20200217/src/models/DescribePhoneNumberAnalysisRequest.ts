@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePhoneNumberAnalysisRequest extends $dara.Model {
   /**
    * @remarks
+   * The authorization code.
+   * 
+   * > Log on to the [Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), go to the **My Applications** page, and obtain the authorization ID, which is the authorization code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,24 +17,47 @@ export class DescribePhoneNumberAnalysisRequest extends $dara.Model {
   authCode?: string;
   /**
    * @remarks
+   * The phone number to be queried.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1310000****
+   * 187****5620
    */
   inputNumber?: string;
   /**
+   * @remarks
+   * The encryption method of the phone number. Valid values:
+   * 
+   * - **NORMAL**: no encryption
+   * 
+   * - **MD5**
+   * 
+   * - **SHA256**
+   * 
    * @example
-   * MD5
+   * NORMAL
    */
   mask?: string;
   /**
+   * @remarks
+   * The type of the phone number. Valid values:
+   * 
+   * - **0**: mobile phone number
+   * 
+   * - **1**: mobile IMEI number
+   * 
    * @example
    * 0
    */
   numberType?: number;
   ownerId?: number;
   /**
+   * @remarks
+   * The score threshold of the phone number. Valid values: **0 to 100**.
+   * 
+   * >Notice: Whether the specified score threshold is accepted is determined by the server. When the specified score threshold is not accepted, the data entered in this field is invalid.
+   * 
    * @example
    * 10
    */

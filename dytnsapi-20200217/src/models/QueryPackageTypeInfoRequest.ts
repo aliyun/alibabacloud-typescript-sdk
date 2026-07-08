@@ -6,7 +6,7 @@ export class QueryPackageTypeInfoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 产品名称，如dysms
+   * The product name. The value must be dytns.
    * 
    * @example
    * dytns

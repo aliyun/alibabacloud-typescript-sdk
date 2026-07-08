@@ -7,7 +7,7 @@ export class InvalidPhoneNumberFilterRequest extends $dara.Model {
    * @remarks
    * The authorization code.
    * 
-   * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
+   * > Log on to the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply). On the **My Applications** page, obtain the authorization ID, which serves as the authorization code.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class InvalidPhoneNumberFilterRequest extends $dara.Model {
    * @remarks
    * The encryption method of the phone number.
    * 
-   * >  Only the NORMAL encryption method is supported.
+   * >Notice: Only the NORMAL encryption method is supported.
    * 
    * This parameter is required.
    * 

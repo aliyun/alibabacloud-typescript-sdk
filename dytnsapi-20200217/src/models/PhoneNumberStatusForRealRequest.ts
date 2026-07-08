@@ -7,7 +7,7 @@ export class PhoneNumberStatusForRealRequest extends $dara.Model {
    * @remarks
    * The authorization code.
    * 
-   * >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization ID.
+   * > On the **My Applications** page in the [Phone Number Intelligence console](https://dytns.console.aliyun.com/analysis/apply), you can find the authorization code for your API calls.
    * 
    * This parameter is required.
    * 
@@ -17,13 +17,19 @@ export class PhoneNumberStatusForRealRequest extends $dara.Model {
   authCode?: string;
   /**
    * @remarks
-   * The phone number to be queried.
+   * The phone number to query.
    * 
-   * *   If the value of Mask is NORMAL, the value of this field is an 11-digit phone number.
-   * *   If the value of Mask is MD5, the value of this field is a 32-bit encrypted string.
-   * *   If the value of Mask is SHA256, the value of this field is a 64-bit encrypted string.
+   * - If `Mask` is set to `NORMAL`, this parameter specifies an 11-digit mobile phone number.
    * 
-   * >  Letters in the encrypted strings are not case-sensitive.
+   * - If `Mask` is set to `MD5`, this parameter specifies a 32-character encrypted string.
+   * 
+   * - If `Mask` is set to `SHA256`, this parameter specifies a 64-character encrypted string.
+   * 
+   * - If `Mask` is set to `SM3`, this parameter specifies a 64-character encrypted string.
+   * 
+   * >Notice: 
+   * 
+   * The encrypted string is not case-sensitive.
    * 
    * This parameter is required.
    * 
@@ -35,9 +41,13 @@ export class PhoneNumberStatusForRealRequest extends $dara.Model {
    * @remarks
    * The encryption method of the phone number. Valid values:
    * 
-   * *   **NORMAL**: The phone number is not encrypted.
-   * *   **MD5**
-   * *   **SHA256**
+   * - **NORMAL**: The number is not encrypted.
+   * 
+   * - **MD5**
+   * 
+   * - **SHA256**
+   * 
+   * - **SM3**
    * 
    * This parameter is required.
    * 

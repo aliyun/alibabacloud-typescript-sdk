@@ -46,6 +46,7 @@ export { TwoElementsVerificationResponseBodyData } from './TwoElementsVerificati
 export { UAIDCollectionResponseBodyModel } from './UaidcollectionResponseBody';
 export { UAIDConversionResponseBodyModel } from './UaidconversionResponseBody';
 export { UAIDVerificationResponseBodyData } from './UaidverificationResponseBody';
+export { VirtualThreeElementsVerificationResponseBodyData } from './VirtualThreeElementsVerificationResponseBody';
 export { CertNoThreeElementVerificationRequest } from './CertNoThreeElementVerificationRequest';
 export { CertNoThreeElementVerificationResponseBody } from './CertNoThreeElementVerificationResponseBody';
 export { CertNoThreeElementVerificationResponse } from './CertNoThreeElementVerificationResponse';
@@ -188,3 +189,6 @@ export { UAIDVerificationResponse } from './UaidverificationResponse';
 export { UpdateContactsRequest } from './UpdateContactsRequest';
 export { UpdateContactsResponseBody } from './UpdateContactsResponseBody';
 export { UpdateContactsResponse } from './UpdateContactsResponse';
+export { VirtualThreeElementsVerificationRequest } from './VirtualThreeElementsVerificationRequest';
+export { VirtualThreeElementsVerificationResponseBody } from './VirtualThreeElementsVerificationResponseBody';
+export { VirtualThreeElementsVerificationResponse } from './VirtualThreeElementsVerificationResponse';

@@ -56,7 +56,7 @@ export class QueryTagInfoBySelectionResponseBodyDataParamList extends $dara.Mode
    * The input hint.
    * 
    * @example
-   * none
+   * 无
    */
   hint?: string;
   /**
@@ -72,12 +72,12 @@ export class QueryTagInfoBySelectionResponseBodyDataParamList extends $dara.Mode
    * The Chinese name of the parameter.
    * 
    * @example
-   * none
+   * 无
    */
   name?: string;
   /**
    * @remarks
-   * The type. The code that corresponds to EnumUIWidgetTypes.
+   * The code corresponding to the type EnumUIWidgetTypes.
    * 
    * @example
    * aqzx
@@ -85,7 +85,7 @@ export class QueryTagInfoBySelectionResponseBodyDataParamList extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The definitions of the enumerated values such as Code or Desc.
+   * The definition of an enumerated value, in the format of code:desc.
    */
   valueDict?: QueryTagInfoBySelectionResponseBodyDataParamListValueDict[];
   static names(): { [key: string]: string } {
@@ -128,10 +128,17 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
    * The list of available authorization codes.
    */
   authCodeList?: string[];
+  /**
+   * @remarks
+   * The tag type.
+   * 
+   * @example
+   * SINGLE_STAGE
+   */
   complexityType?: string;
   /**
    * @remarks
-   * The URL for the API demo.
+   * The link to the API demo.
    * 
    * @example
    * https://help.aliyun.com/document_detail/388997.html?spm=a2c4g.2573870.0.0.3aa921cbOrtqJz
@@ -139,7 +146,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
   demoAddress?: string;
   /**
    * @remarks
-   * The URL for the API documentation.
+   * The link to the API documentation.
    * 
    * @example
    * https://help.aliyun.com/document_detail/388997.html?spm=a2c4g.2573870.0.0.3aa921cbOrtqJz
@@ -147,7 +154,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
   docAddress?: string;
   /**
    * @remarks
-   * The URL for the definitions of the enumerated values.
+   * The link to the enumerated value definition.
    * 
    * @example
    * example.aliyundoc.com
@@ -158,7 +165,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
    * The flow name.
    * 
    * @example
-   * process name
+   * 查询
    */
   flowName?: string;
   /**
@@ -174,7 +181,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
    * The industry name.
    * 
    * @example
-   * logistics
+   * 物流
    */
   industryName?: string;
   /**
@@ -182,6 +189,13 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
    * The list of tag parameters.
    */
   paramList?: QueryTagInfoBySelectionResponseBodyDataParamList[];
+  /**
+   * @remarks
+   * The rich text description. This field is available only for complex tags.
+   * 
+   * @example
+   * 无
+   */
   richTextDescription?: string;
   /**
    * @remarks
@@ -196,7 +210,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
    * The scene name.
    * 
    * @example
-   * General scenario
+   * 通用
    */
   sceneName?: string;
   /**
@@ -212,7 +226,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
    * The tag name.
    * 
    * @example
-   * Number ownership
+   * 号码归属
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -271,7 +285,7 @@ export class QueryTagInfoBySelectionResponseBodyData extends $dara.Model {
 export class QueryTagInfoBySelectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **OK** indicates that the request is successful.
+   * The request status code. The value **OK** indicates that the request was successful.
    * 
    * @example
    * OK
@@ -279,12 +293,12 @@ export class QueryTagInfoBySelectionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: QueryTagInfoBySelectionResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The description of the returned status code.
    * 
    * @example
    * OK
@@ -300,13 +314,14 @@ export class QueryTagInfoBySelectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
-   * false
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

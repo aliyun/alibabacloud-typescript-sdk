@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUsageStatisticsByTagIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the query.
    * 
    * @example
    * 20230308
@@ -13,7 +13,7 @@ export class QueryUsageStatisticsByTagIdRequest extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query.
    * 
    * @example
    * 20230406
@@ -30,10 +30,10 @@ export class QueryUsageStatisticsByTagIdRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
-   * 20
+   * 10
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
@@ -43,7 +43,7 @@ export class QueryUsageStatisticsByTagIdRequest extends $dara.Model {
    * The tag ID.
    * 
    * @example
-   * 14
+   * 89
    */
   tagId?: number;
   static names(): { [key: string]: string } {

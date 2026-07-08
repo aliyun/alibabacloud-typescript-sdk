@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CertNoTwoElementVerificationRequest extends $dara.Model {
   /**
    * @remarks
+   * The authorization code.
+   * 
+   * > In **Cell Phone Number Service** -> [**Tag Marketplace**](https://dytns.console.aliyun.com/analysis/square), select a tag and submit an application for use. After the application is approved, you will obtain the authorization code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,18 +17,22 @@ export class CertNoTwoElementVerificationRequest extends $dara.Model {
   authCode?: string;
   /**
    * @remarks
+   * The name to be verified.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * 张三
    */
   certName?: string;
   /**
    * @remarks
+   * The ID card number to be verified.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 331021200001010000
+   * 3***************0
    */
   certNo?: string;
   ownerId?: number;

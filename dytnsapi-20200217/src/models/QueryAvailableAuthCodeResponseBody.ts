@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAvailableAuthCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **OK** indicates that the request is successful.
+   * The status code returned. **OK** indicates that the request was successful.
    * 
    * @example
    * OK
@@ -13,12 +13,12 @@ export class QueryAvailableAuthCodeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: string[];
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code returned.
    * 
    * @example
    * OK
@@ -34,13 +34,14 @@ export class QueryAvailableAuthCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: successful.
+   * 
+   * - false: failed.
    * 
    * @example
-   * false
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

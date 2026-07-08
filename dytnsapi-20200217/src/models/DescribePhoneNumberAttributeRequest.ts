@@ -6,12 +6,7 @@ export class DescribePhoneNumberAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The phone number that you want to query.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1390000****
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

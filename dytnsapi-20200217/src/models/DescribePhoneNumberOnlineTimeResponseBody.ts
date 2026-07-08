@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePhoneNumberOnlineTimeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The carrier code. Valid values:
-   * 
-   * *   **CMCC**: China Mobile
-   * *   **CUCC**: China Unicom
-   * *   **CTCC**: China Telecom
-   * *   **CBN**: China Broadnet
+   * The carrier SMS status code. Valid values:
+   * - **CMCC**: China Mobile
+   * - **CUCC**: China Unicom
+   * - **CTCC**: China Telecom
+   * - **CBN**: China Broadnet
    * 
    * @example
    * CMCC
@@ -18,15 +17,15 @@ export class DescribePhoneNumberOnlineTimeResponseBodyData extends $dara.Model {
   carrierCode?: string;
   /**
    * @remarks
-   * The enumerated value of the usage period of a phone number. Valid values:
+   * The enumeration value of the network registration duration. Valid values:
    * 
-   * *   **-1**: No usage period information is available for the phone number.
-   * *   **0**: The phone number status is abnormal. For example, the phone number is a nonexistent number.
-   * *   **1** :[0-3) months.
-   * *   **2** :[3-6] months.
-   * *   **3** :(6-12] months.
-   * *   **4** :(12-24] months.
-   * *   **5** :(24,+) months.
+   * - **-1**: No duration was found.
+   * - **0**: Abnormal phone status, for example, a non-existent number.
+   * - **1**: [0-3) months.
+   * - **2**: [3-6) months.
+   * - **3**: [6-12) months.
+   * - **4**: [12-24) months.
+   * - **5**: [24,+∞) months.
    * 
    * @example
    * 1
@@ -58,13 +57,14 @@ export class DescribePhoneNumberOnlineTimeResponseBodyData extends $dara.Model {
 export class DescribePhoneNumberOnlineTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values:
+   * The request status code. Valid values:
    * 
-   * *   **OK**: The request is successful.
-   * *   **PortabilityNumberNotSupported**: The phone number that is involved in mobile number portability is not supported.
-   * *   **RequestFrequencyLimit**: Repeated queries for the same phone number at a high frequency within a short period of time are prohibited due to restrictions that are set by carriers. If this error code is returned, please try again later.
+   * - **OK**: The request was successful.
+   * - **PortabilityNumberNotSupported**: The mobile number portability number is not supported.
+   * - **RequestFrequencyLimit**: Due to carrier restrictions, frequent repeated queries on the same number within a short period are prohibited. If this error code is returned, try again later.
    * 
-   * >  You are charged if the value of Code is OK and the value of VerifyResult is not -1. For more information, see [Pricing](https://help.aliyun.com/document_detail/154751.html).
+   * > Charges are incurred when Code is OK and VerifyResult is not -1. For billing details, see [Cell Phone Number Service Pricing](https://help.aliyun.com/document_detail/154751.html).
+   * >
    * 
    * @example
    * OK
@@ -72,12 +72,12 @@ export class DescribePhoneNumberOnlineTimeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: DescribePhoneNumberOnlineTimeResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The description of the number status code.
    * 
    * @example
    * OK

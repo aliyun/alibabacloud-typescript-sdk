@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTagListPageResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
-   * The API operation that is called by the frontend.
+   * The name of the API called by the frontend.
    * 
    * @example
    * TwoElementsVerification
@@ -13,7 +13,7 @@ export class QueryTagListPageResponseBodyDataRecords extends $dara.Model {
   apiName?: string;
   /**
    * @remarks
-   * Code
+   * The response code. OK indicates success.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class QueryTagListPageResponseBodyDataRecords extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The URL for the API documentation.
+   * The API document link.
    * 
    * @example
    * https://help.aliyun.com/document_detail/388997.html?spm=a2c4g.388997.0.0.cf804cc7DX4vlP
@@ -48,23 +48,23 @@ export class QueryTagListPageResponseBodyDataRecords extends $dara.Model {
    * The industry name.
    * 
    * @example
-   * Test
+   * 测试
    */
   industryName?: string;
   /**
    * @remarks
-   * The tag description.
+   * The tag introduction.
    * 
    * @example
-   * for autotest new
+   * 这个标签是查询号码状态的。
    */
   introduction?: string;
   /**
    * @remarks
-   * Indicates whether the number is activated.
+   * Indicates whether the activation has been applied for.
    * 
    * @example
-   * 45
+   * 是
    */
   isOpen?: number;
   /**
@@ -72,13 +72,14 @@ export class QueryTagListPageResponseBodyDataRecords extends $dara.Model {
    * The tag name.
    * 
    * @example
-   * Aliyun
+   * 阿里云
    */
   name?: string;
   /**
    * @remarks
-   * *   0: The number is hidden.
-   * *   1: The number is public.
+   * - 0: hidden.
+   *  
+   * - 1: public.
    * 
    * @example
    * 1
@@ -97,7 +98,7 @@ export class QueryTagListPageResponseBodyDataRecords extends $dara.Model {
    * The scene name.
    * 
    * @example
-   * check
+   * 查询
    */
   sceneName?: string;
   static names(): { [key: string]: string } {
@@ -146,7 +147,7 @@ export class QueryTagListPageResponseBodyDataRecords extends $dara.Model {
 export class QueryTagListPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 11
@@ -162,12 +163,12 @@ export class QueryTagListPageResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The retruned data.
+   * The data list.
    */
   records?: QueryTagListPageResponseBodyDataRecords[];
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total count.
    * 
    * @example
    * 32
@@ -175,7 +176,7 @@ export class QueryTagListPageResponseBodyData extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 91
@@ -216,7 +217,7 @@ export class QueryTagListPageResponseBodyData extends $dara.Model {
 export class QueryTagListPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **OK** indicates that the request is successful.
+   * The response code. **OK** indicates success.
    * 
    * @example
    * OK
@@ -229,7 +230,7 @@ export class QueryTagListPageResponseBody extends $dara.Model {
   data?: QueryTagListPageResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The description of the response code.
    * 
    * @example
    * OK
@@ -245,10 +246,11 @@ export class QueryTagListPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: successful.
+   * 
+   * - false: failed.
    * 
    * @example
    * true

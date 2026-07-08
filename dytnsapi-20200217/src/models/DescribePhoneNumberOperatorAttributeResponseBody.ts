@@ -7,37 +7,38 @@ export class DescribePhoneNumberOperatorAttributeResponseBodyData extends $dara.
    * @remarks
    * The basic carrier. Valid values:
    * 
-   * *   **China Mobile**
-   * *   **China Unicom**
-   * *   **China Telecom**
-   * *   **China Broadnet**
+   * - **China Mobile**.
+   * - **China Unicom**.
+   * - **China Telecom**.
+   * - **China Broadnet**.
    * 
    * @example
-   * China Mobile
+   * 中国移动
    */
   basicCarrier?: string;
   /**
    * @remarks
-   * The actual carrier, including the virtual network operator (VNO). If the phone number involves mobile number portability, the value of this parameter is the carrier after mobile number portability.
+   * The actual carrier (including the mobile virtual network operator). If number portability is enabled, the value indicates the carrier after number portability.
    * 
    * @example
-   * China Mobile
+   * 中国移动
    */
   carrier?: string;
   /**
    * @remarks
-   * The city where the phone number is registered.
+   * The city to which the phone number belongs.
    * 
    * @example
-   * hangzhou
+   * 杭州
    */
   city?: string;
   /**
    * @remarks
-   * Indicates whether the phone number involves mobile number portability. Valid values:
+   * Indicates whether the number has been ported. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes
+   * 
+   * - **false**: no
    * 
    * @example
    * false
@@ -53,10 +54,10 @@ export class DescribePhoneNumberOperatorAttributeResponseBodyData extends $dara.
   numberSegment?: number;
   /**
    * @remarks
-   * The province where the phone number is registered.
+   * The province to which the phone number belongs.
    * 
    * @example
-   * zhejiang
+   * 浙江
    */
   province?: string;
   static names(): { [key: string]: string } {
@@ -91,16 +92,23 @@ export class DescribePhoneNumberOperatorAttributeResponseBodyData extends $dara.
 }
 
 export class DescribePhoneNumberOperatorAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the request is denied because the RAM user or RAM role does not have the required permissions.
+   * 
+   * @example
+   * -
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. Valid values:
+   * The status code of the request. Valid values:
    * 
-   * *   **OK**: The request is successful.
-   * *   **InvalidParameter**: The specified phone number is invalid or the parameter format is invalid.
-   * *   **PhoneNumberNotfound**: No attribute information can be found for the specified phone number.
-   * *   **isp.UNKNOWN**: An unknown exception occurred.
-   * *   **RequestFrequencyLimit**: Repeated queries for the same phone number at a high frequency within a short period of time are prohibited due to restrictions that are set by carriers. If this error code is returned, please try again later.
+   * - **OK**: The request is successful.
+   * - **InvalidParameter**: The phone number is invalid or the format of the parameter is invalid.
+   * - **PhoneNumberNotfound**: The carrier information of the phone number is not found.
+   * - **isp.UNKNOWN**: An unknown error occurred.
+   * - **RequestFrequencyLimit**: Due to carrier restrictions, you cannot frequently query the same number in a short period of time. If this error code is returned, try again later.
    * 
    * @example
    * OK
@@ -108,12 +116,12 @@ export class DescribePhoneNumberOperatorAttributeResponseBody extends $dara.Mode
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: DescribePhoneNumberOperatorAttributeResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The description of the status code.
    * 
    * @example
    * OK

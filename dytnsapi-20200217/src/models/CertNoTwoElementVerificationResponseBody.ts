@@ -4,6 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class CertNoTwoElementVerificationResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the verification result is consistent. Valid values:
+   * 
+   * - **1**: Consistent
+   * 
+   * - **0**: Inconsistent
+   * 
+   * - **2**: Not found
+   * 
    * @example
    * 1
    */
@@ -31,22 +40,38 @@ export class CertNoTwoElementVerificationResponseBodyData extends $dara.Model {
 
 export class CertNoTwoElementVerificationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
    * @example
    * -
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: CertNoTwoElementVerificationResponseBodyData;
   /**
+   * @remarks
+   * The description of the status code.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
    */

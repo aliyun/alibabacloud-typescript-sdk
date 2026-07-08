@@ -8,7 +8,7 @@ export class QueryAvailableAuthCodeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tag ID.
+   * The tag ID. You can call the [QueryTagListPage](~~QueryTagListPage~~) operation to query tag IDs.
    * 
    * @example
    * 22
