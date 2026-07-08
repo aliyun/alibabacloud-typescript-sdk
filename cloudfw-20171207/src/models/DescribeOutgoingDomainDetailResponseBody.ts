@@ -13,7 +13,11 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetListTagList extends $d
   classId?: string;
   /**
    * @remarks
-   * The risk level.
+   * The risk level. Valid values:
+   * - **0**: no risk.
+   * - **1**: low risk.
+   * - **2**: medium risk.
+   * - **3**: high risk.
    * 
    * @example
    * 0
@@ -232,7 +236,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   totalBytes?: string;
   /**
    * @remarks
-   * The instance ID of the VPC.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-9dp16jgwgyvn****

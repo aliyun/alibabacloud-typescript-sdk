@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNatFirewallControlPolicyPositionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 68617208-F5F7-5B44-BB1E-*****

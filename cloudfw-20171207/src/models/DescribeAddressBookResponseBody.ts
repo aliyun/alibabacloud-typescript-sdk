@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAddressBookResponseBodyAclsAckLabels extends $dara.Model {
   /**
    * @remarks
-   * The key of the ACK pod label.
+   * The key of the pod label in the ACK cluster.
    * 
    * @example
    * app
@@ -13,7 +13,7 @@ export class DescribeAddressBookResponseBodyAclsAckLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the ACK pod label.
+   * The value of the pod label in the ACK cluster.
    * 
    * @example
    * storage-operator
@@ -45,7 +45,7 @@ export class DescribeAddressBookResponseBodyAclsAckLabels extends $dara.Model {
 export class DescribeAddressBookResponseBodyAclsAddresses extends $dara.Model {
   /**
    * @remarks
-   * The IP address or CIDR block.
+   * The address information of the address book.
    * 
    * @example
    * 192.168.0.1/32
@@ -53,7 +53,7 @@ export class DescribeAddressBookResponseBodyAclsAddresses extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The note for the address.
+   * The description of the individual address.
    * 
    * @example
    * Single Address Description
@@ -82,10 +82,380 @@ export class DescribeAddressBookResponseBodyAclsAddresses extends $dara.Model {
   }
 }
 
+export class DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceTypeIpv4 extends $dara.Model {
+  /**
+   * @remarks
+   * The asset type: AIGatewayEIP.
+   * 
+   * @example
+   * false
+   */
+  aiGatewayEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: AlbEIP.
+   * 
+   * @example
+   * false
+   */
+  albEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: ApigEIP.
+   * 
+   * @example
+   * false
+   */
+  apiGatewayEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: BastionHostEgressIP.
+   * 
+   * @example
+   * false
+   */
+  bastionHostEgressIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: BastionHostIP.
+   * 
+   * @example
+   * false
+   */
+  bastionHostIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: BastionHostIngressIP.
+   * 
+   * @example
+   * false
+   */
+  bastionHostIngressIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: EIP.
+   * 
+   * @example
+   * false
+   */
+  EIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: EcsEIP.
+   * 
+   * @example
+   * false
+   */
+  ecsEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: EcsPublicIP.
+   * 
+   * @example
+   * false
+   */
+  ecsPublicIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: EniEIP.
+   * 
+   * @example
+   * false
+   */
+  eniEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: GaEIP.
+   * 
+   * @example
+   * false
+   */
+  gaEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: HAVIP.
+   * 
+   * @example
+   * false
+   */
+  HAVIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: NatEIP.
+   * 
+   * @example
+   * false
+   */
+  natEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: NatPublicIP.
+   * 
+   * @example
+   * false
+   */
+  natPublicIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: NlbEIP.
+   * 
+   * @example
+   * false
+   */
+  nlbEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: SlbEIP.
+   * 
+   * @example
+   * true
+   */
+  slbEIP?: boolean;
+  /**
+   * @remarks
+   * The asset type: SlbPublicIP.
+   * 
+   * @example
+   * false
+   */
+  slbPublicIP?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aiGatewayEIP: 'AiGatewayEIP',
+      albEIP: 'AlbEIP',
+      apiGatewayEIP: 'ApiGatewayEIP',
+      bastionHostEgressIP: 'BastionHostEgressIP',
+      bastionHostIP: 'BastionHostIP',
+      bastionHostIngressIP: 'BastionHostIngressIP',
+      EIP: 'EIP',
+      ecsEIP: 'EcsEIP',
+      ecsPublicIP: 'EcsPublicIP',
+      eniEIP: 'EniEIP',
+      gaEIP: 'GaEIP',
+      HAVIP: 'HAVIP',
+      natEIP: 'NatEIP',
+      natPublicIP: 'NatPublicIP',
+      nlbEIP: 'NlbEIP',
+      slbEIP: 'SlbEIP',
+      slbPublicIP: 'SlbPublicIP',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiGatewayEIP: 'boolean',
+      albEIP: 'boolean',
+      apiGatewayEIP: 'boolean',
+      bastionHostEgressIP: 'boolean',
+      bastionHostIP: 'boolean',
+      bastionHostIngressIP: 'boolean',
+      EIP: 'boolean',
+      ecsEIP: 'boolean',
+      ecsPublicIP: 'boolean',
+      eniEIP: 'boolean',
+      gaEIP: 'boolean',
+      HAVIP: 'boolean',
+      natEIP: 'boolean',
+      natPublicIP: 'boolean',
+      nlbEIP: 'boolean',
+      slbEIP: 'boolean',
+      slbPublicIP: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceTypeIpv6 extends $dara.Model {
+  /**
+   * @remarks
+   * The asset type: AIGatewayEIPv6.
+   * 
+   * @example
+   * false
+   */
+  aiGatewayEIPv6?: boolean;
+  /**
+   * @remarks
+   * The asset type: AlbIPv6.
+   * 
+   * @example
+   * false
+   */
+  albIPv6?: boolean;
+  /**
+   * @remarks
+   * The asset type: ApigEIPv6.
+   * 
+   * @example
+   * false
+   */
+  apiGatewayEIPv6?: boolean;
+  /**
+   * @remarks
+   * The asset type: EcsIPv6.
+   * 
+   * @example
+   * false
+   */
+  ecsIPv6?: boolean;
+  /**
+   * @remarks
+   * The asset type: EniEIPv6.
+   * 
+   * @example
+   * false
+   */
+  eniEIPv6?: boolean;
+  /**
+   * @remarks
+   * The asset type: GaEIPv6.
+   * 
+   * @example
+   * false
+   */
+  gaEIPv6?: boolean;
+  /**
+   * @remarks
+   * The asset type: NlbIPv6.
+   * 
+   * @example
+   * false
+   */
+  nlbIPv6?: boolean;
+  /**
+   * @remarks
+   * The asset type: SlbIPv6.
+   * 
+   * @example
+   * false
+   */
+  slbIPv6?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aiGatewayEIPv6: 'AiGatewayEIPv6',
+      albIPv6: 'AlbIPv6',
+      apiGatewayEIPv6: 'ApiGatewayEIPv6',
+      ecsIPv6: 'EcsIPv6',
+      eniEIPv6: 'EniEIPv6',
+      gaEIPv6: 'GaEIPv6',
+      nlbIPv6: 'NlbIPv6',
+      slbIPv6: 'SlbIPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiGatewayEIPv6: 'boolean',
+      albIPv6: 'boolean',
+      apiGatewayEIPv6: 'boolean',
+      ecsIPv6: 'boolean',
+      eniEIPv6: 'boolean',
+      gaEIPv6: 'boolean',
+      nlbIPv6: 'boolean',
+      slbIPv6: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceType extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 asset type.
+   */
+  ipv4?: DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceTypeIpv4;
+  /**
+   * @remarks
+   * The IPv6 asset type.
+   */
+  ipv6?: DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceTypeIpv6;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4: 'Ipv4',
+      ipv6: 'Ipv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4: DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceTypeIpv4,
+      ipv6: DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceTypeIpv6,
+    };
+  }
+
+  validate() {
+    if(this.ipv4 && typeof (this.ipv4 as any).validate === 'function') {
+      (this.ipv4 as any).validate();
+    }
+    if(this.ipv6 && typeof (this.ipv6 as any).validate === 'function') {
+      (this.ipv6 as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressBookResponseBodyAclsAssetRegionResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the asset.
+   * 
+   * @example
+   * all
+   */
+  assetRegionId?: string;
+  /**
+   * @remarks
+   * The asset type.
+   */
+  resourceType?: DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceType;
+  static names(): { [key: string]: string } {
+    return {
+      assetRegionId: 'AssetRegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetRegionId: 'string',
+      resourceType: DescribeAddressBookResponseBodyAclsAssetRegionResourceTypesResourceType,
+    };
+  }
+
+  validate() {
+    if(this.resourceType && typeof (this.resourceType as any).validate === 'function') {
+      (this.resourceType as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddressBookResponseBodyAclsTagList extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The key of the ECS tag.
    * 
    * @example
    * company
@@ -93,7 +463,7 @@ export class DescribeAddressBookResponseBodyAclsTagList extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The value of the ECS tag.
    * 
    * @example
    * ALL VALUE
@@ -141,17 +511,17 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   ackClusterConnectorName?: string;
   /**
    * @remarks
-   * A list of ACK pod labels.
+   * The list of pod labels in the ACK cluster.
    */
   ackLabels?: DescribeAddressBookResponseBodyAclsAckLabels[];
   /**
    * @remarks
-   * A list of ACK namespaces.
+   * The list of pod namespaces in the ACK cluster.
    */
   ackNamespaces?: string[];
   /**
    * @remarks
-   * A list of CIDR blocks in the address book.
+   * The address list of the address book.
    */
   addressList?: string[];
   /**
@@ -164,12 +534,24 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   addressListCount?: number;
   /**
    * @remarks
-   * A list of addresses, each with a description.
+   * The address list of the address book that includes descriptions for individual addresses.
    */
   addresses?: DescribeAddressBookResponseBodyAclsAddresses[];
   /**
    * @remarks
-   * Indicates whether to automatically add the public IPs of tagged ECS instances to the address book. This applies to newly purchased instances and existing instances whose tags are modified to match.
+   * The list of member accounts for the asset address book.
+   */
+  assetMemberUids?: number[];
+  /**
+   * @remarks
+   * The list of regions and resource types for the asset address book.
+   */
+  assetRegionResourceTypes?: DescribeAddressBookResponseBodyAclsAssetRegionResourceTypes[];
+  /**
+   * @remarks
+   * Indicates whether the public IP addresses of ECS instances that match new tags are automatically added to the address book. Valid values:
+   * - **0**: The public IP addresses are not automatically added.
+   * - **1**: The public IP addresses are automatically added.
    * 
    * @example
    * 1
@@ -193,7 +575,7 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The type of the address book. Valid values:
+   * The type of the address book.
    * 
    * @example
    * ip
@@ -201,7 +583,7 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The UUID of the address book.
+   * The unique ID of the address book.
    * 
    * @example
    * f04ac7ce-628b-4cb7-be61-310222b7****
@@ -217,7 +599,7 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   referenceCount?: number;
   /**
    * @remarks
-   * The region where the ACK cluster connector is deployed. This parameter is returned only when the GroupType parameter is "ack".
+   * The region of the ACK cluster connector to which the address book belongs when GroupType is an ACK address book.
    * 
    * @example
    * cn-beijing
@@ -225,12 +607,14 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * A list of ECS tags.
+   * The list of ECS tags.
    */
   tagList?: DescribeAddressBookResponseBodyAclsTagList[];
   /**
    * @remarks
-   * The logical relationship among multiple ECS tags. Valid values:
+   * The relationship between multiple ECS tags. Valid values:
+   * - **or**: The relationship between multiple tags is OR. The public IP address of an ECS instance that matches any tag is added to the address book.
+   * - **and**: The relationship between multiple tags is AND. The public IP address of an ECS instance that matches all tags is added to the address book.
    * 
    * @example
    * and
@@ -245,6 +629,8 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
       addressList: 'AddressList',
       addressListCount: 'AddressListCount',
       addresses: 'Addresses',
+      assetMemberUids: 'AssetMemberUids',
+      assetRegionResourceTypes: 'AssetRegionResourceTypes',
       autoAddTagEcs: 'AutoAddTagEcs',
       description: 'Description',
       groupName: 'GroupName',
@@ -266,6 +652,8 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
       addressList: { 'type': 'array', 'itemType': 'string' },
       addressListCount: 'number',
       addresses: { 'type': 'array', 'itemType': DescribeAddressBookResponseBodyAclsAddresses },
+      assetMemberUids: { 'type': 'array', 'itemType': 'number' },
+      assetRegionResourceTypes: { 'type': 'array', 'itemType': DescribeAddressBookResponseBodyAclsAssetRegionResourceTypes },
       autoAddTagEcs: 'number',
       description: 'string',
       groupName: 'string',
@@ -291,6 +679,12 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
     if(Array.isArray(this.addresses)) {
       $dara.Model.validateArray(this.addresses);
     }
+    if(Array.isArray(this.assetMemberUids)) {
+      $dara.Model.validateArray(this.assetMemberUids);
+    }
+    if(Array.isArray(this.assetRegionResourceTypes)) {
+      $dara.Model.validateArray(this.assetRegionResourceTypes);
+    }
     if(Array.isArray(this.tagList)) {
       $dara.Model.validateArray(this.tagList);
     }
@@ -305,12 +699,12 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
 export class DescribeAddressBookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of address books.
+   * The list of address books.
    */
   acls?: DescribeAddressBookResponseBodyAcls[];
   /**
    * @remarks
-   * The current page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -318,7 +712,7 @@ export class DescribeAddressBookResponseBody extends $dara.Model {
   pageNo?: string;
   /**
    * @remarks
-   * The number of address books returned per page.
+   * The number of address books on each page.
    * 
    * @example
    * 10

@@ -4,16 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeFirewallTrafficTrendRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the query. The value is a UNIX timestamp. Unit: seconds.
+   * 
    * @example
    * 1758474000
    */
   endTime?: number;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The start time of the query. The value is a UNIX timestamp. Unit: seconds.
+   * 
    * @example
    * 1758470400
    */

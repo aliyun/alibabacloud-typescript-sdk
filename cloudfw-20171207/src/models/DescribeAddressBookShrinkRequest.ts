@@ -2,12 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeAddressBookRequest extends $dara.Model {
+export class DescribeAddressBookShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of member accounts for the asset address book.
    */
-  assetMemberUids?: number[];
+  assetMemberUidsShrink?: string;
   /**
    * @remarks
    * Queries address books that contain the specified port. This parameter takes effect only when the **GroupType** parameter is set to **port**.
@@ -74,7 +74,7 @@ export class DescribeAddressBookRequest extends $dara.Model {
   query?: string;
   static names(): { [key: string]: string } {
     return {
-      assetMemberUids: 'AssetMemberUids',
+      assetMemberUidsShrink: 'AssetMemberUids',
       containPort: 'ContainPort',
       currentPage: 'CurrentPage',
       groupType: 'GroupType',
@@ -87,7 +87,7 @@ export class DescribeAddressBookRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      assetMemberUids: { 'type': 'array', 'itemType': 'number' },
+      assetMemberUidsShrink: 'string',
       containPort: 'string',
       currentPage: 'string',
       groupType: 'string',
@@ -99,9 +99,6 @@ export class DescribeAddressBookRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.assetMemberUids)) {
-      $dara.Model.validateArray(this.assetMemberUids);
-    }
     super.validate();
   }
 

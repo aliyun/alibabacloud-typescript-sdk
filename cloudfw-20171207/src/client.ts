@@ -112,19 +112,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
+   * Creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
    * 
    * @remarks
-   * This API operation is used to create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
-   * ## QPS Limit
-   * The single-user QPS limit for this API operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please make calls appropriately.
+   * This operation creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
+   * ## Rate limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
-   * @param request - AddAddressBookRequest
+   * @param tmpReq - AddAddressBookRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddAddressBookResponse
    */
-  async addAddressBookWithOptions(request: $_model.AddAddressBookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAddressBookResponse> {
-    request.validate();
+  async addAddressBookWithOptions(tmpReq: $_model.AddAddressBookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAddressBookResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddAddressBookShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assetMemberUids)) {
+      request.assetMemberUidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetMemberUids, "AssetMemberUids", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.assetRegionResourceTypes)) {
+      request.assetRegionResourceTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetRegionResourceTypes, "AssetRegionResourceTypes", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.ackClusterConnectorId)) {
       query["AckClusterConnectorId"] = request.ackClusterConnectorId;
@@ -140,6 +150,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.addressList)) {
       query["AddressList"] = request.addressList;
+    }
+
+    if (!$dara.isNull(request.assetMemberUidsShrink)) {
+      query["AssetMemberUids"] = request.assetMemberUidsShrink;
+    }
+
+    if (!$dara.isNull(request.assetRegionResourceTypesShrink)) {
+      query["AssetRegionResourceTypes"] = request.assetRegionResourceTypesShrink;
     }
 
     if (!$dara.isNull(request.autoAddTagEcs)) {
@@ -192,12 +210,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
+   * Creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
    * 
    * @remarks
-   * This API operation is used to create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
-   * ## QPS Limit
-   * The single-user QPS limit for this API operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please make calls appropriately.
+   * This operation creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
+   * ## Rate limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - AddAddressBookRequest
    * @returns AddAddressBookResponse
@@ -4205,11 +4223,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Access Control List (ACL) whitelist.
+   * Retrieves the ACL whitelist.
    * 
    * @remarks
    * ## QPS limit
-   * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call the API at a reasonable rate.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - DescribeAclWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4244,11 +4262,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Access Control List (ACL) whitelist.
+   * Retrieves the ACL whitelist.
    * 
    * @remarks
    * ## QPS limit
-   * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call the API at a reasonable rate.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - DescribeAclWhitelistRequest
    * @returns DescribeAclWhitelistResponse
@@ -4259,20 +4277,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries address books in a batch.
+   * Queries address books in batches.
    * 
    * @remarks
-   * Use this API to query the details of an access control policy address book.
+   * This operation is used to query the details of access control policy address books.
    * ## QPS limit
-   * The per-user QPS limit for this API is 10. Exceeding this limit throttles your API calls and may impact your business. Plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
-   * @param request - DescribeAddressBookRequest
+   * @param tmpReq - DescribeAddressBookRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAddressBookResponse
    */
-  async describeAddressBookWithOptions(request: $_model.DescribeAddressBookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAddressBookResponse> {
-    request.validate();
+  async describeAddressBookWithOptions(tmpReq: $_model.DescribeAddressBookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAddressBookResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeAddressBookShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assetMemberUids)) {
+      request.assetMemberUidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetMemberUids, "AssetMemberUids", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.assetMemberUidsShrink)) {
+      query["AssetMemberUids"] = request.assetMemberUidsShrink;
+    }
+
     if (!$dara.isNull(request.containPort)) {
       query["ContainPort"] = request.containPort;
     }
@@ -4319,12 +4347,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries address books in a batch.
+   * Queries address books in batches.
    * 
    * @remarks
-   * Use this API to query the details of an access control policy address book.
+   * This operation is used to query the details of access control policy address books.
    * ## QPS limit
-   * The per-user QPS limit for this API is 10. Exceeding this limit throttles your API calls and may impact your business. Plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeAddressBookRequest
    * @returns DescribeAddressBookResponse
@@ -5586,7 +5614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取总流量趋势
+   * Queries the traffic trend of a firewall.
    * 
    * @param request - DescribeFirewallTrafficTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5625,7 +5653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取总流量趋势
+   * Queries the traffic trend of a firewall.
    * 
    * @param request - DescribeFirewallTrafficTrendRequest
    * @returns DescribeFirewallTrafficTrendResponse
@@ -14631,19 +14659,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify an address book.
+   * Modifies an address book.
    * 
    * @remarks
-   * This API is used to modify an address book.
-   * ## QPS Limit
-   * The single-user QPS limit for this API is 10 requests per second. Exceeding this limit will result in API throttling, which may affect your business. Please make calls responsibly.
+   * This operation is used to modify an address book.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
    * 
-   * @param request - ModifyAddressBookRequest
+   * @param tmpReq - ModifyAddressBookRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAddressBookResponse
    */
-  async modifyAddressBookWithOptions(request: $_model.ModifyAddressBookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAddressBookResponse> {
-    request.validate();
+  async modifyAddressBookWithOptions(tmpReq: $_model.ModifyAddressBookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAddressBookResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyAddressBookShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assetMemberUids)) {
+      request.assetMemberUidsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetMemberUids, "AssetMemberUids", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.assetRegionResourceTypes)) {
+      request.assetRegionResourceTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assetRegionResourceTypes, "AssetRegionResourceTypes", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.ackLabels)) {
       query["AckLabels"] = request.ackLabels;
@@ -14655,6 +14693,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.addressList)) {
       query["AddressList"] = request.addressList;
+    }
+
+    if (!$dara.isNull(request.assetMemberUidsShrink)) {
+      query["AssetMemberUids"] = request.assetMemberUidsShrink;
+    }
+
+    if (!$dara.isNull(request.assetRegionResourceTypesShrink)) {
+      query["AssetRegionResourceTypes"] = request.assetRegionResourceTypesShrink;
     }
 
     if (!$dara.isNull(request.autoAddTagEcs)) {
@@ -14711,12 +14757,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify an address book.
+   * Modifies an address book.
    * 
    * @remarks
-   * This API is used to modify an address book.
-   * ## QPS Limit
-   * The single-user QPS limit for this API is 10 requests per second. Exceeding this limit will result in API throttling, which may affect your business. Please make calls responsibly.
+   * This operation is used to modify an address book.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - ModifyAddressBookRequest
    * @returns ModifyAddressBookResponse
