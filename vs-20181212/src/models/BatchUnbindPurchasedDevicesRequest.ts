@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUnbindPurchasedDevicesRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID. Separate multiple IDs with commas.
+   * 
    * This parameter is required.
    * 
    * @example

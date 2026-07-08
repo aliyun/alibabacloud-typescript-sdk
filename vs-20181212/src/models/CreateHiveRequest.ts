@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateHiveRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A description of the cluster.
+   * 
+   * @example
+   * G49单卡集群
+   */
   description?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

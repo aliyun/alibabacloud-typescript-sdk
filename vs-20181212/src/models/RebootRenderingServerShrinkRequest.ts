@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RebootRenderingServerShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * List of cloud application service instance IDs
+   * 
    * This parameter is required.
    */
   renderingInstanceIdsShrink?: string;

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateComfyUserDataDirRequest extends $dara.Model {
   /**
+   * @remarks
+   * The path of the directory to create. Use /dir1/ for a single-level directory, or /dir1/dir2/ for a multi-level directory.
+   * 
    * @example
    * /userdir1
    */

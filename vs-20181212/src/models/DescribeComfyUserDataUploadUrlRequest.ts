@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyUserDataUploadUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The content type of the file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeComfyUserDataUploadUrlRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
+   * The MD5 hash of the file to be uploaded. This value must be the file\\"s actual MD5 hash. The file size is also verified during the upload.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DescribeComfyUserDataUploadUrlRequest extends $dara.Model {
   fileMd5?: string;
   /**
    * @remarks
+   * The name of the file to upload. The filename can be a single file, such as \\`1.jpg\\`, or include a path, such as \\`directory1/1.jpg\\`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DescribeComfyUserDataUploadUrlRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
+   * The actual size of the file in bytes. This value must be the exact size of the file. The file size is verified when you use the upload URL.
+   * 
    * This parameter is required.
    * 
    * @example

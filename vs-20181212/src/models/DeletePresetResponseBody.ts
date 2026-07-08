@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePresetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F18FD685-B194-4489-9609-F80A9490A258
    */

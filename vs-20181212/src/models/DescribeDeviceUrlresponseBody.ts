@@ -4,16 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDeviceURLResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * URL expiration time.<br>
+   * UNIX timestamp, in seconds.<br>
+   * 
    * @example
    * 1639130258
    */
   expireTime?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Stream URL.
+   * 
    * @example
    * rtmp://demo.aliyundoc.com/live/live001?auth_key=1639130258-0-0-b2b04fe85ece6*****a6b1a42bc7e
    */

@@ -4,22 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopRecordStreamRequest extends $dara.Model {
   /**
+   * @remarks
+   * App name of the stream.
+   * 
    * @example
    * live
    */
   app?: string;
   /**
+   * @remarks
+   * Stream ID.
+   * 
    * @example
    * 323*****997-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Stream name.
+   * 
    * @example
    * test
    */
   name?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Playback domain name of the stream.
+   * 
    * @example
    * example.com
    */

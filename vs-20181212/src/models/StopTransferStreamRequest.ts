@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopTransferStreamRequest extends $dara.Model {
   /**
    * @remarks
+   * The stream ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,9 @@ export class StopTransferStreamRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The name of the transcoding rule. You must bind a transcoding template first.
+   * 
    * @example
    * sd
    */

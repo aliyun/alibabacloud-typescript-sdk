@@ -71,26 +71,41 @@ export class DescribeVsTopDomainsByFlowResponseBodyTopDomains extends $dara.Mode
 
 export class DescribeVsTopDomainsByFlowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of domain names under your account.
+   * 
    * @example
    * 20
    */
   domainCount?: number;
   /**
+   * @remarks
+   * The total number of **running** domain names under your account.
+   * 
    * @example
    * 12
    */
   domainOnlineCount?: number;
   /**
+   * @remarks
+   * The end time of the query time range.
+   * 
    * @example
    * 2018-12-10T18:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time of the query.
+   * 
    * @example
    * 2021-12-10T10:00:00Z
    */

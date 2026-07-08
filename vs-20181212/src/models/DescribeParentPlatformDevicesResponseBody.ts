@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeParentPlatformDevicesResponseBodyDevices extends $dara.Model {
   /**
+   * @remarks
+   * The GB ID of the device.
+   * 
    * @example
    * 310101*****7542007
    */
   gbId?: string;
   /**
+   * @remarks
+   * The ID of the space to which the device belongs.
+   * 
    * @example
    * 3484*****8732174-cn-qingdao
    */
   groupId?: string;
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * 3487*****323380-cn-qingdao
    */
   id?: string;
+  /**
+   * @remarks
+   * The name of the device.
+   * 
+   * @example
+   * 测试设备1
+   */
   name?: string;
   /**
+   * @remarks
+   * The parent device ID.
+   * 
    * @example
    * 3614*****766212-cn-qingdao
    */
@@ -54,28 +73,47 @@ export class DescribeParentPlatformDevicesResponseBodyDevices extends $dara.Mode
 }
 
 export class DescribeParentPlatformDevicesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of devices.
+   */
   devices?: DescribeParentPlatformDevicesResponseBodyDevices[];
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */
   pageCount?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of devices.
+   * 
    * @example
    * 1
    */

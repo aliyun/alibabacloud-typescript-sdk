@@ -56,26 +56,41 @@ export class DescribeVsDomainTrafficDataResponseBodyTrafficDataPerInterval exten
 
 export class DescribeVsDomainTrafficDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The time interval, in seconds.
+   * 
    * @example
    * 3600
    */
   dataInterval?: string;
   /**
+   * @remarks
+   * The domain name of the Visual Edge Computing Service.
+   * 
    * @example
    * example.aliyundoc.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2021-09-20T07:10:42Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The request ID for this task.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2021-10-25T16:00:00Z
    */

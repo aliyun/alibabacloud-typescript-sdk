@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchBindPurchasedDevicesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the device.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BatchBindPurchasedDevicesRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * The ID of the device group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class BatchBindPurchasedDevicesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example

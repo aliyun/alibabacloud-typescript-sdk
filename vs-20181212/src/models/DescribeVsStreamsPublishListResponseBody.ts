@@ -89,27 +89,42 @@ export class DescribeVsStreamsPublishListResponseBodyPublishInfo extends $dara.M
 
 export class DescribeVsStreamsPublishListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 3000
    */
   pageSize?: number;
   publishInfo?: DescribeVsStreamsPublishListResponseBodyPublishInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 119F7639-4646-51A4-B6C1-300D391C0104
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of matching entries.
+   * 
    * @example
    * 200
    */
   totalNum?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */

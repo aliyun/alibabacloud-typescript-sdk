@@ -4,23 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   /**
+   * @remarks
+   * Directory creation time.
+   * 
    * @example
    * 2021-09-10T10:00:00Z
    */
   createdTime?: string;
+  /**
+   * @remarks
+   * Directory description.
+   * 
+   * @example
+   * 目录2
+   */
   description?: string;
   /**
+   * @remarks
+   * ID of the group to which the directory belongs.
+   * 
    * @example
    * 348*****174-cn-qingdao
    */
   groupId?: string;
   /**
+   * @remarks
+   * Directory ID.
+   * 
    * @example
    * 399*****488-cn-qingdao
    */
   id?: string;
+  /**
+   * @remarks
+   * Directory name.
+   * 
+   * @example
+   * 目录2
+   */
   name?: string;
   /**
+   * @remarks
+   * Parent directory ID.
+   * 
    * @example
    * 399*****774-cn-qingdao
    */
@@ -57,28 +83,47 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
 }
 
 export class DescribeDirectoriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of directories.
+   */
   directories?: DescribeDirectoriesResponseBodyDirectories[];
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
   pageCount?: number;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of directories.
+   * 
    * @example
    * 1
    */

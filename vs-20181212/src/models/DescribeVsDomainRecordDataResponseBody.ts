@@ -60,6 +60,9 @@ export class DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval extends
 export class DescribeVsDomainRecordDataResponseBody extends $dara.Model {
   recordDataPerInterval?: DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

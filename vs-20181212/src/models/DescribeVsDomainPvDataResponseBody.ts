@@ -56,27 +56,42 @@ export class DescribeVsDomainPvDataResponseBodyPvDataInterval extends $dara.Mode
 
 export class DescribeVsDomainPvDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * This static field defines the time interval for each record, with a value of either 1 hour or 1 day.
+   * 
    * @example
    * 3600
    */
   dataInterval?: string;
   /**
+   * @remarks
+   * The domain name for Visual Edge Computing Service.
+   * 
    * @example
    * example.aliyundoc.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The end of the time range.
+   * 
    * @example
    * 2021-11-12T15:59:59Z
    */
   endTime?: string;
   pvDataInterval?: DescribeVsDomainPvDataResponseBodyPvDataInterval;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * The beginning of the time range.
+   * 
    * @example
    * 2021-11-22T00:00:00Z
    */

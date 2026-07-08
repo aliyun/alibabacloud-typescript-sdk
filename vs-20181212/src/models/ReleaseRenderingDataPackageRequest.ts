@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseRenderingDataPackageRequest extends $dara.Model {
   /**
    * @remarks
+   * Cloud application service data pack ID
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ContinuousAdjustRequest extends $dara.Model {
   /**
+   * @remarks
+   * Zoom speed parameter. A positive value increases the focal length.<br>Value range: -1.0 to 1.0<br>
+   * 
    * @example
    * 0.5
    */
   focus?: string;
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class ContinuousAdjustRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * Aperture speed parameter. A positive value increases the aperture.<br>Value range: -1.0 to 1.0<br>
+   * 
    * @example
    * 0.5
    */

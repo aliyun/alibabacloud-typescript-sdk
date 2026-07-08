@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteRenderingInstanceGatewayRequest extends $dara.Model {
   /**
+   * @remarks
+   * Cloud application service instance ID
+   * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
    */

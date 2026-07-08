@@ -6,6 +6,8 @@ export class UpdateVsPullStreamInfoConfigRequest extends $dara.Model {
   always?: string;
   /**
    * @remarks
+   * The name of the application to which the live stream belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class UpdateVsPullStreamInfoConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * Your stream pulling domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,11 @@ export class UpdateVsPullStreamInfoConfigRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * The end time of stream pulling.
+   * 
+   * > UTC time format. The interval between StartTime and EndTime must be within 7 days, and EndTime must be later than the current time.
+   * 
    * @example
    * 2018-12-10T18:00:00Z
    */
@@ -28,6 +37,10 @@ export class UpdateVsPullStreamInfoConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The origin server of your live stream.
+   * 
+   * > Supports multiple values, separated by English semicolons (;).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,12 +48,19 @@ export class UpdateVsPullStreamInfoConfigRequest extends $dara.Model {
    */
   sourceUrl?: string;
   /**
+   * @remarks
+   * The start time of stream pulling.
+   * 
+   * > UTC time format. The interval between StartTime and EndTime must be within 7 days.
+   * 
    * @example
    * 2021-12-10T10:00:00Z
    */
   startTime?: string;
   /**
    * @remarks
+   * The name of the live stream.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ForbidVsStreamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 119F7639-4646-51A4-B6C1-300D391C0104
    */

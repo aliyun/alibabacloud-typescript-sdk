@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * Specify the end time for the query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,32 +15,55 @@ export class DescribeRecordsRequest extends $dara.Model {
   endTime?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Specifies whether to use a private bucket.
+   * 
    * @example
    * true
    */
   privateBucket?: boolean;
   /**
+   * @remarks
+   * The field to sort the records by. Valid value:
+   * 
+   * - Id (default)
+   * 
    * @example
    * Id
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The sorting method. Valid values:
+   * 
+   * - asc (ascending, default)
+   * 
+   * - desc (descending)
+   * 
    * @example
    * asc
    */
   sortDirection?: string;
   /**
    * @remarks
+   * Query records by start time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +72,8 @@ export class DescribeRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
+   * Query by stream ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +82,12 @@ export class DescribeRecordsRequest extends $dara.Model {
   streamId?: string;
   /**
    * @remarks
+   * The type of the recording record to query. Valid values:
+   * 
+   * - record (Recording)
+   * 
+   * - snapshot
+   * 
    * This parameter is required.
    * 
    * @example

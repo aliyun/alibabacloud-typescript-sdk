@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchStopDevicesResponseBodyResultsStreams extends $dara.Model {
   /**
+   * @remarks
+   * Stream error message. (Appears only when an error occurs)
+   * 
    * @example
    * Stream not found
    */
   error?: string;
   /**
+   * @remarks
+   * Stream ID.
+   * 
    * @example
    * 323884****9092997
    */
   id?: string;
   /**
+   * @remarks
+   * Name
+   * 
    * @example
    * 32388*****39092997
    */
@@ -45,10 +54,17 @@ export class BatchStopDevicesResponseBodyResultsStreams extends $dara.Model {
 
 export class BatchStopDevicesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * 32388487****92996
    */
   id?: string;
+  /**
+   * @remarks
+   * Device stream list.
+   */
   streams?: BatchStopDevicesResponseBodyResultsStreams[];
   static names(): { [key: string]: string } {
     return {
@@ -78,10 +94,17 @@ export class BatchStopDevicesResponseBodyResults extends $dara.Model {
 
 export class BatchStopDevicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID for this task.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Result list.
+   */
   results?: BatchStopDevicesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateHiveResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * hive-6c1418bf513e400bb697307c077a0ec3
    */
   hiveId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

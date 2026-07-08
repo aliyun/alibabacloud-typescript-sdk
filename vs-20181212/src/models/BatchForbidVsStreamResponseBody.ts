@@ -92,6 +92,9 @@ export class BatchForbidVsStreamResponseBodyForbidResult extends $dara.Model {
 export class BatchForbidVsStreamResponseBody extends $dara.Model {
   forbidResult?: BatchForbidVsStreamResponseBodyForbidResult;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B058D71B-76EA-5DF6-ACAF-A617C1E7937F
    */

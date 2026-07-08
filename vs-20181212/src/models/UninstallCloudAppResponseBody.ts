@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UninstallCloudAppResponseBodyFailedInstances extends $dara.Model {
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * 300000
+   */
   errCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * Rejected due to timeout
+   */
   errMessage?: string;
+  /**
+   * @remarks
+   * Cloud application instance ID
+   * 
+   * @example
+   * render-b45f28650ffe4591bf4c5c95996a428c
+   */
   renderingInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +53,13 @@ export class UninstallCloudAppResponseBodyFailedInstances extends $dara.Model {
 }
 
 export class UninstallCloudAppResponseBodySuccessInstances extends $dara.Model {
+  /**
+   * @remarks
+   * Cloud application instance ID
+   * 
+   * @example
+   * render-e6cf423c787e4e43b460a788da254fe3
+   */
   renderingInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,14 +83,39 @@ export class UninstallCloudAppResponseBodySuccessInstances extends $dara.Model {
 }
 
 export class UninstallCloudAppResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of cloud application service instances that failed.
+   * 
+   * @example
+   * 0
+   */
   failedInstanceCount?: number;
+  /**
+   * @remarks
+   * List of failed cloud application service instances
+   */
   failedInstances?: UninstallCloudAppResponseBodyFailedInstances[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Number of successfully uninstalled cloud application instances
+   * 
+   * @example
+   * 5
+   */
   successInstanceCount?: number;
+  /**
+   * @remarks
+   * A list of service instances for which the cloud application was uninstalled successfully.
+   */
   successInstances?: UninstallCloudAppResponseBodySuccessInstances[];
   static names(): { [key: string]: string } {
     return {

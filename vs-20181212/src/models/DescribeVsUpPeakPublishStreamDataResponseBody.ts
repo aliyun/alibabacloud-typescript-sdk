@@ -66,6 +66,9 @@ export class DescribeVsUpPeakPublishStreamDataResponseBodyDescribeVsUpPeakPublis
 export class DescribeVsUpPeakPublishStreamDataResponseBody extends $dara.Model {
   describeVsUpPeakPublishStreamDatas?: DescribeVsUpPeakPublishStreamDataResponseBodyDescribeVsUpPeakPublishStreamDatas;
   /**
+   * @remarks
+   * ID of the request.
+   * 
    * @example
    * 27A3C548-A699-48F9-97CD-F35D81075AF3
    */

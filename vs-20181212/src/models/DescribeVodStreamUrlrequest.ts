@@ -6,6 +6,8 @@ export class DescribeVodStreamURLRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The file URL of the VOD video.
+   * 
    * This parameter is required.
    * 
    * @example

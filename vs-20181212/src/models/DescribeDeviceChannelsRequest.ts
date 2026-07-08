@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeviceChannelsRequest extends $dara.Model {
   /**
    * @remarks
+   * Query by device ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,17 @@ export class DescribeDeviceChannelsRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number. The default value is 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page. The default value is 20.
+   * 
    * @example
    * 20
    */

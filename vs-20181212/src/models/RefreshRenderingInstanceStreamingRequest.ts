@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RefreshRenderingInstanceStreamingRequestClientInfo extends $dara.Model {
   /**
+   * @remarks
+   * Client IP address.
+   * 
    * @example
    * 172.21.128.110
    */
   clientIp?: string;
   /**
+   * @remarks
+   * Indicates if the client is new.
+   * 
    * @example
    * true
    */
@@ -37,9 +43,15 @@ export class RefreshRenderingInstanceStreamingRequestClientInfo extends $dara.Mo
 }
 
 export class RefreshRenderingInstanceStreamingRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Client information.
+   */
   clientInfo?: RefreshRenderingInstanceStreamingRequestClientInfo;
   /**
    * @remarks
+   * Cloud application service instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

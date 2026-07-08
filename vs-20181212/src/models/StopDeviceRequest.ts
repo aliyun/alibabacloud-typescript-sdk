@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopDeviceRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,9 @@ export class StopDeviceRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Time to restart the stream.
+   * 
    * @example
    * 2021-12-10T10:00:00Z
    */

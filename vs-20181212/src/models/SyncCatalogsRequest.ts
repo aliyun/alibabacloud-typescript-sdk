@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SyncCatalogsRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 3238****739092996
+   * 3238****739092996-cn-shenzhen
    */
   id?: string;
   ownerId?: number;

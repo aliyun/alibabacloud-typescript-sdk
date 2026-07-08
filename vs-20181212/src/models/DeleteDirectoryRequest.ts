@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDirectoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The folder ID.
+   * 
    * This parameter is required.
    * 
    * @example

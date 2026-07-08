@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetRenderingInstanceStreamingInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * Cloud application service instance ID
+   * 
    * This parameter is required.
    * 
    * @example

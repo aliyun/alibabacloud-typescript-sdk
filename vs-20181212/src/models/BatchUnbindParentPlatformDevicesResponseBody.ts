@@ -4,16 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchUnbindParentPlatformDevicesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The error message.
+   * > This parameter is returned only when an error occurs.
+   * 
    * @example
    * some error
    */
   error?: string;
   /**
+   * @remarks
+   * The ID of the parent platform.
+   * 
    * @example
    * 361*****212-cn-qingdao
    */
@@ -45,10 +55,17 @@ export class BatchUnbindParentPlatformDevicesResponseBodyResults extends $dara.M
 
 export class BatchUnbindParentPlatformDevicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of results.
+   */
   results?: BatchUnbindParentPlatformDevicesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

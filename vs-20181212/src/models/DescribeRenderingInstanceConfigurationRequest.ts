@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRenderingInstanceConfigurationRequestConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The list of attribute names to query. By default, all attributes are returned.
+   */
   attributeNames?: string[];
   /**
    * @remarks
+   * The name of the module.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,9 +45,15 @@ export class DescribeRenderingInstanceConfigurationRequestConfiguration extends 
 }
 
 export class DescribeRenderingInstanceConfigurationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration to query. By default, the configurations of all modules are returned.
+   */
   configuration?: DescribeRenderingInstanceConfigurationRequestConfiguration[];
   /**
    * @remarks
+   * The ID of the cloud application service instance.
+   * 
    * This parameter is required.
    * 
    * @example

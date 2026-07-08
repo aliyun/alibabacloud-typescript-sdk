@@ -59,27 +59,42 @@ export class DescribeVsDomainPvUvDataResponseBodyPvUvDataInfos extends $dara.Mod
 
 export class DescribeVsDomainPvUvDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time interval in seconds.
+   * 
    * @example
    * 3600
    */
   dataInterval?: string;
   /**
+   * @remarks
+   * Visual Edge Computing Service domain name.
+   * 
    * @example
    * example.aliyundoc.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 2021-11-24T00:00:00Z
    */
   endTime?: string;
   pvUvDataInfos?: DescribeVsDomainPvUvDataResponseBodyPvUvDataInfos;
   /**
+   * @remarks
+   * Request ID for this operation.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * 2021-12-12T10:00:00Z
    */

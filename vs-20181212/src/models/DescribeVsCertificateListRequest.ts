@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVsCertificateListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Domain name.
+   * 
    * @example
    * example.aliyundoc.com
    */

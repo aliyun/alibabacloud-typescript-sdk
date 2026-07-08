@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateComfyTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the resource pool.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateComfyTaskRequest extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
+   * The parameters to replace in the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateComfyTaskRequest extends $dara.Model {
   userParameters?: string;
   /**
    * @remarks
+   * The ID of the Comfy workflow to start.
+   * 
    * This parameter is required.
    * 
    * @example

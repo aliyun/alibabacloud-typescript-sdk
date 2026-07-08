@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisassociateRenderingProjectInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DisassociateRenderingProjectInstancesRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
+   * A list of cloud application service instance IDs.
+   * 
    * This parameter is required.
    */
   renderingInstanceIds?: string[];

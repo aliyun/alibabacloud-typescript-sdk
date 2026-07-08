@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchStartStreamsRequest extends $dara.Model {
   /**
    * @remarks
+   * Stream ID. Separate multiple IDs with commas.
+   * 
    * This parameter is required.
    * 
    * @example

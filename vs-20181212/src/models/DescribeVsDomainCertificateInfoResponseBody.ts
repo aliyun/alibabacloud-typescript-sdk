@@ -81,6 +81,9 @@ export class DescribeVsDomainCertificateInfoResponseBodyCertInfos extends $dara.
 export class DescribeVsDomainCertificateInfoResponseBody extends $dara.Model {
   certInfos?: DescribeVsDomainCertificateInfoResponseBodyCertInfos;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

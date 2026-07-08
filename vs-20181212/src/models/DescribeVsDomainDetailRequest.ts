@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVsDomainDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * Domain name for the Visual Edge Computing Service
+   * 
    * This parameter is required.
    * 
    * @example

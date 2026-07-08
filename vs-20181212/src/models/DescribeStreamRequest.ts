@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStreamRequest extends $dara.Model {
   /**
    * @remarks
+   * The stream ID.
+   * 
    * This parameter is required.
    * 
    * @example

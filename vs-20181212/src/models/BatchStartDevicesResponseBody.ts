@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchStartDevicesResponseBodyResultsStreams extends $dara.Model {
   /**
+   * @remarks
+   * Error message for the stream. This field appears only when an error occurs.
+   * 
    * @example
    * Stream not found
    */
   error?: string;
   /**
+   * @remarks
+   * Stream ID.
+   * 
    * @example
    * 3238848****092997-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Stream name.
+   * 
    * @example
    * 310101*****187542126
    */
@@ -45,10 +54,17 @@ export class BatchStartDevicesResponseBodyResultsStreams extends $dara.Model {
 
 export class BatchStartDevicesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * 32388487****92996-cn-qingdao
    */
   id?: string;
+  /**
+   * @remarks
+   * List of device streams.
+   */
   streams?: BatchStartDevicesResponseBodyResultsStreams[];
   static names(): { [key: string]: string } {
     return {
@@ -78,10 +94,17 @@ export class BatchStartDevicesResponseBodyResults extends $dara.Model {
 
 export class BatchStartDevicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID of this task.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of results.
+   */
   results?: BatchStartDevicesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

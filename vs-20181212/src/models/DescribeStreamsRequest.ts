@@ -4,57 +4,110 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeStreamsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Filter by application.
+   * 
    * @example
    * live
    */
   app?: string;
   /**
+   * @remarks
+   * Filter by device ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Filter by domain name.
+   * 
    * @example
    * example.aliyundoc.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The ID of the space to query.
+   * 
    * @example
    * 348*****174-cn-qingdao
    */
   groupId?: string;
   /**
+   * @remarks
+   * Stream ID.
+   * 
+   * > Enter multiple IDs separated by commas (,).
+   * 
    * @example
    * 323*****997-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Filter by stream name.
+   * 
+   * > Enter multiple names separated by commas (,).
+   * 
    * @example
    * 3100000*****00000002
    */
   name?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of items per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Parent device ID of the device that hosts this stream.
+   * 
    * @example
    * 399*****774-cn-qingdao
    */
   parentId?: string;
   /**
+   * @remarks
+   * Sort results by a field. Valid values:
+   * 
+   * - Id (default)
+   * 
+   * - GroupId
+   * 
+   * - Name
+   * 
+   * - DeviceId
+   * 
+   * - Protocol
+   * 
+   * > You can specify only one field.
+   * 
    * @example
    * Id
    */
   sortBy?: string;
   /**
+   * @remarks
+   * Sort order. Valid values:
+   * 
+   * - asc (ascending, default)
+   * 
+   * - desc (descending)
+   * 
    * @example
    * asc
    */

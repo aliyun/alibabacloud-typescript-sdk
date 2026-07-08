@@ -3,38 +3,74 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Model {
+  /**
+   * @remarks
+   * The category. Valid values:
+   * 
+   * - Package
+   * 
+   * - Baseline
+   * 
+   * @example
+   * Package
+   */
   category?: string;
   /**
+   * @remarks
+   * The creation time of the Graphic Computing Service instance.
+   * 
    * @example
    * 2024-10-15T10:23:06+08:00
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The ID of the data pack.
+   * 
    * @example
    * dp-449ea3d16c0841b8bf33ec5bbc86a152
    */
   dataPackageId?: string;
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the Graphic Computing Service instance.
+   * 
    * @example
    * render-342012a227dc4ddf91f024639e43051a
    */
   renderingInstanceId?: string;
   /**
+   * @remarks
+   * The size of the data pack.
+   * 
    * @example
    * 10
    */
   size?: number;
   /**
+   * @remarks
+   * The status of the data pack. Valid values:
+   * available
+   * packing
+   * failed
+   * bonded
+   * 
    * @example
    * available
    */
   status?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2024-12-06T02:03:59Z
    */
@@ -75,6 +111,10 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
 }
 
 export class ListRenderingDataPackagesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of data packages for the cloud application service.
+   */
   dataPackages?: ListRenderingDataPackagesResponseBodyDataPackages[];
   /**
    * @remarks
@@ -85,6 +125,9 @@ export class ListRenderingDataPackagesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of Graphic Computing Service instances.
+   * 
    * @example
    * 100
    */

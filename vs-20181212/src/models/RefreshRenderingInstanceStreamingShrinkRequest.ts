@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RefreshRenderingInstanceStreamingShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Client information.
+   */
   clientInfoShrink?: string;
   /**
    * @remarks
+   * Cloud application service instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

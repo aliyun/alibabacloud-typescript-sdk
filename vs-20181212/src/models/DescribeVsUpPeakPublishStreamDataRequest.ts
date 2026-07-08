@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVsUpPeakPublishStreamDataRequest extends $dara.Model {
   /**
+   * @remarks
+   * Domain name to query. Returns data at the domain granularity.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * Enables or disables domain-level statistics. Valid values: on or off. When set to on, the response shows domain-level data. When set to off or omitted, the response shows user-level data. Default is user-level data.
+   * 
    * @example
    * on
    */
   domainSwitch?: string;
   /**
    * @remarks
+   * End time of stream ingest, in UTC format. The time range between StartTime and EndTime must be within 30 days. EndTime must be later than the current time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +32,8 @@ export class DescribeVsUpPeakPublishStreamDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * Start time of stream ingest, in UTC format. The time range between StartTime and EndTime must be within 30 days.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchStopStreamsRequest extends $dara.Model {
   /**
    * @remarks
+   * The stream IDs. To specify multiple IDs, separate them with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,9 @@ export class BatchStopStreamsRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The time to stop the streams. You can specify a future time to stop the streams.
+   * 
    * @example
    * 2021-12-10T10:00:00Z
    */

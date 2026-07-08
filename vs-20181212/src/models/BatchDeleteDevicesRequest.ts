@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteDevicesRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID. Separate multiple values with commas.
+   * 
    * This parameter is required.
    * 
    * @example

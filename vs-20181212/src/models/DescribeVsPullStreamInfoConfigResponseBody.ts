@@ -69,6 +69,9 @@ export class DescribeVsPullStreamInfoConfigResponseBodyLiveAppRecordList extends
 export class DescribeVsPullStreamInfoConfigResponseBody extends $dara.Model {
   liveAppRecordList?: DescribeVsPullStreamInfoConfigResponseBodyLiveAppRecordList;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDirectoryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Folder description.
+   * 
+   * @example
+   * 目录1
+   */
   description?: string;
   /**
    * @remarks
+   * Space ID to which the folder belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,12 +23,21 @@ export class CreateDirectoryRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
+   * Folder name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 目录1
    */
   name?: string;
   ownerId?: number;
   /**
    * @remarks
+   * Parent folder ID.
+   * 
+   * > When you create a device space, the system automatically creates a root directory for that space. Use the [DescribeDirectories](https://next.api.aliyun.com/document/vs/2018-12-12/DescribeDirectories) API to query the corresponding root directory.
+   * 
    * This parameter is required.
    * 
    * @example

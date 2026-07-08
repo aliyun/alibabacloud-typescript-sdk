@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyRenderingChargeTypeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Graphic Computing Service instance
+   * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
    */

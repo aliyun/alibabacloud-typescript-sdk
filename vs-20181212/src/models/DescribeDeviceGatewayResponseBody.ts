@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDeviceGatewayResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Alibaba Cloud service endpoint.
+   * 
    * @example
    * 192.168.0.1
    */
   host?: string;
   /**
+   * @remarks
+   * Port number.
+   * 
    * @example
    * 8080
    */
   port?: number;
   /**
+   * @remarks
+   * Device registration protocol.
+   * 
    * @example
    * gb28181
    */
   protocol?: string;
   /**
+   * @remarks
+   * Request ID for this task.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Token code.
+   * 
    * @example
    * f5578fbc-694c-461d-a2a2-eb090775cef0
    */

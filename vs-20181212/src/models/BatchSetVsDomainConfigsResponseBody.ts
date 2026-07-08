@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchSetVsDomainConfigsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9BEC5E85-C76B-56EF-A922-860EFDB8B64B
    */

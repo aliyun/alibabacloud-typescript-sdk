@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartStreamRequest extends $dara.Model {
   /**
+   * @remarks
+   * For an NVR historical stream, the End Time (UNIX timestamp, in seconds).
+   * 
    * @example
    * 1599336385
    */
   endTime?: number;
   /**
    * @remarks
+   * Stream ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,9 @@ export class StartStreamRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * For an NVR historical stream, the Start Time (UNIX timestamp, in seconds).
+   * 
    * @example
    * 1589336385
    */

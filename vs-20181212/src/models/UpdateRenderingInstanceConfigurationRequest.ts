@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRenderingInstanceConfigurationRequestConfigurationAttributes extends $dara.Model {
   /**
    * @remarks
+   * The name of the property.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateRenderingInstanceConfigurationRequestConfigurationAttributes 
   name?: string;
   /**
    * @remarks
+   * The value of the property.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +49,33 @@ export class UpdateRenderingInstanceConfigurationRequestConfigurationAttributes 
 export class UpdateRenderingInstanceConfigurationRequestConfiguration extends $dara.Model {
   /**
    * @remarks
+   * The list of properties for the module.
+   * 
    * This parameter is required.
    */
   attributes?: UpdateRenderingInstanceConfigurationRequestConfigurationAttributes[];
   /**
    * @remarks
+   * The name of the real device simulation module. Valid values include the following:
+   * 
+   * 1. ctl: control module
+   * 
+   * 2. prop: property module
+   * 
+   * 3. location: location module
+   * 
+   * 4. battery: battery module
+   * 
+   * 5. network: network module
+   * 
+   * 6. bluetooth: bluetooth module
+   * 
+   * 7. sim: SIM card module
+   * 
+   * 8. display: device module
+   * 
+   * 9. system: basic module
+   * 
    * This parameter is required.
    * 
    * @example
@@ -85,11 +111,15 @@ export class UpdateRenderingInstanceConfigurationRequestConfiguration extends $d
 export class UpdateRenderingInstanceConfigurationRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration content.
+   * 
    * This parameter is required.
    */
   configuration?: UpdateRenderingInstanceConfigurationRequestConfiguration[];
   /**
    * @remarks
+   * The ID of the cloud application service instance.
+   * 
    * This parameter is required.
    * 
    * @example

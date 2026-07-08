@@ -91,6 +91,9 @@ export class BatchResumeVsStreamResponseBodyResumeResult extends $dara.Model {
 
 export class BatchResumeVsStreamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

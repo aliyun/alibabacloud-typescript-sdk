@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStreamSnapshotRequest extends $dara.Model {
   /**
    * @remarks
+   * Stream ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,13 @@ export class CreateStreamSnapshotRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * Screenshot method. Valid values:
+   * 
+   * - center (cloud screenshot) (default)
+   * 
+   * - device (device screenshot)
+   * 
    * @example
    * device
    */

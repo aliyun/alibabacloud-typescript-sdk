@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUnbindTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID. Separate multiple IDs with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,12 @@ export class BatchUnbindTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The instance type. Valid values:
+   * 
+   * - group
+   * 
+   * - stream
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,11 +29,21 @@ export class BatchUnbindTemplateRequest extends $dara.Model {
   instanceType?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The template ID. If omitted, all bindings that match the conditions on the instance are detached.
+   * 
    * @example
    * 323*****998-cn-qingdao
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template type. Valid values:
+   * 
+   * - record
+   * 
+   * - snapshot
+   * 
    * @example
    * record
    */

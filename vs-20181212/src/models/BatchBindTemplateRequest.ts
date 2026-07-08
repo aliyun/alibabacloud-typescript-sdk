@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchBindTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * Apply to all streams within the scope. Default value: false.
+   * 
    * @example
    * false
    */
   applyAll?: boolean;
   /**
    * @remarks
+   * Instance ID. Separate multiple values with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,12 @@ export class BatchBindTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Instance type. Valid values:
+   * 
+   * - group (space)
+   * 
+   * - stream (stream)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,12 +37,17 @@ export class BatchBindTemplateRequest extends $dara.Model {
   instanceType?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Replace existing bindings. Default value: false.
+   * 
    * @example
    * false
    */
   replace?: boolean;
   /**
    * @remarks
+   * Template ID.
+   * 
    * This parameter is required.
    * 
    * @example

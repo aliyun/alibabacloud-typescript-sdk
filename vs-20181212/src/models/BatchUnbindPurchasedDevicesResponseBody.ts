@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchUnbindPurchasedDevicesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
+   * > This field appears only when an error occurs.
+   * 
    * @example
    * some error
    */
@@ -38,10 +46,17 @@ export class BatchUnbindPurchasedDevicesResponseBodyResults extends $dara.Model 
 
 export class BatchUnbindPurchasedDevicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Result list.
+   */
   results?: BatchUnbindPurchasedDevicesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

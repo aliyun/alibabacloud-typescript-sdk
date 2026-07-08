@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRenderingInstanceConfigurationShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration content.
+   * 
    * This parameter is required.
    */
   configurationShrink?: string;
   /**
    * @remarks
+   * The ID of the cloud application service instance.
+   * 
    * This parameter is required.
    * 
    * @example

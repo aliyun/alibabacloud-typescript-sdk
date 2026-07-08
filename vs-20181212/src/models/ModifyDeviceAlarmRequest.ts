@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDeviceAlarmRequest extends $dara.Model {
   /**
    * @remarks
+   * The alarm ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyDeviceAlarmRequest extends $dara.Model {
   alarmId?: string;
   /**
    * @remarks
+   * The channel ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifyDeviceAlarmRequest extends $dara.Model {
   channelId?: number;
   /**
    * @remarks
+   * The device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +36,12 @@ export class ModifyDeviceAlarmRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The alarm status. Valid values:
+   * 
+   * - 1 (upload completed)
+   * - 2 (upload failed)
+   * - 3 (general error)
+   * 
    * This parameter is required.
    * 
    * @example

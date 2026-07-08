@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVsPullStreamInfoConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name for the live stream.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteVsPullStreamInfoConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * Your stream pulling domain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class DeleteVsPullStreamInfoConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The name of the live stream.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartTransferStreamRequest extends $dara.Model {
   /**
    * @remarks
+   * Stream ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,17 @@ export class StartTransferStreamRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The name of the transcoding rule (a transcoding template must be bound first).
+   * 
    * @example
    * sd
    */
   transcode?: string;
   /**
    * @remarks
+   * The destination address for stream forwarding.
+   * 
    * This parameter is required.
    * 
    * @example

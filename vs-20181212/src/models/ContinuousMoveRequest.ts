@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ContinuousMoveRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,16 +15,28 @@ export class ContinuousMoveRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Pan speed. A positive value moves the camera left.<br>
+   * Valid values: -1.0 to 1.0<br>
+   * 
    * @example
    * 0.5
    */
   pan?: string;
   /**
+   * @remarks
+   * Tilt speed. A positive value moves the camera up.<br>
+   * Valid values: -1.0 to 1.0<br>
+   * 
    * @example
    * 0.5
    */
   tilt?: string;
   /**
+   * @remarks
+   * Zoom speed. A positive value zooms in.<br>
+   * Valid values: -1.0 to 1.0<br>
+   * 
    * @example
    * 0.5
    */

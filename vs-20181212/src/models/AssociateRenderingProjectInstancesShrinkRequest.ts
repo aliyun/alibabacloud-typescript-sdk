@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateRenderingProjectInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Project ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AssociateRenderingProjectInstancesShrinkRequest extends $dara.Model
   projectId?: string;
   /**
    * @remarks
+   * List of cloud application service instance IDs
+   * 
    * This parameter is required.
    */
   renderingInstanceIdsShrink?: string;

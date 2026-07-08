@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVsVerifyContentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * 校验内容。
+   * 
    * @example
    * verify_dffeb6610035dcb77b413a59c3*****
    */
   content?: string;
   /**
+   * @remarks
+   * 请求ID。
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

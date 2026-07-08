@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyUserDataDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the file to download.
+   * 
    * This parameter is required.
    * 
    * @example

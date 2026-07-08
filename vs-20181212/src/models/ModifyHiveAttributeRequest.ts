@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyHiveAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The new description of the cluster.
+   * 
    * @example
    * gb-test
    */
   description?: string;
   /**
    * @remarks
-   * ID
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -19,6 +22,9 @@ export class ModifyHiveAttributeRequest extends $dara.Model {
    */
   hiveId?: string;
   /**
+   * @remarks
+   * The new name of the cluster.
+   * 
    * @example
    * yy-test2
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the template.
+   * 
    * @example
    * 323*****998-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

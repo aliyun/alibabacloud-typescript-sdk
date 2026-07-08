@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRenderingInstanceSettingsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * ID of the cloud application service instance.
+   * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
    */
   renderingInstanceId?: string;
+  /**
+   * @remarks
+   * List of instance settings.
+   */
   settingsShrink?: string;
   static names(): { [key: string]: string } {
     return {

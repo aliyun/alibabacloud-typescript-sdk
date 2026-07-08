@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteVsDomainConfigsRequest extends $dara.Model {
   /**
    * @remarks
+   * The accelerated domain names. Separate multiple domain names with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BatchDeleteVsDomainConfigsRequest extends $dara.Model {
   domainNames?: string;
   /**
    * @remarks
+   * The feature names. Separate multiple features with commas.
+   * 
    * This parameter is required.
    * 
    * @example

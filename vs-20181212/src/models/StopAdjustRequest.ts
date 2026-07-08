@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopAdjustRequest extends $dara.Model {
   /**
+   * @remarks
+   * Stop adjusting the zoom. Default is false.
+   * 
    * @example
    * true
    */
   focus?: boolean;
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class StopAdjustRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * Stop adjusting the aperture. Default is false.
+   * 
    * @example
    * true
    */

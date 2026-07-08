@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccountStatRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Alibaba Cloud account ID.
+   * 
+   * @example
+   * 1165*****601
+   */
   id?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {

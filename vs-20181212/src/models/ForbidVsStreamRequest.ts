@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ForbidVsStreamRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class ForbidVsStreamRequest extends $dara.Model {
   controlStreamAction?: string;
   /**
    * @remarks
+   * The accelerated domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class ForbidVsStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
+   * Only "publisher" is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,18 +35,26 @@ export class ForbidVsStreamRequest extends $dara.Model {
    */
   liveStreamType?: string;
   /**
+   * @remarks
+   * Specifies whether to only interrupt the stream without adding it to the blacklist. A value of \\`yes\\` indicates that the stream is only interrupted.
+   * 
    * @example
    * yes
    */
   oneshot?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The time to resume the stream. The time is in UTC format.
+   * 
    * @example
    * 2015-12-01T17:37:00Z
    */
   resumeTime?: string;
   /**
    * @remarks
+   * The stream name.
+   * 
    * This parameter is required.
    * 
    * @example

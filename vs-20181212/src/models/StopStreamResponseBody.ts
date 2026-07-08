@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopStreamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the stream.
+   * 
    * @example
    * 32388487****92997-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID of this operation.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

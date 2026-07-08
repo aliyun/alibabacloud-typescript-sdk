@@ -3,15 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDirectoryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the directory.
+   * 
+   * @example
+   * 目录2
+   */
   description?: string;
   /**
    * @remarks
+   * The ID of the directory.
+   * 
    * This parameter is required.
    * 
    * @example
    * 399*****488-cn-qingdao
    */
   id?: string;
+  /**
+   * @remarks
+   * The name of the directory.
+   * 
+   * @example
+   * 目录2
+   */
   name?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {

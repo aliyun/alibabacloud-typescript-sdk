@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateComfyUserDataDirResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of 0 indicates success.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * The returned message. If the request fails, this parameter contains the failure reason.
+   * 
    * @example
    * conn failed!
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

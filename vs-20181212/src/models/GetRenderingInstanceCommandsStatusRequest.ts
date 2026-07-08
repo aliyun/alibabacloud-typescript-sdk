@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetRenderingInstanceCommandsStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique ID of the command delivery request
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetRenderingInstanceCommandsStatusRequest extends $dara.Model {
   cmdId?: string;
   /**
    * @remarks
+   * Cloud application service instance ID
+   * 
    * This parameter is required.
    * 
    * @example

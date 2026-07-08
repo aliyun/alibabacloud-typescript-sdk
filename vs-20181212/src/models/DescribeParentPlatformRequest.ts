@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParentPlatformRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the parent platform.
+   * 
    * This parameter is required.
    * 
    * @example

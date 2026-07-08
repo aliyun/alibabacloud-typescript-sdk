@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVsCertificateDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The certificate name.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeviceRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class DescribeDeviceRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * Return directory information. Default value: false.
+   * 
    * @example
    * false
    */
   includeDirectory?: boolean;
   /**
+   * @remarks
+   * Return stream statistics. Default value: false.
+   * 
    * @example
    * false
    */

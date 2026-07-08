@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVsDomainConfigsResponseBodyDomainConfigsFunctionArgs extends $dara.Model {
   /**
+   * @remarks
+   * The name of the configuration.
+   * 
    * @example
    * auth_type
    */
   argName?: string;
   /**
+   * @remarks
+   * The argument value.
+   * 
    * @example
    * req_auth
    */
@@ -38,17 +44,38 @@ export class DescribeVsDomainConfigsResponseBodyDomainConfigsFunctionArgs extend
 
 export class DescribeVsDomainConfigsResponseBodyDomainConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * 6295
    */
   configId?: string;
+  /**
+   * @remarks
+   * Each function.
+   */
   functionArgs?: DescribeVsDomainConfigsResponseBodyDomainConfigsFunctionArgs[];
   /**
+   * @remarks
+   * The function name.
+   * 
    * @example
    * aliauth
    */
   functionName?: string;
   /**
+   * @remarks
+   * Status. Valid values:
+   * 
+   * - success
+   * 
+   * - testing
+   * 
+   * - failed
+   * 
+   * - configuring
+   * 
    * @example
    * success
    */
@@ -84,8 +111,15 @@ export class DescribeVsDomainConfigsResponseBodyDomainConfigs extends $dara.Mode
 }
 
 export class DescribeVsDomainConfigsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Domain name configurations.
+   */
   domainConfigs?: DescribeVsDomainConfigsResponseBodyDomainConfigs[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D94D0E1E-E71B-562D-8C18-969BB3653FBD
    */

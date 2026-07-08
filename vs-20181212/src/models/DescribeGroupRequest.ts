@@ -5,10 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Space ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 337639*****224964-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Specifies whether to return the statistics of devices in the group. The default value is false.
+   * 
    * @example
    * false
    */

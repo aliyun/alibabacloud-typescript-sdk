@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindPurchasedDeviceRequest extends $dara.Model {
   /**
    * @remarks
+   * The device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BindPurchasedDeviceRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * The space ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class BindPurchasedDeviceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region to which the space belongs.
+   * 
    * This parameter is required.
    * 
    * @example

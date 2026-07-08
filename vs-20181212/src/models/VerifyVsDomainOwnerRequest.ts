@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyVsDomainOwnerRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain name of Visual Edge Computing Service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,11 @@ export class VerifyVsDomainOwnerRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The verification method. Valid values:
+   * 
+   * - **dnsCheck**: DNS verification.
+   * - **fileCheck**: File verification.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RebootRenderingInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the cloud application service instance
+   * 
    * This parameter is required.
    * 
    * @example

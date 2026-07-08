@@ -56,27 +56,42 @@ export class DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval extends
 
 export class DescribeVsDomainReqBpsDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time interval between records, in seconds.
+   * 
    * @example
    * 3600
    */
   dataInterval?: string;
   /**
+   * @remarks
+   * The domain name of the Visual Edge Computing Service.
+   * 
    * @example
    * example.aliyundoc.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 2021-09-24T03:30:46Z
    */
   endTime?: string;
   reqBpsDataPerInterval?: DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * 2021-12-24T16:00:00Z
    */

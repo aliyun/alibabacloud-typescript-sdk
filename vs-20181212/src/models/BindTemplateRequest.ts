@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether to apply the template to all streams in the scope. Default value: false.
+   * 
    * @example
    * false
    */
   applyAll?: boolean;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,12 @@ export class BindTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The type of the instance. Valid values:
+   * 
+   * - group
+   * 
+   * - stream
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,12 +37,17 @@ export class BindTemplateRequest extends $dara.Model {
   instanceType?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Whether to replace an existing binding. Default value: false.
+   * 
    * @example
    * false
    */
   replace?: boolean;
   /**
    * @remarks
+   * The ID of the template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +55,13 @@ export class BindTemplateRequest extends $dara.Model {
    */
   templateId?: string;
   /**
+   * @remarks
+   * The type of the template. Valid values:
+   * 
+   * - record
+   * 
+   * - snapshot
+   * 
    * @example
    * record
    */

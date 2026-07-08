@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUnbindParentPlatformDevicesRequest extends $dara.Model {
   /**
    * @remarks
+   * The device IDs. Separate multiple values with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class BatchUnbindParentPlatformDevicesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the parent platform.
+   * 
    * This parameter is required.
    * 
    * @example

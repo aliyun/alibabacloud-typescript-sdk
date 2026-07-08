@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,12 @@ export class UnbindTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The type of the instance. Valid values:
+   * 
+   * - group
+   * 
+   * - stream
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,11 +29,21 @@ export class UnbindTemplateRequest extends $dara.Model {
   instanceType?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the template.
+   * 
    * @example
    * 323*****998-cn-qingdao
    */
   templateId?: string;
   /**
+   * @remarks
+   * The type of the template. Valid values:
+   * 
+   * - record
+   * 
+   * - snapshot
+   * 
    * @example
    * record
    */

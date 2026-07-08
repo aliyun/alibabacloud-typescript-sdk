@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UploadFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the file. This ID is unique for each file.
+   * 
    * @example
    * f-1671330gr7934d4771813f7141d28db2f7
    */
   fileId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

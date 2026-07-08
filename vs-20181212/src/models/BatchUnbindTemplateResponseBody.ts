@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchUnbindTemplateResponseBodyBindings extends $dara.Model {
   /**
+   * @remarks
+   * The error message.
+   * 
+   * > This field appears only when the operation fails.
+   * 
    * @example
    * some error
    */
   error?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 323*****994-cn-qingdao
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * group
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 323*****998-cn-qingdao
    */
@@ -51,8 +65,15 @@ export class BatchUnbindTemplateResponseBodyBindings extends $dara.Model {
 }
 
 export class BatchUnbindTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of results.
+   */
   bindings?: BatchUnbindTemplateResponseBodyBindings[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

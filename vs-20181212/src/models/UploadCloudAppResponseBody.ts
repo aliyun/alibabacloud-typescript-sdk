@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UploadCloudAppResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cloud application ID, which uniquely identifies the application package.
+   * 
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
    */
   appId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUnbindDirectoriesRequest extends $dara.Model {
   /**
    * @remarks
+   * The device ID. Separate multiple values with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BatchUnbindDirectoriesRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * The folder ID.
+   * 
    * This parameter is required.
    * 
    * @example

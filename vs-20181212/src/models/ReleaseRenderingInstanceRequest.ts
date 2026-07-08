@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseRenderingInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * Graphic Computing Service application instance ID
+   * 
    * This parameter is required.
    * 
    * @example

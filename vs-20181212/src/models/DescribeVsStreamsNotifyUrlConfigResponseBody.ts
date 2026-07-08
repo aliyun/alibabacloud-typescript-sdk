@@ -6,10 +6,20 @@ export class DescribeVsStreamsNotifyUrlConfigResponseBodyLiveStreamsNotifyConfig
   authKey?: string;
   authType?: string;
   /**
+   * @remarks
+   * Your ingest domain.
+   * 
    * @example
    * example.aliyundoc.com
    */
   domainName?: string;
+  /**
+   * @remarks
+   * Webhook address.
+   * 
+   * @example
+   * https://example.com/callback
+   */
   notifyUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,8 +49,15 @@ export class DescribeVsStreamsNotifyUrlConfigResponseBodyLiveStreamsNotifyConfig
 }
 
 export class DescribeVsStreamsNotifyUrlConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration information.
+   */
   liveStreamsNotifyConfig?: DescribeVsStreamsNotifyUrlConfigResponseBodyLiveStreamsNotifyConfig;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

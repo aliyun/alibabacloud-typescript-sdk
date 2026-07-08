@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchUnbindDirectoriesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * Folder ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The folder ID.
+   * 
    * @example
    * 399*****488-cn-qingdao
    */
   directoryId?: string;
   /**
+   * @remarks
+   * The error message for the detach operation.
+   * 
+   * > This field appears only if an error occurs.
+   * 
    * @example
    * An error occurred while processing your request.
    */
@@ -45,10 +56,17 @@ export class BatchUnbindDirectoriesResponseBodyResults extends $dara.Model {
 
 export class BatchUnbindDirectoriesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 64DB7F34-11A8-45DC-A421-40ACF446282C
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of results.
+   */
   results?: BatchUnbindDirectoriesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVsStreamsNotifyUrlConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The accelerated domain name.
+   * 
    * This parameter is required.
    * 
    * @example

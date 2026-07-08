@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddHiveEdgeWorkersRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AddHiveEdgeWorkersRequest extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
+   * A list of instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example

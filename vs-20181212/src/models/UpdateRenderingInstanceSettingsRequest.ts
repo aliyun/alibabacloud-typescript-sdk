@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRenderingInstanceSettingsRequestSettings extends $dara.Model {
   /**
+   * @remarks
+   * Name of the instance setting.
+   * 
    * @example
    * navbar.hide
    */
   attributeName?: string;
   /**
+   * @remarks
+   * Value of the instance setting.
+   * 
    * @example
    * 1
    */
@@ -38,10 +44,17 @@ export class UpdateRenderingInstanceSettingsRequestSettings extends $dara.Model 
 
 export class UpdateRenderingInstanceSettingsRequest extends $dara.Model {
   /**
+   * @remarks
+   * ID of the cloud application service instance.
+   * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
    */
   renderingInstanceId?: string;
+  /**
+   * @remarks
+   * List of instance settings.
+   */
   settings?: UpdateRenderingInstanceSettingsRequestSettings[];
   static names(): { [key: string]: string } {
     return {

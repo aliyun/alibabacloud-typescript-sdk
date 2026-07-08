@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnbindParentPlatformDeviceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * 请求ID。
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

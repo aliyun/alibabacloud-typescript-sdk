@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopMoveRequest extends $dara.Model {
   /**
    * @remarks
+   * The device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,16 +15,25 @@ export class StopMoveRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Specifies whether to stop panning. The default value is false.
+   * 
    * @example
    * true
    */
   pan?: boolean;
   /**
+   * @remarks
+   * Specifies whether to stop tilting. The default value is false.
+   * 
    * @example
    * true
    */
   tilt?: boolean;
   /**
+   * @remarks
+   * Specifies whether to stop zooming. The default value is false.
+   * 
    * @example
    * true
    */

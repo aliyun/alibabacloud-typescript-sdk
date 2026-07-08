@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeComfyWorkflowsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The workflow name.
+   * 
+   * @example
+   * 图生视频工作流
+   */
   name?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of Comfy workflows per page.
+   * 
    * @example
    * 20
    */

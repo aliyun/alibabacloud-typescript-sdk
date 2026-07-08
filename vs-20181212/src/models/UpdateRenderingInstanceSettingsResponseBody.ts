@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRenderingInstanceSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

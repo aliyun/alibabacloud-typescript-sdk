@@ -24,9 +24,6 @@ export class ListSpecificationsResponseBodyItems extends $dara.Model {
    */
   shard?: number;
   /**
-   * @remarks
-   * `RenderingSpec`
-   * 
    * @example
    * crs.xic.s1
    */

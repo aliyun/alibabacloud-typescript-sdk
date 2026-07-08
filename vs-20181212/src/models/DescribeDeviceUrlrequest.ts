@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeviceURLRequest extends $dara.Model {
   auth?: boolean;
   /**
+   * @remarks
+   * Authentication validity period, in seconds.
+   * 
    * @example
    * 3600
    */
   expire?: number;
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,12 +23,29 @@ export class DescribeDeviceURLRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * Stream mode. Valid values:
+   * 
+   * - play
+   * 
+   * - push
+   * 
    * @example
    * push
    */
   mode?: string;
   /**
    * @remarks
+   * Stream protocol. Valid values:
+   * 
+   * - rtmp
+   * 
+   * - flv
+   * 
+   * - hls
+   * 
+   * > When Mode is set to push, only rtmp is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +55,8 @@ export class DescribeDeviceURLRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * Stream name.
+   * 
    * This parameter is required.
    * 
    * @example

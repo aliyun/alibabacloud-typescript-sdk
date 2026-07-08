@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Comfy task.
+   * 
    * @example
    * 6c8234f4-d1e1-4cea-b08b-7926fbdea144
    */
   comfyTaskId?: string;
   /**
+   * @remarks
+   * The creation time of the production, in ISO 8601 format.
+   * 
    * @example
    * 2026-02-06T20:20:26+08:00
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The file name of the production.
+   * 
    * @example
    * 1755051607877.mp4
    */
   fileName?: string;
   /**
+   * @remarks
+   * The ID of the production.
+   * 
    * @example
    * 3e5bda20-5cd4-4d55-8d23-88d624a18caa
    */
   productionId?: string;
   /**
+   * @remarks
+   * The state of the production.
+   * 
    * @example
    * NORMAL
    */
   state?: string;
   /**
+   * @remarks
+   * The last modification time of the production, as a Unix timestamp.
+   * 
    * @example
    * 1773707865
    */
@@ -66,35 +84,54 @@ export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model
 
 export class DescribeComfyProductionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * A list of productions.
+   */
   productions?: DescribeComfyProductionsResponseBodyProductions[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count of productions.
+   * 
    * @example
    * 1
    */

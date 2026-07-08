@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRenderingProjectsResponseBodyProjectsSessionAttribs extends $dara.Model {
   /**
+   * @remarks
+   * Startup mode
+   * 
    * @example
    * Sync
    */
@@ -31,27 +34,46 @@ export class ListRenderingProjectsResponseBodyProjectsSessionAttribs extends $da
 
 export class ListRenderingProjectsResponseBodyProjects extends $dara.Model {
   /**
+   * @remarks
+   * Project creation time
+   * 
    * @example
    * 2024-09-09T18:44:49+08:00
    */
   creationTime?: string;
   /**
+   * @remarks
+   * Project description
+   * 
    * @example
    * description
    */
   description?: string;
   /**
+   * @remarks
+   * Project ID
+   * 
    * @example
    * project-422bc38dfgh5eb44149f135ef76304f63b
    */
   projectId?: string;
   /**
+   * @remarks
+   * Project name
+   * 
    * @example
    * prod-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * Project session attributes
+   */
   sessionAttribs?: ListRenderingProjectsResponseBodyProjectsSessionAttribs;
   /**
+   * @remarks
+   * Last update time
+   * 
    * @example
    * 2024-10-09T18:44:49+08:00
    */
@@ -91,13 +113,23 @@ export class ListRenderingProjectsResponseBodyProjects extends $dara.Model {
 }
 
 export class ListRenderingProjectsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Project list
+   */
   projects?: ListRenderingProjectsResponseBodyProjects[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of matching projects
+   * 
    * @example
    * 2
    */

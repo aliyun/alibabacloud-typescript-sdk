@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDeviceGatewayRequest extends $dara.Model {
   /**
+   * @remarks
+   * Client IP address.
+   * 
    * @example
    * 192.168.0.1
    */
   clientIp?: string;
   /**
+   * @remarks
+   * Time-to-live (TTL).
+   * 
    * @example
    * 3600
    */
   expire?: number;
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example

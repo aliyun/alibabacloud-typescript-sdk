@@ -4,66 +4,109 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   /**
+   * @remarks
+   * Application that owns this stream.
+   * 
    * @example
    * live
    */
   app?: string;
   /**
+   * @remarks
+   * Time when the stream was created.
+   * 
    * @example
    * 2018-12-10T17:00:00Z
    */
   createdTime?: string;
   /**
+   * @remarks
+   * Device ID of this stream.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Indicates whether the stream is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The ID of the group to which the stream belongs.
+   * 
    * @example
    * 348*****174-cn-qingdao
    */
   groupId?: string;
   /**
+   * @remarks
+   * Video stream height in pixels.
+   * 
    * @example
    * 720
    */
   height?: number;
   /**
+   * @remarks
+   * Stream ID.
+   * 
    * @example
    * 323*****997-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Stream name.
+   * 
    * @example
    * 31000000*****0000002
    */
   name?: string;
   /**
+   * @remarks
+   * Streaming domain for this stream.
+   * 
    * @example
    * demo.aliyundoc.com
    */
   playDomain?: string;
   /**
+   * @remarks
+   * Stream protocol.
+   * 
    * @example
    * gb28181
    */
   protocol?: string;
   /**
+   * @remarks
+   * Ingest domain for this stream.
+   * 
    * @example
    * example.aliyundoc.com
    */
   pushDomain?: string;
   /**
+   * @remarks
+   * Stream status. Valid values:
+   * 
+   * - on (online)
+   * 
+   * - off (offline)
+   * 
    * @example
    * on
    */
   status?: string;
   /**
+   * @remarks
+   * Video stream width in pixels.
+   * 
    * @example
    * 1280
    */
@@ -115,27 +158,46 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
 
 export class DescribeStreamsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 5
    */
   pageCount?: number;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of streams.
+   */
   streams?: DescribeStreamsResponseBodyStreams[];
   /**
+   * @remarks
+   * Total number of streams.
+   * 
    * @example
    * 100
    */

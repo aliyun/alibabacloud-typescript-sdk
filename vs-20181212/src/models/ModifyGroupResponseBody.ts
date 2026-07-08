@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the space.
+   * 
    * @example
    * 32388487739092994-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

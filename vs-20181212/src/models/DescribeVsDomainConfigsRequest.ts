@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVsDomainConfigsRequest extends $dara.Model {
   /**
    * @remarks
+   * Your accelerated domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class DescribeVsDomainConfigsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
+   * List of feature names.
+   * 
+   * > Supports multiple values separated by commas (,).
+   * 
    * This parameter is required.
    * 
    * @example

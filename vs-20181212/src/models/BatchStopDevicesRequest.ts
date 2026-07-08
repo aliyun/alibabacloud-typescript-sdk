@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchStopDevicesRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID. Separate multiple values with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,9 @@ export class BatchStopDevicesRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Stream restart trigger time.
+   * 
    * @example
    * 2021-10-14T23:00:00Z
    */

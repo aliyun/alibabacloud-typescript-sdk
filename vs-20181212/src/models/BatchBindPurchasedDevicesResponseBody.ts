@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchBindPurchasedDevicesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the device.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The error message for the device. This parameter is returned only when an error occurs.
+   * 
    * @example
    * some error
    */
   error?: string;
   /**
+   * @remarks
+   * Space ID.
+   * 
    * @example
    * 238*****380-cn-qingdao
    */
   groupId?: string;
   /**
+   * @remarks
+   * The region.
+   * 
    * @example
    * cn-qingdao
    */
@@ -52,10 +64,17 @@ export class BatchBindPurchasedDevicesResponseBodyResults extends $dara.Model {
 
 export class BatchBindPurchasedDevicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of results.
+   */
   results?: BatchBindPurchasedDevicesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

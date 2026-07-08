@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchResumeVsStreamRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the stream in the AppName/StreamName format. To specify multiple streams, separate the stream names with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class BatchResumeVsStreamRequest extends $dara.Model {
   controlStreamAction?: string;
   /**
    * @remarks
+   * The accelerated domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class BatchResumeVsStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
+   * The type of live stream. Only publisher is supported, which indicates that the stream is ingested by a streamer.
+   * 
    * This parameter is required.
    * 
    * @example

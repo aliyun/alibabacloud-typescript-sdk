@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisassociateRenderingProjectInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DisassociateRenderingProjectInstancesShrinkRequest extends $dara.Mo
   projectId?: string;
   /**
    * @remarks
+   * A list of cloud application service instance IDs.
+   * 
    * This parameter is required.
    */
   renderingInstanceIdsShrink?: string;

@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchBindDirectoriesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Directory ID.
+   * 
    * @example
    * 399*****488-cn-qingdao
    */
   directoryId?: string;
   /**
+   * @remarks
+   * Error message for the binding.
+   * 
+   * > Appears only if an error occurs.
+   * 
    * @example
    * An error occurred while processing your request.
    */
@@ -45,10 +56,17 @@ export class BatchBindDirectoriesResponseBodyResults extends $dara.Model {
 
 export class BatchBindDirectoriesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Results list.
+   */
   results?: BatchBindDirectoriesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePresetsRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example

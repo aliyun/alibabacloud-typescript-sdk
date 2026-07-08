@@ -86,26 +86,41 @@ export class DescribeVsDomainRegionDataResponseBodyValue extends $dara.Model {
 
 export class DescribeVsDomainRegionDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time interval, in seconds.
+   * 
    * @example
    * 3600
    */
   dataInterval?: string;
   /**
+   * @remarks
+   * The domain name that is accelerated by Visual Edge Computing Service.
+   * 
    * @example
    * example.aliyundoc.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 2021-10-31T15:59:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * 2021-10-30T16:00:00Z
    */

@@ -56,26 +56,41 @@ export class DescribeVsDomainUvDataResponseBodyUvDataInterval extends $dara.Mode
 
 export class DescribeVsDomainUvDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The time interval between data records. Unit: seconds. This is a static field with a value of 3600, which indicates 1 hour.
+   * 
    * @example
    * 3600
    */
   dataInterval?: string;
   /**
+   * @remarks
+   * The domain name of Visual Edge Computing Service.
+   * 
    * @example
    * example.aliyundoc.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The end of the time range.
+   * 
    * @example
    * 2015-11-30T00:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * The beginning of the time range.
+   * 
    * @example
    * 2015-11-29T00:00:00Z
    */

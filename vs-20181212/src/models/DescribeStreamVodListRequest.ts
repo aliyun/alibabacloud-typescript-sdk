@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStreamVodListRequest extends $dara.Model {
   /**
    * @remarks
+   * VOD record end time (unix timestamp, unit: seconds)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeStreamVodListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
+   * Stream ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class DescribeStreamVodListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * VOD record start time (unix timestamp, unit: seconds)
+   * 
    * This parameter is required.
    * 
    * @example

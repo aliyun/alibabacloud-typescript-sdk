@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchStopStreamsResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The error message for the stream.
+   * 
+   * > This parameter is returned only if an error occurs on the stream.
+   * 
    * @example
    * stream not found
    */
   error?: string;
   /**
+   * @remarks
+   * The stream ID.
+   * 
    * @example
    * 323*****997-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * The stream name.
+   * 
    * @example
    * 3100000*****00000002
    */
@@ -45,10 +56,17 @@ export class BatchStopStreamsResponseBodyResults extends $dara.Model {
 
 export class BatchStopStreamsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of results.
+   */
   results?: BatchStopStreamsResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

@@ -8,6 +8,10 @@ export class ListHivesResponseBodyHives extends $dara.Model {
    * 2025-05-14T15:20:37+08:00
    */
   creationTime?: string;
+  /**
+   * @example
+   * 基础型S1
+   */
   description?: string;
   /**
    * @example

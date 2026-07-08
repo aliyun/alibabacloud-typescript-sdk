@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnlockDeviceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Device ID
+   * 
    * @example
    * 323884****9092996
    */
   id?: string;
   /**
+   * @remarks
+   * Request ID for this operation.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

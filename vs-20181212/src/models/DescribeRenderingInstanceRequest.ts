@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenderingInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the rendering instance.
+   * 
    * This parameter is required.
    * 
    * @example

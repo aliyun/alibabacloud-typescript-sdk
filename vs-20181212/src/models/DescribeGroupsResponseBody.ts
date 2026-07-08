@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeGroupsResponseBodyGroupsStats extends $dara.Model {
   /**
+   * @remarks
+   * Total number of devices in the group.
+   * 
    * @example
    * 200
    */
   deviceNum?: number;
   /**
+   * @remarks
+   * Number of intelligent devices in the group.
+   * 
    * @example
    * 0
    */
   iedNum?: number;
   /**
+   * @remarks
+   * Number of cameras in the group.
+   * 
    * @example
    * 200
    */
   ipcNum?: number;
   /**
+   * @remarks
+   * Number of platforms in the group.
+   * 
    * @example
    * 0
    */
@@ -52,42 +64,79 @@ export class DescribeGroupsResponseBodyGroupsStats extends $dara.Model {
 
 export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   /**
+   * @remarks
+   * Alias for the group ID.
+   * 
    * @example
    * 337639*****24964-cn-qingdao
    */
   aliasId?: string;
   /**
+   * @remarks
+   * Application name used by the group.
+   * 
    * @example
    * live
    */
   app?: string;
   /**
+   * @remarks
+   * Callback URL for device status updates in the group.
+   * 
    * @example
    * http://example.com/callback
    */
   callback?: string;
   /**
+   * @remarks
+   * Time when the group was created.
+   * 
    * @example
    * 2019-02-28T17:00:17Z
    */
   createdTime?: string;
+  /**
+   * @remarks
+   * Group description.
+   * 
+   * @example
+   * 测试视图计算
+   */
   description?: string;
   /**
+   * @remarks
+   * Whether the group is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * GB ID provided by the group.
+   * 
+   * > This applies only to groups that use the GB protocol.
+   * 
    * @example
    * 31000000000000000001
    */
   gbId?: string;
   /**
+   * @remarks
+   * GB signaling server IP address provided by the group.
+   * 
+   * > This applies only to groups that use the GB protocol.
+   * 
    * @example
    * 10.10.10.10
    */
   gbIp?: string;
   /**
+   * @remarks
+   * GB signaling server port associated with the group.
+   * 
+   * > This applies only to groups that use the GB protocol.
+   * 
    * @example
    * 5060
    */
@@ -95,43 +144,82 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
   gbTcpPorts?: string[];
   gbUdpPorts?: string[];
   /**
+   * @remarks
+   * Group ID.
+   * 
    * @example
    * 33763950877224964-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Ingest protocol used by the group.
+   * 
    * @example
    * gb28181
    */
   inProtocol?: string;
   /**
+   * @remarks
+   * Whether on-demand stream pulling is enabled.
+   * 
    * @example
    * false
    */
   lazyPull?: boolean;
+  /**
+   * @remarks
+   * Group name.
+   * 
+   * @example
+   * 我的空间
+   */
   name?: string;
   /**
+   * @remarks
+   * Playback protocol used by the group.
+   * 
    * @example
    * rtmp,flv,hls
    */
   outProtocol?: string;
   /**
+   * @remarks
+   * Streaming domain used by the group.
+   * 
    * @example
    * demo.aliyundoc.com
    */
   playDomain?: string;
   /**
+   * @remarks
+   * Ingest domain used by the group.
+   * 
    * @example
    * example.aliyundoc.com
    */
   pushDomain?: string;
   /**
+   * @remarks
+   * The region where the space is located. This region serves as the service center.
+   * 
    * @example
    * cn-qingdao
    */
   region?: string;
+  /**
+   * @remarks
+   * Device statistics for the group.
+   */
   stats?: DescribeGroupsResponseBodyGroupsStats;
   /**
+   * @remarks
+   * Group status. Valid values:
+   * 
+   * - on (enabled)
+   * 
+   * - off (disabled)
+   * 
    * @example
    * on
    */
@@ -207,28 +295,47 @@ export class DescribeGroupsResponseBodyGroups extends $dara.Model {
 }
 
 export class DescribeGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of groups.
+   */
   groups?: DescribeGroupsResponseBodyGroups[];
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 10
    */
   pageCount?: number;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 5
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of groups.
+   * 
    * @example
    * 200
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchDeleteDevicesResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * Device error message. (Only present if an error occurs)
+   * 
    * @example
    * Device not found
    */
   error?: string;
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * 323884****9092996
    */
@@ -38,10 +44,17 @@ export class BatchDeleteDevicesResponseBodyResults extends $dara.Model {
 
 export class BatchDeleteDevicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID of this task.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Result list.
+   */
   results?: BatchDeleteDevicesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDirectoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The directory ID.
+   * 
    * This parameter is required.
    * 
    * @example

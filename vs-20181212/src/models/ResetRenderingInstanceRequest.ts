@@ -8,9 +8,18 @@ export class ResetRenderingInstanceRequest extends $dara.Model {
    * Reset
    */
   actionName?: string;
+  /**
+   * @remarks
+   * Data baseline ID
+   * 
+   * @example
+   * dp-449ea3d16c0841b8bf33ec5bbc86a152
+   */
   dataPackageId?: string;
   /**
    * @remarks
+   * Service instance ID
+   * 
    * This parameter is required.
    * 
    * @example

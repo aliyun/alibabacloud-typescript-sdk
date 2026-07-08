@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFileRequest extends $dara.Model {
   /**
    * @remarks
+   * File ID. Each file has a unique ID.
+   * 
    * This parameter is required.
    * 
    * @example

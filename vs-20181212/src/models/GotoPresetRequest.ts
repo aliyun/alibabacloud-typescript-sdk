@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GotoPresetRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class GotoPresetRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * Preset ID.
+   * 
    * This parameter is required.
    * 
    * @example

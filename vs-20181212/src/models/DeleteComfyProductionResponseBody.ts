@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteComfyProductionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * The message that is returned.
+   * 
    * @example
    * success
    */

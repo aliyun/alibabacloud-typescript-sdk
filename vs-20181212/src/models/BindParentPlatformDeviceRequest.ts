@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindParentPlatformDeviceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the device.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class BindParentPlatformDeviceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the parent platform.
+   * 
    * This parameter is required.
    * 
    * @example

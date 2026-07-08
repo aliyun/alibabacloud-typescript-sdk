@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePresetsResponseBodyPresets extends $dara.Model {
   /**
+   * @remarks
+   * Preset ID.
+   * 
    * @example
    * 2
    */
   id?: string;
+  /**
+   * @remarks
+   * Preset name.
+   * 
+   * @example
+   * 预置位2
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,12 +44,22 @@ export class DescribePresetsResponseBodyPresets extends $dara.Model {
 
 export class DescribePresetsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   id?: string;
+  /**
+   * @remarks
+   * List of presets.
+   */
   presets?: DescribePresetsResponseBodyPresets[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9FE0CA83-BFD3-4EBD-A429-FABB9B9AE772
    */

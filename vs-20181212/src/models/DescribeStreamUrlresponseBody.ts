@@ -4,16 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeStreamURLResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The time when the URL expires.<br>
+   * A UNIX timestamp. Unit: seconds.<br>
+   * 
    * @example
    * 1557977029
    */
   expireTime?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * The URL of the stream.
+   * 
    * @example
    * rtmp://demo.aliyundoc.com/live/310101*****7542007?auth_key=1639130258-0-0-b2b04fe85ece6*****a6b1a42bc7e
    */

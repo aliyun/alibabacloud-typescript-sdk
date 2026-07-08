@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteRenderingInstanceConfigurationRequestConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * List attribute names to purge. Purge all configured attributes for this module by default.
+   */
   attributeNames?: string[];
   /**
    * @remarks
+   * Module name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,9 +45,15 @@ export class DeleteRenderingInstanceConfigurationRequestConfiguration extends $d
 }
 
 export class DeleteRenderingInstanceConfigurationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration content. Purge all configured modules by default.
+   */
   configuration?: DeleteRenderingInstanceConfigurationRequestConfiguration[];
   /**
    * @remarks
+   * Cloud application service instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

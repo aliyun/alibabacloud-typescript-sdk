@@ -78,26 +78,41 @@ export class DescribeVsStreamsOnlineListResponseBodyOnlineInfo extends $dara.Mod
 export class DescribeVsStreamsOnlineListResponseBody extends $dara.Model {
   onlineInfo?: DescribeVsStreamsOnlineListResponseBodyOnlineInfo;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries displayed per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B31FC4AD-3592-573E-8063-878F722B322A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries that meet the criteria.
+   * 
    * @example
    * 10
    */
   totalNum?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */

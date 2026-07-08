@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchBindDirectoriesRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID. Separate multiple values with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BatchBindDirectoriesRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * Directory ID.
+   * 
    * This parameter is required.
    * 
    * @example

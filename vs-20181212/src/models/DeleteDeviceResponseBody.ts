@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDeviceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID of this operation.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

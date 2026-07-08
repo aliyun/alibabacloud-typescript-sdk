@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetRenderingProjectInstanceStateMetricsRequest extends $dara.Model {
   /**
    * @remarks
+   * Project ID
+   * 
    * This parameter is required.
    * 
    * @example

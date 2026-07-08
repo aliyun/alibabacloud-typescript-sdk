@@ -4,37 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDeviceChannelsResponseBodyChannels extends $dara.Model {
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * 0
    */
   channelId?: number;
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The status of the device.
+   * 
    * @example
    * on
    */
   deviceStatus?: string;
   /**
+   * @remarks
+   * The GB ID.
+   * 
    * @example
    * 3100000****000000002
    */
   gbId?: string;
+  /**
+   * @remarks
+   * The name of the channel.
+   * 
+   * @example
+   * 通道1
+   */
   name?: string;
   /**
+   * @remarks
+   * Other configurations of the device.
+   * 
    * @example
    * {}
    */
   params?: string;
   /**
+   * @remarks
+   * The stream ID.
+   * 
    * @example
    * 323*****997-cn-qingdao
    */
   streamId?: string;
   /**
+   * @remarks
+   * The status of the stream.
+   * 
    * @example
    * off
    */
@@ -75,28 +103,47 @@ export class DescribeDeviceChannelsResponseBodyChannels extends $dara.Model {
 }
 
 export class DescribeDeviceChannelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of channels.
+   */
   channels?: DescribeDeviceChannelsResponseBodyChannels[];
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */
   pageCount?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 4641C72D-462E-4AEA-8485-FC267AF90B0A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of channels.
+   * 
    * @example
    * 1
    */

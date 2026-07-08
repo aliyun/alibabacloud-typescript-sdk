@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindDirectoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BindDirectoryRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * The folder ID.
+   * 
    * This parameter is required.
    * 
    * @example

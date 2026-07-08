@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePresetRequest extends $dara.Model {
   /**
    * @remarks
+   * The device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class DeletePresetRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The preset ID.
+   * 
    * This parameter is required.
    * 
    * @example

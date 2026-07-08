@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class BatchSetVsDomainConfigsRequest extends $dara.Model {
   /**
    * @remarks
+   * Your accelerated domain names.
+   * 
+   * > Supports multiple domain names separated by commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class BatchSetVsDomainConfigsRequest extends $dara.Model {
   domainNames?: string;
   /**
    * @remarks
+   * List of features.
+   * 
    * This parameter is required.
    * 
    * @example

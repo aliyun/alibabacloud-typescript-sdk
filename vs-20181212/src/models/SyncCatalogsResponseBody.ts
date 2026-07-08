@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SyncCatalogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
-   * 3238****739092996
+   * 3238****739092996-cn-shenzhen
    */
   id?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

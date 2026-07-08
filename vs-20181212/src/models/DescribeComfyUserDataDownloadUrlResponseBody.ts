@@ -4,28 +4,40 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeComfyUserDataDownloadUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * The download URL for the application package.
+   * 
    * @example
    * https://xxx.xxx.xxx.
    */
   downloadUrl?: string;
   /**
+   * @remarks
+   * The expiration time for the download link.
+   * 
    * @example
    * 1752805579553
    */
   expiredTime?: string;
   /**
+   * @remarks
+   * The result message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

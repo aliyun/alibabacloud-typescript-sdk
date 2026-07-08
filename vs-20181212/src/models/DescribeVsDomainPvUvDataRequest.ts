@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVsDomainPvUvDataRequest extends $dara.Model {
   /**
    * @remarks
+   * Visual Edge Computing Service domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,18 @@ export class DescribeVsDomainPvUvDataRequest extends $dara.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * End time in UTC format. For example: 2016-06-30T19:00:00Z
+   * 
    * @example
    * 2021-11-24T00:00:00Z
    */
   endTime?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Start time in UTC format. For example: 2016-06-29T19:00:00Z
+   * 
    * @example
    * 2021-10-14T23:00:00Z
    */

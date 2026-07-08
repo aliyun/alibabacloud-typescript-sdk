@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * Template ID.
+   * 
    * This parameter is required.
    * 
    * @example

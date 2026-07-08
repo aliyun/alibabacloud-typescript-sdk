@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetPresetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * 348*****380-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 30295DF1-1DC7-48BA-BE5A-D58E61EB2375
    */

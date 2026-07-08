@@ -4,20 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRenderingInstancesResponseBodyRenderingInstances extends $dara.Model {
   /**
+   * @remarks
+   * Creation time of the cloud application service instance
+   * 
    * @example
    * 2023-11-17T02:18:04Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * ID of the cloud application service instance
+   * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
    */
   renderingInstanceId?: string;
   /**
+   * @remarks
+   * Instance type of the cloud application service
+   * 
    * @example
    * crs.cp.l1
    */
   renderingSpec?: string;
+  /**
+   * @remarks
+   * Storage capacity, in GB
+   * 
+   * @example
+   * 100
+   */
   storageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -47,13 +63,23 @@ export class ListRenderingInstancesResponseBodyRenderingInstances extends $dara.
 }
 
 export class ListRenderingInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of cloud application service instances
+   */
   renderingInstances?: ListRenderingInstancesResponseBodyRenderingInstances[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of cloud application service instances
+   * 
    * @example
    * 100
    */

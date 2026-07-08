@@ -57,26 +57,41 @@ export class DescribeVsDomainBpsDataResponseBodyBpsDataPerInterval extends $dara
 export class DescribeVsDomainBpsDataResponseBody extends $dara.Model {
   bpsDataPerInterval?: DescribeVsDomainBpsDataResponseBodyBpsDataPerInterval;
   /**
+   * @remarks
+   * The time interval for each record. Unit: seconds.
+   * 
    * @example
    * 2100
    */
   dataInterval?: string;
   /**
+   * @remarks
+   * Domain name
+   * 
    * @example
    * example.aliyundoc.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * End time
+   * 
    * @example
    * 2021-10-01T07:10:48Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * Request ID for this operation
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
   /**
+   * @remarks
+   * Start time
+   * 
    * @example
    * 2021-09-18T16:00:00Z
    */

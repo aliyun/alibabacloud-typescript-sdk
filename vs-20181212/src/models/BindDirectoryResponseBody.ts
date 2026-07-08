@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindDirectoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3CB843A9-DD34-4881-B8D6-B0D539D111E4
    */

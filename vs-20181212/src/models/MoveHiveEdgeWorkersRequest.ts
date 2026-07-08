@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class MoveHiveEdgeWorkersRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the target Hive.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class MoveHiveEdgeWorkersRequest extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
+   * The IDs of the cloud application service instances to move.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeVsStreamRequest extends $dara.Model {
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class ResumeVsStreamRequest extends $dara.Model {
   controlStreamAction?: string;
   /**
    * @remarks
+   * Your accelerated domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,10 @@ export class ResumeVsStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
+   * The stream type.
+   * 
+   * > Only publisher is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +39,8 @@ export class ResumeVsStreamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The stream name.
+   * 
    * This parameter is required.
    * 
    * @example

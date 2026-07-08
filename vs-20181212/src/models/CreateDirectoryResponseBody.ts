@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDirectoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Folder ID.
+   * 
    * @example
    * 399*****488-cn-qingdao
    */
   id?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */

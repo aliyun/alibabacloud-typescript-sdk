@@ -4,18 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Application name used by the workspace. Default value: live
+   * 
    * @example
    * live
    */
   app?: string;
   /**
+   * @remarks
+   * Callback URL triggered when device or stream status updates in the workspace
+   * 
    * @example
    * http://example.com/callback
    */
   callback?: string;
+  /**
+   * @remarks
+   * Workspace description
+   * 
+   * @example
+   * 我的视频监控
+   */
   description?: string;
   /**
    * @remarks
+   * Ingest protocol used by the workspace. Valid values:
+   * 
+   * - gb28181
+   * 
+   * - rtmp
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,32 +42,62 @@ export class CreateGroupRequest extends $dara.Model {
    */
   inProtocol?: string;
   /**
+   * @remarks
+   * Whether to enable on-demand stream pulling. Valid values:
+   * 
+   * - false (default)
+   * 
+   * - true
+   * 
    * @example
    * false
    */
   lazyPull?: boolean;
   /**
    * @remarks
+   * Workspace name
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 我的视频监控
    */
   name?: string;
   /**
+   * @remarks
+   * Playback protocols used by the workspace. Separate multiple values with commas. Valid values:
+   * 
+   * - flv
+   * 
+   * - hls
+   * 
+   * - rtmp
+   * 
    * @example
    * flv,rtmp
    */
   outProtocol?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Streaming domain used by the workspace
+   * 
    * @example
    * demo.aliyundoc.com
    */
   playDomain?: string;
   /**
+   * @remarks
+   * Ingest domain used by the workspace
+   * 
    * @example
    * example.aliyundoc.com
    */
   pushDomain?: string;
   /**
+   * @remarks
+   * Region where the workspace is located, that is, the service center
+   * 
    * @example
    * cn-shanghai
    */

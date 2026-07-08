@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PushFileRequest extends $dara.Model {
   /**
    * @remarks
+   * File ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class PushFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
+   * Cloud application service instance ID
+   * 
    * This parameter is required.
    * 
    * @example

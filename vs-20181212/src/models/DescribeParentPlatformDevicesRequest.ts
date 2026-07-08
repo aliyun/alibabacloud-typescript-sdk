@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParentPlatformDevicesRequest extends $dara.Model {
   /**
    * @remarks
+   * Query by parent platform ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,21 +15,35 @@ export class DescribeParentPlatformDevicesRequest extends $dara.Model {
   id?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The page size. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Sort by the specified field. Sorted by id by default.
+   * 
    * @example
    * id
    */
   sortBy?: string;
   /**
+   * @remarks
+   * Sort order. Ascending by default. Valid values:
+   * - asc (ascending)
+   * - desc (descending)
+   * 
    * @example
    * asc
    */

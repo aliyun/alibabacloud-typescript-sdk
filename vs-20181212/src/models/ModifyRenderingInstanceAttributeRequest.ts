@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRenderingInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * Password for the device.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyRenderingInstanceAttributeRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
+   * ID of the cloud application service instance.
+   * 
    * This parameter is required.
    * 
    * @example
