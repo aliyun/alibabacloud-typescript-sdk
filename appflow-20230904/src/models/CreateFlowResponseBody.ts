@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFlowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The information of the newly created product returned when the call succeeds.
+   * 
    * @example
    * flow-9691a04fc7f94525aac1
    */
   data?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 32F02021-11D2-5196-BC85-72890E9AA090

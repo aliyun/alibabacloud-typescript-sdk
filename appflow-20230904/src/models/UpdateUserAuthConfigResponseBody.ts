@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserAuthConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The unique request ID.
    * 
    * @example
    * 83C6468F-3D68-5791-860E-29AB8FCACC73

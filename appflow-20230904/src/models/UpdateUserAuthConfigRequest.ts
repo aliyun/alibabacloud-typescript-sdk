@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateUserAuthConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The user authentication credential, provided as a JSON string.
+   * 
    * @example
    * {\\"apiKey\\": \\"************\\"}
    */
   authConfig?: string;
   /**
    * @remarks
+   * The ID of the credential.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class UpdateUserAuthConfigRequest extends $dara.Model {
    */
   authConfigId?: string;
   /**
+   * @remarks
+   * The name of the credential.
+   * 
    * @example
    * name
    */
   authConfigName?: string;
   /**
    * @remarks
+   * The ID of the connector.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +40,9 @@ export class UpdateUserAuthConfigRequest extends $dara.Model {
    */
   connectorId?: string;
   /**
+   * @remarks
+   * The connector version.
+   * 
    * @example
    * 1
    */

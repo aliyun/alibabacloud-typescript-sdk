@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class InvokeActionRequestAuthConfig extends $dara.Model {
   /**
+   * @remarks
+   * The type of authentication information.
+   * 
    * @example
    * raw
    */
   type?: string;
   /**
+   * @remarks
+   * The authentication content. Its value is a raw JSON object or a credential ID, as determined by the `Type` parameter.
+   * 
    * @example
    * {"AppId":"xxxx","AppSecret":"sk-xxx"}
    */
@@ -39,6 +45,8 @@ export class InvokeActionRequestAuthConfig extends $dara.Model {
 export class InvokeActionRequest extends $dara.Model {
   /**
    * @remarks
+   * The action ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,14 +54,27 @@ export class InvokeActionRequest extends $dara.Model {
    */
   actionId?: string;
   /**
+   * @remarks
+   * The action version.
+   * 
    * @example
    * 1
    */
   actionVersion?: string;
+  /**
+   * @remarks
+   * The authentication information for the action.
+   */
   authConfig?: InvokeActionRequestAuthConfig;
+  /**
+   * @remarks
+   * The request body for the action.
+   */
   body?: { [key: string]: any };
   /**
    * @remarks
+   * The connector ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,14 +82,32 @@ export class InvokeActionRequest extends $dara.Model {
    */
   connectorId?: string;
   /**
+   * @remarks
+   * The connector version.
+   * 
    * @example
    * 1
    */
   connectorVersion?: string;
+  /**
+   * @remarks
+   * The request header parameters for the action.
+   */
   headers?: { [key: string]: string };
+  /**
+   * @remarks
+   * The path parameters for the action.
+   */
   path?: { [key: string]: string };
+  /**
+   * @remarks
+   * The query parameters for the action.
+   */
   query?: { [key: string]: string };
   /**
+   * @remarks
+   * Specifies whether to use streaming output.
+   * 
    * @example
    * false
    */

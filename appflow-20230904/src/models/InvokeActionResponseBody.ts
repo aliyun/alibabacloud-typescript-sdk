@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class InvokeActionResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The provided parameter xxx is invalid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The output of the action.
+   * 
    * @example
    * {
    *   "output": {
@@ -25,6 +31,9 @@ export class InvokeActionResponseBodyResult extends $dara.Model {
    */
   output?: any;
   /**
+   * @remarks
+   * The execution status.
+   * 
    * @example
    * RUNNING、COMPLETED
    */
@@ -57,12 +66,16 @@ export class InvokeActionResponseBodyResult extends $dara.Model {
 export class InvokeActionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 346E5EE9-D5FE-56A0-B3E2-A43E0F67302A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The execution result.
+   */
   result?: InvokeActionResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

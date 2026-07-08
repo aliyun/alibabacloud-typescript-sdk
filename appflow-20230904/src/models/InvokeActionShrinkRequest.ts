@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeActionShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The action ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,14 +14,27 @@ export class InvokeActionShrinkRequest extends $dara.Model {
    */
   actionId?: string;
   /**
+   * @remarks
+   * The action version.
+   * 
    * @example
    * 1
    */
   actionVersion?: string;
+  /**
+   * @remarks
+   * The authentication information for the action.
+   */
   authConfigShrink?: string;
+  /**
+   * @remarks
+   * The request body for the action.
+   */
   bodyShrink?: string;
   /**
    * @remarks
+   * The connector ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,14 +42,32 @@ export class InvokeActionShrinkRequest extends $dara.Model {
    */
   connectorId?: string;
   /**
+   * @remarks
+   * The connector version.
+   * 
    * @example
    * 1
    */
   connectorVersion?: string;
+  /**
+   * @remarks
+   * The request header parameters for the action.
+   */
   headersShrink?: string;
+  /**
+   * @remarks
+   * The path parameters for the action.
+   */
   pathShrink?: string;
+  /**
+   * @remarks
+   * The query parameters for the action.
+   */
   queryShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to use streaming output.
+   * 
    * @example
    * false
    */

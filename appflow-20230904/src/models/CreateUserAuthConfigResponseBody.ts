@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUserAuthConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the user credential.
+   * 
    * @example
    * uac-a2253c40486c40c1b910
    */
   data?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 249048A1-7FF7-5D2E-A322-695420112094

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserAuthConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The credential ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetUserAuthConfigRequest extends $dara.Model {
   authConfigId?: string;
   /**
    * @remarks
+   * The connector ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class GetUserAuthConfigRequest extends $dara.Model {
    */
   connectorId?: string;
   /**
+   * @remarks
+   * The connector version.
+   * 
    * @example
    * 1
    */

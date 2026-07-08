@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUserSessionTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * AI Assistant ID
+   * RDS Copilot ID
    * 
    * @example
    * cb-069d508f9ab341b1****
@@ -13,7 +13,7 @@ export class GenerateUserSessionTokenRequest extends $dara.Model {
   chatbotId?: string;
   /**
    * @remarks
-   * Expiration Time, in seconds, default 24 hours
+   * Time-to-live (TTL) in seconds. Default is 24 hours.
    * 
    * @example
    * 6000
@@ -30,7 +30,7 @@ export class GenerateUserSessionTokenRequest extends $dara.Model {
   integrateId?: string;
   /**
    * @remarks
-   * User Avatar (URL)
+   * Profile picture (URL)
    * 
    * @example
    * https://xxxx.com/xxx
@@ -48,7 +48,7 @@ export class GenerateUserSessionTokenRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * User Nickname
+   * Nickname
    * 
    * @example
    * testxxx

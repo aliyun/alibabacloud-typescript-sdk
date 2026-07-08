@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserAuthConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The credential ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteUserAuthConfigRequest extends $dara.Model {
   authConfigId?: string;
   /**
    * @remarks
+   * The ID of the connector.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DeleteUserAuthConfigRequest extends $dara.Model {
    */
   connectorId?: string;
   /**
+   * @remarks
+   * The connector name.
+   * 
    * @example
    * 2
    */

@@ -13,7 +13,7 @@ export class GenerateUserSessionTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Token.
+   * Token
    * 
    * @example
    * 960f499au184m7****

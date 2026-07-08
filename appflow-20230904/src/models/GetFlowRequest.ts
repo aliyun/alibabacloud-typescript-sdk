@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetFlowRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the flow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetFlowRequest extends $dara.Model {
    */
   flowId?: string;
   /**
+   * @remarks
+   * The version of the flow.
+   * 
    * @example
    * 6
    */

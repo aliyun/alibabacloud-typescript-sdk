@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFlowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data returned by the operation.
+   * 
    * @example
    * None
    */
   data?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * A053FC9D-AB9D-5258-9355-8FA57EE888C0

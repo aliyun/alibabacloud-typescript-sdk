@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-hangzhou': "appflow.cn-hangzhou.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("appflow", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +33,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建连接流
+   * Creates a flow.
+   * 
+   * @remarks
+   * Creates a flow or a flow version.
    * 
    * @param request - CreateFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -89,7 +95,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建连接流
+   * Creates a flow.
+   * 
+   * @remarks
+   * Creates a flow or a flow version.
    * 
    * @param request - CreateFlowRequest
    * @returns CreateFlowResponse
@@ -100,7 +109,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户鉴权凭证
+   * Creates a user authentication credential.
+   * 
+   * @remarks
+   * Creates a connection flow or a connection flow version.
    * 
    * @param request - CreateUserAuthConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -147,7 +159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户鉴权凭证
+   * Creates a user authentication credential.
+   * 
+   * @remarks
+   * Creates a connection flow or a connection flow version.
    * 
    * @param request - CreateUserAuthConfigRequest
    * @returns CreateUserAuthConfigResponse
@@ -158,7 +173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除连接流
+   * Deletes a connection flow.
    * 
    * @param request - DeleteFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -193,7 +208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除连接流
+   * Deletes a connection flow.
    * 
    * @param request - DeleteFlowRequest
    * @returns DeleteFlowResponse
@@ -204,7 +219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户鉴权凭证
+   * Deletes a user authentication credential.
+   * 
+   * @remarks
+   * Creates a connection flow or a connection flow version.
    * 
    * @param request - DeleteUserAuthConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -243,7 +261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户鉴权凭证
+   * Deletes a user authentication credential.
+   * 
+   * @remarks
+   * Creates a connection flow or a connection flow version.
    * 
    * @param request - DeleteUserAuthConfigRequest
    * @returns DeleteUserAuthConfigResponse
@@ -254,7 +275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用连接流
+   * Disables a flow.
    * 
    * @param request - DisableFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -289,7 +310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用连接流
+   * Disables a flow.
    * 
    * @param request - DisableFlowRequest
    * @returns DisableFlowResponse
@@ -300,7 +321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用连接流
+   * Enables a flow.
    * 
    * @param request - EnableFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -335,7 +356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用连接流
+   * Enables a flow.
    * 
    * @param request - EnableFlowRequest
    * @returns EnableFlowResponse
@@ -346,7 +367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generate Login Session Token
+   * Generates a logon session token.
    * 
    * @param request - GenerateUserSessionTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -401,7 +422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generate Login Session Token
+   * Generates a logon session token.
    * 
    * @param request - GenerateUserSessionTokenRequest
    * @returns GenerateUserSessionTokenResponse
@@ -412,7 +433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取连接流详情
+   * Queries the details of a flow.
    * 
    * @param request - GetFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -447,7 +468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取连接流详情
+   * Queries the details of a flow.
    * 
    * @param request - GetFlowRequest
    * @returns GetFlowResponse
@@ -458,7 +479,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户鉴权凭证详情
+   * Gets the details of a user authentication credential.
+   * 
+   * @remarks
+   * This operation gets the details of a specified credential.
    * 
    * @param request - GetUserAuthConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -497,7 +521,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户鉴权凭证详情
+   * Gets the details of a user authentication credential.
+   * 
+   * @remarks
+   * This operation gets the details of a specified credential.
    * 
    * @param request - GetUserAuthConfigRequest
    * @returns GetUserAuthConfigResponse
@@ -508,7 +535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行连接器的执行动作
+   * Invokes a connector action.
    * 
    * @param tmpReq - InvokeActionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -611,7 +638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行连接器的执行动作
+   * Invokes a connector action.
    * 
    * @param tmpReq - InvokeActionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -700,7 +727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行连接器的执行动作
+   * Invokes a connector action.
    * 
    * @param request - InvokeActionRequest
    * @returns InvokeActionResponse
@@ -711,7 +738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布连接流
+   * Launches a flow.
    * 
    * @param request - LaunchFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -758,7 +785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布连接流
+   * Launches a flow.
    * 
    * @param request - LaunchFlowRequest
    * @returns LaunchFlowResponse
@@ -769,7 +796,70 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户鉴权凭证列表
+   * Retrieves a list of connector flows.
+   * 
+   * @remarks
+   * Creates a connector flow or a connector flow version.
+   * 
+   * @param request - ListFlowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowsResponse
+   */
+  async listFlowsWithOptions(request: $_model.ListFlowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlows",
+      version: "2023-09-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowsResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowsResponse({}));
+  }
+
+  /**
+   * Retrieves a list of connector flows.
+   * 
+   * @remarks
+   * Creates a connector flow or a connector flow version.
+   * 
+   * @param request - ListFlowsRequest
+   * @returns ListFlowsResponse
+   */
+  async listFlows(request: $_model.ListFlowsRequest): Promise<$_model.ListFlowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlowsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists user authentication credentials.
+   * 
+   * @remarks
+   * This operation retrieves user auth configs that match specified filters.
    * 
    * @param request - ListUserAuthConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -820,7 +910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户鉴权凭证列表
+   * Lists user authentication credentials.
+   * 
+   * @remarks
+   * This operation retrieves user auth configs that match specified filters.
    * 
    * @param request - ListUserAuthConfigsRequest
    * @returns ListUserAuthConfigsResponse
@@ -831,7 +924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新连接流
+   * Updates a connection flow.
    * 
    * @param request - UpdateFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -882,7 +975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新连接流
+   * Updates a connection flow.
    * 
    * @param request - UpdateFlowRequest
    * @returns UpdateFlowResponse
@@ -893,7 +986,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑用户鉴权凭证
+   * Updates a user authentication credential.
+   * 
+   * @remarks
+   * Updates the configuration of a specific user authentication credential.
    * 
    * @param request - UpdateUserAuthConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -940,7 +1036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑用户鉴权凭证
+   * Updates a user authentication credential.
+   * 
+   * @remarks
+   * Updates the configuration of a specific user authentication credential.
    * 
    * @param request - UpdateUserAuthConfigRequest
    * @returns UpdateUserAuthConfigResponse
@@ -951,7 +1050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下线连接流
+   * Withdraws a connection flow.
    * 
    * @param request - WithdrawFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -986,7 +1085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下线连接流
+   * Withdraws a connection flow.
    * 
    * @param request - WithdrawFlowRequest
    * @returns WithdrawFlowResponse

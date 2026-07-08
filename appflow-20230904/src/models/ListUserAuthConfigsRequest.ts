@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserAuthConfigsRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The name of the filter field.
+   * 
    * @example
    * AuthConfigName
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of filter values. The valid range for N is 1 to 10.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37,12 +44,17 @@ export class ListUserAuthConfigsRequestFilter extends $dara.Model {
 
 export class ListUserAuthConfigsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The authentication type.
+   * 
    * @example
    * QQBotAccessToken
    */
   authType?: string;
   /**
    * @remarks
+   * The ID of the connector.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,17 +62,30 @@ export class ListUserAuthConfigsRequest extends $dara.Model {
    */
   connectorId?: string;
   /**
+   * @remarks
+   * The version of the connector.
+   * 
    * @example
    * 6
    */
   connectorVersion?: string;
+  /**
+   * @remarks
+   * The query conditions.
+   */
   filter?: ListUserAuthConfigsRequestFilter[];
   /**
+   * @remarks
+   * The maximum number of entries.
+   * 
    * @example
    * 20
    */
   maxResults?: string;
   /**
+   * @remarks
+   * The pagination token for the request.
+   * 
    * @example
    * AAAAAVY3rYiv9VoUJQSiCitgjgQu5rMgGgvUoNWg8LykhA85j8bgHiGAwZWnCMJPepC+WWc0DK5hx1qIycMHVWP2AjQ=
    */

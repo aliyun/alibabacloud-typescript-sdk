@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class WithdrawFlowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * None
    */
   data?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 39B608FB-906F-51CF-AD82-7EFE46C0D56A

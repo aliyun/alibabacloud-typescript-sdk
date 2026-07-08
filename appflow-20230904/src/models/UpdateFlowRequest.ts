@@ -4,21 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFlowRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the connection flow is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The description of the connection flow.
+   * 
+   * @example
+   * 新建流程
+   */
   flowDesc?: string;
   /**
    * @remarks
+   * The ID of the connection flow.
+   * 
    * This parameter is required.
    * 
    * @example
    * flow-15550241a1e942c29835
    */
   flowId?: string;
+  /**
+   * @remarks
+   * The name of the connection flow.
+   * 
+   * @example
+   * 新建流程
+   */
   flowName?: string;
   /**
+   * @remarks
+   * The template of the connection flow.
+   * 
    * @example
    * {
    *   "FormatVersion": "appflow-2025-07-01",
@@ -29,6 +51,9 @@ export class UpdateFlowRequest extends $dara.Model {
    */
   flowTemplate?: string;
   /**
+   * @remarks
+   * The version of the connection flow.
+   * 
    * @example
    * 9
    */

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUserAuthConfigResponseBodyUserAuthConfig extends $dara.Model {
   /**
+   * @remarks
+   * The auth config, specified as a JSON string.
+   * 
    * @example
    * {\\"apiKey":\\"xxxxxxxxxx\\"}
    */
   authConfig?: string;
   /**
+   * @remarks
+   * The credential ID.
+   * 
    * @example
    * uac-111111111
    */
   authConfigId?: string;
   /**
+   * @remarks
+   * The credential name.
+   * 
    * @example
    * dingtlak_name
    */
   authConfigName?: string;
   /**
+   * @remarks
+   * The authentication type.
+   * 
    * @example
    * ApiKey
    */
   authType?: string;
   /**
+   * @remarks
+   * The connector ID.
+   * 
    * @example
    * connector-172176821387
    */
   connectorId?: string;
   /**
+   * @remarks
+   * The connector version.
+   * 
    * @example
    * 1
    */
@@ -67,12 +85,16 @@ export class GetUserAuthConfigResponseBodyUserAuthConfig extends $dara.Model {
 export class GetUserAuthConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 458CB9FE-8C71-58A8-AD49-97EF28D58FAB
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Contains the credential details.
+   */
   userAuthConfig?: GetUserAuthConfigResponseBodyUserAuthConfig;
   static names(): { [key: string]: string } {
     return {

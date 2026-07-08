@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisableFlowRequest extends $dara.Model {
   /**
    * @remarks
+   * The flow ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DisableFlowRequest extends $dara.Model {
    */
   flowId?: string;
   /**
+   * @remarks
+   * The flow version.
+   * 
    * @example
    * 1
    */
