@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMemberAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * 5ABE714C-8890-5D7E-A08B-45CB****5473
+   * 5ABE714C-8890-5D7E-A08B-45CB650F5473
    */
   requestId?: string;
   static names(): { [key: string]: string } {

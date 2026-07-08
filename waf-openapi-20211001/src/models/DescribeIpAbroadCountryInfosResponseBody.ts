@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * US-CA
    */
   abroadRegionId?: string;
   /**
+   * @remarks
+   * The name of the region.
+   * 
    * @example
-   * 加利福尼亚州
+   * California
    */
   abroadRegionName?: string;
   static names(): { [key: string]: string } {
@@ -38,20 +44,33 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions extends 
 
 export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos extends $dara.Model {
   /**
+   * @remarks
+   * The continent to which the country belongs.
+   * 
    * @example
-   * 北美洲
+   * North America
    */
   continent?: string;
   /**
+   * @remarks
+   * The ID of the country.
+   * 
    * @example
    * US
    */
   country?: string;
   /**
+   * @remarks
+   * The name of the country.
+   * 
    * @example
-   * 美国
+   * United States
    */
   countryName?: string;
+  /**
+   * @remarks
+   * The list of region information outside China.
+   */
   regions?: DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions[];
   static names(): { [key: string]: string } {
     return {
@@ -84,23 +103,39 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos extends $dara.M
 }
 
 export class DescribeIpAbroadCountryInfosResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of country information outside China.
+   */
   abroadInfos?: DescribeIpAbroadCountryInfosResponseBodyAbroadInfos[];
   /**
+   * @remarks
+   * The number of entries per page in a paged query. Valid values: 1 to 500. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page.
+   * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID
+   * 
    * @example
    * 66A98669-CC6E-4F3E-80A6-3014697B11AE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2
    */

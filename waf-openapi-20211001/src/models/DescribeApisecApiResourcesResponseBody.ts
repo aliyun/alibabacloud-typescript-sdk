@@ -5,28 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of API-related risks.
+   * The number of risks associated with the API.
    * 
    * @example
    * 2
    */
   abnormalNum?: number;
   /**
+   * @remarks
+   * The number of account security events associated with the asset.
+   * 
    * @example
    * 1
    */
   accountEventNum?: number;
   /**
    * @remarks
-   * The total number of calls to this API in the previous 30 days.
+   * The total access volume in the last 30 days.
    * 
    * @example
-   * 10
+   * 1683388800
    */
   allCnt?: number;
   /**
    * @remarks
-   * The API.
+   * The API operation.
    * 
    * @example
    * /v1/etl/finddatabyvid
@@ -37,35 +40,34 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
    * The ID of the API.
    * 
    * @example
-   * 867ade***24ee6e205b8da82b8f84
+   * 197b52abcd81d6a8bd4***e477
    */
   apiId?: string;
   /**
    * @remarks
-   * The API-related information. The value of this parameter is a JSON string that contains multiple parameters. The value includes the following parameters:
-   * 
-   * * **param_num**: the number of API parameters
-   * * **request_method**: the request method
-   * * **protocol**: the request protocol
-   * * **api_url**: the request URL
-   * * **poc_payload**: the request
-   * * **request**: the sample request
-   * * **response**: the sample response
-   * * **param**: the request parameters
+   * The API information, which is a string converted from a JSON object constructed with a series of parameters. The parameters include:
+   * - **param_num**: the number of API parameters.
+   * - **request_method**: the request method.
+   * - **protocol**: the request protocol.
+   * - **api_url**: the request URL.
+   * - **poc_payload**: the request.
+   * - **request**: the request sample.
+   * - **response**: the response sample.
+   * - **param**: the request parameters.
+   * > This field is returned only when the **ApiId** parameter is specified.
    */
   apiInfo?: string;
   /**
    * @remarks
    * The request method of the API. Valid values:
-   * 
-   * * **GET**
-   * * **POST**
-   * * **HEAD**
-   * * **PUT**
-   * * **DELETE**
-   * * **CONNECT**
-   * * **PATCH**
-   * * **OPTIONS**
+   * - **GET**: GET request.
+   * - **POST**: POST request.
+   * - **HEAD**: HEAD request.
+   * - **PUT**: PUT request.
+   * - **DELETE**: DELETE request.
+   * - **CONNECT**: CONNECT request.
+   * - **PATCH**: PATCH request.
+   * - **OPTIONS**: OPTIONS request.
    * 
    * @example
    * POST
@@ -73,12 +75,11 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   apiMethod?: string;
   /**
    * @remarks
-   * The API-related sensitive information. The value of this parameter is a JSON string that contains multiple parameters. The value includes the following parameters:
-   * 
-   * * **request_sensitive_list**: the sensitive data type in the request
-   * * **response_sensitive_list**: the sensitive data type in the response
-   * * **sensitive_list**: sensitive data types
-   * * **sensitive_level**: sensitivity level
+   * The sensitive information involved in the API, which is a string converted from a JSON object constructed with a series of parameters. The parameters include:
+   * - **request_sensitive_list**: the list of sensitive data types in the request.
+   * - **response_sensitive_list**: the list of sensitive data types in the response.
+   * - **sensitive_list**: the list of sensitive data types.
+   * - **sensitive_level**: the sensitivity level.
    * 
    * @example
    * {
@@ -91,7 +92,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   apiSensitive?: string;
   /**
    * @remarks
-   * The sensitive data type in the request.
+   * The sensitive data in the API request.
    * 
    * @example
    * ["1002","1005"]
@@ -99,7 +100,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   apiSensitiveRequest?: string;
   /**
    * @remarks
-   * The sensitive data type in the response.
+   * The sensitive data in the API response.
    * 
    * @example
    * ["1002","1005"]
@@ -107,11 +108,10 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   apiSensitiveResponse?: string;
   /**
    * @remarks
-   * The API status. Valid values:
-   * 
-   * *   **NewbornInterface**: The API is newly added.
-   * *   **OfflineInterface**: The API is inactive.
-   * *   **normal**: The API is normal.
+   * The status of the API. Valid values:
+   * - **NewbornInterface**: newly added.
+   * - **OfflineInterface**: inactive.
+   * - **normal**: normal.
    * 
    * @example
    * NewbornInterface
@@ -120,8 +120,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The business purpose of the API.
-   * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
+   * > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
    * 
    * @example
    * SendMail
@@ -130,10 +129,9 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The service object. Valid values:
-   * 
-   * *   **PublicAPI**: public services
-   * *   **ThirdpartAPI**: cooperation with third-party partners
-   * *   **InternalAPI**: internal office
+   * - **PublicAPI**: public service.
+   * - **ThirdpartAPI**: third-party collaboration.
+   * - **InternalAPI**: internal office.
    * 
    * @example
    * PublicAPI
@@ -141,10 +139,9 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   apiType?: string;
   /**
    * @remarks
-   * Indicates whether authentication is required. Valid values:
-   * 
-   * * **0**: Authentication is required.
-   * * **1**: Authentication is not required.
+   * Specifies whether the API has an authentication field. Valid values:
+   * - **0**: has authentication.
+   * - **1**: does not have authentication.
    * 
    * @example
    * 1
@@ -152,7 +149,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   authFlag?: string;
   /**
    * @remarks
-   * The number of bot-initiated requests in the previous 30 days.
+   * The bot access volume in the last 30 days.
    * 
    * @example
    * 2
@@ -160,7 +157,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   botCnt?: number;
   /**
    * @remarks
-   * The number of the cross-border requests in the previous 30 days.
+   * The cross-border access volume in the last 30 days.
    * 
    * @example
    * 2
@@ -168,7 +165,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   crossBorderCnt?: number;
   /**
    * @remarks
-   * The number of API-related security events.
+   * The number of security events associated with the API.
    * 
    * @example
    * 2
@@ -176,14 +173,14 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   eventNum?: number;
   /**
    * @remarks
-   * The sample APIs.
+   * The list of API samples.
    * 
    * @deprecated
    */
   examples?: string[];
   /**
    * @remarks
-   * The time when the API asset was first detected. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * The time when the API asset was first discovered, in UNIX timestamp (UTC) format. Unit: seconds.
    * 
    * @example
    * 1683388800
@@ -191,10 +188,9 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   farthestTs?: number;
   /**
    * @remarks
-   * Specifies whether to follow the API. Valid values:
-   * 
-   * *   **1**: follows the API.
-   * *   **0**: does not follow the API.
+   * Specifies whether the API is followed. Valid values:
+   * - **1**: followed.
+   * - **0**: not followed.
    * 
    * @example
    * 1
@@ -202,7 +198,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   follow?: number;
   /**
    * @remarks
-   * The time at which the API was last accessed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The most recent access time of the API asset, in UNIX timestamp (UTC) format. Unit: seconds.
    * 
    * @example
    * 1683388800
@@ -210,7 +206,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   lastestTs?: number;
   /**
    * @remarks
-   * The domain name or IP address of the API.
+   * The domain name or IP address to which the API operation belongs.
    * 
    * @example
    * a.aliyun.com
@@ -221,12 +217,12 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
    * The remarks.
    * 
    * @example
-   * Password changed
+   * loginApi
    */
   note?: string;
   /**
    * @remarks
-   * The list of protection objects corresponding to this asset.
+   * The list of protected objects corresponding to the asset.
    */
   resources?: string[];
   static names(): { [key: string]: string } {
@@ -305,7 +301,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
 export class DescribeApisecApiResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API assets.
+   * The list of API assets.
    */
   data?: DescribeApisecApiResourcesResponseBodyData[];
   /**

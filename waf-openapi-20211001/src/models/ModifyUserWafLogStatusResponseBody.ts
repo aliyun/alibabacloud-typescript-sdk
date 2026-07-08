@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyUserWafLogStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Logstore in Simple Log Service (SLS).
+   * 
    * @example
    * wafng-logstore
    */
   logStoreName?: string;
   /**
+   * @remarks
+   * Indicates whether the Simple Log Service project is created.
+   * 
    * @example
    * wafng-project-14316572********-cn-hangzhou
    */
   projectName?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D7861F61-5B61-****-A47C-6B19160*****
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserTrafficResponseBodyUserTraffic extends $dara.Model {
   /**
+   * @remarks
+   * The sequence number sorted in chronological order.
+   * 
    * @example
    * 10
    */
   index?: number;
   /**
+   * @remarks
+   * The usage.
+   * 
    * @example
    * 1024
    */
@@ -38,10 +44,17 @@ export class DescribeUserTrafficResponseBodyUserTraffic extends $dara.Model {
 
 export class DescribeUserTrafficResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC10C9EA-A367-52D5-***-***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of user traffic data.
+   */
   userTraffic?: DescribeUserTrafficResponseBodyUserTraffic[];
   static names(): { [key: string]: string } {
     return {

@@ -6,7 +6,8 @@ export class DescribeUserAbnormalTrendRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * > This parameter is applicable only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain the hybrid cloud cluster ID.
    * 
    * @example
    * 428
@@ -14,9 +15,9 @@ export class DescribeUserAbnormalTrendRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -26,10 +27,11 @@ export class DescribeUserAbnormalTrendRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region in which the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

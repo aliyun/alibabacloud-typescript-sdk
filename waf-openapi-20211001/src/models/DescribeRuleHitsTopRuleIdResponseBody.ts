@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleHitsTopRuleIdResponseBodyRuleHitsTopRuleId extends $dara.Model {
   /**
    * @remarks
-   * The number of requests that match the rule.
+   * The number of requests that hit the rule.
    * 
    * @example
    * 181174784
@@ -13,7 +13,7 @@ export class DescribeRuleHitsTopRuleIdResponseBodyRuleHitsTopRuleId extends $dar
   count?: number;
   /**
    * @remarks
-   * The protected object.
+   * The protected object. This parameter is returned when the IsGroupResource request parameter is set to false.
    * 
    * @example
    * www.aliyundoc.com
@@ -21,7 +21,7 @@ export class DescribeRuleHitsTopRuleIdResponseBodyRuleHitsTopRuleId extends $dar
   resource?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 5465465
@@ -55,7 +55,7 @@ export class DescribeRuleHitsTopRuleIdResponseBodyRuleHitsTopRuleId extends $dar
 export class DescribeRuleHitsTopRuleIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F6334274-8870-5D2F-A1AD-D6EF885AC1ED
@@ -63,7 +63,7 @@ export class DescribeRuleHitsTopRuleIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of the IDs of the top 10 rules that are matched by requests.
+   * The top 10 rule IDs by rule hits.
    */
   ruleHitsTopRuleId?: DescribeRuleHitsTopRuleIdResponseBodyRuleHitsTopRuleId[];
   static names(): { [key: string]: string } {

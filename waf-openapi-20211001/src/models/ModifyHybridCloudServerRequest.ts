@@ -15,19 +15,19 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   continents?: string;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * This parameter is required.
    * 
    * @example
-   * demo
+   * 节点名称
    */
   customName?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -67,10 +67,11 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   regionCode?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -78,7 +79,7 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q

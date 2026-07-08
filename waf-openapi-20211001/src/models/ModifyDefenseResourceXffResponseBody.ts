@@ -8,7 +8,7 @@ export class ModifyDefenseResourceXffResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 6C094583-9B3F-5BD8-8748-DC638E****BF
+   * 6C094583-9B3F-5BD8-8748-DC638E48****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

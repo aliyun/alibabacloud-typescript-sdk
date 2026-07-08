@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysResponseBodyKeys extends $dara.Model {
   /**
    * @remarks
-   * The type of the tag. Valid values:
+   * The tag type. Valid values:
    * 
-   * *   custom
-   * *   system
+   * - custom: custom tag.
+   * - system: system tag.
    * 
    * @example
    * custom
@@ -16,7 +16,7 @@ export class ListTagKeysResponseBodyKeys extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * demoTagKey
@@ -48,12 +48,12 @@ export class ListTagKeysResponseBodyKeys extends $dara.Model {
 export class ListTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The keys and types of the tags.
+   * The list of tag keys and types.
    */
   keys?: ListTagKeysResponseBodyKeys[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that is used to start the next query. If this parameter is empty, no more results are returned.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -61,7 +61,7 @@ export class ListTagKeysResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8CB8BB88-24C7-5608-BF5E-4DCA****CF1C

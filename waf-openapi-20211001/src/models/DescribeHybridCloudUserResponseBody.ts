@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudUserResponseBodyUserInfo extends $dara.Model {
   /**
    * @remarks
-   * The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+   * The available HTTP ports. The value is a string. If multiple ports are returned, they are separated by commas (,). Example: **port1,port2,port3**.
    * 
    * @example
    * 80,8080
@@ -13,7 +13,7 @@ export class DescribeHybridCloudUserResponseBodyUserInfo extends $dara.Model {
   httpPorts?: string;
   /**
    * @remarks
-   * The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+   * The available HTTPS ports. The value is a string. If multiple ports are returned, they are separated by commas (,). Example: **port1,port2,port3**.
    * 
    * @example
    * 8443,443
@@ -45,7 +45,7 @@ export class DescribeHybridCloudUserResponseBodyUserInfo extends $dara.Model {
 export class DescribeHybridCloudUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9178CB86-285F-5679-A30A-3B3F007E4206
@@ -53,7 +53,7 @@ export class DescribeHybridCloudUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the ports that can be used by a hybrid cloud cluster.
+   * The information about the available HTTP and HTTPS port ranges for hybrid cloud access.
    */
   userInfo?: DescribeHybridCloudUserResponseBodyUserInfo;
   static names(): { [key: string]: string } {

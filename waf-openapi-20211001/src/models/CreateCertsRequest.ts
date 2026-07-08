@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCertsRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the certificate.
+   * The content of the certificate file.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- 62EcYPWd2****s6MTXcJSfN9Z7rZ9fmxWr2BFN2XbahgnsSXM48ixZJ4krc+1M+j2kcubVpsE2cgHdj4v8H6jUz9Ji4mr7vMNS6dXv8PUkl/qoDeNGCNdyTS5NIL5ir+g92cL8IGOkjgvhlqt9vc65Cgb4mL+n5+DV9uOyTZTW/MojmlgfUekC2xiXa54nxJf17Y1TADGSbyJbsC0Q9nIrHsPl8YKkvRWvIAqYxXZ7wRwWWmv4TMxFhWRiNY7yZIo2ZUhl02S****gIEeg== -----END CERTIFICATE-----
@@ -13,7 +13,7 @@ export class CreateCertsRequest extends $dara.Model {
   certContent?: string;
   /**
    * @remarks
-   * The private key that corresponds to the certificate.
+   * The content of the private key file that corresponds to the certificate.
    * 
    * @example
    * -----BEGIN RSA PRIVATE KEY----- DADTPZoOHd9WtZ3U****RgNQmioPQn2bqdKHop+B/dn/4VZL7Jt8zSDGM9sTMThLyvsmLQKBgQCr+ujntC1kN6pGBj2Fw2l/EA/W3rYEce2tyhjgmG7rZ+A/jVE9fld5sQra6ZdwBcQJaiygoIYoaMF2EjRwc0qwHaluq0C15f6ujSoHh2e+D5zdmkTg/3NKNjqNv6xA2gYpinVDzFdZ9Zujxvuh9o4Vqf0YF8****K5G04RtKadOw== -----END RSA PRIVATE KEY-----
@@ -21,7 +21,7 @@ export class CreateCertsRequest extends $dara.Model {
   certKey?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * testrsa1
@@ -30,8 +30,7 @@ export class CreateCertsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
-   * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -41,10 +40,11 @@ export class CreateCertsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -52,7 +52,7 @@ export class CreateCertsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q

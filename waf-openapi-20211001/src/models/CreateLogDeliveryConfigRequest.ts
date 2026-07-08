@@ -5,11 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLogDeliveryConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the log delivery configuration. Set the value to a JSON string that contains multiple parameters.
+   * The details of the log delivery configuration. The value is a JSON string that is generated from a series of parameters.
    * 
-   * >  The parameters vary based on the type of the **log delivery configuration** specified by **DeliveryType**. For more information, see **Parameter description for log delivery configuration**.
+   * > The parameters vary based on the value of **DeliveryType**. For more information, see **Parameters for log delivery configuration details**.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *   "rfcVersion": "rfc3164",
+   *   "protocol": "tcp",
+   *   "servers": [
+   *     {
+   *       "address": "1.1.1.1",
+   *       "port": 20
+   *     }
+   *   ]
+   * }
    */
   deliveryDetail?: string;
   /**
@@ -26,20 +38,21 @@ export class CreateLogDeliveryConfigRequest extends $dara.Model {
    * @remarks
    * The type of the log delivery configuration. Valid values:
    * 
-   * *   **syslog**: Logs are delivered to a syslog service.
-   * *   **kafka**: Logs are delivered to a Kafka service.
+   * - **syslog**: Delivers logs to a syslog service.
+   * 
+   * - **kafka**: Delivers logs to a Kafka service.
    * 
    * This parameter is required.
    * 
    * @example
-   * kafka
+   * syslog
    */
   deliveryType?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -49,10 +62,11 @@ export class CreateLogDeliveryConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

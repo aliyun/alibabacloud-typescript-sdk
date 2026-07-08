@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   /**
    * @remarks
-   * The time when the certificate expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The expiration date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1976256736582
@@ -13,7 +13,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   afterDate?: number;
   /**
    * @remarks
-   * The time when the certificate was issued. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The issuance time of the certificate. Unit: milliseconds.
    * 
    * @example
    * 1976256736582
@@ -21,7 +21,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   beforeDate?: number;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 123-cn-hangzhou
@@ -29,7 +29,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * testCertName
@@ -37,7 +37,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * The primary domain name, which is a common name.
+   * The common name of the certificate.
    * 
    * @example
    * *.xxxaliyun.com
@@ -45,7 +45,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The domain name that is associated with the certificate.
+   * The domain name associated with the certificate.
    * 
    * @example
    * demo.xxxaliyun.com
@@ -53,7 +53,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The other domain names that are associated with the certificate.
+   * The list of other domain names associated with the certificate.
    */
   sans?: string[];
   static names(): { [key: string]: string } {
@@ -95,12 +95,12 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
 export class DescribeCertDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the certificate.
+   * The SSL certificate details.
    */
   certDetail?: DescribeCertDetailResponseBodyCertDetail;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3C115DBE-8E53-5A12-9CAF-FD3F****CDF6

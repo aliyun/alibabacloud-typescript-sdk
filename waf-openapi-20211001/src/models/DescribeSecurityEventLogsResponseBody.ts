@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
+   * The end of the time range used for the query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the \\`EndDate\\` request parameter.
    * 
    * @example
    * 1713888600
@@ -13,7 +13,7 @@ export class DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange
   endDate?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
+   * The start of the time range used for the query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the \\`StartDate\\` request parameter.
    * 
    * @example
    * 1713888000
@@ -45,12 +45,12 @@ export class DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange
 export class DescribeSecurityEventLogsResponseBodySecurityEventMetaData extends $dara.Model {
   /**
    * @remarks
-   * The time range that is used for the query.
+   * The time range used for the query.
    */
   dateRange?: DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange;
   /**
    * @remarks
-   * The unit of the statistics returned. The value is fixed as requests.
+   * The unit of the returned statistical data.
    * 
    * @example
    * requests
@@ -88,17 +88,17 @@ export class DescribeSecurityEventLogsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * D827FCFE-90A7-4330-9326-D33C8B4C7726
+   * D827FCFE-90A7-4330-9326-******4C7726
    */
   requestId?: string;
   /**
    * @remarks
-   * The attack logs returned.
+   * A list of detailed attack logs.
    */
   securityEventLogs?: any[];
   /**
    * @remarks
-   * The total number of logs returned.
+   * The total number of attack logs found.
    * 
    * @example
    * 1000
@@ -106,7 +106,7 @@ export class DescribeSecurityEventLogsResponseBody extends $dara.Model {
   securityEventLogsTotalCount?: number;
   /**
    * @remarks
-   * The metadata of the time series data returned.
+   * The metadata of the returned data.
    */
   securityEventMetaData?: DescribeSecurityEventLogsResponseBodySecurityEventMetaData;
   static names(): { [key: string]: string } {

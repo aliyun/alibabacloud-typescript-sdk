@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSM2CertRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the SM certificate.
+   * The certificate name.
    * 
    * @example
    * test-sm2
@@ -13,7 +13,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * The content of the SM certificate.
+   * The content of the SM encryption certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -23,7 +23,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   encryptCertificate?: string;
   /**
    * @remarks
-   * The private key of the SM certificate.
+   * The private key content of the SM encryption certificate.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----
@@ -33,9 +33,9 @@ export class CreateSM2CertRequest extends $dara.Model {
   encryptPrivateKey?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -45,10 +45,11 @@ export class CreateSM2CertRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -56,7 +57,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -64,7 +65,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The content of the signing certificate for the SM certificate.
+   * The signing certificate content of the SM certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -74,7 +75,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   signCertificate?: string;
   /**
    * @remarks
-   * The private key of the signing certificate for the SM certificate.
+   * The private key content of the SM signing certificate.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----

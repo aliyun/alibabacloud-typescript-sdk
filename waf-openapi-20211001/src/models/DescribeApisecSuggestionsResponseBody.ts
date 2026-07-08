@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecSuggestionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The API.
+   * The API operation.
    * 
    * @example
    * /apisec/v1/saveinfo
@@ -13,7 +13,7 @@ export class DescribeApisecSuggestionsResponseBodyData extends $dara.Model {
   apiFormat?: string;
   /**
    * @remarks
-   * The domain name or IP address of the API.
+   * The domain name or IP address to which the API operation belongs.
    * 
    * @example
    * a.aliyun.com
@@ -21,7 +21,7 @@ export class DescribeApisecSuggestionsResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The rule ID of the protection suggestion.
+   * The ID of the protection suggestion.
    * 
    * @example
    * 15060a1f8fed40130b7c4a7bf8d8733b
@@ -29,16 +29,15 @@ export class DescribeApisecSuggestionsResponseBodyData extends $dara.Model {
   suggestId?: string;
   /**
    * @remarks
-   * The rule content of the protection suggestion. The value is a string that consists of multiple parameters in the JSON format. Valid values:
-   * 
-   * *   **event_tags**: event type
-   * *   **black_iplist**: IP address blacklist
-   * *   **ip_baseline**: IP address
-   * *   **freq_baseline**: throttling frequency
-   * *   **client_id_baseline**: client information
-   * *   **country_baseline**: country information
-   * *   **province_baseline**: province information
-   * *   **sensitive_type**: sensitive information
+   * The content of the protection suggestion rule, which is a string converted from a JSON object constructed with a series of parameters. The parameters include:
+   * - **event_tags**: the event type.
+   * - **black_iplist**: the IP blacklist.
+   * - **ip_baseline**: the IP list.
+   * - **freq_baseline**: the throttling frequency information.
+   * - **client_id_baseline**: the client information.
+   * - **country_baseline**: the country information.
+   * - **province_baseline**: the region information.
+   * - **sensitive_type**: the sensitive information type.
    * 
    * @example
    * {
@@ -49,16 +48,15 @@ export class DescribeApisecSuggestionsResponseBodyData extends $dara.Model {
   suggestRule?: string;
   /**
    * @remarks
-   * The rule type of the protection suggestion. Valid values:
-   * 
-   * *   **BotRule**: bot management rules
-   * *   **BlackIPRule**: IP address blacklist rules
-   * *   **WhiteIPRule**: IP address whitelist rules
-   * *   **RateLimitRule**: throttling rules
-   * *   **ClientRule**: client rules
-   * *   **GeoRule**: region-related rules
-   * *   **SensitiveRule**: sensitive information rules
-   * *   **UnauthRule**: authentication rules
+   * The type of the protection suggestion. Valid values: 
+   * - **BotRule**: bot rule.
+   * - **BlackIPRule**: IP blacklist rule.
+   * - **WhiteIPRule**: IP whitelist rule.
+   * - **RateLimitRule**: throttling rule.
+   * - **ClientRule**: client rule.
+   * - **GeoRule**: geo-blocking rule.
+   * - **SensitiveRule**: sensitive information rule.
+   * - **UnauthRule**: authentication rule.
    * 
    * @example
    * WhiteIPRule
@@ -96,7 +94,7 @@ export class DescribeApisecSuggestionsResponseBodyData extends $dara.Model {
 export class DescribeApisecSuggestionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The protection suggestions.
+   * The list of protection suggestions.
    */
   data?: DescribeApisecSuggestionsResponseBodyData[];
   /**

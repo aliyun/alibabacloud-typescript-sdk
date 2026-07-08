@@ -3,10 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID of the cluster rule.
+   * 
+   * @example
+   * hdbc-clusterrule-2m*****m0w
+   */
   clusterRuleResourceId?: string;
   /**
    * @remarks
-   * The configuration of the rule.
+   * The configuration of the traffic routing rule.
+   * 
+   * - **check_mode**: Defines the traffic scope for the routing rule. Valid values:
+   * 
+   *   - **all**: Routes all traffic.
+   * 
+   *   - **part**: Routes a portion of the traffic.
+   * 
+   * - **type**: The rule\\"s match type. Valid values:
+   * 
+   *   - **exact**: Exact match.
+   * 
+   *   - **regex**: Regular expression match.
+   * 
+   * - **substance**: The value of the rule.
    * 
    * @example
    * {\\"check_mode\\":\\"all\\",\\"exclude\\":{\\"exact\\":[],\\"regex\\":[]}}
@@ -16,8 +37,9 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * *   **on**: enabled.
-   * *   **off**: disabled.
+   * - **on**: Enabled.
+   * 
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -25,9 +47,9 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
   ruleStatus?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
+   * The type of the rule.
    * 
-   * *   **pullin**: The traffic redirection rule of the hybrid cloud cluster.
+   * - pullin: The traffic routing rule.
    * 
    * @example
    * pullin
@@ -63,7 +85,7 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
 export class DescribeHybridCloudClusterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the rule.
+   * The information about the rule.
    */
   clusterRule?: DescribeHybridCloudClusterRuleResponseBodyClusterRule;
   /**

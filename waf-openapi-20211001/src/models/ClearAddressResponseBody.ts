@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ClearAddressResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 276D7566-31C9-4192-9DD1-51B10D*****
    */

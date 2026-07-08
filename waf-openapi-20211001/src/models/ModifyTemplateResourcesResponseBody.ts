@@ -8,7 +8,7 @@ export class ModifyTemplateResourcesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * CF708F2F-FFB0-54D4-B1E0-B84A7CEBFB60
+   * CF708F2F-FFB0-54D4-B1E0-B84A7CEB****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

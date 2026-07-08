@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecProtectionResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The switch of the API security module.
+   * The global switch for API security.
    * 
    * @example
    * 1
@@ -13,9 +13,9 @@ export class DescribeApisecProtectionResourcesRequest extends $dara.Model {
   apisecStatus?: number;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeApisecProtectionResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number to return when you perform a paged query. Default value: **1**, which indicates the first page. For more information about paging, see the API reference.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class DescribeApisecProtectionResourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page when you perform a paged query. Default value: **10**, which indicates 10 entries per page. For more information about paging, see the API reference.
    * 
    * @example
    * 10
@@ -41,10 +41,11 @@ export class DescribeApisecProtectionResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

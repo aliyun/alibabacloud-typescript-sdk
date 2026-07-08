@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
   /**
    * @remarks
-   * The code of the risk.
+   * The code that identifies the specific risk, such as `Risk_InternalWeakPasswd`.
    * 
    * @example
    * Risk_InternalWeakPasswd
@@ -13,7 +13,7 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
   abnormalCode?: string;
   /**
    * @remarks
-   * The number of risks.
+   * The total number of risks detected for this risk type.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
   abnormalCount?: number;
   /**
    * @remarks
-   * The parent type of the risk.
+   * The parent category of the risk, such as `RiskType_Account`.
    * 
    * @example
    * RiskType_Account
@@ -29,12 +29,12 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
   abnormalParentType?: string;
   /**
    * @remarks
-   * The type of the risk.
+   * The type of the risk detected by API security.
    * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
+   * > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported risk types.
    * 
    * @example
-   * LackOfSpeedLimit
+   * Risk_InternalWeakPasswd
    */
   abnormalType?: string;
   static names(): { [key: string]: string } {
@@ -67,12 +67,12 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
 export class DescribeUserAbnormalTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The types and statistics of risks.
+   * The risk types detected by API security and the number of risks for each type.
    */
   abnormal?: DescribeUserAbnormalTypeResponseBodyAbnormal[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3E1CB966-1407-5988-9432-7***D784

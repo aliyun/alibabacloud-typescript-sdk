@@ -7,7 +7,7 @@ export class ModifyHybridCloudSdkPullinStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to view the current WAF instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,10 +27,11 @@ export class ModifyHybridCloudSdkPullinStatusRequest extends $dara.Model {
   mid?: string;
   /**
    * @remarks
-   * The status of traffic redirection. Valid values:
+   * The status of traffic redirection. Valid values of the parameter:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on**: Enable
+   * 
+   * - **off**: Disable
    * 
    * This parameter is required.
    * 

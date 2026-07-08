@@ -6,7 +6,8 @@ export class DescribeUserEventTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * > This parameter applies only to hybrid cloud scenarios. Call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain information about hybrid cloud clusters.
    * 
    * @example
    * 976
@@ -14,22 +15,29 @@ export class DescribeUserEventTypeRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1726113600
    */
   endTime?: number;
   /**
+   * @remarks
+   * The dimension of the security event. Valid values:
+   * 
+   * - **ip** (default): IP security events.
+   * 
+   * - **account**: account security events.
+   * 
    * @example
    * ip
    */
   eventScope?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -39,10 +47,11 @@ export class DescribeUserEventTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -58,12 +67,18 @@ export class DescribeUserEventTypeRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1723435200
    */
   startTime?: number;
+  /**
+   * @remarks
+   * A list of security event statuses.
+   * 
+   * > By default, statistics are collected for security events in the **toBeConfirmed**, **confirmed**, and **actioned** states.
+   */
   userStatusList?: string[];
   static names(): { [key: string]: string } {
     return {

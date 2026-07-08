@@ -6,7 +6,7 @@ export class DescribeSensitiveRequestsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
    * 
    * @example
    * 269
@@ -14,7 +14,7 @@ export class DescribeSensitiveRequestsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The end of the time range to query. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1725966000
@@ -23,8 +23,7 @@ export class DescribeSensitiveRequestsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
-   * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -34,7 +33,7 @@ export class DescribeSensitiveRequestsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number when you use paged query. Default value: **1**, which indicates that the first page is returned in the paging result.
    * 
    * @example
    * 1
@@ -42,7 +41,7 @@ export class DescribeSensitiveRequestsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries per page when you use paged query. Default value: 10, which indicates that each page contains 10 entries in the paging result.
    * 
    * @example
    * 10
@@ -50,10 +49,11 @@ export class DescribeSensitiveRequestsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -69,9 +69,8 @@ export class DescribeSensitiveRequestsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of the sensitive data.
-   * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
+   * The type of sensitive data.
+   * > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.
    * 
    * @example
    * 1001
@@ -87,7 +86,7 @@ export class DescribeSensitiveRequestsRequest extends $dara.Model {
   sensitiveData?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The beginning of the time range to query. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1723392000

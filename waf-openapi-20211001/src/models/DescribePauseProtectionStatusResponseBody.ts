@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePauseProtectionStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether WAF protection is paused.
+   * Indicates whether WAF protection is paused for the instance. Valid values:
    * 
-   * *   **0**: indicates that WAF protection is not paused. This is the default value.
-   * *   **1**: indicates that WAF protection is paused.
+   * - **0** (default): Protection is not paused.
+   * 
+   * - **1**: Protection is paused.
    * 
    * @example
    * 0

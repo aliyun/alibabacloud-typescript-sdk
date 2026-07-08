@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncProductInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request, which is used to locate and troubleshoot issues.
    * 
    * @example
    * 45BA2382-7C3F-5B29-9A83-C3BCE586****

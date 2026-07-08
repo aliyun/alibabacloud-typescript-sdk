@@ -13,7 +13,7 @@ export class DescribeDefenseResourceGroupResponseBodyGroup extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the protected object group was created.
+   * The timestamp when the protected object group was created.
    * 
    * @example
    * 23242312312
@@ -21,7 +21,7 @@ export class DescribeDefenseResourceGroupResponseBodyGroup extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The most recent time when the protected object group was modified.
+   * The timestamp when the protected object group was modified.
    * 
    * @example
    * 23242312312
@@ -29,7 +29,7 @@ export class DescribeDefenseResourceGroupResponseBodyGroup extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The name of the protected object group.
+   * The name of the protected object group that you want to query.
    * 
    * @example
    * group1
@@ -37,7 +37,7 @@ export class DescribeDefenseResourceGroupResponseBodyGroup extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The protected objects in the protected object group. The protected objects are separated with commas (,).
+   * All the protected objects that are added to the protected object group. Separate the protected objects with commas (,).
    * 
    * @example
    * test1.aliyundoc.com,test2.aliyundoc.com
@@ -80,7 +80,7 @@ export class DescribeDefenseResourceGroupResponseBody extends $dara.Model {
   group?: DescribeDefenseResourceGroupResponseBodyGroup;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E67D21C6-5376-5F94-B745-70E08D03E3CB

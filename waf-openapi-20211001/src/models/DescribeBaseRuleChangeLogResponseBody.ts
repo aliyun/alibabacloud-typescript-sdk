@@ -4,26 +4,45 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBaseRuleChangeLogResponseBodyRules extends $dara.Model {
   /**
+   * @remarks
+   * The CVE ID of the vulnerability associated with the system rule.
+   * 
    * @example
    * CVE-2021-34538
    */
   cveId?: string;
   /**
+   * @remarks
+   * The type of change. Valid values:
+   * 
+   * - **add**: The rule was added.
+   * 
+   * - **modify**: The rule was modified.
+   * 
    * @example
    * add
    */
   operation?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 42755
    */
   ruleId?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * Header XSS Scanner Behavior
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The time when the rule was updated, in UNIX timestamp format. Unit: milliseconds.
+   * 
    * @example
    * 1665460629000
    */
@@ -59,12 +78,22 @@ export class DescribeBaseRuleChangeLogResponseBodyRules extends $dara.Model {
 
 export class DescribeBaseRuleChangeLogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6FBF08CB-8691-5B65-BBF8-***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of rule change records.
+   */
   rules?: DescribeBaseRuleChangeLogResponseBodyRules[];
   /**
+   * @remarks
+   * The total number of rule change records.
+   * 
    * @example
    * 63
    */

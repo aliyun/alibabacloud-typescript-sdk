@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of APIs that are involved.
+   * The number of involved APIs.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
   apiCount?: number;
   /**
    * @remarks
-   * The number of sites that are involved.
+   * The number of involved domain names.
    * 
    * @example
    * 10
@@ -21,8 +21,8 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
   domainCount?: number;
   /**
    * @remarks
-   * The code of the sensitive data.
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
+   * The code of the sensitive data type.
+   * > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.
    * 
    * @example
    * 10
@@ -30,22 +30,21 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
   sensitiveCode?: string;
   /**
    * @remarks
-   * The sensitivity level of the sensitive data.Valid values:
-   * 
-   * * **S1**: low sensitivity.
-   * * **S2**: moderate sensitivity.
-   * * **S3**: high sensitivity.
+   * The sensitivity level of the API. Valid values:
+   * - **S1**: low sensitivity.
+   * - **S2**: medium sensitivity.
+   * - **S3**: high sensitivity.
    * 
    * @example
-   * L3
+   * S3
    */
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The name of the sensitive data.
+   * The name of the sensitive data type.
    * 
    * @example
-   * 1002
+   * 自定义敏感类型。
    */
   sensitiveName?: string;
   static names(): { [key: string]: string } {
@@ -80,7 +79,7 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
 export class DescribeApisecSensitiveDomainStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: DescribeApisecSensitiveDomainStatisticResponseBodyData[];
   /**

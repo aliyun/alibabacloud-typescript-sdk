@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDomainPunishStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name that is penalized for failing to obtain an ICP filing.
+   * The domain name that is in the ICP filing violation penalty status.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ModifyDomainPunishStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -27,10 +27,11 @@ export class ModifyDomainPunishStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -38,7 +39,7 @@ export class ModifyDomainPunishStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q

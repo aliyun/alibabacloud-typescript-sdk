@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApisecLogDeliveryStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F35F45B0-5D6B-4238-BE02-A62D****E840

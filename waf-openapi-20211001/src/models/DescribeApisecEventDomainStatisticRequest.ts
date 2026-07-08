@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
+   * The hybrid cloud cluster ID.
    * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
@@ -14,7 +14,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
+   * The end time, in UNIX timestamp (UTC) format. Unit: seconds.
    * 
    * @example
    * 1686895256
@@ -22,9 +22,9 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order of the list. Valid values:
    * 
    * - **asc**: ascending order.
    * - **desc**: descending order.
@@ -45,7 +45,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   orderWay?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the page to return in a paged query. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -53,18 +53,19 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **5**.
+   * The number of entries per page in a paged query. Default value: **5**, which indicates **5** entries per page.
    * 
    * @example
-   * 5
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -72,7 +73,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfmvyknl****fa
@@ -80,7 +81,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
+   * The start time, in UNIX timestamp (UTC) format. Unit: seconds.
    * 
    * @example
    * 1668496310

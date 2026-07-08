@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDefenseTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E2DE6F11-6FED-5909-95F2-2520B58C5BC7

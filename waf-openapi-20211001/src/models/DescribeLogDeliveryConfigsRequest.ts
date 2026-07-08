@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogDeliveryConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the log delivery configuration. Fuzzy queries are supported.
+   * The name of the log delivery configuration that you want to query. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -15,8 +15,9 @@ export class DescribeLogDeliveryConfigsRequest extends $dara.Model {
    * @remarks
    * The type of the log delivery configuration that you want to query. Valid values:
    * 
-   * *   **syslog**: Logs are delivered to a syslog service.
-   * *   **kafka**: Logs are delivered to a Kafka service.
+   * - **syslog**: Log delivery to a syslog server.
+   * 
+   * - **kafka**: Log delivery to a Kafka cluster.
    * 
    * @example
    * kafka
@@ -24,9 +25,9 @@ export class DescribeLogDeliveryConfigsRequest extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -34,14 +35,29 @@ export class DescribeLogDeliveryConfigsRequest extends $dara.Model {
    * waf-cn-zz11sr5****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries per page. Valid values: 1 to 50. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Set this parameter to the value of **NextToken** returned in the previous call. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * AAAAAINZ+8pH1oQnusEu1tGAc8is
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -49,7 +65,7 @@ export class DescribeLogDeliveryConfigsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the Alibaba Cloud resource group to which the WAF instance belongs.
    * 
    * @example
    * rg-acfm***q

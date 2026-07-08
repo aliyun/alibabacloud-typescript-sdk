@@ -21,7 +21,7 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
   domain?: string;
   /**
    * @remarks
-   * The number of high-risk security events.
+   * The number of high-risk events.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
   high?: number;
   /**
    * @remarks
-   * The number of low-risk security events.
+   * The number of low-risk events.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
   low?: number;
   /**
    * @remarks
-   * The number of medium-risk security events.
+   * The number of medium-risk events.
    * 
    * @example
    * 6
@@ -75,12 +75,12 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
 export class DescribeApisecEventDomainStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The returned data.
    */
   data?: DescribeApisecEventDomainStatisticResponseBodyData[];
   /**
    * @remarks
-   * Id of the request.
+   * The request ID.
    * 
    * @example
    * 66A98669-*******-80A6-3014697B11AE

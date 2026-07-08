@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountDelegatedStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 10***********34
@@ -13,7 +13,7 @@ export class DescribeAccountDelegatedStatusResponseBody extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account. This parameter is returned only if the account is the delegated administrator account.
+   * The Alibaba Cloud account name. This parameter is returned only when the account is a delegated administrator.
    * 
    * @example
    * account_test
@@ -21,10 +21,11 @@ export class DescribeAccountDelegatedStatusResponseBody extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the Alibaba Cloud account is the delegated administrator account of the WAF instance.
+   * Indicates whether the user is a delegated administrator of WAF. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The user is a delegated administrator of WAF.
+   * 
+   * - **false**: The user is not a delegated administrator of WAF.
    * 
    * @example
    * true
@@ -35,7 +36,7 @@ export class DescribeAccountDelegatedStatusResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 8161375D-5958-5627-BFDE-DF14****3E87
+   * 8161375D-5958-5627-BFDE-DF1458A73E87
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model 
   infoCount?: number;
   /**
    * @remarks
-   * The total number of personal information records involved in cross-border data transfer.
+   * The total number of personal information records transferred cross-border.
    * 
    * @example
    * 541
@@ -21,7 +21,7 @@ export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model 
   infoOutboundCount?: number;
   /**
    * @remarks
-   * The total number of sensitive information records involved in cross-border data transfer.
+   * The total number of sensitive information records transferred cross-border.
    * 
    * @example
    * 378
@@ -29,7 +29,7 @@ export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model 
   sensitiveOutboundCount?: number;
   /**
    * @remarks
-   * The time of cross-border data transfer. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The time of the cross-border data transfer. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1672502400
@@ -65,7 +65,7 @@ export class DescribeSensitiveOutboundTrendResponseBodyData extends $dara.Model 
 export class DescribeSensitiveOutboundTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information records involved in cross-border data transfer.
+   * The list of cross-border data transfer information.
    */
   data?: DescribeSensitiveOutboundTrendResponseBodyData[];
   /**

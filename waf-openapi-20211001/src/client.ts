@@ -56,7 +56,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址簿添加地址
+   * Adds addresses to an address book.
    * 
    * @param request - AddAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -99,7 +99,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址簿添加地址
+   * Adds addresses to an address book.
    * 
    * @param request - AddAddressRequest
    * @returns AddAddressResponse
@@ -110,7 +110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a protected object belongs.
+   * Modifies the resource group to which a protected object belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -157,7 +157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group to which a protected object belongs.
+   * Modifies the resource group to which a protected object belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -168,7 +168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址簿清空所有地址
+   * Clears all addresses from an address book.
    * 
    * @param request - ClearAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -207,7 +207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址簿清空所有地址
+   * Clears all addresses from an address book.
    * 
    * @param request - ClearAddressRequest
    * @returns ClearAddressResponse
@@ -218,7 +218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears an IP address blacklist for major event protection.
+   * Clears the IP blacklist for a critical event protection rule.
    * 
    * @param request - ClearMajorProtectionBlackIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -265,7 +265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears an IP address blacklist for major event protection.
+   * Clears the IP blacklist for a critical event protection rule.
    * 
    * @param request - ClearMajorProtectionBlackIpRequest
    * @returns ClearMajorProtectionBlackIpResponse
@@ -276,7 +276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new protection template from the copy.
+   * Copies a protection template.
    * 
    * @param request - CopyDefenseTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new protection template from the copy.
+   * Copies a protection template.
    * 
    * @param request - CopyDefenseTemplateRequest
    * @returns CopyDefenseTemplateResponse
@@ -330,7 +330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data export task in the API security module.
+   * Creates an API security data export task.
    * 
    * @param request - CreateApiExportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -389,7 +389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data export task in the API security module.
+   * Creates an API security data export task.
    * 
    * @param request - CreateApiExportRequest
    * @returns CreateApiExportResponse
@@ -400,7 +400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a certificate that uses an internationally accepted algorithm for a domain name added to Web Application Firewall (WAF) in CNAME record mode.
+   * Uploads an international certificate to WAF for CNAME-based access.
    * 
    * @param request - CreateCertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -451,7 +451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a certificate that uses an internationally accepted algorithm for a domain name added to Web Application Firewall (WAF) in CNAME record mode.
+   * Uploads an international certificate to WAF for CNAME-based access.
    * 
    * @param request - CreateCertsRequest
    * @returns CreateCertsResponse
@@ -462,7 +462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
+   * Connects a cloud service to WAF in cloud native mode. Currently, only ECS and CLB are supported.
    * 
    * @param tmpReq - CreateCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -527,7 +527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
+   * Connects a cloud service to WAF in cloud native mode. Currently, only ECS and CLB are supported.
    * 
    * @param request - CreateCloudResourceRequest
    * @returns CreateCloudResourceResponse
@@ -538,7 +538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加云产品接入的扩展证书
+   * Adds an extension certificate for a cloud native mode resource.
    * 
    * @param request - CreateCloudResourceExtensionCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -585,7 +585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加云产品接入的扩展证书
+   * Adds an extension certificate for a cloud native mode resource.
    * 
    * @param request - CreateCloudResourceExtensionCertRequest
    * @returns CreateCloudResourceExtensionCertResponse
@@ -596,7 +596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建防护对象
+   * Creates a protected object.
    * 
    * @param tmpReq - CreateDefenseResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -685,7 +685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建防护对象
+   * Creates a protected object.
    * 
    * @param request - CreateDefenseResourceRequest
    * @returns CreateDefenseResourceResponse
@@ -758,7 +758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a protection rule.
+   * Create a web core protection rule.
    * 
    * @param request - CreateDefenseRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -819,7 +819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a protection rule.
+   * Create a web core protection rule.
    * 
    * @param request - CreateDefenseRuleRequest
    * @returns CreateDefenseRuleResponse
@@ -830,7 +830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a protection rule template.
+   * Creates a protection template.
    * 
    * @param request - CreateDefenseTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -905,7 +905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a protection rule template.
+   * Creates a protection template.
    * 
    * @param request - CreateDefenseTemplateRequest
    * @returns CreateDefenseTemplateResponse
@@ -916,7 +916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a domain name to Web Application Firewall (WAF).
+   * Adds a domain name to a WAF instance by using Website Config for protection.
    * 
    * @param tmpReq - CreateDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -985,7 +985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a domain name to Web Application Firewall (WAF).
+   * Adds a domain name to a WAF instance by using Website Config for protection.
    * 
    * @param request - CreateDomainRequest
    * @returns CreateDomainResponse
@@ -996,7 +996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a hybrid cloud cluster.
+   * Creates a hybrid cloud Web Application Firewall (WAF) cluster.
    * 
    * @param request - CreateHybridCloudClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1087,7 +1087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a hybrid cloud cluster.
+   * Creates a hybrid cloud Web Application Firewall (WAF) cluster.
    * 
    * @param request - CreateHybridCloudClusterRequest
    * @returns CreateHybridCloudClusterResponse
@@ -1098,7 +1098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增集群规则信息
+   * Creates a Hybrid Cloud Web Application Firewall (WAF) cluster rule.
    * 
    * @param request - CreateHybridCloudClusterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1153,7 +1153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增集群规则信息
+   * Creates a Hybrid Cloud Web Application Firewall (WAF) cluster rule.
    * 
    * @param request - CreateHybridCloudClusterRuleRequest
    * @returns CreateHybridCloudClusterRuleResponse
@@ -1164,7 +1164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node group for a hybrid cloud cluster.
+   * Creates a node group in a Hybrid Cloud Web Application Firewall (WAF) cluster.
    * 
    * @param request - CreateHybridCloudGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1231,7 +1231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node group for a hybrid cloud cluster.
+   * Creates a node group in a Hybrid Cloud Web Application Firewall (WAF) cluster.
    * 
    * @param request - CreateHybridCloudGroupRequest
    * @returns CreateHybridCloudGroupResponse
@@ -1242,7 +1242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a hybrid cloud log delivery configuration.
+   * Creates a log delivery configuration for a Web Application Firewall (WAF) instance in a hybrid cloud.
    * 
    * @param request - CreateLogDeliveryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1293,7 +1293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a hybrid cloud log delivery configuration.
+   * Creates a log delivery configuration for a Web Application Firewall (WAF) instance in a hybrid cloud.
    * 
    * @param request - CreateLogDeliveryConfigRequest
    * @returns CreateLogDeliveryConfigResponse
@@ -1304,7 +1304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address blacklist for major event protection.
+   * Creates an IP address blacklist for critical event protection.
    * 
    * @remarks
    * This operation is available only on the China site (aliyun.com).
@@ -1366,7 +1366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address blacklist for major event protection.
+   * Creates an IP address blacklist for critical event protection.
    * 
    * @remarks
    * This operation is available only on the China site (aliyun.com).
@@ -1380,7 +1380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
+   * Adds member accounts to use the multi-account management feature of Web Application Firewall (WAF).
    * 
    * @param request - CreateMemberAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1427,7 +1427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
+   * Adds member accounts to use the multi-account management feature of Web Application Firewall (WAF).
    * 
    * @param request - CreateMemberAccountsRequest
    * @returns CreateMemberAccountsResponse
@@ -1438,7 +1438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启防护功能POC
+   * Starts a trial for a proof of concept (POC) feature.
    * 
    * @param request - CreatePocFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1481,7 +1481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启防护功能POC
+   * Starts a trial for a proof of concept (POC) feature.
    * 
    * @param request - CreatePocFunctionRequest
    * @returns CreatePocFunctionResponse
@@ -1538,7 +1538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
+   * Uploads a China National Cryptographic Algorithm (SM) certificate for a domain that is added to WAF in CNAME mode.
    * 
    * @param request - CreateSM2CertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1597,7 +1597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
+   * Uploads a China National Cryptographic Algorithm (SM) certificate for a domain that is added to WAF in CNAME mode.
    * 
    * @param request - CreateSM2CertRequest
    * @returns CreateSM2CertResponse
@@ -1608,7 +1608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址簿添加地址
+   * Deletes addresses from an address book.
    * 
    * @param request - DeleteAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1651,7 +1651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址簿添加地址
+   * Deletes addresses from an address book.
    * 
    * @param request - DeleteAddressRequest
    * @returns DeleteAddressResponse
@@ -1662,7 +1662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple risks detected by the API security module at a time.
+   * Deletes API security risks in batches.
    * 
    * @param request - DeleteApisecAbnormalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1709,7 +1709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple risks detected by the API security module at a time.
+   * Deletes API security risks in batches.
    * 
    * @param request - DeleteApisecAbnormalsRequest
    * @returns DeleteApisecAbnormalsResponse
@@ -1720,7 +1720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple security events detected by the API security module at a time.
+   * Deletes API security events in batches.
    * 
    * @param request - DeleteApisecEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1771,7 +1771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple security events detected by the API security module at a time.
+   * Deletes API security events in batches.
    * 
    * @param request - DeleteApisecEventsRequest
    * @returns DeleteApisecEventsResponse
@@ -1782,7 +1782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
+   * Removes a cloud service from Web Application Firewall (WAF). This operation currently supports only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
    * 
    * @param request - DeleteCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1837,7 +1837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
+   * Removes a cloud service from Web Application Firewall (WAF). This operation currently supports only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
    * 
    * @param request - DeleteCloudResourceRequest
    * @returns DeleteCloudResourceResponse
@@ -1848,7 +1848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云产品接入的扩展证书
+   * Deletes an extension certificate for a cloud service connected in cloud native mode.
    * 
    * @param request - DeleteCloudResourceExtensionCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1895,7 +1895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云产品接入的扩展证书
+   * Deletes an extension certificate for a cloud service connected in cloud native mode.
    * 
    * @param request - DeleteCloudResourceExtensionCertRequest
    * @returns DeleteCloudResourceExtensionCertResponse
@@ -1906,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除单个防护对象
+   * Deletes a protected object.
    * 
    * @param request - DeleteDefenseResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1949,7 +1949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除单个防护对象
+   * Deletes a protected object.
    * 
    * @param request - DeleteDefenseResourceRequest
    * @returns DeleteDefenseResourceResponse
@@ -2014,7 +2014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a protection rule.
+   * Deletes the specified protection rules.
    * 
    * @param request - DeleteDefenseRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2069,7 +2069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a protection rule.
+   * Deletes the specified protection rules.
    * 
    * @param request - DeleteDefenseRuleRequest
    * @returns DeleteDefenseRuleResponse
@@ -2080,7 +2080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新防护规则封禁Ip
+   * Unblocks an IP address that is blocked by the scan protection module.
    * 
    * @param request - DeleteDefenseRuleBlockIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2127,7 +2127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新防护规则封禁Ip
+   * Unblocks an IP address that is blocked by the scan protection module.
    * 
    * @param request - DeleteDefenseRuleBlockIpRequest
    * @returns DeleteDefenseRuleBlockIpResponse
@@ -2192,7 +2192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a domain name that is added to Web Application Firewall (WAF).
+   * Deletes a CNAME-connected domain name.
    * 
    * @param request - DeleteDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2239,7 +2239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a domain name that is added to Web Application Firewall (WAF).
+   * Deletes a CNAME-connected domain name.
    * 
    * @param request - DeleteDomainRequest
    * @returns DeleteDomainResponse
@@ -2250,7 +2250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群规则信息
+   * Deletes a hybrid cloud cluster rule from a Web Application Firewall (WAF) instance.
    * 
    * @param request - DeleteHybridCloudClusterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2293,7 +2293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群规则信息
+   * Deletes a hybrid cloud cluster rule from a Web Application Firewall (WAF) instance.
    * 
    * @param request - DeleteHybridCloudClusterRuleRequest
    * @returns DeleteHybridCloudClusterRuleResponse
@@ -2304,7 +2304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除组信息
+   * Deletes a group.
    * 
    * @param request - DeleteHybridCloudGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2351,7 +2351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除组信息
+   * Deletes a group.
    * 
    * @param request - DeleteHybridCloudGroupRequest
    * @returns DeleteHybridCloudGroupResponse
@@ -2362,7 +2362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delets a hybrid cloud log delivery configuration.
+   * Deletes a log delivery configuration.
    * 
    * @param request - DeleteLogDeliveryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2405,7 +2405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delets a hybrid cloud log delivery configuration.
+   * Deletes a log delivery configuration.
    * 
    * @param request - DeleteLogDeliveryConfigRequest
    * @returns DeleteLogDeliveryConfigResponse
@@ -2416,7 +2416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an IP address blacklist for major event protection.
+   * Deletes an IP address from the blacklist for critical event protection.
    * 
    * @param request - DeleteMajorProtectionBlackIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2467,7 +2467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an IP address blacklist for major event protection.
+   * Deletes an IP address from the blacklist for critical event protection.
    * 
    * @param request - DeleteMajorProtectionBlackIpRequest
    * @returns DeleteMajorProtectionBlackIpResponse
@@ -2478,7 +2478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the members that are added for multi-account management in Web Application Firewall (WAF).
+   * Deletes a Web Application Firewall (WAF) member account.
    * 
    * @param request - DeleteMemberAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2525,7 +2525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the members that are added for multi-account management in Web Application Firewall (WAF).
+   * Deletes a Web Application Firewall (WAF) member account.
    * 
    * @param request - DeleteMemberAccountRequest
    * @returns DeleteMemberAccountResponse
@@ -2536,7 +2536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异常的云产品接入资源
+   * Queries abnormal cloud resources added in cloud native mode.
    * 
    * @param request - DescribeAbnormalCloudResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2575,7 +2575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异常的云产品接入资源
+   * Queries abnormal cloud resources added in cloud native mode.
    * 
    * @param request - DescribeAbnormalCloudResourcesRequest
    * @returns DescribeAbnormalCloudResourcesResponse
@@ -2586,7 +2586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
+   * Queries whether the current user is a delegated administrator of WAF in the multi-account management feature.
    * 
    * @param request - DescribeAccountDelegatedStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2625,7 +2625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
+   * Queries whether the current user is a delegated administrator of WAF in the multi-account management feature.
    * 
    * @param request - DescribeAccountDelegatedStatusRequest
    * @returns DescribeAccountDelegatedStatusResponse
@@ -2636,7 +2636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询地址簿IP
+   * Queries addresses in an address book by paging.
    * 
    * @param request - DescribeAddressesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2691,7 +2691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询地址簿IP
+   * Queries addresses in an address book by paging.
    * 
    * @param request - DescribeAddressesRequest
    * @returns DescribeAddressesResponse
@@ -2702,7 +2702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例信息
+   * Queries the alert banner information of a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeAlarmBannerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2741,7 +2741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例信息
+   * Queries the alert banner information of a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeAlarmBannerRequest
    * @returns DescribeAlarmBannerResponse
@@ -2752,7 +2752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例信息
+   * Queries a list of alerts.
    * 
    * @param request - DescribeAlarmListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2791,7 +2791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例信息
+   * Queries a list of alerts.
    * 
    * @param request - DescribeAlarmListRequest
    * @returns DescribeAlarmListResponse
@@ -2802,7 +2802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data export tasks in the API security module.
+   * Queries the list of API security export tasks.
    * 
    * @param request - DescribeApiExportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2853,7 +2853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data export tasks in the API security module.
+   * Queries the list of API security export tasks.
    * 
    * @param request - DescribeApiExportsRequest
    * @returns DescribeApiExportsResponse
@@ -2864,7 +2864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on domain names on which risks are detected by the API security module.
+   * Queries statistics on API security risk domain names.
    * 
    * @param request - DescribeApisecAbnormalDomainStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2927,7 +2927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on domain names on which risks are detected by the API security module.
+   * Queries statistics on API security risk domain names.
    * 
    * @param request - DescribeApisecAbnormalDomainStatisticRequest
    * @returns DescribeApisecAbnormalDomainStatisticResponse
@@ -3052,7 +3052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries API assets in the API security module.
+   * Queries the list of API security assets.
    * 
    * @param request - DescribeApisecApiResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3171,7 +3171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries API assets in the API security module.
+   * Queries the list of API security assets.
    * 
    * @param request - DescribeApisecApiResourcesRequest
    * @returns DescribeApisecApiResourcesResponse
@@ -3182,7 +3182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset trends in the API security module.
+   * Queries the trend of API security API assets.
    * 
    * @param request - DescribeApisecAssetTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3233,7 +3233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset trends in the API security module.
+   * Queries the trend of API security API assets.
    * 
    * @param request - DescribeApisecAssetTrendRequest
    * @returns DescribeApisecAssetTrendResponse
@@ -3244,7 +3244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询安全事件详情
+   * Retrieves the details of an API security event.
    * 
    * @param request - DescribeApisecEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3299,7 +3299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询安全事件详情
+   * Retrieves the details of an API security event.
    * 
    * @param request - DescribeApisecEventDetailRequest
    * @returns DescribeApisecEventDetailResponse
@@ -3310,7 +3310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on domain names on which security events are detected by the API security module.
+   * Queries the domain name statistics of API security events.
    * 
    * @param request - DescribeApisecEventDomainStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3373,7 +3373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on domain names on which security events are detected by the API security module.
+   * Queries the domain name statistics of API security events.
    * 
    * @param request - DescribeApisecEventDomainStatisticRequest
    * @returns DescribeApisecEventDomainStatisticResponse
@@ -3384,7 +3384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries API security events.
+   * Queries a list of API security events.
    * 
    * @param request - DescribeApisecEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3499,7 +3499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries API security events.
+   * Queries a list of API security events.
    * 
    * @param request - DescribeApisecEventsRequest
    * @returns DescribeApisecEventsResponse
@@ -3510,7 +3510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全样例信息
+   * Queries the API security examples that are detected by Web Application Firewall (WAF).
    * 
    * @param request - DescribeApisecExamplesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3581,7 +3581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全样例信息
+   * Queries the API security examples that are detected by Web Application Firewall (WAF).
    * 
    * @param request - DescribeApisecExamplesRequest
    * @returns DescribeApisecExamplesResponse
@@ -3642,7 +3642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of domain names detected in the API security module.
+   * Queries the list of domain names for API security detection.
    * 
    * @param request - DescribeApisecMatchedHostsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3701,7 +3701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of domain names detected in the API security module.
+   * Queries the list of domain names for API security detection.
    * 
    * @param request - DescribeApisecMatchedHostsRequest
    * @returns DescribeApisecMatchedHostsResponse
@@ -3712,7 +3712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of protected object groups to which API security policies are applied.
+   * Retrieves a list of active API security protection object groups.
    * 
    * @param request - DescribeApisecProtectionGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3767,7 +3767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of protected object groups to which API security policies are applied.
+   * Retrieves a list of active API security protection object groups.
    * 
    * @param request - DescribeApisecProtectionGroupsRequest
    * @returns DescribeApisecProtectionGroupsResponse
@@ -3778,7 +3778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of protected objects to which API security policies are applied.
+   * Queries the list of protected objects for which API security protection is enabled.
    * 
    * @param request - DescribeApisecProtectionResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3833,7 +3833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of protected objects to which API security policies are applied.
+   * Queries the list of protected objects for which API security protection is enabled.
    * 
    * @param request - DescribeApisecProtectionResourcesRequest
    * @returns DescribeApisecProtectionResourcesResponse
@@ -3844,7 +3844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policies configured in the API security module.
+   * Queries the rules of an API security policy.
    * 
    * @param request - DescribeApisecRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3915,7 +3915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the policies configured in the API security module.
+   * Queries the rules of an API security policy.
    * 
    * @param request - DescribeApisecRulesRequest
    * @returns DescribeApisecRulesResponse
@@ -3926,7 +3926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on domain names on which sensitive data is detected by the API security module.
+   * Queries statistics on data endpoints associated with API security sensitive data domains.
    * 
    * @param request - DescribeApisecSensitiveDomainStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3993,7 +3993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on domain names on which sensitive data is detected by the API security module.
+   * Queries statistics on data endpoints associated with API security sensitive data domains.
    * 
    * @param request - DescribeApisecSensitiveDomainStatisticRequest
    * @returns DescribeApisecSensitiveDomainStatisticResponse
@@ -4116,7 +4116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of API security-related risks and events.
+   * Queries statistics for API security risks or security events.
    * 
    * @param request - DescribeApisecStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4175,7 +4175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of API security-related risks and events.
+   * Queries statistics for API security risks or security events.
    * 
    * @param request - DescribeApisecStatisticsRequest
    * @returns DescribeApisecStatisticsResponse
@@ -4186,7 +4186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protection suggestions for APIs.
+   * Queries protection suggestions for API assets.
    * 
    * @param request - DescribeApisecSuggestionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4233,7 +4233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protection suggestions for APIs.
+   * Queries protection suggestions for API assets.
    * 
    * @param request - DescribeApisecSuggestionsRequest
    * @returns DescribeApisecSuggestionsResponse
@@ -4244,7 +4244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user operation records in the API security module.
+   * Queries user operation records for API security of Web Application Firewall (WAF).
    * 
    * @param request - DescribeApisecUserOperationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4295,7 +4295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user operation records in the API security module.
+   * Queries user operation records for API security of Web Application Firewall (WAF).
    * 
    * @param request - DescribeApisecUserOperationsRequest
    * @returns DescribeApisecUserOperationsResponse
@@ -4306,7 +4306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询基础防护规则集变化记录
+   * Queries protection rule change logs on a paginated basis.
    * 
    * @param request - DescribeBaseRuleChangeLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4357,7 +4357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询基础防护规则集变化记录
+   * Queries protection rule change logs on a paginated basis.
    * 
    * @param request - DescribeBaseRuleChangeLogRequest
    * @returns DescribeBaseRuleChangeLogResponse
@@ -4368,7 +4368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询基础防护系统规则集
+   * Queries the system rules for Web Application Firewall (WAF) protection.
    * 
    * @param request - DescribeBaseSystemRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4451,7 +4451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询基础防护系统规则集
+   * Queries the system rules for Web Application Firewall (WAF) protection.
    * 
    * @param request - DescribeBaseSystemRulesRequest
    * @returns DescribeBaseSystemRulesResponse
@@ -4462,7 +4462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询防护模板
+   * Queries the AppKey for bot management.
    * 
    * @param request - DescribeBotAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4505,7 +4505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询防护模板
+   * Queries the AppKey for bot management.
    * 
    * @param request - DescribeBotAppKeyRequest
    * @returns DescribeBotAppKeyResponse
@@ -4516,7 +4516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取Bot管理规则标签信息
+   * Queries the labels of bot management rules.
    * 
    * @param request - DescribeBotRuleLabelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4571,7 +4571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取Bot管理规则标签信息
+   * Queries the labels of bot management rules.
    * 
    * @param request - DescribeBotRuleLabelsRequest
    * @returns DescribeBotRuleLabelsResponse
@@ -4636,7 +4636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
+   * Retrieves the list of certificates for a user.
    * 
    * @param request - DescribeCertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4691,7 +4691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
+   * Retrieves the list of certificates for a user.
    * 
    * @param request - DescribeCertsRequest
    * @returns DescribeCertsResponse
@@ -4702,7 +4702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询WAF计价模块信息
+   * Retrieves the billing module information of Web Application Firewall (WAF).
    * 
    * @param request - DescribeChargeModuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4741,7 +4741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询WAF计价模块信息
+   * Retrieves the billing module information of Web Application Firewall (WAF).
    * 
    * @param request - DescribeChargeModuleRequest
    * @returns DescribeChargeModuleResponse
@@ -4752,7 +4752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询WAF计价模块的计价结果
+   * Queries the billing results for Web Application Firewall (WAF).
    * 
    * @param request - DescribeChargeResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4799,7 +4799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询WAF计价模块的计价结果
+   * Queries the billing results for Web Application Firewall (WAF).
    * 
    * @param request - DescribeChargeResultRequest
    * @returns DescribeChargeResultResponse
@@ -4810,7 +4810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the port details of a cloud service instance that is added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances.
+   * Retrieves port details of cloud service instances onboarded to Web Application Firewall (WAF).
    * 
    * @param request - DescribeCloudResourceAccessPortDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4873,7 +4873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the port details of a cloud service instance that is added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances.
+   * Retrieves port details of cloud service instances onboarded to Web Application Firewall (WAF).
    * 
    * @param request - DescribeCloudResourceAccessPortDetailsRequest
    * @returns DescribeCloudResourceAccessPortDetailsResponse
@@ -4884,7 +4884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+   * Queries the ports of cloud services added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
    * 
    * @param request - DescribeCloudResourceAccessedPortsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4927,7 +4927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+   * Queries the ports of cloud services added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
    * 
    * @param request - DescribeCloudResourceAccessedPortsRequest
    * @returns DescribeCloudResourceAccessedPortsResponse
@@ -4938,7 +4938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云产品接入资源列表
+   * Queries a list of resources added to Web Application Firewall (WAF) in cloud native mode.
    * 
    * @param request - DescribeCloudResourceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5009,7 +5009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云产品接入资源列表
+   * Queries a list of resources added to Web Application Firewall (WAF) in cloud native mode.
    * 
    * @param request - DescribeCloudResourceListRequest
    * @returns DescribeCloudResourceListResponse
@@ -5020,7 +5020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cloud service resources that are added to Web Application Firewall (WAF).
+   * Queries the list of cloud services added to Web Application Firewall (WAF).
    * 
    * @param request - DescribeCloudResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5103,7 +5103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cloud service resources that are added to Web Application Firewall (WAF).
+   * Queries the list of cloud services added to Web Application Firewall (WAF).
    * 
    * @param request - DescribeCloudResourcesRequest
    * @returns DescribeCloudResourcesResponse
@@ -5114,7 +5114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
+   * Queries the total number of domain names that are added to WAF, including domain names added through CNAME and hybrid cloud access.
    * 
    * @param request - DescribeCnameCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5153,7 +5153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
+   * Queries the total number of domain names that are added to WAF, including domain names added through CNAME and hybrid cloud access.
    * 
    * @param request - DescribeCnameCountRequest
    * @returns DescribeCnameCountResponse
@@ -5164,7 +5164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询日志服务支持的所有字段
+   * Queries all log fields supported by Simple Log Service for Web Application Firewall (WAF).
    * 
    * @param tmpReq - DescribeCommonLogFieldsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5221,7 +5221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询日志服务支持的所有字段
+   * Queries all log fields supported by Simple Log Service for Web Application Firewall (WAF).
    * 
    * @param request - DescribeCommonLogFieldsRequest
    * @returns DescribeCommonLogFieldsResponse
@@ -5232,7 +5232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义正则规则编译结果
+   * Describes the compilation result of a custom regular expression rule.
    * 
    * @param request - DescribeCustomBaseRuleCompileResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5271,7 +5271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义正则规则编译结果
+   * Describes the compilation result of a custom regular expression rule.
    * 
    * @param request - DescribeCustomBaseRuleCompileResultRequest
    * @returns DescribeCustomBaseRuleCompileResultResponse
@@ -5282,7 +5282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
+   * Queries whether the current WAF instance is under a DDoS attack.
    * 
    * @param request - DescribeDDoSStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5321,7 +5321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
+   * Queries whether the current WAF instance is under a DDoS attack.
    * 
    * @param request - DescribeDDoSStatusRequest
    * @returns DescribeDDoSStatusResponse
@@ -5332,7 +5332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the default SSL and Transport Layer Security (TLS) settings.
+   * Queries the default SSL/TLS settings.
    * 
    * @param request - DescribeDefaultHttpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5371,7 +5371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the default SSL and Transport Layer Security (TLS) settings.
+   * Queries the default SSL/TLS settings.
    * 
    * @param request - DescribeDefaultHttpsRequest
    * @returns DescribeDefaultHttpsResponse
@@ -5382,7 +5382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询可以被防护组绑定的防护对象列表
+   * Queries a paginated list of protected objects that can be associated with a defense group.
    * 
    * @param request - DescribeDefenseGroupValidResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5437,7 +5437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询可以被防护组绑定的防护对象列表
+   * Queries a paginated list of protected objects that can be associated with a defense group.
    * 
    * @param request - DescribeDefenseGroupValidResourcesRequest
    * @returns DescribeDefenseGroupValidResourcesResponse
@@ -5448,7 +5448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a protected object.
+   * Query a single protected object.
    * 
    * @param request - DescribeDefenseResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5491,7 +5491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a protected object.
+   * Query a single protected object.
    * 
    * @param request - DescribeDefenseResourceRequest
    * @returns DescribeDefenseResourceResponse
@@ -5502,7 +5502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a protected object group.
+   * Retrieves the details of a protected object group.
    * 
    * @param request - DescribeDefenseResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5545,7 +5545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a protected object group.
+   * Retrieves the details of a protected object group.
    * 
    * @param request - DescribeDefenseResourceGroupRequest
    * @returns DescribeDefenseResourceGroupResponse
@@ -5618,7 +5618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a pagination query to retrieve the information about protected object groups.
+   * Retrieves information about protected object groups using pagination.
    * 
    * @param request - DescribeDefenseResourceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5673,7 +5673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a pagination query to retrieve the information about protected object groups.
+   * Retrieves information about protected object groups using pagination.
    * 
    * @param request - DescribeDefenseResourceGroupsRequest
    * @returns DescribeDefenseResourceGroupsResponse
@@ -5746,7 +5746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询防护对象和所属资源的关系
+   * Queries the asset owner account of protected objects in multi-account management scenarios.
    * 
    * @param request - DescribeDefenseResourceOwnerUidRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5789,7 +5789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询防护对象和所属资源的关系
+   * Queries the asset owner account of protected objects in multi-account management scenarios.
    * 
    * @param request - DescribeDefenseResourceOwnerUidRequest
    * @returns DescribeDefenseResourceOwnerUidResponse
@@ -5800,7 +5800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protection templates that are associated with a protected object or protected object group.
+   * Queries the protection templates associated with a protected object or protected object group.
    * 
    * @param request - DescribeDefenseResourceTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5863,7 +5863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protection templates that are associated with a protected object or protected object group.
+   * Queries the protection templates associated with a protected object or protected object group.
    * 
    * @param request - DescribeDefenseResourceTemplatesRequest
    * @returns DescribeDefenseResourceTemplatesResponse
@@ -5874,7 +5874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries protected objects by page.
+   * Queries protected objects by paging.
    * 
    * @param request - DescribeDefenseResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5929,7 +5929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries protected objects by page.
+   * Queries protected objects by paging.
    * 
    * @param request - DescribeDefenseResourcesRequest
    * @returns DescribeDefenseResourcesResponse
@@ -5940,7 +5940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a protection rule.
+   * Retrieves the details of a specified protection rule.
    * 
    * @param request - DescribeDefenseRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5995,7 +5995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a protection rule.
+   * Retrieves the details of a specified protection rule.
    * 
    * @param request - DescribeDefenseRuleRequest
    * @returns DescribeDefenseRuleResponse
@@ -6006,7 +6006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询防护规则的统计信息
+   * Queries statistics of rules under a specified WAF protection module.
    * 
    * @param request - DescribeDefenseRuleStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6065,7 +6065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询防护规则的统计信息
+   * Queries statistics of rules under a specified WAF protection module.
    * 
    * @param request - DescribeDefenseRuleStatisticsRequest
    * @returns DescribeDefenseRuleStatisticsResponse
@@ -6076,7 +6076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries protection rules by page.
+   * Queries a paginated list of protection rules.
    * 
    * @param request - DescribeDefenseRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6135,7 +6135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries protection rules by page.
+   * Queries a paginated list of protection rules.
    * 
    * @param request - DescribeDefenseRulesRequest
    * @returns DescribeDefenseRulesResponse
@@ -6146,7 +6146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户防护场景的配置
+   * Queries the protection configurations for a specific defense scenario.
    * 
    * @param request - DescribeDefenseSceneConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6193,7 +6193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户防护场景的配置
+   * Queries the protection configurations for a specific defense scenario.
    * 
    * @param request - DescribeDefenseSceneConfigRequest
    * @returns DescribeDefenseSceneConfigResponse
@@ -6204,7 +6204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a protection rule template.
+   * Retrieves the details of a specific protection template.
    * 
    * @param request - DescribeDefenseTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6247,7 +6247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a protection rule template.
+   * Retrieves the details of a specific protection template.
    * 
    * @param request - DescribeDefenseTemplateRequest
    * @returns DescribeDefenseTemplateResponse
@@ -6258,7 +6258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the names of protected object groups for which a protection template can take effect.
+   * Queries the names of protected object groups that can be associated with a specific protection template.
    * 
    * @param request - DescribeDefenseTemplateValidGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6317,7 +6317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the names of protected object groups for which a protection template can take effect.
+   * Queries the names of protected object groups that can be associated with a specific protection template.
    * 
    * @param request - DescribeDefenseTemplateValidGroupsRequest
    * @returns DescribeDefenseTemplateValidGroupsResponse
@@ -6328,7 +6328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询可以被自定义模板绑定的防护对象列表
+   * Queries a paginated list of protected objects that are valid for a specified protection template.
    * 
    * @param request - DescribeDefenseTemplateValidResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6387,7 +6387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询可以被自定义模板绑定的防护对象列表
+   * Queries a paginated list of protected objects that are valid for a specified protection template.
    * 
    * @param request - DescribeDefenseTemplateValidResourcesRequest
    * @returns DescribeDefenseTemplateValidResourcesResponse
@@ -6398,7 +6398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query to retrieve protection templates.
+   * Retrieves a paginated list of protection templates.
    * 
    * @param request - DescribeDefenseTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6477,7 +6477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query to retrieve protection templates.
+   * Retrieves a paginated list of protection templates.
    * 
    * @param request - DescribeDefenseTemplatesRequest
    * @returns DescribeDefenseTemplatesResponse
@@ -6488,7 +6488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
+   * Queries whether the DNS settings of a domain name are correct.
    * 
    * @param request - DescribeDomainDNSRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6531,7 +6531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
+   * Queries whether the DNS settings of a domain name are correct.
    * 
    * @param request - DescribeDomainDNSRecordRequest
    * @returns DescribeDomainDNSRecordResponse
@@ -6542,7 +6542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a domain name that is added to Web Application Firewall (WAF).
+   * Queries the Website Config details.
    * 
    * @param request - DescribeDomainDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6585,7 +6585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a domain name that is added to Web Application Firewall (WAF).
+   * Queries the Website Config details.
    * 
    * @param request - DescribeDomainDetailRequest
    * @returns DescribeDomainDetailResponse
@@ -6596,7 +6596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名已使用的端口
+   * Queries all ports used by domain names of the current user. Only domain names with CNAME access and hybrid cloud CNAME domain names with public network disaster recovery enabled are included.
    * 
    * @param request - DescribeDomainUsedPortsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6631,7 +6631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名已使用的端口
+   * Queries all ports used by domain names of the current user. Only domain names with CNAME access and hybrid cloud CNAME domain names with public network disaster recovery enabled are included.
    * 
    * @param request - DescribeDomainUsedPortsRequest
    * @returns DescribeDomainUsedPortsResponse
@@ -6716,7 +6716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+   * Queries the daily bills for WAF pay-as-you-go instances for the last 7 days.
    * 
    * @param request - DescribeElasticBillsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6763,7 +6763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+   * Queries the daily bills for WAF pay-as-you-go instances for the last 7 days.
    * 
    * @param request - DescribeElasticBillsRequest
    * @returns DescribeElasticBillsResponse
@@ -6774,7 +6774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
+   * Queries the traffic statistics.
    * 
    * @param request - DescribeFlowChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6829,7 +6829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
+   * Queries the traffic statistics.
    * 
    * @param request - DescribeFlowChartRequest
    * @returns DescribeFlowChartResponse
@@ -6840,7 +6840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 protected objects that receive requests.
+   * Queries the top 10 protected objects by request count.
    * 
    * @param request - DescribeFlowTopResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6887,7 +6887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 protected objects that receive requests.
+   * Queries the top 10 protected objects by request count.
    * 
    * @param request - DescribeFlowTopResourceRequest
    * @returns DescribeFlowTopResourceResponse
@@ -6898,7 +6898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 URLs that are used to initiate requests.
+   * Queries the top 10 most requested URLs.
    * 
    * @param request - DescribeFlowTopUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6949,7 +6949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 URLs that are used to initiate requests.
+   * Queries the top 10 most requested URLs.
    * 
    * @param request - DescribeFlowTopUrlRequest
    * @returns DescribeFlowTopUrlResponse
@@ -6960,7 +6960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset statistics provided by basic detection in the API security module.
+   * Queries statistics information about assets detected by the basic API security feature.
    * 
    * @param request - DescribeFreeUserAssetCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6999,7 +6999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset statistics provided by basic detection in the API security module.
+   * Queries statistics information about assets detected by the basic API security feature.
    * 
    * @param request - DescribeFreeUserAssetCountRequest
    * @returns DescribeFreeUserAssetCountResponse
@@ -7010,7 +7010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
+   * Queries the security event statistics of API security basic detection.
    * 
    * @param request - DescribeFreeUserEventCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7049,7 +7049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
+   * Queries the security event statistics of API security basic detection.
    * 
    * @param request - DescribeFreeUserEventCountRequest
    * @returns DescribeFreeUserEventCountResponse
@@ -7060,7 +7060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types of security events on which basic detection is performed in the API security module.
+   * Queries the types of security events for basic API security detection.
    * 
    * @param request - DescribeFreeUserEventTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7099,7 +7099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types of security events on which basic detection is performed in the API security module.
+   * Queries the types of security events for basic API security detection.
    * 
    * @param request - DescribeFreeUserEventTypesRequest
    * @returns DescribeFreeUserEventTypesResponse
@@ -7110,7 +7110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of security events on which basic detection is performed in the API security module.
+   * Queries the list of security events detected by API security basic detection.
    * 
    * @param request - DescribeFreeUserEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7149,7 +7149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of security events on which basic detection is performed in the API security module.
+   * Queries the list of security events detected by API security basic detection.
    * 
    * @param request - DescribeFreeUserEventsRequest
    * @returns DescribeFreeUserEventsResponse
@@ -7214,7 +7214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the rule information about a hybrid cloud cluster.
+   * Retrieves a hybrid cloud cluster rule.
    * 
    * @param request - DescribeHybridCloudClusterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7241,7 +7241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the rule information about a hybrid cloud cluster.
+   * Retrieves a hybrid cloud cluster rule.
    * 
    * @param request - DescribeHybridCloudClusterRuleRequest
    * @returns DescribeHybridCloudClusterRuleResponse
@@ -7252,7 +7252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群规则列表
+   * Cluster rules
    * 
    * @param request - DescribeHybridCloudClusterRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7315,7 +7315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群规则列表
+   * Cluster rules
    * 
    * @param request - DescribeHybridCloudClusterRulesRequest
    * @returns DescribeHybridCloudClusterRulesResponse
@@ -7326,7 +7326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群机器列表
+   * Queries the servers in a hybrid cloud Web Application Firewall (WAF) cluster.
    * 
    * @param request - DescribeHybridCloudClusterServersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7393,7 +7393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群机器列表
+   * Queries the servers in a hybrid cloud Web Application Firewall (WAF) cluster.
    * 
    * @param request - DescribeHybridCloudClusterServersRequest
    * @returns DescribeHybridCloudClusterServersResponse
@@ -7454,7 +7454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
+   * Queries the Hybrid Cloud WAF node groups that are added to Web Application Firewall (WAF).
    * 
    * @param request - DescribeHybridCloudGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7517,7 +7517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
+   * Queries the Hybrid Cloud WAF node groups that are added to Web Application Firewall (WAF).
    * 
    * @param request - DescribeHybridCloudGroupsRequest
    * @returns DescribeHybridCloudGroupsResponse
@@ -7528,7 +7528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of applications running on a hybrid cloud cluster node.
+   * Queries the status of applications on nodes in a hybrid cloud Web Application Firewall (WAF) cluster.
    * 
    * @param request - DescribeHybridCloudProcessMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7571,7 +7571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of applications running on a hybrid cloud cluster node.
+   * Queries the status of applications on nodes in a hybrid cloud Web Application Firewall (WAF) cluster.
    * 
    * @param request - DescribeHybridCloudProcessMonitorRequest
    * @returns DescribeHybridCloudProcessMonitorResponse
@@ -7582,7 +7582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+   * Queries the count of protectable nodes that can be added to a hybrid cloud cluster.
    * 
    * @param request - DescribeHybridCloudProtectableCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7621,7 +7621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+   * Queries the count of protectable nodes that can be added to a hybrid cloud cluster.
    * 
    * @param request - DescribeHybridCloudProtectableCountRequest
    * @returns DescribeHybridCloudProtectableCountResponse
@@ -7632,7 +7632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询混合云域名详情
+   * Queries the details of a hybrid cloud domain name.
    * 
    * @param request - DescribeHybridCloudResourceDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7691,7 +7691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询混合云域名详情
+   * Queries the details of a hybrid cloud domain name.
    * 
    * @param request - DescribeHybridCloudResourceDetailRequest
    * @returns DescribeHybridCloudResourceDetailResponse
@@ -7702,7 +7702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
+   * Queries the list of hybrid cloud domain names.
    * 
    * @param request - DescribeHybridCloudResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7761,7 +7761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
+   * Queries the list of hybrid cloud domain names.
    * 
    * @param request - DescribeHybridCloudResourcesRequest
    * @returns DescribeHybridCloudResourcesResponse
@@ -7772,7 +7772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取SDK信息
+   * Queries the hybrid cloud SDK servers that are managed by a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeHybridCloudSdkServersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7831,7 +7831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取SDK信息
+   * Queries the hybrid cloud SDK servers that are managed by a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeHybridCloudSdkServersRequest
    * @returns DescribeHybridCloudSdkServersResponse
@@ -7842,7 +7842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
+   * Queries hybrid cloud server regions, including carriers, continents, and cities.
    * 
    * @param request - DescribeHybridCloudServerRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7889,7 +7889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
+   * Queries hybrid cloud server regions, including carriers, continents, and cities.
    * 
    * @param request - DescribeHybridCloudServerRegionsRequest
    * @returns DescribeHybridCloudServerRegionsResponse
@@ -7900,7 +7900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询接入区域
+   * Queries the regions that are supported for hybrid cloud access in Web Application Firewall (WAF).
    * 
    * @param request - DescribeHybridCloudSupportRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7939,7 +7939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询接入区域
+   * Queries the regions that are supported for hybrid cloud access in Web Application Firewall (WAF).
    * 
    * @param request - DescribeHybridCloudSupportRegionsRequest
    * @returns DescribeHybridCloudSupportRegionsResponse
@@ -7950,7 +7950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries servers that are not assigned to a hybrid cloud cluster.
+   * Queries the list of unassigned servers in a hybrid cloud cluster.
    * 
    * @param request - DescribeHybridCloudUnassignedMachinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8009,7 +8009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries servers that are not assigned to a hybrid cloud cluster.
+   * Queries the list of unassigned servers in a hybrid cloud cluster.
    * 
    * @param request - DescribeHybridCloudUnassignedMachinesRequest
    * @returns DescribeHybridCloudUnassignedMachinesResponse
@@ -8020,7 +8020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ports that are not supported by the hybrid cloud mode.
+   * Queries the list of unsupported ports for a hybrid cloud.
    * 
    * @param request - DescribeHybridCloudUnsupportPortsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8059,7 +8059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ports that are not supported by the hybrid cloud mode.
+   * Queries the list of unsupported ports for a hybrid cloud.
    * 
    * @param request - DescribeHybridCloudUnsupportPortsRequest
    * @returns DescribeHybridCloudUnsupportPortsResponse
@@ -8070,7 +8070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
+   * Queries the available HTTP and HTTPS port ranges for hybrid cloud access.
    * 
    * @param request - DescribeHybridCloudUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8109,7 +8109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
+   * Queries the available HTTP and HTTPS port ranges for hybrid cloud access.
    * 
    * @param request - DescribeHybridCloudUserRequest
    * @returns DescribeHybridCloudUserResponse
@@ -8120,7 +8120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
+   * Retrieves the details of the Web Application Firewall (WAF) instance in your Alibaba Cloud account.
    * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8155,7 +8155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
+   * Retrieves the details of the Web Application Firewall (WAF) instance in your Alibaba Cloud account.
    * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
@@ -8166,7 +8166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取支持的海外IP区域封禁支持的国际及地域。
+   * Retrieves supported countries and regions outside China for IP-based region blacklist.
    * 
    * @param request - DescribeIpAbroadCountryInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8225,7 +8225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取支持的海外IP区域封禁支持的国际及地域。
+   * Retrieves supported countries and regions outside China for IP-based region blacklist.
    * 
    * @param request - DescribeIpAbroadCountryInfosRequest
    * @returns DescribeIpAbroadCountryInfosResponse
@@ -8236,7 +8236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a hybrid cloud log delivery configuration.
+   * Queries a single log delivery configuration for a hybrid cloud.
    * 
    * @param request - DescribeLogDeliveryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8279,7 +8279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a hybrid cloud log delivery configuration.
+   * Queries a single log delivery configuration for a hybrid cloud.
    * 
    * @param request - DescribeLogDeliveryConfigRequest
    * @returns DescribeLogDeliveryConfigResponse
@@ -8290,7 +8290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all hybrid cloud log delivery configurations.
+   * Queries all log delivery configurations of a Web Application Firewall (WAF) instance for hybrid cloud.
    * 
    * @param request - DescribeLogDeliveryConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8345,7 +8345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all hybrid cloud log delivery configurations.
+   * Queries all log delivery configurations of a Web Application Firewall (WAF) instance for hybrid cloud.
    * 
    * @param request - DescribeLogDeliveryConfigsRequest
    * @returns DescribeLogDeliveryConfigsResponse
@@ -8356,7 +8356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries IP addresses in an IP address blacklist for major event protection by page.
+   * Queries the IP address blacklist for critical event protection in a paginated format.
    * 
    * @param request - DescribeMajorProtectionBlackIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8419,7 +8419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries IP addresses in an IP address blacklist for major event protection by page.
+   * Queries the IP address blacklist for critical event protection in a paginated format.
    * 
    * @param request - DescribeMajorProtectionBlackIpsRequest
    * @returns DescribeMajorProtectionBlackIpsResponse
@@ -8430,7 +8430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about members.
+   * Retrieves all member accounts managed by the WAF multi-account management feature.
    * 
    * @param request - DescribeMemberAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8477,7 +8477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about members.
+   * Retrieves all member accounts managed by the WAF multi-account management feature.
    * 
    * @param request - DescribeMemberAccountsRequest
    * @returns DescribeMemberAccountsResponse
@@ -8488,7 +8488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves time-series data for all network traffic, including both malicious and legitimate requests.
+   * Queries the time series statistics of all traffic, including malicious requests and normal service requests.
    * 
    * @param tmpReq - DescribeNetworkFlowTimeSeriesMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8541,7 +8541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves time-series data for all network traffic, including both malicious and legitimate requests.
+   * Queries the time series statistics of all traffic, including malicious requests and normal service requests.
    * 
    * @param request - DescribeNetworkFlowTimeSeriesMetricRequest
    * @returns DescribeNetworkFlowTimeSeriesMetricResponse
@@ -8552,7 +8552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves top aggregated traffic statistics, sorted by various dimensions, including malicious and legitimate requests.
+   * Queries the top N statistics for all traffic that passes through Web Application Firewall (WAF), including malicious and normal service requests. The results are aggregated by different dimensions and sorted in descending order.
    * 
    * @param tmpReq - DescribeNetworkFlowTopNMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8609,7 +8609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves top aggregated traffic statistics, sorted by various dimensions, including malicious and legitimate requests.
+   * Queries the top N statistics for all traffic that passes through Web Application Firewall (WAF), including malicious and normal service requests. The results are aggregated by different dimensions and sorted in descending order.
    * 
    * @param request - DescribeNetworkFlowTopNMetricRequest
    * @returns DescribeNetworkFlowTopNMetricResponse
@@ -8620,7 +8620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protection status of Web Application Firewall (WAF).
+   * Queries the protection pause status of a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribePauseProtectionStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8659,7 +8659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the protection status of Web Application Firewall (WAF).
+   * Queries the protection pause status of a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribePauseProtectionStatusRequest
    * @returns DescribePauseProtectionStatusResponse
@@ -8670,7 +8670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the queries per second (QPS) statistics of a WAF instance.
+   * Queries the trend of queries per second (QPS).
    * 
    * @param request - DescribePeakTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8725,7 +8725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the queries per second (QPS) statistics of a WAF instance.
+   * Queries the trend of queries per second (QPS).
    * 
    * @param request - DescribePeakTrendRequest
    * @returns DescribePeakTrendResponse
@@ -8736,7 +8736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询开启POC的功能信息
+   * Retrieves the enabled proof of concept (POC) feature trials.
    * 
    * @param request - DescribePocFunctionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8775,7 +8775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询开启POC的功能信息
+   * Retrieves the enabled proof of concept (POC) feature trials.
    * 
    * @param request - DescribePocFunctionsRequest
    * @returns DescribePocFunctionsResponse
@@ -8786,7 +8786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看用户账单详情
+   * Queries the list of pay-as-you-go bills.
    * 
    * @param request - DescribePostpayBillsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8845,7 +8845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看用户账单详情
+   * Queries the list of pay-as-you-go bills.
    * 
    * @param request - DescribePostpayBillsRequest
    * @returns DescribePostpayBillsResponse
@@ -8856,7 +8856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+   * Queries the elastic pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
    * 
    * @param request - DescribePrepayDailyBillsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8903,7 +8903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+   * Queries the elastic pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
    * 
    * @param request - DescribePrepayDailyBillsRequest
    * @returns DescribePrepayDailyBillsResponse
@@ -8914,7 +8914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
+   * Queries synchronized cloud service instances.
    * 
    * @param request - DescribeProductInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9001,7 +9001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
+   * Queries synchronized cloud service instances.
    * 
    * @param request - DescribeProductInstancesRequest
    * @returns DescribeProductInstancesResponse
@@ -9012,7 +9012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
+   * Queries penalties for domain names added to Web Application Firewall (WAF) without an Internet Content Provider (ICP) filing.
    * 
    * @param request - DescribePunishedDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9059,7 +9059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
+   * Queries penalties for domain names added to Web Application Firewall (WAF) without an Internet Content Provider (ICP) filing.
    * 
    * @param request - DescribePunishedDomainsRequest
    * @returns DescribePunishedDomainsResponse
@@ -9070,7 +9070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询关联规则
+   * Queries associated protection rules by using paging.
    * 
    * @param request - DescribeRelatedDefenseRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9129,7 +9129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询关联规则
+   * Queries associated protection rules by using paging.
    * 
    * @param request - DescribeRelatedDefenseRulesRequest
    * @returns DescribeRelatedDefenseRulesResponse
@@ -9140,7 +9140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
+   * Queries the certificates of a cloud product instance. This operation is available only in multi-account scenarios and returns the certificates of both the delegated administrator and the member that owns the instance. For example, if user A is a delegated administrator with cert1 and the instance lb-xx-1 belongs to member B who has cert2, a query for the instance lb-xx-1 returns both cert1 and cert2.
    * 
    * @param request - DescribeResourceInstanceCertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9191,7 +9191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
+   * Queries the certificates of a cloud product instance. This operation is available only in multi-account scenarios and returns the certificates of both the delegated administrator and the member that owns the instance. For example, if user A is a delegated administrator with cert1 and the instance lb-xx-1 belongs to member B who has cert2, a query for the instance lb-xx-1 returns both cert1 and cert2.
    * 
    * @param request - DescribeResourceInstanceCertsRequest
    * @returns DescribeResourceInstanceCertsResponse
@@ -9202,7 +9202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询防护对象日志外发状态
+   * Queries the log delivery status for protected objects.
    * 
    * @param request - DescribeResourceLogDeliveryStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9245,7 +9245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询防护对象日志外发状态
+   * Queries the log delivery status for protected objects.
    * 
    * @param request - DescribeResourceLogDeliveryStatusRequest
    * @returns DescribeResourceLogDeliveryStatusResponse
@@ -9256,7 +9256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询防护对象日志字段配置
+   * Queries the log field configuration for a protected object.
    * 
    * @param request - DescribeResourceLogFieldConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9303,7 +9303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询防护对象日志字段配置
+   * Queries the log field configuration for a protected object.
    * 
    * @param request - DescribeResourceLogFieldConfigRequest
    * @returns DescribeResourceLogFieldConfigResponse
@@ -9314,7 +9314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether the log collection feature is enabled for a protected object.
+   * Queries the log collection status of protected objects in a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeResourceLogStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9357,7 +9357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether the log collection feature is enabled for a protected object.
+   * Queries the log collection status of protected objects in a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeResourceLogStatusRequest
    * @returns DescribeResourceLogStatusResponse
@@ -9422,7 +9422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode. The resources refer to Application Load Balancer (ALB) and Microservices Engine (MSE) instances.
+   * Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
    * 
    * @param request - DescribeResourceRegionIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9461,7 +9461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode. The resources refer to Application Load Balancer (ALB) and Microservices Engine (MSE) instances.
+   * Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
    * 
    * @param request - DescribeResourceRegionIdRequest
    * @returns DescribeResourceRegionIdResponse
@@ -9472,7 +9472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
+   * Queries the list of supported regions for cloud native mode, mainly for CLB and ECS products.
    * 
    * @param request - DescribeResourceSupportRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9515,7 +9515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
+   * Queries the list of supported regions for cloud native mode, mainly for CLB and ECS products.
    * 
    * @param request - DescribeResourceSupportRegionsRequest
    * @returns DescribeResourceSupportRegionsResponse
@@ -9526,7 +9526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
+   * Queries the trends of abnormal response codes, such as 5XX, 405, 499, 302, and 444, returned by WAF to clients and by origin servers to WAF.
    * 
    * @param request - DescribeResponseCodeTrendGraphRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9585,7 +9585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
+   * Queries the trends of abnormal response codes, such as 5XX, 405, 499, 302, and 444, returned by WAF to clients and by origin servers to WAF.
    * 
    * @param request - DescribeResponseCodeTrendGraphRequest
    * @returns DescribeResponseCodeTrendGraphResponse
@@ -9596,7 +9596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权状态
+   * Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
    * 
    * @param request - DescribeRoleAuthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9631,7 +9631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询授权状态
+   * Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
    * 
    * @param request - DescribeRoleAuthStatusRequest
    * @returns DescribeRoleAuthStatusResponse
@@ -9642,7 +9642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regular expression rule groups by page.
+   * Queries a paginated list of regular expression rule groups.
    * 
    * @param request - DescribeRuleGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9697,7 +9697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regular expression rule groups by page.
+   * Queries a paginated list of regular expression rule groups.
    * 
    * @param request - DescribeRuleGroupsRequest
    * @returns DescribeRuleGroupsResponse
@@ -9708,7 +9708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 IP addresses from which attacks are initiated.
+   * Queries the top 10 source IP addresses from which the most attacks originated.
    * 
    * @param request - DescribeRuleHitsTopClientIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9763,7 +9763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 IP addresses from which attacks are initiated.
+   * Queries the top 10 source IP addresses from which the most attacks originated.
    * 
    * @param request - DescribeRuleHitsTopClientIpRequest
    * @returns DescribeRuleHitsTopClientIpResponse
@@ -9774,7 +9774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 protected objects that trigger protection rules.
+   * Queries the top 10 protected objects that triggered protection rules most frequently.
    * 
    * @param request - DescribeRuleHitsTopResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9825,7 +9825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 protected objects that trigger protection rules.
+   * Queries the top 10 protected objects that triggered protection rules most frequently.
    * 
    * @param request - DescribeRuleHitsTopResourceRequest
    * @returns DescribeRuleHitsTopResourceResponse
@@ -9836,7 +9836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IDs of the top 10 protection rules that are matched by requests.
+   * Queries the top 10 rule IDs that have triggered mitigation policies the most times.
    * 
    * @param request - DescribeRuleHitsTopRuleIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9895,7 +9895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IDs of the top 10 protection rules that are matched by requests.
+   * Queries the top 10 rule IDs that have triggered mitigation policies the most times.
    * 
    * @param request - DescribeRuleHitsTopRuleIdRequest
    * @returns DescribeRuleHitsTopRuleIdResponse
@@ -9906,7 +9906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 protection modules that are matched.
+   * Queries the top 10 most frequently triggered protection rule types.
    * 
    * @param request - DescribeRuleHitsTopTuleTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9957,7 +9957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 protection modules that are matched.
+   * Queries the top 10 most frequently triggered protection rule types.
    * 
    * @param request - DescribeRuleHitsTopTuleTypeRequest
    * @returns DescribeRuleHitsTopTuleTypeResponse
@@ -9968,7 +9968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 user agents that are used to initiate attacks.
+   * Queries the top 10 User-Agents that initiated the most attacks.
    * 
    * @param request - DescribeRuleHitsTopUaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10019,7 +10019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 user agents that are used to initiate attacks.
+   * Queries the top 10 User-Agents that initiated the most attacks.
    * 
    * @param request - DescribeRuleHitsTopUaRequest
    * @returns DescribeRuleHitsTopUaResponse
@@ -10030,7 +10030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 URLs that trigger protection rules.
+   * Queries the top 10 URLs that trigger protection rules the most.
    * 
    * @param request - DescribeRuleHitsTopUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10085,7 +10085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 URLs that trigger protection rules.
+   * Queries the top 10 URLs that trigger protection rules the most.
    * 
    * @param request - DescribeRuleHitsTopUrlRequest
    * @returns DescribeRuleHitsTopUrlResponse
@@ -10096,13 +10096,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of attack traffic. Each log records the details of a request that matches protection rules.
+   * Queries the detailed logs of attack traffic. Each log entry contains the details of a request that matched a protection rule.
    * 
    * @remarks
-   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
-   * *   Requests that match the protection rules of the whitelist module.
-   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
-   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * Attack traffic refers to requests that hit a rule and are identified as threats. The following three types of requests are not included:
+   * - Requests that hit a whitelist rule.
+   * - Requests that hit a bot rule whose action is set to Mark for Origin Fetch.
+   * - Requests that hit a rule whose action is set to Dynamic Token, Slider, Strict Slider, or JS Challenge, but are allowed because the user passed the verification.
    * 
    * @param tmpReq - DescribeSecurityEventLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10159,13 +10159,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of attack traffic. Each log records the details of a request that matches protection rules.
+   * Queries the detailed logs of attack traffic. Each log entry contains the details of a request that matched a protection rule.
    * 
    * @remarks
-   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
-   * *   Requests that match the protection rules of the whitelist module.
-   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
-   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * Attack traffic refers to requests that hit a rule and are identified as threats. The following three types of requests are not included:
+   * - Requests that hit a whitelist rule.
+   * - Requests that hit a bot rule whose action is set to Mark for Origin Fetch.
+   * - Requests that hit a rule whose action is set to Dynamic Token, Slider, Strict Slider, or JS Challenge, but are allowed because the user passed the verification.
    * 
    * @param request - DescribeSecurityEventLogsRequest
    * @returns DescribeSecurityEventLogsResponse
@@ -10176,13 +10176,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time series data of attack traffic. Attack requests refer to requests that match protection rules and are identified as risky.
+   * Queries the time series data of attack traffic. Attack requests are requests that hit a rule and are identified as a threat.
    * 
    * @remarks
-   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
-   * *   Requests that match the protection rules of the whitelist module.
-   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
-   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * Attack traffic refers to requests that hit a rule and are identified as a threat. The following data is excluded:
+   * - Requests that hit a whitelist rule.
+   * - Requests that hit a bot rule where the rule action is "Mark for origin fetch".
+   * - Requests that hit a rule with the action "Dynamic Token", "Slider", "Strict Slider", or "JS Challenge", but are allowed because the user passed the verification.
    * 
    * @param tmpReq - DescribeSecurityEventTimeSeriesMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10235,13 +10235,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time series data of attack traffic. Attack requests refer to requests that match protection rules and are identified as risky.
+   * Queries the time series data of attack traffic. Attack requests are requests that hit a rule and are identified as a threat.
    * 
    * @remarks
-   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
-   * *   Requests that match the protection rules of the whitelist module.
-   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
-   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * Attack traffic refers to requests that hit a rule and are identified as a threat. The following data is excluded:
+   * - Requests that hit a whitelist rule.
+   * - Requests that hit a bot rule where the rule action is "Mark for origin fetch".
+   * - Requests that hit a rule with the action "Dynamic Token", "Slider", "Strict Slider", or "JS Challenge", but are allowed because the user passed the verification.
    * 
    * @param request - DescribeSecurityEventTimeSeriesMetricRequest
    * @returns DescribeSecurityEventTimeSeriesMetricResponse
@@ -10252,13 +10252,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries top N data entries of attack traffic. The system performs statistical aggregation on attack traffic from specific dimensions and returns top N data entries.
+   * Queries the top N statistics of attack traffic, which is aggregated by a specified dimension, sorted, and returned.
    * 
    * @remarks
-   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
-   * *   Requests that match the protection rules of the whitelist module.
-   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
-   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * Attack traffic refers to requests that have rule hits and are identified as risky. The following three types of data are excluded:
+   * - Requests that hit whitelist rules.
+   * - Requests that hit bot rules but whose rule action is set to "back-to-origin marking".
+   * - Requests that hit rules with actions set to "dynamic token", "slider", "strict slider", or "JS authenticate", but the user passes the verification and the requests are allowed.
    * 
    * @param tmpReq - DescribeSecurityEventTopNMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10315,13 +10315,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries top N data entries of attack traffic. The system performs statistical aggregation on attack traffic from specific dimensions and returns top N data entries.
+   * Queries the top N statistics of attack traffic, which is aggregated by a specified dimension, sorted, and returned.
    * 
    * @remarks
-   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
-   * *   Requests that match the protection rules of the whitelist module.
-   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
-   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * Attack traffic refers to requests that have rule hits and are identified as risky. The following three types of data are excluded:
+   * - Requests that hit whitelist rules.
+   * - Requests that hit bot rules but whose rule action is set to "back-to-origin marking".
+   * - Requests that hit rules with actions set to "dynamic token", "slider", "strict slider", or "JS authenticate", but the user passes the verification and the requests are allowed.
    * 
    * @param request - DescribeSecurityEventTopNMetricRequest
    * @returns DescribeSecurityEventTopNMetricResponse
@@ -10332,7 +10332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the personal information-related APIs and domain names.
+   * Queries statistics on sites and API operations that involve personal information.
    * 
    * @param request - DescribeSensitiveApiStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10399,7 +10399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the personal information-related APIs and domain names.
+   * Queries statistics on sites and API operations that involve personal information.
    * 
    * @param request - DescribeSensitiveApiStatisticRequest
    * @returns DescribeSensitiveApiStatisticResponse
@@ -10410,7 +10410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the compliance check results of API security.
+   * Queries the detection results of API security compliance requirements.
    * 
    * @param request - DescribeSensitiveDetectionResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10461,7 +10461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the compliance check results of API security.
+   * Queries the detection results of API security compliance requirements.
    * 
    * @param request - DescribeSensitiveDetectionResultRequest
    * @returns DescribeSensitiveDetectionResultResponse
@@ -10472,7 +10472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic distribution of personal information records involved in cross-border data transfer.
+   * Queries the distribution of outbound traffic that contains personal information.
    * 
    * @param request - DescribeSensitiveOutboundDistributionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10523,7 +10523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic distribution of personal information records involved in cross-border data transfer.
+   * Queries the distribution of outbound traffic that contains personal information.
    * 
    * @param request - DescribeSensitiveOutboundDistributionRequest
    * @returns DescribeSensitiveOutboundDistributionResponse
@@ -10534,7 +10534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data types of personal information involved in cross-border data transfer.
+   * Queries statistics about outbound transfers of personal information.
    * 
    * @param request - DescribeSensitiveOutboundStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10617,7 +10617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data types of personal information involved in cross-border data transfer.
+   * Queries statistics about outbound transfers of personal information.
    * 
    * @param request - DescribeSensitiveOutboundStatisticRequest
    * @returns DescribeSensitiveOutboundStatisticResponse
@@ -10628,7 +10628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trends of cross-border data transfer of personal information.
+   * Queries the trend of cross-border transfer of personal information data.
    * 
    * @param request - DescribeSensitiveOutboundTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10679,7 +10679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trends of cross-border data transfer of personal information.
+   * Queries the trend of cross-border transfer of personal information data.
    * 
    * @param request - DescribeSensitiveOutboundTrendRequest
    * @returns DescribeSensitiveOutboundTrendResponse
@@ -10690,7 +10690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the access logs of sensitive data.
+   * Queries the access log information of sensitive data.
    * 
    * @param request - DescribeSensitiveRequestLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10773,7 +10773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the access logs of sensitive data.
+   * Queries the access log information of sensitive data.
    * 
    * @param request - DescribeSensitiveRequestLogRequest
    * @returns DescribeSensitiveRequestLogResponse
@@ -10784,7 +10784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tracing results of sensitive data.
+   * Queries the results of sensitive data tracing.
    * 
    * @param request - DescribeSensitiveRequestsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10851,7 +10851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tracing results of sensitive data.
+   * Queries the results of sensitive data tracing.
    * 
    * @param request - DescribeSensitiveRequestsRequest
    * @returns DescribeSensitiveRequestsResponse
@@ -10862,7 +10862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the sensitive data statistics of the tracing and auditing feature.
+   * Queries sensitive data statistics for tracing audits.
    * 
    * @param request - DescribeSensitiveStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10925,7 +10925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the sensitive data statistics of the tracing and auditing feature.
+   * Queries sensitive data statistics for tracing audits.
    * 
    * @param request - DescribeSensitiveStatisticRequest
    * @returns DescribeSensitiveStatisticResponse
@@ -10936,7 +10936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
+   * Queries the Logstore authorization status.
    * 
    * @param request - DescribeSlsAuthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10975,7 +10975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
+   * Queries the Logstore authorization status.
    * 
    * @param request - DescribeSlsAuthStatusRequest
    * @returns DescribeSlsAuthStatusResponse
@@ -10986,7 +10986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
+   * Retrieves Logstore information, including total capacity, storage duration, and used capacity.
    * 
    * @param request - DescribeSlsLogStoreRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11025,7 +11025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
+   * Retrieves Logstore information, including total capacity, storage duration, and used capacity.
    * 
    * @param request - DescribeSlsLogStoreRequest
    * @returns DescribeSlsLogStoreResponse
@@ -11086,7 +11086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of protected resources for which a protection template takes effect.
+   * Queries the number of protected resources that are associated with one or more protection templates.
    * 
    * @param request - DescribeTemplateResourceCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11129,7 +11129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of protected resources for which a protection template takes effect.
+   * Queries the number of protected resources that are associated with one or more protection templates.
    * 
    * @param request - DescribeTemplateResourceCountRequest
    * @returns DescribeTemplateResourceCountResponse
@@ -11140,7 +11140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resources that are associated to a protection rule template.
+   * Queries the resources attached to a protection template.
    * 
    * @param request - DescribeTemplateResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11203,7 +11203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resources that are associated to a protection rule template.
+   * Queries the resources attached to a protection template.
    * 
    * @param request - DescribeTemplateResourcesRequest
    * @returns DescribeTemplateResourcesResponse
@@ -11214,7 +11214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看攻击事件列表
+   * Queries a paginated list of notable security events.
    * 
    * @param request - DescribeThreatEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11273,7 +11273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看攻击事件列表
+   * Queries a paginated list of notable security events.
    * 
    * @param request - DescribeThreatEventRequest
    * @returns DescribeThreatEventResponse
@@ -11284,7 +11284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看威胁事件详情
+   * Retrieves the details of a security event that requires attention.
    * 
    * @param request - DescribeThreatEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11327,7 +11327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看威胁事件详情
+   * Retrieves the details of a security event that requires attention.
    * 
    * @param request - DescribeThreatEventDetailRequest
    * @returns DescribeThreatEventDetailResponse
@@ -11338,7 +11338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询安全事件Top攻击统计数据
+   * Queries the top 5 statistics of security events aggregated by different statistical objects and sorted in descending order.
    * 
    * @param request - DescribeThreatEventTopMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11385,7 +11385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询安全事件Top攻击统计数据
+   * Queries the top 5 statistics of security events aggregated by different statistical objects and sorted in descending order.
    * 
    * @param request - DescribeThreatEventTopMetricRequest
    * @returns DescribeThreatEventTopMetricResponse
@@ -11396,7 +11396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trends of API security risks.
+   * Queries the trend of API security risks for a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeUserAbnormalTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11439,7 +11439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trends of API security risks.
+   * Queries the trend of API security risks for a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeUserAbnormalTrendRequest
    * @returns DescribeUserAbnormalTrendResponse
@@ -11450,7 +11450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types and statistics of risks in the API security module.
+   * Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
    * 
    * @param request - DescribeUserAbnormalTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11505,7 +11505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types and statistics of risks in the API security module.
+   * Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
    * 
    * @param request - DescribeUserAbnormalTypeRequest
    * @returns DescribeUserAbnormalTypeResponse
@@ -11516,7 +11516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic statistics of an API.
+   * Queries traffic statistics for an API operation.
    * 
    * @param request - DescribeUserApiRequestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11575,7 +11575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic statistics of an API.
+   * Queries traffic statistics for an API operation.
    * 
    * @param request - DescribeUserApiRequestRequest
    * @returns DescribeUserApiRequestResponse
@@ -11586,7 +11586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the user asset statistics in the API security module.
+   * Queries API security user asset statistics.
    * 
    * @param request - DescribeUserAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11637,7 +11637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the user asset statistics in the API security module.
+   * Queries API security user asset statistics.
    * 
    * @param request - DescribeUserAssetRequest
    * @returns DescribeUserAssetResponse
@@ -11648,7 +11648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trends of attacks detected by the API security module.
+   * Queries the trend of API security attacks.
    * 
    * @param request - DescribeUserEventTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11695,7 +11695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trends of attacks detected by the API security module.
+   * Queries the trend of API security attacks.
    * 
    * @param request - DescribeUserEventTrendRequest
    * @returns DescribeUserEventTrendResponse
@@ -11706,7 +11706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types and statistics of security events in the API security module.
+   * Queries the types and statistics of user security events.
    * 
    * @param request - DescribeUserEventTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11765,7 +11765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types and statistics of security events in the API security module.
+   * Queries the types and statistics of user security events.
    * 
    * @param request - DescribeUserEventTypeRequest
    * @returns DescribeUserEventTypeResponse
@@ -11776,7 +11776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户日志配置
+   * Queries the log field configuration of a Web Application Firewall (WAF) instance, including additional fields, removed fields, delivery strategies, and extended settings.
    * 
    * @param request - DescribeUserLogFieldConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11819,7 +11819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户日志配置
+   * Queries the log field configuration of a Web Application Firewall (WAF) instance, including additional fields, removed fields, delivery strategies, and extended settings.
    * 
    * @param request - DescribeUserLogFieldConfigRequest
    * @returns DescribeUserLogFieldConfigResponse
@@ -11830,7 +11830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries available regions for log storage.
+   * Queries the log storage regions available to the user.
    * 
    * @param request - DescribeUserSlsLogRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11869,7 +11869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries available regions for log storage.
+   * Queries the log storage regions available to the user.
    * 
    * @param request - DescribeUserSlsLogRegionsRequest
    * @returns DescribeUserSlsLogRegionsResponse
@@ -11880,7 +11880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看用户分类实时流量
+   * Queries the real-time traffic of a user by traffic type.
    * 
    * @param request - DescribeUserTrafficRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11935,7 +11935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看用户分类实时流量
+   * Queries the real-time traffic of a user by traffic type.
    * 
    * @param request - DescribeUserTrafficRequest
    * @returns DescribeUserTrafficResponse
@@ -11996,7 +11996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询归属校验内容
+   * Queries the domain ownership verification content of a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeVerifyContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12035,7 +12035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询归属校验内容
+   * Queries the domain ownership verification content of a Web Application Firewall (WAF) instance.
    * 
    * @param request - DescribeVerifyContentRequest
    * @returns DescribeVerifyContentResponse
@@ -12046,7 +12046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 IP addresses from which requests are sent.
+   * Queries the top 10 IP addresses that initiate the most requests.
    * 
    * @param request - DescribeVisitTopIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12097,7 +12097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 IP addresses from which requests are sent.
+   * Queries the top 10 IP addresses that initiate the most requests.
    * 
    * @param request - DescribeVisitTopIpRequest
    * @returns DescribeVisitTopIpResponse
@@ -12108,7 +12108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 user agents that are used to initiate requests.
+   * Queries the top 10 User-Agents that initiate the most requests.
    * 
    * @param request - DescribeVisitUasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12159,7 +12159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 user agents that are used to initiate requests.
+   * Queries the top 10 User-Agents that initiate the most requests.
    * 
    * @param request - DescribeVisitUasRequest
    * @returns DescribeVisitUasResponse
@@ -12170,7 +12170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
+   * Queries the back-to-origin CIDR blocks of WAF.
    * 
    * @param request - DescribeWafSourceIpSegmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12209,7 +12209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
+   * Queries the back-to-origin CIDR blocks of WAF.
    * 
    * @param request - DescribeWafSourceIpSegmentRequest
    * @returns DescribeWafSourceIpSegmentResponse
@@ -12220,7 +12220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建WAF服务关联角色
+   * Initializes a service-linked role for WAF.
    * 
    * @param request - InitializeWafOperationRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12259,7 +12259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建WAF服务关联角色
+   * Initializes a service-linked role for WAF.
    * 
    * @param request - InitializeWafOperationRoleRequest
    * @returns InitializeWafOperationRoleResponse
@@ -12382,7 +12382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values of a tag key.
+   * Queries the tag values that correspond to a specified tag key.
    * 
    * @param request - ListTagValuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12433,7 +12433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag values of a tag key.
+   * Queries the tag values that correspond to a specified tag key.
    * 
    * @param request - ListTagValuesRequest
    * @returns ListTagValuesResponse
@@ -12444,7 +12444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of multiple risks detected by the API security module at a time.
+   * Modifies the status of API security risks in batches.
    * 
    * @param request - ModifyApisecAbnormalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12499,7 +12499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of multiple risks detected by the API security module at a time.
+   * Modifies the status of API security risks in batches.
    * 
    * @param request - ModifyApisecAbnormalsRequest
    * @returns ModifyApisecAbnormalsResponse
@@ -12510,7 +12510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the annotations of APIs in the API security module.
+   * Modifies the annotation of an API asset in the API security module of Web Application Firewall (WAF).
    * 
    * @param request - ModifyApisecApiResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12565,7 +12565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the annotations of APIs in the API security module.
+   * Modifies the annotation of an API asset in the API security module of Web Application Firewall (WAF).
    * 
    * @param request - ModifyApisecApiResourceRequest
    * @returns ModifyApisecApiResourceResponse
@@ -12576,7 +12576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of multiple security events detected by the API security module at a time.
+   * Modifies the status of a batch of API security events.
    * 
    * @param request - ModifyApisecEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12635,7 +12635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of multiple security events detected by the API security module at a time.
+   * Modifies the status of a batch of API security events.
    * 
    * @param request - ModifyApisecEventsRequest
    * @returns ModifyApisecEventsResponse
@@ -12646,7 +12646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of API security log subscription.
+   * Updates the API security log subscription settings.
    * 
    * @param request - ModifyApisecLogDeliveryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12701,7 +12701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of API security log subscription.
+   * Updates the API security log subscription settings.
    * 
    * @param request - ModifyApisecLogDeliveryRequest
    * @returns ModifyApisecLogDeliveryResponse
@@ -12712,7 +12712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of API security log subscription.
+   * Modifies the subscription status of API security logs.
    * 
    * @param request - ModifyApisecLogDeliveryStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12759,7 +12759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of API security log subscription.
+   * Modifies the subscription status of API security logs.
    * 
    * @param request - ModifyApisecLogDeliveryStatusRequest
    * @returns ModifyApisecLogDeliveryStatusResponse
@@ -12770,7 +12770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of features in the API security module for protected objects or protected object groups.
+   * Modifies the status of protected objects or protected object groups for the API security protection module.
    * 
    * @param request - ModifyApisecModuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12825,7 +12825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of features in the API security module for protected objects or protected object groups.
+   * Modifies the status of protected objects or protected object groups for the API security protection module.
    * 
    * @param request - ModifyApisecModuleStatusRequest
    * @returns ModifyApisecModuleStatusResponse
@@ -12836,7 +12836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of the API security module for protected objects or protected object groups.
+   * Modifies the status of protected objects or protected object groups for API security.
    * 
    * @param request - ModifyApisecStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12887,7 +12887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of the API security module for protected objects or protected object groups.
+   * Modifies the status of protected objects or protected object groups for API security.
    * 
    * @param request - ModifyApisecStatusRequest
    * @returns ModifyApisecStatusResponse
@@ -12898,7 +12898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a service that is added to Web Application Firewall (WAF).
+   * Modifies the configuration of a cloud service that is connected to Web Application Firewall (WAF).
    * 
    * @param tmpReq - ModifyCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12959,7 +12959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a service that is added to Web Application Firewall (WAF).
+   * Modifies the configuration of a cloud service that is connected to Web Application Firewall (WAF).
    * 
    * @param request - ModifyCloudResourceRequest
    * @returns ModifyCloudResourceResponse
@@ -12970,7 +12970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云产品接入的证书
+   * Modifies the certificate for a resource managed by WAF in cloud native mode.
    * 
    * @param request - ModifyCloudResourceCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13025,7 +13025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云产品接入的证书
+   * Modifies the certificate for a resource managed by WAF in cloud native mode.
    * 
    * @param request - ModifyCloudResourceCertRequest
    * @returns ModifyCloudResourceCertResponse
@@ -13036,7 +13036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云产品接入的默认证书
+   * Modifies the default certificate for a cloud native mode resource.
    * 
    * @param request - ModifyCloudResourceDefaultCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13083,7 +13083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云产品接入的默认证书
+   * Modifies the default certificate for a cloud native mode resource.
    * 
    * @param request - ModifyCloudResourceDefaultCertRequest
    * @returns ModifyCloudResourceDefaultCertResponse
@@ -13094,7 +13094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
+   * Modifies the default SSL/TLS settings.
    * 
    * @param request - ModifyDefaultHttpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13153,7 +13153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
+   * Modifies the default SSL/TLS settings.
    * 
    * @param request - ModifyDefaultHttpsRequest
    * @returns ModifyDefaultHttpsResponse
@@ -13164,7 +13164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a protected object group.
+   * Modifies the configuration of a protected object group.
    * 
    * @param request - ModifyDefenseResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13219,7 +13219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a protected object group.
+   * Modifies the configuration of a protected object group.
    * 
    * @param request - ModifyDefenseResourceGroupRequest
    * @returns ModifyDefenseResourceGroupResponse
@@ -13308,7 +13308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a protection rule.
+   * Modifies the configuration of a protection rule.
    * 
    * @param request - ModifyDefenseRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13369,7 +13369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a protection rule.
+   * Modifies the configuration of a protection rule.
    * 
    * @param request - ModifyDefenseRuleRequest
    * @returns ModifyDefenseRuleResponse
@@ -13380,7 +13380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the cached page of a website that is protected based on a website tamper-proofing rule.
+   * Updates the cache for a web tamper-proofing rule.
    * 
    * @param request - ModifyDefenseRuleCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13427,7 +13427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the cached page of a website that is protected based on a website tamper-proofing rule.
+   * Updates the cache for a web tamper-proofing rule.
    * 
    * @param request - ModifyDefenseRuleCacheRequest
    * @returns ModifyDefenseRuleCacheResponse
@@ -13438,7 +13438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a protection rule.
+   * Enables or disables a protection rule.
    * 
    * @param request - ModifyDefenseRuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13493,7 +13493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a protection rule.
+   * Enables or disables a protection rule.
    * 
    * @param request - ModifyDefenseRuleStatusRequest
    * @returns ModifyDefenseRuleStatusResponse
@@ -13504,7 +13504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改用户防护场景的配置
+   * Modifies the mitigation settings for a protection scenario.
    * 
    * @param request - ModifyDefenseSceneConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13555,7 +13555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改用户防护场景的配置
+   * Modifies the mitigation settings for a protection scenario.
    * 
    * @param request - ModifyDefenseSceneConfigRequest
    * @returns ModifyDefenseSceneConfigResponse
@@ -13566,7 +13566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a protection rule template.
+   * Modifies a defense template.
    * 
    * @param request - ModifyDefenseTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13617,7 +13617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a protection rule template.
+   * Modifies a defense template.
    * 
    * @param request - ModifyDefenseTemplateRequest
    * @returns ModifyDefenseTemplateResponse
@@ -13686,7 +13686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
+   * Updates a CNAME-based domain name onboarded to Web Application Firewall (WAF).
    * 
    * @param tmpReq - ModifyDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13751,7 +13751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
+   * Updates a CNAME-based domain name onboarded to Web Application Firewall (WAF).
    * 
    * @param request - ModifyDomainRequest
    * @returns ModifyDomainResponse
@@ -13762,7 +13762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改域名的证书
+   * Modifies the certificate that is associated with a domain name added to a Web Application Firewall (WAF) instance in CNAME record mode.
    * 
    * @param request - ModifyDomainCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13821,7 +13821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改域名的证书
+   * Modifies the certificate that is associated with a domain name added to a Web Application Firewall (WAF) instance in CNAME record mode.
    * 
    * @param request - ModifyDomainCertRequest
    * @returns ModifyDomainCertResponse
@@ -13832,7 +13832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
+   * Re-connects a domain name that is in the ICP filing violation penalty status.
    * 
    * @param request - ModifyDomainPunishStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13875,7 +13875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
+   * Re-connects a domain name that is in the ICP filing violation penalty status.
    * 
    * @param request - ModifyDomainPunishStatusRequest
    * @returns ModifyDomainPunishStatusResponse
@@ -13886,7 +13886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies information about a hybrid cloud cluster.
+   * Updates hybrid cloud cluster settings, such as the cluster name, ports, and access mode.
    * 
    * @param request - ModifyHybridCloudClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13981,7 +13981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies information about a hybrid cloud cluster.
+   * Updates hybrid cloud cluster settings, such as the cluster name, ports, and access mode.
    * 
    * @param request - ModifyHybridCloudClusterRequest
    * @returns ModifyHybridCloudClusterResponse
@@ -13992,7 +13992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
+   * Modifies the manual bypass status for a hybrid cloud cluster that is integrated with an SDK.
    * 
    * @param request - ModifyHybridCloudClusterBypassStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14039,7 +14039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
+   * Modifies the manual bypass status for a hybrid cloud cluster that is integrated with an SDK.
    * 
    * @param request - ModifyHybridCloudClusterBypassStatusRequest
    * @returns ModifyHybridCloudClusterBypassStatusResponse
@@ -14050,7 +14050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the rule of a hybrid cloud cluster.
+   * Modifies the rule information of a hybrid cloud cluster.
    * 
    * @param request - ModifyHybridCloudClusterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14109,7 +14109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the rule of a hybrid cloud cluster.
+   * Modifies the rule information of a hybrid cloud cluster.
    * 
    * @param request - ModifyHybridCloudClusterRuleRequest
    * @returns ModifyHybridCloudClusterRuleResponse
@@ -14120,7 +14120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a node group in a hybrid cloud cluster.
+   * Modifies the information of a cluster group.
    * 
    * @param request - ModifyHybridCloudGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14175,7 +14175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a node group in a hybrid cloud cluster.
+   * Modifies the information of a cluster group.
    * 
    * @param request - ModifyHybridCloudGroupRequest
    * @returns ModifyHybridCloudGroupResponse
@@ -14186,7 +14186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a node to a node group of a hybrid cloud cluster.
+   * Adds a node to a node group in a hybrid cloud cluster of a Web Application Firewall (WAF) instance.
    * 
    * @param request - ModifyHybridCloudGroupExpansionServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14237,7 +14237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a node to a node group of a hybrid cloud cluster.
+   * Adds a node to a node group in a hybrid cloud cluster of a Web Application Firewall (WAF) instance.
    * 
    * @param request - ModifyHybridCloudGroupExpansionServerRequest
    * @returns ModifyHybridCloudGroupExpansionServerResponse
@@ -14248,7 +14248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a node from a node group of a hybrid cloud cluster.
+   * Deletes nodes from a cluster group.
    * 
    * @param request - ModifyHybridCloudGroupShrinkServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14299,7 +14299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a node from a node group of a hybrid cloud cluster.
+   * Deletes nodes from a cluster group.
    * 
    * @param request - ModifyHybridCloudGroupShrinkServerRequest
    * @returns ModifyHybridCloudGroupShrinkServerResponse
@@ -14310,7 +14310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
+   * Modifies the traffic redirection status of a hybrid cloud SDK.
    * 
    * @param request - ModifyHybridCloudSdkPullinStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14349,7 +14349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
+   * Modifies the traffic redirection status of a hybrid cloud SDK.
    * 
    * @param request - ModifyHybridCloudSdkPullinStatusRequest
    * @returns ModifyHybridCloudSdkPullinStatusResponse
@@ -14360,7 +14360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a hybrid cloud node.
+   * Modifies hybrid cloud node information.
    * 
    * @param request - ModifyHybridCloudServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14419,7 +14419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a hybrid cloud node.
+   * Modifies hybrid cloud node information.
    * 
    * @param request - ModifyHybridCloudServerRequest
    * @returns ModifyHybridCloudServerResponse
@@ -14430,7 +14430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a hybrid cloud log delivery configuration.
+   * Modifies a log delivery configuration for a hybrid cloud cluster.
    * 
    * @param request - ModifyLogDeliveryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14481,7 +14481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a hybrid cloud log delivery configuration.
+   * Modifies a log delivery configuration for a hybrid cloud cluster.
    * 
    * @param request - ModifyLogDeliveryConfigRequest
    * @returns ModifyLogDeliveryConfigResponse
@@ -14492,7 +14492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an IP address blacklist for major event protection.
+   * Modifies an IP address blacklist for critical event protection.
    * 
    * @param request - ModifyMajorProtectionBlackIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14551,7 +14551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an IP address blacklist for major event protection.
+   * Modifies an IP address blacklist for critical event protection.
    * 
    * @param request - ModifyMajorProtectionBlackIpRequest
    * @returns ModifyMajorProtectionBlackIpResponse
@@ -14562,7 +14562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about members that are added for multi-account management.
+   * Modifies the information of a member account that is managed by the multi-account management feature of Web Application Firewall (WAF).
    * 
    * @param request - ModifyMemberAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14613,7 +14613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about members that are added for multi-account management.
+   * Modifies the information of a member account that is managed by the multi-account management feature of Web Application Firewall (WAF).
    * 
    * @param request - ModifyMemberAccountRequest
    * @returns ModifyMemberAccountResponse
@@ -14678,7 +14678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改防护对象日志外发状态
+   * Modifies the log delivery status of a protected object in Web Application Firewall (WAF).
    * 
    * @param request - ModifyResourceLogDeliveryStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14729,7 +14729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改防护对象日志外发状态
+   * Modifies the log delivery status of a protected object in Web Application Firewall (WAF).
    * 
    * @param request - ModifyResourceLogDeliveryStatusRequest
    * @returns ModifyResourceLogDeliveryStatusResponse
@@ -14740,7 +14740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改防护对象的日志字段配置
+   * Modifies the log field configuration of a protected object.
    * 
    * @param request - ModifyResourceLogFieldConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14799,7 +14799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改防护对象的日志字段配置
+   * Modifies the log field configuration of a protected object.
    * 
    * @param request - ModifyResourceLogFieldConfigRequest
    * @returns ModifyResourceLogFieldConfigResponse
@@ -14882,7 +14882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates or disassociates a protected object or protected object group with or from a protection rule template.
+   * Attaches protected objects to or detaches protected objects from a protection template.
    * 
    * @param request - ModifyTemplateResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14949,7 +14949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates or disassociates a protected object or protected object group with or from a protection rule template.
+   * Attaches protected objects to or detaches protected objects from a protection template.
    * 
    * @param request - ModifyTemplateResourcesRequest
    * @returns ModifyTemplateResourcesResponse
@@ -14960,7 +14960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改用户日志服务的默认字段配置
+   * Modifies the default log field configuration of a Web Application Firewall (WAF) instance for log delivery to Simple Log Service.
    * 
    * @param request - ModifyUserLogFieldConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15015,7 +15015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改用户日志服务的默认字段配置
+   * Modifies the default log field configuration of a Web Application Firewall (WAF) instance for log delivery to Simple Log Service.
    * 
    * @param request - ModifyUserLogFieldConfigRequest
    * @returns ModifyUserLogFieldConfigResponse
@@ -15026,7 +15026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通或关闭WAF日志服务
+   * Enables or disables Simple Log Service for Web Application Firewall (WAF).
    * 
    * @param request - ModifyUserWafLogStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15073,7 +15073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通或关闭WAF日志服务
+   * Enables or disables Simple Log Service for Web Application Firewall (WAF).
    * 
    * @param request - ModifyUserWafLogStatusRequest
    * @returns ModifyUserWafLogStatusResponse
@@ -15084,7 +15084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新接入云产品
+   * Re-registers a cloud service with WAF. This operation is used only when the cloud native mode status is protection exception.
    * 
    * @param request - ReCreateCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15139,7 +15139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新接入云产品
+   * Re-registers a cloud service with WAF. This operation is used only when the cloud native mode status is protection exception.
    * 
    * @param request - ReCreateCloudResourceRequest
    * @returns ReCreateCloudResourceResponse
@@ -15203,7 +15203,7 @@ export default class Client extends OpenApi {
    * Synchronizes Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances to Web Application Firewall (WAF).
    * 
    * @remarks
-   * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
+   * After you call this operation, the system performs the synchronization asynchronously. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the synchronization result.
    * 
    * @param request - SyncProductInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15245,7 +15245,7 @@ export default class Client extends OpenApi {
    * Synchronizes Elastic Compute Service (ECS), Classic Load Balancer (CLB), and Network Load Balancer (NLB) instances to Web Application Firewall (WAF).
    * 
    * @remarks
-   * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
+   * After you call this operation, the system performs the synchronization asynchronously. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the synchronization result.
    * 
    * @param request - SyncProductInstanceRequest
    * @returns SyncProductInstanceResponse
@@ -15368,7 +15368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ownership of a domain name.
+   * Verifies that you own the specified domain name. Domain ownership must be verified before you can add a domain name to Web Application Firewall (WAF) by using CNAME access.
    * 
    * @param request - VerifyDomainOwnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15411,7 +15411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ownership of a domain name.
+   * Verifies that you own the specified domain name. Domain ownership must be verified before you can add a domain name to Web Application Firewall (WAF) by using CNAME access.
    * 
    * @param request - VerifyDomainOwnerRequest
    * @returns VerifyDomainOwnerResponse

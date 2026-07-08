@@ -29,8 +29,8 @@ export class DescribeUserEventTrendResponseBodyTrend extends $dara.Model {
   eventMedium?: number;
   /**
    * @remarks
-   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
-   * >Notice: The parameter has been deprecated, it is recommended to use the Timestamp parameter.
+   * The statistics time, in UNIX timestamp format (UTC). Unit: seconds.
+   * >Notice: This parameter is deprecated. Use the Timestamp parameter instead.
    * 
    * @example
    * 1723435200
@@ -40,7 +40,7 @@ export class DescribeUserEventTrendResponseBodyTrend extends $dara.Model {
   timeStamp?: number;
   /**
    * @remarks
-   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The statistics time, in UNIX timestamp format (UTC). Unit: seconds.
    * 
    * @example
    * 1723435200
@@ -86,7 +86,7 @@ export class DescribeUserEventTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The trends of attacks.
+   * The attack trend list.
    */
   trend?: DescribeUserEventTrendResponseBodyTrend[];
   static names(): { [key: string]: string } {

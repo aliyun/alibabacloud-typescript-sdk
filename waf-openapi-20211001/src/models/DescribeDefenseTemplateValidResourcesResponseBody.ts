@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDefenseTemplateValidResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C54DD36B-6380-57E5-89BA-2642757C4DB8
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The names of the protected objects that are valid for the protection template.
+   */
   resources?: string[];
   /**
+   * @remarks
+   * The total number of protected objects that match the query criteria.
+   * 
    * @example
    * 34
    */

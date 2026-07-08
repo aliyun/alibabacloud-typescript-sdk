@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleHitsTopUaResponseBodyRuleHitsTopUa extends $dara.Model {
   /**
    * @remarks
-   * The number of attacks that are initiated from the IP address.
+   * The number of attack requests.
    * 
    * @example
    * 531
@@ -13,7 +13,7 @@ export class DescribeRuleHitsTopUaResponseBodyRuleHitsTopUa extends $dara.Model 
   count?: number;
   /**
    * @remarks
-   * The user agent.
+   * The User-Agent name.
    * 
    * @example
    * android
@@ -45,7 +45,7 @@ export class DescribeRuleHitsTopUaResponseBodyRuleHitsTopUa extends $dara.Model 
 export class DescribeRuleHitsTopUaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8E5C7ED7-503A-5986-A005-36F2511EB89F
@@ -53,7 +53,7 @@ export class DescribeRuleHitsTopUaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of the top 10 user agents that are used to initiate attacks.
+   * The top 10 User-Agents ranked by attack count.
    */
   ruleHitsTopUa?: DescribeRuleHitsTopUaResponseBodyRuleHitsTopUa[];
   static names(): { [key: string]: string } {

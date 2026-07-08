@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowChartRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Unit: seconds. If you do not specify this parameter, the current time is used.
+   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the current time is used as the end time.
    * 
    * @example
    * 1665386280
@@ -13,9 +13,9 @@ export class DescribeFlowChartRequest extends $dara.Model {
   endTimestamp?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeFlowChartRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time interval. Unit: seconds. The value must be an integral multiple of 60.
+   * The time interval. Unit: seconds. The value must be a multiple of 60.
    * 
    * This parameter is required.
    * 
@@ -37,8 +37,9 @@ export class DescribeFlowChartRequest extends $dara.Model {
    * @remarks
    * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -46,7 +47,7 @@ export class DescribeFlowChartRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The protected object.
+   * The protected object to query.
    * 
    * @example
    * www.aliyundoc.com
@@ -54,7 +55,7 @@ export class DescribeFlowChartRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -62,7 +63,7 @@ export class DescribeFlowChartRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Unit: seconds.
+   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 

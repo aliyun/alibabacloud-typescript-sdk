@@ -4,31 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeHybridCloudClusterRulesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
    * @example
    * 1099
    */
   clusterId?: number;
   /**
+   * @remarks
+   * The resource ID of the cluster rule.
+   * 
    * @example
    * hdbc-clusterrule-*****khzre0ym0w
    */
   clusterRuleResourceId?: string;
   /**
+   * @remarks
+   * The configuration of the traffic redirection rule:
+   * 
+   * - **check_mode**
+   * 
+   *   : the mode. Valid values:
+   * 
+   *   - **all**: redirects all traffic.
+   * 
+   *   - **part**: redirects a portion of traffic.
+   * 
+   * - **type**
+   * 
+   *   : the match type of the rule. Valid values:
+   * 
+   *   - **exact**: exact match.
+   * 
+   *   - **regex**: regular expression match.
+   * 
+   * - **substance**: the value of the rule.
+   * 
    * @example
    * {\\"check_mode\\": \\"all\\", \\"type\\": \\"exact\\", \\"substance\\": \\"122\\"}
    */
   ruleConfig?: string;
   /**
+   * @remarks
+   * The type of the rule. Valid value:
+   * 
+   * - **pullin**: traffic redirection
+   * 
    * @example
    * pullin
    */
   ruleType?: string;
   /**
+   * @remarks
+   * The status of the rule. Valid values:
+   * 
+   * - **1**: enabled.
+   * 
+   * - **0**: disabled.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1
    */
@@ -65,13 +107,23 @@ export class DescribeHybridCloudClusterRulesResponseBodyData extends $dara.Model
 }
 
 export class DescribeHybridCloudClusterRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: DescribeHybridCloudClusterRulesResponseBodyData[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of cloud native mode entries returned.
+   * 
    * @example
    * 10
    */

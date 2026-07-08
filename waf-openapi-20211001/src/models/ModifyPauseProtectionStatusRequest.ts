@@ -7,7 +7,7 @@ export class ModifyPauseProtectionStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -19,8 +19,9 @@ export class ModifyPauseProtectionStatusRequest extends $dara.Model {
    * @remarks
    * Specifies whether to pause WAF protection.
    * 
-   * *   **0**: does not pause WAF protection. This is the default value.
-   * *   **1**: pauses WAF protection.
+   * - **0 (default)**: WAF protection is not paused.
+   * 
+   * - **1**: WAF protection is paused.
    * 
    * This parameter is required.
    * 
@@ -30,10 +31,11 @@ export class ModifyPauseProtectionStatusRequest extends $dara.Model {
   pauseStatus?: number;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

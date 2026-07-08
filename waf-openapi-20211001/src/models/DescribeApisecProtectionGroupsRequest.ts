@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecProtectionGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The switch of the API security module.
+   * The API security detection switch.
    * 
    * @example
    * 1
@@ -13,9 +13,9 @@ export class DescribeApisecProtectionGroupsRequest extends $dara.Model {
   apisecStatus?: number;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeApisecProtectionGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -41,10 +41,11 @@ export class DescribeApisecProtectionGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -52,7 +53,7 @@ export class DescribeApisecProtectionGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the protected object group to which the protected object belongs.
+   * The name of the protected object group.
    * 
    * @example
    * group1

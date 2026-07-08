@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDefenseTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F48ABDF7-D777-5F26-892A-57349765D7A9
@@ -13,7 +13,7 @@ export class CreateDefenseTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the protection rule template.
+   * The ID of the protection template.
    * 
    * @example
    * 2212

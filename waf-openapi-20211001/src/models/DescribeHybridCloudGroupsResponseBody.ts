@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * The back-to-origin mark of the protected cluster. The value is in the {ISP name}-{Continent name}-{City name}-{Back-to-origin identifier} format. The back-to-origin identifier is optional.
+   * The back-to-origin mark of the protection cluster. The value is in the **{CarrierTag}-{ContinentTag}-{CityTag}-{Identifier}** format. The identifier is optional.
    * 
-   * >  For more information about ISP names, continent names, city names, and back-to-origin identifiers, see the following sections.
+   * > For a list of valid values, see Additional information about response parameters.
    * 
    * @example
-   * aliyun-asiapacific-beijing-12345678
+   * aliyun-asiapacific-beijing-56477821
    */
   backSourceMark?: string;
   /**
    * @remarks
-   * The continent code of the protected cluster.
+   * The continent code of the protection cluster.
    * 
-   * >  For more information about continent codes, see Continent codes in this topic.
+   * > For a list of valid codes, see Additional information about response parameters.
    * 
    * @example
    * 410
@@ -25,7 +25,7 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   continentsValue?: number;
   /**
    * @remarks
-   * The ID of the node group.
+   * The ID of the hybrid cloud node group.
    * 
    * @example
    * 123
@@ -33,7 +33,7 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The name of the node group.
+   * The name of the hybrid cloud node group.
    * 
    * @example
    * StorageGroup
@@ -41,12 +41,15 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The type of the node group. Valid values:
+   * The type of the hybrid cloud node group. Valid values:
    * 
-   * *   **protect**
-   * *   **control**
-   * *   **storage**
-   * *   **controlStorage**
+   * - **protect**: protection node group.
+   * 
+   * - **control**: control node group.
+   * 
+   * - **storage**: storage node group.
+   * 
+   * - **controlStorage**: control and storage node group.
    * 
    * @example
    * protect
@@ -54,7 +57,7 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The IP address of the server used for load balancing.
+   * The IP address of the load balancer that is associated with the hybrid cloud node group.
    * 
    * @example
    * 1.1.XX.XX
@@ -70,9 +73,9 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   locationId?: number;
   /**
    * @remarks
-   * The ISP code of the protected cluster.
+   * The carrier code of the protection cluster.
    * 
-   * >  For more information about ISP codes, see ISP codes in this topic.
+   * > For a list of valid codes, see Additional information about response parameters.
    * 
    * @example
    * 0
@@ -80,7 +83,7 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   operatorValue?: number;
   /**
    * @remarks
-   * The port that is used by the hybrid cloud cluster. The value of this parameter is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+   * The ports that are used by the hybrid cloud cluster. Multiple ports are separated by commas (,).
    * 
    * @example
    * 80,9200,20018
@@ -88,9 +91,9 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   ports?: string;
   /**
    * @remarks
-   * The city code of the protected cluster.
+   * The city code of the protection cluster.
    * 
-   * >  For more information about city codes, see City codes in this topic.
+   * > For a list of valid codes, see Additional information about response parameters.
    * 
    * @example
    * 0
@@ -98,7 +101,7 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
   regionCodeValue?: number;
   /**
    * @remarks
-   * The description of the node group.
+   * The description of the hybrid cloud node group.
    * 
    * @example
    * test
@@ -148,20 +151,20 @@ export class DescribeHybridCloudGroupsResponseBodyGroups extends $dara.Model {
 export class DescribeHybridCloudGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node groups.
+   * The list of hybrid cloud node groups.
    */
   groups?: DescribeHybridCloudGroupsResponseBodyGroups[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * 045660E7-C4C6-5CD7-8182-7B337D95****
+   * 045660E7-C4C6-5CD7-8182-7B337D95ADF4
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of hybrid cloud node groups returned.
    * 
    * @example
    * 146

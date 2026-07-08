@@ -3,12 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDefenseRuleStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the protection rule. Valid values:
+   * 
+   * - **template** (default): a template protection rule.
+   * 
+   * - **resource**: a rule that is configured for a protected object.
+   * 
+   * @example
+   * template
+   */
   defenseType?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -18,10 +29,11 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +49,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the protection rule whose status you want to change.
+   * The ID of the protection rule to modify.
    * 
    * This parameter is required.
    * 
@@ -49,8 +61,9 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
    * @remarks
    * The new status of the protection rule. Valid values:
    * 
-   * *   **0:** disabled.
-   * *   **1:** enabled.
+   * - **0**: disabled
+   * 
+   * - **1**: enabled
    * 
    * This parameter is required.
    * 
@@ -60,7 +73,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   ruleStatus?: number;
   /**
    * @remarks
-   * The ID of the protection rule template to which the protection rule whose status you want to change belongs.
+   * The ID of the protection template.
    * 
    * @example
    * 7239

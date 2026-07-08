@@ -8,7 +8,7 @@ export class ModifyMemberAccountResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * D7861F61-5B61-46CE-A47C-6B19****5EB0
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
    */
   requestId?: string;
   static names(): { [key: string]: string } {

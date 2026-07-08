@@ -7,7 +7,7 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland
-   * *   **ap-southeast-1**: outside the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -28,10 +29,9 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the compliance check feature. Valid values:
-   * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * The compliance review status. Valid values: 
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   reportStatus?: number;
   /**
    * @remarks
-   * The name of the protected object group to which the protected object belongs.
+   * The name of the protected object group to which the protected object is added.
    * 
    * @example
    * group1
@@ -47,7 +47,7 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   resourceGroups?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -63,10 +63,9 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   resources?: string;
   /**
    * @remarks
-   * The status of the tracing and auditing feature. Valid values:
-   * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * The tracing audit status. Valid values: 
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1

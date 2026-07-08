@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDefenseRuleStatisticsResponseBodyStatisticsInfos extends $dara.Model {
   /**
+   * @remarks
+   * The number of rules that meet all the query conditions.
+   * 
    * @example
    * 27
    */
   count?: number;
   /**
+   * @remarks
+   * The value corresponding to the quaternary query condition.
+   * 
    * @example
    * action
    */
   fourthValue?: string;
   /**
+   * @remarks
+   * The value corresponding to the primary query condition.
+   * 
    * @example
    * sytem
    */
   primaryValue?: string;
   /**
+   * @remarks
+   * The value corresponding to the secondary query condition.
+   * 
    * @example
    * block
    */
   secondaryValue?: string;
   /**
+   * @remarks
+   * The value corresponding to the tertiary query condition.
+   * 
    * @example
    * 1
    */
@@ -59,10 +74,17 @@ export class DescribeDefenseRuleStatisticsResponseBodyStatisticsInfos extends $d
 
 export class DescribeDefenseRuleStatisticsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics results.
+   */
   statisticsInfos?: DescribeDefenseRuleStatisticsResponseBodyStatisticsInfos[];
   static names(): { [key: string]: string } {
     return {

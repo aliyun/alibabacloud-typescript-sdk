@@ -13,7 +13,7 @@ export class CopyDefenseTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the new protection template.
+   * The ID of the newly created protection template.
    * 
    * @example
    * 12346

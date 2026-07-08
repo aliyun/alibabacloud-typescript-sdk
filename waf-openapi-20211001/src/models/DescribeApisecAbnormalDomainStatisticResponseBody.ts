@@ -21,7 +21,7 @@ export class DescribeApisecAbnormalDomainStatisticResponseBodyData extends $dara
   domain?: string;
   /**
    * @remarks
-   * The number of high-level risks.
+   * The number of high-risk vulnerabilities.
    * 
    * @example
    * 12
@@ -29,7 +29,7 @@ export class DescribeApisecAbnormalDomainStatisticResponseBodyData extends $dara
   high?: number;
   /**
    * @remarks
-   * The number of low-level risks.
+   * The number of low-risk vulnerabilities.
    * 
    * @example
    * 4
@@ -37,7 +37,7 @@ export class DescribeApisecAbnormalDomainStatisticResponseBodyData extends $dara
   low?: number;
   /**
    * @remarks
-   * The number of medium-level risks.
+   * The number of medium-risk vulnerabilities.
    * 
    * @example
    * 9
@@ -75,12 +75,12 @@ export class DescribeApisecAbnormalDomainStatisticResponseBodyData extends $dara
 export class DescribeApisecAbnormalDomainStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The data list.
    */
   data?: DescribeApisecAbnormalDomainStatisticResponseBodyData[];
   /**
    * @remarks
-   * Id of the request.
+   * The request ID.
    * 
    * @example
    * 66A98669-CC6E-4F3E-80A6-3014***B11AE
@@ -88,7 +88,7 @@ export class DescribeApisecAbnormalDomainStatisticResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records returned.
    * 
    * @example
    * 1

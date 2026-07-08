@@ -5,21 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The state before the operation.
+   * The status of the threat detection or security event before the operation was performed.
    * 
-   * Valid values of the risk state:
+   * Valid values for threat detection:
    * 
-   * *   **toBeConfirmed**
-   * *   **confirmed**
-   * *   **toBeFixed**
-   * *   **fixed**
-   * *   **ignored**
+   * - **toBeConfirmed**: to be confirmed.
    * 
-   * Valid values of the event state:
+   * - **confirmed**: confirmed.
    * 
-   * *   **toBeConfirmed**
-   * *   **confirmed**
-   * *   **ignored**
+   * - **toBeFixed**: to be fixed.
+   * 
+   * - **fixed**: fixed.
+   * 
+   * - **ignored**: ignored.
+   * 
+   * Valid values for a security event:
+   * 
+   * - **toBeConfirmed**: to be confirmed.
+   * 
+   * - **confirmed**: confirmed.
+   * 
+   * - **ignored**: ignored.
    * 
    * @example
    * ignored
@@ -27,24 +33,35 @@ export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
   fromStatus?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remarks that the user added to the operation record.
    * 
    * @example
-   * Handled
+   * Procesed
    */
   note?: string;
   /**
    * @remarks
-   * The object ID of the operation record.
+   * The ID of the threat detection or security event associated with the operation record.
    * 
    * @example
    * 24d997acc48a67a01e09b9c5ad861287
    */
   objectId?: string;
+  /**
+   * @remarks
+   * The source of the operation. Valid values:
+   * 
+   * - **system**: the operation was automatically performed by the system.
+   * 
+   * - **custom**: the operation was manually performed by a user.
+   * 
+   * @example
+   * custom
+   */
   operationSource?: string;
   /**
    * @remarks
-   * The time at which the operation was performed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The time when the operation was performed. This value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1685072214
@@ -52,21 +69,27 @@ export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * The state after the operation.
+   * The status of the threat detection or security event after the operation was performed.
    * 
-   * Valid values of the risk state:
+   * Valid values for threat detection:
    * 
-   * *   **toBeConfirmed**
-   * *   **confirmed**
-   * *   **toBeFixed**
-   * *   **fixed**
-   * *   **ignored**
+   * - **toBeConfirmed**: to be confirmed.
    * 
-   * Valid values of the event state:
+   * - **confirmed**: confirmed.
    * 
-   * *   **toBeConfirmed**
-   * *   **confirmed**
-   * *   **ignored**
+   * - **toBeFixed**: to be fixed.
+   * 
+   * - **fixed**: fixed.
+   * 
+   * - **ignored**: ignored.
+   * 
+   * Valid values for a security event:
+   * 
+   * - **toBeConfirmed**: to be confirmed.
+   * 
+   * - **confirmed**: confirmed.
+   * 
+   * - **ignored**: ignored.
    * 
    * @example
    * Confirmed
@@ -76,8 +99,9 @@ export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the operation record. Valid values:
    * 
-   * *   **abnormal**: risk detection
-   * *   **event**: security event
+   * - **abnormal**: threat detection.
+   * 
+   * - **event**: security event.
    * 
    * @example
    * abnormal
@@ -85,7 +109,7 @@ export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user who performed the operation.
    * 
    * @example
    * 1610954****
@@ -129,12 +153,12 @@ export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
 export class DescribeApisecUserOperationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation records.
+   * The user operation records for API security.
    */
   data?: DescribeApisecUserOperationsResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C9825654-327B-5156-A570-847054B4CF10

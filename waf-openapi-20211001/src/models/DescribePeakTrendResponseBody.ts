@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePeakTrendResponseBodyFlowChart extends $dara.Model {
   /**
    * @remarks
-   * The number of requests that are monitored or blocked by the custom rule (access control) module.
+   * The number of requests protected by the ACL module. This includes requests that are monitored and blocked.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribePeakTrendResponseBodyFlowChart extends $dara.Model {
   aclSum?: number;
   /**
    * @remarks
-   * The number of requests that are monitored or blocked by the scan protection module.
+   * The number of requests protected by the scan protection module. This includes requests that are monitored and blocked.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribePeakTrendResponseBodyFlowChart extends $dara.Model {
   antiScanSum?: number;
   /**
    * @remarks
-   * The number of requests that are monitored or blocked by the HTTP flood protection module.
+   * The number of requests protected by the CC protection module. This includes requests that are monitored and blocked.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribePeakTrendResponseBodyFlowChart extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The serial number of the time interval. The serial numbers are arranged in chronological order.
+   * The ordinal number for the time point, sorted in chronological order.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribePeakTrendResponseBodyFlowChart extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The number of requests that are monitored or blocked by the regular expression protection engine.
+   * The number of requests protected by the web attack protection module. This includes requests that are monitored and blocked.
    * 
    * @example
    * 0
@@ -85,12 +85,12 @@ export class DescribePeakTrendResponseBodyFlowChart extends $dara.Model {
 export class DescribePeakTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of the QPS statistics of the WAF instance.
+   * The QPS statistics of WAF.
    */
   flowChart?: DescribePeakTrendResponseBodyFlowChart[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9D11AC3A-A10C-56E7-A342-E87EC892BAE2

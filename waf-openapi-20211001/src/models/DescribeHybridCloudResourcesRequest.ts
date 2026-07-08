@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The back-to-origin IP address or domain name.
+   * The IP address or domain name of the origin server that corresponds to the domain name.
    * 
    * @example
    * 1.1.XX.XX
@@ -13,10 +13,11 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   backend?: string;
   /**
    * @remarks
-   * Specifies whether the public cloud disaster recovery feature is enabled for the domain name. Valid values:
+   * Specifies whether to enable public cloud disaster recovery. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   cnameEnabled?: boolean;
   /**
    * @remarks
-   * The domain name that you want to query.
+   * The domain name to query.
    * 
    * @example
    * www.aliyundoc.com
@@ -33,8 +34,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
-   * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number to return when paging is used. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -52,7 +52,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page when paging is used. Default value: **10**, which indicates 10 entries per page.
    * 
    * @example
    * 10
@@ -60,10 +60,11 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -71,7 +72,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfmvtc5z52****

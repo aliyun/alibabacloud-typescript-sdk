@@ -13,7 +13,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultList extends 
   infoCount?: number;
   /**
    * @remarks
-   * The number of sensitive personal information records that are involved in cross-border data transfer.
+   * The number of cross-border personal information records.
    * 
    * @example
    * 6
@@ -55,7 +55,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultList extends 
 export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $dara.Model {
   /**
    * @remarks
-   * The number of sensitive personal information records that are of the most frequent sensitive data type.
+   * The number of personal information records corresponding to the sensitive data type with the highest count.
    * 
    * @example
    * 187
@@ -63,7 +63,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $
   infoCount?: number;
   /**
    * @remarks
-   * The number of sensitive personal information records that are of the most frequent sensitive data type and are involved in cross-border data transfer.
+   * The number of cross-border personal information records corresponding to the sensitive data type with the highest count.
    * 
    * @example
    * 54
@@ -71,7 +71,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $
   outboundCount?: number;
   /**
    * @remarks
-   * The most frequent sensitive data type.
+   * The sensitive data type with the highest count.
    * 
    * @example
    * 1003
@@ -105,10 +105,9 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $
 export class DescribeSensitiveDetectionResultResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The compliance check results. Valid values:
-   * 
-   * *   **report**: Risks exist in cross-border data transfer.
-   * *   **none**: No risks exist in cross-border data transfer.
+   * The compliance detection result. Valid values: 
+   * - **report**: A data cross-border transfer risk exists.
+   * - **none**: No data cross-border transfer risk exists.
    * 
    * @example
    * report
@@ -116,12 +115,12 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResult extends $dar
   detectionResult?: string;
   /**
    * @remarks
-   * The sensitive information check results by sensitive data type.
+   * The detection list of sensitive data types.
    */
   list?: DescribeSensitiveDetectionResultResponseBodyDataResultList[];
   /**
    * @remarks
-   * The maximum values in the statistics of sensitive data types.
+   * The maximum values of sensitive data type statistics.
    */
   max?: DescribeSensitiveDetectionResultResponseBodyDataResultMax;
   static names(): { [key: string]: string } {
@@ -158,7 +157,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResult extends $dar
 export class DescribeSensitiveDetectionResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The compliance checks.
+   * The compliance detection list.
    */
   result?: DescribeSensitiveDetectionResultResponseBodyDataResult[];
   static names(): { [key: string]: string } {
@@ -188,7 +187,7 @@ export class DescribeSensitiveDetectionResultResponseBodyData extends $dara.Mode
 export class DescribeSensitiveDetectionResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The compliance check results.
+   * The compliance detection results.
    */
   data?: DescribeSensitiveDetectionResultResponseBodyData;
   /**

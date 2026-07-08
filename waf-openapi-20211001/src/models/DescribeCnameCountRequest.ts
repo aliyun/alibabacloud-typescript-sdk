@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCnameCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class DescribeCnameCountRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: the Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -28,7 +29,7 @@ export class DescribeCnameCountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 阿里云资源组ID。
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

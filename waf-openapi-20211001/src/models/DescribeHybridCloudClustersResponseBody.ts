@@ -7,8 +7,9 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
    * @remarks
    * The network access mode. Valid values:
    * 
-   * *   **internet**: Internet access.
-   * *   **vpc**: internal network access by using Express Connect circuits.
+   * - **internet**: Internet access.
+   * 
+   * - **vpc**: leased line-based private network access.
    * 
    * @example
    * internet
@@ -16,11 +17,13 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   accessMode?: string;
   /**
    * @remarks
-   * The region where the virtual private cloud (VPC) resides. Valid values:
+   * The region where the leased line is connected. Valid values:
    * 
-   * *   **cn-hangzhou**: China (Hangzhou).
-   * *   **cn-beiijng**: China (Beijing).
-   * *   **cn-shanghai**: China (Shanghai).
+   * - **cn-hangzhou**: Hangzhou
+   * 
+   * - **cn-beijing**: Beijing
+   * 
+   * - **cn-shanghai**: Shanghai
    * 
    * @example
    * cn-hangzhou
@@ -31,12 +34,12 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
    * The name of the cluster.
    * 
    * @example
-   * test
+   * testcluster
    */
   clusterName?: string;
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster resource.
+   * The resource ID of the hybrid cloud cluster.
    * 
    * @example
    * hdbc-cluster-t1****a
@@ -44,7 +47,7 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   clusterResourceId?: string;
   /**
    * @remarks
-   * The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+   * The ports that use the HTTP protocol. The value is a string. If multiple ports are returned, they are separated by commas in the **port1,port2,port3** format.
    * 
    * @example
    * 80,8080
@@ -52,7 +55,7 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   httpPorts?: string;
   /**
    * @remarks
-   * The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+   * The ports that use the HTTPS protocol. The value is a string. If multiple ports are returned, they are separated by commas in the **port1,port2,port3** format.
    * 
    * @example
    * 443,8443
@@ -60,7 +63,7 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   httpsPorts?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * 524**8
@@ -68,7 +71,7 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   id?: number;
   /**
    * @remarks
-   * The number of protection nodes that can be added to the cluster.
+   * The number of protection nodes that you can add to the cluster.
    * 
    * @example
    * 1
@@ -76,10 +79,11 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   protectionServerCount?: number;
   /**
    * @remarks
-   * The status of the proxy gateway. Valid values:
+   * The status of the proxy. Valid values:
    * 
-   * *   **on**: enabled.
-   * *   **off**: disabled.
+   * - **on**: enabled
+   * 
+   * - **off**: disabled
    * 
    * @example
    * off
@@ -89,8 +93,9 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
    * @remarks
    * The type of the cluster. Valid values:
    * 
-   * *   **cname**: reverse proxy cluster.
-   * *   **service**: SDK-based traffic mirroring cluster.
+   * - **cname**: reverse proxy cluster
+   * 
+   * - **service**: service cluster
    * 
    * @example
    * cname
@@ -98,15 +103,15 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   proxyType?: string;
   /**
    * @remarks
-   * The remarks about the cluster.
+   * The remarks.
    * 
    * @example
-   * demo
+   * test
    */
   remark?: string;
   /**
    * @remarks
-   * The configurations of the rule.
+   * The rule configuration.
    * 
    * @example
    * {"enable":true,"param":{"breaker":{"duration":1,"failed":1,"recent_failed":1},"disable_protect":false,"max_request_body_len":1,"timeout":1}}
@@ -114,10 +119,11 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   ruleConfig?: string;
   /**
    * @remarks
-   * The status of manual bypass. Valid values:
+   * The status of the manual bypass setting. Valid values:
    * 
-   * *   **on**: enabled.
-   * *   **off**: disabled.
+   * - **on**: enabled.
+   * 
+   * - **off**: disabled.
    * 
    * @example
    * off
@@ -125,9 +131,9 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
   ruleStatus?: string;
   /**
    * @remarks
-   * The type of the rule. Valid value:
+   * The type of the rule. Valid values:
    * 
-   * *   **bypass**: Requests are allowed without security checks.
+   * - **bypass**: WAF does not perform security checks and allows traffic to pass through.
    * 
    * @example
    * bypass
@@ -183,12 +189,12 @@ export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $dara.M
 export class DescribeHybridCloudClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the clusters.
+   * The list of clusters.
    */
   clusterInfos?: DescribeHybridCloudClustersResponseBodyClusterInfos[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 66A98669-ER12-WE34-23PO-301469*****E

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDomainCertRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the certificate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,13 +14,28 @@ export class ModifyDomainCertRequest extends $dara.Model {
    */
   certId?: string;
   /**
+   * @remarks
+   * The type of the cipher suite. Valid values:
+   * 
+   * - **1**: all cipher suites.
+   * 
+   * - **2**: strong cipher suites.
+   * 
+   * - **99**: custom cipher suites.
+   * 
    * @example
    * 1
    */
   cipherSuite?: string;
+  /**
+   * @remarks
+   * The custom cipher suites. This parameter is available only when you set **CipherSuite** to **99**.
+   */
   customCiphers?: string[];
   /**
    * @remarks
+   * The domain name that is added to WAF in CNAME record mode.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,12 +43,23 @@ export class ModifyDomainCertRequest extends $dara.Model {
    */
   domain?: string;
   /**
+   * @remarks
+   * Indicates whether to enable TLS 1.3. Valid values:
+   * 
+   * - **true**: TLS 1.3 is enabled.
+   * 
+   * - **false**: TLS 1.3 is disabled.
+   * 
    * @example
    * false
    */
   enableTLSv3?: boolean;
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +68,12 @@ export class ModifyDomainCertRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The region where the WAF instance resides. Valid values:
+   * 
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +81,15 @@ export class ModifyDomainCertRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The Transport Layer Security (TLS) version. Valid values:
+   * 
+   * - **tlsv1**
+   * 
+   * - **tlsv1.1**
+   * 
+   * - **tlsv1.2**
+   * 
    * @example
    * tlsv1
    */

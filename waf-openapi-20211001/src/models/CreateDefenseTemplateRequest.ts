@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDefenseTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The scenario in which you want to use the protection rule template. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
+   * The protection scenario. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * This parameter is required.
    * 
@@ -13,20 +13,29 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
    * waf_group
    */
   defenseScene?: string;
+  /**
+   * @remarks
+   * The sub-scenario of the protection template. Valid values:
+   * 
+   * - **bot_custom_acl**: a protection template for advanced custom rules for Bot management.
+   * 
+   * @example
+   * bot_custom_acl
+   */
   defenseSubScene?: string;
   /**
    * @remarks
-   * The description of the protection rule template.
+   * The description of the protection template.
    * 
    * @example
-   * Test
+   * test
    */
   description?: string;
   /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -36,10 +45,11 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +57,7 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -55,7 +65,9 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The name of the protection rule template.
+   * The name of the protection template. The name must be 1 to 255 characters in length and can contain letters, digits, underscores (_), periods (.), and hyphens (-).
+   * 
+   * > Template names must be unique within the same protection scenario (**DefenseScene**).
    * 
    * This parameter is required.
    * 
@@ -65,7 +77,7 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The origin of the protection rule template that you want to create. Set the value to **custom**. The value specifies that the protection rule template is a custom template.
+   * The origin of the protection template. The value must be **custom**, which indicates a user-defined template.
    * 
    * This parameter is required.
    * 
@@ -75,10 +87,11 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
   templateOrigin?: string;
   /**
    * @remarks
-   * The status of the protection rule template. Valid values:
+   * The status of the protection template. Valid values:
    * 
-   * *   **0:** disabled.
-   * *   **1:** enabled.
+   * - **0**: Disabled.
+   * 
+   * - **1**: Enabled.
    * 
    * This parameter is required.
    * 
@@ -88,10 +101,11 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
   templateStatus?: number;
   /**
    * @remarks
-   * The type of the protection rule template. Valid values:
+   * The type of the protection template. Valid values:
    * 
-   * *   **user_default:** default template.
-   * *   **user_custom:** custom template.
+   * - **user_default**: a default template created by the user.
+   * 
+   * - **user_custom**: a custom template created by the user.
    * 
    * This parameter is required.
    * 
@@ -99,7 +113,19 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
    * user_default
    */
   templateType?: string;
+  /**
+   * @remarks
+   * The protected object groups to unbind from the default protection template. Specify the value in the [**"group1","group2",...**] format.
+   * 
+   * > This parameter takes effect only when you create a **default template** (**TemplateType** is set to **user_default**).
+   */
   unbindResourceGroups?: string[];
+  /**
+   * @remarks
+   * The protected objects to unbind from the default protection template. Specify the value in the [**"XX1","XX2",...**] format.
+   * 
+   * > This parameter takes effect only when you create a **default template** (**TemplateType** is set to **user_default**).
+   */
   unbindResources?: string[];
   static names(): { [key: string]: string } {
     return {

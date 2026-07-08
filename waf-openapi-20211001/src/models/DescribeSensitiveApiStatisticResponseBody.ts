@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The API.
+   * The API operation.
    * 
    * @example
    * /api/login
@@ -13,7 +13,7 @@ export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Mod
   apiFormat?: string;
   /**
    * @remarks
-   * The ID of the API.
+   * The ID of the API operation.
    * 
    * @example
    * d288137009c119a873d4c395****
@@ -21,7 +21,7 @@ export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Mod
   apiId?: string;
   /**
    * @remarks
-   * The number of personal information records involved in cross-border data transfer by API.
+   * The number of outbound personal information entries at the API level.
    * 
    * @example
    * 78
@@ -29,12 +29,12 @@ export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Mod
   infoCount?: number;
   /**
    * @remarks
-   * The types of sensitive data.
+   * The list of sensitive data types.
    */
   sensitiveCode?: string[];
   /**
    * @remarks
-   * The number of sensitive personal information records involved in cross-border data transfer by API.
+   * The number of outbound sensitive personal information items at the API level.
    * 
    * @example
    * 55
@@ -75,7 +75,7 @@ export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Mod
 export class DescribeSensitiveApiStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of personal information records involved in cross-border data transfer by domain name.
+   * The number of outbound personal information entries at the domain name level.
    * 
    * @example
    * 213
@@ -83,7 +83,9 @@ export class DescribeSensitiveApiStatisticResponseBodyData extends $dara.Model {
   infoOutboundCount?: number;
   /**
    * @remarks
-   * The domain name-related APIs.
+   * The list of API operation statistics information under the domain name.
+   * 
+   * > This field is returned only when the **Type** parameter is set to **apiFormat**, which represents the API dimension statistics information.
    */
   list?: DescribeSensitiveApiStatisticResponseBodyDataList[];
   /**
@@ -96,7 +98,7 @@ export class DescribeSensitiveApiStatisticResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The number of sensitive personal information records involved in cross-border data transfer by domain name.
+   * The number of outbound sensitive personal information items at the domain name level.
    * 
    * @example
    * 127
@@ -135,7 +137,7 @@ export class DescribeSensitiveApiStatisticResponseBodyData extends $dara.Model {
 export class DescribeSensitiveApiStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics.
+   * The statistics list.
    */
   data?: DescribeSensitiveApiStatisticResponseBodyData[];
   /**

@@ -45,9 +45,9 @@ export class DescribeDefenseResourcesRequestTag extends $dara.Model {
 export class DescribeDefenseResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * Instance ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * @example
    * waf_cdnsdf3****
@@ -55,7 +55,7 @@ export class DescribeDefenseResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the paginated results Default value: **1**.
+   * The page number to return when paging is used. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class DescribeDefenseResourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: **10**.
+   * The number of entries per page when paging is used. Default value: **10**, which indicates that 10 entries are returned on each page.
    * 
    * @example
    * 10
@@ -71,9 +71,9 @@ export class DescribeDefenseResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query conditions. Specify the value of this parameter as a string in the JSON format.
+   * The query conditions. The value is a JSON string.
    * 
-   * >  The results vary based on the query condition. For more information, see the "**Query parameters**" section in this topic.
+   * > The query results vary based on the query conditions. For more information, see **Query parameter description**.
    * 
    * @example
    * {\\"product\\":\\"waf\\"}
@@ -81,10 +81,11 @@ export class DescribeDefenseResourcesRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: The Chinese mainland.
-   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -100,7 +101,7 @@ export class DescribeDefenseResourcesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tag of the resource. You can specify up to 20 tags.
+   * The list of resource tags. A maximum of 20 tags can be specified.
    */
   tag?: DescribeDefenseResourcesRequestTag[];
   static names(): { [key: string]: string } {

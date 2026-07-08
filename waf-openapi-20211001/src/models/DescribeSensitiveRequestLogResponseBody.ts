@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The account of the request.
+   * 
    * @example
    * admin
    */
   account?: string;
   /**
    * @remarks
-   * The API.
+   * The API operation.
    * 
    * @example
    * /api/users/login
@@ -34,7 +37,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
   clientIP?: string;
   /**
    * @remarks
-   * The number of sensitive data records involved in cross-border data transfer.
+   * The number of outbound sensitive data entries.
    * 
    * @example
    * 12
@@ -42,7 +45,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The domain name of the API.
+   * The domain name to which the API operation belongs.
    * 
    * @example
    * a.****.com
@@ -50,7 +53,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * IP region, formatted as a region code.
+   * The region to which the IP address belongs, in region identifier code format.
    * 
    * @example
    * CN
@@ -58,7 +61,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
   remoteCountryId?: string;
   /**
    * @remarks
-   * The time when the request was initiated. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The request time, in UNIX timestamp (UTC) format. Unit: seconds.
    * 
    * @example
    * 1723392000
@@ -66,9 +69,9 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
   requestTime?: number;
   /**
    * @remarks
-   * The details of sensitive data. The value is a string that consists of a JSON struct. The JSON struct contains key-value pairs. In a key-value pair, a key indicates the identifier of a sensitive data type, including built-in and custom types, and a value indicates specific sensitive data.
+   * The sensitive data information. The value is a JSON string constructed from a series of parameters. The key of the JSON object is the sensitive data type identifier, which can be built-in or custom. The value is a list of sensitive data entries.
    * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
+   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
    * 
    * @example
    * {
@@ -84,7 +87,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
   sensitiveList?: string;
   /**
    * @remarks
-   * The trace ID.
+   * The log ID.
    * 
    * @example
    * 0a3d455b17027784870843933dce3d
@@ -132,7 +135,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
 export class DescribeSensitiveRequestLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access logs.
+   * The list of access logs.
    */
   data?: DescribeSensitiveRequestLogResponseBodyData[];
   /**

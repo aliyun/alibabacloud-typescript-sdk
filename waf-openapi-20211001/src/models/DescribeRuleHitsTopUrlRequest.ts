@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleHitsTopUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Unit: seconds. If you do not specify this parameter, the current time is used.
+   * The end of the time range to query. Unit: seconds. If you do not specify this parameter, the end time is the current query time.
    * 
    * @example
    * 1665386280
@@ -13,9 +13,9 @@ export class DescribeRuleHitsTopUrlRequest extends $dara.Model {
   endTimestamp?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * Instance ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,11 @@ export class DescribeRuleHitsTopUrlRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -46,7 +47,7 @@ export class DescribeRuleHitsTopUrlRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -54,13 +55,17 @@ export class DescribeRuleHitsTopUrlRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of rules that are triggered by the protected object. By default, this parameter is not specified and all types of rules are queried.
+   * The type of protection rule hit by the protected object. By default, this parameter is not specified, which indicates that all rules are displayed.
    * 
-   * *   **blacklist:** IP address blacklist rules.
-   * *   **custom:** custom rules.
-   * *   **antiscan:** scan protection rules.
-   * *   **cc_system:** HTTP flood protection rules.
-   * *   **region_block:** region blacklist rules.
+   * - **blacklist**: IP blacklist.
+   * 
+   * - **custom**: Custom rule.
+   * 
+   * - **antiscan**: Scan protection rule.
+   * 
+   * - **cc_system**: HTTP flood mitigation rule.
+   * 
+   * - **region_block**: Location blacklist.
    * 
    * @example
    * blacklist

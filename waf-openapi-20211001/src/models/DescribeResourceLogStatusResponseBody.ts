@@ -31,7 +31,7 @@ export class DescribeResourceLogStatusResponseBodyResultTraceConfig extends $dar
 export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The protected object.
+   * The name of the protected object.
    * 
    * @example
    * alb-wewbb23dfsetetcic****
@@ -39,10 +39,11 @@ export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * Indicates whether the log collection feature is enabled for the protected object. Valid values:
+   * Indicates whether log collection is enabled for the protected object. Valid values:
    * 
-   * *   **true:** The log collection feature is enabled.
-   * *   **false:** The log collection feature is disabled.
+   * - **true**: Log collection is enabled.
+   * 
+   * - **false**: Log collection is disabled.
    * 
    * @example
    * true
@@ -91,7 +92,7 @@ export class DescribeResourceLogStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The log status information of protected objects.
    */
   result?: DescribeResourceLogStatusResponseBodyResult[];
   static names(): { [key: string]: string } {

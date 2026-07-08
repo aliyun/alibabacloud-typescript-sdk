@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of accounts associated with the monitored APIs.
+   * 
    * @example
    * 1
    */
   account?: number;
   /**
    * @remarks
-   * The number of handled events.
+   * The number of handled items.
    * 
    * @example
    * 1
@@ -18,137 +21,148 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
   actioned?: number;
   /**
    * @remarks
-   * The number of APIs.
+   * The number of APIs that are monitored by the API security module.
    * 
    * @example
-   * /api/v1/login
+   * 202
    */
   api?: number;
   /**
    * @remarks
-   * The number of confirmed events.
+   * The number of confirmed items.
    * 
    * @example
-   * 10
+   * 11
    */
   confirmed?: number;
   /**
    * @remarks
-   * The number of domain names.
+   * The number of domain names that are monitored by the API security module.
    * 
    * @example
-   * a.aliyun.com
+   * 22
    */
   domain?: number;
   /**
    * @remarks
-   * The number of fixed risks.
+   * The number of items that are manually verified as fixed.
    * 
    * @example
-   * 0
+   * 13
    */
   fixed?: number;
   /**
    * @remarks
-   * The number of high-risk events.
+   * The number of high-risk items.
    * 
    * @example
-   * 10
+   * 135
    */
   high?: number;
   /**
    * @remarks
-   * The number of ignored risks.
+   * The number of ignored items.
    * 
    * @example
-   * 0
+   * 3
    */
   ignore?: number;
   /**
    * @remarks
-   * The number of low-risk events.
+   * The number of low-risk items.
    * 
    * @example
-   * 10
+   * 160
    */
   low?: number;
   /**
    * @remarks
-   * The number of moderate-risk events.
+   * The number of medium-risk items.
    * 
    * @example
-   * 10
+   * 27
    */
   medium?: number;
   /**
+   * @remarks
+   * The number of items that are verified as not fixed.
+   * 
    * @example
    * 0
    */
   notFixed?: number;
   /**
+   * @remarks
+   * The number of items that are verified as fixed by the system.
+   * 
    * @example
    * 1
    */
   systemFixed?: number;
   /**
    * @remarks
-   * The number of events to be confirmed.
+   * The number of items to be confirmed.
    * 
    * @example
-   * 10
+   * 295
    */
   toBeConfirmed?: number;
   /**
    * @remarks
-   * The number of risks to be fixed.
+   * The number of items to be fixed.
    * 
    * @example
-   * 10
+   * 3
    */
   toBeFixed?: number;
   /**
+   * @remarks
+   * The number of items to be verified by the system.
+   * 
    * @example
    * 2
    */
   toBeVerified?: number;
   /**
    * @remarks
-   * The number of new high-risk events today.
+   * The number of new high-risk items detected today.
    * 
    * @example
-   * 10
+   * 3
    */
   todayHigh?: string;
   /**
    * @remarks
-   * The number of new low-risk events today.
+   * The number of new low-risk items detected today.
    * 
    * @example
-   * 10
+   * 0
    */
   todayLow?: number;
   /**
    * @remarks
-   * The number of new moderate-risk events today.
+   * The number of new medium-risk items detected today.
    * 
    * @example
-   * 10
+   * 0
    */
   todayMedium?: string;
   /**
    * @remarks
-   * The total number of new events today.
+   * The total number of new items detected today.
    * 
    * @example
-   * 30
+   * 3
    */
   todayTotal?: string;
   /**
    * @remarks
-   * The total number of events.
+   * The total number of items.
+   * 
+   * > This is the sum of the values of the **High**, **Medium**, and **Low** response parameters.
    * 
    * @example
-   * 30
+   * 322
    */
   total?: number;
   static names(): { [key: string]: string } {
@@ -213,7 +227,7 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
 export class DescribeApisecStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned results.
+   * The statistical results of API security risks or events.
    */
   data?: DescribeApisecStatisticsResponseBodyData;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecAbnormalsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the risk.
+   * The risk ID.
    * 
    * @example
    * 29c6401****99a2bad3943e26d8
@@ -13,11 +13,10 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   abnormalId?: string;
   /**
    * @remarks
-   * The level of the risk. Valid values:
-   * 
-   * * **high**
-   * * **medium**
-   * * **low**
+   * The risk level. Valid values:
+   * - **high**: high risk.
+   * - **medium**: medium risk.
+   * - **low**: low risk.
    * 
    * @example
    * medium
@@ -25,9 +24,8 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   abnormalLevel?: string;
   /**
    * @remarks
-   * The type of the risk.
-   * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
+   * The risk type.
+   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported risk types.
    * 
    * @example
    * LackOfSpeedLimit
@@ -35,7 +33,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   abnormalTag?: string;
   /**
    * @remarks
-   * The risk-related API.
+   * The API operation associated with the risk.
    * 
    * @example
    * /api/users/login
@@ -43,7 +41,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   apiFormat?: string;
   /**
    * @remarks
-   * The ID of the risk-related API.
+   * The ID of the API associated with the risk.
    * 
    * @example
    * bd9efb8ad******d9ca6
@@ -52,8 +50,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   /**
    * @remarks
    * The business purpose of the API.
-   * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
+   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported business purposes.
    * 
    * @example
    * RegisterAPI
@@ -62,8 +59,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * 
-   * >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
    * 
    * @example
    * 546
@@ -71,7 +67,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1684382100
@@ -79,9 +75,9 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -91,7 +87,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The domain name or IP address of the API.
+   * The domain name or IP address to which the API operation belongs.
    * 
    * @example
    * a.aliyun.com
@@ -99,22 +95,20 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The name of the sorting field. Valid values:
-   * 
-   * *   **discoverTime** (default): indicates the time when a risk was first detected.
-   * *   **abnormalLevel**: indicates the level of a risk.
-   * *   **latestDiscoverTime**: indicates the time when a risk was last detected.
+   * The name of the field used for sorting. Valid values:
+   * - **discoverTime**: the time when the risk was first detected. This is the default value.
+   * - **abnormalLevel**: the risk level.
+   * - **latestDiscoverTime**: the time when the risk was most recently detected.
    * 
    * @example
-   * allCnt
+   * firstTime
    */
   orderKey?: string;
   /**
    * @remarks
-   * The sorting method. Valid values:
-   * 
-   * * **desc (default)**: in descending order
-   * * **asc**: in ascending order
+   * The sort order. Valid values:
+   * - **desc**: descending order. This is the default value.
+   * - **asc**: ascending order.
    * 
    * @example
    * desc
@@ -123,9 +117,8 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the risk type. Valid values:
-   * 
-   * * **custom**
-   * * **default**
+   * - **custom**: custom.
+   * - **default**: built-in.
    * 
    * @example
    * custom
@@ -133,7 +126,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number to return in a paging query. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 2
@@ -141,7 +134,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page in a paging query. Default value: **10**, which indicates 10 entries per page.
    * 
    * @example
    * 10
@@ -149,18 +142,19 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
-   * cn-qingdao
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -168,7 +162,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1684252800
@@ -176,13 +170,15 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the risk. Valid values:
-   * 
-   * * **toBeConfirmed**
-   * * **confirmed**
-   * * **toBeFixed**
-   * * **fixed**
-   * * **ignored**
+   * The risk status. Valid values:
+   * - **toBeConfirmed**: to be confirmed.
+   * - **confirmed**: confirmed.
+   * - **toBeFixed**: to be fixed.
+   * - **fixed**: fixed (manually verified).
+   * - **ignored**: ignored.
+   * - **toBeVerified**: to be verified by the system.
+   * - **notFixed**: not fixed after verification.
+   * - **systemFixed**: fixed (verified by the system).
    * 
    * @example
    * Confirmed
