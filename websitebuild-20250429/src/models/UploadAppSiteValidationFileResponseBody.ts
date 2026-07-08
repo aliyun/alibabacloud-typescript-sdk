@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * access denied details
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * application name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * spring-cloud-b
@@ -29,7 +29,7 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic code, currently unused. Ignore it.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -37,7 +37,7 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * SYSTEM.ERROR
@@ -45,12 +45,12 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * indicates whether the deletion succeeded
+   * Indicates whether the deletion was successful.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -74,7 +74,7 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -82,7 +82,7 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Primary domain name
+   * The primary domain name.
    * 
    * @example
    * stxycw.com
@@ -21,7 +21,7 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Creation time of the output.
+   * The time when the output was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -31,7 +31,7 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Updated At.
+   * The time when the output was last modified.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -41,7 +41,7 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Index permission
+   * The index permissions.
    * 
    * @example
    * authinfo
@@ -49,7 +49,7 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   seAuthInfo?: string;
   /**
    * @remarks
-   * index status
+   * The index status.
    * 
    * @example
    * 0,1,2
@@ -57,7 +57,7 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   seIndexStatus?: number;
   /**
    * @remarks
-   * search engine type
+   * The search engine type.
    * 
    * @example
    * baidu,bing,google
@@ -99,7 +99,7 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
 export class GetAppSeoStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -107,7 +107,7 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -115,7 +115,7 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Query the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * spring-cloud-b
@@ -123,7 +123,7 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -131,8 +131,8 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -140,12 +140,12 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response data
+   * The response data.
    */
   module?: GetAppSeoStatusResponseBodyModule[];
   /**
@@ -158,7 +158,7 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -166,7 +166,7 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -174,7 +174,7 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Fallback parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The list of allowed models.
+   * The list of supported models.
    * 
    * @example
    * qwen3.5-plus
@@ -29,7 +29,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   blockedModels?: string;
   /**
    * @remarks
-   * The specific permissions granted to processes in the container. Only NET_ADMIN and NET_RAW are supported.
+   * Grants specific permissions to processes in the container. Only NET_ADMIN and NET_RAW are supported.
    * 
    * > NET_RAW is not supported by default. Submit a ticket to apply for this permission.
    * 
@@ -55,7 +55,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
   dailyTokenLimit?: number;
   /**
    * @remarks
-   * Specifies whether scheduled delivery of resource snapshots is enabled.
+   * Indicates whether scheduled delivery of resource snapshots is enabled.
    * 
    * Valid values:
    * - true: Enabled.
@@ -260,7 +260,7 @@ export class GetLlmProxyConfigForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
    * 系统异常

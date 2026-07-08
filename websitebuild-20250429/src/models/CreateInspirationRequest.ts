@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInspirationRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource plan specification.
+   * The specification of the resource plan.
    * 
    * @example
    * 1000
@@ -45,11 +45,11 @@ export class CreateInspirationRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
-   * - Year: year.
-   * - Month: month.
-   * - Day: day.
-   * - Hour: hour.
+   * The unit of the subscription cycle. Valid values:
+   * - Year: year
+   * - Month: month
+   * - Day: day
+   * - Hour: hour
    * 
    * @example
    * Month
@@ -57,7 +57,7 @@ export class CreateInspirationRequest extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * The number of instances to purchase.
+   * The number of instances to subscribe to.
    * 
    * @example
    * 1

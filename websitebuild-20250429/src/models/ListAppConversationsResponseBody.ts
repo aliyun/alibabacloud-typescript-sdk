@@ -13,7 +13,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   aliyunPk?: string;
   /**
    * @remarks
-   * Bot ID
+   * The bot ID.
    * 
    * @example
    * Zero2
@@ -21,7 +21,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   botId?: string;
   /**
    * @remarks
-   * Chat records
+   * The number of chat records.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   chatNum?: number;
   /**
    * @remarks
-   * Session ID
+   * The conversation ID.
    * 
    * @example
    * 799EAC1246C855CAC75B77955E43D841
@@ -37,7 +37,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -47,7 +47,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Update Time.
+   * The modification time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -57,7 +57,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Extension information (in JSON string format)
+   * The extended information in JSON string format.
    * 
    * @example
    * {\\"MD5\\":\\"296f6c01e7fea2697ffe1cf41082b774\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
@@ -65,7 +65,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   metaData?: string;
   /**
    * @remarks
-   * Section ID of the checklist item.
+   * The section ID of the check item.
    * 
    * @example
    * 255
@@ -73,7 +73,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * Site ID. You can obtain it by invoking the [ListSites](~~ListSites~~) API.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 1068725896006128
@@ -81,7 +81,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * Current viewpoint, equivalent to the news title.
+   * The current viewpoint, which is equivalent to the news title.
    * 
    * @example
    * Sometimes When We Touch
@@ -89,7 +89,7 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 123456
@@ -139,12 +139,12 @@ export class ListAppConversationsResponseBodyModuleData extends $dara.Model {
 export class ListAppConversationsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Request result.
+   * The request result.
    */
   data?: ListAppConversationsResponseBodyModuleData[];
   /**
    * @remarks
-   * Page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 16
@@ -152,7 +152,7 @@ export class ListAppConversationsResponseBodyModule extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Paging size.
+   * The page size.
    * 
    * @example
    * 50
@@ -160,7 +160,7 @@ export class ListAppConversationsResponseBodyModule extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource count that matches the filter condition.
+   * The resource count that matches the conditional filter criteria.
    * 
    * @example
    * 30
@@ -199,7 +199,7 @@ export class ListAppConversationsResponseBodyModule extends $dara.Model {
 export class ListAppConversationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -207,7 +207,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -215,7 +215,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. Queries the application with this name.
+   * The application name. The application with this name is queried.
    * 
    * @example
    * dewuApp
@@ -223,7 +223,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -231,7 +231,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -239,14 +239,14 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Faulty parameters.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Number of results per query.  
+   * The maximum number of entries to return per query.
    * 
-   * Value range: 10 to 100. Default value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -254,12 +254,12 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: ListAppConversationsResponseBodyModule;
   /**
    * @remarks
-   * Token indicating the start of the next query. This field is empty if there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -267,7 +267,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -275,7 +275,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -283,7 +283,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -291,7 +291,7 @@ export class ListAppConversationsResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

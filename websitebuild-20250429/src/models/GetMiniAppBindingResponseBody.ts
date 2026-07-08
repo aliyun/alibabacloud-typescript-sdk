@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Authorization status
+   * The authorization status.
    * 
    * @example
    * disabled
@@ -13,7 +13,7 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   authStatus?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20260206134402000001
@@ -21,7 +21,7 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * ICP filing status
+   * The ICP filing status.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   icpFiled?: boolean;
   /**
    * @remarks
-   * Miniapp ID
+   * The mini program ID.
    * 
    * @example
    * wx7f122a7d23fdxxxx
@@ -37,7 +37,7 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   platformAppid?: string;
   /**
    * @remarks
-   * Preview QR code
+   * The preview QR code URL.
    * 
    * @example
    * http://xxxx
@@ -45,7 +45,7 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   previewQrCodeUrl?: string;
   /**
    * @remarks
-   * Production QR code
+   * The production QR code URL.
    * 
    * @example
    * http://xxxx
@@ -53,7 +53,7 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   productionQrCodeUrl?: string;
   /**
    * @remarks
-   * Extension information
+   * The extension information.
    */
   settingValues?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
 export class GetMiniAppBindingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request result.
+   * The request result.
    */
   data?: GetMiniAppBindingResponseBodyData;
   /**

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetOssUploadPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The scenario, such as knowledge.
+   * 
    * @example
    * default
    */

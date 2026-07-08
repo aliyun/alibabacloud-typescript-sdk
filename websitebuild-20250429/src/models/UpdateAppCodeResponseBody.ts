@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * permission denied information
+   * The access denial details.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * application Name; query the application with this Name
+   * The application name. The application with this name is queried.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -29,7 +29,7 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic code; currently unused, please ignore
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -37,7 +37,7 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message used to replace the %s placeholder in the ErrMessage error message in the response.
+   * The dynamic error message. This message is used to replace the %s variable in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -45,12 +45,12 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response data
+   * The response data.
    * 
    * @example
    * true
@@ -66,7 +66,7 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -74,7 +74,7 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -82,7 +82,7 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

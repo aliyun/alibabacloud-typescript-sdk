@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $dara.Model {
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * 2024
@@ -13,7 +13,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateName?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * ACTIVE
@@ -21,7 +21,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateStatus?: string;
   /**
    * @remarks
-   * The type of the certificate.
+   * The certificate type.
    * 
    * @example
    * self-signed
@@ -29,7 +29,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataCertificate extends $da
   certificateType?: string;
   /**
    * @remarks
-   * The expiration date of the certificate.
+   * The certificate expiration date.
    * 
    * @example
    * 4885718400000
@@ -399,7 +399,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord e
 export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $dara.Model {
   /**
    * @remarks
-   * The DNS record that the user needs to configure.
+   * The DNS record configuration guide for the user.
    */
   dnsRecord?: ListAppInstanceDomainsResponseBodyModuleDataVerificationDnsRecord;
   /**
@@ -420,7 +420,7 @@ export class ListAppInstanceDomainsResponseBodyModuleDataVerification extends $d
   verificationStatus?: string;
   /**
    * @remarks
-   * The ownership verification status code.
+   * The ownership verification status.
    * 
    * @example
    * NoAliyunServiceRoleForWebsiteBuildPublishAuth
@@ -464,7 +464,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
   certificate?: ListAppInstanceDomainsResponseBodyModuleDataCertificate;
   /**
    * @remarks
-   * The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
+   * The instance creation time. This parameter is required. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 1683256054000
@@ -571,7 +571,7 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
 export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $dara.Model {
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * jfztkg202502
@@ -579,7 +579,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateName?: string;
   /**
    * @remarks
-   * The status of the certificate.
+   * The certificate status.
    * 
    * @example
    * ACTIVE
@@ -587,7 +587,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateStatus?: string;
   /**
    * @remarks
-   * The type of the certificate.
+   * The certificate type.
    * 
    * @example
    * Server
@@ -595,7 +595,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextCertificate extends $da
   certificateType?: string;
   /**
    * @remarks
-   * The expiration date of the certificate.
+   * The certificate expiration date.
    * 
    * @example
    * 2025-01-15T02:04:00Z
@@ -955,7 +955,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord e
 export class ListAppInstanceDomainsResponseBodyModuleNextVerification extends $dara.Model {
   /**
    * @remarks
-   * The DNS record that the user needs to configure.
+   * The DNS record configuration guide for the user.
    */
   dnsRecord?: ListAppInstanceDomainsResponseBodyModuleNextVerificationDnsRecord;
   /**
@@ -1013,7 +1013,7 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
   certificate?: ListAppInstanceDomainsResponseBodyModuleNextCertificate;
   /**
    * @remarks
-   * The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
+   * The instance creation time. This parameter is required. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 1741572465000
@@ -1128,7 +1128,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request results.
+   * The request result.
    */
   data?: ListAppInstanceDomainsResponseBodyModuleData[];
   /**
@@ -1156,7 +1156,7 @@ export class ListAppInstanceDomainsResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * The server processes up to 1000 recent records beyond the pagination limit. If the results exceed 1000 entries, **ResultLimit** is **true**, and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to pagination limits, the server processes up to 1,000 recent records per query. If the result exceeds 1,000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
@@ -1253,8 +1253,8 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which replaces the `%s` placeholder in the **ErrMessage** return parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -1262,12 +1262,12 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of entries per query.
+   * The number of entries per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -1314,7 +1314,7 @@ export class ListAppInstanceDomainsResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

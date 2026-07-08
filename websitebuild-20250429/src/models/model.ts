@@ -199,6 +199,7 @@ export { AppServiceAggregate } from './AppServiceAggregate';
 export { AppServiceGroup } from './AppServiceGroup';
 export { AppServiceProfile } from './AppServiceProfile';
 export { PromotionActivity } from './PromotionActivity';
+export { TemplateRecord } from './TemplateRecord';
 export { TreeNode } from './TreeNode';
 export { ModuleResultsValue } from './ModuleResultsValue';
 export { ModuleVersionsValue } from './ModuleVersionsValue';

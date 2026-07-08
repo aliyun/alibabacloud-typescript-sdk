@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Bot ID
+   * The bot ID.
    * 
    * @example
    * Zero2
@@ -13,7 +13,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   botId?: string;
   /**
    * @remarks
-   * The ID of the chat.
+   * The chat ID.
    * 
    * @example
    * 53467af9-8c4e-4498-9032-1f26978007f8
@@ -21,7 +21,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * Current conversation status
+   * The current conversation status.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   chatStatus?: string;
   /**
    * @remarks
-   * The ID of the data class API being invoked.
+   * The ID of the data API operation that is called.
    * 
    * @example
    * {\\"code\\": \\"200\\", \\"success\\": True, \\"content\\": True, \\"requestId\\": \\"4AF53F7B-FEA9-5966-B0F8-BAF9A1EEFE34\\", \\"businessError\\": False, \\"message\\": \\"success\\", \\"httpStatusCode\\": 200}
@@ -37,7 +37,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Content type.
+   * The content type.
    * 
    * @example
    * image/png
@@ -45,7 +45,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Session ID.
+   * The conversation ID.
    * 
    * @example
    * 872be9bc-3097-433d-b462-596202455102
@@ -53,7 +53,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -63,7 +63,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Updated At.
+   * The modification time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -73,7 +73,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Message ID
+   * The message ID.
    * 
    * @example
    * 471791769135220858
@@ -81,7 +81,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * Business extension metadata (in Map format, must be a JSON string)
+   * The business extension metadata in Map format. The value must be a JSON string.
    * 
    * @example
    * {\\"appId\\":\\"WS20260418211121000001\\",\\"inputTokens\\":273,\\"outputTokens\\":1}
@@ -89,7 +89,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   metaData?: string;
   /**
    * @remarks
-   * The probability of not wearing a mask, not wearing a uniform, or not wearing a hat.
+   * The probability of not wearing a mask, not wearing work clothes, or not wearing a hat.
    * 
    * @example
    * 1
@@ -97,18 +97,18 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   no?: number;
   /**
    * @remarks
-   * Indicates the role of a conversation participant. Valid values include:
+   * The role of the conversation participant. Valid values:
    * 
-   * - user: User
+   * - user: user
    * 
-   * - assistant: Assistant
+   * - assistant: assistant
    * 
-   * - system: System
-   * - function: Function
+   * - system: system
+   * - function: function
    * 
-   * - plugin: Plugin
+   * - plugin: plug-in
    * 
-   * - tool: Tool
+   * - tool: tool
    * 
    * @example
    * LoC
@@ -116,7 +116,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * Section ID of the checklist item.
+   * The section ID of the check item.
    * 
    * @example
    * 11
@@ -124,7 +124,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 865181640657408
@@ -132,7 +132,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * File type
+   * The file type.
    * 
    * @example
    * IMAGE
@@ -190,7 +190,7 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
 export class UpdateAppChatMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -198,7 +198,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -206,7 +206,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -214,7 +214,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic code; not currently used. Please ignore.
+   * The dynamic code. This parameter is not currently used. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -222,8 +222,8 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -231,12 +231,12 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * faulty parameters
+   * The error arguments.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The returned object.
+   * The response object.
    */
   module?: UpdateAppChatMessageResponseBodyModule;
   /**
@@ -249,7 +249,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -257,7 +257,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -265,7 +265,7 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * is processed synchronously
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSeoTrendsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Baidu
+   * The Baidu index trends.
    * 
    * @example
    * baiduIndexTrends
@@ -13,7 +13,7 @@ export class GetAppSeoTrendsResponseBodyModule extends $dara.Model {
   baiduIndexTrends?: string;
   /**
    * @remarks
-   * Bing
+   * The Bing index trends.
    * 
    * @example
    * bingIndexTrends
@@ -21,7 +21,7 @@ export class GetAppSeoTrendsResponseBodyModule extends $dara.Model {
   bingIndexTrends?: string;
   /**
    * @remarks
-   * Google
+   * The Google index trends.
    * 
    * @example
    * googleIndexTrends
@@ -55,7 +55,7 @@ export class GetAppSeoTrendsResponseBodyModule extends $dara.Model {
 export class GetAppSeoTrendsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -63,7 +63,7 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -71,7 +71,7 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -79,7 +79,7 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -87,7 +87,7 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message.
+   * The dynamic error message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -95,12 +95,12 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: GetAppSeoTrendsResponseBodyModule;
   /**
@@ -113,7 +113,7 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -121,7 +121,7 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -129,7 +129,7 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Backup parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

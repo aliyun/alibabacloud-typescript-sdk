@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSitemapRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class GetAppSitemapRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Domain name
+   * The domain name.
    * 
    * @example
    * yjdw.bpu.edu.cn-waf
@@ -21,7 +21,7 @@ export class GetAppSitemapRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Search engine type
+   * The search engine type.
    * 
    * @example
    * type

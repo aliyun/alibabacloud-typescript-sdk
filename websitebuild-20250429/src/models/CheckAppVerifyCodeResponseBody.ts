@@ -77,7 +77,7 @@ export class CheckAppVerifyCodeResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the %s variable in the ErrMessage response element.
+   * The dynamic error message, which is used to replace the %s variable in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM_ERROR

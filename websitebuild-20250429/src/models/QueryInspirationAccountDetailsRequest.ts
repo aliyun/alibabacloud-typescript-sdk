@@ -22,8 +22,8 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - ASC: ascending order.
-   * - DESC: descending order.
+   * - ASC: ascending order
+   * - DESC: descending order
    * 
    * @example
    * BUY
@@ -47,7 +47,7 @@ export class QueryInspirationAccountDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The source type used to filter results. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
+   * The source type used to filter results, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
    * 
    * @example
    * MARKET_CLOUD_DREAM

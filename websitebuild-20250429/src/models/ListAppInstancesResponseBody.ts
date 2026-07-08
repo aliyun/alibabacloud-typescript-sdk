@@ -6,7 +6,7 @@ import { AppInstanceAggregate } from "./AppInstanceAggregate";
 export class ListAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -59,12 +59,12 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The error arguments returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of entries per query.
+   * The maximum number of results per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -82,7 +82,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   nextPage?: boolean;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results are available.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * dw+qdTi1EjVSWX/INJdYNw==
@@ -114,7 +114,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * In addition to pagination limits, the server processes up to 1,000 recent records per query. If the result exceeds 1,000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to pagination limits, the server processes a maximum of 1,000 recent records per query. If the results exceed 1,000 records, **ResultLimit** is **true**, and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -130,7 +130,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * 系统异常

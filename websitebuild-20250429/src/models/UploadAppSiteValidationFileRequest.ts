@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadAppSiteValidationFileRequest extends $dara.Model {
   /**
    * @remarks
-   * business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class UploadAppSiteValidationFileRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * domain name
+   * The domain name.
    * 
    * @example
    * yjdw.bpu.edu.cn-waf
@@ -21,7 +21,7 @@ export class UploadAppSiteValidationFileRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * file name
+   * The file name.
    * 
    * @example
    * {\\"URI\\": \\"oss://imm-test-co-cn-chengdu/zqh/input/Image/indexImage/nn1.jpg\\", \\"LatLong\\":\\"+39.998800,+116.480900\\"}
@@ -29,7 +29,7 @@ export class UploadAppSiteValidationFileRequest extends $dara.Model {
   file?: string;
   /**
    * @remarks
-   * file content
+   * The file content.
    * 
    * @example
    * abc
@@ -37,7 +37,7 @@ export class UploadAppSiteValidationFileRequest extends $dara.Model {
   fileContent?: string;
   /**
    * @remarks
-   * file type
+   * The file type.
    * 
    * @example
    * APP_MAPPING
@@ -45,7 +45,7 @@ export class UploadAppSiteValidationFileRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * site host
+   * The site host.
    * 
    * @example
    * www.aliyun.com

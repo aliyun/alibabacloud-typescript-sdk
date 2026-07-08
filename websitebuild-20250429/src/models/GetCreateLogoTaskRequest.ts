@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCreateLogoTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID returned when the call is successful. Note: Keep this ID safe. This ID is required when you query the status of device creation.
+   * The task ID returned when the call is successful. Keep this ID safe. This ID is required when you query the status of device creation.
    * 
    * @example
    * 20051349

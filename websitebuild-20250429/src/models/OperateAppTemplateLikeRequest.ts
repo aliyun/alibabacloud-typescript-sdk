@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class OperateAppTemplateLikeRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the item is collected
+   * Specifies whether the template is favorited.
    */
   liked?: boolean;
   /**
    * @remarks
-   * Template ID
+   * The template ID.
    * 
    * @example
    * K191WHV12URYQN06

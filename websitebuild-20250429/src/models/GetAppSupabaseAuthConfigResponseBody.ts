@@ -5,14 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSupabaseAuthConfigResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Configuration value. Valid values:  
-   * - cc_rule: CC rule.  
-   * - ddos_dispatch: DDoS filter interaction scheduling.  
-   * - edge_safe: Edge application security.  
-   * - blocked_regions: Geo-blocking.  
-   * - http_acl_policy: Precise ACL rule.  
-   * - bot_manager: Bot traffic management.  
-   * - ip_reputation: IP reputation investigation.
+   * The configuration value. Valid values:
+   * - cc_rule: HTTP flood protection rule.
+   * 
+   * - ddos_dispatch: DDoS mitigation interaction scheduling.
+   * 
+   * - edge_safe: edge application security.
+   * 
+   * - blocked_regions: location blacklist.
+   * 
+   * - http_acl_policy: accurate access control.
+   * 
+   * - bot_manager: bot traffic management.
+   * 
+   * - ip_reputation: IP reputation library.
    */
   configs?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -42,7 +48,7 @@ export class GetAppSupabaseAuthConfigResponseBodyModule extends $dara.Model {
 export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -58,7 +64,7 @@ export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * or
@@ -66,7 +72,7 @@ export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -74,8 +80,8 @@ export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the ErrMessage parameter.
+   * > If ErrMessage returns **The Value of Input Parameter %s is not valid** and DynamicMessage returns **DtsJobId**, the DtsJobId request parameter is invalid.
    * 
    * @example
    * abc
@@ -83,12 +89,12 @@ export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Error arguments returned.
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Task object
+   * The task object.
    */
   module?: GetAppSupabaseAuthConfigResponseBodyModule;
   /**
@@ -101,7 +107,7 @@ export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.EROR
@@ -109,7 +115,7 @@ export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Error message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -117,7 +123,7 @@ export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * A reserved parameter.
    * 
    * @example
    * True

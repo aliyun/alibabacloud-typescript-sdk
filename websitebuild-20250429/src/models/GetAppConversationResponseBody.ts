@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppConversationResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 12343131221311
@@ -13,7 +13,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   aliyunPk?: string;
   /**
    * @remarks
-   * bot ID
+   * The bot ID.
    * 
    * @example
    * Zero2
@@ -21,7 +21,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   botId?: string;
   /**
    * @remarks
-   * Chat record
+   * The chat records.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   chatNum?: number;
   /**
    * @remarks
-   * session id
+   * The conversation ID.
    * 
    * @example
    * 872be9bc-3097-433d-b462-596202455102
@@ -37,7 +37,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Creation Time.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -47,7 +47,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * Update Time.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -57,7 +57,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Extension information (in JSON string format)
+   * The extended information in JSON string format.
    * 
    * @example
    * {\\"appId\\":\\"WS20260507200853000001\\",\\"inputTokens\\":1411,\\"outputTokens\\":51}
@@ -65,7 +65,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   metaData?: string;
   /**
    * @remarks
-   * Section ID of the checklist item.
+   * The section ID of the check item.
    * 
    * @example
    * 11
@@ -73,7 +73,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * @example
    * 865181640657408
@@ -81,7 +81,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * Current point, equivalent to news title
+   * The current viewpoint, which is equivalent to the news title.
    * 
    * @example
    * Feel Like Makin\\" Love
@@ -89,7 +89,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 用户id
@@ -139,7 +139,7 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
 export class GetAppConversationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * access denied details
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -147,7 +147,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -155,7 +155,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -163,7 +163,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -171,8 +171,8 @@ export class GetAppConversationResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -180,12 +180,12 @@ export class GetAppConversationResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response Data
+   * The response data.
    */
   module?: GetAppConversationResponseBodyModule;
   /**
@@ -198,7 +198,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -206,7 +206,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -214,7 +214,7 @@ export class GetAppConversationResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * is processed synchronously
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

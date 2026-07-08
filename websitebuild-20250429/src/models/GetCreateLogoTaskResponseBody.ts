@@ -15,11 +15,11 @@ export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
    * @remarks
    * The current status of the task. Valid values:
    * 
-   * - pending: pending execution
-   * - configuring: being configured
-   * - success: succeeded
-   * - failed: failed
-   * - partialFailed: partially failed.
+   * - pending: Pending execution.
+   * - configuring: Being configured.
+   * - success: Succeeded.
+   * - failed: Failed.
+   * - partialFailed: Partially failed.
    * 
    * @example
    * SUCCESS
@@ -61,7 +61,7 @@ export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
 export class GetCreateLogoTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error code list in this topic.
+   * The error code. Valid values: If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0

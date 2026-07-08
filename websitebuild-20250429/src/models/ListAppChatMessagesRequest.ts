@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppChatMessagesRequest extends $dara.Model {
   /**
    * @remarks
-   * Chat ID
+   * The chat ID.
    * 
    * @example
    * 20833ba4-d189-4c50-9a44-a6bcbda2c93b
@@ -13,7 +13,7 @@ export class ListAppChatMessagesRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
-   * Session ID
+   * The conversation ID.
    * 
    * @example
    * 593fe1a2-d0b4-4fde-a2b0-78ad6a438d41
@@ -21,9 +21,9 @@ export class ListAppChatMessagesRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Number of results per query.  
+   * The number of entries per query.
    * 
-   * Valid range: 10 to 100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class ListAppChatMessagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. This value is empty if there is no subsequent query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * FFh3Xqm+JgZ/U9Jyb7wdVr9LWk80Tghn5UZjbcWEVEderBcbVF+Y6PS0i8PpCL4PQZ3e0C9oEH0Asd4tJEuGtkl2WuKdiWZpEwadNydQdJPFM=
@@ -39,7 +39,7 @@ export class ListAppChatMessagesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Segment ID
+   * The section ID.
    * 
    * @example
    * 169

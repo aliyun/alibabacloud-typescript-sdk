@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether an instance has been assigned
+   * Indicates whether an instance is allocated.
    */
   allocated?: boolean;
   /**
    * @remarks
-   * Is this item currently active?
+   * Indicates whether this entitlement item is currently available.
    * 
    * @example
    * on
@@ -18,7 +18,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   available?: boolean;
   /**
    * @remarks
-   * Authorization item identity
+   * The code of the entitlement item.
    * 
    * @example
    * 0
@@ -26,7 +26,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   code?: string;
   /**
    * @remarks
-   * Indicates whether configuration has been completed
+   * Indicates whether the configuration is complete.
    * 
    * @example
    * true
@@ -34,12 +34,12 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   configured?: boolean;
   /**
    * @remarks
-   * Is this item entitled in the version?
+   * Indicates whether the edition grants this entitlement item.
    */
   entitled?: boolean;
   /**
    * @remarks
-   * Feature source type (PLUGIN/SKILL/CHANNEL/SYSTEM)
+   * The feature source type. Valid values: PLUGIN, SKILL, CHANNEL, and SYSTEM.
    * 
    * @example
    * 5
@@ -47,7 +47,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   featureType?: string;
   /**
    * @remarks
-   * Runtime instance ID
+   * The runtime instance ID.
    * 
    * @example
    * waf_v2intl_public_intl-sg-i5c43rcpw04
@@ -55,7 +55,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * Authorization item Name
+   * The name of the entitlement item.
    * 
    * @example
    * 4e46d24b56bfa944b5e6f2305715bc4e.jpg
@@ -63,7 +63,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * Plugin ID
+   * The plug-in ID.
    * 
    * @example
    * alipay-isv
@@ -71,7 +71,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   pluginId?: string;
   /**
    * @remarks
-   * Total quota
+   * The total quota.
    * 
    * @example
    * 10
@@ -79,7 +79,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   quota?: number;
   /**
    * @remarks
-   * Remaining quantity
+   * The remaining amount.
    * 
    * @example
    * 1234
@@ -87,7 +87,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   remaining?: number;
   /**
    * @remarks
-   * Resource domain association identity
+   * The association code of the resource domain.
    * 
    * @example
    * SmsCount
@@ -95,7 +95,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   resourceCode?: string;
   /**
    * @remarks
-   * Resource type (QUOTA/LIMIT)
+   * The resource type. Valid values: QUOTA and LIMIT.
    * 
    * @example
    * filesystem
@@ -103,7 +103,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   resourceType?: string;
   /**
    * @remarks
-   * Is it running?
+   * Indicates whether the instance is running.
    * 
    * @example
    * 0
@@ -111,7 +111,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   running?: boolean;
   /**
    * @remarks
-   * Authorization Type (FEATURE / RESOURCE / RUNTIME)
+   * The entitlement type. Valid values: FEATURE, RESOURCE, and RUNTIME.
    * 
    * @example
    * question
@@ -119,7 +119,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * Usage percentage
+   * The usage percentage.
    * 
    * @example
    * 10
@@ -127,7 +127,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
   usagePercent?: number;
   /**
    * @remarks
-   * Usage
+   * The used amount.
    * 
    * @example
    * 3295422523872
@@ -189,7 +189,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
 export class GetAppInstanceEntitlementResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * BizId of the associated application instance
+   * The business ID of the application instance.
    * 
    * @example
    * WD20250703155602000001
@@ -197,7 +197,7 @@ export class GetAppInstanceEntitlementResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * All entitlements
+   * The list of all entitlement items.
    */
   items?: GetAppInstanceEntitlementResponseBodyModuleItems[];
   static names(): { [key: string]: string } {
@@ -229,7 +229,7 @@ export class GetAppInstanceEntitlementResponseBodyModule extends $dara.Model {
 export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission denied information
+   * The access denied details.
    * 
    * @example
    * {}
@@ -237,7 +237,7 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -245,7 +245,7 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -253,7 +253,7 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -261,8 +261,8 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace `%s` in the **ErrMessage** error message.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -270,12 +270,12 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error arguments.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: GetAppInstanceEntitlementResponseBodyModule;
   /**
@@ -288,7 +288,7 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -296,7 +296,7 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The root error message.
    * 
    * @example
    * 系统异常
@@ -304,7 +304,7 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

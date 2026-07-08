@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * BizId of the associated application instance
+   * The business ID of the associated application instance.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Application icon
+   * The application icon URL.
    * 
    * @example
    * https://yzm.zshud.com:34901/cloud-phone/养生_1763631730804.png
@@ -21,7 +21,7 @@ export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
   iconUrl?: string;
   /**
    * @remarks
-   * Order ID
+   * The order ID.
    * 
    * @example
    * 250822465990301
@@ -29,7 +29,7 @@ export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Application thumbnail
+   * The application thumbnail URL.
    * 
    * @example
    * placeHolder
@@ -65,7 +65,7 @@ export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
 export class UpdateAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access was denied.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -81,7 +81,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -89,7 +89,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -97,7 +97,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message. Not currently used. Please ignore.
+   * The dynamic message. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * SYSTEM_ERROR
@@ -105,12 +105,12 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: UpdateAppInstanceResponseBodyModule;
   /**
@@ -123,7 +123,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -131,7 +131,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -139,7 +139,7 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

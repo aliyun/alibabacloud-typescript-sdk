@@ -69,7 +69,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   instanceCreateFinishedTime?: string;
   /**
    * @remarks
-   * The instance creation status.
+   * The creation status of the instance.
    * 
    * @example
    * 1111
@@ -85,7 +85,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   isDeleted?: number;
   /**
    * @remarks
-   * The password for accessing the ApsaraDB RDS database.
+   * The password used to access the ApsaraDB RDS database.
    * 
    * @example
    * 111
@@ -103,7 +103,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * - 0: paused
-   * - 1: running.
+   * - 1: running
    * 
    * @example
    * NORMAL
@@ -265,7 +265,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -331,7 +331,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

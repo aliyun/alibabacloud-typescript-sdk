@@ -37,7 +37,7 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   sectionId?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 865181640657408

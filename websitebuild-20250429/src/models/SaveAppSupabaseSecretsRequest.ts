@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveAppSupabaseSecretsRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -13,7 +13,7 @@ export class SaveAppSupabaseSecretsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Key list JSON
+   * The JSON string of the secrets list.
    * 
    * @example
    * {"key":"abc"}

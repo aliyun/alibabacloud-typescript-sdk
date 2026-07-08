@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * time-to-live (TTL)
+   * The expiration time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -15,7 +15,7 @@ export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
   expireAtTime?: string;
   /**
    * @remarks
-   * temporary short URL
+   * The temporary short URL.
    * 
    * @example
    * http://www.aliyun.com
@@ -23,7 +23,7 @@ export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
   tempShortUrl?: string;
   /**
    * @remarks
-   * full URL
+   * The full URL.
    * 
    * @example
    * https://bj.download.cycore.cn/zhkt-student-cystore-https/2025/9/31/10/12/9b48342f-e595-4c60-8032-dccd355e7552.jpg
@@ -57,7 +57,7 @@ export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
 export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * access denied details
+   * The details of the permission verification failure.
    * 
    * @example
    * {}
@@ -65,7 +65,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -73,7 +73,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App Name.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -81,7 +81,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic code, currently unused. Please ignore.
+   * The dynamic code. This parameter is not in use. Ignore this parameter.
    * 
    * @example
    * ERROR-oo1
@@ -89,7 +89,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -97,12 +97,12 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response data
+   * The response data.
    */
   module?: GetAppInstanceTempShortUrlResponseBodyModule;
   /**
@@ -115,7 +115,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -123,7 +123,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -131,7 +131,7 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

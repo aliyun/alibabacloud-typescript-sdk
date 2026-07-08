@@ -4,6 +4,7 @@ import { AppAiStaff } from "./AppAiStaff";
 import { AppOperationAddress } from "./AppOperationAddress";
 import { AppServiceAggregate } from "./AppServiceAggregate";
 import { AppInstanceProfile } from "./AppInstanceProfile";
+import { TemplateRecord } from "./TemplateRecord";
 
 
 /**
@@ -140,11 +141,12 @@ export class AppInstanceAggregate extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * trial,draft,live,refunded,expired,released
+   * Valid values: trial, draft, live, refunded, expired, released.
    */
   status?: string;
   statusText?: string;
   tags?: AppInstanceAggregateTags[];
+  templateRecord?: TemplateRecord;
   thumbnailUrl?: string;
   userId?: string;
   version?: string;
@@ -180,6 +182,7 @@ export class AppInstanceAggregate extends $dara.Model {
       status: 'Status',
       statusText: 'StatusText',
       tags: 'Tags',
+      templateRecord: 'TemplateRecord',
       thumbnailUrl: 'ThumbnailUrl',
       userId: 'UserId',
       version: 'Version',
@@ -218,6 +221,7 @@ export class AppInstanceAggregate extends $dara.Model {
       status: 'string',
       statusText: 'string',
       tags: { 'type': 'array', 'itemType': AppInstanceAggregateTags },
+      templateRecord: TemplateRecord,
       thumbnailUrl: 'string',
       userId: 'string',
       version: 'string',
@@ -242,6 +246,9 @@ export class AppInstanceAggregate extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(this.templateRecord && typeof (this.templateRecord as any).validate === 'function') {
+      (this.templateRecord as any).validate();
     }
     super.validate();
   }

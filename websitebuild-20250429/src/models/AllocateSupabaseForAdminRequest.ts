@@ -24,7 +24,9 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values: ASC and DESC.
+   * The sort order. Valid values:
+   * - ASC: ascending order
+   * - DESC: descending order
    * 
    * @example
    * BUY

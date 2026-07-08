@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * Appended message metadata (JSON format)
+   * The appended message metadata in JSON format.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class UpdateAppChatMessageRequest extends $dara.Model {
   addedMetaData?: string;
   /**
    * @remarks
-   * Message content
+   * The message content.
    * 
    * @example
    * FormatVersion: OOS-2019-06-01nTasks:n  - Name: runCommandn    Action: \\"ACS::ECS::RunCommand\\"n    Properties:n      commandContent: \\" echo Hksqj@@883289
@@ -21,7 +21,7 @@ export class UpdateAppChatMessageRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Session ID
+   * The conversation ID.
    * 
    * @example
    * 81bc5a34-1d8d-4ef7-a208-7401c51b054b
@@ -29,7 +29,7 @@ export class UpdateAppChatMessageRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * Message ID
+   * The message ID.
    * 
    * @example
    * 7baf7d67-1897-42ed-a380-f6ae825d6907

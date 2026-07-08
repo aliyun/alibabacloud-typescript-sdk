@@ -13,9 +13,9 @@ export class OperateSupabaseForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed. Valid values:
-   * - false: A retry is not allowed.
-   * - true: A retry is allowed.
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
+   * - true: Retry is allowed.
    * 
    * @example
    * False

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSupabaseSecretsResponseBodyModuleSecrets extends $dara.Model {
   /**
    * @remarks
-   * Tag key
+   * The tag key.
    * 
    * @example
    * curl GCEA6fET.popscan.xaliyun.com
@@ -13,7 +13,7 @@ export class GetAppSupabaseSecretsResponseBodyModuleSecrets extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * Application name
+   * The application name.
    * 
    * @example
    * LOGO3.png
@@ -21,12 +21,12 @@ export class GetAppSupabaseSecretsResponseBodyModuleSecrets extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The credential type. Valid values:  
-   * - Generic: generic secret.  
-   * - Rds: RDS credential.  
-   * - Redis: Redis/Tair credential.  
+   * The credential type. Valid values:
+   * - Generic: generic credential.  
+   * - Rds: ApsaraDB RDS credential.  
+   * - Redis: Redis/Tair credential.
    * - RAMCredentials: RAM credential.  
-   * - ECS: ECS credential.  
+   * - ECS: ECS credential.
    * - PolarDB: PolarDB credential.
    * 
    * @example
@@ -35,7 +35,7 @@ export class GetAppSupabaseSecretsResponseBodyModuleSecrets extends $dara.Model 
   secretType?: string;
   /**
    * @remarks
-   * Record value
+   * The record value.
    * 
    * @example
    * 58.16.60.28
@@ -71,7 +71,7 @@ export class GetAppSupabaseSecretsResponseBodyModuleSecrets extends $dara.Model 
 export class GetAppSupabaseSecretsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    */
   secrets?: GetAppSupabaseSecretsResponseBodyModuleSecrets[];
   static names(): { [key: string]: string } {
@@ -101,7 +101,7 @@ export class GetAppSupabaseSecretsResponseBodyModule extends $dara.Model {
 export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -109,8 +109,8 @@ export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:  
-   * - false: Retry is not allowed.  
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
    * - true: Retry is allowed.
    * 
    * @example
@@ -119,7 +119,7 @@ export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * spring-cloud-b
@@ -127,7 +127,7 @@ export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -135,8 +135,8 @@ export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * abc
@@ -144,17 +144,17 @@ export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Returned object.
+   * The response object.
    */
   module?: GetAppSupabaseSecretsResponseBodyModule;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
@@ -162,7 +162,7 @@ export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.EROR
@@ -170,7 +170,7 @@ export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -178,7 +178,7 @@ export class GetAppSupabaseSecretsResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the operation is processed synchronously.
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

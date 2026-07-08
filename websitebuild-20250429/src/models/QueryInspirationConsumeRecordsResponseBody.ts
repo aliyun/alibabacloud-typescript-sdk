@@ -32,7 +32,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
   recordKey?: string;
   /**
    * @remarks
-   * The name of the consumption scenario, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
+   * The consumption scenario name, such as AI application development, AI creative illustration, AI video creation, or AI content creation.
    * 
    * @example
    * 家装
@@ -100,7 +100,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleNext extends $dara.
   metaData?: string;
   /**
    * @remarks
-   * The name of the consumption scenario, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
+   * The consumption scenario name, such as AI application development, AI creative illustration, AI video creation, or AI content creation.
    * 
    * @example
    * 家装
@@ -182,7 +182,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModule extends $dara.Mode
   prePage?: boolean;
   /**
    * @remarks
-   * Apart from pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    */
   resultLimit?: boolean;
   /**
@@ -255,7 +255,7 @@ export class QueryInspirationConsumeRecordsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False

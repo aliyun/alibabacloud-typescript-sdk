@@ -14,7 +14,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   domainKeyword?: string;
   /**
    * @remarks
-   * The maximum number of entries per query.
+   * The number of entries per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 

@@ -13,7 +13,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   canQuickRevert?: string;
   /**
    * @remarks
-   * Current operation step of the job.
+   * The current step of the task.
    * 
    * @example
    * PRE_CHECK
@@ -21,7 +21,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   currentStep?: string;
   /**
    * @remarks
-   * Deployment channel
+   * The deployment channel.
    * 
    * @example
    * PC,WEAPP
@@ -29,7 +29,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   deployChannel?: string;
   /**
    * @remarks
-   * Application description
+   * The application description.
    * 
    * @example
    * /bak->serverless.handler(2020091300200279)
@@ -37,7 +37,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Publishing procedure
+   * The publish process.
    * 
    * @example
    * abc
@@ -45,16 +45,16 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   errorStep?: string;
   /**
    * @remarks
-   * Indicates whether the job is finished.
+   * Indicates whether the task is complete.
    */
   isFinish?: boolean;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * - `true`: The invocation succeeded.
+   * - `true`: The call is successful.
    * 
-   * - `false`: Failed to invoke.
+   * - `false`: The call failed.
    * 
    * @example
    * True
@@ -62,7 +62,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * Additional description information.
+   * The additional description.
    * 
    * @example
    * common notify successfully.
@@ -70,7 +70,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Sorting type: ASC or DESC.
+   * The sort type. Valid values: ASC and DESC.
    * 
    * @example
    * DESC
@@ -78,7 +78,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * Job completion percentage.
+   * The task completion percentage.
    * 
    * @example
    * 20
@@ -86,7 +86,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   percent?: number;
   /**
    * @remarks
-   * Publish number
+   * The publish number.
    * 
    * @example
    * 123
@@ -94,7 +94,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   publishNumber?: string;
   /**
    * @remarks
-   * Publish order ID
+   * The publish order ID.
    * 
    * @example
    * 123
@@ -102,7 +102,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   publishOrderId?: number;
   /**
    * @remarks
-   * Scheduled publish time
+   * The scheduled publish time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -112,7 +112,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   publishTime?: string;
   /**
    * @remarks
-   * The site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * @example
    * 865181640657408
@@ -120,7 +120,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * Error Level, including FATAL, ERROR, WARNING, and CRITICAL.
+   * The error level. Valid values: FATAL, ERROR, WARNING, and CRITICAL.
    */
   steps?: string[];
   subchannel?: string;
@@ -181,7 +181,7 @@ export class GetAppPublishStatusResponseBodyModule extends $dara.Model {
 export class GetAppPublishStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -189,7 +189,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -197,7 +197,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * App name.
+   * The application name.
    * 
    * @example
    * or
@@ -205,7 +205,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -213,7 +213,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -221,12 +221,12 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   module?: GetAppPublishStatusResponseBodyModule;
   /**
@@ -239,7 +239,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -247,7 +247,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -255,7 +255,7 @@ export class GetAppPublishStatusResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

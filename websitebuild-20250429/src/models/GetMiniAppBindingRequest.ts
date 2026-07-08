@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMiniAppBindingRequest extends $dara.Model {
   /**
    * @remarks
-   * Site ID
+   * The site ID.
    * 
    * @example
    * WS20250814102215000001
@@ -13,7 +13,7 @@ export class GetMiniAppBindingRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Channel
+   * The channel.
    * 
    * @example
    * WECHAT
@@ -21,7 +21,7 @@ export class GetMiniAppBindingRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * List of extension information keys
+   * The list of extension information keys.
    * 
    * @example
    * SERVER_DOMAIN

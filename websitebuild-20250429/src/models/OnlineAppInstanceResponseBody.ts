@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OnlineAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authentication failure details.
+   * The details of the authentication failure.
    * 
    * @example
    * {}
@@ -82,7 +82,7 @@ export class OnlineAppInstanceResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Indicates whether the request is synchronously processed.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Application type
+   * The application type.
    * 
    * @example
    * Application
@@ -13,7 +13,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WD20250703155602000001
@@ -21,7 +21,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Ensures the idempotence of the request. Generate a unique value from your client for this parameter to guarantee uniqueness across different requests. ClientToken supports only ASCII characters and must not exceed 64 characters.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Deployment area
+   * The deployment region.
    * 
    * @example
    * ChineseMainland
@@ -37,7 +37,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   deployArea?: string;
   /**
    * @remarks
-   * Application description
+   * The application description.
    * 
    * @example
    * description
@@ -45,7 +45,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Extension information
+   * The extended information.
    * 
    * @example
    * {\\"user_device_id\\":\\"6bef45cb0c76de284d24de074c088b73\\"}\\n
@@ -53,7 +53,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * Application icon
+   * The application icon URL.
    * 
    * @example
    * https://app-center-icon-prod-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/1864953777494693/1753841032702_WX20250729-171155%402x.png
@@ -61,7 +61,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   iconUrl?: string;
   /**
    * @remarks
-   * Application name
+   * The application name.
    * 
    * @example
    * 大角鹿
@@ -69,7 +69,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Payment type
+   * The payment type.
    * 
    * @example
    * AUTO_PAY
@@ -85,7 +85,7 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Website version
+   * The website version.
    * 
    * @example
    * Basic_Edition
@@ -93,12 +93,12 @@ export class UpdateAppInstanceShrinkRequest extends $dara.Model {
   siteVersion?: string;
   /**
    * @remarks
-   * Tags.
+   * The tags.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * Application thumbnail
+   * The application thumbnail URL.
    * 
    * @example
    * http://www.aliyun.com

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppPluginsRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID of the application instance
+   * The business ID of the application instance.
    * 
    * @example
    * WD20250820143531000001
@@ -13,9 +13,9 @@ export class ListAppPluginsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Number of results per query.  
+   * The number of entries per query.
    * 
-   * Valid range: 10 to 100. Default value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class ListAppPluginsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. Empty if there is no next query.
+   * The token for the next query. This parameter is empty if no more results are available.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -31,10 +31,10 @@ export class ListAppPluginsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Status of the dataset acceleration instance. Valid values:  
-   * - Created: Initialization.  
-   * - Running: Running.  
-   * - Stopped: Stopped.
+   * The status of the Dataset Accelerator instance. Valid values:
+   * - Created: init.
+   * - Running: running.
+   * - Stopped: stopped.
    * 
    * @example
    * http_whitelist
@@ -42,7 +42,7 @@ export class ListAppPluginsRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Platform
+   * The platform.
    * 
    * @example
    * linux/amd64

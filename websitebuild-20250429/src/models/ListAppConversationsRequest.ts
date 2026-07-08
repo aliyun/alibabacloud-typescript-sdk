@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppConversationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Bot ID
+   * The bot ID.
    * 
    * @example
    * Zero2
@@ -13,7 +13,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   botId?: string;
   /**
    * @remarks
-   * End modification time (ISO 8601 format)
+   * The end modification time in ISO 8601 format.
    * 
    * @example
    * 20201212
@@ -21,7 +21,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   endModifyTime?: string;
   /**
    * @remarks
-   * The number of entries to return in each query result.  
+   * The maximum number of entries to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -31,7 +31,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. It is empty when there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -39,7 +39,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Number of entries per page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Site ID
+   * The site ID.
    * 
    * @example
    * 1168642640022064
@@ -63,7 +63,7 @@ export class ListAppConversationsRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * Start modification time (ISO 8601 format)
+   * The start modification time in ISO 8601 format.
    * 
    * @example
    * 20200101

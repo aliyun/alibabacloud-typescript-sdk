@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMiniAppBindingForAdminResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Authorization status
+   * The authorization status.
    * 
    * @example
    * AUTHORIZED
@@ -13,7 +13,7 @@ export class GetMiniAppBindingForAdminResponseBodyData extends $dara.Model {
   authStatus?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250801004817000002
@@ -21,7 +21,7 @@ export class GetMiniAppBindingForAdminResponseBodyData extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Miniapp ID
+   * The mini program ID.
    * 
    * @example
    * xxxx
@@ -55,7 +55,7 @@ export class GetMiniAppBindingForAdminResponseBodyData extends $dara.Model {
 export class GetMiniAppBindingForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request result.
+   * The request result.
    */
   data?: GetMiniAppBindingForAdminResponseBodyData;
   /**

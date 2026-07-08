@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CopyAppPluginConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The source business ID.
+   * 
    * @example
    * 31104757
    */
   sourceBizId?: string;
   /**
+   * @remarks
+   * The target business ID.
+   * 
    * @example
    * 31104758
    */

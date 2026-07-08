@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission denied information
+   * The access denied detail.
    * 
    * @example
    * {}
@@ -13,8 +13,8 @@ export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:  
-   * - false: Retry is not allowed.  
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
    * - true: Retry is allowed.
    * 
    * @example
@@ -23,7 +23,7 @@ export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * Application name. It can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and must be no more than 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -31,7 +31,7 @@ export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -39,7 +39,7 @@ export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic message.
+   * The dynamic message.
    * 
    * @example
    * SYSTEM_ERROR
@@ -47,12 +47,12 @@ export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Returned error parameters
+   * The error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * Response data
+   * The response data.
    * 
    * @example
    * true
@@ -68,7 +68,7 @@ export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -76,7 +76,7 @@ export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * Abnormal message
+   * The error message.
    * 
    * @example
    * 系统异常
@@ -84,7 +84,7 @@ export class OperateAppTemplateLikeResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

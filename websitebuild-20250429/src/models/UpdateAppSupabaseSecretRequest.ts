@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppSupabaseSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250731233102000001
@@ -13,7 +13,7 @@ export class UpdateAppSupabaseSecretRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Key value
+   * The secret key.
    * 
    * @example
    * ***
@@ -21,7 +21,7 @@ export class UpdateAppSupabaseSecretRequest extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * Key name
+   * The secret name.
    * 
    * @example
    * 277356_pre_auth
@@ -29,7 +29,7 @@ export class UpdateAppSupabaseSecretRequest extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * Key Type
+   * The secret type.
    * 
    * @example
    * Opaque
@@ -37,7 +37,7 @@ export class UpdateAppSupabaseSecretRequest extends $dara.Model {
   secretType?: string;
   /**
    * @remarks
-   * Key Value
+   * The secret value.
    * 
    * @example
    * 1231

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppSeoStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250801154628000001
@@ -13,7 +13,7 @@ export class UpdateAppSeoStatusRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Domain Name
+   * The domain name.
    * 
    * @example
    * yjdw.bpu.edu.cn-waf
@@ -26,7 +26,7 @@ export class UpdateAppSeoStatusRequest extends $dara.Model {
   seAuthInfo?: string;
   /**
    * @remarks
-   * Search Engine Type
+   * The search engine type.
    * 
    * @example
    * type

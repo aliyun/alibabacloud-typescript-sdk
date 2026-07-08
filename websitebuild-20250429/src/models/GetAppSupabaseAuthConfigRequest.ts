@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSupabaseAuthConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Authentication type
+   * The authentication type.
    * 
    * @example
    * ALL_AUTH_FLAG
@@ -13,7 +13,7 @@ export class GetAppSupabaseAuthConfigRequest extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * Business ID
+   * The business ID.
    * 
    * @example
    * WS20250801152639000005

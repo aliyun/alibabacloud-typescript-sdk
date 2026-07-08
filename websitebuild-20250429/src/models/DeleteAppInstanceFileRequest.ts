@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppInstanceFileRequest extends $dara.Model {
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * 81bc5a34-1d8d-4ef7-a208-7401c51b054b
@@ -13,7 +13,7 @@ export class DeleteAppInstanceFileRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * File Path
+   * The file path.
    * 
    * @example
    * sdms-test/static/

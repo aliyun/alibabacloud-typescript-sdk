@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppConversationRequest extends $dara.Model {
   /**
    * @remarks
-   * Bot ID
+   * The bot ID.
    * 
    * @example
    * Zero2
@@ -13,7 +13,7 @@ export class GetAppConversationRequest extends $dara.Model {
   botId?: string;
   /**
    * @remarks
-   * Session ID
+   * The conversation ID.
    * 
    * @example
    * 81bc5a34-1d8d-4ef7-a208-7401c51b054b

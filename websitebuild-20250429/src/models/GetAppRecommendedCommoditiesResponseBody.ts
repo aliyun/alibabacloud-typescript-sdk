@@ -6,7 +6,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   actionType?: string;
   /**
    * @remarks
-   * The commodity code. This code applies to both resource plans and promotional commodities.
+   * The commodity code. Applicable to both resource plans and marketing commodities.
    * 
    * @example
    * rds
@@ -15,7 +15,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   description?: string;
   /**
    * @remarks
-   * The extension field, such as unsupportedReason.
+   * The extension fields, such as unsupportedReason.
    */
   extend?: { [key: string]: string };
   /**
@@ -30,7 +30,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   orderType?: string;
   /**
    * @remarks
-   * The sorting priority. A smaller value indicates a higher priority.
+   * The sort priority. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -38,7 +38,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   priority?: number;
   /**
    * @remarks
-   * The promotional commodity ID. This parameter is returned only for new purchases.
+   * The marketing commodity ID. Returned only for new purchases.
    * 
    * @example
    * 12345
@@ -47,7 +47,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
   recommendType?: string;
   /**
    * @remarks
-   * The redirect URL. This parameter is returned when a redirect is required, such as during an upgrade.
+   * The redirect URL. Returned when redirection is required, such as for upgrades.
    * 
    * @example
    * https://ecs-workbench-disposable.aliyun.com/account/disposable/login/sst/1291612921555690/edvo2gevfh
@@ -109,7 +109,7 @@ export class GetAppRecommendedCommoditiesResponseBodyModuleCommodities extends $
 export class GetAppRecommendedCommoditiesResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The list of promotional commodities.
+   * The list of marketing commodities.
    */
   commodities?: GetAppRecommendedCommoditiesResponseBodyModuleCommodities[];
   static names(): { [key: string]: string } {
@@ -171,8 +171,8 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -187,11 +187,11 @@ export class GetAppRecommendedCommoditiesResponseBody extends $dara.Model {
    * @remarks
    * The data table module. Valid values:
    * 
-   * - ABTest: the experiment data table.
+   * - ABTest: experiment data table
    * 
-   * - ExperimentTool: the experiment tool table.
+   * - ExperimentTool: experiment tool table
    * 
-   * - DataDiagnosis: data modeling diagnostics.
+   * - DataDiagnosis: data modeling diagnostics
    */
   module?: GetAppRecommendedCommoditiesResponseBodyModule;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMiniAppAuthUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * Site ID
+   * The site ID.
    * 
    * @example
    * WS20250731233102000001
@@ -13,7 +13,7 @@ export class GetMiniAppAuthUrlRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Channel information
+   * The channel information.
    * 
    * @example
    * WECHAT
@@ -21,7 +21,7 @@ export class GetMiniAppAuthUrlRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Hyperlink URL
+   * The redirect URL.
    * 
    * @example
    * null
