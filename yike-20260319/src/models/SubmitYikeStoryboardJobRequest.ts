@@ -9,7 +9,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
    * - 16:9
    * - 9:16
    * - 4:3
-   * - 3:4.
+   * - 3:4
    * 
    * @example
    * 4:3
@@ -18,8 +18,8 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   /**
    * @remarks
    * The execution mode for storyboard generation. Valid values:
-   * - FullPipeline: Full pipeline generation, which includes both storyboard generation and shot video generation.
-   * - StoryboardOnly: Generates only the storyboard.
+   * - FullPipeline: full pipeline generation, which includes storyboard generation and shot video generation.
+   * - StoryboardOnly: generates only the storyboard.
    * 
    * @example
    * FullPipeline
@@ -27,7 +27,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   execMode?: string;
   /**
    * @remarks
-   * The OSS URL of the file. Only URLs with the .txt or .doc file name extension are supported.
+   * The OSS URL of the file. The URL must point to a file with a .txt or .doc extension.
    * 
    * @example
    * http://test.oss-cn-shanghai.aliyuncs.com/test.txt
@@ -56,46 +56,48 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   /**
    * @remarks
    * The narration voice ID. Valid values:
-   * - sys_GracefulPoisedWoman: Graceful Poised Woman
-   * - sys_ElderlyWistfulWoman: Elderly Wistful Woman
-   * - sys_SweetBrightGirl: Sweet Bright Girl
-   * - sys_YoungGracefulWoman: Young Graceful Woman
-   * - sys_MaturePoisedWoman: Mature Poised Woman
-   * - sys_MatureWiseWoman: Mature Wise Woman
-   * - sys_CalmDeepMale: Calm Deep Male
-   * - sys_SereneIntellect: Serene Intellect
-   * - sys_MajesticBaritone: Majestic Baritone
-   * - sys_GravellySoulful: Gravelly Soulful
-   * - sys_ClassicYoungMan: Classic Young Man Narrator
-   * - sys_WiseYoungMan: Wise Young Man Narrator
-   * - sys_ClassicYoungWoman: Classic Young Woman Narrator
-   * - sys_IntellectualYoungWoman: Intellectual Young Woman Narrator
-   * - sys_GentleYoungMan: Gentle Young Man Narrator
-   * - sys_thoughtfulBoy: Thoughtful Boy
-   * - sys_RichBassMale: Rich Bass Male
-   * - sys_ClassicMiddleAgedWoman: Classic Middle-Aged Woman Narrator.
+   * - sys_GracefulPoisedWoman: mature graceful female
+   * - sys_ElderlyWistfulWoman: wistful elderly female
+   * - sys_SweetBrightGirl: sweet bright girl
+   * - sys_YoungGracefulWoman: gentle graceful female
+   * - sys_MaturePoisedWoman: poised mature female
+   * - sys_MatureWiseWoman: elegant wise female
+   * - sys_CalmDeepMale: calm deep male
+   * - sys_SereneIntellect: serene intellectual male
+   * - sys_MajesticBaritone: majestic baritone male
+   * - sys_GravellySoulful: gravelly soulful male
+   * - sys_ClassicYoungMan: classic narrator male
+   * - sys_WiseYoungMan: wise narrator male
+   * - sys_ClassicYoungWoman: classic narrator female
+   * - sys_IntellectualYoungWoman: intellectual narrator female
+   * - sys_GentleYoungMan: gentle narrator male
+   * - sys_thoughtfulBoy: thoughtful boy
+   * - sys_RichBassMale: rich bass male
+   * - sys_ClassicMiddleAgedWoman: classic middle-aged narrator female
    * 
    * @example
    * sys_YoungGracefulWoman
    */
   narrationVoiceId?: string;
+  needCaption?: boolean;
   /**
    * @remarks
    * The resolution of the output video. Valid values:
    * - 720P
    * - 1080P
    * - 2K
-   * - 4K.
+   * - 4K
    * 
    * @example
    * 720P
    */
   resolution?: string;
+  shotPromptLang?: string;
   /**
    * @remarks
    * The storyboard shot generation mode. Valid values:
    * - multi: multi-reference video generation
-   * - default: image-to-video generation.
+   * - default: image-to-video generation
    * 
    * @example
    * multi
@@ -104,7 +106,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   /**
    * @remarks
    * The shot split mode. Valid values:
-   * - firstPersonNarration: narration mode.
+   * - firstPersonNarration: narration commentary mode
    * 
    * @example
    * firstPersonNarration
@@ -121,7 +123,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the material source. Valid values:
-   * - Novel: novel.
+   * - Novel: novel
    * 
    * @example
    * Novel
@@ -130,33 +132,33 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   /**
    * @remarks
    * The storyboard style ID. Valid values:
-   * - RealisticPhotographyPro: Realistic Photography Pro
-   * - RealisticGuzhuangPro: Realistic Ancient Costume Pro
-   * - RealisticXianxiaPro: Realistic Xianxia Pro
-   * - RealisticWesternPro: Western Realism Pro
-   * - RealisticPhotography: Realistic Photography
-   * - RealisticGuzhuang: Realistic Ancient Costume
-   * - RealisticXianxia: Realistic Xianxia
-   * - RealisticWasteland: Realistic Wasteland
-   * - RealisticEra: Realistic Vintage
-   * - GuofengAnime: 2D Chinese-style Anime
-   * - GuofengAnime3D: 3D Chinese-style Anime
-   * - AncientRomanceAnime: Anime Ancient Romance
-   * - PostApocalypticAnime: Anime Post-Apocalyptic
-   * - Cartoon3D: 3D Cartoon
-   * - Photorealistic3D: Photorealistic 3D Rendering
-   * - SciFiRealism: Sci-Fi Realism
-   * - Chibi3D: 3D Chibi
-   * - ShojoManga: Japanese Manga
-   * - NewPeriodAnime: New Era Japanese Anime
-   * - FairyTale2D: 2D Fairy Tale
-   * - Wasteland2D: 2D Wasteland
-   * - InkWuxia: Ink Wash Wuxia
-   * - ShadiaoMeme: Panda Head Meme
-   * - Chibi2D: 2D Chibi
+   * - RealisticPhotographyPro: realistic photography Pro
+   * - RealisticGuzhuangPro: realistic ancient costume Pro
+   * - RealisticXianxiaPro: realistic Xianxia Pro
+   * - RealisticWesternPro: Western realistic Pro
+   * - RealisticPhotography: realistic photography
+   * - RealisticGuzhuang: realistic ancient costume
+   * - RealisticXianxia: realistic Xianxia
+   * - RealisticWasteland: realistic wasteland
+   * - RealisticEra: realistic vintage
+   * - GuofengAnime: 2D Chinese-style anime
+   * - GuofengAnime3D: 3D Chinese-style anime
+   * - AncientRomanceAnime: anime ancient romance
+   * - PostApocalypticAnime: anime post-apocalyptic
+   * - Cartoon3D: 3D cartoon
+   * - Photorealistic3D: photorealistic 3D rendering
+   * - SciFiRealism: sci-fi realism
+   * - Chibi3D: 3D chibi
+   * - ShojoManga: Japanese manga
+   * - NewPeriodAnime: new era Japanese anime
+   * - FairyTale2D: 2D fairy tale
+   * - Wasteland2D: 2D wasteland
+   * - InkWuxia: ink wash Wuxia
+   * - ShadiaoMeme: panda head meme style
+   * - Chibi2D: 2D chibi
    * - Ghibli: Ghibli
-   * - SciFiComic: Cyberpunk
-   * - AmericanSuperhero: American Superhero.
+   * - SciFiComic: cyberpunk
+   * - AmericanSuperhero: American superhero
    * 
    * @example
    * RealisticPhotography
@@ -172,8 +174,8 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The custom settings in JSON format.
-   * - NotifyAddress specifies the callback for task completion. Both MNS callbacks and HTTP callbacks are supported.
+   * The custom settings in JSON format. Fields include:
+   * - NotifyAddress: the callback URL for task completion. MNS callbacks and HTTP callbacks are supported.
    * 
    * @example
    * {
@@ -184,7 +186,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
   /**
    * @remarks
    * The video model. Valid values:
-   * - wan2.6-r2v-flash.
+   * - wan2.6-r2v-flash
    * 
    * @example
    * wan2.6-r2v-flash
@@ -198,7 +200,9 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
       keepOriginDialogue: 'KeepOriginDialogue',
       modelParams: 'ModelParams',
       narrationVoiceId: 'NarrationVoiceId',
+      needCaption: 'NeedCaption',
       resolution: 'Resolution',
+      shotPromptLang: 'ShotPromptLang',
       shotPromptMode: 'ShotPromptMode',
       shotSplitMode: 'ShotSplitMode',
       skipFailureShot: 'SkipFailureShot',
@@ -218,7 +222,9 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
       keepOriginDialogue: 'boolean',
       modelParams: 'string',
       narrationVoiceId: 'string',
+      needCaption: 'boolean',
       resolution: 'string',
+      shotPromptLang: 'string',
       shotPromptMode: 'string',
       shotSplitMode: 'string',
       skipFailureShot: 'boolean',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitYikeStoryboardJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
