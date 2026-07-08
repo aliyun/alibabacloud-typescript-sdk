@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitHtmlTranslateTaskRequestExtConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The callback URL for receiving translation results.
+   */
   callbackUrl?: string;
+  /**
+   * @remarks
+   * Specifies whether to skip the Content Moderation check. To skip this check, you must first complete the Content Moderation disablement process before calling the API.
+   * 
+   * @example
+   * false
+   */
   skipCsiCheck?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +40,18 @@ export class SubmitHtmlTranslateTaskRequestExtConfig extends $dara.Model {
 }
 
 export class SubmitHtmlTranslateTaskRequestExtExamples extends $dara.Model {
+  /**
+   * @remarks
+   * The source text in the example.
+   * 
+   * @example
+   * 你好
+   */
   src?: string;
   /**
+   * @remarks
+   * The target text in the example.
+   * 
    * @example
    * hello
    */
@@ -59,8 +80,18 @@ export class SubmitHtmlTranslateTaskRequestExtExamples extends $dara.Model {
 }
 
 export class SubmitHtmlTranslateTaskRequestExtTerminologies extends $dara.Model {
+  /**
+   * @remarks
+   * The source text for the terminology pair.
+   * 
+   * @example
+   * 机器学习
+   */
   src?: string;
   /**
+   * @remarks
+   * The target text for the terminology pair.
+   * 
    * @example
    * ML
    */
@@ -90,16 +121,25 @@ export class SubmitHtmlTranslateTaskRequestExtTerminologies extends $dara.Model 
 
 export class SubmitHtmlTranslateTaskRequestExtTextTransform extends $dara.Model {
   /**
+   * @remarks
+   * Converts the entire translated text to lowercase.
+   * 
    * @example
    * false
    */
   toLower?: boolean;
   /**
+   * @remarks
+   * Converts the translated text to title case.
+   * 
    * @example
    * false
    */
   toTitle?: boolean;
   /**
+   * @remarks
+   * Converts the entire translated text to uppercase.
+   * 
    * @example
    * false
    */
@@ -130,17 +170,54 @@ export class SubmitHtmlTranslateTaskRequestExtTextTransform extends $dara.Model 
 }
 
 export class SubmitHtmlTranslateTaskRequestExt extends $dara.Model {
+  /**
+   * @remarks
+   * Provides specific configuration settings for the translation task.
+   */
   config?: SubmitHtmlTranslateTaskRequestExtConfig;
   /**
+   * @remarks
+   * A natural language prompt in English to guide the model\\"s translation style.
+   * 
    * @example
-   * technology
+   * his sentence from an e-commerce product image, please provide a translation that is both highly concise and no more than 1.2 times the length of the original.
    */
   domainHint?: string;
+  /**
+   * @remarks
+   * A list of translation examples.
+   */
   examples?: SubmitHtmlTranslateTaskRequestExtExamples[];
+  /**
+   * @remarks
+   * Provides extended parameter configuration. The `bizUserId` key specifies the business user ID to isolate custom terminology enforcement by user. The `bizType` key specifies the business scenario type to isolate custom terminology enforcement by scenario.
+   * 
+   * @example
+   * {"bizUserld":"123456","bizType":session"}
+   */
   paramMap?: any;
+  /**
+   * @remarks
+   * A list of sensitive words to filter from the translation.
+   */
   sensitives?: string[];
+  /**
+   * @remarks
+   * A list of custom terminology pairs to apply to the translation.
+   */
   terminologies?: SubmitHtmlTranslateTaskRequestExtTerminologies[];
+  /**
+   * @remarks
+   * Specifies case transformations for the translated text.
+   */
   textTransform?: SubmitHtmlTranslateTaskRequestExtTextTransform;
+  /**
+   * @remarks
+   * Custom passthrough data that the service returns unprocessed in the response. Useful for tasks such as event tracking.
+   * 
+   * @example
+   * {"traceId":"trace_123456"}
+   */
   trackingData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -193,30 +270,68 @@ export class SubmitHtmlTranslateTaskRequestExt extends $dara.Model {
 }
 
 export class SubmitHtmlTranslateTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Extended parameters to control translation behavior.
+   */
   ext?: SubmitHtmlTranslateTaskRequestExt;
   /**
+   * @remarks
+   * The format of the input text.
+   * 
    * @example
    * text
    */
   format?: string;
   /**
+   * @remarks
+   * The translation model.
+   * 
    * @example
    * mt-turbo
    */
   scene?: string;
   /**
+   * @remarks
+   * The source language.
+   * 
    * @example
    * zh
    */
   sourceLanguage?: string;
   /**
+   * @remarks
+   * The target language.
+   * 
    * @example
    * en
    */
   targetLanguage?: string;
+  /**
+   * @remarks
+   * The HTML content to be translated.
+   * 
+   * @example
+   * <!DOCTYPE html>
+   * <html lang="zh-CN">
+   * <head>
+   *     <meta charset="UTF-8">
+   *     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   *     <title>我的第一个网页</title>
+   * </head>
+   * <body>
+   *     <h1>欢迎来到我的网页！</h1>
+   *     <p>这是一个简单的 HTML 页面。</p>
+   *     <p>学习 HTML 是进入网页开发的第一步。</p>
+   *     <a href="https://www.example.com">点击这里访问示例网站</a>
+   * </body>
+   * </html>
+   */
   text?: string;
   /**
    * @remarks
+   * The ID of the Model Studio workspace used for this request.
+   * 
    * This parameter is required.
    * 
    * @example

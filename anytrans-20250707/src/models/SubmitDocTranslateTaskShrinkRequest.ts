@@ -3,22 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitDocTranslateTaskShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Extension parameters that control translation features.
+   */
   extShrink?: string;
   /**
+   * @remarks
+   * The format for the translation.
+   * 
    * @example
    * text
    */
   format?: string;
   /**
    * @remarks
+   * The translation model.
+   * 
    * This parameter is required.
    * 
    * @example
-   * spoke-llm
+   * mt-turbo
    */
   scene?: string;
   /**
    * @remarks
+   * The source language code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,12 +37,17 @@ export class SubmitDocTranslateTaskShrinkRequest extends $dara.Model {
    */
   sourceLanguage?: string;
   /**
+   * @remarks
+   * The target language code.
+   * 
    * @example
    * en
    */
   targetLanguage?: string;
   /**
    * @remarks
+   * The URL of the document to translate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +56,8 @@ export class SubmitDocTranslateTaskShrinkRequest extends $dara.Model {
   text?: string;
   /**
    * @remarks
+   * The ID of the Model Studio workspace for the current request.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchTranslateForHtmlResponseBodyDataTranslationListUsage extends $dara.Model {
-  /**
-   * @example
-   * 53
-   */
   inputTokens?: number;
-  /**
-   * @example
-   * 8
-   */
   outputTokens?: number;
-  /**
-   * @example
-   * 61
-   */
   totalTokens?: number;
   static names(): { [key: string]: string } {
     return {
@@ -44,26 +32,10 @@ export class BatchTranslateForHtmlResponseBodyDataTranslationListUsage extends $
 }
 
 export class BatchTranslateForHtmlResponseBodyDataTranslationList extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: number;
   detectedLang?: string;
-  /**
-   * @example
-   * 0
-   */
   index?: string;
-  /**
-   * @example
-   * OK
-   */
   message?: string;
-  /**
-   * @example
-   * What will the weather be like tomorrow?
-   */
   translation?: string;
   usage?: BatchTranslateForHtmlResponseBodyDataTranslationListUsage;
   static names(): { [key: string]: string } {
@@ -127,31 +99,11 @@ export class BatchTranslateForHtmlResponseBodyData extends $dara.Model {
 }
 
 export class BatchTranslateForHtmlResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: BatchTranslateForHtmlResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: string;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @example
-   * 3BE338D3-16B1-513F-8DD2-57C8528DEAAA
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

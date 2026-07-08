@@ -5,6 +5,13 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class BatchTranslateRequestExtConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to skip the Content Moderation check. To set this to true, you must first complete the required process to disable Content Moderation.
+   * 
+   * @example
+   * false
+   */
   skipCsiCheck?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -28,8 +35,18 @@ export class BatchTranslateRequestExtConfig extends $dara.Model {
 }
 
 export class BatchTranslateRequestExtExamples extends $dara.Model {
+  /**
+   * @remarks
+   * The source text.
+   * 
+   * @example
+   * 你好
+   */
   src?: string;
   /**
+   * @remarks
+   * The target text.
+   * 
    * @example
    * hello
    */
@@ -58,8 +75,18 @@ export class BatchTranslateRequestExtExamples extends $dara.Model {
 }
 
 export class BatchTranslateRequestExtTerminologies extends $dara.Model {
+  /**
+   * @remarks
+   * The source text to be overridden.
+   * 
+   * @example
+   * 应用接口
+   */
   src?: string;
   /**
+   * @remarks
+   * The target text to use for the override.
+   * 
    * @example
    * API
    */
@@ -89,16 +116,25 @@ export class BatchTranslateRequestExtTerminologies extends $dara.Model {
 
 export class BatchTranslateRequestExtTextTransform extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to convert the entire translated text to lowercase.
+   * 
    * @example
    * false
    */
   toLower?: boolean;
   /**
+   * @remarks
+   * Specifies whether to convert the entire translated text to title case.
+   * 
    * @example
    * false
    */
   toTitle?: boolean;
   /**
+   * @remarks
+   * Specifies whether to convert the entire translated text to uppercase.
+   * 
    * @example
    * false
    */
@@ -129,17 +165,51 @@ export class BatchTranslateRequestExtTextTransform extends $dara.Model {
 }
 
 export class BatchTranslateRequestExt extends $dara.Model {
+  /**
+   * @remarks
+   * Controls the translation behavior.
+   */
   config?: BatchTranslateRequestExtConfig;
   /**
+   * @remarks
+   * A natural language instruction in English that guides the model\\"s translation style.
+   * 
    * @example
-   * technology
+   * this sentence from an e-commerce product image, please provide a translation that is both highly concise and no more than 1.2 times the length of the original.
    */
   domainHint?: string;
+  /**
+   * @remarks
+   * A list of translation examples.
+   */
   examples?: BatchTranslateRequestExtExamples[];
+  /**
+   * @remarks
+   * Specifies whether to enable automatic detection of the source language. If set to true, the `sourceLanguage` parameter is ignored.
+   */
   langDetect?: boolean;
+  /**
+   * @remarks
+   * Extended parameters for applying custom terminology that is isolated by user or business scenario.
+   * 
+   * @example
+   * {"bizUserld":"123456","bizType":session"}
+   */
   paramMap?: any;
+  /**
+   * @remarks
+   * A list of sensitive terms.
+   */
   sensitives?: string[];
+  /**
+   * @remarks
+   * A list of custom terminology for overriding translations.
+   */
   terminologies?: BatchTranslateRequestExtTerminologies[];
+  /**
+   * @remarks
+   * Specifies case transformations for the translated text.
+   */
   textTransform?: BatchTranslateRequestExtTextTransform;
   static names(): { [key: string]: string } {
     return {
@@ -192,20 +262,39 @@ export class BatchTranslateRequestExt extends $dara.Model {
 }
 
 export class BatchTranslateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the calling application.
+   * 
+   * @example
+   * baidufanyi
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The extended parameters that control translation features.
+   */
   ext?: BatchTranslateRequestExt;
   /**
+   * @remarks
+   * The translation format.
+   * 
    * @example
    * text
    */
   format?: string;
   /**
+   * @remarks
+   * The translation model.
+   * 
    * @example
    * mt-turbo
    */
   scene?: string;
   /**
    * @remarks
+   * The source language.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -214,6 +303,8 @@ export class BatchTranslateRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
+   * The target language.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -222,11 +313,18 @@ export class BatchTranslateRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
+   * A map of texts to translate, in which the key is a custom identifier and the value is the source text.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"0":"明天天气怎么样？","1":"你中午吃饭了吗"}
    */
   text?: { [key: string]: any };
   /**
    * @remarks
+   * The ID of the Model Studio workspace used for this request.
+   * 
    * This parameter is required.
    * 
    * @example

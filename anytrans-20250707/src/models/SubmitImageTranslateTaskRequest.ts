@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitImageTranslateTaskRequestExtExamples extends $dara.Model {
+  /**
+   * @remarks
+   * The source text.
+   * 
+   * @example
+   * 你好
+   */
   src?: string;
   /**
+   * @remarks
+   * The target text.
+   * 
    * @example
    * hello
    */
@@ -33,8 +43,18 @@ export class SubmitImageTranslateTaskRequestExtExamples extends $dara.Model {
 }
 
 export class SubmitImageTranslateTaskRequestExtTerminologies extends $dara.Model {
+  /**
+   * @remarks
+   * The source text.
+   * 
+   * @example
+   * 机器学习
+   */
   src?: string;
   /**
+   * @remarks
+   * The custom translation for the source text.
+   * 
    * @example
    * ML
    */
@@ -64,16 +84,25 @@ export class SubmitImageTranslateTaskRequestExtTerminologies extends $dara.Model
 
 export class SubmitImageTranslateTaskRequestExtTextTransform extends $dara.Model {
   /**
+   * @remarks
+   * Set to `true` to convert the entire translated text to lowercase.
+   * 
    * @example
    * false
    */
   toLower?: boolean;
   /**
+   * @remarks
+   * Set to `true` to convert the entire translated text to title case.
+   * 
    * @example
    * false
    */
   toTitle?: boolean;
   /**
+   * @remarks
+   * Set to `true` to convert the entire translated text to uppercase.
+   * 
    * @example
    * false
    */
@@ -105,15 +134,48 @@ export class SubmitImageTranslateTaskRequestExtTextTransform extends $dara.Model
 
 export class SubmitImageTranslateTaskRequestExt extends $dara.Model {
   /**
+   * @remarks
+   * An English string that guides the translation style of the large language model (LLM).
+   * 
    * @example
-   * technology
+   * this sentence from an e-commerce product image, please provide a translation that is both highly concise and no more than 1.2 times the length of the original.
    */
   domainHint?: string;
+  /**
+   * @remarks
+   * A list of translation examples.
+   */
   examples?: SubmitImageTranslateTaskRequestExtExamples[];
+  /**
+   * @remarks
+   * Parameters for isolating terminology to prevent interference between different users or business scenarios. Use `bizUserId` for user-level isolation and `bizType` for scenario-level isolation.
+   * 
+   * @example
+   * {"bizUserld":"123456","bizType":session"}
+   */
   paramMap?: any;
+  /**
+   * @remarks
+   * A list of sensitive words.
+   */
   sensitives?: string[];
+  /**
+   * @remarks
+   * A list of custom term pairs to apply to the translation.
+   */
   terminologies?: SubmitImageTranslateTaskRequestExtTerminologies[];
+  /**
+   * @remarks
+   * Specifies case conversion for the translated text.
+   */
   textTransform?: SubmitImageTranslateTaskRequestExtTextTransform;
+  /**
+   * @remarks
+   * User-defined pass-through data that the service returns unmodified in the response. This is typically used for analytics tracking.
+   * 
+   * @example
+   * {"traceId":"trace_123456"}
+   */
   trackingData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -161,14 +223,23 @@ export class SubmitImageTranslateTaskRequestExt extends $dara.Model {
 }
 
 export class SubmitImageTranslateTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Extended parameters to control translation features.
+   */
   ext?: SubmitImageTranslateTaskRequestExt;
   /**
+   * @remarks
+   * The translation format.
+   * 
    * @example
    * image
    */
   format?: string;
   /**
    * @remarks
+   * Specifies the translation model.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -177,6 +248,8 @@ export class SubmitImageTranslateTaskRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
+   * The source language.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -185,16 +258,25 @@ export class SubmitImageTranslateTaskRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
+   * A list of target languages.
+   * 
    * This parameter is required.
    */
   targetLanguage?: string[];
   /**
    * @remarks
+   * The URL of the image to translate.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * https://img.alicdn.com/imgextra/i3/2214557014466/O1CN0174Thmb1irTsyTXYFO_!!4611686018427386306-0-item_pic.jpg
    */
   text?: string;
   /**
    * @remarks
+   * The ID of the Model Studio workspace.
+   * 
    * This parameter is required.
    * 
    * @example

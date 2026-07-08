@@ -3,20 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchTranslateShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the calling application.
+   * 
+   * @example
+   * baidufanyi
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The extended parameters that control translation features.
+   */
   extShrink?: string;
   /**
+   * @remarks
+   * The translation format.
+   * 
    * @example
    * text
    */
   format?: string;
   /**
+   * @remarks
+   * The translation model.
+   * 
    * @example
    * mt-turbo
    */
   scene?: string;
   /**
    * @remarks
+   * The source language.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +44,8 @@ export class BatchTranslateShrinkRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
+   * The target language.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,11 +54,18 @@ export class BatchTranslateShrinkRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
+   * A map of texts to translate, in which the key is a custom identifier and the value is the source text.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {"0":"明天天气怎么样？","1":"你中午吃饭了吗"}
    */
   textShrink?: string;
   /**
    * @remarks
+   * The ID of the Model Studio workspace used for this request.
+   * 
    * This parameter is required.
    * 
    * @example

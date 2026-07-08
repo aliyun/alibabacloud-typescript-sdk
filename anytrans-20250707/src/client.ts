@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-beijing': "anytrans.cn-beijing.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("anytrans", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +33,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译批量翻译
+   * Tongyi Multimodal Translation: Batch Translation
    * 
    * @param tmpReq - BatchTranslateRequest
    * @param headers - map
@@ -101,7 +104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译批量翻译
+   * Tongyi Multimodal Translation: Batch Translation
    * 
    * @param request - BatchTranslateRequest
    * @returns BatchTranslateResponse
@@ -196,7 +199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译获文档翻译任务
+   * Gets the results of a document translation task from Tongyi Multimodal Translation.
+   * 
+   * @remarks
+   * Gets the results of a document translation task.
    * 
    * @param request - GetDocTranslateTaskRequest
    * @param headers - map
@@ -233,7 +239,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译获文档翻译任务
+   * Gets the results of a document translation task from Tongyi Multimodal Translation.
+   * 
+   * @remarks
+   * Gets the results of a document translation task.
    * 
    * @param request - GetDocTranslateTaskRequest
    * @returns GetDocTranslateTaskResponse
@@ -245,7 +254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译获取html翻译结果
+   * Retrieves the result of an HTML translation task from Tongyi Multimodal Translation.
    * 
    * @param request - GetHtmlTranslateTaskRequest
    * @param headers - map
@@ -282,7 +291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译获取html翻译结果
+   * Retrieves the result of an HTML translation task from Tongyi Multimodal Translation.
    * 
    * @param request - GetHtmlTranslateTaskRequest
    * @returns GetHtmlTranslateTaskResponse
@@ -294,7 +303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译获取图片翻译任务
+   * Tongyi Multimodal Translation: Getting image translation results
    * 
    * @param request - GetImageTranslateTaskRequest
    * @param headers - map
@@ -331,7 +340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译获取图片翻译任务
+   * Tongyi Multimodal Translation: Getting image translation results
    * 
    * @param request - GetImageTranslateTaskRequest
    * @returns GetImageTranslateTaskResponse
@@ -343,7 +352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译获取长文翻译结果
+   * Get document translations from Tongyi Multimodal Translation.
    * 
    * @param request - GetLongTextTranslateTaskRequest
    * @param headers - map
@@ -380,7 +389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译获取长文翻译结果
+   * Get document translations from Tongyi Multimodal Translation.
    * 
    * @param request - GetLongTextTranslateTaskRequest
    * @returns GetLongTextTranslateTaskResponse
@@ -392,7 +401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译提交文档翻译任务
+   * Submit a document translation task to Tongyi Multimodal Translation.
    * 
    * @param tmpReq - SubmitDocTranslateTaskRequest
    * @param headers - map
@@ -455,7 +464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译提交文档翻译任务
+   * Submit a document translation task to Tongyi Multimodal Translation.
    * 
    * @param request - SubmitDocTranslateTaskRequest
    * @returns SubmitDocTranslateTaskResponse
@@ -467,7 +476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译提交html翻译任务
+   * Submitting an HTML translation task with Tongyi Multimodal Translation
    * 
    * @param tmpReq - SubmitHtmlTranslateTaskRequest
    * @param headers - map
@@ -530,7 +539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译提交html翻译任务
+   * Submitting an HTML translation task with Tongyi Multimodal Translation
    * 
    * @param request - SubmitHtmlTranslateTaskRequest
    * @returns SubmitHtmlTranslateTaskResponse
@@ -542,7 +551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译提交图片翻译任务
+   * Use Tongyi multimodal translation to submit an image for translation.
    * 
    * @param tmpReq - SubmitImageTranslateTaskRequest
    * @param headers - map
@@ -609,7 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译提交图片翻译任务
+   * Use Tongyi multimodal translation to submit an image for translation.
    * 
    * @param request - SubmitImageTranslateTaskRequest
    * @returns SubmitImageTranslateTaskResponse
@@ -621,7 +630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译提交长文翻译任务
+   * Submitting a long text translation task using Translate Multimodal.
    * 
    * @param tmpReq - SubmitLongTextTranslateTaskRequest
    * @param headers - map
@@ -684,7 +693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译提交长文翻译任务
+   * Submitting a long text translation task using Translate Multimodal.
    * 
    * @param request - SubmitLongTextTranslateTaskRequest
    * @returns SubmitLongTextTranslateTaskResponse
@@ -696,7 +705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译术语编辑
+   * Editing the Tongyi Multimodal Translation termbase
    * 
    * @param tmpReq - TermEditRequest
    * @param headers - map
@@ -755,7 +764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译术语编辑
+   * Editing the Tongyi Multimodal Translation termbase
    * 
    * @param request - TermEditRequest
    * @returns TermEditResponse
@@ -767,7 +776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译术语查询
+   * Queries the Tongyi Multimodal Translation termbase for intervention terms.
    * 
    * @param tmpReq - TermQueryRequest
    * @param headers - map
@@ -826,7 +835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译术语查询
+   * Queries the Tongyi Multimodal Translation termbase for intervention terms.
    * 
    * @param request - TermQueryRequest
    * @returns TermQueryResponse
@@ -838,7 +847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译文本翻译
+   * Tongyi Multimodal Translation: Text Translation
    * 
    * @param tmpReq - TextTranslateRequest
    * @param headers - map
@@ -901,7 +910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通义多模态翻译文本翻译
+   * Tongyi Multimodal Translation: Text Translation
    * 
    * @param request - TextTranslateRequest
    * @returns TextTranslateResponse

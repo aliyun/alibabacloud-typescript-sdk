@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TermEditShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The action type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class TermEditShrinkRequest extends $dara.Model {
   action?: string;
   /**
    * @remarks
+   * The extended parameters.
+   * 
    * This parameter is required.
    */
   extShrink?: string;
   /**
    * @remarks
+   * The model type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +32,8 @@ export class TermEditShrinkRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
+   * The source language. The value must be a valid BCP-47 language code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +42,8 @@ export class TermEditShrinkRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
+   * The target language. The value must be a valid BCP-47 language code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +52,8 @@ export class TermEditShrinkRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
+   * The ID of the Model Studio workspace.
+   * 
    * This parameter is required.
    * 
    * @example

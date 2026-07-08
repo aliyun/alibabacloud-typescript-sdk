@@ -3,19 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TextTranslateShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Extended parameters to control translation behavior
+   */
   extShrink?: string;
   /**
+   * @remarks
+   * text format
+   * 
    * @example
    * text
    */
   format?: string;
   /**
+   * @remarks
+   * Model type
+   * 
    * @example
    * mt-turbo
    */
   scene?: string;
   /**
    * @remarks
+   * Source language code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +36,8 @@ export class TextTranslateShrinkRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
+   * Target Language Code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,11 +46,18 @@ export class TextTranslateShrinkRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
+   * Text to be translated
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 今天天气怎么样
    */
   text?: string;
   /**
    * @remarks
+   * Workspace ID
+   * 
    * This parameter is required.
    * 
    * @example

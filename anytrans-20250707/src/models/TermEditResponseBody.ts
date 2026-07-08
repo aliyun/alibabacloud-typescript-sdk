@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TermEditResponseBodyDataTerms extends $dara.Model {
+  /**
+   * @remarks
+   * The source text.
+   * 
+   * @example
+   * 大模型
+   */
   src?: string;
   /**
+   * @remarks
+   * The term ID.
+   * 
    * @example
    * 92669964
    */
   termId?: string;
   /**
+   * @remarks
+   * The target text.
+   * 
    * @example
    * LLM
    */
@@ -41,10 +54,17 @@ export class TermEditResponseBodyDataTerms extends $dara.Model {
 
 export class TermEditResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of items that failed to be processed.
+   * 
    * @example
    * 0
    */
   failCount?: number;
+  /**
+   * @remarks
+   * An array of intervention term objects.
+   */
   terms?: TermEditResponseBodyDataTerms[];
   static names(): { [key: string]: string } {
     return {
@@ -74,27 +94,46 @@ export class TermEditResponseBodyData extends $dara.Model {
 
 export class TermEditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
-   * "success"
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: TermEditResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
-   * "success"
+   * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1DCD50EC-D218-1844-9CD8-E97CAB9D31BE
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call is successful.
+   * 
    * @example
    * true
    */

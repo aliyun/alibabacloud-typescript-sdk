@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHtmlTranslateTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the HTML translation task.
+   * 
    * @example
-   * 2746f4be-cff2-465e-a2c6-12bff30ce0f9
+   * 868c2fdd-96c2-4546-96d2-a259b8f35252
    */
   taskId?: string;
   /**
    * @remarks
+   * The ID of the Model Studio workspace.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitLongTextTranslateTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The status of the translation task.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the long-text translation task.
+   * 
    * @example
-   * 2746f4be-cff2-465e-a2c6-12bff30ce0f9
+   * a8f25f25-0b36-4349-857f-e19a43f69e51
    */
   taskId?: string;
+  /**
+   * @remarks
+   * A custom string passed from the request to the response unmodified. This is useful for tracking or correlating API calls.
+   * 
+   * @example
+   * {"traceId":"trace_123456"}
+   */
   trackingData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,30 +54,46 @@ export class SubmitLongTextTranslateTaskResponseBodyData extends $dara.Model {
 
 export class SubmitLongTextTranslateTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code of the API call.
+   * 
    * @example
-   * 200
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The object that contains the returned data.
+   */
   data?: SubmitLongTextTranslateTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * A message that corresponds to the code.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique ID for the API request, used for tracing.
    * 
    * @example
-   * 400392FF-2F47-549A-A7FF-60FA4121D19E
+   * C2D45266-3135-1A06-AD7F-69E782ED596F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful.
+   * 
    * @example
    * true
    */

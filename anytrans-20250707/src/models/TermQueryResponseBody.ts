@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TermQueryResponseBodyDataTerms extends $dara.Model {
+  /**
+   * @remarks
+   * The term in the source language.
+   * 
+   * @example
+   * 大模型
+   */
   src?: string;
   /**
+   * @remarks
+   * The ID of the intervention term.
+   * 
    * @example
    * 92669963
    */
   termId?: string;
   /**
+   * @remarks
+   * The translated term in the target language.
+   * 
    * @example
    * LLM
    */
@@ -41,10 +54,17 @@ export class TermQueryResponseBodyDataTerms extends $dara.Model {
 
 export class TermQueryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of items that failed processing.
+   * 
    * @example
    * 0
    */
   failCount?: number;
+  /**
+   * @remarks
+   * A list of identified intervention terms.
+   */
   terms?: TermQueryResponseBodyDataTerms[];
   static names(): { [key: string]: string } {
     return {
@@ -74,27 +94,46 @@ export class TermQueryResponseBodyData extends $dara.Model {
 
 export class TermQueryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
-   * "success"
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: TermQueryResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
-   * "success"
+   * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C3C70C8F-E026-17D8-854E-7F8EF2F5C909
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the API call succeeded.
+   * 
    * @example
    * true
    */

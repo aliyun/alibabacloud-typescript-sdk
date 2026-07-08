@@ -4,18 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchTranslateResponseBodyDataTranslationListUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens in the source text.
+   * 
    * @example
-   * 480
+   * 53
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of tokens in the generated translation.
+   * 
    * @example
-   * 520
+   * 8
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The total number of tokens processed for the translation (the sum of `inputTokens` and `outputTokens`).
+   * 
    * @example
-   * 1000
+   * 61
    */
   totalTokens?: number;
   static names(): { [key: string]: string } {
@@ -45,26 +54,46 @@ export class BatchTranslateResponseBodyDataTranslationListUsage extends $dara.Mo
 
 export class BatchTranslateResponseBodyDataTranslationList extends $dara.Model {
   /**
+   * @remarks
+   * The status code for the individual translation within the batch.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The language code of the detected source language.
+   */
   detectedLang?: string;
   /**
+   * @remarks
+   * The zero-based index of this result, which corresponds to the order of the source text in the original request.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The status message for the individual translation.
+   * 
    * @example
-   * ok
+   * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The translated text.
+   * 
    * @example
-   * Featured Double Color Ball experts: Liu Ke and A Wang both hit the second prize, winning 1.43 million!
+   * What will the weather be like tomorrow?
    */
   translation?: string;
+  /**
+   * @remarks
+   * An object detailing the token usage for this translation.
+   */
   usage?: BatchTranslateResponseBodyDataTranslationListUsage;
   static names(): { [key: string]: string } {
     return {
@@ -101,6 +130,10 @@ export class BatchTranslateResponseBodyDataTranslationList extends $dara.Model {
 }
 
 export class BatchTranslateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * An array of translation results, one for each text provided in the request.
+   */
   translationList?: BatchTranslateResponseBodyDataTranslationList[];
   static names(): { [key: string]: string } {
     return {
@@ -128,27 +161,46 @@ export class BatchTranslateResponseBodyData extends $dara.Model {
 
 export class BatchTranslateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code for the overall API call.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload that contains the translation results.
+   */
   data?: BatchTranslateResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique identifier for the request. Use this ID for tracing and troubleshooting.
+   * 
    * @example
    * 3BE338D3-16B1-513F-8DD2-57C8528DEAAA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful.
+   * 
    * @example
    * true
    */

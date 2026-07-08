@@ -3,36 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchTranslateForHtmlShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * baidufanyi
-   */
   appName?: string;
   extShrink?: string;
-  /**
-   * @example
-   * text
-   */
   format?: string;
-  /**
-   * @example
-   * mt-turbo
-   */
   scene?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * zh
    */
   sourceLanguage?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * en
    */
   targetLanguage?: string;
   /**
@@ -43,9 +25,6 @@ export class BatchTranslateForHtmlShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-kqtrcpdee4xm29xx
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

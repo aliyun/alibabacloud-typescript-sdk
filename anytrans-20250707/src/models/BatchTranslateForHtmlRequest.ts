@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchTranslateForHtmlRequestExtConfig extends $dara.Model {
-  /**
-   * @example
-   * fasle
-   */
   skipCsiCheck?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -31,10 +27,6 @@ export class BatchTranslateForHtmlRequestExtConfig extends $dara.Model {
 
 export class BatchTranslateForHtmlRequestExtExamples extends $dara.Model {
   src?: string;
-  /**
-   * @example
-   * hello
-   */
   tgt?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,10 +53,6 @@ export class BatchTranslateForHtmlRequestExtExamples extends $dara.Model {
 
 export class BatchTranslateForHtmlRequestExtTerminologies extends $dara.Model {
   src?: string;
-  /**
-   * @example
-   * API
-   */
   tgt?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,20 +78,8 @@ export class BatchTranslateForHtmlRequestExtTerminologies extends $dara.Model {
 }
 
 export class BatchTranslateForHtmlRequestExtTextTransform extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   toLower?: boolean;
-  /**
-   * @example
-   * false
-   */
   toTitle?: boolean;
-  /**
-   * @example
-   * false
-   */
   toUpper?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -132,10 +108,6 @@ export class BatchTranslateForHtmlRequestExtTextTransform extends $dara.Model {
 
 export class BatchTranslateForHtmlRequestExt extends $dara.Model {
   config?: BatchTranslateForHtmlRequestExtConfig;
-  /**
-   * @example
-   * this sentence from an e-commerce product image, please provide a translation that is both highly concise and no more than 1.2 times the length of the original.
-   */
   domainHint?: string;
   examples?: BatchTranslateForHtmlRequestExtExamples[];
   langDetect?: boolean;
@@ -191,36 +163,18 @@ export class BatchTranslateForHtmlRequestExt extends $dara.Model {
 }
 
 export class BatchTranslateForHtmlRequest extends $dara.Model {
-  /**
-   * @example
-   * baidufanyi
-   */
   appName?: string;
   ext?: BatchTranslateForHtmlRequestExt;
-  /**
-   * @example
-   * text
-   */
   format?: string;
-  /**
-   * @example
-   * mt-turbo
-   */
   scene?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * zh
    */
   sourceLanguage?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * en
    */
   targetLanguage?: string;
   /**
@@ -231,9 +185,6 @@ export class BatchTranslateForHtmlRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-kqtrcpdee4xm29xx
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

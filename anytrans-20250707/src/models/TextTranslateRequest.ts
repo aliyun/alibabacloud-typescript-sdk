@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TextTranslateRequestExtConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to skip the Green Web check. (To use this option, you must first complete the process to disable Green Web before making the API call.)
+   * 
+   * @example
+   * fasle
+   */
   skipCsiCheck?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26,8 +33,18 @@ export class TextTranslateRequestExtConfig extends $dara.Model {
 }
 
 export class TextTranslateRequestExtExamples extends $dara.Model {
+  /**
+   * @remarks
+   * Source text
+   * 
+   * @example
+   * 你好
+   */
   src?: string;
   /**
+   * @remarks
+   * Target text
+   * 
    * @example
    * hello
    */
@@ -56,8 +73,18 @@ export class TextTranslateRequestExtExamples extends $dara.Model {
 }
 
 export class TextTranslateRequestExtTerminologies extends $dara.Model {
+  /**
+   * @remarks
+   * Source text
+   * 
+   * @example
+   * 机器学习
+   */
   src?: string;
   /**
+   * @remarks
+   * Target text
+   * 
    * @example
    * ML
    */
@@ -87,16 +114,25 @@ export class TextTranslateRequestExtTerminologies extends $dara.Model {
 
 export class TextTranslateRequestExtTextTransform extends $dara.Model {
   /**
+   * @remarks
+   * Convert to lowercase
+   * 
    * @example
    * false
    */
   toLower?: boolean;
   /**
+   * @remarks
+   * First letter capitalized
+   * 
    * @example
    * false
    */
   toTitle?: boolean;
   /**
+   * @remarks
+   * Convert to uppercase
+   * 
    * @example
    * false
    */
@@ -127,19 +163,63 @@ export class TextTranslateRequestExtTextTransform extends $dara.Model {
 }
 
 export class TextTranslateRequestExt extends $dara.Model {
+  /**
+   * @remarks
+   * Expert agent
+   * 
+   * @example
+   * game
+   */
   agent?: string;
+  /**
+   * @remarks
+   * Translation Behavior Control
+   */
   config?: TextTranslateRequestExtConfig;
   /**
+   * @remarks
+   * Domain hint
+   * 
    * @example
    * technology
    */
   domainHint?: string;
+  /**
+   * @remarks
+   * List of Translation Examples
+   */
   examples?: TextTranslateRequestExtExamples[];
   langDetect?: boolean;
+  /**
+   * @remarks
+   * Extended parameter configuration (bizUserld: A business-level user ID that distinguishes between different business users. It implements "user-based isolation" for terminology intervention so that interventions for one user do not affect others. bizType: A business scenario type or identifier that distinguishes between different scenarios. It implements "scenario-based isolation" for terminology intervention so that interventions for one scenario do not affect others.)
+   * 
+   * @example
+   * {"bizUserld":"123456","bizType":session"}
+   */
   paramMap?: any;
+  /**
+   * @remarks
+   * Prefix Configuration
+   * 
+   * @example
+   * Today\\"s weather
+   */
   prefix?: string;
+  /**
+   * @remarks
+   * Sensitive word list
+   */
   sensitives?: string[];
+  /**
+   * @remarks
+   * Translation terminology
+   */
   terminologies?: TextTranslateRequestExtTerminologies[];
+  /**
+   * @remarks
+   * Translated Text Conversion
+   */
   textTransform?: TextTranslateRequestExtTextTransform;
   static names(): { [key: string]: string } {
     return {
@@ -196,19 +276,31 @@ export class TextTranslateRequestExt extends $dara.Model {
 }
 
 export class TextTranslateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Extended parameters to control translation behavior
+   */
   ext?: TextTranslateRequestExt;
   /**
+   * @remarks
+   * text format
+   * 
    * @example
    * text
    */
   format?: string;
   /**
+   * @remarks
+   * Model type
+   * 
    * @example
    * mt-turbo
    */
   scene?: string;
   /**
    * @remarks
+   * Source language code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -217,6 +309,8 @@ export class TextTranslateRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
+   * Target Language Code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -225,11 +319,18 @@ export class TextTranslateRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
+   * Text to be translated
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 今天天气怎么样
    */
   text?: string;
   /**
    * @remarks
+   * Workspace ID
+   * 
    * This parameter is required.
    * 
    * @example

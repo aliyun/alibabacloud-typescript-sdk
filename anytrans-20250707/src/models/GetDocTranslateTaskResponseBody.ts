@@ -4,28 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDocTranslateTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The character count.
+   * 
    * @example
    * 4
    */
   charactersCount?: number;
   /**
+   * @remarks
+   * The page count.
+   * 
    * @example
    * 2
    */
   pageCount?: number;
   /**
+   * @remarks
+   * The translation status. Valid values:
+   * 
    * @example
    * translated
    */
   status?: string;
   /**
+   * @remarks
+   * The document translation task ID.
+   * 
    * @example
    * d3a2397bc2c14ab4a2e40a4f5b46241b
    */
   taskId?: string;
   /**
+   * @remarks
+   * The translation result URL.
+   * 
    * @example
-   * http://translate-ai-data-dev.oss-cn-hangzhou.aliyuncs.com/tongyiTranslate/123456789/a7630164ce894c799cca0f0822c36f84_merge.md?Expires=1756700753&OSSAccessKeyId=LTAI5tRmTwxU5YoHUyrF93Jv&Signature=qB03ldVmRa%2FRwWgJ2wSi7ylayMA%3D
+   * http://translate-ai-data-dev.oss-cn-hangzhou.aliyuncs.com/tongyiTranslate/123456789/a7630164ce894c799cca0f0822c36f84_merge.md
    */
   translateFileUrl?: string;
   static names(): { [key: string]: string } {
@@ -59,27 +74,46 @@ export class GetDocTranslateTaskResponseBodyData extends $dara.Model {
 
 export class GetDocTranslateTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetDocTranslateTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP response code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique identifier for the request.
+   * 
    * @example
    * AC642EEB-C29D-54DF-8F52-622565BBB78A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call was successful.
+   * 
    * @example
    * true
    */

@@ -5,16 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class TermEditRequestExtTerms extends $dara.Model {
   /**
    * @remarks
+   * The source text.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 大模型
    */
   src?: string;
   /**
+   * @remarks
+   * The intervention term ID.
+   * 
    * @example
    * 92669964
    */
   termId?: string;
   /**
    * @remarks
+   * The post-intervention translation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,9 +57,18 @@ export class TermEditRequestExtTerms extends $dara.Model {
 }
 
 export class TermEditRequestExt extends $dara.Model {
+  /**
+   * @remarks
+   * The extended parameter configuration.
+   * 
+   * @example
+   * {"bizUserld":"123456","bizType":session"}
+   */
   paramMap?: any;
   /**
    * @remarks
+   * The intervention term list.
+   * 
    * This parameter is required.
    */
   terms?: TermEditRequestExtTerms[];
@@ -82,6 +101,8 @@ export class TermEditRequestExt extends $dara.Model {
 export class TermEditRequest extends $dara.Model {
   /**
    * @remarks
+   * The action type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -90,11 +111,15 @@ export class TermEditRequest extends $dara.Model {
   action?: string;
   /**
    * @remarks
+   * The extended parameters.
+   * 
    * This parameter is required.
    */
   ext?: TermEditRequestExt;
   /**
    * @remarks
+   * The model type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +128,8 @@ export class TermEditRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
+   * The source language. The value must be a valid BCP-47 language code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -111,6 +138,8 @@ export class TermEditRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
+   * The target language. The value must be a valid BCP-47 language code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -119,6 +148,8 @@ export class TermEditRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
+   * The ID of the Model Studio workspace.
+   * 
    * This parameter is required.
    * 
    * @example

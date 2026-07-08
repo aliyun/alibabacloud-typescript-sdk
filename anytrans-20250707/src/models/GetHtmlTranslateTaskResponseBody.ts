@@ -4,18 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHtmlTranslateTaskResponseBodyDataUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens in the input.
+   * 
    * @example
-   * 495
+   * 22
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of tokens in the output.
+   * 
    * @example
-   * 444
+   * 19
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The total number of tokens for the request.
+   * 
    * @example
-   * 939
+   * 41
    */
   totalTokens?: number;
   static names(): { [key: string]: string } {
@@ -45,6 +54,9 @@ export class GetHtmlTranslateTaskResponseBodyDataUsage extends $dara.Model {
 
 export class GetHtmlTranslateTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Translation Result
+   * 
    * @example
    * <!DOCTYPE html>
    * 
@@ -63,6 +75,10 @@ export class GetHtmlTranslateTaskResponseBodyData extends $dara.Model {
    * </html>
    */
   translation?: string;
+  /**
+   * @remarks
+   * Details about token usage.
+   */
   usage?: GetHtmlTranslateTaskResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
@@ -92,27 +108,46 @@ export class GetHtmlTranslateTaskResponseBodyData extends $dara.Model {
 
 export class GetHtmlTranslateTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The operation status code.
+   * 
    * @example
-   * 200
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetHtmlTranslateTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code returned by the server.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request. Use this ID to trace the request.
+   * 
    * @example
-   * 64191A87-C480-53AD-AEA2-2E847D4DFA66
+   * 04B53310-CB1A-14B4-AC85-26C154D8366A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */
