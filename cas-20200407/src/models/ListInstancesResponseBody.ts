@@ -4,111 +4,221 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether automatic managed renewal is enabled. Valid values:
+   * - enable: enabled.
+   * - disable: disabled.
+   * 
    * @example
    * enable
    */
   autoReissue?: string;
   /**
+   * @remarks
+   * The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
+   * 
    * @example
    * DigiCert
    */
   brand?: string;
   /**
+   * @remarks
+   * The global certificate ID in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+   * - For the China site: certificate ID + "-cn-hangzhou"
+   * - For the China site: certificate ID + "-ap-southeast-1"
+   * 
+   * For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site is "123-ap-southeast-1".
+   * 
    * @example
    * 21795675-cn-hangzhou
    */
   certIdentifier?: string;
   /**
+   * @remarks
+   * The domain name of the latest issued certificate.
+   * 
+   * @example
+   * abc.com,www.abc.com
+   */
+  certificateDomain?: string;
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * 18541349
    */
   certificateId?: number;
   /**
+   * @remarks
+   * The certificate name.
+   * 
    * @example
    * cert-13216408
    */
   certificateName?: string;
   /**
+   * @remarks
+   * The end time of the latest certificate, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+   * 
    * @example
    * 1801324800000
    */
   certificateNotAfter?: number;
+  certificateNotBefore?: number;
   /**
+   * @remarks
+   * The revocation time of the latest certificate, in UNIX timestamp format.
+   * 
    * @example
    * 1801324800000
    */
   certificateRevokeTime?: number;
   /**
+   * @remarks
+   * The status of the certificate. Valid values:
+   * - **issued**: issued.
+   * - **revoked**: revoked.
+   * - **willExpire**: about to expire.
+   * - **expired**: expired.
+   * 
    * @example
    * issued
    */
   certificateStatus?: string;
   /**
+   * @remarks
+   * The type of the certificate. Valid values: DV, OV, and EV.
+   * 
    * @example
    * DV
    */
   certificateType?: string;
   /**
+   * @remarks
+   * The domain name bound to the certificate.
+   * 
    * @example
    * test.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The number of exact-match domain names.
+   * 
    * @example
    * 1
    */
   fullDomainCount?: number;
   /**
+   * @remarks
+   * The expiration time of the instance, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+   * 
    * @example
    * 1801324800000
    */
   instanceEndTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cas_dv-cn-123
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The start time of the instance, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+   * 
    * @example
    * 1801324800000
    */
   instanceStartTime?: number;
   /**
+   * @remarks
+   * The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
+   * 
    * @example
    * BUY
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The certificate algorithm. Default value: RSA_2048. Valid values:
+   * - **RSA_2048**
+   * - **RSA_3072**
+   * - **RSA_4096**
+   * - **ECC_256**
+   * - **SM2**.
+   * 
    * @example
    * RSA_2048
    */
   keyAlgorithm?: string;
   /**
+   * @remarks
+   * The end time of the instance purchase, in UNIX timestamp format. This value is used to determine the purchase duration of the instance.
+   * 
    * @example
    * 1801324800000
    */
   orderEndTime?: number;
   /**
+   * @remarks
+   * The start time of the instance purchase, in UNIX timestamp format. This value is used to determine the refund time limit.
+   * 
    * @example
    * 1801324800000
    */
   orderStartTime?: number;
   /**
+   * @remarks
+   * The result returned by the CA during the last certificate operation.
+   * 
    * @example
    * pending
    */
   pendingResult?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * 123
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The purchased instance specification.
+   * 
    * @example
    * ss.dv.t
    */
   spec?: string;
   /**
+   * @remarks
+   * The instance status. Valid values:
+   * - **inactive**: pending use.
+   * - **pending**: under review. The latest certificate is being reviewed.
+   * - **willExpire**: about to expire.
+   * - **expired**: expired.
+   * - **refund**: refunded.
+   * - **normal**: normal.
+   * - **closed**: closed and unavailable.
+   * 
    * @example
    * inactive
    */
   status?: string;
   /**
+   * @remarks
+   * The list of cloud services to which the latest certificate is deployed.
+   */
+  usingProductList?: string[];
+  /**
+   * @remarks
+   * The number of wildcard domain names.
+   * 
    * @example
    * 0
    */
@@ -118,9 +228,11 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
       autoReissue: 'AutoReissue',
       brand: 'Brand',
       certIdentifier: 'CertIdentifier',
+      certificateDomain: 'CertificateDomain',
       certificateId: 'CertificateId',
       certificateName: 'CertificateName',
       certificateNotAfter: 'CertificateNotAfter',
+      certificateNotBefore: 'CertificateNotBefore',
       certificateRevokeTime: 'CertificateRevokeTime',
       certificateStatus: 'CertificateStatus',
       certificateType: 'CertificateType',
@@ -134,8 +246,10 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
       orderEndTime: 'OrderEndTime',
       orderStartTime: 'OrderStartTime',
       pendingResult: 'PendingResult',
+      resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
+      usingProductList: 'UsingProductList',
       wildcardDomainCount: 'WildcardDomainCount',
     };
   }
@@ -145,9 +259,11 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
       autoReissue: 'string',
       brand: 'string',
       certIdentifier: 'string',
+      certificateDomain: 'string',
       certificateId: 'number',
       certificateName: 'string',
       certificateNotAfter: 'number',
+      certificateNotBefore: 'number',
       certificateRevokeTime: 'number',
       certificateStatus: 'string',
       certificateType: 'string',
@@ -161,13 +277,18 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
       orderEndTime: 'number',
       orderStartTime: 'number',
       pendingResult: 'string',
+      resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
+      usingProductList: { 'type': 'array', 'itemType': 'string' },
       wildcardDomainCount: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.usingProductList)) {
+      $dara.Model.validateArray(this.usingProductList);
+    }
     super.validate();
   }
 
@@ -178,22 +299,38 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
 
 export class ListInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number in a paged query.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The list of instances.
+   */
   instanceList?: ListInstancesResponseBodyInstanceList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 12345678-1234-1234-1234-123456789ABC
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 20
    */
   showSize?: number;
   /**
+   * @remarks
+   * The total number of instances.
+   * 
    * @example
    * 12
    */

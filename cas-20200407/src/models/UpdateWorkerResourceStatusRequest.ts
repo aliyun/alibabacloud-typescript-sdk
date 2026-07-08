@@ -15,11 +15,11 @@ export class UpdateWorkerResourceStatusRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The desired status.
+   * The desired status of the worker resource.
    * 
    * Valid values:
    * 
-   * *   rollback
+   * - rollback
    * 
    * This parameter is required.
    * 

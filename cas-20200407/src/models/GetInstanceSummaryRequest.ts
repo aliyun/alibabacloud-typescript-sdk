@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstanceSummaryRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance type. Valid values: BUY: a paid certificate. TEST: a test certificate.
+   * 
    * @example
    * TEST
    */

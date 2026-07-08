@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCertificateForPackageRequestRequest extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
-   * >  You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the ID.
+   * > Call [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) to obtain this ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 123451222
+   * 123456
    */
   orderId?: number;
   static names(): { [key: string]: string } {

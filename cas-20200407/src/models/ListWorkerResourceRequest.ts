@@ -34,7 +34,7 @@ export class ListWorkerResourceRequest extends $dara.Model {
    * The number of entries per page. Default value: 50.
    * 
    * @example
-   * 20
+   * 50
    */
   showSize?: number;
   /**
@@ -43,15 +43,23 @@ export class ListWorkerResourceRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   rollback
-   * *   rollback_error
-   * *   success
-   * *   rollback_success
-   * *   pending
-   * *   scheduling
-   * *   processing
-   * *   error
-   * *   editing
+   * - rollback
+   * 
+   * - rollback_error
+   * 
+   * - success
+   * 
+   * - rollback_success
+   * 
+   * - pending
+   * 
+   * - scheduling
+   * 
+   * - processing
+   * 
+   * - error
+   * 
+   * - editing
    * 
    * @example
    * editing

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CancelOrderRequestRequest extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the certificate order to cancel.
    * 
-   * >  You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the ID.
+   * > Obtain this ID by calling [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html).
    * 
    * This parameter is required.
    * 

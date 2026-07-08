@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1ed33293-2e48-6b14-861e-538e28e408eb
@@ -13,10 +13,11 @@ export class VerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the signature is valid. Valid values:
+   * The result of the signature verification. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

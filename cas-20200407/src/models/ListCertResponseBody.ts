@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertResponseBodyCertList extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the certificate. The value is a UNIX timestamp. Unit: milliseconds.
+   * The expiration date of the certificate. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1634283958000
@@ -13,7 +13,21 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   afterDate?: number;
   /**
    * @remarks
-   * The issuance time of the certificate. The value is a UNIX timestamp. Unit: milliseconds.
+   * The encryption algorithm of the certificate. Valid values:
+   * 
+   * - **RSA**: the RSA algorithm
+   * 
+   * - **ECC**: the ECC algorithm
+   * 
+   * - **SM2**: the SM2 algorithm
+   * 
+   * @example
+   * RSA
+   */
+  algorithm?: string;
+  /**
+   * @remarks
+   * The start date of the certificate\\"s validity period. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1665819958000
@@ -21,10 +35,11 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   beforeDate?: number;
   /**
    * @remarks
-   * 证书的类型 。取值：
+   * The type of the certificate. Valid values:
    * 
-   * - **CA**：表示CA证书。
-   * - **CERT**：表示签发的证书。
+   * - **CA**: a Certificate Authority (CA) certificate
+   * 
+   * - **CERT**: an issued certificate
    * 
    * @example
    * CERT
@@ -32,7 +47,7 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The domain name.
+   * The common name of the certificate. This is typically the primary domain name associated with the certificate.
    * 
    * @example
    * aliyun.alibaba.com
@@ -40,10 +55,11 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * Indicates whether the certificate contains a private key. Valid values:
+   * Indicates whether a private key is available for the certificate. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -67,7 +83,7 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The domain names that are bound to the certificate. Multiple domain names are separated by commas.
+   * The Subject Alternative Names (SANs) associated with the certificate. Multiple domain names are separated by commas (,).
    * 
    * @example
    * *.alibaba.com,aliyun.alibaba.com
@@ -75,10 +91,27 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   sans?: string;
   /**
    * @remarks
+   * The serial number of the certificate. This parameter is returned only if the `OrderType` request parameter is set to `CERT` or `UPLOAD`.
+   * 
+   * @example
+   * 038abf4c27c33a7c11ad6658124135b52180
+   */
+  serialNo?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256WITHRSA
+   */
+  signAlgorithm?: string;
+  /**
+   * @remarks
    * The source of the certificate. Valid values:
    * 
-   * *   **upload**: uploaded certificate
-   * *   **aliyun**: Alibaba Cloud certificate
+   * - **upload**: The certificate is uploaded.
+   * 
+   * - **aliyun**: The certificate is from Alibaba Cloud.
    * 
    * @example
    * aliyun
@@ -88,8 +121,9 @@ export class ListCertResponseBodyCertList extends $dara.Model {
    * @remarks
    * The status of the certificate. Valid values:
    * 
-   * *   **ISSUE**: issued
-   * *   **REVOKE**: revoked
+   * - **ISSUE**: The certificate is issued.
+   * 
+   * - **REVOKE**: The certificate is revoked.
    * 
    * @example
    * ISSUE
@@ -97,7 +131,7 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the certificate repository.
+   * The warehouse ID.
    * 
    * @example
    * 2
@@ -105,7 +139,7 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   whId?: number;
   /**
    * @remarks
-   * The instance ID of the certificate repository.
+   * The warehouse instance ID.
    * 
    * @example
    * test_whInstanceId
@@ -114,6 +148,7 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       afterDate: 'AfterDate',
+      algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
       certType: 'CertType',
       commonName: 'CommonName',
@@ -121,6 +156,8 @@ export class ListCertResponseBodyCertList extends $dara.Model {
       identifier: 'Identifier',
       issuer: 'Issuer',
       sans: 'Sans',
+      serialNo: 'SerialNo',
+      signAlgorithm: 'SignAlgorithm',
       sourceType: 'SourceType',
       status: 'Status',
       whId: 'WhId',
@@ -131,6 +168,7 @@ export class ListCertResponseBodyCertList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       afterDate: 'number',
+      algorithm: 'string',
       beforeDate: 'number',
       certType: 'string',
       commonName: 'string',
@@ -138,6 +176,8 @@ export class ListCertResponseBodyCertList extends $dara.Model {
       identifier: 'string',
       issuer: 'string',
       sans: 'string',
+      serialNo: 'string',
+      signAlgorithm: 'string',
       sourceType: 'string',
       status: 'string',
       whId: 'number',
@@ -157,12 +197,12 @@ export class ListCertResponseBodyCertList extends $dara.Model {
 export class ListCertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the certificates.
+   * The list of certificates.
    */
   certList?: ListCertResponseBodyCertList[];
   /**
    * @remarks
-   * The page number of the returned page. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -178,7 +218,7 @@ export class ListCertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 50.
+   * The page size. Default value: 50.
    * 
    * @example
    * 50
@@ -186,7 +226,7 @@ export class ListCertResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

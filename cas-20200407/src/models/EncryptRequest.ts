@@ -7,9 +7,11 @@ export class EncryptRequest extends $dara.Model {
    * @remarks
    * The encryption algorithm. Valid values:
    * 
-   * *   **RSAES_OAEP_SHA_1**
-   * *   **RSAES_OAEP_SHA_256**
-   * *   **SM2PKE**
+   * - **RSAES_OAEP_SHA_1**
+   * 
+   * - **RSAES_OAEP_SHA_256**
+   * 
+   * - **SM2PKE**
    * 
    * This parameter is required.
    * 
@@ -19,22 +21,31 @@ export class EncryptRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The unique identifier of the certificate. You can call the [ListCert](https://help.aliyun.com/document_detail/455806.html) operation to obtain the identifier.
+   * The unique identifier of the certificate. To obtain this parameter, call the [ListCert](https://help.aliyun.com/document_detail/455806.html) operation.
    * 
-   * *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
-   * *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
+   * - The identifier of an SSL certificate is usually in the {Certificate ID}-cn-hangzhou format.
+   * 
+   * - For a private certificate authority (PCA) certificate, this is the value of the Identifier field of the private certificate.
    * 
    * @example
-   * 12345678-1234-1234-1234-12345678****
+   * 1ef1da5f-38ed-69b3-****-037781890265
    */
   certIdentifier?: string;
+  /**
+   * @remarks
+   * The custom identifier, which serves as a unique key.
+   * 
+   * @example
+   * ****6bb538d538c70c01f81dg3****
+   */
   customIdentifier?: string;
   /**
    * @remarks
-   * The value type of the Message parameter. Valid values:
+   * The message type. Valid values:
    * 
-   * *   RAW: The value of the Plaintext parameter is directly encrypted. This is the default value.
-   * *   Base64: The value of the Plaintext parameter is Base64-encoded data. The data is decoded and then encrypted.
+   * - RAW (default): Directly encrypts the value of Plaintext.
+   * 
+   * - Base64: Decodes the Base64-encoded value of Plaintext and then encrypts the decoded data.
    * 
    * @example
    * RAW
@@ -42,11 +53,13 @@ export class EncryptRequest extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
-   * The data that you want to encrypt. The value of this parameter can be raw data or Base64-encoded data. For more information, see the description of the MessageType parameter. For example, if the hexadecimal data that you want to encrypt is `[0x31, 0x32, 0x33, 0x34]`, the Base64-encoded data is MTIzNA==. The size of data that can be encrypted varies based on the encryption algorithm that you use. The following list describes the relationship between the encryption algorithms and data sizes:
+   * The data to encrypt. The data can be plaintext or Base64-encoded plaintext. For more information, see the MessageType parameter. If you use Base64 encoding, for example, if the hexadecimal content of the data to be encrypted is `[0x31, 0x32, 0x33, 0x34]`, the corresponding Base64-encoded string is MTIzNA==. The maximum size of Plaintext depends on the Algorithm:
    * 
-   * *   **RSAES_OAEP_SHA_1**: 214 bytes
-   * *   **RSAES_OAEP_SHA_256**: 190 bytes
-   * *   **SM2PKE**: 6,047 bytes
+   * - **RSAES_OAEP_SHA_1**: 214 bytes.
+   * 
+   * - **RSAES_OAEP_SHA_256**: 190 bytes.
+   * 
+   * - **SM2PKE**: 6047 bytes.
    * 
    * This parameter is required.
    * 
@@ -54,6 +67,15 @@ export class EncryptRequest extends $dara.Model {
    * 1234***
    */
   plaintext?: string;
+  /**
+   * @remarks
+   * The repository ID.
+   * 
+   * > To obtain this ID, call the [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) operation.
+   * 
+   * @example
+   * 12
+   */
   warehouseId?: number;
   static names(): { [key: string]: string } {
     return {

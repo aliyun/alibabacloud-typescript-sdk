@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserCertificateDetailResponseBodyCertChain extends $dara.Model {
   /**
    * @remarks
-   * The common name of the certificate.
+   * The common name of the certificate in the chain.
    * 
    * @example
    * test
@@ -21,23 +21,23 @@ export class GetUserCertificateDetailResponseBodyCertChain extends $dara.Model {
   issuerCommonName?: string;
   /**
    * @remarks
-   * The end of the validity period of the certificate.
+   * The expiration date of the certificate in the chain.
    * 
    * @example
-   * 17322613180000
+   * 17352613180000
    */
   notAfter?: number;
   /**
    * @remarks
-   * The beginning of the validity period of the certificate.
+   * The issuance date of the certificate in the chain.
    * 
    * @example
-   * 17302633180000
+   * 17322633180000
    */
   notBefore?: number;
   /**
    * @remarks
-   * The remaining days of the certificate validity period.
+   * The number of days until the certificate in the chain expires.
    * 
    * @example
    * 1000
@@ -73,7 +73,21 @@ export class GetUserCertificateDetailResponseBodyCertChain extends $dara.Model {
 }
 
 export class GetUserCertificateDetailResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * test
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * test
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101,7 +115,7 @@ export class GetUserCertificateDetailResponseBodyTags extends $dara.Model {
 export class GetUserCertificateDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The algorithm.
+   * The algorithm of the certificate.
    * 
    * @example
    * RSA
@@ -111,8 +125,9 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the certificate was purchased from Alibaba Cloud. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: Yes
+   * 
+   * - **false**: No
    * 
    * @example
    * true
@@ -120,7 +135,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   buyInAliyun?: boolean;
   /**
    * @remarks
-   * The content of the certificate if the certificate does not use an SM algorithm. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
+   * The content of the certificate that does not use a Chinese cryptographic algorithm. This parameter is returned only when the certFilter request parameter is false.
    * 
    * @example
    * ---BEGIN CERTIFICATE----- MIIF...... -----END CERTIFICATE-----
@@ -128,20 +143,21 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   cert?: string;
   /**
    * @remarks
-   * The certificate chain.
+   * The information about the certificate chain.
    */
   certChain?: GetUserCertificateDetailResponseBodyCertChain[];
   /**
    * @remarks
-   * The certificate identifier. The value is in the "Certificate ID-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of CertIdentifier is 123-cn-hangzhou.
+   * The certificate ID followed by "-cn-hangzhou". For example, if the certificate ID is 123, the value of CertIdentifier is "123-cn-hangzhou".
    * 
    * @example
-   * 10741304-cn-hangzhou
+   * 13781326-cn-hangzhou
    */
   certIdentifier?: string;
+  certSha2?: string;
   /**
    * @remarks
-   * The city of the company or organization to which the certificate purchaser belongs.
+   * The city where the company or organization of the certificate purchaser is located.
    * 
    * @example
    * hangzhou
@@ -157,7 +173,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   common?: string;
   /**
    * @remarks
-   * The country or region of the company or organization to which the certificate purchaser belongs.
+   * The country where the company or organization of the certificate purchaser is located.
    * 
    * @example
    * CN
@@ -165,7 +181,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   country?: string;
   /**
    * @remarks
-   * The content of the encryption certificate if the certificate uses an SM algorithm and is encoded in the PEM format. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
+   * The content of the encryption certificate that uses a Chinese cryptographic algorithm. The certificate is in PEM format. This parameter is returned only when the certFilter request parameter is false.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -175,7 +191,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   encryptCert?: string;
   /**
    * @remarks
-   * The private key of the encryption certificate if the certificate uses an SM algorithm and is encoded in the PEM format. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
+   * The private key of the encryption certificate that uses a Chinese cryptographic algorithm. The private key is in PEM format. This parameter is returned only when the certFilter request parameter is false.
    * 
    * @example
    * -----BEGIN EC PRIVATE KEY-----
@@ -195,8 +211,9 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the certificate has expired. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The certificate has expired.
+   * 
+   * - **false**: The certificate has not expired.
    * 
    * @example
    * true
@@ -220,15 +237,15 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The instance ID of the resource.
+   * The ID of the resource instance.
    * 
    * @example
-   * cas-upload-50yf1q
+   * cas-ivauto-hqito6
    */
   instanceId?: string;
   /**
    * @remarks
-   * The certificate authority (CA) that issued the certificate.
+   * The certification authority (CA) that issued the certificate.
    * 
    * @example
    * Digicert
@@ -236,7 +253,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The private key of the certificate if the certificate does not use an SM algorithm. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
+   * The private key of the certificate that does not use a Chinese cryptographic algorithm. This parameter is returned only when the certFilter request parameter is false.
    * 
    * @example
    * -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
@@ -252,23 +269,23 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The end of the validity period of the certificate.
+   * The end time of the validity period of the certificate.
    * 
    * @example
-   * 17322613180000
+   * 17326613180000
    */
   notAfter?: number;
   /**
    * @remarks
-   * The beginning of the validity period of the certificate.
+   * The start time of the validity period of the certificate.
    * 
    * @example
-   * 17312613180000
+   * 17321613180000
    */
   notBefore?: number;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the certificate application order.
    * 
    * @example
    * 123456
@@ -276,7 +293,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The name of the company or organization to which the certificate purchaser belongs.
+   * The name of the company or organization of the certificate purchaser.
    * 
    * @example
    * Alibaba
@@ -284,7 +301,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   orgName?: string;
   /**
    * @remarks
-   * The province of the company or organization to which the certificate purchaser belongs.
+   * The province where the company or organization of the certificate purchaser is located.
    * 
    * @example
    * zhejiang
@@ -292,7 +309,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   province?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The ID of the request. This unique ID is generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -319,7 +336,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
    * The serial number of the certificate.
    * 
    * @example
-   * 06ea4879591ddf84e6c8b6ba43607ccf
+   * 033cd852608689ef5e368fde89e0961769e8
    */
   serialNo?: string;
   /**
@@ -327,12 +344,12 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
    * The SHA-2 value of the certificate.
    * 
    * @example
-   * 840707695D5EE41323102DDC2CB4924AA561012FBDC4E1A6324147119ED3C339
+   * 573415B23243066AD345AE5A57BD0FAE94F598BDD06D906278B5FF318F090FC8
    */
   sha2?: string;
   /**
    * @remarks
-   * The content of the signing certificate if the certificate uses an SM algorithm and is encoded in the PEM format. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
+   * The content of the signing certificate that uses a Chinese cryptographic algorithm. The certificate is in PEM format. This parameter is returned only when the certFilter request parameter is false.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -342,7 +359,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   signCert?: string;
   /**
    * @remarks
-   * The private key of the signing certificate if the certificate uses an SM algorithm and is encoded in the PEM format. If certFilter is set to false, this parameter is returned. Otherwise, this parameter is not returned.
+   * The private key of the signing certificate that uses a Chinese cryptographic algorithm. The private key is in PEM format. This parameter is returned only when the certFilter request parameter is false.
    * 
    * @example
    * -----BEGIN EC PRIVATE KEY-----
@@ -358,6 +375,10 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
    * 2018-07-13
    */
   startDate?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: GetUserCertificateDetailResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
@@ -366,6 +387,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
       cert: 'Cert',
       certChain: 'CertChain',
       certIdentifier: 'CertIdentifier',
+      certSha2: 'CertSha2',
       city: 'City',
       common: 'Common',
       country: 'Country',
@@ -403,6 +425,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
       cert: 'string',
       certChain: { 'type': 'array', 'itemType': GetUserCertificateDetailResponseBodyCertChain },
       certIdentifier: 'string',
+      certSha2: 'string',
       city: 'string',
       common: 'string',
       country: 'string',

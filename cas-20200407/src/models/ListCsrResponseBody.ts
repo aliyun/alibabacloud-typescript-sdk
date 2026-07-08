@@ -24,7 +24,7 @@ export class ListCsrResponseBodyCsrList extends $dara.Model {
    * The name of the company.
    * 
    * @example
-   * corp_name
+   * 北京CSR科技有限公司
    */
   corpName?: string;
   /**
@@ -88,7 +88,7 @@ export class ListCsrResponseBodyCsrList extends $dara.Model {
    * The name of the CSR.
    * 
    * @example
-   * name
+   * test_name
    */
   name?: string;
   /**
@@ -104,7 +104,7 @@ export class ListCsrResponseBodyCsrList extends $dara.Model {
    * The secondary domain names. Separate multiple domain names with commas (,).
    * 
    * @example
-   * www.example.com,www.aliyundoc.com
+   * www.aliyundoc.com,www.example.com
    */
   sans?: string;
   static names(): { [key: string]: string } {

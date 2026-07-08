@@ -15,9 +15,11 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the certificate. Valid values:
    * 
-   * *   **upload**: uploaded certificate
-   * *   **buy**: purchased certificate
-   * *   **free**: free certificate, available only on the China site (aliyun.com)
+   * - **upload**: uploaded certificate
+   * 
+   * - **buy**: purchased certificate
+   * 
+   * - **free**: free certificate, available only on the China site (aliyun.com)
    * 
    * @example
    * upload
@@ -27,8 +29,9 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the deployment task is deleted. Valid values:
    * 
-   * *   **0**: not deleted
-   * *   **1**: deleted
+   * - **0**: not deleted
+   * 
+   * - **1**: deleted
    * 
    * @example
    * 1
@@ -71,15 +74,16 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
    * The instance ID of the deployment task.
    * 
    * @example
-   * cas-job-user-0gvntn
+   * cas-job-user-***
    */
   instanceId?: string;
   /**
    * @remarks
    * The type of the deployment task.
    * 
-   * *   **cloud**: multi-cloud deployment task.
-   * *   **user**: cloud service deployment task. This type of task does not support ECS instances.
+   * - **cloud**: multi-cloud deployment task.
+   * 
+   * - **user**: cloud service deployment task. This type of task does not support ECS instances.
    * 
    * @example
    * user
@@ -105,8 +109,9 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the rollback worker is included. For example, if a cloud service involved in a deployment task has been rolled back, **1** is returned. Valid values:
    * 
-   * *   **0**: The rollback worker is not included.
-   * *   **1**: The rollback worker is included.
+   * - **0**: The rollback worker is not included.
+   * 
+   * - **1**: The rollback worker is included.
    * 
    * @example
    * 1
@@ -132,12 +137,17 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the deployment task. Valid values:
    * 
-   * *   **pending**
-   * *   **editing**
-   * *   **scheduling**
-   * *   **processing**
-   * *   **error**
-   * *   **success**
+   * - **pending**
+   * 
+   * - **editing**
+   * 
+   * - **scheduling**
+   * 
+   * - **processing**
+   * 
+   * - **error**
+   * 
+   * - **success**
    * 
    * @example
    * scheduling
@@ -148,7 +158,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
    * The ID of the user.
    * 
    * @example
-   * 1666884372152785
+   * 166688437*****
    */
   userId?: number;
   static names(): { [key: string]: string } {
@@ -229,7 +239,7 @@ export class ListDeploymentJobResponseBody extends $dara.Model {
    * The number of deployment tasks per page. Default value: **50**.
    * 
    * @example
-   * 20
+   * 50
    */
   showSize?: number;
   /**

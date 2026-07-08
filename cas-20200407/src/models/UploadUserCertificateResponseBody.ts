@@ -21,10 +21,10 @@ export class UploadUserCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The ID of the certificate instance.
    * 
    * @example
-   * cas-upload-j2ofdb
+   * cas-upload-xki1d0
    */
   resourceId?: string;
   static names(): { [key: string]: string } {

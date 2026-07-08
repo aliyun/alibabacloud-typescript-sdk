@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3E50D480-9765-5CFD-9650-9BACCECA5135

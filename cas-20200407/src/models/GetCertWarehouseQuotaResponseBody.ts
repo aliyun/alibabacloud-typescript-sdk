@@ -3,11 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCertWarehouseQuotaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The total quota for the certificate application service. This includes both complimentary and purchased quotas.
+   * 
+   * @example
+   * 5000
+   */
   appTotalQuota?: number;
+  /**
+   * @remarks
+   * The used quota for the certificate application service.
+   * 
+   * @example
+   * 1000
+   */
   appUseCount?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -15,7 +29,7 @@ export class GetCertWarehouseQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total quota for certificate repositories, including the free quota and purchased quota.
+   * The total quota for the electronic contract signing service. This includes both complimentary and purchased quotas.
    * 
    * @example
    * 5000
@@ -23,7 +37,7 @@ export class GetCertWarehouseQuotaResponseBody extends $dara.Model {
   totalQuota?: number;
   /**
    * @remarks
-   * The used quota.
+   * The used quota for the electronic contract signing service.
    * 
    * @example
    * 1000

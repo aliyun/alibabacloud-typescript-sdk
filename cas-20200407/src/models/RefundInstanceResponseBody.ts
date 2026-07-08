@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RefundInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID generated for the request. Use this ID to troubleshoot issues.
+   * 
    * @example
    * D3F1FA43-1C26-50A2-8F0F-7A03851DBB46
    */

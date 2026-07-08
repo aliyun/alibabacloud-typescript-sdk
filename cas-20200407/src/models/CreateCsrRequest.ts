@@ -20,7 +20,7 @@ export class CreateCsrRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 123.com
+   * example.com
    */
   commonName?: string;
   /**
@@ -28,7 +28,7 @@ export class CreateCsrRequest extends $dara.Model {
    * The name of the company.
    * 
    * @example
-   * aly
+   * 北京CSR科技有效公司
    */
   corpName?: string;
   /**
@@ -53,8 +53,9 @@ export class CreateCsrRequest extends $dara.Model {
    * @remarks
    * The key length that is used by the algorithm.
    * 
-   * *   The key length for RSA algorithms can be 2,048, 3,072, and 4,096 bits.
-   * *   The key length for ECC and SM2 algorithms can be 256 bits.
+   * - The key length for RSA algorithms can be 2,048, 3,072, and 4,096 bits.
+   * 
+   * - The key length for ECC and SM2 algorithms can be 256 bits.
    * 
    * This parameter is required.
    * 
@@ -95,7 +96,7 @@ export class CreateCsrRequest extends $dara.Model {
    * The secondary domain names. Separate multiple domain names with commas (,). You can use the CSR to apply for a certificate for both the primary and secondary domain names.
    * 
    * @example
-   * www.example.com,www.aliyundoc.com
+   * www.aliyundoc.com,www.example.com
    */
   sans?: string;
   static names(): { [key: string]: string } {

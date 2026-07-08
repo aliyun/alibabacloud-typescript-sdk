@@ -3,8 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RevokeCertificateRequest extends $dara.Model {
+  certificateId?: number;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +16,14 @@ export class RevokeCertificateRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateId: 'CertificateId',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certificateId: 'number',
       instanceId: 'string',
     };
   }

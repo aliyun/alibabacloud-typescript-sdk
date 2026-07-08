@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCertificateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance. Before you request a certificate, call the UpdateInstance operation to update and complete the application information for the instance.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -13,7 +13,7 @@ export class ListCsrRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListCsrRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The keyword.
+   * The keyword for fuzzy search. For example, you can specify a domain name.
    * 
    * @example
    * test_name

@@ -9,7 +9,7 @@ export class CreateCertificateRequestRequestTags extends $dara.Model {
    * 
    * The key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
    * 
-   * >  You must specify at least one of **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
+   * > You must specify at least one of **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
    * 
    * @example
    * acs:rm:rgId
@@ -53,7 +53,7 @@ export class CreateCertificateRequestRequest extends $dara.Model {
    * @remarks
    * The domain name that you want to bind to the certificate. You can specify only one domain name.
    * 
-   * >  The domain name must match the certificate specifications that you specify for the **ProductCode** parameter. If you apply for a single-domain certificate, you must specify a single domain name for this parameter. If you apply for a wildcard certificate, you must specify a wildcard domain name such as `*.aliyundoc.com` for this parameter.
+   * > The domain name must match the certificate specifications that you specify for the **ProductCode** parameter. If you apply for a single-domain certificate, you must specify a single domain name for this parameter. If you apply for a wildcard certificate, you must specify a wildcard domain name such as `*.aliyundoc.com` for this parameter.
    * 
    * This parameter is required.
    * 
@@ -85,21 +85,27 @@ export class CreateCertificateRequestRequest extends $dara.Model {
    * @remarks
    * The specifications of the certificate. Valid values:
    * 
-   * *   **digicert-free-1-free** (default): DigiCert single-domain DV certificate, which is free and valid for 3 months.
-   * *   **symantec-free-1-free**: DigiCert single-domain DV certificate, which is free and valid for 1 year. This value is available only on the China site (aliyun.com).
-   * *   **symantec-dv-1-starter**: DigiCert wildcard DV certificate.
-   * *   **geotrust-dv-1-starter**: GeoTrust single-domain DV certificate.
-   * *   **geotrust-dv-w-starter**: GeoTrust wildcard DV certificate.
-   * *   **globalsign-dv-1-personal**: GlobalSign single-domain DV certificate.
-   * *   **globalsign-dv-w-advanced**: GlobalSign wildcard DV certificate.
+   * - **digicert-free-1-free** (default): DigiCert single-domain DV certificate, which is free and valid for 3 months.
+   * 
+   * - **symantec-free-1-free**: DigiCert single-domain DV certificate, which is free and valid for 1 year. This value is available only on the China site (aliyun.com).
+   * 
+   * - **symantec-dv-1-starter**: DigiCert wildcard DV certificate.
+   * 
+   * - **geotrust-dv-1-starter**: GeoTrust single-domain DV certificate.
+   * 
+   * - **geotrust-dv-w-starter**: GeoTrust wildcard DV certificate.
+   * 
+   * - **globalsign-dv-1-personal**: GlobalSign single-domain DV certificate.
+   * 
+   * - **globalsign-dv-w-advanced**: GlobalSign wildcard DV certificate.
    * 
    * @example
-   * symantec-free-1-free
+   * symantec-dv-1-starter
    */
   productCode?: string;
   /**
    * @remarks
-   * The tags.
+   * A list of tags.
    */
   tags?: CreateCertificateRequestRequestTags[];
   /**
@@ -116,8 +122,9 @@ export class CreateCertificateRequestRequest extends $dara.Model {
    * @remarks
    * The method to verify the ownership of a domain name. Valid values:
    * 
-   * *   **DNS**: DNS verification. If you use this method, you must add a TXT record to the DNS records of the domain name in the management platform of the domain name. You must have operation permissions on domain name resolution to verify the ownership of the domain name.
-   * *   **FILE**: file verification. If you use this method, you must create a specified file on the DNS server. You must have administrative rights on the DNS server to verify the ownership of the domain name.
+   * - **DNS**: DNS verification. If you use this method, you must add a TXT record to the DNS records of the domain name in the management platform of the domain name. You must have operation permissions on domain name resolution to verify the ownership of the domain name.
+   * 
+   * - **FILE**: file verification. If you use this method, you must create a specified file on the DNS server. You must have administrative rights on the DNS server to verify the ownership of the domain name.
    * 
    * For more information about the verification methods, see [Verify the ownership of a domain name](https://help.aliyun.com/document_detail/48016.html).
    * 

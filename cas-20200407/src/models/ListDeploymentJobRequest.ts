@@ -17,8 +17,9 @@ export class ListDeploymentJobRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   cloud: multi-cloud deployment task.
-   * *   user: cloud service deployment task. This type of task does not support Elastic Compute Service (ECS) instances.
+   * - cloud: multi-cloud deployment task.
+   * 
+   * - user: cloud service deployment task. This type of task does not support Elastic Compute Service (ECS) instances.
    * 
    * @example
    * user
@@ -26,10 +27,10 @@ export class ListDeploymentJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The number of certificates per page. Default value: **50**.
+   * The number of entries to return on each page. Default value: 50.
    * 
    * @example
-   * 20
+   * 50
    */
   showSize?: number;
   /**
@@ -38,12 +39,17 @@ export class ListDeploymentJobRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   success
-   * *   pending
-   * *   scheduling
-   * *   processing
-   * *   error
-   * *   editing
+   * - success
+   * 
+   * - pending
+   * 
+   * - scheduling
+   * 
+   * - processing
+   * 
+   * - error
+   * 
+   * - editing
    * 
    * @example
    * pending

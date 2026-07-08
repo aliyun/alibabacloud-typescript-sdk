@@ -15,13 +15,15 @@ export class UpdateDeploymentJobStatusRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The desired status.
+   * The desired status of the deployment task.
    * 
    * Valid values:
    * 
-   * *   pending
-   * *   scheduling
-   * *   editing
+   * - pending
+   * 
+   * - scheduling
+   * 
+   * - editing
    * 
    * This parameter is required.
    * 

@@ -33,13 +33,14 @@ export class MoveResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.\\
+   * The type of the resource.<br>
    * Default value: **instance**
    * 
    * Valid values:
    * 
-   * *   instance: certificate order
-   * *   Certificate: certificate
+   * - instance: certificate order
+   * 
+   * - Certificate: certificate
    * 
    * This parameter is required.
    * 

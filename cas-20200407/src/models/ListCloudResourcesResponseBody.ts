@@ -24,7 +24,7 @@ export class ListCloudResourcesResponseBodyData extends $dara.Model {
    * The name of the certificate bound to the cloud resource.
    * 
    * @example
-   * shop.amsaudio.cn
+   * example
    */
   certName?: string;
   /**
@@ -39,10 +39,10 @@ export class ListCloudResourcesResponseBodyData extends $dara.Model {
    * @remarks
    * The AccessKey ID that is used to access cloud resources.
    * 
-   * >  This parameter is returned only when you deploy certificates to cloud services of third-party clouds.
+   * > This parameter is returned only when you deploy certificates to cloud services of third-party clouds.
    * 
    * @example
-   * 1234
+   * AK96*******6M
    */
   cloudAccessId?: string;
   /**
@@ -51,10 +51,13 @@ export class ListCloudResourcesResponseBodyData extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Tencent
-   * *   Huawei
-   * *   Aws
-   * *   aliyun
+   * - Tencent
+   * 
+   * - Huawei
+   * 
+   * - Aws
+   * 
+   * - aliyun
    * 
    * @example
    * aliyun
@@ -80,10 +83,11 @@ export class ListCloudResourcesResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the cloud resource is the default resource. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: yes
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * - **0**: no
+   * 
+   * > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
    * 
    * @example
    * 0
@@ -94,15 +98,16 @@ export class ListCloudResourcesResponseBodyData extends $dara.Model {
    * The domain name bound to the cloud resource.
    * 
    * @example
-   * www.tkgeo.ru
+   * example.com
    */
   domain?: string;
   /**
    * @remarks
    * Indicates whether HTTPS is enabled for the cloud resource. Valid values:
    * 
-   * *   **1**: yes.
-   * *   **0**: no.
+   * - **1**: yes.
+   * 
+   * - **0**: no.
    * 
    * @example
    * 1
@@ -136,30 +141,30 @@ export class ListCloudResourcesResponseBodyData extends $dara.Model {
    * @remarks
    * The instance ID of the cloud resource.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
    * 
    * @example
-   * nlb-rv05agjc97ovm14il5
+   * nlb-rv05a********14il5
    */
   instanceId?: string;
   /**
    * @remarks
    * The listener ID of the cloud resource.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
    * 
    * @example
-   * lsn-jiugof6t23et66lsnc@443
+   * lsn-jiug********66lsnc@443
    */
   listenerId?: string;
   /**
    * @remarks
    * The listening port of the cloud resource.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
    * 
    * @example
-   * 8047
+   * 443
    */
   listenerPort?: string;
   /**
@@ -182,10 +187,11 @@ export class ListCloudResourcesResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether an Alibaba Cloud SSL certificate is used. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: yes
    * 
-   * >  This parameter is required only when you deploy certificates to services of multiple clouds.
+   * - **0**: no
+   * 
+   * > This parameter is required only when you deploy certificates to services of multiple clouds.
    * 
    * @example
    * 1
@@ -196,7 +202,7 @@ export class ListCloudResourcesResponseBodyData extends $dara.Model {
    * The ID of the Alibaba Cloud account.
    * 
    * @example
-   * 1666884372152785
+   * 1666884372******
    */
   userId?: number;
   static names(): { [key: string]: string } {

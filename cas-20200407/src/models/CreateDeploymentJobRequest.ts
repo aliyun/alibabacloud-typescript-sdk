@@ -29,8 +29,9 @@ export class CreateDeploymentJobRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   cloud: multi-cloud deployment task.
-   * *   user: cloud service deployment task. This type of task does not support cloud servers.
+   * - cloud: multi-cloud deployment task.
+   * 
+   * - user: cloud service deployment task. This type of task does not support cloud servers.
    * 
    * This parameter is required.
    * 

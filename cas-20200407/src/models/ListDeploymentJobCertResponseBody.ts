@@ -32,16 +32,18 @@ export class ListDeploymentJobCertResponseBodyData extends $dara.Model {
    * The name of the certificate.
    * 
    * @example
-   * edkog.shop
+   * cert-11488855
    */
   certName?: string;
   /**
    * @remarks
    * The type of the certificate order. Valid values:
    * 
-   * *   **upload**: uploaded certificate.
-   * *   **buy**: purchased certificate.
-   * *   **free**: free certificate. This value is available only on the China site (aliyun.com).
+   * - **upload**: uploaded certificate.
+   * 
+   * - **buy**: purchased certificate.
+   * 
+   * - **free**: free certificate. This value is available only on the China site (aliyun.com).
    * 
    * @example
    * buy
@@ -60,15 +62,16 @@ export class ListDeploymentJobCertResponseBodyData extends $dara.Model {
    * The common name of the certificate.
    * 
    * @example
-   * vaultwebhook.vault-webhook.svc
+   * example.com
    */
   commonName?: string;
   /**
    * @remarks
    * Indicates whether the certificate is hosted. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -102,7 +105,7 @@ export class ListDeploymentJobCertResponseBodyData extends $dara.Model {
    * @remarks
    * The ID of the certificate order.
    * 
-   * >  If CertId is returned, this parameter is not returned.
+   * > If CertId is returned, this parameter is not returned.
    * 
    * @example
    * 6127067
@@ -117,19 +120,31 @@ export class ListDeploymentJobCertResponseBodyData extends $dara.Model {
    * @remarks
    * The status code of the certificate. Valid values:
    * 
-   * *   **payed**: paid and pending application
-   * *   **checking**: being validated
-   * *   **checkedFail**: validation failed
-   * *   **revoked**: revoked
-   * *   **revokeChecking**: revocation request being validated
-   * *   **issued**: issued (excluding hosted certificates that are issued, certificates that are about to expire, expired certificates, and uploaded certificates)
-   * *   **trustee**: hosted and issued
-   * *   **upload**: uploaded (excluding certificates that are about to expire and expired certificates)
-   * *   **willExpired**: about to expire (including certificates issued by using the Certificate Management Service console and uploaded certificates)
-   * *   **expired**: expired (including certificates issued by using the Certificate Management Service console and uploaded certificates)
-   * *   **validity**: valid (including certificates that are not expired or revoked)
-   * *   **refund**: refunded
-   * *   **closed**: closed
+   * - **payed**: paid and pending application
+   * 
+   * - **checking**: being validated
+   * 
+   * - **checkedFail**: validation failed
+   * 
+   * - **revoked**: revoked
+   * 
+   * - **revokeChecking**: revocation request being validated
+   * 
+   * - **issued**: issued (excluding hosted certificates that are issued, certificates that are about to expire, expired certificates, and uploaded certificates)
+   * 
+   * - **trustee**: hosted and issued
+   * 
+   * - **upload**: uploaded (excluding certificates that are about to expire and expired certificates)
+   * 
+   * - **willExpired**: about to expire (including certificates issued by using the Certificate Management Service (CAS) console and uploaded certificates)
+   * 
+   * - **expired**: expired (including certificates issued by using the CAS console and uploaded certificates)
+   * 
+   * - **validity**: valid (including certificates that are not expired or revoked)
+   * 
+   * - **refund**: refunded
+   * 
+   * - **closed**: closed
    * 
    * @example
    * issued

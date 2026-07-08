@@ -21,7 +21,7 @@ export class ListContactRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of contacts per page.
+   * The number of entries to return on each page. Default value: 20.
    * 
    * @example
    * 20

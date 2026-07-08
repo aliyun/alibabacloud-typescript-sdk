@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $dara.Model {
   /**
    * @remarks
-   * The algorithm. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The algorithm. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * RSA
@@ -13,7 +13,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   algorithm?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud order. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The ID of the Alibaba Cloud order. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * 234567
@@ -21,7 +21,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   aliyunOrderId?: number;
   /**
    * @remarks
-   * The time at which the order was placed. Unit: milliseconds. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The purchase time. The value is a UNIX timestamp. Unit: milliseconds. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * 1634283958000
@@ -29,7 +29,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   buyDate?: number;
   /**
    * @remarks
-   * The time at which the certificate expires. Unit: milliseconds. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The expiration time of the certificate. The value is a UNIX timestamp. Unit: milliseconds. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * 1665819958000
@@ -37,7 +37,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   certEndTime?: number;
   /**
    * @remarks
-   * The time at which the certificate starts to take effect. Unit: milliseconds. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The start time of the certificate. The value is a UNIX timestamp. Unit: milliseconds. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * 1665819958000
@@ -45,11 +45,15 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   certStartTime?: number;
   /**
    * @remarks
-   * The type of the certificate. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
+   * The certificate type. This parameter is returned when OrderType is set to CPACK or BUY. Valid values:
    * 
-   * *   **DV**: domain validated (DV) certificate
-   * *   **EV**: extended validation (EV) certificate
-   * *   **OV**: organization validated (OV) certificate **FREE**: free certificate, available only on the China site (aliyun.com)
+   * - **DV**: A DV certificate.
+   * 
+   * - **EV**: An EV certificate.
+   * 
+   * - **OV**: An OV certificate.
+   * 
+   * - **FREE**: A free certificate for personal trial. This value is supported only on the Alibaba Cloud China website (www\\.aliyun.com).
    * 
    * @example
    * FREE
@@ -57,7 +61,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   certType?: string;
   /**
    * @remarks
-   * The ID of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The certificate ID. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * 896521
@@ -65,15 +69,15 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   certificateId?: number;
   /**
    * @remarks
-   * The city in which the organization is located. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The city. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
-   * Hangzhou
+   * 杭州市
    */
   city?: string;
   /**
    * @remarks
-   * The parent domain name of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The primary domain name of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * aliyun.com
@@ -81,7 +85,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   commonName?: string;
   /**
    * @remarks
-   * The code of the country in which the organization is located. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The country code. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * CN
@@ -89,7 +93,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   country?: string;
   /**
    * @remarks
-   * The domain name. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The domain name. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * aliyundoc.com
@@ -97,7 +101,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   domain?: string;
   /**
    * @remarks
-   * The total number of domain names that can be bound to the certificate. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The number of domain names that you purchased. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * 1
@@ -105,13 +109,17 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   domainCount?: number;
   /**
    * @remarks
-   * The type of the domain name. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
+   * The domain name type. This parameter is returned when OrderType is set to CPACK or BUY. Valid values:
    * 
-   * *   **ONE**: single domain name
-   * *   **MULTIPLE**: multiple domain names
-   * *   **WILDCARD**: single wildcard domain name
-   * *   **M_WILDCARD**: multiple wildcard domain names
-   * *   **MIX**: hybrid domain name
+   * - **ONE**: A single domain name.
+   * 
+   * - **MULTIPLE**: Multiple domain names.
+   * 
+   * - **WILDCARD**: A single wildcard domain name.
+   * 
+   * - **M_WILDCARD**: Multiple wildcard domain names.
+   * 
+   * - **MIX**: A hybrid domain name.
    * 
    * @example
    * ONE
@@ -119,7 +127,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   domainType?: string;
   /**
    * @remarks
-   * The time at which the certificate expires. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The end date of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * 2022-11-17
@@ -127,7 +135,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   endDate?: string;
   /**
    * @remarks
-   * Indicates whether the certificate expires. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * Indicates whether the certificate has expired. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * true
@@ -135,7 +143,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   expired?: boolean;
   /**
    * @remarks
-   * The fingerprint of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The certificate fingerprint. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * CC6B3696E7C7CA715BD26E28E45FF3E3DF435C03
@@ -143,7 +151,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   fingerprint?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * cas-instanceId
@@ -151,7 +159,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   instanceId?: string;
   /**
    * @remarks
-   * The issuer of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The issuer of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * MyIssuer
@@ -159,7 +167,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   issuer?: string;
   /**
    * @remarks
-   * The name of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The certificate name. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * cert-name
@@ -167,7 +175,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   name?: string;
   /**
    * @remarks
-   * The order ID. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The order ID. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * 2345687
@@ -175,15 +183,15 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   orderId?: number;
   /**
    * @remarks
-   * The name of the organization that is associated with the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The name of the organization that is associated with the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
-   * Alibaba Cloud
+   * 阿里云
    */
   orgName?: string;
   /**
    * @remarks
-   * The ID of the third-party certificate authority (CA) order. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The ID of the third-party certificate authority (CA) order. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * ca-123456
@@ -191,7 +199,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   partnerOrderId?: string;
   /**
    * @remarks
-   * The specification ID of the order. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The code for the product specifications. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * bykj123456
@@ -199,7 +207,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   productCode?: string;
   /**
    * @remarks
-   * The specification name of the order. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The name of the product specifications. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * CFCA
@@ -207,15 +215,15 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   productName?: string;
   /**
    * @remarks
-   * The province or autonomous region in which the organization is located. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The province or autonomous region. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
-   * Zhejiang
+   * 浙江省
    */
   province?: string;
   /**
    * @remarks
-   * The ID of the resource group. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The ID of the resource group. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * rg-ae******4wia
@@ -223,7 +231,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   resourceGroupId?: string;
   /**
    * @remarks
-   * The brand of the certificate. Valid values: WoSign, CFCA, DigiCert, and vTrus. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The brand, such as WoSign, CFCA, DigiCert, and vTrus. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * CFCA
@@ -231,7 +239,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   rootBrand?: string;
   /**
    * @remarks
-   * All domain names that are bound to the certificate. Multiple domain names are separated by commas (,). This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The domain names that are bound to the certificate. Multiple domain names are separated by commas (,). This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * aliyun.com
@@ -239,7 +247,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   sans?: string;
   /**
    * @remarks
-   * The serial number of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The certificate serial number. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * 040a6e493cffdda6d744acf99b6576cf
@@ -247,7 +255,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   serialNo?: string;
   /**
    * @remarks
-   * The SHA-2 value of the certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The SHA-2 value of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * 56B4DED2243A81DD909D7C39824FFE4DDBD87F91BFA46CD333FF212FE0E7CB11
@@ -255,10 +263,11 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   sha2?: string;
   /**
    * @remarks
-   * The type of the order. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
+   * The order type. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
-   * *   **cpack**: virtual resource order
-   * *   **buy**: purchase order
+   * - **cpack**: An order for a resource plan.
+   * 
+   * - **buy**: A direct purchase.
    * 
    * @example
    * buy
@@ -266,7 +275,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   sourceType?: string;
   /**
    * @remarks
-   * The time at which the certificate starts to take effect. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * The start date of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * 2021-11-16
@@ -274,16 +283,23 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   startDate?: string;
   /**
    * @remarks
-   * The certificate status of the order. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
+   * The status of the order or certificate. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
-   * *   **PAYED**: pending application
-   * *   **CHECKING**: reviewing
-   * *   **CHECKED_FAIL**: review failed
-   * *   **ISSUED**: issued
-   * *   **WILLEXPIRED**: about to expire
-   * *   **EXPIRED**: expired
-   * *   **NOTACTIVATED**: not activated
-   * *   **REVOKED**: revoked
+   * - **PAYED**: The certificate is pending application.
+   * 
+   * - **CHECKING**: The certificate is under review.
+   * 
+   * - **CHECKED_FAIL**: The review failed.
+   * 
+   * - **ISSUED**: The certificate is issued.
+   * 
+   * - **WILLEXPIRED**: The certificate is about to expire.
+   * 
+   * - **EXPIRED**: The certificate has expired.
+   * 
+   * - **NOTACTIVATED**: The certificate is not activated.
+   * 
+   * - **REVOKED**: The certificate is revoked.
    * 
    * @example
    * PAYED
@@ -291,10 +307,11 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   status?: string;
   /**
    * @remarks
-   * The hosting status of the certificate. This parameter is returned only if OrderType is set to CPACK or BUY. Valid values:
+   * The hosting status. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
-   * *   **unTrustee**: not hosted
-   * *   **trustee**: hosted
+   * - **unTrustee**: Not hosted.
+   * 
+   * - **trustee**: Hosted.
    * 
    * @example
    * unTrustee
@@ -302,7 +319,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   trusteeStatus?: string;
   /**
    * @remarks
-   * Indicates whether the certificate is an uploaded certificate. This parameter is returned only if OrderType is set to CERT or UPLOAD.
+   * Indicates whether the certificate is an uploaded certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
    * 
    * @example
    * false
@@ -310,7 +327,7 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
   upload?: boolean;
   /**
    * @remarks
-   * The number of wildcard domain names that can be bound to the certificate. This parameter is returned only if OrderType is set to CPACK or BUY.
+   * The number of wildcard domain names that you purchased. This parameter is returned when OrderType is set to CPACK or BUY.
    * 
    * @example
    * 0
@@ -410,12 +427,15 @@ export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $d
 export class ListUserCertificateOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The certificates and orders.
+   * The list of certificates and orders.
+   * 
+   * @example
+   * {"CertificateOrderList": [{"Status": "PAYED","ProductName": "专业版通配符 OV SSL","InstanceId": "cert-instanceId","ProductCode": "globalsign-xxxx","SourceType": "buy","WildDomainCount": 1,"CertType": "OV","PartnerOrderId": "","OrderId": 3451111,"Algorithm": "RSA","RootBrand": "GlobalSign","AliyunOrderId": 21xxxxxx40655,"DomainType": "WILDCARD","TrusteeStatus": "trustee","Domain": "","BuyDate": 1632649385000,"DomainCount": 1}]}
    */
   certificateOrderList?: ListUserCertificateOrderResponseBodyCertificateOrderList[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -423,7 +443,7 @@ export class ListUserCertificateOrderResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * The request ID. This ID is unique to each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -431,7 +451,7 @@ export class ListUserCertificateOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10
@@ -439,7 +459,7 @@ export class ListUserCertificateOrderResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

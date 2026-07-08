@@ -49,12 +49,12 @@ export class CreateCertificateForPackageRequestRequest extends $dara.Model {
    * @remarks
    * The company name of the certificate application.
    * 
-   * >  This parameter is available only when you apply for OV certificates. For more information, see [Manage company profiles](https://help.aliyun.com/document_detail/198289.html). If you want to apply for a DV certificate, you do not need to add a company profile.
+   * > This parameter is available only when you apply for OV certificates. For more information, see [Manage company profiles](https://help.aliyun.com/document_detail/198289.html). If you want to apply for a DV certificate, you do not need to add a company profile.
    * 
    * If you specify a company name, the information about the company that is configured in the **Information Management** module is used. If you do not specify this parameter, the information about the most recent company that is added to the **Information Management** module is used.
    * 
    * @example
-   * A company
+   * 某公司
    */
   companyName?: string;
   /**
@@ -63,7 +63,7 @@ export class CreateCertificateForPackageRequestRequest extends $dara.Model {
    * 
    * A CSR file contains the information about your server and company. When you apply for a certificate, you must submit the CSR file to the CA. The CA signs the CSR file by using the private key of the root certificate and generates a public key file to issue your certificate.
    * 
-   * >  The \\*\\*CN\\*\\* field in CSR file specifies the domain name that is bound to the certificate. You must include the field in the parameter value.
+   * > The \\*\\*CN\\*\\* field in CSR file specifies the domain name that is bound to the certificate. You must include the field in the parameter value.
    * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
@@ -73,11 +73,13 @@ export class CreateCertificateForPackageRequestRequest extends $dara.Model {
    * @remarks
    * The domain name that you want to bind to the certificate. The domain name must meet the following requirements:
    * 
-   * *   The domain name must be a single domain name or a wildcard domain name. Example: `*.aliyundoc.com`.
-   * *   You can specify multiple domain names. Separate multiple domain names with commas (,). You can specify a maximum of five domain names.
-   * *   If you specify multiple domain names, the domain names must be only single domain names or only wildcard domain names. You cannot specify both single domain names and wildcard domain names.
+   * - The domain name must be a single domain name or a wildcard domain name. Example: `*.aliyundoc.com`.
    * 
-   * >  If you want to bind multiple domain names to the certificate, you must specify this parameter. You must specify at least one of the Domain parameter and the \\*\\*Csr\\*\\* parameter. If you specify both the Domain parameter and the \\*\\*Csr\\*\\* parameter, the value of the \\*\\*CN\\*\\* field in the \\*\\*Csr\\*\\* parameter is used as the domain name that is bound to the certificate.
+   * - You can specify multiple domain names. Separate multiple domain names with commas (,). You can specify a maximum of five domain names.
+   * 
+   * - If you specify multiple domain names, the domain names must be only single domain names or only wildcard domain names. You cannot specify both single domain names and wildcard domain names.
+   * 
+   * > If you want to bind multiple domain names to the certificate, you must specify this parameter. You must specify at least one of the Domain parameter and the \\*\\*Csr\\*\\* parameter. If you specify both the Domain parameter and the \\*\\*Csr\\*\\* parameter, the value of the \\*\\*CN\\*\\* field in the \\*\\*Csr\\*\\* parameter is used as the domain name that is bound to the certificate.
    * 
    * @example
    * aliyundoc.com
@@ -107,29 +109,43 @@ export class CreateCertificateForPackageRequestRequest extends $dara.Model {
    * @remarks
    * The specifications of the certificate that you want to apply for. Valid values:
    * 
-   * *   **digicert-free-1-free** (default): DigiCert single-domain domain validated (DV) certificate, which is free and valid for 3 months. This value is available only on the China site (aliyun.com).
-   * *   **symantec-free-1-free**: DigiCert single-domain DV certificate, which is free and valid for 1 year. This value is available only on the China site (aliyun.com).
-   * *   **symantec-dv-1-starter**: DigiCert wildcard DV certificate.
-   * *   **symantec-ov-1-personal**: DigiCert single-domain organization validated (OV) certificate.
-   * *   **symantec-ov-w-personal**: DigiCert wildcard OV certificate.
-   * *   **geotrust-dv-1-starter**: GeoTrust single-domain DV certificate.
-   * *   **geotrust-dv-w-starter**: GeoTrust wildcard DV certificate.
-   * *   **geotrust-ov-1-personal**: GeoTrust single-domain OV certificate.
-   * *   **geotrust-ov-w-personal**: GeoTrust wildcard OV certificate.
-   * *   **globalsign-dv-1-personal**: GlobalSign single-domain DV certificate.
-   * *   **globalsign-dv-w-advanced**: GlobalSign wildcard DV certificate.
-   * *   **globalsign-ov-1-personal**: GlobalSign single-domain OV certificate.
-   * *   **globalsign-ov-w-advanced**: GlobalSign wildcard OV certificate.
-   * *   **cfca-ov-1-personal**: China Financial Certification Authority (CFCA) single-domain OV certificate, available only on the China site (aliyun.com).
-   * *   **cfca-ev-w-advanced**: CFCA wildcard OV certificate, available only on the China site (aliyun.com).
+   * - **digicert-free-1-free** (default): DigiCert single-domain domain validated (DV) certificate, which is free and valid for 3 months. This value is available only on the China site (aliyun.com).
+   * 
+   * - **symantec-free-1-free**: DigiCert single-domain DV certificate, which is free and valid for 1 year. This value is available only on the China site (aliyun.com).
+   * 
+   * - **symantec-dv-1-starter**: DigiCert wildcard DV certificate.
+   * 
+   * - **symantec-ov-1-personal**: DigiCert single-domain organization validated (OV) certificate.
+   * 
+   * - **symantec-ov-w-personal**: DigiCert wildcard OV certificate.
+   * 
+   * - **geotrust-dv-1-starter**: GeoTrust single-domain DV certificate.
+   * 
+   * - **geotrust-dv-w-starter**: GeoTrust wildcard DV certificate.
+   * 
+   * - **geotrust-ov-1-personal**: GeoTrust single-domain OV certificate.
+   * 
+   * - **geotrust-ov-w-personal**: GeoTrust wildcard OV certificate.
+   * 
+   * - **globalsign-dv-1-personal**: GlobalSign single-domain DV certificate.
+   * 
+   * - **globalsign-dv-w-advanced**: GlobalSign wildcard DV certificate.
+   * 
+   * - **globalsign-ov-1-personal**: GlobalSign single-domain OV certificate.
+   * 
+   * - **globalsign-ov-w-advanced**: GlobalSign wildcard OV certificate.
+   * 
+   * - **cfca-ov-1-personal**: China Financial Certification Authority (CFCA) single-domain OV certificate, available only on the China site (aliyun.com).
+   * 
+   * - **cfca-ev-w-advanced**: CFCA wildcard OV certificate, available only on the China site (aliyun.com).
    * 
    * @example
-   * symantec-free-1-free
+   * digicert-free-1-free
    */
   productCode?: string;
   /**
    * @remarks
-   * The list of tags.
+   * A list of tags.
    */
   tags?: CreateCertificateForPackageRequestRequestTags[];
   /**
@@ -146,8 +162,9 @@ export class CreateCertificateForPackageRequestRequest extends $dara.Model {
    * @remarks
    * The verification method of the domain name ownership. Valid values:
    * 
-   * *   **DNS**: DNS verification. If you use this method, you must add a TXT record to the DNS records of the domain name in the management platform of the domain name. You must have operation permissions on domain name resolution to verify the ownership of the domain name.
-   * *   **FILE**: file verification. If you use this method, you must create a specified file on the DNS server. You must have administrative rights on the DNS server to verify the ownership of the domain name.
+   * - **DNS**: DNS verification. If you use this method, you must add a TXT record to the DNS records of the domain name in the management platform of the domain name. You must have operation permissions on domain name resolution to verify the ownership of the domain name.
+   * 
+   * - **FILE**: file verification. If you use this method, you must create a specified file on the DNS server. You must have administrative rights on the DNS server to verify the ownership of the domain name.
    * 
    * For more information about the verification methods, see [Verify the ownership of a domain name](https://help.aliyun.com/document_detail/48016.html).
    * 

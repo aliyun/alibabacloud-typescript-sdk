@@ -48,7 +48,7 @@ export class ListContactResponseBodyContactList extends $dara.Model {
    * The name of the contact.
    * 
    * @example
-   * ty-yaoyue.com
+   * John
    */
   name?: string;
   /**

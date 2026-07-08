@@ -32,7 +32,7 @@ export class DescribeDeploymentJobResponseBodyCasContacts extends $dara.Model {
    * The name of the contact.
    * 
    * @example
-   * zhangsan
+   * John
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -80,9 +80,11 @@ export class DescribeDeploymentJobResponseBody extends $dara.Model {
    * @remarks
    * The type of the certificate. Valid values:
    * 
-   * *   **upload**: uploaded certificate
-   * *   **buy**: purchased certificate
-   * *   **free**: free certificate available only on the China site (aliyun.com)
+   * - **upload**: uploaded certificate
+   * 
+   * - **buy**: purchased certificate
+   * 
+   * - **free**: free certificate available only on the China site (aliyun.com)
    * 
    * @example
    * buy
@@ -100,8 +102,9 @@ export class DescribeDeploymentJobResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the deployment job was deleted. Valid values:
    * 
-   * *   **0**: not deleted
-   * *   **1**: deleted
+   * - **0**: not deleted
+   * 
+   * - **1**: deleted
    * 
    * @example
    * 1
@@ -136,7 +139,7 @@ export class DescribeDeploymentJobResponseBody extends $dara.Model {
    * The ID of the deployment job.
    * 
    * @example
-   * 8888
+   * 43222
    */
   id?: number;
   /**
@@ -151,9 +154,11 @@ export class DescribeDeploymentJobResponseBody extends $dara.Model {
    * @remarks
    * The type of the deployment job. Valid values:
    * 
-   * *   **cloud**: multi-cloud deployment job.
-   * *   **trustee**: hosted deployment job available only on the China site (aliyun.com).
-   * *   **user**: cloud service deployment job. The cloud server is not included.
+   * - **cloud**: multi-cloud deployment job.
+   * 
+   * - **trustee**: hosted deployment job available only on the China site (aliyun.com).
+   * 
+   * - **user**: cloud service deployment job. The cloud server is not included.
    * 
    * @example
    * user
@@ -187,8 +192,9 @@ export class DescribeDeploymentJobResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the deployment job includes the rollback worker. For example, if a cloud service in a deployment job has been rolled back, **1** is returned. Valid values:
    * 
-   * *   **0**: The rollback worker is not included.
-   * *   **1**: The rollback worker is included.
+   * - **0**: The rollback worker is not included.
+   * 
+   * - **1**: The rollback worker is included.
    * 
    * @example
    * 1
@@ -214,12 +220,17 @@ export class DescribeDeploymentJobResponseBody extends $dara.Model {
    * @remarks
    * The status of the deployment job. Valid values:
    * 
-   * *   **pending**
-   * *   **editing**
-   * *   **scheduling**
-   * *   **processing**
-   * *   **error**
-   * *   **success**
+   * - **pending**
+   * 
+   * - **editing**
+   * 
+   * - **scheduling**
+   * 
+   * - **processing**
+   * 
+   * - **error**
+   * 
+   * - **success**
    * 
    * @example
    * editing
@@ -230,7 +241,7 @@ export class DescribeDeploymentJobResponseBody extends $dara.Model {
    * The ID of the Alibaba Cloud account in which the deployment job is created.
    * 
    * @example
-   * 166688437XXXX785
+   * 166688437******
    */
   userId?: number;
   static names(): { [key: string]: string } {

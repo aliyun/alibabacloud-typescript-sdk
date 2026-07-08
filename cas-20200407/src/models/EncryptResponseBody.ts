@@ -8,12 +8,12 @@ export class EncryptResponseBody extends $dara.Model {
    * The unique identifier of the certificate.
    * 
    * @example
-   * 12345678-1234-1234-1234-12345678****
+   * 1ef1da5f-38ed-69b3-****-037781890265
    */
   certIdentifier?: string;
   /**
    * @remarks
-   * The data after encryption. The value is encoded in Base64.
+   * The encrypted data. The data is Base64-encoded.
    * 
    * @example
    * ZOyIygCyaOW6Gj****MlNKiuyjfzw=
@@ -21,7 +21,7 @@ export class EncryptResponseBody extends $dara.Model {
   ciphertextBlob?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5979d897-d69f-4fc9-87dd-f3bb73c40b80

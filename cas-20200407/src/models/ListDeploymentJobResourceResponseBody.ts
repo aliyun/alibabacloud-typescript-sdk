@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The end date of the certificate bound to the cloud resource. The value is a timestamp in seconds.
+   * The expiration date of the certificate that is attached to the cloud product resource. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1681956830000
@@ -13,7 +13,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   certEndTime?: string;
   /**
    * @remarks
-   * The ID of the certificate bound to the cloud resource.
+   * The ID of the certificate that is attached to the cloud product resource.
    * 
    * @example
    * 11599949
@@ -21,7 +21,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   certId?: number;
   /**
    * @remarks
-   * The name of the certificate bound to the cloud resource.
+   * The name of the certificate that is attached to the cloud product resource.
    * 
    * @example
    * sc-SSL
@@ -29,7 +29,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * The start date of the certificate bound to the cloud resource. The value is a timestamp in seconds.
+   * The start date of the certificate that is attached to the cloud product resource. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1681956830000
@@ -37,9 +37,9 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   certStartTime?: string;
   /**
    * @remarks
-   * The AccessKey ID used to access cloud resources.
+   * The key ID used to access the cloud resource set.
    * 
-   * >  This parameter is required only when you deploy certificates to services of multiple clouds.
+   * > This parameter is returned only for multicloud deployments.
    * 
    * @example
    * 1234
@@ -47,10 +47,11 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   cloudAccessId?: string;
   /**
    * @remarks
-   * The cloud service provider of the cloud resource. Valid values:
+   * The provider of the cloud product resource.
    * 
-   * *   **aliyun**: Alibaba Cloud
-   * *   **Tencent**: Tencent Cloud
+   * - **aliyun**: Alibaba Cloud
+   * 
+   * - **Tencent**: Tencent Cloud
    * 
    * @example
    * aliyun
@@ -58,26 +59,47 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   cloudName?: string;
   /**
    * @remarks
-   * The cloud service. Valid values:
+   * The cloud service.
    * 
-   * *   **CDN**: Alibaba Cloud CDN (CDN). This value is supported only at the China site (aliyun.com).
-   * *   **SLB**: Classic Load Balancer (CLB). This value is supported only at the China site (aliyun.com).
-   * *   **DCDN**: Dynamic Content Delivery Network (DCDN). This value is supported only at the China site (aliyun.com).
-   * *   **DDOS**: Anti-DDoS. This value is supported only at the China site (aliyun.com).
-   * *   **LIVE**: ApsaraVideo Live. This value is supported only at the China site (aliyun.com).
-   * *   **webHosting**: Cloud Web Hosting. This value is supported only at the China site (aliyun.com).
-   * *   **VOD**: ApsaraVideo VOD. This value is supported only at the China site (aliyun.com).
-   * *   **CR**: Container Registry. This value is supported only at the China site (aliyun.com).
-   * *   **ALB**: Application Load Balancer (ALB).
-   * *   **APIGateway**: API Gateway.
-   * *   **FC**: Function Compute.
-   * *   **GA**: Global Accelerator (GA).
-   * *   **MSE**: Microservices Engine (MSE).
-   * *   **NLB**: Network Load Balancer (NLB).
-   * *   **OSS**: Object Storage Service (OSS).
-   * *   **SAE**: Serverless App Engine (SAE).
-   * *   **TencentCDN**: Tencent Cloud Content Delivery Network (CDN).
-   * *   **WAF**: Web Application Firewall (WAF).
+   * <props="china">
+   * 
+   * - **SLB**: Classic Load Balancer (CLB) (China site only)
+   * 
+   * - **LIVE**: ApsaraVideo Live (China site only)
+   * 
+   * - **webHosting**: Cloud Web Hosting (China site only)
+   * 
+   * - **VOD**: ApsaraVideo VOD (China site only)
+   * 
+   * - **CR**: Container Registry (China site only)
+   * 
+   * 
+   * 
+   * - **DCDN**: DCDN
+   * 
+   * - **DDOS**: Anti-DDoS
+   * 
+   * - **CDN**: Alibaba Cloud CDN
+   * 
+   * - **ALB**: Application Load Balancer
+   * 
+   * - **APIGateway**: API Gateway
+   * 
+   * - **FC**: Function Compute
+   * 
+   * - **GA**: Global Accelerator
+   * 
+   * - **MSE**: MSE
+   * 
+   * - **NLB**: Network Load Balancer
+   * 
+   * - **OSS**: OSS
+   * 
+   * - **SAE**: SAE
+   * 
+   * - **TencentCDN**: Tencent CDN
+   * 
+   * - **WAF**: WAF
    * 
    * @example
    * SLB
@@ -85,7 +107,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   cloudProduct?: string;
   /**
    * @remarks
-   * The region ID of the cloud service provider to which the cloud resource belongs.
+   * The region ID of the cloud product resource from the cloud provider.
    * 
    * @example
    * cn-hangzhou
@@ -93,12 +115,13 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   cloudRegion?: string;
   /**
    * @remarks
-   * Indicates whether the cloud resource is the default resource. Valid values:
+   * Indicates whether the cloud product resource is a default resource.
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Default resource
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * - **0**: Not a default resource
+   * 
+   * > This parameter is returned only for deployments of SLB, NLB, ALB, and GA.
    * 
    * @example
    * 0
@@ -106,7 +129,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   defaultResource?: number;
   /**
    * @remarks
-   * The domain name bound to the cloud resource.
+   * The domain name that is attached to the cloud product resource.
    * 
    * @example
    * aliyundoc.com
@@ -114,10 +137,11 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Indicates whether HTTPS is enabled for the cloud resource. Valid values:
+   * Indicates whether HTTPS is enabled for the cloud product resource.
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Enabled
+   * 
+   * - **0**: Disabled
    * 
    * @example
    * 1
@@ -125,7 +149,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   enableHttps?: number;
   /**
    * @remarks
-   * The time when the cloud resource was created. The time is a timestamp in seconds.
+   * The time when the synchronized resource was created. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1673423339000
@@ -133,7 +157,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the cloud resource was last modified. The time is in the timestamp format.
+   * The time when the synchronized resource was last modified. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1681956830000
@@ -141,7 +165,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the cloud resource.
+   * The ID of the cloud product resource.
    * 
    * @example
    * 20979
@@ -149,9 +173,9 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The instance ID of the cloud resource.
+   * The instance ID of the cloud product resource.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only for deployments of SLB, NLB, ALB, and GA.
    * 
    * @example
    * cas-cn-m7r1qocw91at
@@ -159,9 +183,9 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listener ID of the cloud resource.
+   * The listener ID of the cloud product resource.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only for deployments of SLB, NLB, ALB, and GA.
    * 
    * @example
    * lsn-vwdff0q20poq5xazb9@443
@@ -169,9 +193,9 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The listening port of the cloud resource.
+   * The listener port of the cloud product resource.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only for deployments of SLB, NLB, ALB, and GA.
    * 
    * @example
    * 8047
@@ -179,7 +203,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   listenerPort?: string;
   /**
    * @remarks
-   * The region ID of the cloud resource.
+   * The region ID of the synchronized cloud product resource.
    * 
    * @example
    * cn-hangzhou
@@ -187,7 +211,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The other metadata related to the cloud resource.
+   * Other metadata about the cloud product resource.
    * 
    * @example
    * {\\"camera_model\\":\\"GIFSHOW [1267087617][OnePlus
@@ -195,7 +219,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The status of the cloud resource.
+   * The status of the synchronized cloud product resource.
    * 
    * @example
    * online
@@ -203,12 +227,13 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether an Alibaba Cloud SSL certificate is used. Valid values:
+   * Indicates whether an Alibaba Cloud SSL certificate is used.
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * - **1**: Yes
    * 
-   * >  This parameter is required only when you deploy certificates to services of multiple clouds.
+   * - **0**: No
+   * 
+   * > This parameter is returned only for multicloud deployments.
    * 
    * @example
    * 1
@@ -219,7 +244,7 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
    * The ID of the Alibaba Cloud account.
    * 
    * @example
-   * 1666884372152785
+   * 1666884372******
    */
   userId?: number;
   static names(): { [key: string]: string } {
@@ -288,12 +313,12 @@ export class ListDeploymentJobResourceResponseBodyData extends $dara.Model {
 export class ListDeploymentJobResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The data returned.
    */
   data?: ListDeploymentJobResourceResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74

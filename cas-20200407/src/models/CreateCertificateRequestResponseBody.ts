@@ -7,7 +7,7 @@ export class CreateCertificateRequestResponseBody extends $dara.Model {
    * @remarks
    * The ID of the certificate application order.
    * 
-   * >  You can use the ID to query the status of the certificate application. For more information, see [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html).
+   * > You can use the ID to query the status of the certificate application. For more information, see [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html).
    * 
    * @example
    * 98987582437920968

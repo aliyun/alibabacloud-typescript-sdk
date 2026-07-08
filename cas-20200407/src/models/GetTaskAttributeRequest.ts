@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTaskAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetTaskAttributeRequest extends $dara.Model {
    */
   taskId?: string;
   /**
+   * @remarks
+   * The type of the asynchronous task. The default value is ApplyCertificate, which specifies a query for the result of a certificate application.
+   * 
    * @example
    * ApplyCertificate
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCsrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. Alibaba Cloud generates this ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * 082FAB35-6AB9-4FD5-8750-D36673548E76

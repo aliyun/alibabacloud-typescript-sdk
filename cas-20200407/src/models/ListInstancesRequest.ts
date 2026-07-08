@@ -4,46 +4,84 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The certification authority (CA) brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
+   * 
    * @example
    * Digicert
    */
   brand?: string;
   /**
+   * @remarks
+   * The status of the certificate. Valid values:
+   * - **issued**: issued.
+   * - **revoked**: revoked.
+   * - **willExpire**: about to expire.
+   * - **expired**: expired.
+   * 
    * @example
    * issued
    */
   certificateStatus?: string;
   /**
+   * @remarks
+   * The type of the certificate. Valid values: DV, OV, and EV.
+   * 
    * @example
    * DV
    */
   certificateType?: string;
   /**
+   * @remarks
+   * The page number of the current page in a paged query. Default value: **1**.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
+   * 
    * @example
    * BUY
    */
   instanceType?: string;
   /**
+   * @remarks
+   * The keyword for fuzzy match. Matches domain names, instance names, or corresponding resource IDs.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-ae******4wia
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The number of instances to display per page in a paged query. Default value: **10**. Maximum value: **100**.
+   * 
    * @example
    * 10
    */
   showSize?: number;
   /**
+   * @remarks
+   * The instance status. Valid values:
+   * - **inactive**: pending use.
+   * - **pending**: under review. The latest certificate is being reviewed.
+   * - **willExpire**: about to expire.
+   * - **expired**: expired.
+   * - **refund**: refunded.
+   * - **normal**: normal.
+   * - **closed**: closed and unavailable.
+   * 
    * @example
    * inactive
    */

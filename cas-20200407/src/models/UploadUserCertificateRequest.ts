@@ -45,7 +45,7 @@ export class UploadUserCertificateRequestTags extends $dara.Model {
 export class UploadUserCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the certificate in the PEM format.
+   * The content of a non-SM certificate in PEM format.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIF...... -----END CERTIFICATE-----
@@ -53,7 +53,7 @@ export class UploadUserCertificateRequest extends $dara.Model {
   cert?: string;
   /**
    * @remarks
-   * The content of the encryption certificate in PEM format.
+   * The content of the SM encryption certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -63,7 +63,7 @@ export class UploadUserCertificateRequest extends $dara.Model {
   encryptCert?: string;
   /**
    * @remarks
-   * The private key of the encryption certificate in the PEM format.
+   * The content of the private key of the SM encryption certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
    * 
    * @example
    * -----BEGIN EC PRIVATE KEY-----
@@ -73,7 +73,7 @@ export class UploadUserCertificateRequest extends $dara.Model {
   encryptPrivateKey?: string;
   /**
    * @remarks
-   * The private key of the certificate in the PEM format.
+   * The private key of a non-SM certificate in PEM format.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -83,9 +83,9 @@ export class UploadUserCertificateRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The name of the certificate. The name can be up to 64 characters in length, and can contain all types of characters, such as letters, digits, and underscores (_).
+   * The custom name of the certificate. The name can be up to 63 characters long and can contain letters, digits, and underscores (_).
    * 
-   * >  The name must be unique within an Alibaba Cloud account.
+   * > Certificate names must be unique for each user.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class UploadUserCertificateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * the resource group id.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ae****vty
@@ -103,7 +103,7 @@ export class UploadUserCertificateRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The content of the signing certificate in the PEM format.
+   * The content of the SM signing certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -113,7 +113,7 @@ export class UploadUserCertificateRequest extends $dara.Model {
   signCert?: string;
   /**
    * @remarks
-   * The private key of the signing certificate in the PEM format.
+   * The content of the private key of the SM signing certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
    * 
    * @example
    * -----BEGIN EC PRIVATE KEY-----
@@ -123,7 +123,7 @@ export class UploadUserCertificateRequest extends $dara.Model {
   signPrivateKey?: string;
   /**
    * @remarks
-   * The tags.
+   * A list of tags.
    */
   tags?: UploadUserCertificateRequestTags[];
   static names(): { [key: string]: string } {

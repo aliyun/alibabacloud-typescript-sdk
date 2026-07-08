@@ -15,7 +15,7 @@ export class UploadCsrRequest extends $dara.Model {
   csr?: string;
   /**
    * @remarks
-   * The private key content of the certificate in the PEM format.
+   * The content of the certificate\\"s private key in PEM format.
    * 
    * @example
    * -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
@@ -23,7 +23,7 @@ export class UploadCsrRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The name of the CSR.
+   * The name of the CSR. The name can be up to 50 characters long and can contain uppercase letters (A–Z), lowercase letters (a–z), digits (0–9), underscores (_), and hyphens (-).
    * 
    * @example
    * name

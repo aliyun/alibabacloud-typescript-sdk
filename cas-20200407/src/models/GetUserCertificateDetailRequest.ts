@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserCertificateDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to filter return results. Valid values: true and false. Default value: false. **true** specifies that the Cert, Key, EncryptCert, EncryptPrivateKey, SignCert, and SignPrivateKey parameters are not returned. **false** specifies that the parameters are returned.
+   * Specifies whether to filter the certificate content from the response. Valid values: **true**: The Cert, Key, EncryptCert, EncryptPrivateKey, SignCert, and SignPrivateKey parameters are not returned. **false** (default): All parameters are returned.
    * 
    * @example
    * false
@@ -13,9 +13,7 @@ export class GetUserCertificateDetailRequest extends $dara.Model {
   certFilter?: boolean;
   /**
    * @remarks
-   * The ID of the certificate.
-   * 
-   * >  You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to query the ID.
+   * The ID of the certificate. To get this ID, call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation.
    * 
    * This parameter is required.
    * 

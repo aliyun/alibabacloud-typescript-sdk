@@ -39,7 +39,7 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * @remarks
    * The cloud service provider to which the cloud resource in the worker task belongs.
    * 
-   * >  This parameter is not returned if you deploy certificates to Alibaba Cloud services.
+   * > This parameter is not returned if you deploy certificates to Alibaba Cloud services.
    * 
    * @example
    * aliyun
@@ -49,24 +49,41 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * @remarks
    * The cloud service to which the cloud resource in the worker task belongs. Valid values:
    * 
-   * *   **CDN**: Alibaba Cloud CDN (CDN). This value is supported only at the China site (aliyun.com).
-   * *   **SLB**: Classic Load Balancer (CLB). This value is supported only at the China site (aliyun.com).
-   * *   **DCDN**: Dynamic Content Delivery Network (DCDN). This value is supported only at the China site (aliyun.com).
-   * *   **DDOS**: Anti-DDoS. This value is supported only at the China site (aliyun.com).
-   * *   **LIVE**: ApsaraVideo Live. This value is supported only at the China site (aliyun.com).
-   * *   **webHosting**: Cloud Web Hosting. This value is supported only at the China site (aliyun.com).
-   * *   **VOD**: ApsaraVideo VOD. This value is supported only at the China site (aliyun.com).
-   * *   **CR**: Container Registry. This value is supported only at the China site (aliyun.com).
-   * *   **ALB**: Application Load Balancer (ALB).
-   * *   **APIGateway**: API Gateway.
-   * *   **FC**: Function Compute.
-   * *   **GA**: Global Accelerator (GA).
-   * *   **MSE**: Microservices Engine (MSE).
-   * *   **NLB**: Network Load Balancer (NLB).
-   * *   **OSS**: Object Storage Service (OSS).
-   * *   **SAE**: Serverless App Engine (SAE).
-   * *   **TencentCDN**: Tencent Cloud Content Delivery Network (CDN).
-   * *   **WAF**: Web Application Firewall (WAF).
+   * - **CDN**: Alibaba Cloud CDN (CDN). This value is supported only at the China site (aliyun.com).
+   * 
+   * - **SLB**: Classic Load Balancer (CLB). This value is supported only at the China site (aliyun.com).
+   * 
+   * - **DCDN**: Dynamic Content Delivery Network (DCDN). This value is supported only at the China site (aliyun.com).
+   * 
+   * - **DDOS**: Anti-DDoS. This value is supported only at the China site (aliyun.com).
+   * 
+   * - **LIVE**: ApsaraVideo Live. This value is supported only at the China site (aliyun.com).
+   * 
+   * - **webHosting**: Cloud Web Hosting. This value is supported only at the China site (aliyun.com).
+   * 
+   * - **VOD**: ApsaraVideo VOD. This value is supported only at the China site (aliyun.com).
+   * 
+   * - **CR**: Container Registry. This value is supported only at the China site (aliyun.com).
+   * 
+   * - **ALB**: Application Load Balancer (ALB).
+   * 
+   * - **APIGateway**: API Gateway.
+   * 
+   * - **FC**: Function Compute.
+   * 
+   * - **GA**: Global Accelerator (GA).
+   * 
+   * - **MSE**: Microservices Engine (MSE).
+   * 
+   * - **NLB**: Network Load Balancer (NLB).
+   * 
+   * - **OSS**: Object Storage Service (OSS).
+   * 
+   * - **SAE**: Serverless App Engine (SAE).
+   * 
+   * - **TencentCDN**: Tencent Cloud Content Delivery Network (CDN).
+   * 
+   * - **WAF**: Web Application Firewall (WAF).
    * 
    * @example
    * SLB
@@ -84,13 +101,14 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the cloud resource in the worker task is the default resource. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * - **false**
+   * 
+   * > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
    * 
    * @example
-   * 0
+   * true
    */
   defaultResource?: boolean;
   /**
@@ -121,7 +139,7 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * @remarks
    * The ID of the cloud resource in the worker task.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
    * 
    * @example
    * cas-cn-0pp118nuu40b
@@ -139,7 +157,7 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * @remarks
    * The listener ID of the cloud resource in the worker task.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
    * 
    * @example
    * lsn-lhl8y7s1e1ngc3m3zz@81
@@ -157,7 +175,7 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * @remarks
    * The order ID of the worker task, which is the same as the order ID of the certificate.
    * 
-   * >  If the CertId parameter is returned, this parameter is not returned.
+   * > If the CertId parameter is returned, this parameter is not returned.
    * 
    * @example
    * 9349278
@@ -167,7 +185,7 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * @remarks
    * The listening port of the cloud resource in the worker task.
    * 
-   * >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+   * > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
    * 
    * @example
    * 4431
@@ -209,15 +227,23 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the worker task. Valid values:
    * 
-   * *   **editing**
-   * *   **pending**
-   * *   **scheduling**
-   * *   **processing**
-   * *   **error**
-   * *   **success**
-   * *   **rollback**
-   * *   **rollback_success**
-   * *   **rollback_error**
+   * - **editing**
+   * 
+   * - **pending**
+   * 
+   * - **scheduling**
+   * 
+   * - **processing**
+   * 
+   * - **error**
+   * 
+   * - **success**
+   * 
+   * - **rollback**
+   * 
+   * - **rollback_success**
+   * 
+   * - **rollback_error**
    * 
    * @example
    * editing
@@ -228,7 +254,7 @@ export class ListWorkerResourceResponseBodyData extends $dara.Model {
    * The ID of the Alibaba Cloud account to which the worker task belongs.
    * 
    * @example
-   * 1666884372152785
+   * 166688437******
    */
   userId?: number;
   static names(): { [key: string]: string } {
@@ -323,7 +349,7 @@ export class ListWorkerResourceResponseBody extends $dara.Model {
    * The number of entries per page. Default value: **50**.
    * 
    * @example
-   * 20
+   * 50
    */
   showSize?: number;
   /**

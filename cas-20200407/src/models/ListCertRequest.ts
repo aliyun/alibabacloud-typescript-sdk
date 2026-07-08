@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListCertRequest extends $dara.Model {
   /**
    * @remarks
-   * 证书的类型 。取值：
+   * The certificate type. Valid values:
    * 
-   * - **CA**：表示CA证书。
-   * - **CERT**：表示签发的证书。
+   * - **CA**: CA certificate
+   * 
+   * - **CERT**: issued certificate
    * 
    * @example
    * CERT
@@ -16,7 +17,7 @@ export class ListCertRequest extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number to return. The default value is 1.
    * 
    * @example
    * 1
@@ -24,7 +25,15 @@ export class ListCertRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The keyword for the query. You can enter a name, domain name, or Subject Alternative Name (SAN) extension. Fuzzy match is supported.
+   * A comma-separated list of certificate identifiers.
+   * 
+   * @example
+   * aaa,bbb
+   */
+  identifiers?: string;
+  /**
+   * @remarks
+   * The keyword for a fuzzy search by name, domain name, or subject alternative name.
    * 
    * @example
    * test_name
@@ -32,7 +41,7 @@ export class ListCertRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 50.
+   * The number of entries per page. The default value is 50.
    * 
    * @example
    * 50
@@ -42,8 +51,9 @@ export class ListCertRequest extends $dara.Model {
    * @remarks
    * The source of the certificate. Valid values:
    * 
-   * *   **upload**: uploaded certificate
-   * *   **aliyun**: Alibaba Cloud certificate
+   * - **upload**: uploaded certificate
+   * 
+   * - **aliyun**: Alibaba Cloud certificate
    * 
    * @example
    * aliyun
@@ -51,10 +61,11 @@ export class ListCertRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate status. Valid values:
    * 
-   * *   **ISSUE**: issued
-   * *   **REVOKE**: revoked
+   * - **ISSUE**: issued
+   * 
+   * - **REVOKE**: revoked
    * 
    * @example
    * ISSUE
@@ -62,7 +73,7 @@ export class ListCertRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the certificate repository. You can call the ListCertWarehouse API operation to query the IDs of certificate repositories.
+   * The warehouse ID. You can obtain this ID by calling the [ListCertWarehouse](https://help.aliyun.com/document_detail/453246.html) API.
    * 
    * @example
    * 12
@@ -72,6 +83,7 @@ export class ListCertRequest extends $dara.Model {
     return {
       certType: 'CertType',
       currentPage: 'CurrentPage',
+      identifiers: 'Identifiers',
       keyWord: 'KeyWord',
       showSize: 'ShowSize',
       sourceType: 'SourceType',
@@ -84,6 +96,7 @@ export class ListCertRequest extends $dara.Model {
     return {
       certType: 'string',
       currentPage: 'number',
+      identifiers: 'string',
       keyWord: 'string',
       showSize: 'number',
       sourceType: 'string',

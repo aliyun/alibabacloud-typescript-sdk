@@ -24,7 +24,7 @@ export class ListCloudAccessResponseBodyCloudAccessList extends $dara.Model {
    * The AccessKey ID that is used to access cloud resources.
    * 
    * @example
-   * AAAqdwPBA****
+   * AAAZCJQ******
    */
   secretId?: string;
   /**

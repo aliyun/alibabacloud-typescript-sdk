@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate IDs.
+   * The certificate IDs. Separate multiple IDs with commas (,).
    */
   certIds?: number[];
   /**
@@ -14,55 +14,79 @@ export class ListCloudResourcesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Tencent
-   * *   Huawei
-   * *   Aws
-   * *   aliyun
+   * - Tencent
+   * 
+   * - Huawei
+   * 
+   * - Aws
+   * 
+   * - aliyun
    * 
    * @example
-   * Tencent
+   * aliyun
    */
   cloudName?: string;
   /**
    * @remarks
-   * The cloud service.
+   * The cloud service name. Used to filter resources by cloud service.
    * 
    * Valid values when CloudName is set to aliyun:
    * 
-   * *   SLB: Classic Load Balancer (CLB). This value is available only on the China site (aliyun.com).
-   * *   LIVE: ApsaraVideo Live. This value is available only on the China site (aliyun.com).
-   * *   webHosting: Cloud Web Hosting. This value is available only on the China site (aliyun.com).
-   * *   VOD: ApsaraVideo VOD. This value is available only on the China site (aliyun.com).
-   * *   CR: Container Registry. This value is available only on the China site (aliyun.com).
-   * *   DCDN: Dynamic Content Delivery Network (DCDN).
-   * *   DDOS: Anti-DDoS.
-   * *   CDN: Alibaba Cloud CDN (CDN).
-   * *   ALB: Application Load Balancer (ALB).
-   * *   APIGateway: API Gateway.
-   * *   FC: Function Compute.
-   * *   GA: Global Accelerator (GA).
-   * *   MSE: Microservices Engine (MSE).
-   * *   NLB: Network Load Balancer (NLB).
-   * *   OSS: Object Storage Service (OSS).
-   * *   SAE: Serverless App Engine (SAE).
-   * *   WAF: Web Application Firewall (WAF).
+   * - SLB: Classic Load Balancer (CLB). This value is available only on the China site (aliyun.com).
+   * 
+   * - LIVE: ApsaraVideo Live. This value is available only on the China site (aliyun.com).
+   * 
+   * - webHosting: Cloud Web Hosting. This value is available only on the China site (aliyun.com).
+   * 
+   * - VOD: ApsaraVideo VOD. This value is available only on the China site (aliyun.com).
+   * 
+   * - CR: Container Registry. This value is available only on the China site (aliyun.com).
+   * 
+   * - DCDN: Dynamic Content Delivery Network (DCDN).
+   * 
+   * - DDOS: Anti-DDoS.
+   * 
+   * - CDN: Alibaba Cloud CDN (CDN).
+   * 
+   * - ALB: Application Load Balancer (ALB).
+   * 
+   * - APIGateway: API Gateway.
+   * 
+   * - FC: Function Compute.
+   * 
+   * - GA: Global Accelerator (GA).
+   * 
+   * - MSE: Microservices Engine (MSE).
+   * 
+   * - NLB: Network Load Balancer (NLB).
+   * 
+   * - OSS: Object Storage Service (OSS).
+   * 
+   * - SAE: Serverless App Engine (SAE).
+   * 
+   * - WAF: Web Application Firewall (WAF).
    * 
    * Valid values when CloudName is set to Tencent:
    * 
-   * *   TencentCDN: Content Delivery Network (CDN).
-   * *   TencentCLB: CLB.
-   * *   TencentWAF: WAF.
+   * - TencentCDN: Content Delivery Network (CDN).
+   * 
+   * - TencentCLB: CLB.
+   * 
+   * - TencentWAF: WAF.
    * 
    * Valid value when CloudName is set to Huawei:
    * 
-   * *   HuaweiCDN: CDN.
+   * - HuaweiCDN: CDN.
    * 
    * Valid values when CloudName is set to Aws:
    * 
-   * *   AwsCloudFront: Amazon CloudFront.
-   * *   AwsCLB: CLB.
-   * *   AwsALB: ALB.
-   * *   AwsNLB: NLB.
+   * - AwsCloudFront: Amazon CloudFront.
+   * 
+   * - AwsCLB: CLB.
+   * 
+   * - AwsALB: ALB.
+   * 
+   * - AwsNLB: NLB.
    * 
    * @example
    * SLB
@@ -89,7 +113,7 @@ export class ListCloudResourcesRequest extends $dara.Model {
    * The AccessKey ID that is used to access cloud resources.
    * 
    * @example
-   * 21
+   * AK96*******6M
    */
   secretId?: string;
   /**
