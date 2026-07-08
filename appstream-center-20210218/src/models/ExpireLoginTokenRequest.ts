@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExpireLoginTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The logon username.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExpireLoginTokenRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class ExpireLoginTokenRequest extends $dara.Model {
    */
   loginToken?: string;
   /**
+   * @remarks
+   * The ID of the workspace. This parameter is required if you log on using a workspace ID. You can leave this parameter empty if you log on using an organization ID.
+   * 
    * @example
    * cn-beijing+dir-172301****
    */
   officeSiteId?: string;
   /**
    * @remarks
+   * The ID of the logon session.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -6,16 +6,25 @@ import * as $dara from '@darabonba/typescript';
  */
 export class GetAuthCodeResponseBodyAuthModel extends $dara.Model {
   /**
+   * @remarks
+   * The authorization code. The authorization code is valid for 3 minutes and can be used only once regardless of whether the verification succeeds or fails. When multiple authorization codes are generated for a user, only the last generated code is valid.
+   * 
    * @example
    * acv2ZEq2TNSqOlX+DvyetHGRT08iPhbWg/os1W4HojpBxkMQZkAnbKSfz/wNvS0E149IQZ5TogvBUE8ghCSVV+QBnv48Y+sn4z9fY5ywZA1peI5s4TplQI0TADBhPZXEIzMOdmbNsDGGlGcKOAq8ixd1Epzdu9XfvRzdLOO6o3zQwTZxXsjOgGBW8JTcgCP9W9iYiIjHIdZ2VCAnmMzuyVkyED8gymEevH10QoclyH/O3s8Yq6VF34gMXihDQeiI8PyiAZrW0JWXSWpdy3n4yGtAqMAgv46FzTA+XJ6C********
    */
   authCode?: string;
   /**
+   * @remarks
+   * The username of the China Desktop Service convenience account.
+   * 
    * @example
    * alice
    */
   endUserId?: string;
   /**
+   * @remarks
+   * The expiration time of the authorization code in UTC, following the ISO 8601 standard.
+   * 
    * @example
    * 2015-01-23T12:33:18Z
    */
@@ -46,8 +55,15 @@ export class GetAuthCodeResponseBodyAuthModel extends $dara.Model {
 }
 
 export class GetAuthCodeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The authorization code information.
+   */
   authModel?: GetAuthCodeResponseBodyAuthModel;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

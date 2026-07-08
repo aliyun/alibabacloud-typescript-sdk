@@ -11,7 +11,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-shanghai': "appstream-center.cn-shanghai.aliyuncs.com",
+      'ap-southeast-1': "appstream-center.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("appstream-center", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manually invalidates a logon token.
+   * Manually expires a logon token before its automatic expiration.
    * 
    * @param request - ExpireLoginTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +77,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manually invalidates a logon token.
+   * Manually expires a logon token before its automatic expiration.
    * 
    * @param request - ExpireLoginTokenRequest
    * @returns ExpireLoginTokenResponse
@@ -84,7 +88,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
+   * Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
    * 
    * @param request - GetAuthCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -98,6 +102,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountType)) {
+      body["AccountType"] = request.accountType;
+    }
+
+    if (!$dara.isNull(request.adDomain)) {
+      body["AdDomain"] = request.adDomain;
+    }
+
     if (!$dara.isNull(request.autoCreateUser)) {
       body["AutoCreateUser"] = request.autoCreateUser;
     }
@@ -133,7 +145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
+   * Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
    * 
    * @param request - GetAuthCodeRequest
    * @returns GetAuthCodeResponse
@@ -144,7 +156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取stsToken
+   * Gets a Security Token Service (STS) token.
    * 
    * @param request - GetStsTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -183,7 +195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取stsToken
+   * Gets a Security Token Service (STS) token.
    * 
    * @param request - GetStsTokenRequest
    * @returns GetStsTokenResponse
