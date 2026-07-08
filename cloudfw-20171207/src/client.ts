@@ -14177,6 +14177,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the traffic trend of a virtual private cloud (VPC) firewall.
+   * 
+   * @param request - DescribeVpcFirewallTrafficTrendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcFirewallTrafficTrendResponse
+   */
+  async describeVpcFirewallTrafficTrendWithOptions(request: $_model.DescribeVpcFirewallTrafficTrendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcFirewallTrafficTrendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.peerVpcId)) {
+      query["PeerVpcId"] = request.peerVpcId;
+    }
+
+    if (!$dara.isNull(request.privateIP)) {
+      query["PrivateIP"] = request.privateIP;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVpcFirewallTrafficTrend",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVpcFirewallTrafficTrendResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVpcFirewallTrafficTrendResponse({}));
+  }
+
+  /**
+   * Retrieves the traffic trend of a virtual private cloud (VPC) firewall.
+   * 
+   * @param request - DescribeVpcFirewallTrafficTrendRequest
+   * @returns DescribeVpcFirewallTrafficTrendResponse
+   */
+  async describeVpcFirewallTrafficTrend(request: $_model.DescribeVpcFirewallTrafficTrendRequest): Promise<$_model.DescribeVpcFirewallTrafficTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVpcFirewallTrafficTrendWithOptions(request, runtime);
+  }
+
+  /**
    * Describes the available zones for a VPC firewall.
    * 
    * @param request - DescribeVpcFirewallZoneRequest

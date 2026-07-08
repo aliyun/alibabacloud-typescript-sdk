@@ -238,6 +238,7 @@ export { DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEnti
 export { DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroups } from './DescribeVpcFirewallPrecheckDetailResponseBody';
 export { DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail } from './DescribeVpcFirewallPrecheckDetailResponseBody';
 export { DescribeVpcFirewallTrafficAssetListResponseBodyDataList } from './DescribeVpcFirewallTrafficAssetListResponseBody';
+export { DescribeVpcFirewallTrafficTrendResponseBodyDataList } from './DescribeVpcFirewallTrafficTrendResponseBody';
 export { DescribeVpcFirewallZoneResponseBodyZoneList } from './DescribeVpcFirewallZoneResponseBody';
 export { DescribeVpcListLiteResponseBodyVpcList } from './DescribeVpcListLiteResponseBody';
 export { DescribeVpcZoneResponseBodyZoneList } from './DescribeVpcZoneResponseBody';
@@ -914,6 +915,9 @@ export { DescribeVpcFirewallSummaryInfoResponse } from './DescribeVpcFirewallSum
 export { DescribeVpcFirewallTrafficAssetListRequest } from './DescribeVpcFirewallTrafficAssetListRequest';
 export { DescribeVpcFirewallTrafficAssetListResponseBody } from './DescribeVpcFirewallTrafficAssetListResponseBody';
 export { DescribeVpcFirewallTrafficAssetListResponse } from './DescribeVpcFirewallTrafficAssetListResponse';
+export { DescribeVpcFirewallTrafficTrendRequest } from './DescribeVpcFirewallTrafficTrendRequest';
+export { DescribeVpcFirewallTrafficTrendResponseBody } from './DescribeVpcFirewallTrafficTrendResponseBody';
+export { DescribeVpcFirewallTrafficTrendResponse } from './DescribeVpcFirewallTrafficTrendResponse';
 export { DescribeVpcFirewallZoneRequest } from './DescribeVpcFirewallZoneRequest';
 export { DescribeVpcFirewallZoneResponseBody } from './DescribeVpcFirewallZoneResponseBody';
 export { DescribeVpcFirewallZoneResponse } from './DescribeVpcFirewallZoneResponse';
