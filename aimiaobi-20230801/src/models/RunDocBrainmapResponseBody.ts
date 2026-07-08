@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDocBrainmapResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Event type.
+   * 
    * @example
    * task-failed
    */
   event?: string;
+  /**
+   * @remarks
+   * Event description.
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 07181f55-2311-48af-8048-132a77dee020
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * 161816
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID.
+   * 
    * @example
    * 6427cdf4-2ffe-4d05-b0ef-c4adceea90f4
    */
@@ -69,6 +94,9 @@ export class RunDocBrainmapResponseBodyHeader extends $dara.Model {
 
 export class RunDocBrainmapResponseBodyPayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * Mind map content in JSON format.
+   * 
    * @example
    * {"xxxx":"xxx"}
    */
@@ -96,16 +124,25 @@ export class RunDocBrainmapResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunDocBrainmapResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens.
+   * 
    * @example
    * 65
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens.
+   * 
    * @example
    * 165
    */
@@ -136,7 +173,15 @@ export class RunDocBrainmapResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunDocBrainmapResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output data.
+   */
   output?: RunDocBrainmapResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage statistics.
+   */
   usage?: RunDocBrainmapResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -168,9 +213,20 @@ export class RunDocBrainmapResponseBodyPayload extends $dara.Model {
 }
 
 export class RunDocBrainmapResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunDocBrainmapResponseBodyHeader;
+  /**
+   * @remarks
+   * Response payload.
+   */
   payload?: RunDocBrainmapResponseBodyPayload;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */

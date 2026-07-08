@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDeepWritingResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 403
    */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * 错误消息
+   */
   errorMessage?: string;
   /**
+   * @remarks
+   * The Server-Sent Event (SSE).
+   * 
    * @example
    * response.output_item.done
    */
   event?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * c2e2e991-f96a-4fcc-9ff7-d0df46c6d232
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   statusCode?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * b84d31a5-44b2-4a35-9c6d-878d459c93d0
    */
   taskId?: string;
   /**
+   * @remarks
+   * The trace ID.
+   * 
    * @example
    * FAB10D42-F081-557B-8DCB-D6FB7AAF100B
    */
@@ -69,11 +94,17 @@ export class RunDeepWritingResponseBodyHeader extends $dara.Model {
 
 export class RunDeepWritingResponseBodyPayloadOutputItemContent extends $dara.Model {
   /**
+   * @remarks
+   * The text content that is output when the item type is \\`message\\`.
+   * 
    * @example
    * <TASK_DONE>
    */
   text?: string;
   /**
+   * @remarks
+   * When the item type is \\`message\\`, the value of this field is \\`output_text\\`.
+   * 
    * @example
    * output_text
    */
@@ -103,25 +134,62 @@ export class RunDeepWritingResponseBodyPayloadOutputItemContent extends $dara.Mo
 
 export class RunDeepWritingResponseBodyPayloadOutputItem extends $dara.Model {
   /**
+   * @remarks
+   * The name of the agent that generated this item.
+   * 
    * @example
    * ProjectManager
    */
   agent?: string;
+  /**
+   * @remarks
+   * Parameter
+   * 
+   * @example
+   * item类型为function_call时，此字段有值，为调用函数的入参
+   */
   arguments?: string;
+  /**
+   * @remarks
+   * This field has a value when the item type is \\`message\\`. The value is a list of output content.
+   */
   content?: RunDeepWritingResponseBodyPayloadOutputItemContent[];
   /**
+   * @remarks
+   * The unique ID of the item.
+   * 
    * @example
    * 88f6ed9e85c4f9377378da23e6a370d1
    */
   id?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * item类型为function_call时，此字段有值，为调用的函数名字
+   */
   name?: string;
+  /**
+   * @remarks
+   * The item\\"s result.
+   * 
+   * @example
+   * item类型为function_call时，此字段有值，为调用的函数的输出
+   */
   result?: string;
   /**
+   * @remarks
+   * The status of the item.
+   * 
    * @example
    * completed
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the item.
+   * 
    * @example
    * function_call
    */
@@ -166,11 +234,17 @@ export class RunDeepWritingResponseBodyPayloadOutputItem extends $dara.Model {
 
 export class RunDeepWritingResponseBodyPayloadOutputResponse extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the task.
+   * 
    * @example
    * b2dc224b38694e0b668020159a7c5732
    */
   id?: string;
   /**
+   * @remarks
+   * The execution status of the task.
+   * 
    * @example
    * in_progress
    */
@@ -199,18 +273,39 @@ export class RunDeepWritingResponseBodyPayloadOutputResponse extends $dara.Model
 }
 
 export class RunDeepWritingResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The new output item for this event.
+   */
   item?: RunDeepWritingResponseBodyPayloadOutputItem;
   /**
+   * @remarks
+   * The ordinal number of the new output item in this event.
+   * 
    * @example
    * 1
    */
   outputIndex?: number;
+  /**
+   * @remarks
+   * The response body.
+   */
   response?: RunDeepWritingResponseBodyPayloadOutputResponse;
   /**
+   * @remarks
+   * The ordinal number of the streaming event.
+   * 
    * @example
    * 1
    */
   sequenceNumber?: string;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * 同上级Event
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -248,6 +343,10 @@ export class RunDeepWritingResponseBodyPayloadOutput extends $dara.Model {
 }
 
 export class RunDeepWritingResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * The output.
+   */
   output?: RunDeepWritingResponseBodyPayloadOutput;
   static names(): { [key: string]: string } {
     return {
@@ -275,28 +374,51 @@ export class RunDeepWritingResponseBodyPayload extends $dara.Model {
 
 export class RunDeepWritingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * The response header.
+   */
   header?: RunDeepWritingResponseBodyHeader;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The response body.
+   */
   payload?: RunDeepWritingResponseBodyPayload;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 31AC01F1-88FB-5C4D-B6F5-E8BB136CD5A3
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

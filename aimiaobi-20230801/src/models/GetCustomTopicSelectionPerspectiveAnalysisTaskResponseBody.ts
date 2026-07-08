@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPointsOutlines extends $dara.Model {
   /**
+   * @remarks
+   * Outline
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * Outline summary
+   * 
    * @example
    * 大纲摘要
    */
@@ -37,13 +43,23 @@ export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCusto
 }
 
 export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPoints extends $dara.Model {
+  /**
+   * @remarks
+   * Outline
+   */
   outlines?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPointsOutlines[];
   /**
+   * @remarks
+   * Generated perspective
+   * 
    * @example
    * 视角
    */
   point?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * 摘要
    */
@@ -78,20 +94,33 @@ export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCusto
 
 export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudes extends $dara.Model {
   /**
+   * @remarks
+   * Current viewpoint
+   * 
    * @example
    * 当前观点
    */
   attitude?: string;
   /**
+   * @remarks
+   * Viewpoint type
+   * 
    * @example
    * 观点类型
    */
   attitudeType?: string;
   /**
+   * @remarks
+   * Proportion of the current viewpoint
+   * 
    * @example
    * 当前观点占比
    */
   ratio?: string;
+  /**
+   * @remarks
+   * List of topic selection perspectives
+   */
   viewPoints?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudesViewPoints[];
   static names(): { [key: string]: string } {
     return {
@@ -124,8 +153,15 @@ export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCusto
 }
 
 export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of custom viewpoints. By default, the system generates one viewpoint based on the prompt input.
+   */
   attitudes?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResultAttitudes[];
   /**
+   * @remarks
+   * Hot topic event
+   * 
    * @example
    * 热点主题事件
    */
@@ -157,13 +193,23 @@ export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCusto
 }
 
 export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Result of the custom topic selection analysis task
+   */
   customViewPointsResult?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyDataCustomViewPointsResult;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * 错误信息
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Task status (PENDING: pending, RUNNING: running, SUCCESSED: succeeded, SUSPENDED: suspended, FAILED: failed, CANCELED: canceled)
+   * 
    * @example
    * FAILED
    */
@@ -198,27 +244,46 @@ export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData exte
 
 export class GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates success: true for success, false for failure
+   * 
    * @example
    * true
    */

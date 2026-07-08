@@ -3,9 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ClearIntervenesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Status code returned by the intervention service
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * List of failed index IDs
+   */
   failIdList?: string[];
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
@@ -40,27 +54,46 @@ export class ClearIntervenesResponseBodyData extends $dara.Model {
 
 export class ClearIntervenesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * 0
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: ClearIntervenesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates success: true for success, false for failure
+   * 
    * @example
    * true
    */

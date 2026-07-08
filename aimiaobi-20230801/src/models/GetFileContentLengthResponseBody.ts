@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileContentLengthResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * File length
+   * 
    * @example
    * 1024
    */
@@ -31,27 +34,46 @@ export class GetFileContentLengthResponseBodyData extends $dara.Model {
 
 export class GetFileContentLengthResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: GetFileContentLengthResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * DD656AF9-0839-521A-A3D2-F320009F9C87
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded. true means success. false means failure.
+   * 
    * @example
    * True
    */

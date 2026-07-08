@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfirmAndPostProcessAuditNoteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
   /**
+   * @remarks
+   * The task ID obtained after confirming the use of this parsing result. It is consistent with the input parameter, returned here for your convenience.
+   * 
    * @example
    * 33
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
@@ -32,6 +44,9 @@ export class ConfirmAndPostProcessAuditNoteResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the request was successful
+   * 
    * @example
    * true
    */

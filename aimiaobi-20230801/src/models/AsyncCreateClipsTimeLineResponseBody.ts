@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AsyncCreateClipsTimeLineResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
@@ -31,21 +34,49 @@ export class AsyncCreateClipsTimeLineResponseBodyData extends $dara.Model {
 
 export class AsyncCreateClipsTimeLineResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: AsyncCreateClipsTimeLineResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Operation result: true indicates success. false indicates failure.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

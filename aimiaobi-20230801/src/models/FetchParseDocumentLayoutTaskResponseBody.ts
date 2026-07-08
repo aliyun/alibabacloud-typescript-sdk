@@ -3,13 +3,51 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FetchParseDocumentLayoutTaskResponseBodyDataLayoutResultElements extends $dara.Model {
+  /**
+   * @remarks
+   * Content
+   * 
+   * @example
+   * 一、本月主要工作进展\\n
+   */
   content?: string;
+  /**
+   * @remarks
+   * For headings, content with heading numbers removed
+   * 
+   * @example
+   * 本月主要工作进展
+   */
   formatContent?: string;
   /**
+   * @remarks
+   * Index order of each element
+   * 
    * @example
    * 1
    */
   index?: number;
+  /**
+   * @remarks
+   * Type
+   * 
+   * @example
+   * 支持的类型如下
+   *     HEADING("标题"),
+   *     H1("一级标题"),
+   *     H2("二级标题"),
+   *     H3("三级标题"),
+   *     H4("四级标题"),
+   *     H5("五级标题"),
+   *     H6("六级标题"),
+   *     PARAGRAPH("段落"),
+   *     SIGNATURE("落款"),
+   *     FOOTNOTE("脚注"),
+   *     TABLE("表格"),
+   *     CODE_BLOCK("代码块"),
+   *     ATTACHMENT("附件"),
+   *     BLOCKQUOTE("引用");
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,6 +77,10 @@ export class FetchParseDocumentLayoutTaskResponseBodyDataLayoutResultElements ex
 }
 
 export class FetchParseDocumentLayoutTaskResponseBodyDataLayoutResult extends $dara.Model {
+  /**
+   * @remarks
+   * Returned element data
+   */
   elements?: FetchParseDocumentLayoutTaskResponseBodyDataLayoutResultElements[];
   static names(): { [key: string]: string } {
     return {
@@ -65,7 +107,18 @@ export class FetchParseDocumentLayoutTaskResponseBodyDataLayoutResult extends $d
 }
 
 export class FetchParseDocumentLayoutTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Structured content after formatting
+   */
   layoutResult?: FetchParseDocumentLayoutTaskResponseBodyDataLayoutResult;
+  /**
+   * @remarks
+   * Task status
+   * 
+   * @example
+   * PENDING-待执行、RUNNING-执行中、SUCCESSED-成功、SUSPENDED-暂停、FAILED-失败、CANCELLED-取消
+   */
   taskStats?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,17 +148,30 @@ export class FetchParseDocumentLayoutTaskResponseBodyData extends $dara.Model {
 
 export class FetchParseDocumentLayoutTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: FetchParseDocumentLayoutTaskResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * successful
    */
@@ -119,6 +185,9 @@ export class FetchParseDocumentLayoutTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call succeeded.
+   * 
    * @example
    * true
    */

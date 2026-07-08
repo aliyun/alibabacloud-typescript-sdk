@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetFactAuditUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the Alibaba Cloud Model Studio workspace. Get the [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

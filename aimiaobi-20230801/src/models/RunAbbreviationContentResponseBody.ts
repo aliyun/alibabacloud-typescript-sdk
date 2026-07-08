@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunAbbreviationContentResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 403
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Pop sign mismatch, please check.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Event type.
+   * 
    * @example
    * result-generated
    */
   event?: string;
   /**
+   * @remarks
+   * Event description.
+   * 
    * @example
    * 模型生成事件
    */
   eventInfo?: string;
   /**
+   * @remarks
+   * The session ID for a single session.
+   * 
    * @example
    * 3cd10828-0e42-471c-8f1a-931cde20b035
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The task ID for a single generation task.
+   * 
    * @example
    * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID for the request chain.
+   * 
    * @example
    * 2150451a17191950923411783e2927
    */
@@ -73,6 +94,9 @@ export class RunAbbreviationContentResponseBodyHeader extends $dara.Model {
 
 export class RunAbbreviationContentResponseBodyPayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * Output content.
+   * 
    * @example
    * 这是测试输出
    */
@@ -100,16 +124,25 @@ export class RunAbbreviationContentResponseBodyPayloadOutput extends $dara.Model
 
 export class RunAbbreviationContentResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens.
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens.
+   * 
    * @example
    * 200
    */
@@ -140,7 +173,15 @@ export class RunAbbreviationContentResponseBodyPayloadUsage extends $dara.Model 
 }
 
 export class RunAbbreviationContentResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output content object.
+   */
   output?: RunAbbreviationContentResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Large Language Model (LLM) token usage information.
+   */
   usage?: RunAbbreviationContentResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -172,10 +213,25 @@ export class RunAbbreviationContentResponseBodyPayload extends $dara.Model {
 }
 
 export class RunAbbreviationContentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the output is complete. True means it is complete.
+   */
   end?: boolean;
+  /**
+   * @remarks
+   * The streaming output header, which contains general return information.
+   */
   header?: RunAbbreviationContentResponseBodyHeader;
+  /**
+   * @remarks
+   * Result payload, JSON structure
+   */
   payload?: RunAbbreviationContentResponseBodyPayload;
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
    */

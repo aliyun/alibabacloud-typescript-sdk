@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryVideoAuditResultRequest extends $dara.Model {
   /**
    * @remarks
-   * 视频审校任务的唯一标识，长度固定32位
+   * Task ID
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class QueryVideoAuditResultRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * Workspace ID
+   * 
    * This parameter is required.
    * 
    * @example

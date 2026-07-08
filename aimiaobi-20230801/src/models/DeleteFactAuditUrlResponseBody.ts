@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFactAuditUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
   /**
+   * @remarks
+   * Success message for deleting the URL.
+   * 
    * @example
    * SUCCESSED
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
@@ -32,6 +44,9 @@ export class DeleteFactAuditUrlResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

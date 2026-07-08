@@ -4,14 +4,42 @@ import { OutlineWritingArticle } from "./OutlineWritingArticle";
 
 
 export class OutlineSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * A list of retrieved materials.
+   */
   articles?: OutlineWritingArticle[];
+  /**
+   * @remarks
+   * The retrieved outline.
+   * 
+   * @example
+   * 晨光中的自律：清晨6:30的校园
+   */
   outline?: string;
   /**
+   * @remarks
+   * The unique identifier of the outline.
+   * 
    * @example
    * xxxxxx
    */
   outlineId?: string;
+  /**
+   * @remarks
+   * The primary outline.
+   * 
+   * @example
+   * 大学生正能量的一天
+   */
   primaryOutline?: string;
+  /**
+   * @remarks
+   * The retrieval query.
+   * 
+   * @example
+   * 高校环保义卖案例 大学生旧物循环利用率的文章
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {

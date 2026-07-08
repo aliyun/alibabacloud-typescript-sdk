@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPlanningProposalResponseBodyDataOutlines extends $dara.Model {
   /**
+   * @remarks
+   * Outline.
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * Outline summary.
+   * 
    * @example
    * 大纲摘要
    */
@@ -37,8 +43,26 @@ export class ListPlanningProposalResponseBodyDataOutlines extends $dara.Model {
 }
 
 export class ListPlanningProposalResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Outline list.
+   */
   outlines?: ListPlanningProposalResponseBodyDataOutlines[];
+  /**
+   * @remarks
+   * Summary.
+   * 
+   * @example
+   * 摘要
+   */
   summary?: string;
+  /**
+   * @remarks
+   * Title.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,42 +94,70 @@ export class ListPlanningProposalResponseBodyData extends $dara.Model {
 
 export class ListPlanningProposalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data.
+   */
   data?: ListPlanningProposalResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Maximum number of returned results.
+   * 
    * @example
    * 77
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Fault description.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Token for the next page.
+   * 
    * @example
    * 下一页的token
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Unique request identity.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is successful: true for success, false for failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 80
    */

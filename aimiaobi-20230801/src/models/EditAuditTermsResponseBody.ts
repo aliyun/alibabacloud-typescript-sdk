@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class EditAuditTermsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
   /**
+   * @remarks
+   * Business data
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
@@ -32,6 +44,9 @@ export class EditAuditTermsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

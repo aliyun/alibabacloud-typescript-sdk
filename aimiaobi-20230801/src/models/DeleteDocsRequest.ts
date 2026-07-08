@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDocsRequest extends $dara.Model {
   /**
    * @remarks
+   * Document ID array.
+   * 
    * This parameter is required.
    */
   docIds?: string[];
   /**
    * @remarks
+   * Unique identifier for the Alibaba Cloud Model Studio workspace. Get the [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

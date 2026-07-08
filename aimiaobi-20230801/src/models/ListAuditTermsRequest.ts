@@ -4,18 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAuditTermsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Maximum number of records to return.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token for the next page.
+   * 
    * @example
    * XXXX
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * Dictionary name. Optional. Defaults to Default if not specified.
+   */
   termsName?: string;
   /**
    * @remarks
+   * Unique identifier of the Alibaba Cloud Model Studio workspace. Get your [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

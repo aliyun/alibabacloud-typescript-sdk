@@ -4,21 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFactAuditUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
   /**
    * @remarks
+   * List of source URLs currently used for factuality audit. If the list is empty, the retrieval source is the entire network. If URLs are present, information is retrieved only from the configured URLs. To delete unnecessary source URLs, use the URLs from the response parameter as input for the DeleteFactAuditUrl API.
+   * 
    * This parameter is required.
    */
   data?: string[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description.
+   * 
    * @example
    * success
    */
@@ -32,6 +43,9 @@ export class GetFactAuditUrlResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether this request was successful.
+   * 
    * @example
    * true
    */

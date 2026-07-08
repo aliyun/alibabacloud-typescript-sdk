@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCategoriesByTaskIdResponseBodyDataChildren extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the sub-classification.
+   * 
+   * @example
+   * 类别1-1
+   */
   category?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,9 +33,23 @@ export class GetCategoriesByTaskIdResponseBodyDataChildren extends $dara.Model {
 }
 
 export class GetCategoriesByTaskIdResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the classification.
+   * 
+   * @example
+   * 类别1
+   */
   category?: string;
+  /**
+   * @remarks
+   * A list of sub-classifications.
+   */
   children?: GetCategoriesByTaskIdResponseBodyDataChildren[];
   /**
+   * @remarks
+   * The number of Voice of the Customer (VOC) entries in this classification.
+   * 
    * @example
    * 2
    */
@@ -63,27 +84,46 @@ export class GetCategoriesByTaskIdResponseBodyData extends $dara.Model {
 
 export class GetCategoriesByTaskIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * A list of classification objects.
+   */
   data?: GetCategoriesByTaskIdResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: \\`true\\` and \\`false\\`.
+   * 
    * @example
    * true
    */

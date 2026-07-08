@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListHotNewsWithTypeShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the business space: [AgentKey](https://help.aliyun.com/document_detail/3027170.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,36 @@ export class ListHotNewsWithTypeShrinkRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   current?: number;
   /**
+   * @remarks
+   * The news category. Valid values:
+   * - society: social current affairs.
+   * - person: people news.
+   * - government: government affairs.
+   * 
    * @example
    * society
    */
   newsType?: string;
+  /**
+   * @remarks
+   * The list of news categories for multi-selection. Valid values:
+   * - society: social current affairs.
+   * - person: people news.
+   * - government: government affairs.
+   */
   newsTypesShrink?: string;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */

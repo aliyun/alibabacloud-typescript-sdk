@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConfirmAndPostProcessAuditNoteRequest extends $dara.Model {
   /**
    * @remarks
+   * The TaskId obtained from the SubmitAuditNote interface. This is the unique identifier for the custom rule library task index. Store it securely when using it.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ConfirmAndPostProcessAuditNoteRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * Alibaba Cloud Model Studio workspace unique identifier: Get [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * This parameter is required.
    * 
    * @example

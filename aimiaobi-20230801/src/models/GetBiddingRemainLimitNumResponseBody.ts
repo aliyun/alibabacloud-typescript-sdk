@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBiddingRemainLimitNumResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Remaining quantity
+   * 
    * @example
    * 1
    */
@@ -31,17 +34,30 @@ export class GetBiddingRemainLimitNumResponseBodyData extends $dara.Model {
 
 export class GetBiddingRemainLimitNumResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: GetBiddingRemainLimitNumResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Fault message
+   * 
    * @example
    * success
    */
@@ -55,6 +71,9 @@ export class GetBiddingRemainLimitNumResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is successful: true for success, false for failure
+   * 
    * @example
    * True
    */

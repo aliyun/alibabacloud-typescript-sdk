@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDialoguesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Model output.
+   * 
    * @example
    * xx
    */
   bot?: string;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2024-01-04 11:46:07
    */
   createTime?: string;
   /**
+   * @remarks
+   * Creator.
+   * 
    * @example
    * xx
    */
   createUser?: string;
   /**
+   * @remarks
+   * Generation type. Valid values: 1 (creation) and 2 (intelligent search). Default value: 2.
+   * 
    * @example
    * 2
    */
   dialogueType?: number;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * xx
    */
   taskId?: string;
   /**
+   * @remarks
+   * User input.
+   * 
    * @example
    * x
    */
@@ -66,42 +84,70 @@ export class ListDialoguesResponseBodyData extends $dara.Model {
 
 export class ListDialoguesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
-   * NoData
+   * successful
    */
   code?: string;
   /**
+   * @remarks
+   * Page number of the current page.
+   * 
    * @example
    * 1
    */
   current?: number;
+  /**
+   * @remarks
+   * List of generation history records.
+   */
   data?: ListDialoguesResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
-   * success
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Unique identifier for the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   size?: number;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded. A value of true indicates success. A value of false indicates failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 100
    */

@@ -9,6 +9,9 @@ export class GetPptConfigRequest extends $dara.Model {
    */
   externalUserId?: string;
   /**
+   * @remarks
+   * [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * @example
    * llm-az2gglkjauwnnhpq
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomTopicByTopicRequest extends $dara.Model {
   /**
    * @remarks
+   * Workspace unique identifier: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteCustomTopicByTopicRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * Custom topic
+   * 
    * This parameter is required.
    * 
    * @example

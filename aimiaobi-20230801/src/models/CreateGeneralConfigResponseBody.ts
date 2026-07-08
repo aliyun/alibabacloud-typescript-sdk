@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateGeneralConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Configuration description
+   * 
    * @example
    * xx
    */
   configDesc?: string;
   /**
+   * @remarks
+   * Unique identifier of the configuration item
+   * 
    * @example
    * xx
    */
   configKey?: string;
   /**
+   * @remarks
+   * Configuration value
+   * 
    * @example
    * xx
    */
   configValue?: string;
   /**
+   * @remarks
+   * Configuration type
+   * 
    * @example
    * xx
    */
@@ -52,27 +64,46 @@ export class CreateGeneralConfigResponseBodyData extends $dara.Model {
 
 export class CreateGeneralConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data
+   */
   data?: CreateGeneralConfigResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * 数据不存在
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates success: true for success, false for failure
+   * 
    * @example
    * false
    */

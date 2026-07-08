@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAsyncTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique ID of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,11 @@ export class QueryAsyncTaskRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * Unique task ID
+   * 
+   * > The system automatically generates the TaskId by default. If subsequent tasks use the same TaskId, they belong to the same conversation group.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */

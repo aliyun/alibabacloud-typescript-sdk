@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFreshViewPointsResponseBodyDataOutlines extends $dara.Model {
   /**
+   * @remarks
+   * Outline
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * Outline summary
+   * 
    * @example
    * 大纲摘要
    */
@@ -37,13 +43,23 @@ export class ListFreshViewPointsResponseBodyDataOutlines extends $dara.Model {
 }
 
 export class ListFreshViewPointsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Outlines
+   */
   outlines?: ListFreshViewPointsResponseBodyDataOutlines[];
   /**
+   * @remarks
+   * Generated perspective
+   * 
    * @example
    * 视角
    */
   point?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * 摘要
    */
@@ -78,42 +94,70 @@ export class ListFreshViewPointsResponseBodyData extends $dara.Model {
 
 export class ListFreshViewPointsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business Data
+   */
   data?: ListFreshViewPointsResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Maximum number of return results
+   * 
    * @example
    * 94
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Token for the next page
+   * 
    * @example
    * 下一页的token
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request UUID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded: true for success, false for failure
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 26
    */

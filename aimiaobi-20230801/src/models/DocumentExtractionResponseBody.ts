@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class DocumentExtractionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Author
+   * 
    * @example
    * 作者
    */
   author?: string;
   /**
+   * @remarks
+   * Content
+   * 
    * @example
    * 文章内容
    */
   content?: string;
   /**
+   * @remarks
+   * Custom unique ID for the document
+   * 
    * @example
    * 文档-自定义的唯一ID
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique identifier for the document
+   * 
    * @example
    * 8df2d69d63a247b6b52ff455b2d426b6
    */
   docUuid?: string;
   /**
+   * @remarks
+   * Publication time
+   * 
    * @example
    * 2024-05-14 08:54:33
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
-   * 央视网
+   * 新闻来源
    */
   source?: string;
   /**
+   * @remarks
+   * Article summary
+   * 
    * @example
    * 文章摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * Tag
+   * 
    * @example
    * 文章标签
    */
   tag?: string;
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * 文章标题
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL
+   * 
    * @example
    * https://www.example.com/aaa.docx
    */
@@ -94,27 +124,46 @@ export class DocumentExtractionResponseBodyData extends $dara.Model {
 
 export class DocumentExtractionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * NoData
+   * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: DocumentExtractionResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
-   * success
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates success: true for success, false for failure
+   * 
    * @example
    * true
    */

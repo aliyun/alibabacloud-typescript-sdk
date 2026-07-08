@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPptArtifactExportResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The links to the exported files.
+   */
   exportFileLink?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -30,30 +34,46 @@ export class GetPptArtifactExportResultResponseBodyData extends $dara.Model {
 
 export class GetPptArtifactExportResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetPptArtifactExportResultResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * xxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

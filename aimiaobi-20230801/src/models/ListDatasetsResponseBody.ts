@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDatasetsResponseBodyCustomSemanticSearchConfig extends $dara.Model {
   /**
+   * @remarks
+   * The dataset quota.
+   * 
    * @example
    * 3
    */
   datasetQuota?: number;
   /**
+   * @remarks
+   * The number of datasets created.
+   * 
    * @example
    * 1
    */
   datasetUsedQuota?: number;
   /**
+   * @remarks
+   * The document quota.
+   * 
    * @example
    * 1000
    */
   docQuota?: number;
   /**
+   * @remarks
+   * The used document quota.
+   * 
    * @example
    * 1
    */
@@ -52,11 +64,17 @@ export class ListDatasetsResponseBodyCustomSemanticSearchConfig extends $dara.Mo
 
 export class ListDatasetsResponseBodyDataAdministrators extends $dara.Model {
   /**
+   * @remarks
+   * The administrator user ID.
+   * 
    * @example
    * xx
    */
   userId?: string;
   /**
+   * @remarks
+   * The administrator username.
+   * 
    * @example
    * xx
    */
@@ -86,47 +104,78 @@ export class ListDatasetsResponseBodyDataAdministrators extends $dara.Model {
 
 export class ListDatasetsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The dataset access level.
+   * 
    * @example
    * private
    */
   accessLevel?: string;
+  /**
+   * @remarks
+   * The administrators of the dataset.
+   */
   administrators?: ListDatasetsResponseBodyDataAdministrators[];
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-11-12 21:46:24
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creator of the dataset.
+   * 
    * @example
    * xxx
    */
   createUser?: string;
   /**
+   * @remarks
+   * The dataset description.
+   * 
    * @example
    * xxx
    */
   datasetDescription?: string;
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * 1
    */
   datasetId?: number;
   /**
+   * @remarks
+   * The dataset name.
+   * 
    * @example
    * xxx
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The dataset type.
+   * 
    * @example
    * CustomSemanticSearch
    */
   datasetType?: string;
   /**
+   * @remarks
+   * The number of documents uploaded to the dataset.
+   * 
    * @example
    * 1
    */
   docUsedQuota?: number;
   /**
+   * @remarks
+   * Indicates whether search is enabled for the dataset.
+   * 
    * @example
    * 1
    */
@@ -175,11 +224,17 @@ export class ListDatasetsResponseBodyData extends $dara.Model {
 
 export class ListDatasetsResponseBodyThirdSearchConfig extends $dara.Model {
   /**
+   * @remarks
+   * The dataset quota.
+   * 
    * @example
    * 2
    */
   datasetQuota?: number;
   /**
+   * @remarks
+   * The number of datasets created.
+   * 
    * @example
    * 1
    */
@@ -209,44 +264,80 @@ export class ListDatasetsResponseBodyThirdSearchConfig extends $dara.Model {
 
 export class ListDatasetsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Configuration and usage details for custom semantic search datasets that use uploaded files as data sources.
+   */
   customSemanticSearchConfig?: ListDatasetsResponseBodyCustomSemanticSearchConfig;
+  /**
+   * @remarks
+   * An array of dataset objects.
+   */
   data?: ListDatasetsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: `true` (success) and `false` (failure).
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * Configuration and usage details for API-integrated datasets.
+   */
   thirdSearchConfig?: ListDatasetsResponseBodyThirdSearchConfig;
   /**
+   * @remarks
+   * The total number of datasets.
+   * 
    * @example
    * 100
    */

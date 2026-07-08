@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddAuditTermsResponseBodyDataV1 extends $dara.Model {
   /**
+   * @remarks
+   * ID
+   * 
    * @example
    * 562fe4163a59d7bcb44bfdde4e3d5046
    */
@@ -31,39 +34,57 @@ export class AddAuditTermsResponseBodyDataV1 extends $dara.Model {
 
 export class AddAuditTermsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
   /**
+   * @remarks
+   * Business data (whether the update succeeded). This field is deprecated. Use DataV1 to get the primary key ID instead.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * ID of the added dictionary term
+   * 
    * @example
    * 返回添加的实体信息
    */
   dataV1?: AddAuditTermsResponseBodyDataV1;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * F2F366D6-E9FE-1006-BB70-2C650896AAB5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request succeeded
+   * 
    * @example
    * true
    */

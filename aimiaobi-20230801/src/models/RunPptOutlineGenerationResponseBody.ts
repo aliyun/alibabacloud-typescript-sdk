@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunPptOutlineGenerationResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * xxx
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The SSE event. \\`task-started\\`: The task starts. \\`task-finished\\`: The task is complete. \\`task-failed\\`: The task failed.
+   * 
    * @example
    * task-started
    */
   event?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 1a3d7c9f-3a6d-4e49-b176-2d8721a27397
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   statusCode?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 8996314ce5514867943c71935e6a45af
    */
   taskId?: string;
   /**
+   * @remarks
+   * The trace ID.
+   * 
    * @example
    * 0bc1ec3a17435601877224179ecc8a
    */
@@ -72,6 +93,13 @@ export class RunPptOutlineGenerationResponseBodyHeader extends $dara.Model {
 }
 
 export class RunPptOutlineGenerationResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The output content.
+   * 
+   * @example
+   * 文本生成结果
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,6 +123,10 @@ export class RunPptOutlineGenerationResponseBodyPayloadOutput extends $dara.Mode
 }
 
 export class RunPptOutlineGenerationResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * The output.
+   */
   output?: RunPptOutlineGenerationResponseBodyPayloadOutput;
   static names(): { [key: string]: string } {
     return {
@@ -122,28 +154,51 @@ export class RunPptOutlineGenerationResponseBodyPayload extends $dara.Model {
 
 export class RunPptOutlineGenerationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The response header.
+   */
   header?: RunPptOutlineGenerationResponseBodyHeader;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
    * successful
    */
   message?: string;
+  /**
+   * @remarks
+   * The response body.
+   */
   payload?: RunPptOutlineGenerationResponseBodyPayload;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * F2F366D6-E9FE-1006-BB70-2C650896AAB5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\`: The request was successful. \\`false\\`: The request failed.
+   * 
    * @example
    * true
    */

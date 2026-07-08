@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunStyleFeatureAnalysisRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of custom content texts.
+   */
   contents?: string[];
+  /**
+   * @remarks
+   * A collection of Material Library IDs.
+   */
   materialIds?: number[];
   /**
    * @remarks
+   * The unique identifier of the Alibaba Cloud Model Studio workspace. Get the [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

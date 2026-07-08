@@ -4,18 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList extends $dara.Model {
   /**
+   * @remarks
+   * Code description
+   * 
    * @example
    * QuarkCommonNews
    */
   code?: string;
+  /**
+   * @remarks
+   * Is enabled
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * Display name
+   * 
+   * @example
+   * 夸克通用搜索
+   */
   name?: string;
   /**
+   * @remarks
+   * Quantity
+   * 
    * @example
    * 20
    */
   number?: number;
   /**
+   * @remarks
+   * Type
+   * 
    * @example
    * SystemSearch
    */
@@ -51,10 +71,17 @@ export class GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList ex
 
 export class GetDataSourceOrderConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Maximum total document count
+   * 
    * @example
    * 1
    */
   totalDocSize?: number;
+  /**
+   * @remarks
+   * List of user-configured data source weights
+   */
   userConfigDataSourceList?: GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList[];
   static names(): { [key: string]: string } {
     return {
@@ -84,27 +111,46 @@ export class GetDataSourceOrderConfigResponseBodyData extends $dara.Model {
 
 export class GetDataSourceOrderConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * 200
+   * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: GetDataSourceOrderConfigResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 428DCC0D-3C63-5306-BD1B-124396AB97BE
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is successful: true for success, false for failure
+   * 
    * @example
    * true
    */

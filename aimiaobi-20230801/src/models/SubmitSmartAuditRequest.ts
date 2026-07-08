@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitSmartAuditRequestImageUrlList extends $dara.Model {
+  /**
+   * @remarks
+   * Unique image identifier
+   * 
+   * @example
+   * xxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The URL can be a web link or a base64-encoded string.
+   * 
+   * @example
+   * http://www.example.com/xxx.png
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +43,21 @@ export class SubmitSmartAuditRequestImageUrlList extends $dara.Model {
 }
 
 export class SubmitSmartAuditRequestImageUrls extends $dara.Model {
+  /**
+   * @remarks
+   * Unique image identifier
+   * 
+   * @example
+   * 3HAZTv62M0vkyz5B
+   */
   id?: string;
+  /**
+   * @remarks
+   * The URL can be a web link or a base64-encoded string.
+   * 
+   * @example
+   * https://www.example.com/xxx.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,16 +83,52 @@ export class SubmitSmartAuditRequestImageUrls extends $dara.Model {
 }
 
 export class SubmitSmartAuditRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Parameters for image audit
+   */
   imageUrlList?: SubmitSmartAuditRequestImageUrlList[];
+  /**
+   * @remarks
+   * Rule library ID for rule-based auditing (default: Default)
+   * 
+   * @example
+   * note_1_486
+   */
   noteId?: string;
+  /**
+   * @remarks
+   * List of sub-audit codes
+   */
   subCodes?: string[];
+  /**
+   * @remarks
+   * Word library name for dictionary-based auditing (default: Default)
+   * 
+   * @example
+   * Default
+   */
   termsName?: string;
+  /**
+   * @remarks
+   * Content to be audited
+   * 
+   * @example
+   * “你好呀”
+   */
   text?: string;
   /**
+   * @remarks
+   * [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * @example
    * xxxx
    */
   workspaceId?: string;
+  /**
+   * @remarks
+   * Parameters for image audit (deprecated; use ImageUrlList instead)
+   */
   imageUrls?: SubmitSmartAuditRequestImageUrls[];
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AsyncUploadTenderDocResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
@@ -31,17 +34,30 @@ export class AsyncUploadTenderDocResponseBodyData extends $dara.Model {
 
 export class AsyncUploadTenderDocResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: AsyncUploadTenderDocResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
@@ -55,6 +71,9 @@ export class AsyncUploadTenderDocResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success: true for success, false for failure
+   * 
    * @example
    * true
    */

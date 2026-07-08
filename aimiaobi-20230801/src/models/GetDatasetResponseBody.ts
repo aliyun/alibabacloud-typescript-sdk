@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to include the key-value pairs of metadata in the generation. Default value: true.
+   * 
+   * @example
+   * true
+   */
   metadataKeyValueGenerateEnable?: string;
+  /**
+   * @remarks
+   * Specifies whether to include the key-value pairs of metadata in the search. Default value: true.
+   * 
+   * @example
+   * true
+   */
   metadataKeyValueSearchEnable?: string;
+  /**
+   * @remarks
+   * Specifies whether to include tags in the generation. Default value: true.
+   * 
+   * @example
+   * true
+   */
   tagGenerateEnable?: string;
+  /**
+   * @remarks
+   * Specifies whether to include tags in the search. Default value: true.
+   * 
+   * @example
+   * true
+   */
   tagSearchEnable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,23 +64,35 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfig extends $
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders extends $dara.Model {
   /**
+   * @remarks
+   * The name of the parameter.
+   * 
    * @example
    * 参数名称
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the parameter.
+   * 
    * @example
    * 参数值
    */
   value?: string;
   /**
+   * @remarks
+   * This parameter is valid only when \\`ValueType\\` is set to \\`time\\`.
+   * 
    * @example
    * valueType = time 时有效
    */
   valueFormat?: string;
   /**
+   * @remarks
+   * The data type of the parameter value. Default value: string.
+   * 
    * @example
-   * 参数值数据类型: 默认string
+   * 参数值数据类型：默认string
    */
   valueType?: string;
   static names(): { [key: string]: string } {
@@ -84,23 +124,35 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSou
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams extends $dara.Model {
   /**
+   * @remarks
+   * The name of the parameter.
+   * 
    * @example
    * 参数名称
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the parameter.
+   * 
    * @example
    * 参数值
    */
   value?: string;
   /**
+   * @remarks
+   * This parameter is valid only when \\`ValueType\\` is set to \\`time\\`.
+   * 
    * @example
    * valueType = time 时有效
    */
   valueFormat?: string;
   /**
+   * @remarks
+   * The data type of the parameter value. Default value: string.
+   * 
    * @example
-   * 参数值数据类型: 默认string
+   * 参数值数据类型：默认string
    */
   valueType?: string;
   static names(): { [key: string]: string } {
@@ -132,33 +184,59 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSou
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfig extends $dara.Model {
   /**
+   * @remarks
+   * The request body.
+   * 
    * @example
-   * {}
+   * 请求body
    */
   body?: string;
   /**
+   * @remarks
+   * The connection timeout period.
+   * 
    * @example
    * 30
    */
   connectTimeout?: number;
+  /**
+   * @remarks
+   * The HTTP request headers.
+   */
   headers?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders[];
   /**
+   * @remarks
+   * The request method.
+   * 
    * @example
    * 请求方式
    */
   method?: string;
+  /**
+   * @remarks
+   * The request path parameters.
+   */
   params?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams[];
   /**
+   * @remarks
+   * Specifies whether to enable path parameters.
+   * 
    * @example
    * true
    */
   pathParamsEnable?: boolean;
   /**
+   * @remarks
+   * The read timeout period.
+   * 
    * @example
    * 78
    */
   socketTimeout?: number;
   /**
+   * @remarks
+   * The API URL.
+   * 
    * @example
    * api地址
    */
@@ -206,16 +284,25 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSou
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes extends $dara.Model {
   /**
+   * @remarks
+   * The key of the node.
+   * 
    * @example
    * title
    */
   key?: string;
   /**
+   * @remarks
+   * The path of the node.
+   * 
    * @example
    * .title
    */
   path?: string;
   /**
+   * @remarks
+   * The data type of the node. Valid values: string, number, list, object, and base.
+   * 
    * @example
    * string
    */
@@ -246,18 +333,31 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSou
 }
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The child node configurations.
+   */
   jqNodes?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes[];
   /**
+   * @remarks
+   * The key of the node.
+   * 
    * @example
    * title
    */
   key?: string;
   /**
+   * @remarks
+   * The path of the node.
+   * 
    * @example
    * .title
    */
   path?: string;
   /**
+   * @remarks
+   * The data type of the node. Valid values: string, number, list, object, and base.
+   * 
    * @example
    * string
    */
@@ -293,18 +393,31 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSou
 }
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The child node configurations.
+   */
   jqNodes?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes[];
   /**
+   * @remarks
+   * The key of the node.
+   * 
    * @example
    * 节点key
    */
   key?: string;
   /**
+   * @remarks
+   * The path of the node.
+   * 
    * @example
    * 节点路径
    */
   path?: string;
   /**
+   * @remarks
+   * The data type of the node. Valid values: string, number, list, object, and base.
+   * 
    * @example
    * 节点数据类型：string number list object base
    */
@@ -340,6 +453,10 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSou
 }
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The node configurations.
+   */
   jqNodes?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -367,13 +484,27 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSou
 
 export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs extends $dara.Model {
   /**
+   * @remarks
+   * A sample query keyword. This keyword is used to test whether the search source is available.
+   * 
    * @example
    * 可以搜索到的关键词，用来验证是否可用
    */
   demoQuery?: string;
+  /**
+   * @remarks
+   * The API request configuration.
+   */
   searchSourceRequestConfig?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfig;
+  /**
+   * @remarks
+   * The API response configuration.
+   */
   searchSourceResponseConfig?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfig;
   /**
+   * @remarks
+   * The default number of data entries for requests and responses.
+   * 
    * @example
    * 10
    */
@@ -412,7 +543,15 @@ export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs extends 
 }
 
 export class GetDatasetResponseBodyDataDatasetConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration items for the dataset.
+   */
   searchSourceConfig?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfig;
+  /**
+   * @remarks
+   * Third-party search: API definition.
+   */
   searchSourceConfigs?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs[];
   static names(): { [key: string]: string } {
     return {
@@ -445,6 +584,9 @@ export class GetDatasetResponseBodyDataDatasetConfig extends $dara.Model {
 
 export class GetDatasetResponseBodyDataDocumentHandleConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to disable the processing logic for multimedia files. Default value: false.
+   * 
    * @example
    * true
    */
@@ -477,38 +619,67 @@ export class GetDatasetResponseBodyData extends $dara.Model {
    */
   accessLevel?: string;
   /**
+   * @remarks
+   * The time when the dataset was created.
+   * 
    * @example
    * 2024-11-12 21:46:24
    */
   createTime?: string;
   /**
+   * @remarks
+   * The user who created the dataset.
+   * 
    * @example
    * xxx
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The search configuration of the dataset.
+   */
   datasetConfig?: GetDatasetResponseBodyDataDatasetConfig;
   /**
+   * @remarks
+   * The display name of the dataset.
+   * 
    * @example
    * xxx
    */
   datasetDescription?: string;
   /**
+   * @remarks
+   * The ID of the dataset.
+   * 
    * @example
    * 1
    */
   datasetId?: number;
   /**
+   * @remarks
+   * The name of the dataset.
+   * 
    * @example
    * xxx
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The type of the dataset.
+   * 
    * @example
    * CustomSemanticSearch
    */
   datasetType?: string;
+  /**
+   * @remarks
+   * The document processing configuration.
+   */
   documentHandleConfig?: GetDatasetResponseBodyDataDocumentHandleConfig;
   /**
+   * @remarks
+   * The switch that enables or disables search for the dataset.
+   * 
    * @example
    * 1
    */
@@ -560,27 +731,46 @@ export class GetDatasetResponseBodyData extends $dara.Model {
 
 export class GetDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GetDatasetResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */

@@ -4,27 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunCommentGenerationResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Event name.
+   * 
    * @example
    * result-generated
    */
   event?: string;
+  /**
+   * @remarks
+   * Event description.
+   * 
+   * @example
+   * 可空
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID.
+   * 
    * @example
    * 0bd58ea2-dc38-45da-ac02-17f05cb9040b
    */
@@ -61,6 +83,13 @@ export class RunCommentGenerationResponseBodyHeader extends $dara.Model {
 }
 
 export class RunCommentGenerationResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Generated comment text.
+   * 
+   * @example
+   * 评论内容
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,16 +114,25 @@ export class RunCommentGenerationResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunCommentGenerationResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens used.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens used.
+   * 
    * @example
    * 2
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens used.
+   * 
    * @example
    * 3
    */
@@ -125,7 +163,15 @@ export class RunCommentGenerationResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunCommentGenerationResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output data.
+   */
   output?: RunCommentGenerationResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage.
+   */
   usage?: RunCommentGenerationResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -157,12 +203,24 @@ export class RunCommentGenerationResponseBodyPayload extends $dara.Model {
 }
 
 export class RunCommentGenerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is complete.
+   */
   end?: boolean;
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunCommentGenerationResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body.
+   */
   payload?: RunCommentGenerationResponseBodyPayload;
   /**
    * @remarks
-   * Id of the request
+   * Request ID.
    * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21

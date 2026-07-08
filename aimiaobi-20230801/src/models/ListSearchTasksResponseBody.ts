@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSearchTasksResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 2024-11-25 11:40:50
    */
   createTime?: string;
   /**
+   * @remarks
+   * Task type
+   * 
    * @example
    * 24
    */
   dialogueType?: number;
   /**
+   * @remarks
+   * Unique task identifier
+   * 
    * @example
    * xxxx
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task name
+   * 
    * @example
    * xxx
    */
   taskName?: string;
   /**
+   * @remarks
+   * Modification time
+   * 
    * @example
    * 2024-11-25 11:40:50
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Creator name
+   * 
    * @example
    * xxxx
    */
@@ -66,42 +84,70 @@ export class ListSearchTasksResponseBodyData extends $dara.Model {
 
 export class ListSearchTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: ListSearchTasksResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of records per page
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. True for success, false for failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of records
+   * 
    * @example
    * 100
    */

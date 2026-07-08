@@ -3,7 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetClipsBuildInResourceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of resources.
+   */
   resourceList?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * 0 - 音色
+   * 1- 背景音
+   */
   resourceType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -33,17 +45,30 @@ export class GetClipsBuildInResourceResponseBodyData extends $dara.Model {
 
 export class GetClipsBuildInResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetClipsBuildInResourceResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The message returned for the request.
+   * 
    * @example
    * successful
    */
@@ -57,6 +82,9 @@ export class GetClipsBuildInResourceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of true means the request was successful. A value of false means the request failed.
+   * 
    * @example
    * true
    */

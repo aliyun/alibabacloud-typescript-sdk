@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class FetchExportWordTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class FetchExportWordTaskRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 2e27abb32cb64f80a0c6e829b6c87a09
    */

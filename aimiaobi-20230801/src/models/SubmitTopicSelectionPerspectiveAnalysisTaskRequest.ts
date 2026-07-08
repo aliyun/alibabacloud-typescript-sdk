@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments extends $dara.Model {
+  /**
+   * @remarks
+   * Content
+   * 
+   * @example
+   * 内容
+   */
   text?: string;
+  /**
+   * @remarks
+   * Username
+   * 
+   * @example
+   * 用户名
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,13 +44,22 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments
 
 export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends $dara.Model {
   /**
+   * @remarks
+   * Author
+   * 
    * @example
    * 作者
    */
   author?: string;
+  /**
+   * @remarks
+   * Content list
+   */
   comments?: SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments[];
   /**
    * @remarks
+   * Content
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,26 +67,41 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends
    */
   content?: string;
   /**
+   * @remarks
+   * Publication time. Format: YYYY-MM-dd HH:mm:ss
+   * 
    * @example
    * 2024-01-22 10:29:00
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Article source
+   * 
    * @example
    * 新浪
    */
   source?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * 文章摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * 文章标题
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL
+   * 
    * @example
    * https://www.example.com/aaa.docx
    */
@@ -109,19 +147,31 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments extends
 export class SubmitTopicSelectionPerspectiveAnalysisTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
    * xxxxx_p_efm
    */
   agentKey?: string;
+  /**
+   * @remarks
+   * The list of documents to be analyzed. (Provide at least one of documents or topic)
+   */
   documents?: SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocuments[];
   /**
+   * @remarks
+   * The topic selection perspective tasks to be analyzed. By default, this parameter is empty, which means all tasks are analyzed. (TopicSummary: Topic event summary, HotViewPoints: Hot topic selection perspectives, TimedViewPoints: Timeliness topic selection perspectives, WebReviewPoints: Online review topic selection perspectives, FreshViewPoints: Novel topic selection perspectives)
+   * 
    * @example
    * TimedViewPoints
    */
   perspectiveTypes?: string[];
   /**
+   * @remarks
+   * The name of the topic to be analyzed. (Provide at least one of documents or topic)
+   * 
    * @example
    * 待分析的主题名（documents与topic二者至少传一个）
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPptArtifactResponseBodyDataFileAttr extends $dara.Model {
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * xxx.pptx
    */
   fileName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 600
    */
   height?: number;
   /**
+   * @remarks
+   * The temporary access URL for the file. The URL expires in one hour.
+   * 
    * @example
    * http://www.example.com/xxx.pptx
    */
   tmpUrl?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 800
    */
@@ -52,23 +64,46 @@ export class GetPptArtifactResponseBodyDataFileAttr extends $dara.Model {
 
 export class GetPptArtifactResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the resource was last updated.
+   * 
    * @example
    * 2024-11-25 11:40:50
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The file properties.
+   */
   fileAttr?: GetPptArtifactResponseBodyDataFileAttr;
   /**
+   * @remarks
+   * The storage path of the file in the backend.
+   * 
    * @example
    * oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
    */
   fileKey?: string;
   /**
+   * @remarks
+   * The unique ID of the artifact.
+   * 
    * @example
    * 10
    */
   id?: number;
+  /**
+   * @remarks
+   * The title.
+   * 
+   * @example
+   * 内容标题
+   */
   title?: string;
   /**
+   * @remarks
+   * The time when the artifact was last updated.
+   * 
    * @example
    * 2024-11-25 11:40:50
    */
@@ -109,30 +144,46 @@ export class GetPptArtifactResponseBodyData extends $dara.Model {
 
 export class GetPptArtifactResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The task response object.
+   */
   data?: GetPptArtifactResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * xxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

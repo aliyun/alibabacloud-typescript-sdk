@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStyleLearningResultRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identity of the workspace: AgentKey
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteStyleLearningResultRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * Style learning ID
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDocSmartCardResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * finished
    */
   event?: string;
+  /**
+   * @remarks
+   * The event description.
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * The unique ID of the session.
+   * 
    * @example
    * 07181f55-2311-48af-8048-132a77dee020
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 8d55b429d7c6d321fcff54823e8d317b
    */
   taskId?: string;
   /**
+   * @remarks
+   * The trace ID.
+   * 
    * @example
    * 0abb781c17337107444473701ed7c3
    */
@@ -68,7 +93,18 @@ export class RunDocSmartCardResponseBodyHeader extends $dara.Model {
 }
 
 export class RunDocSmartCardResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The title of the card.
+   * 
+   * @example
+   * 标题内容
+   */
   content?: string;
+  /**
+   * @remarks
+   * An array of card tags.
+   */
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -98,16 +134,25 @@ export class RunDocSmartCardResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunDocSmartCardResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens used for the input.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of tokens for the output.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The total number of tokens.
+   * 
    * @example
    * 101
    */
@@ -138,7 +183,15 @@ export class RunDocSmartCardResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunDocSmartCardResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * The output object.
+   */
   output?: RunDocSmartCardResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * The token usage.
+   */
   usage?: RunDocSmartCardResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -170,7 +223,15 @@ export class RunDocSmartCardResponseBodyPayload extends $dara.Model {
 }
 
 export class RunDocSmartCardResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response header.
+   */
   header?: RunDocSmartCardResponseBodyHeader;
+  /**
+   * @remarks
+   * The response body.
+   */
   payload?: RunDocSmartCardResponseBodyPayload;
   /**
    * @remarks

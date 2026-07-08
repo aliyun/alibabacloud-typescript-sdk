@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitiatePptCreationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AppKey
+   * The AppKey.
    * 
    * @example
    * S1X5ecouBztZelaQ
@@ -13,7 +13,7 @@ export class InitiatePptCreationResponseBodyData extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * Code
+   * The code.
    * 
    * @example
    * 7dhqd2
@@ -44,17 +44,30 @@ export class InitiatePptCreationResponseBodyData extends $dara.Model {
 
 export class InitiatePptCreationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: InitiatePptCreationResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
@@ -68,6 +81,9 @@ export class InitiatePptCreationResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

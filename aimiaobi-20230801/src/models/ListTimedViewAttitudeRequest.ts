@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTimedViewAttitudeRequest extends $dara.Model {
   /**
    * @remarks
+   * UUID of the workspace: AgentKey
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class ListTimedViewAttitudeRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * Maximum number of Return Results
+   * 
    * @example
    * 53
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token for the next page
+   * 
    * @example
-   * 下一页的token
+   * 下一页的Token
    */
   nextToken?: string;
   /**
    * @remarks
+   * Hotlist topic
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +41,8 @@ export class ListTimedViewAttitudeRequest extends $dara.Model {
   topic?: string;
   /**
    * @remarks
+   * Hotlist source
+   * 
    * This parameter is required.
    * 
    * @example

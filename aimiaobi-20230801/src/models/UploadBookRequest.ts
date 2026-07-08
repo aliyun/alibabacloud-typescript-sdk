@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadBookRequestDocs extends $dara.Model {
+  /**
+   * @remarks
+   * Document name
+   * 
+   * @example
+   * 文档1.pdf
+   */
   docName?: string;
   /**
+   * @remarks
+   * File URL
+   * 
    * @example
    * http://xxx/ccc.pdf
    */
@@ -33,14 +43,25 @@ export class UploadBookRequestDocs extends $dara.Model {
 }
 
 export class UploadBookRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Folder ID
+   * 
+   * @example
+   * default
+   */
   categoryId?: string;
   /**
    * @remarks
+   * Documents
+   * 
    * This parameter is required.
    */
   docs?: UploadBookRequestDocs[];
   /**
    * @remarks
+   * Unique identifier of your Alibaba Cloud Model Studio workspace. [Get your workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * This parameter is required.
    * 
    * @example

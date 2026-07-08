@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAsyncTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SubmitAsyncTaskRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * For details on the task definition, see the task definition table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,18 +24,27 @@ export class SubmitAsyncTaskRequest extends $dara.Model {
    */
   taskCode?: string;
   /**
+   * @remarks
+   * The time to run the task. By default, the task runs immediately. Format: YYYY-MM-DD HH:mm:ss
+   * 
    * @example
    * 2023-10-14 14:30:00
    */
   taskExecuteTime?: string;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * 任务名称
    */
   taskName?: string;
   /**
+   * @remarks
+   * The task parameters.
+   * 
    * @example
-   * 任务提交参数
+   * {"fileUrl":"https://www.example.com/aaa.doc","fileName":"文件名称","shareAttr":1}
    */
   taskParam?: string;
   static names(): { [key: string]: string } {

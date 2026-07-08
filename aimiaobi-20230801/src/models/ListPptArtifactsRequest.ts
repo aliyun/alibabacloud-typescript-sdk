@@ -9,17 +9,33 @@ export class ListPptArtifactsRequest extends $dara.Model {
    */
   externalUserId?: string;
   /**
+   * @remarks
+   * The number of data entries to query in this request (deprecated).
+   * 
    * @example
    * 0
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page.
+   * 
    * @example
    * cEoBWREAXdxaOyjq/cqAbg==
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The search keyword for the work name.
+   * 
+   * @example
+   * 数字时代的营销策划与文案创作
+   */
   query?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * llm-az2xxxx
    */

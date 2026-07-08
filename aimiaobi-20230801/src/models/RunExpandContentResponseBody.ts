@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunExpandContentResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code for exceptions.
+   * 
    * @example
    * 403
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message for exceptions.
+   * 
    * @example
    * Pop sign mismatch, please check.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Event type.
+   * 
    * @example
    * result-generated
    */
   event?: string;
   /**
+   * @remarks
+   * Event description.
+   * 
    * @example
    * 模型生成事件
    */
   eventInfo?: string;
   /**
+   * @remarks
+   * Session ID for a single session.
+   * 
    * @example
    * 3cd10828-0e42-471c-8f1a-931cde20b035
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID for a single generation task.
+   * 
    * @example
    * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID for the link.
+   * 
    * @example
    * 2150451a17191950923411783e2927
    */
@@ -73,6 +94,9 @@ export class RunExpandContentResponseBodyHeader extends $dara.Model {
 
 export class RunExpandContentResponseBodyPayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * Output content.
+   * 
    * @example
    * 这是测试输出
    */
@@ -100,16 +124,25 @@ export class RunExpandContentResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunExpandContentResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens.
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens.
+   * 
    * @example
    * 200
    */
@@ -140,7 +173,15 @@ export class RunExpandContentResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunExpandContentResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output content object.
+   */
   output?: RunExpandContentResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Large Language Model (LLM) token usage information.
+   */
   usage?: RunExpandContentResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -172,10 +213,25 @@ export class RunExpandContentResponseBodyPayload extends $dara.Model {
 }
 
 export class RunExpandContentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Whether the output is complete. True indicates completion.
+   */
   end?: boolean;
+  /**
+   * @remarks
+   * Streaming output header, containing general return information.
+   */
   header?: RunExpandContentResponseBodyHeader;
+  /**
+   * @remarks
+   * Payload of the returned result, JSON structure.
+   */
   payload?: RunExpandContentResponseBodyPayload;
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
    */

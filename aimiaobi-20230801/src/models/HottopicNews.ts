@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HottopicNewsComments extends $dara.Model {
+  /**
+   * @remarks
+   * News comment content
+   * 
+   * @example
+   * 新闻评论内容
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,10 +33,31 @@ export class HottopicNewsComments extends $dara.Model {
 }
 
 export class HottopicNews extends $dara.Model {
+  /**
+   * @remarks
+   * List of news comments
+   */
   comments?: HottopicNewsComments[];
+  /**
+   * @remarks
+   * News content
+   * 
+   * @example
+   * 新闻内容xxx
+   */
   content?: string;
+  /**
+   * @remarks
+   * News title
+   * 
+   * @example
+   * 新闻标题xxx
+   */
   title?: string;
   /**
+   * @remarks
+   * News URL link
+   * 
    * @example
    * http://www.example.com/xxx.html
    */

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportCustomSourceAnalysisTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * Export format type. Default is jsonLine. jsonline: Exports in jsonLine format. excel: Exports in Excel format.
+   * 
    * @example
    * jsonLine
    */
   exportType?: string;
   /**
    * @remarks
+   * Unique ID for the task
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ExportCustomSourceAnalysisTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * Unique identifier for the workspace: AgentKey
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunKeywordsExtractionGenerationResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * AccessForbid
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * xx
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * SSE event.
+   * 
    * @example
    * task-failed
    */
   event?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 1a3d7c9f-3a6d-4e49-b176-2d8721a27397
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * 8d55b429d7c6d321fcff54823e8d317b
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID.
+   * 
    * @example
    * 210bc4e817219607963985396de8bd
    */
@@ -66,6 +84,9 @@ export class RunKeywordsExtractionGenerationResponseBodyHeader extends $dara.Mod
 
 export class RunKeywordsExtractionGenerationResponseBodyPayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * Text generation result.
+   * 
    * @example
    * xxx
    */
@@ -93,16 +114,25 @@ export class RunKeywordsExtractionGenerationResponseBodyPayloadOutput extends $d
 
 export class RunKeywordsExtractionGenerationResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens used.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens used.
+   * 
    * @example
    * 1
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens used in this call.
+   * 
    * @example
    * 2
    */
@@ -133,7 +163,15 @@ export class RunKeywordsExtractionGenerationResponseBodyPayloadUsage extends $da
 }
 
 export class RunKeywordsExtractionGenerationResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Outputs.
+   */
   output?: RunKeywordsExtractionGenerationResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage.
+   */
   usage?: RunKeywordsExtractionGenerationResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -165,9 +203,20 @@ export class RunKeywordsExtractionGenerationResponseBodyPayload extends $dara.Mo
 }
 
 export class RunKeywordsExtractionGenerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunKeywordsExtractionGenerationResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body.
+   */
   payload?: RunKeywordsExtractionGenerationResponseBodyPayload;
   /**
+   * @remarks
+   * Unique request identifier.
+   * 
    * @example
    * 419F3FBE-5C8D-5949-AC29-E9615235D15A
    */

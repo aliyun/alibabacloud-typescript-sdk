@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExportGeneratedContentRequest extends $dara.Model {
   /**
    * @remarks
+   * Workspace identity: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExportGeneratedContentRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * Document identity
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHotSourcesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Hot ranking source description
+   * 
    * @example
    * 热榜源描述
    */
   description?: string;
   /**
+   * @remarks
+   * Whether to display in the console
+   * 
    * @example
    * true
    */
   show?: boolean;
   /**
+   * @remarks
+   * Sorting value
+   * 
    * @example
    * 86
    */
   sort?: number;
   /**
+   * @remarks
+   * Hot ranking source identity
+   * 
    * @example
    * 热榜源标识
    */
@@ -52,42 +64,70 @@ export class ListHotSourcesResponseBodyData extends $dara.Model {
 
 export class ListHotSourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Third-party source list
+   */
   data?: ListHotSourcesResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Maximum number of results returned
+   * 
    * @example
    * 4
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Next page token
+   * 
    * @example
    * xxxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request UUID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded: true for success, false for failure
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of records
+   * 
    * @example
    * 30
    */

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPptTemplateSelectorResponseBodyDataCareer extends $dara.Model {
   /**
+   * @remarks
+   * The career ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * Indicates whether the career is popular.
+   * 
    * @example
    * 0
    */
   isHot?: number;
   /**
+   * @remarks
+   * The career name.
+   * 
    * @example
    * 教育培训
    */
@@ -45,16 +54,25 @@ export class GetPptTemplateSelectorResponseBodyDataCareer extends $dara.Model {
 
 export class GetPptTemplateSelectorResponseBodyDataColour extends $dara.Model {
   /**
+   * @remarks
+   * The color value.
+   * 
    * @example
    * #FCC462
    */
   code?: string;
   /**
+   * @remarks
+   * The color ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The color name.
+   * 
    * @example
    * 橙色
    */
@@ -86,11 +104,17 @@ export class GetPptTemplateSelectorResponseBodyDataColour extends $dara.Model {
 
 export class GetPptTemplateSelectorResponseBodyDataSuitScene extends $dara.Model {
   /**
+   * @remarks
+   * The scenario ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The scenario name.
+   * 
    * @example
    * 教育培训
    */
@@ -120,11 +144,17 @@ export class GetPptTemplateSelectorResponseBodyDataSuitScene extends $dara.Model
 
 export class GetPptTemplateSelectorResponseBodyDataSuitStyle extends $dara.Model {
   /**
+   * @remarks
+   * The style ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The style name.
+   * 
    * @example
    * 扁平简约
    */
@@ -153,9 +183,25 @@ export class GetPptTemplateSelectorResponseBodyDataSuitStyle extends $dara.Model
 }
 
 export class GetPptTemplateSelectorResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The careers.
+   */
   career?: GetPptTemplateSelectorResponseBodyDataCareer[];
+  /**
+   * @remarks
+   * The colors.
+   */
   colour?: GetPptTemplateSelectorResponseBodyDataColour[];
+  /**
+   * @remarks
+   * The scenarios.
+   */
   suitScene?: GetPptTemplateSelectorResponseBodyDataSuitScene[];
+  /**
+   * @remarks
+   * The styles.
+   */
   suitStyle?: GetPptTemplateSelectorResponseBodyDataSuitStyle[];
   static names(): { [key: string]: string } {
     return {
@@ -198,17 +244,30 @@ export class GetPptTemplateSelectorResponseBodyData extends $dara.Model {
 
 export class GetPptTemplateSelectorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The response object.
+   */
   data?: GetPptTemplateSelectorResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
@@ -221,6 +280,10 @@ export class GetPptTemplateSelectorResponseBody extends $dara.Model {
    * xxxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

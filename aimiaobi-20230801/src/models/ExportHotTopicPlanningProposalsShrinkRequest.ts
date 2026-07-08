@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExportHotTopicPlanningProposalsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,18 +14,34 @@ export class ExportHotTopicPlanningProposalsShrinkRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * Custom viewpoint ID. Use this parameter for custom viewpoint topic planning.
+   * 
    * @example
    * 025c6cee437741368098b790c90166f8
    */
   customViewPointIdsShrink?: string;
   /**
+   * @remarks
+   * Document export format
+   * 
+   * - word: Export as a Word document
+   * 
+   * - xmind: Export as an XMind file
+   * 
    * @example
-   * 导出文档类型，word:导出为word,xmind:导处为xmind
+   * word
    */
   exportType?: string;
+  /**
+   * @remarks
+   * Filter topic planning documents by title
+   */
   titlesShrink?: string;
   /**
    * @remarks
+   * Hot list topic
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +50,8 @@ export class ExportHotTopicPlanningProposalsShrinkRequest extends $dara.Model {
   topic?: string;
   /**
    * @remarks
+   * Hot list source
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,8 +59,21 @@ export class ExportHotTopicPlanningProposalsShrinkRequest extends $dara.Model {
    */
   topicSource?: string;
   /**
+   * @remarks
+   * Topic planning type
+   * 
+   * - CustomViewPoints: Custom viewpoint
+   * 
+   * - HotViewPoints: Popular viewpoint
+   * 
+   * - TimedViewPoints: Time-sensitive viewpoint
+   * 
+   * - WebReviewPoints: Public viewpoint
+   * 
+   * - FreshViewPoints: Fresh viewpoint
+   * 
    * @example
-   * 选题策划类型：CustomViewPoints:自定义视角，HotViewPoints:热门视角、TimedViewPoints:时效性视角、WebReviewPoints:网友视角、FreshViewPoints:新颖视角
+   * CustomViewPoints
    */
   viewPointType?: string;
   static names(): { [key: string]: string } {

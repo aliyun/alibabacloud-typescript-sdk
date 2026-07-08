@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPropertiesResponseBodyDataConsoleConfig extends $dara.Model {
   /**
+   * @remarks
+   * Prompt content
+   * 
    * @example
    * xx
    */
   tipContent?: string;
+  /**
+   * @remarks
+   * Title
+   * 
+   * @example
+   * AI妙笔
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,16 +44,25 @@ export class GetPropertiesResponseBodyDataConsoleConfig extends $dara.Model {
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources extends $dara.Model {
   /**
+   * @remarks
+   * Unique identifier for the dataset: code+datasetName
+   * 
    * @example
    * x
    */
   code?: string;
   /**
+   * @remarks
+   * Unique identifier for the dataset: code+datasetName
+   * 
    * @example
    * x
    */
   datasetName?: string;
   /**
+   * @remarks
+   * Search source name: Chinese
+   * 
    * @example
    * x
    */
@@ -75,21 +94,33 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseS
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticles extends $dara.Model {
   /**
+   * @remarks
+   * Whether manually selected when passed from the frontend
+   * 
    * @example
    * true
    */
   select?: boolean;
   /**
+   * @remarks
+   * Whether it is a starred article
+   * 
    * @example
    * false
    */
   stared?: boolean;
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL
+   * 
    * @example
    * http://xxx.com
    */
@@ -122,13 +153,23 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesAr
 }
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples extends $dara.Model {
+  /**
+   * @remarks
+   * Article list
+   */
   articles?: GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticles[];
   /**
+   * @remarks
+   * Prompt
+   * 
    * @example
    * xx
    */
   prompt?: string;
   /**
+   * @remarks
+   * Generated content
+   * 
    * @example
    * xxx
    */
@@ -163,16 +204,25 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples e
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources extends $dara.Model {
   /**
+   * @remarks
+   * Unique identifier for the dataset: code+datasetName
+   * 
    * @example
    * xx
    */
   code?: string;
   /**
+   * @remarks
+   * Unique identifier for the dataset: code+datasetName
+   * 
    * @example
    * xx
    */
   datasetName?: string;
   /**
+   * @remarks
+   * Search source name: Chinese
+   * 
    * @example
    * xx
    */
@@ -203,13 +253,28 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources e
 }
 
 export class GetPropertiesResponseBodyDataIntelligentSearchConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Miaosou: Search source configuration
+   */
   copilotPreciseSearchSources?: GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources[];
   /**
+   * @remarks
+   * Homepage product description
+   * 
    * @example
    * xxx
    */
   productDescription?: string;
+  /**
+   * @remarks
+   * Intelligent search recommendations
+   */
   searchSamples?: GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples[];
+  /**
+   * @remarks
+   * Search source list
+   */
   searchSources?: GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources[];
   static names(): { [key: string]: string } {
     return {
@@ -249,11 +314,17 @@ export class GetPropertiesResponseBodyDataIntelligentSearchConfig extends $dara.
 
 export class GetPropertiesResponseBodyDataMiaosouConfigModelInfos extends $dara.Model {
   /**
+   * @remarks
+   * Model ID
+   * 
    * @example
    * quanmiao-max
    */
   modelId?: string;
   /**
+   * @remarks
+   * Model name
+   * 
    * @example
    * 全妙-Max
    */
@@ -283,12 +354,22 @@ export class GetPropertiesResponseBodyDataMiaosouConfigModelInfos extends $dara.
 
 export class GetPropertiesResponseBodyDataMiaosouConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of active documents in the dataset.
+   * 
    * @example
    * 1
    */
   maxDocSize?: number;
+  /**
+   * @remarks
+   * Model list supported by intelligent search
+   */
   modelInfos?: GetPropertiesResponseBodyDataMiaosouConfigModelInfos[];
   /**
+   * @remarks
+   * Number of documents used in the dataset
+   * 
    * @example
    * 1
    */
@@ -322,8 +403,29 @@ export class GetPropertiesResponseBodyDataMiaosouConfig extends $dara.Model {
 }
 
 export class GetPropertiesResponseBodyDataSearchSourceList extends $dara.Model {
+  /**
+   * @remarks
+   * Search source type: corresponds to (SystemSearch: system-built-in search, CustomSemanticSearch: custom semantic index search, ThirdSearch: third-party API search)
+   * 
+   * @example
+   * SystemSearch
+   */
   code?: string;
+  /**
+   * @remarks
+   * Unique identifier for the data source
+   * 
+   * @example
+   * QuarkCommonNews
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * Search source description
+   * 
+   * @example
+   * 互联网检索
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -351,8 +453,18 @@ export class GetPropertiesResponseBodyDataSearchSourceList extends $dara.Model {
 }
 
 export class GetPropertiesResponseBodyDataSearchSources extends $dara.Model {
+  /**
+   * @remarks
+   * Search source name
+   * 
+   * @example
+   * 夸克通用搜索
+   */
   label?: string;
   /**
+   * @remarks
+   * Search source code
+   * 
    * @example
    * SystemSearch
    */
@@ -382,21 +494,33 @@ export class GetPropertiesResponseBodyDataSearchSources extends $dara.Model {
 
 export class GetPropertiesResponseBodyDataUserInfo extends $dara.Model {
   /**
+   * @remarks
+   * Unique identifier for the workspace
+   * 
    * @example
    * 1
    */
   agentId?: string;
   /**
+   * @remarks
+   * Unique identifier for the tenant
+   * 
    * @example
    * 1
    */
   tenantId?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1
    */
   userId?: string;
   /**
+   * @remarks
+   * Username
+   * 
    * @example
    * admin
    */
@@ -430,11 +554,17 @@ export class GetPropertiesResponseBodyDataUserInfo extends $dara.Model {
 
 export class GetPropertiesResponseBodyDataWanxiangImageSizeConfig extends $dara.Model {
   /**
+   * @remarks
+   * Image aspect ratio
+   * 
    * @example
    * 1:1
    */
   name?: string;
   /**
+   * @remarks
+   * Image size in pixels
+   * 
    * @example
    * 1024*1024
    */
@@ -463,13 +593,26 @@ export class GetPropertiesResponseBodyDataWanxiangImageSizeConfig extends $dara.
 }
 
 export class GetPropertiesResponseBodyDataWanxiangImageStyleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Style name
+   * 
+   * @example
+   * 默认
+   */
   name?: string;
   /**
+   * @remarks
+   * Style image URL
+   * 
    * @example
    * https://img.alicdn.com/imgextra/i4/O1CN01RzKicz1W0YWzYkWcK_!!6000000002726-2-tps-132-104.png
    */
   pic?: string;
   /**
+   * @remarks
+   * Style code
+   * 
    * @example
    * <auto>
    */
@@ -500,20 +643,63 @@ export class GetPropertiesResponseBodyDataWanxiangImageStyleConfig extends $dara
 }
 
 export class GetPropertiesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Call configuration
+   */
   chatConfig?: { [key: string]: any };
+  /**
+   * @remarks
+   * Console configuration
+   */
   consoleConfig?: GetPropertiesResponseBodyDataConsoleConfig;
+  /**
+   * @remarks
+   * General configurations map
+   */
   generalConfigMap?: { [key: string]: any };
+  /**
+   * @remarks
+   * Intelligent search configuration
+   */
   intelligentSearchConfig?: GetPropertiesResponseBodyDataIntelligentSearchConfig;
+  /**
+   * @remarks
+   * Miaosou configuration
+   */
   miaosouConfig?: GetPropertiesResponseBodyDataMiaosouConfig;
+  /**
+   * @remarks
+   * Specified search source list
+   */
   searchSourceList?: GetPropertiesResponseBodyDataSearchSourceList[];
+  /**
+   * @remarks
+   * Search source dropdown list
+   */
   searchSources?: GetPropertiesResponseBodyDataSearchSources[];
   /**
+   * @remarks
+   * Whether SLR is authorized
+   * 
    * @example
    * true
    */
   slrAuthorized?: boolean;
+  /**
+   * @remarks
+   * User configuration
+   */
   userInfo?: GetPropertiesResponseBodyDataUserInfo;
+  /**
+   * @remarks
+   * Wanxiang images
+   */
   wanxiangImageSizeConfig?: GetPropertiesResponseBodyDataWanxiangImageSizeConfig[];
+  /**
+   * @remarks
+   * Wanxiang image style configuration
+   */
   wanxiangImageStyleConfig?: GetPropertiesResponseBodyDataWanxiangImageStyleConfig[];
   static names(): { [key: string]: string } {
     return {
@@ -588,27 +774,46 @@ export class GetPropertiesResponseBodyData extends $dara.Model {
 
 export class GetPropertiesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: GetPropertiesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
-   * success
+   * 数据不存在
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether successful: true for success, false for failure
+   * 
    * @example
    * true
    */

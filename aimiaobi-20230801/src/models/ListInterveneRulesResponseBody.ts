@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig extends $dara.Model {
   /**
+   * @remarks
+   * Answer type
+   * 
    * @example
    * 0
    */
   answerType?: number;
+  /**
+   * @remarks
+   * Answer content
+   * 
+   * @example
+   * 抱歉我无法回答
+   */
   message?: string;
   /**
+   * @remarks
+   * Namespace
+   * 
    * @example
    * namespace_qa_query
    */
@@ -40,29 +53,52 @@ export class ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig ext
 }
 
 export class ListInterveneRulesResponseBodyDataInterveneRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * Answer configuration
+   */
   answerConfig?: ListInterveneRulesResponseBodyDataInterveneRuleListAnswerConfig[];
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 2023-06-05 15:17:01
    */
   createTime?: string;
   /**
+   * @remarks
+   * Effective time
+   * 
    * @example
    * 2023-04-03 02:42:01
    */
   effectTime?: string;
   /**
+   * @remarks
+   * Intervention type
+   * 
    * @example
    * 0
    */
   interveneType?: number;
+  /**
+   * @remarks
+   * List of namespaces
+   */
   namespaceList?: string[];
   /**
+   * @remarks
+   * Rule ID
+   * 
    * @example
    * mr-iuo9pi9w555phfbb
    */
   ruleId?: number;
   /**
+   * @remarks
+   * Rule name
+   * 
    * @example
    * ruletest
    */
@@ -107,19 +143,39 @@ export class ListInterveneRulesResponseBodyDataInterveneRuleList extends $dara.M
 }
 
 export class ListInterveneRulesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Status code returned by the intervention service
+   * 
+   * @example
+   * 200
+   */
   code?: number;
   /**
+   * @remarks
+   * Number of items
+   * 
    * @example
    * 1
    */
   count?: number;
+  /**
+   * @remarks
+   * List of rules
+   */
   interveneRuleList?: ListInterveneRulesResponseBodyDataInterveneRuleList[];
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
@@ -158,27 +214,46 @@ export class ListInterveneRulesResponseBodyData extends $dara.Model {
 
 export class ListInterveneRulesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * 0
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: ListInterveneRulesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * DA021073-17CE-5CCF-9FEB-93226C766887
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded: true for success, false for failure
+   * 
    * @example
    * true
    */

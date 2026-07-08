@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadBookResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Document IDs
+   */
   docIds?: string[];
+  /**
+   * @remarks
+   * IDs of duplicate documents
+   */
   existedIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,30 +44,46 @@ export class UploadBookResponseBodyData extends $dara.Model {
 
 export class UploadBookResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: UploadBookResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Operation result. Set to true for success. Set to false for failure.
+   * 
    * @example
    * true
    */

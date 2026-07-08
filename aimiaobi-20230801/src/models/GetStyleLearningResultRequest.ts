@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetStyleLearningResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetStyleLearningResultRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * The ID of the style learning task.
+   * 
    * This parameter is required.
    * 
    * @example

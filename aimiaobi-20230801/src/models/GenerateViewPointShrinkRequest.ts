@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateViewPointShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
    * c160c841c8e54295bf2f441432785944_p_efm
    */
   agentKey?: string;
+  /**
+   * @remarks
+   * The context data.
+   */
   referenceDataShrink?: string;
   static names(): { [key: string]: string } {
     return {

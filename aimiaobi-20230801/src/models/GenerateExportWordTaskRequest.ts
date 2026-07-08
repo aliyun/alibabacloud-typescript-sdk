@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateExportWordTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identifier of the workspace: AgentKey
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GenerateExportWordTaskRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * Unique identifier of the document
+   * 
    * This parameter is required.
    * 
    * @example

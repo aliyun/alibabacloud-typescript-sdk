@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInterveneGlobalReplyResponseBodyDataReplyMessagList extends $dara.Model {
   /**
+   * @remarks
+   * Reply content
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Reply type
+   * 
    * @example
    * namespace_qa_query
    */
@@ -38,6 +44,10 @@ export class GetInterveneGlobalReplyResponseBodyDataReplyMessagList extends $dar
 
 export class GetInterveneGlobalReplyResponseBodyData extends $dara.Model {
   code?: number;
+  /**
+   * @remarks
+   * Reply message list
+   */
   replyMessagList?: GetInterveneGlobalReplyResponseBodyDataReplyMessagList[];
   static names(): { [key: string]: string } {
     return {
@@ -67,27 +77,46 @@ export class GetInterveneGlobalReplyResponseBodyData extends $dara.Model {
 
 export class GetInterveneGlobalReplyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: GetInterveneGlobalReplyResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates success: true for success, false for failure
+   * 
    * @example
    * true
    */

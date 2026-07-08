@@ -8,8 +8,18 @@ export class DeletePptArtifactRequest extends $dara.Model {
    * abc
    */
   externalUserId?: string;
+  /**
+   * @remarks
+   * The ID of the PPT work.
+   * 
+   * @example
+   * 53245
+   */
   pptArtifactId?: string;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * llm-xx
    */

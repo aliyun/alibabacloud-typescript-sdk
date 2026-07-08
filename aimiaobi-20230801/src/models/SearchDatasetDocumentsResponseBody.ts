@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchDatasetDocumentsResponseBodyDataDocumentsChunkInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the chunk.
+   * 
+   * @example
+   * xx
+   */
   chunk?: string;
+  /**
+   * @remarks
+   * The relevance score of the chunk.
+   * 
+   * @example
+   * 0.77
+   */
   score?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29,54 +43,156 @@ export class SearchDatasetDocumentsResponseBodyDataDocumentsChunkInfos extends $
 }
 
 export class SearchDatasetDocumentsResponseBodyDataDocuments extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier for the category.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
+  /**
+   * @remarks
+   * The content of the relevant chunk. This field is returned only in `chunk` mode.
+   * 
+   * @example
+   * xx
+   */
   chunk?: string;
+  /**
+   * @remarks
+   * A list of relevant chunks from the document. This field is returned only in `document` mode.
+   */
   chunkInfos?: SearchDatasetDocumentsResponseBodyDataDocumentsChunkInfos[];
   /**
+   * @remarks
+   * The content of the document.
+   * 
    * @example
    * xx
    */
   content?: string;
   /**
+   * @remarks
+   * The user-defined unique ID for the document.
+   * 
    * @example
-   * 用户指定的文档唯一ID
+   * xx
    */
   docId?: string;
+  /**
+   * @remarks
+   * The document type.
+   * 
+   * @example
+   * text
+   */
   docType?: string;
   /**
+   * @remarks
+   * The unique system ID of the document.
+   * 
    * @example
-   * 内部文档唯一ID
+   * xxx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Custom extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Custom extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Custom extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
   /**
+   * @remarks
+   * The publication time, in `yyyy-MM-dd HH:mm:ss` format.
+   * 
    * @example
    * 2024-12-09 17:09:40
    */
   pubTime?: string;
+  /**
+   * @remarks
+   * The relevance score.
+   * 
+   * @example
+   * 0.5
+   */
   score?: number;
+  /**
+   * @remarks
+   * The unique identifier for the dataset.
+   * 
+   * @example
+   * xx
+   */
   searchSource?: string;
+  /**
+   * @remarks
+   * The name of the dataset.
+   * 
+   * @example
+   * xx
+   */
   searchSourceName?: string;
+  /**
+   * @remarks
+   * The dataset type.
+   * 
+   * @example
+   * xx
+   */
   searchSourceType?: string;
   /**
+   * @remarks
+   * The source of the document.
+   * 
    * @example
    * 来源
    */
   sourceFrom?: string;
   /**
+   * @remarks
+   * The summary of the document.
+   * 
    * @example
    * 文章摘要
    */
   summary?: string;
+  /**
+   * @remarks
+   * A list of tags.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * The title of the document.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the document.
+   * 
    * @example
    * xx
    */
@@ -147,6 +263,10 @@ export class SearchDatasetDocumentsResponseBodyDataDocuments extends $dara.Model
 }
 
 export class SearchDatasetDocumentsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The document list.
+   */
   documents?: SearchDatasetDocumentsResponseBodyDataDocuments[];
   static names(): { [key: string]: string } {
     return {
@@ -174,27 +294,46 @@ export class SearchDatasetDocumentsResponseBodyData extends $dara.Model {
 
 export class SearchDatasetDocumentsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: SearchDatasetDocumentsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the request succeeded (`true`) or failed (`false`).
+   * 
    * @example
    * true
    */

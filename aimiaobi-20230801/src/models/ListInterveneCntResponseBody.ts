@@ -3,19 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInterveneCntResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of count information
+   */
   cntList?: any[];
+  /**
+   * @remarks
+   * Intervention service status code
+   * 
+   * @example
+   * 200
+   */
   code?: number;
   /**
+   * @remarks
+   * Total number of pages
+   * 
    * @example
    * 10
    */
   pageCnt?: number;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
@@ -54,27 +74,46 @@ export class ListInterveneCntResponseBodyData extends $dara.Model {
 
 export class ListInterveneCntResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * 0
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: ListInterveneCntResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates success: true for success, false for failure
+   * 
    * @example
    * true
    */

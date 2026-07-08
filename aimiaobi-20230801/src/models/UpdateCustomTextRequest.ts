@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomTextRequest extends $dara.Model {
   /**
    * @remarks
+   * Workspace unique identifier: AgentKey
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class UpdateCustomTextRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * Commodity code
+   * 
    * @example
    * 商品code
    */
   commodityCode?: string;
   /**
+   * @remarks
+   * Content
+   * 
    * @example
    * 内容
    */
   content?: string;
   /**
    * @remarks
+   * Primary key ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +40,9 @@ export class UpdateCustomTextRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * 标题
    */

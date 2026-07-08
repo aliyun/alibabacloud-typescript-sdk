@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitSmartClipTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
@@ -31,27 +34,46 @@ export class SubmitSmartClipTaskResponseBodyData extends $dara.Model {
 
 export class SubmitSmartClipTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The result of the task submission.
+   */
   data?: SubmitSmartClipTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. true indicates success. false indicates failure.
+   * 
    * @example
    * true
    */

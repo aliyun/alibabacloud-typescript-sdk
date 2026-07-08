@@ -47,9 +47,6 @@ export class SubmitParseDocumentLayoutTaskResponseBody extends $dara.Model {
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */

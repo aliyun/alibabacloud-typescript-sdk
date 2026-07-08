@@ -4,61 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHotViewPointsResponseBodyDataNews extends $dara.Model {
   /**
+   * @remarks
+   * Author
+   * 
    * @example
    * 作者
    */
   author?: string;
   /**
+   * @remarks
+   * Content
+   * 
    * @example
    * 文章内容
    */
   content?: string;
   /**
+   * @remarks
+   * External UUID of the article
+   * 
    * @example
    * xxxxx
    */
   docId?: string;
   /**
+   * @remarks
+   * Unique ID of the article
+   * 
    * @example
    * 123456
    */
   docUuid?: string;
   /**
+   * @remarks
+   * URLs of article images
+   * 
    * @example
    * https://www.example.com/aaa.png
    */
   imageUrls?: string[];
   /**
+   * @remarks
+   * Published At. Format: YYYY-MM-dd HH:mm:ss
+   * 
    * @example
    * 2024-01-22 10:29:00
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * 新浪
    */
   source?: string;
   /**
+   * @remarks
+   * summary
+   * 
    * @example
    * 文章摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * tags
+   * 
    * @example
    * ["标签1","标签2"]
    */
   tags?: string[];
   /**
+   * @remarks
+   * title
+   * 
    * @example
    * 文章标题
    */
   title?: string;
   /**
+   * @remarks
+   * topic
+   * 
    * @example
    * 文章主题
    */
   topic?: string;
   /**
+   * @remarks
+   * Article URL
+   * 
    * @example
    * https://www.example.com/aaa.docx
    */
@@ -114,11 +150,17 @@ export class ListHotViewPointsResponseBodyDataNews extends $dara.Model {
 
 export class ListHotViewPointsResponseBodyDataViewPointsOutlines extends $dara.Model {
   /**
+   * @remarks
+   * Outline
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * Outline summary
+   * 
    * @example
    * 大纲摘要
    */
@@ -147,13 +189,23 @@ export class ListHotViewPointsResponseBodyDataViewPointsOutlines extends $dara.M
 }
 
 export class ListHotViewPointsResponseBodyDataViewPoints extends $dara.Model {
+  /**
+   * @remarks
+   * Outline
+   */
   outlines?: ListHotViewPointsResponseBodyDataViewPointsOutlines[];
   /**
+   * @remarks
+   * Generated point
+   * 
    * @example
    * 视角
    */
   point?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * 摘要
    */
@@ -188,21 +240,38 @@ export class ListHotViewPointsResponseBodyDataViewPoints extends $dara.Model {
 
 export class ListHotViewPointsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Current viewpoint
+   * 
    * @example
    * 当前观点
    */
   attitude?: string;
   /**
+   * @remarks
+   * Attitude Type
+   * 
    * @example
    * 观点类型
    */
   attitudeType?: string;
+  /**
+   * @remarks
+   * List of related news articles
+   */
   news?: ListHotViewPointsResponseBodyDataNews[];
   /**
+   * @remarks
+   * Current viewpoint ratio
+   * 
    * @example
    * 当前观点占比
    */
   ratio?: string;
+  /**
+   * @remarks
+   * List of topic viewpoints
+   */
   viewPoints?: ListHotViewPointsResponseBodyDataViewPoints[];
   static names(): { [key: string]: string } {
     return {
@@ -241,42 +310,70 @@ export class ListHotViewPointsResponseBodyData extends $dara.Model {
 
 export class ListHotViewPointsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business Data
+   */
   data?: ListHotViewPointsResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Maximum number of return results
+   * 
    * @example
    * 67
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Token for the next page
+   * 
    * @example
    * 下一页的token
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request UUID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded: true for success, false for failure
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 70
    */

@@ -4,28 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWebReviewPointsResponseBodyDataComments extends $dara.Model {
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * 来源
    */
   source?: string;
   /**
+   * @remarks
+   * Content
+   * 
    * @example
-   * 评论内容
+   * 内容
    */
   text?: string;
   /**
+   * @remarks
+   * title
+   * 
    * @example
    * 标题
    */
   title?: string;
   /**
+   * @remarks
+   * Current URL
+   * 
    * @example
-   * 当前评论所属的URL
+   * 当前所属的URL
    */
   url?: string;
   /**
+   * @remarks
+   * username
+   * 
    * @example
-   * 评论用户名
+   * 用户名
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -59,11 +74,17 @@ export class ListWebReviewPointsResponseBodyDataComments extends $dara.Model {
 
 export class ListWebReviewPointsResponseBodyDataViewPointsOutlines extends $dara.Model {
   /**
+   * @remarks
+   * Outline
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * Outline summary
+   * 
    * @example
    * 大纲摘要
    */
@@ -92,13 +113,23 @@ export class ListWebReviewPointsResponseBodyDataViewPointsOutlines extends $dara
 }
 
 export class ListWebReviewPointsResponseBodyDataViewPoints extends $dara.Model {
+  /**
+   * @remarks
+   * Outline
+   */
   outlines?: ListWebReviewPointsResponseBodyDataViewPointsOutlines[];
   /**
+   * @remarks
+   * Generated point
+   * 
    * @example
    * 视角
    */
   point?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * 摘要
    */
@@ -133,21 +164,38 @@ export class ListWebReviewPointsResponseBodyDataViewPoints extends $dara.Model {
 
 export class ListWebReviewPointsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Current viewpoint
+   * 
    * @example
    * 当前观点
    */
   attitude?: string;
   /**
+   * @remarks
+   * Viewpoint type
+   * 
    * @example
    * 观点类型
    */
   attitudeType?: string;
+  /**
+   * @remarks
+   * List of user opinions
+   */
   comments?: ListWebReviewPointsResponseBodyDataComments[];
   /**
+   * @remarks
+   * Proportion of the current opinion
+   * 
    * @example
    * 当前观点占比
    */
   ratio?: string;
+  /**
+   * @remarks
+   * List of topic perspectives
+   */
   viewPoints?: ListWebReviewPointsResponseBodyDataViewPoints[];
   static names(): { [key: string]: string } {
     return {
@@ -186,42 +234,70 @@ export class ListWebReviewPointsResponseBodyData extends $dara.Model {
 
 export class ListWebReviewPointsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business Data
+   */
   data?: ListWebReviewPointsResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Maximum number of return results
+   * 
    * @example
    * 79
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Token for the next page
+   * 
    * @example
    * 下一页的token
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request UUID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded: true for success, false for failure
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 32
    */

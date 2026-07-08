@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCustomTextResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Content
+   * 
    * @example
    * 内容
    */
   content?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 创建时间
    */
   createTime?: string;
   /**
+   * @remarks
+   * Created by
+   * 
    * @example
    * 创建用户
    */
   createUser?: string;
   /**
+   * @remarks
+   * Primary key ID
+   * 
    * @example
    * 34
    */
   id?: number;
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * 标题
    */
   title?: string;
   /**
+   * @remarks
+   * Update time
+   * 
    * @example
    * 修改时间
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Update user
+   * 
    * @example
    * 修改用户
    */
@@ -73,27 +94,46 @@ export class GetCustomTextResponseBodyData extends $dara.Model {
 
 export class GetCustomTextResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: GetCustomTextResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is successful: true for success, false for failure
+   * 
    * @example
    * true
    */

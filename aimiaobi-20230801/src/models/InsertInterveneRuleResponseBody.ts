@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsertInterveneRuleResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Status code returned by the intervention service
+   * 
+   * @example
+   * 200
+   */
   code?: number;
   /**
+   * @remarks
+   * Rule ID
+   * 
    * @example
    * 12345
    */
@@ -34,27 +44,46 @@ export class InsertInterveneRuleResponseBodyData extends $dara.Model {
 
 export class InsertInterveneRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * 0
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: InsertInterveneRuleResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * DD656AF9-0839-521A-A3D2-F320009F9C87
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates success: true for success, false for failure
+   * 
    * @example
    * true
    */

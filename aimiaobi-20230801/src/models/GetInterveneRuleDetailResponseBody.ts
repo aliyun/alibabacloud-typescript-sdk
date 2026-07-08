@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig extends $dara.Model {
   /**
+   * @remarks
+   * Answer type
+   * 
    * @example
    * 0
    */
   answerType?: number;
+  /**
+   * @remarks
+   * Answer content
+   * 
+   * @example
+   * 早上好
+   */
   message?: string;
   /**
+   * @remarks
+   * Namespace
+   * 
    * @example
    * namespace_qa_query
    */
@@ -41,16 +54,25 @@ export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConf
 
 export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig extends $dara.Model {
   /**
+   * @remarks
+   * Activation type
+   * 
    * @example
    * 0
    */
   effectType?: number;
   /**
+   * @remarks
+   * End time
+   * 
    * @example
    * 2023-11-25 14:21:15
    */
   endTime?: string;
   /**
+   * @remarks
+   * Start time
+   * 
    * @example
    * 2023-11-25 14:21:15
    */
@@ -81,19 +103,44 @@ export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConf
 }
 
 export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail extends $dara.Model {
+  /**
+   * @remarks
+   * Answer configuration
+   */
   answerConfig?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailAnswerConfig[];
+  /**
+   * @remarks
+   * Activation configuration
+   */
   effectConfig?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetailEffectConfig;
   /**
+   * @remarks
+   * Intervention type
+   * 
    * @example
    * 0
    */
   interveneType?: number;
+  /**
+   * @remarks
+   * Namespace list
+   */
   namespaceList?: string[];
   /**
+   * @remarks
+   * Rule ID
+   * 
    * @example
    * 100418
    */
   ruleId?: number;
+  /**
+   * @remarks
+   * Rule name
+   * 
+   * @example
+   * 规则001
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -137,6 +184,10 @@ export class GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail extends $
 
 export class GetInterveneRuleDetailResponseBodyData extends $dara.Model {
   code?: number;
+  /**
+   * @remarks
+   * Structure of the rule details
+   */
   interveneRuleDetail?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail;
   static names(): { [key: string]: string } {
     return {
@@ -166,27 +217,46 @@ export class GetInterveneRuleDetailResponseBodyData extends $dara.Model {
 
 export class GetInterveneRuleDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: GetInterveneRuleDetailResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request ID
+   * 
    * @example
    * 428DCC0D-3C63-5306-BD1B-124396AB97BE
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates success: true for success, false for failure
+   * 
    * @example
    * true
    */

@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UploadDocRequestDocs extends $dara.Model {
   /**
    * @remarks
+   * document Name
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 文档1.pdf
    */
   docName?: string;
   /**
    * @remarks
+   * file URL
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,17 +48,24 @@ export class UploadDocRequestDocs extends $dara.Model {
 
 export class UploadDocRequest extends $dara.Model {
   /**
+   * @remarks
+   * Folder where the document resides. If no value is provided, it defaults to "default".
+   * 
    * @example
    * default
    */
   categoryId?: string;
   /**
    * @remarks
+   * Document
+   * 
    * This parameter is required.
    */
   docs?: UploadDocRequestDocs[];
   /**
    * @remarks
+   * Unique identifier (UUID) of the Alibaba Cloud Model Studio workspace: obtain the [Workspace ID](https://help.aliyun.com/document_detail/2587495.html)
+   * 
    * This parameter is required.
    * 
    * @example

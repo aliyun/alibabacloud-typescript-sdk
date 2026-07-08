@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportPptArtifactResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the export task.
+   * 
    * @example
    * adb8146b-146b-4206-bd40-19f591e85293
    */
@@ -31,29 +34,46 @@ export class ExportPptArtifactResponseBodyData extends $dara.Model {
 
 export class ExportPptArtifactResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The export task details.
+   */
   data?: ExportPptArtifactResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * xxxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the request succeeded.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHotTopicBroadcastResponseBodyDataDataImages extends $dara.Model {
   /**
+   * @remarks
+   * URL link
+   * 
    * @example
    * http://www.example.com/a.png
    */
@@ -31,13 +34,19 @@ export class GetHotTopicBroadcastResponseBodyDataDataImages extends $dara.Model 
 
 export class GetHotTopicBroadcastResponseBodyDataDataNewsComments extends $dara.Model {
   /**
+   * @remarks
+   * Content
+   * 
    * @example
-   * 评论内容
+   * 内容
    */
   text?: string;
   /**
+   * @remarks
+   * Username
+   * 
    * @example
-   * 评论用户名
+   * 用户名
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -64,32 +73,84 @@ export class GetHotTopicBroadcastResponseBodyDataDataNewsComments extends $dara.
 }
 
 export class GetHotTopicBroadcastResponseBodyDataDataNews extends $dara.Model {
+  /**
+   * @remarks
+   * Model categorization result
+   * 
+   * @example
+   * 科技
+   */
   analysisCategory?: string;
   /**
+   * @remarks
+   * aggregated hot spot name
+   * 
    * @example
    * 聚合后热点名称
    */
   analysisTopic?: string;
+  /**
+   * @remarks
+   * Author
+   * 
+   * @example
+   * 作者
+   */
   author?: string;
+  /**
+   * @remarks
+   * Categorization
+   */
   category?: string[];
+  /**
+   * @remarks
+   * News content
+   */
   comments?: GetHotTopicBroadcastResponseBodyDataDataNewsComments[];
+  /**
+   * @remarks
+   * News content
+   * 
+   * @example
+   * 新闻内容
+   */
   content?: string;
   /**
+   * @remarks
+   * Ingestion time
+   * 
    * @example
    * 2024-06-13 08:45:05
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Source
+   * 
+   * @example
+   * 夸克
+   */
   domain?: string;
   /**
+   * @remarks
+   * Date of entry
+   * 
    * @example
    * 2024111110
    */
   dt?: string;
   /**
+   * @remarks
+   * original hot spot name
+   * 
    * @example
    * 原始热点名称
    */
   hotTopic?: string;
+  /**
+   * @remarks
+   * Image list
+   */
   imgList?: string[];
   /**
    * @remarks
@@ -100,27 +161,49 @@ export class GetHotTopicBroadcastResponseBodyDataDataNews extends $dara.Model {
    */
   logo?: string;
   /**
+   * @remarks
+   * Published At
+   * 
    * @example
    * 2024-10-10 12:12:00
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * 摘要
    */
   summary?: string;
+  /**
+   * @remarks
+   * title
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   /**
+   * @remarks
+   * news URL
+   * 
    * @example
    * http://www.example.com/a.png
    */
   url?: string;
   /**
+   * @remarks
+   * Primary key ID
+   * 
    * @example
    * 主键ID
    */
   uuid?: string;
   /**
+   * @remarks
+   * website
+   * 
    * @example
    * 网站
    */
@@ -191,11 +274,17 @@ export class GetHotTopicBroadcastResponseBodyDataDataNews extends $dara.Model {
 
 export class GetHotTopicBroadcastResponseBodyDataDataSummarySummaries extends $dara.Model {
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * 摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * title
+   * 
    * @example
    * 标题
    */
@@ -225,15 +314,25 @@ export class GetHotTopicBroadcastResponseBodyDataDataSummarySummaries extends $d
 
 export class GetHotTopicBroadcastResponseBodyDataDataSummary extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens used to generate this summary
+   * 
    * @example
    * 17
    */
   inputToken?: number;
   /**
+   * @remarks
+   * Number of output tokens used to generate this summary
+   * 
    * @example
    * 41
    */
   outputToken?: number;
+  /**
+   * @remarks
+   * List of structured summaries
+   */
   summaries?: GetHotTopicBroadcastResponseBodyDataDataSummarySummaries[];
   static names(): { [key: string]: string } {
     return {
@@ -265,65 +364,128 @@ export class GetHotTopicBroadcastResponseBodyDataDataSummary extends $dara.Model
 
 export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
   /**
+   * @remarks
+   * Hot topic category
+   * 
    * @example
    * 热点话题分类
    */
   category?: string;
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 创建时间
    */
   createTime?: string;
   /**
+   * @remarks
+   * Custom hotness value
+   * 
    * @example
    * 34.7905341705522
    */
   customHotValue?: number;
   /**
+   * @remarks
+   * Custom text summarization of the hot spot topic
+   * 
    * @example
    * 自定义热点话题文本摘要
    */
   customTextSummary?: string;
   /**
+   * @remarks
+   * Name of the hot spot topic
+   * 
    * @example
    * 热点话题名称
    */
   hotTopic?: string;
   /**
+   * @remarks
+   * hot spot topic summary Version
+   * 
    * @example
    * 热点话题摘要版本
    */
   hotTopicVersion?: string;
   /**
+   * @remarks
+   * Hotness value
+   * 
    * @example
    * 1.4120480606282884
    */
   hotValue?: number;
   /**
+   * @remarks
+   * hot spot topic ID
+   * 
    * @example
    * 热点话题ID
    */
   id?: string;
+  /**
+   * @remarks
+   * List of hot spot topic images
+   */
   images?: GetHotTopicBroadcastResponseBodyDataDataImages[];
   /**
+   * @remarks
+   * Input Token
+   * 
    * @example
    * 29
    */
   inputToken?: number;
+  /**
+   * @remarks
+   * List of Regions associated with the hot spot
+   */
   locations?: string[];
+  /**
+   * @remarks
+   * Article List
+   */
   news?: GetHotTopicBroadcastResponseBodyDataDataNews[];
   /**
+   * @remarks
+   * Output Token
+   * 
    * @example
    * 22
    */
   outputToken?: number;
+  /**
+   * @remarks
+   * Published At
+   * 
+   * @example
+   * 2025-08-01 12:00:00
+   */
   pubTime?: string;
+  /**
+   * @remarks
+   * Structured summary of hot spot topics
+   */
   summary?: GetHotTopicBroadcastResponseBodyDataDataSummary;
   /**
+   * @remarks
+   * Text summary of the hot topic
+   * 
    * @example
    * 热点话题文本摘要
    */
   textSummary?: string;
+  /**
+   * @remarks
+   * Hot list URL
+   * 
+   * @example
+   * http://www.example.com/a.html
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -392,21 +554,33 @@ export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
 
 export class GetHotTopicBroadcastResponseBodyDataTotalTokenInfo extends $dara.Model {
   /**
+   * @remarks
+   * Total number of hot spots
+   * 
    * @example
    * 100
    */
   hotTopicCount?: number;
   /**
+   * @remarks
+   * Estimated number of input tokens
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Estimated number of output tokens
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Estimated total word count
+   * 
    * @example
    * 100
    */
@@ -439,12 +613,23 @@ export class GetHotTopicBroadcastResponseBodyDataTotalTokenInfo extends $dara.Mo
 }
 
 export class GetHotTopicBroadcastResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of hot spot bulletins
+   */
   data?: GetHotTopicBroadcastResponseBodyDataData[];
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * Estimated total number of tokens required for generation
+   */
   totalTokenInfo?: GetHotTopicBroadcastResponseBodyDataTotalTokenInfo;
   static names(): { [key: string]: string } {
     return {
@@ -479,27 +664,46 @@ export class GetHotTopicBroadcastResponseBodyData extends $dara.Model {
 
 export class GetHotTopicBroadcastResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business Data
+   */
   data?: GetHotTopicBroadcastResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request UUID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * is successful: true indicates Succeeded, false indicates failed
+   * 
    * @example
    * true
    */

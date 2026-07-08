@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeepWriteTaskResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * xbabac91-fdad-44d6-95ce-******
    */
   taskId?: string;
   /**
+   * @remarks
+   * [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * @example
    * llm-1setzb9xb8m11vrc
    */

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInterveneImportTaskInfoResponseBodyDataStatus extends $dara.Model {
   /**
+   * @remarks
+   * The information about the task.
+   * 
    * @example
    * success
    */
   msg?: string;
   /**
+   * @remarks
+   * The completion percentage.
+   * 
    * @example
    * 80
    */
   percentage?: number;
   /**
+   * @remarks
+   * The status of the task.
+   * 
    * @example
    * 0
    */
   status?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 41405255
    */
   taskId?: string;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * ft-task-20190101m8rnK
    */
@@ -59,6 +74,10 @@ export class GetInterveneImportTaskInfoResponseBodyDataStatus extends $dara.Mode
 
 export class GetInterveneImportTaskInfoResponseBodyData extends $dara.Model {
   code?: number;
+  /**
+   * @remarks
+   * The status information of the task.
+   */
   status?: GetInterveneImportTaskInfoResponseBodyDataStatus;
   static names(): { [key: string]: string } {
     return {
@@ -88,27 +107,46 @@ export class GetInterveneImportTaskInfoResponseBodyData extends $dara.Model {
 
 export class GetInterveneImportTaskInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetInterveneImportTaskInfoResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates success, and a value of \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */

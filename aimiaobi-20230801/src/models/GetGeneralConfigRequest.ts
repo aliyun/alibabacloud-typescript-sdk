@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetGeneralConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetGeneralConfigRequest extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
+   * The unique identifier of the Model Studio workspace. For more information, see [Get workspaceId]().
+   * 
    * This parameter is required.
    * 
    * @example

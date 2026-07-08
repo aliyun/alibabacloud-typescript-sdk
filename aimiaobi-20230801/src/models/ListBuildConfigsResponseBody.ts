@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListBuildConfigsResponseBodyDataKeywords extends $dara.Model {
+  /**
+   * @remarks
+   * Description of the preset tag
+   * 
+   * @example
+   * 新闻内容
+   */
   description?: string;
+  /**
+   * @remarks
+   * Key of the preset tag
+   * 
+   * @example
+   * 新闻内容
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,39 +44,78 @@ export class ListBuildConfigsResponseBodyDataKeywords extends $dara.Model {
 
 export class ListBuildConfigsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the preset is built-in
+   * 
    * @example
    * true
    */
   buildIn?: boolean;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 2023-04-11 06:14:07
    */
   createTime?: string;
   /**
+   * @remarks
+   * Creator
+   * 
    * @example
    * 1
    */
   createUser?: string;
+  /**
+   * @remarks
+   * Primary key ID
+   * 
+   * @example
+   * 主键ID，内置配置（buildIn=true）无该字段
+   */
   id?: number;
+  /**
+   * @remarks
+   * List of available values for the tag
+   */
   keywords?: ListBuildConfigsResponseBodyDataKeywords[];
   /**
+   * @remarks
+   * Tag key
+   * 
    * @example
    * writingStyle
    */
   tag?: string;
+  /**
+   * @remarks
+   * Tag description
+   * 
+   * @example
+   * 文体
+   */
   tagDescription?: string;
   /**
+   * @remarks
+   * Content category. Valid values: media or government.
+   * 
    * @example
    * media
    */
   type?: string;
   /**
+   * @remarks
+   * Last update time
+   * 
    * @example
    * 2023-04-11 06:14:07
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Last updater
+   * 
    * @example
    * 1
    */
@@ -111,27 +164,46 @@ export class ListBuildConfigsResponseBodyData extends $dara.Model {
 
 export class ListBuildConfigsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: ListBuildConfigsResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request ID
+   * 
    * @example
    * DA021073-17CE-5CCF-9FEB-93226C766887
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded. true indicates success. false indicates failure.
+   * 
    * @example
    * true
    */

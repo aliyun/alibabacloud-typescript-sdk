@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources extends $dara.Model {
   /**
+   * @remarks
+   * The type.
+   * 
    * @example
    * x\\"x
    */
   code?: string;
   /**
+   * @remarks
+   * The unique ID.
+   * 
    * @example
    * xx
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * x
    */
@@ -46,6 +55,10 @@ export class ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchS
 export class ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam extends $dara.Model {
   endTime?: string;
   multimodalSearchTypes?: string[];
+  /**
+   * @remarks
+   * The search sources.
+   */
   searchSources?: ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources[];
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -83,21 +96,38 @@ export class ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam extend
 
 export class ListSearchTaskDialoguesResponseBodyDataChatConfig extends $dara.Model {
   /**
+   * @remarks
+   * The request type.
+   * 
    * @example
    * 24
    */
   dialogueType?: number;
+  /**
+   * @remarks
+   * Indicates whether the process is end-to-end.
+   */
   endToEnd?: boolean;
   /**
+   * @remarks
+   * The generation level.
+   * 
    * @example
    * concise
    */
   generateLevel?: string;
   /**
+   * @remarks
+   * The type of content generation.
+   * 
    * @example
    * copilotReference
    */
   generateTechnology?: string;
+  /**
+   * @remarks
+   * The search type.
+   */
   searchModels?: string[];
   searchParam?: ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam;
   static names(): { [key: string]: string } {
@@ -138,54 +168,92 @@ export class ListSearchTaskDialoguesResponseBodyDataChatConfig extends $dara.Mod
 }
 
 export class ListSearchTaskDialoguesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration.
+   */
   chatConfig?: ListSearchTaskDialoguesResponseBodyDataChatConfig;
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 2024-11-25 13:33:01
    */
   createTime?: string;
   /**
+   * @remarks
+   * The type of generation.
+   * 
    * @example
    * 24
    */
   dialogueType?: number;
   /**
+   * @remarks
+   * The generated content that the customer rated as good.
+   * 
    * @example
    * xxx
    */
   goodText?: string;
   /**
+   * @remarks
+   * The original session ID.
+   * 
    * @example
    * xxxx
    */
   originSessionId?: string;
   /**
+   * @remarks
+   * The input prompt.
+   * 
    * @example
    * xxx
    */
   prompt?: string;
   /**
+   * @remarks
+   * The rating of the content, which can be Like or Dislike.
+   * 
    * @example
    * thumbsUp
    */
   rating?: string;
   /**
+   * @remarks
+   * The response body as a string.
+   * 
    * @example
    * {}
    */
   responseBodyStr?: string;
   /**
+   * @remarks
+   * The unique ID of a single-turn conversation.
+   * 
    * @example
    * xxxx
    */
   sessionId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * The unique ID of the task.
+   * 
    * @example
    * xxxx
    */
   taskId?: string;
   /**
+   * @remarks
+   * The customer feedback.
+   * 
    * @example
    * xxx
    */
@@ -241,42 +309,70 @@ export class ListSearchTaskDialoguesResponseBodyData extends $dara.Model {
 
 export class ListSearchTaskDialoguesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListSearchTaskDialoguesResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The number of the page returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

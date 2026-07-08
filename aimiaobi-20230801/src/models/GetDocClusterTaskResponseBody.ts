@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDocClusterTaskResponseBodyDataTopics extends $dara.Model {
+  /**
+   * @remarks
+   * A list of document IDs for the clustering topic.
+   */
   docIds?: string[];
   /**
+   * @remarks
+   * The summary of the clustering topic.
+   * 
    * @example
    * 聚类主题摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * The name of the clustering topic.
+   * 
    * @example
    * 聚类主题名
    */
@@ -44,15 +54,25 @@ export class GetDocClusterTaskResponseBodyDataTopics extends $dara.Model {
 
 export class GetDocClusterTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误信息
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The status of the task. Valid values: PENDING (to be executed), RUNNING (executing), SUCCESSED (successful), SUSPENDED (paused), FAILED (failed), and CANCELED (canceled).
+   * 
    * @example
    * PENDING
    */
   status?: string;
+  /**
+   * @remarks
+   * A list of clustering topics.
+   */
   topics?: GetDocClusterTaskResponseBodyDataTopics[];
   static names(): { [key: string]: string } {
     return {
@@ -84,27 +104,46 @@ export class GetDocClusterTaskResponseBodyData extends $dara.Model {
 
 export class GetDocClusterTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GetDocClusterTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\`: The request was successful. \\`false\\`: The request failed.
+   * 
    * @example
    * true
    */

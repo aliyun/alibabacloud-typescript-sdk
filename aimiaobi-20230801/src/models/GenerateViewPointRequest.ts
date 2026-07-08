@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GenerateViewPointRequestReferenceData extends $dara.Model {
+  /**
+   * @remarks
+   * The article snippets.
+   */
   miniDoc?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -31,12 +35,18 @@ export class GenerateViewPointRequestReferenceData extends $dara.Model {
 export class GenerateViewPointRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
    * c160c841c8e54295bf2f441432785944_p_efm
    */
   agentKey?: string;
+  /**
+   * @remarks
+   * The context data.
+   */
   referenceData?: GenerateViewPointRequestReferenceData;
   static names(): { [key: string]: string } {
     return {

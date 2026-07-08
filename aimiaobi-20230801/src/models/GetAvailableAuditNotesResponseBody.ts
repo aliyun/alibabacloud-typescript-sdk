@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAvailableAuditNotesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Rule library file size in bytes.
+   * 
    * @example
    * 23333
    */
   fileSize?: number;
   /**
+   * @remarks
+   * Primary ID of the rule library storage.
+   * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * Rule library ID.
+   * 
    * @example
    * Default
    */
   noteId?: string;
   /**
+   * @remarks
+   * Parsed rule library name.
+   * 
    * @example
    * 错题本2025-07-07_解析结果
    */
   noteName?: string;
   /**
+   * @remarks
+   * Rule library update time.
+   * 
    * @example
    * 2025-07-07 11:56:30
    */
@@ -59,17 +74,30 @@ export class GetAvailableAuditNotesResponseBodyData extends $dara.Model {
 
 export class GetAvailableAuditNotesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data
+   */
   data?: GetAvailableAuditNotesResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
@@ -83,6 +111,9 @@ export class GetAvailableAuditNotesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

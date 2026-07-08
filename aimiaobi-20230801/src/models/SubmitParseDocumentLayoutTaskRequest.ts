@@ -6,6 +6,9 @@ export class SubmitParseDocumentLayoutTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 正文
    */
   content?: string;
   /**

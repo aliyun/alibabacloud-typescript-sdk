@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunTextPolishingResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 错误码
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * 错误信息
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The SSE event. \\`task-started\\`: started. \\`task-finished\\`: finished. \\`task-failed\\`: failed.
+   * 
    * @example
    * task-started
    */
   event?: string;
   /**
+   * @remarks
+   * Parent session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   originSessionId?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * End-to-end trace ID.
+   * 
    * @example
    * 全链路ID
    */
@@ -73,6 +94,9 @@ export class RunTextPolishingResponseBodyHeader extends $dara.Model {
 
 export class RunTextPolishingResponseBodyPayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * Text generation result.
+   * 
    * @example
    * 文本生成结果
    */
@@ -100,16 +124,25 @@ export class RunTextPolishingResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunTextPolishingResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of tokens used for input.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of tokens used for output.
+   * 
    * @example
    * 1
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens used for this call.
+   * 
    * @example
    * 2
    */
@@ -140,7 +173,15 @@ export class RunTextPolishingResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunTextPolishingResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output.
+   */
   output?: RunTextPolishingResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token consumption.
+   */
   usage?: RunTextPolishingResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -172,9 +213,20 @@ export class RunTextPolishingResponseBodyPayload extends $dara.Model {
 }
 
 export class RunTextPolishingResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunTextPolishingResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body.
+   */
   payload?: RunTextPolishingResponseBodyPayload;
   /**
+   * @remarks
+   * Unique request identifier.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */

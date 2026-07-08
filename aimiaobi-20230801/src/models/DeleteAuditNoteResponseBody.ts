@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAuditNoteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * status code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
   /**
+   * @remarks
+   * Deletion result. If deletion is successful, "SUCCESSED" is returned.
+   * 
    * @example
    * SUCCESSED
    * 
@@ -17,11 +23,17 @@ export class DeleteAuditNoteResponseBody extends $dara.Model {
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
@@ -35,6 +47,9 @@ export class DeleteAuditNoteResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether this request was successful.
+   * 
    * @example
    * true
    */

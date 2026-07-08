@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomSourceTopicAnalysisTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetCustomSourceTopicAnalysisTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The unique identifier of the workspace. It is the AgentKey.
+   * 
    * This parameter is required.
    * 
    * @example

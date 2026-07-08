@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBiddingRemainLimitNumRequest extends $dara.Model {
   /**
+   * @remarks
+   * API name
+   * 
    * @example
    * asyncUploadTenderDoc
    */
   apiName?: string;
   /**
+   * @remarks
+   * [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * @example
    * llm-xx
    */

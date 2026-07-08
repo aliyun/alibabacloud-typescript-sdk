@@ -9,11 +9,17 @@ export class GetPptInfoRequest extends $dara.Model {
    */
   externalUserId?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * 1f178f22-ec52-467d-8489-eef4468x0240
    */
   taskId?: string;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * llm-2setzb9xb8mx6vss
    */

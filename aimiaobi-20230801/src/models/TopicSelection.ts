@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TopicSelectionOutlines extends $dara.Model {
+  /**
+   * @remarks
+   * The topic outline.
+   * 
+   * @example
+   * 大纲
+   */
   outline?: string;
+  /**
+   * @remarks
+   * The summary of the outline.
+   * 
+   * @example
+   * 摘要
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +43,26 @@ export class TopicSelectionOutlines extends $dara.Model {
 }
 
 export class TopicSelection extends $dara.Model {
+  /**
+   * @remarks
+   * A list of topic outlines.
+   */
   outlines?: TopicSelectionOutlines[];
+  /**
+   * @remarks
+   * The perspective of the topic.
+   * 
+   * @example
+   * 选题视角
+   */
   point?: string;
+  /**
+   * @remarks
+   * The summary of the topic.
+   * 
+   * @example
+   * 摘要
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {

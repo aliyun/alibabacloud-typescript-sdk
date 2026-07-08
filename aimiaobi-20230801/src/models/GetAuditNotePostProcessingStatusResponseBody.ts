@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAuditNotePostProcessingStatusResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the post-processing task was completed. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 1970-01-01 23:34:45
    */
   completionTime?: string;
   /**
+   * @remarks
+   * The time when the post-processing task was created. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 1970-01-01 12:34:56
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message. This is returned only when the post-processing task fails.
+   * 
    * @example
    * error
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The ID of the rule library. The default value in the current version is "Default".
+   * 
    * @example
    * Default
    */
   noteId?: string;
   /**
+   * @remarks
+   * The number of lines that have been post-processed.
+   * 
    * @example
    * 233
    */
   processedLines?: number;
   /**
+   * @remarks
+   * The status of the post-processing task. Valid values: PENDING, RUNNING, SUCCEEDED, and FAILED.
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * The total number of lines in the structured rule library.
+   * 
    * @example
    * 666
    */
@@ -74,6 +95,8 @@ export class GetAuditNotePostProcessingStatusResponseBodyData extends $dara.Mode
 export class GetAuditNotePostProcessingStatusResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The status code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -81,17 +104,25 @@ export class GetAuditNotePostProcessingStatusResponseBody extends $dara.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * **if can be null:**
    * true
    */
   data?: GetAuditNotePostProcessingStatusResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
+   * The error details.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -110,6 +141,8 @@ export class GetAuditNotePostProcessingStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
+   * Indicates whether the request was successful.
+   * 
    * This parameter is required.
    * 
    * @example

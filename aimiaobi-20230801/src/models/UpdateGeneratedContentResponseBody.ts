@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGeneratedContentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * false
    */
   data?: boolean;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */

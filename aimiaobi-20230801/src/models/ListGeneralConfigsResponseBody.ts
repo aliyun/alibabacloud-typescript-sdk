@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListGeneralConfigsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The description of the configuration item.
+   * 
    * @example
    * xxx
    */
   configDesc?: string;
   /**
+   * @remarks
+   * The unique identifier of the configuration item.
+   * 
    * @example
    * xxx
    */
   configKey?: string;
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * xxx
    */
   configValue?: string;
   /**
+   * @remarks
+   * The type of the configuration item.
+   * 
    * @example
    * CustomSemanticSearch
    */
@@ -52,42 +64,70 @@ export class ListGeneralConfigsResponseBodyData extends $dara.Model {
 
 export class ListGeneralConfigsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The query results.
+   */
   data?: ListGeneralConfigsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The fault description.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The unique identifier of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */

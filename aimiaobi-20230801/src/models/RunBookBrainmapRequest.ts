@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunBookBrainmapRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to clear the cache. The default is `false`.
+   * 
    * @example
    * true
    */
   cleanCache?: boolean;
   /**
    * @remarks
+   * The document ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +22,17 @@ export class RunBookBrainmapRequest extends $dara.Model {
    */
   docId?: string;
   /**
+   * @remarks
+   * The number of nodes on the second level of the mind map.
+   * 
    * @example
    * 3
    */
   nodeNumber?: number;
   /**
+   * @remarks
+   * A prompt with additional instructions.
+   * 
    * @example
    * 按英文输出
    */
@@ -33,6 +44,8 @@ export class RunBookBrainmapRequest extends $dara.Model {
   responseFormat?: number;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,12 +53,17 @@ export class RunBookBrainmapRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The number of words per node.
+   * 
    * @example
    * 20
    */
   wordNumber?: number;
   /**
    * @remarks
+   * The unique identifier for the Model Studio workspace. For more information, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddDatasetDocumentRequestDocumentMetadataAsrSentences extends $dara.Model {
+  /**
+   * @remarks
+   * The end time in milliseconds.
+   * 
+   * @example
+   * 2000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The start time in milliseconds.
+   * 
+   * @example
+   * 1000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The speech or caption information.
+   * 
+   * @example
+   * xxx
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,7 +53,21 @@ export class AddDatasetDocumentRequestDocumentMetadataAsrSentences extends $dara
 }
 
 export class AddDatasetDocumentRequestDocumentMetadataKeyValues extends $dara.Model {
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * xx
+   */
   key?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * xx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,8 +93,29 @@ export class AddDatasetDocumentRequestDocumentMetadataKeyValues extends $dara.Mo
 }
 
 export class AddDatasetDocumentRequestDocumentMetadataVideoShots extends $dara.Model {
+  /**
+   * @remarks
+   * The end time in milliseconds.
+   * 
+   * @example
+   * 2000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The start time in milliseconds.
+   * 
+   * @example
+   * 1000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The text information from the video shot analysis.
+   * 
+   * @example
+   * xxx
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,9 +143,28 @@ export class AddDatasetDocumentRequestDocumentMetadataVideoShots extends $dara.M
 }
 
 export class AddDatasetDocumentRequestDocumentMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The speech or caption information.
+   */
   asrSentences?: AddDatasetDocumentRequestDocumentMetadataAsrSentences[];
+  /**
+   * @remarks
+   * The metadata in a key-value structure.
+   */
   keyValues?: AddDatasetDocumentRequestDocumentMetadataKeyValues[];
+  /**
+   * @remarks
+   * The description of the metadata. This field is deprecated.
+   * 
+   * @example
+   * xxx
+   */
   text?: string;
+  /**
+   * @remarks
+   * The video shot information.
+   */
   videoShots?: AddDatasetDocumentRequestDocumentMetadataVideoShots[];
   static names(): { [key: string]: string } {
     return {
@@ -129,18 +204,31 @@ export class AddDatasetDocumentRequestDocumentMetadata extends $dara.Model {
 
 export class AddDatasetDocumentRequestDocumentMultimodalMedias extends $dara.Model {
   /**
+   * @remarks
+   * The URL of the file. The URL must be accessible over the public network.
+   * 
    * @example
-   * 图片或视频文件地址
+   * http://xxx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The unique identifier of the multimodal data. The system automatically generates this ID. You do not need to specify this parameter.
+   * 
    * @example
-   * 多模态数据唯一标识
+   * xxxx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The type of the multimodal data.
+   * 
+   * - image: an image
+   * 
+   * - video: a video
+   * 
    * @example
-   * 多模态数据类型
+   * image
    */
   mediaType?: string;
   static names(): { [key: string]: string } {
@@ -169,78 +257,157 @@ export class AddDatasetDocumentRequestDocumentMultimodalMedias extends $dara.Mod
 }
 
 export class AddDatasetDocumentRequestDocument extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the category.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * The content.
+   * 
    * @example
-   * xxx
+   * 正文
    */
   content?: string;
   /**
+   * @remarks
+   * Specifies whether to disable the indexing of multimodal data, such as images and videos, in the current record. The default value is true.
+   * 
    * @example
    * false
    */
   disableHandleMultimodalMedia?: boolean;
   /**
+   * @remarks
+   * The unique business ID of the document.
+   * 
    * @example
-   * 业务文档唯一ID
+   * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * The type of the document.
+   * 
+   * - plainText: plain text. The content parameter is required.
+   * 
+   * - richText: rich text in HTML format. The content parameter is required.
+   * 
+   * - text: a text file. The url parameter is required.
+   * 
+   * - pdf: a PDF file. The url parameter is required.
+   * 
+   * - word: a Word document. The url parameter is required.
+   * 
+   * - image: an image. The url parameter is required. Most common image formats are supported, such as GIF, PNG, JPG, and JPEG.
+   * 
+   * - video: a video. The url parameter is required. Most common video formats are supported, such as MP4, AVI, WMV, and MOV.
+   * 
    * @example
-   * 文档类型
+   * image
    */
   docType?: string;
   /**
+   * @remarks
+   * The unique system ID of the document. The system automatically generates this ID. You do not need to specify this parameter.
+   * 
    * @example
-   * 内部文档唯一ID
+   * xxxx
    */
   docUuid?: string;
   /**
+   * @remarks
+   * Extension field 1.
+   * 
    * @example
-   * 扩展字段1
+   * xxx
    */
   extend1?: string;
   /**
+   * @remarks
+   * Extension field 2.
+   * 
    * @example
-   * 扩展字段2
+   * xxxx
    */
   extend2?: string;
   /**
+   * @remarks
+   * Extension field 3.
+   * 
    * @example
-   * 扩展字段3
+   * xxx
    */
   extend3?: string;
+  /**
+   * @remarks
+   * The metadata.
+   */
   metadata?: AddDatasetDocumentRequestDocumentMetadata;
   /**
+   * @remarks
+   * Deprecated. This parameter is not available.
+   * 
    * @example
-   * 模型名称 todo 商业化 仅个别账号可传入
+   * xxxx
    */
   multimodalIndexName?: string;
+  /**
+   * @remarks
+   * A list of multimodal data in the document.
+   * 
+   * - If a document, such as a rich text document, contains multimodal data like images or videos, you can pass the data using this parameter. This allows the data to be retrieved in search results.
+   * 
+   * - If the document itself is multimodal data, leave this field empty and specify the data using the docType and url parameters.
+   */
   multimodalMedias?: AddDatasetDocumentRequestDocumentMultimodalMedias[];
   /**
+   * @remarks
+   * The publishing time.
+   * 
    * @example
    * 2024-12-09 13:35:40
    */
   pubTime?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
-   * 来源
+   * xxx媒体
    */
   sourceFrom?: string;
   /**
+   * @remarks
+   * The summary of the article.
+   * 
    * @example
    * 文章摘要
    */
   summary?: string;
+  /**
+   * @remarks
+   * The tag name.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * The title of the document.
+   * 
    * @example
-   * xxxxx@xxxxx.com
+   * 标题
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the article. The URL must be accessible over the public network.
+   * 
    * @example
-   * xxx
+   * http://xxx
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -309,22 +476,32 @@ export class AddDatasetDocumentRequestDocument extends $dara.Model {
 
 export class AddDatasetDocumentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the dataset.
+   * 
    * @example
    * 1
    */
   datasetId?: number;
   /**
+   * @remarks
+   * The name of the dataset.
+   * 
    * @example
    * 数据集名称
    */
   datasetName?: string;
   /**
    * @remarks
+   * The document.
+   * 
    * This parameter is required.
    */
   document?: AddDatasetDocumentRequestDocument;
   /**
    * @remarks
+   * The unique identifier of the Model Studio workspace. For more information, see [Obtain a workspaceId](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsertInterveneGlobalReplyRequestReplyMessagList extends $dara.Model {
+  /**
+   * @remarks
+   * Reply content
+   * 
+   * @example
+   * 抱歉，问题我无法回答
+   */
   message?: string;
+  /**
+   * @remarks
+   * Reply type
+   * 
+   * @example
+   * 全局回复的类型
+   */
   replyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,12 +45,18 @@ export class InsertInterveneGlobalReplyRequestReplyMessagList extends $dara.Mode
 export class InsertInterveneGlobalReplyRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
    * xxx_efm
    */
   agentKey?: string;
+  /**
+   * @remarks
+   * List of reply content
+   */
   replyMessagList?: InsertInterveneGlobalReplyRequestReplyMessagList[];
   static names(): { [key: string]: string } {
     return {

@@ -3,27 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAuditTermsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Exception statements
+   */
   exceptionWord?: string[];
   /**
+   * @remarks
+   * Task primary key ID
+   * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * Keyword
+   * 
    * @example
    * 龘
    */
   keyword?: string;
   /**
+   * @remarks
+   * Suggested word
+   * 
    * @example
    * 龘(dá)
    */
   suggestWord?: string;
   /**
+   * @remarks
+   * Audit basis
+   * 
    * @example
    * 龙行龘龘出自四库本《玉篇》23龙部第8字，文字释义为群龙腾飞的样子，昂扬而热烈。
    */
   termsDesc?: string;
+  /**
+   * @remarks
+   * Dictionary name
+   */
   termsName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,27 +81,46 @@ export class ListAuditTermsResponseBodyData extends $dara.Model {
 
 export class ListAuditTermsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: ListAuditTermsResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Maximum number of results returned
+   * 
    * @example
    * 77
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Token for the next page
+   * 
    * @example
    * x\\"x\\"x
    */
@@ -95,11 +134,17 @@ export class ListAuditTermsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 58
    */

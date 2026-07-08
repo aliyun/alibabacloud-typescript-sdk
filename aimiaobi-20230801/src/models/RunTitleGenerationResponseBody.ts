@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunTitleGenerationResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * AccessForbid
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error code message.
+   * 
    * @example
    * xxx
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * SSE event.
+   * 
    * @example
    * task-failed
    */
   event?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
+  /**
+   * @remarks
+   * Status code.
+   * 
+   * @example
+   * 400
+   */
   statusCode?: number;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * 50a1cc8e-717e-4a2b-a76b-dc9734a8564b
    */
   taskId?: string;
   /**
+   * @remarks
+   * Full link ID.
+   * 
    * @example
    * 0a3d448f17000139741898287e0eb3
    */
@@ -69,6 +94,9 @@ export class RunTitleGenerationResponseBodyHeader extends $dara.Model {
 
 export class RunTitleGenerationResponseBodyPayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * Article title.
+   * 
    * @example
    * xxx
    */
@@ -96,16 +124,25 @@ export class RunTitleGenerationResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunTitleGenerationResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of tokens used for input.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of tokens used for output.
+   * 
    * @example
    * 1
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens used for this call.
+   * 
    * @example
    * 2
    */
@@ -136,7 +173,15 @@ export class RunTitleGenerationResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunTitleGenerationResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Outputs.
+   */
   output?: RunTitleGenerationResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage.
+   */
   usage?: RunTitleGenerationResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -168,16 +213,55 @@ export class RunTitleGenerationResponseBodyPayload extends $dara.Model {
 }
 
 export class RunTitleGenerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Status code.
+   * 
+   * @example
+   * AccessForbid
+   */
   code?: string;
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunTitleGenerationResponseBodyHeader;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
+  /**
+   * @remarks
+   * Error description.
+   * 
+   * @example
+   * 数据不存在
+   */
   message?: string;
+  /**
+   * @remarks
+   * Response body.
+   */
   payload?: RunTitleGenerationResponseBodyPayload;
   /**
+   * @remarks
+   * Unique request identifier.
+   * 
    * @example
    * 94512A33-8EC1-5452-A793-5C91F18ED2F0
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful: true for success, false for failure.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

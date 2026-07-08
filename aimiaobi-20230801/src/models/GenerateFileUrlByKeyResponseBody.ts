@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateFileUrlByKeyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * NoData
+   * successful
    */
   code?: string;
   /**
+   * @remarks
+   * Business data
+   * 
    * @example
    * https://www.example.com/a.txt
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Fault description
+   * 
    * @example
-   * success
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request ID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is successful: true for success, false for failure
+   * 
    * @example
    * true
    */

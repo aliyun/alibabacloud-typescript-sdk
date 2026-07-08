@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class FetchExportTermsTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class FetchExportTermsTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The unique identifier of your Alibaba Cloud Model Studio workspace. To get your [Workspace ID](https://help.aliyun.com/document_detail/2782167.html), see the referenced document.
+   * 
    * This parameter is required.
    * 
    * @example

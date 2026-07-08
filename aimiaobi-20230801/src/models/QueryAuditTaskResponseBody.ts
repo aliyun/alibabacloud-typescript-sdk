@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAuditTaskResponseBodyDataResponseHeader extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * DataNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * 数据不存在
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Event
+   * 
    * @example
    * task-failed
    */
   event?: string;
   /**
+   * @remarks
+   * Unique conversation ID.
+   * 
    * @example
    * 49eab783-9172-487a-b9df-c6372c47392c
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Unique multi-turn conversation ID.
+   * 
    * @example
    * 896b733535274d28b1a61c78bc145217
    */
@@ -59,6 +74,9 @@ export class QueryAuditTaskResponseBodyDataResponseHeader extends $dara.Model {
 
 export class QueryAuditTaskResponseBodyDataResponsePayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * Final response result (JSON array structure)
+   * 
    * @example
    * x\\"x\\"x
    */
@@ -86,16 +104,25 @@ export class QueryAuditTaskResponseBodyDataResponsePayloadOutput extends $dara.M
 
 export class QueryAuditTaskResponseBodyDataResponsePayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Input tokens.
+   * 
    * @example
    * 200
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Output tokens.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total tokens.
+   * 
    * @example
    * 300
    */
@@ -126,7 +153,15 @@ export class QueryAuditTaskResponseBodyDataResponsePayloadUsage extends $dara.Mo
 }
 
 export class QueryAuditTaskResponseBodyDataResponsePayload extends $dara.Model {
+  /**
+   * @remarks
+   * response body
+   */
   output?: QueryAuditTaskResponseBodyDataResponsePayloadOutput;
+  /**
+   * @remarks
+   * usage
+   */
   usage?: QueryAuditTaskResponseBodyDataResponsePayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -158,7 +193,15 @@ export class QueryAuditTaskResponseBodyDataResponsePayload extends $dara.Model {
 }
 
 export class QueryAuditTaskResponseBodyDataResponse extends $dara.Model {
+  /**
+   * @remarks
+   * Audit response header
+   */
   header?: QueryAuditTaskResponseBodyDataResponseHeader;
+  /**
+   * @remarks
+   * response body
+   */
   payload?: QueryAuditTaskResponseBodyDataResponsePayload;
   static names(): { [key: string]: string } {
     return {
@@ -191,27 +234,57 @@ export class QueryAuditTaskResponseBodyDataResponse extends $dara.Model {
 
 export class QueryAuditTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Audit time.
+   * 
    * @example
    * 2025-05-13 12:12:12
    */
   auditTime?: string;
   /**
+   * @remarks
+   * Original text at the time of audit.
+   * 
    * @example
    * 审核时的原文
    */
   content?: string;
+  /**
+   * @remarks
+   * Formatted content at the time of audit.
+   * 
+   * @example
+   * 格式化的审核时的内容
+   */
   htmlContent?: string;
+  /**
+   * @remarks
+   * Audit results.
+   */
   response?: QueryAuditTaskResponseBodyDataResponse;
   /**
+   * @remarks
+   * Task execution status: PENDING: pending, RUNNING: running, SUCCESSED: successful, SUSPENDED: paused, FAILED: failed, CANCELLED: canceled
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * Task execution status: 0: pending, 1: running, 2: successful, 3: paused, 4: failed, 6: canceled
+   * 
    * @example
    * 1
    */
   taskStatus?: number;
+  /**
+   * @remarks
+   * Content title
+   * 
+   * @example
+   * 内容标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -251,17 +324,30 @@ export class QueryAuditTaskResponseBodyData extends $dara.Model {
 
 export class QueryAuditTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * Asynchronous task object
+   */
   data?: QueryAuditTaskResponseBodyData;
   /**
+   * @remarks
+   * HTTP error code
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * 错误消息
    */
@@ -275,6 +361,9 @@ export class QueryAuditTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

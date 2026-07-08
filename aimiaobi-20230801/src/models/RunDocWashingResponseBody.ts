@@ -4,27 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDocWashingResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Event type
+   * 
    * @example
    * task-finished
    */
   event?: string;
+  /**
+   * @remarks
+   * Event description
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * 20247a52-23e2-46fb-943d-309cdee2bc6d
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * Full link ID
+   * 
    * @example
    * 2150451a17191950923411783e2927
    */
@@ -61,6 +83,13 @@ export class RunDocWashingResponseBodyHeader extends $dara.Model {
 }
 
 export class RunDocWashingResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Output content
+   * 
+   * @example
+   * 文本生成结果
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,16 +114,25 @@ export class RunDocWashingResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunDocWashingResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens
+   * 
    * @example
    * 200
    */
@@ -125,7 +163,15 @@ export class RunDocWashingResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunDocWashingResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output
+   */
   output?: RunDocWashingResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token consumption
+   */
   usage?: RunDocWashingResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -158,11 +204,22 @@ export class RunDocWashingResponseBodyPayload extends $dara.Model {
 
 export class RunDocWashingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Is the response package finished?
+   * 
    * @example
    * false
    */
   end?: boolean;
+  /**
+   * @remarks
+   * Response header
+   */
   header?: RunDocWashingResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body
+   */
   payload?: RunDocWashingResponseBodyPayload;
   /**
    * @remarks

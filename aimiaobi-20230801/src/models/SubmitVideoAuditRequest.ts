@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoAuditRequest extends $dara.Model {
   /**
    * @remarks
-   * 扩展参数JSON字符串
+   * Extension parameters
    * 
    * @example
    * {}
@@ -13,15 +13,15 @@ export class SubmitVideoAuditRequest extends $dara.Model {
   ext?: string;
   /**
    * @remarks
-   * OSS文件Key，与url参数二选一
+   * Unique file identity within the Miaobi system (choose either FileKey or URL)
    * 
    * @example
-   * video/test.mp4
+   * oss://default/xxx/video/test.mp4
    */
   fileKey?: string;
   /**
    * @remarks
-   * 抽帧间隔时间（秒）
+   * Snapshot interval
    * 
    * @example
    * 1.0
@@ -29,7 +29,7 @@ export class SubmitVideoAuditRequest extends $dara.Model {
   snapshotInterval?: number;
   /**
    * @remarks
-   * 视频URL地址，与fileKey参数二选一
+   * Video URL (choose either FileKey or URL)
    * 
    * @example
    * https://example.com/video.mp4
@@ -37,6 +37,8 @@ export class SubmitVideoAuditRequest extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * Workspace ID
+   * 
    * This parameter is required.
    * 
    * @example

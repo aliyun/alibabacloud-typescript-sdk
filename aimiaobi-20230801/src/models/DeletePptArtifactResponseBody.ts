@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePptArtifactResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the PPT work.
+   * 
    * @example
    * 5233498
    */
@@ -31,17 +34,30 @@ export class DeletePptArtifactResponseBodyData extends $dara.Model {
 
 export class DeletePptArtifactResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The response object.
+   */
   data?: DeletePptArtifactResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
@@ -55,6 +71,9 @@ export class DeletePptArtifactResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

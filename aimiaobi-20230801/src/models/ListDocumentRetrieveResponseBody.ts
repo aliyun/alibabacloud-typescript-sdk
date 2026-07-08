@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDocumentRetrieveResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Main text.
+   * 
    * @example
    * 文章正文
    */
   essay?: string;
   /**
+   * @remarks
+   * Issuing agency.
+   * 
    * @example
    * 发布机构
    */
   issuingAuthority?: string;
   /**
+   * @remarks
+   * URL.
+   * 
    * @example
    * 文章链接
    */
   link?: string;
   /**
+   * @remarks
+   * Publication date.
+   * 
    * @example
    * 2023-02-01
    */
   publicationDate?: string;
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * 文章标题
    */
@@ -59,49 +74,73 @@ export class ListDocumentRetrieveResponseBodyData extends $dara.Model {
 
 export class ListDocumentRetrieveResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * successful
    */
   code?: string;
   /**
+   * @remarks
+   * Business data.
+   * 
    * @example
    * data
    */
   data?: ListDocumentRetrieveResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Maximum number of records returned.
+   * 
    * @example
    * 71
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Token for the next page.
+   * 
    * @example
    * cEoBWREAXdxaOyjq/cqAbg==
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request.
    * 
    * @example
    * F2F366D6-E9FE-1006-BB70-2C650896AAB5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded. A value of true indicates success. A value of false indicates failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 100
    */

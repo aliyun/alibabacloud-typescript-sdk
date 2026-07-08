@@ -3,9 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExportAnalysisTagDetailByTaskIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Category filter list.
+   */
   categories?: string[];
   /**
    * @remarks
+   * Unique task ID.
+   * 
+   * > By default, do not specify TaskId. The system automatically generates it. If subsequent tasks use the same TaskId, they belong to the same conversation group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +22,8 @@ export class ExportAnalysisTagDetailByTaskIdRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * Unique identifier for Alibaba Cloud Model Studio workspace. For more information, see [Get Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

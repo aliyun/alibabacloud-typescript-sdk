@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateImageTaskRequestParagraphList extends $dara.Model {
   /**
    * @remarks
+   * The content of the paragraph.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GenerateImageTaskRequestParagraphList extends $dara.Model {
   content?: string;
   /**
    * @remarks
+   * The paragraph ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,31 @@ export class GenerateImageTaskRequestParagraphList extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The unique ID of the task.
+   * 
+   * > By default, you do not need to specify this parameter. The system automatically generates a task ID. If you specify the same TaskId for subsequent tasks, these tasks are considered part of the same conversation group.
+   * 
    * @example
    * e1be065b-adc3-435e-bd01-1c18c5ed75d3
    */
   taskId?: string;
   /**
+   * @remarks
+   * The current status of the task.
+   * 
+   * - PENDING: The task is in the queue.
+   * 
+   * - RUNNING: The task is in progress.
+   * 
+   * - SUSPENDED: The task is suspended.
+   * 
+   * - SUCCEEDED: The task was successful.
+   * 
+   * - FAILED: The task failed.
+   * 
+   * - UNKNOWN: The task does not exist or its status is unknown.
+   * 
    * @example
    * SUCCESSED
    */
@@ -59,6 +83,8 @@ export class GenerateImageTaskRequestParagraphList extends $dara.Model {
 export class GenerateImageTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67,6 +93,8 @@ export class GenerateImageTaskRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * The task ID of the article. If you do not have one, you can assign a universally unique identifier (UUID).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,11 +103,15 @@ export class GenerateImageTaskRequest extends $dara.Model {
   articleTaskId?: string;
   /**
    * @remarks
+   * The content of the paragraphs.
+   * 
    * This parameter is required.
    */
   paragraphList?: GenerateImageTaskRequestParagraphList[];
   /**
    * @remarks
+   * The size of the image to generate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88,10 +120,12 @@ export class GenerateImageTaskRequest extends $dara.Model {
   size?: string;
   /**
    * @remarks
+   * The style.
+   * 
    * This parameter is required.
    * 
    * @example
-   * <auto>
+   * \\"<auto>\\"
    */
   style?: string;
   static names(): { [key: string]: string } {

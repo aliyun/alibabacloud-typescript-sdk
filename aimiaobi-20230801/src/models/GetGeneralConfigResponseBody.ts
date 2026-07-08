@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetGeneralConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The configuration description.
+   * 
    * @example
    * xx
    */
   configDesc?: string;
   /**
+   * @remarks
+   * The unique identifier of the configuration.
+   * 
    * @example
    * xx
    */
   configKey?: string;
   /**
+   * @remarks
+   * The configuration value.
+   * 
    * @example
    * xx
    */
   configValue?: string;
   /**
+   * @remarks
+   * The configuration value type.
+   * 
    * @example
    * xx
    */
@@ -52,27 +64,46 @@ export class GetGeneralConfigResponseBodyData extends $dara.Model {
 
 export class GetGeneralConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   data?: GetGeneralConfigResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique identifier of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true (successful), false (failed).
+   * 
    * @example
    * true
    */

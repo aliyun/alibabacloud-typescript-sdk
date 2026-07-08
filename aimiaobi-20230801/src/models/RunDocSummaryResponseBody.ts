@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDocSummaryResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Type of management event
+   * 
    * @example
    * task-started
    */
   event?: string;
+  /**
+   * @remarks
+   * Description of the management event
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * session ID
+   * 
    * @example
    * 92e16ccb-92b6-4894-abbf-fc6e2929a0df
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Job ID
+   * 
    * @example
    * b057f2fa-2277-477b-babf-cbc062307828
    */
   taskId?: string;
   /**
+   * @remarks
+   * End-to-end trace ID
+   * 
    * @example
    * 2150451a17191950923411783e2927
    */
@@ -68,6 +93,13 @@ export class RunDocSummaryResponseBodyHeader extends $dara.Model {
 }
 
 export class RunDocSummaryResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Summary content
+   * 
+   * @example
+   * 总结内容
+   */
   content?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,16 +124,25 @@ export class RunDocSummaryResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunDocSummaryResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Quantity of tokens used in the input
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens
+   * 
    * @example
    * 200
    */
@@ -132,7 +173,15 @@ export class RunDocSummaryResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunDocSummaryResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Outputs
+   */
   output?: RunDocSummaryResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * LLM token usage information
+   */
   usage?: RunDocSummaryResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -164,9 +213,20 @@ export class RunDocSummaryResponseBodyPayload extends $dara.Model {
 }
 
 export class RunDocSummaryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * response header
+   */
   header?: RunDocSummaryResponseBodyHeader;
+  /**
+   * @remarks
+   * response body
+   */
   payload?: RunDocSummaryResponseBodyPayload;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 3259D344-E871-5DE0-8FFE-CDA21F8D4382
    */

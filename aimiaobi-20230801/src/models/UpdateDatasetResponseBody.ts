@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDatasetResponseBodyDataNewsArticleResultsData extends $dara.Model {
   /**
+   * @remarks
+   * The content.
+   * 
    * @example
    * 文章内容
    */
   content?: string;
   /**
+   * @remarks
+   * The publishing time.
+   * 
    * @example
    * 2024-11-12 15:12:14
    */
   pubTime?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * 央视网
    */
   source?: string;
   /**
+   * @remarks
+   * The article summary.
+   * 
    * @example
    * 文章摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * 文章标题
    */
   title?: string;
   /**
+   * @remarks
+   * The article URL.
+   * 
    * @example
    * https://www.example.com/aaa.docx
    */
@@ -66,27 +84,46 @@ export class UpdateDatasetResponseBodyDataNewsArticleResultsData extends $dara.M
 
 export class UpdateDatasetResponseBodyDataNewsArticleResults extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   current?: number;
+  /**
+   * @remarks
+   * The list of articles.
+   */
   data?: UpdateDatasetResponseBodyDataNewsArticleResultsData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   size?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */
@@ -127,37 +164,62 @@ export class UpdateDatasetResponseBodyDataNewsArticleResults extends $dara.Model
 
 export class UpdateDatasetResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-11-12 21:46:24
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * xxx
    */
   createUser?: string;
   /**
+   * @remarks
+   * The display name of the dataset.
+   * 
    * @example
    * xxx
    */
   datasetDescription?: string;
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * 1
    */
   datasetId?: number;
   /**
+   * @remarks
+   * The dataset name.
+   * 
    * @example
    * xxx
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The dataset type.
+   * 
    * @example
    * CustomSemanticSearch
    */
   datasetType?: string;
+  /**
+   * @remarks
+   * The list of articles.
+   */
   newsArticleResults?: UpdateDatasetResponseBodyDataNewsArticleResults[];
   /**
+   * @remarks
+   * Indicates whether search is enabled for the dataset.
+   * 
    * @example
    * 1
    */
@@ -202,27 +264,46 @@ export class UpdateDatasetResponseBodyData extends $dara.Model {
 
 export class UpdateDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: UpdateDatasetResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
+   * 
    * @example
    * true
    */

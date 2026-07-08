@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RunBookSmartCardRequest extends $dara.Model {
   /**
    * @remarks
+   * Document ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RunBookSmartCardRequest extends $dara.Model {
   docId?: string;
   /**
    * @remarks
+   * Session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RunBookSmartCardRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
+   * Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

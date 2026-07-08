@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetInterveneTemplateFileUrlResponseBodyData extends $dara.Model {
   code?: number;
   /**
+   * @remarks
+   * The URL of the template file.
+   * 
    * @example
    * http://xxx/xxx.xls
    */
@@ -34,27 +37,46 @@ export class GetInterveneTemplateFileUrlResponseBodyData extends $dara.Model {
 
 export class GetInterveneTemplateFileUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetInterveneTemplateFileUrlResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * DA021073-17CE-5CCF-9FEB-93226C766887
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */

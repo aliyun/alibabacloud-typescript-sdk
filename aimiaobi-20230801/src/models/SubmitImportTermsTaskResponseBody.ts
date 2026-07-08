@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitImportTermsTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
@@ -31,17 +34,30 @@ export class SubmitImportTermsTaskResponseBodyData extends $dara.Model {
 
 export class SubmitImportTermsTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data.
+   */
   data?: SubmitImportTermsTaskResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description.
+   * 
    * @example
    * success
    */
@@ -55,6 +71,9 @@ export class SubmitImportTermsTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether this request was successful.
+   * 
    * @example
    * true
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataSourceOrderConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identifier for the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,27 @@ export class GetDataSourceOrderConfigRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * When productCode=miaosou, this corresponds to Miaosou: generation technology. Possible values:
+   * 
+   * Valid values:
+   * 
+   * - copilotPrecise
+   * 
+   * - copilotReference
+   * 
    * @example
    * copilotPrecise
    */
   generateTechnology?: string;
   /**
    * @remarks
+   * Configuration type. Possible values:
+   * 
+   * - miaobi
+   * 
+   * - miaosou
+   * 
    * This parameter is required.
    * 
    * @example

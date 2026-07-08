@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class AsyncUploadVideoResponseBodyDataVideoInfos extends $dara.Model {
   /**
+   * @remarks
+   * Additional information about the video.
+   * 
    * @example
    * 视频中有一个房子
    */
   videoExtraInfo?: string;
   /**
+   * @remarks
+   * The video ID.
+   * 
    * @example
    * 60616fad41b171f0bb4b4531948c0102
    */
   videoId?: string;
   /**
+   * @remarks
+   * The name of the video.
+   * 
    * @example
    * 123.mp4
    */
   videoName?: string;
   /**
+   * @remarks
+   * The video URL.
+   * 
    * @example
    * http://123.mp4
    */
@@ -52,10 +64,17 @@ export class AsyncUploadVideoResponseBodyDataVideoInfos extends $dara.Model {
 
 export class AsyncUploadVideoResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Information about the videos.
+   */
   videoInfos?: AsyncUploadVideoResponseBodyDataVideoInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -85,17 +104,30 @@ export class AsyncUploadVideoResponseBodyData extends $dara.Model {
 
 export class AsyncUploadVideoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code returned for the request.
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: AsyncUploadVideoResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
@@ -109,6 +141,9 @@ export class AsyncUploadVideoResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */

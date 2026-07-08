@@ -4,28 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class FeedbackDialogueResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
-   * DataNotExists
+   * successful
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 数据不存在
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` indicates failure.
+   * 
    * @example
-   * false
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

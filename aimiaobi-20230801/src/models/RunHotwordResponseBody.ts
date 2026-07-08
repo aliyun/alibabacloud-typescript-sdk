@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunHotwordResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 200
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Event type.
+   * 
    * @example
    * finished
    */
   event?: string;
+  /**
+   * @remarks
+   * Event description.
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 92e16ccb-92b6-4894-abbf-fc6e2929a0df
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID.
+   * 
    * @example
    * 0abb7e3217356108993888059ee72b
    */
@@ -68,6 +93,13 @@ export class RunHotwordResponseBodyHeader extends $dara.Model {
 }
 
 export class RunHotwordResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Hotword content.
+   * 
+   * @example
+   * 全球影响,文化交流,孙悟空,动画改编
+   */
   content?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,16 +124,25 @@ export class RunHotwordResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunHotwordResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens.
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens.
+   * 
    * @example
    * 1
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens.
+   * 
    * @example
    * 101
    */
@@ -132,7 +173,15 @@ export class RunHotwordResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunHotwordResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output.
+   */
   output?: RunHotwordResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage.
+   */
   usage?: RunHotwordResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -164,11 +213,19 @@ export class RunHotwordResponseBodyPayload extends $dara.Model {
 }
 
 export class RunHotwordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunHotwordResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body.
+   */
   payload?: RunHotwordResponseBodyPayload;
   /**
    * @remarks
-   * Id of the request
+   * Request ID.
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5

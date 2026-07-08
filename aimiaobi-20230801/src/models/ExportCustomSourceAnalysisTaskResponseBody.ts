@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportCustomSourceAnalysisTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
   /**
+   * @remarks
+   * Publicly accessible URL
+   * 
    * @example
    * http://www.example.com/xxx.jsonLine
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is successful: true for success, false for failure
+   * 
    * @example
    * true
    */

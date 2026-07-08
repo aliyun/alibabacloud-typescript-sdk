@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AsyncWritingBiddingDocResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
@@ -31,17 +34,30 @@ export class AsyncWritingBiddingDocResponseBodyData extends $dara.Model {
 
 export class AsyncWritingBiddingDocResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: AsyncWritingBiddingDocResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
@@ -55,6 +71,9 @@ export class AsyncWritingBiddingDocResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

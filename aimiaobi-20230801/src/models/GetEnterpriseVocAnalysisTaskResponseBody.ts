@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic extends $dara.Model {
   /**
+   * @remarks
+   * The tag name.
+   * 
    * @example
    * xxx
    */
   tagName?: string;
   /**
+   * @remarks
+   * The type of the tag mining task. Valid values: \\`singleTagValue\\` (single tag), \\`multiTagValues\\` (multiple tags), and \\`summaryAndOverview\\` (summary and overview).
+   * 
    * @example
    * multiTagValues
    */
   tagTaskType?: string;
   /**
+   * @remarks
+   * The number of tag values.
+   * 
    * @example
    * 100
    */
@@ -44,6 +53,10 @@ export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilte
 }
 
 export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics of tag value counts.
+   */
   tagValueCountStatistic?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic[];
   static names(): { [key: string]: string } {
     return {
@@ -71,16 +84,25 @@ export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilte
 
 export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatisticsTagValueCountStatistic extends $dara.Model {
   /**
+   * @remarks
+   * The tag name.
+   * 
    * @example
    * xxx
    */
   tagName?: string;
   /**
+   * @remarks
+   * The type of the tag mining task. Valid values: \\`singleTagValue\\` (single tag), \\`multiTagValues\\` (multiple tags), and \\`summaryAndOverview\\` (summary and overview).
+   * 
    * @example
    * multiTagValues
    */
   tagTaskType?: string;
   /**
+   * @remarks
+   * The number of tag values.
+   * 
    * @example
    * 100
    */
@@ -111,6 +133,10 @@ export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDi
 }
 
 export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatistics extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics of tag value counts.
+   */
   tagValueCountStatistic?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatisticsTagValueCountStatistic[];
   static names(): { [key: string]: string } {
     return {
@@ -138,11 +164,22 @@ export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDi
 
 export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview extends $dara.Model {
   /**
+   * @remarks
+   * The total number of analyzed data entries.
+   * 
    * @example
    * 100
    */
   count?: number;
+  /**
+   * @remarks
+   * The statistics of filter tags.
+   */
   filterDimensionStatistics?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics;
+  /**
+   * @remarks
+   * The statistics of content tags.
+   */
   tagDimensionStatistics?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatistics;
   static names(): { [key: string]: string } {
     return {
@@ -177,11 +214,17 @@ export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview exte
 
 export class GetEnterpriseVocAnalysisTaskResponseBodyDataUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of input tokens.
+   * 
    * @example
    * 200
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of output tokens.
+   * 
    * @example
    * 100
    */
@@ -211,16 +254,30 @@ export class GetEnterpriseVocAnalysisTaskResponseBodyDataUsage extends $dara.Mod
 
 export class GetEnterpriseVocAnalysisTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * error
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The statistics overview.
+   */
   statisticsOverview?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview;
   /**
+   * @remarks
+   * The status of the task. Valid values: \\`PENDING\\` (pending), \\`RUNNING\\` (running), \\`SUCCESSED\\` (successful), \\`FAILED\\` (failed), and \\`CANCELED\\` (canceled).
+   * 
    * @example
    * SUCCESSED
    */
   status?: string;
+  /**
+   * @remarks
+   * The usage statistics.
+   */
   usage?: GetEnterpriseVocAnalysisTaskResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
@@ -257,27 +314,46 @@ export class GetEnterpriseVocAnalysisTaskResponseBodyData extends $dara.Model {
 
 export class GetEnterpriseVocAnalysisTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The result of the enterprise VOC analysis.
+   */
   data?: GetEnterpriseVocAnalysisTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */

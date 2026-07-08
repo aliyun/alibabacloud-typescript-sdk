@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig extends $dara.Model {
   /**
+   * @remarks
+   * Summary – number of images
+   * 
    * @example
    * 90
    */
   summaryImageCount?: number;
   /**
+   * @remarks
+   * Summary model
+   * 
    * @example
    * 摘要模型
    */
   summaryModel?: string;
   /**
+   * @remarks
+   * Summary - Custom Prompt
+   * 
    * @example
    * 摘要-自定义Prompt
    */
@@ -45,11 +54,17 @@ export class GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig extends 
 
 export class GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfigCustomHotValueWeights extends $dara.Model {
   /**
+   * @remarks
+   * Dimension key
+   * 
    * @example
    * views
    */
   dimension?: string;
   /**
+   * @remarks
+   * weight
+   * 
    * @example
    * 1
    */
@@ -79,15 +94,24 @@ export class GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfigCustomH
 
 export class GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfig extends $dara.Model {
   /**
+   * @remarks
+   * List of selected channels
+   * 
    * @example
    * ["科技","经济","时政","娱乐"]
    */
   categories?: string[];
   /**
+   * @remarks
+   * Custom hot spot weight
+   * 
    * @deprecated
    */
   customHotValueWeights?: GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfigCustomHotValueWeights[];
   /**
+   * @remarks
+   * topic Quantity
+   * 
    * @example
    * 10
    */
@@ -125,42 +149,88 @@ export class GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfig extend
 
 export class GetHotTopicBroadcastRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether to compute the total token count
+   * 
    * @example
    * false
    */
   calcTotalToken?: boolean;
   /**
+   * @remarks
+   * categorization Filter
+   * 
    * @example
    * 分类筛选
    */
   category?: string;
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   current?: number;
   /**
+   * @remarks
+   * hot spot Version
+   * 
    * @example
    * 2024-10-11_13
    */
   hotTopicVersion?: string;
+  /**
+   * @remarks
+   * Full-text index for hot spot Regions (when this parameter is present, current does not take effect)
+   * 
+   * @example
+   * 重庆 成都 浙江 杭州
+   */
   locationQuery?: string;
+  /**
+   * @remarks
+   * List of Regions for news retrieval (keyword filtering)
+   */
   locations?: string[];
+  /**
+   * @remarks
+   * Full-text index (full-text retrieval for title, hot spot summary, and Region) (when this parameter is present, current does not take effect)
+   * 
+   * @example
+   * 重庆新闻
+   */
   query?: string;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 5
    */
   size?: number;
+  /**
+   * @remarks
+   * Custom output style configuration
+   */
   stepForCustomSummaryStyleConfig?: GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig;
+  /**
+   * @remarks
+   * Hot Spot News Broadcast Content Configuration
+   */
   stepForNewsBroadcastContentConfig?: GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfig;
   /**
+   * @remarks
+   * topic Filter
+   * 
    * @example
    * ["主题1","主题2"]
    */
   topics?: string[];
   /**
    * @remarks
+   * UUID of the Alibaba Cloud Model Studio workspace: obtain the [Workspace ID](https://help.aliyun.com/document_detail/2587495.html)
+   * 
    * This parameter is required.
    * 
    * @example

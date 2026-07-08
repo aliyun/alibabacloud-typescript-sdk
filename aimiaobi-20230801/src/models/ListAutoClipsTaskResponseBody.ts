@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAutoClipsTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Start time of task creation
+   * 
    * @example
    * 2023-03-18 02:00:00
    */
   createTimeStart?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Task name
+   * 
+   * @example
+   * 任务名称
+   */
   taskName?: string;
   /**
+   * @remarks
+   * Task status
+   * 
    * @example
    * 0
    */
@@ -30,6 +46,9 @@ export class ListAutoClipsTaskResponseBodyData extends $dara.Model {
    */
   taskStep?: string;
   /**
+   * @remarks
+   * Task type
+   * 
    * @example
    * type001
    */
@@ -67,60 +86,94 @@ export class ListAutoClipsTaskResponseBodyData extends $dara.Model {
 
 export class ListAutoClipsTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * success
    */
   code?: string;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   current?: number;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: ListAutoClipsTaskResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Deprecated
+   * 
    * @example
    * null
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Deprecated
+   * 
    * @example
    * null
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Number of items per page
+   * 
    * @example
    * 10
    */
   size?: number;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. true means success. false means failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of records
+   * 
    * @example
    * 20
    */
   total?: number;
   /**
+   * @remarks
+   * Deprecated
+   * 
    * @example
    * null
    */

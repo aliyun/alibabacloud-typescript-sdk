@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CancelDeepWriteTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * User query
+   * 
+   * @example
+   * 北京2025年新能源汽车发展趋势
+   */
   input?: string;
   /**
+   * @remarks
+   * Task status
+   * 
    * @example
    * cancelled
    */
   status?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * xbabac91-fdad-44d6-95ce-******
    */
@@ -41,30 +54,46 @@ export class CancelDeepWriteTaskResponseBodyData extends $dara.Model {
 
 export class CancelDeepWriteTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * Task response object
+   */
   data?: CancelDeepWriteTaskResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * 错误消息
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * xxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded
+   * 
    * @example
    * true
    */

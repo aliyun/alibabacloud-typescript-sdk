@@ -4,15 +4,7 @@ import { WritingStyleTemplateField } from "./WritingStyleTemplateField";
 
 
 export class WritingStyleTemplateDefineExample extends $dara.Model {
-  /**
-   * @example
-   * topic
-   */
   key?: string;
-  /**
-   * @example
-   * 123
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

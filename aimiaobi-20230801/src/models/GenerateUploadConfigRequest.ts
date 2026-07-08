@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUploadConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,29 @@ export class GenerateUploadConfigRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * test.docx
    */
   fileName?: string;
   /**
    * @remarks
+   * The parent folder.
+   * 
+   * - materialDocument: The Material Library for AI Writing Assistant.
+   * 
+   * - datasetUpload: The dataset for AI Search.
+   * 
+   * - intervenes: Interventions.
+   * 
+   * - temp: A temporary upload folder. Files in this folder are released periodically.
+   * 
    * This parameter is required.
    * 
    * @example
-   * datasetUpload
+   * dataset
    */
   parentDir?: string;
   static names(): { [key: string]: string } {

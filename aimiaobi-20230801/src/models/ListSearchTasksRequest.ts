@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSearchTasksRequest extends $dara.Model {
   /**
+   * @remarks
+   * Task type
+   * 
    * @example
    * 24
    */
   dialogueTypes?: number[];
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page. Default is 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Obtain workspaceId]().
+   * 
    * This parameter is required.
    * 
    * @example

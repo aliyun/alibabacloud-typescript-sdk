@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInterveneImportTasksResponseBodyDataStatusList extends $dara.Model {
   /**
+   * @remarks
+   * Task message
+   * 
    * @example
    * Success
    */
   msg?: string;
   /**
+   * @remarks
+   * Completion percentage
+   * 
    * @example
    * 5
    */
   percentage?: number;
   /**
+   * @remarks
+   * Task status
+   * 
    * @example
    * Success
    */
   status?: number;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 4854
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task name
+   * 
    * @example
    * 12344454
    */
@@ -58,19 +73,39 @@ export class ListInterveneImportTasksResponseBodyDataStatusList extends $dara.Mo
 }
 
 export class ListInterveneImportTasksResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Status code returned by the intervention service
+   * 
+   * @example
+   * 200
+   */
   code?: number;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Task status information
+   */
   statusList?: ListInterveneImportTasksResponseBodyDataStatusList[];
   /**
+   * @remarks
+   * Total number of pages
+   * 
    * @example
    * 0
    */
@@ -109,27 +144,46 @@ export class ListInterveneImportTasksResponseBodyData extends $dara.Model {
 
 export class ListInterveneImportTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * DataNotExists
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: ListInterveneImportTasksResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded: true for success, false for failure
+   * 
    * @example
    * true
    */

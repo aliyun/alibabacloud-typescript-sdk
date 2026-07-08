@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitAuditTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * xx
    */
@@ -31,17 +34,30 @@ export class SubmitAuditTaskResponseBodyData extends $dara.Model {
 
 export class SubmitAuditTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The response object of the task.
+   */
   data?: SubmitAuditTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
@@ -55,6 +71,9 @@ export class SubmitAuditTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

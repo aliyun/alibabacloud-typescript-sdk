@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindPptArtifactResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 110f8401-e5ba-42db-addb-4f70196000c1
    */
@@ -31,17 +34,30 @@ export class BindPptArtifactResponseBodyData extends $dara.Model {
 
 export class BindPptArtifactResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The response object of the task.
+   */
   data?: BindPptArtifactResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
@@ -55,6 +71,9 @@ export class BindPptArtifactResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

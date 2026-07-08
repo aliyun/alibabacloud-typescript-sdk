@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AsyncCreateClipsTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
@@ -31,12 +34,33 @@ export class AsyncCreateClipsTaskResponseBodyData extends $dara.Model {
 
 export class AsyncCreateClipsTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: AsyncCreateClipsTaskResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
@@ -46,6 +70,15 @@ export class AsyncCreateClipsTaskResponseBody extends $dara.Model {
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - true: Succeeded.
+   * - false: Failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

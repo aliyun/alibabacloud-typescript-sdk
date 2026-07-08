@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataPermissionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The permission IDs.
+   * 
    * This parameter is required.
    */
   ids?: number[];
   /**
    * @remarks
+   * The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspace ID](https://help.aliyun.com/document_detail/2587495.html).
+   * 
    * This parameter is required.
    * 
    * @example

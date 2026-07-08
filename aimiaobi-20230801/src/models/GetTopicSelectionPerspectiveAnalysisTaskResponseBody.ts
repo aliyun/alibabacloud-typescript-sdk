@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPointsOutlines extends $dara.Model {
   /**
+   * @remarks
+   * The outline.
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * The summary of the outline.
+   * 
    * @example
    * 大纲摘要
    */
@@ -37,13 +43,23 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPoints extends $dara.Model {
+  /**
+   * @remarks
+   * The outline.
+   */
   outlines?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPointsOutlines[];
   /**
+   * @remarks
+   * The generated perspective.
+   * 
    * @example
    * 视角
    */
   point?: string;
   /**
+   * @remarks
+   * The summary.
+   * 
    * @example
    * 摘要
    */
@@ -78,20 +94,33 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPo
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudes extends $dara.Model {
   /**
+   * @remarks
+   * The current viewpoint.
+   * 
    * @example
    * 当前观点
    */
   attitude?: string;
   /**
+   * @remarks
+   * The type of the viewpoint.
+   * 
    * @example
    * 观点类型
    */
   attitudeType?: string;
   /**
+   * @remarks
+   * The proportion of the current viewpoint.
+   * 
    * @example
    * 当前观点占比
    */
   ratio?: string;
+  /**
+   * @remarks
+   * A list of topic selection perspectives.
+   */
   viewPoints?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudesViewPoints[];
   static names(): { [key: string]: string } {
     return {
@@ -124,6 +153,10 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResult extends $dara.Model {
+  /**
+   * @remarks
+   * A list of viewpoints for novel topic selection perspectives.
+   */
   attitudes?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResultAttitudes[];
   static names(): { [key: string]: string } {
     return {
@@ -150,37 +183,101 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews extends $dara.Model {
+  /**
+   * @remarks
+   * The news content.
+   * 
+   * @example
+   * Content
+   */
   content?: string;
+  /**
+   * @remarks
+   * The time when the article was created.
+   * 
+   * @example
+   * 2024-05-08 02:23:01
+   */
   createTime?: string;
   /**
+   * @remarks
+   * The custom unique ID of the document.
+   * 
    * @example
    * 9957175DEDCF49C5ACF7A956B4FD67B2
    */
   docId?: string;
   /**
+   * @remarks
+   * The unique ID of the article.
+   * 
    * @example
-   * 123456
+   * "123456"
    */
   docUuid?: string;
   /**
+   * @remarks
+   * The URLs of the images in the article.
+   * 
    * @example
    * https://www.example.com/aaa.png
    */
   imageUrls?: string[];
+  /**
+   * @remarks
+   * The time when the article was published.
+   * 
+   * @example
+   * 2024-05-08 02:23:02
+   */
   pubTime?: string;
+  /**
+   * @remarks
+   * The source of the news.
+   * 
+   * @example
+   * 夸克
+   */
   source?: string;
+  /**
+   * @remarks
+   * The summary of the news.
+   * 
+   * @example
+   * 新闻摘要
+   */
   summary?: string;
   /**
+   * @remarks
+   * The tags.
+   * 
    * @example
    * ["标签1","标签2"]
    */
   tags?: string[];
+  /**
+   * @remarks
+   * The title of the news.
+   * 
+   * @example
+   * 新闻标题
+   */
   title?: string;
   /**
+   * @remarks
+   * The topic of the article.
+   * 
    * @example
    * 文章主题
    */
   topic?: string;
+  /**
+   * @remarks
+   * The URL of the news.
+   * 
+   * @example
+   * http://www.example.com
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -233,11 +330,17 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPointsOutlines extends $dara.Model {
   /**
+   * @remarks
+   * The outline.
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * The summary of the outline.
+   * 
    * @example
    * 大纲摘要
    */
@@ -266,13 +369,23 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPoints extends $dara.Model {
+  /**
+   * @remarks
+   * The outline.
+   */
   outlines?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPointsOutlines[];
   /**
+   * @remarks
+   * The generated perspective.
+   * 
    * @example
    * 视角
    */
   point?: string;
   /**
+   * @remarks
+   * The summary.
+   * 
    * @example
    * 摘要
    */
@@ -307,21 +420,38 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudes extends $dara.Model {
   /**
+   * @remarks
+   * The current viewpoint.
+   * 
    * @example
    * 当前观点
    */
   attitude?: string;
   /**
+   * @remarks
+   * The type of the viewpoint.
+   * 
    * @example
    * 观点类型
    */
   attitudeType?: string;
+  /**
+   * @remarks
+   * A list of related news.
+   */
   news?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesNews[];
   /**
+   * @remarks
+   * The proportion of the current viewpoint.
+   * 
    * @example
    * 当前观点占比
    */
   ratio?: string;
+  /**
+   * @remarks
+   * A list of topic selection perspectives.
+   */
   viewPoints?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudesViewPoints[];
   static names(): { [key: string]: string } {
     return {
@@ -359,6 +489,10 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResult extends $dara.Model {
+  /**
+   * @remarks
+   * A list of viewpoints for hot topic selection perspectives.
+   */
   attitudes?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResultAttitudes[];
   static names(): { [key: string]: string } {
     return {
@@ -386,11 +520,17 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPoin
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPointsOutlines extends $dara.Model {
   /**
+   * @remarks
+   * The outline.
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * The summary of the outline.
+   * 
    * @example
    * 大纲摘要
    */
@@ -419,13 +559,23 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPoints extends $dara.Model {
+  /**
+   * @remarks
+   * The outline.
+   */
   outlines?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPointsOutlines[];
   /**
+   * @remarks
+   * The generated perspective.
+   * 
    * @example
    * 视角
    */
   point?: string;
   /**
+   * @remarks
+   * The summary.
+   * 
    * @example
    * 摘要
    */
@@ -460,40 +610,65 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPo
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudes extends $dara.Model {
   /**
+   * @remarks
+   * The current viewpoint.
+   * 
    * @example
    * 当前观点
    */
   attitude?: string;
   /**
+   * @remarks
+   * The type of the viewpoint.
+   * 
    * @example
    * 观点类型
    */
   attitudeType?: string;
   /**
+   * @remarks
+   * The time when the viewpoint was published.
+   * 
    * @example
    * 2024-01-22 10:29
    */
   pubTime?: string;
   /**
+   * @remarks
+   * The proportion of the current viewpoint.
+   * 
    * @example
    * 当前观点占比
    */
   ratio?: string;
   /**
+   * @remarks
+   * The source of the news.
+   * 
    * @example
    * 新浪
    */
   source?: string;
   /**
+   * @remarks
+   * The current viewpoint. This is the same as the news title.
+   * 
    * @example
    * 标题
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the news.
+   * 
    * @example
    * http://www.example.com/news/1.html
    */
   url?: string;
+  /**
+   * @remarks
+   * A list of topic selection perspectives.
+   */
   viewPoints?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudesViewPoints[];
   static names(): { [key: string]: string } {
     return {
@@ -534,6 +709,10 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResult extends $dara.Model {
+  /**
+   * @remarks
+   * A list of viewpoints for time-sensitive topic selection perspectives.
+   */
   attitudes?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResultAttitudes[];
   static names(): { [key: string]: string } {
     return {
@@ -560,9 +739,26 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummariesDocList extends $dara.Model {
+  /**
+   * @remarks
+   * The source of the article.
+   * 
+   * @example
+   * 头条
+   */
   source?: string;
+  /**
+   * @remarks
+   * The title of the article.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   /**
+   * @remarks
+   * The URL of the article.
+   * 
    * @example
    * http://www.example.com
    */
@@ -593,13 +789,23 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummar
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummaries extends $dara.Model {
+  /**
+   * @remarks
+   * The articles referenced to generate the summary for this title.
+   */
   docList?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummariesDocList[];
   /**
+   * @remarks
+   * The summary.
+   * 
    * @example
    * 摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * 标题
    */
@@ -633,6 +839,10 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummar
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResult extends $dara.Model {
+  /**
+   * @remarks
+   * A list of summaries.
+   */
   summaries?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResultSummaries[];
   static names(): { [key: string]: string } {
     return {
@@ -660,28 +870,43 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummar
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesComments extends $dara.Model {
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * 来源
    */
   source?: string;
   /**
+   * @remarks
+   * The content.
+   * 
    * @example
-   * 评论内容
+   * 内容
    */
   text?: string;
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * 标题
    */
   title?: string;
   /**
+   * @remarks
+   * The URL where the comment is located.
+   * 
    * @example
-   * 当前评论所属的URL
+   * 当前所属的URL
    */
   url?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
-   * 评论用户名
+   * 用户名
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -715,11 +940,17 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPo
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPointsOutlines extends $dara.Model {
   /**
+   * @remarks
+   * The outline.
+   * 
    * @example
    * 大纲
    */
   outline?: string;
   /**
+   * @remarks
+   * The summary of the outline.
+   * 
    * @example
    * 大纲摘要
    */
@@ -748,13 +979,23 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPoints extends $dara.Model {
+  /**
+   * @remarks
+   * The outline.
+   */
   outlines?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPointsOutlines[];
   /**
+   * @remarks
+   * The generated perspective.
+   * 
    * @example
    * 视角
    */
   point?: string;
   /**
+   * @remarks
+   * The summary.
+   * 
    * @example
    * 摘要
    */
@@ -789,21 +1030,38 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPo
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudes extends $dara.Model {
   /**
+   * @remarks
+   * The current viewpoint.
+   * 
    * @example
    * 当前观点
    */
   attitude?: string;
   /**
+   * @remarks
+   * The type of the viewpoint.
+   * 
    * @example
    * 观点类型
    */
   attitudeType?: string;
+  /**
+   * @remarks
+   * A list of user comments.
+   */
   comments?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesComments[];
   /**
+   * @remarks
+   * The proportion of the current viewpoint.
+   * 
    * @example
    * 当前观点占比
    */
   ratio?: string;
+  /**
+   * @remarks
+   * A list of topic selection perspectives.
+   */
   viewPoints?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudesViewPoints[];
   static names(): { [key: string]: string } {
     return {
@@ -841,6 +1099,10 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPo
 }
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResult extends $dara.Model {
+  /**
+   * @remarks
+   * A list of viewpoints from online reviews for topic selection.
+   */
   attitudes?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResultAttitudes[];
   static names(): { [key: string]: string } {
     return {
@@ -868,24 +1130,53 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPo
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误信息
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The analysis result of novel topic selection perspectives.
+   */
   freshViewPointsResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataFreshViewPointsResult;
+  /**
+   * @remarks
+   * The analysis result of hot topic selection perspectives.
+   */
   hotViewPointsResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataHotViewPointsResult;
   /**
+   * @remarks
+   * The status of the task. Valid values: PENDING, RUNNING, SUCCESSED, SUSPENDED, FAILED, and CANCELED.
+   * 
    * @example
    * SUSPENDED
    */
   status?: string;
+  /**
+   * @remarks
+   * The analysis result of time-sensitive topic selection perspectives.
+   */
   timedViewPointsResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTimedViewPointsResult;
   /**
+   * @remarks
+   * The hot spot topic event.
+   * 
    * @example
    * 热点主题事件
    */
   topic?: string;
+  /**
+   * @remarks
+   * The summary of the hot spot topic event.
+   */
   topicSummaryResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataTopicSummaryResult;
+  /**
+   * @remarks
+   * The analysis result of online review topic selection perspectives.
+   */
   webReviewPointsResult?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyDataWebReviewPointsResult;
   static names(): { [key: string]: string } {
     return {
@@ -939,27 +1230,46 @@ export class GetTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends $d
 
 export class GetTopicSelectionPerspectiveAnalysisTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GetTopicSelectionPerspectiveAnalysisTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
+   * 
    * @example
    * true
    */

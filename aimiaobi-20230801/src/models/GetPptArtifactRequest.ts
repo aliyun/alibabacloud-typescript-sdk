@@ -9,11 +9,17 @@ export class GetPptArtifactRequest extends $dara.Model {
    */
   externalUserId?: string;
   /**
+   * @remarks
+   * The ID of the PPT artifact.
+   * 
    * @example
    * 5232136
    */
   pptArtifactId?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * llm-az2gglxxxx
    */

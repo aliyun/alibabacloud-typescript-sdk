@@ -4,8 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class InsertInterveneGlobalReplyResponseBodyData extends $dara.Model {
   code?: number;
+  /**
+   * @remarks
+   * List of failed index IDs
+   */
   failIdList?: string[];
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 4829
    */
@@ -40,27 +47,46 @@ export class InsertInterveneGlobalReplyResponseBodyData extends $dara.Model {
 
 export class InsertInterveneGlobalReplyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * status code
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: InsertInterveneGlobalReplyResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request identifier
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether successful: true for success, false for failure
+   * 
    * @example
    * true
    */

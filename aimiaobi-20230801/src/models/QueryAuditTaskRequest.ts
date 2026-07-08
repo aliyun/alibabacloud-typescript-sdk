@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAuditTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * Article ID (Choose either task ID or article ID)
+   * 
    * @example
    * xxxx
    */
   articleId?: string;
   /**
+   * @remarks
+   * Audit task ID (Choose either task ID or article ID)
+   * 
    * @example
    * xxx
    */
   contentAuditTaskId?: string;
   /**
+   * @remarks
+   * [workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * @example
    * llm-xxxx
    */

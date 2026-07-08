@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoAuditResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 视频审校任务的唯一标识，可用于后续查询任务状态和结果
+   * Task ID
    * 
    * @example
    * xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -35,7 +35,7 @@ export class SubmitVideoAuditResponseBodyData extends $dara.Model {
 export class SubmitVideoAuditResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务处理结果状态码
+   * Business status code
    * 
    * @example
    * success
@@ -43,12 +43,12 @@ export class SubmitVideoAuditResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 视频审校任务提交后的返回数据
+   * Submitted task result data
    */
   data?: SubmitVideoAuditResponseBodyData;
   /**
    * @remarks
-   * HTTP响应状态码
+   * HTTP status code
    * 
    * @example
    * 200
@@ -56,7 +56,7 @@ export class SubmitVideoAuditResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 业务处理结果描述信息
+   * Return message
    * 
    * @example
    * 任务提交成功
@@ -64,7 +64,7 @@ export class SubmitVideoAuditResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 本次API请求的唯一标识
+   * Request ID
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
@@ -72,7 +72,7 @@ export class SubmitVideoAuditResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否处理成功
+   * Is successful
    * 
    * @example
    * true

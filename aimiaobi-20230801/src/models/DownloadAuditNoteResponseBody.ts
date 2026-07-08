@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DownloadAuditNoteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
   /**
+   * @remarks
+   * Download link for the destination rule library.
+   * 
    * @example
    * http://download.xxx.yyy.zzz
    */
   data?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description.
+   * 
    * @example
    * success
    */
@@ -32,6 +44,9 @@ export class DownloadAuditNoteResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

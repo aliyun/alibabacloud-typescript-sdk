@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UploadDocResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Array of successfully uploaded document IDs
+   */
   docIds?: string[];
+  /**
+   * @remarks
+   * Document IDs that could not be uploaded because they already exist
+   */
   existedIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,17 +44,30 @@ export class UploadDocResponseBodyData extends $dara.Model {
 
 export class UploadDocResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Internal error code
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Document information
+   */
   data?: UploadDocResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
@@ -60,6 +81,9 @@ export class UploadDocResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded
+   * 
    * @example
    * true
    */

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSmartClipTaskResponseBodyDataSubJobsFileAttr extends $dara.Model {
   /**
+   * @remarks
+   * Video duration in seconds
+   * 
    * @example
    * 120
    */
   duration?: number;
   /**
+   * @remarks
+   * Video file size
+   * 
    * @example
    * 290804
    */
   fileLength?: string;
   /**
+   * @remarks
+   * Video file name
+   * 
    * @example
    * 2024-12-12.mp4
    */
   fileName?: string;
   /**
+   * @remarks
+   * Video height
+   * 
    * @example
    * 1080
    */
   height?: number;
   /**
+   * @remarks
+   * Temporary URL to access the video file. Expires in one hour.
+   * 
    * @example
    * http://www.example.com/tmp.mp4
    */
   tmpUrl?: string;
   /**
+   * @remarks
+   * Video width
+   * 
    * @example
    * 1920
    */
@@ -66,22 +84,43 @@ export class GetSmartClipTaskResponseBodyDataSubJobsFileAttr extends $dara.Model
 
 export class GetSmartClipTaskResponseBodyDataSubJobs extends $dara.Model {
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
-   * x\\"x\\"x\\"x
+   * 文件名错误
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * File attributes
+   */
   fileAttr?: GetSmartClipTaskResponseBodyDataSubJobsFileAttr;
   /**
+   * @remarks
+   * File key
+   * 
    * @example
    * oss://default/bucket-name/path-xxx/xxx-1.mp4
    */
   fileKey?: string;
   /**
+   * @remarks
+   * Subtask status:
+   * PENDING: Pending
+   * RUNNING: Running
+   * SUCCESSED: Succeeded
+   * FAILED: Failed
+   * CANCELED: Canceled
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * Subtask ID
+   * 
    * @example
    * xxxxx
    */
@@ -119,12 +158,31 @@ export class GetSmartClipTaskResponseBodyDataSubJobs extends $dara.Model {
 }
 
 export class GetSmartClipTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * 错误信息
+   */
   errorMessage?: string;
   /**
+   * @remarks
+   * Task status:
+   * PENDING: Pending
+   * RUNNING: Running
+   * SUCCESSED: Succeeded
+   * FAILED: Failed
+   * CANCELED: Canceled
+   * 
    * @example
    * RUNNING
    */
   status?: string;
+  /**
+   * @remarks
+   * List of subtasks
+   */
   subJobs?: GetSmartClipTaskResponseBodyDataSubJobs[];
   static names(): { [key: string]: string } {
     return {
@@ -156,27 +214,46 @@ export class GetSmartClipTaskResponseBodyData extends $dara.Model {
 
 export class GetSmartClipTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Task response
+   */
   data?: GetSmartClipTaskResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique identifier of the request
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded. true indicates success. false indicates failure.
+   * 
    * @example
    * true
    */

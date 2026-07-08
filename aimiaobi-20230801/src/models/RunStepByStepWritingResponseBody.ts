@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunStepByStepWritingResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 错误码
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误信息
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The Server-Sent Events (SSE) event. \\`task-started\\`: The task begins. \\`task-finished\\`: The task is complete. \\`task-failed\\`: The task failed.
+   * 
    * @example
    * task-started
    */
   event?: string;
   /**
+   * @remarks
+   * The parent session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   originSessionId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * The full-link trace ID.
+   * 
    * @example
    * 全链路ID
    */
@@ -73,56 +94,89 @@ export class RunStepByStepWritingResponseBodyHeader extends $dara.Model {
 
 export class RunStepByStepWritingResponseBodyPayloadOutputArticles extends $dara.Model {
   /**
+   * @remarks
+   * The author.
+   * 
    * @example
    * 作者
    */
   author?: string;
   /**
+   * @remarks
+   * The content.
+   * 
    * @example
    * 文章内容
    */
   content?: string;
   /**
+   * @remarks
+   * The custom unique ID of the document.
+   * 
    * @example
    * 文档-自定义的唯一ID
    */
   docId?: string;
   /**
+   * @remarks
+   * The internal unique ID of the document.
+   * 
    * @example
    * f1da53894e784759946d22e2cb2b522a
    */
   docUuid?: string;
   /**
+   * @remarks
+   * The URL of the original material.
+   * 
    * @example
    * http://www.example.com
    */
   mediaUrl?: string;
   /**
+   * @remarks
+   * The publication time.
+   * 
    * @example
    * 2024-09-10 14:17:53
    */
   pubTime?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * 央视网
    */
   source?: string;
   /**
+   * @remarks
+   * The article summary.
+   * 
    * @example
    * 文章摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * The tag.
+   * 
    * @example
    * 文章标签
    */
   tag?: string;
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * 文章标题
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the article.
+   * 
    * @example
    * https://www.example.com/aaa.docx
    */
@@ -169,6 +223,10 @@ export class RunStepByStepWritingResponseBodyPayloadOutputArticles extends $dara
 }
 
 export class RunStepByStepWritingResponseBodyPayloadOutputExtraOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The list of summaries. This field is returned when summaries are generated step-by-step.
+   */
   summarization?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -195,19 +253,36 @@ export class RunStepByStepWritingResponseBodyPayloadOutputExtraOutput extends $d
 }
 
 export class RunStepByStepWritingResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The reference articles.
+   */
   articles?: RunStepByStepWritingResponseBodyPayloadOutputArticles[];
+  /**
+   * @remarks
+   * Extra output fields.
+   */
   extraOutput?: RunStepByStepWritingResponseBodyPayloadOutputExtraOutput;
   /**
+   * @remarks
+   * A list of segments after the article layout has been optimized.
+   * 
    * @example
    * 文章精排之后的片段
    */
   miniDoc?: string[];
   /**
+   * @remarks
+   * The rewritten query.
+   * 
    * @example
    * 大模型改变世界
    */
   searchQuery?: string;
   /**
+   * @remarks
+   * The text generation result.
+   * 
    * @example
    * 文本生成结果
    */
@@ -252,16 +327,25 @@ export class RunStepByStepWritingResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunStepByStepWritingResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of input tokens.
+   * 
    * @example
    * 65
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of output tokens.
+   * 
    * @example
    * 80
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The total number of tokens.
+   * 
    * @example
    * 32
    */
@@ -292,7 +376,15 @@ export class RunStepByStepWritingResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunStepByStepWritingResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * The output.
+   */
   output?: RunStepByStepWritingResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Information about token usage.
+   */
   usage?: RunStepByStepWritingResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -324,9 +416,20 @@ export class RunStepByStepWritingResponseBodyPayload extends $dara.Model {
 }
 
 export class RunStepByStepWritingResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response header.
+   */
   header?: RunStepByStepWritingResponseBodyHeader;
+  /**
+   * @remarks
+   * The response body.
+   */
   payload?: RunStepByStepWritingResponseBodyPayload;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */

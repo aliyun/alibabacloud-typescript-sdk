@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForCustomSummaryStyleConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of images in the summary.
+   * 
    * @example
    * 3
    */
   summaryImageCount?: number;
   /**
+   * @remarks
+   * The summary model.
+   * 
    * @example
    * qwen-max
    */
   summaryModel?: string;
   /**
+   * @remarks
+   * The custom prompt for the summary.
+   * 
    * @example
    * xxxx
    */
@@ -45,16 +54,25 @@ export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepF
 
 export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfigCustomHotValueWeights extends $dara.Model {
   /**
+   * @remarks
+   * The key of the dimension.
+   * 
    * @example
    * views
    */
   dimension?: string;
   /**
+   * @remarks
+   * The name of the dimension.
+   * 
    * @example
    * 维度名称
    */
   dimensionName?: string;
   /**
+   * @remarks
+   * The weight.
+   * 
    * @example
    * 1
    */
@@ -86,12 +104,22 @@ export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepF
 
 export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfig extends $dara.Model {
   /**
+   * @remarks
+   * The list of selected channels.
+   * 
    * @example
    * ["科技","经济","时政","娱乐"]
    */
   categories?: string[];
+  /**
+   * @remarks
+   * The custom weights for hot topics.
+   */
   customHotValueWeights?: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfigCustomHotValueWeights[];
   /**
+   * @remarks
+   * The number of topics.
+   * 
    * @example
    * 10
    */
@@ -130,11 +158,15 @@ export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepF
 export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfig extends $dara.Model {
   /**
    * @remarks
+   * The configuration for the custom output style.
+   * 
    * This parameter is required.
    */
   stepForCustomSummaryStyleConfig?: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForCustomSummaryStyleConfig;
   /**
    * @remarks
+   * The configuration for the broadcast content.
+   * 
    * This parameter is required.
    */
   stepForNewsBroadcastContentConfig?: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepForNewsBroadcastContentConfig;
@@ -170,17 +202,28 @@ export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfig exte
 export class SubmitCustomHotTopicBroadcastJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration for the news broadcast job.
+   * 
    * This parameter is required.
    */
   hotTopicBroadcastConfig?: SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfig;
   /**
+   * @remarks
+   * The version of the hot topic.
+   * 
    * @example
    * 热点版本
    */
   hotTopicVersion?: string;
+  /**
+   * @remarks
+   * The topic filter.
+   */
   topics?: string[];
   /**
    * @remarks
+   * The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

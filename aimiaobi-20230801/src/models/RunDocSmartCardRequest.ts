@@ -5,16 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class RunDocSmartCardRequest extends $dara.Model {
   /**
    * @remarks
+   * The document ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 84ufBYEeLMZOjRFo84HJ7ySL3Efr55
    */
   docId?: string;
+  /**
+   * @remarks
+   * The name of the custom model.
+   * 
+   * @example
+   * quanmiao-max、quanmiao-plus
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * The prompt.
+   * 
+   * @example
+   * 自定义提示词
+   */
   prompt?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +41,8 @@ export class RunDocSmartCardRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
+   * The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Get a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

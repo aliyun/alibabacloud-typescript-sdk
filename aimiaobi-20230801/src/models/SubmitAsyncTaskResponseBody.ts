@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitAsyncTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The unique task ID.
+   * 
    * @example
-   * 3f7045e099474ba28ceca1b4eb6d6e21
+   * xxxx
    */
   taskId?: string;
   /**
+   * @remarks
+   * The intermediate result.
+   * 
    * @example
    * {}
    */
   taskIntermediateResult?: any;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
    * 任务名称
    */
@@ -45,27 +54,46 @@ export class SubmitAsyncTaskResponseBodyData extends $dara.Model {
 
 export class SubmitAsyncTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
-   * DataNotExists
+   * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: SubmitAsyncTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * success
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of true indicates success, and a value of false indicates failure.
+   * 
    * @example
    * true
    */

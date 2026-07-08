@@ -3,15 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunSearchSimilarArticlesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Communication configuration parameters.
+   */
   chatConfigShrink?: string;
   /**
+   * @remarks
+   * Document type.
+   * 
    * @example
    * html
    */
   docType?: string;
+  /**
+   * @remarks
+   * Article title.
+   * 
+   * @example
+   * 标题
+   */
   title?: string;
   /**
    * @remarks
+   * Article URL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +36,8 @@ export class RunSearchSimilarArticlesShrinkRequest extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

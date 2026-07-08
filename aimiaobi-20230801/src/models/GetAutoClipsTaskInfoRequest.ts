@@ -3,10 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAutoClipsTaskInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Show video understanding results.
+   * 
+   * @example
+   * false
+   */
   showAnalysisResults?: boolean;
+  /**
+   * @remarks
+   * Show video source information.
+   * 
+   * @example
+   * false
+   */
   showResourceInfo?: boolean;
   /**
    * @remarks
+   * Unique ID of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,7 +31,12 @@ export class GetAutoClipsTaskInfoRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * [Workspace](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 百炼工作空间Id
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

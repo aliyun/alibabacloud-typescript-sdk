@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetInterveneGlobalReplyRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identity of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example

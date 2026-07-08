@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class AsyncUploadVideoRequestReferenceVideo extends $dara.Model {
   /**
+   * @remarks
+   * Additional information for video understanding.
+   * 
    * @example
    * 手机cpu采用3纳米技术
    */
   videoExtraInfo?: string;
   /**
+   * @remarks
+   * The name of the reference video.
+   * 
    * @example
    * refvideo.mp4
    */
   videoName?: string;
   /**
+   * @remarks
+   * The URL of the video.
+   * 
    * @example
    * http://viapi-customer-pop.oss-cn-shanghai.aliyuncs.com/d71e_208334498220521996_51298e0a909d457693166eb883768c7a
    */
@@ -45,12 +54,17 @@ export class AsyncUploadVideoRequestReferenceVideo extends $dara.Model {
 
 export class AsyncUploadVideoRequestSourceVideos extends $dara.Model {
   /**
+   * @remarks
+   * Additional description of the video.
+   * 
    * @example
    * 视频中有一个房子
    */
   videoExtraInfo?: string;
   /**
    * @remarks
+   * The name of the video.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59,6 +73,8 @@ export class AsyncUploadVideoRequestSourceVideos extends $dara.Model {
   videoName?: string;
   /**
    * @remarks
+   * The URL of the video.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,11 +109,17 @@ export class AsyncUploadVideoRequestSourceVideos extends $dara.Model {
 
 export class AsyncUploadVideoRequestVideoRolesRoleUrls extends $dara.Model {
   /**
+   * @remarks
+   * The file name of the role\\"s facial image.
+   * 
    * @example
    * 王小明.jpeg
    */
   roleFileName?: string;
   /**
+   * @remarks
+   * The public URL of the role\\"s facial image.
+   * 
    * @example
    * http://xxx/xxx.jpeg
    */
@@ -127,15 +149,25 @@ export class AsyncUploadVideoRequestVideoRolesRoleUrls extends $dara.Model {
 
 export class AsyncUploadVideoRequestVideoRoles extends $dara.Model {
   /**
+   * @remarks
+   * Information about the role.
+   * 
    * @example
    * 李晓明是一位警察
    */
   roleInfo?: string;
   /**
+   * @remarks
+   * The name of the role.
+   * 
    * @example
    * 李晓明
    */
   roleName?: string;
+  /**
+   * @remarks
+   * The URLs of the role photos.
+   */
   roleUrls?: AsyncUploadVideoRequestVideoRolesRoleUrls[];
   static names(): { [key: string]: string } {
     return {
@@ -167,50 +199,87 @@ export class AsyncUploadVideoRequestVideoRoles extends $dara.Model {
 
 export class AsyncUploadVideoRequest extends $dara.Model {
   /**
+   * @remarks
+   * Shot segmentation threshold. A smaller value increases sensitivity. Valid range is 1 to 10. Default value is 3.
+   * 
    * @example
-   * 3
+   * 3.0
    */
   adaptiveThreshold?: number;
   /**
+   * @remarks
+   * The prompt for video understanding.
+   * 
    * @example
    * 重点理解视频中的风景信息
    */
   anlysisPrompt?: string;
   /**
+   * @remarks
+   * The similarity threshold for character recognition.
+   * 
    * @example
    * 0.7
    */
   faceIdentitySimilarityMinScore?: number;
+  /**
+   * @remarks
+   * Information about the reference video.
+   */
   referenceVideo?: AsyncUploadVideoRequestReferenceVideo;
+  /**
+   * @remarks
+   * Removes captions from the material.
+   */
   removeSubtitle?: boolean;
   /**
    * @remarks
+   * The structure of the video editing materials.
+   * 
    * This parameter is required.
    */
   sourceVideos?: AsyncUploadVideoRequestSourceVideos[];
   /**
+   * @remarks
+   * The time interval for video understanding shots.
+   * 
    * @example
    * 默认1
    */
   splitInterval?: number;
   /**
+   * @remarks
+   * Job name
+   * 
    * @example
    * task001
    */
   taskName?: string;
   /**
+   * @remarks
+   * Task Type
+   * 
    * @example
    * type001
    */
   taskType?: string;
+  /**
+   * @remarks
+   * Face information of the roles.
+   */
   videoRoles?: AsyncUploadVideoRequestVideoRoles[];
   /**
+   * @remarks
+   * The number of frames sampled from a single shot for character matching.
+   * 
    * @example
    * 2
    */
   videoShotFaceIdentityCount?: number;
   /**
    * @remarks
+   * [The ID of the Alibaba Cloud Model Studio workspace.](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * This parameter is required.
    * 
    * @example

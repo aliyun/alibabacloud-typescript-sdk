@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDatasetResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-11-12 21:46:24
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * xxx
    */
   createUser?: string;
   /**
+   * @remarks
+   * The display name of the dataset.
+   * 
    * @example
    * xxx
    */
   datasetDescription?: string;
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * 1
    */
   datasetId?: number;
   /**
+   * @remarks
+   * The dataset name.
+   * 
    * @example
    * xxx
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The dataset type.
+   * 
    * @example
    * CustomSemanticSearch
    */
   datasetType?: string;
   /**
+   * @remarks
+   * The dataset search switch.
+   * 
    * @example
    * 1
    */
@@ -73,27 +94,46 @@ export class CreateDatasetResponseBodyData extends $dara.Model {
 
 export class CreateDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: CreateDatasetResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
+   * 
    * @example
    * true
    */

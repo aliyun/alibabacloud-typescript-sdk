@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RunTitleGenerationRequestReferenceData extends $dara.Model {
   /**
    * @remarks
+   * List of main content.
+   * 
    * This parameter is required.
    */
   contents?: string[];
@@ -33,20 +35,40 @@ export class RunTitleGenerationRequestReferenceData extends $dara.Model {
 }
 
 export class RunTitleGenerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of titles to deduplicate against the newly generated titles. The total character count for all titles must not exceed 5K.
+   */
   deduplicatedTitles?: string[];
   /**
    * @remarks
+   * Data for title generation.
+   * 
    * This parameter is required.
    */
   referenceData?: RunTitleGenerationRequestReferenceData;
   /**
+   * @remarks
+   * The unique identifier for the associated creative article.
+   * 
+   * > The system automatically generates the TaskId by default. You do not need to specify it. If subsequent tasks use the same TaskId, they belong to the same conversation group.
+   * 
    * @example
    * xxxx
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Number of titles to generate, maximum 10.
+   * 
+   * @example
+   * 10
+   */
   titleCount?: string;
   /**
    * @remarks
+   * The unique identifier for the Alibaba Cloud Model Studio workspace. For more information, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

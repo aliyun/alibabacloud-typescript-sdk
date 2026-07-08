@@ -3,18 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPptArtifactsResponseBodyDataFileAttr extends $dara.Model {
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * 数字时代的营销策划与文案创作
+   */
   fileName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 500
    */
   height?: number;
   /**
+   * @remarks
+   * The preview image of the work file.
+   * 
    * @example
    * http://www.example.com/xxx.jpg
    */
   tmpUrl?: string;
   /**
+   * @remarks
+   * The width of the video.
+   * 
    * @example
    * 100
    */
@@ -48,23 +64,46 @@ export class ListPptArtifactsResponseBodyDataFileAttr extends $dara.Model {
 
 export class ListPptArtifactsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-01-04 11:46:07
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The properties of the work file.
+   */
   fileAttr?: ListPptArtifactsResponseBodyDataFileAttr;
   /**
+   * @remarks
+   * The preview image of the work file.
+   * 
    * @example
    * http://www.example.com/xxx.jpg
    */
   fileKey?: string;
   /**
+   * @remarks
+   * The unique ID of the document.
+   * 
    * @example
    * 10
    */
   id?: number;
+  /**
+   * @remarks
+   * The title.
+   * 
+   * @example
+   * 作品标题
+   */
   title?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2025-04-14 19:59:53
    */
@@ -105,52 +144,86 @@ export class ListPptArtifactsResponseBodyData extends $dara.Model {
 
 export class ListPptArtifactsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * NoData
    */
   code?: string;
   /**
+   * @remarks
+   * The current page.
+   * 
    * @example
    * 1
    */
   current?: number;
+  /**
+   * @remarks
+   * Indicates whether the deletion succeeded.
+   */
   data?: ListPptArtifactsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The number of entries returned in this response.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The token for the next page.
+   * 
    * @example
    * cEoBWREAXdxaOyjq/cqAbg==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of entries per page. The default is 10.
+   * 
    * @example
    * 10
    */
   size?: number;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */

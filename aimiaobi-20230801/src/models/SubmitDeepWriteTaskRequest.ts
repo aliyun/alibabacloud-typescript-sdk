@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitDeepWriteTaskRequestAgentOrchestrationDataAnalystAgent extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable retrieval.
+   * 
+   * @example
+   * true
+   */
   enableSearch?: boolean;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * DataAnalystAgent
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +43,13 @@ export class SubmitDeepWriteTaskRequestAgentOrchestrationDataAnalystAgent extend
 }
 
 export class SubmitDeepWriteTaskRequestAgentOrchestrationDataCollectorAgent extends $dara.Model {
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * DataCollectorAgent
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,7 +73,18 @@ export class SubmitDeepWriteTaskRequestAgentOrchestrationDataCollectorAgent exte
 }
 
 export class SubmitDeepWriteTaskRequestAgentOrchestrationReporterAgent extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable citations.
+   */
   enableCitation?: boolean;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * ReporterAgent
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,8 +110,20 @@ export class SubmitDeepWriteTaskRequestAgentOrchestrationReporterAgent extends $
 }
 
 export class SubmitDeepWriteTaskRequestAgentOrchestration extends $dara.Model {
+  /**
+   * @remarks
+   * The data analysis agent.
+   */
   dataAnalystAgent?: SubmitDeepWriteTaskRequestAgentOrchestrationDataAnalystAgent;
+  /**
+   * @remarks
+   * The data collection agent.
+   */
   dataCollectorAgent?: SubmitDeepWriteTaskRequestAgentOrchestrationDataCollectorAgent;
+  /**
+   * @remarks
+   * The reporter agent.
+   */
   reporterAgent?: SubmitDeepWriteTaskRequestAgentOrchestrationReporterAgent;
   static names(): { [key: string]: string } {
     return {
@@ -117,16 +161,25 @@ export class SubmitDeepWriteTaskRequestAgentOrchestration extends $dara.Model {
 
 export class SubmitDeepWriteTaskRequestFiles extends $dara.Model {
   /**
+   * @remarks
+   * A description of the attachment.
+   * 
    * @example
-   * 附件的备注
+   * 附件的说明
    */
   fileDescription?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) address of the attachment.
+   * 
    * @example
    * oss://default/aimiaobi-poc/aimiaobi/deep-write-upload/1_1/xxx.txt
    */
   fileKey?: string;
   /**
+   * @remarks
+   * The name of the attachment.
+   * 
    * @example
    * 附件的名称
    */
@@ -157,18 +210,41 @@ export class SubmitDeepWriteTaskRequestFiles extends $dara.Model {
 }
 
 export class SubmitDeepWriteTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The agent orchestration options.
+   */
   agentOrchestration?: SubmitDeepWriteTaskRequestAgentOrchestration;
+  /**
+   * @remarks
+   * A list of attachments.
+   */
   files?: SubmitDeepWriteTaskRequestFiles[];
   /**
    * @remarks
+   * The user\\"s question.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 北京2025年新能源汽车发展趋势
    * 
    * **if can be null:**
    * false
    */
   input?: string;
+  /**
+   * @remarks
+   * The instructions.
+   * 
+   * @example
+   * 请根据北京新能源汽车在汽车品牌、新车发布、能源等方面进行分析
+   */
   instructions?: string;
   /**
+   * @remarks
+   * [The workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * @example
    * llm-1setzb9xb8m11vrc
    */

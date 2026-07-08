@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDocClusterTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class GetDocClusterTaskRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * The unique ID of the task.
+   * 
+   * > This parameter is optional. The system automatically generates a task ID. If subsequent tasks use the same task ID, they are considered part of the same conversation group.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunMultiDocIntroductionResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 200
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Message does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Server-sent event (SSE) type.
+   * 
    * @example
    * finished
    */
   event?: string;
+  /**
+   * @remarks
+   * Event description.
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 92e16ccb-92b6-4894-abbf-fc6e2929a0df
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * b057f2fa-2277-477b-babf-cbc062307828
    */
   taskId?: string;
   /**
+   * @remarks
+   * End-to-end trace ID.
+   * 
    * @example
    * 46e5c2b5-0877-4f09-bd91-ab0cf314e48b
    */
@@ -68,7 +93,21 @@ export class RunMultiDocIntroductionResponseBodyHeader extends $dara.Model {
 }
 
 export class RunMultiDocIntroductionResponseBodyPayloadOutputKeyPoints extends $dara.Model {
+  /**
+   * @remarks
+   * Key point.
+   * 
+   * @example
+   * 关键点信息
+   */
   keyPoint?: string;
+  /**
+   * @remarks
+   * Source of the information.
+   * 
+   * @example
+   * 信息来源
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -94,7 +133,18 @@ export class RunMultiDocIntroductionResponseBodyPayloadOutputKeyPoints extends $
 }
 
 export class RunMultiDocIntroductionResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Key point information.
+   */
   keyPoints?: RunMultiDocIntroductionResponseBodyPayloadOutputKeyPoints[];
+  /**
+   * @remarks
+   * Outline-style summary.
+   * 
+   * @example
+   * 大纲摘要内容
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {
@@ -124,16 +174,25 @@ export class RunMultiDocIntroductionResponseBodyPayloadOutput extends $dara.Mode
 
 export class RunMultiDocIntroductionResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens.
+   * 
    * @example
    * 65
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens.
+   * 
    * @example
    * 165
    */
@@ -164,7 +223,15 @@ export class RunMultiDocIntroductionResponseBodyPayloadUsage extends $dara.Model
 }
 
 export class RunMultiDocIntroductionResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output data.
+   */
   output?: RunMultiDocIntroductionResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage.
+   */
   usage?: RunMultiDocIntroductionResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -196,11 +263,19 @@ export class RunMultiDocIntroductionResponseBodyPayload extends $dara.Model {
 }
 
 export class RunMultiDocIntroductionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunMultiDocIntroductionResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body.
+   */
   payload?: RunMultiDocIntroductionResponseBodyPayload;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request.
    * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21

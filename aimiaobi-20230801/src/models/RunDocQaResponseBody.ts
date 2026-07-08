@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDocQaResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * management event
+   * 
    * @example
    * task-started
    */
   event?: string;
+  /**
+   * @remarks
+   * Description of the management event
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * f5517ee8-dbec-4dc8-bd0a-af084b5e3db1
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Job ID
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * End-to-end trace ID
+   * 
    * @example
    * 46e5c2b5-0877-4f09-bd91-ab0cf314e48b
    */
@@ -69,11 +94,17 @@ export class RunDocQaResponseBodyHeader extends $dara.Model {
 
 export class RunDocQaResponseBodyPayloadOutputMediaUrlListClipInfos extends $dara.Model {
   /**
+   * @remarks
+   * Start time of the video segment
+   * 
    * @example
    * 0
    */
   from?: number;
   /**
+   * @remarks
+   * End time of the video segment
+   * 
    * @example
    * 30
    */
@@ -102,13 +133,23 @@ export class RunDocQaResponseBodyPayloadOutputMediaUrlListClipInfos extends $dar
 }
 
 export class RunDocQaResponseBodyPayloadOutputMediaUrlList extends $dara.Model {
+  /**
+   * @remarks
+   * Array of related video time information
+   */
   clipInfos?: RunDocQaResponseBodyPayloadOutputMediaUrlListClipInfos[];
   /**
+   * @remarks
+   * File URL
+   * 
    * @example
    * https://gw.alicdn.com/imgextra/i3/2775676850/O1CN01kdeffE20TM0E7wvpq_!!2775676850.jpg_q60.jpg
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Media asset type
+   * 
    * @example
    * video
    */
@@ -142,7 +183,21 @@ export class RunDocQaResponseBodyPayloadOutputMediaUrlList extends $dara.Model {
 }
 
 export class RunDocQaResponseBodyPayloadOutputRecommends extends $dara.Model {
+  /**
+   * @remarks
+   * Title of the recommended content
+   * 
+   * @example
+   * 标题内容
+   */
   title?: string;
+  /**
+   * @remarks
+   * URL of the recommended content
+   * 
+   * @example
+   * 推荐内容url
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -169,18 +224,41 @@ export class RunDocQaResponseBodyPayloadOutputRecommends extends $dara.Model {
 
 export class RunDocQaResponseBodyPayloadOutputReferences extends $dara.Model {
   /**
+   * @remarks
+   * Published At
+   * 
    * @example
    * 2024-10-08 18:00
    */
   pubTime?: string;
+  /**
+   * @remarks
+   * Source
+   * 
+   * @example
+   * 新浪新闻
+   */
   source?: string;
   /**
+   * @remarks
+   * Source docId
+   * 
    * @example
    * 123456
    */
   sourceDocId?: string;
+  /**
+   * @remarks
+   * Title of the associated content
+   * 
+   * @example
+   * 标题内容
+   */
   title?: string;
   /**
+   * @remarks
+   * Article URL
+   * 
    * @example
    * http://xxxxx
    */
@@ -215,15 +293,44 @@ export class RunDocQaResponseBodyPayloadOutputReferences extends $dara.Model {
 }
 
 export class RunDocQaResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Content of the response
+   * 
+   * @example
+   * 回答内容
+   */
   content?: string;
+  /**
+   * @remarks
+   * Response content after intervention
+   * 
+   * @example
+   * 干预后的回答内容
+   */
   interveneContent?: string;
   /**
+   * @remarks
+   * Indicates whether the request is rejected
+   * 
    * @example
    * false
    */
   isReject?: boolean;
+  /**
+   * @remarks
+   * List of multimodal resource information
+   */
   mediaUrlList?: RunDocQaResponseBodyPayloadOutputMediaUrlList[];
+  /**
+   * @remarks
+   * Array of recommended content
+   */
   recommends?: RunDocQaResponseBodyPayloadOutputRecommends[];
+  /**
+   * @remarks
+   * Array of sources for the response content
+   */
   references?: RunDocQaResponseBodyPayloadOutputReferences[];
   static names(): { [key: string]: string } {
     return {
@@ -267,16 +374,25 @@ export class RunDocQaResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunDocQaResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Quantity of input tokens
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of tokens used in the output
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens
+   * 
    * @example
    * 200
    */
@@ -307,7 +423,15 @@ export class RunDocQaResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunDocQaResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Outputs
+   */
   output?: RunDocQaResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * token usage
+   */
   usage?: RunDocQaResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -339,9 +463,20 @@ export class RunDocQaResponseBodyPayload extends $dara.Model {
 }
 
 export class RunDocQaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * response header
+   */
   header?: RunDocQaResponseBodyHeader;
+  /**
+   * @remarks
+   * response body
+   */
   payload?: RunDocQaResponseBodyPayload;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */

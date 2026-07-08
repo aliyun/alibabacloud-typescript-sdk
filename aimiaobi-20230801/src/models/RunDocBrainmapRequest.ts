@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDocBrainmapRequest extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether to clear the previous cache.
+   * 
    * @example
    * true
    */
   cleanCache?: boolean;
   /**
    * @remarks
+   * The document ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,16 +22,25 @@ export class RunDocBrainmapRequest extends $dara.Model {
    */
   docId?: string;
   /**
+   * @remarks
+   * The name of the model to use.
+   * 
    * @example
    * quanmiao-max、quanmiao-plus
    */
   modelName?: string;
   /**
+   * @remarks
+   * The number of nodes to generate at the second level of the mind map.
+   * 
    * @example
    * 3
    */
   nodeNumber?: number;
   /**
+   * @remarks
+   * A custom prompt to guide the mind map generation.
+   * 
    * @example
    * 请按英文输出
    */
@@ -38,6 +52,8 @@ export class RunDocBrainmapRequest extends $dara.Model {
   responseFormat?: number;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,16 +61,25 @@ export class RunDocBrainmapRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The maximum number of words in each node.
+   * 
    * @example
    * 20
    */
   wordNumber?: number;
   /**
+   * @remarks
+   * The ID of the Model Studio workspace. For more information, see [How to use a workspace](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * @example
    * llm-xxx
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The source content for generating the mind map. This parameter takes precedence over `DocId`.
+   * 
    * @example
    * 要生成脑图的内容
    */

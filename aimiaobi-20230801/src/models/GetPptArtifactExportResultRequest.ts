@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPptArtifactExportResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the export task.
+   * 
    * @example
    * 15aeb61b-cdeb-4b70-94d7-99518040647e
    */
@@ -14,6 +17,9 @@ export class GetPptArtifactExportResultRequest extends $dara.Model {
    */
   externalUserId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * llm-xxxx
    */

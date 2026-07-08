@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SearchNewsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/3027170.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,30 +14,49 @@ export class SearchNewsShrinkRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * Specifies whether to filter out results with empty content.
+   * 
    * @example
    * false
    */
   filterNotNull?: boolean;
   /**
+   * @remarks
+   * Specifies whether to include the full text of the article.
+   * 
    * @example
    * false
    */
   includeContent?: boolean;
   /**
+   * @remarks
+   * The page number. The default value is 1.
+   * 
    * @example
-   * 81
+   * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of records to return on each page. The default value is 10.
+   * 
    * @example
-   * 35
+   * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The search query.
+   * 
    * @example
    * 检索Query
    */
   query?: string;
+  /**
+   * @remarks
+   * A list of search sources.
+   */
   searchSourcesShrink?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPptTemplateSelectorRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * lm-xxxx
    */

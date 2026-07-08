@@ -4,14 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitAuditTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the article to be audited.
+   * 
    * @example
    * xxxx
    */
   articleId?: string;
+  /**
+   * @remarks
+   * The content to be audited.
+   * 
+   * @example
+   * 待审核的内容
+   */
   content?: string;
+  /**
+   * @remarks
+   * The content to be audited, in HTML format.
+   * 
+   * @example
+   * 待审核的内容（HTML格式）
+   */
   htmlContent?: string;
+  /**
+   * @remarks
+   * The title of the article to be audited.
+   * 
+   * @example
+   * 审核时的文章标题
+   */
   title?: string;
   /**
+   * @remarks
+   * [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * @example
    * xxxx
    */

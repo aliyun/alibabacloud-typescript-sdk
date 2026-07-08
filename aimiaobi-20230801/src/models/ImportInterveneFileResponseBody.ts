@@ -3,11 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ImportInterveneFileResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Intervention status code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * List of failed index IDs.
+   */
   failIdList?: string[];
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
-   * 3f7045e099474ba28ceca1b4eb6d6e21
+   * "3f7045e099474ba28ceca1b4eb6d6e21"
    */
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -40,27 +54,46 @@ export class ImportInterveneFileResponseBodyData extends $dara.Model {
 
 export class ImportInterveneFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
-   * 0
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data.
+   */
   data?: ImportInterveneFileResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded. Set to true for success or false for failure.
+   * 
    * @example
    * true
    */

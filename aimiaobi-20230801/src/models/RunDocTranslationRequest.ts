@@ -3,16 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunDocTranslationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Clear the current cache?
+   * 
+   * @example
+   * true
+   */
   cleanCache?: boolean;
   /**
+   * @remarks
+   * Document ID
+   * 
    * @example
    * 12345
    */
   docId?: string;
+  /**
+   * @remarks
+   * User-defined model name
+   * 
+   * @example
+   * quanmiao-max、quanmiao-plus
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * Content to be translated
+   * 
+   * @example
+   * 要翻译的内容
+   */
   recommendContent?: string;
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,13 +46,26 @@ export class RunDocTranslationRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Translation type
+   * 
    * @example
    * toChinese
    * toEnglish
+   * toJapenese
+   * toRussian
+   * toFrench
+   * toGerman
+   * toItalian
+   * toKorean
+   * toSpanish
+   * toPortuguese
    */
   transType?: string;
   /**
    * @remarks
+   * Alibaba Cloud Model Studio workspace unique identifier. For more information, see [Get the Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

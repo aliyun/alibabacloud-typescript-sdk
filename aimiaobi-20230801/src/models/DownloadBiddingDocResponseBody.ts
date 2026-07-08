@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DownloadBiddingDocResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 111_Default_20250708142918
    */
   taskId?: string;
   /**
+   * @remarks
+   * Document URL
+   * 
    * @example
    * https://www.example.com/aaa.docx
    */
@@ -38,30 +44,46 @@ export class DownloadBiddingDocResponseBodyData extends $dara.Model {
 
 export class DownloadBiddingDocResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: DownloadBiddingDocResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Operation result: true for success, false for failure
+   * 
    * @example
    * true
    */

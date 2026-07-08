@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunBookSmartCardResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Event type.
+   * 
    * @example
    * finished
    */
   event?: string;
+  /**
+   * @remarks
+   * Event description.
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID.
+   * 
    * @example
    * 1a0e898717105546647125853d4f54
    */
@@ -68,7 +93,18 @@ export class RunBookSmartCardResponseBodyHeader extends $dara.Model {
 }
 
 export class RunBookSmartCardResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Card title.
+   * 
+   * @example
+   * 卡片标题内容
+   */
   content?: string;
+  /**
+   * @remarks
+   * Array of card tags.
+   */
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -98,16 +134,25 @@ export class RunBookSmartCardResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunBookSmartCardResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens used.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens.
+   * 
    * @example
    * 101
    */
@@ -138,7 +183,15 @@ export class RunBookSmartCardResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunBookSmartCardResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output object.
+   */
   output?: RunBookSmartCardResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage.
+   */
   usage?: RunBookSmartCardResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -170,11 +223,19 @@ export class RunBookSmartCardResponseBodyPayload extends $dara.Model {
 }
 
 export class RunBookSmartCardResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunBookSmartCardResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body.
+   */
   payload?: RunBookSmartCardResponseBodyPayload;
   /**
    * @remarks
-   * Id of the request
+   * Request ID.
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5

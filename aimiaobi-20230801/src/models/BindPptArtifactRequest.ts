@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindPptArtifactRequest extends $dara.Model {
   /**
    * @remarks
+   * The artifact ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +20,8 @@ export class BindPptArtifactRequest extends $dara.Model {
   externalUserId?: string;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +32,9 @@ export class BindPptArtifactRequest extends $dara.Model {
    */
   taskId?: string;
   /**
+   * @remarks
+   * [The workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * @example
    * llm-xgpt3m25qdosdjr3
    */

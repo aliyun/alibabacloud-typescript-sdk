@@ -4,16 +4,52 @@ import { OutlineWritingArticle } from "./OutlineWritingArticle";
 
 
 export class WritingOutline extends $dara.Model {
+  /**
+   * @remarks
+   * List of articles referenced in the outline
+   */
   articles?: OutlineWritingArticle[];
+  /**
+   * @remarks
+   * List of sub-outlines
+   */
   children?: WritingOutline[];
+  /**
+   * @remarks
+   * Outline
+   * 
+   * @example
+   * 大纲名称
+   */
   outline?: string;
   /**
+   * @remarks
+   * Unique outline identifier
+   * 
    * @example
    * xxx
    */
   outlineId?: string;
+  /**
+   * @remarks
+   * Outline writing search keyword list
+   */
   searchKeyWordList?: string[];
+  /**
+   * @remarks
+   * Description of word count requirements, such as 1K words, 2K words, or no less than 500 words.
+   * 
+   * @example
+   * 写作字数要求的描述
+   */
   wordCount?: string;
+  /**
+   * @remarks
+   * Outline writing requirements, writing tips
+   * 
+   * @example
+   * 大纲写作要求、写作提示
+   */
   writingTips?: string;
   static names(): { [key: string]: string } {
     return {

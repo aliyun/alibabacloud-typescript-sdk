@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListHotSourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * UUID of the workspace: AgentKey
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ListHotSourcesRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * Maximum number of returned results
+   * 
    * @example
    * 66
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token for the next page
+   * 
    * @example
    * 下一页的token
    */

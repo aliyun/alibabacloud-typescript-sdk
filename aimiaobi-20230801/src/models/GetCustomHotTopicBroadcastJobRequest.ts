@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomHotTopicBroadcastJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the task.
+   * 
+   * > Tasks that use the same TaskId belong to the same conversation group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class GetCustomHotTopicBroadcastJobRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

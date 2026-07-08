@@ -3,22 +3,63 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateDatasetDocumentRequestDocument extends $dara.Model {
+  /**
+   * @remarks
+   * UUID of the category
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * User-defined unique ID for the document.
+   * 
    * @example
-   * 用户指定的文档唯一ID
+   * xxx
    */
   docId?: string;
   /**
+   * @remarks
+   * Unique ID of the document in the system.
+   * 
    * @example
-   * 内部文档唯一ID
+   * xxx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1
+   * 
+   * @example
+   * xxx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2
+   * 
+   * @example
+   * xxxx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3
+   * 
+   * @example
+   * xxx
+   */
   extend3?: string;
+  /**
+   * @remarks
+   * Tags
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Document title.
+   * 
    * @example
    * xx
    */
@@ -63,21 +104,32 @@ export class UpdateDatasetDocumentRequestDocument extends $dara.Model {
 
 export class UpdateDatasetDocumentRequest extends $dara.Model {
   /**
+   * @remarks
+   * Unique identifier of the dataset.
+   * 
    * @example
    * 1
    */
   datasetId?: number;
   /**
+   * @remarks
+   * Name of the dataset.
+   * 
    * @example
    * 数据集名称
    */
   datasetName?: string;
   /**
    * @remarks
+   * The document to update.
+   * 
    * This parameter is required.
    */
   document?: UpdateDatasetDocumentRequestDocument;
   /**
+   * @remarks
+   * Unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * @example
    * xxxx
    */

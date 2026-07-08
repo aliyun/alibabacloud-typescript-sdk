@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunAiHelperWritingResponseBodyHeader extends $dara.Model {
   /**
    * @remarks
-   * 请求错误时的错误码
+   * The error code.
    * 
    * @example
    * InvalidParameter
@@ -13,7 +13,7 @@ export class RunAiHelperWritingResponseBodyHeader extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * 请求错误时的详细错误信息
+   * The error message.
    * 
    * @example
    * 参数错误
@@ -21,7 +21,7 @@ export class RunAiHelperWritingResponseBodyHeader extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * SSE事件类型，如：result-generated(生成结果)、task-finished(任务完成)
+   * The event type.
    * 
    * @example
    * result-generated
@@ -29,7 +29,7 @@ export class RunAiHelperWritingResponseBodyHeader extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * 当前写作会话的唯一标识
+   * The session ID.
    * 
    * @example
    * session-xxxxx
@@ -37,7 +37,7 @@ export class RunAiHelperWritingResponseBodyHeader extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * HTTP状态码
+   * The status code.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class RunAiHelperWritingResponseBodyHeader extends $dara.Model {
   statusCode?: number;
   /**
    * @remarks
-   * 写作任务的唯一标识
+   * The task ID.
    * 
    * @example
    * task-xxxxx
@@ -53,7 +53,7 @@ export class RunAiHelperWritingResponseBodyHeader extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * 用于问题排查的链路追踪标识
+   * Trace ID
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
@@ -95,7 +95,7 @@ export class RunAiHelperWritingResponseBodyHeader extends $dara.Model {
 export class RunAiHelperWritingResponseBodyPayloadOutput extends $dara.Model {
   /**
    * @remarks
-   * AI生成的文章内容，流式返回时为增量文本
+   * The generated text.
    * 
    * @example
    * 人工智能正在深刻改变我们的生活...
@@ -103,7 +103,7 @@ export class RunAiHelperWritingResponseBodyPayloadOutput extends $dara.Model {
   text?: string;
   /**
    * @remarks
-   * 返回的写作参数键值对
+   * The writing parameters for the AI-assisted writing.
    * 
    * @example
    * {"wordCount": "1000"}
@@ -138,7 +138,7 @@ export class RunAiHelperWritingResponseBodyPayloadOutput extends $dara.Model {
 export class RunAiHelperWritingResponseBodyPayloadUsage extends $dara.Model {
   /**
    * @remarks
-   * 输入内容消耗的Token数量
+   * The number of input tokens.
    * 
    * @example
    * 256
@@ -146,7 +146,7 @@ export class RunAiHelperWritingResponseBodyPayloadUsage extends $dara.Model {
   inputTokens?: number;
   /**
    * @remarks
-   * 生成内容消耗的Token数量
+   * The number of output tokens.
    * 
    * @example
    * 1024
@@ -154,7 +154,7 @@ export class RunAiHelperWritingResponseBodyPayloadUsage extends $dara.Model {
   outputTokens?: number;
   /**
    * @remarks
-   * 输入和输出Token的总和
+   * The total number of tokens.
    * 
    * @example
    * 1280
@@ -188,12 +188,12 @@ export class RunAiHelperWritingResponseBodyPayloadUsage extends $dara.Model {
 export class RunAiHelperWritingResponseBodyPayload extends $dara.Model {
   /**
    * @remarks
-   * AI生成的写作内容
+   * The output content.
    */
   output?: RunAiHelperWritingResponseBodyPayloadOutput;
   /**
    * @remarks
-   * 本次请求的Token消耗统计
+   * The token usage.
    */
   usage?: RunAiHelperWritingResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
@@ -228,7 +228,7 @@ export class RunAiHelperWritingResponseBodyPayload extends $dara.Model {
 export class RunAiHelperWritingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务处理结果状态码
+   * The business status code.
    * 
    * @example
    * successful
@@ -236,12 +236,12 @@ export class RunAiHelperWritingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 流式响应的头部信息，包含事件类型、状态码等元数据
+   * The Server-Sent Events (SSE) response header.
    */
   header?: RunAiHelperWritingResponseBodyHeader;
   /**
    * @remarks
-   * HTTP响应状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -249,7 +249,7 @@ export class RunAiHelperWritingResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * 业务处理结果描述信息
+   * The returned message.
    * 
    * @example
    * success
@@ -257,12 +257,12 @@ export class RunAiHelperWritingResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 包含写作输出内容和Token使用量统计
+   * The response payload.
    */
   payload?: RunAiHelperWritingResponseBodyPayload;
   /**
    * @remarks
-   * 本次API请求的唯一标识
+   * The request ID.
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
@@ -270,7 +270,7 @@ export class RunAiHelperWritingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否处理成功
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -3,13 +3,75 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AsyncEditTimelineRequestTimelinesClips extends $dara.Model {
+  /**
+   * @remarks
+   * Clip ID
+   * 
+   * @example
+   * 123jjdax
+   * 新增可为空
+   */
   clipId?: string;
+  /**
+   * @remarks
+   * Segmented voice-over script
+   * 
+   * @example
+   * 口播文案分段
+   * 不可为空
+   */
   contentInner?: string;
+  /**
+   * @remarks
+   * Start time, in seconds. Deprecated.
+   * 
+   * @example
+   * 0
+   * 不可为空
+   */
   in?: number;
+  /**
+   * @remarks
+   * Clip start time, in milliseconds
+   * 
+   * @example
+   * 0.45
+   */
   inEx?: number;
+  /**
+   * @remarks
+   * End time, in seconds. Deprecated.
+   * 
+   * @example
+   * 5
+   * 不可为空
+   */
   out?: number;
+  /**
+   * @remarks
+   * Clip end time, in milliseconds
+   * 
+   * @example
+   * 3.66
+   */
   outEx?: number;
+  /**
+   * @remarks
+   * Video ID
+   * 
+   * @example
+   * 7036227ae3ab71efbb4a6733a68f0102
+   * 不可为空
+   */
   videoId?: string;
+  /**
+   * @remarks
+   * Video name
+   * 
+   * @example
+   * 123.mp4
+   * 不可为空
+   */
   videoName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49,9 +111,19 @@ export class AsyncEditTimelineRequestTimelinesClips extends $dara.Model {
 export class AsyncEditTimelineRequestTimelines extends $dara.Model {
   /**
    * @remarks
+   * Array of video clips
+   * 
    * This parameter is required.
    */
   clips?: AsyncEditTimelineRequestTimelinesClips[];
+  /**
+   * @remarks
+   * Timeline ID
+   * 
+   * @example
+   * sdfjhks
+   * 新增可为空
+   */
   timelineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -80,9 +152,18 @@ export class AsyncEditTimelineRequestTimelines extends $dara.Model {
 }
 
 export class AsyncEditTimelineRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Enable automatic clip adjustment
+   * 
+   * @example
+   * false
+   */
   autoClips?: boolean;
   /**
    * @remarks
+   * Unique identifier of the task
+   * 
    * This parameter is required.
    * 
    * @example
@@ -91,11 +172,15 @@ export class AsyncEditTimelineRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * Array structure of video editing timelines
+   * 
    * This parameter is required.
    */
   timelines?: AsyncEditTimelineRequestTimelines[];
   /**
    * @remarks
+   * [Model Studio workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * This parameter is required.
    * 
    * @example

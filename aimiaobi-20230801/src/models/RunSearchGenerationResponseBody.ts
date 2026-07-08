@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunSearchGenerationResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * AccessForbid
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * xx
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * SSE event.
+   * 
    * @example
    * task-failed
    */
   event?: string;
   /**
+   * @remarks
+   * Event description.
+   * 
    * @example
    * xx
    */
   eventInfo?: string;
   /**
+   * @remarks
+   * Source session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   originSessionId?: string;
   /**
+   * @remarks
+   * Response time, in milliseconds (ms).
+   * 
    * @example
    * 1
    */
   responseTime?: number;
   /**
+   * @remarks
+   * Conversation ID.
+   * 
    * @example
    * x
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * x
    */
   taskId?: string;
   /**
+   * @remarks
+   * Full link ID.
+   * 
    * @example
    * xx
    */
@@ -86,37 +113,87 @@ export class RunSearchGenerationResponseBodyHeader extends $dara.Model {
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultArticle extends $dara.Model {
+  /**
+   * @remarks
+   * Unique category identifier.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * UUID.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
   /**
+   * @remarks
+   * Search source.
+   * 
    * @example
    * xx
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xxx
    */
   summary?: string;
+  /**
+   * @remarks
+   * List of tags.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * URL.
+   * 
    * @example
    * http://xxx
    */
@@ -167,26 +244,41 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultClipInfos extends $dara.Model {
   /**
+   * @remarks
+   * Start position.
+   * 
    * @example
    * 1
    */
   from?: number;
   /**
+   * @remarks
+   * Threshold.
+   * 
    * @example
    * 0.9
    */
   score?: number;
   /**
+   * @remarks
+   * Text content.
+   * 
    * @example
    * xx
    */
   text?: string;
   /**
+   * @remarks
+   * End position.
+   * 
    * @example
    * 2
    */
   to?: number;
   /**
+   * @remarks
+   * Text type.
+   * 
    * @example
    * asr
    */
@@ -221,19 +313,36 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Associated document.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultArticle;
+  /**
+   * @remarks
+   * List of matching segments.
+   */
   clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultClipInfos[];
   /**
+   * @remarks
+   * URL.
+   * 
    * @example
    * http://xxx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * ID.
+   * 
    * @example
    * xxx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Unique traceability identifier.
+   * 
    * @example
    * 1
    */
@@ -274,6 +383,10 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Voice search result.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResult[];
   static names(): { [key: string]: string } {
     return {
@@ -300,39 +413,103 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultArticle extends $dara.Model {
+  /**
+   * @remarks
+   * Category identity
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * docId
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * docUuid
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
+  /**
+   * @remarks
+   * Unique identifier of the dataset
+   * 
+   * @example
+   * xx
+   */
   searchSource?: string;
   /**
+   * @remarks
+   * Search source
+   * 
    * @example
    * xx
    */
   searchSourceName?: string;
+  /**
+   * @remarks
+   * The type of the dataset.
+   * 
+   * @example
+   * xx
+   */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tag name
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the article.
+   * 
    * @example
    * http://xx
    */
@@ -387,26 +564,41 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultClipInfos extends $dara.Model {
   /**
+   * @remarks
+   * Start position
+   * 
    * @example
    * 1
    */
   from?: number;
   /**
+   * @remarks
+   * The threshold.
+   * 
    * @example
    * 1
    */
   score?: number;
   /**
+   * @remarks
+   * Text content
+   * 
    * @example
    * xx
    */
   text?: string;
   /**
+   * @remarks
+   * The end position.
+   * 
    * @example
    * 1
    */
   to?: number;
   /**
+   * @remarks
+   * Type
+   * 
    * @example
    * asr
    */
@@ -441,14 +633,28 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Corresponding document
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultArticle;
+  /**
+   * @remarks
+   * List of matching information
+   */
   clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultClipInfos[];
   /**
+   * @remarks
+   * URL
+   * 
    * @example
    * http://xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The ID.
+   * 
    * @example
    * xxx
    */
@@ -488,17 +694,30 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResult extends $dara.Model {
   /**
+   * @remarks
+   * Current page
+   * 
    * @example
    * 1
    */
   current?: number;
+  /**
+   * @remarks
+   * Audio search results
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResult;
   /**
+   * @remarks
+   * Size
+   * 
    * @example
    * 1
    */
   size?: number;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 1
    */
@@ -534,39 +753,103 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResultArticle extends $dara.Model {
+  /**
+   * @remarks
+   * Unique category identifier.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
+  /**
+   * @remarks
+   * Dataset unique identifier.
+   * 
+   * @example
+   * xx
+   */
   searchSource?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
+  /**
+   * @remarks
+   * Dataset type.
+   * 
+   * @example
+   * xx
+   */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tags.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -620,13 +903,23 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResultArticle;
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Unique multimodal data identifier.
+   * 
    * @example
    * xx
    */
@@ -661,17 +954,30 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResult extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   current?: number;
+  /**
+   * @remarks
+   * List of search results.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResult[];
   /**
+   * @remarks
+   * Records per page.
+   * 
    * @example
    * 1
    */
   size?: number;
   /**
+   * @remarks
+   * Total records.
+   * 
    * @example
    * 1
    */
@@ -708,16 +1014,29 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResultMultimodalMedias extends $dara.Model {
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The unique ID of the multimodal data.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Multimodal data file type. Valid values:
+   * 
+   * - video: Video.
+   * 
+   * - image: Image.
+   * 
    * @example
    * image
    */
@@ -748,53 +1067,116 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Category unique identifier
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * The custom unique ID of the document.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Unique identifier for internal documents.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
+  /**
+   * @remarks
+   * A list of multimodal information.
+   */
   multimodalMedias?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResultMultimodalMedias[];
   /**
+   * @remarks
+   * Publication time, in the format yyyy-MM-dd HH:mm:ss
+   * 
    * @example
    * 2023-04-04 08:39:09
    */
   pubTime?: string;
   /**
+   * @remarks
+   * The unique identifier of the search source. This is the same as searchSource.datasetName.
+   * 
    * @example
    * QuarkCommonNews
    */
   searchSource?: string;
   /**
+   * @remarks
+   * The name of the search source.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Search source type, same as searchSource.code.
+   * 
    * @example
    * SystemSearch
    */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tags
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL
+   * 
    * @example
    * xx
    */
@@ -856,17 +1238,30 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResult extends $dara.Model {
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   current?: number;
+  /**
+   * @remarks
+   * Search results list
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResult[];
   /**
+   * @remarks
+   * Number of records per page
+   * 
    * @example
    * 1
    */
   size?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */
@@ -902,39 +1297,103 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultArticle extends $dara.Model {
+  /**
+   * @remarks
+   * Category
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * Document: a custom unique ID
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * The unique identifier of the internal document.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3
+   * 
+   * @example
+   * x
+   */
   extend3?: string;
+  /**
+   * @remarks
+   * The unique identifier of the dataset.
+   * 
+   * @example
+   * xx
+   */
   searchSource?: string;
   /**
+   * @remarks
+   * The name of the search source.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
+  /**
+   * @remarks
+   * Dataset type
+   * 
+   * @example
+   * xx
+   */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Summary
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tags
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the article.
+   * 
    * @example
    * xx
    */
@@ -989,26 +1448,41 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultClipInfos extends $dara.Model {
   /**
+   * @remarks
+   * Start time
+   * 
    * @example
    * 1
    */
   from?: number;
   /**
+   * @remarks
+   * Reference confidence level
+   * 
    * @example
    * 0.9
    */
   score?: number;
   /**
+   * @remarks
+   * Corresponding text, such as ASR transcription results.
+   * 
    * @example
    * xx
    */
   text?: string;
   /**
+   * @remarks
+   * End time
+   * 
    * @example
    * 1
    */
   to?: number;
   /**
+   * @remarks
+   * Text type, such as ASR.
+   * 
    * @example
    * asr
    */
@@ -1043,14 +1517,28 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Article
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultArticle;
+  /**
+   * @remarks
+   * A list of matching information.
+   */
   clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultClipInfos[];
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Unique identifier for the multimodal data
+   * 
    * @example
    * xx
    */
@@ -1090,17 +1578,30 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResult extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   current?: number;
+  /**
+   * @remarks
+   * Search results
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResult[];
   /**
+   * @remarks
+   * Number of records per page
+   * 
    * @example
    * 1
    */
   size?: number;
   /**
+   * @remarks
+   * Total records
+   * 
    * @example
    * 1
    */
@@ -1136,14 +1637,33 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopics extends $dara.Model {
+  /**
+   * @remarks
+   * Audio result
+   */
   audioSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResult;
+  /**
+   * @remarks
+   * Image search result.
+   */
   imageSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResult;
+  /**
+   * @remarks
+   * Document search results
+   */
   textSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResult;
   /**
+   * @remarks
+   * Topic.
+   * 
    * @example
    * xx
    */
   topic?: string;
+  /**
+   * @remarks
+   * Video search results
+   */
   videoSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResult;
   static names(): { [key: string]: string } {
     return {
@@ -1187,13 +1707,23 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of clusters.
+   */
   clusterTopics?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopics[];
   /**
+   * @remarks
+   * Indicates whether the current agent has finished generating.
+   * 
    * @example
    * true
    */
   generateFinished?: boolean;
   /**
+   * @remarks
+   * Text result.
+   * 
    * @example
    * xx
    */
@@ -1228,16 +1758,29 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultMultimodalMedias extends $dara.Model {
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Unique multimodal data identifier.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Multimodal file type. Valid values:
+   * 
+   * - video: video
+   * 
+   * - image: image
+   * 
    * @example
    * image
    */
@@ -1269,26 +1812,41 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaListArticle extends $dara.Model {
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
-   * xxx
+   * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -1323,18 +1881,31 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaList extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaListArticle;
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Unique multimodal data identifier.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Multimodal file type. Valid values: video, image.
+   * 
    * @example
    * image
    */
@@ -1371,17 +1942,30 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaList extends $dara.Model {
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
   /**
+   * @remarks
+   * End position.
+   * 
    * @example
    * 1
    */
   end?: number;
+  /**
+   * @remarks
+   * List of multimodal data.
+   */
   multimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaList[];
   /**
+   * @remarks
+   * Start position.
+   * 
    * @example
    * 1
    */
@@ -1417,80 +2001,166 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Unique category identifier.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
+  /**
+   * @remarks
+   * List of chunks.
+   */
   chunks?: string[];
   /**
+   * @remarks
+   * Body.
+   * 
    * @example
    * xx
    */
   content?: string;
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
   /**
+   * @remarks
+   * Content answered with original sentences.
+   * 
    * @example
    * xx
    */
   excerpt?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
+  /**
+   * @remarks
+   * List of multimodal information items.
+   */
   multimodalMedias?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultMultimodalMedias[];
   /**
+   * @remarks
+   * Publication time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2023-04-04 08:39:09
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Confidence score. For reference only.
+   * 
    * @example
    * 0.99
    */
   score?: number;
   /**
+   * @remarks
+   * Search source unique identifier. Same as searchSource.datasetName.
+   * 
    * @example
    * QuarkCommonNews
    */
   searchSource?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Search source type. Same as searchSource.code.
+   * 
    * @example
    * SystemSearch
    */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Indicates whether it is a reference.
+   * 
    * @example
    * true
    */
   select?: boolean;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tag name.
+   */
   tags?: string[];
+  /**
+   * @remarks
+   * List of accompanying images.
+   */
   textGenerateMultimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaList[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Traceability ID.
+   * 
    * @example
    * 1
    */
   traceabilityId?: number;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -1572,18 +2242,42 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the current agent has finished generating.
+   * 
    * @example
    * true
    */
   generateFinished?: boolean;
   /**
+   * @remarks
+   * Detailedness of the response:
+   * 
+   * - concise: Concise (default)
+   * 
+   * - enhance: Enhanced
+   * 
    * @example
    * concise
    */
   generateLevel?: string;
+  /**
+   * @remarks
+   * Deep thinking content.
+   * 
+   * @example
+   * xx
+   */
   reasonTextGenerate?: string;
+  /**
+   * @remarks
+   * List of search results.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResult[];
   /**
+   * @remarks
+   * Generated text.
+   * 
    * @example
    * xx
    */
@@ -1621,37 +2315,87 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResultArticle extends $dara.Model {
+  /**
+   * @remarks
+   * Unique category identifier.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Article summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tag name.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -1701,18 +2445,31 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResultArticle;
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Media data unique identifier.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Unique traceability identifier.
+   * 
    * @example
    * 1
    */
@@ -1748,6 +2505,10 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of search results.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResult[];
   static names(): { [key: string]: string } {
     return {
@@ -1774,67 +2535,135 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListArticle extends $dara.Model {
+  /**
+   * @remarks
+   * Unique category identifier.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * Body.
+   * 
    * @example
    * xx
    */
   content?: string;
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
   /**
+   * @remarks
+   * Publication time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2023-04-04 08:39:09
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Confidence score. For reference only.
+   * 
    * @example
    * 0.99
    */
   score?: number;
   /**
+   * @remarks
+   * Search source unique identifier. Same as searchSource.datasetName.
+   * 
    * @example
    * QuarkCommonNews
    */
   searchSource?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Search source type. Same as searchSource.code.
+   * 
    * @example
    * SystemSearch
    */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Indicates whether it is a reference.
+   * 
    * @example
    * true
    */
   select?: boolean;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tag name.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -1896,8 +2725,20 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementListEvent extends $dara.Model {
+  /**
+   * @remarks
+   * List of causes.
+   */
   causeList?: string[];
+  /**
+   * @remarks
+   * List of processes.
+   */
   processList?: string[];
+  /**
+   * @remarks
+   * List of results.
+   */
   resultList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1935,21 +2776,33 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementList extends $dara.Model {
   /**
+   * @remarks
+   * Event.
+   * 
    * @example
    * task-started
    */
   event?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementListEvent;
   /**
+   * @remarks
+   * Location.
+   * 
    * @example
    * xx
    */
   location?: string;
   /**
+   * @remarks
+   * People.
+   * 
    * @example
    * xx
    */
   people?: string;
   /**
+   * @remarks
+   * Time.
+   * 
    * @example
    * 时间
    */
@@ -1985,9 +2838,20 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleList extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListArticle;
+  /**
+   * @remarks
+   * List of news items.
+   */
   newsElementList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementList[];
   /**
+   * @remarks
+   * Generated text content.
+   * 
    * @example
    * xx
    */
@@ -2025,12 +2889,22 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the current agent has finished generating.
+   * 
    * @example
    * true
    */
   generateFinished?: boolean;
+  /**
+   * @remarks
+   * List of news extractions.
+   */
   newsElementArticleList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleList[];
   /**
+   * @remarks
+   * Generated text content.
+   * 
    * @example
    * x
    */
@@ -2065,16 +2939,25 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesGenerateCoordinate extends $dara.Model {
   /**
+   * @remarks
+   * Number, starting from 1.
+   * 
    * @example
    * 1
    */
   x?: number;
   /**
+   * @remarks
+   * Start position.
+   * 
    * @example
    * 1
    */
   y?: number;
   /**
+   * @remarks
+   * End position.
+   * 
    * @example
    * 1
    */
@@ -2106,21 +2989,33 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesNewsCoordinate extends $dara.Model {
   /**
+   * @remarks
+   * Media asset type.
+   * 
    * @example
    * image
    */
   mediaType?: string;
   /**
+   * @remarks
+   * Number, starting from 1.
+   * 
    * @example
    * 1
    */
   x?: number;
   /**
+   * @remarks
+   * Start position.
+   * 
    * @example
    * 1
    */
   y?: number;
   /**
+   * @remarks
+   * End position.
+   * 
    * @example
    * 1
    */
@@ -2153,7 +3048,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinates extends $dara.Model {
+  /**
+   * @remarks
+   * Coordinates of the generated document block.
+   */
   generateCoordinate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesGenerateCoordinate;
+  /**
+   * @remarks
+   * Coordinates of the reference document block.
+   */
   newsCoordinate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesNewsCoordinate;
   static names(): { [key: string]: string } {
     return {
@@ -2185,8 +3088,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceability extends $dara.Model {
+  /**
+   * @remarks
+   * List of traceability locations.
+   */
   coordinates?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinates[];
   /**
+   * @remarks
+   * Overall traceability relevance.
+   * 
    * @example
    * 0.9
    */
@@ -2219,31 +3129,49 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultArticle extends $dara.Model {
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * xx
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -2281,26 +3209,41 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultClipInfos extends $dara.Model {
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * 1
    */
   from?: number;
   /**
+   * @remarks
+   * Confidence score. For reference only.
+   * 
    * @example
    * 0.1
    */
   score?: number;
   /**
+   * @remarks
+   * Corresponding text, such as ASR transcription.
+   * 
    * @example
    * xx
    */
   text?: string;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 1
    */
   to?: number;
   /**
+   * @remarks
+   * Type. Example: asr.
+   * 
    * @example
    * asr
    */
@@ -2335,19 +3278,36 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultArticle;
+  /**
+   * @remarks
+   * List of matching segments.
+   */
   clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultClipInfos[];
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Media asset ID.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Multimodal file type. Valid values: video, image.
+   * 
    * @example
    * image
    */
@@ -2389,32 +3349,54 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultList extends $dara.Model {
   /**
+   * @remarks
+   * Current page.
+   * 
    * @example
    * 1
    */
   current?: number;
   /**
+   * @remarks
+   * Search query.
+   * 
    * @example
    * xx
    */
   searchQuery?: string;
+  /**
+   * @remarks
+   * List of search results.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResult[];
   /**
+   * @remarks
+   * Search type.
+   * 
    * @example
    * realtime
    */
   searchType?: string;
   /**
+   * @remarks
+   * Items per page.
+   * 
    * @example
    * 1
    */
   size?: number;
   /**
+   * @remarks
+   * Timeline date.
+   * 
    * @example
    * 时间脉络-时间
    */
   timelineDateStr?: string;
   /**
+   * @remarks
+   * Total items.
+   * 
    * @example
    * 1
    */
@@ -2456,78 +3438,156 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultReferenceList extends $dara.Model {
+  /**
+   * @remarks
+   * Category unique identifier
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
+  /**
+   * @remarks
+   * List of chunks.
+   */
   chunks?: string[];
   /**
+   * @remarks
+   * Body.
+   * 
    * @example
    * xx
    */
   content?: string;
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
   /**
+   * @remarks
+   * Publication time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2023-04-04 08:39:09
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Confidence score. For reference only.
+   * 
    * @example
    * 0.99
    */
   score?: number;
   /**
+   * @remarks
+   * Search source unique identifier. Same as searchSource.datasetName.
+   * 
    * @example
    * QuarkCommonNews
    */
   searchSource?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Search source type. Same as searchSource.code.
+   * 
    * @example
    * SystemSearch
    */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Indicates whether it is a reference.
+   * 
    * @example
    * true
    */
   select?: boolean;
   /**
+   * @remarks
+   * Source.
+   * 
    * @example
    * 新华社
    */
   source?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tag name.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Traceability ID.
+   * 
    * @example
    * 1
    */
   traceabilityId?: number;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -2599,31 +3659,49 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaListArticle extends $dara.Model {
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * xx
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -2660,18 +3738,31 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaList extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaListArticle;
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Media asset ID.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Multimodal file type. Valid values: video, image.
+   * 
    * @example
    * image
    */
@@ -2708,12 +3799,22 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaList extends $dara.Model {
   /**
+   * @remarks
+   * End position.
+   * 
    * @example
    * 1
    */
   end?: number;
+  /**
+   * @remarks
+   * List of multimodal data.
+   */
   multimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaList[];
   /**
+   * @remarks
+   * Start position.
+   * 
    * @example
    * 1
    */
@@ -2748,24 +3849,60 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the current agent has finished generating.
+   * 
    * @example
    * true
    */
   generateFinished?: boolean;
   /**
+   * @remarks
+   * Detailedness of the response:
+   * 
+   * - concise: Concise (default)
+   * 
+   * - enhance: Enhanced
+   * 
    * @example
    * concise
    */
   generateLevel?: string;
+  /**
+   * @remarks
+   * Traceability information.
+   */
   generateTraceability?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceability;
+  /**
+   * @remarks
+   * List of multimodal search results.
+   */
   multimodalSearchResultList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultList[];
+  /**
+   * @remarks
+   * Deep thinking content.
+   * 
+   * @example
+   * xx
+   */
   reasonTextGenerate?: string;
+  /**
+   * @remarks
+   * List of reference articles.
+   */
   referenceList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultReferenceList[];
   /**
+   * @remarks
+   * Text generation result.
+   * 
    * @example
    * xx
    */
   textGenerate?: string;
+  /**
+   * @remarks
+   * List of accompanying images.
+   */
   textGenerateMultimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaList[];
   static names(): { [key: string]: string } {
     return {
@@ -2815,62 +3952,127 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Unique category identifier.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * Body.
+   * 
    * @example
    * xx
    */
   content?: string;
   /**
+   * @remarks
+   * Unique document business identifier.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * System internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
   /**
+   * @remarks
+   * Publication time.
+   * 
    * @example
    * 2024-11-25 14:25:59
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Data source unique identifier.
+   * 
    * @example
    * QuarkCommonNews
    */
   searchSource?: string;
   /**
+   * @remarks
+   * Data source description.
+   * 
    * @example
    * xxx
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Data source type.
+   * 
    * @example
    * SystemSearch
    */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tag name.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Unique traceability identifier.
+   * 
    * @example
    * 1
    */
   traceabilityId?: string;
   /**
+   * @remarks
+   * URL.
+   * 
    * @example
    * xx
    */
@@ -2930,9 +4132,34 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Current page.
+   * 
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @remarks
+   * The structure of the search result.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult[];
+  /**
+   * @remarks
+   * Current page size.
+   * 
+   * @example
+   * 1
+   */
   size?: number;
+  /**
+   * @remarks
+   * Total count.
+   * 
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2966,16 +4193,25 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesGenerateCoordinate extends $dara.Model {
   /**
+   * @remarks
+   * Number, starting from 1.
+   * 
    * @example
    * 1
    */
   x?: number;
   /**
+   * @remarks
+   * Start position.
+   * 
    * @example
    * 1
    */
   y?: number;
   /**
+   * @remarks
+   * End position.
+   * 
    * @example
    * 1
    */
@@ -3007,21 +4243,33 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesNewsCoordinate extends $dara.Model {
   /**
+   * @remarks
+   * Media asset type.
+   * 
    * @example
    * image
    */
   mediaType?: string;
   /**
+   * @remarks
+   * Number, starting from 1.
+   * 
    * @example
    * 1
    */
   x?: number;
   /**
+   * @remarks
+   * Start position.
+   * 
    * @example
    * 1
    */
   y?: number;
   /**
+   * @remarks
+   * End position.
+   * 
    * @example
    * 1
    */
@@ -3054,7 +4302,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinates extends $dara.Model {
+  /**
+   * @remarks
+   * Coordinates of the generated document block.
+   */
   generateCoordinate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesGenerateCoordinate;
+  /**
+   * @remarks
+   * Coordinates of the reference article.
+   */
   newsCoordinate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesNewsCoordinate;
   static names(): { [key: string]: string } {
     return {
@@ -3086,8 +4342,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceability extends $dara.Model {
+  /**
+   * @remarks
+   * Traceability location.
+   */
   coordinates?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinates[];
   /**
+   * @remarks
+   * Relevance score.
+   * 
    * @example
    * 0.9
    */
@@ -3120,31 +4383,49 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultArticle extends $dara.Model {
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -3182,26 +4463,41 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultClipInfos extends $dara.Model {
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * 1
    */
   from?: number;
   /**
+   * @remarks
+   * Confidence score. For reference only.
+   * 
    * @example
    * 0.99
    */
   score?: number;
   /**
+   * @remarks
+   * Corresponding text, such as ASR transcription.
+   * 
    * @example
    * xx
    */
   text?: string;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 1
    */
   to?: number;
   /**
+   * @remarks
+   * Type. Example: asr.
+   * 
    * @example
    * asr
    */
@@ -3236,19 +4532,36 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultArticle;
+  /**
+   * @remarks
+   * List of matching segments.
+   */
   clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultClipInfos[];
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Unique multimodal data identifier.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Multimodal file type. Valid values: video, image.
+   * 
    * @example
    * image
    */
@@ -3289,8 +4602,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultList extends $dara.Model {
+  /**
+   * @remarks
+   * List of search results.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResult[];
   /**
+   * @remarks
+   * Date string.
+   * 
    * @example
    * 2024-09-11
    */
@@ -3322,78 +4642,156 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultReferenceList extends $dara.Model {
+  /**
+   * @remarks
+   * Unique category identifier.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
+  /**
+   * @remarks
+   * List of chunks.
+   */
   chunks?: string[];
   /**
+   * @remarks
+   * Body.
+   * 
    * @example
    * xx
    */
   content?: string;
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
   /**
+   * @remarks
+   * Publication time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2023-04-04 08:39:09
    */
   pubTime?: string;
   /**
+   * @remarks
+   * Confidence score. For reference only.
+   * 
    * @example
    * 0.99
    */
   score?: number;
   /**
+   * @remarks
+   * Search source unique identifier. Same as searchSource.datasetName.
+   * 
    * @example
    * QuarkCommonNews
    */
   searchSource?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Search source type. Same as searchSource.code.
+   * 
    * @example
    * SystemSearch
    */
   searchSourceType?: string;
   /**
+   * @remarks
+   * Selection status.
+   * 
    * @example
    * true
    */
   select?: boolean;
   /**
+   * @remarks
+   * Source.
+   * 
    * @example
    * 新华社
    */
   source?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tag name.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Traceability ID.
+   * 
    * @example
    * 1
    */
   traceabilityId?: number;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -3465,31 +4863,49 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaListArticle extends $dara.Model {
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xxxx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -3526,18 +4942,31 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaList extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaListArticle;
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Unique multimodal data identifier.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Multimodal file type. Valid values: video, image.
+   * 
    * @example
    * image
    */
@@ -3574,12 +5003,22 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaList extends $dara.Model {
   /**
+   * @remarks
+   * End position.
+   * 
    * @example
    * 1
    */
   end?: number;
+  /**
+   * @remarks
+   * List of multimodal data.
+   */
   multimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaList[];
   /**
+   * @remarks
+   * Start position.
+   * 
    * @example
    * 1
    */
@@ -3614,19 +5053,48 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the current agent has finished generating.
+   * 
    * @example
    * true
    */
   generateFinished?: boolean;
+  /**
+   * @remarks
+   * Traceability information.
+   */
   generateTraceability?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceability;
+  /**
+   * @remarks
+   * List of multimodal search results.
+   */
   multimodalSearchResultList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultList[];
+  /**
+   * @remarks
+   * Deep thinking content.
+   * 
+   * @example
+   * xx
+   */
   reasonTextGenerate?: string;
+  /**
+   * @remarks
+   * List of reference articles.
+   */
   referenceList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultReferenceList[];
   /**
+   * @remarks
+   * Text generation result.
+   * 
    * @example
    * xx
    */
   textGenerate?: string;
+  /**
+   * @remarks
+   * List of accompanying images.
+   */
   textGenerateMultimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaList[];
   static names(): { [key: string]: string } {
     return {
@@ -3674,37 +5142,87 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultArticle extends $dara.Model {
+  /**
+   * @remarks
+   * Unique category identifier.
+   * 
+   * @example
+   * xx
+   */
   categoryUuid?: string;
   /**
+   * @remarks
+   * Custom unique document ID.
+   * 
    * @example
    * xx
    */
   docId?: string;
   /**
+   * @remarks
+   * Internal unique document identifier.
+   * 
    * @example
    * xx
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * Extension field 1.
+   * 
+   * @example
+   * xx
+   */
   extend1?: string;
+  /**
+   * @remarks
+   * Extension field 2.
+   * 
+   * @example
+   * xx
+   */
   extend2?: string;
+  /**
+   * @remarks
+   * Extension field 3.
+   * 
+   * @example
+   * xx
+   */
   extend3?: string;
   /**
+   * @remarks
+   * Search source name.
+   * 
    * @example
    * 互联网搜索
    */
   searchSourceName?: string;
   /**
+   * @remarks
+   * Summary.
+   * 
    * @example
    * xx
    */
   summary?: string;
+  /**
+   * @remarks
+   * Tags.
+   */
   tags?: string[];
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * xx
    */
   title?: string;
   /**
+   * @remarks
+   * Article URL.
+   * 
    * @example
    * xx
    */
@@ -3755,26 +5273,41 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultClipInfos extends $dara.Model {
   /**
+   * @remarks
+   * Start time of the segment.
+   * 
    * @example
    * 1
    */
   from?: number;
   /**
+   * @remarks
+   * Confidence score. For reference only.
+   * 
    * @example
    * 0.8
    */
   score?: number;
   /**
+   * @remarks
+   * Corresponding text, such as ASR transcription.
+   * 
    * @example
    * xx
    */
   text?: string;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 1
    */
   to?: number;
   /**
+   * @remarks
+   * Type. Example: asr.
+   * 
    * @example
    * asr
    */
@@ -3809,19 +5342,36 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * Article.
+   */
   article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultArticle;
+  /**
+   * @remarks
+   * List of matching segments.
+   */
   clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultClipInfos[];
   /**
+   * @remarks
+   * File URL.
+   * 
    * @example
    * xx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Unique multimodal data identifier.
+   * 
    * @example
    * xx
    */
   mediaId?: string;
   /**
+   * @remarks
+   * Unique traceability identifier.
+   * 
    * @example
    * 1
    */
@@ -3862,6 +5412,10 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of search results.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3888,14 +5442,50 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent extends $dara.Model {
+  /**
+   * @remarks
+   * Voice search result.
+   */
   audioSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult;
+  /**
+   * @remarks
+   * Clustering result.
+   */
   clusterTopicResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult;
+  /**
+   * @remarks
+   * Result of answering with original sentences.
+   */
   excerptResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult;
+  /**
+   * @remarks
+   * Image search result.
+   */
   imageSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult;
+  /**
+   * @remarks
+   * News extraction result.
+   */
   newsElementResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResult;
+  /**
+   * @remarks
+   * Summarized answer.
+   */
   textGenerateResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResult;
+  /**
+   * @remarks
+   * Text document search result.
+   */
   textSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResult;
+  /**
+   * @remarks
+   * Result of summarizing by time.
+   */
   timelineResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResult;
+  /**
+   * @remarks
+   * Video search result.
+   */
   videoSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResult;
   static names(): { [key: string]: string } {
     return {
@@ -3962,10 +5552,45 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate extends $dara.Model {
+  /**
+   * @remarks
+   * First token time.
+   * 
+   * @example
+   * 1
+   */
   firstTokenTime?: number;
+  /**
+   * @remarks
+   * Average number of tokens output per second.
+   * 
+   * @example
+   * 1
+   */
   outputAvgTime?: number;
+  /**
+   * @remarks
+   * Search time cost.
+   * 
+   * @example
+   * 1
+   */
   searchTime?: number;
+  /**
+   * @remarks
+   * Total time cost.
+   * 
+   * @example
+   * 1
+   */
   time?: number;
+  /**
+   * @remarks
+   * Total number of tokens.
+   * 
+   * @example
+   * 1
+   */
   totalTokens?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3998,36 +5623,82 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextT
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext extends $dara.Model {
   /**
+   * @remarks
+   * Follow-up question.
+   * 
    * @example
    * 您想了解关于xx的哪些信息？
    */
   askUser?: string;
+  /**
+   * @remarks
+   * List of recommended keywords for follow-up questions.
+   */
   askUserKeywords?: string[];
   /**
+   * @remarks
+   * Current step in the task.
+   * 
    * @example
    * start
    */
   currentStep?: string;
+  /**
+   * @remarks
+   * Generated content.
+   */
   generatedContent?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent;
+  /**
+   * @remarks
+   * Model ID.
+   * 
+   * @example
+   * xx
+   */
   modelId?: string;
   /**
+   * @remarks
+   * Next step: think, search, or generate.
+   * 
    * @example
    * search
    */
   nextStep?: string;
+  /**
+   * @remarks
+   * Generation - list of recommendations.
+   */
   recommendSearchQueryList?: string[];
+  /**
+   * @remarks
+   * Reasoning - list of query understanding keywords.
+   */
   searchKeywords?: string[];
+  /**
+   * @remarks
+   * List of text search queries.
+   */
   searchQueryList?: string[];
   /**
+   * @remarks
+   * Reasoning - data type to supplement: searchQuery.
+   * 
    * @example
    * searchQuery
    */
   supplementDataType?: string;
   /**
+   * @remarks
+   * Reasoning - whether supplementation is needed.
+   * 
    * @example
    * true
    */
   supplementEnable?: boolean;
+  /**
+   * @remarks
+   * Runtime performance statistics.
+   */
   tokenCalculate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate;
   static names(): { [key: string]: string } {
     return {
@@ -4091,6 +5762,10 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext 
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContext extends $dara.Model {
+  /**
+   * @remarks
+   * Business context.
+   */
   bizContext?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext;
   static names(): { [key: string]: string } {
     return {
@@ -4118,6 +5793,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContext extends $d
 
 export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultAudios extends $dara.Model {
   /**
+   * @remarks
+   * ID.
+   * 
    * @example
    * xx
    */
@@ -4145,6 +5823,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultAud
 
 export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultImages extends $dara.Model {
   /**
+   * @remarks
+   * ID.
+   * 
    * @example
    * xx
    */
@@ -4172,6 +5853,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultIma
 
 export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultTexts extends $dara.Model {
   /**
+   * @remarks
+   * ID.
+   * 
    * @example
    * xx
    */
@@ -4199,6 +5883,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultTex
 
 export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultVideos extends $dara.Model {
   /**
+   * @remarks
+   * ID.
+   * 
    * @example
    * 1
    */
@@ -4225,14 +5912,33 @@ export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultVid
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of audio results.
+   */
   audios?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultAudios[];
+  /**
+   * @remarks
+   * List of image searches.
+   */
   images?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultImages[];
   /**
+   * @remarks
+   * Multimodal search query.
+   * 
    * @example
    * xx
    */
   multimodalSearchQuery?: string;
+  /**
+   * @remarks
+   * List of text searches.
+   */
   texts?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultTexts[];
+  /**
+   * @remarks
+   * List of video results.
+   */
   videos?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultVideos[];
   static names(): { [key: string]: string } {
     return {
@@ -4276,29 +5982,69 @@ export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResult ex
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputMessages extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether clarification is needed.
+   */
   clarifications?: boolean;
   /**
+   * @remarks
+   * Generated text.
+   * 
    * @example
    * xx
    */
   content?: string;
+  /**
+   * @remarks
+   * Indicates whether the current node has finished.
+   */
   generateFinished?: boolean;
   /**
+   * @remarks
+   * Node ID.
+   * 
    * @example
    * xx
    */
   id?: string;
   /**
+   * @remarks
+   * Node code:
+   * 
+   * - generateStartStatement
+   * 
+   * - generateSearchQueries
+   * 
+   * - multiSearch
+   * 
+   * - readSearchResult
+   * 
+   * - reflection
+   * 
+   * - generate
+   * 
    * @example
    * generateStartStatement
    */
   nodeCode?: string;
+  /**
+   * @remarks
+   * List of search queries.
+   */
   searchQueries?: string[];
   /**
+   * @remarks
+   * Current node search query.
+   * 
    * @example
    * xx
    */
   searchQuery?: string;
+  /**
+   * @remarks
+   * Search result.
+   */
   searchResult?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResult[];
   static names(): { [key: string]: string } {
     return {
@@ -4342,7 +6088,15 @@ export class RunSearchGenerationResponseBodyPayloadOutputMessages extends $dara.
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Context data.
+   */
   agentContext?: RunSearchGenerationResponseBodyPayloadOutputAgentContext;
+  /**
+   * @remarks
+   * List of messages in research mode.
+   */
   messages?: RunSearchGenerationResponseBodyPayloadOutputMessages[];
   static names(): { [key: string]: string } {
     return {
@@ -4375,16 +6129,25 @@ export class RunSearchGenerationResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunSearchGenerationResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of input tokens.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of output tokens.
+   * 
    * @example
    * 2
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total token count
+   * 
    * @example
    * 3
    */
@@ -4415,7 +6178,15 @@ export class RunSearchGenerationResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunSearchGenerationResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Outputs.
+   */
   output?: RunSearchGenerationResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage.
+   */
   usage?: RunSearchGenerationResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -4447,9 +6218,20 @@ export class RunSearchGenerationResponseBodyPayload extends $dara.Model {
 }
 
 export class RunSearchGenerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header.
+   */
   header?: RunSearchGenerationResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body.
+   */
   payload?: RunSearchGenerationResponseBodyPayload;
   /**
+   * @remarks
+   * Unique request identifier.
+   * 
    * @example
    * xx
    */

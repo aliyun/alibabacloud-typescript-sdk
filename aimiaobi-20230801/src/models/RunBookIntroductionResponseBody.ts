@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunBookIntroductionResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * finished
    */
   event?: string;
   /**
+   * @remarks
+   * The event description.
+   * 
    * @example
    * 模型生成事件
    */
   eventInfo?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 411c4dfa-2168-4379-a902-675d67f453f8
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
    */
   taskId?: string;
   /**
+   * @remarks
+   * The trace ID.
+   * 
    * @example
    * 46e5c2b5-0877-4f09-bd91-ab0cf314e48b
    */
@@ -73,36 +94,57 @@ export class RunBookIntroductionResponseBodyHeader extends $dara.Model {
 
 export class RunBookIntroductionResponseBodyPayloadOutputIntroductionsBlocks extends $dara.Model {
   /**
+   * @remarks
+   * The start timestamp of the content block.
+   * 
    * @example
    * 0
    */
   beginTime?: number;
   /**
+   * @remarks
+   * The end timestamp of the content block.
+   * 
    * @example
    * 1200
    */
   endTime?: number;
   /**
+   * @remarks
+   * The height of the content block.
+   * 
    * @example
    * 600
    */
   height?: number;
   /**
+   * @remarks
+   * The ID of the page where the content block is located.
+   * 
    * @example
    * 10
    */
   pageId?: number;
   /**
+   * @remarks
+   * The width of the content block.
+   * 
    * @example
    * 600
    */
   width?: number;
   /**
+   * @remarks
+   * The x-coordinate of the content block\\"s top-left corner on the page.
+   * 
    * @example
    * 10
    */
   x?: number;
   /**
+   * @remarks
+   * The y-coordinate of the content block\\"s top-left corner on the page.
+   * 
    * @example
    * 10
    */
@@ -141,13 +183,23 @@ export class RunBookIntroductionResponseBodyPayloadOutputIntroductionsBlocks ext
 }
 
 export class RunBookIntroductionResponseBodyPayloadOutputIntroductions extends $dara.Model {
+  /**
+   * @remarks
+   * A list of content blocks within this section.
+   */
   blocks?: RunBookIntroductionResponseBodyPayloadOutputIntroductionsBlocks[];
   /**
+   * @remarks
+   * A summary of this section.
+   * 
    * @example
    * 本段摘要内容
    */
   summary?: string;
   /**
+   * @remarks
+   * The title of this section.
+   * 
    * @example
    * 本段标题内容
    */
@@ -181,13 +233,23 @@ export class RunBookIntroductionResponseBodyPayloadOutputIntroductions extends $
 }
 
 export class RunBookIntroductionResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * A list of generated introductions for each part of the book.
+   */
   introductions?: RunBookIntroductionResponseBodyPayloadOutputIntroductions[];
   /**
+   * @remarks
+   * The book\\"s key points.
+   * 
    * @example
    * 卖点内容
    */
   keyPoint?: string;
   /**
+   * @remarks
+   * The book summary.
+   * 
    * @example
    * 简介内容
    */
@@ -222,16 +284,25 @@ export class RunBookIntroductionResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunBookIntroductionResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of input tokens.
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of output tokens.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The total number of tokens.
+   * 
    * @example
    * 200
    */
@@ -262,7 +333,15 @@ export class RunBookIntroductionResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunBookIntroductionResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * The generated content.
+   */
   output?: RunBookIntroductionResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage details for the request.
+   */
   usage?: RunBookIntroductionResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -294,11 +373,19 @@ export class RunBookIntroductionResponseBodyPayload extends $dara.Model {
 }
 
 export class RunBookIntroductionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response header.
+   */
   header?: RunBookIntroductionResponseBodyHeader;
+  /**
+   * @remarks
+   * The payload.
+   */
   payload?: RunBookIntroductionResponseBodyPayload;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21

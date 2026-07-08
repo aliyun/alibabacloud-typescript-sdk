@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAuditTermsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of rule IDs for user logon audit terms to delete.
+   */
   idList?: number[];
   /**
    * @remarks
+   * Unique identifier for the Alibaba Cloud Model Studio workspace. Get the [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteMaterialByIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
   /**
+   * @remarks
+   * The data returned.
+   * 
    * @example
    * false
    */
   data?: boolean;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 数据不存在
    */
   message?: string;
   /**
+   * @remarks
+   * The unique identifier of the request.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
+   * 
    * @example
    * false
    */

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunAiHelperWritingShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to generate the text step by step.
+   * 
    * @example
    * false
    */
   distributeWriting?: boolean;
   /**
    * @remarks
+   * The prompt, which specifies the subject for the AI to write about.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class RunAiHelperWritingShrinkRequest extends $dara.Model {
    */
   prompt?: string;
   /**
+   * @remarks
+   * The prompt pattern. For example, PE indicates the advanced pattern and Template indicates the template pattern.
+   * 
    * @example
    * Template
    */
   promptMode?: string;
   /**
    * @remarks
+   * The [workspace](https://help.aliyun.com/document_detail/2782167.html) ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,13 +40,16 @@ export class RunAiHelperWritingShrinkRequest extends $dara.Model {
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The writing parameters from the previous form, specified as key-value pairs.
+   * 
    * @example
    * {"wordCount": "1000", "tone": "formal"}
    */
   writingParamsShrink?: string;
   /**
    * @remarks
-   * 写作场景：government(政务)、media(传媒)、market(营销)、office(办公)、custom(自定义)
+   * The writing scenario. Valid values: government, media, market, office, and custom.
    * 
    * This parameter is required.
    * 
@@ -46,12 +59,12 @@ export class RunAiHelperWritingShrinkRequest extends $dara.Model {
   writingScene?: string;
   /**
    * @remarks
-   * 写作文体唯一标识KEY，可通过ListWritingStyles接口获取对应写作场景下的文体列表
+   * The unique key for the writing style. Call the [ListWritingStyles](https://help.aliyun.com/document_detail/2922609.html) operation to get a list of styles for the specified scenario.
    * 
    * This parameter is required.
    * 
    * @example
-   * news_article
+   * 通知
    */
   writingStyle?: string;
   static names(): { [key: string]: string } {

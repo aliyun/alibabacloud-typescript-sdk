@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAsyncTasksShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,38 +14,78 @@ export class ListAsyncTasksShrinkRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The end of the time range to query task creation times. Format: YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2023-03-18 02:00:00
    */
   createTimeEnd?: string;
   /**
+   * @remarks
+   * The start of the time range to query task creation times. Format: YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2023-02-19 07:28:11
    */
   createTimeStart?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   current?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   size?: number;
   /**
+   * @remarks
+   * A term query for the task code.
+   * 
    * @example
    * MaterialDocumentUpload
    */
   taskCode?: string;
+  /**
+   * @remarks
+   * A term query for the task name.
+   * 
+   * @example
+   * 任务名称
+   */
   taskName?: string;
   /**
+   * @remarks
+   * A term query for the task status. Valid values: 0 (Pending), 1 (Running), 2 (Succeeded), 3 (Paused), 4 (Failed and retriable), 5 (Failed and not retriable), and 6 (Canceled).
+   * 
    * @example
    * 1
    */
   taskStatus?: number;
+  /**
+   * @remarks
+   * A term query for a list of task statuses. Valid values: 0 (Pending), 1 (Running), 2 (Succeeded), 3 (Paused), 4 (Failed and retriable), 5 (Failed and not retriable), and 6 (Canceled).
+   */
   taskStatusListShrink?: string;
+  /**
+   * @remarks
+   * A term query for the task type.
+   * 
+   * @example
+   * 暂无
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * A term query for a list of task types.
+   */
   taskTypeListShrink?: string;
   static names(): { [key: string]: string } {
     return {

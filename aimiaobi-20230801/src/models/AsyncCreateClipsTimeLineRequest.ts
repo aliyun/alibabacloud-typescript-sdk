@@ -87,22 +87,34 @@ export class AsyncCreateClipsTimeLineRequestHighLightConfig extends $dara.Model 
 
 export class AsyncCreateClipsTimeLineRequest extends $dara.Model {
   /**
+   * @remarks
+   * Supplementary material information to help generate the voiceover script
+   * 
    * @example
    * 素材附加信息
    */
   additionalContent?: string;
   /**
+   * @remarks
+   * Custom voiceover content
+   * 
    * @example
    * 自定义口播内容
    */
   customContent?: string;
   highLightConfig?: AsyncCreateClipsTimeLineRequestHighLightConfig;
   /**
+   * @remarks
+   * Enable mimicry capability
+   * 
    * @example
    * 默认开启
    */
   noRefVideo?: boolean;
   /**
+   * @remarks
+   * Prompt for processing
+   * 
    * @example
    * 口播内容是乌镇旅游宣传广告，口播内容时长约为1分钟，开头要描述乌镇是千年文化传承的江南水乡，之后要体现乌镇的传统手工艺、美食和美景，最后要号召大家来乌镇旅游
    */
@@ -114,6 +126,8 @@ export class AsyncCreateClipsTimeLineRequest extends $dara.Model {
   recommendAudio?: boolean;
   /**
    * @remarks
+   * Unique task ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -129,6 +143,8 @@ export class AsyncCreateClipsTimeLineRequest extends $dara.Model {
   timelineScene?: number;
   /**
    * @remarks
+   * [Model Studio workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * This parameter is required.
    * 
    * @example

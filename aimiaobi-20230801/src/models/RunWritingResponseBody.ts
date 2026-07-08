@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunWritingResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 错误码
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误信息
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The Server-Sent Events (SSE) event. Valid values: task-started (the task starts), task-finished (the task is complete), and task-failed (the task failed).
+   * 
    * @example
    * task-started
    */
   event?: string;
   /**
+   * @remarks
+   * The parent session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   originSessionId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   statusCode?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * The trace ID.
+   * 
    * @example
    * 全链路ID
    */
@@ -80,51 +104,81 @@ export class RunWritingResponseBodyHeader extends $dara.Model {
 
 export class RunWritingResponseBodyPayloadOutputArticles extends $dara.Model {
   /**
+   * @remarks
+   * The author.
+   * 
    * @example
    * 作者
    */
   author?: string;
   /**
+   * @remarks
+   * The content.
+   * 
    * @example
    * 文章内容
    */
   content?: string;
   /**
+   * @remarks
+   * The custom unique ID of the document.
+   * 
    * @example
    * 文档-自定义的唯一ID
    */
   docId?: string;
   /**
+   * @remarks
+   * The internal unique ID of the document.
+   * 
    * @example
    * 98229f6001cf4deeb1668191d4eccc75
    */
   docUuid?: string;
   /**
+   * @remarks
+   * The publication time.
+   * 
    * @example
    * 2024-08-28 11:38:28
    */
   pubTime?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * 央视网
    */
   source?: string;
   /**
+   * @remarks
+   * The article summary.
+   * 
    * @example
    * 文章摘要
    */
   summary?: string;
   /**
+   * @remarks
+   * The tag.
+   * 
    * @example
    * 文章标签
    */
   tag?: string;
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * 文章标题
    */
   title?: string;
   /**
+   * @remarks
+   * The URL of the article.
+   * 
    * @example
    * https://www.example.com/aaa.docx
    */
@@ -169,18 +223,31 @@ export class RunWritingResponseBodyPayloadOutputArticles extends $dara.Model {
 }
 
 export class RunWritingResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The reference articles.
+   */
   articles?: RunWritingResponseBodyPayloadOutputArticles[];
   /**
+   * @remarks
+   * A list of refined segments from the article.
+   * 
    * @example
    * 文章精排之后的片段
    */
   miniDoc?: string[];
   /**
+   * @remarks
+   * The rewritten query.
+   * 
    * @example
    * 大模型改变世界
    */
   searchQuery?: string;
   /**
+   * @remarks
+   * The generated text.
+   * 
    * @example
    * 文本生成结果
    */
@@ -220,17 +287,30 @@ export class RunWritingResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunWritingResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens used for the input.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of tokens used for the output.
+   * 
    * @example
    * 1
    */
   outputTokens?: number;
+  /**
+   * @remarks
+   * The detailed token usage.
+   */
   tokenMap?: { [key: string]: number };
   /**
+   * @remarks
+   * The total number of tokens used in the current call.
+   * 
    * @example
    * 2
    */
@@ -266,7 +346,15 @@ export class RunWritingResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunWritingResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * The output.
+   */
   output?: RunWritingResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * The token usage.
+   */
   usage?: RunWritingResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -298,10 +386,28 @@ export class RunWritingResponseBodyPayload extends $dara.Model {
 }
 
 export class RunWritingResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the current request is complete.
+   * 
+   * @example
+   * true
+   */
   end?: boolean;
+  /**
+   * @remarks
+   * The response header.
+   */
   header?: RunWritingResponseBodyHeader;
+  /**
+   * @remarks
+   * The response body.
+   */
   payload?: RunWritingResponseBodyPayload;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */

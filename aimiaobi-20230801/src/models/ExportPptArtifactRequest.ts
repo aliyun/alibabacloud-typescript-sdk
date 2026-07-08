@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportPptArtifactRequest extends $dara.Model {
   /**
+   * @remarks
+   * Indicates if the exported artifact is editable.
+   * 
    * @example
    * true
    */
   edit?: boolean;
   /**
+   * @remarks
+   * The export file type.
+   * 
    * @example
    * ppt
    */
@@ -20,6 +26,8 @@ export class ExportPptArtifactRequest extends $dara.Model {
   externalUserId?: string;
   /**
    * @remarks
+   * The ID of the PPT artifact.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,11 +35,17 @@ export class ExportPptArtifactRequest extends $dara.Model {
    */
   pptArtifactId?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * llm-xxxx
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * Indicates if the exported file is compressed into a ZIP package.
+   * 
    * @example
    * true
    */

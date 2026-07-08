@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitDeepWriteTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The status of the task.
+   * 
    * @example
    * queued
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * xbabac91-fdad-44d6-95ce-******
    */
@@ -38,30 +44,46 @@ export class SubmitDeepWriteTaskResponseBodyData extends $dara.Model {
 
 export class SubmitDeepWriteTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The task response object.
+   */
   data?: SubmitDeepWriteTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 错误消息
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * xxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

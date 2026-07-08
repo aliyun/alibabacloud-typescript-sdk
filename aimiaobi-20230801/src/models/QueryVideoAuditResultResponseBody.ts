@@ -5,18 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class QueryVideoAuditResultResponseBodyDataImageUrls extends $dara.Model {
   /**
    * @remarks
-   * 图片ID，与AliyunImageAuditResult中的dataId对应
+   * Image ID (Associate with Results[].DataId to get audit result information)
    * 
    * @example
    * img001
    */
   id?: string;
   /**
+   * @remarks
+   * Timestamp (milliseconds)
+   * 
    * @example
    * 1000
    */
   timestamp?: number;
   /**
+   * @remarks
+   * Image URL
+   * 
    * @example
    * https://example.com/image1.jpg
    */
@@ -49,7 +55,7 @@ export class QueryVideoAuditResultResponseBodyDataImageUrls extends $dara.Model 
 export class QueryVideoAuditResultResponseBodyDataResultsResult extends $dara.Model {
   /**
    * @remarks
-   * 0到100分，保留到小数点后2位，部分标签无置信分
+   * From 0 to 100, retained to 2 decimal places. Some labels do not have a confidence score.
    * 
    * @example
    * 99.5
@@ -57,7 +63,7 @@ export class QueryVideoAuditResultResponseBodyDataResultsResult extends $dara.Mo
   confidence?: number;
   /**
    * @remarks
-   * Label字段的解释说明
+   * Explanation of the Label field
    * 
    * @example
    * 未检测出风险
@@ -65,7 +71,15 @@ export class QueryVideoAuditResultResponseBodyDataResultsResult extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * 图片内容检测运算后返回的标签，如：nonLabel（未检测出风险）
+   * Risk label
+   * 
+   * The label of the image content review result. For example: nonLabel (no risk detected).
+   * 
+   * The label can also be a risk level that is determined by the high-risk and low-risk thresholds that you set. Valid return values are:
+   * ● high: high risk
+   * ● medium: medium risk
+   * ● low: low risk
+   * ● none: no risk detected
    * 
    * @example
    * nonLabel
@@ -99,7 +113,7 @@ export class QueryVideoAuditResultResponseBodyDataResultsResult extends $dara.Mo
 export class QueryVideoAuditResultResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
-   * 对应图片的ID，与ImageUrl中的id字段对应
+   * Image ID (Associate with ImageUrls[].Id to get image information)
    * 
    * @example
    * d411ed15e8fc154fd0ef5addabfee04b
@@ -107,7 +121,7 @@ export class QueryVideoAuditResultResponseBodyDataResults extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * 审核请求ID
+   * Request ID
    * 
    * @example
    * B5D1CF9E-0404-51E3-A28E-A5C7D95B6C71
@@ -115,12 +129,20 @@ export class QueryVideoAuditResultResponseBodyDataResults extends $dara.Model {
   reqId?: string;
   /**
    * @remarks
-   * 图片检测的风险标签、置信分等参数结果
+   * Detection results
    */
   result?: QueryVideoAuditResultResponseBodyDataResultsResult[];
   /**
    * @remarks
-   * 风险等级：high(高风险)、medium(中风险)、low(低风险)、none(未检测到风险)
+   * Risk level
+   * 
+   * - high: High risk
+   * 
+   * - medium: Medium risk
+   * 
+   * - low: Low risk
+   * 
+   * - none: No risk
    * 
    * @example
    * none
@@ -159,7 +181,7 @@ export class QueryVideoAuditResultResponseBodyDataResults extends $dara.Model {
 export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 视频总时长（秒）
+   * Video duration
    * 
    * @example
    * 120.5
@@ -167,12 +189,15 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * 任务执行失败时的错误信息
+   * Error message
+   * 
+   * @example
+   * 错误信息
    */
   errorMessage?: string;
   /**
    * @remarks
-   * 视频帧率（FPS）
+   * Video frame rate
    * 
    * @example
    * 30.0
@@ -180,7 +205,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   fps?: number;
   /**
    * @remarks
-   * 已经完成审核的帧数
+   * Frames audited
    * 
    * @example
    * 120
@@ -188,7 +213,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   frameAudited?: number;
   /**
    * @remarks
-   * 视频高度（像素）
+   * Video height
    * 
    * @example
    * 1080
@@ -196,17 +221,17 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * 抽取的图片URL列表
+   * Image URL list
    */
   imageUrls?: QueryVideoAuditResultResponseBodyDataImageUrls[];
   /**
    * @remarks
-   * 图片审核结果详情
+   * Audit results list
    */
   results?: QueryVideoAuditResultResponseBodyDataResults[];
   /**
    * @remarks
-   * 任务状态：PENDING(待执行)、RUNNING(执行中)、SUCCESSED(成功)、FAILED(失败)、CANCELED(取消)
+   * Task status (PENDING: Queued, RUNNING: In progress, SUCCESSED: Successful, FAILED: Failed, CANCELED: Task canceled)
    * 
    * @example
    * SUCCESSED
@@ -214,7 +239,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 视频审校的文本结果
+   * Reviewed text
    * 
    * @example
    * 视频审核完成
@@ -222,7 +247,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   text?: string;
   /**
    * @remarks
-   * 需要审核的视频帧总数
+   * Frames to audit
    * 
    * @example
    * 120
@@ -230,7 +255,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   totalFrameAudit?: number;
   /**
    * @remarks
-   * 视频总帧数
+   * Total frames
    * 
    * @example
    * 3615
@@ -238,7 +263,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   totalFrames?: number;
   /**
    * @remarks
-   * 检测到的视频分镜总数
+   * Total shots
    * 
    * @example
    * 15
@@ -246,7 +271,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   totalShots?: number;
   /**
    * @remarks
-   * 被审核的视频文件Key
+   * Video FileKey
    * 
    * @example
    * video/test.mp4
@@ -254,7 +279,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   videoFileKey?: string;
   /**
    * @remarks
-   * 被审核的视频URL地址
+   * Video URL
    * 
    * @example
    * https://example.com/video.mp4
@@ -262,7 +287,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
   videoUrl?: string;
   /**
    * @remarks
-   * 视频宽度（像素）
+   * Video width
    * 
    * @example
    * 1920
@@ -326,7 +351,7 @@ export class QueryVideoAuditResultResponseBodyData extends $dara.Model {
 export class QueryVideoAuditResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务处理结果状态码
+   * Business status code
    * 
    * @example
    * success
@@ -334,12 +359,12 @@ export class QueryVideoAuditResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 视频审校的详细结果
+   * Video audit result data
    */
   data?: QueryVideoAuditResultResponseBodyData;
   /**
    * @remarks
-   * HTTP响应状态码
+   * HTTP status code
    * 
    * @example
    * 200
@@ -347,7 +372,7 @@ export class QueryVideoAuditResultResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 业务处理结果描述信息
+   * Return message
    * 
    * @example
    * 查询成功
@@ -355,7 +380,7 @@ export class QueryVideoAuditResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 本次API请求的唯一标识
+   * Request ID
    * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
@@ -363,7 +388,7 @@ export class QueryVideoAuditResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否处理成功
+   * Is successful
    * 
    * @example
    * true

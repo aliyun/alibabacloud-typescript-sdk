@@ -3,9 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteInterveneRuleResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Status code returned by the intervention service
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * List of failed index IDs
+   */
   failIdList?: string[];
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * dt-s50ntwtywb4y
    */
@@ -40,27 +54,46 @@ export class DeleteInterveneRuleResponseBodyData extends $dara.Model {
 
 export class DeleteInterveneRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
-   * 0
+   * success
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: DeleteInterveneRuleResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request ID
+   * 
    * @example
    * 94512A33-8EC1-5452-A793-5C91F18ED2F0
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the operation was successful: true for success, false for failure
+   * 
    * @example
    * true
    */

@@ -3,29 +3,49 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAnalysisTagDetailByTaskIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of categories for filtering.
+   */
   categories?: string[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   current?: number;
   /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page of results.
+   * 
    * @example
    * token-xxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of records to request.
+   * 
    * @example
    * 3
    */
   size?: number;
   /**
    * @remarks
+   * The unique ID of the task.
+   * 
+   * > This parameter is optional. The system automatically generates a task ID. If you specify the same TaskId for multiple tasks, the tasks are considered part of the same conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +54,8 @@ export class ListAnalysisTagDetailByTaskIdRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Get a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

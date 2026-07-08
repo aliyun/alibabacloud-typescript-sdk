@@ -5,16 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $dara.Model {
   /**
    * @remarks
+   * Code description
+   * 
    * This parameter is required.
    * 
    * @example
    * QuarkCommonNews
    */
   code?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the data source.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 夸克通用搜索
+   */
   name?: string;
   /**
    * @remarks
+   * Quantity
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +38,8 @@ export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $d
   number?: number;
   /**
    * @remarks
+   * The type of the data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +78,8 @@ export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $d
 export class SaveDataSourceOrderConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,12 +87,27 @@ export class SaveDataSourceOrderConfigRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The generation technology for Miaosou. This parameter is valid only when \\`ProductCode\\` is set to \\`miaosou\\`.
+   * 
+   * Valid values:
+   * 
+   * - copilotPrecise
+   * 
+   * - copilotReference
+   * 
    * @example
    * copilotReference
    */
   generateTechnology?: string;
   /**
    * @remarks
+   * The product type. Valid values:
+   * 
+   * - miaobi
+   * 
+   * - miaosou
+   * 
    * This parameter is required.
    * 
    * @example
@@ -82,6 +116,8 @@ export class SaveDataSourceOrderConfigRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
+   * The data source configuration.
+   * 
    * This parameter is required.
    */
   userConfigDataSourceList?: SaveDataSourceOrderConfigRequestUserConfigDataSourceList[];

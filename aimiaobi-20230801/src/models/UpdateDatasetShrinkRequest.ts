@@ -8,24 +8,39 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
    * private
    */
   accessLevel?: string;
+  /**
+   * @remarks
+   * The configurations for a third-party search dataset.
+   */
   datasetConfigShrink?: string;
   /**
+   * @remarks
+   * The description of the dataset.
+   * 
    * @example
    * 企业自定义数据集
    */
   datasetDescription?: string;
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * 1
    */
   datasetId?: number;
   /**
+   * @remarks
+   * Specifies whether to enable search for the dataset.
+   * 
    * @example
    * 3
    */
   searchDatasetEnable?: number;
   /**
    * @remarks
+   * The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspaceId]().
+   * 
    * This parameter is required.
    * 
    * @example

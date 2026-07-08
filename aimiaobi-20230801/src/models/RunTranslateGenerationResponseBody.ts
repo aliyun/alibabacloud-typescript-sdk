@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunTranslateGenerationResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * AccessForbid
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * xx
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The Server-Sent Events (SSE) event.
+   * 
    * @example
    * task-failed
    */
   event?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 91C2B2B8-7D12-4A8D-A724-1E576D30C096
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * The trace ID.
+   * 
    * @example
    * 0abb781d17146157564845243e20b5
    */
@@ -66,6 +84,9 @@ export class RunTranslateGenerationResponseBodyHeader extends $dara.Model {
 
 export class RunTranslateGenerationResponseBodyPayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * The text generation result.
+   * 
    * @example
    * xx
    */
@@ -93,16 +114,25 @@ export class RunTranslateGenerationResponseBodyPayloadOutput extends $dara.Model
 
 export class RunTranslateGenerationResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens used for the input.
+   * 
    * @example
    * 1
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * The number of tokens used for the output.
+   * 
    * @example
    * 1
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The total number of tokens used in the call.
+   * 
    * @example
    * 2
    */
@@ -133,7 +163,15 @@ export class RunTranslateGenerationResponseBodyPayloadUsage extends $dara.Model 
 }
 
 export class RunTranslateGenerationResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output data
+   */
   output?: RunTranslateGenerationResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage information
+   */
   usage?: RunTranslateGenerationResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -165,9 +203,20 @@ export class RunTranslateGenerationResponseBodyPayload extends $dara.Model {
 }
 
 export class RunTranslateGenerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header
+   */
   header?: RunTranslateGenerationResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body
+   */
   payload?: RunTranslateGenerationResponseBodyPayload;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * DA021073-17CE-5CCF-9FEB-93226C766887
    */

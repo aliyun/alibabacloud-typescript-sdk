@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RunKeywordsExtractionGenerationRequestReferenceData extends $dara.Model {
   /**
    * @remarks
+   * List of content.
+   * 
    * This parameter is required.
    */
   contents?: string[];
@@ -33,19 +35,32 @@ export class RunKeywordsExtractionGenerationRequestReferenceData extends $dara.M
 }
 
 export class RunKeywordsExtractionGenerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Custom prompt.
+   */
   prompt?: string;
   /**
    * @remarks
+   * Data required for generation.
+   * 
    * This parameter is required.
    */
   referenceData?: RunKeywordsExtractionGenerationRequestReferenceData;
   /**
+   * @remarks
+   * The unique identifier for the associated creation article.
+   * 
+   * > TaskId is not required by default; the system automatically generates it. If subsequent tasks use the same TaskId, they belong to the same conversation group.
+   * 
    * @example
    * xxx
    */
   taskId?: string;
   /**
    * @remarks
+   * The unique identifier for the Alibaba Cloud Model Studio workspace. Obtain the [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

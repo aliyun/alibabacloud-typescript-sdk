@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Unique task ID
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task name
+   * 
    * @example
    * 任务名称
    */
@@ -38,27 +44,46 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends
 
 export class SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * NoData
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data
+   */
   data?: SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request ID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success or failure: true for success, false for failure
+   * 
    * @example
    * true
    */

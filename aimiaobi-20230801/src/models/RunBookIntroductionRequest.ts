@@ -10,6 +10,8 @@ export class RunBookIntroductionRequest extends $dara.Model {
   cleanCache?: boolean;
   /**
    * @remarks
+   * The document ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +19,17 @@ export class RunBookIntroductionRequest extends $dara.Model {
    */
   docId?: string;
   /**
+   * @remarks
+   * A custom prompt for extracting key points.
+   * 
    * @example
    * 用英文输出
    */
   keyPointPrompt?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,12 +37,17 @@ export class RunBookIntroductionRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @remarks
+   * A custom prompt for generating the summary.
+   * 
    * @example
    * 用英文输出
    */
   summaryPrompt?: string;
   /**
    * @remarks
+   * The unique ID of the workspace in Model Studio (Bailian). For more information, see [Get your workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class FetchExportTermsTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * https//xxxx
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The task execution status.
+   * 
    * @example
    * PENDING-待执行、RUNNING-执行中、SUCCESSED-成功、SUSPENDED-暂停、FAILED-失败、CANCELLED-取消
    */
@@ -38,30 +44,46 @@ export class FetchExportTermsTaskResponseBodyData extends $dara.Model {
 
 export class FetchExportTermsTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * DataNotExists
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: FetchExportTermsTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * F2F366D6-E9FE-1006-BB70-2C650896AAB5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

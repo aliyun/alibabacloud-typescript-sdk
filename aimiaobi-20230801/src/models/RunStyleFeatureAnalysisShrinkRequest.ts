@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunStyleFeatureAnalysisShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of custom content texts.
+   */
   contentsShrink?: string;
+  /**
+   * @remarks
+   * A collection of Material Library IDs.
+   */
   materialIdsShrink?: string;
   /**
    * @remarks
+   * The unique identifier of the Alibaba Cloud Model Studio workspace. Get the [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

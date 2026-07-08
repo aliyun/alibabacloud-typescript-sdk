@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class FetchParseDocumentLayoutTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Content to be formatted
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class FetchParseDocumentLayoutTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * Unique identifier of the Alibaba Cloud Model Studio workspace: [Get workspaceId](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * This parameter is required.
    * 
    * @example

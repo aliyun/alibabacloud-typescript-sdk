@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RunSummaryGenerateRequest extends $dara.Model {
   /**
    * @remarks
+   * Content to summarize.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class RunSummaryGenerateRequest extends $dara.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * Custom prompt for summary generation.
+   * 
    * @example
    * 请为上述内容生成一段摘要，字数在100~200字以内。
    */
   prompt?: string;
   /**
    * @remarks
+   * Unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSmartAuditResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   taskId?: string;
   /**
+   * @remarks
+   * The [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * @example
    * llm-xx
    */

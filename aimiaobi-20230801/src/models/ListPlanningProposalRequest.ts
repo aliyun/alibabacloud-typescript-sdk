@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListPlanningProposalRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,26 +14,41 @@ export class ListPlanningProposalRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * Custom viewpoint ID (used for custom viewpoint planning proposal scenarios).
+   * 
    * @example
    * e7b26a9e1211444db8f0a984361a5e0f
    */
   customViewPointId?: string;
   /**
+   * @remarks
+   * List of custom viewpoint IDs (used for custom viewpoint planning proposal scenarios).
+   * 
    * @example
    * 27971fc8f3ce4ed58c7e7fc4b503e432
    */
   customViewPointIds?: string[];
   /**
+   * @remarks
+   * Maximum number of returned results.
+   * 
    * @example
    * 73
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token for the next page.
+   * 
    * @example
-   * 下一页的token
+   * 下一页的Token
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Filter planning proposal titles, corresponding to the viewpoint names of each planning proposal type.
+   * 
    * @example
    * 标题
    *      *
@@ -39,6 +56,8 @@ export class ListPlanningProposalRequest extends $dara.Model {
   titles?: string[];
   /**
    * @remarks
+   * Hot topic subject.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +66,8 @@ export class ListPlanningProposalRequest extends $dara.Model {
   topic?: string;
   /**
    * @remarks
+   * Hot topic source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,12 +75,27 @@ export class ListPlanningProposalRequest extends $dara.Model {
    */
   topicSource?: string;
   /**
+   * @remarks
+   * Hot spot event data version.
+   * 
    * @example
    * 2024-09-10_08
    */
   topicVersion?: string;
   /**
    * @remarks
+   * Planning proposal type
+   * 
+   * - CustomViewPoints: Custom viewpoint
+   * 
+   * - HotViewPoints: Hot viewpoint
+   * 
+   * - TimedViewPoints: Time-sensitive viewpoint
+   * 
+   * - WebReviewPoints: User viewpoint
+   * 
+   * - FreshViewPoints: Fresh viewpoint
+   * 
    * This parameter is required.
    * 
    * @example

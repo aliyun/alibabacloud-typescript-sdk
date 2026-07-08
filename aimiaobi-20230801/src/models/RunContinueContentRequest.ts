@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RunContinueContentRequest extends $dara.Model {
   /**
    * @remarks
+   * Content to continue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RunContinueContentRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
+   * Unique identifier for the Alibaba Cloud Model Studio workspace. For more information, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+   * 
    * This parameter is required.
    * 
    * @example

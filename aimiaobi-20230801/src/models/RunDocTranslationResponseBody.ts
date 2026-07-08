@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDocTranslationResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error code message
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Event type
+   * 
    * @example
    * task-started
    */
   event?: string;
+  /**
+   * @remarks
+   * Event description
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * 411c4dfa-2168-4379-a902-675d67f453f8
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 50a1cc8e-717e-4a2b-a76b-dc9734a8564b
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID
+   * 
    * @example
    * ebd19b12-0cae-488f-9e41-5a1c825f545b
    */
@@ -68,6 +93,13 @@ export class RunDocTranslationResponseBodyHeader extends $dara.Model {
 }
 
 export class RunDocTranslationResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Translated content
+   * 
+   * @example
+   * 翻译内容
+   */
   content?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92,16 +124,25 @@ export class RunDocTranslationResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunDocTranslationResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of tokens used for input
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of tokens used for output
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens used for this call
+   * 
    * @example
    * 200
    */
@@ -132,7 +173,15 @@ export class RunDocTranslationResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunDocTranslationResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Outputs
+   */
   output?: RunDocTranslationResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Token usage
+   */
   usage?: RunDocTranslationResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -164,9 +213,20 @@ export class RunDocTranslationResponseBodyPayload extends $dara.Model {
 }
 
 export class RunDocTranslationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response header
+   */
   header?: RunDocTranslationResponseBodyHeader;
+  /**
+   * @remarks
+   * Response body
+   */
   payload?: RunDocTranslationResponseBodyPayload;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */

@@ -3,33 +3,105 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListHotNewsWithTypeResponseBodyDataNews extends $dara.Model {
+  /**
+   * @remarks
+   * The author.
+   * 
+   * @example
+   * 作者名称
+   */
   author?: string;
+  /**
+   * @remarks
+   * The content.
+   * 
+   * @example
+   * 新闻内容
+   */
   content?: string;
   /**
+   * @remarks
+   * The unique identifier of the internal document.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   docUuid?: string;
+  /**
+   * @remarks
+   * The image URLs.
+   */
   imageUrls?: string[];
   /**
+   * @remarks
+   * The publish time.
+   * 
    * @example
    * 2023-04-11 06:14:07
    */
   pubTime?: string;
+  /**
+   * @remarks
+   * The search source.
+   * 
+   * @example
+   * 新浪热榜
+   */
   searchSource?: string;
+  /**
+   * @remarks
+   * The search source name.
+   * 
+   * @example
+   * 新浪热榜
+   */
   searchSourceName?: string;
+  /**
+   * @remarks
+   * The source.
+   * 
+   * @example
+   * 新浪新闻综合
+   */
   source?: string;
+  /**
+   * @remarks
+   * The article summary.
+   * 
+   * @example
+   * 摘要
+   */
   summary?: string;
+  /**
+   * @remarks
+   * The tag.
+   * 
+   * @example
+   * 社会
+   */
   tag?: string;
+  /**
+   * @remarks
+   * The title.
+   * 
+   * @example
+   * 新闻标题
+   */
   title?: string;
   /**
+   * @remarks
+   * The system update time.
+   * 
    * @example
    * 2023-10-14 14:30:00
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The article URL.
+   * 
    * @example
-   * http://xxxxx/xxx
+   * http://www.example.com/a.html
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -81,14 +153,34 @@ export class ListHotNewsWithTypeResponseBodyDataNews extends $dara.Model {
 }
 
 export class ListHotNewsWithTypeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The news list.
+   */
   news?: ListHotNewsWithTypeResponseBodyDataNews[];
   /**
+   * @remarks
+   * The news category. Valid values:
+   * - society: social current affairs.
+   * - person: people news.
+   * - government: government affairs.
+   * 
    * @example
    * society
    */
   newsType?: string;
+  /**
+   * @remarks
+   * The news category name.
+   * 
+   * @example
+   * 社会时事
+   */
   newsTypeName?: string;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 77
    */
@@ -125,27 +217,48 @@ export class ListHotNewsWithTypeResponseBodyData extends $dara.Model {
 
 export class ListHotNewsWithTypeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
-   * DataNotExists
+   * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: ListHotNewsWithTypeResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
-   * 数据不存在
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

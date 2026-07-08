@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCustomTextResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Content.
+   * 
    * @example
    * 内容
    */
   content?: string;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 创建时间
    */
   createTime?: string;
   /**
+   * @remarks
+   * The user who created the custom text.
+   * 
    * @example
    * 创建用户
    */
   createUser?: string;
   /**
+   * @remarks
+   * Primary key ID.
+   * 
    * @example
    * 40
    */
   id?: number;
   /**
+   * @remarks
+   * Title.
+   * 
    * @example
    * 标题
    */
   title?: string;
   /**
+   * @remarks
+   * Update time.
+   * 
    * @example
    * 修改时间
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Modifier.
+   * 
    * @example
    * 修改用户
    */
@@ -73,27 +94,46 @@ export class ListCustomTextResponseBodyData extends $dara.Model {
 
 export class ListCustomTextResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
-   * NoData
+   * successful
    */
   code?: string;
+  /**
+   * @remarks
+   * Business data.
+   */
   data?: ListCustomTextResponseBodyData[];
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error description.
+   * 
    * @example
-   * success
+   * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. true: successful, false: failed.
+   * 
    * @example
    * true
    */

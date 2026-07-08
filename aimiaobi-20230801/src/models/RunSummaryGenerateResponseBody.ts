@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunSummaryGenerateResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 403
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Pop sign mismatch, please check.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Event type.
+   * 
    * @example
    * result-generated
    */
   event?: string;
   /**
+   * @remarks
+   * Event description.
+   * 
    * @example
    * 模型生成事件
    */
   eventInfo?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 3cd10828-0e42-471c-8f1a-931cde20b035
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
    */
   taskId?: string;
   /**
+   * @remarks
+   * Trace ID.
+   * 
    * @example
    * 2150451a17191950923411783e2927
    */
@@ -73,6 +94,9 @@ export class RunSummaryGenerateResponseBodyHeader extends $dara.Model {
 
 export class RunSummaryGenerateResponseBodyPayloadOutput extends $dara.Model {
   /**
+   * @remarks
+   * Output text.
+   * 
    * @example
    * 这是测试输出
    */
@@ -100,16 +124,25 @@ export class RunSummaryGenerateResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunSummaryGenerateResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Number of input tokens.
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Number of output tokens.
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total number of tokens.
+   * 
    * @example
    * 200
    */
@@ -140,7 +173,15 @@ export class RunSummaryGenerateResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunSummaryGenerateResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Output object.
+   */
   output?: RunSummaryGenerateResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * Large Language Model (LLM) token usage information.
+   */
   usage?: RunSummaryGenerateResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -172,10 +213,25 @@ export class RunSummaryGenerateResponseBodyPayload extends $dara.Model {
 }
 
 export class RunSummaryGenerateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the response is complete. Set to true when complete.
+   */
   end?: boolean;
+  /**
+   * @remarks
+   * Streaming output header. Contains general response information.
+   */
   header?: RunSummaryGenerateResponseBodyHeader;
+  /**
+   * @remarks
+   * Response payload in JSON format.
+   */
   payload?: RunSummaryGenerateResponseBodyPayload;
   /**
+   * @remarks
+   * Unique request ID.
+   * 
    * @example
    * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
    */

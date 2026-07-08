@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class FeedbackDialogueRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,28 +14,46 @@ export class FeedbackDialogueRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The feedback.
+   * 
    * @example
    * test
    */
   customerResponse?: string;
   /**
+   * @remarks
+   * The generated content that is considered good.
+   * 
    * @example
    * test
    */
   goodText?: string;
   /**
+   * @remarks
+   * The modified generated result.
+   * 
    * @example
    * test
    */
   modifiedResponse?: string;
   /**
+   * @remarks
+   * thumbsDown: Dislike, thumbsUp: Like
+   * 
    * @example
    * thumbsDown
    */
   rating?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   ratingTags?: string[];
   /**
    * @remarks
+   * The ID of a single-turn conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +61,9 @@ export class FeedbackDialogueRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The ID of the page.
+   * 
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */

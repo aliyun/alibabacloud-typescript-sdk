@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMaterialByIdRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetMaterialByIdRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
+   * Primary key ID of the task
+   * 
    * This parameter is required.
    * 
    * @example

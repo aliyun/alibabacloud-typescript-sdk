@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunDocIntroductionResponseBodyHeader extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Type of management event
+   * 
    * @example
    * task-started
    */
   event?: string;
+  /**
+   * @remarks
+   * Description of the management event
+   * 
+   * @example
+   * 模型生成事件
+   */
   eventInfo?: string;
   /**
+   * @remarks
+   * session ID
+   * 
    * @example
    * 20247a52-23e2-46fb-943d-309cdee2bc6d
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Job ID
+   * 
    * @example
    * 8a9cecb7-6d20-32db-8823-5882c217b647
    */
   taskId?: string;
   /**
+   * @remarks
+   * End-to-end trace ID
+   * 
    * @example
    * 0bd58ea2-dc38-45da-ac02-17f05cb9040b
    */
@@ -69,36 +94,57 @@ export class RunDocIntroductionResponseBodyHeader extends $dara.Model {
 
 export class RunDocIntroductionResponseBodyPayloadOutputIntroductionsBlocks extends $dara.Model {
   /**
+   * @remarks
+   * Start Time of the segment
+   * 
    * @example
    * 0
    */
   beginTime?: number;
   /**
+   * @remarks
+   * End Time of the segment
+   * 
    * @example
    * 1200
    */
   endTime?: number;
   /**
+   * @remarks
+   * Height of the text block
+   * 
    * @example
    * 600
    */
   height?: number;
   /**
+   * @remarks
+   * Page number where the text block is located
+   * 
    * @example
    * 10
    */
   pageId?: number;
   /**
+   * @remarks
+   * Width of the text block
+   * 
    * @example
    * 600
    */
   width?: number;
   /**
+   * @remarks
+   * X coordinate of the top-left corner of the block
+   * 
    * @example
    * 10
    */
   x?: number;
   /**
+   * @remarks
+   * Y coordinate of the top-left corner of the block
+   * 
    * @example
    * 10
    */
@@ -137,13 +183,34 @@ export class RunDocIntroductionResponseBodyPayloadOutputIntroductionsBlocks exte
 }
 
 export class RunDocIntroductionResponseBodyPayloadOutputIntroductions extends $dara.Model {
+  /**
+   * @remarks
+   * Array of position information
+   */
   blocks?: RunDocIntroductionResponseBodyPayloadOutputIntroductionsBlocks[];
   /**
+   * @remarks
+   * Starting page number of multiple text blocks
+   * 
    * @example
    * 10
    */
   startPageId?: number;
+  /**
+   * @remarks
+   * Summary of this segment
+   * 
+   * @example
+   * 本段摘要内容
+   */
   summary?: string;
+  /**
+   * @remarks
+   * Title of this segment
+   * 
+   * @example
+   * 本段标题内容
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -176,8 +243,26 @@ export class RunDocIntroductionResponseBodyPayloadOutputIntroductions extends $d
 }
 
 export class RunDocIntroductionResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @remarks
+   * Array of segment introductions
+   */
   introductions?: RunDocIntroductionResponseBodyPayloadOutputIntroductions[];
+  /**
+   * @remarks
+   * Key point content
+   * 
+   * @example
+   * 要点1；要点2；
+   */
   keyPoint?: string;
+  /**
+   * @remarks
+   * Outline summary
+   * 
+   * @example
+   * 大纲摘要内容
+   */
   summary?: string;
   static names(): { [key: string]: string } {
     return {
@@ -209,16 +294,25 @@ export class RunDocIntroductionResponseBodyPayloadOutput extends $dara.Model {
 
 export class RunDocIntroductionResponseBodyPayloadUsage extends $dara.Model {
   /**
+   * @remarks
+   * Input token quantity
+   * 
    * @example
    * 100
    */
   inputTokens?: number;
   /**
+   * @remarks
+   * Output token quantity
+   * 
    * @example
    * 100
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * Total token quantity
+   * 
    * @example
    * 200
    */
@@ -249,7 +343,15 @@ export class RunDocIntroductionResponseBodyPayloadUsage extends $dara.Model {
 }
 
 export class RunDocIntroductionResponseBodyPayload extends $dara.Model {
+  /**
+   * @remarks
+   * Outputs
+   */
   output?: RunDocIntroductionResponseBodyPayloadOutput;
+  /**
+   * @remarks
+   * token usage
+   */
   usage?: RunDocIntroductionResponseBodyPayloadUsage;
   static names(): { [key: string]: string } {
     return {
@@ -281,9 +383,20 @@ export class RunDocIntroductionResponseBodyPayload extends $dara.Model {
 }
 
 export class RunDocIntroductionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * response header
+   */
   header?: RunDocIntroductionResponseBodyHeader;
+  /**
+   * @remarks
+   * response body
+   */
   payload?: RunDocIntroductionResponseBodyPayload;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * C9B5BEA6-E8C4-5861-BE37-D906D516510E
    */

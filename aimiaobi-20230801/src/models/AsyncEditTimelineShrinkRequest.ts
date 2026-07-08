@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AsyncEditTimelineShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Enable automatic clip adjustment
+   * 
+   * @example
+   * false
+   */
   autoClips?: boolean;
   /**
    * @remarks
+   * Unique identifier of the task
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,11 +23,15 @@ export class AsyncEditTimelineShrinkRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * Array structure of video editing timelines
+   * 
    * This parameter is required.
    */
   timelinesShrink?: string;
   /**
    * @remarks
+   * [Model Studio workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+   * 
    * This parameter is required.
    * 
    * @example
