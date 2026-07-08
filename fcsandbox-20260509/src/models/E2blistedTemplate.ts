@@ -7,34 +7,46 @@ import { E2BTemplateTag } from "./E2btemplateTag";
 export class E2BListedTemplate extends $dara.Model {
   aliases?: string[];
   buildStatus?: string;
+  category?: string;
   cpuCount?: number;
   createdAt?: string;
+  functionName?: string;
   lastSpawnedAt?: string;
   logConfiguration?: LogConfiguration;
   memoryMB?: number;
   names?: string[];
   public?: boolean;
-  spawnCount?: string;
+  resourceGroupID?: string;
+  spawnCount?: number;
   statusReason?: string;
   tags?: E2BTemplateTag[];
+  teamID?: string;
+  teamName?: string;
   templateID?: string;
   updatedAt?: string;
+  userID?: string;
   static names(): { [key: string]: string } {
     return {
       aliases: 'aliases',
       buildStatus: 'buildStatus',
+      category: 'category',
       cpuCount: 'cpuCount',
       createdAt: 'createdAt',
+      functionName: 'functionName',
       lastSpawnedAt: 'lastSpawnedAt',
       logConfiguration: 'logConfiguration',
       memoryMB: 'memoryMB',
       names: 'names',
       public: 'public',
+      resourceGroupID: 'resourceGroupID',
       spawnCount: 'spawnCount',
       statusReason: 'statusReason',
       tags: 'tags',
+      teamID: 'teamID',
+      teamName: 'teamName',
       templateID: 'templateID',
       updatedAt: 'updatedAt',
+      userID: 'userID',
     };
   }
 
@@ -42,18 +54,24 @@ export class E2BListedTemplate extends $dara.Model {
     return {
       aliases: { 'type': 'array', 'itemType': 'string' },
       buildStatus: 'string',
+      category: 'string',
       cpuCount: 'number',
       createdAt: 'string',
+      functionName: 'string',
       lastSpawnedAt: 'string',
       logConfiguration: LogConfiguration,
       memoryMB: 'number',
       names: { 'type': 'array', 'itemType': 'string' },
       public: 'boolean',
-      spawnCount: 'string',
+      resourceGroupID: 'string',
+      spawnCount: 'number',
       statusReason: 'string',
       tags: { 'type': 'array', 'itemType': E2BTemplateTag },
+      teamID: 'string',
+      teamName: 'string',
       templateID: 'string',
       updatedAt: 'string',
+      userID: 'string',
     };
   }
 

@@ -12,11 +12,15 @@ export class E2BListedSandbox extends $dara.Model {
   envdVersion?: string;
   memoryMB?: number;
   metadata?: { [key: string]: string };
+  resourceGroupID?: string;
   sandboxID?: string;
   startedAt?: string;
   state?: string;
+  teamID?: string;
+  teamName?: string;
   templateID?: string;
   templateName?: string;
+  userID?: string;
   volumeMounts?: E2BVolumeMount[];
   static names(): { [key: string]: string } {
     return {
@@ -28,11 +32,15 @@ export class E2BListedSandbox extends $dara.Model {
       envdVersion: 'envdVersion',
       memoryMB: 'memoryMB',
       metadata: 'metadata',
+      resourceGroupID: 'resourceGroupID',
       sandboxID: 'sandboxID',
       startedAt: 'startedAt',
       state: 'state',
+      teamID: 'teamID',
+      teamName: 'teamName',
       templateID: 'templateID',
       templateName: 'templateName',
+      userID: 'userID',
       volumeMounts: 'volumeMounts',
     };
   }
@@ -47,11 +55,15 @@ export class E2BListedSandbox extends $dara.Model {
       envdVersion: 'string',
       memoryMB: 'number',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      resourceGroupID: 'string',
       sandboxID: 'string',
       startedAt: 'string',
       state: 'string',
+      teamID: 'string',
+      teamName: 'string',
       templateID: 'string',
       templateName: 'string',
+      userID: 'string',
       volumeMounts: { 'type': 'array', 'itemType': E2BVolumeMount },
     };
   }

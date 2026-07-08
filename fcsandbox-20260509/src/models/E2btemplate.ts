@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { E2BTemplateBuild } from "./E2btemplateBuild";
 import { LogConfiguration } from "./LogConfiguration";
 import { E2BTemplateTag } from "./E2btemplateTag";
 
@@ -8,7 +7,6 @@ import { E2BTemplateTag } from "./E2btemplateTag";
 export class E2BTemplate extends $dara.Model {
   aliases?: string[];
   buildStatus?: string;
-  builds?: E2BTemplateBuild;
   cpuCount?: number;
   createdAt?: string;
   lastSpawnedAt?: string;
@@ -16,9 +14,12 @@ export class E2BTemplate extends $dara.Model {
   memoryMB?: number;
   names?: string[];
   public?: boolean;
-  spawnCount?: string;
+  resourceGroupID?: string;
+  spawnCount?: number;
   statusReason?: string;
   tags?: E2BTemplateTag[];
+  teamID?: string;
+  teamName?: string;
   templateID?: string;
   updatedAt?: string;
   userID?: string;
@@ -26,7 +27,6 @@ export class E2BTemplate extends $dara.Model {
     return {
       aliases: 'aliases',
       buildStatus: 'buildStatus',
-      builds: 'builds',
       cpuCount: 'cpuCount',
       createdAt: 'createdAt',
       lastSpawnedAt: 'lastSpawnedAt',
@@ -34,9 +34,12 @@ export class E2BTemplate extends $dara.Model {
       memoryMB: 'memoryMB',
       names: 'names',
       public: 'public',
+      resourceGroupID: 'resourceGroupID',
       spawnCount: 'spawnCount',
       statusReason: 'statusReason',
       tags: 'tags',
+      teamID: 'teamID',
+      teamName: 'teamName',
       templateID: 'templateID',
       updatedAt: 'updatedAt',
       userID: 'userID',
@@ -47,7 +50,6 @@ export class E2BTemplate extends $dara.Model {
     return {
       aliases: { 'type': 'array', 'itemType': 'string' },
       buildStatus: 'string',
-      builds: E2BTemplateBuild,
       cpuCount: 'number',
       createdAt: 'string',
       lastSpawnedAt: 'string',
@@ -55,9 +57,12 @@ export class E2BTemplate extends $dara.Model {
       memoryMB: 'number',
       names: { 'type': 'array', 'itemType': 'string' },
       public: 'boolean',
-      spawnCount: 'string',
+      resourceGroupID: 'string',
+      spawnCount: 'number',
       statusReason: 'string',
       tags: { 'type': 'array', 'itemType': E2BTemplateTag },
+      teamID: 'string',
+      teamName: 'string',
       templateID: 'string',
       updatedAt: 'string',
       userID: 'string',
@@ -67,9 +72,6 @@ export class E2BTemplate extends $dara.Model {
   validate() {
     if(Array.isArray(this.aliases)) {
       $dara.Model.validateArray(this.aliases);
-    }
-    if(this.builds && typeof (this.builds as any).validate === 'function') {
-      (this.builds as any).validate();
     }
     if(this.logConfiguration && typeof (this.logConfiguration as any).validate === 'function') {
       (this.logConfiguration as any).validate();

@@ -6,6 +6,7 @@ import { E2BVolumeMount } from "./E2bvolumeMount";
 
 
 export class E2BSandbox extends $dara.Model {
+  accessEndpoint?: string;
   alias?: string;
   allowInternetAccess?: boolean;
   clientID?: string;
@@ -22,14 +23,19 @@ export class E2BSandbox extends $dara.Model {
   memoryMB?: number;
   metadata?: { [key: string]: string };
   network?: E2BNetwork;
+  resourceGroupID?: string;
   sandboxID?: string;
   startedAt?: string;
   state?: string;
-  templateId?: string;
+  teamID?: string;
+  teamName?: string;
+  templateID?: string;
   templateName?: string;
+  userID?: string;
   volumeMounts?: E2BVolumeMount[];
   static names(): { [key: string]: string } {
     return {
+      accessEndpoint: 'accessEndpoint',
       alias: 'alias',
       allowInternetAccess: 'allowInternetAccess',
       clientID: 'clientID',
@@ -46,17 +52,22 @@ export class E2BSandbox extends $dara.Model {
       memoryMB: 'memoryMB',
       metadata: 'metadata',
       network: 'network',
+      resourceGroupID: 'resourceGroupID',
       sandboxID: 'sandboxID',
       startedAt: 'startedAt',
       state: 'state',
-      templateId: 'templateId',
+      teamID: 'teamID',
+      teamName: 'teamName',
+      templateID: 'templateID',
       templateName: 'templateName',
+      userID: 'userID',
       volumeMounts: 'volumeMounts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessEndpoint: 'string',
       alias: 'string',
       allowInternetAccess: 'boolean',
       clientID: 'string',
@@ -73,11 +84,15 @@ export class E2BSandbox extends $dara.Model {
       memoryMB: 'number',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       network: E2BNetwork,
+      resourceGroupID: 'string',
       sandboxID: 'string',
       startedAt: 'string',
       state: 'string',
-      templateId: 'string',
+      teamID: 'string',
+      teamName: 'string',
+      templateID: 'string',
       templateName: 'string',
+      userID: 'string',
       volumeMounts: { 'type': 'array', 'itemType': E2BVolumeMount },
     };
   }

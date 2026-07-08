@@ -5,6 +5,7 @@ import { Quota } from "./Quota";
 
 export class ListQuotaResponseBody extends $dara.Model {
   code?: string;
+  maxResults?: number;
   message?: string;
   nextToken?: string;
   quotas?: Quota[];
@@ -12,6 +13,7 @@ export class ListQuotaResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'code',
+      maxResults: 'maxResults',
       message: 'message',
       nextToken: 'nextToken',
       quotas: 'quotas',
@@ -22,6 +24,7 @@ export class ListQuotaResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      maxResults: 'number',
       message: 'string',
       nextToken: 'string',
       quotas: { 'type': 'array', 'itemType': Quota },

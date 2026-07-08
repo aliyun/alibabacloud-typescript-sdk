@@ -2,55 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
-export class ApiKey extends $dara.Model {
-  apiKeyID?: string;
-  apiKeyMask?: string;
-  apiKeyName?: string;
-  apiKeyValue?: string;
+export class E2BTeam extends $dara.Model {
+  allowUpdateTeamName?: boolean;
   createdTime?: string;
-  expireTime?: string;
-  lastUsedTime?: string;
+  description?: string;
   resourceGroupID?: string;
   status?: string;
   teamID?: string;
   teamName?: string;
   userID?: string;
-  username?: string;
   static names(): { [key: string]: string } {
     return {
-      apiKeyID: 'apiKeyID',
-      apiKeyMask: 'apiKeyMask',
-      apiKeyName: 'apiKeyName',
-      apiKeyValue: 'apiKeyValue',
+      allowUpdateTeamName: 'allowUpdateTeamName',
       createdTime: 'createdTime',
-      expireTime: 'expireTime',
-      lastUsedTime: 'lastUsedTime',
+      description: 'description',
       resourceGroupID: 'resourceGroupID',
       status: 'status',
       teamID: 'teamID',
       teamName: 'teamName',
       userID: 'userID',
-      username: 'username',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiKeyID: 'string',
-      apiKeyMask: 'string',
-      apiKeyName: 'string',
-      apiKeyValue: 'string',
+      allowUpdateTeamName: 'boolean',
       createdTime: 'string',
-      expireTime: 'string',
-      lastUsedTime: 'string',
+      description: 'string',
       resourceGroupID: 'string',
       status: 'string',
       teamID: 'string',
       teamName: 'string',
       userID: 'string',
-      username: 'string',
     };
   }
 

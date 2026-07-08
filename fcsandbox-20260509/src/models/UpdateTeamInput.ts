@@ -2,23 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateApiKeyInput extends $dara.Model {
-  apiKeyName?: string;
-  expireTime?: string;
-  teamID?: string;
+export class UpdateTeamInput extends $dara.Model {
+  description?: string;
+  resourceGroupID?: string;
+  teamName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiKeyName: 'apiKeyName',
-      expireTime: 'expireTime',
-      teamID: 'teamID',
+      description: 'description',
+      resourceGroupID: 'resourceGroupID',
+      teamName: 'teamName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiKeyName: 'string',
-      expireTime: 'string',
-      teamID: 'string',
+      description: 'string',
+      resourceGroupID: 'string',
+      teamName: 'string',
     };
   }
 
