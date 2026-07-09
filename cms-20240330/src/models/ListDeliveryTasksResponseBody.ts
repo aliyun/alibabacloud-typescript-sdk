@@ -35,7 +35,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksExtraInfo extends $dara.M
 export class ListDeliveryTasksResponseBodyDeliveryTasksSinkList extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the delivery target. The meanings of the key/value pairs vary depending on the sinkType.
+   * The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType.
    */
   sinkConfigs?: { [key: string]: string };
   /**
@@ -115,7 +115,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksTags extends $dara.Model 
 export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -206,7 +206,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The time when the task was last updated.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 

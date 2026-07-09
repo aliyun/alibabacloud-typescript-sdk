@@ -53,7 +53,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   keywords?: string;
   /**
    * @remarks
-   * Filters resources by label. The following labels are supported:
+   * Filters resources by label. The following labels are available:
    * - metricCategory: the metric category description.
    * - alertEnable: specifies whether alerting is required.
    * - alertUnit: the recommended alert unit.
@@ -66,7 +66,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
    * @remarks
    * The metadata source. Valid values:
    * - CMS: CloudMonitor Basic monitoring metrics.
-   * - PROM_BASIC: Managed Service for Prometheus monitoring metrics.
+   * - PROM_BASIC: Prometheus CloudMonitor basic monitoring metrics.
    * 
    * @example
    * CMS

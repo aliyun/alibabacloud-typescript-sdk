@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of EventBridge tasks.
+   * The EventBridge task list.
    */
   taskNameList?: string[];
   static names(): { [key: string]: string } {
@@ -35,12 +35,12 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Mode
 export class GetDeliveryTaskResponseBodyDeliveryTaskSinkList extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the delivery target. The meaning of key/value pairs varies depending on the sinkType. For more information, see [CreateDeliveryTask](~~CreateDeliveryTask~~).
+   * The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType. For more information, see CreateDeliveryTask.
    */
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The type of the delivery target.
+   * The delivery target type.
    * 
    * @example
    * Prometheus
@@ -75,7 +75,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskSinkList extends $dara.Model
 export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource group.
    * 
    * @example
    * sourcetype
@@ -83,7 +83,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource group.
    * 
    * @example
    * production
@@ -115,7 +115,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
 export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -172,12 +172,12 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
    * The current status of the task.
    * 
    * @example
-   * Pending2Running
+   * Enable
    */
   status?: string;
   /**
    * @remarks
-   * The resource tags.
+   * The resource group tags.
    */
   tags?: GetDeliveryTaskResponseBodyDeliveryTaskTags[];
   /**
@@ -206,7 +206,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The time when the task was last updated.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -279,7 +279,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
 export class GetDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the delivery task.
+   * The delivery task details.
    */
   deliveryTask?: GetDeliveryTaskResponseBodyDeliveryTask;
   /**

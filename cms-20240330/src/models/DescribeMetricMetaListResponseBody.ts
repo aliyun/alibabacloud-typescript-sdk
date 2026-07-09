@@ -58,9 +58,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The metadata source. Valid values:
-   * - CMS: CloudMonitor Basic monitoring metrics.
-   * - PROM_BASIC: Managed Service for Prometheus monitoring metrics.
+   * The metadata source. CMS indicates CloudMonitor Basic monitoring metrics. PROM_BASIC indicates Prometheus CloudMonitor basic monitoring metrics.
    * 
    * Sample value:
    * CMS

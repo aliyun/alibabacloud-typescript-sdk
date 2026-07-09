@@ -1466,6 +1466,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+   * 
+   * @param request - CreateServiceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceRecordResponse
+   */
+  async createServiceRecordWithOptions(workspace: string, serviceId: string, request: $_model.CreateServiceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.recordContent)) {
+      body["recordContent"] = request.recordContent;
+    }
+
+    if (!$dara.isNull(request.recordType)) {
+      body["recordType"] = request.recordType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceRecord",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service/${$dara.URL.percentEncode(serviceId)}/record`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceRecordResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceRecordResponse({}));
+  }
+
+  /**
+   * Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+   * 
+   * @param request - CreateServiceRecordRequest
+   * @returns CreateServiceRecordResponse
+   */
+  async createServiceRecord(workspace: string, serviceId: string, request: $_model.CreateServiceRecordRequest): Promise<$_model.CreateServiceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
+  }
+
+  /**
    * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
    * 
    * @param request - CreateTicketRequest
@@ -2450,6 +2499,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceWithOptions(workspace, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a service association entry.
+   * 
+   * @remarks
+   * Deletes a created service association entry.
+   * 
+   * @param request - DeleteServiceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceRecordResponse
+   */
+  async deleteServiceRecordWithOptions(workspace: string, serviceId: string, request: $_model.DeleteServiceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceRecordResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.recordType)) {
+      query["recordType"] = request.recordType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteServiceRecord",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service/${$dara.URL.percentEncode(serviceId)}/record`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServiceRecordResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServiceRecordResponse({}));
+  }
+
+  /**
+   * Deletes a service association entry.
+   * 
+   * @remarks
+   * Deletes a created service association entry.
+   * 
+   * @param request - DeleteServiceRecordRequest
+   * @returns DeleteServiceRecordResponse
+   */
+  async deleteServiceRecord(workspace: string, serviceId: string, request: $_model.DeleteServiceRecordRequest): Promise<$_model.DeleteServiceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
   }
 
   /**
@@ -4096,6 +4196,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a service-linked entry.
+   * 
+   * @remarks
+   * Retrieves a service-linked entry.
+   * 
+   * @param request - GetServiceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceRecordResponse
+   */
+  async getServiceRecordWithOptions(workspace: string, serviceId: string, request: $_model.GetServiceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceRecordResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.recordType)) {
+      query["recordType"] = request.recordType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceRecord",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service/${$dara.URL.percentEncode(serviceId)}/record`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceRecordResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceRecordResponse({}));
+  }
+
+  /**
+   * Queries a service-linked entry.
+   * 
+   * @remarks
+   * Retrieves a service-linked entry.
+   * 
+   * @param request - GetServiceRecordRequest
+   * @returns GetServiceRecordResponse
+   */
+  async getServiceRecord(workspace: string, serviceId: string, request: $_model.GetServiceRecordRequest): Promise<$_model.GetServiceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the configuration of a Umodel.
    * 
    * @remarks
@@ -5052,7 +5203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of data delivery tasks.
+   * Retrieves the list of data delivery tasks.
+   * 
+   * @remarks
+   * Deletes a specified site monitoring task.
    * 
    * @param tmpReq - ListDeliveryTasksRequest
    * @param headers - map
@@ -5107,7 +5261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of data delivery tasks.
+   * Retrieves the list of data delivery tasks.
+   * 
+   * @remarks
+   * Deletes a specified site monitoring task.
    * 
    * @param request - ListDeliveryTasksRequest
    * @returns ListDeliveryTasksResponse
@@ -6012,6 +6169,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPrometheusVirtualInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Lists service-linked entries.
+   * 
+   * @remarks
+   * Queries a paginated list of service-linked entries.
+   * 
+   * @param request - ListServiceRecordsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceRecordsResponse
+   */
+  async listServiceRecordsWithOptions(workspace: string, request: $_model.ListServiceRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceRecordsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.recordType)) {
+      query["recordType"] = request.recordType;
+    }
+
+    if (!$dara.isNull(request.search)) {
+      query["search"] = request.search;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceRecords",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service-records`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServiceRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListServiceRecordsResponse({}));
+  }
+
+  /**
+   * Lists service-linked entries.
+   * 
+   * @remarks
+   * Queries a paginated list of service-linked entries.
+   * 
+   * @param request - ListServiceRecordsRequest
+   * @returns ListServiceRecordsResponse
+   */
+  async listServiceRecords(workspace: string, request: $_model.ListServiceRecordsRequest): Promise<$_model.ListServiceRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServiceRecordsWithOptions(workspace, request, headers, runtime);
   }
 
   /**
@@ -7834,6 +8054,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceWithOptions(workspace, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a service-linked entry.
+   * 
+   * @remarks
+   * Updates an existing service-linked entry.
+   * 
+   * @param request - UpdateServiceRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceRecordResponse
+   */
+  async updateServiceRecordWithOptions(workspace: string, serviceId: string, request: $_model.UpdateServiceRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.recordContent)) {
+      body["recordContent"] = request.recordContent;
+    }
+
+    if (!$dara.isNull(request.recordType)) {
+      body["recordType"] = request.recordType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateServiceRecord",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service/${$dara.URL.percentEncode(serviceId)}/record`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateServiceRecordResponse>(await this.callApi(params, req, runtime), new $_model.UpdateServiceRecordResponse({}));
+  }
+
+  /**
+   * Updates a service-linked entry.
+   * 
+   * @remarks
+   * Updates an existing service-linked entry.
+   * 
+   * @param request - UpdateServiceRecordRequest
+   * @returns UpdateServiceRecordResponse
+   */
+  async updateServiceRecord(workspace: string, serviceId: string, request: $_model.UpdateServiceRecordRequest): Promise<$_model.UpdateServiceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
   }
 
   /**
