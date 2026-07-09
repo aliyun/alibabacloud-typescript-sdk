@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthCodeRequest extends $dara.Model {
   accountType?: string;
   adDomain?: string;
+  adPassword?: string;
   /**
    * @remarks
-   * Specifies whether to synchronously create an EndUserId based on `ExternalUserId`. This parameter takes effect only when `EndUserId` is empty.
+   * Specifies whether to synchronously create an EndUserId based on ExternalUserId. This parameter takes effect only when EndUserId is empty.
    * 
    * @example
    * false
@@ -15,7 +16,7 @@ export class GetAuthCodeRequest extends $dara.Model {
   autoCreateUser?: boolean;
   /**
    * @remarks
-   * The username of the China Desktop Service (China Desktop Service) convenience account, which is unique within an Alibaba Cloud account. This parameter and `ExternalUserId` cannot both be empty.
+   * The username of the China Desktop Service (China Desktop Service) convenience account. The username must be unique within an Alibaba Cloud account. This parameter and ExternalUserId cannot both be empty.
    * 
    * @example
    * alice
@@ -23,7 +24,7 @@ export class GetAuthCodeRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The external user ID. This ID is defined by the caller and must be unique within an Alibaba Cloud account. This parameter and `EndUserId` cannot both be empty.
+   * The external user ID. This ID is defined by the caller and must be unique within an Alibaba Cloud account. This parameter and EndUserId cannot both be empty.
    * 
    * @example
    * alice
@@ -31,7 +32,7 @@ export class GetAuthCodeRequest extends $dara.Model {
   externalUserId?: string;
   /**
    * @remarks
-   * The access policy that restricts the access permissions of the authorization code. An empty value indicates no restrictions.
+   * The access policy that restricts the access permissions of the authorization code. If this parameter is left empty, no restrictions are applied.
    * 
    * Syntax:
    * 
@@ -66,6 +67,7 @@ export class GetAuthCodeRequest extends $dara.Model {
     return {
       accountType: 'AccountType',
       adDomain: 'AdDomain',
+      adPassword: 'AdPassword',
       autoCreateUser: 'AutoCreateUser',
       endUserId: 'EndUserId',
       externalUserId: 'ExternalUserId',
@@ -78,6 +80,7 @@ export class GetAuthCodeRequest extends $dara.Model {
     return {
       accountType: 'string',
       adDomain: 'string',
+      adPassword: 'string',
       autoCreateUser: 'boolean',
       endUserId: 'string',
       externalUserId: 'string',

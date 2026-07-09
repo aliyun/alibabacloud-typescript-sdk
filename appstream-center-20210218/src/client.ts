@@ -110,6 +110,10 @@ export default class Client extends OpenApi {
       body["AdDomain"] = request.adDomain;
     }
 
+    if (!$dara.isNull(request.adPassword)) {
+      body["AdPassword"] = request.adPassword;
+    }
+
     if (!$dara.isNull(request.autoCreateUser)) {
       body["AutoCreateUser"] = request.autoCreateUser;
     }
