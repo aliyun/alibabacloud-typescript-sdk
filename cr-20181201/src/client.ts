@@ -819,6 +819,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a custom domain name for an instance.
+   * 
+   * @param request - CreateInstanceCustomizedDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceCustomizedDomainResponse
+   */
+  async createInstanceCustomizedDomainWithOptions(request: $_model.CreateInstanceCustomizedDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceCustomizedDomainResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!$dara.isNull(request.certRegionId)) {
+      query["CertRegionId"] = request.certRegionId;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInstanceCustomizedDomain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInstanceCustomizedDomainResponse>(await this.callApi(params, req, runtime), new $_model.CreateInstanceCustomizedDomainResponse({}));
+  }
+
+  /**
+   * Creates a custom domain name for an instance.
+   * 
+   * @param request - CreateInstanceCustomizedDomainRequest
+   * @returns CreateInstanceCustomizedDomainResponse
+   */
+  async createInstanceCustomizedDomain(request: $_model.CreateInstanceCustomizedDomainRequest): Promise<$_model.CreateInstanceCustomizedDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInstanceCustomizedDomainWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a whitelist policy for an instance access endpoint (public network only).
    * 
    * @param tmpReq - CreateInstanceEndpointAclPolicyRequest
@@ -2121,6 +2179,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除实例自定义域名
+   * 
+   * @param request - DeleteInstanceCustomizedDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceCustomizedDomainResponse
+   */
+  async deleteInstanceCustomizedDomainWithOptions(request: $_model.DeleteInstanceCustomizedDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstanceCustomizedDomainResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInstanceCustomizedDomain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInstanceCustomizedDomainResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInstanceCustomizedDomainResponse({}));
+  }
+
+  /**
+   * 删除实例自定义域名
+   * 
+   * @param request - DeleteInstanceCustomizedDomainRequest
+   * @returns DeleteInstanceCustomizedDomainResponse
+   */
+  async deleteInstanceCustomizedDomain(request: $_model.DeleteInstanceCustomizedDomainRequest): Promise<$_model.DeleteInstanceCustomizedDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteInstanceCustomizedDomainWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a whitelist policy from the public access endpoint of an instance.
    * 
    * @param tmpReq - DeleteInstanceEndpointAclPolicyRequest
@@ -3145,6 +3253,52 @@ export default class Client extends OpenApi {
   async getInstanceCount(): Promise<$_model.GetInstanceCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceCountWithOptions(runtime);
+  }
+
+  /**
+   * @param request - GetInstanceCustomizedDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceCustomizedDomainResponse
+   */
+  async getInstanceCustomizedDomainWithOptions(request: $_model.GetInstanceCustomizedDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceCustomizedDomainResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceCustomizedDomain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceCustomizedDomainResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceCustomizedDomainResponse({}));
+  }
+
+  /**
+   * @param request - GetInstanceCustomizedDomainRequest
+   * @returns GetInstanceCustomizedDomainResponse
+   */
+  async getInstanceCustomizedDomain(request: $_model.GetInstanceCustomizedDomainRequest): Promise<$_model.GetInstanceCustomizedDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceCustomizedDomainWithOptions(request, runtime);
   }
 
   /**
@@ -5905,6 +6059,64 @@ export default class Client extends OpenApi {
   async updateEventCenterRule(request: $_model.UpdateEventCenterRuleRequest): Promise<$_model.UpdateEventCenterRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateEventCenterRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新实例自定义域名
+   * 
+   * @param request - UpdateInstanceCustomizedDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceCustomizedDomainResponse
+   */
+  async updateInstanceCustomizedDomainWithOptions(request: $_model.UpdateInstanceCustomizedDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceCustomizedDomainResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!$dara.isNull(request.certRegionId)) {
+      query["CertRegionId"] = request.certRegionId;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInstanceCustomizedDomain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInstanceCustomizedDomainResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceCustomizedDomainResponse({}));
+  }
+
+  /**
+   * 更新实例自定义域名
+   * 
+   * @param request - UpdateInstanceCustomizedDomainRequest
+   * @returns UpdateInstanceCustomizedDomainResponse
+   */
+  async updateInstanceCustomizedDomain(request: $_model.UpdateInstanceCustomizedDomainRequest): Promise<$_model.UpdateInstanceCustomizedDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateInstanceCustomizedDomainWithOptions(request, runtime);
   }
 
   /**
