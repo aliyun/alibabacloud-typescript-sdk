@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPipelinesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return. The service may return fewer results than the specified value.
+   * The maximum number of results to return.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class ListPipelinesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If this parameter is not empty, use it in a subsequent request to get the next page of results.
+   * The pagination token.
    * 
    * @example
    * fff3442dac1de7950f44d5afc0c735ebd12e27f603b21d17ec30cb1d5c735b1ba7c4fb3a1c124bce
@@ -21,7 +21,7 @@ export class ListPipelinesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pipeline name.
+   * The name of the pipeline.
    * 
    * @example
    * pipeline-name-1

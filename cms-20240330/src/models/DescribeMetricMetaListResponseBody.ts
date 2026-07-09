@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricMetaListResponseBodyResourcesDimensionDescription extends $dara.Model {
   /**
    * @remarks
-   * The name of the dimension.
+   * The name.
    * 
    * @example
    * user_id
@@ -43,22 +43,33 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The descriptions of the dimensions.
+   * The dimension description.
    */
   dimensionDescription?: DescribeMetricMetaListResponseBodyResourcesDimensionDescription[];
   /**
    * @remarks
-   * The dimensions for filtering resources in CloudMonitor.
+   * The resource filtering dimensions of CloudMonitor Basic.
    */
   dimensions?: string[];
   /**
    * @remarks
-   * The CloudMonitor labels. This parameter is returned only when `metaFormat` is set to `CMS`.
+   * The CloudMonitor labels. This parameter is returned only when metaFormat is set to CMS.
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The metadata format.
+   * The metadata source. Valid values:
+   * - CMS: CloudMonitor Basic monitoring metrics.
+   * - PROM_BASIC: Managed Service for Prometheus monitoring metrics.
+   * 
+   * Sample value:
+   * CMS
+   * Valid values:
+   * CMS
+   * PROM_BASIC.
+   * 
+   * @example
+   * PROM_BASIC
    */
   metaFormat?: string;
   /**
@@ -79,7 +90,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The aggregation period.
+   * The period.
    * 
    * @example
    * 60
@@ -87,13 +98,10 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   periods?: string;
   /**
    * @remarks
-   * The statistic of the metric. Examples:
-   * 
-   * - `Maximum`: the maximum value.
-   * 
-   * - `Minimum`: the minimum value.
-   * 
-   * - `Average`: the average value.
+   * The statistical method of the metric. Example values:
+   * - Maximum: the maximum value.
+   * - Minimum: the minimum value.
+   * - Average: the average value.
    * 
    * @example
    * Maximum
@@ -168,7 +176,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
 export class DescribeMetricMetaListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. The default value is `1`.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -176,7 +184,7 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 2000
@@ -184,7 +192,7 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -192,7 +200,7 @@ export class DescribeMetricMetaListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configurations of the metrics in the resource.
+   * The metric configuration information of the resources.
    */
   resources?: DescribeMetricMetaListResponseBodyResources[];
   /**

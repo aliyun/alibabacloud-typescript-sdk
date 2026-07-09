@@ -37,7 +37,7 @@ export class SubscriptionForViewAgentConfig extends $dara.Model {
 export class SubscriptionForViewPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * A list of action integration IDs for alert pushes.
+   * The list of action integration IDs for alert pushing.
    */
   alertActionIds?: string[];
   /**
@@ -50,12 +50,12 @@ export class SubscriptionForViewPushingSetting extends $dara.Model {
   responsePlanId?: string;
   /**
    * @remarks
-   * A list of action integration IDs for recovery pushes.
+   * The list of action integration IDs for recovery pushing.
    */
   restoreActionIds?: string[];
   /**
    * @remarks
-   * The template UUID.
+   * The UUID of the template.
    * 
    * @example
    * 123123123
@@ -140,7 +140,14 @@ export class SubscriptionForView extends $dara.Model {
   pushingSetting?: SubscriptionForViewPushingSetting;
   /**
    * @remarks
-   * The UUID.
+   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
+   * - true: Subscribe.
+   * - false or null: Do not subscribe.
+   */
+  subscribeLegacyEvent?: boolean;
+  /**
+   * @remarks
+   * UUID
    * 
    * @example
    * 123123123123
@@ -187,7 +194,7 @@ export class SubscriptionForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Specifies the workspace.
+   * workspace
    * 
    * @example
    * workspace-test
@@ -203,6 +210,7 @@ export class SubscriptionForView extends $dara.Model {
       filterSetting: 'filterSetting',
       notifyStrategyId: 'notifyStrategyId',
       pushingSetting: 'pushingSetting',
+      subscribeLegacyEvent: 'subscribeLegacyEvent',
       subscriptionId: 'subscriptionId',
       subscriptionName: 'subscriptionName',
       subscriptionType: 'subscriptionType',
@@ -223,6 +231,7 @@ export class SubscriptionForView extends $dara.Model {
       filterSetting: FilterSetting,
       notifyStrategyId: 'string',
       pushingSetting: SubscriptionForViewPushingSetting,
+      subscribeLegacyEvent: 'boolean',
       subscriptionId: 'string',
       subscriptionName: 'string',
       subscriptionType: 'string',

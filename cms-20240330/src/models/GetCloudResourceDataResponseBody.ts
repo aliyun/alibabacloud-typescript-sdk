@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCloudResourceDataResponseBodyResponseStatusStatusItem extends $dara.Model {
+  /**
+   * @remarks
+   * The status code.
+   * 
+   * @example
+   * Success,ExecuteTimeout,UModelNotExist
+   */
   code?: string;
+  /**
+   * @remarks
+   * The status level.
+   * 
+   * @example
+   * Info,Warn,Error
+   */
   level?: string;
+  /**
+   * @remarks
+   * The message content.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * The suggestion when an execution error occurs.
+   * 
+   * @example
+   * Try to reduce the query scope or increase timeout limit, then retry
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,10 +63,42 @@ export class GetCloudResourceDataResponseBodyResponseStatusStatusItem extends $d
 }
 
 export class GetCloudResourceDataResponseBodyResponseStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The information during execution.
+   * 
+   * @example
+   * {}
+   */
   executionStates?: string;
+  /**
+   * @remarks
+   * The status level.
+   * 
+   * @example
+   * Info,Warn,Error
+   */
   level?: string;
+  /**
+   * @remarks
+   * The execution result.
+   * 
+   * @example
+   * Success,PartialSuccess,Error
+   */
   result?: string;
+  /**
+   * @remarks
+   * The retry policy.
+   * 
+   * @example
+   * None,Once,Continuous
+   */
   retryPolicy?: string;
+  /**
+   * @remarks
+   * The detailed status information.
+   */
   statusItem?: GetCloudResourceDataResponseBodyResponseStatusStatusItem[];
   static names(): { [key: string]: string } {
     return {
@@ -75,12 +135,12 @@ export class GetCloudResourceDataResponseBodyResponseStatus extends $dara.Model 
 export class GetCloudResourceDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The total list of returned data.
    */
   data?: string[][];
   /**
    * @remarks
-   * The list of column headers.
+   * The list of headers.
    */
   header?: string[];
   /**
@@ -91,6 +151,10 @@ export class GetCloudResourceDataResponseBody extends $dara.Model {
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result status.
+   */
   responseStatus?: GetCloudResourceDataResponseBodyResponseStatus;
   static names(): { [key: string]: string } {
     return {

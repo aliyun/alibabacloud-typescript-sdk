@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeliveryTasksResponseBodyDeliveryTasksExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * A list of EventBridge tasks.
+   * The list of EventBridge tasks.
    */
   taskNameList?: string[];
   static names(): { [key: string]: string } {
@@ -35,12 +35,12 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksExtraInfo extends $dara.M
 export class ListDeliveryTasksResponseBodyDeliveryTasksSinkList extends $dara.Model {
   /**
    * @remarks
-   * Detailed configuration for the sink. The available key-value pairs depend on the specified `sinkType`.
+   * The detailed configuration of the delivery target. The meanings of the key/value pairs vary depending on the sinkType.
    */
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The type of the sink.
+   * The type of the delivery target.
    * 
    * @example
    * Prometheus
@@ -75,7 +75,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksSinkList extends $dara.Mo
 export class ListDeliveryTasksResponseBodyDeliveryTasksTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the resource tag.
+   * The tag key.
    * 
    * @example
    * key
@@ -83,7 +83,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksTags extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * The value of the resource tag.
+   * The tag value.
    * 
    * @example
    * value
@@ -115,7 +115,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksTags extends $dara.Model 
 export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   /**
    * @remarks
-   * The time when the delivery task was created.
+   * The time when the task was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -125,7 +125,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the Prometheus instance that serves as the data source.
+   * The data source ID (Prometheus instance ID).
    * 
    * @example
    * rw-5f2b4c7e66342s
@@ -133,22 +133,22 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * A key-value map of additional labels to attach to all delivered metrics.
+   * The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
    */
   externalLabels?: { [key: string]: string };
   /**
    * @remarks
-   * Additional information.
+   * The extended information.
    */
   extraInfo?: ListDeliveryTasksResponseBodyDeliveryTasksExtraInfo;
   /**
    * @remarks
-   * A key-value map of metric label filters. These filters are used with `labelFiltersType` to determine which metrics to deliver.
+   * The metric filter conditions. Used together with labelFiltersType. The key is the metric label name and the value is the match value.
    */
   labelFilters?: { [key: string]: string };
   /**
    * @remarks
-   * The filtering mode for metric labels.
+   * The metric filtering mode.
    * 
    * @example
    * Allow
@@ -156,7 +156,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   labelFiltersType?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the task belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-acfm3gn5i6bigbi
@@ -164,12 +164,12 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * A list of sinks.
+   * The list of delivery targets. Multiple sinks can be configured.
    */
   sinkList?: ListDeliveryTasksResponseBodyDeliveryTasksSinkList[];
   /**
    * @remarks
-   * The current status of the delivery task.
+   * The current status of the task.
    * 
    * @example
    * Enable
@@ -177,12 +177,12 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The resource tags attached to the task.
+   * The tags.
    */
   tags?: ListDeliveryTasksResponseBodyDeliveryTasksTags[];
   /**
    * @remarks
-   * The description of the delivery task.
+   * The task description.
    * 
    * @example
    * my delivery task
@@ -190,7 +190,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   taskDescription?: string;
   /**
    * @remarks
-   * The ID of the delivery task.
+   * The task ID.
    * 
    * @example
    * db21f8a126d96953
@@ -198,7 +198,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * @example
    * test-task
@@ -279,12 +279,12 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
 export class ListDeliveryTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of delivery tasks.
+   * The list of delivery tasks.
    */
   deliveryTasks?: ListDeliveryTasksResponseBodyDeliveryTasks[];
   /**
    * @remarks
-   * The maximum number of results to return. The maximum value is 100.
+   * The maximum number of entries returned. Maximum value: 100.
    * 
    * @example
    * 100
@@ -292,7 +292,7 @@ export class ListDeliveryTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page of results. If this parameter is not returned, no more results are available.
+   * The pagination token for the next page.
    * 
    * @example
    * 2-ba4d-4b9f-aa24-dcb067a30f1c
@@ -300,7 +300,7 @@ export class ListDeliveryTasksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique ID for the request.
+   * The request ID.
    * 
    * @example
    * 7D7DF334-B2F2-5453-AD51-A27B337E3191

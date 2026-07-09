@@ -3,27 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The keyword.
+   * 
+   * @example
+   * 实例理论
+   */
   keywords?: string;
   /**
    * @remarks
-   * The labels used to filter resources. The following labels are supported:
-   * 
-   * - `metricCategory`: The metric category.
-   * 
-   * - `alertEnable`: Indicates whether to enable alerts.
-   * 
-   * - `alertUnit`: The recommended unit for alerts.
-   * 
-   * - `unitFactor`: The unit conversion factor.
-   * 
-   * - `minAlertPeriod`: The minimum alert period.
-   * 
-   * - `productCategory`: The product category.
+   * Filters resources by label. The following labels are supported:
+   * - metricCategory: the metric category description.
+   * - alertEnable: specifies whether alerting is required.
+   * - alertUnit: the recommended alert unit.
+   * - unitFactor: the unit conversion factor.
+   * - minAlertPeriod: the minimum alert period.
+   * - productCategory: the service type category.
    */
   labelsShrink?: string;
   /**
    * @remarks
-   * The source of the metadata. Valid values: `CMS` for CloudMonitor metrics and `PROM_BASIC` for basic Prometheus metrics.
+   * The metadata source. Valid values:
+   * - CMS: CloudMonitor Basic monitoring metrics.
+   * - PROM_BASIC: Managed Service for Prometheus monitoring metrics.
    * 
    * @example
    * CMS
@@ -31,7 +34,7 @@ export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
   metaFormat?: string;
   /**
    * @remarks
-   * The name of the metric.
+   * The metric name.
    * 
    * @example
    * CPUUtilization
@@ -39,7 +42,7 @@ export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The namespace of the product.
+   * The namespace, which is used to distinguish between services.
    * 
    * @example
    * acs_ecs_dashboard
@@ -47,7 +50,7 @@ export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: `1`.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -55,7 +58,7 @@ export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: `2000`.
+   * The number of entries per page. Default value: 2000.
    * 
    * @example
    * 2000

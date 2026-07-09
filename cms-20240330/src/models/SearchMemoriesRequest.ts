@@ -13,7 +13,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The app ID assigned by the merchant.
+   * The app key of the project assigned by the merchant.
    * 
    * @example
    * mm_480d961a1b5e4efe84603f4cbc0f
@@ -26,7 +26,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   filters?: { [key: string]: any };
   /**
    * @remarks
-   * The query text.
+   * The query content.
    * 
    * @example
    * What I like
@@ -34,13 +34,16 @@ export class SearchMemoriesRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Specifies whether to rerank the search results.
+   * Specifies whether to enable reranking.
    * 
    * @example
    * true
    */
   rerank?: boolean;
   /**
+   * @remarks
+   * The retrieval option.
+   * 
    * @example
    * reranker,llm_rank
    */
@@ -71,7 +74,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * The number of top-K results to return.
+   * The top-K entries to return in the results.
    * 
    * @example
    * 1

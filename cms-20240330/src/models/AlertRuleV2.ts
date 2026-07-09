@@ -35,7 +35,6 @@ export class AlertRuleV2 extends $dara.Model {
    * The template for the alert notification content.
    */
   contentTemplate?: string;
-  coveredSeverityLevels?: string;
   /**
    * @remarks
    * The time the alert rule was created.
@@ -73,6 +72,11 @@ export class AlertRuleV2 extends $dara.Model {
   notifyConfig?: NotifyConfigUnified;
   /**
    * @remarks
+   * The ID of the notification strategy to use for this alert rule.
+   */
+  notifyStrategyId?: string;
+  /**
+   * @remarks
    * Indicates whether the alert rule monitors all resources of the specified type. If `true`, the rule applies globally within the workspace.
    */
   observeResourceGlobalScope?: boolean;
@@ -80,12 +84,17 @@ export class AlertRuleV2 extends $dara.Model {
    * @remarks
    * A list of specific resource IDs to monitor, used only when `observeResourceGlobalScope` is `false`.
    */
-  observeResourceList?: string;
+  observeResourceList?: string[];
   /**
    * @remarks
    * The type of resource that the alert rule monitors.
    */
   observeResourceType?: string;
+  /**
+   * @remarks
+   * The partition key used to group alerts. Alerts with the same partition key are treated as a single incident.
+   */
+  partitionKey?: string;
   /**
    * @remarks
    * The configuration for querying and processing data from the data source.
@@ -96,6 +105,11 @@ export class AlertRuleV2 extends $dara.Model {
    * The configuration for how often the alert rule is evaluated.
    */
   scheduleConfig?: ScheduleConfigUnified;
+  /**
+   * @remarks
+   * The severity level of the alert. Examples: `critical`, `warning`.
+   */
+  severityLevels?: string;
   /**
    * @remarks
    * The current status of the alert rule. Examples: `RUNNING`, `STOPPED`.
@@ -123,7 +137,6 @@ export class AlertRuleV2 extends $dara.Model {
       armsIntegrationConfig: 'armsIntegrationConfig',
       conditionConfig: 'conditionConfig',
       contentTemplate: 'contentTemplate',
-      coveredSeverityLevels: 'coveredSeverityLevels',
       createdAt: 'createdAt',
       datasourceConfig: 'datasourceConfig',
       datasourceType: 'datasourceType',
@@ -131,11 +144,14 @@ export class AlertRuleV2 extends $dara.Model {
       enabled: 'enabled',
       labels: 'labels',
       notifyConfig: 'notifyConfig',
+      notifyStrategyId: 'notifyStrategyId',
       observeResourceGlobalScope: 'observeResourceGlobalScope',
       observeResourceList: 'observeResourceList',
       observeResourceType: 'observeResourceType',
+      partitionKey: 'partitionKey',
       queryConfig: 'queryConfig',
       scheduleConfig: 'scheduleConfig',
+      severityLevels: 'severityLevels',
       status: 'status',
       updatedAt: 'updatedAt',
       uuid: 'uuid',
@@ -150,7 +166,6 @@ export class AlertRuleV2 extends $dara.Model {
       armsIntegrationConfig: ArmsIntegrationConfig,
       conditionConfig: ConditionConfigUnified,
       contentTemplate: 'string',
-      coveredSeverityLevels: 'string',
       createdAt: 'string',
       datasourceConfig: DatasourceConfigUnified,
       datasourceType: 'string',
@@ -158,11 +173,14 @@ export class AlertRuleV2 extends $dara.Model {
       enabled: 'boolean',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notifyConfig: NotifyConfigUnified,
+      notifyStrategyId: 'string',
       observeResourceGlobalScope: 'boolean',
-      observeResourceList: 'string',
+      observeResourceList: { 'type': 'array', 'itemType': 'string' },
       observeResourceType: 'string',
+      partitionKey: 'string',
       queryConfig: QueryConfigUnified,
       scheduleConfig: ScheduleConfigUnified,
+      severityLevels: 'string',
       status: 'string',
       updatedAt: 'string',
       uuid: 'string',
@@ -191,6 +209,9 @@ export class AlertRuleV2 extends $dara.Model {
     }
     if(this.notifyConfig && typeof (this.notifyConfig as any).validate === 'function') {
       (this.notifyConfig as any).validate();
+    }
+    if(Array.isArray(this.observeResourceList)) {
+      $dara.Model.validateArray(this.observeResourceList);
     }
     if(this.queryConfig && typeof (this.queryConfig as any).validate === 'function') {
       (this.queryConfig as any).validate();

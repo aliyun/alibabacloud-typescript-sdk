@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of region IDs to filter by, separated by commas.
+   * The region IDs for filtering, separated by commas.
    * 
    * @example
    * cn-shenzhen
@@ -38,7 +38,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of instance IDs, separated by commas.
+   * The instance IDs, separated by commas.
    * 
    * @example
    * rw-00001,rw-00002,rw-00003
@@ -49,7 +49,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   prometheusInstanceIds?: string;
   /**
    * @remarks
-   * The instance name. Partial match is supported.
+   * The instance name. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -79,12 +79,14 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tagShrink?: string;
   /**
    * @remarks
-   * The instance version. Valid values: V1 and V2.
+   * The instance version. Valid values:
+   * - V1: V1 version.
+   * - V2: V2 version.
    * 
    * @example
    * V2
@@ -94,6 +96,12 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    */
   version?: string;
   /**
+   * @remarks
+   * The workspace to which the instance belongs.
+   * 
+   * @example
+   * workspace-test
+   * 
    * **if can be null:**
    * true
    */

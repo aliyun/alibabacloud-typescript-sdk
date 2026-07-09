@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenCmsServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether the specified monitoring services are enabled.
+   * Indicates whether the service or commodity is activated.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class OpenCmsServiceResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC

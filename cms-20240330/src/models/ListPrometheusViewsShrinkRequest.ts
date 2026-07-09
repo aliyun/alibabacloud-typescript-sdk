@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The region IDs by which to filter the results.
+   * Filters by region ID.
    * 
    * @example
    * cn-zhangjiakou,cn-beijing
@@ -35,7 +35,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The IDs of the Prometheus view instances.
+   * The list of Prometheus view instance IDs.
    * 
    * @example
    * view-xxx
@@ -43,7 +43,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   prometheusViewIds?: string;
   /**
    * @remarks
-   * The name of the Prometheus view.
+   * The Prometheus view name.
    * 
    * @example
    * view1
@@ -72,7 +72,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
-   * The instance version. Valid values: V1 and V2.
+   * The instance version: V1 or V2.
    * 
    * @example
    * V2
@@ -80,7 +80,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * workspace-test

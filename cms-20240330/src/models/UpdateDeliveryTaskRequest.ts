@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDeliveryTaskRequestSinkList extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the sink. The meaning of the key-value pairs depends on the specified sinkType.
+   * The detailed configuration of the delivery target. The meanings of keys and values vary depending on the sinkType.
    */
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The sink type.
+   * The delivery target type.
    * 
    * @example
    * Prometheus
@@ -48,7 +48,7 @@ export class UpdateDeliveryTaskRequestSinkList extends $dara.Model {
 export class UpdateDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The data source ID (Prometheus instance ID).
+   * The data source ID, which is the Managed Service for Prometheus instance ID.
    * 
    * @example
    * rw-5f2b4sc7es4d66
@@ -56,12 +56,12 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * Additional labels to attach to all delivered metrics, specified as key-value pairs.
+   * The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
    */
   externalLabels?: { [key: string]: string };
   /**
    * @remarks
-   * The labels for filtering metrics. This operation replaces the entire existing filter; incremental updates are not supported.
+   * The metric filter conditions. The entire value is replaced rather than incrementally merged.
    */
   labelFilters?: { [key: string]: string };
   /**
@@ -82,12 +82,12 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of sinks.
+   * The list of delivery targets.
    */
   sinkList?: UpdateDeliveryTaskRequestSinkList[];
   /**
    * @remarks
-   * The status of the delivery task.
+   * The task status. This parameter is used to enable or disable the task.
    * 
    * @example
    * Enable
@@ -103,7 +103,7 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   taskDescription?: string;
   /**
    * @remarks
-   * The name of the delivery task. The name can include Chinese characters, English letters, underscores (_), and hyphens (-).
+   * The task name. The name can contain letters, digits, underscores (_), and hyphens (-).
    * 
    * @example
    * new-task-name

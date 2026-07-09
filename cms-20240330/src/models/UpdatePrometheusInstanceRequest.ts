@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days to store archived data after the storage duration expires. A value of 0 disables archiving. For V1 instances, the valid values are 1 to 365. This is supported only for the pay-by-data-write billing method. For V2 instances, the valid values are 1 to 3650. A value of 3650 indicates permanent storage.
+   * The number of days for automatic archiving after storage expires. A value of 0 indicates no archiving. Valid values for archiving days:
+   * V1: 1 to 365 days. Supported only for billing by metric write volume.
+   * V2: 1 to 3650 days (3650 indicates permanent retention).
    * 
    * @example
    * 365
@@ -16,7 +18,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   archiveDuration?: number;
   /**
    * @remarks
-   * The policy for password-free read access. The policy supports IP address segments and VPC IDs.
+   * The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
    * 
    * @example
    * {
@@ -33,7 +35,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * The policy for password-free write access. The policy supports IP address segments and VPC IDs.
+   * The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
    * 
    * @example
    * {
@@ -50,7 +52,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   authFreeWritePolicy?: string;
   /**
    * @remarks
-   * Specifies whether to enable password-free read access.
+   * Specifies whether to enable authentication-free read.
    * 
    * @example
    * true
@@ -58,7 +60,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable password-free write access.
+   * Specifies whether to enable authentication-free write.
    * 
    * @example
    * true
@@ -66,7 +68,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeWrite?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable authentication with an access token.
+   * Specifies whether to enable access token authentication.
    * 
    * @example
    * true
@@ -74,7 +76,9 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * The billing method. You can change the billing method only once during the instance lifecycle. Valid values: \\`POSTPAY\\` (pay-as-you-go based on reported metrics) and \\`POSTPAY_GB\\` (pay-as-you-go based on data writes).
+   * The billing method. This parameter can be modified only once during the instance lifetime. Valid values:
+   * - POSTPAY: pay-as-you-go by metric reporting volume.
+   * - POSTPAY_GB: pay-as-you-go by metric write volume.
    * 
    * @example
    * POSTPAY_GB
@@ -82,7 +86,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * test-prom-name
@@ -90,7 +94,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   prometheusInstanceName?: string;
   /**
    * @remarks
-   * The status of the instance storage database. Only RUNNING is supported. If this parameter is left empty, the status of the storage database is not changed.
+   * Instance storage database status of the instance. Only RUNNING is supported. If this parameter is left empty, instance storage database status remains unchanged.
    * 
    * @example
    * RUNNING
@@ -98,7 +102,9 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage duration in days. If the instance is billed by data writes, valid values are 90 and 180. If the instance is billed by reported metrics, valid values are 15, 30, 60, 90, and 180.
+   * The storage duration (days):
+   * By write volume: 90 or 180.
+   * By metric reporting volume: 15, 30, 60, 90, or 180.
    * 
    * @example
    * 90

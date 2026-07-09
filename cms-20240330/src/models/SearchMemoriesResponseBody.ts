@@ -13,7 +13,7 @@ export class SearchMemoriesResponseBodyRelations extends $dara.Model {
   destination?: string;
   /**
    * @remarks
-   * The relationship.
+   * The relations.
    * 
    * @example
    * test
@@ -111,7 +111,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The sender\\"s role.
+   * The role that initiated the message.
    * 
    * @example
    * user
@@ -198,7 +198,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
 export class SearchMemoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of relationships.
+   * The relations.
    */
   relations?: SearchMemoriesResponseBodyRelations[];
   /**
@@ -211,7 +211,7 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of search results.
+   * The returned results.
    */
   results?: SearchMemoriesResponseBodyResults[];
   static names(): { [key: string]: string } {

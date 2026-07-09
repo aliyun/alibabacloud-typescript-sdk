@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dara.Model {
   /**
    * @remarks
-   * The permission type. Valid values: readWrite, readOnly, and httpReadOnly.
+   * The access type. Valid values:
+   * - readWrite
+   * - readOnly
+   * - httpReadOnly
    * 
    * @example
    * readWrite
@@ -13,7 +16,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   accessType?: string;
   /**
    * @remarks
-   * The time when the instance was created. The time is in UTC and the format is yyyy-MM-ddTHH:mmZ.
+   * The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
    * 
    * @example
    * 2025-08-10T02:07:53Z
@@ -29,10 +32,11 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * POSTPAY: Pay-as-you-go, billed by metrics.
-   * POSTPAY_GB: Pay-as-you-go, billed by data written.
-   * PREPAY: Subscription.
-   * FREE: Free.
+   * The billing method. Valid values:
+   * - POSTPAY: pay-as-you-go by metric volume.
+   * - POSTPAY_GB: pay-as-you-go by write volume.
+   * - PREPAY: subscription.
+   * - FREE: free.
    * 
    * @example
    * POSTPAY_GB
@@ -72,6 +76,14 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   regionId?: string;
   /**
    * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aek2bhocin5e2na
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
    * The resource type.
    * 
    * @example
@@ -80,7 +92,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   resourceType?: string;
   /**
    * @remarks
-   * The status of the backend data storage.
+   * The backend data storage status.
    * 
    * @example
    * Pending2Running
@@ -125,6 +137,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
       prometheusInstanceId: 'prometheusInstanceId',
       prometheusInstanceName: 'prometheusInstanceName',
       regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
       resourceType: 'resourceType',
       status: 'status',
       supportAuthTypes: 'supportAuthTypes',
@@ -144,6 +157,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
       prometheusInstanceId: 'string',
       prometheusInstanceName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceType: 'string',
       status: 'string',
       supportAuthTypes: { 'type': 'array', 'itemType': 'string' },
@@ -168,7 +182,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
 export class ListPrometheusInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned.
+   * The maximum number of records to return.
    * 
    * @example
    * 10
@@ -192,7 +206,7 @@ export class ListPrometheusInstancesResponseBody extends $dara.Model {
   prometheusInstances?: ListPrometheusInstancesResponseBodyPrometheusInstances[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC

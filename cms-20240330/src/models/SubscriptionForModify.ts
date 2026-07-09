@@ -37,12 +37,12 @@ export class SubscriptionForModifyAgentConfig extends $dara.Model {
 export class SubscriptionForModifyPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * A list of alert push action plan IDs.
+   * The list of action plan IDs for alert pushing.
    */
   alertActionIds?: string[];
   /**
    * @remarks
-   * Action plan ID.
+   * The action plan ID.
    * 
    * @example
    * 123123123
@@ -50,12 +50,12 @@ export class SubscriptionForModifyPushingSetting extends $dara.Model {
   responsePlanId?: string;
   /**
    * @remarks
-   * A list of action integration plan IDs.
+   * The list of action integration plan IDs for recovery pushing.
    */
   restoreActionIds?: string[];
   /**
    * @remarks
-   * Template UUID.
+   * The UUID of the template.
    * 
    * @example
    * 123123123
@@ -98,7 +98,7 @@ export class SubscriptionForModify extends $dara.Model {
   agentConfig?: SubscriptionForModifyAgentConfig;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * workspace test
@@ -106,12 +106,12 @@ export class SubscriptionForModify extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Filter settings.
+   * The filter settings.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Notification policy UUID.
+   * The UUID of the notification policy.
    * 
    * @example
    * 123123
@@ -119,12 +119,19 @@ export class SubscriptionForModify extends $dara.Model {
   notifyStrategyId?: string;
   /**
    * @remarks
-   * Push settings.
+   * The push settings.
    */
   pushingSetting?: SubscriptionForModifyPushingSetting;
   /**
    * @remarks
-   * Name.
+   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
+   * - true: Subscribe.
+   * - false or null: Do not subscribe.
+   */
+  subscribeLegacyEvent?: boolean;
+  /**
+   * @remarks
+   * The name.
    * 
    * This parameter is required.
    * 
@@ -140,6 +147,7 @@ export class SubscriptionForModify extends $dara.Model {
       filterSetting: 'filterSetting',
       notifyStrategyId: 'notifyStrategyId',
       pushingSetting: 'pushingSetting',
+      subscribeLegacyEvent: 'subscribeLegacyEvent',
       subscriptionName: 'subscriptionName',
       workspaceFilterSetting: 'workspaceFilterSetting',
     };
@@ -152,6 +160,7 @@ export class SubscriptionForModify extends $dara.Model {
       filterSetting: FilterSetting,
       notifyStrategyId: 'string',
       pushingSetting: SubscriptionForModifyPushingSetting,
+      subscribeLegacyEvent: 'boolean',
       subscriptionName: 'string',
       workspaceFilterSetting: WorkspaceFilterSetting,
     };

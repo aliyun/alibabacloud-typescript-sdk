@@ -5,83 +5,46 @@ import { UmodelEntityFilter } from "./UmodelEntityFilter";
 import { ApmFilterConfig } from "./ApmFilterConfig";
 import { UmodelLabelFilter } from "./UmodelLabelFilter";
 import { ApmMeasureConfig } from "./ApmMeasureConfig";
+import { MetricSetNamedQueryEntry } from "./MetricSetNamedQueryEntry";
 
 
 export class QueryConfigUnified extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to check for data completeness. A value of `true` enables the check.
-   */
+  aggregate?: string;
+  dimensions?: { [key: string]: string }[];
   enableDataCompleteCheck?: boolean;
-  /**
-   * @remarks
-   * Specifies the domain of the entity, such as `acs` for Alibaba Cloud services.
-   */
   entityDomain?: string;
-  /**
-   * @remarks
-   * A list of entity fields to include in the response.
-   */
   entityFields?: UmodelEntityField[];
-  /**
-   * @remarks
-   * A list of filters for selecting specific entities.
-   */
   entityFilters?: UmodelEntityFilter[];
-  /**
-   * @remarks
-   * Specifies the type of the entity, such as `EcsInstance`.
-   */
   entityType?: string;
-  /**
-   * @remarks
-   * Specifies the expression to post-process query results.
-   */
   expr?: string;
-  /**
-   * @remarks
-   * A list of Application Performance Monitoring (APM) filter configurations.
-   */
   filterList?: ApmFilterConfig[];
-  /**
-   * @remarks
-   * A list of filters that match labels.
-   */
+  groupId?: string;
   labelFilters?: UmodelLabelFilter[];
-  /**
-   * @remarks
-   * A list of APM measure configurations.
-   */
+  legacyRaw?: string;
+  legacyType?: string;
+  logSet?: string;
   measureList?: ApmMeasureConfig[];
-  /**
-   * @remarks
-   * Specifies the name of the metric to query.
-   */
   metric?: string;
-  /**
-   * @remarks
-   * Specifies the metric set that contains the metric.
-   */
   metricSet?: string;
+  namespace?: string;
+  offsetSecs?: number;
   /**
-   * @remarks
-   * Specifies the query string in Prometheus Query Language (PromQL).
+   * @deprecated
    */
   promQl?: string;
-  /**
-   * @remarks
-   * A list of service IDs to query.
-   */
+  queries?: MetricSetNamedQueryEntry[];
+  relationType?: string;
   serviceIdList?: string[];
   /**
    * @remarks
-   * The query type.
-   * 
    * This parameter is required.
    */
   type?: string;
+  windowSecs?: number;
   static names(): { [key: string]: string } {
     return {
+      aggregate: 'aggregate',
+      dimensions: 'dimensions',
       enableDataCompleteCheck: 'enableDataCompleteCheck',
       entityDomain: 'entityDomain',
       entityFields: 'entityFields',
@@ -89,18 +52,29 @@ export class QueryConfigUnified extends $dara.Model {
       entityType: 'entityType',
       expr: 'expr',
       filterList: 'filterList',
+      groupId: 'groupId',
       labelFilters: 'labelFilters',
+      legacyRaw: 'legacyRaw',
+      legacyType: 'legacyType',
+      logSet: 'logSet',
       measureList: 'measureList',
       metric: 'metric',
       metricSet: 'metricSet',
+      namespace: 'namespace',
+      offsetSecs: 'offsetSecs',
       promQl: 'promQl',
+      queries: 'queries',
+      relationType: 'relationType',
       serviceIdList: 'serviceIdList',
       type: 'type',
+      windowSecs: 'windowSecs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aggregate: 'string',
+      dimensions: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
       enableDataCompleteCheck: 'boolean',
       entityDomain: 'string',
       entityFields: { 'type': 'array', 'itemType': UmodelEntityField },
@@ -108,17 +82,29 @@ export class QueryConfigUnified extends $dara.Model {
       entityType: 'string',
       expr: 'string',
       filterList: { 'type': 'array', 'itemType': ApmFilterConfig },
+      groupId: 'string',
       labelFilters: { 'type': 'array', 'itemType': UmodelLabelFilter },
+      legacyRaw: 'string',
+      legacyType: 'string',
+      logSet: 'string',
       measureList: { 'type': 'array', 'itemType': ApmMeasureConfig },
       metric: 'string',
       metricSet: 'string',
+      namespace: 'string',
+      offsetSecs: 'number',
       promQl: 'string',
+      queries: { 'type': 'array', 'itemType': MetricSetNamedQueryEntry },
+      relationType: 'string',
       serviceIdList: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
+      windowSecs: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.dimensions)) {
+      $dara.Model.validateArray(this.dimensions);
+    }
     if(Array.isArray(this.entityFields)) {
       $dara.Model.validateArray(this.entityFields);
     }
@@ -133,6 +119,9 @@ export class QueryConfigUnified extends $dara.Model {
     }
     if(Array.isArray(this.measureList)) {
       $dara.Model.validateArray(this.measureList);
+    }
+    if(Array.isArray(this.queries)) {
+      $dara.Model.validateArray(this.queries);
     }
     if(Array.isArray(this.serviceIdList)) {
       $dara.Model.validateArray(this.serviceIdList);

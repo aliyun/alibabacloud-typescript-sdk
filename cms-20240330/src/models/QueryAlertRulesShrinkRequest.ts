@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAlertRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request parameters for querying alert rules.
+   * The request body for querying alert rules.
    */
   bodyShrink?: string;
   /**
    * @remarks
-   * The client token used to ensure the idempotency of the request.
+   * The idempotency token.
    * 
    * @example
    * xxxxx-xxxx-xxxx
@@ -18,7 +18,7 @@ export class QueryAlertRulesShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The maximum number of data records to read in this request.
    * 
    * @example
    * 10
@@ -26,7 +26,7 @@ export class QueryAlertRulesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. If you do not specify this parameter, the query starts from the beginning.
+   * The token that marks the position from which you want to start reading data. If you leave this parameter empty, data is read from the beginning.
    * 
    * @example
    * 123456

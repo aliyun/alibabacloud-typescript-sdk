@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeliveryTasksShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The keywords for a fuzzy search by task name or task ID. The search uses `LIKE` semantics.
+   * The keyword used to perform a fuzzy match by task name or task ID.
    * 
    * @example
    * test-task
@@ -13,7 +13,7 @@ export class ListDeliveryTasksShrinkRequest extends $dara.Model {
   keyWords?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20. Maximum value: 100.
+   * The number of entries per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class ListDeliveryTasksShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used to retrieve the next page of results. You do not need to specify this parameter for the first request. For subsequent requests, set this parameter to the `nextToken` value that is returned in the previous response.
+   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, set this parameter to the nextToken value returned in the previous response.
    * 
    * @example
    * sjC5rekx93Ew7K7VcmI3wkBZBYQ-GphB2ilQu3zJCGxoZuicwyJznfo2riTjr-lq
@@ -37,7 +37,7 @@ export class ListDeliveryTasksShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The tags.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertRobotsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the robot. Fuzzy search by prefix is supported.
+   * The chatbot name. Prefix fuzzy match is supported.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListAlertRobotsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAlertRobotsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 100.
+   * The number of entries per page. Default value: 100.
    * 
    * @example
    * 10
@@ -29,12 +29,12 @@ export class ListAlertRobotsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The robot IDs.
+   * The chatbot ID.
    */
   robotIds?: string[];
   /**
    * @remarks
-   * The robot types.
+   * The chatbot type.
    */
   types?: string[];
   workspace?: string;

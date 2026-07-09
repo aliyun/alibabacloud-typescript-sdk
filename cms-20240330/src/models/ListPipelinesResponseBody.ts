@@ -15,7 +15,7 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the pipeline.
+   * The description.
    * 
    * @example
    * test pipeline
@@ -23,7 +23,7 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The pipeline name.
+   * The name of the pipeline.
    * 
    * @example
    * pipeline-name-1
@@ -89,7 +89,7 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
 export class ListPipelinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of results returned on the current page.
+   * The maximum number of results to return.
    * 
    * @example
    * 100
@@ -97,7 +97,7 @@ export class ListPipelinesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. If this parameter is not empty, use it in a subsequent request to get the next page of results. If this parameter is empty, all results have been returned.
+   * The pagination token.
    * 
    * @example
    * 3f0d6785770d5fb308f0605d718d422a227c38f96117633678f029842acd19039329e8281583b3da7bc598dfc4c1973e
@@ -105,12 +105,12 @@ export class ListPipelinesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of pipelines.
+   * The pipelines.
    */
   pipelines?: ListPipelinesResponseBodyPipelines[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-************

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * The names of the associated EventBridge tasks.
+   * The list of EventBridge tasks.
    */
   taskNameList?: string[];
   static names(): { [key: string]: string } {
@@ -35,12 +35,12 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Mode
 export class GetDeliveryTaskResponseBodyDeliveryTaskSinkList extends $dara.Model {
   /**
    * @remarks
-   * The sink configuration. The structure of this object depends on the value of `sinkType`. For details, see CreateDeliveryTask.
+   * The detailed configuration of the delivery target. The meaning of key/value pairs varies depending on the sinkType. For more information, see [CreateDeliveryTask](~~CreateDeliveryTask~~).
    */
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The sink type.
+   * The type of the delivery target.
    * 
    * @example
    * Prometheus
@@ -115,7 +115,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
 export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the task was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -125,7 +125,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The data source ID (the Prometheus instance ID).
+   * The data source ID (Managed Service for Prometheus instance ID).
    * 
    * @example
    * rw-xxxxxx
@@ -133,22 +133,22 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * A map of key-value pairs to add as external labels to all delivered metrics.
+   * The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
    */
   externalLabels?: { [key: string]: string };
   /**
    * @remarks
-   * The extra information.
+   * The extended information.
    */
   extraInfo?: GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo;
   /**
    * @remarks
-   * The label filters, used with `labelFiltersType`. In each filter, the key is the metric label and the value is the value to match.
+   * The metric filter conditions. Used together with labelFiltersType. The key is the metric label name, and the value is the match value.
    */
   labelFilters?: { [key: string]: string };
   /**
    * @remarks
-   * The label filter type.
+   * The metric filtering mode.
    * 
    * @example
    * Allow
@@ -164,12 +164,12 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * An array of sink configurations.
+   * The list of delivery targets.
    */
   sinkList?: GetDeliveryTaskResponseBodyDeliveryTaskSinkList[];
   /**
    * @remarks
-   * The task status.
+   * The current status of the task.
    * 
    * @example
    * Pending2Running
@@ -177,7 +177,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags attached to the task.
+   * The resource tags.
    */
   tags?: GetDeliveryTaskResponseBodyDeliveryTaskTags[];
   /**
@@ -190,7 +190,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   taskDescription?: string;
   /**
    * @remarks
-   * The task ID.
+   * The delivery task ID.
    * 
    * @example
    * 8b07eeac8249866d
@@ -206,7 +206,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the task was last updated.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -279,7 +279,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
 export class GetDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The delivery task details.
+   * The details of the delivery task.
    */
   deliveryTask?: GetDeliveryTaskResponseBodyDeliveryTask;
   /**

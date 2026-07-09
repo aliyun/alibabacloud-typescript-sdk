@@ -10,6 +10,21 @@ export class DatasourceConfigUnified extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The raw string value of the legacy configuration, used for backward compatibility.
+   */
+  legacyRaw?: string;
+  /**
+   * @remarks
+   * The legacy type of the data source, used for backward compatibility.
+   */
+  legacyType?: string;
+  /**
+   * @remarks
+   * The product category of the data source.
+   */
+  productCategory?: string;
+  /**
+   * @remarks
    * The region ID.
    */
   regionId?: string;
@@ -23,6 +38,9 @@ export class DatasourceConfigUnified extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'instanceId',
+      legacyRaw: 'legacyRaw',
+      legacyType: 'legacyType',
+      productCategory: 'productCategory',
       regionId: 'regionId',
       type: 'type',
     };
@@ -31,6 +49,9 @@ export class DatasourceConfigUnified extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      legacyRaw: 'string',
+      legacyType: 'string',
+      productCategory: 'string',
       regionId: 'string',
       type: 'string',
     };

@@ -11,7 +11,52 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "metrics.us-west-1.aliyuncs.com",
+      'us-southeast-1': "metrics.us-southeast-1.aliyuncs.com",
+      'us-east-1': "metrics.us-east-1.aliyuncs.com",
+      'na-south-1': "metrics.na-south-1.aliyuncs.com",
+      'me-east-1': "metrics.me-east-1.aliyuncs.com",
+      'me-central-1': "metrics.me-central-1.aliyuncs.com",
+      'eu-west-2': "metrics.eu-west-2.aliyuncs.com",
+      'eu-west-1': "metrics.eu-west-1.aliyuncs.com",
+      'eu-central-1': "metrics.eu-central-1.aliyuncs.com",
+      'cn-zhongwei': "metrics.cn-zhongwei.aliyuncs.com",
+      'cn-zhengzhou-jva': "metrics.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-zhangjiakou': "metrics.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "metrics.cn-wulanchabu-gic-1.aliyuncs.com",
+      'cn-wulanchabu': "metrics.cn-wulanchabu.aliyuncs.com",
+      'cn-wuhan-lr': "metrics.cn-wuhan-lr.aliyuncs.com",
+      'cn-shenzhen-finance-1': "metrics.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-shenzhen': "metrics.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "metrics.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "metrics.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "metrics.cn-qingdao.aliyuncs.com",
+      'cn-north-2-gov-1': "metrics.cn-north-2-gov-1.aliyuncs.com",
+      'cn-nanjing': "metrics.cn-nanjing.aliyuncs.com",
+      'cn-huhehaote': "metrics.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "metrics.cn-hongkong.aliyuncs.com",
+      'cn-heyuan-acdr-1': "metrics.cn-heyuan-acdr-1.aliyuncs.com",
+      'cn-heyuan': "metrics.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou-finance': "metrics.cn-hangzhou-finance.aliyuncs.com",
+      'cn-hangzhou': "metrics.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "metrics.cn-guangzhou.aliyuncs.com",
+      'cn-fuzhou': "metrics.cn-fuzhou.aliyuncs.com",
+      'cn-chengdu': "metrics.cn-chengdu.aliyuncs.com",
+      'cn-beijing-finance-1': "metrics.cn-beijing-finance-1.aliyuncs.com",
+      'cn-beijing': "metrics.cn-beijing.aliyuncs.com",
+      'ap-southeast-8': "metrics.ap-southeast-8.aliyuncs.com",
+      'ap-southeast-7': "metrics.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "metrics.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "metrics.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "metrics.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-2': "metrics.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-1': "metrics.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "metrics.ap-south-1.aliyuncs.com",
+      'ap-northeast-2': "metrics.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "metrics.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cms", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -304,7 +349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an aggregation task group.
+   * Create an aggregation task group.
    * 
    * @param request - CreateAggTaskGroupRequest
    * @param headers - map
@@ -403,7 +448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an aggregation task group.
+   * Create an aggregation task group.
    * 
    * @param request - CreateAggTaskGroupRequest
    * @returns CreateAggTaskGroupResponse
@@ -1070,7 +1115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Prometheus instance for monitoring.
+   * Creates a Managed Service for Prometheus instance.
    * 
    * @param request - CreatePrometheusInstanceRequest
    * @param headers - map
@@ -1112,6 +1157,10 @@ export default class Client extends OpenApi {
       body["prometheusInstanceName"] = request.prometheusInstanceName;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.status)) {
       body["status"] = request.status;
     }
@@ -1147,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Prometheus instance for monitoring.
+   * Creates a Managed Service for Prometheus instance.
    * 
    * @param request - CreatePrometheusInstanceRequest
    * @returns CreatePrometheusInstanceResponse
@@ -1162,7 +1211,7 @@ export default class Client extends OpenApi {
    * Creates a Prometheus view.
    * 
    * @remarks
-   * 用于创建一个站点监控任务
+   * Creates a site monitoring task.
    * 
    * @param request - CreatePrometheusViewRequest
    * @param headers - map
@@ -1234,7 +1283,7 @@ export default class Client extends OpenApi {
    * Creates a Prometheus view.
    * 
    * @remarks
-   * 用于创建一个站点监控任务
+   * Creates a site monitoring task.
    * 
    * @param request - CreatePrometheusViewRequest
    * @returns CreatePrometheusViewResponse
@@ -2592,10 +2641,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query metadata
+   * Queries metric metadata.
    * 
    * @remarks
-   * Queries the details of CloudMonitor metric metadata.
+   * Queries the details of CloudMonitor monitoring metrics metadata.
    * 
    * @param tmpReq - DescribeMetricMetaListRequest
    * @param headers - map
@@ -2658,10 +2707,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query metadata
+   * Queries metric metadata.
    * 
    * @remarks
-   * Queries the details of CloudMonitor metric metadata.
+   * Queries the details of CloudMonitor monitoring metrics metadata.
    * 
    * @param request - DescribeMetricMetaListRequest
    * @returns DescribeMetricMetaListResponse
@@ -3092,7 +3141,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data from the Cloud Resource Center.
+   * Queries all entity information of a specific cloud service within a specified time range.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation queries all entities of a specific cloud service within a specified time range.
+   * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
+   * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
+   * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+   * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
    * 
    * @param request - GetCloudResourceDataRequest
    * @param headers - map
@@ -3133,7 +3190,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data from the Cloud Resource Center.
+   * Queries all entity information of a specific cloud service within a specified time range.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation queries all entities of a specific cloud service within a specified time range.
+   * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
+   * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
+   * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+   * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
    * 
    * @param request - GetCloudResourceDataRequest
    * @returns GetCloudResourceDataResponse
@@ -3323,7 +3388,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View data delivery task details
+   * Retrieves the details of a data delivery task.
+   * 
+   * @remarks
+   * Deletes a specified site monitoring task.
    * 
    * @param request - GetDeliveryTaskRequest
    * @param headers - map
@@ -3350,7 +3418,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View data delivery task details
+   * Retrieves the details of a data delivery task.
+   * 
+   * @remarks
+   * Deletes a specified site monitoring task.
    * 
    * @param request - GetDeliveryTaskRequest
    * @returns GetDeliveryTaskResponse
@@ -3463,7 +3534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an Integration Center policy.
+   * Query integration center policy information.
    * 
    * @param request - GetIntegrationPolicyRequest
    * @param headers - map
@@ -3490,7 +3561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an Integration Center policy.
+   * Query integration center policy information.
    * 
    * @param request - GetIntegrationPolicyRequest
    * @returns GetIntegrationPolicyResponse
@@ -3704,7 +3775,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a memory store.
+   * Queries a memory store.
+   * 
+   * @remarks
+   * Typically used together with the QueryMetricMeta operation for querying metrics and the QueryMetricList/QueryMetricLast operation for querying monitoring data.
+   * ## Request type 
+   * POST|GET.
    * 
    * @param request - GetMemoryStoreRequest
    * @param headers - map
@@ -3731,7 +3807,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a memory store.
+   * Queries a memory store.
+   * 
+   * @remarks
+   * Typically used together with the QueryMetricMeta operation for querying metrics and the QueryMetricList/QueryMetricLast operation for querying monitoring data.
+   * ## Request type 
+   * POST|GET.
    * 
    * @param request - GetMemoryStoreRequest
    * @returns GetMemoryStoreResponse
@@ -3782,10 +3863,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific Prometheus instance.
+   * Queries the details of a specified Managed Service for Prometheus instance.
    * 
    * @remarks
-   * Gets the details of a Prometheus instance.
+   * Retrieves the details of a Managed Service for Prometheus instance.
    * 
    * @param request - GetPrometheusInstanceRequest
    * @param headers - map
@@ -3822,10 +3903,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific Prometheus instance.
+   * Queries the details of a specified Managed Service for Prometheus instance.
    * 
    * @remarks
-   * Gets the details of a Prometheus instance.
+   * Retrieves the details of a Managed Service for Prometheus instance.
    * 
    * @param request - GetPrometheusInstanceRequest
    * @returns GetPrometheusInstanceResponse
@@ -3882,10 +3963,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified Prometheus view instance.
+   * Queries the details of a specified Prometheus view instance.
    * 
    * @remarks
-   * Retrieves the details of a specified Prometheus view instance.
+   * Queries a specified Prometheus view instance.
    * 
    * @param request - GetPrometheusViewRequest
    * @param headers - map
@@ -3922,10 +4003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified Prometheus view instance.
+   * Queries the details of a specified Prometheus view instance.
    * 
    * @remarks
-   * Retrieves the details of a specified Prometheus view instance.
+   * Queries a specified Prometheus view instance.
    * 
    * @param request - GetPrometheusViewRequest
    * @returns GetPrometheusViewResponse
@@ -4321,7 +4402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of aggregation task groups.
+   * Queries the list of aggregation task groups.
    * 
    * @param tmpReq - ListAggTaskGroupsRequest
    * @param headers - map
@@ -4388,7 +4469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of aggregation task groups.
+   * Queries the list of aggregation task groups.
    * 
    * @param request - ListAggTaskGroupsRequest
    * @returns ListAggTaskGroupsResponse
@@ -4467,7 +4548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of alert webhooks.
+   * Queries alert chatbots.
    * 
    * @param tmpReq - ListAlertRobotsRequest
    * @param headers - map
@@ -4530,7 +4611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of alert webhooks.
+   * Queries alert chatbots.
    * 
    * @param request - ListAlertRobotsRequest
    * @returns ListAlertRobotsResponse
@@ -5038,10 +5119,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of policies in the Integration Center.
+   * Queries the list of access center policies.
    * 
    * @remarks
-   * Queries a list of integrations.
+   * Queries the integration list.
    * 
    * @param tmpReq - ListIntegrationPoliciesRequest
    * @param headers - map
@@ -5132,10 +5213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of policies in the Integration Center.
+   * Queries the list of access center policies.
    * 
    * @remarks
-   * Queries a list of integrations.
+   * Queries the integration list.
    * 
    * @param request - ListIntegrationPoliciesRequest
    * @returns ListIntegrationPoliciesResponse
@@ -5583,7 +5664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of pipelines in a workspace.
+   * Lists pipelines.
    * 
    * @param request - ListPipelinesRequest
    * @param headers - map
@@ -5624,7 +5705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of pipelines in a workspace.
+   * Lists pipelines.
    * 
    * @param request - ListPipelinesRequest
    * @returns ListPipelinesResponse
@@ -5691,10 +5772,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Prometheus instances.
+   * Retrieves a list of Managed Service for Prometheus instances.
    * 
    * @remarks
-   * Lists Prometheus instances.
+   * Retrieves a list of Managed Service for Prometheus instances.
    * 
    * @param tmpReq - ListPrometheusInstancesRequest
    * @param headers - map
@@ -5769,10 +5850,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Prometheus instances.
+   * Retrieves a list of Managed Service for Prometheus instances.
    * 
    * @remarks
-   * Lists Prometheus instances.
+   * Retrieves a list of Managed Service for Prometheus instances.
    * 
    * @param request - ListPrometheusInstancesRequest
    * @returns ListPrometheusInstancesResponse
@@ -5784,10 +5865,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the Prometheus view instances.
+   * Queries the list of Prometheus view instances.
    * 
    * @remarks
-   * Lists the Prometheus view instances.
+   * Queries the list of Prometheus view instances.
    * 
    * @param tmpReq - ListPrometheusViewsRequest
    * @param headers - map
@@ -5862,10 +5943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the Prometheus view instances.
+   * Queries the list of Prometheus view instances.
    * 
    * @remarks
-   * Lists the Prometheus view instances.
+   * Queries the list of Prometheus view instances.
    * 
    * @param request - ListPrometheusViewsRequest
    * @returns ListPrometheusViewsResponse
@@ -6194,7 +6275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation enables monitoring services, including CloudMonitor Enterprise, Managed Service for Prometheus, and Log Service.
+   * Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service (SLS).
    * 
    * @param request - OpenCmsServiceRequest
    * @param headers - map
@@ -6221,7 +6302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation enables monitoring services, including CloudMonitor Enterprise, Managed Service for Prometheus, and Log Service.
+   * Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service (SLS).
    * 
    * @param request - OpenCmsServiceRequest
    * @returns OpenCmsServiceResponse
@@ -6286,10 +6367,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of alert rules.
+   * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example of how to retrieve a list of alert rules. In this example, a successful response returns two alert rules: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param tmpReq - QueryAlertRulesRequest
    * @param headers - map
@@ -6342,10 +6423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of alert rules.
+   * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example of how to retrieve a list of alert rules. In this example, a successful response returns two alert rules: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - QueryAlertRulesRequest
    * @returns QueryAlertRulesResponse
@@ -6422,7 +6503,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search memories using query conditions and filters.
+   * Searches for memories based on query conditions and filters.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+   * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param request - SearchMemoriesRequest
    * @param headers - map
@@ -6495,7 +6580,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search memories using query conditions and filters.
+   * Searches for memories based on query conditions and filters.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+   * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param request - SearchMemoriesRequest
    * @returns SearchMemoriesResponse
@@ -7017,7 +7106,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a context store.
+   * Modifies the configuration of a context store.
+   * 
+   * @remarks
+   * Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time detection tasks.
+   * This topic provides an example of how to create a one-time detection task. The detection task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
    * 
    * @param request - UpdateContextStoreRequest
    * @param headers - map
@@ -7062,7 +7155,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a context store.
+   * Modifies the configuration of a context store.
+   * 
+   * @remarks
+   * Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time detection tasks.
+   * This topic provides an example of how to create a one-time detection task. The detection task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
    * 
    * @param request - UpdateContextStoreRequest
    * @returns UpdateContextStoreResponse
@@ -7119,7 +7216,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a delivery task. This operation uses PATCH semantics, meaning unspecified fields in the request body remain unchanged.
+   * Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
+   * 
+   * @remarks
+   * Deletes a specified site monitoring task.
    * 
    * @param request - UpdateDeliveryTaskRequest
    * @param headers - map
@@ -7184,7 +7284,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a delivery task. This operation uses PATCH semantics, meaning unspecified fields in the request body remain unchanged.
+   * Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
+   * 
+   * @remarks
+   * Deletes a specified site monitoring task.
    * 
    * @param request - UpdateDeliveryTaskRequest
    * @returns UpdateDeliveryTaskResponse
@@ -7466,10 +7569,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a Prometheus instance.
+   * Updates the information of a Managed Service for Prometheus instance.
    * 
    * @remarks
-   * This topic describes how to update a Prometheus instance.
+   * Updates the information of a Managed Service for Prometheus instance.
    * 
    * @param request - UpdatePrometheusInstanceRequest
    * @param headers - map
@@ -7542,10 +7645,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a Prometheus instance.
+   * Updates the information of a Managed Service for Prometheus instance.
    * 
    * @remarks
-   * This topic describes how to update a Prometheus instance.
+   * Updates the information of a Managed Service for Prometheus instance.
    * 
    * @param request - UpdatePrometheusInstanceRequest
    * @returns UpdatePrometheusInstanceResponse

@@ -4,44 +4,17 @@ import { DirectNotifyChannel } from "./DirectNotifyChannel";
 
 
 export class NotifyConfigUnified extends $dara.Model {
-  /**
-   * @remarks
-   * The active days of the week.
-   */
   activeDays?: number[];
-  /**
-   * @remarks
-   * The end of the daily active time window. On active days, the system sends notifications only before this time. Format: `HH:mm`.
-   */
   activeEndTime?: string;
-  /**
-   * @remarks
-   * The start of the daily active time window. On active days, the system sends notifications only after this time. Format: `HH:mm`.
-   */
   activeStartTime?: string;
-  /**
-   * @remarks
-   * The notification channels that receive alerts.
-   * 
-   * This parameter is required.
-   */
   channels?: DirectNotifyChannel[];
-  /**
-   * @remarks
-   * The silence time in seconds. After sending a notification, the system suppresses new notifications for the same alert for this duration.
-   */
+  notifyStrategies?: string[];
   silenceTimeSecs?: number;
   /**
    * @remarks
-   * The type of the notification configuration.
-   * 
    * This parameter is required.
    */
   type?: string;
-  /**
-   * @remarks
-   * The UTC offset for `activeStartTime` and `activeEndTime`. The format is `[+/-]HH:mm`. For example, `+08:00` represents the UTC+8 time zone.
-   */
   utcOffset?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49,6 +22,7 @@ export class NotifyConfigUnified extends $dara.Model {
       activeEndTime: 'activeEndTime',
       activeStartTime: 'activeStartTime',
       channels: 'channels',
+      notifyStrategies: 'notifyStrategies',
       silenceTimeSecs: 'silenceTimeSecs',
       type: 'type',
       utcOffset: 'utcOffset',
@@ -61,6 +35,7 @@ export class NotifyConfigUnified extends $dara.Model {
       activeEndTime: 'string',
       activeStartTime: 'string',
       channels: { 'type': 'array', 'itemType': DirectNotifyChannel },
+      notifyStrategies: { 'type': 'array', 'itemType': 'string' },
       silenceTimeSecs: 'number',
       type: 'string',
       utcOffset: 'string',
@@ -73,6 +48,9 @@ export class NotifyConfigUnified extends $dara.Model {
     }
     if(Array.isArray(this.channels)) {
       $dara.Model.validateArray(this.channels);
+    }
+    if(Array.isArray(this.notifyStrategies)) {
+      $dara.Model.validateArray(this.notifyStrategies);
     }
     super.validate();
   }

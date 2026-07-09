@@ -55,7 +55,7 @@ export class GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances exte
 export class GetPrometheusViewResponseBodyPrometheusViewTags extends $dara.Model {
   /**
    * @remarks
-   * The integration key for PagerDuty.
+   * The integration key of PagerDuty.
    * 
    * @example
    * global_score_series
@@ -95,7 +95,7 @@ export class GetPrometheusViewResponseBodyPrometheusViewTags extends $dara.Model
 export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   /**
    * @remarks
-   * The password-free read policy. It supports IP address segments and VPC IDs.
+   * The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
    * 
    * @example
    * {
@@ -112,7 +112,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * The authToken string.
+   * The authentication token string.
    * 
    * @example
    * eJxxxxxx
@@ -120,7 +120,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
-   * The time when the instance was created. The time is in UTC and follows the yyyy-MM-ddTHH:mmZ format.
+   * The time when the instance was created. The time is in UTC+0 and in the yyyy-MM-ddTHH:mmZ format.
    * 
    * @example
    * 2025-08-10T02:07:53Z
@@ -128,7 +128,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether password-free read is enabled.
+   * Indicates whether authentication-free read is enabled.
    * 
    * @example
    * true
@@ -136,7 +136,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Indicates whether authToken is enabled.
+   * Indicates whether the authentication token is enabled.
    * 
    * @example
    * true
@@ -144,7 +144,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * The URL of the observability dashboard.
+   * The dashboard URL.
    * 
    * @example
    * https://xxxx
@@ -152,7 +152,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   folderUrl?: string;
   /**
    * @remarks
-   * The ID of the attached managed Grafana instance.
+   * The instance ID of the attached managed Grafana instance.
    * 
    * @example
    * g-xxx
@@ -160,7 +160,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   grafanaInstanceId?: string;
   /**
    * @remarks
-   * The name of the attached managed Grafana instance.
+   * The name of the associated managed Grafana instance.
    * 
    * @example
    * gxxx
@@ -168,16 +168,23 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   grafanaInstanceName?: string;
   /**
    * @remarks
-   * The HTTP API endpoint for the Internet.
+   * The public HTTP URL.
    * 
    * @example
    * http://xxxxxxxx
    */
   httpApiInterUrl?: string;
+  /**
+   * @remarks
+   * The internal HTTP URL.
+   * 
+   * @example
+   * https://workspace-xxx.cn-hangzhou-internal.log.aliyuncs.com/prometheus/workspace-xxx/aliyun-prom-rw-xxx
+   */
   httpApiInternalUrl?: string;
   /**
    * @remarks
-   * The HTTP API endpoint for the internal network.
+   * The internal HTTP URL.
    * 
    * @example
    * http://xxxxxxxx
@@ -185,7 +192,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   httpApiIntraUrl?: string;
   /**
    * @remarks
-   * The instance type. The value is fixed to prom-view.
+   * The instance type. The value is fixed as prom-view.
    * 
    * @example
    * prom-view
@@ -193,7 +200,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The billing method. The value is fixed to FREE.
+   * The billing type. The value is currently fixed as FREE.
    * 
    * @example
    * FREE
@@ -209,12 +216,12 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * A list of Prometheus instances.
+   * The list of Prometheus instances.
    */
   prometheusInstances?: GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances[];
   /**
    * @remarks
-   * The ID of the Prometheus view.
+   * The Prometheus view ID.
    * 
    * @example
    * view-xxx
@@ -222,7 +229,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   prometheusViewId?: string;
   /**
    * @remarks
-   * The name of the Prometheus view.
+   * The Prometheus view name.
    * 
    * @example
    * view1
@@ -238,16 +245,23 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remote read URL for the Internet.
+   * The public URL for remote read.
    * 
    * @example
    * http://workspace-default-cms-xxx-cn-hangzhou.cn-hangzhou.log.aliyuncs.com/prometheus/workspace-default-cms-xxx-cn-hangzhou/xxx/api/v1/read
    */
   remoteReadInterUrl?: string;
+  /**
+   * @remarks
+   * The internal endpoint for remote read.
+   * 
+   * @example
+   * http://workspace-default-cms-xxx-cn-hangzhou.cn-hangzhou-internal.log.aliyuncs.com/prometheus/workspace-default-cms-xxx-cn-hangzhou/xxx/api/v1/read
+   */
   remoteReadInternalUrl?: string;
   /**
    * @remarks
-   * The remote read URL for the internal network.
+   * The internal URL for remote read.
    * 
    * @example
    * http://workspace-default-cms-xxx-cn-hangzhou.cn-hangzhou-intranet.log.aliyuncs.com/prometheus/workspace-default-cms-xxx-cn-hangzhou/xxx/api/v1/read
@@ -263,7 +277,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The value is fixed to PrometheusView.
+   * The resource type. The value is fixed as PrometheusView.
    * 
    * @example
    * RegistryModule
@@ -284,7 +298,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   supportAuthTypes?: string[];
   /**
    * @remarks
-   * The tags of the instance.
+   * The tag keys of the instance.
    */
   tags?: GetPrometheusViewResponseBodyPrometheusViewTags[];
   /**
@@ -405,7 +419,7 @@ export class GetPrometheusViewResponseBody extends $dara.Model {
   prometheusView?: GetPrometheusViewResponseBodyPrometheusView;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8

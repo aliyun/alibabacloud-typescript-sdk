@@ -1,68 +1,77 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { ApmCompositeCompareConfig } from "./ApmCompositeCompareConfig";
+import { CloudMonitoringCompositeEscalation } from "./CloudMonitoringCompositeEscalation";
+import { CloudMonitoringExpressEscalation } from "./CloudMonitoringExpressEscalation";
+import { CloudMonitoringPrometheusEscalation } from "./CloudMonitoringPrometheusEscalation";
+import { CloudMonitoringSimpleEscalation } from "./CloudMonitoringSimpleEscalation";
 import { ApmThresholdConfig } from "./ApmThresholdConfig";
+import { MetricSetMultiTrigger } from "./MetricSetMultiTrigger";
 
 
 export class ConditionConfigUnified extends $dara.Model {
-  /**
-   * @remarks
-   * The aggregation method for metric data points over the evaluation period. Valid values include `AVG`, `SUM`, and `MAX`.
-   */
   aggregate?: string;
-  /**
-   * @remarks
-   * A list of composite comparison configurations for APM alerts. Each item is an `ApmCompositeCompareConfig` object.
-   */
   compareList?: ApmCompositeCompareConfig[];
-  /**
-   * @remarks
-   * The number of seconds a condition must be true before triggering an alert.
-   */
+  compositeEscalation?: CloudMonitoringCompositeEscalation;
+  countOperator?: string;
+  countThreshold?: number;
   durationSecs?: number;
-  /**
-   * @remarks
-   * The comparison operator used to evaluate the metric against the threshold.
-   */
+  enableSeveritySuppression?: boolean;
+  escalationType?: string;
+  expressEscalation?: CloudMonitoringExpressEscalation;
+  legacyRaw?: string;
+  legacyType?: string;
+  matchField?: string;
+  matchOperator?: string;
+  matchValue?: string;
+  max?: number;
+  min?: number;
+  noDataPolicy?: string;
   operator?: string;
-  /**
-   * @remarks
-   * The logical relationship between multiple conditions. Valid values are `AND` and `OR`.
-   */
+  prometheus?: CloudMonitoringPrometheusEscalation;
   relation?: string;
-  /**
-   * @remarks
-   * The alert severity. Valid values are `CRITICAL`, `WARNING`, and `INFO`.
-   */
   severity?: string;
-  /**
-   * @remarks
-   * The value against which the metric is evaluated to trigger an alert.
-   */
+  simpleEscalation?: CloudMonitoringSimpleEscalation;
   threshold?: number;
-  /**
-   * @remarks
-   * A list of threshold configurations for Application Performance Monitoring (APM) alerts. Each item is an `ApmThresholdConfig` object.
-   */
   thresholdList?: ApmThresholdConfig[];
+  triggers?: MetricSetMultiTrigger[];
   /**
    * @remarks
-   * The type of the alert condition.
-   * 
    * This parameter is required.
    */
   type?: string;
+  yoyTimeUnit?: string;
+  yoyTimeValue?: number;
   static names(): { [key: string]: string } {
     return {
       aggregate: 'aggregate',
       compareList: 'compareList',
+      compositeEscalation: 'compositeEscalation',
+      countOperator: 'countOperator',
+      countThreshold: 'countThreshold',
       durationSecs: 'durationSecs',
+      enableSeveritySuppression: 'enableSeveritySuppression',
+      escalationType: 'escalationType',
+      expressEscalation: 'expressEscalation',
+      legacyRaw: 'legacyRaw',
+      legacyType: 'legacyType',
+      matchField: 'matchField',
+      matchOperator: 'matchOperator',
+      matchValue: 'matchValue',
+      max: 'max',
+      min: 'min',
+      noDataPolicy: 'noDataPolicy',
       operator: 'operator',
+      prometheus: 'prometheus',
       relation: 'relation',
       severity: 'severity',
+      simpleEscalation: 'simpleEscalation',
       threshold: 'threshold',
       thresholdList: 'thresholdList',
+      triggers: 'triggers',
       type: 'type',
+      yoyTimeUnit: 'yoyTimeUnit',
+      yoyTimeValue: 'yoyTimeValue',
     };
   }
 
@@ -70,13 +79,32 @@ export class ConditionConfigUnified extends $dara.Model {
     return {
       aggregate: 'string',
       compareList: { 'type': 'array', 'itemType': ApmCompositeCompareConfig },
+      compositeEscalation: CloudMonitoringCompositeEscalation,
+      countOperator: 'string',
+      countThreshold: 'number',
       durationSecs: 'number',
+      enableSeveritySuppression: 'boolean',
+      escalationType: 'string',
+      expressEscalation: CloudMonitoringExpressEscalation,
+      legacyRaw: 'string',
+      legacyType: 'string',
+      matchField: 'string',
+      matchOperator: 'string',
+      matchValue: 'string',
+      max: 'number',
+      min: 'number',
+      noDataPolicy: 'string',
       operator: 'string',
+      prometheus: CloudMonitoringPrometheusEscalation,
       relation: 'string',
       severity: 'string',
+      simpleEscalation: CloudMonitoringSimpleEscalation,
       threshold: 'number',
       thresholdList: { 'type': 'array', 'itemType': ApmThresholdConfig },
+      triggers: { 'type': 'array', 'itemType': MetricSetMultiTrigger },
       type: 'string',
+      yoyTimeUnit: 'string',
+      yoyTimeValue: 'number',
     };
   }
 
@@ -84,8 +112,23 @@ export class ConditionConfigUnified extends $dara.Model {
     if(Array.isArray(this.compareList)) {
       $dara.Model.validateArray(this.compareList);
     }
+    if(this.compositeEscalation && typeof (this.compositeEscalation as any).validate === 'function') {
+      (this.compositeEscalation as any).validate();
+    }
+    if(this.expressEscalation && typeof (this.expressEscalation as any).validate === 'function') {
+      (this.expressEscalation as any).validate();
+    }
+    if(this.prometheus && typeof (this.prometheus as any).validate === 'function') {
+      (this.prometheus as any).validate();
+    }
+    if(this.simpleEscalation && typeof (this.simpleEscalation as any).validate === 'function') {
+      (this.simpleEscalation as any).validate();
+    }
     if(Array.isArray(this.thresholdList)) {
       $dara.Model.validateArray(this.thresholdList);
+    }
+    if(Array.isArray(this.triggers)) {
+      $dara.Model.validateArray(this.triggers);
     }
     super.validate();
   }

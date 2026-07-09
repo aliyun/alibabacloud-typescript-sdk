@@ -13,7 +13,7 @@ export class CreatePrometheusInstanceResponseBody extends $dara.Model {
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 264C3E89-BE6E-5F82-A484-CE9C2196C7DC

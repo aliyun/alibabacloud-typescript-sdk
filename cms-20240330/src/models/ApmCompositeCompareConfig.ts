@@ -24,11 +24,23 @@ export class ApmCompositeCompareConfig extends $dara.Model {
    * This parameter is required.
    */
   threshold?: number;
+  /**
+   * @remarks
+   * The time unit for the year-over-year (YoY) comparison. Use this parameter with `yoyTimeValue` to define the comparison period. Valid values are `day` and `week`.
+   */
+  yoyTimeUnit?: string;
+  /**
+   * @remarks
+   * The time value for the YoY comparison. For example, if `yoyTimeUnit` is `day` and `yoyTimeValue` is `7`, the system compares current data with data from 7 days ago.
+   */
+  yoyTimeValue?: number;
   static names(): { [key: string]: string } {
     return {
       aggregate: 'aggregate',
       operator: 'operator',
       threshold: 'threshold',
+      yoyTimeUnit: 'yoyTimeUnit',
+      yoyTimeValue: 'yoyTimeValue',
     };
   }
 
@@ -37,6 +49,8 @@ export class ApmCompositeCompareConfig extends $dara.Model {
       aggregate: 'string',
       operator: 'string',
       threshold: 'number',
+      yoyTimeUnit: 'string',
+      yoyTimeValue: 'number',
     };
   }
 

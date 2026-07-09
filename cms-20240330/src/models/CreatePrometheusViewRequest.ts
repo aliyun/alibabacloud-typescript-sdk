@@ -55,7 +55,7 @@ export class CreatePrometheusViewRequestPrometheusInstances extends $dara.Model 
 export class CreatePrometheusViewRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * test-key
@@ -63,7 +63,7 @@ export class CreatePrometheusViewRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * test-value
@@ -95,7 +95,7 @@ export class CreatePrometheusViewRequestTags extends $dara.Model {
 export class CreatePrometheusViewRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not in use.
+   * Not in use.
    * 
    * @example
    * {
@@ -112,7 +112,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * Specifies whether to enable password-free read access.
+   * Specifies whether anonymous read is supported.
    * 
    * @example
    * true
@@ -120,7 +120,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable an authentication token.
+   * Specifies whether authToken is supported.
    * 
    * @example
    * true
@@ -135,7 +135,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   prometheusInstances?: CreatePrometheusViewRequestPrometheusInstances[];
   /**
    * @remarks
-   * The name of the Prometheus view.
+   * The Prometheus view name.
    * 
    * This parameter is required.
    * 
@@ -153,7 +153,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * This parameter is not in use.
+   * Not in use.
    * 
    * @example
    * null
@@ -161,14 +161,14 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Specifies the operation to execute.
+   * The tags.
    */
   tags?: CreatePrometheusViewRequestTags[];
   /**
    * @remarks
-   * - V1: The old version.
-   * 
-   * - V2: The new version.
+   * Valid values:
+   * - V1: legacy version
+   * - V2: new version.
    * 
    * This parameter is required.
    * 
@@ -178,7 +178,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The default value is default-cms-{userId}-{regionId}.
+   * Default value: default-cms-{userId}-{regionId}.
    * 
    * @example
    * cms-monitor-test-aysls-pub-cn-zhangjiakou-spe-monitor

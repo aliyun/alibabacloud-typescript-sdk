@@ -45,7 +45,7 @@ export class ListAggTaskGroupsRequestTags extends $dara.Model {
 export class ListAggTaskGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of aggregation task group IDs. The value must be a string that can be parsed as a JSON array.
+   * The list of aggregation task group IDs. The value must be a JSON-parsable string.
    * 
    * @example
    * ["aggTaskGroup-xxx"]
@@ -53,7 +53,7 @@ export class ListAggTaskGroupsRequest extends $dara.Model {
   filterAggTaskGroupIds?: string;
   /**
    * @remarks
-   * A list of aggregation task group names. The value must be a string that can be parsed as a JSON array.
+   * The list of aggregation task group names. The value must be a JSON-parsable string.
    * 
    * @example
    * ["apiserver_request_total"]
@@ -61,7 +61,7 @@ export class ListAggTaskGroupsRequest extends $dara.Model {
   filterAggTaskGroupNames?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of records to return.
    * 
    * @example
    * 20
@@ -69,7 +69,7 @@ export class ListAggTaskGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The query token.
    * 
    * @example
    * 28036394xxx
@@ -77,7 +77,7 @@ export class ListAggTaskGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The name to search for. Fuzzy search is supported.
+   * The name to search for. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -85,7 +85,12 @@ export class ListAggTaskGroupsRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The status of the aggregation task group. Valid values are \\`Running\\` and \\`Stopped\\`. The default value is \\`Running\\`.
+   * The status of the aggregation task group. Valid values:
+   * 
+   * - Running
+   * - Stopped
+   * 
+   * Default value: Running.
    * 
    * @example
    * Running
@@ -93,12 +98,12 @@ export class ListAggTaskGroupsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the resource group.
+   * The resource group tags.
    */
   tags?: ListAggTaskGroupsRequestTags[];
   /**
    * @remarks
-   * The ID of the target Prometheus instance for the aggregation task group.
+   * The instance ID of the target Managed Service for Prometheus instance for the aggregation node group.
    * 
    * @example
    * rw-pq4apob9jm

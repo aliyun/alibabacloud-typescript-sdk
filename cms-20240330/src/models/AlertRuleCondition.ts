@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleConditionCaseList extends $dara.Model {
   /**
    * @remarks
-   * The matching expression. Example: logLevel: error
+   * The match expression. Example: logLevel: error.
    * 
    * @example
    * logLevel: error
@@ -13,9 +13,9 @@ export class AlertRuleConditionCaseList extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The expression for matching a quantity. Examples:
-   * Combined range: **count** >= 3 && **count** <= 10
-   * Single range: **count** >= 3
+   * The count match expression. Examples:
+   * Range combination: __count__ >= 3 && __count__ <= 10
+   * Single range: __count__ >= 3
    * 
    * @example
    * count >= 3
@@ -31,17 +31,13 @@ export class AlertRuleConditionCaseList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The match type. It can be data availability, a specific number of data entries, a data match, or a specific number of data entry matches.
+   * The match type: has data, has a specific number of data entries, has data match, or has a specific number of data matches.
    * 
    * Valid values:
-   * 
-   * - HasData: Data is available.
-   * 
-   * - HasDataCount: A specific number of data entries are available.
-   * 
-   * - HasDataMatch: Data matches the condition.
-   * 
-   * - HasDataMatchCount: A specific number of data entries match the condition.
+   * - HasData: has data
+   * - HasDataCount: has a specific number of data entries
+   * - HasDataMatch: has data match
+   * - HasDataMatchCount: has a specific number of data matches
    * 
    * @example
    * HasData
@@ -85,7 +81,7 @@ export class AlertRuleConditionCompareListValueLevelList extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The threshold for comparison.
+   * The comparison threshold.
    * 
    * @example
    * 120
@@ -117,22 +113,15 @@ export class AlertRuleConditionCompareListValueLevelList extends $dara.Model {
 export class AlertRuleConditionCompareList extends $dara.Model {
   /**
    * @remarks
-   * The aggregate function for the time series.
+   * The aggregate functions applied after time series aggregation.
    * 
    * - count
-   * 
    * - sum
-   * 
    * - avg
-   * 
    * - min
-   * 
    * - max
-   * 
    * - p90
-   * 
    * - p95
-   * 
    * - p99
    * 
    * @example
@@ -141,7 +130,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   aggregate?: string;
   /**
    * @remarks
-   * The unit of the data.
+   * The data unit.
    * 
    * @example
    * %
@@ -149,7 +138,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   baseUnit?: string;
   /**
    * @remarks
-   * The unit for display.
+   * The display unit.
    * 
    * @example
    * %
@@ -157,23 +146,16 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   displayUnit?: string;
   /**
    * @remarks
-   * The comparison operation. It determines whether to perform a year-over-year or period-over-period comparison.
+   * The comparison operator. Determines whether year-over-year or period-over-period comparison is used.
    * 
-   * - GT: Greater than.
-   * 
-   * - GTE: Greater than or equal to.
-   * 
-   * - LT: Less than.
-   * 
-   * - LTE: Less than or equal to.
-   * 
-   * - EQ: Equal to.
-   * 
-   * - NE: Not equal to.
-   * 
-   * - YOY_UP: Year-over-year increase.
-   * 
-   * - YOY_DOWN: Year-over-year decrease.
+   * - Greater than: GT
+   * - Greater than or equal to: GTE
+   * - Less than: LT
+   * - Less than or equal to: LTE
+   * - Equal to: EQ
+   * - Not equal to: NE
+   * - Year-over-year increase: YOY_UP
+   * - Year-over-year decrease: YOY_DOWN
    * 
    * @example
    * GT
@@ -181,7 +163,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   oper?: string;
   /**
    * @remarks
-   * The threshold for comparison.
+   * The comparison threshold.
    * 
    * @example
    * 50
@@ -189,12 +171,13 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   value?: number;
   /**
    * @remarks
-   * A list of alert levels for different values.
+   * The list of alert levels for different values.
    */
   valueLevelList?: AlertRuleConditionCompareListValueLevelList[];
   /**
    * @remarks
-   * The time unit for year-over-year comparison. This parameter is valid only when oper is set to YOY_UP or YOY_DOWN. Valid values: minute, hour, day, week, and month.
+   * The time unit for year-over-year comparison. Valid only when oper is set to YOY_UP or YOY_DOWN.
+   * Valid values: minute, hour, day, week, month.
    * 
    * @example
    * month
@@ -202,7 +185,7 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   yoyTimeUnit?: string;
   /**
    * @remarks
-   * The time value for year-over-year comparison. Used with yoyTimeUnit.
+   * The value of the year-over-year time period. Used together with yoyTimeUnit.
    * 
    * @example
    * 1
@@ -249,31 +232,20 @@ export class AlertRuleConditionCompareList extends $dara.Model {
 export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator for the threshold. Valid values:
+   * The threshold comparison operator. Valid values:
    * 
    * - GreaterThanOrEqualToThreshold: Greater than or equal to.
-   * 
    * - GreaterThanThreshold: Greater than.
-   * 
    * - LessThanOrEqualToThreshold: Less than or equal to.
-   * 
    * - LessThanThreshold: Less than.
-   * 
    * - NotEqualToThreshold: Not equal to.
-   * 
    * - EqualToThreshold: Equal to.
-   * 
-   * - GreaterThanYesterday: Higher than the value at the same time yesterday.
-   * 
-   * - LessThanYesterday: Lower than the value at the same time yesterday.
-   * 
-   * - GreaterThanLastWeek: Higher than the value at the same time last week.
-   * 
-   * - LessThanLastWeek: Lower than the value at the same time last week.
-   * 
-   * - GreaterThanLastPeriod: Higher than the value in the previous period.
-   * 
-   * - LessThanLastPeriod: Lower than the value in the previous period.
+   * - GreaterThanYesterday: Year-over-year increase compared with the same time yesterday.
+   * - LessThanYesterday: Year-over-year decrease compared with the same time yesterday.
+   * - GreaterThanLastWeek: Year-over-year increase compared with the same time last week.
+   * - LessThanLastWeek: Year-over-year decrease compared with the same time last week.
+   * - GreaterThanLastPeriod: Period-over-period increase compared with the previous period.
+   * - LessThanLastPeriod: Period-over-period decrease compared with the previous period.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -281,7 +253,7 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
   comparisonOperator?: string;
   /**
    * @remarks
-   * The name of the metric.
+   * The metric name.
    * 
    * @example
    * cpu_total
@@ -289,7 +261,7 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
   metricName?: string;
   /**
    * @remarks
-   * The time window for the metric.
+   * The time window of the metric.
    * 
    * @example
    * 60
@@ -297,17 +269,14 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
   period?: number;
   /**
    * @remarks
-   * The statistical method. The valid values for this parameter are determined by the Statistics column that corresponds to the MetricName of the specified cloud product. Examples of statistical methods for metrics:
+   * The statistical method. The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified cloud service. Example values for the statistical method of a metric:
    * 
-   * - $Maximum: The maximum value.
+   * - $Maximum: Maximum value.
+   * - $Minimum: Minimum value.
+   * - $Average: Average value.
+   * - $Availability: Availability rate (typically used for site monitoring).
    * 
-   * - $Minimum: The minimum value.
-   * 
-   * - $Average: The average value.
-   * 
-   * - $Availability: The availability rate. This is typically used for site monitoring.
-   * 
-   * Note: The dollar sign ($) is a standard prefix for metrics.
+   * Note: $ is the unified prefix symbol for metrics.
    * 
    * @example
    * $Maximum
@@ -353,12 +322,12 @@ export class AlertRuleConditionCompositeEscalationEscalations extends $dara.Mode
 export class AlertRuleConditionCompositeEscalation extends $dara.Model {
   /**
    * @remarks
-   * A list of composite conditions for multiple metrics.
+   * The list of composite conditions for multiple metrics.
    */
   escalations?: AlertRuleConditionCompositeEscalationEscalations[];
   /**
    * @remarks
-   * The alert level that is triggered when the condition is met. Composite metric alerts support only one level.
+   * The alert level triggered when the condition is met. Composite metric alerts support only one level.
    * 
    * @example
    * INFO
@@ -366,7 +335,7 @@ export class AlertRuleConditionCompositeEscalation extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The relationship between multiple metric conditions. Valid values: and or or.
+   * The relationship between multiple metric conditions. Valid values: and, or.
    * 
    * @example
    * and
@@ -413,12 +382,10 @@ export class AlertRuleConditionCompositeEscalation extends $dara.Model {
 export class AlertRuleConditionExpressEscalation extends $dara.Model {
   /**
    * @remarks
-   * The alert level that is triggered when the condition is met. Expression-based alerts support only one level.
+   * The alert level triggered when the condition is met. Expression-based alerts support only one level.
    * 
    * - CRITICAL
-   * 
    * - WARNING
-   * 
    * - INFO
    * 
    * @example
@@ -469,31 +436,20 @@ export class AlertRuleConditionExpressEscalation extends $dara.Model {
 export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   /**
    * @remarks
-   * The comparison operator for the threshold. Valid values:
+   * The threshold comparison operator. Valid values:
    * 
    * - GreaterThanOrEqualToThreshold: Greater than or equal to.
-   * 
    * - GreaterThanThreshold: Greater than.
-   * 
    * - LessThanOrEqualToThreshold: Less than or equal to.
-   * 
    * - LessThanThreshold: Less than.
-   * 
    * - NotEqualToThreshold: Not equal to.
-   * 
    * - EqualToThreshold: Equal to.
-   * 
-   * - GreaterThanYesterday: Higher than the value at the same time yesterday.
-   * 
-   * - LessThanYesterday: Lower than the value at the same time yesterday.
-   * 
-   * - GreaterThanLastWeek: Higher than the value at the same time last week.
-   * 
-   * - LessThanLastWeek: Lower than the value at the same time last week.
-   * 
-   * - GreaterThanLastPeriod: Higher than the value in the previous period.
-   * 
-   * - LessThanLastPeriod: Lower than the value in the previous period.
+   * - GreaterThanYesterday: Year-over-year increase compared with the same time yesterday.
+   * - LessThanYesterday: Year-over-year decrease compared with the same time yesterday.
+   * - GreaterThanLastWeek: Year-over-year increase compared with the same time last week.
+   * - LessThanLastWeek: Year-over-year decrease compared with the same time last week.
+   * - GreaterThanLastPeriod: Period-over-period increase compared with the previous period.
+   * - LessThanLastPeriod: Period-over-period decrease compared with the previous period.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -501,12 +457,10 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   comparisonOperator?: string;
   /**
    * @remarks
-   * The alert level that is triggered when the condition is met. Expression-based alerts support only one level.
+   * The alert level triggered when the condition is met. Expression-based alerts support only one level.
    * 
    * - CRITICAL
-   * 
    * - WARNING
-   * 
    * - INFO
    * 
    * @example
@@ -515,7 +469,7 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The statistical method. The valid values for this parameter are determined by the Statistics column that corresponds to the MetricName of the specified cloud product. Examples: Maximum, Minimum, and Average.
+   * The statistical method. The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified cloud service. Examples: Maximum, Minimum, and Average.
    * 
    * @example
    * Average
@@ -569,12 +523,12 @@ export class AlertRuleConditionSimpleEscalationEscalations extends $dara.Model {
 export class AlertRuleConditionSimpleEscalation extends $dara.Model {
   /**
    * @remarks
-   * A list of conditions. If an alert rule has multiple levels, each level has a corresponding condition object.
+   * The list of conditions. When an alert rule corresponds to multiple levels, each level has a condition object.
    */
   escalations?: AlertRuleConditionSimpleEscalationEscalations[];
   /**
    * @remarks
-   * Applicable to the CMS_BASIC_CONDITION type.
+   * Applicable condition type: CMS_BASIC_CONDITION.
    * 
    * The metric associated with the alert condition.
    * 
@@ -584,7 +538,7 @@ export class AlertRuleConditionSimpleEscalation extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The time window for the metric, in seconds.
+   * The time window of the metric. Unit: seconds.
    * 
    * @example
    * 60
@@ -610,6 +564,38 @@ export class AlertRuleConditionSimpleEscalation extends $dara.Model {
     if(Array.isArray(this.escalations)) {
       $dara.Model.validateArray(this.escalations);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlertRuleConditionThresholdList extends $dara.Model {
+  max?: number;
+  min?: number;
+  severity?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      max: 'max',
+      min: 'min',
+      severity: 'severity',
+      threshold: 'threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      max: 'number',
+      min: 'number',
+      severity: 'string',
+      threshold: 'number',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -717,9 +703,9 @@ export class AlertRuleConditionTriggers extends $dara.Model {
 export class AlertRuleCondition extends $dara.Model {
   /**
    * @remarks
-   * Applicable to the SLS_CONDITION type.
+   * Applicable condition type: SLS_CONDITION.
    * 
-   * The number of times the condition must be met to trigger an alert. The default value is 1.
+   * The number of times the condition must be met before an alert is triggered. Default value: 1.
    * 
    * @example
    * 1
@@ -727,37 +713,37 @@ export class AlertRuleCondition extends $dara.Model {
   alertCount?: number;
   /**
    * @remarks
-   * Applicable to the SLS_CONDITION type.
+   * Applicable condition type: SLS_CONDITION.
    * 
-   * A list of SLS alert conditions.
+   * The list of Simple Log Service alert conditions.
    */
   caseList?: AlertRuleConditionCaseList[];
   /**
    * @remarks
-   * Applicable to the APM_CONDITION type.
+   * Applicable condition type: APM_CONDITION.
    * 
-   * A list of Application Performance Management (APM) alert comparison conditions.
+   * The list of Application Performance Monitoring (APM) alert comparison conditions.
    */
   compareList?: AlertRuleConditionCompareList[];
   /**
    * @remarks
-   * Applicable to the CMS_BASIC_CONDITION type.
+   * Applicable condition type: CMS_BASIC_CONDITION.
    * 
-   * This parameter is valid only when escalationType is set to composite. It specifies the alert condition for composite metrics.
+   * This parameter takes effect only when escalationType is set to composite. The composite metric alert condition.
    */
   compositeEscalation?: AlertRuleConditionCompositeEscalation;
+  countOperator?: string;
+  countThreshold?: number;
   enableSeveritySuppression?: boolean;
   /**
    * @remarks
-   * Applicable to the CMS_BASIC_CONDITION type.
+   * Applicable condition type: CMS_BASIC_CONDITION.
    * 
    * Valid values:
    * 
-   * - simple: A simple metric condition.
-   * 
-   * - composite: A composite metric condition.
-   * 
-   * - express: An expression-based condition.
+   * - simple: simple metric condition.
+   * - composite: composite metric condition.
+   * - express: expression condition.
    * 
    * @example
    * simple
@@ -765,16 +751,21 @@ export class AlertRuleCondition extends $dara.Model {
   escalationType?: string;
   /**
    * @remarks
-   * This parameter is applicable only to the CMS_BASIC_CONDITION condition type.
+   * Applicable condition type: CMS_BASIC_CONDITION.
    * 
-   * This parameter takes effect when escalationType is set to composite. It defines the conditions for a composite alert based on multiple metrics.
+   * This parameter takes effect only when escalationType is set to composite. The multi-metric composite alert condition.
    */
   expressEscalation?: AlertRuleConditionExpressEscalation;
+  matchField?: string;
+  matchOperator?: string;
+  matchValue?: string;
+  max?: number;
+  min?: number;
   /**
    * @remarks
-   * Applicable to the APM_CONDITION type.
+   * Applicable condition type: APM_CONDITION.
    * 
-   * The alert level for when no data is available. If you do not specify this parameter, no alert is triggered when no data is available.
+   * The alert level when no data is available. If this parameter is not specified, no alert is triggered when no data is available.
    * 
    * @example
    * INFO
@@ -782,9 +773,9 @@ export class AlertRuleCondition extends $dara.Model {
   noDataAlertLevel?: string;
   /**
    * @remarks
-   * Applicable to the APM_CONDITION type.
+   * Applicable condition type: APM_CONDITION.
    * 
-   * The value to use when no data is available.
+   * The compensation value when no data is available.
    * 
    * @example
    * 1
@@ -792,15 +783,13 @@ export class AlertRuleCondition extends $dara.Model {
   noDataAppendValue?: string;
   /**
    * @remarks
-   * Applicable to the CMS_BASIC_CONDITION type.
+   * Applicable condition type: CMS_BASIC_CONDITION.
    * 
-   * The method for handling alerts when no monitoring data is available. Valid values:
+   * The method used to handle alerts when no monitoring data is available. Valid values:
    * 
    * - KEEP_LAST_STATE (default): No action is taken.
-   * 
    * - INSUFFICIENT_DATA: The alert content indicates that no data is available.
-   * 
-   * - OK: The status is normal.
+   * - OK: Normal.
    * 
    * @example
    * KEEP_LAST_STATE
@@ -808,23 +797,16 @@ export class AlertRuleCondition extends $dara.Model {
   noDataPolicy?: string;
   /**
    * @remarks
-   * The comparison operation. It determines whether to perform a year-over-year or period-over-period comparison.
+   * The comparison operator. Specifies whether to use year-over-year or period-over-period comparison. Valid values:
    * 
-   * - GT: Greater than.
-   * 
-   * - GTE: Greater than or equal to.
-   * 
-   * - LT: Less than.
-   * 
-   * - LTE: Less than or equal to.
-   * 
-   * - EQ: Equal to.
-   * 
-   * - NE: Not equal to.
-   * 
-   * - YOY_UP: Year-over-year increase.
-   * 
-   * - YOY_DOWN: Year-over-year decrease.
+   * - GT: greater than.
+   * - GTE: greater than or equal to.
+   * - LT: less than.
+   * - LTE: less than or equal to.
+   * - EQ: equal to.
+   * - NE: not equal to.
+   * - YOY_UP: year-over-year increase.
+   * - YOY_DOWN: year-over-year decrease.
    * 
    * @example
    * LT
@@ -832,12 +814,10 @@ export class AlertRuleCondition extends $dara.Model {
   oper?: string;
   /**
    * @remarks
-   * Applicable to the APM_CONDITION type.
+   * Applicable condition type: APM_CONDITION.
    * 
    * The logical relationship between multiple conditions. Valid values:
-   * 
    * - and
-   * 
    * - or
    * 
    * @example
@@ -846,21 +826,19 @@ export class AlertRuleCondition extends $dara.Model {
   relation?: string;
   /**
    * @remarks
-   * Applicable to the CMS_BASIC_CONDITION type.
+   * Applicable condition type: CMS_BASIC_CONDITION.
    * 
-   * This parameter is valid only when escalationType is set to simple. It specifies the alert condition for a single metric.
+   * This parameter takes effect only when escalationType is set to simple. The alert condition configured for a single metric.
    */
   simpleEscalation?: AlertRuleConditionSimpleEscalation;
+  thresholdList?: AlertRuleConditionThresholdList[];
   triggers?: AlertRuleConditionTriggers[];
   /**
    * @remarks
-   * The type of the rule condition. Valid values:
-   * 
-   * - SLS_CONDITION: An SLS alert condition.
-   * 
-   * - APM_CONDITION: An APM alert condition.
-   * 
-   * - CMS_BASIC_CONDITION: A basic Cloud Monitor alert condition.
+   * The rule condition type. Valid values:
+   * - SLS_CONDITION: Simple Log Service alert condition.
+   * - APM_CONDITION: APM alert condition.
+   * - CMS_BASIC_CONDITION: CloudMonitor Basic monitoring alert condition.
    * 
    * This parameter is required.
    * 
@@ -870,7 +848,7 @@ export class AlertRuleCondition extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The threshold that triggers an alert.
+   * The threshold that triggers the alert.
    * 
    * @example
    * 60
@@ -882,15 +860,23 @@ export class AlertRuleCondition extends $dara.Model {
       caseList: 'caseList',
       compareList: 'compareList',
       compositeEscalation: 'compositeEscalation',
+      countOperator: 'countOperator',
+      countThreshold: 'countThreshold',
       enableSeveritySuppression: 'enableSeveritySuppression',
       escalationType: 'escalationType',
       expressEscalation: 'expressEscalation',
+      matchField: 'matchField',
+      matchOperator: 'matchOperator',
+      matchValue: 'matchValue',
+      max: 'max',
+      min: 'min',
       noDataAlertLevel: 'noDataAlertLevel',
       noDataAppendValue: 'noDataAppendValue',
       noDataPolicy: 'noDataPolicy',
       oper: 'oper',
       relation: 'relation',
       simpleEscalation: 'simpleEscalation',
+      thresholdList: 'thresholdList',
       triggers: 'triggers',
       type: 'type',
       value: 'value',
@@ -903,15 +889,23 @@ export class AlertRuleCondition extends $dara.Model {
       caseList: { 'type': 'array', 'itemType': AlertRuleConditionCaseList },
       compareList: { 'type': 'array', 'itemType': AlertRuleConditionCompareList },
       compositeEscalation: AlertRuleConditionCompositeEscalation,
+      countOperator: 'string',
+      countThreshold: 'number',
       enableSeveritySuppression: 'boolean',
       escalationType: 'string',
       expressEscalation: AlertRuleConditionExpressEscalation,
+      matchField: 'string',
+      matchOperator: 'string',
+      matchValue: 'string',
+      max: 'number',
+      min: 'number',
       noDataAlertLevel: 'string',
       noDataAppendValue: 'string',
       noDataPolicy: 'string',
       oper: 'string',
       relation: 'string',
       simpleEscalation: AlertRuleConditionSimpleEscalation,
+      thresholdList: { 'type': 'array', 'itemType': AlertRuleConditionThresholdList },
       triggers: { 'type': 'array', 'itemType': AlertRuleConditionTriggers },
       type: 'string',
       value: 'number',
@@ -933,6 +927,9 @@ export class AlertRuleCondition extends $dara.Model {
     }
     if(this.simpleEscalation && typeof (this.simpleEscalation as any).validate === 'function') {
       (this.simpleEscalation as any).validate();
+    }
+    if(Array.isArray(this.thresholdList)) {
+      $dara.Model.validateArray(this.thresholdList);
     }
     if(Array.isArray(this.triggers)) {
       $dara.Model.validateArray(this.triggers);

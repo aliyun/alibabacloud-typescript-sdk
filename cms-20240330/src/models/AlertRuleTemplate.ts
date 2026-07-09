@@ -3,80 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlertRuleTemplate extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the alert.
-   */
   alertType?: string;
-  /**
-   * @remarks
-   * The number of alert rules created from this template.
-   */
   applyCount?: number;
-  /**
-   * @remarks
-   * The description of the template.
-   */
+  bizType?: string;
+  datasource?: string;
   description?: string;
-  /**
-   * @remarks
-   * The creation time of the template, as a UNIX timestamp.
-   */
   gmtCreate?: number;
-  /**
-   * @remarks
-   * The time the template was last modified, as a UNIX timestamp.
-   */
   gmtModified?: number;
-  /**
-   * @remarks
-   * The ID of the alert rule template.
-   */
   id?: number;
-  /**
-   * @remarks
-   * Indicates whether the template is system-defined. Valid values: `0` (user-defined) and `1` (system-defined).
-   */
   isSystem?: number;
-  /**
-   * @remarks
-   * The labels associated with the template, formatted as a JSON string.
-   */
   labels?: string;
-  /**
-   * @remarks
-   * The rule configuration, formatted as a JSON string.
-   */
   ruleConfigs?: string;
-  /**
-   * @remarks
-   * The status of the template.
-   */
+  scenes?: string;
+  schemaVersion?: string;
+  sourceType?: string;
   status?: number;
-  /**
-   * @remarks
-   * The subtype of the alert.
-   */
   subType?: string;
-  /**
-   * @remarks
-   * The name of the alert rule template.
-   */
   templateName?: string;
-  /**
-   * @remarks
-   * The ID of the user who owns the template.
-   */
   userId?: string;
-  /**
-   * @remarks
-   * The universally unique identifier (UUID) of the template.
-   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
       alertType: 'alertType',
       applyCount: 'applyCount',
+      bizType: 'bizType',
+      datasource: 'datasource',
       description: 'description',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
@@ -84,6 +35,9 @@ export class AlertRuleTemplate extends $dara.Model {
       isSystem: 'isSystem',
       labels: 'labels',
       ruleConfigs: 'ruleConfigs',
+      scenes: 'scenes',
+      schemaVersion: 'schemaVersion',
+      sourceType: 'sourceType',
       status: 'status',
       subType: 'subType',
       templateName: 'templateName',
@@ -96,6 +50,8 @@ export class AlertRuleTemplate extends $dara.Model {
     return {
       alertType: 'string',
       applyCount: 'number',
+      bizType: 'string',
+      datasource: 'string',
       description: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
@@ -103,6 +59,9 @@ export class AlertRuleTemplate extends $dara.Model {
       isSystem: 'number',
       labels: 'string',
       ruleConfigs: 'string',
+      scenes: 'string',
+      schemaVersion: 'string',
+      sourceType: 'string',
       status: 'number',
       subType: 'string',
       templateName: 'string',

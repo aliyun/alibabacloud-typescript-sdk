@@ -19,11 +19,23 @@ export class ManageAlertRulesResult extends $dara.Model {
    * A list of UUIDs of deleted alert rules.
    */
   deletedUuidList?: string[];
+  /**
+   * @remarks
+   * The number of updated alert rules.
+   */
+  updatedCount?: number;
+  /**
+   * @remarks
+   * A list of UUIDs of updated alert rules.
+   */
+  updatedUuidList?: string[];
   static names(): { [key: string]: string } {
     return {
       alertRule: 'alertRule',
       deletedCount: 'deletedCount',
       deletedUuidList: 'deletedUuidList',
+      updatedCount: 'updatedCount',
+      updatedUuidList: 'updatedUuidList',
     };
   }
 
@@ -32,6 +44,8 @@ export class ManageAlertRulesResult extends $dara.Model {
       alertRule: AlertRuleV2,
       deletedCount: 'number',
       deletedUuidList: { 'type': 'array', 'itemType': 'string' },
+      updatedCount: 'number',
+      updatedUuidList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -41,6 +55,9 @@ export class ManageAlertRulesResult extends $dara.Model {
     }
     if(Array.isArray(this.deletedUuidList)) {
       $dara.Model.validateArray(this.deletedUuidList);
+    }
+    if(Array.isArray(this.updatedUuidList)) {
+      $dara.Model.validateArray(this.updatedUuidList);
     }
     super.validate();
   }

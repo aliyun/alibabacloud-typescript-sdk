@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The add-on name.
+   * The addon name.
    * 
    * @example
    * cs-default
@@ -13,7 +13,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * The ID of the attached resource.
+   * The ID of the bound resource.
    * 
    * @example
    * 622d27c2e87d49debceeebc7c642610e
@@ -21,7 +21,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   bindResourceId?: string;
   /**
    * @remarks
-   * The IDs of the entity groups to filter by. Separate multiple IDs with commas.
+   * The entity IDs used for filtering, separated by commas.
    * 
    * @example
    * eg-1,eg-2,eg-3
@@ -29,7 +29,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   entityGroupIds?: string;
   /**
    * @remarks
-   * The IDs of the regions to query. Separate multiple region IDs with commas.
+   * The region IDs used for filtering, separated by commas.
    * 
    * @example
    * cn-beijing,cn-hangzhou
@@ -37,7 +37,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   filterRegionIds?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page. The default value is 30. The maximum value is 100.
+   * The maximum number of results to return. Default value: 30. Maximum value: 100.
    * 
    * @example
    * 30
@@ -45,7 +45,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first request. You can obtain the token from the response to the previous request.
+   * The token used to retrieve more results. You do not need to specify this parameter for the first request. Use the token returned from the previous query for subsequent requests.
    * 
    * @example
    * mvnX6zqg3P
@@ -61,7 +61,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The policy name.
+   * The rule name.
    * 
    * @example
    * prod-database
@@ -85,7 +85,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * A general-purpose query string.
+   * The keyword used for general queries.
    * 
    * @example
    * test
@@ -101,7 +101,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tagShrink?: string;
   /**

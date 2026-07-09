@@ -11,7 +11,7 @@ export class UpdateSubscriptionRequest extends $dara.Model {
   body?: SubscriptionForModify;
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * workspace-test
