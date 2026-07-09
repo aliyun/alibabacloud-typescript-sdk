@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPolicyGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page. Value range: 1 to 100. Default value: 20.
+   * The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListPolicyGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
+   * The pagination token that marks the position from which to start reading. Leave this parameter empty to read from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
@@ -21,12 +21,12 @@ export class ListPolicyGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The IDs of the policies.
+   * The list of policy IDs.
    */
   policyGroupIds?: string[];
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
    * Default policy

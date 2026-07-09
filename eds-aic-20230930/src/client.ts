@@ -4642,7 +4642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries policies.
+   * Queries the details of a policy.
    * 
    * @param request - ListPolicyGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4689,7 +4689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries policies.
+   * Queries the details of a policy.
    * 
    * @param request - ListPolicyGroupsRequest
    * @returns ListPolicyGroupsResponse

@@ -94,6 +94,7 @@ export { ImportKeyPairResponseBodyData } from './ImportKeyPairResponseBody';
 export { InstallAppResponseBodyChildTaskInfo } from './InstallAppResponseBody';
 export { InstanceHealerResponseBodyInstanceHealerModel } from './InstanceHealerResponseBody';
 export { ListInstanceAdbAttributesResponseBodyData } from './ListInstanceAdbAttributesResponseBody';
+export { ListPolicyGroupsResponseBodyPolicyGroupModelAccessPolicies } from './ListPolicyGroupsResponseBody';
 export { ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules } from './ListPolicyGroupsResponseBody';
 export { ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy } from './ListPolicyGroupsResponseBody';
 export { ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources } from './ListPolicyGroupsResponseBody';
