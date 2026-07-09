@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteReportDefinitionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the subscription is deleted.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The metadata of the response struct.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
    */

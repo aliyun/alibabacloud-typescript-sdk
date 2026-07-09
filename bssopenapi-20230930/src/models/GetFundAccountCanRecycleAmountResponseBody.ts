@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the target account to which funds can be reclaimed.
+   * 
    * @example
    * 122323121
    */
   fundAccountId?: string;
   /**
+   * @remarks
+   * The name of the target account to which funds can be reclaimed.
+   * 
    * @example
    * 云某的账户
    */
   fundAccountName?: string;
   /**
+   * @remarks
+   * The account ID that owns the target account to which funds can be reclaimed.
+   * 
    * @example
    * 183221321
    */
   fundAccountOwnerAccountId?: string;
   /**
+   * @remarks
+   * The maximum reclaimable amount.
+   * 
    * @example
    * 120
    */
   maxRecyclableAmount?: string;
   /**
+   * @remarks
+   * The remaining transfer amount that can be reclaimed through the original transfer path.
+   * 
    * @example
    * 120
    */
@@ -59,32 +74,54 @@ export class GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList 
 
 export class GetFundAccountCanRecycleAmountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The available balance of the account from which funds are reclaimed.
+   * 
    * @example
    * 300
    */
   availableAmount?: string;
   /**
+   * @remarks
+   * The currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The metadata of the response struct.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * The ID of the source account from which funds are reclaimed.
+   * 
    * @example
    * 1232122132
    */
   recycleFromFundAccountId?: string;
+  /**
+   * @remarks
+   * The list of accounts to which funds can be reclaimed.
+   */
   recycleToFundAccountList?: GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4
    */
   requestId?: string;
   /**
+   * @remarks
+   * The transfer ledger balance.
+   * 
    * @example
    * 200
    */

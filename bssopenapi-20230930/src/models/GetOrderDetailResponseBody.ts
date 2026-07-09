@@ -378,22 +378,34 @@ export class GetOrderDetailResponseBodyDataOrderList extends $dara.Model {
 
 export class GetOrderDetailResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The hostname.
+   * 
    * @example
    * test
    */
   hostName?: string;
   orderList?: GetOrderDetailResponseBodyDataOrderList;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 400
    */
@@ -432,22 +444,38 @@ export class GetOrderDetailResponseBodyData extends $dara.Model {
 
 export class GetOrderDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetOrderDetailResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Successful!
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D6E068C3-25BC-455A-85FE-45F0B22ECB1F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

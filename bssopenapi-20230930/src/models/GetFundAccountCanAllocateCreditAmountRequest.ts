@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFundAccountCanAllocateCreditAmountRequest extends $dara.Model {
   /**
+   * @remarks
+   * Fund account ID. If not specified, the account owned by the current account is used by default.
+   * 
    * @example
    * 1233231
    */

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCostCenterRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Financial unit allocation rule ID
+   * 
    * @example
    * 1111
    */
   data?: number;
   /**
+   * @remarks
+   * Response structure metadata
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
    */

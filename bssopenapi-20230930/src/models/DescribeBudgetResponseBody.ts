@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBudgetResponseBodyCycleQuota extends $dara.Model {
+  /**
+   * @remarks
+   * Cycle period.
+   * 
+   * @example
+   * 202601
+   */
   cyclePeriod?: string;
+  /**
+   * @remarks
+   * Quota.
+   * 
+   * @example
+   * 100
+   */
   quota?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +43,18 @@ export class DescribeBudgetResponseBodyCycleQuota extends $dara.Model {
 }
 
 export class DescribeBudgetResponseBodyEcIdAccountIdsFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Member account IDs.
+   */
   accountIds?: number[];
+  /**
+   * @remarks
+   * Enterprise entity ID.
+   * 
+   * @example
+   * E2024112210463400001
+   */
   ecId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,8 +83,26 @@ export class DescribeBudgetResponseBodyEcIdAccountIdsFilter extends $dara.Model 
 }
 
 export class DescribeBudgetResponseBodyQueryFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Parameter code.
+   * 
+   * @example
+   * RESOURCE_OWNER_ACCOUNT
+   */
   code?: string;
+  /**
+   * @remarks
+   * Selection mode.
+   * 
+   * @example
+   * IN
+   */
   selectType?: string;
+  /**
+   * @remarks
+   * Filter value list.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -90,14 +133,68 @@ export class DescribeBudgetResponseBodyQueryFilter extends $dara.Model {
 }
 
 export class DescribeBudgetResponseBodyWarnConfs extends $dara.Model {
+  /**
+   * @remarks
+   * Remarks.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable EventBridge.
+   */
   eventBridge?: boolean;
+  /**
+   * @remarks
+   * Message center notification channel list.
+   */
   mscChannels?: string[];
+  /**
+   * @remarks
+   * Message center contact list.
+   */
   mscContacts?: string[];
+  /**
+   * @remarks
+   * Alert name. User-defined and optional. If not specified, the backend automatically generates a name.
+   * 
+   * @example
+   * Alter-1
+   */
   name?: string;
+  /**
+   * @remarks
+   * Sequence number. Only present in responses. Alerts are numbered in ascending order of alert ID, starting from 1.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
+  /**
+   * @remarks
+   * Threshold type.
+   * 
+   * @example
+   * FIXED
+   */
   thresholdType?: string;
+  /**
+   * @remarks
+   * Threshold value.
+   * 
+   * @example
+   * 1000
+   */
   thresholdValue?: string;
+  /**
+   * @remarks
+   * Alert target.
+   * 
+   * @example
+   * ACTUAL
+   */
   warnTarget?: string;
   static names(): { [key: string]: string } {
     return {
@@ -144,55 +241,112 @@ export class DescribeBudgetResponseBodyWarnConfs extends $dara.Model {
 
 export class DescribeBudgetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Budget name.
+   * 
    * @example
    * department1
    */
   budgetName?: string;
   /**
+   * @remarks
+   * Budget type.
+   * 
    * @example
    * CONSUME
    */
   budgetType?: string;
+  /**
+   * @remarks
+   * Remarks.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
   /**
+   * @remarks
+   * End cycle period.
+   * 
    * @example
    * 2026-12
    */
   cycleEndPeriod?: string;
+  /**
+   * @remarks
+   * Quota specified per cycle.
+   */
   cycleQuota?: DescribeBudgetResponseBodyCycleQuota[];
   /**
+   * @remarks
+   * Start cycle period.
+   * 
    * @example
    * 2025-10
    */
   cycleStartPeriod?: string;
   /**
+   * @remarks
+   * Cycle type.
+   * 
    * @example
    * MONTHLY
    */
   cycleType?: string;
+  /**
+   * @remarks
+   * Enterprise multi-account filter conditions.
+   */
   ecIdAccountIdsFilter?: DescribeBudgetResponseBodyEcIdAccountIdsFilter;
+  /**
+   * @remarks
+   * Response structure metadata.
+   * 
+   * @example
+   * {}
+   */
   metadata?: any;
   /**
+   * @remarks
+   * Budget metric.
+   * 
    * @example
    * REQUIRE_AMOUNT
    */
   metric?: string;
+  /**
+   * @remarks
+   * Filter conditions.
+   */
   queryFilter?: DescribeBudgetResponseBodyQueryFilter[];
   /**
+   * @remarks
+   * Fixed quota value.
+   * 
    * @example
    * 1000
    */
   quota?: string;
   /**
+   * @remarks
+   * Quota type.
+   * 
    * @example
    * FIXED
    */
   quotaType?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A1B2C3D4-E5F6-7890-ABCD-EF1234567890
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Alert configurations.
+   */
   warnConfs?: DescribeBudgetResponseBodyWarnConfs[];
   static names(): { [key: string]: string } {
     return {

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitSlaCouponApplyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response structure metadata.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * Unique request identifier used to tag a request for troubleshooting.
+   * 
    * @example
    * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total claimed amount.
+   * 
    * @example
    * 6.4
    */
   sumCoupon?: number;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * Mon Apr 27 00:00:00 CST 2026
    */
   validEndTime?: string;
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * Tue Oct 27 13:15:58 CST 2026
    */

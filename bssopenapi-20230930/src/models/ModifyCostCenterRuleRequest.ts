@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyCostCenterRuleRequestFilterExpressionFilterValues extends $dara.Model {
   /**
+   * @remarks
+   * Condition filter key
+   * 
    * @example
    * TAG-test-xxx-key
    */
   code?: string;
+  /**
+   * @remarks
+   * Condition filter key name (deprecated)
+   * 
+   * @example
+   * 无
+   */
   codeName?: string;
   /**
+   * @remarks
+   * Association between code and value
+   * 
    * @example
    * IN
    */
   selectType?: string;
+  /**
+   * @remarks
+   * Condition filter value list
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -47,14 +64,35 @@ export class ModifyCostCenterRuleRequestFilterExpressionFilterValues extends $da
 
 export class ModifyCostCenterRuleRequestFilterExpression extends $dara.Model {
   /**
+   * @remarks
+   * Operation type
+   * 
    * @example
    * NARY
    */
   expressionType?: string;
+  /**
+   * @remarks
+   * Sub-condition filter
+   */
   filterValues?: ModifyCostCenterRuleRequestFilterExpressionFilterValues;
+  /**
+   * @remarks
+   * Filter condition (deprecated)
+   * 
+   * @example
+   * 无
+   */
   operand?: any;
+  /**
+   * @remarks
+   * Condition expression
+   */
   operands?: any[];
   /**
+   * @remarks
+   * Relational expression
+   * 
    * @example
    * AND
    */
@@ -96,17 +134,30 @@ export class ModifyCostCenterRuleRequestFilterExpression extends $dara.Model {
 
 export class ModifyCostCenterRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * Financial unit ID
+   * 
    * @example
    * 485938
    */
   costCenterId?: number;
+  /**
+   * @remarks
+   * Rule expression
+   */
   filterExpression?: ModifyCostCenterRuleRequestFilterExpression;
   /**
+   * @remarks
+   * Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * 
    * @example
    * 2684201000001
    */
   nbid?: string;
   /**
+   * @remarks
+   * Owner of the financial unit (deprecated)
+   * 
    * @example
    * 1234567812345678
    */

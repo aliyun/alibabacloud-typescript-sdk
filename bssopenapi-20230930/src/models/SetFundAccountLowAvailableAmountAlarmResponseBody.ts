@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetFundAccountLowAvailableAmountAlarmResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The response metadata.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 08108BF5-1AA3-518E-9986-95A3616E8DA9
    */

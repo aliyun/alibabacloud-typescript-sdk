@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCostCenterRuleShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Financial unit ID
+   * 
    * @example
    * 485938
    */
   costCenterId?: number;
+  /**
+   * @remarks
+   * Rule expression
+   */
   filterExpressionShrink?: string;
   /**
+   * @remarks
+   * First-level marketplace ID. If left empty, the ID of the marketplace to which the current user belongs is used by default.
+   * 
    * @example
    * 2084210001
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostByCostCenterRequest extends $dara.Model {
   /**
    * @remarks
+   * Billing month (format: YYYYMM)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class QueryCostByCostCenterRequest extends $dara.Model {
    */
   billingMonth?: number;
   /**
+   * @remarks
+   * Whether to display data rows with zero payable amount
+   * 
    * @example
    * false
    */
   displayZeroAmountBills?: boolean;
   /**
+   * @remarks
+   * Whether to aggregate and display by cost center level
+   * 
    * @example
    * false
    */
   groupByCostCenterLevel?: boolean;
   /**
    * @remarks
+   * Cost type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +40,9 @@ export class QueryCostByCostCenterRequest extends $dara.Model {
    */
   metrics?: string;
   /**
+   * @remarks
+   * Account ID that owns the resource
+   * 
    * @example
    * 1374729705039203
    */

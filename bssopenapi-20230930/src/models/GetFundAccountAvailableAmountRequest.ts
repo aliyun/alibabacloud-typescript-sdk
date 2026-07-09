@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFundAccountAvailableAmountRequest extends $dara.Model {
   /**
+   * @remarks
+   * Account ID. If not specified, the account ID owned by the current account (owner) is used by default.
+   * 
    * @example
    * 12332112
    */

@@ -101,22 +101,34 @@ export class GetOrdersResponseBodyDataOrderList extends $dara.Model {
 
 export class GetOrdersResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The hostname.
+   * 
    * @example
    * test
    */
   hostName?: string;
   orderList?: GetOrdersResponseBodyDataOrderList;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page. A maximum of 20 entries per page is recommended. A larger number may cause a timeout.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
@@ -155,22 +167,38 @@ export class GetOrdersResponseBodyData extends $dara.Model {
 
 export class GetOrdersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetOrdersResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Successful!
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

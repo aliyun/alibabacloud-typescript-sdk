@@ -3,21 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SaveCostCenterShareRuleRequestCreateShareRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of source cost centers.
+   */
   fromCostCenterList?: number[];
+  /**
+   * @remarks
+   * The list of sharing ratios.
+   */
   shareRatioList?: number[];
   /**
+   * @remarks
+   * The name of the sharing rule.
+   * 
    * @example
    * test
    */
   shareRuleName?: string;
   /**
    * @remarks
+   * The type of the sharing rule.
+   * 
    * This parameter is required.
    * 
    * @example
    * RATIO
    */
   shareType?: string;
+  /**
+   * @remarks
+   * The list of target cost centers.
+   */
   toCostCenterList?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -58,10 +75,20 @@ export class SaveCostCenterShareRuleRequestCreateShareRuleList extends $dara.Mod
 }
 
 export class SaveCostCenterShareRuleRequestModifyShareRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The list of source cost centers.
+   */
   fromCostCenterList?: number[];
+  /**
+   * @remarks
+   * The list of sharing ratios.
+   */
   shareRatioList?: number[];
   /**
    * @remarks
+   * The ID of the sharing rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,18 +96,27 @@ export class SaveCostCenterShareRuleRequestModifyShareRuleList extends $dara.Mod
    */
   shareRuleId?: number;
   /**
+   * @remarks
+   * The name of the sharing rule.
+   * 
    * @example
    * test
    */
   shareRuleName?: string;
   /**
    * @remarks
+   * The type of the sharing rule.
+   * 
    * This parameter is required.
    * 
    * @example
    * CUSTOM
    */
   shareType?: string;
+  /**
+   * @remarks
+   * The list of target cost centers.
+   */
   toCostCenterList?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -123,18 +159,36 @@ export class SaveCostCenterShareRuleRequestModifyShareRuleList extends $dara.Mod
 }
 
 export class SaveCostCenterShareRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of sharing rules to create.
+   */
   createShareRuleList?: SaveCostCenterShareRuleRequestCreateShareRuleList[];
+  /**
+   * @remarks
+   * The list of sharing rules to modify.
+   */
   modifyShareRuleList?: SaveCostCenterShareRuleRequestModifyShareRuleList[];
   /**
+   * @remarks
+   * The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
+   * 
    * @example
    * 2684201000001
    */
   nbid?: string;
   /**
+   * @remarks
+   * The user ID of the cost center owner.
+   * 
    * @example
    * 1977800748053695
    */
   ownerAccountId?: number;
+  /**
+   * @remarks
+   * The list of sharing rules to delete.
+   */
   removeShareRuleList?: number[];
   static names(): { [key: string]: string } {
     return {

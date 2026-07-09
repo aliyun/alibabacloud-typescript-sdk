@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCostCenterRuleRequestFilterExpressionFilterValues extends $dara.Model {
   /**
+   * @remarks
+   * The condition filter key.
+   * 
    * @example
    * TAG-test-xxx-key
    */
   code?: string;
+  /**
+   * @remarks
+   * The condition filter key name.
+   * 
+   * @example
+   * 无
+   */
   codeName?: string;
   /**
+   * @remarks
+   * The association between Code and value.
+   * 
    * @example
    * IN
    */
   selectType?: string;
+  /**
+   * @remarks
+   * The condition filter values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -47,14 +64,35 @@ export class DeleteCostCenterRuleRequestFilterExpressionFilterValues extends $da
 
 export class DeleteCostCenterRuleRequestFilterExpression extends $dara.Model {
   /**
+   * @remarks
+   * The operation type.
+   * 
    * @example
    * NARY
    */
   expressionType?: string;
+  /**
+   * @remarks
+   * The sub-expression filter conditions.
+   */
   filterValues?: DeleteCostCenterRuleRequestFilterExpressionFilterValues;
+  /**
+   * @remarks
+   * The filter condition (no longer used).
+   * 
+   * @example
+   * 无
+   */
   operand?: any;
+  /**
+   * @remarks
+   * The conditional expressions.
+   */
   operands?: any[];
   /**
+   * @remarks
+   * The relational expression.
+   * 
    * @example
    * AND
    */
@@ -96,12 +134,23 @@ export class DeleteCostCenterRuleRequestFilterExpression extends $dara.Model {
 
 export class DeleteCostCenterRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * Financial unit ID.
+   * 
    * @example
    * 637127
    */
   costCenterId?: number;
+  /**
+   * @remarks
+   * Rule expression.
+   * **This field does not need to be entered during the delete operation.**
+   */
   filterExpression?: DeleteCostCenterRuleRequestFilterExpression;
   /**
+   * @remarks
+   * Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * 
    * @example
    * 2684201000001
    */

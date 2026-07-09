@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCostCenterRequest extends $dara.Model {
   /**
    * @remarks
+   * Cost center ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class DeleteCostCenterRequest extends $dara.Model {
    */
   costCenterId?: number;
   /**
+   * @remarks
+   * First-level marketplace ID. If left empty, the marketplace ID of the current user is used by default.
+   * 
    * @example
    * 2684201000001
    */
   nbid?: string;
   /**
    * @remarks
+   * User ID of the cost center owner.
+   * 
    * This parameter is required.
    * 
    * @example

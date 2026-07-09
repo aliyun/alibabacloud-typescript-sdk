@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBudgetResponseBody extends $dara.Model {
   budgetName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 03A59CD4-6C6B-1A62-B64C-F1F2AF7830F3
    */

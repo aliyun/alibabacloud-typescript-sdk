@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCouponResponseBodyDataShareUidList extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud UID.
+   * 
    * @example
    * 1902671110151254
    */
   uid?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account.
+   * 
+   * @example
+   * 阿里云计算有限公司
+   */
   userNick?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,89 +44,185 @@ export class DescribeCouponResponseBodyDataShareUidList extends $dara.Model {
 
 export class DescribeCouponResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The face value.
+   * 
    * @example
    * 9929.750000
    */
   amount?: string;
   certainAmount?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * 59243658
    */
   couponId?: number;
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * 731074910070
    */
   couponNo?: string;
   /**
+   * @remarks
+   * The coupon type.
+   * 
    * @example
    * CERTAIN
    */
   couponType?: string;
+  /**
+   * @remarks
+   * The coupon type name.
+   * 
+   * @example
+   * 满减券
+   */
   couponTypeName?: string;
   /**
+   * @remarks
+   * The currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2021-03-06T15:12Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * Indicates whether there is a first purchase restriction.
+   */
   firstBuy?: boolean;
   /**
+   * @remarks
+   * The coupon issuance time.
+   * 
    * @example
    * 2021-03-02T15:12Z
    */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * The product code list.
+   */
   itemNames?: string[];
+  /**
+   * @remarks
+   * The amount limit.
+   * 
+   * @example
+   * 无订单金额限制
+   */
   moneyLimit?: string;
+  /**
+   * @remarks
+   * The order duration limit rule.
+   * 
+   * @example
+   * 预付费规则：购买订单时长大于3600s才能使用
+   */
   orderTimeRule?: string;
   /**
+   * @remarks
+   * The remaining amount.
+   * 
    * @example
    * 100.00
    */
   remainAmount?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * 新买28号
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The shared account list.
+   */
   shareUidList?: DescribeCouponResponseBodyDataShareUidList[];
   /**
+   * @remarks
+   * Indicates whether to display the tag deduction button.
+   * 
    * @example
    * true
    */
   showSetDeductTagButton?: boolean;
   /**
+   * @remarks
+   * The site.
+   * 
    * @example
    * CHINA
    */
   site?: string;
+  /**
+   * @remarks
+   * The site name.
+   * 
+   * @example
+   * 官网自营
+   */
   siteName?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2021-03-02T15:12Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The applicable account.
+   * 
    * @example
    * 1902671110151254
    */
   suitAccount?: string;
   /**
+   * @remarks
+   * The applicable product type. Valid values: all, which indicates that the coupon is applicable to all products. white, which indicates that the coupon is applicable to specified products. black, which indicates that the coupon is not applicable to specified products.
+   * 
    * @example
    * all
    */
   suitItemType?: string;
   /**
+   * @remarks
+   * The coupon applicable scope.
+   * 
    * @example
    * UNIVERSAL
    */
   universalType?: string;
+  /**
+   * @remarks
+   * The list of order types applicable to the coupon.
+   */
   yhOrderTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -198,22 +304,38 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
 
 export class DescribeCouponResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The data list.
+   */
   data?: DescribeCouponResponseBodyData[];
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C880B065-A781-4F19-B6DD-3E0E3B715C64
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 2
    */

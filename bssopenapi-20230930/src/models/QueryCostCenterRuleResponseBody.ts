@@ -4,16 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryCostCenterRuleResponseBodyFilterExpressionFilterValues extends $dara.Model {
   /**
+   * @remarks
+   * The condition filter key.
+   * 
    * @example
    * TAG-test-xxx-key
    */
   code?: string;
+  /**
+   * @remarks
+   * The condition filter key name (deprecated).
+   * 
+   * @example
+   * 无
+   */
   codeName?: string;
   /**
+   * @remarks
+   * The association between code and value.
+   * 
    * @example
    * IN
    */
   selectType?: string;
+  /**
+   * @remarks
+   * The attribute value types corresponding to the module code. Valid values:
+   * - single_float: single value type.
+   * - range_float: range value type.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -47,14 +66,35 @@ export class QueryCostCenterRuleResponseBodyFilterExpressionFilterValues extends
 
 export class QueryCostCenterRuleResponseBodyFilterExpression extends $dara.Model {
   /**
+   * @remarks
+   * The operation type.
+   * 
    * @example
    * NARY
    */
   expressionType?: string;
+  /**
+   * @remarks
+   * The sub-condition filter.
+   */
   filterValues?: QueryCostCenterRuleResponseBodyFilterExpressionFilterValues;
+  /**
+   * @remarks
+   * The filter condition (deprecated).
+   * 
+   * @example
+   * 无
+   */
   operand?: any;
+  /**
+   * @remarks
+   * The condition expression.
+   */
   operands?: any[];
   /**
+   * @remarks
+   * The relational expression.
+   * 
    * @example
    * AND
    */
@@ -96,55 +136,90 @@ export class QueryCostCenterRuleResponseBodyFilterExpression extends $dara.Model
 
 export class QueryCostCenterRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cost center ID.
+   * 
    * @example
    * 597745
    */
   costCenterId?: number;
+  /**
+   * @remarks
+   * The rule expression.
+   */
   filterExpression?: QueryCostCenterRuleResponseBodyFilterExpression;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * Tue Nov 12 14:49:43 CST 2024
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * Wed Oct 16 10:15:37 CST 2024
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The ID of the cost center auto-allocation rule.
+   * 
    * @example
    * 32048
    */
   id?: number;
   /**
+   * @remarks
+   * The deletion status. Valid values:
+   * * **0**: active.
+   * * **1**: inactive.
+   * 
    * @example
    * false
    */
   isDeleted?: number;
   /**
+   * @remarks
+   * Response structure metadata.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * The owner user of the cost center.
+   * 
    * @example
    * 1977800748053695
    */
   ownerAccountId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * UUID
    */
   requestId?: string;
   /**
+   * @remarks
+   * The root cost center ID.
+   * 
    * @example
    * 0
    */
   rootCostCenterId?: number;
   /**
+   * @remarks
+   * The status. Valid values:
+   * - on: active.
+   * - off: inactive.
+   * 
    * @example
    * on
    */

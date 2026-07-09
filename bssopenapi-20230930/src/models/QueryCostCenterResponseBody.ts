@@ -4,36 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   /**
+   * @remarks
+   * The code of the financial unit.
+   * 
    * @example
    * 15945703968#
    */
   costCenterCode?: string;
   /**
+   * @remarks
+   * The ID of the financial unit.
+   * 
    * @example
    * 485938
    */
   costCenterId?: number;
+  /**
+   * @remarks
+   * The name of the financial unit. The name must be unique within the same account.
+   * 
+   * @example
+   * 资源组
+   */
   costCenterName?: string;
   /**
+   * @remarks
+   * The level of the financial unit node.
+   * 
    * @example
    * loose
    */
   level?: number;
   /**
+   * @remarks
+   * The ID of the user who owns the financial unit.
+   * 
    * @example
    * 1314839403940987
    */
   ownerAccountId?: number;
   /**
+   * @remarks
+   * The ID of the parent financial unit.
+   * 
    * @example
    * -1
    */
   parentCostCenterId?: number;
   /**
+   * @remarks
+   * The ID of the previous financial unit.
+   * 
    * @example
    * 485996
    */
   prevCostCenterId?: number;
+  priority?: number;
   static names(): { [key: string]: string } {
     return {
       costCenterCode: 'CostCenterCode',
@@ -43,6 +69,7 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
       ownerAccountId: 'OwnerAccountId',
       parentCostCenterId: 'ParentCostCenterId',
       prevCostCenterId: 'PrevCostCenterId',
+      priority: 'Priority',
     };
   }
 
@@ -55,6 +82,7 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
       ownerAccountId: 'number',
       parentCostCenterId: 'number',
       prevCostCenterId: 'number',
+      priority: 'number',
     };
   }
 
@@ -68,18 +96,31 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
 }
 
 export class QueryCostCenterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of financial unit data.
+   */
   costCenterDtoList?: QueryCostCenterResponseBodyCostCenterDtoList[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The metadata of the response struct.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
@@ -93,6 +134,9 @@ export class QueryCostCenterResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 30
    */

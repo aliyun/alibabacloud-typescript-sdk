@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The service availability.
+   * 
    * @example
    * 99.9155
    */
   availableRate?: number;
   /**
+   * @remarks
+   * The unique identifier of the damage record, which is used for targeted compensation application.
+   * 
    * @example
    * 9b7***9413
    */
   damagedId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * OSSBAG-cn-0xl0n****003
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The month in yyyyMM format.
+   * 
    * @example
    * 202603
    */
   month?: number;
   /**
+   * @remarks
+   * The monthly service charge.
+   * 
    * @example
    * 365.00
    */
   monthlyServiceCharge?: number;
   /**
+   * @remarks
+   * The compensation description.
+   * 
    * @example
-   * SLApei f
+   * SLA赔付
    */
   payDescription?: string;
   /**
+   * @remarks
+   * The compensation ratio. Unit: %.
+   * 
    * @example
    * 10
    */
   payRate?: number;
   /**
+   * @remarks
+   * The compensation status. Valid values: 0 (uncompensated) and 1 (compensated).
+   * 
    * @example
    * 1
    */
   payStatus?: number;
   /**
+   * @remarks
+   * The product code.
+   * 
    * @example
    * oss
    */
   productCode?: string;
   /**
+   * @remarks
+   * The compensation amount.
+   * 
    * @example
    * 36.5
    */
@@ -94,27 +124,46 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
 
 export class QueryMonthlySlaListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The data list.
+   */
   data?: QueryMonthlySlaListResponseBodyData[];
   /**
+   * @remarks
+   * The response metadata.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 5
    */

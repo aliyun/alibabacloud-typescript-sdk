@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFundAccountAvailableAmountResponseBodyExtendLedgerList extends $dara.Model {
   /**
+   * @remarks
+   * Currency of the ledger amount, such as CNY and USD.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * Ledger name
+   * 
    * @example
    * 应付对冲账本
    */
   ledgerName?: string;
   /**
+   * @remarks
+   * Ledger balance
+   * 
    * @example
    * 50
    */
@@ -45,11 +54,17 @@ export class GetFundAccountAvailableAmountResponseBodyExtendLedgerList extends $
 
 export class GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList extends $dara.Model {
   /**
+   * @remarks
+   * Amount
+   * 
    * @example
    * 10
    */
   amount?: string;
   /**
+   * @remarks
+   * Currency
+   * 
    * @example
    * USD
    */
@@ -79,99 +94,170 @@ export class GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList ext
 
 export class GetFundAccountAvailableAmountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Available amount
+   * 
    * @example
    * 100
    */
   availableAmount?: string;
   /**
+   * @remarks
+   * Available credit amount
+   * 
    * @example
    * 50
    */
   availableCreditAmount?: string;
   /**
+   * @remarks
+   * Bank acceptance bill amount
+   * 
    * @example
    * 0
    */
   bankAcceptanceAmount?: string;
   /**
+   * @remarks
+   * Cash balance
+   * 
    * @example
    * 50
    */
   cashAmount?: string;
   /**
+   * @remarks
+   * Credit quota
+   * 
    * @example
    * 100
    */
   creditAmount?: string;
   /**
+   * @remarks
+   * Credit refund balance
+   * 
    * @example
    * 0
    */
   creditRefundAmount?: string;
+  /**
+   * @remarks
+   * Indicates whether credit control is enabled
+   */
   creditUser?: boolean;
   /**
+   * @remarks
+   * Currency
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * Current month uncleared amount
+   * 
    * @example
    * 20
    */
   currentMonthUnclearedAmount?: string;
+  /**
+   * @remarks
+   * Extended ledger list
+   */
   extendLedgerList?: GetFundAccountAvailableAmountResponseBodyExtendLedgerList[];
   /**
+   * @remarks
+   * Account ID
+   * 
    * @example
    * 12332112
    */
   fundAccountId?: string;
   /**
+   * @remarks
+   * Account ID of the fund account owner
+   * 
    * @example
    * 1344312434
    */
   fundAccountOwnerAccountId?: string;
   /**
+   * @remarks
+   * Account status
+   * 
    * @example
    * valid
    */
   fundAccountStatus?: string;
   /**
+   * @remarks
+   * Fund account type. Valid values:
+   * DIRECT_USER: Alibaba Cloud direct customer account.
+   * RESELLER_QUOTA: ecosystem account.
+   * 
    * @example
    * REDIRECT_USER
    */
   fundAccountType?: string;
   /**
+   * @remarks
+   * Historical months uncleared amount
+   * 
    * @example
    * 30
    */
   historyMonthUnclearedAmount?: string;
   /**
+   * @remarks
+   * Response metadata
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * Negative bill amount
+   * 
    * @example
    * 0
    */
   negativeBillAmount?: string;
+  /**
+   * @remarks
+   * Original cash ledger list. International site users may have cash ledgers in multiple currencies.
+   */
   originalCashAmountList?: GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList[];
   /**
+   * @remarks
+   * Ecosystem end customer quota
+   * 
    * @example
    * 20
    */
   quotaAmount?: string;
   /**
+   * @remarks
+   * Consumed quota of ecosystem end customer
+   * 
    * @example
    * 10
    */
   quotaConsumedAmount?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * F96A2D13-7509-5DF9-A60E-E7E3A3CB68E8
    */
   requestId?: string;
   /**
+   * @remarks
+   * Uncleared amount (current month uncleared + historical months uncleared)
+   * 
    * @example
    * 50
    */

@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryCostCenterResourceRequestEcIdAccountIds extends $dara.Model {
+  /**
+   * @remarks
+   * The list of accessed accounts. An empty value indicates that all accounts under the current entity ID are selected.
+   */
   accountIds?: number[];
   /**
    * @remarks
+   * The enterprise entity ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,27 +46,46 @@ export class QueryCostCenterResourceRequestEcIdAccountIds extends $dara.Model {
 
 export class QueryCostCenterResourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cost center.
+   * 
    * @example
    * 123456
    */
   costCenterId?: number;
+  /**
+   * @remarks
+   * The list of enterprises and accounts. An empty value indicates querying the current account.
+   */
   ecIdAccountIds?: QueryCostCenterResourceRequestEcIdAccountIds[];
   /**
+   * @remarks
+   * The maximum number of records per query.
+   * 
    * @example
    * 200
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The first-level marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * 
    * @example
    * 2684201000001
    */
   nbid?: string;
   /**
+   * @remarks
+   * The token for the next query. An empty NextToken indicates that there are no more results.
+   * 
    * @example
    * CAESEgoQCg4KCmd
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The owner user ID of the cost center.
+   * 
    * @example
    * 1234567812345678
    */

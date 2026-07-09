@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFundAccountTransferRequest extends $dara.Model {
   /**
    * @remarks
+   * The transfer amount.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   amount?: string;
   /**
    * @remarks
+   * The currency.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,9 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   currency?: string;
   /**
    * @remarks
+   * The asset type. Currently, only cash is supported. Valid values:
+   * - cash: cash.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +36,8 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   financeType?: string;
   /**
    * @remarks
+   * The ID of the source account (payer account ID).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +46,8 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   fromFundAccountId?: number;
   /**
    * @remarks
+   * The remarks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +56,8 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
+   * The ID of the destination account (payee account ID).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +66,10 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   toFundAccountId?: number;
   /**
    * @remarks
+   * The transfer type. Valid values:
+   * - grant: transfer.
+   * - recycle: revocation.
+   * 
    * This parameter is required.
    * 
    * @example

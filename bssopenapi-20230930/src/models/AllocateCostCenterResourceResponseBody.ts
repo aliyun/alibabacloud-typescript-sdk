@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class AllocateCostCenterResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cost center ID.
+   * 
    * @example
    * 640403
    */
   costCenterId?: number;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * The metadata of the response struct.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * The owner of the cost center.
+   * 
    * @example
    * 1529600453335198
    */
   ownerAccountId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * UUID
    */

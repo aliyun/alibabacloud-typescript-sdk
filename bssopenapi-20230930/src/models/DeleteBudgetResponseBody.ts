@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteBudgetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The budget name.
+   * 
    * @example
    * department1
    */
   budgetName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7EA6C02D-06D0-4213-9C3B-E67910F7D1EB
    */

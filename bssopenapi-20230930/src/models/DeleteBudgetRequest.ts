@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBudgetRequest extends $dara.Model {
   /**
    * @remarks
+   * The budget name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteBudgetRequest extends $dara.Model {
    */
   budgetName?: string;
   /**
+   * @remarks
+   * The ID of the primary marketplace. If this parameter is left empty, the marketplace ID of the current user is used by default.
+   * 
    * @example
    * 2684201000001
    */

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyCostCenterResponseBodyCostCenterOperateDto extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cost center.
+   * 
    * @example
    * 485938
    */
   costCenterId?: number;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * True
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * The ID of the owner to which the cost center belongs.
+   * 
    * @example
    * 1314839403940987
    */
@@ -44,13 +53,23 @@ export class ModifyCostCenterResponseBodyCostCenterOperateDto extends $dara.Mode
 }
 
 export class ModifyCostCenterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data entries.
+   */
   costCenterOperateDto?: ModifyCostCenterResponseBodyCostCenterOperateDto[];
   /**
+   * @remarks
+   * The metadata of the response.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetFundAccountCreditAmountRequest extends $dara.Model {
   /**
    * @remarks
+   * Credit limit
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SetFundAccountCreditAmountRequest extends $dara.Model {
   creditAmount?: string;
   /**
    * @remarks
+   * Currency for the credit control limit. Currently, only CNY is supported in mainland China, and only USD is supported for international use.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class SetFundAccountCreditAmountRequest extends $dara.Model {
    */
   currency?: string;
   /**
+   * @remarks
+   * Fund account ID. If not specified, the account owned by the current account (owner) is used by default.
+   * 
    * @example
    * 1232312
    */

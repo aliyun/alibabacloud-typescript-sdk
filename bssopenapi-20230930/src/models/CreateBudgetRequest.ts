@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateBudgetRequestCycleQuota extends $dara.Model {
+  /**
+   * @remarks
+   * The cycle.
+   * 
+   * @example
+   * 2026-01
+   */
   cyclePeriod?: string;
+  /**
+   * @remarks
+   * The quota.
+   * 
+   * @example
+   * 1000
+   */
   quota?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +43,18 @@ export class CreateBudgetRequestCycleQuota extends $dara.Model {
 }
 
 export class CreateBudgetRequestEcIdAccountIds extends $dara.Model {
+  /**
+   * @remarks
+   * The list of accounts to access. An empty value indicates all accounts under the current entity ID.
+   */
   accountIds?: number[];
+  /**
+   * @remarks
+   * The enterprise entity ID.
+   * 
+   * @example
+   * 1
+   */
   ecId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,15 +84,25 @@ export class CreateBudgetRequestEcIdAccountIds extends $dara.Model {
 
 export class CreateBudgetRequestQueryFilter extends $dara.Model {
   /**
+   * @remarks
+   * The parameter code.
+   * 
    * @example
    * RESOURCE_OWNER_ACCOUNT
    */
   code?: string;
   /**
+   * @remarks
+   * The selection mode.
+   * 
    * @example
    * IN
    */
   selectType?: string;
+  /**
+   * @remarks
+   * The list of filter values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -98,30 +133,60 @@ export class CreateBudgetRequestQueryFilter extends $dara.Model {
 }
 
 export class CreateBudgetRequestWarnConfs extends $dara.Model {
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
   /**
+   * @remarks
+   * Specifies whether to enable EventBridge.
+   * 
    * @example
    * true
    */
   eventBridge?: boolean;
+  /**
+   * @remarks
+   * The list of Message Center notification channels.
+   */
   mscChannels?: string[];
+  /**
+   * @remarks
+   * The list of Message Center contacts.
+   */
   mscContacts?: string[];
   /**
+   * @remarks
+   * The alert name. This is a user-defined optional field. If not specified, the backend automatically generates a name.
+   * 
    * @example
    * Alter-1
    */
   name?: string;
   /**
+   * @remarks
+   * The threshold type.
+   * 
    * @example
    * FIXED
    */
   thresholdType?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 2000
    */
   thresholdValue?: string;
   /**
+   * @remarks
+   * The alert target.
+   * 
    * @example
    * FORECAST
    */
@@ -170,6 +235,8 @@ export class CreateBudgetRequestWarnConfs extends $dara.Model {
 export class CreateBudgetRequest extends $dara.Model {
   /**
    * @remarks
+   * The budget name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -178,24 +245,41 @@ export class CreateBudgetRequest extends $dara.Model {
   budgetName?: string;
   /**
    * @remarks
+   * The budget type.
+   * 
    * This parameter is required.
    * 
    * @example
    * CONSUME
    */
   budgetType?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * comment
+   */
   comment?: string;
   /**
    * @remarks
+   * The end cycle.
+   * 
    * This parameter is required.
    * 
    * @example
    * 2026-12
    */
   cycleEndPeriod?: string;
+  /**
+   * @remarks
+   * The per-cycle specified quota. This parameter is required when QuotaType is set to `SPECIFY`.
+   */
   cycleQuota?: CreateBudgetRequestCycleQuota[];
   /**
    * @remarks
+   * The start cycle.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -204,36 +288,64 @@ export class CreateBudgetRequest extends $dara.Model {
   cycleStartPeriod?: string;
   /**
    * @remarks
+   * The cycle type.
+   * 
    * This parameter is required.
    * 
    * @example
    * MONTHLY
    */
   cycleType?: string;
+  /**
+   * @remarks
+   * The list of enterprises and accounts. An empty value indicates the current account.
+   */
   ecIdAccountIds?: CreateBudgetRequestEcIdAccountIds[];
   /**
    * @remarks
+   * The budget metric.
+   * 
    * This parameter is required.
    * 
    * @example
    * REQUIRE_AMOUNT
    */
   metric?: string;
+  /**
+   * @remarks
+   * The level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * 
+   * @example
+   * 26842
+   */
   nbid?: string;
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   queryFilter?: CreateBudgetRequestQueryFilter[];
   /**
+   * @remarks
+   * The fixed quota value. If the type is quota, the unit is percentage.
+   * 
    * @example
    * 1000
    */
   quota?: string;
   /**
    * @remarks
+   * The quota type.
+   * 
    * This parameter is required.
    * 
    * @example
    * FIXED
    */
   quotaType?: string;
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   warnConfs?: CreateBudgetRequestWarnConfs[];
   static names(): { [key: string]: string } {
     return {

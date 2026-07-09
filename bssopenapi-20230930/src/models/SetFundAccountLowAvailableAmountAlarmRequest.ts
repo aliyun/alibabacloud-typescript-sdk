@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetFundAccountLowAvailableAmountAlarmRequest extends $dara.Model {
   /**
+   * @remarks
+   * Fund account ID. If not specified, the account ID owned by the current account (owner) is used by default.
+   * 
    * @example
    * 12321213
    */
   fundAccountId?: number;
   /**
    * @remarks
+   * Low balance alert threshold.
+   * 
    * This parameter is required.
    * 
    * @example

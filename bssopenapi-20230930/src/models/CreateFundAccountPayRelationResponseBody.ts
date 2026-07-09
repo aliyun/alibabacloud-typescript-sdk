@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFundAccountPayRelationResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * AccountId of the user who pays with the account.
+   * 
    * @example
    * 1501603440974415
    */
   accountId?: string;
   /**
+   * @remarks
+   * Name of the user who pays with the account.
+   * 
    * @example
    * test@test.aliyunid.com
    */
   accountName?: string;
   /**
+   * @remarks
+   * Account ID.
+   * 
    * @example
    * 12332112
    */
   fundAccountId?: string;
   /**
+   * @remarks
+   * Result code.
+   * 
    * @example
    * Success
    */
   resultCode?: string;
   /**
+   * @remarks
+   * Result message.
+   * 
    * @example
    * Successful
    */
@@ -58,13 +73,23 @@ export class CreateFundAccountPayRelationResponseBodyData extends $dara.Model {
 }
 
 export class CreateFundAccountPayRelationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Data list.
+   */
   data?: CreateFundAccountPayRelationResponseBodyData[];
   /**
+   * @remarks
+   * Response metadata.
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999
    */

@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCouponItemListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The product code.
+   * 
    * @example
    * vm
    */
   code?: string;
+  /**
+   * @remarks
+   * The product name.
+   * 
+   * @example
+   * 云服务器ECS
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,22 +44,38 @@ export class DescribeCouponItemListResponseBodyData extends $dara.Model {
 
 export class DescribeCouponItemListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The data list.
+   */
   data?: DescribeCouponItemListResponseBodyData[];
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EAE08A27-386C-579E-966D-8853EC3C5D0E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 5
    */

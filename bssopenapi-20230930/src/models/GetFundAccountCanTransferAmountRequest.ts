@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetFundAccountCanTransferAmountRequest extends $dara.Model {
   /**
    * @remarks
+   * Currency
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetFundAccountCanTransferAmountRequest extends $dara.Model {
    */
   currency?: string;
   /**
+   * @remarks
+   * Transfer source account ID. If not specified, the account ID owned by the current account is used by default.
+   * 
    * @example
    * 123212
    */

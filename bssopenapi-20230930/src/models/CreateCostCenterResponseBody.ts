@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   /**
+   * @remarks
+   * Cost center ID
+   * 
    * @example
    * 485938
    */
   costCenterId?: number;
+  /**
+   * @remarks
+   * Cost center name (must be unique within the same account)
+   * 
+   * @example
+   * 资源组
+   */
   costCenterName?: string;
   /**
+   * @remarks
+   * Owner user ID of the cost center
+   * 
    * @example
    * 1314839403940987
    */
   ownerAccountId?: number;
   /**
+   * @remarks
+   * Parent cost center ID
+   * 
    * @example
    * -1
    */
@@ -47,13 +63,23 @@ export class CreateCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
 }
 
 export class CreateCostCenterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Data list
+   */
   costCenterDtoList?: CreateCostCenterResponseBodyCostCenterDtoList[];
   /**
+   * @remarks
+   * Response metadata
+   * 
    * @example
    * {}
    */
   metadata?: any;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * C1BD134E-D914-6AE0-1901-AEB2A99FA205
    */

@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCostCenterRuleRequestFilterExpressionFilterValues extends $dara.Model {
   /**
+   * @remarks
+   * Condition filter key
+   * 
    * @example
    * TAG-test-xxx-key
    */
   code?: string;
+  /**
+   * @remarks
+   * Condition filter key name (deprecated)
+   * 
+   * @example
+   * 无
+   */
   codeName?: string;
   /**
+   * @remarks
+   * Association relationship between code and value
+   * 
    * @example
    * IN
    */
   selectType?: string;
+  /**
+   * @remarks
+   * Condition filter value list
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -47,14 +64,35 @@ export class CreateCostCenterRuleRequestFilterExpressionFilterValues extends $da
 
 export class CreateCostCenterRuleRequestFilterExpression extends $dara.Model {
   /**
+   * @remarks
+   * Operation type
+   * 
    * @example
    * NARY
    */
   expressionType?: string;
+  /**
+   * @remarks
+   * Sub-condition filter
+   */
   filterValues?: CreateCostCenterRuleRequestFilterExpressionFilterValues;
+  /**
+   * @remarks
+   * Filter condition (deprecated)
+   * 
+   * @example
+   * 无
+   */
   operand?: any;
+  /**
+   * @remarks
+   * Condition expression
+   */
   operands?: any[];
   /**
+   * @remarks
+   * Relational expression
+   * 
    * @example
    * AND
    */
@@ -96,12 +134,22 @@ export class CreateCostCenterRuleRequestFilterExpression extends $dara.Model {
 
 export class CreateCostCenterRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * Financial unit ID
+   * 
    * @example
    * 485938
    */
   costCenterId?: number;
+  /**
+   * @remarks
+   * Rule expression
+   */
   filterExpression?: CreateCostCenterRuleRequestFilterExpression;
   /**
+   * @remarks
+   * First-level marketplace ID. If left empty, the ID of the marketplace to which the current user belongs is used by default.
+   * 
    * @example
    * 2084210001
    */

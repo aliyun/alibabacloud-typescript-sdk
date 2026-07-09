@@ -4,27 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBudgetsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The budget name. Fuzzy search is supported.
+   * 
    * @example
    * department1
    */
   budgetName?: string;
   /**
+   * @remarks
+   * The budget type.
+   * 
    * @example
    * CONSUME
    */
   budgetType?: string;
   /**
+   * @remarks
+   * The expiration status.
+   * 
    * @example
    * NOT_EXPIRED
    */
   expireStatus?: string;
+  /**
+   * @remarks
+   * The primary marketplace ID. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
+   * 
+   * @example
+   * 2688801000001
+   */
   nbid?: string;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

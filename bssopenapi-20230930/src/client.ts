@@ -154,7 +154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 财务单元实例重分配
+   * Allocates resource instances (instance-based and attached-resource-based) from a source cost center to a destination cost center.
    * 
    * @param tmpReq - AllocateCostCenterResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -209,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 财务单元实例重分配
+   * Allocates resource instances (instance-based and attached-resource-based) from a source cost center to a destination cost center.
    * 
    * @param request - AllocateCostCenterResourceRequest
    * @returns AllocateCostCenterResourceResponse
@@ -220,7 +220,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消资金账户低额预警
+   * Cancels the low balance alert for a fund account.
+   * 
+   * @remarks
+   * Cancels the low balance alert for a fund account.
    * 
    * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -251,7 +254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消资金账户低额预警
+   * Cancels the low balance alert for a fund account.
+   * 
+   * @remarks
+   * Cancels the low balance alert for a fund account.
    * 
    * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
    * @returns CancelFundAccountLowAvailableAmountAlarmResponse
@@ -318,7 +324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check whether budgetName exists
+   * Checks whether a specified budgetName exists.
    * 
    * @param request - CheckBudgetNameExistsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -355,7 +361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check whether budgetName exists
+   * Checks whether a specified budgetName exists.
    * 
    * @param request - CheckBudgetNameExistsRequest
    * @returns CheckBudgetNameExistsResponse
@@ -366,7 +372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Budget
+   * Creates a budget.
    * 
    * @param tmpReq - CreateBudgetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -469,7 +475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Budget
+   * Creates a budget.
    * 
    * @param request - CreateBudgetRequest
    * @returns CreateBudgetResponse
@@ -480,7 +486,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建财务单元
+   * Create Cost Center
+   * 
+   * @remarks
+   * Creates one or more cost centers.
    * 
    * @param tmpReq - CreateCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -521,7 +530,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建财务单元
+   * Create Cost Center
+   * 
+   * @remarks
+   * Creates one or more cost centers.
    * 
    * @param request - CreateCostCenterRequest
    * @returns CreateCostCenterResponse
@@ -532,7 +544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建财务单元规则
+   * Create a financial unit auto-allocation rule
    * 
    * @param tmpReq - CreateCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -579,7 +591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建财务单元规则
+   * Create a financial unit auto-allocation rule
    * 
    * @param request - CreateCostCenterRuleRequest
    * @returns CreateCostCenterRuleResponse
@@ -590,7 +602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资金账户付款关系
+   * Create payment relationships for a fund account
    * 
    * @param tmpReq - CreateFundAccountPayRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -637,7 +649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资金账户付款关系
+   * Create payment relationships for a fund account
    * 
    * @param request - CreateFundAccountPayRelationRequest
    * @returns CreateFundAccountPayRelationResponse
@@ -648,7 +660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资金账户划拨/回收
+   * Creates an account transfer or revocation.
    * 
    * @param request - CreateFundAccountTransferRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -703,7 +715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资金账户划拨/回收
+   * Creates an account transfer or revocation.
    * 
    * @param request - CreateFundAccountTransferRequest
    * @returns CreateFundAccountTransferResponse
@@ -714,7 +726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请发票
+   * Apply for Invoice
    * 
    * @param tmpReq - CreateInvoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -791,7 +803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请发票
+   * Apply for Invoice
    * 
    * @param request - CreateInvoiceRequest
    * @returns CreateInvoiceResponse
@@ -803,6 +815,27 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a billing report subscription.
+   * 
+   * @remarks
+   * When you call this API operation, note the following information:
+   * - You can subscribe to one type of billing file at a time.
+   * - Except for monthly bill PDFs, starting from the day after the subscription, the system pushes daily billing files that contain full detailed data from the beginning of the current month to the present. Before the 4th of each month, the system pushes full billing files for the complete billing cycle of the previous month.
+   * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
+   * - Billing files generated on a daily basis may have delays. Delayed billing files are pushed on the day after they are generated and may also contain bills that were delayed from before the previous day and generated on the previous day. We recommend that you pull the full files for the previous month at the beginning of each month.
+   * > Apply for the required permissions by following the procedure described in the documentation: [Billing Subscription](https://help.aliyun.com/zh/user-center/user-guide/billing-subscription?spm=5176.21213303.J_v8LsmxMG6alneH-O7TCPa.1.3ef82f3d5ZIf08&scm=20140722.S_help@@%E6%96%87%E6%A1%A3@@2861820._.ID_help@@%E6%96%87%E6%A1%A3@@2861820-RL_%E8%B4%A6%E5%8D%95%E8%AE%A2%E9%98%85-LOC_2024SPHelpResult-OR_ser-PAR1_2150419517478292121114501eaee8-V_4-RE_new5-P0_0-P1_0)
+   * - This subscription and the Expenses and Costs - Billing Subscription are the same feature, and subscriptions are interchangeable.
+   * - When subscribing to a directory under a bucket, follow the directory naming conventions:
+   *     - Emojis are not allowed. Use compliant UTF-8 characters.
+   *     - Forward slashes (/) are used to separate paths and can quickly create subdirectories. However, do not start with / or \\, and do not use consecutive forward slashes (/).
+   *     - Subdirectories named .. are not allowed.
+   *     - The total length must be 1 to 254 characters.
+   * - File names:
+   *     - Example: **consumeDetailBillV2** (billing item details)
+   *     
+   *         - Daily push file name format: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+   *     
+   *         - Full file name format at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
+   * - Monthly bill PDF files are in .pdf format, and other file types are in .csv format. When the data volume is large, the system automatically splits the exported bills into multiple files and compresses them into one or more .zip files. The .zip file name format is the same.
    * 
    * @param request - CreateReportDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -885,6 +918,27 @@ export default class Client extends OpenApi {
   /**
    * Creates a billing report subscription.
    * 
+   * @remarks
+   * When you call this API operation, note the following information:
+   * - You can subscribe to one type of billing file at a time.
+   * - Except for monthly bill PDFs, starting from the day after the subscription, the system pushes daily billing files that contain full detailed data from the beginning of the current month to the present. Before the 4th of each month, the system pushes full billing files for the complete billing cycle of the previous month.
+   * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
+   * - Billing files generated on a daily basis may have delays. Delayed billing files are pushed on the day after they are generated and may also contain bills that were delayed from before the previous day and generated on the previous day. We recommend that you pull the full files for the previous month at the beginning of each month.
+   * > Apply for the required permissions by following the procedure described in the documentation: [Billing Subscription](https://help.aliyun.com/zh/user-center/user-guide/billing-subscription?spm=5176.21213303.J_v8LsmxMG6alneH-O7TCPa.1.3ef82f3d5ZIf08&scm=20140722.S_help@@%E6%96%87%E6%A1%A3@@2861820._.ID_help@@%E6%96%87%E6%A1%A3@@2861820-RL_%E8%B4%A6%E5%8D%95%E8%AE%A2%E9%98%85-LOC_2024SPHelpResult-OR_ser-PAR1_2150419517478292121114501eaee8-V_4-RE_new5-P0_0-P1_0)
+   * - This subscription and the Expenses and Costs - Billing Subscription are the same feature, and subscriptions are interchangeable.
+   * - When subscribing to a directory under a bucket, follow the directory naming conventions:
+   *     - Emojis are not allowed. Use compliant UTF-8 characters.
+   *     - Forward slashes (/) are used to separate paths and can quickly create subdirectories. However, do not start with / or \\, and do not use consecutive forward slashes (/).
+   *     - Subdirectories named .. are not allowed.
+   *     - The total length must be 1 to 254 characters.
+   * - File names:
+   *     - Example: **consumeDetailBillV2** (billing item details)
+   *     
+   *         - Daily push file name format: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+   *     
+   *         - Full file name format at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
+   * - Monthly bill PDF files are in .pdf format, and other file types are in .csv format. When the data volume is large, the system automatically splits the exported bills into multiple files and compresses them into one or more .zip files. The .zip file name format is the same.
+   * 
    * @param request - CreateReportDefinitionRequest
    * @returns CreateReportDefinitionResponse
    */
@@ -894,7 +948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除预算
+   * Deletes a budget.
    * 
    * @param request - DeleteBudgetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -931,7 +985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除预算
+   * Deletes a budget.
    * 
    * @param request - DeleteBudgetRequest
    * @returns DeleteBudgetResponse
@@ -942,7 +996,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除财务单元
+   * Delete Cost Center
+   * 
+   * @remarks
+   * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
    * 
    * @param request - DeleteCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -981,7 +1038,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除财务单元
+   * Delete Cost Center
+   * 
+   * @remarks
+   * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
    * 
    * @param request - DeleteCostCenterRequest
    * @returns DeleteCostCenterResponse
@@ -992,7 +1052,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除财务单元规则
+   * Delete financial unit automatic allocation rule
+   * 
+   * @remarks
+   * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
    * 
    * @param tmpReq - DeleteCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1039,7 +1102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除财务单元规则
+   * Delete financial unit automatic allocation rule
+   * 
+   * @remarks
+   * This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
    * 
    * @param request - DeleteCostCenterRuleRequest
    * @returns DeleteCostCenterRuleResponse
@@ -1114,7 +1180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消账单订阅
+   * Deletes a bill report export subscription.
    * 
    * @param request - DeleteReportDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1149,7 +1215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消账单订阅
+   * Deletes a bill report export subscription.
    * 
    * @param request - DeleteReportDefinitionRequest
    * @returns DeleteReportDefinitionResponse
@@ -1272,7 +1338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of coupons.
+   * Queries a list of coupons.
    * 
    * @param tmpReq - DescribeCouponRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1377,7 +1443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of coupons.
+   * Queries a list of coupons.
    * 
    * @param request - DescribeCouponRequest
    * @returns DescribeCouponResponse
@@ -1388,7 +1454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of products for which a coupon is applicable.
+   * Queries the list of products available for a coupon.
    * 
    * @param tmpReq - DescribeCouponItemListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1445,7 +1511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of products for which a coupon is applicable.
+   * Queries the list of products available for a coupon.
    * 
    * @param request - DescribeCouponItemListRequest
    * @returns DescribeCouponItemListResponse
@@ -1453,6 +1519,222 @@ export default class Client extends OpenApi {
   async describeCouponItemList(request: $_model.DescribeCouponItemListRequest): Promise<$_model.DescribeCouponItemListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCouponItemListWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries resource plan deduction records.
+   * 
+   * @param tmpReq - DescribeDeductLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDeductLogsResponse
+   */
+  async describeDeductLogsWithOptions(tmpReq: $_model.DescribeDeductLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDeductLogsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeDeductLogsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.relationAccountIds)) {
+      request.relationAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relationAccountIds, "RelationAccountIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.billInstanceId)) {
+      query["BillInstanceId"] = request.billInstanceId;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billingCommodityCode)) {
+      body["BillingCommodityCode"] = request.billingCommodityCode;
+    }
+
+    if (!$dara.isNull(request.billingEndTime)) {
+      body["BillingEndTime"] = request.billingEndTime;
+    }
+
+    if (!$dara.isNull(request.billingStartTime)) {
+      body["BillingStartTime"] = request.billingStartTime;
+    }
+
+    if (!$dara.isNull(request.commodityCode)) {
+      body["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.group)) {
+      body["Group"] = request.group;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.relationAccountIdsShrink)) {
+      body["RelationAccountIds"] = request.relationAccountIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDeductLogs",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDeductLogsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDeductLogsResponse({}));
+  }
+
+  /**
+   * Queries resource plan deduction records.
+   * 
+   * @param request - DescribeDeductLogsRequest
+   * @returns DescribeDeductLogsResponse
+   */
+  async describeDeductLogs(request: $_model.DescribeDeductLogsRequest): Promise<$_model.DescribeDeductLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDeductLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries resource plan instances.
+   * 
+   * @param tmpReq - DescribeFrInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFrInstancesResponse
+   */
+  async describeFrInstancesWithOptions(tmpReq: $_model.DescribeFrInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFrInstancesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeFrInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceTag)) {
+      query["InstanceTag"] = request.instanceTag;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.capacityType)) {
+      body["CapacityType"] = request.capacityType;
+    }
+
+    if (!$dara.isNull(request.commodityCode)) {
+      body["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.cycleType)) {
+      body["CycleType"] = request.cycleType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.group)) {
+      body["Group"] = request.group;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sortField)) {
+      body["SortField"] = request.sortField;
+    }
+
+    if (!$dara.isNull(request.sortRule)) {
+      body["SortRule"] = request.sortRule;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.templateCode)) {
+      body["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFrInstances",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFrInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFrInstancesResponse({}));
+  }
+
+  /**
+   * Queries resource plan instances.
+   * 
+   * @param request - DescribeFrInstancesRequest
+   * @returns DescribeFrInstancesResponse
+   */
+  async describeFrInstances(request: $_model.DescribeFrInstancesRequest): Promise<$_model.DescribeFrInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFrInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -1508,7 +1790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户可用金
+   * Query available balance of fund account
    * 
    * @param request - GetFundAccountAvailableAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1539,7 +1821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户可用金
+   * Query available balance of fund account
    * 
    * @param request - GetFundAccountAvailableAmountRequest
    * @returns GetFundAccountAvailableAmountResponse
@@ -1550,7 +1832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户可分配信控额度
+   * Query allocatable credit limit of a fund account
    * 
    * @param request - GetFundAccountCanAllocateCreditAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1581,7 +1863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户可分配信控额度
+   * Query allocatable credit limit of a fund account
    * 
    * @param request - GetFundAccountCanAllocateCreditAmountRequest
    * @returns GetFundAccountCanAllocateCreditAmountResponse
@@ -1592,7 +1874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户可回收金额
+   * Queries the reclaimable amount of a fund account.
    * 
    * @param request - GetFundAccountCanRecycleAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1627,7 +1909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户可回收金额
+   * Queries the reclaimable amount of a fund account.
    * 
    * @param request - GetFundAccountCanRecycleAmountRequest
    * @returns GetFundAccountCanRecycleAmountResponse
@@ -1638,7 +1920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户的可转出金额
+   * Query the transferable amount of a fund account
    * 
    * @param request - GetFundAccountCanTransferAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1673,7 +1955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户的可转出金额
+   * Query the transferable amount of a fund account
    * 
    * @param request - GetFundAccountCanTransferAmountRequest
    * @returns GetFundAccountCanTransferAmountResponse
@@ -1684,7 +1966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户可提现金额
+   * Query Withdrawable Amount of Fund Account
    * 
    * @param request - GetFundAccountCanWithdrawAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1715,7 +1997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户可提现金额
+   * Query Withdrawable Amount of Fund Account
    * 
    * @param request - GetFundAccountCanWithdrawAmountRequest
    * @returns GetFundAccountCanWithdrawAmountResponse
@@ -1726,7 +2008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户低额预警
+   * Query Fund Account Low Balance Alert
    * 
    * @param request - GetFundAccountLowAvailableAmountAlarmRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1757,7 +2039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户低额预警
+   * Query Fund Account Low Balance Alert
    * 
    * @param request - GetFundAccountLowAvailableAmountAlarmRequest
    * @returns GetFundAccountLowAvailableAmountAlarmResponse
@@ -1768,7 +2050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户收支明细
+   * Query fund account transaction details
    * 
    * @param tmpReq - GetFundAccountTransactionDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1855,7 +2137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户收支明细
+   * Query fund account transaction details
    * 
    * @param request - GetFundAccountTransactionDetailsRequest
    * @returns GetFundAccountTransactionDetailsResponse
@@ -1866,7 +2148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 订单详情查询
+   * Queries the details of a specific order for a user or a reseller\\"s customer.
    * 
    * @param request - GetOrderDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1905,7 +2187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 订单详情查询
+   * Queries the details of a specific order for a user or a reseller\\"s customer.
    * 
    * @param request - GetOrderDetailRequest
    * @returns GetOrderDetailResponse
@@ -1916,7 +2198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 订单列表查询
+   * Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
    * 
    * @param request - GetOrdersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1987,7 +2269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 订单列表查询
+   * Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
    * 
    * @param request - GetOrdersRequest
    * @returns GetOrdersResponse
@@ -2234,7 +2516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户列表
+   * Query fund account list
    * 
    * @param request - ListFundAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2275,7 +2557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户列表
+   * Query fund account list
    * 
    * @param request - ListFundAccountRequest
    * @returns ListFundAccountResponse
@@ -2286,7 +2568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户的付款关系
+   * Query payment relationships of an account
    * 
    * @param request - ListFundAccountPayRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2335,7 +2617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资金账户的付款关系
+   * Query payment relationships of an account
    * 
    * @param request - ListFundAccountPayRelationRequest
    * @returns ListFundAccountPayRelationResponse
@@ -2346,7 +2628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对客OpenAPI开票对象查询
+   * Query invoice candidate data, which can be used for invoicing.
    * 
    * @param tmpReq - ListInvoiceCandidateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2443,7 +2725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对客OpenAPI开票对象查询
+   * Query invoice candidate data, which can be used for invoicing.
    * 
    * @param request - ListInvoiceCandidateRequest
    * @returns ListInvoiceCandidateResponse
@@ -2454,7 +2736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发票抬头查询服务
+   * Query the list of available invoice titles
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInvoiceTitleResponse
@@ -2476,7 +2758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发票抬头查询服务
+   * Query the list of available invoice titles
    * @returns ListInvoiceTitleResponse
    */
   async listInvoiceTitle(): Promise<$_model.ListInvoiceTitleResponse> {
@@ -2485,7 +2767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看已订阅的报告列表
+   * Queries the list of subscribed reports.
    * 
    * @param request - ListReportDefinitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2516,7 +2798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看已订阅的报告列表
+   * Queries the list of subscribed reports.
    * 
    * @param request - ListReportDefinitionsRequest
    * @returns ListReportDefinitionsResponse
@@ -2527,7 +2809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改财务单元
+   * Modify cost centers
+   * 
+   * @remarks
+   * Modifies one or more cost centers.
    * 
    * @param tmpReq - ModifyCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2568,7 +2853,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改财务单元
+   * Modify cost centers
+   * 
+   * @remarks
+   * Modifies one or more cost centers.
    * 
    * @param request - ModifyCostCenterRequest
    * @returns ModifyCostCenterResponse
@@ -2579,7 +2867,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改财务单元规则
+   * Modify financial unit rules
+   * 
+   * @remarks
+   * Modify one or more financial units
    * 
    * @param tmpReq - ModifyCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2630,7 +2921,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改财务单元规则
+   * Modify financial unit rules
+   * 
+   * @remarks
+   * Modify one or more financial units
    * 
    * @param request - ModifyCostCenterRuleRequest
    * @returns ModifyCostCenterRuleResponse
@@ -2707,7 +3001,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Cost Overview of a Cost Center
+   * Query cost center expense overview
+   * 
+   * @remarks
+   * Query cost center expense overview results for a specified billing period
    * 
    * @param request - QueryCostByCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2754,7 +3051,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Cost Overview of a Cost Center
+   * Query cost center expense overview
+   * 
+   * @remarks
+   * Query cost center expense overview results for a specified billing period
    * 
    * @param request - QueryCostByCostCenterRequest
    * @returns QueryCostByCostCenterResponse
@@ -2765,7 +3065,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询财务单元
+   * Queries financial units.
+   * 
+   * @remarks
+   * Queries a parent financial unit and its child financial units.
    * 
    * @param tmpReq - QueryCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2822,7 +3125,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询财务单元
+   * Queries financial units.
+   * 
+   * @remarks
+   * Queries a parent financial unit and its child financial units.
    * 
    * @param request - QueryCostCenterRequest
    * @returns QueryCostCenterResponse
@@ -2833,7 +3139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询财务单元下资源信息
+   * Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
    * 
    * @param request - QueryCostCenterResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2886,7 +3192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询财务单元下资源信息
+   * Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
    * 
    * @param request - QueryCostCenterResourceRequest
    * @returns QueryCostCenterResourceResponse
@@ -2897,7 +3203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询财务单元规则
+   * Query cost center rules
+   * 
+   * @remarks
+   * Query parent cost center and its child cost centers.
    * 
    * @param request - QueryCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2938,7 +3247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询财务单元规则
+   * Query cost center rules
+   * 
+   * @remarks
+   * Query parent cost center and its child cost centers.
    * 
    * @param request - QueryCostCenterRuleRequest
    * @returns QueryCostCenterRuleResponse
@@ -2949,7 +3261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询财务单元分摊规则
+   * Query cost center sharing rules
+   * 
+   * @remarks
+   * Queries the sharing rules of user cost centers.
    * 
    * @param request - QueryCostCenterShareRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2996,7 +3311,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询财务单元分摊规则
+   * Query cost center sharing rules
+   * 
+   * @remarks
+   * Queries the sharing rules of user cost centers.
    * 
    * @param request - QueryCostCenterShareRuleRequest
    * @returns QueryCostCenterShareRuleResponse
@@ -3007,7 +3325,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SLA优惠券
+   * Queries the SLA compensation list of a user.
+   * 
+   * @remarks
+   * Queries the SLA compensation details list of a user. Only data from the last two months is available.
    * 
    * @param request - QueryMonthlySlaListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3068,7 +3389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SLA优惠券
+   * Queries the SLA compensation list of a user.
+   * 
+   * @remarks
+   * Queries the SLA compensation details list of a user. Only data from the last two months is available.
    * 
    * @param request - QueryMonthlySlaListRequest
    * @returns QueryMonthlySlaListResponse
@@ -3079,7 +3403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
+   * Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
    * 
    * @param tmpReq - SaveCostCenterShareRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3140,7 +3464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
+   * Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
    * 
    * @param request - SaveCostCenterShareRuleRequest
    * @returns SaveCostCenterShareRuleResponse
@@ -3151,7 +3475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置资金账户的信控限额
+   * Set the credit control limit for a fund account
    * 
    * @param request - SetFundAccountCreditAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3190,7 +3514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置资金账户的信控限额
+   * Set the credit control limit for a fund account
    * 
    * @param request - SetFundAccountCreditAmountRequest
    * @returns SetFundAccountCreditAmountResponse
@@ -3201,7 +3525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置资金账户低额预警
+   * Set Fund Account Low Balance Alert
    * 
    * @param request - SetFundAccountLowAvailableAmountAlarmRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3236,7 +3560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置资金账户低额预警
+   * Set Fund Account Low Balance Alert
    * 
    * @param request - SetFundAccountLowAvailableAmountAlarmRequest
    * @returns SetFundAccountLowAvailableAmountAlarmResponse
@@ -3313,7 +3637,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SLA优惠券申领
+   * User claims coupons for the last two months.
+   * 
+   * @remarks
+   * 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+   * 2. Claim by month or by record.
+   * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
    * 
    * @param request - SubmitSlaCouponApplyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3358,7 +3687,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SLA优惠券申领
+   * User claims coupons for the last two months.
+   * 
+   * @remarks
+   * 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+   * 2. Claim by month or by record.
+   * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
    * 
    * @param request - SubmitSlaCouponApplyRequest
    * @returns SubmitSlaCouponApplyResponse
@@ -3369,7 +3703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新预算
+   * Updates a budget.
    * 
    * @param tmpReq - UpdateBudgetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3476,7 +3810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新预算
+   * Updates a budget.
    * 
    * @param request - UpdateBudgetRequest
    * @returns UpdateBudgetResponse

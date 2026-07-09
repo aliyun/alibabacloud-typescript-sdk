@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBudgetsResponseBodyDataCycleQuota extends $dara.Model {
+  /**
+   * @remarks
+   * The cycle period.
+   * 
+   * @example
+   * 202601
+   */
   cyclePeriod?: string;
+  /**
+   * @remarks
+   * The quota.
+   * 
+   * @example
+   * 100
+   */
   quota?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +43,18 @@ export class DescribeBudgetsResponseBodyDataCycleQuota extends $dara.Model {
 }
 
 export class DescribeBudgetsResponseBodyDataEcIdAccountIdsFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The member account IDs.
+   */
   accountIds?: number[];
+  /**
+   * @remarks
+   * The enterprise entity ID.
+   * 
+   * @example
+   * E2024112210463400001
+   */
   ecId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,8 +83,26 @@ export class DescribeBudgetsResponseBodyDataEcIdAccountIdsFilter extends $dara.M
 }
 
 export class DescribeBudgetsResponseBodyDataQueryFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter code.
+   * 
+   * @example
+   * RESOURCE_OWNER_ACCOUNT
+   */
   code?: string;
+  /**
+   * @remarks
+   * The selection mode.
+   * 
+   * @example
+   * IN
+   */
   selectType?: string;
+  /**
+   * @remarks
+   * The filter value list.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -90,14 +133,68 @@ export class DescribeBudgetsResponseBodyDataQueryFilter extends $dara.Model {
 }
 
 export class DescribeBudgetsResponseBodyDataWarnConfs extends $dara.Model {
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * comment1
+   */
   comment?: string;
+  /**
+   * @remarks
+   * Indicates whether EventBridge is enabled.
+   */
   eventBridge?: boolean;
+  /**
+   * @remarks
+   * The list of message center notification channels.
+   */
   mscChannels?: string[];
+  /**
+   * @remarks
+   * The list of message center contacts.
+   */
   mscContacts?: string[];
+  /**
+   * @remarks
+   * The alert name. This parameter is user-defined and optional. If not specified, the backend automatically generates a name.
+   * 
+   * @example
+   * Alert-1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The sort sequence number. This parameter is present only in responses. Alerts are numbered in ascending order by alert ID, starting from 1.
+   * 
+   * @example
+   * 1
+   */
   sequence?: number;
+  /**
+   * @remarks
+   * The threshold type.
+   * 
+   * @example
+   * FIXED
+   */
   thresholdType?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 100
+   */
   thresholdValue?: string;
+  /**
+   * @remarks
+   * The alert target.
+   * 
+   * @example
+   * ACTUAL
+   */
   warnTarget?: string;
   static names(): { [key: string]: string } {
     return {
@@ -144,54 +241,104 @@ export class DescribeBudgetsResponseBodyDataWarnConfs extends $dara.Model {
 
 export class DescribeBudgetsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The budget name.
+   * 
    * @example
    * department1-test
    */
   budgetName?: string;
   /**
+   * @remarks
+   * The budget type.
+   * 
    * @example
    * CONSUME
    */
   budgetType?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * budget-1
+   */
   comment?: string;
   /**
+   * @remarks
+   * The end period.
+   * 
    * @example
    * 2026-12
    */
   cycleEndPeriod?: string;
+  /**
+   * @remarks
+   * The specified quota per cycle.
+   */
   cycleQuota?: DescribeBudgetsResponseBodyDataCycleQuota[];
   /**
+   * @remarks
+   * The start period.
+   * 
    * @example
    * 2025-10
    */
   cycleStartPeriod?: string;
   /**
+   * @remarks
+   * The cycle type.
+   * 
    * @example
    * MONTHLY
    */
   cycleType?: string;
+  /**
+   * @remarks
+   * The enterprise multi-account filter conditions.
+   */
   ecIdAccountIdsFilter?: DescribeBudgetsResponseBodyDataEcIdAccountIdsFilter;
   /**
+   * @remarks
+   * The expiration status.
+   * 
    * @example
    * NOT_EXPIRED
    */
   expireStatus?: string;
   /**
+   * @remarks
+   * The budget metric.
+   * 
    * @example
    * REQUIRE_AMOUNT
    */
   metric?: string;
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   queryFilter?: DescribeBudgetsResponseBodyDataQueryFilter[];
   /**
+   * @remarks
+   * The fixed quota value.
+   * 
    * @example
    * 10000
    */
   quota?: string;
   /**
+   * @remarks
+   * The quota type.
+   * 
    * @example
    * FIXED
    */
   quotaType?: string;
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   warnConfs?: DescribeBudgetsResponseBodyDataWarnConfs[];
   static names(): { [key: string]: string } {
     return {
@@ -254,22 +401,38 @@ export class DescribeBudgetsResponseBodyData extends $dara.Model {
 
 export class DescribeBudgetsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The data list.
+   */
   data?: DescribeBudgetsResponseBodyData[];
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DB2A9097-289C-11CE-AA74-235FCFD39204
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
