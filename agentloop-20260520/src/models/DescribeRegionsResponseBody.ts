@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The public endpoint.
+   * 
+   * @example
+   * agentloop.cn-hangzhou.aliyuncs.com
+   */
   internetEndpoint?: string;
+  /**
+   * @remarks
+   * The region name.
+   * 
+   * @example
+   * 华东1（杭州）
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The internal endpoint.
+   * 
+   * @example
+   * agentloop.cn-hangzhou.aliyuncs.com
+   */
   vpcEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +63,34 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned per request.
+   * 
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token. If no more pages are available, this parameter is empty.
+   * 
+   * @example
+   * ydx438PDAW1lYRJZbBn9
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region information.
+   */
   regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4FDD8668-516C-5183-9BCF-4CAD8E3CF327
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

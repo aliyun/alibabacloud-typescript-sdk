@@ -318,6 +318,11 @@ export class GetPipelineResponseBodySource extends $dara.Model {
 
 export class GetPipelineResponseBody extends $dara.Model {
   /**
+   * @example
+   * 1735660800
+   */
+  committedWatermark?: number;
+  /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -331,6 +336,11 @@ export class GetPipelineResponseBody extends $dara.Model {
    */
   description?: string;
   executePolicy?: GetPipelineResponseBodyExecutePolicy;
+  /**
+   * @example
+   * 1735661100
+   */
+  nextTriggerTime?: number;
   pipeline?: GetPipelineResponseBodyPipeline;
   /**
    * @example
@@ -347,6 +357,11 @@ export class GetPipelineResponseBody extends $dara.Model {
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
    */
   requestId?: string;
+  /**
+   * @example
+   * Active
+   */
+  scheduleStatus?: string;
   sink?: GetPipelineResponseBodySink;
   source?: GetPipelineResponseBodySource;
   /**
@@ -364,13 +379,16 @@ export class GetPipelineResponseBody extends $dara.Model {
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
+      committedWatermark: 'committedWatermark',
       createTime: 'createTime',
       description: 'description',
       executePolicy: 'executePolicy',
+      nextTriggerTime: 'nextTriggerTime',
       pipeline: 'pipeline',
       pipelineName: 'pipelineName',
       regionId: 'regionId',
       requestId: 'requestId',
+      scheduleStatus: 'scheduleStatus',
       sink: 'sink',
       source: 'source',
       updateTime: 'updateTime',
@@ -380,13 +398,16 @@ export class GetPipelineResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      committedWatermark: 'number',
       createTime: 'string',
       description: 'string',
       executePolicy: GetPipelineResponseBodyExecutePolicy,
+      nextTriggerTime: 'number',
       pipeline: GetPipelineResponseBodyPipeline,
       pipelineName: 'string',
       regionId: 'string',
       requestId: 'string',
+      scheduleStatus: 'string',
       sink: GetPipelineResponseBodySink,
       source: GetPipelineResponseBodySource,
       updateTime: 'string',

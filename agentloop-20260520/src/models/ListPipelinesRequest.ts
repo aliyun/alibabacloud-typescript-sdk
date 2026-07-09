@@ -18,11 +18,23 @@ export class ListPipelinesRequest extends $dara.Model {
    * my-pipeline
    */
   pipelineName?: string;
+  /**
+   * @example
+   * Active
+   */
+  scheduleStatus?: string;
+  /**
+   * @example
+   * RunOnce
+   */
+  scheduleType?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'maxResults',
       nextToken: 'nextToken',
       pipelineName: 'pipelineName',
+      scheduleStatus: 'scheduleStatus',
+      scheduleType: 'scheduleType',
     };
   }
 
@@ -31,6 +43,8 @@ export class ListPipelinesRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       pipelineName: 'string',
+      scheduleStatus: 'string',
+      scheduleType: 'string',
     };
   }
 

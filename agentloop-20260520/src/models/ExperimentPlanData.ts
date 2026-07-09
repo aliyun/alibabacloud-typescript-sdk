@@ -7,8 +7,10 @@ export class ExperimentPlanData extends $dara.Model {
   datasetId?: string;
   description?: string;
   experimentCount?: number;
+  experimentType?: string;
   planId?: string;
   planName?: string;
+  querySql?: string;
   status?: string;
   updatedAt?: number;
   static names(): { [key: string]: string } {
@@ -17,8 +19,10 @@ export class ExperimentPlanData extends $dara.Model {
       datasetId: 'datasetId',
       description: 'description',
       experimentCount: 'experimentCount',
+      experimentType: 'experimentType',
       planId: 'planId',
       planName: 'planName',
+      querySql: 'querySql',
       status: 'status',
       updatedAt: 'updatedAt',
     };
@@ -30,8 +34,10 @@ export class ExperimentPlanData extends $dara.Model {
       datasetId: 'string',
       description: 'string',
       experimentCount: 'number',
+      experimentType: 'string',
       planId: 'string',
       planName: 'string',
+      querySql: 'string',
       status: 'string',
       updatedAt: 'number',
     };

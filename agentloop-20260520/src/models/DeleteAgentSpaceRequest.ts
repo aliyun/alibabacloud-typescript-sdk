@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAgentSpaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete the associated Hybrid Cloud Monitoring workspace.
+   * 
+   * @example
+   * false
+   */
   deleteCmsWorkspace?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to delete the associated MSE namespace.
+   * 
+   * @example
+   * false
+   */
   deleteMseNamespace?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to delete the associated SLS project.
+   * 
+   * @example
+   * false
+   */
   deleteSlsProject?: boolean;
   static names(): { [key: string]: string } {
     return {

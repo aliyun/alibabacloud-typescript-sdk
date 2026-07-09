@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
   /**
+   * @remarks
+   * The data processing start time, in UNIX millisecond timestamp.
+   * 
    * @example
    * 1735660800000
    */
   fromTime?: number;
   /**
+   * @remarks
+   * The data processing end time, in UNIX millisecond timestamp.
+   * 
    * @example
    * 1735747200000
    */
@@ -38,11 +44,17 @@ export class UpdatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
 
 export class UpdatePipelineRequestExecutePolicyScheduled extends $dara.Model {
   /**
+   * @remarks
+   * The scheduling start time, in UNIX millisecond timestamp.
+   * 
    * @example
    * 1735660800000
    */
   fromTime?: number;
   /**
+   * @remarks
+   * The scheduling interval, such as 1h.
+   * 
    * @example
    * 1h
    */
@@ -72,11 +84,22 @@ export class UpdatePipelineRequestExecutePolicyScheduled extends $dara.Model {
 
 export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
   /**
+   * @remarks
+   * The scheduling mode, such as Scheduled (timed scheduling) or RunOnce (one-time execution).
+   * 
    * @example
    * Scheduled
    */
   mode?: string;
+  /**
+   * @remarks
+   * The configuration for one-time execution.
+   */
   runOnce?: UpdatePipelineRequestExecutePolicyRunOnce;
+  /**
+   * @remarks
+   * The timed scheduling configuration.
+   */
   scheduled?: UpdatePipelineRequestExecutePolicyScheduled;
   static names(): { [key: string]: string } {
     return {
@@ -111,12 +134,22 @@ export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
 
 export class UpdatePipelineRequestPipelineNodes extends $dara.Model {
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * node-1
    */
   id?: string;
+  /**
+   * @remarks
+   * The node parameters in key-value format. The parameters vary by node type.
+   */
   parameters?: { [key: string]: any };
   /**
+   * @remarks
+   * The node type.
+   * 
    * @example
    * transform
    */
@@ -150,6 +183,10 @@ export class UpdatePipelineRequestPipelineNodes extends $dara.Model {
 }
 
 export class UpdatePipelineRequestPipeline extends $dara.Model {
+  /**
+   * @remarks
+   * The list of nodes.
+   */
   nodes?: UpdatePipelineRequestPipelineNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -182,6 +219,9 @@ export class UpdatePipelineRequestSinkDataset extends $dara.Model {
    */
   agentSpace?: string;
   /**
+   * @remarks
+   * The name of the destination dataset.
+   * 
    * @example
    * my-dataset
    */
@@ -210,8 +250,15 @@ export class UpdatePipelineRequestSinkDataset extends $dara.Model {
 }
 
 export class UpdatePipelineRequestSink extends $dara.Model {
+  /**
+   * @remarks
+   * The destination dataset configuration.
+   */
   dataset?: UpdatePipelineRequestSinkDataset;
   /**
+   * @remarks
+   * The sink type, such as Dataset.
+   * 
    * @example
    * Dataset
    */
@@ -244,11 +291,17 @@ export class UpdatePipelineRequestSink extends $dara.Model {
 
 export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
   /**
+   * @remarks
+   * The name of the SLS Logstore.
+   * 
    * @example
    * my-sls-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The data filtered query statement in SLS query/analysis syntax.
+   * 
    * @example
    * * | SELECT *
    */
@@ -277,8 +330,15 @@ export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
 }
 
 export class UpdatePipelineRequestSource extends $dara.Model {
+  /**
+   * @remarks
+   * The SLS Logstore datasource config.
+   */
   logstore?: UpdatePipelineRequestSourceLogstore;
   /**
+   * @remarks
+   * The data source type, such as SLS.
+   * 
    * @example
    * SLS
    */
@@ -311,13 +371,32 @@ export class UpdatePipelineRequestSource extends $dara.Model {
 
 export class UpdatePipelineRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the pipeline, which helps users understand its purpose.
+   * 
    * @example
    * 我的流水线
    */
   description?: string;
+  /**
+   * @remarks
+   * The execution policy. If specified, the existing execution policy is entirely overwritten.
+   */
   executePolicy?: UpdatePipelineRequestExecutePolicy;
+  /**
+   * @remarks
+   * The pipeline configuration (node orchestration). If specified, the existing pipeline configuration is entirely overwritten.
+   */
   pipeline?: UpdatePipelineRequestPipeline;
+  /**
+   * @remarks
+   * The pipeline sink (data write destination). If specified, the existing sink configuration is entirely overwritten.
+   */
   sink?: UpdatePipelineRequestSink;
+  /**
+   * @remarks
+   * The pipeline data source. If specified, the existing source configuration is entirely overwritten.
+   */
   source?: UpdatePipelineRequestSource;
   /**
    * @example

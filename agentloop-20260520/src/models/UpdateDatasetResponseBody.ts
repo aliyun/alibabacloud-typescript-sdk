@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateDatasetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * BC5B6F62-6FA2-57FC-8285-99753BD34B6D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
