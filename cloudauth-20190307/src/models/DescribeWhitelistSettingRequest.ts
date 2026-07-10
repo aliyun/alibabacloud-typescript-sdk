@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWhitelistSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * ID Number
+   * The ID card number.
    * 
    * @example
    * 320321XXXXXXXX701X
@@ -13,7 +13,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Certification ID
+   * The certification ID.
    * 
    * @example
    * shsf57a4e0d9981c3bd66dc754f3d3cd
@@ -21,7 +21,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Pagination parameter: current page number, default value is 1.
+   * The current page number. Default value: 1.
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,9 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Specify the language to query. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the query result. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -41,7 +41,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Number of items per page for pagination.
+   * The number of entries per page in a paged query.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 1000004530
@@ -59,9 +59,9 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Service Code:
-   * - **Enhanced Financial Grade**: cloudauthst
-   * - **Financial Grade**: antcloudauth
+   * The service code. Valid values:
+   * - **cloudauthst**: enhanced financial-grade edition.
+   * - **antcloudauth**: financial-grade edition.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Visitor\\"s source IP address.
+   * The source IP address of the visitor.
    * 
    * @example
    * 113.140.85.74
@@ -79,10 +79,10 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * Whitelist status:
-   * - **VALID**: Valid
-   * - **INVALID**: Invalid
-   * - **DELETED**: Deleted
+   * The whitelist status. Valid values:
+   * - **VALID**: valid.
+   * - **INVALID**: invalid.
+   * - **DELETED**: deleted.
    * 
    * @example
    * VALID
@@ -90,7 +90,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Expiration date.
+   * The end time of the validity period.
    * 
    * @example
    * 1730304000000
@@ -98,12 +98,17 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
   validEndDate?: number;
   /**
    * @remarks
-   * Effective start time (in seconds timestamp).
+   * The start time of the validity period. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1759939200000
    */
   validStartDate?: number;
+  /**
+   * @example
+   * SUPER
+   */
+  whitelistType?: string;
   static names(): { [key: string]: string } {
     return {
       certNo: 'CertNo',
@@ -117,6 +122,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
       status: 'Status',
       validEndDate: 'ValidEndDate',
       validStartDate: 'ValidStartDate',
+      whitelistType: 'WhitelistType',
     };
   }
 
@@ -133,6 +139,7 @@ export class DescribeWhitelistSettingRequest extends $dara.Model {
       status: 'string',
       validEndDate: 'number',
       validStartDate: 'number',
+      whitelistType: 'string',
     };
   }
 

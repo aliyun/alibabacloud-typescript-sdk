@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Relevant certificate number.
+   * The certificate number.
    * 
    * @example
    * 4601*****
@@ -13,17 +13,19 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   certNum?: string;
   /**
    * @remarks
-   * - 01: Personal ID cards
+   * The credential name. Valid values:
+   * 
+   * - 01: personal card or certificate
    *   - 0101: ID card
-   *   - 0102: Bank card
-   *   - 0104: Teacher qualification certificate
-   *   - 0107: Student ID card
-   * - 02: Business scenario
-   *   - 0201: Storefront photo
-   *   - 0202: Counter photo
-   *   - 0203: Scene photo
-   * - 03: Corporate qualifications
-   *   - 0301: Business license
+   *   - 0102: bank card
+   *   - 0104: teacher qualification certificate
+   *   - 0107: student ID card
+   * - 02: business scenario
+   *   - 0201: storefront photo
+   *   - 0202: counter photo
+   *   - 0203: scene photo
+   * - 03: enterprise qualification
+   *   - 0301: business license.
    * 
    * @example
    * 0104
@@ -31,11 +33,11 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   credName?: string;
   /**
    * @remarks
-   * Credential type:
+   * The credential type. Valid values:
    * 
-   * - 01: Personal ID cards
-   * - 02: Business scenario
-   * - 03: Corporate qualifications
+   * - 01: personal card or certificate
+   * - 02: business scenario
+   * - 03: enterprise qualification.
    * 
    * @example
    * 01
@@ -43,7 +45,7 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   credType?: string;
   /**
    * @remarks
-   * ID number.
+   * The ID card number.
    * 
    * @example
    * 4****************1
@@ -51,23 +53,23 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   identifyNum?: string;
   /**
    * @remarks
-   * Base64 encoded image, choose one from `imageUrl`, `imageFile`, or `imageContext`.
+   * The Base64-encoded image. Specify one of imageUrl, imageFile, or imageContext.
    * 
    * @example
-   * base64
+   * 无
    */
   imageContext?: string;
   /**
    * @remarks
-   * Image input stream, choose one from `imageUrl`, `imageFile`, or `imageContext`.
+   * The input stream of the image. Specify one of imageUrl, imageFile, or imageContext.
    * 
    * @example
-   * none
+   * 无
    */
   imageFile?: string;
   /**
    * @remarks
-   * Image URL, choose one from `imageUrl`, `imageFile`, or `imageContext`.
+   * The URL of the image. Specify one of imageUrl, imageFile, or imageContext.
    * 
    * @example
    * http://marry.momocdn.com/avatar/3B/B6/3BB6527E-7467-926E-1048-B43614F20CC420230803_L.jpg
@@ -75,10 +77,11 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Whether to enable authoritative authentication
+   * Specifies whether to enable authoritative verification. Valid values:
    * 
-   * - ****0****: No
-   * - **1**: Yes
+   * - **0**: Disabled.
+   * - **1**: Enabled.
+   * >Danger: Deprecated.
    * 
    * @example
    * 0
@@ -86,7 +89,8 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   isCheck?: string;
   /**
    * @remarks
-   * Whether to use OCR
+   * Specifies whether to enable OCR.
+   * >Danger: Deprecated.
    * 
    * @example
    * 0
@@ -94,38 +98,22 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   isOcr?: string;
   /**
    * @remarks
-   * Merchant details:
-   * 
-   * MerchantName: Merchant name
-   * 
-   * BusinessType: Industry information
-   * 
-   * BusinessContent: Business content
-   * 
-   * This field is required when PromptModel is set to DEFAULT.
+   * This feature is offline. This parameter no longer takes effect.
    */
   merchantDetailShrink?: string;
   /**
    * @remarks
-   * Merchant ID. This field is required when ****CredName**** is set to **02**.
+   * The merchant ID. This parameter is required when CredName is set to 02.
    * 
    * @example
-   * none
+   * 无。
    */
   merchantId?: string;
   /**
    * @remarks
-   * Invocation mode:
+   * The call mode. Valid values:
    * 
-   * - ANTI_FAKE_CHECK: Image anti-forgery check
-   * 
-   * - ANTI_FAKE_VL: Image anti-forgery check and semantic understanding
-   * 
-   * - IMAGE_VL_COG: Image semantic understanding
-   * 
-   * Default value: ANTI_FAKE_CHECK
-   * 
-   * When CredType is set to 02, ProductCode can only be ANTI_FAKE_VL or IMAGE_VL_COG.
+   * - ANTI_FAKE_CHECK (default): image anti-forgery detection.
    * 
    * @example
    * ANTI_FAKE_CHECK
@@ -133,31 +121,23 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Customer-defined prompt content for image semantic understanding.
-   * 
-   * This field is required when PromptModel is set to CUSTOM.
+   * This feature is offline. This parameter no longer takes effect.
    * 
    * @example
-   * none
+   * -
    */
   prompt?: string;
   /**
    * @remarks
-   * Prompt acquisition method for image semantic understanding:
-   * 
-   * - DEFAULT: System default
-   * 
-   * - CUSTOM: Customer-defined
-   * 
-   * Note: When ProductCode is set to ANTI_FAKE_VL or IMAGE_VL_COG, this parameter must be provided.
+   * This feature is offline. This parameter no longer takes effect.
    * 
    * @example
-   * DEFAULT
+   * -
    */
   promptModel?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * 张三

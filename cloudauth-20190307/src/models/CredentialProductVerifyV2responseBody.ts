@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialProductVerifyV2ResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Additional information in JSON format.
+   * The additional information in JSON format.
    * 
    * @example
    * {
@@ -20,9 +20,10 @@ export class CredentialProductVerifyV2ResponseBodyResultObject extends $dara.Mod
   materialInfo?: string;
   /**
    * @remarks
-   * - 0: Low risk
-   * - 1: High risk
-   * - 2: Suspicious
+   * Valid values:
+   * - 0: low risk
+   * - 1: high risk
+   * - 2: suspicious.
    * 
    * @example
    * 1
@@ -30,15 +31,15 @@ export class CredentialProductVerifyV2ResponseBodyResultObject extends $dara.Mod
   result?: string;
   /**
    * @remarks
-   * Map of risk scores.
+   * The risk score map.
    */
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * Risk tags, separated by commas, including:
-   * - PS: Image has been photoshopped
-   * - LOW_QUALITY_PRODUCT: Low quality (low clarity)
-   * - SAME_BACKGROUND: Similar background
+   * The risk labels. Multiple labels are separated by commas. Valid values:
+   * - PS: image manipulation
+   * - LOW_QUALITY_PRODUCT: low quality (low clarity)
+   * - SAME_BACKGROUND: similar image.
    * 
    * @example
    * PS,LOW_QUALITY_PRODUCT
@@ -77,7 +78,7 @@ export class CredentialProductVerifyV2ResponseBodyResultObject extends $dara.Mod
 export class CredentialProductVerifyV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -85,7 +86,7 @@ export class CredentialProductVerifyV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -93,7 +94,7 @@ export class CredentialProductVerifyV2ResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF039795
@@ -101,7 +102,7 @@ export class CredentialProductVerifyV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result object.
+   * The result object.
    */
   resultObject?: CredentialProductVerifyV2ResponseBodyResultObject;
   static names(): { [key: string]: string } {

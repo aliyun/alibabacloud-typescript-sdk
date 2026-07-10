@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCardVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * Authentication request ID.
-   * You must first call the initialization interface InitCardVerify to submit an authentication request in order to get the authentication request ID.
+   * The verification request ID.
+   * You must first call the InitCardVerify operation to submit a verification request before you can obtain the verification request ID.
    * 
    * This parameter is required.
    * 

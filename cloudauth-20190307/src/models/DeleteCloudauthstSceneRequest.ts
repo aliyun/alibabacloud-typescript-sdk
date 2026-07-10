@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudauthstSceneRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the scene to be deleted.
+   * The ID of the scene to be deleted.
    * 
    * This parameter is required.
    * 

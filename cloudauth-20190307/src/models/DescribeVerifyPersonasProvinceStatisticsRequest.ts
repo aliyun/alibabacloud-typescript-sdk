@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyPersonasProvinceStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * Cloud product code.
+   * The cloud product code.
    * 
    * @example
    * ID_PRO
@@ -13,7 +13,7 @@ export class DescribeVerifyPersonasProvinceStatisticsRequest extends $dara.Model
   productCode?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 1000004071
@@ -21,9 +21,9 @@ export class DescribeVerifyPersonasProvinceStatisticsRequest extends $dara.Model
   sceneId?: number;
   /**
    * @remarks
-   * Service type:
-   * - **antcloudauth**: Financial-grade real-person authentication.
-   * - **cloudauthst** (discontinued): Enhanced real-person authentication.
+   * The service type. Valid values:
+   * - **antcloudauth**: financial-grade ID Verification.
+   * - **cloudauthst** (discontinued): enhanced ID Verification.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeVerifyPersonasProvinceStatisticsRequest extends $dara.Model
   serviceCode?: string;
   /**
    * @remarks
-   * Time range, search range is for the previous N days, TimeRange of 1 indicates the previous 1 day.
+   * The time range. The search scope is the previous N days. For example, a value of 1 indicates the previous day.
    * 
    * This parameter is required.
    * 

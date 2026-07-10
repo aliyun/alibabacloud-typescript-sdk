@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PageQueryWhiteListSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * ID number.
+   * The certificate number.
    * 
    * @example
    * 330103xxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class PageQueryWhiteListSettingRequest extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Unique identifier for real person authentication.
+   * The unique identifier of the ID Verification request.
    * 
    * @example
    * sha75b4e19a1ddda059b920757b0e12b
@@ -21,7 +21,7 @@ export class PageQueryWhiteListSettingRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Current page number, default is 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class PageQueryWhiteListSettingRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of items per page, default is 10
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class PageQueryWhiteListSettingRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Authentication scene ID. This ID is automatically generated after creating an authentication scene in the console. For how to create an authentication scene, see Adding an Authentication Scene.
+   * The verification scenario ID. This ID is automatically generated after you create a verification scenario in the console. For more information about how to create a verification scenario, refer to Add a verification scenario.
    * 
    * @example
    * 1000000xxx
@@ -45,7 +45,7 @@ export class PageQueryWhiteListSettingRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * ServiceCode of the real person cloud product, value: **antcloudauth**.
+   * The ServiceCode of the ID Verification cloud service. Value: **antcloudauth**.
    * 
    * @example
    * antcloudauth
@@ -53,11 +53,11 @@ export class PageQueryWhiteListSettingRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Status:
+   * The status. Valid values:
    * 
-   * - DELETE: Deleted
-   * - VALID: Not deleted and within the validity period, valid
-   * - INVALID: Not deleted but outside the validity period, invalid
+   * - DELETE: Deleted.
+   * - VALID: Not deleted and within the validity period (valid).
+   * - INVALID: Not deleted but outside the validity period (invalid).
    * 
    * @example
    * VALID
@@ -65,7 +65,7 @@ export class PageQueryWhiteListSettingRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * End date of validity (timestamp in milliseconds)
+   * The end date of the validity period (timestamp in milliseconds).
    * 
    * @example
    * 1725379200000
@@ -73,7 +73,7 @@ export class PageQueryWhiteListSettingRequest extends $dara.Model {
   validEndDate?: string;
   /**
    * @remarks
-   * Start date of validity (timestamp in milliseconds)
+   * The start date of the validity period (timestamp in milliseconds).
    * 
    * @example
    * 1725120000000

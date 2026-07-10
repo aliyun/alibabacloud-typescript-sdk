@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyFailStatisticsResponseBodyResultObjectColumnItems extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 404
@@ -13,7 +13,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectColumnItems ext
   code?: string;
   /**
    * @remarks
-   * Failure count.
+   * The number of failures.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectColumnItems ext
   count?: number;
   /**
    * @remarks
-   * Date: Date
+   * Date: the date.
    * 
    * @example
    * 2025-10-16
@@ -55,12 +55,12 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectColumnItems ext
 export class DescribeVerifyFailStatisticsResponseBodyResultObjectColumn extends $dara.Model {
   /**
    * @remarks
-   * Column information.
+   * The column information.
    */
   items?: DescribeVerifyFailStatisticsResponseBodyResultObjectColumnItems[];
   /**
    * @remarks
-   * Total count.
+   * The total count.
    * 
    * @example
    * 2
@@ -95,7 +95,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectColumn extends 
 export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItemsData extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 404
@@ -103,7 +103,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItemsData e
   code?: string;
   /**
    * @remarks
-   * Count.
+   * The count.
    * 
    * @example
    * 9
@@ -111,7 +111,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItemsData e
   count?: number;
   /**
    * @remarks
-   * Date.
+   * The date.
    * 
    * @example
    * 2025-10-16
@@ -145,7 +145,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItemsData e
 export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItems extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 404
@@ -153,7 +153,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItems exten
   code?: string;
   /**
    * @remarks
-   * Returned quantity data.
+   * The returned count data.
    */
   data?: DescribeVerifyFailStatisticsResponseBodyResultObjectLineItemsData[];
   static names(): { [key: string]: string } {
@@ -185,12 +185,12 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectLineItems exten
 export class DescribeVerifyFailStatisticsResponseBodyResultObjectLine extends $dara.Model {
   /**
    * @remarks
-   * Column information.
+   * The column information.
    */
   items?: DescribeVerifyFailStatisticsResponseBodyResultObjectLineItems[];
   /**
    * @remarks
-   * Total count.
+   * The total count.
    * 
    * @example
    * 0
@@ -225,12 +225,12 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObjectLine extends $d
 export class DescribeVerifyFailStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Line chart of failure reasons.
+   * The line chart of failure reasons.
    */
   column?: DescribeVerifyFailStatisticsResponseBodyResultObjectColumn;
   /**
    * @remarks
-   * Bar chart of failure reasons.
+   * The bar chart of failure reasons.
    */
   line?: DescribeVerifyFailStatisticsResponseBodyResultObjectLine;
   static names(): { [key: string]: string } {
@@ -265,7 +265,7 @@ export class DescribeVerifyFailStatisticsResponseBodyResultObject extends $dara.
 export class DescribeVerifyFailStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The ID of the request.
    * 
    * @example
    * C2C596D1-B14B-5D79-9672-61D7686912B2
@@ -273,7 +273,7 @@ export class DescribeVerifyFailStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Authentication result.
+   * The authentication result.
    */
   resultObject?: DescribeVerifyFailStatisticsResponseBodyResultObject;
   static names(): { [key: string]: string } {

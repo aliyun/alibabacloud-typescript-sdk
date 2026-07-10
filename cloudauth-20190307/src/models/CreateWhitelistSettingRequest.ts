@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWhitelistSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * ID number to be whitelisted.
+   * The ID card number to add to the whitelist.
    * 
    * @example
    * 44018219950810XXXX
@@ -13,7 +13,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Certificate ID, used for whitelisting this specific authenticated user.
+   * The certificate ID. The user associated with this authentication is added to the whitelist.
    * 
    * @example
    * sha6d0405f42926084e396e76a037d00
@@ -21,7 +21,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * User language.
+   * The user language.
    * 
    * @example
    * zh
@@ -29,7 +29,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Whitelist remarks.
+   * The remarks for the whitelist.
    * 
    * @example
    * 测试白名单。
@@ -37,7 +37,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 1000014526
@@ -45,9 +45,9 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Service type:
-   * - **antcloudauth**: Financial-grade real-person authentication.
-   * - **cloudauthst** (discontinued): Enhanced real-person authentication.
+   * The service type. Valid values:
+   * - **antcloudauth**: Financial-grade ID Verification.
+   * - **cloudauthst** (discontinued): ID Verification Enhanced Edition.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Visitor\\"s source IP address. No need to fill in, the system will automatically obtain it.
+   * The source IP address of the visitor. You do not need to specify this parameter. The system automatically obtains the value.
    * 
    * @example
    * 27.115.63.58
@@ -65,7 +65,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * Number of valid days after creating the whitelist.
+   * The number of valid days after the whitelist is created.
    * 
    * This parameter is required.
    * 
@@ -73,6 +73,11 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
    * 7
    */
   validDay?: number;
+  /**
+   * @example
+   * SUPER
+   */
+  whitelistType?: string;
   static names(): { [key: string]: string } {
     return {
       certNo: 'CertNo',
@@ -83,6 +88,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
       serviceCode: 'ServiceCode',
       sourceIp: 'SourceIp',
       validDay: 'ValidDay',
+      whitelistType: 'WhitelistType',
     };
   }
 
@@ -96,6 +102,7 @@ export class CreateWhitelistSettingRequest extends $dara.Model {
       serviceCode: 'string',
       sourceIp: 'string',
       validDay: 'number',
+      whitelistType: 'string',
     };
   }
 

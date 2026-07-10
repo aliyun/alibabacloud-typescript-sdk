@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSmartStatisticsPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeSmartStatisticsPageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * End time, using UTC format, in the form of yyyy-MM-ddTHH:mm:ssZ.
+   * The end time in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeSmartStatisticsPageListRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeSmartStatisticsPageListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DescribeSmartStatisticsPageListRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * ServiceCode for the real person cloud product, only value: **cloudauthst**.
+   * The ServiceCode of the ID Verification product. The value can only be **cloudauthst**.
    * 
    * @example
    * cloudauthst
@@ -53,7 +53,7 @@ export class DescribeSmartStatisticsPageListRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Start time, using UTC format, in the form of yyyy-MM-ddTHH:mm:ssZ.
+   * The start time in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * This parameter is required.
    * 

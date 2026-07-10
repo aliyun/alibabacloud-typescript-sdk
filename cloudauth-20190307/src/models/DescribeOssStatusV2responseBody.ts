@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssStatusV2ResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Bucket name.
+   * The bucket name.
    * 
    * @example
    * cn-hangzhou-aliyun-cloudauth-20250516xxxxxx
@@ -13,7 +13,7 @@ export class DescribeOssStatusV2ResponseBodyResultObject extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * Region.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class DescribeOssStatusV2ResponseBodyResultObject extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * User activation status, **SUCCESS** indicates activated.
+   * The activation status of the user. A value of **SUCCESS** indicates that the service is activated.
    * 
    * @example
    * SUCCESS
@@ -55,7 +55,7 @@ export class DescribeOssStatusV2ResponseBodyResultObject extends $dara.Model {
 export class DescribeOssStatusV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class DescribeOssStatusV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -71,7 +71,7 @@ export class DescribeOssStatusV2ResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -79,7 +79,7 @@ export class DescribeOssStatusV2ResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * B506328A-D84B-4750-82C7-6A207C585CF1
@@ -87,12 +87,12 @@ export class DescribeOssStatusV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The result information.
    */
   resultObject?: DescribeOssStatusV2ResponseBodyResultObject;
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

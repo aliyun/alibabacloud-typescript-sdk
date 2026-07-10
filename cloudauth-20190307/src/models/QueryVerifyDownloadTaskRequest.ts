@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryVerifyDownloadTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Download task ID.
+   * The download task ID.
    * 
    * @example
    * 202411194002618

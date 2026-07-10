@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVerifySettingRequest extends $dara.Model {
   /**
    * @remarks
-   * Verification scenario name, supporting Chinese, English, numbers, and hyphens (-), with a maximum of 20 characters.
+   * The name of the verification scenario.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateVerifySettingRequest extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * Verification scenario identifier, supporting English letters, numbers, and hyphens (-), with a maximum of 20 characters.
+   * The identifier of the verification scenario.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateVerifySettingRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Whether to use the system\\"s default guide page.
+   * Specifies whether to use the default system guide page.
    * 
    * @example
    * false
@@ -33,7 +33,7 @@ export class CreateVerifySettingRequest extends $dara.Model {
   guideStep?: boolean;
   /**
    * @remarks
-   * Whether to use the system\\"s default authorization page.
+   * Specifies whether to use the default system authorization page.
    * 
    * @example
    * true
@@ -41,7 +41,7 @@ export class CreateVerifySettingRequest extends $dara.Model {
   privacyStep?: boolean;
   /**
    * @remarks
-   * Whether to use the system\\"s default result page.
+   * Specifies whether to use the default system result page.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class CreateVerifySettingRequest extends $dara.Model {
   resultStep?: boolean;
   /**
    * @remarks
-   * The name of the authentication solution to use, such as **RPBasic**, **RPBioOnly**, etc. For all supported authentication solutions, see [Authentication Solutions](https://help.aliyun.com/document_detail/127521.html).
+   * The name of the verification solution.
    * 
    * This parameter is required.
    * 

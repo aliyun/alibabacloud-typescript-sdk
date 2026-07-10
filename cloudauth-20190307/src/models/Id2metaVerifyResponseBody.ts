@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class Id2MetaVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result code:
-   * - **1**: Verification consistent.
-   * - **2**: Verification inconsistent.
+   * The verification result code. Valid values:
+   * - **1**: Consistent.
+   * - **2**: Inconsistent.
    * - **3**: No record found.
    * 
    * @example
@@ -38,7 +38,7 @@ export class Id2MetaVerifyResponseBodyResultObject extends $dara.Model {
 export class Id2MetaVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code, **200** indicates successful API response.
+   * The response code. **200** indicates that the request was successful.
    * 
    * @example
    * 200
@@ -46,7 +46,7 @@ export class Id2MetaVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -54,7 +54,7 @@ export class Id2MetaVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D6163397-15C5-419C-9ACC-B7C83E0B4C10
@@ -62,7 +62,7 @@ export class Id2MetaVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The result information.
    */
   resultObject?: Id2MetaVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

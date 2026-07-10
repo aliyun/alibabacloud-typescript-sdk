@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifySDKResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -13,7 +13,7 @@ export class DescribeVerifySDKResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SDK download URL. When not empty, it indicates that the generation is complete.
+   * The download URL of the SDK. A non-empty value indicates that the SDK has been generated.
    * 
    * @example
    * https://www.xxx.com

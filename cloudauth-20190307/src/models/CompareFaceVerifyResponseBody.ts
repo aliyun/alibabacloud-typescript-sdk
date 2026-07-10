@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CompareFaceVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier for the real-person authentication request.
+   * The unique identifier of the ID Verification request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -13,7 +13,7 @@ export class CompareFaceVerifyResponseBodyResultObject extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Whether the verification passed, T for pass, F for fail.
+   * Indicates whether the verification passed. A value of T indicates passed. A value of F indicates not passed.
    * 
    * @example
    * T
@@ -21,7 +21,7 @@ export class CompareFaceVerifyResponseBodyResultObject extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Face comparison score.
+   * The face comparison score.
    * 
    * @example
    * 99.60875
@@ -55,7 +55,7 @@ export class CompareFaceVerifyResponseBodyResultObject extends $dara.Model {
 export class CompareFaceVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, other values indicate failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class CompareFaceVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * success
@@ -71,7 +71,7 @@ export class CompareFaceVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF039795
@@ -79,7 +79,7 @@ export class CompareFaceVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Face comparison result information.
+   * The face comparison result.
    */
   resultObject?: CompareFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class Id3MetaVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Identity verification result:
+   * The identity verification result. Valid values:
    * 
-   * - 1: Consistent
-   * - 2: Inconsistent
-   * - 3: No record found
+   * - 1: Consistent.
+   * - 2: Inconsistent.
+   * - 3: No record found.
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class Id3MetaVerifyResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Image comparison score.
+   * The face comparison score.
    * 
    * @example
    * {
@@ -25,10 +25,16 @@ export class Id3MetaVerifyResponseBodyResultObject extends $dara.Model {
    * }
    */
   faceDetail?: string;
+  /**
+   * @example
+   * 101
+   */
+  subCode?: string;
   static names(): { [key: string]: string } {
     return {
       bizCode: 'BizCode',
       faceDetail: 'FaceDetail',
+      subCode: 'SubCode',
     };
   }
 
@@ -36,6 +42,7 @@ export class Id3MetaVerifyResponseBodyResultObject extends $dara.Model {
     return {
       bizCode: 'string',
       faceDetail: 'string',
+      subCode: 'string',
     };
   }
 
@@ -51,10 +58,12 @@ export class Id3MetaVerifyResponseBodyResultObject extends $dara.Model {
 export class Id3MetaVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 indicates success, others indicate failure.
+   * The response code. A value of 200 indicates success. Other values indicate failure.
+   * 
    * **Important**
-   * - This parameter indicates whether the interface was called correctly. For detailed return code explanations, please refer to the error codes.
-   * - Check the business verification result through the fields in `ResultObject`.
+   * 
+   * - This parameter indicates only whether the API call is successful. For more information about return codes, see error codes.
+   * - Check the fields in ResultObject for the business verification result.
    * 
    * @example
    * 200
@@ -62,11 +71,11 @@ export class Id3MetaVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Interface call return message.
+   * The response message of the API call.
    * 
    * **Important**
    * 
-   * This parameter only indicates whether there was an exception with the interface.
+   * This parameter indicates only whether the API call is abnormal.
    * 
    * @example
    * success
@@ -74,7 +83,7 @@ export class Id3MetaVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF03****
@@ -82,7 +91,7 @@ export class Id3MetaVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result object.
+   * The result object.
    */
   resultObject?: Id3MetaVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

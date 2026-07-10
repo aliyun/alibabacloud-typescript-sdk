@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAntCloudAuthSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * 80D1ACD4-1C7D-53CB-8C54-3758FF03C762

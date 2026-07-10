@@ -5,14 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile3MetaDetailVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * ID number:
+   * The ID card number.
    * 
-   * Note
-   * Only supports the ID numbers of second-generation resident IDs and Hong Kong, Macao, and Taiwan residence permits.
+   * > Note: Only second-generation resident ID card numbers and Hong Kong, Macao, or Taiwan residence permit numbers are supported.
    * 
-   * - When paramType is normal: enter the plaintext ID number.
+   * - If ParamType is set to normal, pass in the ID card number in plaintext.
    * 
-   * - When paramType is md5: enter the encrypted ID number.
+   * - If ParamType is set to md5, pass in the ID card number in ciphertext.
    * 
    * @example
    * 明文：429001********8211
@@ -24,11 +23,11 @@ export class Mobile3MetaDetailVerifyRequest extends $dara.Model {
   identifyNum?: string;
   /**
    * @remarks
-   * Mobile phone number:
+   * The phone number.
    * 
-   * - When paramType is normal: enter the plaintext mobile phone number.
+   * - If ParamType is set to normal, pass in the phone number in plaintext.
    * 
-   * - When paramType is md5: enter the encrypted mobile phone number.
+   * - If ParamType is set to md5, pass in the phone number in ciphertext.
    * 
    * @example
    * 明文：186****2055
@@ -40,11 +39,11 @@ export class Mobile3MetaDetailVerifyRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Encryption method:
+   * The encryption method. Valid values:
    * 
-   * - normal: plaintext, unencrypted
+   * - normal: plaintext without encryption
    * 
-   * - md5: MD5 encryption
+   * - md5: MD5 encryption.
    * 
    * @example
    * normal
@@ -52,11 +51,11 @@ export class Mobile3MetaDetailVerifyRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * Name:
+   * The name.
    * 
-   * - When paramType is normal: enter the plaintext name.
+   * - If ParamType is set to normal, pass in the name in plaintext.
    * 
-   * - When paramType is md5: enter the encrypted name.
+   * - If ParamType is set to md5, pass in the name in ciphertext.
    * 
    * @example
    * 明文：张三

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeepfakeDetectRequest extends $dara.Model {
   /**
    * @remarks
-   * Enter the Base64 encoded string of the face image.
-   * > Either FaceUrl or FaceBase64 must be provided.
+   * The Base64-encoded face image.
+   * > Specify either FaceUrl or FaceBase64.
    * 
    * @example
    * /9j/4AAQSkZJRgABAQAASxxxxxxx
@@ -14,7 +14,12 @@ export class DeepfakeDetectRequest extends $dara.Model {
   faceBase64?: string;
   /**
    * @remarks
-   * Input **IMAGE** to indicate an image type.
+   * The input type of the face material. Valid values:
+   * 
+   * - IMAGE (default): face image
+   * - VIDEO: face video
+   * 
+   * > Video processing takes longer. Set the timeout to more than 3 seconds.
    * 
    * @example
    * IMAGE
@@ -22,8 +27,8 @@ export class DeepfakeDetectRequest extends $dara.Model {
   faceInputType?: string;
   /**
    * @remarks
-   * Enter the URL of the face image.
-   * > Either FaceUrl or FaceBase64 must be provided.
+   * The URL of the face image.
+   * > Specify either FaceUrl or FaceBase64.
    * 
    * @example
    * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
@@ -31,7 +36,7 @@ export class DeepfakeDetectRequest extends $dara.Model {
   faceUrl?: string;
   /**
    * @remarks
-   * A unique identifier for the merchant\\"s request, consisting of a 32-character alphanumeric combination. The first few characters can be a custom abbreviation defined by the merchant, the middle part may include a timestamp, and the latter part can use a random or incrementing sequence.
+   * The unique identifier of the merchant request. The value is a 32-character alphanumeric string. The first few characters consist of a custom merchant abbreviation, the middle part can contain a time segment, and the last part can use a random or incremental sequence.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c******

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class VehicleInsureQueryResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result code:
+   * The verification result code. Valid values:
    * 
    * > 
-   * > - 1: Found (charged)
-   * > - 3: No record found (not charged)
+   * > - 1: record found (billable).
+   * > - 3: no record found (not billable).
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class VehicleInsureQueryResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Insurance date information
+   * The insurance date information.
    * 
    * @example
    * {
@@ -54,7 +54,7 @@ export class VehicleInsureQueryResponseBodyResultObject extends $dara.Model {
 export class VehicleInsureQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 indicates success, others indicate failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -62,7 +62,7 @@ export class VehicleInsureQueryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message for the request information.
+   * The response message of the request.
    * 
    * @example
    * success
@@ -70,7 +70,7 @@ export class VehicleInsureQueryResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 5A6229C0-E156-48E4-B6EC-0F52********
@@ -78,7 +78,7 @@ export class VehicleInsureQueryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The result information.
    */
   resultObject?: VehicleInsureQueryResponseBodyResultObject;
   static names(): { [key: string]: string } {

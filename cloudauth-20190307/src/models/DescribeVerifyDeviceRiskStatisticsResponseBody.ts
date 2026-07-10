@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObjectItems extends $dara.Model {
   /**
    * @remarks
-   * Daily call count.
+   * The number of daily transactions.
    * 
    * @example
    * 11
@@ -13,7 +13,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObjectItems ext
   dailyCallCount?: number;
   /**
    * @remarks
-   * Date.
+   * The date.
    * 
    * @example
    * 2025-10-10
@@ -21,7 +21,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObjectItems ext
   date?: string;
   /**
    * @remarks
-   * Abnormal device risk ratio.
+   * The abnormal device risk ratio.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObjectItems ext
   deviceRiskRate?: string;
   /**
    * @remarks
-   * Abnormal identity risk ratio.
+   * The abnormal identity risk ratio.
    * 
    * @example
    * 0
@@ -65,7 +65,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObjectItems ext
 export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Suspected fake face percentage: total number of suspected fake faces / total number of risks.
+   * The suspected fake face percentage: total number of suspected fake faces / total number of risks.
    * 
    * @example
    * 0
@@ -73,7 +73,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject extends 
   faceAttackRate?: string;
   /**
    * @remarks
-   * Total number of suspected fake identities.
+   * The total number of suspected fake identities.
    * 
    * @example
    * 0
@@ -81,12 +81,12 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject extends 
   idFakeRate?: string;
   /**
    * @remarks
-   * Data items in the response.
+   * The data items in the response.
    */
   items?: DescribeVerifyDeviceRiskStatisticsResponseBodyResultObjectItems[];
   /**
    * @remarks
-   * Number of risks.
+   * The number of risks.
    * 
    * @example
    * 2
@@ -94,7 +94,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject extends 
   riskCount?: number;
   /**
    * @remarks
-   * Root percentage: total number of root / total number of risks.
+   * The root percentage: total number of rooted devices / total number of risks.
    * 
    * @example
    * 0
@@ -102,7 +102,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject extends 
   rootRate?: string;
   /**
    * @remarks
-   * Simulator percentage: total number of simulators / total number of risks.
+   * The emulator percentage: total number of emulators / total number of risks.
    * 
    * @example
    * 0
@@ -110,7 +110,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject extends 
   simulatorRate?: string;
   /**
    * @remarks
-   * Virtual video percentage: total number of virtual videos / total number of risks.
+   * The virtual video percentage: total number of virtual videos / total number of risks.
    * 
    * @example
    * 23.2
@@ -155,7 +155,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject extends 
 export class DescribeVerifyDeviceRiskStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * B3193814-AE54-50C5-9070-68B69C07287D
@@ -163,7 +163,7 @@ export class DescribeVerifyDeviceRiskStatisticsResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Authentication result.
+   * The verification result.
    */
   resultObject?: DescribeVerifyDeviceRiskStatisticsResponseBodyResultObject;
   static names(): { [key: string]: string } {

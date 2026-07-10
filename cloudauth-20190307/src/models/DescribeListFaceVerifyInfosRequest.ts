@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeListFaceVerifyInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * Verification ID.
+   * The authentication ID.
    * 
    * @example
    * shs414a8b392a3a338abe0504c75c056
@@ -13,7 +13,7 @@ export class DescribeListFaceVerifyInfosRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Query the end time of the verification.
+   * The end time of the authentication query.
    * 
    * @example
    * 1760716800000
@@ -21,7 +21,7 @@ export class DescribeListFaceVerifyInfosRequest extends $dara.Model {
   gmtEnd?: number;
   /**
    * @remarks
-   * Query the start time of the verification.
+   * The start time of the authentication query.
    * 
    * @example
    * 1760112000000
@@ -29,7 +29,7 @@ export class DescribeListFaceVerifyInfosRequest extends $dara.Model {
   gmtStart?: number;
   /**
    * @remarks
-   * Pagination parameter: current page number.
+   * The current page number for pagination.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeListFaceVerifyInfosRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page for paginated queries. Maximum value: 100, default value: 10.
+   * The number of entries per page in a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class DescribeListFaceVerifyInfosRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 1000009699
@@ -53,9 +53,9 @@ export class DescribeListFaceVerifyInfosRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Verification status:
-   * - **1**: Verification passed.
-   * - **2**: Verification failed.
+   * The authentication status. Valid values:
+   * - **1**: Authentication passed.
+   * - **2**: Authentication failed.
    * 
    * @example
    * 1

@@ -4,17 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class InitAuthVerifyRequest extends $dara.Model {
   /**
+   * @remarks
+   * A security token that you generate to prevent replay attacks and data tampering.
+   * If this value is set, the CallbackToken field is included in the callback to CallbackUrl.
+   * 
    * @example
    * NMjvQanQgplBSaEI0sL86WnQplB
    */
   callbackToken?: string;
   /**
+   * @remarks
+   * The callback URL for OCR results. The callback request method is GET by default. The callback URL must start with https. After OCR is completed, a callback is sent to this URL with the certifyId and subcode fields automatically appended.
+   * > Warning
+   * - The URL is validated for public network access before the API is invoked. If the URL is not publicly accessible, a 400 error is returned.
+   * - The callback is executed immediately after the OCR invocation is completed, but may be delayed due to network issues. Accept the request completion notification from the client side first, and then invoke the query API to obtain the result details.
+   * 
    * @example
    * https://www.aliyun.com?callbackToken=100000****&certifyId=shaxxxx&subCode=200
    */
   callbackUrl?: string;
   /**
    * @remarks
+   * The number of card pages collected by the SDK. Valid values:
+   * - "1": front side only
+   * - "2": both front and back sides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +37,8 @@ export class InitAuthVerifyRequest extends $dara.Model {
   cardPageNumber?: string;
   /**
    * @remarks
+   * The document type. Set the value to IDENTITY_CARD.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,17 +46,30 @@ export class InitAuthVerifyRequest extends $dara.Model {
    */
   cardType?: string;
   /**
+   * @remarks
+   * The OCR document scan pattern. Valid values:
+   * - shoot (default): photo capture
+   * - scan: scan
+   * - auto: automatic switchover between photo capture and scan.
+   * 
    * @example
    * shoot
    */
   docScanMode?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the document anti-forgery detection feature. Valid values:
+   * - Y: Enabled.
+   * - N: Disabled. This is the default value.
+   * 
    * @example
    * Y
    */
   idSpoof?: string;
   /**
    * @remarks
+   * The MetaInfo environment parameter, which must be obtained from the client SDK.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +87,10 @@ export class InitAuthVerifyRequest extends $dara.Model {
   metaInfo?: string;
   /**
    * @remarks
+   * A custom business unique identifier that you specify for subsequent troubleshooting.
+   * 
+   * The value can contain letters (both uppercase and lowercase) and digits, with a maximum length of 32 characters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +99,8 @@ export class InitAuthVerifyRequest extends $dara.Model {
   outerOrderNo?: string;
   /**
    * @remarks
+   * The product solution to use. Set the value to ID_OCR.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -74,6 +109,8 @@ export class InitAuthVerifyRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
+   * The China Chinese authentication scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example

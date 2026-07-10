@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Id2MetaVerifyWithOCRResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Identity verification result:
-   * - 1: Consistent
-   * - 2: Inconsistent
-   * - 3: No record found
+   * The identity verification result. Valid values:
+   * - 1: consistent.
+   * - 2: inconsistent.
+   * - 3: no record found.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class Id2MetaVerifyWithOCRResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * {"address":"Zhejiang Province, Hangzhou City, Yu*****","birthDate":"19901226","certName":"Zhang San","certNo":"1234561990122*****","nationality":"Han","authority":"xxx Public Security Bureau","startDate":"20201130","endDate":"20301130"}
+   * {"address":"浙江省杭州市余*****","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}.
    * 
    * @example
    * OCR读取的身份证信息。
@@ -48,10 +48,10 @@ export class Id2MetaVerifyWithOCRResponseBodyResultObject extends $dara.Model {
 export class Id2MetaVerifyWithOCRResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 indicates success, any other value indicates failure.
+   * The response code. A value of 200 indicates success. Any other value indicates failure.
    * **Important**
-   * - This parameter indicates whether the API was called correctly. For detailed return code explanations, please refer to the error codes.
-   * - Check the business verification results through the fields in ResultObject.
+   * - This parameter indicates only whether the API call was made correctly. For detailed response codes, see error codes.
+   * - Check the fields in ResultObject for the business verification result.
    * 
    * @example
    * 200
@@ -59,9 +59,9 @@ export class Id2MetaVerifyWithOCRResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * API call return message.
+   * The response message of the API call.
    * **Important**
-   * This parameter only indicates if there was an exception with the API call.
+   * This parameter indicates only whether the API call is abnormal.
    * 
    * @example
    * success
@@ -69,7 +69,7 @@ export class Id2MetaVerifyWithOCRResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF03****
@@ -77,7 +77,7 @@ export class Id2MetaVerifyWithOCRResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result object
+   * The result object.
    */
   resultObject?: Id2MetaVerifyWithOCRResponseBodyResultObject;
   static names(): { [key: string]: string } {

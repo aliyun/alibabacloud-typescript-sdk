@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSceneConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Intention authentication configuration, as a JSON string.
+   * The willingness authentication configuration, in JSON string format.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateSceneConfigRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scenario ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateSceneConfigRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Configuration type.
+   * The configuration type.
    * 
    * This parameter is required.
    * 

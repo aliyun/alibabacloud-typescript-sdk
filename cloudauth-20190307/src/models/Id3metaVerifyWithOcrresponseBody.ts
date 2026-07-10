@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class Id3MetaVerifyWithOCRResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Identity verification result:
+   * The identity verification result. Valid values:
    * 
-   * - 1: Consistent
-   * - 2: Inconsistent
-   * - 3: No record found
+   * - 1: consistent.
+   * - 2: inconsistent.
+   * - 3: no record found.
    * 
    * @example
    * 1
@@ -17,15 +17,15 @@ export class Id3MetaVerifyWithOCRResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Card ocr result.
+   * {"address":"浙江省杭州市余*****","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}.
    * 
    * @example
-   * {"address":"浙江省杭州市余*****","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}
+   * OCR读取的身份证信息。
    */
   cardInfo?: string;
   /**
    * @remarks
-   * Face comparison score.
+   * The face comparison score.
    * 
    * @example
    * {
@@ -61,10 +61,10 @@ export class Id3MetaVerifyWithOCRResponseBodyResultObject extends $dara.Model {
 export class Id3MetaVerifyWithOCRResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 indicates success, any other value indicates failure. **Important**
+   * The response code. 200 indicates success. Other values indicate failure. **Important**
    * 
-   * - This parameter indicates whether the interface was called correctly. For a detailed explanation of return codes, please refer to the error codes.
-   * - The business verification result can be viewed through the fields in ResultObject.
+   * - This parameter indicates only whether the API call was made correctly. For more information about return codes, see error codes.
+   * - Check the fields in ResultObject for the business verification result.
    * 
    * @example
    * 200
@@ -72,7 +72,7 @@ export class Id3MetaVerifyWithOCRResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Interface call return message. **Important** This parameter only indicates whether there was an exception with the interface.
+   * The response message of the API call. This parameter indicates only whether an exception occurred during the API call.
    * 
    * @example
    * success
@@ -80,7 +80,7 @@ export class Id3MetaVerifyWithOCRResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF03****
@@ -88,7 +88,7 @@ export class Id3MetaVerifyWithOCRResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result object.
+   * The result object.
    */
   resultObject?: Id3MetaVerifyWithOCRResponseBodyResultObject;
   static names(): { [key: string]: string } {

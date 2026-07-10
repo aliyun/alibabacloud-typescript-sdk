@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeListFaceVerifyDataRequest extends $dara.Model {
   /**
    * @remarks
-   * End time of the query.
+   * The query end time.
    * 
    * @example
    * 1760630399999
@@ -13,7 +13,7 @@ export class DescribeListFaceVerifyDataRequest extends $dara.Model {
   gmtEnd?: number;
   /**
    * @remarks
-   * Start time of the query.
+   * The query start time.
    * 
    * @example
    * 1760025600000
@@ -21,7 +21,7 @@ export class DescribeListFaceVerifyDataRequest extends $dara.Model {
   gmtStart?: number;
   /**
    * @remarks
-   * Product Code, currently deprecated.
+   * The product code. This parameter is deprecated.
    * 
    * @example
    * Liveness
@@ -29,7 +29,7 @@ export class DescribeListFaceVerifyDataRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 1000000339

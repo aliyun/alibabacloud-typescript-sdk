@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether the age is over 14 years old:
-   * - **T**: Over
-   * - **F**: Under
+   * Specifies whether the age is older than 14. Valid values:
+   * - **T**: older than 14
+   * - **F**: younger than 14.
    * 
    * @example
    * T
@@ -15,7 +15,7 @@ export class DescribeVerifyStatisticsRequest extends $dara.Model {
   ageGt?: string;
   /**
    * @remarks
-   * End date of the query.
+   * The end time of the query.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeVerifyStatisticsRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * Product Code.
+   * The product code.
    * 
    * @example
    * ID_PRO
@@ -33,10 +33,10 @@ export class DescribeVerifyStatisticsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Service type:
-   * - **antcloudauth**: Financial-grade real-person authentication.
-   * - **cloudauthst** (discontinued): Enhanced real-person authentication.
-   * - **cloudauth** (discontinued): Real-person authentication.
+   * The service type. Valid values:
+   * - **antcloudauth**: financial-grade ID Verification.
+   * - **cloudauthst** (discontinued): enhanced ID Verification.
+   * - **cloudauth** (discontinued): ID Verification.
    * 
    * This parameter is required.
    * 
@@ -46,7 +46,7 @@ export class DescribeVerifyStatisticsRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Start date of the query.
+   * The start time of the query.
    * 
    * This parameter is required.
    * 

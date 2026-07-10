@@ -13,7 +13,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   accumulateKey?: string;
   /**
    * @remarks
-   * Flow control statistical window size, in minutes.
+   * The size of the rate limiting statistical window, in minutes.
    * 
    * @example
    * 60
@@ -21,7 +21,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   accumulateWindow?: number;
   /**
    * @remarks
-   * API name, same as **ProductCode**.
+   * The API name, which is the same as **ProductCode**.
    * 
    * This parameter is required.
    * 
@@ -31,11 +31,11 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   apiName?: string;
   /**
    * @remarks
-   * Flow type:
-   * - **ACCUMULATE**: Repeated appearance of ID card
-   * - **PASSED_RATE**: Pass rate less than
-   * - **SUB_CODE_205**: Authentication failed and liveness attack 205 ratio greater than
-   * - **SUB_CODE_206**: Authentication failed and liveness attack 206 ratio greater than
+   * The flow type. Valid values:
+   * - **ACCUMULATE**: repeated occurrence of an ID card.
+   * - **PASSED_RATE**: pass rate is less than.
+   * - **SUB_CODE_205**: authentication failed and the proportion of liveness attack 205 is greater than.
+   * - **SUB_CODE_206**: authentication failed and the proportion of liveness attack 206 is greater than.
    * 
    * @example
    * ACCUMULATE
@@ -43,7 +43,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   flowType?: string;
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * @example
    * 38
@@ -51,7 +51,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   id?: number;
   /**
    * @remarks
-   * Operation.
+   * The operation.
    * 
    * @example
    * -
@@ -59,9 +59,9 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   operation?: string;
   /**
    * @remarks
-   * Status:
-   * - **disabled**: Disabled
-   * - **normal**: Enabled
+   * The status. Valid values:
+   * - **disabled**: disabled.
+   * - **normal**: enabled.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   status?: string;
   /**
    * @remarks
-   * Flow control threshold.
+   * The rate limiting threshold.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   threshold?: number;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 126005125163xxxx
@@ -127,7 +127,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
 export class ModifyCustomizeFlowStrategyListRequest extends $dara.Model {
   /**
    * @remarks
-   * Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade real person), all others have been phased out.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
    * 
    * @example
    * ANT_CLOUD_AUTH
@@ -135,7 +135,7 @@ export class ModifyCustomizeFlowStrategyListRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Strategy list.
+   * The policy list.
    */
   strategyObject?: ModifyCustomizeFlowStrategyListRequestStrategyObject[];
   static names(): { [key: string]: string } {

@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthVerifyRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier for ID Verification.
+   * Obtain this value by calling InitAuthVerify to initiate an OCR request.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +16,8 @@ export class DescribeAuthVerifyRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
+   * The authentication scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example

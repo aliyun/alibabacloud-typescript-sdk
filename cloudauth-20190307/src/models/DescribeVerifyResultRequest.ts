@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Authentication ID. A unique ID that identifies an authentication task, not exceeding 64 characters. For a single authentication task, the system supports an unlimited number of submissions until the final authentication is successful and the task is completed. > You need to use a different BizId for each new authentication task.
+   * The verification ID. A unique ID that identifies a verification task. The value can be up to 64 characters in length. For a single verification task, the system supports unlimited submissions until the verification is passed and the task is completed.
+   * > Use a different BizId for each verification task.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class DescribeVerifyResultRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Business scenario identifier for real-person authentication service
+   * The business scenario identifier of the ID Verification service.
    * 
    * This parameter is required.
    * 

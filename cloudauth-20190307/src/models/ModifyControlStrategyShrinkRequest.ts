@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyControlStrategyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * List of security alarm rules.
+   * The list of security alert rules.
    */
   controlStrategyListShrink?: string;
   /**
    * @remarks
-   * Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade Real Person), all others are phased out.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
    * 
    * @example
    * ANT_CLOUD_AUTH
@@ -18,7 +18,7 @@ export class ModifyControlStrategyShrinkRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Region ID of the intelligent access gateway instance.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * @example
    * cn-shanghai

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWhitelistSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * CF4979D3-060F-5336-BD9F-0D46ECB66B22
@@ -13,9 +13,9 @@ export class CreateWhitelistSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result, whether the creation was successful:
-   * - true: Success
-   * - false: Failure
+   * The returned result that indicates whether the whitelist is created. Valid values:
+   * - true: Succeeded.
+   * - false: Failed.
    * 
    * @example
    * true

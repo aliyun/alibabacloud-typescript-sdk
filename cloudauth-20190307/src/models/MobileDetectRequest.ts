@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MobileDetectRequest extends $dara.Model {
   /**
    * @remarks
-   * List of phone numbers.
+   * The list of phone numbers.
    * 
    * @example
    * 19833232569
@@ -13,9 +13,9 @@ export class MobileDetectRequest extends $dara.Model {
   mobiles?: string;
   /**
    * @remarks
-   * Encryption method:
-   * - normal: plaintext, no encryption
-   * - md5: MD5 encryption
+   * The encryption method. Valid values:
+   * - normal: plaintext without encryption
+   * - md5: MD5 encryption.
    * 
    * @example
    * normal

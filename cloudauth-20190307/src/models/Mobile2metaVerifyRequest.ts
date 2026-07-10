@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile2MetaVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * Phone number:
-   * - When paramType is normal: input the plaintext phone number.
-   * - When paramType is md5: input the encrypted phone number.
+   * The mobile phone number. Valid values:
+   * - If ParamType is set to normal, pass in the mobile phone number in plaintext.
+   * - If ParamType is set to md5, pass in the MD5-encrypted mobile phone number.
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,9 @@ export class Mobile2MetaVerifyRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Encryption method:
+   * The encryption method. Valid values:
    * - normal: plaintext without encryption
-   * - md5: MD5 encryption
+   * - md5: MD5 encryption.
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,9 @@ export class Mobile2MetaVerifyRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * Name:
-   * - When paramType is normal: input the plaintext name.
-   * - When paramType is md5: input the encrypted name.
+   * The name. Valid values:
+   * - If ParamType is set to normal, pass in the name in plaintext.
+   * - If ParamType is set to md5, pass in the MD5-encrypted name.
    * 
    * This parameter is required.
    * 

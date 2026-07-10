@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryBlackListStrategyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Blacklist string, separated by **commas**.
+   * The blacklist string. Multiple blacklist entries are separated by **commas**.
    * 
    * @example
    * 127.0.0.1,127.0.0.2
@@ -13,11 +13,11 @@ export class QueryBlackListStrategyResponseBodyResultObject extends $dara.Model 
   bizContent?: string;
   /**
    * @remarks
-   * List type:
-   * - mobile: Phone number blacklist
+   * The blacklist type. Valid values:
+   * - mobile: phone number blacklist
    * - ip: IP blacklist
-   * - identifyNum: ID number blacklist
-   * - bankCard: Bank card blacklist
+   * - identifyNum: ID card blacklist
+   * - bankCard: bank card blacklist.
    * 
    * @example
    * identifyNum
@@ -25,7 +25,7 @@ export class QueryBlackListStrategyResponseBodyResultObject extends $dara.Model 
   bizKey?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1711533786000
@@ -33,7 +33,7 @@ export class QueryBlackListStrategyResponseBodyResultObject extends $dara.Model 
   gmtModified?: number;
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * @example
    * 234822
@@ -41,10 +41,10 @@ export class QueryBlackListStrategyResponseBodyResultObject extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * Product name:
-   * - id2meta: ID number two-factor verification
-   * - mobile3Meta: Phone number factor verification
-   * - bankcardMeta: Bank card factor verification
+   * The product name. Valid values:
+   * - id2meta: ID card two-factor verification.
+   * - mobile3Meta: Phone number factor verification.
+   * - bankcardMeta: Bank card factor verification.
    * 
    * @example
    * id2meta
@@ -52,9 +52,9 @@ export class QueryBlackListStrategyResponseBodyResultObject extends $dara.Model 
   productName?: string;
   /**
    * @remarks
-   * Status:
-   * - **disabled**: Disabled
-   * - **normal**: Enabled
+   * The status. Valid values:
+   * - **disabled**: Disabled.
+   * - **normal**: Enabled.
    * 
    * @example
    * disabled
@@ -62,7 +62,7 @@ export class QueryBlackListStrategyResponseBodyResultObject extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 12600512xxxxxxxx
@@ -104,7 +104,7 @@ export class QueryBlackListStrategyResponseBodyResultObject extends $dara.Model 
 export class QueryBlackListStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code, **200** indicates successful API response.
+   * The return code. **200** indicates that the request was successful.
    * 
    * @example
    * 200
@@ -112,7 +112,7 @@ export class QueryBlackListStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * success
@@ -120,7 +120,7 @@ export class QueryBlackListStrategyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 8FC3D6AC-9FED-4311-8DA7-C4BF47D9F260
@@ -128,7 +128,7 @@ export class QueryBlackListStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The returned result.
    */
   resultObject?: QueryBlackListStrategyResponseBodyResultObject[];
   static names(): { [key: string]: string } {

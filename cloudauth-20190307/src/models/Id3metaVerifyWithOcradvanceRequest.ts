@@ -6,7 +6,7 @@ import * as $dara from '@darabonba/typescript';
 export class Id3MetaVerifyWithOCRAdvanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Input stream for the portrait side of the ID card image. Choose either CertUrl or CertFile.
+   * The input stream of the portrait side image of the ID card. Specify either CertUrl or CertFile.
    * 
    * @example
    * 无
@@ -14,7 +14,7 @@ export class Id3MetaVerifyWithOCRAdvanceRequest extends $dara.Model {
   certFileObject?: Readable;
   /**
    * @remarks
-   * URL for the national emblem side of the ID card image. Choose either CertNationalUrl or CertNationalFile, or omit both.
+   * The image of the national emblem side of the ID card. Specify either CertNationalUrl or CertNationalFile, or leave both empty.
    * 
    * @example
    * 无
@@ -22,7 +22,7 @@ export class Id3MetaVerifyWithOCRAdvanceRequest extends $dara.Model {
   certNationalFileObject?: Readable;
   /**
    * @remarks
-   * National emblem side of the ID card image URL. A publicly accessible HTTP or HTTPS link. You can choose either CertNationalUrl or CertNationalFile, or omit both.
+   * The URL of the national emblem side image of the ID card. Specify a publicly accessible HTTP or HTTPS URL. Specify either CertNationalUrl or CertNationalFile, or leave both empty.
    * 
    * @example
    * https://www.aliyun.com/cert.jpeg
@@ -30,7 +30,7 @@ export class Id3MetaVerifyWithOCRAdvanceRequest extends $dara.Model {
   certNationalUrl?: string;
   /**
    * @remarks
-   * Portrait side of the ID card image. A publicly accessible HTTP or HTTPS link. Choose either CertUrl or CertFile.
+   * The image of the portrait side of the ID card. Specify a publicly accessible HTTP or HTTPS URL. Specify either CertUrl or CertFile.
    * 
    * @example
    * https://www.aliyun.com/cert.jpeg

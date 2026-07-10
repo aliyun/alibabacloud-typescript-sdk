@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryVerifyInvokeSatisticResponseBodyItemsData extends $dara.Model {
   /**
    * @remarks
-   * Number of occurrences of the statistic.
+   * The count of the statistical value.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class QueryVerifyInvokeSatisticResponseBodyItemsData extends $dara.Model 
   statisticsCount?: string;
   /**
    * @remarks
-   * ProductCode。
+   * The product code.
    * 
    * @example
    * ID_PRO
@@ -45,12 +45,12 @@ export class QueryVerifyInvokeSatisticResponseBodyItemsData extends $dara.Model 
 export class QueryVerifyInvokeSatisticResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * List of statistical data.
+   * The list of statistics data.
    */
   data?: QueryVerifyInvokeSatisticResponseBodyItemsData[];
   /**
    * @remarks
-   * Statistics date.
+   * The statistics date.
    * 
    * @example
    * 2025-10-16
@@ -85,7 +85,7 @@ export class QueryVerifyInvokeSatisticResponseBodyItems extends $dara.Model {
 export class QueryVerifyInvokeSatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code, **200** indicates a successful response.
+   * The response code. **200** indicates a successful response.
    * 
    * @example
    * 200
@@ -93,7 +93,7 @@ export class QueryVerifyInvokeSatisticResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -101,12 +101,12 @@ export class QueryVerifyInvokeSatisticResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of returned data.
+   * The list of returned data.
    */
   items?: QueryVerifyInvokeSatisticResponseBodyItems[];
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -114,7 +114,7 @@ export class QueryVerifyInvokeSatisticResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 2FA2C773-47DB-4156-B1EE-5B047321A939
@@ -122,7 +122,7 @@ export class QueryVerifyInvokeSatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the response is successful.
    * 
    * @example
    * true
@@ -130,7 +130,7 @@ export class QueryVerifyInvokeSatisticResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -138,7 +138,7 @@ export class QueryVerifyInvokeSatisticResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 3

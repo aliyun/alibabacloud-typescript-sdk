@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Device risk label.
+   * The device risk label.
    * 
    * @example
    * ROOT,VPN,HOOK
@@ -13,7 +13,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   deviceRisk?: string;
   /**
    * @remarks
-   * Device token.
+   * The device token.
    * 
    * @example
    * McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
@@ -21,7 +21,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   deviceToken?: string;
   /**
    * @remarks
-   * Information about the authenticated subject, usually empty in general authentication scenarios.
+   * The identity information of the verification subject. This field is empty in common verification scenarios.
    * 
    * @example
    * null
@@ -29,7 +29,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   identityInfo?: string;
   /**
    * @remarks
-   * Attachment information of the authenticated subject, mainly image materials. JSON format, see example below.
+   * The supplementary material information of the verification subject, primarily image-based materials. The value is in JSON format. See the example below.
    * 
    * @example
    * {"faceAttack": "F","facialPictureFront": {"qualityScore": 88.3615493774414,"pictureUrl": "https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg","ossBucketName": "cn-shanghai-aliyun-cloudauth-1260051251634779","ossObjectName": "verify/1260051251634779/6ba7bcfccf33f56cdb44ed086f36ce3e0.jpeg"}}
@@ -37,7 +37,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   materialInfo?: string;
   /**
    * @remarks
-   * Whether it passed, T for pass, F for fail.
+   * Indicates whether the verification is passed. A value of T indicates passed. A value of F indicates not passed.
    * 
    * @example
    * T
@@ -45,7 +45,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Description of the authentication result. For details, see the SubCode explanation below.
+   * The verification result description. For more information, see the SubCode description below.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the response is successful.
    * 
    * @example
    * True
@@ -61,13 +61,13 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * Records the identity information and corresponding encoding entered by the user under the rare character mode. The returned data is a JSON formatted string, which will be an empty string if there are no rare characters in the name.
+   * The identity information and corresponding encoding entered by the user in rare character mode. The value is a JSON-formatted string. An empty string is returned if the name does not contain rare characters.
    * 
-   * - name: Refers to the name entered by the user.
+   * - name: the name entered by the user.
    * 
-   * - verifyName: Refers to the final name encoding after verification. For example, if a rare character is verified through transcoding: “Mr. Wang”, the actual verified name is “Wang Xiansheng”.
+   * - verifyName: the final name encoding that passed verification. For example, if a rare character is verified through transcoding: "王先生", the actual verified name is "王先升".
    * 
-   * - number: Refers to the identification number entered by the user.
+   * - number: the ID number entered by the user.
    * 
    * @example
    * {
@@ -115,7 +115,7 @@ export class DescribeFaceVerifyResponseBodyResultObject extends $dara.Model {
 export class DescribeFaceVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 indicates success, other values indicate failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -123,7 +123,7 @@ export class DescribeFaceVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * success
@@ -131,7 +131,7 @@ export class DescribeFaceVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF039795
@@ -139,7 +139,7 @@ export class DescribeFaceVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information
+   * The returned result information.
    */
   resultObject?: DescribeFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

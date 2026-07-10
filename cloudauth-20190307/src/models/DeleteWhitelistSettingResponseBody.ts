@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWhitelistSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * D6163397-15C5-419C-9ACC-B7C83E0B4C10
@@ -13,7 +13,7 @@ export class DeleteWhitelistSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    * 
    * @example
    * true

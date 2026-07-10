@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAntCloudAuthSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 01D3BDC6-64C0-58E2-8760-3F1B56AAE299
@@ -13,7 +13,7 @@ export class CreateAntCloudAuthSceneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * 1000015112

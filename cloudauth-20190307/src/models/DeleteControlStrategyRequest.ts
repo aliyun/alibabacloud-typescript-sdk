@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteControlStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * API name, same as **ProductCode**.
+   * The API name, same as **ProductCode**.
    * 
    * @example
    * ID_PRO
@@ -13,7 +13,7 @@ export class DeleteControlStrategyRequest extends $dara.Model {
   apiName?: string;
   /**
    * @remarks
-   * Security rule ID.
+   * The security rule ID.
    * 
    * @example
    * 38
@@ -21,7 +21,7 @@ export class DeleteControlStrategyRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade Real Person), all others have been phased out.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade real-person authentication) is supported. All other types have been discontinued.
    * 
    * @example
    * ANT_CLOUD_AUTH
@@ -29,7 +29,7 @@ export class DeleteControlStrategyRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai

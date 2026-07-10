@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudauthstSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request
+   * The request ID.
    * 
    * @example
    * 5A6229C0-E156-48E4-B6EC-0F528BDF60D2
@@ -13,7 +13,7 @@ export class CreateCloudauthstSceneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result, indicating whether the operation was successful.
+   * The returned result that indicates whether the operation is successful.
    * 
    * @example
    * true

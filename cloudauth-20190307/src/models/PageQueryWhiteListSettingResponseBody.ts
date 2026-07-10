@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * ID number.
+   * The certificate number.
    * 
    * @example
    * 330103xxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   certNo?: string;
   /**
    * @remarks
-   * Unique identifier for real person authentication.
+   * The unique identifier of the ID Verification request.
    * 
    * @example
    * sha43d9cabd52d370d9f4cca9468f71e
@@ -21,7 +21,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   certifyId?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2024-08-30 14:00:00
@@ -29,7 +29,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2024-08-30 14:00:00
@@ -37,7 +37,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   gmtModified?: string;
   /**
    * @remarks
-   * Whitelist ID.
+   * The whitelist ID.
    * 
    * @example
    * 234822
@@ -45,7 +45,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * Remark information.
+   * The remarks.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   remark?: string;
   /**
    * @remarks
-   * Authentication scene ID.
+   * The verification scenario ID.
    * 
    * @example
    * 1000000332
@@ -61,7 +61,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   sceneId?: number;
   /**
    * @remarks
-   * ServiceCode of the real person cloud product
+   * The ServiceCode of the ID Verification cloud service.
    * 
    * @example
    * antcloudauth
@@ -69,11 +69,11 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   serviceCode?: string;
   /**
    * @remarks
-   * Status:
+   * The status. Valid values:
    * 
-   * - DELETE: Deleted
-   * - VALID: Not deleted and within the validity period, valid
-   * - INVALID: Not deleted but outside the validity period, invalid
+   * - DELETE: Deleted.
+   * - VALID: Not deleted and within the validity period (valid).
+   * - INVALID: Not deleted but outside the validity period (invalid).
    * 
    * @example
    * VALID
@@ -81,7 +81,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * End date of validity
+   * The end date of the validity period.
    * 
    * @example
    * 2024-09-02 13:57:51
@@ -89,7 +89,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
   validEndDate?: string;
   /**
    * @remarks
-   * Start date of validity
+   * The start date of the validity period.
    * 
    * @example
    * 2024-08-30 13:57:51
@@ -139,7 +139,7 @@ export class PageQueryWhiteListSettingResponseBodyResultObject extends $dara.Mod
 export class PageQueryWhiteListSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code, **200** indicates a successful API response.
+   * The response code. **200** indicates that the request was successful.
    * 
    * @example
    * 200
@@ -147,7 +147,7 @@ export class PageQueryWhiteListSettingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -155,7 +155,7 @@ export class PageQueryWhiteListSettingResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -163,7 +163,7 @@ export class PageQueryWhiteListSettingResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -171,7 +171,7 @@ export class PageQueryWhiteListSettingResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 5A6229C0-E156-48E4-B6EC-0F528BDF60D2
@@ -179,12 +179,12 @@ export class PageQueryWhiteListSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Request result
+   * The request result.
    */
   resultObject?: PageQueryWhiteListSettingResponseBodyResultObject[];
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -192,7 +192,7 @@ export class PageQueryWhiteListSettingResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries.
    * 
    * @example
    * 28
@@ -200,7 +200,7 @@ export class PageQueryWhiteListSettingResponseBody extends $dara.Model {
   totalItem?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 3

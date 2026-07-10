@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryVerifyDownloadTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * -
@@ -13,9 +13,9 @@ export class QueryVerifyDownloadTaskResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Whether the download task is completed:
-   * - **true**: Completed
-   * - **false**: Not completed
+   * Indicates whether the download task is complete. Valid values:
+   * - **true**: Complete.
+   * - **false**: Not complete.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class QueryVerifyDownloadTaskResponseBody extends $dara.Model {
   finish?: boolean;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 5A6229C0-E156-48E4-B6EC-0F528BDF60D2
@@ -31,10 +31,10 @@ export class QueryVerifyDownloadTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task status:
-   * - **1**: File generation in progress
-   * - **2**: File generation completed
-   * - **3**: File generation failed
+   * The task status. Valid values:
+   * - **1**: The file is being generated.
+   * - **2**: The file is generated.
+   * - **3**: The file failed to be generated.
    * 
    * @example
    * 2
@@ -42,7 +42,7 @@ export class QueryVerifyDownloadTaskResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Download URL.
+   * The download URL.
    * 
    * @example
    * http://xxx/xxx.csv

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Model {
   /**
    * @remarks
-   * Application ID.
+   * The application ID.
    * 
    * @example
    * 2a3a13b6-ee85-457e-bd15-b48115cb396e
@@ -13,9 +13,9 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   appId?: number;
   /**
    * @remarks
-   * Whether to enable binding to a mini program:
-   * - **Y**: Enabled
-   * - **N (default)**: Not enabled
+   * Specifies whether to enable mini program binding. Valid values:
+   * - **Y**: Enabled.
+   * - **N (default)**: Disabled.
    * 
    * @example
    * Y
@@ -23,7 +23,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   bindMiniProgram?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1260051251634779
@@ -31,7 +31,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * Creator.
+   * The creator.
    * 
    * @example
    * 189884094677xxxx
@@ -39,7 +39,9 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   creator?: string;
   /**
    * @remarks
-   * Enhanced device detection capability: - **Y**: Enable - **N**: Disable
+   * Specifies whether to enable enhanced device risk detection. Valid values:
+   * - **Y**: Enabled.
+   * - **N**: Disabled.
    * 
    * @example
    * N
@@ -47,7 +49,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   deviceRiskPlus?: string;
   /**
    * @remarks
-   * Bound domain.
+   * The bound domain name.
    * 
    * @example
    * www.ddos.com
@@ -55,7 +57,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   domain?: string;
   /**
    * @remarks
-   * Mini program name.
+   * The mini program name.
    * 
    * @example
    * 测试APP
@@ -63,7 +65,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   miniProgramName?: string;
   /**
    * @remarks
-   * Modifier.
+   * The modifier.
    * 
    * @example
    * 189884094677xxxx
@@ -71,10 +73,10 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   modifier?: string;
   /**
    * @remarks
-   * Bound mini program platform:
+   * The mini program platform. Valid values:
    * - **WECHAT**: WeChat
    * - **ALIPAY**: Alipay
-   * - **TIKTOK**: TikTok
+   * - **TIKTOK**: TikTok.
    * 
    * @example
    * WECHAT
@@ -82,7 +84,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   platform?: string;
   /**
    * @remarks
-   * Number of face photos stored (1-5).
+   * The number of evidence face photos (1 to 5).
    * 
    * @example
    * 1
@@ -90,7 +92,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   returnPicCount?: number;
   /**
    * @remarks
-   * Duration of the stored video (in seconds).
+   * The duration of the evidence video, in seconds.
    * 
    * @example
    * 1
@@ -98,7 +100,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   returnVideoLength?: number;
   /**
    * @remarks
-   * Scenario ID.
+   * The scene ID.
    * 
    * @example
    * 100001xxxx
@@ -106,7 +108,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   sceneId?: number;
   /**
    * @remarks
-   * Scenario name.
+   * The scene name.
    * 
    * @example
    * 测试场景
@@ -114,7 +116,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   sceneName?: string;
   /**
    * @remarks
-   * Whether it is enabled, with a value of 1 indicating enabled.
+   * Indicates whether the scene is enabled. The value 1 indicates enabled.
    * 
    * @example
    * 1
@@ -122,9 +124,9 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   status?: number;
   /**
    * @remarks
-   * Whether to deliver the files generated from the authentication to the customer\\"s OSS:
-   * - **Y**: Enabled
-   * - **N**: Disabled
+   * Specifies whether to deliver files generated during authentication to the customer\\"s OSS. Valid values:
+   * - **Y**: Enabled.
+   * - **N**: Disabled.
    * 
    * @example
    * Y
@@ -132,7 +134,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
   storeImage?: string;
   /**
    * @remarks
-   * The last update time of the instance.
+   * The time when the instance was last updated.
    * 
    * @example
    * 1260051251634779
@@ -192,7 +194,7 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
 export class DescribeListAntCloudAuthScenesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * CC1AB3F5-22A2-589F-ABDD-B766694AA671
@@ -200,7 +202,7 @@ export class DescribeListAntCloudAuthScenesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of scenarios.
+   * The list of scenes.
    */
   scenes?: DescribeListAntCloudAuthScenesResponseBodyScenes[];
   static names(): { [key: string]: string } {

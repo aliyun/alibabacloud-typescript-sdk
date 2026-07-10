@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Id2MetaPeriodVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * ID number:
+   * The ID card number.
    * 
-   * - When `paramType` is `normal`: Enter the plain text of the ID number.
-   * - When `paramType` is `md5`:
-   * The first 6 digits (plain text) + date of birth (encrypted) + last 4 digits (plain text).
+   * - If paramType is set to normal, enter the ID card number in plaintext.
+   * - If paramType is set to md5, the value is in the following format: first 6 digits of the ID card number (plaintext) + date of birth (ciphertext) + last 4 digits of the ID card number (plaintext).
    * 
    * @example
    * 4****************1
@@ -17,10 +16,10 @@ export class Id2MetaPeriodVerifyRequest extends $dara.Model {
   identifyNum?: string;
   /**
    * @remarks
-   * Parameter type:
+   * The parameter type. Valid values:
    * 
-   * - normal: Unencrypted.
-   * - md5: MD5 encrypted.
+   * - normal: not encrypted.
+   * - md5: MD5-encrypted.
    * 
    * @example
    * normal
@@ -28,10 +27,10 @@ export class Id2MetaPeriodVerifyRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
-   * - When `paramType` = `normal`: Enter the plain text of the name.
-   * - When `paramType` = `md5`: The first character of the name MD5 encrypted (32 lowercase MD5) + the rest of the name in plain text.
+   * - paramType = normal: enter the name in plaintext.
+   * - paramType = md5: the first character of the name is MD5-encrypted (32-bit lowercase MD5) + the remaining characters of the name in plaintext.
    * 
    * @example
    * 张*
@@ -39,7 +38,7 @@ export class Id2MetaPeriodVerifyRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * End date of ID validity, format: YYYYMMDD
+   * The expiration date of the ID card validity period. Format: YYYYMMDD.
    * 
    * @example
    * 20301001
@@ -47,7 +46,7 @@ export class Id2MetaPeriodVerifyRequest extends $dara.Model {
   validityEndDate?: string;
   /**
    * @remarks
-   * Start date of ID validity, format: YYYYMMDD
+   * The start date of the ID card validity period. Format: YYYYMMDD.
    * 
    * @example
    * 20201001

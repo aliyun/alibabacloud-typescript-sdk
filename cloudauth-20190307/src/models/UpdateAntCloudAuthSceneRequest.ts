@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   /**
    * @remarks
-   * Update Ant Blockchain Transaction Scenario
+   * Specifies whether to bind a mini program. Valid values:
+   * - **Y**: enabled.
+   * - **N (default)**: disabled.
+   * >Notice: If you enable mini program binding, make sure that you specify all parameters related to the mini program binding..
    * 
    * @example
    * Y
@@ -13,10 +16,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   bindMiniProgram?: string;
   /**
    * @remarks
-   * Whether to enable binding with a mini program:
-   * - **Y**: Enable
-   * - **N (default)**: Disable
-   * >Notice: If you enable binding with a mini program, please ensure that all parameters for the mini program are passed.
+   * The content of the uploaded verification file.
    * 
    * @example
    * 774c4aab45981ff4a86cde9255a11xxx
@@ -24,17 +24,17 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   checkFileBody?: string;
   /**
    * @remarks
-   * Scenario name.
+   * The name of the uploaded verification file.
    * 
    * @example
-   * Whether to enable storing the authentication files generated during the authentication process to the user\\"s OSS:
-   * - **Y**: Enable
-   * - **N (default)**: Disable
+   * 测试.txt
    */
   checkFileName?: string;
   /**
    * @remarks
-   * Name of the uploaded verification file.
+   * Specifies whether to enable enhanced device risk detection. Valid values:
+   * - **Y**: enabled.
+   * - **N**: disabled.
    * 
    * @example
    * Y
@@ -42,15 +42,18 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   deviceRiskPlus?: string;
   /**
    * @remarks
-   * System-defined parameter. Value: **UpdateAntCloudAuthScene**.
+   * The name of the mini program.
    * 
    * @example
-   * Scenario ID.
+   * 测试APP
    */
   miniProgramName?: string;
   /**
    * @remarks
-   * Currently meaningless, can be omitted.
+   * The mini program platform. Valid values:
+   * - **WECHAT**: WeChat
+   * - **ALIPAY**: Alipay
+   * - **TIKTOK**: TikTok.
    * 
    * @example
    * IOS
@@ -58,7 +61,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * Mini program name.
+   * The number of returned photos (1 to 5). This parameter takes effect only after StoreImage is enabled for certification file retention.
    * 
    * @example
    * 1
@@ -66,10 +69,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   returnPicCount?: number;
   /**
    * @remarks
-   * Platform for binding the mini program:
-   * - **WECHAT**: WeChat
-   * - **ALIPAY**: Alipay
-   * - **TIKTOK**: TikTok
+   * The duration of the returned video (1 to 2 seconds). This parameter takes effect only after StoreImage is enabled.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   returnVideoLength?: number;
   /**
    * @remarks
-   * Update Financial-Level Authentication Scenario
+   * The scenario ID.
    * 
    * This parameter is required.
    * 
@@ -87,9 +87,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Update the information of a financial-level authentication scenario based on the scenario ID.
-   * - Service address: cloudauth.aliyuncs.com.
-   * - Request method: HTTPS POST.
+   * The scenario name.
    * 
    * @example
    * test
@@ -97,7 +95,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Update Ant Blockchain Transaction Scenario
+   * This parameter is not used. You do not need to specify this parameter.
    * 
    * @example
    * -
@@ -105,9 +103,9 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Update the information of a financial-level authentication scenario based on the scenario ID.
-   * - Service address: cloudauth.aliyuncs.com.
-   * - Request method: HTTPS POST.
+   * Specifies whether to deliver certification files generated during the certification process to the user\\"s OSS bucket. Valid values:
+   * - **Y**: enabled.
+   * - **N (default)**: disabled.
    * 
    * @example
    * Y

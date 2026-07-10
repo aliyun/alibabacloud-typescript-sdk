@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteControlStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code, **200** indicates successful API response.
+   * The response code. **200** indicates a successful API response.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteControlStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DeleteControlStrategyResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class DeleteControlStrategyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * D6C1237B-D34B-5126-93AC-36A4B9E819C6
@@ -37,7 +37,7 @@ export class DeleteControlStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the response is successful.
    * 
    * @example
    * True

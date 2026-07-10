@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Identity verification result:
-   * - 1: Consistent
-   * - 2: Inconsistent
-   * - 3: No Record Found
+   * The identity verification result. Valid values:
+   * - 1: consistent
+   * - 2: inconsistent
+   * - 3: no record found.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Submitted ID card information for verification.
+   * The ID card information submitted for verification.
    * 
    * @example
    * {"address":"浙江省杭州市余杭区文一西路969号","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}
@@ -24,7 +24,7 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
   cardInfo?: string;
   /**
    * @remarks
-   * Image comparison score.
+   * The image comparison score.
    * 
    * @example
    * {
@@ -34,7 +34,7 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
   faceDetail?: string;
   /**
    * @remarks
-   * ID card information read by OCR.
+   * The ID card information read by OCR.
    * 
    * @example
    * {"address":"浙江省杭州市余杭区文一西路969号","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}
@@ -42,9 +42,9 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
   ocrCardInfo?: string;
   /**
    * @remarks
-   * Returned photo URLs.
-   * - certUrl  Front side
-   * - certNationalUrl  National emblem side
+   * The returned photo URLs.
+   * - certUrl: front side
+   * - certNationalUrl: national emblem side.
    * 
    * @example
    * {
@@ -85,10 +85,10 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
 export class DescribeCardVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 indicates success, all others indicate failure.
-   * Important
-   * - This parameter indicates whether the interface was called correctly. For detailed return code explanations, please refer to the error codes.
-   * - Please check the business verification results through the fields in ResultObject.
+   * The response code. 200 indicates success. Other values indicate failure.
+   * > **Important**
+   * > - This parameter indicates whether the operation is called correctly. For more information about return codes, refer to error codes.
+   * > - Check the business verification result by viewing the fields in ResultObject.
    * 
    * @example
    * 200
@@ -96,9 +96,9 @@ export class DescribeCardVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Interface call return message.
-   * Important
-   * - This parameter only indicates whether there was an exception with the interface.
+   * The response message of the operation.
+   * > **Important**
+   * > - This parameter only indicates whether the operation is abnormal.
    * 
    * @example
    * success
@@ -106,7 +106,7 @@ export class DescribeCardVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF03****
@@ -114,7 +114,7 @@ export class DescribeCardVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result object.
+   * The result object.
    */
   resultObject?: DescribeCardVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProductCodeResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Product code.
+   * The product code.
    * 
    * @example
    * ID_PRO
@@ -13,7 +13,7 @@ export class DescribeProductCodeResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Name corresponding to the product code.
+   * The name corresponding to the product code.
    * 
    * @example
    * APP认证
@@ -45,7 +45,7 @@ export class DescribeProductCodeResponseBodyItems extends $dara.Model {
 export class DescribeProductCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current query page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -53,12 +53,12 @@ export class DescribeProductCodeResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of product code information.
+   * The list of product code information.
    */
   items?: DescribeProductCodeResponseBodyItems[];
   /**
    * @remarks
-   * Number of products per page.
+   * The number of products displayed per page.
    * 
    * @example
    * 20
@@ -66,7 +66,7 @@ export class DescribeProductCodeResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 7FBBADA3-9A66-5759-8AF8-2F99F5BE13F7
@@ -74,7 +74,7 @@ export class DescribeProductCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of returned results.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -82,7 +82,7 @@ export class DescribeProductCodeResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 3

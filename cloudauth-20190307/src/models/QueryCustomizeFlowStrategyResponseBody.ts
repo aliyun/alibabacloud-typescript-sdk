@@ -13,7 +13,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   accumulateKey?: string;
   /**
    * @remarks
-   * Flow control statistical window, unit: **minutes**.
+   * The rate limiting statistical window. Unit: **minutes**.
    * 
    * @example
    * 60
@@ -21,7 +21,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   accumulateWindow?: string;
   /**
    * @remarks
-   * API name, same as **ProductCode**.
+   * The API name, which is the same as **ProductCode**.
    * 
    * @example
    * ID_PRO
@@ -29,11 +29,11 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   apiName?: string;
   /**
    * @remarks
-   * Flow type:
-   * - **ACCUMULATE**: ID card reappears
-   * - **PASSED_RATE**: Pass rate less than
-   * - **SUB_CODE_205**: Authentication failed and liveness attack 205 ratio greater than
-   * - **SUB_CODE_206**: Authentication failed and liveness attack 206 ratio greater than
+   * The flow type. Valid values:
+   * - **ACCUMULATE**: repeated occurrence of an ID card number.
+   * - **PASSED_RATE**: pass rate less than the threshold.
+   * - **SUB_CODE_205**: authentication failed and the proportion of liveness attack 205 is greater than the threshold.
+   * - **SUB_CODE_206**: authentication failed and the proportion of liveness attack 206 is greater than the threshold.
    * 
    * @example
    * ACCUMULATE
@@ -41,7 +41,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   flowType?: string;
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * @example
    * 234822
@@ -49,7 +49,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * Operation.
+   * The operation.
    * 
    * @example
    * match
@@ -57,9 +57,9 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   operation?: string;
   /**
    * @remarks
-   * Status:
-   * - **disabled**: Disabled
-   * - **normal**: Enabled
+   * The status. Valid values:
+   * - **disabled**: Disabled.
+   * - **normal**: Enabled.
    * 
    * @example
    * disabled
@@ -67,7 +67,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * Threshold.
+   * The threshold.
    * 
    * @example
    * 10
@@ -75,7 +75,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   threshold?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 126005125163xxxx
@@ -121,7 +121,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
 export class QueryCustomizeFlowStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -129,7 +129,7 @@ export class QueryCustomizeFlowStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -137,7 +137,7 @@ export class QueryCustomizeFlowStrategyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * success
@@ -145,7 +145,7 @@ export class QueryCustomizeFlowStrategyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -153,12 +153,12 @@ export class QueryCustomizeFlowStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Processing result.
+   * The processing result.
    */
   resultObject?: QueryCustomizeFlowStrategyResponseBodyResultObject[];
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the response is successful.
    * 
    * @example
    * true

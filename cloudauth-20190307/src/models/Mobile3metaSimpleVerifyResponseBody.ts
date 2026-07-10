@@ -16,7 +16,7 @@ export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $dara.Model
   bizCode?: string;
   /**
    * @remarks
-   * ISP name:
+   * Carrier name:
    * 
    * - **CMCC**: China Mobile.
    * - **CUCC**: China Unicom.
@@ -52,7 +52,7 @@ export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $dara.Model
 export class Mobile3MetaSimpleVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * Response code: 200 indicates success, other values indicate failure.
    * 
    * @example
    * 200
@@ -60,7 +60,7 @@ export class Mobile3MetaSimpleVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * Response message.
    * 
    * @example
    * success
@@ -76,7 +76,7 @@ export class Mobile3MetaSimpleVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result.
+   * The returned result.
    */
   resultObject?: Mobile3MetaSimpleVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

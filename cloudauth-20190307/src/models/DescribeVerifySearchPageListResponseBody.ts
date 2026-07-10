@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.Model {
   /**
    * @remarks
-   * Desensitized name.
+   * The desensitized name.
    * 
    * @example
    * 何*
@@ -13,7 +13,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   certName?: string;
   /**
    * @remarks
-   * Facial bodyguard label.
+   * The Face Guard tags.
    * 
    * @example
    * HOOK,ROOT
@@ -21,9 +21,9 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   deviceRisk?: string;
   /**
    * @remarks
-   * 是否是人脸攻击：
-   * - **T**：是
-   * - **F**：否
+   * Specifies whether a face attack is detected:
+   * - **T**: Yes.
+   * - **F**: No.
    * 
    * @example
    * T
@@ -31,7 +31,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   faceAttack?: string;
   /**
    * @remarks
-   * Face attack score, ranging from 0 to 1, with values closer to 1 indicating a higher likelihood of an attack.
+   * The face attack score. The value ranges from 0 to 1. A value closer to 1 indicates a higher likelihood of an attack.
    * 
    * @example
    * 0.0000445161
@@ -39,7 +39,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   faceAttackScore?: number;
   /**
    * @remarks
-   * Whether the face is occluded. T if occluded, otherwise F.
+   * Specifies whether the face is occluded. T indicates occlusion detected. F indicates no occlusion.
    * 
    * @example
    * T
@@ -47,7 +47,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   faceOcclusion?: string;
   /**
    * @remarks
-   * Face-to-ID card comparison score.
+   * The face-to-ID card comparison score.
    * 
    * @example
    * 0.9
@@ -55,7 +55,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   idCardVerifyScore?: number;
   /**
    * @remarks
-   * Photo OSS bucket.
+   * The OSS bucket for photos.
    * 
    * @example
    * cn-shanghai-aliyun-cloudauth-XXX
@@ -63,7 +63,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   ossBucketName?: string;
   /**
    * @remarks
-   * OCR ID card face file name.
+   * The file name of the OCR ID card face image.
    * 
    * @example
    * -
@@ -71,7 +71,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   ossIdFaceObjectName?: string;
   /**
    * @remarks
-   * OCR ID card national emblem file name.
+   * The file name of the OCR ID card national emblem image.
    * 
    * @example
    * -
@@ -79,7 +79,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   ossIdNationalEmblemObjectName?: string;
   /**
    * @remarks
-   * Storage object name.
+   * The storage object name.
    * 
    * @example
    * verify/XXXXX1251634779/sha6a0a0cab01288c7aa8ac3f45220eb_0_normal.jpeg
@@ -87,7 +87,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   ossObjectName?: string;
   /**
    * @remarks
-   * Liveness face quality score.
+   * The liveness face quality score.
    * 
    * @example
    * 1.0
@@ -95,7 +95,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   qualityScore?: number;
   /**
    * @remarks
-   * Face comparison score.
+   * The face comparison score.
    * 
    * @example
    * 0.0
@@ -103,12 +103,12 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   verifyScore?: number;
   /**
    * @remarks
-   * ASR text list.
+   * The list of ASR texts.
    */
   asrTexts?: string[];
   /**
    * @remarks
-   * Screen recording file OSS name list.
+   * The list of screen recording file OSS object names.
    * 
    * @example
    * -
@@ -116,7 +116,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   screenVideoObjectNames?: string[];
   /**
    * @remarks
-   * Audio file OSS name list.
+   * The list of audio file OSS object names.
    * 
    * @example
    * -
@@ -183,7 +183,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
 export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Desensitized ID card number.
+   * The desensitized ID card number.
    * 
    * @example
    * 3****************2
@@ -191,7 +191,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Authentication ID.
+   * The certification ID.
    * 
    * @example
    * shad861465f2aaeeb805b519e1a93ab2
@@ -199,12 +199,12 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Extended information.
+   * The extended information.
    */
   extInfo?: DescribeVerifySearchPageListResponseBodyItemsExtInfo;
   /**
    * @remarks
-   * Verification time for this authentication.
+   * The verification time of this authentication record.
    * 
    * @example
    * 2025-10-14 15:40:13
@@ -212,7 +212,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   gmtVerify?: string;
   /**
    * @remarks
-   * Liveness detection scheme.
+   * The liveness detection scheme.
    * 
    * @example
    * MULTI_ACTION
@@ -220,7 +220,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Unique identifier for the customer request.
+   * The unique identifier for the customer request.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -228,9 +228,9 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   outerOrderNo?: string;
   /**
    * @remarks
-   * Whether the authentication passed. Values:
+   * Specifies whether the authentication passed. Valid values:
    * - **T**: Passed.
-   * - **F**: Not passed.
+   * - **F**: Failed.
    * 
    * @example
    * T
@@ -238,7 +238,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Product code.
+   * The product code.
    * 
    * @example
    * ID_PRO
@@ -246,9 +246,9 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Business scenario risk:
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The business scenario risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 1
@@ -256,9 +256,9 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   riskBizScenario?: number;
   /**
    * @remarks
-   * Device risk:
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The device risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 1
@@ -266,9 +266,9 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   riskDevice?: number;
   /**
    * @remarks
-   * DeviceToken risk:
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The DeviceToken risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 0
@@ -276,9 +276,9 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   riskDeviceToken?: number;
   /**
    * @remarks
-   * General risk:
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The generic risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 1
@@ -286,9 +286,9 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   riskGeneric?: number;
   /**
    * @remarks
-   * Large model mining risk:
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The large model mining risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 1
@@ -296,7 +296,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   riskModelMining?: number;
   /**
    * @remarks
-   * Whether it is root (pass 1 if selected, otherwise do not pass; corresponds to identity label risk type).
+   * Specifies whether the device is rooted. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the identity tag risk type.
    * 
    * @example
    * 1
@@ -304,7 +304,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   root?: number;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 1000015352
@@ -312,7 +312,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Whether it is a simulator (pass 1 if selected, otherwise do not pass; corresponds to device label risk type).
+   * Specifies whether the device is a simulator. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the device tag risk type.
    * 
    * @example
    * 1
@@ -320,7 +320,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   simulator?: number;
   /**
    * @remarks
-   * System returned error code.
+   * The error code returned by the system.
    * 
    * @example
    * 207
@@ -328,7 +328,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 198123xxxxxx
@@ -336,7 +336,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Whether it is virtual adaptation (pass 1 if selected, otherwise do not pass; corresponds to behavior label risk type).
+   * Specifies whether virtual video is used. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the behavior tag risk type.
    * 
    * @example
    * 1
@@ -405,7 +405,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
 export class DescribeVerifySearchPageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -413,12 +413,12 @@ export class DescribeVerifySearchPageListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Paged list data.
+   * The paginated list data.
    */
   items?: DescribeVerifySearchPageListResponseBodyItems[];
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -426,7 +426,7 @@ export class DescribeVerifySearchPageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of the current request.
+   * The request ID.
    * 
    * @example
    * 47D87BC1-D956-573A-8A15-A9007A76F56C
@@ -434,7 +434,7 @@ export class DescribeVerifySearchPageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of entries.
    * 
    * @example
    * 53
@@ -442,7 +442,7 @@ export class DescribeVerifySearchPageListResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 4

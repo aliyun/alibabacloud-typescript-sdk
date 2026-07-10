@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * Verification ID. A unique ID that identifies a verification task, not exceeding 64 characters. For a single verification task, the system supports unlimited submissions until the final verification is passed and the task is completed.
+   * The authentication ID. A unique ID that identifies an authentication task. The value can be up to 64 characters in length. For a single authentication task, the system supports unlimited submissions until the authentication is passed and the task is completed.
    * 
-   * > Different BizIds are required for different verification tasks.
+   * > Use a different BizId for each different authentication task.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Identifier for the business scenario using the real person authentication service. Please refer to [Business Settings](https://help.aliyun.com/document_detail/127885.html) and complete the creation in the console first.
+   * The business scenario identifier for using the ID Verification service. Create one in the console first. For more information, see [Business settings](https://help.aliyun.com/document_detail/127885.html).
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Callback seed.
+   * The callback seed.
    * 
    * @example
    * -
@@ -35,7 +35,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   callbackSeed?: string;
   /**
    * @remarks
-   * Callback URL.
+   * The callback URL.
    * 
    * @example
    * -
@@ -43,7 +43,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * HTTP or HTTPS link to the retained portrait photo.
+   * The HTTP or HTTPS URL of the retained face photo.
    * 
    * @example
    * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
@@ -51,7 +51,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   faceRetainedImageUrl?: string;
   /**
    * @remarks
-   * Redirect URL for failed verification.
+   * The redirect URL upon verification failure.
    * 
    * @example
    * -
@@ -59,7 +59,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   failedRedirectUrl?: string;
   /**
    * @remarks
-   * HTTP or HTTPS link to the national emblem side of the ID card image.
+   * The HTTP or HTTPS URL of the national emblem side of the ID card image.
    * 
    * @example
    * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
@@ -67,7 +67,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   idCardBackImageUrl?: string;
   /**
    * @remarks
-   * HTTP or HTTPS link to the portrait side of the ID card image.
+   * The HTTP or HTTPS URL of the portrait side of the ID card image.
    * 
    * @example
    * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
@@ -75,7 +75,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   idCardFrontImageUrl?: string;
   /**
    * @remarks
-   * ID card number.
+   * The ID card number.
    * 
    * @example
    * 330100xxxxxxxxxxxx
@@ -83,7 +83,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   idCardNumber?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * 张三
@@ -91,7 +91,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Redirect URL upon successful verification.
+   * The redirect URL upon successful verification.
    * 
    * @example
    * -
@@ -99,7 +99,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   passedRedirectUrl?: string;
   /**
    * @remarks
-   * ID of the end user, such as the account ID of the end user.
+   * The ID of the end user, such as the account ID of the end user.
    * 
    * @example
    * user111
@@ -107,7 +107,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * User IP.
+   * The IP address of the user.
    * 
    * @example
    * 192.168.***.***
@@ -115,7 +115,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   userIp?: string;
   /**
    * @remarks
-   * User phone number.
+   * The phone number of the user.
    * 
    * @example
    * 187********
@@ -123,7 +123,7 @@ export class DescribeVerifyTokenRequest extends $dara.Model {
   userPhoneNumber?: string;
   /**
    * @remarks
-   * User registration time. Expressed in timestamp format, unit: milliseconds.
+   * The registration time of the user. Specify the value in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1577808000000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyDeviceRiskStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * End time.
+   * The end time.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeVerifyDeviceRiskStatisticsRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * Cloud product code.
+   * The code of the cloud service.
    * 
    * @example
    * ID_PRO
@@ -23,7 +23,7 @@ export class DescribeVerifyDeviceRiskStatisticsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 100000xxxx
@@ -31,10 +31,10 @@ export class DescribeVerifyDeviceRiskStatisticsRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * Service type:
-   * - **antcloudauth**: Financial-grade real-person authentication.
-   * - **cloudauthst** (discontinued): Enhanced real-person authentication.
-   * - **cloudauth** (discontinued): Real-person authentication.
+   * The service type. Valid values:
+   * - **antcloudauth**: financial-grade ID Verification.
+   * - **cloudauthst** (discontinued): ID Verification - Enhanced Edition.
+   * - **cloudauth** (discontinued): ID Verification.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class DescribeVerifyDeviceRiskStatisticsRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Start time of the query, in Unix timestamp format, in milliseconds.
+   * The start time of the query. The value is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 

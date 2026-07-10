@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyStatisticsResponseBodyResultObjectItems extends $dara.Model {
   /**
    * @remarks
-   * Date.
+   * The date.
    * 
    * @example
    * 2025-10-11
@@ -13,7 +13,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObjectItems extends $dara
   date?: string;
   /**
    * @remarks
-   * Client initialization pass rate.
+   * The client-side initialization pass rate.
    * 
    * @example
    * 60
@@ -21,7 +21,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObjectItems extends $dara
   initDevicePassRate?: string;
   /**
    * @remarks
-   * Number of server initializations.
+   * The number of server-side initializations.
    * 
    * @example
    * 15
@@ -29,7 +29,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObjectItems extends $dara
   initService?: number;
   /**
    * @remarks
-   * Server initialization conversion rate.
+   * The server-side initialization conversion rate.
    * 
    * @example
    * 26.67
@@ -37,7 +37,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObjectItems extends $dara
   initServiceConversionRate?: string;
   /**
    * @remarks
-   * Server initialization pass rate.
+   * The server-side initialization pass rate.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObjectItems extends $dara
   initServicePassRate?: string;
   /**
    * @remarks
-   * Pass rate.
+   * The pass rate.
    * 
    * @example
    * 75
@@ -85,7 +85,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObjectItems extends $dara
 export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Number of client initializations.
+   * The number of client-side initializations.
    * 
    * @example
    * 73
@@ -93,7 +93,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   initDevice?: number;
   /**
    * @remarks
-   * Number of identity deduplication client initializations.
+   * The number of client-side initializations for identity deduplication.
    * 
    * @example
    * 9
@@ -101,7 +101,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   initDeviceId?: number;
   /**
    * @remarks
-   * Number of successful identity deduplication client initializations.
+   * The number of successful client-side initializations for identity deduplication.
    * 
    * @example
    * 9
@@ -109,7 +109,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   initDeviceIdSuccess?: number;
   /**
    * @remarks
-   * Number of client initialization calls.
+   * The number of successful client-side initialization calls.
    * 
    * @example
    * 73
@@ -117,7 +117,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   initDeviceSuccess?: number;
   /**
    * @remarks
-   * Number of service-side initializations.
+   * The number of server-side initializations.
    * 
    * @example
    * 73
@@ -125,7 +125,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   initService?: number;
   /**
    * @remarks
-   * Total number of identity deduplication server initialization requests.
+   * The total number of server-side initialization requests for identity deduplication.
    * 
    * @example
    * 9
@@ -133,7 +133,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   initServiceId?: number;
   /**
    * @remarks
-   * Number of successful identity deduplication server initializations.
+   * The number of successful server-side initializations for identity deduplication.
    * 
    * @example
    * 9
@@ -141,7 +141,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   initServiceIdSuccess?: number;
   /**
    * @remarks
-   * Number of successful service-side initialization authentications.
+   * The number of successful server-side initialization authentications.
    * 
    * @example
    * 134
@@ -149,12 +149,12 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   initServiceSuccess?: number;
   /**
    * @remarks
-   * Daily pass/conversion rate (PV).
+   * The daily pass/conversion rates (PV).
    */
   items?: DescribeVerifyStatisticsResponseBodyResultObjectItems[];
   /**
    * @remarks
-   * Number of client verifications.
+   * The number of client-side verifications.
    * 
    * @example
    * 15
@@ -162,7 +162,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   verifyDevice?: number;
   /**
    * @remarks
-   * Number of identity deduplication client authentications.
+   * The number of client-side authentication attempts for identity deduplication.
    * 
    * @example
    * 9
@@ -170,7 +170,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   verifyDeviceId?: number;
   /**
    * @remarks
-   * Number of successful identity deduplication client verifications.
+   * The number of successful client-side verifications for identity deduplication.
    * 
    * @example
    * 6
@@ -178,7 +178,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   verifyDeviceIdSuccess?: number;
   /**
    * @remarks
-   * Number of successful identity deduplication client authentications.
+   * The number of successful client-side authentications for identity deduplication.
    * 
    * @example
    * 3
@@ -186,7 +186,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   verifyDeviceIdSuccessPassed?: number;
   /**
    * @remarks
-   * Number of successful client authentications.
+   * The number of successful client-side authentications.
    * 
    * @example
    * 15
@@ -194,7 +194,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
   verifyDeviceSuccess?: number;
   /**
    * @remarks
-   * Number of successful client authentications.
+   * The number of successful client-side authentications.
    * 
    * @example
    * 6
@@ -255,7 +255,7 @@ export class DescribeVerifyStatisticsResponseBodyResultObject extends $dara.Mode
 export class DescribeVerifyStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 4E27D502-1287-526A-910C-881A3F023914
@@ -263,7 +263,7 @@ export class DescribeVerifyStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Statistical results
+   * The statistics result.
    */
   resultObject?: DescribeVerifyStatisticsResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAllCustomizeFlowStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -13,7 +13,7 @@ export class DeleteAllCustomizeFlowStrategyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * This parameter is required.
    * 

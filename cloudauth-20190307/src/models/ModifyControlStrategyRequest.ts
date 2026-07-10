@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyControlStrategyRequestControlStrategyList extends $dara.Model {
   /**
    * @remarks
-   * API name, same as **ProductCode**.
+   * The API name, which is the same as **ProductCode**.
    * 
    * @example
    * ID_PRO
@@ -13,14 +13,14 @@ export class ModifyControlStrategyRequestControlStrategyList extends $dara.Model
   apiName?: string;
   /**
    * @remarks
-   * Rule configuration type:
+   * The rule configuration type. Valid values:
    * - **QPS**: QPS greater than
-   * - **SUCCESS_RATE_5_MIN**: Success rate in the last 5 minutes less than
-   * - **RESP_TIME_5_MIN**: Average response time in the last 5 minutes greater than
-   * - **AMOUNT_RISE**: Call volume growth ratio greater than
-   * - **AMOUNT_FALL**: Call volume decline ratio less than
-   * - **PASSED_RATE_1_HOUR**: Verification consistency rate in the last hour less than
-   * - **PARAM_ERROR_RATE_1_HOUR**: Parameter error rate in the last hour greater than
+   * - **SUCCESS_RATE_5_MIN**: success rate in the last 5 minutes less than
+   * - **RESP_TIME_5_MIN**: average response time in the last 5 minutes greater than
+   * - **AMOUNT_RISE**: call volume increase compared to the previous period greater than
+   * - **AMOUNT_FALL**: call volume decrease compared to the previous period less than
+   * - **PASSED_RATE_1_HOUR**: verification consistency rate in the last hour less than
+   * - **PARAM_ERROR_RATE_1_HOUR**: parameter error rate in the last hour greater than.
    * 
    * @example
    * SUCCESS_RATE_5_MIN
@@ -28,7 +28,7 @@ export class ModifyControlStrategyRequestControlStrategyList extends $dara.Model
   bizType?: string;
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * @example
    * 38
@@ -36,9 +36,9 @@ export class ModifyControlStrategyRequestControlStrategyList extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * Status:
-   * - **disabled**: Disabled
-   * - **normal**: Enabled
+   * The status. Valid values:
+   * - **disabled**: Disabled.
+   * - **normal**: Enabled.
    * 
    * @example
    * 2
@@ -46,7 +46,7 @@ export class ModifyControlStrategyRequestControlStrategyList extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * Alarm threshold for the rule.
+   * The alert threshold of the rule.
    * 
    * @example
    * 0.9
@@ -84,12 +84,12 @@ export class ModifyControlStrategyRequestControlStrategyList extends $dara.Model
 export class ModifyControlStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * List of security alarm rules.
+   * The list of security alert rules.
    */
   controlStrategyList?: ModifyControlStrategyRequestControlStrategyList[];
   /**
    * @remarks
-   * Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade Real Person), all others are phased out.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
    * 
    * @example
    * ANT_CLOUD_AUTH
@@ -97,7 +97,7 @@ export class ModifyControlStrategyRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Region ID of the intelligent access gateway instance.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * @example
    * cn-shanghai

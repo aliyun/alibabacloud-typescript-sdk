@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifySearchPageListRequest extends $dara.Model {
   /**
    * @remarks
-   * ID number.
+   * The ID card number.
    * 
    * @example
    * 3203212000XXXX701X
@@ -13,7 +13,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Authentication ID.
+   * The certification ID.
    * 
    * @example
    * shadbdd3dbacd001cfa892a5e2b98dxx
@@ -21,7 +21,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * End time of the query. Format is Unix timestamp, in milliseconds.
+   * The query end time. The format is a Unix timestamp in milliseconds.
    * 
    * @example
    * 2025-10-16 23:59:59 +0800
@@ -39,7 +39,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Whether there is a device risk (pass true if root = 1 or simulator = 1 or virtual_video = 1).
+   * Specifies whether there is a device risk. Setting this parameter to true indicates that root = 1, simulator = 1, or virtual_video = 1.
    * 
    * @example
    * true
@@ -47,7 +47,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   hasDeviceRisk?: boolean;
   /**
    * @remarks
-   * Model for liveness detection.
+   * The liveness detection model.
    * 
    * @example
    * LIVENESS
@@ -55,7 +55,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Unique identifier for the customer request.
+   * The unique identifier for the customer request.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -63,7 +63,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   outerOrderNo?: string;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -73,9 +73,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Whether the authentication passed:
-   * - **T**: Passed
-   * - **F**: Not passed
+   * Specifies whether the authentication passed:
+   * - **T**: Passed.
+   * - **F**: Failed.
    * 
    * @example
    * F
@@ -83,7 +83,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Product code.
+   * The product code.
    * 
    * @example
    * ID_PRO
@@ -91,9 +91,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Business scenario risk
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The business scenario risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 1
@@ -101,9 +101,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskBizScenario?: number;
   /**
    * @remarks
-   * Device risk:
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The device risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 1
@@ -111,9 +111,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskDevice?: number;
   /**
    * @remarks
-   * DeviceToken risk:
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The DeviceToken risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 0
@@ -121,9 +121,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskDeviceToken?: number;
   /**
    * @remarks
-   * General risk
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The generic risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 1
@@ -131,9 +131,9 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskGeneric?: number;
   /**
    * @remarks
-   * Large model mining risk
-   * - **0**: No risk
-   * - **1**: Risk present
+   * The large model mining risk:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   riskModelMining?: number;
   /**
    * @remarks
-   * Whether it is rooted (pass 1 if selected, otherwise do not pass; corresponds to identity label risk type).
+   * Specifies whether the device is rooted. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the identity tag risk type.
    * 
    * @example
    * 1
@@ -149,7 +149,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   root?: number;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 10000072xx
@@ -157,7 +157,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * Whether it is a simulator (pass 1 if selected, otherwise do not pass; corresponds to device label risk type).
+   * Specifies whether the device is a simulator. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the device tag risk type.
    * 
    * @example
    * 1
@@ -165,7 +165,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   simulator?: number;
   /**
    * @remarks
-   * Start time of the query.
+   * The query start time.
    * 
    * @example
    * 2025-10-10 00:00:00 +0800
@@ -173,7 +173,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * Result Code. For detailed values, please refer to: [SubCode Explanation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
+   * The result code. For details, see [SubCode Description](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
    * 
    * @example
    * 201
@@ -181,7 +181,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * Comma-separated Result Codes. For detailed values, please refer to: [SubCode Explanation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
+   * Comma-separated result codes. For details, see [SubCode Description](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
    * 
    * @example
    * 201,202
@@ -189,7 +189,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   subCodes?: string;
   /**
    * @remarks
-   * Whether it is a virtual adaptation (pass 1 if selected, otherwise do not pass; corresponds to behavior label risk type).
+   * Specifies whether virtual video is used. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the behavior tag risk type.
    * 
    * @example
    * 1

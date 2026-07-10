@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ContrastFaceVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier for the real-person verification request.
+   * The unique identifier of the ID Verification request.
    * 
    * @example
    * 91707dc296d469ad38e4c5efa6a0****
@@ -13,7 +13,7 @@ export class ContrastFaceVerifyResponseBodyResultObject extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Information about the authenticated entity, which is usually empty in general authentication scenarios.
+   * The subject information of the verification. This is returned as empty in common verification scenarios.
    * 
    * @example
    * null
@@ -21,7 +21,7 @@ export class ContrastFaceVerifyResponseBodyResultObject extends $dara.Model {
   identityInfo?: string;
   /**
    * @remarks
-   * Attachment information of the authenticated entity, mainly image materials, in JSON format, as follows.
+   * The supplementary material information of the verification subject, primarily image-based materials, in JSON format as follows.
    * 
    * @example
    * {"faceAttack": "F","facialPictureFront": {"qualityScore": 88.3615493774414,"verifyScore": 50.28594166529785}}
@@ -29,7 +29,7 @@ export class ContrastFaceVerifyResponseBodyResultObject extends $dara.Model {
   materialInfo?: string;
   /**
    * @remarks
-   * Whether it passed, T for pass, F for fail.
+   * Indicates whether the verification is passed. A value of T indicates passed. A value of F indicates not passed.
    * 
    * @example
    * T
@@ -37,7 +37,7 @@ export class ContrastFaceVerifyResponseBodyResultObject extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * Description of the authentication result. For details, see the SubCode explanation below.
+   * The verification result description. For more information, see the SubCode description below.
    * 
    * @example
    * 200
@@ -75,7 +75,7 @@ export class ContrastFaceVerifyResponseBodyResultObject extends $dara.Model {
 export class ContrastFaceVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -83,7 +83,7 @@ export class ContrastFaceVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * success
@@ -91,7 +91,7 @@ export class ContrastFaceVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF039795
@@ -99,7 +99,7 @@ export class ContrastFaceVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Request result
+   * The request result.
    */
   resultObject?: ContrastFaceVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

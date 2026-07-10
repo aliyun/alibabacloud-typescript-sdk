@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudauthstSceneRequest extends $dara.Model {
   /**
    * @remarks
-   * Product code.
+   * The product code.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateCloudauthstSceneRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Scene name.
+   * The scenario name.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class CreateCloudauthstSceneRequest extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Whether to deliver the files generated from the authentication to the customer\\"s OSS:
-   * - **Y**: Enable
-   * - **N**: Disable
+   * Specifies whether to deliver files generated during authentication to the customer\\"s OSS. Valid values:
+   * - **Y**: Enabled.
+   * - **N**: Disabled.
    * 
    * @example
    * Y

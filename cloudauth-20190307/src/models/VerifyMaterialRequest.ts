@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyMaterialRequest extends $dara.Model {
   /**
    * @remarks
-   * A unique ID that identifies a single authentication task, not exceeding 64 characters. For a single authentication task, the system supports unlimited submissions until the final authentication is passed and the task is completed.
+   * The unique ID that identifies a verification task. The value can be up to 64 characters in length. For a single verification task, the system supports unlimited submissions until the verification is passed and the task is completed.
    * 
-   * > Different BizIds are required for different authentication tasks.
+   * > Use a different BizId for each new verification task.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class VerifyMaterialRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * Identifier for the business scenario using the real-person authentication service. Please refer to [Business Setup](https://help.aliyun.com/document_detail/127885.html) and complete the creation in the console first.
+   * The business scenario identifier for the ID Verification service. Create one in the console first. For more information, see [Business settings](https://help.aliyun.com/document_detail/127885.html).
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class VerifyMaterialRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * HTTP or HTTPS link to the frontal face image.
+   * The HTTP or HTTPS URL of the front-facing facial photo.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class VerifyMaterialRequest extends $dara.Model {
   faceImageUrl?: string;
   /**
    * @remarks
-   * HTTP or HTTPS link to the national emblem side of the ID card.
+   * The HTTP or HTTPS URL of the national emblem side of the ID card.
    * 
    * @example
    * http://image-demo.img-cn-hangzhou.aliyuncs.com/example3.jpg
@@ -45,7 +45,7 @@ export class VerifyMaterialRequest extends $dara.Model {
   idCardBackImageUrl?: string;
   /**
    * @remarks
-   * HTTP or HTTPS link to the portrait side of the ID card image.
+   * The HTTP or HTTPS URL of the portrait side of the ID card.
    * 
    * @example
    * http://image-demo.img-cn-hangzhou.aliyuncs.com/example2.jpg
@@ -53,7 +53,7 @@ export class VerifyMaterialRequest extends $dara.Model {
   idCardFrontImageUrl?: string;
   /**
    * @remarks
-   * ID number.
+   * The ID card number.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class VerifyMaterialRequest extends $dara.Model {
   idCardNumber?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * This parameter is required.
    * 

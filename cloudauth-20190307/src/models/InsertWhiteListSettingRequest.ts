@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InsertWhiteListSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * ID number.
+   * The certificate number.
    * 
    * @example
    * 330103xxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Unique identifier for real person authentication.
+   * The unique identifier of the ID Verification request.
    * 
    * @example
    * shsf57a4e0d9981c3bd66dc754f3d3cd
@@ -21,7 +21,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Remark, with a length less than 32 characters.
+   * The remarks. The maximum length is 32 characters.
    * 
    * @example
    * xxxxxx
@@ -29,7 +29,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Authentication scene ID. This ID is automatically generated after creating an authentication scene in the console. For instructions on how to create an authentication scene, see Adding an Authentication Scene.
+   * The verification scenario ID. This ID is automatically generated after you create a verification scenario in the console. For information about how to create a verification scenario, see Add a verification scenario.
    * 
    * @example
    * 100000xxxx
@@ -37,7 +37,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * ServiceCode for the real person cloud product, value: **antcloudauth**.
+   * The ServiceCode of the ID Verification cloud service. Set this parameter to **antcloudauth**.
    * 
    * @example
    * antcloudauth
@@ -45,7 +45,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Whitelist validity period in days (only supports 3, 7, 30).
+   * The number of days the whitelist entry is valid. Valid values: 3, 7, and 30.
    * 
    * @example
    * 30

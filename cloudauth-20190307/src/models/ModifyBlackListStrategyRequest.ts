@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model {
   /**
    * @remarks
-   * Blacklist string, with each blacklist entry separated by commas.
+   * The blacklist string. Separate multiple entries with commas (,).
    * 
    * @example
    * 127.0.0.1,127.0.0.2
@@ -13,11 +13,11 @@ export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model
   bizContent?: string;
   /**
    * @remarks
-   * List Type:
-   * - **mobile**: Mobile number blacklist
-   * - **ip**: IP blacklist
-   * - **identifyNum**: ID number blacklist
-   * - **bankCard**: Bank card blacklist
+   * The blacklist type. Valid values:
+   * - **mobile**: mobile number blacklist.
+   * - **ip**: IP blacklist.
+   * - **identifyNum**: ID card blacklist.
+   * - **bankCard**: bank card blacklist.
    * 
    * @example
    * ip
@@ -25,9 +25,9 @@ export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model
   bizKey?: string;
   /**
    * @remarks
-   * Rule ID:
-   * - **Empty**: Add a new rule
-   * - **Non-empty**: Modify an existing rule
+   * The rule ID. Valid values:
+   * - **Empty**: creates a rule.
+   * - **Not empty**: modifies a rule.
    * 
    * @example
    * 38
@@ -35,10 +35,10 @@ export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * Product Name:
-   * - **id2meta**: ID card two-factor verification
-   * - **mobile3Meta**: Mobile number factor verification
-   * - **bankcardMeta**: Bank card factor verification
+   * The product name. Valid values:
+   * - **id2meta**: ID card two-element verification.
+   * - **mobile3Meta**: mobile number element verification.
+   * - **bankcardMeta**: bank card element verification.
    * 
    * @example
    * id2meta
@@ -46,9 +46,9 @@ export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model
   productName?: string;
   /**
    * @remarks
-   * Verification Status:
-   * - **1**: Verification passed
-   * - **2**: Verification failed
+   * The authentication status. Valid values:
+   * - **1**: Authentication passed.
+   * - **2**: Authentication failed.
    * 
    * @example
    * 3
@@ -86,12 +86,12 @@ export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model
 export class ModifyBlackListStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Blacklist rule.
+   * The blacklist rule.
    */
   blackListStrategy?: ModifyBlackListStrategyRequestBlackListStrategy;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai

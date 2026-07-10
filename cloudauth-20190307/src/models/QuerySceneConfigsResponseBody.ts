@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   /**
    * @remarks
-   * Specific configuration content, in JSON string format.
+   * The specific configuration content, in JSON string format.
    * 
    * @example
    * {\\"faceCompareMode\\":\\"CUSTOM\\",\\"certConfigs\\":[{\\"index\\":0,\\"openVoiceCompare\\":false,\\"openCustomizedContent\\":true,\\"model\\":\\"QA\\"}],\\"screenEvidence\\":true}
@@ -13,7 +13,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 1760782820000
@@ -21,7 +21,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 1760782820000
@@ -29,7 +29,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Configuration ID.
+   * The configuration ID.
    * 
    * @example
    * 607
@@ -37,7 +37,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Scene ID.
+   * The scenario ID.
    * 
    * @example
    * 1000009045
@@ -45,7 +45,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Configuration type.
+   * The configuration type.
    * 
    * @example
    * VOLUNTARY
@@ -53,7 +53,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Scene configuration version number.
+   * The version number of the scenario configuration.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
 export class QuerySceneConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -103,7 +103,7 @@ export class QuerySceneConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Willingness configuration list.
+   * The list of intent verification configurations.
    */
   sceneConfigs?: QuerySceneConfigsResponseBodySceneConfigs[];
   static names(): { [key: string]: string } {

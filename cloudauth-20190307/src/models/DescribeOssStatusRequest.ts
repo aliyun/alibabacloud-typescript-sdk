@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Service code:
-   * - antcloudauth: Financial-grade real-person authentication
-   * - cloudauthst (discontinued): Enhanced real-person authentication
+   * The service code. Valid values:
+   * - antcloudauth: Chinese financial-grade ID Verification.
+   * - cloudauthst (discontinued): ID Verification Enhanced Edition.
    * 
    * @example
    * antcloudauth

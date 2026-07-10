@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePageFaceVerifyDataRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number, default is 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePageFaceVerifyDataRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Required, end time, format is yyyy-MM-dd, default is yyyy-MM-dd 00:00:00, the query interval cannot exceed 90 days.
+   * Required. The end time in the yyyy-MM-dd format. The default value is yyyy-MM-dd 00:00:00. The maximum query interval is 90 days.
    * 
    * @example
    * 2023-04-30
@@ -21,7 +21,7 @@ export class DescribePageFaceVerifyDataRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Number of items per page, default is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DescribePageFaceVerifyDataRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Product code.
+   * The product code.
    * 
    * @example
    * ID_PLUS
@@ -37,7 +37,7 @@ export class DescribePageFaceVerifyDataRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 36**01
@@ -45,7 +45,7 @@ export class DescribePageFaceVerifyDataRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Required, start time, format is yyyy-MM-dd, default is yyyy-MM-dd 00:00:00, the query interval cannot exceed 90 days.
+   * Required. The start time in the yyyy-MM-dd format. The default value is yyyy-MM-dd 00:00:00. The maximum query interval is 90 days.
    * 
    * @example
    * 2023-04-10

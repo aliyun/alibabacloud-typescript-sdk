@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudauthstSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 969434DF-926B-4997-9881-4DE94E39F805
@@ -13,7 +13,7 @@ export class DeleteCloudauthstSceneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    * 
    * @example
    * true

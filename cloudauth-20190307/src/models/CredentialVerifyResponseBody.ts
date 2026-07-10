@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialVerifyResponseBodyResultObjectVlResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the Qwen interpretation is successful. Valid values:
    * 
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -16,11 +16,7 @@ export class CredentialVerifyResponseBodyResultObjectVlResult extends $dara.Mode
   success?: boolean;
   /**
    * @remarks
-   * Image understanding result:
-   * 
-   * - When PromptModel is DEFAULT, the output format refers to the example on the right.
-   * 
-   * - When PromptModel is CUSTOM, the output format follows the agreed format of the Prompt.
+   * The Qwen interpretation content.
    * 
    * @example
    * {\\"这张图有没有明显的PS特征\\":0,\\"图片是否为正常经营照片\\":1,\\"图片中有没有58、美团、大众点评字样\\":0,\\"这张图有没有网站信息\\":0,\\"图片经营的场景是否为酒店\\":0}
@@ -52,7 +48,7 @@ export class CredentialVerifyResponseBodyResultObjectVlResult extends $dara.Mode
 export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Additional information in JSON format.
+   * The additional information in JSON format.
    * 
    * @example
    * {
@@ -74,7 +70,7 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   materialInfo?: string;
   /**
    * @remarks
-   * OCR recognition result.
+   * The OCR recognition result.
    * 
    * @example
    * {
@@ -92,11 +88,11 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   ocrInfo?: string;
   /**
    * @remarks
-   * Risk result
+   * The risk result. Valid values:
    * 
-   * - **0**: Low risk
-   * - **1**: High risk
-   * - **2**: Suspicious
+   * - **0**: Low risk.
+   * - **1**: High risk.
+   * - **2**: Suspicious.
    * 
    * @example
    * 1
@@ -104,19 +100,21 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * Risk score map.
+   * The risk score map.
    */
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * Risk tags, separated by commas (,), including:
+   * The risk tags, separated by commas (,). Valid values:
    * 
-   * - **PS**: Image manipulation.
-   * - **SCREEN_PHOTO**: Screen recapture.
-   * - **SCREENSHOT**: Screenshot.
-   * - **WATERMARK**: Watermark.
-   * - **SAME_BACKGROUND**: Similar background.
-   * - **ORIGINAL_PHOTO**: Not the original image
+   * - PS: image manipulation.
+   * - SCREEN_PHOTO: screen recapture.
+   * - SCREENSHOT: screenshot.
+   * - WATERMARK: watermark.
+   * - COLOR_PRINT: color print copy.
+   * - WEB_IMAGE: web image.
+   * - SAME_FACE: similar face.
+   * - SAME_BACKGROUND: similar background.
    * 
    * @example
    * PS,SCREEN_PHOTO
@@ -124,7 +122,7 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   riskTag?: string;
   /**
    * @remarks
-   * Authority verification details.
+   * The authoritative verification details.
    * 
    * @example
    * **
@@ -132,7 +130,7 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   verifyDetail?: string;
   /**
    * @remarks
-   * The verification result.
+   * The authoritative verification result.
    * 
    * @example
    * *
@@ -140,7 +138,7 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   verifyResult?: string;
   /**
    * @remarks
-   * Qwen interpretation.
+   * The Qwen interpretation.
    */
   vlResult?: CredentialVerifyResponseBodyResultObjectVlResult;
   static names(): { [key: string]: string } {
@@ -187,7 +185,7 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
 export class CredentialVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The response code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -195,7 +193,7 @@ export class CredentialVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -203,7 +201,7 @@ export class CredentialVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D6163397-15C5-419C-9ACC-B7C83E0B4C10
@@ -211,7 +209,7 @@ export class CredentialVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result
+   * The result information.
    */
   resultObject?: CredentialVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

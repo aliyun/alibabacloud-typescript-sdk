@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCustomizeFlowStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade Real Person), all others have been phased out.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
    * 
    * @example
    * ANT_CLOUD_AUTH
@@ -13,7 +13,7 @@ export class QueryCustomizeFlowStrategyRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * regionId
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -21,7 +21,7 @@ export class QueryCustomizeFlowStrategyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * This parameter is required.
    * 

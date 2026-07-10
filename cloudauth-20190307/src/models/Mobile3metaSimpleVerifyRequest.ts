@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile3MetaSimpleVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * ID number:
+   * ID card number:
    * 
    * Note
-   * Only supports the ID numbers of second-generation resident IDs and Hong Kong, Macao, and Taiwan residence permits.
+   * Only the ID numbers of the second-generation resident ID card and Hong Kong, Macao, and Taiwan residence permits are supported.
    * 
-   * - When paramType is normal: enter the plaintext ID number.
+   * - When paramType is set to normal: pass in the ID card number in plaintext.
    * 
-   * - When paramType is md5: enter the encrypted ID number.
+   * - When paramType is set to md5: pass in the encrypted ID card number.
    * 
    * @example
    * 明文：429001********8211
@@ -24,11 +24,11 @@ export class Mobile3MetaSimpleVerifyRequest extends $dara.Model {
   identifyNum?: string;
   /**
    * @remarks
-   * Mobile phone number:
+   * Mobile number:
    * 
-   * - When paramType is normal: enter the plaintext mobile phone number.
+   * - When paramType is set to normal: pass in the mobile number in plaintext.
    * 
-   * - When paramType is md5: enter the encrypted mobile phone number.
+   * - When paramType is set to md5: pass in the encrypted mobile number.
    * 
    * @example
    * 明文：186****2055
@@ -42,7 +42,7 @@ export class Mobile3MetaSimpleVerifyRequest extends $dara.Model {
    * @remarks
    * Encryption method:
    * 
-   * - normal: plaintext, not encrypted
+   * - normal: plaintext, no encryption
    * 
    * - md5: MD5 encryption
    * 
@@ -54,9 +54,9 @@ export class Mobile3MetaSimpleVerifyRequest extends $dara.Model {
    * @remarks
    * Name:
    * 
-   * - When paramType is normal: enter the plaintext name.
+   * - When paramType is set to normal: pass in the name in plaintext.
    * 
-   * - When paramType is md5: enter the encrypted name.
+   * - When paramType is set to md5: pass in the encrypted name.
    * 
    * @example
    * 明文：张三

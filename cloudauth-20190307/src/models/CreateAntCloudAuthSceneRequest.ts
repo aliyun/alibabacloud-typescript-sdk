@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAntCloudAuthSceneRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable binding of the mini program:
-   * - **Y**: Enable
-   * - **N (default)**: Not enabled
+   * Specifies whether to enable mini program binding. Valid values:
+   * - **Y**: enabled
+   * - **N (default)**: disabled.
    * 
    * @example
    * Y
@@ -15,7 +15,7 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
   bindMiniProgram?: string;
   /**
    * @remarks
-   * Content of the uploaded verification file.
+   * The content of the uploaded verification file.
    * 
    * @example
    * 774c4aab45981ff4a86cde9255a11xxx
@@ -23,16 +23,25 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
   checkFileBody?: string;
   /**
    * @remarks
-   * Name of the uploaded verification file.
+   * The name of the uploaded verification file.
    * 
    * @example
    * 测试.txt
    */
   checkFileName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable enhanced device risk detection. Valid values:
+   * - **Y**: enabled
+   * - **N**: disabled.
+   * 
+   * @example
+   * N
+   */
   deviceRiskPlus?: string;
   /**
    * @remarks
-   * Mini program name.
+   * The mini program name.
    * 
    * @example
    * 测试APP
@@ -40,20 +49,34 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
   miniProgramName?: string;
   /**
    * @remarks
-   * Binding platform for the mini program:
+   * The mini program platform to bind. Valid values:
    * - **WECHAT**: WeChat
    * - **ALIPAY**: Alipay
-   * - **TIKTOK**: TikTok
+   * - **TIKTOK**: TikTok.
    * 
    * @example
    * WECHAT
    */
   platform?: string;
+  /**
+   * @remarks
+   * The number of face photos for evidence storage (1-5).
+   * 
+   * @example
+   * 1
+   */
   returnPicCount?: number;
+  /**
+   * @remarks
+   * The duration of the evidence storage video, in seconds.
+   * 
+   * @example
+   * 1
+   */
   returnVideoLength?: number;
   /**
    * @remarks
-   * Scene name.
+   * The scenario name.
    * 
    * This parameter is required.
    * 
@@ -63,9 +86,9 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Whether to deliver the files generated from the authentication to the customer\\"s OSS:
-   * - **Y**: Yes
-   * - **N**: No
+   * Specifies whether to deliver the files generated during authentication to the customer\\"s OSS. Valid values:
+   * - **Y**: Yes.
+   * - **N**: No.
    * 
    * @example
    * Y

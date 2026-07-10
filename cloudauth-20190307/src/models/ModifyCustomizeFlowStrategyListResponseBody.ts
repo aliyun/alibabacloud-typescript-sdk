@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustomizeFlowStrategyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code, **200** indicates the interface responded successfully.
+   * The return code. **200** indicates that the request is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyCustomizeFlowStrategyListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Result data.
+   * The result data.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ModifyCustomizeFlowStrategyListResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class ModifyCustomizeFlowStrategyListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class ModifyCustomizeFlowStrategyListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 8FC3D6AC-9FED-4311-8DA7-C4BF47D9F260
@@ -45,7 +45,7 @@ export class ModifyCustomizeFlowStrategyListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the response is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePageSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Failure reasons.
+   * The failure reasons.
    * 
    * @example
    * {
@@ -26,7 +26,7 @@ export class DescribePageSettingResponseBody extends $dara.Model {
   failReasons?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * C58A8581-6A5B-55F1-B2EF-1CEAC97DA181

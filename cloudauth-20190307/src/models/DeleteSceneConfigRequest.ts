@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSceneConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the intent authentication configuration.
+   * The ID of the ID Verification scenario configuration.
    * 
    * This parameter is required.
    * 

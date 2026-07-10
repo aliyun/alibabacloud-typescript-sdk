@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Certificate number.
+   * The certificate number.
    * 
    * @example
    * 320321XXXXXXXX701X
@@ -13,7 +13,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Certificate ID.
+   * The certificate ID.
    * 
    * @example
    * shad861465f2aaeeb805b519e1a93ab2
@@ -21,7 +21,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2025-10-16 17:28:03
@@ -29,7 +29,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The update time.
    * 
    * @example
    * 2025-10-16 17:28:03
@@ -37,7 +37,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Whitelist ID.
+   * The whitelist ID.
    * 
    * @example
    * 6372003
@@ -45,7 +45,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Remark.
+   * The remarks.
    * 
    * @example
    * 测试白名单
@@ -53,7 +53,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 1000000332
@@ -61,7 +61,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Whitelist status:
+   * The whitelist status. Valid values:
    * - **VALID**: Valid.
    * - **INVALID**: Invalid.
    * - **DELETED**: Deleted.
@@ -72,7 +72,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Effective end date.
+   * The expiration date.
    * 
    * @example
    * 2025-10-16 17:28:03
@@ -80,12 +80,17 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
   validEndDate?: string;
   /**
    * @remarks
-   * Effective start time.
+   * The effective period.
    * 
    * @example
    * 2025-10-16 17:28:03
    */
   validStartDate?: string;
+  /**
+   * @example
+   * SUPER
+   */
+  whitelistType?: string;
   static names(): { [key: string]: string } {
     return {
       certNo: 'CertNo',
@@ -98,6 +103,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
       status: 'Status',
       validEndDate: 'ValidEndDate',
       validStartDate: 'ValidStartDate',
+      whitelistType: 'WhitelistType',
     };
   }
 
@@ -113,6 +119,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
       status: 'string',
       validEndDate: 'string',
       validStartDate: 'string',
+      whitelistType: 'string',
     };
   }
 
@@ -128,7 +135,7 @@ export class DescribeWhitelistSettingResponseBodyItems extends $dara.Model {
 export class DescribeWhitelistSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Pagination parameter: current page number, default value is 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -136,12 +143,12 @@ export class DescribeWhitelistSettingResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of certification details.
+   * The list of certification details.
    */
   items?: DescribeWhitelistSettingResponseBodyItems[];
   /**
    * @remarks
-   * Number of items per page for pagination.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -149,7 +156,7 @@ export class DescribeWhitelistSettingResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * 0B8ACFD2-C5F0-5F9F-8DD4-E44F93E360E8
@@ -157,7 +164,7 @@ export class DescribeWhitelistSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 4

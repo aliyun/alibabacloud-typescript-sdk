@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ContrastFaceVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * Real name.
+   * The real name.
    * 
    * @example
    * 张三
@@ -13,7 +13,7 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * ID number
+   * The certificate number.
    * 
    * @example
    * 330103xxxxxxxxxxxx
@@ -21,7 +21,8 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Type of identification. Currently, only IDENTITY_CARD is supported and must be provided.
+   * The certificate type.
+   * Currently only ID cards are supported. You must set this parameter to IDENTITY_CARD.
    * 
    * @example
    * IDENTITY_CARD
@@ -29,8 +30,9 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The CertifyId of a previously passed real-person authentication, with the photo taken during that authentication used as the comparison photo. 
-   * > Among the four ways to input images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, OSS), choose one to provide.
+   * The CertifyId from a previous successful ID Verification. The photo from that verification is used as the comparison photo.
+   * 
+   * > Among the four methods of passing in images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select only one.
    * 
    * @example
    * 0bfa7c493f850e5178b9f8613634c9xx
@@ -38,10 +40,11 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Allow face image cropping:
+   * Specifies whether to allow cropping of the face image. Valid values:
    * 
-   * -  **T** – Cropping is allowed.
-   * -  **F** (default) – Cropping is not allowed.
+   * - T: Allowed.
+   * 
+   * - F (default): Not allowed.
    * 
    * @example
    * T
@@ -49,7 +52,7 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   crop?: string;
   /**
    * @remarks
-   * Risk Identification - Device Token
+   * The device token for risk identification.
    * 
    * @example
    * McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
@@ -57,11 +60,7 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   deviceToken?: string;
   /**
    * @remarks
-   * Encryption type. Leave it empty if no encryption is required.
-   * 
-   * If you enable encrypted transmission, you must specify the encryption algorithm; currently, only the SM2 (Chinese national standard) algorithm is supported.
-   * 
-   * When an encryption algorithm is specified, encrypt both **CertName** and **CertNo** and submit the resulting ciphertext. For more details on parameter encryption, see the [Parameter Encryption documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/description-of-parameter-encryption?spm=a2c4g.11186623.0.0.49541a8554cELI#task-2229332).
+   * The encryption type. An empty value indicates no encryption.
    * 
    * @example
    * SM2
@@ -69,15 +68,15 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   encryptType?: string;
   /**
    * @remarks
-   * Local video file.
+   * The local video file.
    * 
    * @example
-   * -
+   * 无
    */
   faceContrastFile?: string;
   /**
    * @remarks
-   * Base64 encoded photo
+   * The Base64-encoded photo.
    * 
    * @example
    * /9j/4AAQSkZJRgABAQAASxxxxxxx
@@ -85,8 +84,9 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   faceContrastPicture?: string;
   /**
    * @remarks
-   * OSS photo URL, currently only supports authorized OSS photo URLs.
-   * > Among the four ways to input images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, OSS), choose one to input.
+   * The OSS photo URL. Currently only authorized OSS photo URLs are supported.
+   * 
+   * > Among the four methods of passing in images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select only one.
    * 
    * @example
    * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
@@ -94,7 +94,7 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   faceContrastPictureUrl?: string;
   /**
    * @remarks
-   * User IP.
+   * The IP address of the user.
    * 
    * @example
    * 114.xxx.xxx.xxx
@@ -102,7 +102,7 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * User\\"s phone number.
+   * The mobile phone number of the user.
    * 
    * @example
    * 130xxxxxxxx
@@ -110,13 +110,7 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Liveness detection type. Possible values:
-   * 
-   * • **NO_LIVENESS** – Liveness detection is disabled.
-   * 
-   * • **FRONT_CAMERA_LIVENESS** (default) – Liveness detection on face images captured with the mobile device’s front camera.
-   * 
-   * • **REAR_CAMERA_LIVENESS** – Liveness detection on face images captured in other scenarios (e.g., via the rear camera).
+   * The liveness detection type.
    * 
    * @example
    * FRONT_CAMERA_LIVENESS
@@ -124,7 +118,9 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Authorized OSS space Bucket name. In the methods of passing images, including FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS, choose one to pass in.
+   * The bucket name of the authorized OSS space.
+   * 
+   * > Among the four methods of passing in images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select only one.
    * 
    * @example
    * cn-shanghai-aliyun-cloudauth-xxxxx
@@ -132,8 +128,9 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * Filename of the authorized OSS space.
-   * > Among the four ways to input images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, OSS), choose one to input.
+   * The file name in the authorized OSS space.
+   * 
+   * > Among the four methods of passing in images (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select only one.
    * 
    * @example
    * verify/xxxxx/xxxxxx.jpeg
@@ -141,7 +138,8 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * A unique identifier for the merchant\\"s request. It is a 32-character alphanumeric combination. The first few characters are a custom abbreviation defined by the merchant, followed by a period, and the latter part can be a random or incrementing sequence.
+   * The unique identifier of the merchant request.
+   * The value is a 32-character alphanumeric string. The first few characters are a custom abbreviation defined by the merchant, the middle part can be a time segment, and the last part can be a random or incremental sequence.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -157,7 +155,7 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Authentication scenario ID.
+   * The verification scenario ID.
    * 
    * @example
    * 1000000006
@@ -165,7 +163,7 @@ export class ContrastFaceVerifyRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Custom user ID defined by the customer\\"s business.
+   * The custom user ID defined by the business.
    * 
    * @example
    * 123456789

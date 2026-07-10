@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBlackListStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Rule ID.
+   * The rule ID.
    * 
    * @example
    * 38
@@ -13,10 +13,10 @@ export class DeleteBlackListStrategyRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Product Name:
-   * - **id2meta**: ID card two-factor verification
-   * - **mobile3Meta**: Mobile phone number factor verification
-   * - **bankcardMeta**: Bank card factor verification
+   * The product name. Valid values:
+   * - **id2meta**: ID card two-element verification.
+   * - **mobile3Meta**: Mobile number element verification.
+   * - **bankcardMeta**: Bank card element verification.
    * 
    * @example
    * id2meta
@@ -24,7 +24,7 @@ export class DeleteBlackListStrategyRequest extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai

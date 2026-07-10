@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class MobileOnlineTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * Mobile number:
-   * - When `paramType` is `normal`: provide the plaintext mobile number.
-   * - When `paramType` is `md5`: provide the encrypted mobile number.
+   * The phone number. Valid values:
+   * - If paramType is set to normal, pass in the phone number in plaintext.
+   * - If paramType is set to md5, pass in the phone number in ciphertext.
    * 
    * @example
    * 明文：186****2055
@@ -19,10 +19,10 @@ export class MobileOnlineTimeRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Parameter type:
+   * The parameter type. Valid values:
    * 
-   * - normal: unencrypted.
-   * - md5: md5 encrypted.
+   * - normal: not encrypted.
+   * - md5: MD5-encrypted.
    * 
    * @example
    * normal

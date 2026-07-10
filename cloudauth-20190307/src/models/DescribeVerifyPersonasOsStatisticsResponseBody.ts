@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Total number of authenticated devices.
+   * The total number of devices used for ID Verification.
    * 
    * @example
    * 24
@@ -13,7 +13,7 @@ export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends 
   allDeviceCnt?: number;
   /**
    * @remarks
-   * Number of authenticated Android devices.
+   * The number of Android devices used for ID Verification.
    * 
    * @example
    * 14
@@ -21,7 +21,7 @@ export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends 
   deviceAndroidCnt?: number;
   /**
    * @remarks
-   * Proportion of Android devices.
+   * The proportion of Android devices.
    * 
    * @example
    * 58.33
@@ -29,7 +29,7 @@ export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends 
   deviceAndroidRate?: string;
   /**
    * @remarks
-   * Number of authenticated iOS devices.
+   * The number of iOS devices used for ID Verification.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends 
   deviceIosCnt?: number;
   /**
    * @remarks
-   * Proportion of iOS devices.
+   * The proportion of iOS devices.
    * 
    * @example
    * 41.67
@@ -75,7 +75,7 @@ export class DescribeVerifyPersonasOsStatisticsResponseBodyResultObject extends 
 export class DescribeVerifyPersonasOsStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * 123906BE-752B-51E3-A8FF-52F53B659CE6
@@ -83,7 +83,7 @@ export class DescribeVerifyPersonasOsStatisticsResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Processing result.
+   * The processing result.
    */
   resultObject?: DescribeVerifyPersonasOsStatisticsResponseBodyResultObject;
   static names(): { [key: string]: string } {

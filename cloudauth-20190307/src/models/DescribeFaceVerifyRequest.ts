@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFaceVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier for real-person authentication.
+   * The unique identifier of the ID Verification request.
    * 
    * @example
    * 91707dc296d469ad38e4c5efa6a0f24b
@@ -13,7 +13,7 @@ export class DescribeFaceVerifyRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Image return type.
+   * The image return type.
    * 
    * @example
    * JPG
@@ -21,7 +21,7 @@ export class DescribeFaceVerifyRequest extends $dara.Model {
   pictureReturnType?: string;
   /**
    * @remarks
-   * Authentication scene ID.
+   * The ID of the verification scenario.
    * 
    * @example
    * 1000000006

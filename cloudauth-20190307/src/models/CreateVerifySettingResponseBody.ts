@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVerifySettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Verification scenario name.
+   * The name of the verification scenario.
    * 
    * @example
    * 用户注册
@@ -13,7 +13,7 @@ export class CreateVerifySettingResponseBody extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * Verification scenario identifier.
+   * The identifier of the verification scenario.
    * 
    * @example
    * UserRegister
@@ -21,7 +21,7 @@ export class CreateVerifySettingResponseBody extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * ID of this request.
+   * The ID of the request.
    * 
    * @example
    * D6163397-15C5-419C-9ACC-B7C83E0B4C10
@@ -29,7 +29,7 @@ export class CreateVerifySettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Authentication solution name.
+   * The name of the verification solution.
    * 
    * @example
    * RPBasic
@@ -37,7 +37,7 @@ export class CreateVerifySettingResponseBody extends $dara.Model {
   solution?: string;
   /**
    * @remarks
-   * Authentication steps
+   * The verification steps. guide indicates the guide step, and privacy indicates the authorization step.
    */
   stepList?: string[];
   static names(): { [key: string]: string } {

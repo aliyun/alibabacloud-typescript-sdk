@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeListFaceVerifyDataResponseBodyMonitorDataFaceVerifyData extends $dara.Model {
   /**
    * @remarks
-   * Verification statistics time.
+   * The authentication statistics time.
    * 
    * @example
    * 2025-10-16T00:00:00.000Z
@@ -13,7 +13,7 @@ export class DescribeListFaceVerifyDataResponseBodyMonitorDataFaceVerifyData ext
   conDate?: string;
   /**
    * @remarks
-   * Number of failed verifications.
+   * The number of authentication-failed transactions.
    * 
    * @example
    * 6
@@ -21,7 +21,7 @@ export class DescribeListFaceVerifyDataResponseBodyMonitorDataFaceVerifyData ext
   failCnt?: string;
   /**
    * @remarks
-   * Verification scheme.
+   * The authentication solution.
    * 
    * @example
    * Liveness
@@ -29,7 +29,7 @@ export class DescribeListFaceVerifyDataResponseBodyMonitorDataFaceVerifyData ext
   name?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 1000011644
@@ -37,7 +37,7 @@ export class DescribeListFaceVerifyDataResponseBodyMonitorDataFaceVerifyData ext
   sceneId?: string;
   /**
    * @remarks
-   * Number of successful verifications.
+   * The number of authentication-passed transactions.
    * 
    * @example
    * 12
@@ -45,7 +45,7 @@ export class DescribeListFaceVerifyDataResponseBodyMonitorDataFaceVerifyData ext
   succCnt?: string;
   /**
    * @remarks
-   * Total number of verifications.
+   * The total number of authentication requests.
    * 
    * @example
    * 18
@@ -85,7 +85,7 @@ export class DescribeListFaceVerifyDataResponseBodyMonitorDataFaceVerifyData ext
 export class DescribeListFaceVerifyDataResponseBodyMonitorData extends $dara.Model {
   /**
    * @remarks
-   * Face verification data.
+   * The facial recognition data.
    */
   faceVerifyData?: DescribeListFaceVerifyDataResponseBodyMonitorDataFaceVerifyData[];
   static names(): { [key: string]: string } {
@@ -115,12 +115,12 @@ export class DescribeListFaceVerifyDataResponseBodyMonitorData extends $dara.Mod
 export class DescribeListFaceVerifyDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   monitorData?: DescribeListFaceVerifyDataResponseBodyMonitorData;
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * EBD373EA-07FC-50BC-906F-B8950B6ED462

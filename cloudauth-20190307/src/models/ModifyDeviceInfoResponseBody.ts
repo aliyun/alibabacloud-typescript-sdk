@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDeviceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * If the Duration in the request parameters is not empty, this field represents the start time of the authorization after the device validity period has been extended. One year of Duration is calculated as 365 days. Example: 20180101.
+   * If the Duration request parameter is not empty, this field indicates the authorization start time after the device validity period is extended. One year in Duration is calculated as 365 days. Example: 20180101.
    * 
    * @example
    * 20190401
@@ -13,7 +13,7 @@ export class ModifyDeviceInfoResponseBody extends $dara.Model {
   beginDay?: string;
   /**
    * @remarks
-   * Corresponds to the BizType in the request parameters.
+   * The value corresponds to the BizType in the request parameters.
    * 
    * @example
    * FACE_TEST
@@ -21,7 +21,7 @@ export class ModifyDeviceInfoResponseBody extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Corresponds to the DeviceId in the request parameters.
+   * The value corresponds to the DeviceId in the request parameters.
    * 
    * @example
    * wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
@@ -29,7 +29,7 @@ export class ModifyDeviceInfoResponseBody extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
-   * If the Duration in the request parameters is not empty, this field represents the expiration time of the authorization after the device validity period has been extended. One year of Duration is calculated as 365 days. Example: 20180101.
+   * If the Duration request parameter is not empty, this field indicates the authorization expiration time after the device validity period is extended. One year in Duration is calculated as 365 days. Example: 20180101.
    * 
    * @example
    * 20200330
@@ -45,7 +45,7 @@ export class ModifyDeviceInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Corresponds to the UserDeviceId in the request parameters.
+   * The value corresponds to the UserDeviceId in the request parameters.
    * 
    * @example
    * 3iJ1AY$oHcu7mC69

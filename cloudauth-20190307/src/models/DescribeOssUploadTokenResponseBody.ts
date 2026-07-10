@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Model {
   /**
    * @remarks
-   * OSS bucket for file storage.
+   * The OSS bucket for file storage.
    * 
    * @example
    * cloudauth-zhangjiakou-external
@@ -13,7 +13,7 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Mode
   bucket?: string;
   /**
    * @remarks
-   * Access endpoint.
+   * The endpoint.
    * 
    * @example
    * https://oss-cn-zhangjiakou.aliyuncs.com
@@ -21,7 +21,7 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Mode
   endPoint?: string;
   /**
    * @remarks
-   * Expiration time.
+   * The expiration time.
    * 
    * @example
    * 1582636610000
@@ -29,7 +29,7 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Mode
   expired?: number;
   /**
    * @remarks
-   * The Key required for file upload.
+   * The key required for file upload.
    * 
    * @example
    * STS.NU8rUBj****
@@ -37,7 +37,7 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * File storage path.
+   * The file storage path.
    * 
    * @example
    * prod/RdNLC@Ox2n-1s7NMt
@@ -45,7 +45,7 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Mode
   path?: string;
   /**
    * @remarks
-   * The Secret required for file upload.
+   * The secret required for file upload.
    * 
    * @example
    * FwmnyoqT8dHj7nJLuM67T****
@@ -53,7 +53,7 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Mode
   secret?: string;
   /**
    * @remarks
-   * The Token required for file upload.
+   * The token required for file upload.
    * 
    * @example
    * uWia500nTS5knZaDzq4/KqpvhcLnO****
@@ -95,12 +95,12 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Mode
 export class DescribeOssUploadTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information about the OSS upload Token.
+   * The OSS upload token information.
    */
   ossUploadToken?: DescribeOssUploadTokenResponseBodyOssUploadToken;
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 2FA2C773-47DB-4156-B1EE-5B047321A939

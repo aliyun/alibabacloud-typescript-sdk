@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObjectItems extends $dara.Model {
   /**
    * @remarks
-   * Number of devices.
+   * The number of devices.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject
   deviceCnt?: number;
   /**
    * @remarks
-   * Device model
+   * The device model.
    * 
    * @example
    * iPhone15,2
@@ -21,7 +21,7 @@ export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject
   deviceModel?: string;
   /**
    * @remarks
-   * The ratio of this device model to the total number of devices.
+   * The ratio of devices of this model to the total number of devices.
    * 
    * @example
    * 16.13
@@ -55,7 +55,7 @@ export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject
 export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Total number of devices.
+   * The total number of devices.
    * 
    * @example
    * 31
@@ -63,7 +63,7 @@ export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject
   allDeviceCnt?: number;
   /**
    * @remarks
-   * List of data for different phone models.
+   * The list of data for different phone models.
    */
   items?: DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObjectItems[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject
 export class DescribeVerifyPersonasDeviceModelStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * 026828A3-CC7E-5D85-85B6-08DF245C5A53
@@ -103,7 +103,7 @@ export class DescribeVerifyPersonasDeviceModelStatisticsResponseBody extends $da
   requestId?: string;
   /**
    * @remarks
-   * Query result.
+   * The query result.
    */
   resultObject?: DescribeVerifyPersonasDeviceModelStatisticsResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFaceVerifyResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier for real-person authentication.
+   * The unique identifier for real-person authentication.
    * 
    * @example
    * shae18209d29ce4e8ba252caae98ab15
@@ -13,10 +13,10 @@ export class DeleteFaceVerifyResultRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Whether deletion depends on having already obtained relevant data from the corresponding authentication process.
+   * Specifies whether deletion depends on having retrieved the relevant data from the corresponding authentication process.
    * 
-   * - Y: Required. To successfully delete the related data, you must have obtained the processing result through the DescribeFaceVerify interface.
-   * - N: Not required (default). For pure server-side API integration, you can directly pass N.
+   * - Y: Required. To successfully delete the relevant data, you must have already obtained the processing result through the DescribeFaceVerify API.
+   * - N: Not required (default). You can directly pass N when integrating through the pure server-side API mode.
    * 
    * @example
    * Y

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile3MetaSimpleStandardVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result:
+   * The verification result. Valid values:
    * 
-   * - 1: Consistent (billable)
-   * - 2: Inconsistent (billable)
-   * - 3: No record found (non-billable)
+   * - 1: Consistent (billable).
+   * - 2: Inconsistent (billable).
+   * - 3: No record found (not billable).
    * 
    * @example
    * 1
@@ -17,12 +17,12 @@ export class Mobile3MetaSimpleStandardVerifyResponseBodyResultObject extends $da
   bizCode?: string;
   /**
    * @remarks
-   * Operator name:
+   * The carrier name. Valid values:
    * 
    * - **CMCC**: China Mobile.
    * - **CUCC**: China Unicom.
    * - **CTCC**: China Telecom.
-   * - **CBCC**: China Broadcasting Network.
+   * - **CBCC**: China Broadnet.
    * 
    * @example
    * CMCC
@@ -54,7 +54,7 @@ export class Mobile3MetaSimpleStandardVerifyResponseBodyResultObject extends $da
 export class Mobile3MetaSimpleStandardVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -62,7 +62,7 @@ export class Mobile3MetaSimpleStandardVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -70,7 +70,7 @@ export class Mobile3MetaSimpleStandardVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -78,7 +78,7 @@ export class Mobile3MetaSimpleStandardVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information
+   * The result information.
    */
   resultObject?: Mobile3MetaSimpleStandardVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Date.
+   * The date.
    * 
    * @example
    * 2024-03-24T00:00:00.000Z
@@ -13,7 +13,7 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
   date?: string;
   /**
    * @remarks
-   * Product scheme code, please refer to the financial-grade real-person help documentation.
+   * The product solution code. For more information, refer to the financial-grade ID Verification documentation.
    * 
    * @example
    * ID_PLUS
@@ -21,7 +21,7 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Scene ID.
+   * The scene ID.
    * 
    * @example
    * 20**40
@@ -29,7 +29,7 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
   sceneId?: string;
   /**
    * @remarks
-   * Scene name.
+   * The scene name.
    * 
    * @example
    * ****实名认证
@@ -37,7 +37,7 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Number of successful calls.
+   * The number of successful calls.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
   successCount?: string;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 19
@@ -85,7 +85,7 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
 export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * 200
@@ -93,7 +93,7 @@ export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -101,12 +101,12 @@ export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * List of returned data.
+   * The list of returned data.
    */
   items?: DescribePageFaceVerifyDataResponseBodyItems[];
   /**
    * @remarks
-   * Return message.
+   * The return message.
    * 
    * @example
    * OK
@@ -114,7 +114,7 @@ export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -122,7 +122,7 @@ export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-A***B-A3DC0DE3C83E
@@ -130,7 +130,7 @@ export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the response is successful.
    * 
    * @example
    * true
@@ -138,7 +138,7 @@ export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -146,7 +146,7 @@ export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   totalCount?: string;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 5

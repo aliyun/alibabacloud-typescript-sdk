@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket for delivering authentication information.
+   * The name of the OSS bucket to which verification information is delivered.
    * 
    * @example
    * cn-hangzhou-aliyun-cloudauth-20250516xxxxxx
@@ -13,7 +13,7 @@ export class DescribeOssStatusResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * User activation status, SUCCESS indicates activated.
+   * The activation status of the user. A value of SUCCESS indicates that the service is activated.
    * 
    * @example
    * SUCCESS
@@ -45,12 +45,12 @@ export class DescribeOssStatusResponseBodyData extends $dara.Model {
 export class DescribeOssStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: DescribeOssStatusResponseBodyData;
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * F2DB870B-EEB7-51BD-9F0A-B5D8D3C79308

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyControlStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code
+   * The return code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyControlStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Information returned by the API call.
+   * The response message returned by the operation.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class ModifyControlStrategyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -29,7 +29,7 @@ export class ModifyControlStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the response is successful.
    * 
    * @example
    * true

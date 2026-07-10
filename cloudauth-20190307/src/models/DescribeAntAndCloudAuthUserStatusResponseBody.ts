@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAntAndCloudAuthUserStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether financial-grade real-person authentication is activated. Values:
-   * - **true**: Activated
-   * - **false**: Not activated
+   * Indicates whether financial-grade ID Verification is activated. Valid values:
+   * - **true**: Activated.
+   * - **false**: Not activated.
    * 
    * @example
    * true
@@ -15,9 +15,9 @@ export class DescribeAntAndCloudAuthUserStatusResponseBody extends $dara.Model {
   antcloudauthEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether real-person authentication is activated. Values:
-   * - **true**: Activated
-   * - **false**: Not activated
+   * Indicates whether ID Verification is activated. Valid values:
+   * - **true**: Activated.
+   * - **false**: Not activated.
    * 
    * @example
    * false
@@ -25,9 +25,9 @@ export class DescribeAntAndCloudAuthUserStatusResponseBody extends $dara.Model {
   cloudauthEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the enhanced version of real-person authentication is activated. Values:
-   * - **true**: Activated
-   * - **false**: Not activated
+   * Indicates whether enhanced ID Verification is activated. Valid values:
+   * - **true**: Activated.
+   * - **false**: Not activated.
    * 
    * @example
    * true
@@ -35,9 +35,9 @@ export class DescribeAntAndCloudAuthUserStatusResponseBody extends $dara.Model {
   cloudauthstEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether information verification is activated. Values:
-   * - **true**: Activated
-   * - **false**: Not activated
+   * Indicates whether information verification is activated. Valid values:
+   * - **true**: Activated.
+   * - **false**: Not activated.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class DescribeAntAndCloudAuthUserStatusResponseBody extends $dara.Model {
   inforverifyEnabled?: boolean;
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 3FE07CCE-DF47-51C2-9D32-CD70ED62C91B

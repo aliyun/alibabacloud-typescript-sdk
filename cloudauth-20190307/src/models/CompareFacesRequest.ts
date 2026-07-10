@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CompareFacesRequest extends $dara.Model {
   /**
    * @remarks
-   * Type of Image 1, with values:
+   * The type of image 1. Valid values:
    * 
-   * - **FacePic**: User\\"s face photo
-   * - **IDPic**: Headshot from the user\\"s second-generation ID card chip (typically obtained and decoded by a second-generation ID card reader)
+   * - **FacePic**: A face photo of the user.
+   * - **IDPic**: A headshot photo from the chip of the user\\"s second-generation ID card (typically read and decoded by a second-generation ID card reader device).
    * 
    * @example
    * FacePic
@@ -16,7 +16,7 @@ export class CompareFacesRequest extends $dara.Model {
   sourceImageType?: string;
   /**
    * @remarks
-   * Address of Image 1. Please refer to the instructions on uploading image addresses.
+   * The URL of image 1. For more information, see the description of image URL upload.
    * 
    * @example
    * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
@@ -24,10 +24,10 @@ export class CompareFacesRequest extends $dara.Model {
   sourceImageValue?: string;
   /**
    * @remarks
-   * Type of Image 2, with values:
+   * The type of image 2. Valid values:
    * 
-   * - **FacePic**: User\\"s face photo
-   * - **IDPic**: Headshot from the user\\"s second-generation ID card chip (typically obtained and decoded by a second-generation ID card reader)
+   * - **FacePic**: A face photo of the user.
+   * - **IDPic**: A headshot photo from the chip of the user\\"s second-generation ID card (typically read and decoded by a second-generation ID card reader device).
    * 
    * @example
    * FacePic
@@ -35,7 +35,7 @@ export class CompareFacesRequest extends $dara.Model {
   targetImageType?: string;
   /**
    * @remarks
-   * Address of Image 2. Please refer to the instructions on uploading image addresses.
+   * The URL of image 2. For more information, see the description of image URL upload.
    * 
    * @example
    * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg

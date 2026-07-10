@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class VehicleMetaVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result.
+   * The verification result. Valid values:
    * 
-   * - 1: Consistent (billable)
-   * - 2: Inconsistent (billable)
-   * - 3: No record found (non-billable)
+   * - 1: Consistent (billable).
+   * - 2: Inconsistent (billable).
+   * - 3: No record found (not billable).
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class VehicleMetaVerifyResponseBodyResultObject extends $dara.Model {
 export class VehicleMetaVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code, **200** indicates that the API response was successful.
+   * The return code. **200** indicates that the request was successful.
    * 
    * @example
    * 200
@@ -47,7 +47,7 @@ export class VehicleMetaVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -55,7 +55,7 @@ export class VehicleMetaVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 8FC3D6AC-9FED-4311-8DA7-C4BF4*****
@@ -63,7 +63,7 @@ export class VehicleMetaVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The result information.
    */
   resultObject?: VehicleMetaVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

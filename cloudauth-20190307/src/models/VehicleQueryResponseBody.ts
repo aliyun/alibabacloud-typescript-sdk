@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class VehicleQueryResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result code:
+   * The verification result code. Valid values:
    * 
    * > 
-   * > - 1: Found (charged)
-   * > - 3: No record found (not charged)
+   * > - 1: match found (billable).
+   * > - 3: no record found (not billable).
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class VehicleQueryResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Vehicle information.
+   * The vehicle information.
    * 
    * @example
    * {
@@ -77,7 +77,7 @@ export class VehicleQueryResponseBodyResultObject extends $dara.Model {
 export class VehicleQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -85,7 +85,7 @@ export class VehicleQueryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -93,7 +93,7 @@ export class VehicleQueryResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * D6163397-15C5-419C-9ACC-B7C83*******
@@ -101,7 +101,7 @@ export class VehicleQueryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Request result
+   * The request result.
    */
   resultObject?: VehicleQueryResponseBodyResultObject;
   static names(): { [key: string]: string } {

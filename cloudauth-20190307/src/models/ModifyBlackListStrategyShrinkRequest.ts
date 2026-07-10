@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBlackListStrategyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Blacklist rule.
+   * The blacklist rule.
    */
   blackListStrategyShrink?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai

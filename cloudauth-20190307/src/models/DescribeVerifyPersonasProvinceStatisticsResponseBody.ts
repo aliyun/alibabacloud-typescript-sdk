@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObjectItems extends $dara.Model {
   /**
    * @remarks
-   * Total number of devices in the province.
+   * The total number of devices in the province.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObjectIte
   provinceCnt?: number;
   /**
    * @remarks
-   * Province name.
+   * The province name.
    * 
    * @example
    * 浙江
@@ -21,7 +21,7 @@ export class DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObjectIte
   provinceName?: string;
   /**
    * @remarks
-   * Percentage of the total for this province.
+   * The percentage of the province relative to the total.
    * 
    * @example
    * 35.71
@@ -55,7 +55,7 @@ export class DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObjectIte
 export class DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Total number of devices.
+   * The total number of devices.
    * 
    * @example
    * 30
@@ -63,7 +63,7 @@ export class DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObject ex
   allUserCnt?: number;
   /**
    * @remarks
-   * Data items.
+   * The data items.
    */
   items?: DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObjectItems[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObject ex
 export class DescribeVerifyPersonasProvinceStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * D9821F95-CC18-5439-BB1C-21A0FF0C2003
@@ -103,7 +103,7 @@ export class DescribeVerifyPersonasProvinceStatisticsResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * Query result.
+   * The query result.
    */
   resultObject?: DescribeVerifyPersonasProvinceStatisticsResponseBodyResultObject;
   static names(): { [key: string]: string } {

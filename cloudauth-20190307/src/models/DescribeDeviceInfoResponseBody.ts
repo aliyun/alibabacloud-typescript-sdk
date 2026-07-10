@@ -66,7 +66,7 @@ export class DescribeDeviceInfoResponseBodyDeviceInfoList extends $dara.Model {
 export class DescribeDeviceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current page number being queried.
+   * The current page number.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribeDeviceInfoResponseBody extends $dara.Model {
   deviceInfoList?: DescribeDeviceInfoResponseBodyDeviceInfoList;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -83,7 +83,7 @@ export class DescribeDeviceInfoResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of this request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -91,7 +91,7 @@ export class DescribeDeviceInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
   /**
    * @remarks
-   * Phone number\\"s area (only for plaintext phone numbers)
+   * The location to which the phone number belongs. This field is available only for plaintext phone numbers.
    * 
    * @example
    * 安徽-马**
@@ -13,11 +13,11 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
   area?: string;
   /**
    * @remarks
-   * Verification result
+   * The verification result. Valid values:
    * 
-   * - 1: Available online 
-   * - 2: Not available online
-   * - 3: No query result
+   * - 1: Active and available. 
+   * - 2: Not in active and available status.
+   * - 3: No query results.
    * 
    * @example
    * 1
@@ -25,11 +25,11 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Operator name
+   * The carrier name. Valid values:
    * 
    * - CMCC: China Mobile 
    * - CUCC: China Unicom 
-   * - CTCC: China Telecom
+   * - CTCC: China Telecom.
    * 
    * @example
    * CMCC
@@ -37,7 +37,7 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
   ispName?: string;
   /**
    * @remarks
-   * Phone number
+   * The phone number.
    * 
    * @example
    * 131********
@@ -45,14 +45,14 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Verification details
+   * The verification details. Valid values:
    * 
-   * - 101: Available number
-   * - 102: Empty number
-   * - 103: Suspended 
-   * - 104: Silent number (inactive small number, new number, non-smartphone user within the last six months) 
-   * - 105: Risky number (long-term shutdown or no voice service activated and prone to complaints)
-   * - 301: No record found
+   * - 101: Available number.
+   * - 102: Empty number.
+   * - 103: Suspended. 
+   * - 104: Silent number (inactive secondary number in the past six months, new number, or non-smartphone user). 
+   * - 105: Risky number (user with prolonged shutdown, voice service not activated, or prone to complaints).
+   * - 301: No record found.
    * 
    * @example
    * 101
@@ -90,7 +90,7 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
 export class MobileDetectResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Billing count, the total billing count in one request
+   * The total number of billing counts in a single request.
    * 
    * @example
    * 2
@@ -98,7 +98,7 @@ export class MobileDetectResponseBodyResultObject extends $dara.Model {
   chargeCount?: string;
   /**
    * @remarks
-   * Verification results set
+   * The verification result set.
    */
   items?: MobileDetectResponseBodyResultObjectItems[];
   static names(): { [key: string]: string } {
@@ -130,7 +130,7 @@ export class MobileDetectResponseBodyResultObject extends $dara.Model {
 export class MobileDetectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -138,7 +138,7 @@ export class MobileDetectResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -146,7 +146,7 @@ export class MobileDetectResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 969434DF-926B-4997-9881-4DE94E39F805
@@ -154,7 +154,7 @@ export class MobileDetectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information
+   * The result information.
    */
   resultObject?: MobileDetectResponseBodyResultObject;
   static names(): { [key: string]: string } {

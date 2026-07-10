@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyFailStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * Age greater than 14 years old:
-   * - **T**: Greater than
-   * - **F**: Less than
+   * Specifies whether the age is greater than 14. Valid values:
+   * - **T**: greater than 14.
+   * - **F**: less than 14.
    * 
    * @example
    * T
@@ -15,10 +15,10 @@ export class DescribeVerifyFailStatisticsRequest extends $dara.Model {
   ageGt?: string;
   /**
    * @remarks
-   * API code:
-   * - **INIT_SERVICE**: Server-side initialization failure
-   * - **INIT_DEVICE**: Client-side failure
-   * - **VERIFY_DEVICE**: Authentication failed
+   * The API code. Valid values:
+   * - **INIT_SERVICE**: server-side initialization failure.
+   * - **INIT_DEVICE**: client-side failure.
+   * - **VERIFY_DEVICE**: authentication not passed.
    * 
    * This parameter is required.
    * 
@@ -28,10 +28,10 @@ export class DescribeVerifyFailStatisticsRequest extends $dara.Model {
   api?: string;
   /**
    * @remarks
-   * Device type.
+   * The device type. Valid values:
    * - ios
    * - android
-   * - websdk
+   * - websdk.
    * 
    * @example
    * ios
@@ -39,7 +39,7 @@ export class DescribeVerifyFailStatisticsRequest extends $dara.Model {
   deviceType?: string;
   /**
    * @remarks
-   * End time of the query.
+   * The end time of the query.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class DescribeVerifyFailStatisticsRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * Product code.
+   * The product code.
    * 
    * This parameter is required.
    * 
@@ -59,10 +59,10 @@ export class DescribeVerifyFailStatisticsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Service type:
-   * - **antcloudauth**: Financial-grade real-person authentication.
-   * - **cloudauthst** (discontinued): Enhanced real-person authentication.
-   * - **cloudauth** (discontinued): Real-person authentication.
+   * The service type. Valid values:
+   * - **antcloudauth**: financial-grade ID Verification.
+   * - **cloudauthst** (discontinued): ID Verification Enhanced Edition.
+   * - **cloudauth** (discontinued): ID Verification.
    * 
    * This parameter is required.
    * 
@@ -72,7 +72,7 @@ export class DescribeVerifyFailStatisticsRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Start time of the query.
+   * The start time of the query.
    * 
    * This parameter is required.
    * 

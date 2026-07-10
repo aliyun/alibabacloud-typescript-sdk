@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Id2MetaStandardVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result code:
-   * - **1**: verification matches.
-   * - **2**: verification does not match.
-   * - **3**: no record found.
+   * The verification result code. Valid values:
+   * - **1**: Consistent.
+   * - **2**: Inconsistent.
+   * - **3**: No record found.
    * 
    * @example
    * 1
@@ -38,7 +38,7 @@ export class Id2MetaStandardVerifyResponseBodyResultObject extends $dara.Model {
 export class Id2MetaStandardVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -46,7 +46,7 @@ export class Id2MetaStandardVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -54,7 +54,7 @@ export class Id2MetaStandardVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * D6163397-15C5-419C-9ACC-B7C83E0B4C10
@@ -62,7 +62,7 @@ export class Id2MetaStandardVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information.
+   * The result information.
    */
   resultObject?: Id2MetaStandardVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

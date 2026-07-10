@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InsertWhiteListSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class InsertWhiteListSettingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class InsertWhiteListSettingResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * Id of the request
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -29,7 +29,7 @@ export class InsertWhiteListSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result
+   * The returned result.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class InsertWhiteListSettingResponseBody extends $dara.Model {
   resultObject?: boolean;
   /**
    * @remarks
-   * Indicates whether the response was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadVerifyRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * D6163397-15C5-419C-9ACC-B7C83E0B4C10
@@ -13,7 +13,7 @@ export class DownloadVerifyRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * OSS link for file download.
+   * The OSS download link for the file.
    * 
    * @example
    * https://cn-shanghai-aliyun-cloudauth.oss-cn-shanghai.aliyuncs.com/invoke_download/0E30CD55-DCD4-5363-AA98-XXXXXXX

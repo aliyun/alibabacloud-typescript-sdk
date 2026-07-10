@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class VehicleMetaVerifyV2ResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result code:
-   * - **1**: Verification consistent.
-   * - **2**: Verification inconsistent.
+   * The verification result code. Valid values:
+   * - **1**: Consistent.
+   * - **2**: Inconsistent.
    * - **3**: No record found.
    * 
    * @example
@@ -16,7 +16,7 @@ export class VehicleMetaVerifyV2ResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * Detailed vehicle information.
+   * The vehicle details.
    * 
    * @example
    * {
@@ -70,7 +70,7 @@ export class VehicleMetaVerifyV2ResponseBodyResultObject extends $dara.Model {
 export class VehicleMetaVerifyV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code, **200** indicates successful API response.
+   * The return code. **200** indicates that the request was successful.
    * 
    * @example
    * 200
@@ -78,7 +78,7 @@ export class VehicleMetaVerifyV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -86,7 +86,7 @@ export class VehicleMetaVerifyV2ResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 5A6229C0-E156-48E4-B6EC-0F528B******
@@ -94,7 +94,7 @@ export class VehicleMetaVerifyV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result
+   * The returned result.
    */
   resultObject?: VehicleMetaVerifyV2ResponseBodyResultObject;
   static names(): { [key: string]: string } {

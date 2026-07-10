@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class MobileOnlineStatusResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result
+   * The verification result. Valid values:
    * 
-   * - 1: Available online 
-   * - 2: Not available online (see subCode for details)
-   * - 3: No query result
+   * - 1: active and available. 
+   * - 2: not in an active and available state. For more information, see subCode.
+   * - 3: no query result.
    * 
    * @example
    * 1
@@ -17,11 +17,11 @@ export class MobileOnlineStatusResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * ISP name
+   * The name of the telecommunications service provider. Valid values:
    * 
-   * - CMCC: China Mobile 
-   * - CUCC: China Unicom 
-   * - CTCC: China Telecom
+   * - CMCC: China Mobile. 
+   * - CUCC: China Unicom. 
+   * - CTCC: China Telecom.
    * 
    * @example
    * CMCC
@@ -29,14 +29,14 @@ export class MobileOnlineStatusResponseBodyResultObject extends $dara.Model {
   ispName?: string;
   /**
    * @remarks
-   * Verification details
+   * The verification details. Valid values:
    * 
-   * - 101: Available online 
-   * - 201: Suspended 
-   * - 202: Disconnected 
-   * - 203: Online but not available 
-   * - 204: Not online 
-   * - 301: No record found
+   * - 101: active and available. 
+   * - 201: suspended. 
+   * - 202: canceled. 
+   * - 203: active but unavailable. 
+   * - 204: not active. 
+   * - 301: no record found.
    * 
    * @example
    * 101
@@ -70,7 +70,7 @@ export class MobileOnlineStatusResponseBodyResultObject extends $dara.Model {
 export class MobileOnlineStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code: 200 for success, others for failure.
+   * The return code. A value of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -78,7 +78,7 @@ export class MobileOnlineStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -86,7 +86,7 @@ export class MobileOnlineStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * B506328A-D84B-4750-82C7-6A207C585CF1
@@ -94,7 +94,7 @@ export class MobileOnlineStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned result information
+   * The result information.
    */
   resultObject?: MobileOnlineStatusResponseBodyResultObject;
   static names(): { [key: string]: string } {

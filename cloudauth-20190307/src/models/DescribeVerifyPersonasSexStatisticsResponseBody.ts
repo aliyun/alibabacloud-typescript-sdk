@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Number of users under 14 years old.
+   * The number of authenticated users aged 14 and under.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age0To14Cnt?: number;
   /**
    * @remarks
-   * Proportion of users under 14 years old.
+   * The proportion of authenticated users aged 14 and under.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age0To14Rate?: string;
   /**
    * @remarks
-   * Number of users between 14 and 18 years old.
+   * The number of authenticated users aged 14 to 18.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age14To18Cnt?: number;
   /**
    * @remarks
-   * Proportion of users between 14 and 18 years old.
+   * The proportion of authenticated users aged 14 to 18.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age14To18Rate?: string;
   /**
    * @remarks
-   * Number of authenticated users between 18 and 35 years old.
+   * The number of authenticated users aged 18 to 35.
    * 
    * @example
    * 9
@@ -45,7 +45,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age18To35Cnt?: number;
   /**
    * @remarks
-   * Proportion of authenticated users between 18 and 35 years old.
+   * The proportion of authenticated users aged 18 to 35.
    * 
    * @example
    * 64.29
@@ -53,7 +53,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age18To35Rate?: string;
   /**
    * @remarks
-   * Number of authenticated users between 35 and 50 years old.
+   * The number of authenticated users aged 35 to 50.
    * 
    * @example
    * 5
@@ -61,7 +61,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age35To50Cnt?: number;
   /**
    * @remarks
-   * Proportion of users between 35 and 50 years old.
+   * The proportion of authenticated users aged 35 to 50.
    * 
    * @example
    * 35.71
@@ -69,7 +69,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age35To50Rate?: string;
   /**
    * @remarks
-   * Number of authenticated users over 50 years old.
+   * The number of authenticated users aged 50 and over.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age50To999Cnt?: number;
   /**
    * @remarks
-   * Proportion of authenticated users over 50 years old.
+   * The number of authenticated users aged 50 and over.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   age50To999Rate?: string;
   /**
    * @remarks
-   * Total number of authenticated users.
+   * The total number of authenticated users.
    * 
    * @example
    * 14
@@ -93,7 +93,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   allUserCnt?: number;
   /**
    * @remarks
-   * Number of female users.
+   * The number of female authenticated users.
    * 
    * @example
    * 4
@@ -101,7 +101,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   femaleCnt?: number;
   /**
    * @remarks
-   * Proportion of female authenticated users.
+   * The proportion of female authenticated users.
    * 
    * @example
    * 28.57
@@ -109,7 +109,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   femaleRate?: string;
   /**
    * @remarks
-   * Number of male users.
+   * The number of male authenticated users.
    * 
    * @example
    * 10
@@ -117,7 +117,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
   maleCnt?: number;
   /**
    * @remarks
-   * Proportion of male users.
+   * The proportion of male authenticated users.
    * 
    * @example
    * 71.43
@@ -175,7 +175,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBodyResultObject extends
 export class DescribeVerifyPersonasSexStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * 013DA6E1-3F37-5579-B979-2F12B7E92450
@@ -183,7 +183,7 @@ export class DescribeVerifyPersonasSexStatisticsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   resultObject?: DescribeVerifyPersonasSexStatisticsResponseBodyResultObject;
   static names(): { [key: string]: string } {

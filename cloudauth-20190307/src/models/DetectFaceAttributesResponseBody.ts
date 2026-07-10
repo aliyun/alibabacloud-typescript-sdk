@@ -201,7 +201,7 @@ export class DetectFaceAttributesResponseBodyData extends $dara.Model {
   faceInfos?: DetectFaceAttributesResponseBodyDataFaceInfos;
   /**
    * @remarks
-   * Original image height, in pixels.
+   * The height of the original image, in pixels.
    * 
    * @example
    * 1920
@@ -209,7 +209,7 @@ export class DetectFaceAttributesResponseBodyData extends $dara.Model {
   imgHeight?: number;
   /**
    * @remarks
-   * Original image width, in pixels.
+   * The width of the original image, in pixels.
    * 
    * @example
    * 1080
@@ -246,7 +246,7 @@ export class DetectFaceAttributesResponseBodyData extends $dara.Model {
 export class DetectFaceAttributesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -254,12 +254,12 @@ export class DetectFaceAttributesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: DetectFaceAttributesResponseBodyData;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * Error.InternalError
@@ -267,7 +267,7 @@ export class DetectFaceAttributesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of this request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -275,7 +275,7 @@ export class DetectFaceAttributesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the response was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
