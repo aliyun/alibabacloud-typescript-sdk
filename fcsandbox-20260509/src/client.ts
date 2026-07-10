@@ -570,6 +570,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新 ApiKey
+   * 
+   * @param request - UpdateApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApiKeyResponse
+   */
+  async updateApiKeyWithOptions(apiKeyID: string, request: $_model.UpdateApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApiKeyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApiKey",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/api-keys/${$dara.URL.percentEncode(apiKeyID)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApiKeyResponse({}));
+  }
+
+  /**
+   * 更新 ApiKey
+   * 
+   * @param request - UpdateApiKeyRequest
+   * @returns UpdateApiKeyResponse
+   */
+  async updateApiKey(apiKeyID: string, request: $_model.UpdateApiKeyRequest): Promise<$_model.UpdateApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateApiKeyWithOptions(apiKeyID, request, headers, runtime);
+  }
+
+  /**
    * 更新 quota 配置
    * 
    * @param request - UpdateQuotaRequest
