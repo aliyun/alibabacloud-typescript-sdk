@@ -3,13 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceClassResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The compute group ID.
+   * 
+   * @example
+   * cc-gs5j3sua77*******-clickhouse
+   */
   computingGroupId?: string;
   /**
    * @remarks
    * The cluster ID.
    * 
    * @example
-   * cc-xxxxxxx
+   * cc-gs5j3sua77*******
    */
   DBInstanceID?: number;
   /**
@@ -17,12 +24,12 @@ export class ModifyDBInstanceClassResponseBodyData extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * cc-xxxxxxx
+   * cc-gs5j3sua77*******
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The maximum capacity for elastic scaling.
+   * The maximum capacity for serverless autoscaling.
    * 
    * @example
    * 32
@@ -30,7 +37,7 @@ export class ModifyDBInstanceClassResponseBodyData extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum capacity for elastic scaling.
+   * The minimum capacity for serverless autoscaling.
    * 
    * @example
    * 2
@@ -78,7 +85,7 @@ export class ModifyDBInstanceClassResponseBodyData extends $dara.Model {
 export class ModifyDBInstanceClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: ModifyDBInstanceClassResponseBodyData;
   /**

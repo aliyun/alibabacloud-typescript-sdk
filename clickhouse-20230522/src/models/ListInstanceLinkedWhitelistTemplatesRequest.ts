@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceLinkedWhitelistTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class ListInstanceLinkedWhitelistTemplatesRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * RegionId
+   * The region ID.
    * 
    * This parameter is required.
    * 

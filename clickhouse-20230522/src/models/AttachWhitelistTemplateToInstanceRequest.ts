@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AttachWhitelistTemplateToInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ClickHouse instance ID. Separate multiple instance IDs with commas. A maximum of 20 instances can be attached at a time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class AttachWhitelistTemplateToInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * RegionId
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -23,6 +25,8 @@ export class AttachWhitelistTemplateToInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the whitelist template.
+   * 
    * This parameter is required.
    * 
    * @example

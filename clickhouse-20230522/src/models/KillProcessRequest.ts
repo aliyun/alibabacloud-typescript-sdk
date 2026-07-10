@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class KillProcessRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The computing group ID.
+   * 
+   * @example
+   * cc-gs5j3sua77******-clickhouse
+   */
   computingGroupId?: string;
   /**
    * @remarks

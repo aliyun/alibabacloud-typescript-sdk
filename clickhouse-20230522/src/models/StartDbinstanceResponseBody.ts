@@ -16,7 +16,7 @@ export class StartDBInstanceResponseBodyData extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * test1
+   * Enterprise edition cluster test
    */
   DBInstanceName?: string;
   /**

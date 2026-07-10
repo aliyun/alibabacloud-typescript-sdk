@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEndpointsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The computing group ID.
+   * 
    * @example
    * cc-*****-clickhouse
    */

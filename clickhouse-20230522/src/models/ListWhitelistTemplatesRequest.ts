@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWhitelistTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 25
    */
   pageSize?: number;
   /**
    * @remarks
-   * RegionId
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -24,6 +30,9 @@ export class ListWhitelistTemplatesRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The whitelist template name. Fuzzy search is supported.
+   * 
    * @example
    * default
    */

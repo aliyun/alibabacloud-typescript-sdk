@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBInstanceConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cc-uf6lkzf*****
    */
@@ -30,6 +33,10 @@ export class ModifyDBInstanceConfigResponseBodyData extends $dara.Model {
 }
 
 export class ModifyDBInstanceConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ModifyDBInstanceConfigResponseBodyData;
   /**
    * @remarks

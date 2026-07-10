@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination cluster.
+   * The ID of the target cluster.
    * 
    * This parameter is required.
    * 

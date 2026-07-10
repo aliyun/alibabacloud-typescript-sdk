@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model {
   /**
    * @remarks
-   * The address to which the query statement is sent.
+   * The IP address from which the query was initiated.
    * 
    * @example
    * 0:0:0:0:0:ffff:1edd65ea
@@ -21,7 +21,7 @@ export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model
   initialQueryId?: string;
   /**
    * @remarks
-   * The user who executes the query statement.
+   * The user who initiated the query.
    * 
    * @example
    * bany
@@ -37,7 +37,7 @@ export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model
   memoryUsage?: number;
   /**
    * @remarks
-   * The query statement that is running.
+   * The statement that was being executed.
    * 
    * @example
    * select * from test
@@ -45,7 +45,7 @@ export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model
   query?: string;
   /**
    * @remarks
-   * The execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+   * The execution duration of the slow query. The minimum value is **1000**. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -53,7 +53,7 @@ export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model
   queryDurationMs?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+   * The start time of the query. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-09-11 16:00:00
@@ -61,7 +61,7 @@ export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model
   queryStartTime?: string;
   /**
    * @remarks
-   * The size of the data that is scanned. Unit: bytes.
+   * The size of the scanned data. Unit: bytes.
    * 
    * @example
    * 4507128020832
@@ -69,7 +69,7 @@ export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model
   readBytes?: number;
   /**
    * @remarks
-   * The number of read rows.
+   * The number of rows read.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model
   resultBytes?: number;
   /**
    * @remarks
-   * The type of the slow query logs.
+   * The type of the slow query log.
    * 
    * @example
    * ExceptionWhileProcessing
@@ -146,17 +146,17 @@ export class DescribeSlowLogRecordsResponseBodyData extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * TestCluster
+   * Cluster test
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The result sets.
+   * The list of slow log records.
    */
   resultSet?: DescribeSlowLogRecordsResponseBodyDataResultSet[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1
@@ -195,7 +195,7 @@ export class DescribeSlowLogRecordsResponseBodyData extends $dara.Model {
 export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The result.
    */
   data?: DescribeSlowLogRecordsResponseBodyData;
   /**

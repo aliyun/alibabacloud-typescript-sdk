@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProcessListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The computing group ID.
+   * 
+   * @example
+   * cc-gs5j3sua77******-clickhouse
+   */
   computingGroupId?: string;
   /**
    * @remarks
@@ -24,7 +31,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   initialQueryId?: string;
   /**
    * @remarks
-   * The user who executes the query statement.
+   * The query user.
    * 
    * @example
    * testuser
@@ -32,7 +39,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   initialUser?: string;
   /**
    * @remarks
-   * The keyword of the query statement.
+   * The keyword in the query statement.
    * 
    * @example
    * SELECT
@@ -48,7 +55,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 30
@@ -56,7 +63,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The execution duration of slow SQL queries. Minimum value: 1000. Unit: milliseconds.
+   * The minimum query execution duration, in milliseconds (ms). Only queries that run for this duration or longer are returned. The minimum value is 1,000.
    * 
    * @example
    * 1000
@@ -64,14 +71,16 @@ export class DescribeProcessListRequest extends $dara.Model {
   queryDurationMs?: string;
   /**
    * @remarks
-   * Specifies the columns by which the query results are sorted in descending order.
+   * The criteria by which to sort the results. The results are sorted in descending order. Valid values:
    * 
-   * *   0: The query results are sorted by the query_duration_ms column.
-   * *   1: The query results are sorted by the query_duration_ms and query_start_time columns.
-   * *   2: The query results are sorted by the query_duration_ms, query_start_time, and user columns.
+   * - 0: Sorts by `query_duration_ms`.
+   * 
+   * - 1: Sorts by `query_duration_ms` and `query_start_time`.
+   * 
+   * - 2: Sorts by `query_duration_ms`, `query_start_time`, and `user`.
    * 
    * @example
-   * id
+   * 0
    */
   queryOrder?: number;
   /**

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DetachWhitelistTemplateToInstanceResponseBodyDataDetachFailList extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * my-database
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The reason the detach operation failed.
+   * 
    * @example
    * 处理异常
    */
@@ -38,6 +44,9 @@ export class DetachWhitelistTemplateToInstanceResponseBodyDataDetachFailList ext
 
 export class DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedListTemplatesDbInstances extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * asdfwef
    */
@@ -64,18 +73,31 @@ export class DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedLis
 }
 
 export class DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedListTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * A list of associated instances.
+   */
   dbInstances?: DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedListTemplatesDbInstances[];
   /**
+   * @remarks
+   * The IP whitelist.
+   * 
    * @example
    * 192.168.1.1,10.0.0.1
    */
   securityIPList?: string;
   /**
+   * @remarks
+   * The whitelist template ID.
+   * 
    * @example
    * g-asdfwem
    */
   templateId?: string;
   /**
+   * @remarks
+   * The whitelist template name.
+   * 
    * @example
    * demo_template
    */
@@ -112,10 +134,17 @@ export class DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedLis
 
 export class DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedList extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * my-database
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * A list of whitelist templates.
+   */
   templates?: DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedListTemplates[];
   static names(): { [key: string]: string } {
     return {
@@ -144,9 +173,20 @@ export class DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedLis
 }
 
 export class DetachWhitelistTemplateToInstanceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of instances that failed to detach.
+   */
   detachFailList?: DetachWhitelistTemplateToInstanceResponseBodyDataDetachFailList[];
+  /**
+   * @remarks
+   * A list of successfully detached instances.
+   */
   detachSuccessedList?: DetachWhitelistTemplateToInstanceResponseBodyDataDetachSuccessedList[];
   /**
+   * @remarks
+   * The status of the operation. A value of `ok` indicates success.
+   * 
    * @example
    * ok
    */
@@ -183,10 +223,14 @@ export class DetachWhitelistTemplateToInstanceResponseBodyData extends $dara.Mod
 }
 
 export class DetachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DetachWhitelistTemplateToInstanceResponseBodyData;
   /**
    * @remarks
-   * Request ID。
+   * The request ID.
    * 
    * @example
    * 1234567890

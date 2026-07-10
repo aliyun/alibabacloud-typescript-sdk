@@ -15,7 +15,7 @@ export class DeleteDBRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the destination database.
+   * The name of the target database.
    * 
    * This parameter is required.
    * 

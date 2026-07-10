@@ -17,8 +17,9 @@ export class CreateAccountRequestDmlAuthSetting extends $dara.Model {
    * @remarks
    * Specifies whether to grant the DDL permissions to the database account. Valid values:
    * 
-   * *   **true**: The account has the permissions to execute DDL statements.
-   * *   **false**: The account does not have the permissions to execute DDL statements.
+   * - **true**: The account has the permissions to execute DDL statements.
+   * 
+   * - **false**: The account does not have the permissions to execute DDL statements.
    * 
    * @example
    * true
@@ -28,9 +29,11 @@ export class CreateAccountRequestDmlAuthSetting extends $dara.Model {
    * @remarks
    * Specifies whether to grant the DML permissions to the database account. Valid values:
    * 
-   * *   **0**: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
-   * *   **1**: The account only has the permissions to read data from the database.
-   * *   **2**: The account only has the permissions to read data from the database and modify the settings of the database.
+   * - **0**: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
+   * 
+   * - **1**: The account only has the permissions to read data from the database.
+   * 
+   * - **2**: The account only has the permissions to read data from the database and modify the settings of the database.
    * 
    * @example
    * 0
@@ -84,8 +87,9 @@ export class CreateAccountRequest extends $dara.Model {
    * @remarks
    * The type of the database account. Valid values:
    * 
-   * *   **NormalAccount**: standard account
-   * *   **SuperAccount**: privileged account
+   * - **NormalAccount**: standard account
+   * 
+   * - **SuperAccount**: privileged account
    * 
    * This parameter is required.
    * 
@@ -108,7 +112,7 @@ export class CreateAccountRequest extends $dara.Model {
    * The description of the account.
    * 
    * @example
-   * Used for account
+   * For testing
    */
   description?: string;
   /**
@@ -121,7 +125,9 @@ export class CreateAccountRequest extends $dara.Model {
    * The password of the database account. The password must meet the following requirements:
    * 
    * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * - The following special characters are supported: ! @ # $ % ^ & * ( ) _ + - =
+   * 
+   * - The following special characters are supported: ! @ # $ % ^ & \\* ( ) _ + - =
+   * 
    * - The password must be 8 to 32 characters in length.
    * 
    * This parameter is required.

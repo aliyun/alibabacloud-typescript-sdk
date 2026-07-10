@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWhitelistTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteWhitelistTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The whitelist template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DeleteWhitelistTemplateRequest extends $dara.Model {
    */
   templateId?: string;
   /**
+   * @remarks
+   * The name of the whitelist template.
+   * 
    * @example
    * 98a6d3db05984dca
    */

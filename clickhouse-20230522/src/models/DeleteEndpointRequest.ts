@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteEndpointRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the computing group.
+   * 
+   * @example
+   * cc-2ze34****-clickhouse
+   */
   computingGroupId?: string;
   /**
    * @remarks
-   * The prefix of the endpoint, which indicates the prefix of the value of the ConnectionString parameter.
+   * The connection string of the public endpoint to delete.
    * 
    * @example
    * cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
@@ -14,7 +21,7 @@ export class DeleteEndpointRequest extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -22,10 +29,21 @@ export class DeleteEndpointRequest extends $dara.Model {
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The network type of the endpoint. Valid values:
+   * 
+   * - VPC: a virtual private cloud (VPC) network.
+   * 
+   * - Public: a public network.
+   * 
+   * @example
+   * Public
+   */
   DBInstanceNetType?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou

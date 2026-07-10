@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListClickHouseDBTimezonesResponseBodyTimeZones extends $dara.Model {
   /**
+   * @remarks
+   * The enumeration value for the time zone.
+   * 
    * @example
    * Asia/Shanghai
    */
@@ -38,6 +41,10 @@ export class ListClickHouseDBTimezonesResponseBody extends $dara.Model {
    * D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of time zones that ClickHouse supports.
+   */
   timeZones?: ListClickHouseDBTimezonesResponseBodyTimeZones[];
   static names(): { [key: string]: string } {
     return {

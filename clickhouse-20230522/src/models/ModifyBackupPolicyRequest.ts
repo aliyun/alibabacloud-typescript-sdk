@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyBackupPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of days to retain backups.
+   * 
    * @example
    * 7
    */
   backupRetentionPeriod?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The backup cycle.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
+   * The backup time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   preferredBackupTime?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

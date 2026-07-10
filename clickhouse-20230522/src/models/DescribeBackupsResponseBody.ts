@@ -4,51 +4,86 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBackupsResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the backup. The time is in UTC.
+   * 
    * @example
    * 2021-11-22T18:28:41Z
    */
   backupEndTime?: string;
   /**
+   * @remarks
+   * The backup record ID.
+   * 
    * @example
    * 117403****
    */
   backupId?: string;
   /**
+   * @remarks
+   * The backup method.
+   * 
    * @example
    * Physical
    */
   backupMethod?: string;
   /**
+   * @remarks
+   * The information about the backup set.
+   * 
    * @example
-   * {"shard_count"：4}
+   * {"shard_count": 4}
    */
   backupSetInfo?: string;
   /**
+   * @remarks
+   * The size of the backup file in MB.
+   * 
    * @example
    * 131072
    */
   backupSize?: number;
   /**
+   * @remarks
+   * The start time of the backup.
+   * 
    * @example
    * 2021-11-22T18:28:22Z
    */
   backupStartTime?: string;
   /**
+   * @remarks
+   * The status of the backup set.
+   * 
    * @example
    * Success
    */
   backupStatus?: string;
   /**
+   * @remarks
+   * The backup type.
+   * Valid values:
+   * 
+   * - **FullBackup**: full backup.
+   * 
+   * - **IncrementalBackup**: incremental backup.
+   * 
    * @example
    * IncrementalBackup
    */
   backupType?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp179i5956tih2m93
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The expiration time of the backup set.
+   * 
    * @example
    * 2022-07-22T18:28:41Z
    */
@@ -93,23 +128,39 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeBackupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of backup sets.
+   */
   items?: DescribeBackupsResponseBodyItems[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 30
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F5178C10-1407-4987-9133-DE4DC9119F75
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of backups.
+   * 
    * @example
    * 1
    */

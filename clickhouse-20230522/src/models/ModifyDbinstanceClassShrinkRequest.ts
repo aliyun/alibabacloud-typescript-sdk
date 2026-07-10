@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The autoscaling configuration for the compute group.
+   * 
    * **if can be null:**
    * true
    */
   autoScaleConfigShrink?: string;
+  /**
+   * @remarks
+   * The compute group ID.
+   * 
+   * @example
+   * cc-gs5j3sua77*******-clickhouse
+   */
   computingGroupId?: string;
   /**
    * @remarks
@@ -16,20 +26,29 @@ export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cc-xxxxxxx
+   * cc-gs5j3sua77*******
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The number of nodes. Valid values: 2 to 16.
+   * 
    * @example
    * 2
    */
   nodeCount?: number;
   /**
+   * @remarks
+   * The maximum capacity per node for serverless autoscaling. Valid values: 4 to 32. This value must be greater than the minimum value.
+   * 
    * @example
    * 4
    */
   nodeScaleMax?: number;
   /**
+   * @remarks
+   * The minimum capacity per node for serverless autoscaling. Valid values: 4 to 32.
+   * 
    * @example
    * 32
    */
@@ -44,7 +63,7 @@ export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The maximum capacity for elastic scaling.
+   * The maximum capacity for serverless autoscaling.
    * 
    * @example
    * 32
@@ -52,18 +71,24 @@ export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum capacity for elastic scaling.
+   * The minimum capacity for serverless autoscaling.
    * 
    * @example
-   * 2
+   * 8
    */
   scaleMin?: number;
   /**
+   * @remarks
+   * The pre-purchased storage capacity in GB.
+   * 
    * @example
    * 100
    */
   storageQuota?: number;
   /**
+   * @remarks
+   * The storage type.
+   * 
    * @example
    * OSS
    */

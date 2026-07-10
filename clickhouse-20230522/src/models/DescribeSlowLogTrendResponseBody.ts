@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   /**
    * @remarks
-   * The average execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+   * The average execution duration, in milliseconds, of slow SQL queries within the time interval.
    * 
    * @example
    * 2000
@@ -13,7 +13,7 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   avgQueryDurationMs?: number;
   /**
    * @remarks
-   * The total number of SQL queries within the specified time range.
+   * The number of slow SQL queries in the time interval.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   cnt?: number;
   /**
    * @remarks
-   * The maximum execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+   * The maximum execution duration, in milliseconds, of slow SQL queries within the time interval.
    * 
    * @example
    * 3000
@@ -29,7 +29,7 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   maxQueryDurationMs?: number;
   /**
    * @remarks
-   * The minimum execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+   * The minimum execution duration, in milliseconds, of slow SQL queries within the time interval.
    * 
    * @example
    * 1000
@@ -37,7 +37,7 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   minQueryDurationMs?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+   * The start of the time interval for the data point. The time is in UTC and uses the yyyy-MM-dd hh:mm:ss format.
    * 
    * @example
    * 2023-04-13 17:48:00
@@ -86,12 +86,12 @@ export class DescribeSlowLogTrendResponseBodyData extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * clusterTest
+   * Cluster test
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The result sets.
+   * The result set.
    */
   resultSet?: DescribeSlowLogTrendResponseBodyDataResultSet[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class DescribeSlowLogTrendResponseBodyData extends $dara.Model {
 export class DescribeSlowLogTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The data returned.
    */
   data?: DescribeSlowLogTrendResponseBodyData;
   /**

@@ -16,7 +16,7 @@ export class ModifyAccountDescriptionResponseBodyData extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * cc-xxxxx
+   * cc-bp1anv7jo84t****
    */
   DBInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -53,7 +53,7 @@ export class ModifyAccountDescriptionResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * xxx-xxx-xxx
+   * 7FFC9EBE-5023-5D5D-A5F0-1607E0F2****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

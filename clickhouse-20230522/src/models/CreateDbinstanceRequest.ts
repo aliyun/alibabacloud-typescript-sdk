@@ -44,13 +44,19 @@ export class CreateDBInstanceRequestMultiZone extends $dara.Model {
 
 export class CreateDBInstanceRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * user_123
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
-   * 示例字符串
+   * example string
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -85,10 +91,19 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * 1
    */
   backupSetId?: string;
+  /**
+   * @remarks
+   * The edition of the instance. Valid value:
+   * 
+   * - `enterprise`: Enterprise Edition
+   * 
+   * @example
+   * enterprise
+   */
   category?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-provided token to ensure request idempotence. It must be unique across requests, contain only ASCII characters, and not exceed 64 characters in length.
    * 
    * @example
    * AB
@@ -96,16 +111,23 @@ export class CreateDBInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The cluster description.
+   * The description of the instance.
    * 
    * @example
-   * Used for test
+   * Cluster test
    */
   DBInstanceDescription?: string;
+  /**
+   * @remarks
+   * The time zone of the database, which must be an IANA time zone identifier.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   DBTimeZone?: string;
   /**
    * @remarks
-   * The deployment status of the cluster.
+   * The deployment mode of the instance.
    * 
    * @example
    * multi_az
@@ -129,27 +151,36 @@ export class CreateDBInstanceRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The configurations of multi-zone deployment.
+   * The multi-zone configuration.
    */
   multiZone?: CreateDBInstanceRequestMultiZone[];
   /**
+   * @remarks
+   * The number of nodes. Valid values: 2 to 16. This parameter is required when you configure an elastic scaling range by using the `NodeScaleMin` and `NodeScaleMax` parameters.
+   * 
    * @example
    * 2
    */
   nodeCount?: number;
   /**
+   * @remarks
+   * The maximum number of nodes for serverless elastic scaling. Valid values: 4 to 32. The value must be greater than the `NodeScaleMin` parameter.
+   * 
    * @example
    * 4
    */
   nodeScaleMax?: number;
   /**
+   * @remarks
+   * The minimum number of nodes for serverless elastic scaling. Valid values: 4 to 32.
+   * 
    * @example
    * 32
    */
   nodeScaleMin?: number;
   /**
    * @remarks
-   * The region ID
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -158,13 +189,16 @@ export class CreateDBInstanceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
    * @example
    * rg-*****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The maximum capacity for auto scaling.
+   * This parameter is deprecated. Use the `NodeCount`, `NodeScaleMin`, and `NodeScaleMax` parameters to configure elastic scaling.
    * 
    * @example
    * 32
@@ -172,7 +206,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   scaleMax?: string;
   /**
    * @remarks
-   * The minimum capacity for auto scaling.
+   * This parameter is deprecated. Use the `NodeCount`, `NodeScaleMin`, and `NodeScaleMax` parameters to configure elastic scaling.
    * 
    * @example
    * 8
@@ -180,7 +214,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the source instance. This parameter is required when restoring from a backup.
    * 
    * @example
    * cc-2ze1*********
@@ -196,10 +230,14 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * OSS
    */
   storageType?: string;
+  /**
+   * @remarks
+   * The tags to add to the instance.
+   */
   tags?: CreateDBInstanceRequestTags[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-uf6xmupdn7v6ui9f****

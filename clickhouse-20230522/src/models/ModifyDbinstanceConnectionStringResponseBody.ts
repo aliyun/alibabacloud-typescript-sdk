@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the cluster.
+   * The connection string.
    * 
    * @example
    * cc-2ze34****-clickhouse..clickhouseserver.pre.rds.aliyuncs.com
@@ -65,7 +65,7 @@ export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Mode
 export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ModifyDBInstanceConnectionStringResponseBodyData;
   /**

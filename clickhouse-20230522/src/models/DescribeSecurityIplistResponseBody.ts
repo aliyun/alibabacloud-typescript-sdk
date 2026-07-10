@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityIPListResponseBodyDataGroupItems extends $dara.Model {
   /**
    * @remarks
-   * The name of the whitelist.
+   * The name of the whitelist group.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class DescribeSecurityIPListResponseBodyDataGroupItems extends $dara.Mode
   groupName?: string;
   /**
    * @remarks
-   * The tag of the whitelist.
+   * The group tag.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class DescribeSecurityIPListResponseBodyDataGroupItems extends $dara.Mode
   groupTag?: string;
   /**
    * @remarks
-   * The IP addresses and CIDR blocks in the whitelist.
+   * The IP addresses in the whitelist group.
    * 
    * @example
    * 127.0.XX.XX
@@ -86,12 +86,12 @@ export class DescribeSecurityIPListResponseBodyData extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * TestCluster
+   * Cluster test
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The details about the whitelists.
+   * The whitelist groups.
    */
   groupItems?: DescribeSecurityIPListResponseBodyDataGroupItems[];
   static names(): { [key: string]: string } {

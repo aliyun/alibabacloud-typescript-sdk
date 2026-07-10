@@ -16,7 +16,7 @@ export class DescribeDBInstanceDataSourcesResponseBodyDataColumns extends $dara.
    * The description of the database account.
    * 
    * @example
-   * Used for test
+   * Test
    */
   comment?: string;
   /**
@@ -31,8 +31,9 @@ export class DescribeDBInstanceDataSourcesResponseBodyDataColumns extends $dara.
    * @remarks
    * Indicates whether the column is the primary key of the table. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false

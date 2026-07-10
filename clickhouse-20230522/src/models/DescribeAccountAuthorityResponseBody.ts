@@ -13,12 +13,12 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * The databases on which permissions are granted.
+   * A list of authorized databases.
    */
   allowDatabases?: string[];
   /**
    * @remarks
-   * The dictionaries on which permissions are granted.
+   * A list of authorized dictionaries.
    */
   allowDictionaries?: string[];
   /**
@@ -31,10 +31,11 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether the DDL permissions are granted to the database account. Valid values:
+   * Indicates whether DDL permissions are granted to the database account. Valid values:
    * 
-   * *   **true**: The account has the permissions to execute DDL statements.
-   * *   **false**: The account does not have the permissions to execute DDL statements.
+   * - **true**: DDL operations are allowed.
+   * 
+   * - **false**: DDL operations are prohibited.
    * 
    * @example
    * true
@@ -42,11 +43,13 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   ddlAuthority?: boolean;
   /**
    * @remarks
-   * Indicates whether the DML permissions are granted to the database account. Valid values:
+   * The DML permissions that are granted to the database account. Valid values:
    * 
-   * *   0: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
-   * *   1: The account only has the permissions to read data from the database.
-   * *   2: The account only has the permissions to read data from the database and modify the settings of the database.
+   * - 0: Read, write, and change settings queries are allowed.
+   * 
+   * - 1: Only read data queries are allowed.
+   * 
+   * - 2: Read data and change settings queries are allowed.
    * 
    * @example
    * 0
@@ -54,7 +57,7 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   dmlAuthority?: number;
   /**
    * @remarks
-   * All databases.
+   * A list of all databases.
    */
   totalDatabases?: string[];
   /**
@@ -112,7 +115,7 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
 export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: DescribeAccountAuthorityResponseBodyData;
   /**
@@ -120,7 +123,7 @@ export class DescribeAccountAuthorityResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * F5178C10-1407-4987-9133-DE4DC9119F75
+   * F5178C10-1407-4987-9133-DE4DC911****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

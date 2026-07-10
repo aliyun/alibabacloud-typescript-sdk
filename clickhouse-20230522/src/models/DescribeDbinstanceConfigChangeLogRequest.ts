@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceConfigChangeLogRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeDBInstanceConfigChangeLogRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The end time of the query. Format: yyyy-MM-dd hh:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,29 @@ export class DescribeDBInstanceConfigChangeLogRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return per page. Default value: 30. Valid values:
+   * 
+   * - **30** (default)
+   * - **50**
+   * - **100**
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +55,8 @@ export class DescribeDBInstanceConfigChangeLogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The start time of the query. Format: yyyy-MM-dd hh:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -15,11 +15,12 @@ export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
    * @remarks
    * The type of the database account. Valid values:
    * 
-   * *   **1**: standard account
-   * *   **6**: privileged account
+   * - **1**: standard account
+   * 
+   * - **6**: privileged account
    * 
    * @example
-   * NormalAccount
+   * 1
    */
   accountType?: string;
   /**
@@ -27,16 +28,18 @@ export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
    * The description.
    * 
    * @example
-   * Used for test
+   * For testing
    */
   description?: string;
   /**
    * @remarks
    * The state of the database account. Valid values:
    * 
-   * *   **0**: The database account is being created.
-   * *   **1**: The database account is in use.
-   * *   **3**: The database account is being deleted.
+   * - **0**: The database account is being created.
+   * 
+   * - **1**: The database account is in use.
+   * 
+   * - **3**: The database account is being deleted.
    * 
    * @example
    * 1
@@ -87,9 +90,11 @@ export class DescribeAccountsResponseBodyData extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30

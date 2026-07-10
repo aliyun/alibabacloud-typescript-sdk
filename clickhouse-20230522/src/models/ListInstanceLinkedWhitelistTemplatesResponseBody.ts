@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstanceLinkedWhitelistTemplatesResponseBodyDataTemplates extends $dara.Model {
   /**
+   * @remarks
+   * The comma-separated IP addresses in the whitelist.
+   * 
    * @example
    * 192.168.1.1,10.0.0.1
    */
   securityIPList?: string;
   /**
+   * @remarks
+   * The IP address whitelist template ID.
+   * 
    * @example
    * g-asdfwem
    */
   templateId?: string;
   /**
+   * @remarks
+   * The IP address whitelist template name.
+   * 
    * @example
    * demo_template
    */
@@ -44,6 +53,10 @@ export class ListInstanceLinkedWhitelistTemplatesResponseBodyDataTemplates exten
 }
 
 export class ListInstanceLinkedWhitelistTemplatesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of IP address whitelist templates.
+   */
   templates?: ListInstanceLinkedWhitelistTemplatesResponseBodyDataTemplates[];
   static names(): { [key: string]: string } {
     return {
@@ -70,10 +83,14 @@ export class ListInstanceLinkedWhitelistTemplatesResponseBodyData extends $dara.
 }
 
 export class ListInstanceLinkedWhitelistTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListInstanceLinkedWhitelistTemplatesResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1234567890

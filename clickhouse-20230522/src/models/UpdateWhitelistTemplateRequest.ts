@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWhitelistTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * RegionId
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class UpdateWhitelistTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The IP address whitelist. You can add up to 100 IP addresses, separated by commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class UpdateWhitelistTemplateRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
+   * The whitelist template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +35,8 @@ export class UpdateWhitelistTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
+   * The whitelist template name.
+   * 
    * This parameter is required.
    * 
    * @example

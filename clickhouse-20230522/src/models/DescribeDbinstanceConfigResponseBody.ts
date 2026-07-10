@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBInstanceConfigResponseBodyDataParams extends $dara.Model {
   /**
+   * @remarks
+   * The parameter description.
+   * 
    * @example
    * Maximum number of concurrently executed queries. Zero means unlimited.
    */
   comment?: string;
   /**
+   * @remarks
+   * The default value of the parameter.
+   * 
    * @example
    * 1
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * Indicates whether the parameter takes effect dynamically (without requiring a restart).
+   * 
    * @example
    * 1
    */
   isDynamic?: number;
   /**
+   * @remarks
+   * Indicates whether the parameter can be modified by users.
+   * 
    * @example
    * 1
    */
   isUserModifiable?: number;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * max_concurrent_queries
    */
   name?: string;
   /**
+   * @remarks
+   * The valid values of the parameter.
+   * 
    * @example
    * [0-100]
    */
   optional?: string;
   /**
+   * @remarks
+   * The parameter dependencies.
+   * 
    * @example
    * 0
    */
   paramRelyRule?: string;
   /**
+   * @remarks
+   * The value of the parameter.
+   * 
    * @example
    * 100
    */
@@ -80,10 +104,17 @@ export class DescribeDBInstanceConfigResponseBodyDataParams extends $dara.Model 
 
 export class DescribeDBInstanceConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The user parameters.
+   */
   params?: DescribeDBInstanceConfigResponseBodyDataParams[];
   static names(): { [key: string]: string } {
     return {
@@ -112,10 +143,14 @@ export class DescribeDBInstanceConfigResponseBodyData extends $dara.Model {
 }
 
 export class DescribeDBInstanceConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   data?: DescribeDBInstanceConfigResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request
    * 
    * @example
    * 66428721-xxxx-xxxx-xxxx-3BD1B67837E0

@@ -4,31 +4,60 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of days for which the backup files are retained.
+   * 
    * @example
    * 7
    */
   backupRetentionPeriod?: number;
   /**
+   * @remarks
+   * The size of the backup file. Unit: MB.
+   * 
    * @example
    * 123124
    */
   backupSize?: string;
   /**
+   * @remarks
+   * The backup cycle. Valid values:
+   * 
+   * - **Monday**
+   * - **Tuesday**
+   * - **Wednesday**
+   * - **Thursday**
+   * - **Friday**
+   * - **Saturday**
+   * - **Sunday**
+   * 
    * @example
    * Monday
    */
   preferredBackupPeriod?: string;
   /**
+   * @remarks
+   * The backup time. The time is in UTC.
+   * 
    * @example
    * 15:00Z-16:00Z
    */
   preferredBackupTime?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F5178C10-1407-4987-9133-DE4DC9119F75
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the backup feature is enabled. Valid values:
+   * 
+   * - **true**: The backup feature is enabled.
+   * - **false**: The backup feature is disabled.
+   * 
    * @example
    * true
    */

@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListClickHouseDBTimezonesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on each page. Valid values:
+   * 
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
+   * 
    * @example
    * 30
    */

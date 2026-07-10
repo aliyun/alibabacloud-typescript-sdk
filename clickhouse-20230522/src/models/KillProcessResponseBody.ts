@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class KillProcessResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of queries that are terminated.
+   * The number of terminated tasks.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class KillProcessResponseBodyData extends $dara.Model {
 export class KillProcessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: KillProcessResponseBodyData;
   /**

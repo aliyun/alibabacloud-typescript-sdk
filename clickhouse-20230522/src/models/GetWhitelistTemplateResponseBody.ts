@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWhitelistTemplateResponseBodyDataTemplatesDbInstances extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cc-asdfwef
    */
@@ -30,18 +33,31 @@ export class GetWhitelistTemplateResponseBodyDataTemplatesDbInstances extends $d
 }
 
 export class GetWhitelistTemplateResponseBodyDataTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * The list of associated instances.
+   */
   dbInstances?: GetWhitelistTemplateResponseBodyDataTemplatesDbInstances[];
   /**
+   * @remarks
+   * The IP whitelist.
+   * 
    * @example
    * 192.168.1.1,10.0.0.1
    */
   securityIPList?: string;
   /**
+   * @remarks
+   * The ID of the whitelist template.
+   * 
    * @example
    * g-asdfwem
    */
   templateId?: string;
   /**
+   * @remarks
+   * The name of the whitelist template.
+   * 
    * @example
    * demo_template
    */
@@ -77,6 +93,10 @@ export class GetWhitelistTemplateResponseBodyDataTemplates extends $dara.Model {
 }
 
 export class GetWhitelistTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of whitelist templates.
+   */
   templates?: GetWhitelistTemplateResponseBodyDataTemplates[];
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +123,14 @@ export class GetWhitelistTemplateResponseBodyData extends $dara.Model {
 }
 
 export class GetWhitelistTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The whitelist template details.
+   */
   data?: GetWhitelistTemplateResponseBodyData;
   /**
    * @remarks
-   * Request ID。
+   * The request ID.
    * 
    * @example
    * 1234567890

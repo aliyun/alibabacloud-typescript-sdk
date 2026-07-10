@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWhitelistTemplatesResponseBodyDataTemplatesDbInstances extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cc-asdfwef
    */
@@ -30,18 +33,31 @@ export class ListWhitelistTemplatesResponseBodyDataTemplatesDbInstances extends 
 }
 
 export class ListWhitelistTemplatesResponseBodyDataTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * The list of associated instances.
+   */
   dbInstances?: ListWhitelistTemplatesResponseBodyDataTemplatesDbInstances[];
   /**
+   * @remarks
+   * The IP address whitelist.
+   * 
    * @example
    * 192.168.1.1,10.0.0.1
    */
   securityIPList?: string;
   /**
+   * @remarks
+   * The whitelist template ID.
+   * 
    * @example
    * g-asdfwem
    */
   templateId?: string;
   /**
+   * @remarks
+   * The whitelist template name.
+   * 
    * @example
    * g-asdfwem
    */
@@ -78,32 +94,54 @@ export class ListWhitelistTemplatesResponseBodyDataTemplates extends $dara.Model
 
 export class ListWhitelistTemplatesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currPageNumbers?: number;
   /**
+   * @remarks
+   * Whether a next page exists.
+   * 
    * @example
    * true
    */
   hasNext?: boolean;
   /**
+   * @remarks
+   * Whether a previous page exists.
+   * 
    * @example
    * false
    */
   hasPrev?: boolean;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of whitelist templates.
+   */
   templates?: ListWhitelistTemplatesResponseBodyDataTemplates[];
   /**
+   * @remarks
+   * The total number of templates.
+   * 
    * @example
    * 30
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 2
    */
@@ -145,10 +183,14 @@ export class ListWhitelistTemplatesResponseBodyData extends $dara.Model {
 }
 
 export class ListWhitelistTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The query results.
+   */
   data?: ListWhitelistTemplatesResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1234567890

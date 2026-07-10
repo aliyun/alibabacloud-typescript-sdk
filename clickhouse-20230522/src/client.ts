@@ -57,6 +57,18 @@ export default class Client extends OpenApi {
       'rus-west-1-pop': "clickhouse.aliyuncs.com",
       'us-east-1': "clickhouse.aliyuncs.com",
       'us-west-1': "clickhouse.aliyuncs.com",
+      'me-central-1': "clickhouse.me-central-1.aliyuncs.com",
+      'eu-west-1': "clickhouse.eu-west-1.aliyuncs.com",
+      'eu-central-1': "clickhouse.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "clickhouse.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "clickhouse.aliyuncs.com",
+      'cn-huhehaote': "clickhouse.cn-huhehaote.aliyuncs.com",
+      'cn-guangzhou': "clickhouse.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "clickhouse.cn-chengdu.aliyuncs.com",
+      'ap-southeast-6': "clickhouse.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "clickhouse.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "clickhouse.aliyuncs.com",
+      'ap-northeast-1': "clickhouse.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("clickhouse", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -76,7 +88,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 白名单模板关联实例
+   * Attaches a whitelist template to instances.
    * 
    * @param request - AttachWhitelistTemplateToInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -115,7 +127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 白名单模板关联实例
+   * Attaches a whitelist template to instances.
    * 
    * @param request - AttachWhitelistTemplateToInstanceRequest
    * @returns AttachWhitelistTemplateToInstanceResponse
@@ -126,7 +138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Changes the resource group of a ClickHouse Enterprise instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -169,7 +181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Changes the resource group of a ClickHouse Enterprise instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -256,7 +268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
    * 
    * @param request - CreateBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -303,7 +315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
    * 
    * @param request - CreateBackupPolicyRequest
    * @returns CreateBackupPolicyResponse
@@ -314,7 +326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ApsaraDB for ClickHouse database.
+   * Creates a database.
    * 
    * @param request - CreateDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -357,7 +369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ApsaraDB for ClickHouse database.
+   * Creates a database.
    * 
    * @param request - CreateDBRequest
    * @returns CreateDBResponse
@@ -368,7 +380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
    * 
    * @param tmpReq - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -493,7 +505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
    * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
@@ -504,7 +516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a public endpoint.
+   * Creates a public endpoint that provides a public address to access a cluster.
    * 
    * @param request - CreateEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -551,7 +563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a public endpoint.
+   * Creates a public endpoint that provides a public address to access a cluster.
    * 
    * @param request - CreateEndpointRequest
    * @returns CreateEndpointResponse
@@ -562,7 +574,239 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增白名单模板
+   * Creates a Langfuse organization.
+   * 
+   * @param request - CreateLangfuseOrgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLangfuseOrgResponse
+   */
+  async createLangfuseOrgWithOptions(request: $_model.CreateLangfuseOrgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLangfuseOrgResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerEmail)) {
+      query["OwnerEmail"] = request.ownerEmail;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLangfuseOrg",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLangfuseOrgResponse>(await this.callApi(params, req, runtime), new $_model.CreateLangfuseOrgResponse({}));
+  }
+
+  /**
+   * Creates a Langfuse organization.
+   * 
+   * @param request - CreateLangfuseOrgRequest
+   * @returns CreateLangfuseOrgResponse
+   */
+  async createLangfuseOrg(request: $_model.CreateLangfuseOrgRequest): Promise<$_model.CreateLangfuseOrgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLangfuseOrgWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds a user to a Langfuse organization.
+   * 
+   * @param request - CreateLangfuseOrgMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLangfuseOrgMemberResponse
+   */
+  async createLangfuseOrgMemberWithOptions(request: $_model.CreateLangfuseOrgMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLangfuseOrgMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLangfuseOrgMember",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLangfuseOrgMemberResponse>(await this.callApi(params, req, runtime), new $_model.CreateLangfuseOrgMemberResponse({}));
+  }
+
+  /**
+   * Adds a user to a Langfuse organization.
+   * 
+   * @param request - CreateLangfuseOrgMemberRequest
+   * @returns CreateLangfuseOrgMemberResponse
+   */
+  async createLangfuseOrgMember(request: $_model.CreateLangfuseOrgMemberRequest): Promise<$_model.CreateLangfuseOrgMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLangfuseOrgMemberWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a Langfuse project.
+   * 
+   * @param request - CreateLangfuseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLangfuseProjectResponse
+   */
+  async createLangfuseProjectWithOptions(request: $_model.CreateLangfuseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLangfuseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLangfuseProject",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLangfuseProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateLangfuseProjectResponse({}));
+  }
+
+  /**
+   * Creates a Langfuse project.
+   * 
+   * @param request - CreateLangfuseProjectRequest
+   * @returns CreateLangfuseProjectResponse
+   */
+  async createLangfuseProject(request: $_model.CreateLangfuseProjectRequest): Promise<$_model.CreateLangfuseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLangfuseProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a Langfuse user.
+   * 
+   * @param request - CreateLangfuseUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLangfuseUserResponse
+   */
+  async createLangfuseUserWithOptions(request: $_model.CreateLangfuseUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLangfuseUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.orgRole)) {
+      query["OrgRole"] = request.orgRole;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLangfuseUser",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLangfuseUserResponse>(await this.callApi(params, req, runtime), new $_model.CreateLangfuseUserResponse({}));
+  }
+
+  /**
+   * Creates a Langfuse user.
+   * 
+   * @param request - CreateLangfuseUserRequest
+   * @returns CreateLangfuseUserResponse
+   */
+  async createLangfuseUser(request: $_model.CreateLangfuseUserRequest): Promise<$_model.CreateLangfuseUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLangfuseUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a whitelist template.
    * 
    * @param request - CreateWhitelistTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -603,7 +847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增白名单模板
+   * Creates a whitelist template.
    * 
    * @param request - CreateWhitelistTemplateRequest
    * @returns CreateWhitelistTemplateResponse
@@ -668,7 +912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DeleteBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -703,7 +947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DeleteBackupPolicyRequest
    * @returns DeleteBackupPolicyResponse
@@ -714,7 +958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an ApsaraDB for ClickHouse database.
+   * Call this operation to delete a database.
    * 
    * @param request - DeleteDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -753,7 +997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an ApsaraDB for ClickHouse database.
+   * Call this operation to delete a database.
    * 
    * @param request - DeleteDBRequest
    * @returns DeleteDBResponse
@@ -764,7 +1008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DeleteDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -799,7 +1043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DeleteDBInstanceRequest
    * @returns DeleteDBInstanceResponse
@@ -810,7 +1054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a public endpoint.
+   * Deletes a public endpoint.
    * 
    * @param request - DeleteEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -857,7 +1101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a public endpoint.
+   * Deletes a public endpoint.
    * 
    * @param request - DeleteEndpointRequest
    * @returns DeleteEndpointResponse
@@ -868,7 +1112,261 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除白名单模板
+   * Releases a Langfuse instance.
+   * 
+   * @param request - DeleteLangfuseInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLangfuseInstanceResponse
+   */
+  async deleteLangfuseInstanceWithOptions(request: $_model.DeleteLangfuseInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLangfuseInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLangfuseInstance",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLangfuseInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLangfuseInstanceResponse({}));
+  }
+
+  /**
+   * Releases a Langfuse instance.
+   * 
+   * @param request - DeleteLangfuseInstanceRequest
+   * @returns DeleteLangfuseInstanceResponse
+   */
+  async deleteLangfuseInstance(request: $_model.DeleteLangfuseInstanceRequest): Promise<$_model.DeleteLangfuseInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLangfuseInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a Langfuse organization.
+   * 
+   * @param request - DeleteLangfuseOrgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLangfuseOrgResponse
+   */
+  async deleteLangfuseOrgWithOptions(request: $_model.DeleteLangfuseOrgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLangfuseOrgResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLangfuseOrg",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLangfuseOrgResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLangfuseOrgResponse({}));
+  }
+
+  /**
+   * Deletes a Langfuse organization.
+   * 
+   * @param request - DeleteLangfuseOrgRequest
+   * @returns DeleteLangfuseOrgResponse
+   */
+  async deleteLangfuseOrg(request: $_model.DeleteLangfuseOrgRequest): Promise<$_model.DeleteLangfuseOrgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLangfuseOrgWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes a user from a Langfuse organization.
+   * 
+   * @param request - DeleteLangfuseOrgMembershipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLangfuseOrgMembershipResponse
+   */
+  async deleteLangfuseOrgMembershipWithOptions(request: $_model.DeleteLangfuseOrgMembershipRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLangfuseOrgMembershipResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLangfuseOrgMembership",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLangfuseOrgMembershipResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLangfuseOrgMembershipResponse({}));
+  }
+
+  /**
+   * Removes a user from a Langfuse organization.
+   * 
+   * @param request - DeleteLangfuseOrgMembershipRequest
+   * @returns DeleteLangfuseOrgMembershipResponse
+   */
+  async deleteLangfuseOrgMembership(request: $_model.DeleteLangfuseOrgMembershipRequest): Promise<$_model.DeleteLangfuseOrgMembershipResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLangfuseOrgMembershipWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a Langfuse project.
+   * 
+   * @param request - DeleteLangfuseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLangfuseProjectResponse
+   */
+  async deleteLangfuseProjectWithOptions(request: $_model.DeleteLangfuseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLangfuseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLangfuseProject",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLangfuseProjectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLangfuseProjectResponse({}));
+  }
+
+  /**
+   * Deletes a Langfuse project.
+   * 
+   * @param request - DeleteLangfuseProjectRequest
+   * @returns DeleteLangfuseProjectResponse
+   */
+  async deleteLangfuseProject(request: $_model.DeleteLangfuseProjectRequest): Promise<$_model.DeleteLangfuseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLangfuseProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a Langfuse user.
+   * 
+   * @param request - DeleteLangfuseUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLangfuseUserResponse
+   */
+  async deleteLangfuseUserWithOptions(request: $_model.DeleteLangfuseUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLangfuseUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLangfuseUser",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLangfuseUserResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLangfuseUserResponse({}));
+  }
+
+  /**
+   * Deletes a Langfuse user.
+   * 
+   * @param request - DeleteLangfuseUserRequest
+   * @returns DeleteLangfuseUserResponse
+   */
+  async deleteLangfuseUser(request: $_model.DeleteLangfuseUserRequest): Promise<$_model.DeleteLangfuseUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLangfuseUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a whitelist template.
    * 
    * @param request - DeleteWhitelistTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -907,7 +1405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除白名单模板
+   * Deletes a whitelist template.
    * 
    * @param request - DeleteWhitelistTemplateRequest
    * @returns DeleteWhitelistTemplateResponse
@@ -918,7 +1416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permissions of a database account.
+   * Call the DescribeAccountAuthority operation to query the permissions of an account.
    * 
    * @param request - DescribeAccountAuthorityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -957,7 +1455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permissions of a database account.
+   * Call the DescribeAccountAuthority operation to query the permissions of an account.
    * 
    * @param request - DescribeAccountAuthorityRequest
    * @returns DescribeAccountAuthorityResponse
@@ -1026,7 +1524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Queries the backup policy of a ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1061,7 +1559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Queries the backup policy of a ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @returns DescribeBackupPolicyResponse
@@ -1072,7 +1570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Queries the backup sets of a ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1127,7 +1625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Queries the backup sets of a ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
@@ -1138,7 +1636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1173,7 +1671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -1184,7 +1682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例参数配置
+   * Queries the parameter configuration of an instance
    * 
    * @param request - DescribeDBInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1211,7 +1709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例参数配置
+   * Queries the parameter configuration of an instance
    * 
    * @param request - DescribeDBInstanceConfigRequest
    * @returns DescribeDBInstanceConfigResponse
@@ -1222,7 +1720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例参数配置记录
+   * Queries the parameter configuration records of an instance
    * 
    * @param request - DescribeDBInstanceConfigChangeLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1249,7 +1747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例参数配置记录
+   * Queries the parameter configuration records of an instance
    * 
    * @param request - DescribeDBInstanceConfigChangeLogRequest
    * @returns DescribeDBInstanceConfigChangeLogResponse
@@ -1314,7 +1812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ApsaraDB for ClickHouse clusters.
+   * Call the DescribeDBInstances API to query a list of DB instances.
    * 
    * @param request - DescribeDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1377,7 +1875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ApsaraDB for ClickHouse clusters.
+   * Call the DescribeDBInstances API to query a list of DB instances.
    * 
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse
@@ -1388,7 +1886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the endpoint of an ApsaraDB for ClickHouse cluster.
+   * To retrieve the cluster endpoints, call DescribeEndpoints.
    * 
    * @param request - DescribeEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1427,7 +1925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the endpoint of an ApsaraDB for ClickHouse cluster.
+   * To retrieve the cluster endpoints, call DescribeEndpoints.
    * 
    * @param request - DescribeEndpointsRequest
    * @returns DescribeEndpointsResponse
@@ -1438,7 +1936,435 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views running queries.
+   * Queries the access endpoint of a Langfuse instance.
+   * 
+   * @param request - DescribeLangfuseEndpointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLangfuseEndpointsResponse
+   */
+  async describeLangfuseEndpointsWithOptions(request: $_model.DescribeLangfuseEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLangfuseEndpointsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLangfuseEndpoints",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLangfuseEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLangfuseEndpointsResponse({}));
+  }
+
+  /**
+   * Queries the access endpoint of a Langfuse instance.
+   * 
+   * @param request - DescribeLangfuseEndpointsRequest
+   * @returns DescribeLangfuseEndpointsResponse
+   */
+  async describeLangfuseEndpoints(request: $_model.DescribeLangfuseEndpointsRequest): Promise<$_model.DescribeLangfuseEndpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLangfuseEndpointsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the member information of a Langfuse organization.
+   * 
+   * @param request - DescribeLangfuseOrgMembershipsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLangfuseOrgMembershipsResponse
+   */
+  async describeLangfuseOrgMembershipsWithOptions(request: $_model.DescribeLangfuseOrgMembershipsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLangfuseOrgMembershipsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLangfuseOrgMemberships",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLangfuseOrgMembershipsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLangfuseOrgMembershipsResponse({}));
+  }
+
+  /**
+   * Queries the member information of a Langfuse organization.
+   * 
+   * @param request - DescribeLangfuseOrgMembershipsRequest
+   * @returns DescribeLangfuseOrgMembershipsResponse
+   */
+  async describeLangfuseOrgMemberships(request: $_model.DescribeLangfuseOrgMembershipsRequest): Promise<$_model.DescribeLangfuseOrgMembershipsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLangfuseOrgMembershipsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Langfuse实例组织列表
+   * 
+   * @param request - DescribeLangfuseOrgsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLangfuseOrgsResponse
+   */
+  async describeLangfuseOrgsWithOptions(request: $_model.DescribeLangfuseOrgsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLangfuseOrgsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLangfuseOrgs",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLangfuseOrgsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLangfuseOrgsResponse({}));
+  }
+
+  /**
+   * 查询Langfuse实例组织列表
+   * 
+   * @param request - DescribeLangfuseOrgsRequest
+   * @returns DescribeLangfuseOrgsResponse
+   */
+  async describeLangfuseOrgs(request: $_model.DescribeLangfuseOrgsRequest): Promise<$_model.DescribeLangfuseOrgsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLangfuseOrgsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries user roles in a Langfuse project.
+   * 
+   * @param request - DescribeLangfuseProjectMembershipsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLangfuseProjectMembershipsResponse
+   */
+  async describeLangfuseProjectMembershipsWithOptions(request: $_model.DescribeLangfuseProjectMembershipsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLangfuseProjectMembershipsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLangfuseProjectMemberships",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLangfuseProjectMembershipsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLangfuseProjectMembershipsResponse({}));
+  }
+
+  /**
+   * Queries user roles in a Langfuse project.
+   * 
+   * @param request - DescribeLangfuseProjectMembershipsRequest
+   * @returns DescribeLangfuseProjectMembershipsResponse
+   */
+  async describeLangfuseProjectMemberships(request: $_model.DescribeLangfuseProjectMembershipsRequest): Promise<$_model.DescribeLangfuseProjectMembershipsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLangfuseProjectMembershipsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of Langfuse projects.
+   * 
+   * @param request - DescribeLangfuseProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLangfuseProjectsResponse
+   */
+  async describeLangfuseProjectsWithOptions(request: $_model.DescribeLangfuseProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLangfuseProjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLangfuseProjects",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLangfuseProjectsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLangfuseProjectsResponse({}));
+  }
+
+  /**
+   * Queries the list of Langfuse projects.
+   * 
+   * @param request - DescribeLangfuseProjectsRequest
+   * @returns DescribeLangfuseProjectsResponse
+   */
+  async describeLangfuseProjects(request: $_model.DescribeLangfuseProjectsRequest): Promise<$_model.DescribeLangfuseProjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLangfuseProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the Langfuse whitelist.
+   * 
+   * @param request - DescribeLangfuseSecurityIPListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLangfuseSecurityIPListResponse
+   */
+  async describeLangfuseSecurityIPListWithOptions(request: $_model.DescribeLangfuseSecurityIPListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLangfuseSecurityIPListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLangfuseSecurityIPList",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLangfuseSecurityIPListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLangfuseSecurityIPListResponse({}));
+  }
+
+  /**
+   * Queries the Langfuse whitelist.
+   * 
+   * @param request - DescribeLangfuseSecurityIPListRequest
+   * @returns DescribeLangfuseSecurityIPListResponse
+   */
+  async describeLangfuseSecurityIPList(request: $_model.DescribeLangfuseSecurityIPListRequest): Promise<$_model.DescribeLangfuseSecurityIPListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLangfuseSecurityIPListWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a Langfuse user.
+   * 
+   * @param request - DescribeLangfuseUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLangfuseUserResponse
+   */
+  async describeLangfuseUserWithOptions(request: $_model.DescribeLangfuseUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLangfuseUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLangfuseUser",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLangfuseUserResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLangfuseUserResponse({}));
+  }
+
+  /**
+   * Queries the details of a Langfuse user.
+   * 
+   * @param request - DescribeLangfuseUserRequest
+   * @returns DescribeLangfuseUserResponse
+   */
+  async describeLangfuseUser(request: $_model.DescribeLangfuseUserRequest): Promise<$_model.DescribeLangfuseUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLangfuseUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of Langfuse users.
+   * 
+   * @param request - DescribeLangfuseUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLangfuseUsersResponse
+   */
+  async describeLangfuseUsersWithOptions(request: $_model.DescribeLangfuseUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLangfuseUsersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLangfuseUsers",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLangfuseUsersResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLangfuseUsersResponse({}));
+  }
+
+  /**
+   * Queries the list of Langfuse users.
+   * 
+   * @param request - DescribeLangfuseUsersRequest
+   * @returns DescribeLangfuseUsersResponse
+   */
+  async describeLangfuseUsers(request: $_model.DescribeLangfuseUsersRequest): Promise<$_model.DescribeLangfuseUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLangfuseUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * Describes currently running queries.
    * 
    * @param request - DescribeProcessListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1505,7 +2431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views running queries.
+   * Describes currently running queries.
    * 
    * @param request - DescribeProcessListRequest
    * @returns DescribeProcessListResponse
@@ -1516,7 +2442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云数据库ClickHouse所有地域和可用区的信息
+   * Returns information about the available regions and zones for ApsaraDB for ClickHouse.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
@@ -1538,7 +2464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云数据库ClickHouse所有地域和可用区的信息
+   * Returns information about the available regions and zones for ApsaraDB for ClickHouse.
    * @returns DescribeRegionsResponse
    */
   async describeRegions(): Promise<$_model.DescribeRegionsResponse> {
@@ -1547,7 +2473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the whitelist of an ApsaraDB for ClickHouse cluster.
+   * Queries a whitelist.
    * 
    * @param request - DescribeSecurityIPListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1582,7 +2508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the whitelist of an ApsaraDB for ClickHouse cluster.
+   * Queries a whitelist.
    * 
    * @param request - DescribeSecurityIPListRequest
    * @returns DescribeSecurityIPListResponse
@@ -1593,7 +2519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of slow query logs.
+   * Call DescribeSlowLogRecords to query slow log records.
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1652,7 +2578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of slow query logs.
+   * Call DescribeSlowLogRecords to query slow log records.
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @returns DescribeSlowLogRecordsResponse
@@ -1663,7 +2589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend of slow query logs.
+   * Queries the slow log trend.
    * 
    * @param request - DescribeSlowLogTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1718,7 +2644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend of slow query logs.
+   * Queries the slow log trend.
    * 
    * @param request - DescribeSlowLogTrendRequest
    * @returns DescribeSlowLogTrendResponse
@@ -1729,7 +2655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消白名单模板和实例关联关系
+   * Disassociate a whitelist template from an instance.
    * 
    * @param request - DetachWhitelistTemplateToInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1768,7 +2694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消白名单模板和实例关联关系
+   * Disassociate a whitelist template from an instance.
    * 
    * @param request - DetachWhitelistTemplateToInstanceRequest
    * @returns DetachWhitelistTemplateToInstanceResponse
@@ -1779,7 +2705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询白名单模板详情
+   * Queries the details of a whitelist template.
    * 
    * @param request - GetWhitelistTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1814,7 +2740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询白名单模板详情
+   * Queries the details of a whitelist template.
    * 
    * @param request - GetWhitelistTemplateRequest
    * @returns GetWhitelistTemplateResponse
@@ -1825,7 +2751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates an ongoing query.
+   * Terminates a running task.
    * 
    * @param request - KillProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1868,7 +2794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates an ongoing query.
+   * Terminates a running task.
    * 
    * @param request - KillProcessRequest
    * @returns KillProcessResponse
@@ -1879,7 +2805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举ClickHouse时区参数枚举值
+   * Lists the available time zones for ClickHouse.
    * 
    * @param request - ListClickHouseDBTimezonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1914,7 +2840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举ClickHouse时区参数枚举值
+   * Lists the available time zones for ClickHouse.
    * 
    * @param request - ListClickHouseDBTimezonesRequest
    * @returns ListClickHouseDBTimezonesResponse
@@ -1925,7 +2851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例关联的白名单模板清单
+   * Lists the IP address whitelist templates linked to an instance.
    * 
    * @param request - ListInstanceLinkedWhitelistTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1960,7 +2886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例关联的白名单模板清单
+   * Lists the IP address whitelist templates linked to an instance.
    * 
    * @param request - ListInstanceLinkedWhitelistTemplatesRequest
    * @returns ListInstanceLinkedWhitelistTemplatesResponse
@@ -1971,7 +2897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询白名单模板清单
+   * Queries the whitelist templates associated with an instance.
    * 
    * @param request - ListWhitelistTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2014,7 +2940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询白名单模板清单
+   * Queries the whitelist templates associated with an instance.
    * 
    * @param request - ListWhitelistTemplatesRequest
    * @returns ListWhitelistTemplatesResponse
@@ -2139,7 +3065,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+   * 
+   * @remarks
+   * > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2186,7 +3115,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+   * 
+   * @remarks
+   * > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse
@@ -2197,7 +3129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+   * You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
    * 
    * @param request - ModifyDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2244,7 +3176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+   * You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
    * 
    * @param request - ModifyDBInstanceAttributeRequest
    * @returns ModifyDBInstanceAttributeResponse
@@ -2255,7 +3187,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
+   * Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+   * 
+   * @remarks
+   * Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
    * 
    * @param tmpReq - ModifyDBInstanceClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2332,7 +3267,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
+   * Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+   * 
+   * @remarks
+   * Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
    * 
    * @param request - ModifyDBInstanceClassRequest
    * @returns ModifyDBInstanceClassResponse
@@ -2343,7 +3281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例参数配置
+   * Modifies the parameter settings for a DB instance.
    * 
    * @param request - ModifyDBInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2382,7 +3320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例参数配置
+   * Modifies the parameter settings for a DB instance.
    * 
    * @param request - ModifyDBInstanceConfigRequest
    * @returns ModifyDBInstanceConfigResponse
@@ -2393,7 +3331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
+   * Modifies the connection string of a cluster.
    * 
    * @param request - ModifyDBInstanceConnectionStringRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2448,7 +3386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
+   * Modifies the connection string of a cluster.
    * 
    * @param request - ModifyDBInstanceConnectionStringRequest
    * @returns ModifyDBInstanceConnectionStringResponse
@@ -2456,6 +3394,126 @@ export default class Client extends OpenApi {
   async modifyDBInstanceConnectionString(request: $_model.ModifyDBInstanceConnectionStringRequest): Promise<$_model.ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the permissions of a user in a Langfuse organization.
+   * 
+   * @param request - ModifyLangfuseOrgMembershipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLangfuseOrgMembershipResponse
+   */
+  async modifyLangfuseOrgMembershipWithOptions(request: $_model.ModifyLangfuseOrgMembershipRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLangfuseOrgMembershipResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLangfuseOrgMembership",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLangfuseOrgMembershipResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLangfuseOrgMembershipResponse({}));
+  }
+
+  /**
+   * Modifies the permissions of a user in a Langfuse organization.
+   * 
+   * @param request - ModifyLangfuseOrgMembershipRequest
+   * @returns ModifyLangfuseOrgMembershipResponse
+   */
+  async modifyLangfuseOrgMembership(request: $_model.ModifyLangfuseOrgMembershipRequest): Promise<$_model.ModifyLangfuseOrgMembershipResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLangfuseOrgMembershipWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the permissions of a user in a Langfuse project.
+   * 
+   * @param request - ModifyLangfuseProjectMembershipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLangfuseProjectMembershipResponse
+   */
+  async modifyLangfuseProjectMembershipWithOptions(request: $_model.ModifyLangfuseProjectMembershipRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLangfuseProjectMembershipResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLangfuseProjectMembership",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLangfuseProjectMembershipResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLangfuseProjectMembershipResponse({}));
+  }
+
+  /**
+   * Modifies the permissions of a user in a Langfuse project.
+   * 
+   * @param request - ModifyLangfuseProjectMembershipRequest
+   * @returns ModifyLangfuseProjectMembershipResponse
+   */
+  async modifyLangfuseProjectMembership(request: $_model.ModifyLangfuseProjectMembershipRequest): Promise<$_model.ModifyLangfuseProjectMembershipResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLangfuseProjectMembershipWithOptions(request, runtime);
   }
 
   /**
@@ -2572,6 +3630,60 @@ export default class Client extends OpenApi {
   async resetAccountPassword(request: $_model.ResetAccountPasswordRequest): Promise<$_model.ResetAccountPasswordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
+  }
+
+  /**
+   * Resets the password of a Langfuse user.
+   * 
+   * @param request - ResetLangfuseUserPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetLangfuseUserPasswordResponse
+   */
+  async resetLangfuseUserPasswordWithOptions(request: $_model.ResetLangfuseUserPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetLangfuseUserPasswordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.newPassword)) {
+      query["NewPassword"] = request.newPassword;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetLangfuseUserPassword",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetLangfuseUserPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetLangfuseUserPasswordResponse({}));
+  }
+
+  /**
+   * Resets the password of a Langfuse user.
+   * 
+   * @param request - ResetLangfuseUserPasswordRequest
+   * @returns ResetLangfuseUserPasswordResponse
+   */
+  async resetLangfuseUserPassword(request: $_model.ResetLangfuseUserPasswordRequest): Promise<$_model.ResetLangfuseUserPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetLangfuseUserPasswordWithOptions(request, runtime);
   }
 
   /**
@@ -2713,7 +3825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新白名单模板
+   * Updates a whitelist template.
    * 
    * @param request - UpdateWhitelistTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2756,7 +3868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新白名单模板
+   * Updates a whitelist template.
    * 
    * @param request - UpdateWhitelistTemplateRequest
    * @returns UpdateWhitelistTemplateResponse

@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The computing group ID.
+   * 
+   * @example
+   * cc-2ze34****-clickhouse
+   */
   computingGroupId?: string;
   /**
    * @remarks
-   * The endpoint of the cluster.
+   * The connection string.
    * 
    * @example
    * cc-2ze34****-clickhouse..clickhouseserver.pre.rds.aliyuncs.com
@@ -14,7 +21,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The prefix of the endpoint that is used to connect to the database.
+   * The connection string prefix.
    * 
    * @example
    * cc-****-clickhouse
@@ -30,16 +37,28 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
    * cc-xxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * - `Vpc`: VPC
+   * 
+   * - `Public`: public network
+   * 
+   * @example
+   * Public
+   */
   DBInstanceNetType?: string;
   /**
    * @remarks
-   * *   The database ports that you want to disable. Separate multiple ports with commas (,).
+   * - The database ports to disable. You can specify multiple ports, separated by commas.
    * 
-   * *   This parameter is supported only for clusters whose minor engine version is 24.10.1.11098_1 or later.
+   * - This parameter is supported only for clusters with a kernel version of 24.10.1.11098_1 or later.
    * 
-   *     **
    * 
-   *     **Note** If you create a cluster whose minor engine version is earlier than 24.10.1.11098_1 and you update the minor engine version to 24.10.1.11098_1 or later, the cluster still does not support this parameter.
+   *   >Notice: 
+   * 
+   *   This parameter is not supported for clusters that were upgraded to kernel version 24.10.1.11098_1 or later from an earlier version.
    * 
    * @example
    * 9001,8123

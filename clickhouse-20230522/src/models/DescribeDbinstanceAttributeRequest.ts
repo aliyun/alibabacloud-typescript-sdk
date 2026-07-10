@@ -15,11 +15,7 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * Valid values:
-   * 
-   * *   cn-beijing
+   * The region ID. You can call the [~~DescribeRegions~~](cdb.doc.dita#doc-api-clickhouse-DescribeRegions) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou

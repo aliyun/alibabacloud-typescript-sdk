@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEndpointRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The computing group ID.
+   * 
+   * @example
+   * cc-bp100p4q1g9z3****-clickhouse
+   */
   computingGroupId?: string;
   /**
    * @remarks
-   * The prefix of the new endpoint. The prefix of the ConnectionString parameter.
+   * The prefix for the connection string.
    * 
    * @example
    * cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
@@ -24,11 +31,7 @@ export class CreateEndpointRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The network type.
-   * 
-   * Valid values:
-   * 
-   * *   Public
+   * The network type. Set this value to Public to create a public endpoint.
    * 
    * @example
    * Public

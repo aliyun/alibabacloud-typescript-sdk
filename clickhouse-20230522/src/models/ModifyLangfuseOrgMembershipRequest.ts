@@ -1,0 +1,84 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ModifyLangfuseOrgMembershipRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Langfuse instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * lfs-****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The email address of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * john@company.com
+   */
+  email?: string;
+  /**
+   * @remarks
+   * The Langfuse organization ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cmrbhzx930005jw2q****
+   */
+  organizationId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The role of the user in the organization.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ADMIN
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      email: 'Email',
+      organizationId: 'OrganizationId',
+      regionId: 'RegionId',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      email: 'string',
+      organizationId: 'string',
+      regionId: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

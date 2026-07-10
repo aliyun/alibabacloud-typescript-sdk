@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEndpointsResponseBodyDataEndpointsPorts extends $dara.Model {
   /**
    * @remarks
-   * The port used to connect to the cluster. Valid values:
+   * The port number. The value varies based on the protocol type. For example:
    * 
-   * *   8123: This value is returned when the value of Protocol is HttpPort.
-   * *   8443: This value is returned when the value of Protocol is HttpsPort.
-   * *   9000: This value is returned when the value of Protocol is TcpPort.
+   * - HttpPort: 8123
+   * 
+   * - HttpsPort: 8443
+   * 
+   * - TcpPort: 9000
    * 
    * @example
    * 8123
@@ -19,9 +21,11 @@ export class DescribeEndpointsResponseBodyDataEndpointsPorts extends $dara.Model
    * @remarks
    * The protocol type. Valid values:
    * 
-   * *   HttpPort
-   * *   HttpsPort
-   * *   TcpPort
+   * - HttpPort: HTTP port.
+   * 
+   * - HttpsPort: HTTPS port.
+   * 
+   * - TcpPort: TCP port.
    * 
    * @example
    * HttpPort
@@ -52,19 +56,25 @@ export class DescribeEndpointsResponseBodyDataEndpointsPorts extends $dara.Model
 
 export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The computing group ID.
+   * 
    * @example
    * cc-ad321**-clickhouse
    */
   computingGroupId?: string;
   /**
    * @remarks
-   * The endpoint of the cluster.
+   * The instance connection string.
    * 
    * @example
    * cc-****-clickhouse.clickhouseserver.pre.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
+   * @remarks
+   * The endpoint name.
+   * 
    * @example
    * cc-*****-clickhouse
    */
@@ -81,8 +91,9 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
    * @remarks
    * The network type of the endpoint. Valid values:
    * 
-   * *   VPC
-   * *   PUBLIC
+   * - VPC
+   * 
+   * - PUBLIC: Internet.
    * 
    * @example
    * VPC
@@ -90,12 +101,12 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
   netType?: string;
   /**
    * @remarks
-   * The details of the ports.
+   * The ports.
    */
   ports?: DescribeEndpointsResponseBodyDataEndpointsPorts[];
   /**
    * @remarks
-   * The state of the cluster.
+   * The status of the endpoint.
    * 
    * @example
    * active
@@ -111,7 +122,7 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-uf61z****
@@ -119,7 +130,7 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-uf61z****
@@ -170,15 +181,16 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
 export class DescribeEndpointsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the endpoints.
+   * The endpoints.
    */
   endpoints?: DescribeEndpointsResponseBodyDataEndpoints[];
   /**
    * @remarks
-   * The network type of the cluster. Valid values:
+   * The network type of the instance. Valid values:
    * 
-   * *   **VPC**
-   * *   **PUBLIC**
+   * - **VPC**
+   * 
+   * - **PUBLIC**: Internet.
    * 
    * @example
    * VPC
@@ -213,7 +225,7 @@ export class DescribeEndpointsResponseBodyData extends $dara.Model {
 export class DescribeEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: DescribeEndpointsResponseBodyData;
   /**

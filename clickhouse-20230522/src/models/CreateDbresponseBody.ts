@@ -13,7 +13,7 @@ export class CreateDBResponseBodyData extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * testdb001
@@ -45,7 +45,7 @@ export class CreateDBResponseBodyData extends $dara.Model {
 export class CreateDBResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: CreateDBResponseBodyData;
   /**

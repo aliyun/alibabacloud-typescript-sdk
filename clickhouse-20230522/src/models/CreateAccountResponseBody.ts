@@ -53,7 +53,7 @@ export class CreateAccountResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 2FED790E-FB61-4721-8C1C-07C627FA5A19
+   * 2FED790E-FB61-4721-8C1C-07C627FA****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

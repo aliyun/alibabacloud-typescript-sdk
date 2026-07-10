@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   /**
    * @remarks
-   * The address to which the query statement is sent.
+   * The address from which the query was initiated.
    * 
    * @example
    * 0:0:0:0:0:ffff:1edd65ea
@@ -21,7 +21,7 @@ export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   initialQueryId?: string;
   /**
    * @remarks
-   * The user who executes the query statement.
+   * The user who initiated the query.
    * 
    * @example
    * bany
@@ -29,7 +29,7 @@ export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   initialUser?: string;
   /**
    * @remarks
-   * The query statement that is running.
+   * The query statement.
    * 
    * @example
    * select * from test
@@ -37,7 +37,7 @@ export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The minimum query duration. Minimum value: **1000**. Unit: milliseconds.
+   * The execution duration of the query, in milliseconds (ms).
    * 
    * @example
    * 1000
@@ -45,7 +45,7 @@ export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   queryDurationMs?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The start time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
    * 2023-07-23T10:13:23Z
@@ -96,17 +96,17 @@ export class DescribeProcessListResponseBodyData extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * test
+   * For testing
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The result sets.
+   * The result set.
    */
   resultSet?: DescribeProcessListResponseBodyDataResultSet[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the filter criteria.
    * 
    * @example
    * 1
@@ -145,7 +145,7 @@ export class DescribeProcessListResponseBodyData extends $dara.Model {
 export class DescribeProcessListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The data object.
    */
   data?: DescribeProcessListResponseBodyData;
   /**

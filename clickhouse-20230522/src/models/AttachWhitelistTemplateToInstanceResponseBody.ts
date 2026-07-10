@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachFailList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * my-database
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The reason for the attachment failure.
+   * 
    * @example
    * 处理异常
    */
@@ -40,6 +46,9 @@ export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachFailList ext
 
 export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedListTemplatesDbInstances extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * asdfwef
    */
@@ -66,18 +75,31 @@ export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedLis
 }
 
 export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedListTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * The list of attached instances.
+   */
   dbInstances?: AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedListTemplatesDbInstances[];
   /**
+   * @remarks
+   * The IP address whitelist.
+   * 
    * @example
    * 192.168.1.1,10.0.0.1
    */
   securityIPList?: string;
   /**
+   * @remarks
+   * The ID of the whitelist template.
+   * 
    * @example
    * g-asdfwem
    */
   templateId?: string;
   /**
+   * @remarks
+   * The name of the whitelist template.
+   * 
    * @example
    * demo_template
    */
@@ -114,10 +136,17 @@ export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedLis
 
 export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * my-database
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The list of whitelist templates.
+   */
   templates?: AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedListTemplates[];
   static names(): { [key: string]: string } {
     return {
@@ -146,9 +175,20 @@ export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedLis
 }
 
 export class AttachWhitelistTemplateToInstanceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Instances that failed to be attached.
+   */
   attachFailList?: AttachWhitelistTemplateToInstanceResponseBodyDataAttachFailList[];
+  /**
+   * @remarks
+   * Instances to which the template was successfully attached.
+   */
   attachSuccessedList?: AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedList[];
   /**
+   * @remarks
+   * The status of the operation. A value of `ok` indicates success.
+   * 
    * @example
    * ok
    */
@@ -185,10 +225,14 @@ export class AttachWhitelistTemplateToInstanceResponseBodyData extends $dara.Mod
 }
 
 export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: AttachWhitelistTemplateToInstanceResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * Request ID.
    * 
    * @example
    * 1234567890
