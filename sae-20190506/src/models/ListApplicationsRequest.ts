@@ -13,13 +13,11 @@ export class ListApplicationsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The type of the SAE application.
+   * The Serverless App Engine (SAE) application type.
    * 
-   * - **micro_service**
-   * 
-   * - **web**
-   * 
-   * - **job**
+   * - **micro_service.**
+   * - **web.**
+   * - **job.**
    * 
    * @example
    * micro_service
@@ -35,15 +33,12 @@ export class ListApplicationsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The field to filter applications by. Valid values:
+   * The dimension by which to filter applications. Valid values:
    * 
-   * - **appName**: The application name.
-   * 
-   * - **appIds**: The application ID.
-   * 
-   * - **slbIps**: The SLB IP address.
-   * 
-   * - **instanceIps**: The instance IP address.
+   * - **appName**: application name.
+   * - **appIds**: application ID.
+   * - **slbIps**: SLB IP address.
+   * - **instanceIps**: instance IP address.
    * 
    * @example
    * appName
@@ -51,7 +46,7 @@ export class ListApplicationsRequest extends $dara.Model {
   fieldType?: string;
   /**
    * @remarks
-   * The value for the field specified by `FieldType`. This can be an application name, application ID, SLB IP address, or instance IP address.
+   * The application name, application ID, SLB IP address, or instance IP address of the target application.
    * 
    * @example
    * demo-app
@@ -59,7 +54,7 @@ export class ListApplicationsRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * Filters applications by whether they are stateful. Set this parameter to `true` to return only stateful applications, or to `false` to return only stateless applications.
+   * Specifies whether the application is stateful.
    */
   isStateful?: string;
   /**
@@ -72,22 +67,19 @@ export class ListApplicationsRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The edition of the application:
+   * The application version. Valid values:
    * 
-   * - `lite`: Lite
-   * 
-   * - `std`: Standard
-   * 
-   * - `pro`: Pro
+   * - lite: Lite Edition
+   * - std: Standard Edition
+   * - pro: Professional Edition
    */
   newSaeVersion?: string;
   /**
    * @remarks
-   * The field to sort the applications by. Valid values:
+   * The field by which to sort applications. Valid values:
    * 
-   * - **runnings**: Sorts the applications by the current instance count.
-   * 
-   * - **instances**: Sorts the applications by the target instance count.
+   * - **runnings**: sorts by the current number target instances.
+   * - **instances**: sorts by the target number target instances.
    * 
    * @example
    * runnings
@@ -95,41 +87,32 @@ export class ListApplicationsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: 0 to 10000.
+   * The number of entries per page in a paging query. Valid values: [0,10000].
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  programmingLanguage?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * Specifies whether to sort application instances by running status. If instances have the same status, they are sorted by instance ID. Valid values:
+   *   - **true**: sorts in ascending order. Instances are arranged based on the startup sequence. For example, to reach the running state, an instance must go through steps such as starting the container, pulling the image, and initializing the instance.
+   *   - **false**: sorts in descending order.
    * 
-   * - **true**: Sorts the results in ascending order.
+   * The ascending order of instances is as follows:
    * 
-   * - **false**: Sorts the results in descending order.
-   * 
-   * 1. ****
-   * 
-   * 2. ****
-   * 
-   * 3. ****
-   * 
-   * 4. ****
-   * 
-   * 5. ****
-   * 
-   * 6. ****
-   * 
-   * 7. ****
-   * 
-   * 8. ****
-   * 
-   * 9. ****
-   * 
-   * 10. ****
-   * 
-   * 11. ****
+   * 1. **Error**: an error occurred during instance startup.
+   * 2. **CrashLoopBackOff**: the container failed to start, encountered an error during startup, and encountered an error again after restart.
+   * 3. **ErrImagePull**: an error occurred while pulling the container image for the instance.
+   * 4. **ImagePullBackOff**: the container image cannot be obtained.
+   * 5. **Pending**: the instance is waiting to be scheduled.
+   * 6. **Unknown**: an unknown exception occurred.
+   * 7. **Terminating**: the instance is being terminated.
+   * 8. **NotFound**: the instance cannot be found.
+   * 9. **PodInitializing**: the instance is being initialized.
+   * 10. **Init:0/1**: the instance is initializing.
+   * 11. **Running**: the instance is running.
    * 
    * @example
    * true
@@ -137,15 +120,13 @@ export class ListApplicationsRequest extends $dara.Model {
   reverse?: boolean;
   /**
    * @remarks
-   * Filters applications by tags. The tags are specified as a JSON string that contains an array of key-value pairs.
+   * The tag key-value pairs. Valid values:
+   * - **key**: the tag key. The length must be in the range of [1,128].
+   * - **value**: the tag value. The length must be in the range of [1,128].
    * 
-   * - **key**: The tag key, which can be 1 to 128 characters in length.
+   * Tags are case-sensitive. If you specify multiple tags, all specified tags are created and attached to the resource. Each tag key on the same resource can have only one tag value. If you add a tag key that already exists, the corresponding tag value is updated to the new value.
    * 
-   * - **value**: The tag value, which can be 1 to 128 characters in length.
-   * 
-   * This parameter is case-sensitive. An application is returned only if it matches all specified tags. On a resource, a tag key can have only one tag value.
-   * 
-   * The tag key and tag value cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * Tags cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * [{"key":"key","value":"value"}]
@@ -163,6 +144,7 @@ export class ListApplicationsRequest extends $dara.Model {
       newSaeVersion: 'NewSaeVersion',
       orderBy: 'OrderBy',
       pageSize: 'PageSize',
+      programmingLanguage: 'ProgrammingLanguage',
       reverse: 'Reverse',
       tags: 'Tags',
     };
@@ -180,6 +162,7 @@ export class ListApplicationsRequest extends $dara.Model {
       newSaeVersion: 'string',
       orderBy: 'string',
       pageSize: 'number',
+      programmingLanguage: 'string',
       reverse: 'boolean',
       tags: 'string',
     };

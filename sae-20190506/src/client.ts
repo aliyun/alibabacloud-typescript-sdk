@@ -475,7 +475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an application.
+   * Creates an application.
    * 
    * @param tmpReq - CreateApplicationRequest
    * @param headers - map
@@ -492,6 +492,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(tmpReq.labels)) {
       request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.raspConfig)) {
+      request.raspConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.raspConfig, "RaspConfig", "json");
     }
 
     if (!$dara.isNull(tmpReq.sidecarContainersConfig)) {
@@ -723,6 +727,10 @@ export default class Client extends OpenApi {
       query["PythonModules"] = request.pythonModules;
     }
 
+    if (!$dara.isNull(request.raspConfigShrink)) {
+      query["RaspConfig"] = request.raspConfigShrink;
+    }
+
     if (!$dara.isNull(request.readiness)) {
       query["Readiness"] = request.readiness;
     }
@@ -868,7 +876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an application.
+   * Creates an application.
    * 
    * @param request - CreateApplicationRequest
    * @returns CreateApplicationResponse
@@ -2567,7 +2575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploy an application.
+   * Deploys an application.
    * 
    * @param tmpReq - DeployApplicationRequest
    * @param headers - map
@@ -2584,6 +2592,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(tmpReq.labels)) {
       request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.raspConfig)) {
+      request.raspConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.raspConfig, "RaspConfig", "json");
     }
 
     if (!$dara.isNull(tmpReq.sidecarContainersConfig)) {
@@ -2815,6 +2827,10 @@ export default class Client extends OpenApi {
       query["PythonModules"] = request.pythonModules;
     }
 
+    if (!$dara.isNull(request.raspConfigShrink)) {
+      query["RaspConfig"] = request.raspConfigShrink;
+    }
+
     if (!$dara.isNull(request.readiness)) {
       query["Readiness"] = request.readiness;
     }
@@ -2952,7 +2968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploy an application.
+   * Deploys an application.
    * 
    * @param request - DeployApplicationRequest
    * @returns DeployApplicationResponse
@@ -3033,7 +3049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of an application.
+   * Retrieves the configuration information of an application.
    * 
    * @param request - DescribeApplicationConfigRequest
    * @param headers - map
@@ -3070,7 +3086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of an application.
+   * Retrieves the configuration information of an application.
    * 
    * @param request - DescribeApplicationConfigRequest
    * @returns DescribeApplicationConfigResponse
@@ -5998,7 +6014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a list of applications.
+   * Retrieves a list of applications.
    * 
    * @param request - ListApplicationsRequest
    * @param headers - map
@@ -6048,6 +6064,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.programmingLanguage)) {
+      query["ProgrammingLanguage"] = request.programmingLanguage;
+    }
+
     if (!$dara.isNull(request.reverse)) {
       query["Reverse"] = request.reverse;
     }
@@ -6075,7 +6095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a list of applications.
+   * Retrieves a list of applications.
    * 
    * @param request - ListApplicationsRequest
    * @returns ListApplicationsResponse

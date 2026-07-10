@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the RAM role required to pull images across Alibaba Cloud accounts. For more information, see [Authorize cross-account access using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * The ARN of the RAM role required for cross-account image pulling. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
    * 
    * @example
    * acs:ram::123456789012****:role/adminrole
@@ -13,7 +13,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   acrAssumeRoleArn?: string;
   /**
    * @remarks
-   * The Container Registry Enterprise Edition (ACR Enterprise Edition) instance ID. This parameter is required when **ImageUrl** is a Container Registry Enterprise Edition image.
+   * The instance ID of the Container Registry Enterprise instance. This parameter is required when **ImageUrl** is set to a Container Registry Enterprise Edition image.
    * 
    * @example
    * cri-xxxxxx
@@ -29,7 +29,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * The application description. It cannot exceed 1024 characters.
+   * The application description. The description can be up to 1024 characters in length.
    * 
    * @example
    * This is a test description.
@@ -37,7 +37,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   appDescription?: string;
   /**
    * @remarks
-   * The application name. It can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters.
+   * The application name. The name can contain digits, letters, and hyphens (-). The name must start with a letter and cannot end with a hyphen (-). The name can be up to 36 characters in length.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Select micro_service for a microservice application.
+   * Set this parameter to micro_service to create a microservice application.
    * 
    * @example
    * micro_service
@@ -55,11 +55,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   appSource?: string;
   /**
    * @remarks
-   * Whether to bind an Elastic IP address (EIP). Valid values:
+   * Specifies whether to associate an EIP. Valid values:
    * 
-   * - **true**: Bind.
-   * 
-   * - **false**: Do not bind.
+   * - **true**: associate an EIP.
+   * - **false**: do not associate an EIP.
    * 
    * @example
    * true
@@ -67,13 +66,12 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   associateEip?: boolean;
   /**
    * @remarks
-   * Whether to automatically configure the network environment. Valid values:
+   * Specifies whether to automatically configure the network environment. Valid values:
    * 
-   * - **true**: SAE automatically configures the network environment when creating an application. The values of **NamespaceId**, **VpcId**, **vSwitchId**, and **SecurityGroupId** are ignored.
+   * - **true**: SAE automatically configures the network environment when the application is created. The values of **NamespaceId**, **VpcId**, **vSwitchId**, and **SecurityGroupId** are ignored.
+   * - **false**: SAE manually configures the network environment when the application is created.
    * 
-   * - **false**: SAE manually configures the network environment when creating an application.
-   * 
-   * > If you select **true**, other **NamespaceId** values passed are ignored.
+   * > If this parameter is set to **true**, any other **NamespaceId** value that is passed is ignored.
    * 
    * @example
    * true
@@ -89,7 +87,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   baseAppId?: string;
   /**
    * @remarks
-   * The image start command. This command must be an executable object that exists in the container. Example:
+   * The command that is used to start the image. The command must be an executable object in the container. Example:
    * 
    * ```
    * command:
@@ -98,12 +96,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    *       - >
    *       - file0
    * ```
+   * In the preceding example, `Command="echo", CommandArgs=["abc", ">", "file0"]`.
    * 
-   * Based on the example, Command="echo" and `CommandArgs=["abc", ">", "file0"]`.
    * 
-   * >Notice: 
-   * 
-   * This option is required when PackageType is DotnetZip.
+   * >Notice: This parameter is required when PackageType is set to DotnetZip.
    * 
    * @example
    * echo
@@ -111,12 +107,12 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The image start command parameters. These are the parameters required by the **Command** parameter. Format:
+   * The arguments of the image startup command. These are the arguments required by the startup command specified in **Command**. Format:
    * 
    * `["a","b"]`
    * 
-   * In the example, `CommandArgs=["abc", ">", "file0"]`. Convert `["abc", ">", "file0"]` to a string type, with the format as a JSON array. If this parameter is not needed, do not specify it.
-   * >Notice: This option is required when PackageType is DotnetZip.
+   * In the preceding example, `CommandArgs=["abc", ">", "file0"]`, where `["abc", ">", "file0"]` must be converted to the String type. The internal format is a JSON array. If this parameter is not required, leave it empty.
+   * >Notice: This parameter is required when PackageType is set to DotnetZip.
    * 
    * @example
    * ["a","b"]
@@ -124,15 +120,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   commandArgs?: string;
   /**
    * @remarks
-   * The **ConfigMap** mount description. Use configuration items created on the namespace configuration item page to inject configuration information into the container. Parameter description:
+   * The **ConfigMap** mount description. Use a ConfigMap created on the namespace configuration items page to inject configuration information into the container. Parameter description:
    * 
-   * - **configMapId**: The ConfigMap instance ID. Obtain it by calling the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) API operation.
-   * 
-   * - **key**: The key value.
+   * - **configMapId**: the ConfigMap instance ID. You can obtain the ID by invoking the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation.
+   * - **key**: the key.
    * 
    * > You can mount all keys by passing the `sae-sys-configmap-all` parameter.
    * 
-   * - **mountPath**: The mount path.
+   * - **mountPath**: the mount path.
    * 
    * @example
    * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
@@ -140,20 +135,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   configMapMountDesc?: string;
   /**
    * @remarks
-   * The CPU required for each instance, in millicores. It cannot be 0. Currently, only the following defined specifications are supported:
+   * The CPU specifications required for each instance, in millicores. This parameter cannot be set to 0. Only the following defined specifications are supported:
    * 
    * - **500**
-   * 
    * - **1000**
-   * 
    * - **2000**
-   * 
    * - **4000**
-   * 
    * - **8000**
-   * 
    * - **16000**
-   * 
    * - **32000**
    * 
    * @example
@@ -162,11 +151,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * Custom Host mapping within the container. Valid values:
+   * The custom host mapping in the container. Valid values:
    * 
-   * - **hostName**: The domain name or hostname.
-   * 
-   * - **ip**: The IP address.
+   * - **hostName**: the domain name or hostname.
+   * - **ip**: the IP address.
    * 
    * @example
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
@@ -174,11 +162,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   customHostAlias?: string;
   /**
    * @remarks
-   * The custom image type. If it is not a custom image, set it to an empty string:
+   * The custom image type. Set this parameter to an empty string if the image is not a custom image:
    * 
-   * - internet: Public network image.
-   * 
-   * - intranet: Private network image.
+   * - internet: public image
+   * - intranet: private image
    * 
    * @example
    * internet
@@ -186,11 +173,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   customImageNetworkType?: string;
   /**
    * @remarks
-   * Whether to deploy immediately. Valid values:
+   * Specifies whether to immediately deploy the application. Valid values:
    * 
-   * - **true**: Default value. Deploy immediately.
-   * 
-   * - **false**: Deploy later.
+   * - **true**: default value. The application is deployed immediately.
+   * - **false**: the application is deployed later.
    * 
    * @example
    * true
@@ -206,16 +192,12 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The version number of the .NET framework:
+   * The version of the .NET framework:
    * 
    * - .NET 3.1
-   * 
    * - .NET 5.0
-   * 
    * - .NET 6.0
-   * 
    * - .NET 7.0
-   * 
    * - .NET 8.0
    * 
    * @example
@@ -224,7 +206,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   dotnet?: string;
   /**
    * @remarks
-   * The application runtime environment version in the HSF framework, such as the Ali-Tomcat container.
+   * The version of the application runtime environment in the HSF framework, such as the Ali-Tomcat container.
    * 
    * @example
    * 3.5.3
@@ -232,7 +214,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   edasContainerVersion?: string;
   /**
    * @remarks
-   * Shared temporary storage configuration.
+   * The shared ephemeral storage configuration.
    * 
    * @example
    * [{\\"name\\":\\"workdir\\",\\"mountPath\\":\\"/usr/local/tomcat/webapps\\"}]
@@ -240,11 +222,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   emptyDirDesc?: string;
   /**
    * @remarks
-   * Whether to enable the CPU Burst feature:
+   * Specifies whether to enable the CPU Burst feature:
    * 
-   * - true: Enable.
-   * 
-   * - false: Do not enable.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -252,11 +233,9 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   enableCpuBurst?: boolean;
   /**
    * @remarks
-   * Enable application monitoring for non-Java applications based on eBPF technology. Valid values:
-   * 
-   * - **true**: Enable.
-   * 
-   * - **false**: Disable. Default value.
+   * Specifies whether to enable application monitoring for non-Java applications based on eBPF technology. Valid values:
+   * - **true**: enabled.
+   * - **false**: disabled. This is the default value.
    * 
    * @example
    * false
@@ -264,7 +243,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   enableEbpf?: string;
   /**
    * @remarks
-   * Whether to reuse the namespace Agent version configuration.
+   * Specifies whether to reuse the namespace agent version configuration.
    * 
    * @example
    * true
@@ -272,7 +251,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   enableNamespaceAgentVersion?: boolean;
   /**
    * @remarks
-   * Whether to reuse the namespace SLS log configuration.
+   * Specifies whether to reuse the namespace SLS log configuration.
    * 
    * @example
    * true
@@ -280,11 +259,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   enableNamespaceSlsConfig?: boolean;
   /**
    * @remarks
-   * Whether to enable new ARMS features:
+   * Specifies whether to enable the new ARMS feature:
    * 
-   * - true: Enable.
-   * 
-   * - false: Do not enable.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * false
@@ -292,7 +270,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   enableNewArms?: boolean;
   /**
    * @remarks
-   * Whether to enable Prometheus custom metric collection.
+   * Specifies whether to enable Prometheus custom metric collection.
    * 
    * @example
    * false
@@ -300,11 +278,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   enablePrometheus?: boolean;
   /**
    * @remarks
-   * Whether to enable Sidecar resource isolation:
+   * Specifies whether to enable sidecar resource isolation:
    * 
-   * - true: Enable isolation.
-   * 
-   * - false: Do not enable isolation.
+   * - true: Isolated.
+   * - false: Not isolated.
    * 
    * @example
    * true
@@ -312,23 +289,15 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   enableSidecarResourceIsolated?: boolean;
   /**
    * @remarks
-   * Container environment variable parameters. Support custom configurations or referencing configuration items. To reference a configuration item, create a ConfigMap instance first. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
-   * 
+   * The container environment variable parameters. You can customize environment variables or reference a ConfigMap. To reference a ConfigMap, create a ConfigMap instance first. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
    * - Custom configuration
-   * 
-   *   - **name**: The environment variable name.
-   * 
-   *   - **value**: The environment variable value. This has a higher priority than valueFrom.
-   * 
-   * - Reference configuration item (valueFrom)
-   * 
-   *   - **name**: The environment variable name. You can reference a single key or all keys. To reference all keys, enter `sae-sys-configmap-all-<configuration item name>`, for example, `sae-sys-configmap-all-test1`.
-   * 
-   *   - **valueFrom**: The environment variable reference. Set this to `configMapRef`.
-   * 
-   *     - **configMapId**: The configuration item ID.
-   * 
-   *     - **key**: The key. If you reference all key-values, do not set this field.
+   *     - **name**: the name of the environment variable.
+   *     - **value**: the value of the environment variable. This takes priority over valueFrom.
+   * - Reference a ConfigMap (valueFrom)
+   *     - **name**: the name of the environment variable. You can reference a single key or all keys. To reference all keys, enter `sae-sys-configmap-all-<ConfigMap name>`, such as `sae-sys-configmap-all-test1`.
+   *     - **valueFrom**: the environment variable reference. Set the value to `configMapRef`.
+   *         - **configMapId**: the ConfigMap ID.
+   *         - **key**: the key. If you reference all keys, do not set this field.
    * 
    * @example
    * [
@@ -360,11 +329,9 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   gpuConfig?: string;
   /**
    * @remarks
-   * K8s Headless Service service discovery.
-   * 
-   * - serviceName: The service name.
-   * 
-   * - namespaceId: The namespace ID.
+   * The K8s Headless Service-based service registration and discovery.
+   * - serviceName: the service name.
+   * - namespaceId: the namespace ID.
    * 
    * @example
    * {\\"serviceName\\":\\"leaf-test-headless\\",\\"namespaceId\\":\\"cn-zhangjiakou:prod\\"}
@@ -373,15 +340,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The Nginx version.
-   * 
    * - nginx 1.20
-   * 
    * - nginx 1.22
-   * 
    * - nginx 1.24
-   * 
    * - nginx 1.26
-   * 
    * - nginx 1.28
    * 
    * @example
@@ -390,7 +352,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   html?: string;
   /**
    * @remarks
-   * The ID of the corresponding secret.
+   * The corresponding secret ID.
    * 
    * @example
    * 10
@@ -398,7 +360,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   imagePullSecrets?: string;
   /**
    * @remarks
-   * The image address. This parameter is required when **Package Type** is **Image**.
+   * The image address. This parameter is required when **Package Type** is set to **Image**.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
@@ -406,17 +368,17 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Initialization container configuration.
+   * The init container configuration.
    */
   initContainersConfigShrink?: string;
   /**
    * @remarks
-   * Whether it is a stateful application.
+   * Specifies whether the application is stateful.
    */
   isStateful?: boolean;
   /**
    * @remarks
-   * JAR package startup parameters for the application. The application\\"s default start command is: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`
+   * The arguments for starting the JAR package application. The default startup command for the application: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`
    * 
    * @example
    * custom-args
@@ -424,7 +386,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   jarStartArgs?: string;
   /**
    * @remarks
-   * JAR package startup options for the application. The application\\"s default start command is: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`
+   * The options for starting the JAR package application. The default startup command for the application: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`
    * 
    * @example
    * -Xms4G -Xmx4G
@@ -432,21 +394,16 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   jarStartOptions?: string;
   /**
    * @remarks
-   * The JDK version that the deployment package depends on. Supported versions:
+   * The JDK version on which the deployment package depends. Valid values:
    * 
    * - **Open JDK 8**
-   * 
    * - **Open JDK 7**
-   * 
    * - **Dragonwell 11**
-   * 
    * - **Dragonwell 8**
-   * 
    * - **openjdk-8u191-jdk-alpine3.9**
-   * 
    * - **openjdk-7u201-jdk-alpine3.9**
    * 
-   * This parameter is not supported when **Package Type** is **Image**.
+   * This parameter is not supported when **Package Type** is set to **Image**.
    * 
    * @example
    * Open JDK 8
@@ -454,13 +411,11 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   jdk?: string;
   /**
    * @remarks
-   * The summary configuration for collecting logs to Kafka. Valid values:
+   * The summary of configurations for log collection to Kafka. Valid values:
    * 
-   * - **kafkaEndpoint**: The service registration address for the Kafka API.
-   * 
-   * - **kafkaInstanceId**: The Kafka instance ID.
-   * 
-   * - **kafkaConfigs**: The summary configuration for single or multiple logs. For valid values, see the **kafkaConfigs** request parameter in this topic.
+   * - **kafkaEndpoint**: the service registration address of the Kafka API.
+   * - **kafkaInstanceId**: the Kafka instance ID.
+   * - **kafkaConfigs**: the summary of configurations for one or more log entries. For more information about the valid values, see the **kafkaConfigs** request parameter in this topic.
    * 
    * @example
    * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
@@ -469,35 +424,25 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   labelsShrink?: string;
   /**
    * @remarks
-   * Container health check. Containers that fail the health check are shut down and recovered. Supported methods:
+   * The container health check. Containers that fail the health check are shutdown and recovered. The following methods are supported:
    * 
-   * - **exec**: For example, `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
+   * - **exec**: for example, `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
+   * - **httpGet**: for example, `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+   * - **tcpSocket**: for example, `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
    * 
-   * - **httpGet**: For example, `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
-   * 
-   * - **tcpSocket**: For example, `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
-   * 
-   * > Select only one method for the health check.
+   * > You can use only one method for health checks.
    * 
    * Parameter description:
    * 
-   * - **exec.command**: Set the health check command.
-   * 
-   * - **httpGet.path**: The access path.
-   * 
+   * - **exec.command**: the health check command.
+   * - **httpGet.path**: the access path.
    * - **httpGet.scheme**: **HTTP** or **HTTPS**.
-   * 
-   * - **httpGet.isContainKeyWord**: **true** means the keyword is included, **false** means the keyword is not included. If this field is missing, advanced features are not used.
-   * 
-   * - **httpGet.keyWord**: The custom keyword. Do not omit the **isContainKeyWord** field when using it.
-   * 
-   * - **tcpSocket.port**: The port for TCP connection detection.
-   * 
-   * - **initialDelaySeconds**: Set the health check delay detection time. Default is 10 seconds.
-   * 
-   * - **periodSeconds**: Set the health check period. Default is 30 seconds.
-   * 
-   * - **timeoutSeconds**: Set the health check timeout duration. Default is 1 second. If you set it to 0 or do not set it, the default timeout is 1 second.
+   * - **httpGet.isContainKeyWord**: **true** indicates that the keyword is included. **false** indicates that the keyword is not included. If this field is missing, the advanced feature is not used.
+   * - **httpGet.keyWord**: the custom keyword. The **isContainKeyWord** field must be present when this field is used.
+   * - **tcpSocket.port**: the port for TCP connection detection.
+   * - **initialDelaySeconds**: the health check delay detection time. Default value: 10. Unit: seconds.
+   * - **periodSeconds**: the health check period. Default value: 30. Unit: seconds.
+   * - **timeoutSeconds**: the health check timeout period. Default value: 1. Unit: seconds. If this parameter is set to 0 or is not set, the default timeout period is 1 second.
    * 
    * @example
    * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
@@ -506,27 +451,17 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   lokiConfigs?: string;
   /**
    * @remarks
-   * The memory required for each instance, in MB. It cannot be 0. It has a one-to-one correspondence with CPU. Currently, only the following defined specifications are supported:
-   * 
-   * - **1024**: Corresponds to 500 millicores and 1000 millicores CPU.
-   * 
-   * - **2048**: Corresponds to 500, 1000 millicores, and 2000 millicores CPU.
-   * 
-   * - **4096**: Corresponds to 1000, 2000 millicores, and 4000 millicores CPU.
-   * 
-   * - **8192**: Corresponds to 2000, 4000 millicores, and 8000 millicores CPU.
-   * 
-   * - **12288**: Corresponds to 12000 millicores CPU.
-   * 
-   * - **16384**: Corresponds to 4000, 8000 millicores, and 16000 millicores CPU.
-   * 
-   * - **24576**: Corresponds to 12000 millicores CPU.
-   * 
-   * - **32768**: Corresponds to 16000 millicores CPU.
-   * 
-   * - **65536**: Corresponds to 8000, 16000, and 32000 millicores CPU.
-   * 
-   * - **131072**: Corresponds to 32000 millicores CPU.
+   * The memory required for each instance, in MB. This parameter cannot be set to 0. The memory has a one-to-one mapping with CPU. Only the following defined specifications are supported:
+   * - **1024**: corresponds to 500 and 1000 millicores of CPU.
+   * - **2048**: corresponds to 500, 1000, and 2000 millicores of CPU.
+   * - **4096**: corresponds to 1000, 2000, and 4000 millicores of CPU.
+   * - **8192**: corresponds to 2000, 4000, and 8000 millicores of CPU.
+   * - **12288**: corresponds to 12000 millicores of CPU.
+   * - **16384**: corresponds to 4000, 8000, and 16000 millicores of CPU.
+   * - **24576**: corresponds to 12000 millicores of CPU.
+   * - **32768**: corresponds to 16000 millicores of CPU.
+   * - **65536**: corresponds to 8000, 16000, and 32000 millicores of CPU.
+   * - **131072**: corresponds to 32000 millicores of CPU.
    * 
    * @example
    * 1024
@@ -534,13 +469,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * Select the Nacos registry. Valid values:
-   * 
+   * Specifies the Nacos registry. Valid values:
    * - **0**: SAE built-in Nacos.
-   * 
-   * - **1**: User-managed Nacos.
-   * 
-   * - **2**: MSE Professional Edition Nacos.
+   * - **1**: self-managed Nacos.
+   * - **2**: MSE commercial edition Nacos.
    * 
    * @example
    * "0"
@@ -548,7 +480,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   microRegistration?: string;
   /**
    * @remarks
-   * The registry configuration information.
+   * The registry configuration.
    * 
    * @example
    * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
@@ -556,23 +488,23 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   microRegistrationConfig?: string;
   /**
    * @remarks
-   * Configure microservice administration features.
+   * Configures the microservice governance feature.
    * 
-   * - Whether to enable microservice administration (enable):
+   * - Specifies whether to enable microservice governance (enable):
    * 
-   *   - true: Enable.
+   *    - true: Enabled.
    * 
-   *   - false: Do not enable.
+   *   - false: Disabled.
    * 
-   * - Configure graceful start and graceful shutdown (mseLosslessRule):
+   * - Configures lossless online/offline (mseLosslessRule):
    * 
-   *   - delayTime: The delay time.
+   *   - delayTime: the delay time.
    * 
-   *   - enable: Whether to enable the graceful start feature. true means enabled, false means not enabled.
+   *   - enable: specifies whether to enable the lossless online feature. true indicates enabled. false indicates disabled.
    * 
-   *   - notice: Whether to enable the notification feature. true means enabled, false means enabled.
+   *   - notice: specifies whether to enable the notification feature. true indicates enabled. false indicates disabled.
    * 
-   *   - warmupTime: The duration of traffic prefetch, in seconds.
+   *   - warmupTime: the warm-up duration for traffic ramping, in seconds.
    * 
    * @example
    * {"enable": true,"mseLosslessRule": {"delayTime": 0,"enable": false,"notice": false,"warmupTime": 120}}
@@ -580,7 +512,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   microserviceEngineConfig?: string;
   /**
    * @remarks
-   * Do not configure this field; configure **NasConfigs** instead. The NAS mount description. If the configuration has not changed during deployment, you do not need to set this parameter (that is, the request does not need to include the **MountDesc** field). To clear the NAS configuration, set the value of this field to an empty string in the request (that is, the value of the **MountDesc** field in the request is "").
+   * We recommend that you do not set this parameter. Set **NasConfigs** instead. The NAS mount description. If the configuration does not change during deployment, you do not need to set this parameter (that is, the **MountDesc** field does not need to be included in the request). To clear the NAS configuration, set the value of this field to an empty string (that is, set the value of the **MountDesc** field to "" in the request).
    * 
    * @example
    * [{mountPath: "/tmp", nasPath: "/"}]
@@ -588,7 +520,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   mountDesc?: string;
   /**
    * @remarks
-   * Do not configure this field; configure **NasConfigs** instead. The NAS mount target within the application VPC. If the configuration has not changed during deployment, you do not need to set this parameter (that is, the request does not need to include the **MountHost** field). To clear the NAS configuration, set the value of this field to an empty string in the request (that is, the value of the **MountHost** field in the request is "").
+   * We recommend that you do not set this parameter. Set **NasConfigs** instead. The mount target of the NAS file system in the VPC of the application. If the configuration does not change during deployment, you do not need to set this parameter (that is, the **MountHost** field does not need to be included in the request). To clear the NAS configuration, set the value of this field to an empty string (that is, set the value of the **MountHost** field to "" in the request).
    * 
    * @example
    * example.com
@@ -596,7 +528,8 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   mountHost?: string;
   /**
    * @remarks
-   * The SAE namespace ID. Only namespaces with names consisting of lowercase letters and hyphens (-) are supported. The name must start with a letter. Obtain the namespace by calling the [DescribeNamespaceList](https://help.aliyun.com/document_detail/126547.html) API operation.
+   * The SAE namespace ID. Only namespaces whose names contain lowercase letters and hyphens (-) are supported. The name must start with a letter.
+   * You can obtain namespaces by calling the [DescribeNamespaceList](https://help.aliyun.com/document_detail/126547.html) operation.
    * 
    * @example
    * cn-beijing:test
@@ -604,17 +537,13 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The configuration for mounting NAS. Valid values:
+   * The NAS mount configuration. Valid values:
    * 
-   * - **mountPath**: The container mount path.
-   * 
-   * - **readOnly**: If the value is **false**, it indicates read and write permission.
-   * 
-   * - **nasId**: The NAS ID.
-   * 
-   * - **mountDomain**: The container mount target address. For more information, see [DescribeMountTargets](https://help.aliyun.com/document_detail/62626.html).
-   * 
-   * - **nasPath**: The relative file directory of NAS.
+   * - **mountPath**: the container mount path.
+   * - **readOnly**: set to **false** to grant read and write permission.
+   * - **nasId**: the NAS ID.
+   * - **mountDomain**: the container mount target address. For more information, see [DescribeMountTargets](https://help.aliyun.com/document_detail/62626.html).
+   * - **nasPath**: the NAS relative file directory.
    * 
    * @example
    * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
@@ -622,9 +551,9 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   nasConfigs?: string;
   /**
    * @remarks
-   * Do not configure this field; configure **NasConfigs** instead. The ID of the mounted NAS. It must be in the same region as the cluster. It must have available mount target creation quotas, or its mount target must already be on a vSwitch within the VPC. If you do not specify this parameter and the **mountDescs** field exists, the system automatically purchases a NAS and mounts it to a vSwitch within the VPC by default.
+   * We recommend that you do not set this parameter. Set **NasConfigs** instead. The ID of the mounted NAS file system. The NAS file system must be in the same region as the cluster. The NAS file system must have available mount target creation quota, or its mount target must already be on a vSwitch in the VPC. If this parameter is left empty and the **mountDescs** field exists, a NAS file system is automatically purchased and mounted to a vSwitch in the VPC.
    * 
-   * If the configuration has not changed during deployment, you do not need to set this parameter (that is, the request does not need to include the **NASId** field). To clear the NAS configuration, set the value of this field to an empty string in the request (that is, the value of the **NASId** field in the request is "").
+   * If the configuration does not change during deployment, you do not need to set this parameter (that is, the **NASId** field does not need to be included in the request). To clear the NAS configuration, set the value of this field to an empty string (that is, set the value of the **NASId** field to "" in the request).
    * 
    * @example
    * KSAK****
@@ -634,10 +563,8 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * @remarks
    * The application version:
    * 
-   * - lite: Lightweight Edition
-   * 
+   * - lite: Lite Edition
    * - std: Standard Edition
-   * 
    * - pro: Professional Edition
    * 
    * @example
@@ -646,9 +573,8 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   newSaeVersion?: string;
   /**
    * @remarks
-   * Set the identity authentication service RAM role.
-   * 
-   * > Create an OpenID Connect (OIDC) identity provider and an identity provider role in the same region beforehand. For more information, see<props="china">[Create an OIDC identity provider](https://help.aliyun.com/zh/ram/developer-reference/api-ims-2019-08-15-createoidcprovider?spm=a2c4g.11186623.help-menu-28625.d_4_1_0_3_2_7.7f0443efmdpxa3) and[Create a role SSO identity provider](https://help.aliyun.com/zh/ram/developer-reference/api-ims-2019-08-15-createsamlprovider?spm=a2c4g.11186623.help-menu-28625.d_4_1_0_3_2_2.632244b1s8QbQt)<props="intl">[Create an OIDC identity provider](https://www.alibabacloud.com/help/zh/ram/developer-reference/api-ims-2019-08-15-createoidcprovider) and[Create a role SSO identity provider](https://www.alibabacloud.com/help/zh/ram/developer-reference/api-ims-2019-08-15-createsamlprovider).
+   * Specifies the RAM role for identity authentication.
+   * > Create an OIDC identity provider and an identity provider role in the same region in advance. For more information, see <props="china">[CreateOIDCProvider](https://www.alibabacloud.com/help/en/ram/developer-reference/api-ims-2019-08-15-createoidcprovider) and [CreateSAMLProvider](https://www.alibabacloud.com/help/en/ram/developer-reference/api-ims-2019-08-15-createsamlprovider)<props="intl">[CreateOIDCProvider](https://www.alibabacloud.com/help/zh/ram/developer-reference/api-ims-2019-08-15-createoidcprovider) and [CreateSAMLProvider](https://www.alibabacloud.com/help/zh/ram/developer-reference/api-ims-2019-08-15-createsamlprovider).
    * 
    * @example
    * sae-test
@@ -672,19 +598,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   ossAkSecret?: string;
   /**
    * @remarks
-   * OSS mount description. Parameter description:
+   * The OSS mount description. Parameter description:
    * 
-   * - **bucketName**: The Bucket name.
-   * 
-   * - **bucketPath**: The directory or OSS object you created in OSS. If the OSS mount directory does not exist, an exception is triggered.
-   * 
-   * - **mountPath**: The container path in SAE. If the path exists, it is overwritten. If the path does not exist, it is created.
-   * 
-   * - **readOnly**: Whether the container path has read permission for the mounted directory resource. Valid values:
-   * 
-   *   - **true**: Read-only permission.
-   * 
-   *   - **false**: Read and write permission.
+   * - **bucketName**: the bucket name.
+   * - **bucketPath**: the folder or object that you created in OSS. If the OSS mount folder does not exist, an exception is triggered.
+   * - **mountPath**: the container path in SAE. If the path already exists, it is an overwrite relationship. If the path does not exist, it is created.
+   * - **readOnly**: specifies whether the container path has read-only permission on the mounted folder resources. Valid values:
+   *     - **true**: read-only permission.
+   *     - **false**: read and write permission.
    * 
    * @example
    * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
@@ -692,47 +613,30 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   ossMountDescs?: string;
   /**
    * @remarks
-   * The application package type. Valid values:
+   * The type of the application deployment package. Valid values:
    * 
-   * - If you deploy with Java, supported types are **FatJar**, **War**, and **Image**.
+   * - If you use Java for deployment, **FatJar**, **War**, and **Image** are supported.
+   * - If you use PHP for deployment, the following types are supported:
+   *     - **PhpZip**
+   *     - **IMAGE_PHP_5_4**
+   *     - **IMAGE_PHP_5_4_ALPINE**
+   *     - **IMAGE_PHP_5_5**
+   *     - **IMAGE_PHP_5_5_ALPINE**
+   *     - **IMAGE_PHP_5_6**
+   *     - **IMAGE_PHP_5_6_ALPINE**
+   *     - **IMAGE_PHP_7_0**
+   *     - **IMAGE_PHP_7_0_ALPINE**
+   *     - **IMAGE_PHP_7_1**
+   *     - **IMAGE_PHP_7_1_ALPINE**
+   *     - **IMAGE_PHP_7_2**
+   *     - **IMAGE_PHP_7_2_ALPINE**
+   *     - **IMAGE_PHP_7_3**
+   *     - **IMAGE_PHP_7_3_ALPINE**
+   * - If you use Python for deployment, **PythonZip** and **Image** are supported.
    * 
-   * - If you deploy with PHP, supported types are:
-   * 
-   *   - **PhpZip**
-   * 
-   *   - **IMAGE_PHP_5_4**
-   * 
-   *   - **IMAGE_PHP_5_4_ALPINE**
-   * 
-   *   - **IMAGE_PHP_5_5**
-   * 
-   *   - **IMAGE_PHP_5_5_ALPINE**
-   * 
-   *   - **IMAGE_PHP_5_6**
-   * 
-   *   - **IMAGE_PHP_5_6_ALPINE**
-   * 
-   *   - **IMAGE_PHP_7_0**
-   * 
-   *   - **IMAGE_PHP_7_0_ALPINE**
-   * 
-   *   - **IMAGE_PHP_7_1**
-   * 
-   *   - **IMAGE_PHP_7_1_ALPINE**
-   * 
-   *   - **IMAGE_PHP_7_2**
-   * 
-   *   - **IMAGE_PHP_7_2_ALPINE**
-   * 
-   *   - **IMAGE_PHP_7_3**
-   * 
-   *   - **IMAGE_PHP_7_3_ALPINE**
-   * 
-   * - If you deploy with Python, supported types are **PythonZip** and **Image**.
-   * 
-   * - If you deploy with .NET Core, supported types are **DotnetZip** and **Image**.
-   * 
-   *   > When you select DotnetZip, Dotnet is the version number of the .NET Core environment. Supported versions are .NET 3.1, .NET 5.0, .NET 6.0, .NET 7.0, and .NET 8.0. The Dotnet, Command, and CommandArgs options are required.
+   * - If you use .NET Core for deployment, **DotnetZip** and **Image** are supported.
+   *   > 
+   *   > When DotnetZip is selected, Dotnet specifies the version of the .NET Core runtime. .NET 3.1, .NET 5.0, .NET 6.0, .NET 7.0, and .NET 8.0 are supported. The Dotnet, Command, and CommandArgs parameters are required.
    * 
    * This parameter is required.
    * 
@@ -742,7 +646,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The URL of the deployment package. This parameter is required when **Package Type** is **FatJar**, **War**, or **PythonZip**.
+   * The address of the deployment package. This parameter is required when **Package Type** is set to **FatJar**, **War**, or **PythonZip**.
    * 
    * @example
    * http://myoss.oss-cn-****.aliyuncs.com/my-buc/2019-06-30/****.jar
@@ -750,7 +654,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   packageUrl?: string;
   /**
    * @remarks
-   * The version number of the deployment package. This parameter is required when **Package Type** is **FatJar**, **War**, or **PythonZip**.
+   * The version of the deployment package. This parameter is required when **Package Type** is set to **FatJar**, **War**, or **PythonZip**.
    * 
    * @example
    * 1.0.0
@@ -758,7 +662,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   packageVersion?: string;
   /**
    * @remarks
-   * The PHP version that the PHP deployment package depends on. Images do not support this.
+   * The PHP version on which the deployment package depends. Not supported for images.
    * 
    * @example
    * PHP-FPM 7.0
@@ -766,7 +670,8 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   php?: string;
   /**
    * @remarks
-   * The mount path for PHP application monitoring. Ensure that the PHP server loads the configuration file from this path. You do not need to focus on the configuration content; SAE automatically renders the correct configuration file.
+   * The mount path for PHP application monitoring. Make sure that the PHP server loads the configuration file from this path.
+   * You do not need to manage the configuration content. SAE automatically renders the correct configuration file.
    * 
    * @example
    * /usr/local/etc/php/conf.d/arms.ini
@@ -782,7 +687,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   phpConfig?: string;
   /**
    * @remarks
-   * The mount path for PHP application startup configuration. Ensure that the PHP server uses this configuration file to start.
+   * The mount path for the PHP application startup configuration. Make sure that the PHP server uses this configuration file to start.
    * 
    * @example
    * /usr/local/etc/php/php.ini
@@ -790,7 +695,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   phpConfigLocation?: string;
   /**
    * @remarks
-   * The script to execute after the container starts. A script is triggered immediately after the container is created. Format: `{"exec":{"command":["cat","/etc/group"]}}`
+   * The script that is run after the container is started. A script is triggered and run immediately after the container is created. Format: `{"exec":{"command":["cat","/etc/group"]}}`
    * 
    * @example
    * {"exec":{"command":["cat","/etc/group"]}}
@@ -798,7 +703,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   postStart?: string;
   /**
    * @remarks
-   * The script to execute before the container stops. A script is triggered before the container is deleted. Format: `{"exec":{"command":["cat","/etc/group"]}}`
+   * The script that is run before the container is stopped. A script is triggered and run before the container is deleted. Format: `{"exec":{"command":["cat","/etc/group"]}}`
    * 
    * @example
    * {"exec":{"command":["cat","/etc/group"]}}
@@ -806,17 +711,13 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   preStop?: string;
   /**
    * @remarks
-   * The technology stack language for creating the application. Valid values:
+   * The programming language of the technology stack used to create the application. Valid values:
    * 
-   * - **java**: Java language.
-   * 
-   * - **php**: PHP language.
-   * 
-   * - **python**: Python language.
-   * 
-   * - **dotnet**: .NET Core language.
-   * 
-   * - **other**: Multi-language, such as C++, Go, and Node.js.
+   * - **java**: Java.
+   * - **php**: PHP.
+   * - **python**: Python.
+   * - **dotnet**: .NET Core.
+   * - **other**: multiple languages, such as C++, Go, and Node.js.
    * 
    * @example
    * java
@@ -824,17 +725,13 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   programmingLanguage?: string;
   /**
    * @remarks
-   * Enable K8s Service service discovery. Valid values:
+   * Enables K8s Service-based service registration and discovery. Valid values:
    * 
-   * - **serviceName**: The service name. Format: `custom-namespace ID`. The suffix `-namespace ID` cannot be customized; specify it based on the application\\"s namespace. For example, if you select the default namespace in the China (Beijing) region, it is `-cn-beijing-default`.
-   * 
-   * - **namespaceId**: The namespace ID.
-   * 
-   * - **portProtocols**: The port and protocol. The port range is [1, 65535]. Supported protocols are **TCP** and **UDP**.
-   * 
-   * - portAndProtocol: The port and protocol. The port range is [1, 65535]. Supported protocols are TCP and **UDP**. **portProtocols** is recommended. If **portProtocols** is set, only **portProtocols** takes effect.
-   * 
-   * - **enable**: Enable K8s Service service discovery.
+   * - **serviceName**: the service name. Format: `custom name-namespace ID`. The suffix `-namespace ID` cannot be customized and must be set based on the namespace of the application. For example, if you select the default namespace in the China (Beijing) region, the suffix is `-cn-beijing-default`.
+   * - **namespaceId**: the namespace ID.
+   * - **portProtocols**: the port and protocol. Valid port values: [1,65535]. Valid protocol values: **TCP** and **UDP**.
+   * - **portAndProtocol**: the port and protocol. Valid port values: [1,65535]. Valid protocol values: **TCP** and **UDP**. **portProtocols is recommended. If portProtocols is set, only portProtocols takes effect**.
+   * - **enable**: enables K8s Service-based service registration and discovery.
    * 
    * @example
    * {"serviceName":"bwm-poc-sc-gateway-cn-beijing-front","namespaceId":"cn-beijing:front","portAndProtocol":{"18012":"TCP"},"enable":true,"portProtocols":[{"port":18012,"protocol":"TCP"}]}
@@ -842,7 +739,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   pvtzDiscoverySvc?: string;
   /**
    * @remarks
-   * The Python environment. Supports **PYTHON 3.9.15**.
+   * The Python environment. **PYTHON 3.9.15** is supported.
    * 
    * @example
    * PYTHON 3.9.15
@@ -850,17 +747,18 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   python?: string;
   /**
    * @remarks
-   * Custom installation of module dependencies. By default, the system installs dependencies defined in requirements.txt in the root directory. If you do not configure or customize packages, you can specify the dependencies to install.
+   * The custom installation module dependencies. By default, the dependencies defined in the requirements.txt file in the root folder are installed. If the file is not configured or you need custom packages, specify the dependencies to install.
    * 
    * @example
    * Flask==2.0
    */
   pythonModules?: string;
+  raspConfigShrink?: string;
   /**
    * @remarks
-   * Application startup status check. Containers that fail multiple health checks are shut down and restarted. Containers that do not pass the health check will not receive SLB traffic. Supported methods are **exec**, **httpGet**, and **tcpSocket**. For examples, see the **Liveness** parameter.
+   * The application startup status check. Containers that fail multiple health checks are shut down and restarted. Containers that do not pass the health check do not receive SLB traffic. The **exec**, **httpGet**, and **tcpSocket** methods are supported. For specific examples, see the **Liveness** parameter.
    * 
-   * > Select only one method for the health check.
+   * > You can use only one method for health checks.
    * 
    * @example
    * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
@@ -878,7 +776,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   replicas?: number;
   /**
    * @remarks
-   * The resource type. Supports NULL (default), default, and haiguang (Haiguang server) types.
+   * The resource type. Valid values: NULL (default), default, and haiguang (Hygon server).
    * 
    * @example
    * NULL
@@ -886,10 +784,9 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The SAE version. Supported versions:
+   * The SAE version. Valid values:
    * 
    * - **v1**
-   * 
    * - **v2**
    * 
    * @example
@@ -898,15 +795,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   saeVersion?: string;
   /**
    * @remarks
-   * The **Secret** mount description. Use secrets created on the namespace secret page to inject secret information into the container. Parameter description:
+   * The **Secret** mount description. Use a secret created on the namespace secrets page to inject sensitive information into the container. Parameter description:
    * 
-   * - **secretId**: The secret instance ID. Obtain it by calling the ListSecrets API operation.
-   * 
-   * - **key**: The key value.
+   * - **secretId**: the secret instance ID. You can obtain the ID by calling the ListSecrets operation.
+   * - **key**: the key.
    * 
    * > You can mount all keys by passing the `sae-sys-secret-all` parameter.
    * 
-   * - **mountPath**: The mount path.
+   * - **mountPath**: the mount path.
    * 
    * @example
    * [{“secretId":10,”key":"test","mountPath":"/tmp"}]
@@ -922,7 +818,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The grayscale tags for application configuration.
+   * The canary release tags configured for the application.
    * 
    * @example
    * {\\"alicloud.service.tag\\":\\"g1\\"}
@@ -930,32 +826,27 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   serviceTags?: string;
   /**
    * @remarks
-   * Container configuration information.
+   * The sidecar container configuration.
    */
   sidecarContainersConfigShrink?: string;
   /**
    * @remarks
-   * The configuration for collecting logs to Simple Log Service (SLS).
+   * The configurations for log collection to Simple Log Service.
    * 
-   * - Use SLS resources automatically created by SAE: `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
-   * 
+   * - Use SLS resources that are automatically created by SAE: `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
    * - Use custom SLS resources: `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
    * 
    * Parameter description:
    * 
-   * - **projectName**: The name of the Project on SLS.
+   * - **projectName**: the Project name in Simple Log Service.  
+   * - **logDir**: the log path.
+   * - **logType**: the log type. **stdout** indicates container standard output logs. You can configure only one entry for this type. If this parameter is not set, file logs are collected.
+   * - **logstoreName**: the Logstore name in Simple Log Service.
+   * - **logtailName**: the Logtail name in Simple Log Service. If this parameter is not specified, a new Logtail is created.
    * 
-   * - **logDir**: The log path.
+   * If the SLS collection configuration does not change during multiple deployments, you do not need to set this parameter (that is, the **SlsConfigs** field does not need to be included in the request). If you no longer need the SLS collection feature, set the value of this field to an empty string (that is, set the value of the **SlsConfigs** field to "" in the request).
    * 
-   * - **logType**: The log type. **stdout** indicates container standard output logs; you can set only one such entry. If you do not set this, the system collects file logs.
-   * 
-   * - **logstoreName**: The name of the Logstore on SLS.
-   * 
-   * - **logtailName**: The name of the Logtail on SLS. If you do not specify this, the system creates a new Logtail.
-   * 
-   * If the SLS collection configuration has not changed during multiple deployments, you do not need to set this parameter (that is, the request does not need to include the **SlsConfigs** field). If you no longer need the SLS collection feature, set the value of this field to an empty string in the request (that is, the value of the **SlsConfigs** field in the request is "").
-   * 
-   * > Projects automatically created with an application are deleted when the application is deleted. Therefore, when selecting an existing Project, do not select a Project automatically created by SAE.
+   * > Projects that are automatically created with the application are deleted when the application is deleted. Therefore, do not select a project that is automatically created by SAE when you select an existing project.
    * 
    * @example
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
@@ -963,20 +854,18 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   slsConfigs?: string;
   /**
    * @remarks
-   * SLS log tags.
+   * sls log tags
    */
   slsLogEnvTags?: string;
   /**
    * @remarks
-   * Enable application startup probes.
+   * Enables the application startup probe.
    * 
-   * - Successful check: Indicates that the application started successfully. If you configured Liveness and Readiness checks, the system performs Liveness and Readiness checks after the application starts successfully.
-   * 
-   * - Failed check: Indicates that the application failed to start. The system reports an exception and automatically restarts the application.
-   * 
-   * > * Supported methods are exec, httpGet, and tcpSocket. For examples, see the Liveness parameter.
-   * >
-   * > * Select only one method for the health check.
+   * - Check succeeded: indicates that the application started successfully. If you configured Liveness and Readiness checks, they are performed after the application starts successfully.
+   * - Check failed: indicates that the application failed to start. An exception is reported and the application is automatically restarted.
+   * > 
+   * > - The exec, httpGet, and tcpSocket methods are supported. For specific examples, see the Liveness parameter.
+   * > - You can use only one method for health checks.
    * 
    * @example
    * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
@@ -984,7 +873,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   startupProbe?: string;
   /**
    * @remarks
-   * The graceful shutdown timeout duration. Default is 30 seconds. Valid values are 1 to 300.
+   * The timeout period for graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
    * 
    * @example
    * 30
@@ -992,7 +881,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   terminationGracePeriodSeconds?: number;
   /**
    * @remarks
-   * The time zone. Default is **Asia/Shanghai**.
+   * The time zone. Default value: **Asia/Shanghai**.
    * 
    * @example
    * Asia/Shanghai
@@ -1000,17 +889,13 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * Tomcat file configuration. Set to "" or "{}" to delete the configuration:
+   * The Tomcat configuration. Set this parameter to "" or "{}" to delete the configuration:
    * 
-   * - **port**: The port range is 1024 to 65535. Ports less than 1024 require root permissions to operate. Because the container is configured with Admin permissions, specify a port greater than 1024. If you do not configure this, the default is 8080.
-   * 
-   * - **contextPath**: The access path. Default is the root directory "/".
-   * 
-   * - **maxThreads**: Configure the connection pool size. Default is 400.
-   * 
-   * - uriEncoding: The encoding format for Tomcat, including **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. If you do not set this, the default is **ISO-8859-1**.
-   * 
-   * - **useBodyEncodingForUri**: Whether to use **BodyEncoding for URL**. Default is **true**.
+   * - **port**: the port number. Valid values: 1024 to 65535. Ports less than 1024 require root permissions. Because the container is configured with admin permissions, specify a port greater than 1024. Default value: 8080.
+   * - **contextPath**: the access path. Default value: root directory "/".
+   * - **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
+   * - **uriEncoding**: the encoding format of Tomcat. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. Default value: **ISO-8859-1**.
+   * - **useBodyEncodingForUri**: specifies whether to use **BodyEncoding for URL**. Default value: **true**.
    * 
    * @example
    * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
@@ -1018,7 +903,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   tomcatConfig?: string;
   /**
    * @remarks
-   * The virtual switch (vSwitch) where the application instance\\"s Elastic Network Interface (ENI) is located. This vSwitch must be within the specified VPC. This vSwitch also has a binding relationship with the SAE namespace. If you do not specify this parameter, the system uses the vSwitch ID bound to the namespace by default.
+   * The vSwitch where the elastic network interface controller (NIC) of the application instance resides. The vSwitch must be in the specified VPC. The vSwitch also has a binding relationship with the SAE namespace. If you leave this parameter empty, the vSwitch attached to the namespace is used by default.
    * 
    * @example
    * vsw-bp12mw1f8k3jgygk9****
@@ -1026,7 +911,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC corresponding to the SAE namespace. In SAE, a namespace can only correspond to one VPC, and you cannot change it. The first time you create an SAE application in a namespace, a binding relationship forms. Multiple namespaces can correspond to one VPC. If you do not specify this parameter, the system uses the VPC ID bound to the namespace by default.
+   * The VPC that corresponds to the SAE namespace. In SAE, a namespace can correspond to only one VPC, and the mapping cannot be modified. The binding relationship is established when the first SAE application is created in the namespace. Multiple namespaces can correspond to the same VPC. If you leave this parameter empty, the VPC bound to the namespace is used by default.
    * 
    * @example
    * vpc-bp1aevy8sofi8mh1q****
@@ -1034,7 +919,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Set the startup command for WAR package deployed applications. The procedure is the same as configuring the startup command for image deployments. For more information, see [Set the startup command](https://help.aliyun.com/document_detail/96677.html).
+   * The startup command for deploying a WAR package application. The configuration procedure is the same as that for the startup command of an image deployment. For more information, see [Configure a startup command](https://help.aliyun.com/document_detail/96677.html).
    * 
    * @example
    * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
@@ -1042,13 +927,12 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   warStartOptions?: string;
   /**
    * @remarks
-   * The Tomcat version that the WebContainer deployment package depends on. Supported versions:
+   * The version of Tomcat on which the WebContainer deployment package depends. Valid values:
    * 
    * - **apache-tomcat-7.0.91**
-   * 
    * - **apache-tomcat-8.5.42**
    * 
-   * This parameter is not supported when **Package Type** is **Image**.
+   * This parameter is not supported when **Package Type** is set to **Image**.
    * 
    * @example
    * apache-tomcat-7.0.91
@@ -1125,6 +1009,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       pvtzDiscoverySvc: 'PvtzDiscoverySvc',
       python: 'Python',
       pythonModules: 'PythonModules',
+      raspConfigShrink: 'RaspConfig',
       readiness: 'Readiness',
       replicas: 'Replicas',
       resourceType: 'ResourceType',
@@ -1217,6 +1102,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       pvtzDiscoverySvc: 'string',
       python: 'string',
       pythonModules: 'string',
+      raspConfigShrink: 'string',
       readiness: 'string',
       replicas: 'number',
       resourceType: 'string',

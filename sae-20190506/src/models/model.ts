@@ -47,6 +47,7 @@ export { BatchStopApplicationsResponseBodyData } from './BatchStopApplicationsRe
 export { BindNlbResponseBodyData } from './BindNlbResponseBody';
 export { BindSlbResponseBodyData } from './BindSlbResponseBody';
 export { ConfirmPipelineBatchResponseBodyData } from './ConfirmPipelineBatchResponseBody';
+export { CreateApplicationRequestRaspConfig } from './CreateApplicationRequest';
 export { CreateApplicationResponseBodyData } from './CreateApplicationResponseBody';
 export { CreateApplicationScalingRuleResponseBodyDataMetricMetrics } from './CreateApplicationScalingRuleResponseBody';
 export { CreateApplicationScalingRuleResponseBodyDataMetric } from './CreateApplicationScalingRuleResponseBody';
@@ -72,6 +73,7 @@ export { DeleteGreyTagRouteResponseBodyData } from './DeleteGreyTagRouteResponse
 export { DeleteIngressResponseBodyData } from './DeleteIngressResponseBody';
 export { DeleteInstancesResponseBodyData } from './DeleteInstancesResponseBody';
 export { DeleteSecretResponseBodyData } from './DeleteSecretResponseBody';
+export { DeployApplicationRequestRaspConfig } from './DeployApplicationRequest';
 export { DeployApplicationResponseBodyData } from './DeployApplicationResponseBody';
 export { DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions } from './DescribeAppServiceDetailResponseBody';
 export { DescribeAppServiceDetailResponseBodyDataMethods } from './DescribeAppServiceDetailResponseBody';
@@ -84,6 +86,7 @@ export { DescribeApplicationConfigResponseBodyDataInitContainersConfigSecretMoun
 export { DescribeApplicationConfigResponseBodyDataInitContainersConfig } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataOssMountDescs } from './DescribeApplicationConfigResponseBody';
+export { DescribeApplicationConfigResponseBodyDataRaspConfig } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataSecretMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataSidecarContainersConfigConfigMapMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmptyDirDesc } from './DescribeApplicationConfigResponseBody';

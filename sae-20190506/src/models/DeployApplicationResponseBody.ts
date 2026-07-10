@@ -13,7 +13,7 @@ export class DeployApplicationResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The returned change order ID. Use it to query task execution status.
+   * The returned change order ID, which is used to query the task execution status.
    * 
    * @example
    * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
@@ -21,11 +21,10 @@ export class DeployApplicationResponseBodyData extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * Whether RAM users need approval to deploy changes. Values:
+   * Indicates whether the change published by a Resource Access Management (RAM) user requires approval. Valid values:
    * 
-   * - **true**: Approval required.
-   * 
-   * - **false**: No approval required.
+   * - **true**: approval is required.
+   * - **false**: approval is not required.
    * 
    * @example
    * true
@@ -59,15 +58,12 @@ export class DeployApplicationResponseBodyData extends $dara.Model {
 export class DeployApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code. Values:
+   * The API status or POP error code. Valid values:
    * 
-   * - **2xx**: Success.
-   * 
-   * - **3xx**: Redirection.
-   * 
-   * - **4xx**: Request error.
-   * 
-   * - **5xx**: Server error.
+   * - **2xx**: success.
+   * - **3xx**: redirection.
+   * - **4xx**: request error.
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -75,16 +71,15 @@ export class DeployApplicationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: DeployApplicationResponseBodyData;
   /**
    * @remarks
-   * The error code. Values:
+   * The error code. Valid values:
    * 
-   * - On success: This field is not returned.
-   * 
-   * - On failure: This field is returned. For details, see the **Error codes** section in this topic.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
    * @example
    * 空
@@ -92,11 +87,10 @@ export class DeployApplicationResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Values:
+   * The additional information. Valid values:
    * 
-   * - On success, returns **success**.
-   * 
-   * - On failure, returns a specific error code.
+   * - If the request is successful, **success** is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -112,11 +106,10 @@ export class DeployApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the deployment succeeded. Values:
+   * Indicates whether the application deployment is successful. Valid values:
    * 
-   * - **true**: Deployment succeeded.
-   * 
-   * - **false**: Deployment failed.
+   * - **true**: the deployment is successful.
+   * - **false**: the deployment failed.
    * 
    * @example
    * true
@@ -124,7 +117,7 @@ export class DeployApplicationResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID for precise query of call information.
+   * The trace ID, which is used to query the details of a request.
    * 
    * @example
    * ac1a0b2215622246421415014e****
