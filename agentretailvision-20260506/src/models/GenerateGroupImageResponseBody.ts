@@ -2,34 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ImportProductsResponseBodyData extends $dara.Model {
+/**
+ */
+export class GenerateGroupImageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The product ID assigned by the business party. This ID must be unique within the same business party.
+   * The composite image request ID.
    * 
    * @example
-   * ITEM_001
+   * a5561c14-b5cd-49a4-ab79-01a63b10d99c
    */
-  itemUniqueId?: string;
-  /**
-   * @remarks
-   * The platform product ID, which is globally unique.
-   * 
-   * @example
-   * PLAT_001
-   */
-  platformItemId?: string;
+  groupId?: string;
   static names(): { [key: string]: string } {
     return {
-      itemUniqueId: 'ItemUniqueId',
-      platformItemId: 'PlatformItemId',
+      groupId: 'GroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      itemUniqueId: 'string',
-      platformItemId: 'string',
+      groupId: 'string',
     };
   }
 
@@ -42,20 +34,20 @@ export class ImportProductsResponseBodyData extends $dara.Model {
   }
 }
 
-export class ImportProductsResponseBody extends $dara.Model {
+export class GenerateGroupImageResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code. This parameter is not returned if the call is successful.
    * 
    * @example
-   * 200
+   * 202
    */
   code?: string;
   /**
    * @remarks
-   * The product information.
+   * The composite image generation result.
    */
-  data?: ImportProductsResponseBodyData;
+  data?: GenerateGroupImageResponseBodyData;
   /**
    * @remarks
    * The error message. This parameter is not returned if the call is successful.
@@ -95,7 +87,7 @@ export class ImportProductsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: ImportProductsResponseBodyData,
+      data: GenerateGroupImageResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

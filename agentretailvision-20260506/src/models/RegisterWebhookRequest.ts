@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RegisterWebhookRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key used for callback signature verification.
+   * 
    * @example
    * your_secret_key
    */
   callbackSecret?: string;
   /**
+   * @remarks
+   * The default callback URL. A public HTTPS URL is required.
+   * 
    * @example
    * https://example.com/callback
    */

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class RecognizeOrderResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Unique idempotent ID of the business party
+   * 
    * @example
    * ORDER_001
    */
   orderUniqueId?: string;
   /**
+   * @remarks
+   * Platform task ID
+   * 
    * @example
    * TASK_001
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task status
+   * 
    * @example
    * PROCESSING
    */
@@ -45,12 +54,22 @@ export class RecognizeOrderResponseBodyData extends $dara.Model {
 
 export class RecognizeOrderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. This parameter is not returned during a normal call.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Recognition task information
+   */
   data?: RecognizeOrderResponseBodyData;
   /**
+   * @remarks
+   * Error message. This parameter is not returned during a normal call.
+   * 
    * @example
    * OK
    */
@@ -64,6 +83,9 @@ export class RecognizeOrderResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. true: The call is successful. false: The call has failed.
+   * 
    * @example
    * True
    */

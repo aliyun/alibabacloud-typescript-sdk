@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateProductResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The business-side item ID, which is unique within the same business party.
+   * 
    * @example
    * ITEM_001
    */
   itemUniqueId?: string;
   /**
+   * @remarks
+   * The platform item ID, which is globally unique.
+   * 
    * @example
    * PLAT_001
    */
@@ -38,12 +44,22 @@ export class UpdateProductResponseBodyData extends $dara.Model {
 
 export class UpdateProductResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. This parameter is not returned if the call is successful.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The item information.
+   */
   data?: UpdateProductResponseBodyData;
   /**
+   * @remarks
+   * The error message. This parameter is not returned if the call is successful.
+   * 
    * @example
    * OK
    */
@@ -57,6 +73,11 @@ export class UpdateProductResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
+   * 
    * @example
    * True
    */

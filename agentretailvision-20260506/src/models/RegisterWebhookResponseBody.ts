@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RegisterWebhookResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. This parameter is not returned if the call is successful.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The error message. This parameter is not returned if the call is successful.
+   * 
    * @example
    * OK
    */
@@ -22,6 +28,11 @@ export class RegisterWebhookResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
+   * 
    * @example
    * True
    */

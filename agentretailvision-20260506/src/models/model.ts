@@ -1,3 +1,4 @@
+export { GenerateGroupImageResponseBodyData } from './GenerateGroupImageResponseBody';
 export { ImportProductsRequestMultiViewImages } from './ImportProductsRequest';
 export { ImportProductsResponseBodyData } from './ImportProductsResponseBody';
 export { QueryRecognitionResultResponseBodyDataResultCheckoutInfo } from './QueryRecognitionResultResponseBody';
@@ -7,6 +8,10 @@ export { QueryRecognitionResultResponseBodyData } from './QueryRecognitionResult
 export { RecognizeOrderResponseBodyData } from './RecognizeOrderResponseBody';
 export { UpdateProductRequestMultiViewImages } from './UpdateProductRequest';
 export { UpdateProductResponseBodyData } from './UpdateProductResponseBody';
+export { GenerateGroupImageRequest } from './GenerateGroupImageRequest';
+export { GenerateGroupImageShrinkRequest } from './GenerateGroupImageShrinkRequest';
+export { GenerateGroupImageResponseBody } from './GenerateGroupImageResponseBody';
+export { GenerateGroupImageResponse } from './GenerateGroupImageResponse';
 export { ImportProductsRequest } from './ImportProductsRequest';
 export { ImportProductsShrinkRequest } from './ImportProductsShrinkRequest';
 export { ImportProductsResponseBody } from './ImportProductsResponseBody';

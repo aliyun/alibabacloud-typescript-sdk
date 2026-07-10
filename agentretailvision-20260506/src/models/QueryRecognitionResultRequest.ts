@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryRecognitionResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business idempotent request ID
+   * 
    * @example
    * ORDER_001
    */
   orderUniqueId?: string;
   /**
+   * @remarks
+   * Platform Task ID
+   * 
    * @example
    * TASK_001
    */

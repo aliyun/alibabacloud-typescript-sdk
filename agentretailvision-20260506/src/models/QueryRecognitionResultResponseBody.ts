@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryRecognitionResultResponseBodyDataResultCheckoutInfo extends $dara.Model {
   /**
+   * @remarks
+   * Checkout status
+   * 
    * @example
    * TRUSTED
    */
@@ -31,16 +34,25 @@ export class QueryRecognitionResultResponseBodyDataResultCheckoutInfo extends $d
 
 export class QueryRecognitionResultResponseBodyDataResultItems extends $dara.Model {
   /**
+   * @remarks
+   * Business Item ID
+   * 
    * @example
    * 690234524880781
    */
   itemUniqueId?: string;
   /**
+   * @remarks
+   * Platform Item ID
+   * 
    * @example
    * 535c3daaee3b4b5382db4913413419bc2d
    */
   platformItemId?: string;
   /**
+   * @remarks
+   * Item quantity
+   * 
    * @example
    * 1
    */
@@ -71,7 +83,15 @@ export class QueryRecognitionResultResponseBodyDataResultItems extends $dara.Mod
 }
 
 export class QueryRecognitionResultResponseBodyDataResult extends $dara.Model {
+  /**
+   * @remarks
+   * Checkout information
+   */
   checkoutInfo?: QueryRecognitionResultResponseBodyDataResultCheckoutInfo;
+  /**
+   * @remarks
+   * List of recognized items
+   */
   items?: QueryRecognitionResultResponseBodyDataResultItems[];
   static names(): { [key: string]: string } {
     return {
@@ -104,17 +124,30 @@ export class QueryRecognitionResultResponseBodyDataResult extends $dara.Model {
 
 export class QueryRecognitionResultResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Business unique idempotent ID
+   * 
    * @example
    * ORDER_001
    */
   orderUniqueId?: string;
+  /**
+   * @remarks
+   * Recognition result
+   */
   result?: QueryRecognitionResultResponseBodyDataResult;
   /**
+   * @remarks
+   * Platform Task ID
+   * 
    * @example
    * TASK_001
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task status
+   * 
    * @example
    * COMPLETED
    */
@@ -151,12 +184,22 @@ export class QueryRecognitionResultResponseBodyData extends $dara.Model {
 
 export class QueryRecognitionResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. This parameter is not returned for a successful call.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Task details
+   */
   data?: QueryRecognitionResultResponseBodyData;
   /**
+   * @remarks
+   * Error message. This parameter is not returned for a successful call.
+   * 
    * @example
    * OK
    */
@@ -170,6 +213,9 @@ export class QueryRecognitionResultResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. true: The call was successful. false: The call failed.
+   * 
    * @example
    * True
    */
