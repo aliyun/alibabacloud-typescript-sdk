@@ -8,12 +8,12 @@ import { Hugepage } from "./Hugepage";
 export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
   /**
    * @remarks
-   * The Hugepage configuration.
+   * The hugepage configuration.
    */
   hugepage?: Hugepage;
   /**
    * @remarks
-   * The custom sysctl parameter configuration.
+   * The custom sysctl parameter settings.
    */
   sysctl?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -87,17 +87,17 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
   containerdConfig?: ContainerdConfig;
   /**
    * @remarks
-   * The kubelet parameter configuration.
+   * The kubelet parameter settings.
    */
   kubeletConfig?: KubeletConfig;
   /**
    * @remarks
-   * The list of specified nodes to upgrade.
+   * The list of nodes to upgrade.
    */
   nodeNames?: string[];
   /**
    * @remarks
-   * The operating system parameter configuration.
+   * The operating system parameter settings.
    */
   osConfig?: ModifyNodePoolNodeConfigRequestOsConfig;
   /**

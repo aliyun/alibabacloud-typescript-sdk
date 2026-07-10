@@ -228,6 +228,7 @@ export { ModifyClusterRequestOperationPolicyClusterAutoUpgrade } from './ModifyC
 export { ModifyClusterRequestOperationPolicy } from './ModifyClusterRequest';
 export { ModifyClusterRequestSystemEventsLogging } from './ModifyClusterRequest';
 export { ModifyClusterNodePoolRequestAutoScaling } from './ModifyClusterNodePoolRequest';
+export { ModifyClusterNodePoolRequestEfloNodeGroup } from './ModifyClusterNodePoolRequest';
 export { ModifyClusterNodePoolRequestKubernetesConfig } from './ModifyClusterNodePoolRequest';
 export { ModifyClusterNodePoolRequestManagementAutoRepairPolicy } from './ModifyClusterNodePoolRequest';
 export { ModifyClusterNodePoolRequestManagementAutoUpgradePolicy } from './ModifyClusterNodePoolRequest';
