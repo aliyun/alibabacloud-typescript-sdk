@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryCorpDetailInfoRequest extends $dara.Model {
   accountId?: string;
-  /**
-   * @example
-   * btripxxxxxx
-   */
   targetCorpId?: string;
   targetThirdCorpId?: string;
   static names(): { [key: string]: string } {

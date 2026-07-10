@@ -3,44 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelStaticInfoResponseBodyModuleHotelStaticInfosExpandInfo extends $dara.Model {
-  /**
-   * @example
-   * 17:00
-   */
   checkIn?: string;
-  /**
-   * @example
-   * 12:00
-   */
   checkOut?: string;
-  /**
-   * @example
-   * 2020
-   */
   decorateTime?: string;
   floors?: string;
   hotelFacilities?: string[];
-  /**
-   * @example
-   * 0
-   */
   hotelType?: number;
-  /**
-   * @example
-   * 2020
-   */
   openingTime?: string;
   roomFacilities?: string[];
-  /**
-   * @example
-   * 1
-   */
   rooms?: number;
   service?: string[];
-  /**
-   * @example
-   * 1
-   */
   themeTag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,10 +67,6 @@ export class HotelStaticInfoResponseBodyModuleHotelStaticInfosExpandInfo extends
 export class HotelStaticInfoResponseBodyModuleHotelStaticInfosImageinfos extends $dara.Model {
   desc?: string;
   tag?: number;
-  /**
-   * @example
-   * https://img.alicdn.com/imgextra/i3/6000000000003/O1CN01xkZQR41BtPxK1PQCb_!!6000000000003-0-hotel.jpg
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -191,20 +159,8 @@ export class HotelStaticInfoResponseBodyModuleHotelStaticInfosRoomInfosBedInfoGr
 
 export class HotelStaticInfoResponseBodyModuleHotelStaticInfosRoomInfosBedInfos extends $dara.Model {
   bedDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   bedNum?: number;
-  /**
-   * @example
-   * 1.8m
-   */
   bedSize?: string;
-  /**
-   * @example
-   * 0
-   */
   bedType?: string;
   length?: string;
   width?: string;
@@ -242,56 +198,20 @@ export class HotelStaticInfoResponseBodyModuleHotelStaticInfosRoomInfosBedInfos 
 export class HotelStaticInfoResponseBodyModuleHotelStaticInfosRoomInfos extends $dara.Model {
   bedInfoGroupList?: HotelStaticInfoResponseBodyModuleHotelStaticInfosRoomInfosBedInfoGroupList[];
   bedInfos?: HotelStaticInfoResponseBodyModuleHotelStaticInfosRoomInfosBedInfos[];
-  /**
-   * @example
-   * 1
-   */
   extraBed?: number;
-  /**
-   * @example
-   * demo
-   */
   extraBedDesc?: string;
-  /**
-   * @example
-   * 1,2,3,4,5,6
-   */
   floor?: string;
-  /**
-   * @example
-   * 0
-   */
   internetWay?: string;
-  /**
-   * @example
-   * 1
-   */
   maxOccupancy?: number;
   roomFacilities?: string;
   roomFacilityList?: string[];
-  /**
-   * @example
-   * 71652158
-   */
   roomId?: string;
-  /**
-   * @example
-   * //img.alicdn.com/imgextra/i3/6000000000003/O1CN01xkZQR41BtPxK1PQCb_!!6000000000003-0-hotel.jpg
-   */
   roomImage?: string;
   roomImages?: string[];
   roomName?: string;
   roomType?: number;
   roomarea?: string;
-  /**
-   * @example
-   * 1
-   */
   rooms?: number;
-  /**
-   * @example
-   * 0
-   */
   window?: string;
   windowBad?: string;
   windowView?: string;
@@ -366,122 +286,38 @@ export class HotelStaticInfoResponseBodyModuleHotelStaticInfosRoomInfos extends 
 
 export class HotelStaticInfoResponseBodyModuleHotelStaticInfos extends $dara.Model {
   blockRoomTypeInformation?: { [key: string]: string };
-  /**
-   * @example
-   * 19039
-   */
   brand?: string;
   brandName?: string;
-  /**
-   * @example
-   * 330100
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * CN
-   */
   country?: string;
-  /**
-   * @example
-   * CN
-   */
   countryCode?: string;
   description?: string;
-  /**
-   * @example
-   * 330183
-   */
   district?: string;
   districtName?: string;
   expandInfo?: HotelStaticInfoResponseBodyModuleHotelStaticInfosExpandInfo;
   hotelAddress?: string;
-  /**
-   * @example
-   * Building 5, Haichuang Building, 998 Wenyi West Road
-   */
   hotelEnAddress?: string;
-  /**
-   * @example
-   * Business travel hotel
-   */
   hotelEnName?: string;
-  /**
-   * @example
-   * 55335212
-   */
   hotelId?: string;
   hotelName?: string;
-  /**
-   * @example
-   * 2020
-   */
   hotelOpenTime?: string;
-  /**
-   * @example
-   * 0086#0571#28350117
-   */
   hotelPhones?: string;
-  /**
-   * @example
-   * demo
-   */
   hotelPolicies?: string;
-  /**
-   * @example
-   * 0086#0571#28350117
-   */
   hotelfax?: string;
   hotelpics?: string;
   imageinfos?: HotelStaticInfoResponseBodyModuleHotelStaticInfosImageinfos[];
-  /**
-   * @example
-   * 1
-   */
   invoiceProviderMethod?: string;
   invoiceTypes?: number[];
-  /**
-   * @example
-   * 119.844005,30.054384
-   */
   location?: string;
-  /**
-   * @example
-   * 330000
-   */
   province?: string;
   provinceName?: string;
-  /**
-   * @example
-   * 2
-   */
   ratingAverage?: string;
   roomInfos?: HotelStaticInfoResponseBodyModuleHotelStaticInfosRoomInfos[];
-  /**
-   * @example
-   * 0
-   */
   star?: string;
-  /**
-   * @example
-   * 2
-   */
   starRate?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: string;
-  /**
-   * @example
-   * demo
-   */
   themes?: string;
-  /**
-   * @example
-   * demo
-   */
   visaReminding?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -612,35 +448,11 @@ export class HotelStaticInfoResponseBodyModule extends $dara.Model {
 }
 
 export class HotelStaticInfoResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * operation success.
-   */
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: HotelStaticInfoResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

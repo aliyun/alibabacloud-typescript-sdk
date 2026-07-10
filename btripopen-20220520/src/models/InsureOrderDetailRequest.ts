@@ -6,29 +6,15 @@ export class InsureOrderDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 10000001
    */
   btripUserId?: string;
   buyerName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1021000196440356901
    */
   insOrderId?: string;
-  /**
-   * @example
-   * PostalSavingsBank
-   */
   isvName?: string;
-  /**
-   * @example
-   * fliggy
-   */
   supplierCode?: string;
   static names(): { [key: string]: string } {
     return {

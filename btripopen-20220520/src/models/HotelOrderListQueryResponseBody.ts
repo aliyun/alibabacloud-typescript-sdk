@@ -4,16 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class HotelOrderListQueryResponseBodyModuleCostCenter extends $dara.Model {
   corpId?: string;
-  /**
-   * @example
-   * 14668
-   */
   id?: number;
   name?: string;
-  /**
-   * @example
-   * CS-PNUY
-   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,15 +35,7 @@ export class HotelOrderListQueryResponseBodyModuleCostCenter extends $dara.Model
 }
 
 export class HotelOrderListQueryResponseBodyModuleInvoice extends $dara.Model {
-  /**
-   * @example
-   * 133568
-   */
   id?: number;
-  /**
-   * @example
-   * 1
-   */
   invoiceType?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -81,41 +65,13 @@ export class HotelOrderListQueryResponseBodyModuleInvoice extends $dara.Model {
 
 export class HotelOrderListQueryResponseBodyModulePriceInfoList extends $dara.Model {
   category?: string;
-  /**
-   * @example
-   * 1
-   */
   categoryCode?: number;
-  /**
-   * @example
-   * 1
-   */
   categoryType?: number;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   gmtCreate?: string;
   passengerName?: string;
-  /**
-   * @example
-   * 1
-   */
   payType?: number;
-  /**
-   * @example
-   * 100
-   */
   price?: number;
-  /**
-   * @example
-   * cs1546728
-   */
   tradeId?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -181,22 +137,10 @@ export class HotelOrderListQueryResponseBodyModuleUserAffiliateList extends $dar
 }
 
 export class HotelOrderListQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 22678
-   */
   applyId?: number;
   btripTitle?: string;
   category?: number;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   checkIn?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   checkOut?: string;
   city?: string;
   cityAdCode?: string;
@@ -209,80 +153,28 @@ export class HotelOrderListQueryResponseBodyModule extends $dara.Model {
   departId?: string;
   departName?: string;
   extendField?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   gmtModified?: string;
   guest?: string;
   hotelName?: string;
-  /**
-   * @example
-   * 11
-   */
   hotelSupportVatInvoiceType?: number;
-  /**
-   * @example
-   * 13764
-   */
   id?: number;
   invoice?: HotelOrderListQueryResponseBodyModuleInvoice;
-  /**
-   * @example
-   * 4
-   */
   night?: number;
-  /**
-   * @example
-   * 1
-   */
   orderStatus?: number;
   orderStatusDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   orderType?: number;
   orderTypeDesc?: string;
   priceInfoList?: HotelOrderListQueryResponseBodyModulePriceInfoList[];
-  /**
-   * @example
-   * CS-PROJECTCODE
-   */
   projectCode?: string;
-  /**
-   * @example
-   * 13631
-   */
   projectId?: number;
   projectTitle?: string;
-  /**
-   * @example
-   * 4
-   */
   roomNum?: number;
   roomType?: string;
   supplier?: string;
-  /**
-   * @example
-   * CS-THIRDAPPLY
-   */
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
-  /**
-   * @example
-   * CS-ITINEARY
-   */
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * CS-THIRDPROJECT
-   */
   thirdpartProjectId?: string;
   userAffiliateList?: HotelOrderListQueryResponseBodyModuleUserAffiliateList[];
   userId?: string;
@@ -403,20 +295,8 @@ export class HotelOrderListQueryResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderListQueryResponseBodyPageInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   page?: number;
-  /**
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 50
-   */
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -444,28 +324,12 @@ export class HotelOrderListQueryResponseBodyPageInfo extends $dara.Model {
 }
 
 export class HotelOrderListQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: HotelOrderListQueryResponseBodyModule[];
   pageInfo?: HotelOrderListQueryResponseBodyPageInfo;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,30 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingFlightListShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * BJS
-   */
   arrCity?: string;
-  /**
-   * @example
-   * HGH
-   */
   depCity?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2000-00-00 00:00:00
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * dis123
    */
   disOrderId?: string;
   isVoluntary?: number;

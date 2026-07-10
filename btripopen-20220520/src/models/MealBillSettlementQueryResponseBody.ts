@@ -5,36 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
   adjustTime?: string;
   applyExtendField?: string;
-  /**
-   * @example
-   * 1004430880
-   */
   applyId?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   billRecordTime?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   bookTime?: string;
-  /**
-   * @example
-   * 1234
-   */
   bookerId?: string;
-  /**
-   * @example
-   * A1234
-   */
   bookerJobNo?: string;
   bookerName?: string;
-  /**
-   * @example
-   * 1
-   */
   capitalDirection?: string;
   cascadeDepartment?: string;
   categoryDesc?: string;
@@ -42,166 +18,54 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
   consumeReportCity?: string;
   consumeReportCityCode?: string;
   consumerScene?: string;
-  /**
-   * @example
-   * 100.0
-   */
   corpSettleFee?: number;
   costCenter?: string;
-  /**
-   * @example
-   * cs1
-   */
   costCenterNumber?: string;
   costDepartment?: string;
   department?: string;
-  /**
-   * @example
-   * 1112
-   */
   departmentId?: string;
-  /**
-   * @example
-   * 70101
-   */
   feeType?: string;
   feeTypeDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   index?: string;
   invoiceTitle?: string;
-  /**
-   * @example
-   * 123
-   */
   mainApplyId?: string;
   mappingCompanyCode?: string;
-  /**
-   * @example
-   * XXXX
-   */
   mealAddress?: string;
   mealCity?: string;
-  /**
-   * @example
-   * XXX
-   */
   mealCityCode?: string;
   mealReason?: string;
   mealRule?: string;
   mealScene?: string;
-  /**
-   * @example
-   * MEAL
-   */
   merchantCategory?: string;
-  /**
-   * @example
-   * XXXX
-   */
   merchantName?: string;
-  /**
-   * @example
-   * 1002039196909288346
-   */
   orderId?: string;
-  /**
-   * @example
-   * 100.0
-   */
   orderPrice?: number;
   orderStatusDesc?: string;
-  /**
-   * @example
-   * 0.0
-   */
   personSettlePrice?: number;
-  /**
-   * @example
-   * 60698599
-   */
   primaryId?: number;
   processorOaCode?: string;
-  /**
-   * @example
-   * acs
-   */
   projectCode?: string;
   projectName?: string;
   remark?: string;
-  /**
-   * @example
-   * 5.0
-   */
   serviceFee?: number;
   settleTypeDesc?: string;
-  /**
-   * @example
-   * 110.0
-   */
   settlementFee?: number;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   settlementTime?: string;
-  /**
-   * @example
-   * 4
-   */
   settlementType?: string;
   shareDinner?: string;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * XXXX
-   */
   storeAddress?: string;
-  /**
-   * @example
-   * 6%
-   */
   taxRate?: string;
-  /**
-   * @example
-   * cs2
-   */
   thirdInvoiceId?: string;
-  /**
-   * @example
-   * 123
-   */
   thirdPartBusinessId?: string;
-  /**
-   * @example
-   * 7244-1968
-   */
   thirdpartApplyId?: string;
   tradeActionDesc?: string;
-  /**
-   * @example
-   * 1234
-   */
   travelerId?: string;
-  /**
-   * @example
-   * A1234
-   */
   travelerJobNo?: string;
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
-  /**
-   * @example
-   * 1
-   */
   voucherType?: number;
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
@@ -354,38 +218,14 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
 }
 
 export class MealBillSettlementQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 7
-   */
   category?: number;
   corpId?: string;
   items?: MealBillSettlementQueryResponseBodyModuleItems[];
-  /**
-   * @example
-   * 1002039195025156700
-   */
   orderId?: string;
-  /**
-   * @example
-   * 2022-07-02
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2022-07-01
-   */
   periodStart?: string;
   scrollId?: string;
-  /**
-   * @example
-   * 2695
-   */
   totalNum?: number;
-  /**
-   * @example
-   * 30
-   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -428,27 +268,11 @@ export class MealBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class MealBillSettlementQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: number;
   message?: string;
   module?: MealBillSettlementQueryResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210f079e16603757182131635d866a
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

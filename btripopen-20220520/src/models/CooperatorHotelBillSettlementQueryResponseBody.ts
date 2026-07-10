@@ -4,60 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
   adjustTime?: string;
-  /**
-   * @example
-   * 124
-   */
   alipayTradeNo?: string;
-  /**
-   * @example
-   * 123
-   */
   applyArrCityCode?: string;
   applyArrCityName?: string;
-  /**
-   * @example
-   * 123
-   */
   applyDepCityCode?: string;
   applyDepCityName?: string;
   applyExtendField?: string;
-  /**
-   * @example
-   * sdasdas123324
-   */
   applyId?: string;
   approverEmail?: string;
   approverId?: string;
   approverName?: string;
-  /**
-   * @example
-   * 1.0
-   */
   averageNights?: number;
   baseLocation?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   billRecordTime?: string;
   bookChannel?: string;
   bookMode?: string;
   bookReason?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   bookTime?: string;
-  /**
-   * @example
-   * 123
-   */
   bookerId?: string;
-  /**
-   * @example
-   * zs123
-   */
   bookerJobNo?: string;
   bookerName?: string;
   brandGroup?: string;
@@ -66,87 +30,31 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
   capitalDirection?: string;
   cascadeDepartment?: string;
   categoryDesc?: string;
-  /**
-   * @example
-   * 2024-02-13
-   */
   checkInDate?: string;
-  /**
-   * @example
-   * 2024-02-15
-   */
   checkoutDate?: string;
   city?: string;
-  /**
-   * @example
-   * 330100
-   */
   cityCode?: string;
   cityCounty?: string;
-  /**
-   * @example
-   * 330100
-   */
   cityCountyCode?: number;
-  /**
-   * @example
-   * IN240102113438277278
-   */
   cooperatorBillCode?: string;
   cooperatorName?: string;
-  /**
-   * @example
-   * HO20240125162800280928
-   */
   cooperatorOrderId?: string;
-  /**
-   * @example
-   * 0.1
-   */
   corpRefundFee?: number;
-  /**
-   * @example
-   * 100.0
-   */
   corpTotalFee?: number;
   costCenter?: string;
-  /**
-   * @example
-   * 123
-   */
   costCenterNumber?: string;
   costDepartment?: string;
   customContent?: string;
   department?: string;
-  /**
-   * @example
-   * 123
-   */
   departmentId?: string;
   exceedReason?: string;
   feeType?: string;
   feeTypeDesc?: string;
-  /**
-   * @example
-   * 10.0
-   */
   fees?: number;
-  /**
-   * @example
-   * 1.0
-   */
   fines?: number;
   foreignersTag?: string;
-  /**
-   * @example
-   * 10.0
-   */
   fuPointFee?: number;
   hotelName?: string;
-  /**
-   * @example
-   * 1
-   */
   index?: string;
   invoiceTitle?: string;
   isEarlyDeparture?: string;
@@ -154,155 +62,51 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
   isShareStr?: string;
   location?: string;
   mappingCompanyCode?: string;
-  /**
-   * @example
-   * 2
-   */
   nights?: number;
-  /**
-   * @example
-   * 3137168772101111000
-   */
   orderId?: string;
-  /**
-   * @example
-   * 100.0
-   */
   orderPrice?: number;
   orderStatusDesc?: string;
   orderType?: string;
-  /**
-   * @example
-   * 123
-   */
   overApplyId?: string;
-  /**
-   * @example
-   * 123
-   */
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 0.1
-   */
   personRefundFee?: number;
-  /**
-   * @example
-   * 10.0
-   */
   personSettlePrice?: number;
   position?: string;
   positionLevel?: string;
-  /**
-   * @example
-   * 72328485
-   */
   primaryId?: number;
   processorOaCode?: string;
-  /**
-   * @example
-   * acs
-   */
   projectCode?: string;
   projectName?: string;
-  /**
-   * @example
-   * 0.0
-   */
   promotionFee?: number;
   remark?: string;
-  /**
-   * @example
-   * 10
-   */
   reserveRule?: number;
   roomNo?: string;
-  /**
-   * @example
-   * 1
-   */
   roomNumber?: number;
-  /**
-   * @example
-   * 105.0
-   */
   roomPrice?: number;
   roomType?: string;
-  /**
-   * @example
-   * 5.0
-   */
   serviceFee?: number;
   settleTypeDesc?: string;
-  /**
-   * @example
-   * 110.0
-   */
   settlementFee?: number;
-  /**
-   * @example
-   * 0.0
-   */
   settlementGrantFee?: number;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   settlementTime?: string;
   settlementType?: string;
   sio?: string;
   star?: string;
-  /**
-   * @example
-   * 2
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * 166564408
-   */
   subOrderId?: string;
-  /**
-   * @example
-   * 9%
-   */
   taxRate?: string;
-  /**
-   * @example
-   * 1
-   */
   thirdInvoiceId?: string;
-  /**
-   * @example
-   * 123
-   */
   thirdItineraryId?: string;
-  /**
-   * @example
-   * 2
-   */
   totalNights?: number;
   tradeActionDesc?: string;
   travelerEmail?: string;
-  /**
-   * @example
-   * 123
-   */
   travelerId?: string;
-  /**
-   * @example
-   * zs123
-   */
   travelerJobNo?: string;
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
-  /**
-   * @example
-   * 1
-   */
   voucherType?: number;
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
@@ -537,32 +341,12 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
 }
 
 export class CooperatorHotelBillSettlementQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 2
-   */
   category?: number;
-  /**
-   * @example
-   * open12ilgngll7us7v10Bm5UlMg700
-   */
   corpId?: string;
   items?: CooperatorHotelBillSettlementQueryResponseBodyModuleItems[];
-  /**
-   * @example
-   * 2021-10-14
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2021-10-13
-   */
   periodStart?: string;
   scrollId?: string;
-  /**
-   * @example
-   * 30
-   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -601,33 +385,11 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModule extends $dara.
 }
 
 export class CooperatorHotelBillSettlementQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
   module?: CooperatorHotelBillSettlementQueryResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

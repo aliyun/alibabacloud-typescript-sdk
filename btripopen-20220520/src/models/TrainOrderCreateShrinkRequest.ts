@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainOrderCreateShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   acceptNoSeat?: string;
   /**
    * @remarks
@@ -16,9 +12,6 @@ export class TrainOrderCreateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12344321
    */
   btripUserId?: string;
   /**
@@ -32,22 +25,11 @@ export class TrainOrderCreateShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   contactInfoShrink?: string;
-  /**
-   * @example
-   * 0
-   */
   forceMatch?: string;
-  /**
-   * @example
-   * false
-   */
   isPayNow?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   outOrderId?: string;
   /**

@@ -3,22 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundDetailV2Request extends $dara.Model {
-  /**
-   * @example
-   * cheshiapi
-   */
   isvName?: string;
-  /**
-   * @example
-   * 1002039195025156784
-   */
   orderId?: string;
   outOrderId?: string;
   outRefundApplyId?: string;
-  /**
-   * @example
-   * 1002039195025156700
-   */
   refundApplyId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,44 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SyncSingleUserShrinkRequest extends $dara.Model {
   email?: string;
-  /**
-   * @example
-   * 1001
-   */
   jobNo?: string;
-  /**
-   * @example
-   * 0
-   */
   leaveStatus?: number;
-  /**
-   * @example
-   * 72369
-   */
   managerUserId?: string;
-  /**
-   * @example
-   * 16392740204
-   */
   phone?: string;
   position?: string;
-  /**
-   * @example
-   * 1
-   */
   positionLevel?: string;
-  /**
-   * @example
-   * ce/shi
-   */
   realNameEn?: string;
   thirdDepartIdListShrink?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 573263
    */
   userId?: string;
   /**

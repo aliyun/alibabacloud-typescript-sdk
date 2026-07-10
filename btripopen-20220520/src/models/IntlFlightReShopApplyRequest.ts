@@ -6,25 +6,16 @@ export class IntlFlightReShopApplyRequestSelectedJourneysSelectedFlights extends
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * HKG
    */
   arrCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * BJS
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * KN6728HGHPKX0725
    */
   segmentKey?: string;
   static names(): { [key: string]: string } {
@@ -56,25 +47,16 @@ export class IntlFlightReShopApplyRequestSelectedJourneys extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * DLC
    */
   arrCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * TSN
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-10-10
    */
   intentDate?: string;
   /**
@@ -113,17 +95,10 @@ export class IntlFlightReShopApplyRequestSelectedJourneys extends $dara.Model {
 }
 
 export class IntlFlightReShopApplyRequestSelectedPassengers extends $dara.Model {
-  /**
-   * @example
-   * ZHANG/SAN
-   */
   fullName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100001
    */
   passengerId?: number;
   static names(): { [key: string]: string } {
@@ -150,48 +125,23 @@ export class IntlFlightReShopApplyRequestSelectedPassengers extends $dara.Model 
 }
 
 export class IntlFlightReShopApplyRequest extends $dara.Model {
-  /**
-   * @example
-   * asyncKey_2390u230slgw023
-   */
   asyncApplyKey?: string;
-  /**
-   * @example
-   * true
-   */
   asyncApplyMode?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1017035199907040165
    */
   orderId?: string;
-  /**
-   * @example
-   * D1736316966048SC4877
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * JPM20241024354
-   */
   outReShopApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * edcac4f4c79d40ccb141ddb6da567e65
    */
   passengerJourneyGroupKey?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   reShopReasonCode?: string;
   /**

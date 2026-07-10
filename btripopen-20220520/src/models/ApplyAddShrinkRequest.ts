@@ -3,97 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApplyAddShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 4000
-   */
   budget?: number;
-  /**
-   * @example
-   * 1
-   */
   budgetMerge?: number;
   carRuleShrink?: string;
   corpName?: string;
   defaultStandardShrink?: string;
-  /**
-   * @example
-   * departId01
-   */
   departId?: string;
   departName?: string;
-  /**
-   * @remarks
-   * 可将补充描述传入此字段，账单中将会体现此字段的值。可以用于企业的统计和对账
-   * 
-   * @example
-   * {"cost_center":"成本中心"}
-   */
   extendField?: string;
   externalTravelerListShrink?: string;
   externalTravelerStandardShrink?: string;
-  /**
-   * @example
-   * 1000
-   */
   flightBudget?: number;
-  /**
-   * @example
-   * 1000
-   */
   hotelBudget?: number;
   hotelShareShrink?: string;
-  /**
-   * @example
-   * Y
-   */
   internationalFlightCabins?: string;
   intlFlightBudget?: number;
   intlHotelBudget?: number;
   itineraryListShrink?: string;
-  /**
-   * @example
-   * 0
-   */
   itineraryRule?: number;
   itinerarySetListShrink?: string;
-  /**
-   * @example
-   * 1
-   */
   limitTraveler?: number;
   mealBudget?: number;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   subCorpId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12345
    */
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * 00714131
-   */
   thirdpartBusinessId?: string;
   thirdpartDepartId?: string;
-  /**
-   * @example
-   * 1
-   */
   togetherBookRule?: number;
-  /**
-   * @example
-   * 1000
-   */
   trainBudget?: number;
   travelerListShrink?: string;
   travelerStandardShrink?: string;
@@ -102,39 +44,20 @@ export class ApplyAddShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   tripCause?: string;
-  /**
-   * @example
-   * 1
-   */
   tripDay?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   tripTitle?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
-  /**
-   * @example
-   * union001
-   */
   unionNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * thridpart12138
    */
   userId?: string;
   userName?: string;
-  /**
-   * @example
-   * 1000
-   */
   vehicleBudget?: number;
   static names(): { [key: string]: string } {
     return {

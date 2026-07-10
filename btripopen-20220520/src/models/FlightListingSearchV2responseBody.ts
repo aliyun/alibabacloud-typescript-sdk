@@ -12,10 +12,6 @@ import { ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValue } from ".
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItemSubItems extends $dara.Model {
   shoppingItemMap?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValue };
-  /**
-   * @example
-   * 07df0bd9-f803-4a50-8449-f4bd675d9939
-   */
   uniqKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,17 +40,15 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItemS
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItem extends $dara.Model {
+  codeType?: string;
   flightRuleInfos?: { [key: string]: ModuleFlightItemListBestPriceItemFlightRuleInfosValue };
-  /**
-   * @example
-   * e50d380fc05942cc8ac57af8ae02f448_0
-   */
   itemId?: string;
   shoppingItemMap?: { [key: string]: ModuleFlightItemListBestPriceItemShoppingItemMapValue };
   subItemPositionMap?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemPositionMapValue[] };
   subItems?: FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItemSubItems[];
   static names(): { [key: string]: string } {
     return {
+      codeType: 'code_type',
       flightRuleInfos: 'flight_rule_infos',
       itemId: 'item_id',
       shoppingItemMap: 'shopping_item_map',
@@ -65,6 +59,7 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItem 
 
   static types(): { [key: string]: any } {
     return {
+      codeType: 'string',
       flightRuleInfos: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemFlightRuleInfosValue },
       itemId: 'string',
       shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListBestPriceItemShoppingItemMapValue },
@@ -97,20 +92,8 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItem 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $dara.Model {
   airlineChineseName?: string;
   airlineChineseShortName?: string;
-  /**
-   * @example
-   * MU
-   */
   airlineCode?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/tfs/TB15EXDFHY1gK0jSZTEXXXDQVXa-450-450.png_80x80.jpg
-   */
   airlineIcon?: string;
-  /**
-   * @example
-   * false
-   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -142,22 +125,10 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PKX
-   */
   airportCode?: string;
   airportName?: string;
-  /**
-   * @example
-   * #FF7300
-   */
   airportNameColor?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * --
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -189,22 +160,10 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   airportCode?: string;
   airportName?: string;
-  /**
-   * @example
-   * #FF7300
-   */
   airportNameColor?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -238,20 +197,8 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $dara.Model {
   airlineChineseName?: string;
   airlineChineseShortName?: string;
-  /**
-   * @example
-   * DR
-   */
   airlineCode?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/tfs/TB1gSXBFUT1gK0jSZFhXXaAtVXa-450-450.png_80x80.jpg
-   */
   airlineIcon?: string;
-  /**
-   * @example
-   * false
-   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -284,10 +231,6 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo extends $dara.Model {
   operatingAirlineInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
-  /**
-   * @example
-   * CX601
-   */
   operatingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -316,42 +259,14 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   stopAirport?: string;
   stopAirportName?: string;
-  /**
-   * @example
-   * T3
-   */
   stopArrTerm?: string;
-  /**
-   * @example
-   * BJS
-   */
   stopArrTime?: string;
-  /**
-   * @example
-   * HGH
-   */
   stopCityCode?: string;
-  /**
-   * @example
-   * HGH
-   */
   stopCityName?: string;
   stopCityNames?: string[];
-  /**
-   * @example
-   * T4
-   */
   stopDepTerm?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   stopDepTime?: string;
   stopTime?: string;
   static names(): { [key: string]: string } {
@@ -399,77 +314,30 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos extends $dara.Model {
   airlineInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo;
   arrAirportInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo;
-  /**
-   * @example
-   * BJS
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 09:45
-   */
   arrTime?: string;
   baggageDesc?: string;
   depAirportInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
-  /**
-   * @example
-   * HGH
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   depTime?: string;
-  /**
-   * @remarks
-   * duration
-   * 
-   * @example
-   * 140
-   */
   duration?: number;
   extraInfo?: { [key: string]: any };
-  /**
-   * @example
-   * MU5131
-   */
   flightNo?: string;
   flightShareInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
   flightSize?: string;
   flightStopInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo;
-  /**
-   * @example
-   * 320
-   */
   flightType?: string;
   manufacturer?: string;
   mealDesc?: string;
   miles?: number;
   onTimeRate?: string;
-  /**
-   * @example
-   * 0
-   */
   oneMore?: number;
   oneMoreShow?: string;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
-  /**
-   * @example
-   * false
-   */
   share?: boolean;
   shortFlightSize?: string;
-  /**
-   * @example
-   * false
-   */
   stop?: boolean;
   totalTime?: string;
   transferTime?: string;
@@ -572,44 +440,16 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfos extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 09:45
-   */
   arrTime?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   depTime?: string;
-  /**
-   * @example
-   * 140
-   */
   duration?: number;
   extensions?: { [key: string]: string };
   flightSegmentInfos?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos[];
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   transferTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -661,10 +501,6 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubItems extends $dara.Model {
   shoppingItemMap?: { [key: string]: ModuleFlightItemListItemListSubItemsShoppingItemMapValue };
   tag?: string;
-  /**
-   * @example
-   * 07df0bd9-f803-4a50-8449-f4bd675d9939
-   */
   uniqKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -695,17 +531,15 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubIte
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemList extends $dara.Model {
+  codeType?: string;
   flightRuleInfos?: { [key: string]: ModuleFlightItemListItemListFlightRuleInfosValue };
-  /**
-   * @example
-   * e50d380fc05942cc8ac57af8ae02f448_0
-   */
   itemId?: string;
   shoppingItemMap?: { [key: string]: ModuleFlightItemListItemListShoppingItemMapValue };
   subItemPositionMap?: { [key: string]: ModuleFlightItemListItemListSubItemPositionMapValue[] };
   subItems?: FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubItems[];
   static names(): { [key: string]: string } {
     return {
+      codeType: 'code_type',
       flightRuleInfos: 'flight_rule_infos',
       itemId: 'item_id',
       shoppingItemMap: 'shopping_item_map',
@@ -716,6 +550,7 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemList exten
 
   static types(): { [key: string]: any } {
     return {
+      codeType: 'string',
       flightRuleInfos: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListFlightRuleInfosValue },
       itemId: 'string',
       shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleFlightItemListItemListShoppingItemMapValue },
@@ -785,15 +620,7 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemList extends $dara
 
 export class FlightListingSearchV2ResponseBodyModule extends $dara.Model {
   flightItemList?: FlightListingSearchV2ResponseBodyModuleFlightItemList[];
-  /**
-   * @example
-   * 0
-   */
   searchMode?: number;
-  /**
-   * @example
-   * 1
-   */
   tripType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -824,37 +651,11 @@ export class FlightListingSearchV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightListingSearchV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: FlightListingSearchV2ResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210e842b16611337974412836dae27
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

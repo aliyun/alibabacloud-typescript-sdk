@@ -6,25 +6,16 @@ export class TrainOrderPayRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1379598062646
    */
   orderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   outOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   payAmount?: number;
   static names(): { [key: string]: string } {

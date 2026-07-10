@@ -3,87 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderInfoQueryResponseBodyModuleBaseOrderInfo extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   bookMode?: string;
-  /**
-   * @example
-   * 1430378
-   */
   bookerId?: string;
   bookerName?: string;
-  /**
-   * @example
-   * btripkvxtn1321g49wtul
-   */
   btripCorpId?: string;
-  /**
-   * @example
-   * 2
-   */
   category?: number;
-  /**
-   * @example
-   * 1721145600000
-   */
   checkInTime?: number;
-  /**
-   * @example
-   * 1721145600000
-   */
   checkOutTime?: number;
-  /**
-   * @example
-   * true
-   */
   isAgreementPrice?: boolean;
-  /**
-   * @example
-   * 4
-   */
   nights?: number;
-  /**
-   * @example
-   * 1721145600000
-   */
   orderCreateTime?: number;
-  /**
-   * @example
-   * 1012053198307958626
-   */
   orderId?: number;
-  /**
-   * @example
-   * 2
-   */
   orderStatus?: number;
   orderStatusDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   payStatus?: number;
-  /**
-   * @example
-   * 1721145600000
-   */
   payTime?: number;
-  /**
-   * @example
-   * 2
-   */
   roomNum?: number;
-  /**
-   * @example
-   * 4
-   */
   settleType?: number;
-  /**
-   * @example
-   * 1
-   */
   tripMode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -141,22 +77,10 @@ export class HotelOrderInfoQueryResponseBodyModuleBaseOrderInfo extends $dara.Mo
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleBookerInfoDepartment extends $dara.Model {
-  /**
-   * @example
-   * 0rCUI20hjOsk0sTwlu
-   */
   cascadeDeptMask?: string;
   cascadeDeptName?: string;
-  /**
-   * @example
-   * 35
-   */
   departId?: string;
   departName?: string;
-  /**
-   * @example
-   * 330000001815
-   */
   outDepartId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -188,47 +112,15 @@ export class HotelOrderInfoQueryResponseBodyModuleBookerInfoDepartment extends $
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleBookerInfo extends $dara.Model {
-  /**
-   * @example
-   * UN_APPLY
-   */
   bookerRole?: string;
-  /**
-   * @example
-   * 13311112222@qq.com
-   */
   contactEmail?: string;
-  /**
-   * @example
-   * 13311112222
-   */
   contactPhone?: string;
-  /**
-   * @example
-   * open12gddn2kn1i47v10wRJNkMFx00
-   */
   corpId?: string;
   department?: HotelOrderInfoQueryResponseBodyModuleBookerInfoDepartment;
-  /**
-   * @example
-   * Tom
-   */
   enName?: string;
-  /**
-   * @example
-   * 1001
-   */
   jobNo?: string;
-  /**
-   * @example
-   * true
-   */
   needApply?: boolean;
   realName?: string;
-  /**
-   * @example
-   * 1430378
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -273,51 +165,19 @@ export class HotelOrderInfoQueryResponseBodyModuleBookerInfo extends $dara.Model
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleHotelInfo extends $dara.Model {
-  /**
-   * @example
-   * 330100
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * 1
-   */
   countryCode?: string;
   countryName?: string;
-  /**
-   * @example
-   * 330183
-   */
   districtCode?: string;
   districtName?: string;
   hotelAddress?: string;
-  /**
-   * @example
-   * 3
-   */
   hotelBrandCode?: string;
   hotelBrandName?: string;
-  /**
-   * @example
-   * huazhu
-   */
   hotelGroup?: string;
-  /**
-   * @example
-   * 55335212
-   */
   hotelId?: string;
   hotelName?: string;
-  /**
-   * @example
-   * Test Hotel Name
-   */
   hotelNameEn?: string;
-  /**
-   * @example
-   * 5
-   */
   star?: string;
   static names(): { [key: string]: string } {
     return {
@@ -367,30 +227,10 @@ export class HotelOrderInfoQueryResponseBodyModuleHotelInfo extends $dara.Model 
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleHotelOrderFeeInfo extends $dara.Model {
-  /**
-   * @example
-   * 35000
-   */
   orderAmount?: number;
-  /**
-   * @example
-   * 0
-   */
   otherFee?: number;
-  /**
-   * @example
-   * 35000
-   */
   payAmount?: number;
-  /**
-   * @example
-   * 5000
-   */
   promotionAmount?: number;
-  /**
-   * @example
-   * 35000
-   */
   totalRoomAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -422,36 +262,12 @@ export class HotelOrderInfoQueryResponseBodyModuleHotelOrderFeeInfo extends $dar
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleHotelOrderRefundInfo extends $dara.Model {
-  /**
-   * @example
-   * 1000
-   */
   cancelFine?: number;
-  /**
-   * @example
-   * 1000000002578096
-   */
   refundApplyId?: number;
-  /**
-   * @example
-   * 1721702353700
-   */
   refundEndTime?: number;
-  /**
-   * @example
-   * 34000
-   */
   refundPrice?: number;
   refundReason?: string;
-  /**
-   * @example
-   * 1721702353700
-   */
   refundStartTime?: number;
-  /**
-   * @example
-   * 5
-   */
   refundType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -488,20 +304,8 @@ export class HotelOrderInfoQueryResponseBodyModuleHotelOrderRefundInfo extends $
 
 export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfoExceedApply extends $dara.Model {
   exceedReason?: string;
-  /**
-   * @example
-   * 16
-   */
   exceedType?: number;
-  /**
-   * @example
-   * 3321
-   */
   flowNo?: number;
-  /**
-   * @example
-   * 60853
-   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -531,22 +335,10 @@ export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApply
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfo extends $dara.Model {
-  /**
-   * @example
-   * 1001
-   */
   applyBusinessId?: string;
   applyBusinessName?: string;
-  /**
-   * @example
-   * 1424031910085891196
-   */
   applyId?: string;
   exceedApply?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfoExceedApply[];
-  /**
-   * @example
-   * ef5e74dc1f1640b08858fb043f64e477-8
-   */
   itineraryNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -581,22 +373,10 @@ export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApply
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosDepartment extends $dara.Model {
-  /**
-   * @example
-   * 0rCUI20hjOsk0sTwlu
-   */
   cascadeDeptMask?: string;
   cascadeDeptName?: string;
-  /**
-   * @example
-   * 35
-   */
   departId?: string;
   departName?: string;
-  /**
-   * @example
-   * 330000001815
-   */
   outDepartId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -628,37 +408,13 @@ export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosDepar
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosTripCostCenter extends $dara.Model {
-  /**
-   * @example
-   * 323431
-   */
   costCenterCode?: string;
-  /**
-   * @example
-   * 2312
-   */
   costCenterId?: string;
   costCenterName?: string;
-  /**
-   * @example
-   * {"extraKey":"extraVal"}
-   */
   externalExtField?: string;
-  /**
-   * @example
-   * 1
-   */
   feeType?: number;
-  /**
-   * @example
-   * 123332
-   */
   invoiceId?: number;
   invoiceTitle?: string;
-  /**
-   * @example
-   * 1002
-   */
   projectCode?: string;
   projectTitle?: string;
   static names(): { [key: string]: string } {
@@ -700,43 +456,15 @@ export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosTripC
 
 export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfos extends $dara.Model {
   applyInfo?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfo;
-  /**
-   * @example
-   * 342229200801010023
-   */
   certNo?: string;
-  /**
-   * @example
-   * 0
-   */
   certType?: number;
   department?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosDepartment;
-  /**
-   * @example
-   * 1001
-   */
   jobNo?: string;
-  /**
-   * @example
-   * 13311112222
-   */
   telephone?: string;
-  /**
-   * @example
-   * 1430378
-   */
   travelerId?: string;
   travelerName?: string;
-  /**
-   * @example
-   * 1
-   */
   travelerType?: number;
   tripCostCenter?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosTripCostCenter;
-  /**
-   * @example
-   * 0
-   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -789,10 +517,6 @@ export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfos exte
 }
 
 export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   liveRoomNo?: string;
   roomTypeName?: string;
   traverInfos?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfos[];
@@ -881,27 +605,11 @@ export class HotelOrderInfoQueryResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderInfoQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * success
-   */
   code?: string;
   message?: string;
   module?: HotelOrderInfoQueryResponseBodyModule;
-  /**
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210f079e16603757182131635d866a
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

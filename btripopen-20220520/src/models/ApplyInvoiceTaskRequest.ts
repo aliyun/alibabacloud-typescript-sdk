@@ -5,39 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyInvoiceTaskRequestInvoiceTaskList extends $dara.Model {
   contact?: string;
   email?: string;
-  /**
-   * @example
-   * 0
-   */
   flightInvoiceFee?: string;
-  /**
-   * @example
-   * 3.12
-   */
   fuPointInvoiceFee?: string;
-  /**
-   * @example
-   * 0
-   */
   hotelNormalInvoiceFee?: string;
-  /**
-   * @example
-   * 100
-   */
   hotelSpecialInvoiceFee?: string;
   ieVehicleNormalInvoiceFee?: string;
-  /**
-   * @example
-   * 0
-   */
   internationalFlightInvoiceFee?: string;
   internationalHotelInvoiceFee?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   invoiceThirdPartId?: string;
   invoiceType?: number;
@@ -47,34 +24,14 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $dara.Model {
   mailProvince?: string;
   mealNormalInvoiceFee?: string;
   mealTc7NormalInvoiceFee?: string;
-  /**
-   * @example
-   * 0
-   */
   penaltyFee?: string;
   remark?: string;
-  /**
-   * @example
-   * 1.02
-   */
   serviceFee?: string;
-  /**
-   * @example
-   * 1234567890
-   */
   telephone?: string;
   trainAccelerationPackageInvoiceFee?: string;
-  /**
-   * @example
-   * 0
-   */
   trainInvoiceFee?: string;
   vacationNormalInvoiceFee?: string;
   vasMallSpecialInvoiceFee?: string;
-  /**
-   * @example
-   * 100
-   */
   vehicleInvoiceFee?: string;
   vehicleNormalInvoiceFee?: string;
   static names(): { [key: string]: string } {
@@ -154,9 +111,6 @@ export class ApplyInvoiceTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2022-12-01
    */
   billDate?: string;
   /**

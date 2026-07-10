@@ -6,9 +6,6 @@ export class InvoiceRuleAddRequestEntities extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12345
    */
   entityId?: string;
   /**
@@ -19,9 +16,6 @@ export class InvoiceRuleAddRequestEntities extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   entityType?: string;
   static names(): { [key: string]: string } {
@@ -58,9 +52,6 @@ export class InvoiceRuleAddRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 4854821
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

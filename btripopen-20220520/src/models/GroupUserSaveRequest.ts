@@ -43,27 +43,13 @@ export class GroupUserSaveRequestSubCorpIdList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   leaveStatus?: number;
-  /**
-   * @example
-   * 123
-   */
   managerUserId?: string;
-  /**
-   * @example
-   * 10
-   */
   positionLevel?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * btrip123
    */
   subCorpId?: string;
   static names(): { [key: string]: string } {
@@ -105,20 +91,8 @@ export class GroupUserSaveRequest extends $dara.Model {
   birthday?: string;
   certList?: GroupUserSaveRequestCertList[];
   gender?: string;
-  /**
-   * @example
-   * 1001
-   */
   jobNo?: string;
-  /**
-   * @example
-   * 18000000000
-   */
   phone?: string;
-  /**
-   * @example
-   * ce/shi
-   */
   realNameEn?: string;
   /**
    * @remarks
@@ -128,9 +102,6 @@ export class GroupUserSaveRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   userId?: string;
   /**

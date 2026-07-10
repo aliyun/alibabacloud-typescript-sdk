@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightCreateOrderV2ShrinkRequest extends $dara.Model {
   asyncCreateOrderKey?: string;
-  /**
-   * @example
-   * false
-   */
   asyncCreateOrderMode?: boolean;
   btripUserId?: string;
   buyerName?: string;
@@ -19,17 +15,11 @@ export class FlightCreateOrderV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cheshiapi
    */
   isvName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 7fb731deeb4510b86c17e8c8c25740_11
    */
   otaItemId?: string;
   /**

@@ -3,33 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainTicketScanQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * 2022-12-01
-   */
   billDate?: string;
-  /**
-   * @example
-   * 123
-   */
   billId?: number;
   invoiceDateEnd?: string;
   invoiceDateStart?: string;
-  /**
-   * @example
-   * 456
-   */
   invoiceSubTaskId?: number;
   orderId?: number;
-  /**
-   * @example
-   * 1
-   */
   pageNo?: number;
-  /**
-   * @example
-   * 20
-   */
   pageSize?: number;
   serialNumber?: string;
   ticketNo?: string;

@@ -3,45 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VatInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails extends $dara.Model {
-  /**
-   * @example
-   * 75.21
-   */
   amount?: string;
-  /**
-   * @remarks
-   * 行号
-   * 
-   * @example
-   * 0
-   */
   index?: string;
   itemName?: string;
-  /**
-   * @example
-   * 1
-   */
   quantity?: string;
-  /**
-   * @example
-   * 66PT11230069
-   */
   specification?: string;
-  /**
-   * @example
-   * 12.79
-   */
   tax?: string;
-  /**
-   * @example
-   * 17%
-   */
   taxRate?: string;
   unit?: string;
-  /**
-   * @example
-   * 75.21
-   */
   unitPrice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,88 +50,29 @@ export class VatInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails extends $d
 }
 
 export class VatInvoiceScanQueryResponseBodyModuleItems extends $dara.Model {
-  /**
-   * @example
-   * 20
-   */
   amountWithTax?: string;
-  /**
-   * @example
-   * 18.87
-   */
   amountWithoutTax?: string;
-  /**
-   * @example
-   * 2022-12-01
-   */
   billDate?: string;
-  /**
-   * @example
-   * 07122942791187744475
-   */
   checkCode?: string;
   drawer?: string;
-  /**
-   * @example
-   * 60
-   */
   id?: string;
-  /**
-   * @example
-   * 3300111303
-   */
   invoiceCode?: string;
-  /**
-   * @example
-   * 2022-12-01
-   */
   invoiceDay?: string;
   invoiceDetail?: string;
   invoiceDetails?: VatInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails[];
   invoiceLocation?: string;
-  /**
-   * @example
-   * 24021111
-   */
   invoiceNo?: string;
-  /**
-   * @example
-   * 123
-   */
   invoiceSubTaskId?: number;
-  /**
-   * @example
-   * 2
-   */
   invoiceType?: number;
   invoiceTypeDesc?: string;
-  /**
-   * @remarks
-   * 机器码
-   * 
-   * @example
-   * 661619906841
-   */
   machineCode?: string;
   ofdOssUrl?: string;
-  /**
-   * @example
-   * https://www.testurl.com
-   */
   ossUrl?: string;
-  /**
-   * @example
-   * <87*>>53>5023>-446>/4+83/5* *>5/81<75/1931>4>>
-   */
   passwordArea?: string;
   pdfOssUrl?: string;
   purchaserBankAccountInfo?: string;
   purchaserContactInfo?: string;
   purchaserName?: string;
-  /**
-   * @example
-   * 91441111111111111S
-   */
   purchaserTaxNo?: string;
   recipient?: string;
   remarks?: string;
@@ -170,25 +80,9 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $dara.Model {
   sellerBankAccountInfo?: string;
   sellerContactInfo?: string;
   sellerName?: string;
-  /**
-   * @example
-   * 91441111111111111N
-   */
   sellerTaxNo?: string;
-  /**
-   * @example
-   * 4475
-   */
   smartCheckCode?: string;
-  /**
-   * @example
-   * 1.13
-   */
   taxAmount?: string;
-  /**
-   * @example
-   * 6%
-   */
   taxRate?: string;
   totalAmountInWords?: string;
   xmlOssUrl?: string;
@@ -288,25 +182,9 @@ export class VatInvoiceScanQueryResponseBodyModuleItems extends $dara.Model {
 
 export class VatInvoiceScanQueryResponseBodyModule extends $dara.Model {
   items?: VatInvoiceScanQueryResponseBodyModuleItems[];
-  /**
-   * @example
-   * 1
-   */
   pageNo?: number;
-  /**
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 2
-   */
   totalPage?: number;
-  /**
-   * @example
-   * 30
-   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -341,33 +219,11 @@ export class VatInvoiceScanQueryResponseBodyModule extends $dara.Model {
 }
 
 export class VatInvoiceScanQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
   module?: VatInvoiceScanQueryResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210e842b16611337974412836dae27
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

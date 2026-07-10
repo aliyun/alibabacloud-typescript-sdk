@@ -4,30 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightCreateOrderV2ResponseBodyModule extends $dara.Model {
   asyncCreateOrderKey?: string;
-  /**
-   * @example
-   * 2023-08-10 17:42:32
-   */
   latestPayTime?: string;
-  /**
-   * @example
-   * 1017002195798359369
-   */
   orderId?: number;
-  /**
-   * @example
-   * cheshiapi002kwl
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * 32
-   */
   status?: number;
-  /**
-   * @example
-   * 51000
-   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -61,37 +41,11 @@ export class FlightCreateOrderV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightCreateOrderV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: FlightCreateOrderV2ResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 210bc60a16916593445203790d2a16
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 2103ad0716827336456723986d4bda
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

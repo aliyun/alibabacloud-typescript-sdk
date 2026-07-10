@@ -6,9 +6,6 @@ export class QueryEmployeeDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * abc12138
    */
   outEmployeeId?: string;
   static names(): { [key: string]: string } {

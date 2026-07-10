@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MealApplyAddResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 2024073128454753
-   */
   thirdPartApplyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,30 +26,11 @@ export class MealApplyAddResponseBodyModule extends $dara.Model {
 }
 
 export class MealApplyAddResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: number;
   message?: string;
   module?: MealApplyAddResponseBodyModule;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210e842b16611337974412836dae27
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

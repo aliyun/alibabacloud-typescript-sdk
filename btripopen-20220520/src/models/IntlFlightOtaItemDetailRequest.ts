@@ -3,22 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightOtaItemDetailRequest extends $dara.Model {
-  /**
-   * @example
-   * 10001
-   */
   btripUserId?: string;
   buyerName?: string;
-  /**
-   * @example
-   * open12igetbis4o07v10B1TlOWcM00
-   */
   isvName?: string;
   language?: string;
-  /**
-   * @example
-   * JIANHANG
-   */
   supplierCode?: string;
   static names(): { [key: string]: string } {
     return {

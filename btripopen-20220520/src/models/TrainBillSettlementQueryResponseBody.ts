@@ -4,90 +4,42 @@ import * as $dara from '@darabonba/typescript';
 
 export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Model {
   adjustTime?: string;
-  /**
-   * @example
-   * 2021123432260
-   */
   alipayTradeNo?: string;
   applyArrCityCode?: string;
   applyArrCityName?: string;
   applyDepCityCode?: string;
   applyDepCityName?: string;
-  /**
-   * @remarks
-   * 审批扩展自定义字段
-   */
   applyExtendField?: string;
-  /**
-   * @example
-   * 103189557
-   */
   applyId?: string;
   approverEmail?: string;
   approverId?: string;
   approverName?: string;
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2021-10-13
-   */
   arrDate?: string;
   arrStation?: string;
   arrStationLocation?: string;
   arrStationLocationCode?: string;
-  /**
-   * @example
-   * 12:30
-   */
   arrTime?: string;
   baseLocation?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   billRecordTime?: string;
-  /**
-   * @example
-   * 2021-10-08 23:38:55
-   */
   bookTime?: string;
-  /**
-   * @example
-   * al_xinuan.zsy
-   */
   bookerId?: string;
   bookerJobNo?: string;
   bookerName?: string;
   businessTripResult?: string;
   cabinMaxPrice?: number;
-  /**
-   * @example
-   * 1
-   */
   capitalDirection?: string;
   cascadeDepartment?: string;
   categoryDesc?: string;
   changeAffiliateNo?: string;
   changeApplyId?: string;
-  /**
-   * @example
-   * 23.0
-   */
   changeFee?: number;
   changeResult?: string;
   coachNo?: string;
   costCenter?: string;
-  /**
-   * @example
-   * T85
-   */
   costCenterNumber?: string;
   costDepartment?: string;
-  /**
-   * @example
-   * 0
-   */
   coupon?: number;
   customContent?: string;
   deductibleTax?: number;
@@ -97,29 +49,13 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   depStationLocationCode?: string;
   department?: string;
   departmentId?: string;
-  /**
-   * @example
-   * 2021-10-14
-   */
   deptDate?: string;
   deptStation?: string;
-  /**
-   * @example
-   * 09:44
-   */
   deptTime?: string;
   exceedReason?: string;
-  /**
-   * @example
-   * 6001
-   */
   feeType?: string;
   feeTypeDesc?: string;
   foreignersTag?: string;
-  /**
-   * @example
-   * 4740293
-   */
   index?: string;
   invoiceTitle?: string;
   isTransferOrder?: string;
@@ -127,45 +63,21 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   longTicketNo?: string;
   mappingCompanyCode?: string;
   maxCabin?: string;
-  /**
-   * @example
-   * 23432692343243432
-   */
   orderId?: string;
-  /**
-   * @example
-   * 350
-   */
   orderPrice?: number;
   orderTicketNo?: string;
-  /**
-   * @example
-   * 534545345
-   */
   overApplyId?: string;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
   position?: string;
   positionLevel?: string;
-  /**
-   * @example
-   * 4740293
-   */
   primaryId?: number;
   printTicketPrice?: number;
   processorOaCode?: string;
-  /**
-   * @example
-   * 2345235435
-   */
   projectCode?: string;
   projectName?: string;
   refundAffiliateNo?: string;
   refundApplyId?: string;
-  /**
-   * @example
-   * 0
-   */
   refundFee?: number;
   refundReason?: string;
   remark?: string;
@@ -173,73 +85,26 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   runTime?: string;
   sceneId?: string;
   sceneName?: string;
-  /**
-   * @example
-   * 004F
-   */
   seatNo?: string;
   seatType?: string;
-  /**
-   * @example
-   * 23.0
-   */
   serviceFee?: number;
   settleTypeDesc?: string;
-  /**
-   * @example
-   * 350
-   */
   settlementFee?: number;
-  /**
-   * @example
-   * 4.56
-   */
   settlementGrantFee?: number;
-  /**
-   * @example
-   * 2021-10-08 23:39:01
-   */
   settlementTime?: string;
-  /**
-   * @example
-   * 2
-   */
   settlementType?: string;
   shortTicketNo?: string;
   sio?: string;
   speedPackageFee?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @remarks
-   * 税率
-   * 
-   * @example
-   * 6%
-   */
   taxRate?: string;
   thirdItineraryId?: string;
   ticketCorpPayPrice?: string;
-  /**
-   * @example
-   * 2115242342342424067354
-   */
   ticketNo?: string;
   ticketPersonPayPrice?: string;
-  /**
-   * @example
-   * 350
-   */
   ticketPrice?: number;
   tradeActionDesc?: string;
-  /**
-   * @example
-   * G906
-   */
   trainNo?: string;
   trainType?: string;
   travelerEmail?: string;
@@ -250,10 +115,6 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   travelerName?: string;
   verifyFailedReason?: string;
   verifyStatus?: number;
-  /**
-   * @example
-   * 11
-   */
   voucherType?: number;
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
@@ -504,28 +365,12 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
 }
 
 export class TrainBillSettlementQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 6
-   */
   category?: number;
   corpId?: string;
   dataList?: TrainBillSettlementQueryResponseBodyModuleDataList[];
-  /**
-   * @example
-   * 2021-10-14
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2021-10-13
-   */
   periodStart?: string;
   scrollId?: string;
-  /**
-   * @example
-   * 2694
-   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -564,27 +409,11 @@ export class TrainBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TrainBillSettlementQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: TrainBillSettlementQueryResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

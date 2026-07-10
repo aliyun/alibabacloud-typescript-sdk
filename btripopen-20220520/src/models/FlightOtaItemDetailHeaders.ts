@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightOtaItemDetailHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * Dj2laAwE00
-   */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {
     return {

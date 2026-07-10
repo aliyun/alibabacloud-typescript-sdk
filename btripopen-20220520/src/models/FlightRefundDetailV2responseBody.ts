@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundDetailV2ResponseBodyModuleContactInfoDTO extends $dara.Model {
-  /**
-   * @example
-   * 17685764353@163.com
-   */
   contactEmail?: string;
   contactName?: string;
-  /**
-   * @example
-   * 17685764353
-   */
   contactPhone?: string;
-  /**
-   * @example
-   * true
-   */
   sendMsgToPassenger?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -47,15 +35,7 @@ export class FlightRefundDetailV2ResponseBodyModuleContactInfoDTO extends $dara.
 }
 
 export class FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOSSegmentPosition extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -81,80 +61,32 @@ export class FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOSSegmentPosition
 }
 
 export class FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOS extends $dara.Model {
-  /**
-   * @example
-   * MU
-   */
   airlineCode?: string;
   airlineIconUrl?: string;
   airlineName?: string;
-  /**
-   * @example
-   * HGH
-   */
   arrAirportCode?: string;
   arrAirportName?: string;
-  /**
-   * @example
-   * HGH
-   */
   arrCityCode?: string;
   arrCityName?: string;
   arrTerminal?: string;
-  /**
-   * @example
-   * 2023-10-03 09:30:00
-   */
   arrTime?: string;
-  /**
-   * @example
-   * Y
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   cabinClassName?: string;
-  /**
-   * @example
-   * 10
-   */
   cabinDiscount?: number;
   carrierAirlineCode?: string;
   carrierAirlineIconUrl?: string;
   carrierAirlineName?: string;
   carrierFlightNo?: string;
-  /**
-   * @example
-   * PKX
-   */
   depAirportCode?: string;
   depAirportName?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
   depTerminal?: string;
-  /**
-   * @example
-   * 2023-10-03 07:30:00
-   */
   depTime?: string;
-  /**
-   * @example
-   * MU5193
-   */
   flightNo?: string;
   flightType?: string;
   mealDesc?: string;
-  /**
-   * @example
-   * 1194012
-   */
   segmentId?: string;
   segmentPosition?: FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOSSegmentPosition;
   stopArrTime?: string;
@@ -245,47 +177,15 @@ export class FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOS extends $dara.
 }
 
 export class FlightRefundDetailV2ResponseBodyModuleTravelerInfoDTOS extends $dara.Model {
-  /**
-   * @example
-   * 2000-08-19
-   */
   birthDate?: string;
-  /**
-   * @example
-   * 430131413423435353
-   */
   certNo?: string;
-  /**
-   * @example
-   * 0
-   */
   certType?: number;
-  /**
-   * @example
-   * 1
-   */
   gender?: number;
   originTicketNos?: string[];
-  /**
-   * @example
-   * 12172819047252004460056
-   */
   passengerId?: string;
   passengerName?: string;
-  /**
-   * @example
-   * 0
-   */
   passengerType?: number;
-  /**
-   * @example
-   * 17635462345
-   */
   phone?: string;
-  /**
-   * @example
-   * 3243028
-   */
   pid?: number;
   ticketNos?: string[];
   static names(): { [key: string]: string } {
@@ -336,56 +236,20 @@ export class FlightRefundDetailV2ResponseBodyModuleTravelerInfoDTOS extends $dar
 }
 
 export class FlightRefundDetailV2ResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 2023-08-19 17:18:19
-   */
   applyTime?: string;
   contactInfoDTO?: FlightRefundDetailV2ResponseBodyModuleContactInfoDTO;
   flightInfoDTOS?: FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOS[];
   nonRefundableChangeServicePrice?: number;
   nonRefundableChangeUpgradePrice?: number;
-  /**
-   * @example
-   * 1002039195025156700
-   */
   orderId?: number;
-  /**
-   * @example
-   * 1002039195025156700
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * 1019195836916039
-   */
   outSubOrderId?: string;
   reason?: string;
-  /**
-   * @example
-   * 1
-   */
   reasonCode?: string;
   refundFailReason?: string;
-  /**
-   * @example
-   * 100
-   */
   refundHandlingFee?: number;
-  /**
-   * @example
-   * 10000
-   */
   refundMoney?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 1000000000297003
-   */
   subOrderId?: number;
   travelerInfoDTOS?: FlightRefundDetailV2ResponseBodyModuleTravelerInfoDTOS[];
   static names(): { [key: string]: string } {
@@ -449,37 +313,11 @@ export class FlightRefundDetailV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightRefundDetailV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: FlightRefundDetailV2ResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210e845f16785007404904300ddc92
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,28 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureOrderRefundShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 1000001
-   */
   btripUserId?: string;
   buyerName?: string;
-  /**
-   * @example
-   * PostalSavingsBank
-   */
   isvName?: string;
-  /**
-   * @example
-   * 1021000196440356908
-   */
   outApplyId?: string;
   policyNoListShrink?: string;
   subInsOrderIdsShrink?: string;
-  /**
-   * @example
-   * fliggy
-   */
   supplierCode?: string;
   static names(): { [key: string]: string } {
     return {

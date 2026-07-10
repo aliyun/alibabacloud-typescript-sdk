@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPriceInfoListChangedPrice extends $dara.Model {
-  /**
-   * @example
-   * 12000
-   */
   taxPrice?: number;
-  /**
-   * @example
-   * 90000
-   */
   ticketPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -37,15 +29,7 @@ export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPric
 }
 
 export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPriceInfoListOriginalPrice extends $dara.Model {
-  /**
-   * @example
-   * 12000
-   */
   taxPrice?: number;
-  /**
-   * @example
-   * 80000
-   */
   ticketPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -71,17 +55,9 @@ export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPric
 }
 
 export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPriceInfoList extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   changed?: boolean;
   changedPrice?: IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPriceInfoListChangedPrice;
   originalPrice?: IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPriceInfoListOriginalPrice;
-  /**
-   * @example
-   * 0
-   */
   passengerType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -117,21 +93,9 @@ export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPric
 }
 
 export class IntlFlightInventoryPriceCheckResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   checkSuccess?: boolean;
-  /**
-   * @example
-   * 0
-   */
   failType?: number;
   passengerChangedPriceInfoList?: IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPriceInfoList[];
-  /**
-   * @example
-   * fcoid_deb6372db8194f1c94c23bc4fadc508d
-   */
   renderKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,20 +139,8 @@ export class IntlFlightInventoryPriceCheckResponseBody extends $dara.Model {
    */
   message?: string;
   module?: IntlFlightInventoryPriceCheckResponseBodyModule;
-  /**
-   * @example
-   * 92359A00-85D8-16C4-AED0-249618DEEC17
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 2103ad1516839612078738332dea5c
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

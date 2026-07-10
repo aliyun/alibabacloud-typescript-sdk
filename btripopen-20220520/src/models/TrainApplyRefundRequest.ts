@@ -6,33 +6,21 @@ export class TrainApplyRefundRequestRefundTrainInfosRefundPassengerInfos extends
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
    */
   passengerCertNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 170d9ac6f8807f9ec603c688f45f78a41
    */
   passengerCertType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12334
    */
   passengerId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 949c9f34f677a0e5d249dfc94f5e62cc7
    */
   passengerName?: string;
   static names(): { [key: string]: string } {
@@ -66,9 +54,6 @@ export class TrainApplyRefundRequestRefundTrainInfos extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2024-05-06 15:19:01
    */
   depTime?: string;
   /**
@@ -79,9 +64,6 @@ export class TrainApplyRefundRequestRefundTrainInfos extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * K234
    */
   trainNo?: string;
   static names(): { [key: string]: string } {
@@ -116,25 +98,16 @@ export class TrainApplyRefundRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1002145190081005400
    */
   orderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   outOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456778
    */
   outRefundId?: string;
   /**

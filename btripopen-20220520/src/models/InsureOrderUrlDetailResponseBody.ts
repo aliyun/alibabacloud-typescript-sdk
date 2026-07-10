@@ -3,31 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureOrderUrlDetailResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
-  /**
-   * @example
-   * https://siopuat.mingya.com.cn/siop-fliggy/index.html#/list?token=fR4iOOZWgG
-   */
   module?: string;
-  /**
-   * @example
-   * 210bc59616861088185764700d7589
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 213e212c16975080875814628effac
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

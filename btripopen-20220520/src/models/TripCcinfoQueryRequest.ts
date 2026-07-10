@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TripCCInfoQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * 2024060710160003300008684
-   */
   businessInstanceId?: string;
-  /**
-   * @example
-   * 458003
-   */
   nodeId?: string;
-  /**
-   * @example
-   * 2024060710160003300008684
-   */
   thirdBusinessId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesDescription extends $dara.Model {
   desc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i4/O1CN01UynXG31pjsEtA3tMF_!!6000000005397-2-tps-36-36.png
-   */
   icon?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN01qe7wL21gJ0SmEXXL7_!!6000000004120-2-tps-1206-768.png
-   */
   image?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -43,25 +35,9 @@ export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBagg
 }
 
 export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesImageDO extends $dara.Model {
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01kLt3m923XsUs6WVif_!!6000000007266-2-tps-280-300.png
-   */
   image?: string;
-  /**
-   * @example
-   * 55
-   */
   largest?: string;
-  /**
-   * @example
-   * 40
-   */
   middle?: string;
-  /**
-   * @example
-   * 20
-   */
   smallest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,22 +67,10 @@ export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBagg
 }
 
 export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizes extends $dara.Model {
-  /**
-   * @remarks
-   * baggage_desc
-   */
   baggageDesc?: string[];
-  /**
-   * @example
-   * 0
-   */
   baggageSubContentType?: number;
   description?: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesDescription;
   imageDO?: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizesImageDO;
-  /**
-   * @example
-   * false
-   */
   isHighlight?: boolean;
   subTitle?: string;
   static names(): { [key: string]: string } {
@@ -152,15 +116,7 @@ export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBagg
 export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItems extends $dara.Model {
   baggageSubContentVisualizes?: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItemsBaggageSubContentVisualizes[];
   extraContentVisualizes?: any[];
-  /**
-   * @example
-   * false
-   */
   isStruct?: boolean;
-  /**
-   * @example
-   * ADT
-   */
   ptc?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -199,16 +155,8 @@ export class FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItems ext
 }
 
 export class FlightOtaItemDetailResponseBodyModuleBaggageRuleTips extends $dara.Model {
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
-   */
   logo?: string;
   tipsDesc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
-   */
   tipsImage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -237,22 +185,10 @@ export class FlightOtaItemDetailResponseBodyModuleBaggageRuleTips extends $dara.
 
 export class FlightOtaItemDetailResponseBodyModuleBaggageRule extends $dara.Model {
   baggageSubItems?: FlightOtaItemDetailResponseBodyModuleBaggageRuleBaggageSubItems[];
-  /**
-   * @example
-   * 0
-   */
   index?: number;
-  /**
-   * @example
-   * tableHead
-   */
   tableHead?: string;
   tips?: FlightOtaItemDetailResponseBodyModuleBaggageRuleTips;
   title?: string;
-  /**
-   * @example
-   * 2
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -320,10 +256,6 @@ export class FlightOtaItemDetailResponseBodyModuleChangeRuleExtraContents extend
 export class FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -351,15 +283,7 @@ export class FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItemsRefund
 }
 
 export class FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   isStruct?: boolean;
-  /**
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItemsRefundSubContents[];
   title?: string;
@@ -395,42 +319,14 @@ export class FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItems exten
 
 export class FlightOtaItemDetailResponseBodyModuleChangeRule extends $dara.Model {
   extraContents?: FlightOtaItemDetailResponseBodyModuleChangeRuleExtraContents[];
-  /**
-   * @example
-   * HO3925
-   */
   flightNo?: string;
-  /**
-   * @example
-   * 0
-   */
   freeBaggage?: number;
-  /**
-   * @example
-   * 0
-   */
   index?: number;
-  /**
-   * @example
-   * 0
-   */
   level?: number;
   refundSubItems?: FlightOtaItemDetailResponseBodyModuleChangeRuleRefundSubItems[];
-  /**
-   * @remarks
-   * subTableHead
-   */
   subTableHead?: string[];
-  /**
-   * @example
-   * tableHead
-   */
   tableHead?: string;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -509,10 +405,6 @@ export class FlightOtaItemDetailResponseBodyModuleRefundRuleExtraContents extend
 export class FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -540,15 +432,7 @@ export class FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItemsRefund
 }
 
 export class FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   isStruct?: boolean;
-  /**
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItemsRefundSubContents[];
   title?: string;
@@ -584,42 +468,14 @@ export class FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItems exten
 
 export class FlightOtaItemDetailResponseBodyModuleRefundRule extends $dara.Model {
   extraContents?: FlightOtaItemDetailResponseBodyModuleRefundRuleExtraContents[];
-  /**
-   * @example
-   * HO3925
-   */
   flightNo?: string;
-  /**
-   * @example
-   * 0
-   */
   freeBaggage?: number;
-  /**
-   * @example
-   * 0
-   */
   index?: number;
-  /**
-   * @example
-   * 0
-   */
   level?: number;
   refundSubItems?: FlightOtaItemDetailResponseBodyModuleRefundRuleRefundSubItems[];
-  /**
-   * @remarks
-   * subTableHead
-   */
   subTableHead?: string[];
-  /**
-   * @example
-   * tableHead
-   */
   tableHead?: string;
   title?: string;
-  /**
-   * @example
-   * 0
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -673,16 +529,8 @@ export class FlightOtaItemDetailResponseBodyModule extends $dara.Model {
   baggageRule?: FlightOtaItemDetailResponseBodyModuleBaggageRule[];
   changeRule?: FlightOtaItemDetailResponseBodyModuleChangeRule[];
   refundRule?: FlightOtaItemDetailResponseBodyModuleRefundRule[];
-  /**
-   * @example
-   * 1830
-   */
   sellPrice?: number;
   sellPriceList?: number[];
-  /**
-   * @example
-   * 1
-   */
   tripType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -728,37 +576,11 @@ export class FlightOtaItemDetailResponseBodyModule extends $dara.Model {
 }
 
 export class FlightOtaItemDetailResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: FlightOtaItemDetailResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 92359A00-85D8-16C4-AED0-249618DEEC17
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210bc60a16916374201706365d2a16
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

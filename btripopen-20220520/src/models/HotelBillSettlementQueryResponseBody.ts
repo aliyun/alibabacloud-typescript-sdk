@@ -5,122 +5,62 @@ import * as $dara from '@darabonba/typescript';
 export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Model {
   adjustTime?: string;
   agreementPromotionFee?: number;
-  /**
-   * @example
-   * 234432432
-   */
   alipayTradeNo?: string;
   applyArrCityCode?: string;
   applyArrCityName?: string;
   applyDepCityCode?: string;
   applyDepCityName?: string;
-  /**
-   * @remarks
-   * 审批扩展自定义字段
-   */
   applyExtendField?: string;
-  /**
-   * @example
-   * 103208648
-   */
   applyId?: string;
   approverEmail?: string;
   approverId?: string;
   approverName?: string;
   averageNights?: string;
   baseLocation?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   billRecordTime?: string;
   billingEntity?: string;
   bookChannel?: string;
   bookMode?: string;
   bookReason?: string;
-  /**
-   * @example
-   * 2021-10-12 23:58:48
-   */
   bookTime?: string;
   bookerId?: string;
   bookerJobNo?: string;
   bookerName?: string;
   brandGroup?: string;
   brandName?: string;
+  budgetNumber?: string;
+  businessReason?: string;
   businessTripResult?: string;
   cancelOrModifyReason?: string;
   cancelOrModifyScene?: string;
-  /**
-   * @example
-   * 1
-   */
   capitalDirection?: string;
   cascadeDepartment?: string;
   categoryDesc?: string;
-  /**
-   * @example
-   * 2021-10-14 00:00:00
-   */
   checkInDate?: string;
-  /**
-   * @example
-   * 2021-10-16 00:00:00
-   */
   checkoutDate?: string;
   city?: string;
-  /**
-   * @example
-   * 110100
-   */
   cityCode?: string;
   cityCounty?: string;
   cityCountyCode?: string;
-  /**
-   * @example
-   * 12
-   */
   corpRefundFee?: number;
-  /**
-   * @example
-   * 1000
-   */
   corpTotalFee?: number;
   costCenter?: string;
-  /**
-   * @example
-   * 8b7f3cd-24324-097
-   */
   costCenterNumber?: string;
   costDepartment?: string;
+  customApplyId?: string;
   customContent?: string;
   deductibleTax?: number;
   department?: string;
   departmentId?: string;
   exceedReason?: string;
-  /**
-   * @example
-   * 20101
-   */
+  externalPersonType?: string;
   feeType?: string;
   feeTypeDesc?: string;
-  /**
-   * @example
-   * 0
-   */
   fees?: number;
   fines?: number;
   foreignersTag?: string;
-  /**
-   * @example
-   * 12
-   */
   fuPointFee?: number;
   hotelName?: string;
-  /**
-   * @example
-   * 5038018
-   */
   index?: string;
   insOrderId?: string;
   insuranceNumber?: string;
@@ -132,141 +72,54 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   isShareStr?: string;
   location?: string;
   mappingCompanyCode?: string;
-  /**
-   * @example
-   * 2
-   */
   nights?: number;
   noAdvanceBookingReason?: string;
-  /**
-   * @example
-   * 223423423432422
-   */
   orderId?: string;
-  /**
-   * @example
-   * 1088.96
-   */
   orderPrice?: number;
   orderType?: string;
   originalReserveRule?: string;
-  /**
-   * @example
-   * 4234324
-   */
   overApplyId?: string;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 34
-   */
   personRefundFee?: number;
-  /**
-   * @example
-   * 88.96
-   */
   personSettlePrice?: number;
   position?: string;
   positionLevel?: string;
-  /**
-   * @example
-   * 5038018
-   */
   primaryId?: number;
   processorOaCode?: string;
-  /**
-   * @example
-   * 223423432
-   */
   projectCode?: string;
   projectName?: string;
-  /**
-   * @example
-   * 113.02
-   */
   promotionFee?: number;
   recoverMoneyReceiptAmt?: number;
   remark?: string;
   reserveRule?: string;
   roomNo?: string;
-  /**
-   * @example
-   * 1
-   */
   roomNumber?: number;
-  /**
-   * @example
-   * 1201.98
-   */
   roomPrice?: number;
   roomType?: string;
   sceneId?: string;
   sceneName?: string;
-  /**
-   * @example
-   * 0
-   */
   serviceFee?: number;
   settleTypeDesc?: string;
-  /**
-   * @example
-   * 1000
-   */
   settlementFee?: number;
-  /**
-   * @example
-   * 5.68
-   */
   settlementGrantFee?: number;
-  /**
-   * @example
-   * 2021-10-12 23:58:56
-   */
   settlementTime?: string;
-  /**
-   * @example
-   * 4
-   */
   settlementType?: string;
   sio?: string;
   star?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @remarks
-   * 税率
-   * 
-   * @example
-   * 6%
-   */
   taxRate?: string;
   thirdItineraryId?: string;
-  /**
-   * @example
-   * 2
-   */
   totalNights?: number;
   tradeActionDesc?: string;
   travelerEmail?: string;
   travelerId?: string;
-  /**
-   * @example
-   * 326246
-   */
   travelerJobNo?: string;
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
   unbookedLowestPriceReason?: string;
-  /**
-   * @example
-   * 11
-   */
   voucherType?: number;
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
@@ -296,6 +149,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       bookerName: 'booker_name',
       brandGroup: 'brand_group',
       brandName: 'brand_name',
+      budgetNumber: 'budget_number',
+      businessReason: 'business_reason',
       businessTripResult: 'business_trip_result',
       cancelOrModifyReason: 'cancel_or_modify_reason',
       cancelOrModifyScene: 'cancel_or_modify_scene',
@@ -313,11 +168,13 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
       costDepartment: 'cost_department',
+      customApplyId: 'custom_apply_id',
       customContent: 'custom_content',
       deductibleTax: 'deductible_tax',
       department: 'department',
       departmentId: 'department_id',
       exceedReason: 'exceed_reason',
+      externalPersonType: 'external_person_type',
       feeType: 'fee_type',
       feeTypeDesc: 'fee_type_desc',
       fees: 'fees',
@@ -416,6 +273,8 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       bookerName: 'string',
       brandGroup: 'string',
       brandName: 'string',
+      budgetNumber: 'string',
+      businessReason: 'string',
       businessTripResult: 'string',
       cancelOrModifyReason: 'string',
       cancelOrModifyScene: 'string',
@@ -433,11 +292,13 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       costCenter: 'string',
       costCenterNumber: 'string',
       costDepartment: 'string',
+      customApplyId: 'string',
       customContent: 'string',
       deductibleTax: 'number',
       department: 'string',
       departmentId: 'string',
       exceedReason: 'string',
+      externalPersonType: 'string',
       feeType: 'string',
       feeTypeDesc: 'string',
       fees: 'number',
@@ -519,28 +380,12 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
 }
 
 export class HotelBillSettlementQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 2
-   */
   category?: number;
   corpId?: string;
   dataList?: HotelBillSettlementQueryResponseBodyModuleDataList[];
-  /**
-   * @example
-   * 2021-10-14
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2021-10-13
-   */
   periodStart?: string;
   scrollId?: string;
-  /**
-   * @example
-   * 1402
-   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -579,27 +424,11 @@ export class HotelBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class HotelBillSettlementQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: HotelBillSettlementQueryResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

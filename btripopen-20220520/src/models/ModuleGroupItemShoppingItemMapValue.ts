@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleGroupItemShoppingItemMapValueCabinQuantityListSegmentPosition extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -37,21 +29,9 @@ export class ModuleGroupItemShoppingItemMapValueCabinQuantityListSegmentPosition
 }
 
 export class ModuleGroupItemShoppingItemMapValueCabinQuantityListCabin extends $dara.Model {
-  /**
-   * @example
-   * Y
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   cabinClassName?: string;
-  /**
-   * @example
-   * A
-   */
   quantity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,20 +93,8 @@ export class ModuleGroupItemShoppingItemMapValueCabinQuantityList extends $dara.
 }
 
 export class ModuleGroupItemShoppingItemMapValueSearchPrice extends $dara.Model {
-  /**
-   * @example
-   * 120000
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 120000
-   */
   sellPrice?: number;
-  /**
-   * @example
-   * 6000
-   */
   tax?: number;
   static names(): { [key: string]: string } {
     return {
@@ -154,15 +122,7 @@ export class ModuleGroupItemShoppingItemMapValueSearchPrice extends $dara.Model 
 }
 
 export class ModuleGroupItemShoppingItemMapValueSegmentPriceListSegmentPosition extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -188,20 +148,8 @@ export class ModuleGroupItemShoppingItemMapValueSegmentPriceListSegmentPosition 
 }
 
 export class ModuleGroupItemShoppingItemMapValueSegmentPriceListSearchPrice extends $dara.Model {
-  /**
-   * @example
-   * 120000
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 120000
-   */
   sellPrice?: number;
-  /**
-   * @example
-   * 6000
-   */
   tax?: number;
   static names(): { [key: string]: string } {
     return {

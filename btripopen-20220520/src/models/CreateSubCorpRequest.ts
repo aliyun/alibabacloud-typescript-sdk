@@ -6,9 +6,6 @@ export class CreateSubCorpRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * corp123
    */
   outerCorpId?: string;
   /**
@@ -19,9 +16,6 @@ export class CreateSubCorpRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   userId?: string;
   static names(): { [key: string]: string } {

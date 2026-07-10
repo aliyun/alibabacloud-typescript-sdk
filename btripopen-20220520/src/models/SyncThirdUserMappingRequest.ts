@@ -6,33 +6,21 @@ export class SyncThirdUserMappingRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   status?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * weCom
    */
   thirdChannelType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   thirdUserId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   userId?: string;
   static names(): { [key: string]: string } {

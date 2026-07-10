@@ -4,38 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class HotelSuggestV2ResponseBodyModuleGuessSuggestInfos extends $dara.Model {
   address?: string;
-  /**
-   * @example
-   * 300100
-   */
   cityCode?: number;
   cityName?: string;
   displayName?: string;
-  /**
-   * @example
-   * 53853318
-   */
   hotelId?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
-   */
   icon?: string;
   point?: string;
-  /**
-   * @example
-   * 524
-   */
   price?: string;
-  /**
-   * @example
-   * 0
-   */
   region?: number;
-  /**
-   * @example
-   * 10
-   */
   type?: number;
   typeDesc?: string;
   static names(): { [key: string]: string } {
@@ -81,38 +57,14 @@ export class HotelSuggestV2ResponseBodyModuleGuessSuggestInfos extends $dara.Mod
 
 export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWithCity extends $dara.Model {
   address?: string;
-  /**
-   * @example
-   * 300100
-   */
   cityCode?: number;
   cityName?: string;
   displayName?: string;
-  /**
-   * @example
-   * 57140953
-   */
   hotelId?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
-   */
   icon?: string;
   point?: string;
-  /**
-   * @example
-   * 524
-   */
   price?: string;
-  /**
-   * @example
-   * 0
-   */
   region?: number;
-  /**
-   * @example
-   * 5
-   */
   type?: number;
   typeDesc?: string;
   static names(): { [key: string]: string } {
@@ -159,38 +111,14 @@ export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWith
 export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfos extends $dara.Model {
   address?: string;
   businessAreaWithCity?: HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWithCity[];
-  /**
-   * @example
-   * 300100
-   */
   cityCode?: number;
   cityName?: string;
   displayName?: string;
-  /**
-   * @example
-   * 53853318
-   */
   hotelId?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
-   */
   icon?: string;
   point?: string;
-  /**
-   * @example
-   * 524
-   */
   price?: string;
-  /**
-   * @example
-   * 0
-   */
   region?: number;
-  /**
-   * @example
-   * 10
-   */
   type?: number;
   typeDesc?: string;
   static names(): { [key: string]: string } {
@@ -263,10 +191,6 @@ export class HotelSuggestV2ResponseBodyModulePopularSuggestInfosPopularInfos ext
 }
 
 export class HotelSuggestV2ResponseBodyModulePopularSuggestInfos extends $dara.Model {
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN01x0q19E1QZSqLHVVNh_!!6000000001990-2-tps-54-54.png
-   */
   icon?: string;
   popularInfos?: HotelSuggestV2ResponseBodyModulePopularSuggestInfosPopularInfos[];
   title?: string;
@@ -340,31 +264,11 @@ export class HotelSuggestV2ResponseBodyModule extends $dara.Model {
 }
 
 export class HotelSuggestV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * None
-   */
   message?: string;
   module?: HotelSuggestV2ResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

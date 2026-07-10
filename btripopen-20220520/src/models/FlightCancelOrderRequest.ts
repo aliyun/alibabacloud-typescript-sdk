@@ -6,9 +6,6 @@ export class FlightCancelOrderRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * dis123
    */
   disOrderId?: string;
   static names(): { [key: string]: string } {

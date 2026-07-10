@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingPayResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   canRetry?: boolean;
-  /**
-   * @example
-   * 1000
-   */
   payPrice?: number;
   payStatus?: number;
-  /**
-   * @example
-   * 0000-00-00 00:00:00
-   */
   payTime?: string;
-  /**
-   * @example
-   * 23098276578908765
-   */
   tradeNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,27 +38,11 @@ export class TicketChangingPayResponseBodyModule extends $dara.Model {
 }
 
 export class TicketChangingPayResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: TicketChangingPayResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,52 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightListingSearchRequestSearchJourneysSelectedFlights extends $dara.Model {
-  /**
-   * @example
-   * HNY
-   */
   arrAirportCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * MEL
    */
   arrCityCode?: string;
-  /**
-   * @example
-   * SZX
-   */
   depAirportCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * HKG
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-12-28 12:00:00
    */
   flightTime?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * KA5809
    */
   marketFlightNo?: string;
-  /**
-   * @example
-   * CX601
-   */
   operateFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,25 +63,16 @@ export class IntlFlightListingSearchRequestSearchJourneys extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * MEL
    */
   arrCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * HKG
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-12-28
    */
   depDate?: string;
   selectedFlights?: IntlFlightListingSearchRequestSearchJourneysSelectedFlights[];
@@ -143,33 +110,21 @@ export class IntlFlightListingSearchRequestSearchPassengerList extends $dara.Mod
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 10012301201
    */
   certNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   certType?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ZHANGSAN
    */
   fullName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   type?: number;
   static names(): { [key: string]: string } {
@@ -200,44 +155,23 @@ export class IntlFlightListingSearchRequestSearchPassengerList extends $dara.Mod
 }
 
 export class IntlFlightListingSearchRequest extends $dara.Model {
-  /**
-   * @example
-   * 10001
-   */
   btripUserId?: string;
-  /**
-   * @example
-   * ZHANGSAN
-   */
   buyerName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   cabinType?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * TEST
    */
   isvName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * false
    */
   outWheelSearch?: boolean;
-  /**
-   * @example
-   * 60b412-cc05-4d10-b570-
-   */
   queryRecordId?: string;
   /**
    * @remarks
@@ -247,23 +181,13 @@ export class IntlFlightListingSearchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   searchMode?: number;
   searchPassengerList?: IntlFlightListingSearchRequestSearchPassengerList[];
-  /**
-   * @example
-   * 9960b412-cc05-4d10-b570-93372d816807
-   */
   token?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   tripType?: number;
   static names(): { [key: string]: string } {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSubCorpResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * btrip123
-   */
   subCorpId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,27 +26,11 @@ export class CreateSubCorpResponseBodyModule extends $dara.Model {
 }
 
 export class CreateSubCorpResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
   module?: CreateSubCorpResponseBodyModule;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

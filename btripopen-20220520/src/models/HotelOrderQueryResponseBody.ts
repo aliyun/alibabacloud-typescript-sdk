@@ -6,15 +6,7 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $dara.Model {
   brandCode?: string;
   brandGroup?: string;
   brandName?: string;
-  /**
-   * @example
-   * 1669344020
-   */
   checkIn?: number;
-  /**
-   * @example
-   * 1669344020
-   */
   checkOut?: number;
   city?: string;
   cityAdCode?: string;
@@ -23,20 +15,8 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $dara.Model {
   hotelAddress?: string;
   hotelName?: string;
   hotelPhone?: string;
-  /**
-   * @example
-   * 11
-   */
   hotelSupportVatInvoiceType?: number;
-  /**
-   * @example
-   * 1
-   */
   night?: number;
-  /**
-   * @example
-   * 1
-   */
   roomNum?: number;
   roomType?: string;
   star?: string;
@@ -94,10 +74,6 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $dara.Model {
 }
 
 export class HotelOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
-  /**
-   * @example
-   * 12345678
-   */
   id?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -124,78 +100,26 @@ export class HotelOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
 }
 
 export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
-  /**
-   * @example
-   * 12345678
-   */
   applyId?: string;
   btripTitle?: string;
   category?: number;
-  /**
-   * @example
-   * iscorpId
-   */
   corpId?: string;
   corpName?: string;
-  /**
-   * @example
-   * 12345678
-   */
   departId?: string;
   departName?: string;
   exceedApplyNos?: string[];
   extendField?: string;
-  /**
-   * @example
-   * 1669344020
-   */
   gmtCreate?: number;
-  /**
-   * @example
-   * 1669344020
-   */
   gmtModified?: number;
-  /**
-   * @example
-   * 1002145190081005400
-   */
   id?: number;
-  /**
-   * @example
-   * 12345678
-   */
   itineraryId?: string;
-  /**
-   * @example
-   * 1
-   */
   orderStatus?: number;
-  /**
-   * @example
-   * 1
-   */
   orderType?: number;
   supplier?: string;
-  /**
-   * @example
-   * 12345678
-   */
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
-  /**
-   * @example
-   * 12345678
-   */
   thirdpartDepartId?: string;
-  /**
-   * @example
-   * 12345678
-   */
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * 12345678
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -266,47 +190,19 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model 
 
 export class HotelOrderQueryResponseBodyModulePassengerList extends $dara.Model {
   applyId?: string;
-  /**
-   * @example
-   * 12345678
-   */
   costCenterId?: number;
   costCenterName?: string;
-  /**
-   * @example
-   * 12345678
-   */
   costCenterNumber?: string;
   itineraryId?: string;
   occupantType?: number;
   projectCode?: string;
-  /**
-   * @example
-   * 12345678
-   */
   projectId?: number;
   projectTitle?: string;
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * 12345678
-   */
   thirdpartCostCenterId?: string;
-  /**
-   * @example
-   * 12345678
-   */
   thirdpartProjectId?: string;
-  /**
-   * @example
-   * 12345678
-   */
   userId?: string;
   userName?: string;
-  /**
-   * @example
-   * 0
-   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -358,35 +254,11 @@ export class HotelOrderQueryResponseBodyModulePassengerList extends $dara.Model 
 }
 
 export class HotelOrderQueryResponseBodyModulePriceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   categoryCode?: number;
-  /**
-   * @example
-   * 1669344020
-   */
   gmtCreate?: number;
-  /**
-   * @example
-   * 1
-   */
   payType?: number;
-  /**
-   * @example
-   * 200
-   */
   price?: number;
-  /**
-   * @example
-   * 12345678910987654321
-   */
   tradeId?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -470,37 +342,11 @@ export class HotelOrderQueryResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module。
-   */
   module?: HotelOrderQueryResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

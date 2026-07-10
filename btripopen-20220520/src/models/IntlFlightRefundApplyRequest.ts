@@ -6,9 +6,6 @@ export class IntlFlightRefundApplyRequestRefundSegmentList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * CZ5009PKXHKG0616
    */
   segmentKey?: string;
   static names(): { [key: string]: string } {
@@ -33,17 +30,10 @@ export class IntlFlightRefundApplyRequestRefundSegmentList extends $dara.Model {
 }
 
 export class IntlFlightRefundApplyRequestSelectedPassengers extends $dara.Model {
-  /**
-   * @example
-   * ZHANG/SAN
-   */
   fullName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1000001
    */
   passengerId?: number;
   static names(): { [key: string]: string } {
@@ -73,35 +63,18 @@ export class IntlFlightRefundApplyRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1002145190081005400
    */
   orderId?: string;
-  /**
-   * @example
-   * 3750656668336001024
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * 202503251022170001
-   */
   outRefundApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * edcac4f4c79d40ccb141ddb6da567e65
    */
   passengerJourneyGroupKey?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   refundReasonCode?: string;
   /**

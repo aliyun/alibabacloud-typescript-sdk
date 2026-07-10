@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class BaseCityInfoSearchHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * feth00jqwls
-   */
   xAcsBtripAccessToken?: string;
   static names(): { [key: string]: string } {
     return {

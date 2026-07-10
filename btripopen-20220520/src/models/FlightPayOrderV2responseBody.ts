@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightPayOrderV2ResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 51000
-   */
   price?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,37 +26,11 @@ export class FlightPayOrderV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightPayOrderV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: FlightPayOrderV2ResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

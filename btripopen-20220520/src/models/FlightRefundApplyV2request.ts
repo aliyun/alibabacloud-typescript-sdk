@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundApplyV2RequestPassengerSegmentRelations extends $dara.Model {
-  /**
-   * @example
-   * 1075004
-   */
   passengerId?: string;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -36,49 +32,17 @@ export class FlightRefundApplyV2RequestPassengerSegmentRelations extends $dara.M
 }
 
 export class FlightRefundApplyV2Request extends $dara.Model {
-  /**
-   * @example
-   * cheshiapi
-   */
   isvName?: string;
-  /**
-   * @example
-   * 1683901850297448082
-   */
   orderId?: string;
-  /**
-   * @example
-   * 1017002195370467137
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * 1019195836916039
-   */
   outSubOrderId?: string;
   passengerSegmentRelations?: FlightRefundApplyV2RequestPassengerSegmentRelations[];
-  /**
-   * @example
-   * 2
-   */
   preCalType?: number;
   refundReason?: string;
-  /**
-   * @example
-   * 2
-   */
   refundReasonType?: number;
   ticketNos?: string[];
-  /**
-   * @example
-   * 10000
-   */
   totalRefundPrice?: number;
   uploadPictUrls?: string;
-  /**
-   * @example
-   * true
-   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {

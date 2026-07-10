@@ -3,44 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightListingSearchShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 10001
-   */
   btripUserId?: string;
-  /**
-   * @example
-   * ZHANGSAN
-   */
   buyerName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   cabinType?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * TEST
    */
   isvName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * false
    */
   outWheelSearch?: boolean;
-  /**
-   * @example
-   * 60b412-cc05-4d10-b570-
-   */
   queryRecordId?: string;
   /**
    * @remarks
@@ -50,23 +29,13 @@ export class IntlFlightListingSearchShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   searchMode?: number;
   searchPassengerListShrink?: string;
-  /**
-   * @example
-   * 9960b412-cc05-4d10-b570-93372d816807
-   */
   token?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   tripType?: number;
   static names(): { [key: string]: string } {

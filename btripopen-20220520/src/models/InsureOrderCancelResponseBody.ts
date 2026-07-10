@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureOrderCancelResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
-  /**
-   * @example
-   * 210bc41416861901778051918d1942
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

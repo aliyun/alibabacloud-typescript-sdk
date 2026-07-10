@@ -6,9 +6,6 @@ export class ApplyInvoiceTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2022-12-01
    */
   billDate?: string;
   /**

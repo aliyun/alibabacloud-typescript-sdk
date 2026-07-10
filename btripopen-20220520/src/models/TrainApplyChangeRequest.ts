@@ -6,33 +6,21 @@ export class TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoSPassengerIn
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
    */
   passengerCertNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 170d9ac6f8807f9ec603c688f45f78a41
    */
   passengerCertType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   passengerId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 949c9f34f677a0e5d249dfc94f5e62cc7
    */
   passengerName?: string;
   static names(): { [key: string]: string } {
@@ -71,25 +59,16 @@ export class TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoS extends $d
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 14
    */
   seatType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   ticketPrice?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   ticketType?: string;
   static names(): { [key: string]: string } {
@@ -126,9 +105,6 @@ export class TrainApplyChangeRequestChangeTrainInfoS extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * BTC
    */
   arrStationCode?: string;
   /**
@@ -136,54 +112,31 @@ export class TrainApplyChangeRequestChangeTrainInfoS extends $dara.Model {
    * This parameter is required.
    */
   changeTicketInfoS?: TrainApplyChangeRequestChangeTrainInfoSChangeTicketInfoS[];
-  /**
-   * @example
-   * null
-   */
   chooseBedS?: string;
-  /**
-   * @example
-   * 1T
-   */
   chooseSeatS?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * BDC
    */
   depStationCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2024-05-06 15:19:01
    */
   depTime?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2024-05-06 15:19:01
    */
   originalDepTime?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * K234
    */
   originalTrainNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * K2345
    */
   trainNo?: string;
   static names(): { [key: string]: string } {
@@ -227,48 +180,27 @@ export class TrainApplyChangeRequestChangeTrainInfoS extends $dara.Model {
 }
 
 export class TrainApplyChangeRequest extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   acceptNoSeat?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   changeTrainInfoS?: TrainApplyChangeRequestChangeTrainInfoS[];
-  /**
-   * @example
-   * 0
-   */
   forceMatch?: string;
-  /**
-   * @example
-   * false
-   */
   isPayNow?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1017028198411054446
    */
   orderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12345
    */
   outChangeApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   outOrderId?: string;
   static names(): { [key: string]: string } {

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelIndexInfoResponseBodyModuleItems extends $dara.Model {
-  /**
-   * @example
-   * 182873
-   */
   hotelId?: string;
-  /**
-   * @example
-   * 0
-   */
   hotelStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,15 +30,7 @@ export class HotelIndexInfoResponseBodyModuleItems extends $dara.Model {
 
 export class HotelIndexInfoResponseBodyModule extends $dara.Model {
   items?: HotelIndexInfoResponseBodyModuleItems[];
-  /**
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 182873
-   */
   pageToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,31 +61,11 @@ export class HotelIndexInfoResponseBodyModule extends $dara.Model {
 }
 
 export class HotelIndexInfoResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * operation success.
-   */
   message?: string;
   module?: HotelIndexInfoResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

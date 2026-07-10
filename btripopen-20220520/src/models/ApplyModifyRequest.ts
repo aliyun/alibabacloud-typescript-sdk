@@ -97,6 +97,7 @@ export class ApplyModifyRequestDefaultStandard extends $dara.Model {
   hotelIntlCitys?: ApplyModifyRequestDefaultStandardHotelIntlCitys[];
   hotelIntlRuleCode?: number;
   hotelRuleCode?: number;
+  internationalFlightCabins?: string;
   premiumEconomyDiscount?: number;
   reserveType?: number;
   trainRuleCode?: number;
@@ -113,6 +114,7 @@ export class ApplyModifyRequestDefaultStandard extends $dara.Model {
       hotelIntlCitys: 'hotel_intl_citys',
       hotelIntlRuleCode: 'hotel_intl_rule_code',
       hotelRuleCode: 'hotel_rule_code',
+      internationalFlightCabins: 'international_flight_cabins',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainRuleCode: 'train_rule_code',
@@ -132,6 +134,7 @@ export class ApplyModifyRequestDefaultStandard extends $dara.Model {
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyModifyRequestDefaultStandardHotelIntlCitys },
       hotelIntlRuleCode: 'number',
       hotelRuleCode: 'number',
+      internationalFlightCabins: 'string',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainRuleCode: 'number',
@@ -214,16 +217,8 @@ export class ApplyModifyRequestExternalTravelerList extends $dara.Model {
 }
 
 export class ApplyModifyRequestExternalTravelerStandardHotelCitys extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * 1001
-   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -280,25 +275,9 @@ export class ApplyModifyRequestExternalTravelerStandardHotelIntlCitys extends $d
 }
 
 export class ApplyModifyRequestExternalTravelerStandard extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   businessDiscount?: number;
-  /**
-   * @example
-   * 1
-   */
   economyDiscount?: number;
-  /**
-   * @example
-   * 1
-   */
   firstDiscount?: number;
-  /**
-   * @example
-   * Y
-   */
   flightCabins?: string;
   flightIntlRuleCode?: number;
   flightRuleCode?: number;
@@ -306,24 +285,10 @@ export class ApplyModifyRequestExternalTravelerStandard extends $dara.Model {
   hotelIntlCitys?: ApplyModifyRequestExternalTravelerStandardHotelIntlCitys[];
   hotelIntlRuleCode?: number;
   hotelRuleCode?: number;
-  /**
-   * @remarks
-   * 超级经济舱折扣。1到10的整数
-   * 
-   * @example
-   * 1
-   */
+  internationalFlightCabins?: string;
   premiumEconomyDiscount?: number;
-  /**
-   * @example
-   * 0
-   */
   reserveType?: number;
   trainRuleCode?: number;
-  /**
-   * @example
-   * 1
-   */
   trainSeats?: string;
   static names(): { [key: string]: string } {
     return {
@@ -337,6 +302,7 @@ export class ApplyModifyRequestExternalTravelerStandard extends $dara.Model {
       hotelIntlCitys: 'hotel_intl_citys',
       hotelIntlRuleCode: 'hotel_intl_rule_code',
       hotelRuleCode: 'hotel_rule_code',
+      internationalFlightCabins: 'international_flight_cabins',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainRuleCode: 'train_rule_code',
@@ -356,6 +322,7 @@ export class ApplyModifyRequestExternalTravelerStandard extends $dara.Model {
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyModifyRequestExternalTravelerStandardHotelIntlCitys },
       hotelIntlRuleCode: 'number',
       hotelRuleCode: 'number',
+      internationalFlightCabins: 'string',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainRuleCode: 'number',
@@ -379,15 +346,7 @@ export class ApplyModifyRequestExternalTravelerStandard extends $dara.Model {
 }
 
 export class ApplyModifyRequestHotelShare extends $dara.Model {
-  /**
-   * @example
-   * 70
-   */
   param?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -441,98 +400,47 @@ export class ApplyModifyRequestItineraryList extends $dara.Model {
    * This parameter is required.
    */
   arrCity?: string;
-  /**
-   * @example
-   * HGH
-   */
   arrCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2022-07-12 00:00:00
    */
   arrDate?: string;
   attribute?: string;
-  /**
-   * @example
-   * 2021413
-   */
   costCenterId?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   depCity?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2022-07-12 00:00:00
    */
   depDate?: string;
-  /**
-   * @example
-   * 614141
-   */
   invoiceId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2000131
    */
   itineraryId?: string;
   itineraryTravelStandard?: ApplyModifyRequestItineraryListItineraryTravelStandard;
-  /**
-   * @example
-   * true
-   */
   needHotel?: boolean;
-  /**
-   * @example
-   * true
-   */
   needTraffic?: boolean;
-  /**
-   * @example
-   * projectone
-   */
   projectCode?: string;
   projectTitle?: string;
   provinceTravelCityAdcodes?: string[];
-  /**
-   * @example
-   * ZG14131
-   */
   thirdPartInvoiceId?: string;
-  /**
-   * @example
-   * thirdpart5151
-   */
   thirdpartCostCenterId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   trafficType?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   tripWay?: number;
   static names(): { [key: string]: string } {
@@ -630,54 +538,22 @@ export class ApplyModifyRequestItinerarySetList extends $dara.Model {
    */
   arrDate?: string;
   attribute?: string;
-  /**
-   * @example
-   * BJS,SHA
-   */
   cityCodeSet?: string;
   citySet?: string;
-  /**
-   * @example
-   * 123455
-   */
   costCenterId?: number;
   /**
    * @example
    * 2017-01-01 00:00:00
    */
   depDate?: string;
-  /**
-   * @example
-   * 12344
-   */
   invoiceId?: number;
-  /**
-   * @example
-   * 20220722001
-   */
   itineraryId?: string;
   itineraryTravelStandard?: ApplyModifyRequestItinerarySetListItineraryTravelStandard;
-  /**
-   * @example
-   * projecttow
-   */
   projectCode?: string;
   projectTitle?: string;
   provinceTravelCityAdcodes?: string[];
-  /**
-   * @example
-   * thridpart12138
-   */
   thirdPartInvoiceId?: string;
-  /**
-   * @example
-   * thridpart12138
-   */
   thirdpartCostCenterId?: string;
-  /**
-   * @example
-   * 0
-   */
   trafficType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -745,10 +621,6 @@ export class ApplyModifyRequestTravelerList extends $dara.Model {
   thirdPartInvoiceId?: string;
   thirdpartCostCenterId?: string;
   thirdpartDepartId?: string;
-  /**
-   * @example
-   * GS641312
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -828,17 +700,548 @@ export class ApplyModifyRequestTravelerStandardCarCitySet extends $dara.Model {
   }
 }
 
-export class ApplyModifyRequestTravelerStandardHotelCitys extends $dara.Model {
+export class ApplyModifyRequestTravelerStandardCarStandardBookAllowInfo extends $dara.Model {
   /**
-   * @example
-   * 0
+   * @remarks
+   * This parameter is required.
+   */
+  bookAllow?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bookAllow: 'book_allow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookAllow: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardCarHelper extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  carHelperType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      carHelperType: 'car_helper_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carHelperType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardCarTimeControlTimeLimit extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'end_time',
+      startTime: 'start_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardCarTimeControl extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timeLimit?: ApplyModifyRequestTravelerStandardCarStandardCarTimeControlTimeLimit[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timeSwitch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      timeLimit: 'time_limit',
+      timeSwitch: 'time_switch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeLimit: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardCarStandardCarTimeControlTimeLimit },
+      timeSwitch: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.timeLimit)) {
+      $dara.Model.validateArray(this.timeLimit);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardCityControlInfoCityInfos extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  adcode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
    */
   cityCode?: string;
-  cityName?: string;
   /**
-   * @example
-   * 1014
+   * @remarks
+   * This parameter is required.
    */
+  cityName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adcode: 'adcode',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adcode: 'string',
+      cityCode: 'string',
+      cityName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardCityControlInfo extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  cityControlType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  cityInfos?: ApplyModifyRequestTravelerStandardCarStandardCityControlInfoCityInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      cityControlType: 'city_control_type',
+      cityInfos: 'city_infos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityControlType: 'number',
+      cityInfos: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardCarStandardCityControlInfoCityInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cityInfos)) {
+      $dara.Model.validateArray(this.cityInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardCrossCityInfoCrossCityList extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fromAdcode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fromCityCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fromCityName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  toAdcode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  toCityCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  toCityName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromAdcode: 'from_adcode',
+      fromCityCode: 'from_city_code',
+      fromCityName: 'from_city_name',
+      toAdcode: 'to_adcode',
+      toCityCode: 'to_city_code',
+      toCityName: 'to_city_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromAdcode: 'string',
+      fromCityCode: 'string',
+      fromCityName: 'string',
+      toAdcode: 'string',
+      toCityCode: 'string',
+      toCityName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardCrossCityInfo extends $dara.Model {
+  crossCityList?: ApplyModifyRequestTravelerStandardCarStandardCrossCityInfoCrossCityList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  crossCityType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      crossCityList: 'cross_city_list',
+      crossCityType: 'cross_city_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crossCityList: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardCarStandardCrossCityInfoCrossCityList },
+      crossCityType: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.crossCityList)) {
+      $dara.Model.validateArray(this.crossCityList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfoElectronicFenceLocationsFrom extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  address?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  latitude?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  longitude?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  radius?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      radius: 'radius',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      radius: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfoElectronicFenceLocationsTo extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  address?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  latitude?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  longitude?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  radius?: number;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      latitude: 'latitude',
+      longitude: 'longitude',
+      radius: 'radius',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      latitude: 'string',
+      longitude: 'string',
+      radius: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  electronicFenceLocationsFrom?: ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfoElectronicFenceLocationsFrom[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  electronicFenceLocationsTo?: ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfoElectronicFenceLocationsTo[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  electronicFenceType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      electronicFenceLocationsFrom: 'electronic_fence_locations_from',
+      electronicFenceLocationsTo: 'electronic_fence_locations_to',
+      electronicFenceType: 'electronic_fence_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      electronicFenceLocationsFrom: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfoElectronicFenceLocationsFrom },
+      electronicFenceLocationsTo: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfoElectronicFenceLocationsTo },
+      electronicFenceType: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.electronicFenceLocationsFrom)) {
+      $dara.Model.validateArray(this.electronicFenceLocationsFrom);
+    }
+    if(Array.isArray(this.electronicFenceLocationsTo)) {
+      $dara.Model.validateArray(this.electronicFenceLocationsTo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandardModifyDestinationInfo extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  modifyDestination?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      modifyDestination: 'modify_destination',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modifyDestination: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardCarStandard extends $dara.Model {
+  bookAllowInfo?: ApplyModifyRequestTravelerStandardCarStandardBookAllowInfo;
+  carHelper?: ApplyModifyRequestTravelerStandardCarStandardCarHelper;
+  carTimeControl?: ApplyModifyRequestTravelerStandardCarStandardCarTimeControl;
+  cityControlInfo?: ApplyModifyRequestTravelerStandardCarStandardCityControlInfo;
+  crossCityInfo?: ApplyModifyRequestTravelerStandardCarStandardCrossCityInfo;
+  electronicFenceInfo?: ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfo;
+  levelCodes?: string;
+  modifyDestinationInfo?: ApplyModifyRequestTravelerStandardCarStandardModifyDestinationInfo;
+  timesTotal?: number;
+  timesType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bookAllowInfo: 'book_allow_info',
+      carHelper: 'car_helper',
+      carTimeControl: 'car_time_control',
+      cityControlInfo: 'city_control_info',
+      crossCityInfo: 'cross_city_info',
+      electronicFenceInfo: 'electronic_fence_info',
+      levelCodes: 'level_codes',
+      modifyDestinationInfo: 'modify_destination_info',
+      timesTotal: 'times_total',
+      timesType: 'times_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookAllowInfo: ApplyModifyRequestTravelerStandardCarStandardBookAllowInfo,
+      carHelper: ApplyModifyRequestTravelerStandardCarStandardCarHelper,
+      carTimeControl: ApplyModifyRequestTravelerStandardCarStandardCarTimeControl,
+      cityControlInfo: ApplyModifyRequestTravelerStandardCarStandardCityControlInfo,
+      crossCityInfo: ApplyModifyRequestTravelerStandardCarStandardCrossCityInfo,
+      electronicFenceInfo: ApplyModifyRequestTravelerStandardCarStandardElectronicFenceInfo,
+      levelCodes: 'string',
+      modifyDestinationInfo: ApplyModifyRequestTravelerStandardCarStandardModifyDestinationInfo,
+      timesTotal: 'number',
+      timesType: 'number',
+    };
+  }
+
+  validate() {
+    if(this.bookAllowInfo && typeof (this.bookAllowInfo as any).validate === 'function') {
+      (this.bookAllowInfo as any).validate();
+    }
+    if(this.carHelper && typeof (this.carHelper as any).validate === 'function') {
+      (this.carHelper as any).validate();
+    }
+    if(this.carTimeControl && typeof (this.carTimeControl as any).validate === 'function') {
+      (this.carTimeControl as any).validate();
+    }
+    if(this.cityControlInfo && typeof (this.cityControlInfo as any).validate === 'function') {
+      (this.cityControlInfo as any).validate();
+    }
+    if(this.crossCityInfo && typeof (this.crossCityInfo as any).validate === 'function') {
+      (this.crossCityInfo as any).validate();
+    }
+    if(this.electronicFenceInfo && typeof (this.electronicFenceInfo as any).validate === 'function') {
+      (this.electronicFenceInfo as any).validate();
+    }
+    if(this.modifyDestinationInfo && typeof (this.modifyDestinationInfo as any).validate === 'function') {
+      (this.modifyDestinationInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyModifyRequestTravelerStandardHotelCitys extends $dara.Model {
+  cityCode?: string;
+  cityName?: string;
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -895,26 +1298,11 @@ export class ApplyModifyRequestTravelerStandardHotelIntlCitys extends $dara.Mode
 }
 
 export class ApplyModifyRequestTravelerStandard extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   businessDiscount?: number;
   carCitySet?: ApplyModifyRequestTravelerStandardCarCitySet[];
-  /**
-   * @example
-   * 1
-   */
+  carStandard?: ApplyModifyRequestTravelerStandardCarStandard;
   economyDiscount?: number;
-  /**
-   * @example
-   * 1
-   */
   firstDiscount?: number;
-  /**
-   * @example
-   * Y
-   */
   flightCabins?: string;
   flightIntlRuleCode?: number;
   flightRuleCode?: number;
@@ -922,34 +1310,17 @@ export class ApplyModifyRequestTravelerStandard extends $dara.Model {
   hotelIntlCitys?: ApplyModifyRequestTravelerStandardHotelIntlCitys[];
   hotelIntlRuleCode?: number;
   hotelRuleCode?: number;
-  /**
-   * @remarks
-   * 超级经济舱折扣。1到10的整数
-   * 
-   * @example
-   * 1
-   */
+  internationalFlightCabins?: string;
   premiumEconomyDiscount?: number;
-  /**
-   * @example
-   * 0
-   */
   reserveType?: number;
   trainRuleCode?: number;
-  /**
-   * @example
-   * 1
-   */
   trainSeats?: string;
-  /**
-   * @example
-   * thirdpart12138
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       businessDiscount: 'business_discount',
       carCitySet: 'car_city_set',
+      carStandard: 'car_standard',
       economyDiscount: 'economy_discount',
       firstDiscount: 'first_discount',
       flightCabins: 'flight_cabins',
@@ -959,6 +1330,7 @@ export class ApplyModifyRequestTravelerStandard extends $dara.Model {
       hotelIntlCitys: 'hotel_intl_citys',
       hotelIntlRuleCode: 'hotel_intl_rule_code',
       hotelRuleCode: 'hotel_rule_code',
+      internationalFlightCabins: 'international_flight_cabins',
       premiumEconomyDiscount: 'premium_economy_discount',
       reserveType: 'reserve_type',
       trainRuleCode: 'train_rule_code',
@@ -971,6 +1343,7 @@ export class ApplyModifyRequestTravelerStandard extends $dara.Model {
     return {
       businessDiscount: 'number',
       carCitySet: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardCarCitySet },
+      carStandard: ApplyModifyRequestTravelerStandardCarStandard,
       economyDiscount: 'number',
       firstDiscount: 'number',
       flightCabins: 'string',
@@ -980,6 +1353,7 @@ export class ApplyModifyRequestTravelerStandard extends $dara.Model {
       hotelIntlCitys: { 'type': 'array', 'itemType': ApplyModifyRequestTravelerStandardHotelIntlCitys },
       hotelIntlRuleCode: 'number',
       hotelRuleCode: 'number',
+      internationalFlightCabins: 'string',
       premiumEconomyDiscount: 'number',
       reserveType: 'number',
       trainRuleCode: 'number',
@@ -991,6 +1365,9 @@ export class ApplyModifyRequestTravelerStandard extends $dara.Model {
   validate() {
     if(Array.isArray(this.carCitySet)) {
       $dara.Model.validateArray(this.carCitySet);
+    }
+    if(this.carStandard && typeof (this.carStandard as any).validate === 'function') {
+      (this.carStandard as any).validate();
     }
     if(Array.isArray(this.hotelCitys)) {
       $dara.Model.validateArray(this.hotelCitys);
@@ -1007,103 +1384,38 @@ export class ApplyModifyRequestTravelerStandard extends $dara.Model {
 }
 
 export class ApplyModifyRequest extends $dara.Model {
-  /**
-   * @example
-   * 4000
-   */
   budget?: number;
-  /**
-   * @example
-   * 1
-   */
   budgetMerge?: number;
   carRule?: ApplyModifyRequestCarRule;
   corpName?: string;
   defaultStandard?: ApplyModifyRequestDefaultStandard;
-  /**
-   * @example
-   * 001
-   */
   departId?: string;
   departName?: string;
-  /**
-   * @remarks
-   * 可将补充描述传入此字段，账单中将会体现此字段的值。可以用于企业的统计和对账
-   * 
-   * @example
-   * {"cost_center":"成本中心"}
-   */
   extendField?: string;
   externalTravelerList?: ApplyModifyRequestExternalTravelerList[];
   externalTravelerStandard?: ApplyModifyRequestExternalTravelerStandard;
-  /**
-   * @example
-   * 1000
-   */
   flightBudget?: number;
-  /**
-   * @example
-   * 1000
-   */
   hotelBudget?: number;
   hotelShare?: ApplyModifyRequestHotelShare;
   intlFlightBudget?: number;
   intlHotelBudget?: number;
-  /**
-   * @example
-   * 0
-   */
   itineraryList?: ApplyModifyRequestItineraryList[];
-  /**
-   * @example
-   * 0
-   */
   itineraryRule?: number;
   itinerarySetList?: ApplyModifyRequestItinerarySetList[];
-  /**
-   * @example
-   * 0
-   */
   limitTraveler?: number;
   mealBudget?: number;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @remarks
-   * 子企业Id
-   * 
-   * @example
-   * btrip123
-   */
   subCorpId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0001A1100000007EX08O
    */
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * 202201413141
-   */
   thirdpartBusinessId?: string;
   thirdpartDepartId?: string;
-  /**
-   * @example
-   * 1
-   */
   togetherBookRule?: number;
-  /**
-   * @example
-   * 1000
-   */
   trainBudget?: number;
   travelerList?: ApplyModifyRequestTravelerList[];
   travelerStandard?: ApplyModifyRequestTravelerStandard[];
@@ -1112,34 +1424,19 @@ export class ApplyModifyRequest extends $dara.Model {
    * This parameter is required.
    */
   tripCause?: string;
-  /**
-   * @example
-   * 1
-   */
   tripDay?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   tripTitle?: string;
-  /**
-   * @example
-   * union51415
-   */
   unionNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * thirdpart12138
    */
   userId?: string;
   userName?: string;
-  /**
-   * @example
-   * 1000
-   */
   vehicleBudget?: number;
   static names(): { [key: string]: string } {
     return {

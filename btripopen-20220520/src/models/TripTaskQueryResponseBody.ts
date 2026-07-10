@@ -3,46 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TripTaskQueryResponseBodyModuleRecordTasks extends $dara.Model {
-  /**
-   * @example
-   * 123
-   */
   actioner?: string;
   attributes?: string;
-  /**
-   * @example
-   * 1525104000
-   */
   gmtCreate?: number;
-  /**
-   * @example
-   * 1525104000
-   */
   gmtFinished?: number;
-  /**
-   * @example
-   * 34360
-   */
   id?: number;
-  /**
-   * @example
-   * 575003
-   */
   nodeId?: string;
-  /**
-   * @example
-   * agree
-   */
   outResult?: string;
-  /**
-   * @example
-   * 123
-   */
   owner?: string;
-  /**
-   * @example
-   * RUNNING
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,46 +50,14 @@ export class TripTaskQueryResponseBodyModuleRecordTasks extends $dara.Model {
 }
 
 export class TripTaskQueryResponseBodyModuleRunningTasks extends $dara.Model {
-  /**
-   * @example
-   * 123
-   */
   actioner?: string;
   attributes?: string;
-  /**
-   * @example
-   * 1525104000
-   */
   gmtCreate?: number;
-  /**
-   * @example
-   * 1525104000
-   */
   gmtFinished?: number;
-  /**
-   * @example
-   * 34360
-   */
   id?: number;
-  /**
-   * @example
-   * 575003
-   */
   nodeId?: string;
-  /**
-   * @example
-   * agree
-   */
   outResult?: string;
-  /**
-   * @example
-   * 123
-   */
   owner?: string;
-  /**
-   * @example
-   * RUNNING
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -161,10 +97,6 @@ export class TripTaskQueryResponseBodyModuleRunningTasks extends $dara.Model {
 }
 
 export class TripTaskQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   needRefresh?: boolean;
   recordTasks?: TripTaskQueryResponseBodyModuleRecordTasks[];
   runningTasks?: TripTaskQueryResponseBodyModuleRunningTasks[];
@@ -200,34 +132,11 @@ export class TripTaskQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TripTaskQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module。
-   */
   module?: TripTaskQueryResponseBodyModule;
-  /**
-   * @example
-   * 2FB0D7A8-BA41-5D04-BEFC-CADA5481AC53
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

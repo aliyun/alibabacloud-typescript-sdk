@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetailsPassengerInfo extends $dara.Model {
-  /**
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
-   */
   passengerCertNo?: string;
-  /**
-   * @example
-   * 170d9ac6f8807f9ec603c688f45f78a41
-   */
   passengerCertType?: string;
-  /**
-   * @example
-   * 123456
-   */
   passengerId?: string;
-  /**
-   * @example
-   * 949c9f34f677a0e5d249dfc94f5e62cc7
-   */
   passengerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,31 +35,11 @@ export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTi
 }
 
 export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetails extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   canRefund?: boolean;
   passengerInfo?: TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetailsPassengerInfo;
-  /**
-   * @example
-   * 90
-   */
   refundCostFee?: number;
-  /**
-   * @example
-   * 10
-   */
   refundPrice?: number;
-  /**
-   * @example
-   * 90
-   */
   refundRate?: number;
-  /**
-   * @example
-   * 100
-   */
   ticketPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -112,26 +76,10 @@ export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTi
 }
 
 export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetails extends $dara.Model {
-  /**
-   * @example
-   * BTC
-   */
   arrStationCode?: string;
-  /**
-   * @example
-   * BDC
-   */
   depStationCode?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   depTime?: string;
   refundTicketDetails?: TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetailsRefundTicketDetails[];
-  /**
-   * @example
-   * K1234
-   */
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -166,15 +114,7 @@ export class TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetails extends
 }
 
 export class TrainFeeCalculateRefundResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 123445
-   */
   distributeOrderId?: string;
-  /**
-   * @example
-   * 1017002195370467200
-   */
   orderId?: string;
   refundTrainDetails?: TrainFeeCalculateRefundResponseBodyModuleRefundTrainDetails[];
   static names(): { [key: string]: string } {
@@ -206,34 +146,11 @@ export class TrainFeeCalculateRefundResponseBodyModule extends $dara.Model {
 }
 
 export class TrainFeeCalculateRefundResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: TrainFeeCalculateRefundResponseBodyModule;
-  /**
-   * @example
-   * 210bc4c416859457407135025d509c
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

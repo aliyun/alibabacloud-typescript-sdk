@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CooperatorSyncPayStatusResponseBody extends $dara.Model {
-  /**
-   * @example
-   * System.Error
-   */
   code?: string;
   message?: string;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * false
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -6,25 +6,16 @@ export class HotelOrderPreValidateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 23141
    */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2022-05-15
    */
   checkIn?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2022-05-15
    */
   checkOut?: string;
   /**
@@ -35,64 +26,40 @@ export class HotelOrderPreValidateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 612673015638
    */
   itemId?: number;
-  /**
-   * @example
-   * 1
-   */
   numberOfAdultsPerRoom?: number;
   occupantInfoListShrink?: string;
   rateKey?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 239872781
    */
   ratePlanId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 71652158
    */
   roomId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   roomNum?: number;
+  rpType?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1000
    */
   searchRoomPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2088441675613762
    */
   sellerId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 52302073
    */
   shid?: number;
   static names(): { [key: string]: string } {
@@ -108,6 +75,7 @@ export class HotelOrderPreValidateShrinkRequest extends $dara.Model {
       ratePlanId: 'rate_plan_id',
       roomId: 'room_id',
       roomNum: 'room_num',
+      rpType: 'rp_type',
       searchRoomPrice: 'search_room_price',
       sellerId: 'seller_id',
       shid: 'shid',
@@ -127,6 +95,7 @@ export class HotelOrderPreValidateShrinkRequest extends $dara.Model {
       ratePlanId: 'number',
       roomId: 'number',
       roomNum: 'number',
+      rpType: 'number',
       searchRoomPrice: 'number',
       sellerId: 'number',
       shid: 'number',

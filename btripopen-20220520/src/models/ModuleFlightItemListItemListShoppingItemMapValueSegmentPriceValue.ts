@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo extends $dara.Model {
   discountInfo?: string;
-  /**
-   * @example
-   * 0.8
-   */
   discountNum?: number;
-  /**
-   * @example
-   * false
-   */
   showTicketPrice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -40,67 +32,20 @@ export class ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValuePr
 }
 
 export class ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValue extends $dara.Model {
-  /**
-   * @example
-   * 17400
-   */
   floorPrice?: number;
-  /**
-   * @example
-   * 121000
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   sellPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   originalSellPrice?: number;
   baseTotalPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   beforeControlPrice?: number;
-  /**
-   * @example
-   * 11000
-   */
   tax?: number;
   supplyPrice?: number;
-  /**
-   * @example
-   * 242000
-   */
   basicCabinPrice?: number;
-  /**
-   * @example
-   * 5000
-   */
   buildPrice?: number;
-  /**
-   * @example
-   * 6000
-   */
   oilPrice?: number;
   firstStandardPrice?: number;
   businessStandardPrice?: number;
-  /**
-   * @example
-   * 242000
-   */
   commonStandardPrice?: number;
-  /**
-   * @remarks
-   * fdPrice
-   * 
-   * @example
-   * fdPrice
-   */
   interTicketPrice?: number;
   subtractedPrice?: number;
   originCommonPrice?: number;

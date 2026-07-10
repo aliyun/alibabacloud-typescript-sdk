@@ -6,23 +6,13 @@ export class IntlFlightInventoryPriceCheckRequestPassengerListCertInfo extends $
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * H123456
    */
   certNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   certType?: number;
-  /**
-   * @example
-   * 2033-01-09
-   */
   certValidDate?: string;
   /**
    * @example
@@ -62,7 +52,7 @@ export class IntlFlightInventoryPriceCheckRequestPassengerList extends $dara.Mod
    * This parameter is required.
    * 
    * @example
-   * 2020-01-01
+   * 1998-12-28
    */
   birthday?: string;
   /**
@@ -99,17 +89,13 @@ export class IntlFlightInventoryPriceCheckRequestPassengerList extends $dara.Mod
    * 中国大陆
    */
   nationality?: string;
-  /**
-   * @example
-   * CN
-   */
   nationalityCode?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 18012341234
+   * 13100008888
    */
   phone?: string;
   /**
@@ -125,7 +111,7 @@ export class IntlFlightInventoryPriceCheckRequestPassengerList extends $dara.Mod
    * This parameter is required.
    * 
    * @example
-   * 10001
+   * 12292812036903456
    */
   userId?: string;
   /**
@@ -191,22 +177,11 @@ export class IntlFlightInventoryPriceCheckRequest extends $dara.Model {
    * ZHANG/SAN
    */
   buyerName?: string;
-  /**
-   * @example
-   * ZJTD
-   */
   isvName?: string;
-  /**
-   * @example
-   * 102000
-   */
   orderPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 22111acaf9ea47c09ed0db6abc45be2d_0
    */
   otaItemId?: string;
   /**

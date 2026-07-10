@@ -3,75 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleGroupItemSubItemsBaggageRuleBaggageInfoMapValue extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   carryFreepc?: number;
-  /**
-   * @example
-   * 10
-   */
   carryBagWeight?: number;
-  /**
-   * @example
-   * 20*20
-   */
   carryBagSize?: string;
-  /**
-   * @example
-   * false
-   */
   isAllCarryBagWeight?: boolean;
-  /**
-   * @example
-   * CA
-   */
   airline?: string;
-  /**
-   * @example
-   * BJS
-   */
   startAirport?: string;
-  /**
-   * @example
-   * HGH
-   */
   endAirport?: string;
-  /**
-   * @example
-   * BJS
-   */
   startCityCode?: string;
-  /**
-   * @example
-   * HGH
-   */
   endCityCode?: string;
-  /**
-   * @example
-   * 1
-   */
   freePcs?: number;
-  /**
-   * @example
-   * 30
-   */
   baggageWeight?: number;
-  /**
-   * @example
-   * KG
-   */
   baggageUnit?: string;
-  /**
-   * @example
-   * 40*50
-   */
   baggageSize?: string;
-  /**
-   * @example
-   * false
-   */
   allWeight?: boolean;
   static names(): { [key: string]: string } {
     return {

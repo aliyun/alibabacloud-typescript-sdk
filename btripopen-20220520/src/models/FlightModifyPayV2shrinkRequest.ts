@@ -4,35 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightModifyPayV2ShrinkRequest extends $dara.Model {
   extParamsShrink?: string;
-  /**
-   * @example
-   * name
-   */
   isvName?: string;
-  /**
-   * @example
-   * 5100
-   */
   modifyPayAmount?: number;
-  /**
-   * @example
-   * 1017002195370467200
-   */
   orderId?: number;
-  /**
-   * @example
-   * 1017002195370467200
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * 1019195786853020
-   */
   outSubOrderId?: string;
-  /**
-   * @example
-   * 1019195786853020
-   */
   subOrderId?: number;
   static names(): { [key: string]: string } {
     return {

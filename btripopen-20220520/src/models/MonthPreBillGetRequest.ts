@@ -1,0 +1,30 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class MonthPreBillGetRequest extends $dara.Model {
+  billBatch?: string;
+  billMonth?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billBatch: 'bill_batch',
+      billMonth: 'bill_month',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billBatch: 'string',
+      billMonth: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainExceedApplyQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * 349720
-   */
   applyId?: number;
   businessInstanceId?: string;
   static names(): { [key: string]: string } {

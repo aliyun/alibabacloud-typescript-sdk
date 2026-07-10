@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvoiceRuleDeleteRequestEntities extends $dara.Model {
-  /**
-   * @example
-   * 12345
-   */
   entityId?: string;
-  /**
-   * @example
-   * 1
-   */
   entityType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,18 +29,11 @@ export class InvoiceRuleDeleteRequestEntities extends $dara.Model {
 }
 
 export class InvoiceRuleDeleteRequest extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   delAll?: boolean;
   entities?: InvoiceRuleDeleteRequestEntities[];
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 340049
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightOrderListQueryV2ResponseBodyModuleApprove extends $dara.Model {
-  /**
-   * @example
-   * test1234
-   */
   approveId?: number;
   btripTitle?: string;
-  /**
-   * @example
-   * 1233544
-   */
   exceedApproveId?: string;
-  /**
-   * @example
-   * 100231431
-   */
   thirdpartApproveId?: string;
-  /**
-   * @example
-   * test123
-   */
   thirdpartExceedApproveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,31 +38,11 @@ export class FlightOrderListQueryV2ResponseBodyModuleApprove extends $dara.Model
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleFlightOrderTicketListFlightList extends $dara.Model {
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   arrTime?: string;
-  /**
-   * @example
-   * V
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   cabinClassName?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   depTime?: string;
-  /**
-   * @example
-   * CA8572
-   */
   flightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,31 +149,11 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightOrderUserFeeList exte
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyListFlightRefundApplyTicketListFlightList extends $dara.Model {
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   arrTime?: string;
-  /**
-   * @example
-   * V
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   cabinClassName?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   depTime?: string;
-  /**
-   * @example
-   * HU7052
-   */
   flightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -278,71 +222,23 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyListFlight
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyListFlightRefundSegmentList extends $dara.Model {
-  /**
-   * @example
-   * CZ
-   */
   airlineCode?: string;
   airlineName?: string;
   arrApt?: string;
-  /**
-   * @example
-   * PKX
-   */
   arrAptCode?: string;
   arrCity?: string;
-  /**
-   * @example
-   * BJS
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * T1
-   */
   arrTerminal?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   arrTime?: string;
   depApt?: string;
-  /**
-   * @example
-   * HGH
-   */
   depAptCode?: string;
   depCity?: string;
-  /**
-   * @example
-   * HGH
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * T1
-   */
   depTerminal?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   depTime?: string;
   flightMile?: number;
-  /**
-   * @example
-   * MU5619
-   */
   flightNo?: string;
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   stopCity?: string[];
   static names(): { [key: string]: string } {
@@ -453,30 +349,14 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyList exten
   flightRefundApplyTicketList?: FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyListFlightRefundApplyTicketList[];
   flightRefundSegmentList?: FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyListFlightRefundSegmentList[];
   flightRefundUserFeeList?: FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyListFlightRefundUserFeeList[];
-  /**
-   * @example
-   * 232213
-   */
   refundApplyId?: string;
-  /**
-   * @example
-   * 2024122312
-   */
   refundApproveId?: string;
   refundCorpTotalAmount?: number;
   refundHandFee?: number;
   refundPersonTotalAmount?: number;
   refundReason?: string;
-  /**
-   * @example
-   * 0
-   */
   refundReasonCode?: string;
   refundTotalAmount?: number;
-  /**
-   * @example
-   * 232218
-   */
   relateRefundApplyId?: string;
   userIdList?: string[];
   static names(): { [key: string]: string } {
@@ -537,31 +417,11 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyList exten
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlightReshopApplyTicketListFlightList extends $dara.Model {
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   arrTime?: string;
-  /**
-   * @example
-   * V
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   cabinClassName?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   depTime?: string;
-  /**
-   * @example
-   * MU1398
-   */
   flightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -598,10 +458,6 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlight
   flightList?: FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlightReshopApplyTicketListFlightList[];
   relateTicketNoList?: string[];
   ticketNoList?: string[];
-  /**
-   * @example
-   * alitrip123
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -640,71 +496,23 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlight
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlightReshopSegmentList extends $dara.Model {
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
   airlineName?: string;
   arrApt?: string;
-  /**
-   * @example
-   * PEX
-   */
   arrAptCode?: string;
   arrCity?: string;
-  /**
-   * @example
-   * BJS
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * T1
-   */
   arrTerminal?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   arrTime?: string;
   depApt?: string;
-  /**
-   * @example
-   * HGH
-   */
   depAptCode?: string;
   depCity?: string;
-  /**
-   * @example
-   * HGH
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * T1
-   */
   depTerminal?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   depTime?: string;
   flightMile?: number;
-  /**
-   * @example
-   * CA3358
-   */
   flightNo?: string;
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   stopCity?: string[];
   static names(): { [key: string]: string } {
@@ -772,10 +580,6 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlight
   reshopCorpAmount?: number;
   reshopPersonAmount?: number;
   upgradeFee?: number;
-  /**
-   * @example
-   * alitrip123
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -810,28 +614,12 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyList exten
   flightReshopApplyTicketList?: FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlightReshopApplyTicketList[];
   flightReshopSegmentList?: FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlightReshopSegmentList[];
   flightReshopUserFeeList?: FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyListFlightReshopUserFeeList[];
-  /**
-   * @example
-   * 100231231
-   */
   relateReshopApplyId?: number;
-  /**
-   * @example
-   * 123232323
-   */
   reshopApplyId?: number;
-  /**
-   * @example
-   * 122312
-   */
   reshopApproveId?: string;
   reshopCorpTotalAmount?: number;
   reshopPersonTotalAmount?: number;
   reshopReason?: string;
-  /**
-   * @example
-   * 1002
-   */
   reshopReasonCode?: string;
   reshopTotalAmount?: number;
   userIdList?: string[];
@@ -891,71 +679,23 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyList exten
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleFlightSegmentList extends $dara.Model {
-  /**
-   * @example
-   * CZ
-   */
   airlineCode?: string;
   airlineName?: string;
   arrApt?: string;
-  /**
-   * @example
-   * PEK
-   */
   arrAptCode?: string;
   arrCity?: string;
-  /**
-   * @example
-   * BJS
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * T1
-   */
   arrTerminal?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   arrTime?: string;
   depApt?: string;
-  /**
-   * @example
-   * HGH
-   */
   depAptCode?: string;
   depCity?: string;
-  /**
-   * @example
-   * HGH
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * T1
-   */
   depTerminal?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   depTime?: string;
   flightMile?: number;
-  /**
-   * @example
-   * CZ2891
-   */
   flightNo?: string;
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   stopCity?: string[];
   static names(): { [key: string]: string } {
@@ -1019,24 +759,12 @@ export class FlightOrderListQueryV2ResponseBodyModuleFlightSegmentList extends $
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleInsureInfoList extends $dara.Model {
-  /**
-   * @example
-   * 1002308231
-   */
   insureId?: string;
   insureOrderAmount?: number;
   insurePrice?: number;
   insureType?: string;
   nameList?: string[];
-  /**
-   * @example
-   * 5
-   */
   number?: number;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1075,41 +803,13 @@ export class FlightOrderListQueryV2ResponseBodyModuleInsureInfoList extends $dar
 }
 
 export class FlightOrderListQueryV2ResponseBodyModulePriceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   categoryCode?: number;
-  /**
-   * @example
-   * 1
-   */
   categoryType?: number;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 1
-   */
   payType?: number;
   price?: number;
-  /**
-   * @example
-   * 175549295
-   */
   subOrderId?: string;
-  /**
-   * @example
-   * f98236773
-   */
   tradeId?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1147,21 +847,9 @@ export class FlightOrderListQueryV2ResponseBodyModulePriceInfoList extends $dara
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleUserAffiliateListCostCenter extends $dara.Model {
-  /**
-   * @example
-   * alitrip
-   */
   corpId?: string;
-  /**
-   * @example
-   * alitripTest
-   */
   id?: number;
   name?: string;
-  /**
-   * @example
-   * test_cost_center
-   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1191,10 +879,6 @@ export class FlightOrderListQueryV2ResponseBodyModuleUserAffiliateListCostCenter
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleUserAffiliateListDepartment extends $dara.Model {
-  /**
-   * @example
-   * alitrip
-   */
   departId?: string;
   departName?: string;
   static names(): { [key: string]: string } {
@@ -1221,10 +905,6 @@ export class FlightOrderListQueryV2ResponseBodyModuleUserAffiliateListDepartment
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleUserAffiliateListInvoice extends $dara.Model {
-  /**
-   * @example
-   * test1233
-   */
   id?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -1251,16 +931,8 @@ export class FlightOrderListQueryV2ResponseBodyModuleUserAffiliateListInvoice ex
 }
 
 export class FlightOrderListQueryV2ResponseBodyModuleUserAffiliateListProject extends $dara.Model {
-  /**
-   * @example
-   * test_project_id
-   */
   projectId?: string;
   projectTitle?: string;
-  /**
-   * @example
-   * test_third_part_project_id
-   */
   thirdpartProjectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1348,61 +1020,21 @@ export class FlightOrderListQueryV2ResponseBodyModule extends $dara.Model {
   flightRefundApplyList?: FlightOrderListQueryV2ResponseBodyModuleFlightRefundApplyList[];
   flightReshopApplyList?: FlightOrderListQueryV2ResponseBodyModuleFlightReshopApplyList[];
   flightSegmentList?: FlightOrderListQueryV2ResponseBodyModuleFlightSegmentList[];
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 200042
-   */
   id?: string;
   insureInfoList?: FlightOrderListQueryV2ResponseBodyModuleInsureInfoList[];
-  /**
-   * @example
-   * true
-   */
   mixPay?: boolean;
   orderReserveAmount?: number;
-  /**
-   * @example
-   * 1
-   */
   passengerCount?: number;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   payTime?: string;
   priceInfoList?: FlightOrderListQueryV2ResponseBodyModulePriceInfoList[];
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   supplier?: string;
-  /**
-   * @example
-   * cs9897766
-   */
   thirdpartItineraryId?: string[];
   ticketCorpReserveAmount?: number;
   ticketPersonReserveAmount?: number;
-  /**
-   * @example
-   * 1
-   */
   tripMode?: number;
-  /**
-   * @example
-   * 0
-   */
   tripType?: number;
   userAffiliateList?: FlightOrderListQueryV2ResponseBodyModuleUserAffiliateList[];
   userId?: string;
@@ -1516,15 +1148,7 @@ export class FlightOrderListQueryV2ResponseBodyModule extends $dara.Model {
 
 export class FlightOrderListQueryV2ResponseBodyPageInfo extends $dara.Model {
   number?: number;
-  /**
-   * @example
-   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4ZGViODFlYmM3MYzM4
-   */
   scrollId?: string;
-  /**
-   * @example
-   * 100
-   */
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1552,28 +1176,12 @@ export class FlightOrderListQueryV2ResponseBodyPageInfo extends $dara.Model {
 }
 
 export class FlightOrderListQueryV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
   module?: FlightOrderListQueryV2ResponseBodyModule[];
   pageInfo?: FlightOrderListQueryV2ResponseBodyPageInfo;
-  /**
-   * @example
-   * C61ECFF6-****-****-****-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce********056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

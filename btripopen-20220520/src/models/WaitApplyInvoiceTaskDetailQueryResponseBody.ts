@@ -5,37 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Model {
   contact?: string;
   email?: string;
-  /**
-   * @example
-   * 0
-   */
   flightInvoiceFee?: string;
-  /**
-   * @example
-   * 3.12
-   */
   fuPointInvoiceFee?: string;
-  /**
-   * @example
-   * 0
-   */
   hotelNormalInvoiceFee?: string;
-  /**
-   * @example
-   * 100
-   */
   hotelSpecialInvoiceFee?: string;
   ieVehicleNormalInvoiceFee?: string;
-  /**
-   * @example
-   * 0
-   */
   internationalFlightInvoiceFee?: string;
   internationalHotelInvoiceFee?: string;
-  /**
-   * @example
-   * 123
-   */
   invoiceThirdPartId?: string;
   invoiceTitle?: string;
   mailAddress?: string;
@@ -44,34 +20,14 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Mod
   mailProvince?: string;
   mealNormalInvoiceFee?: string;
   mealTc7NormalInvoiceFee?: string;
-  /**
-   * @example
-   * 0
-   */
   penaltyFee?: string;
   remark?: string;
-  /**
-   * @example
-   * 1.02
-   */
   serviceFee?: string;
-  /**
-   * @example
-   * 1234567890
-   */
   telephone?: string;
   trainAccelerationPackageInvoiceFee?: string;
-  /**
-   * @example
-   * 0
-   */
   trainInvoiceFee?: string;
   vacationNormalInvoiceFee?: string;
   vasMallSpecialInvoiceFee?: string;
-  /**
-   * @example
-   * 100
-   */
   vehicleInvoiceFee?: string;
   vehicleNormalInvoiceFee?: string;
   static names(): { [key: string]: string } {
@@ -148,33 +104,11 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $dara.Mod
 }
 
 export class WaitApplyInvoiceTaskDetailQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
   module?: WaitApplyInvoiceTaskDetailQueryResponseBodyModule[];
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210f079e16603757182131635d866a
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

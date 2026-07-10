@@ -3,18 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ElectronicItineraryGetApplyResultResponseBodyModuleApplyTicketList extends $dara.Model {
-  /**
-   * @example
-   * 5001
-   */
   failedCode?: number;
   failedReason?: string;
   itineraryStatus?: number;
   remark?: string;
-  /**
-   * @example
-   * 781-6605285563
-   */
   ticketNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,33 +67,11 @@ export class ElectronicItineraryGetApplyResultResponseBodyModule extends $dara.M
 }
 
 export class ElectronicItineraryGetApplyResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: number;
   message?: string;
   module?: ElectronicItineraryGetApplyResultResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

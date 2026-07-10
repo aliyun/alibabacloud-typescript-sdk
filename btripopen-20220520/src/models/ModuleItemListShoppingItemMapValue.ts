@@ -5,15 +5,7 @@ import { ModuleItemListShoppingItemMapValueSegmentPriceValue } from "./ModuleIte
 
 
 export class ModuleItemListShoppingItemMapValueCabinQuantityListSegmentPosition extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -104,15 +96,7 @@ export class ModuleItemListShoppingItemMapValueCabinQuantityList extends $dara.M
 
 export class ModuleItemListShoppingItemMapValueSearchPricePriceShowInfo extends $dara.Model {
   discountInfo?: string;
-  /**
-   * @example
-   * 0.8
-   */
   discountNum?: number;
-  /**
-   * @example
-   * false
-   */
   showTicketPrice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -140,67 +124,20 @@ export class ModuleItemListShoppingItemMapValueSearchPricePriceShowInfo extends 
 }
 
 export class ModuleItemListShoppingItemMapValueSearchPrice extends $dara.Model {
-  /**
-   * @example
-   * 17400
-   */
   floorPrice?: number;
-  /**
-   * @example
-   * 121000
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   sellPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   originalSellPrice?: number;
   baseTotalPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   beforeControlPrice?: number;
-  /**
-   * @example
-   * 11000
-   */
   tax?: number;
   supplyPrice?: number;
-  /**
-   * @example
-   * 242000
-   */
   basicCabinPrice?: number;
-  /**
-   * @example
-   * 5000
-   */
   buildPrice?: number;
-  /**
-   * @example
-   * 6000
-   */
   oilPrice?: number;
   firstStandardPrice?: number;
   businessStandardPrice?: number;
-  /**
-   * @example
-   * 242000
-   */
   commonStandardPrice?: number;
-  /**
-   * @remarks
-   * fdPrice
-   * 
-   * @example
-   * fdPrice
-   */
   interTicketPrice?: number;
   subtractedPrice?: number;
   originCommonPrice?: number;
@@ -209,10 +146,6 @@ export class ModuleItemListShoppingItemMapValueSearchPrice extends $dara.Model {
   installmentPrice?: number;
   competitionDynamicPrice?: number;
   competitionPromotionPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   minBeforeControlPriceOfNormal?: number;
   priceShowInfo?: ModuleItemListShoppingItemMapValueSearchPricePriceShowInfo;
   static names(): { [key: string]: string } {
@@ -286,15 +219,7 @@ export class ModuleItemListShoppingItemMapValueSearchPrice extends $dara.Model {
 }
 
 export class ModuleItemListShoppingItemMapValueSegmentPriceListSegmentPosition extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -320,20 +245,8 @@ export class ModuleItemListShoppingItemMapValueSegmentPriceListSegmentPosition e
 }
 
 export class ModuleItemListShoppingItemMapValueSegmentPriceListSearchPrice extends $dara.Model {
-  /**
-   * @example
-   * 120000
-   */
   sellPrice?: number;
-  /**
-   * @example
-   * 120000
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 6000
-   */
   tax?: number;
   static names(): { [key: string]: string } {
     return {
@@ -396,13 +309,6 @@ export class ModuleItemListShoppingItemMapValue extends $dara.Model {
   cabinQuantityList?: ModuleItemListShoppingItemMapValueCabinQuantityList[];
   searchPrice?: ModuleItemListShoppingItemMapValueSearchPrice;
   segmentPriceList?: ModuleItemListShoppingItemMapValueSegmentPriceList[];
-  /**
-   * @remarks
-   * id
-   * 
-   * @example
-   * ADT07df0bd9-f803-4a50-8449-f4bd675d9939
-   */
   id?: string;
   cabinQuantity?: { [key: string]: ModuleItemListShoppingItemMapValueCabinQuantityValue };
   segmentPrice?: { [key: string]: ModuleItemListShoppingItemMapValueSegmentPriceValue };

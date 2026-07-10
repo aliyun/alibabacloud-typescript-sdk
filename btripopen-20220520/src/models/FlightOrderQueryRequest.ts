@@ -6,9 +6,6 @@ export class FlightOrderQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 246584390
    */
   orderId?: number;
   userId?: string;

@@ -6,34 +6,22 @@ export class ApplyTripTaskExecuteRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * open
    */
   actionFrom?: string;
   comment?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * agree
    */
   taskAction?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12345
    */
   taskId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * thirdpart12138
    */
   userId?: string;
   userName?: string;

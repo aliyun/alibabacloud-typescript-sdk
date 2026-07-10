@@ -3,219 +3,71 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VasBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
-  /**
-   * @example
-   * 2025-01-01 00:00:00
-   */
   adjustTime?: string;
-  /**
-   * @example
-   * 123aaa
-   */
   alipayId?: string;
-  /**
-   * @example
-   * 124
-   */
   alipayTradeNo?: string;
-  /**
-   * @example
-   * 123
-   */
   applyArrCityCode?: string;
   applyArrCityName?: string;
-  /**
-   * @example
-   * 123
-   */
   applyDepCityCode?: string;
   applyDepCityName?: string;
   applyExtendField?: string;
-  /**
-   * @example
-   * 1424070910031252025
-   */
   applyId?: string;
   belongBusiness?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   billRecordTime?: string;
   billingEntity?: string;
   bookMode?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   bookTime?: string;
-  /**
-   * @example
-   * 123
-   */
   bookerId?: string;
-  /**
-   * @example
-   * zs123
-   */
   bookerJobNo?: string;
   bookerName?: string;
   capitalDirection?: string;
   cascadeDepartment?: string;
   categoryDesc?: string;
   costCenter?: string;
-  /**
-   * @example
-   * cs1
-   */
   costCenterNumber?: string;
-  /**
-   * @example
-   * code1
-   */
   costDepartment?: string;
   department?: string;
-  /**
-   * @example
-   * 1112
-   */
   departmentId?: string;
   feeType?: string;
   feeTypeDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   index?: string;
   invoiceTitle?: string;
-  /**
-   * @example
-   * q1
-   */
   mappingCompanyCode?: string;
-  /**
-   * @example
-   * 1007025201876066223
-   */
   orderId?: string;
-  /**
-   * @example
-   * 100.0
-   */
   orderPrice?: number;
   orderStatusDesc?: string;
-  /**
-   * @example
-   * 123
-   */
   overApplyId?: string;
-  /**
-   * @example
-   * 123
-   */
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 87687788
-   */
   primaryId?: number;
-  /**
-   * @example
-   * www123
-   */
   processorOaCode?: string;
-  /**
-   * @example
-   * 1
-   */
   productCount?: number;
-  /**
-   * @example
-   * 111
-   */
   productId?: string;
   productName?: string;
-  /**
-   * @example
-   * acs
-   */
   projectCode?: string;
   projectName?: string;
-  /**
-   * @example
-   * 0.0
-   */
   promotionFee?: number;
-  /**
-   * @example
-   * 111224324
-   */
   purchaseOrderId?: string;
   remark?: string;
   settleTypeDesc?: string;
-  /**
-   * @example
-   * 110.0
-   */
   settlementFee?: number;
-  /**
-   * @example
-   * 0.0
-   */
   settlementGrantFee?: number;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   settlementTime?: string;
   settlementType?: string;
   specification?: string;
-  /**
-   * @example
-   * 2
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * 185025497
-   */
   subOrderId?: string;
-  /**
-   * @example
-   * 9%
-   */
   taxRate?: string;
-  /**
-   * @example
-   * cs2
-   */
   thirdInvoiceId?: string;
-  /**
-   * @example
-   * 11
-   */
   thirdItineraryId?: string;
   tradeActionDesc?: string;
   tradeRemark?: string;
-  /**
-   * @example
-   * 254
-   */
   travelerId?: string;
-  /**
-   * @example
-   * A1234
-   */
   travelerJobNo?: string;
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
-  /**
-   * @example
-   * 1
-   */
   voucherType?: number;
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
@@ -372,32 +224,12 @@ export class VasBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
 }
 
 export class VasBillSettlementQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 21
-   */
   category?: number;
   corpId?: string;
   items?: VasBillSettlementQueryResponseBodyModuleItems[];
-  /**
-   * @example
-   * 2022-07-02
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2022-07-01
-   */
   periodStart?: string;
-  /**
-   * @example
-   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4MDAwMDAwMDA2ZTFjZTNi
-   */
   scrollId?: string;
-  /**
-   * @example
-   * 30
-   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -436,34 +268,11 @@ export class VasBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class VasBillSettlementQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * ok
-   */
   message?: string;
   module?: VasBillSettlementQueryResponseBodyModule;
-  /**
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * trace_id
-   * 
-   * @example
-   * 3b52152017470153218107062d0096
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

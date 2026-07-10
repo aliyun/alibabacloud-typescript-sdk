@@ -6,17 +6,11 @@ export class TrainFeeCalculateRefundShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12345
    */
   distributeOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1002145190081005400
    */
   orderId?: string;
   /**

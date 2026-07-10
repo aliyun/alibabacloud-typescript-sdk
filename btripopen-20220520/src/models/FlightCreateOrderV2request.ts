@@ -38,9 +38,6 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1991-01-22
    */
   birthday?: string;
   certNation?: string;
@@ -52,9 +49,6 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   certType?: number;
   certValidDate?: string;
@@ -78,9 +72,6 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   passengerType?: number;
   /**
@@ -94,9 +85,6 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 18155711459129970552412
    */
   userId?: string;
   userType?: number;
@@ -163,10 +151,6 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
 
 export class FlightCreateOrderV2Request extends $dara.Model {
   asyncCreateOrderKey?: string;
-  /**
-   * @example
-   * false
-   */
   asyncCreateOrderMode?: boolean;
   btripUserId?: string;
   buyerName?: string;
@@ -178,17 +162,11 @@ export class FlightCreateOrderV2Request extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cheshiapi
    */
   isvName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 7fb731deeb4510b86c17e8c8c25740_11
    */
   otaItemId?: string;
   /**

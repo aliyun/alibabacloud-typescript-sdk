@@ -3,67 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelAskingPriceShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   adultNum?: string;
-  /**
-   * @example
-   * 1000
-   */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-02-22 00:00:00
    */
   checkInDate?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-02-22 00:00:00
    */
   checkOutDate?: string;
-  /**
-   * @example
-   * 330100
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * 1
-   */
   dir?: number;
-  /**
-   * @example
-   * 1
-   */
   hotelStar?: string;
-  /**
-   * @example
-   * true
-   */
   isProtocol?: boolean;
-  /**
-   * @example
-   * 0
-   */
   paymentType?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   shidsShrink?: string;
-  /**
-   * @example
-   * 0
-   */
   sortCode?: number;
   static names(): { [key: string]: string } {
     return {

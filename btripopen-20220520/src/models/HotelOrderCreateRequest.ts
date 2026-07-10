@@ -3,66 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderCreateRequestInvoiceInfo extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   buyerAdd?: string;
-  /**
-   * @example
-   * demo
-   */
   buyerBankAcc?: string;
-  /**
-   * @example
-   * demo
-   */
   buyerBankAdd?: string;
-  /**
-   * @example
-   * 0571-82321777
-   */
   buyerPhone?: string;
-  /**
-   * @example
-   * 1
-   */
   buyerTaxNum?: string;
   deliveryAddress?: string;
   deliveryArea?: string;
   deliveryCity?: string;
   deliveryProvince?: string;
   deliveryStreet?: string;
-  /**
-   * @example
-   * demo
-   */
   email?: string;
-  /**
-   * @example
-   * 1
-   */
   invoiceMaterial?: number;
-  /**
-   * @example
-   * demo
-   */
   invoiceTitle?: string;
-  /**
-   * @example
-   * 1
-   */
   invoiceType?: number;
   receiverName?: string;
-  /**
-   * @example
-   * 0571-82321777
-   */
   receiverPhone?: string;
-  /**
-   * @example
-   * demo
-   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,49 +141,17 @@ export class HotelOrderCreateRequestOccupantInfoListCostCenterInfo extends $dara
 }
 
 export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
-  /**
-   * @example
-   * 124231213
-   */
   cardNo?: string;
-  /**
-   * @example
-   * 1
-   */
   cardType?: number;
   cascadeDeptName?: string;
   costCenterInfo?: HotelOrderCreateRequestOccupantInfoListCostCenterInfo;
-  /**
-   * @example
-   * 1
-   */
   customerType?: number;
-  /**
-   * @example
-   * 123112
-   */
   departmentId?: string;
   departmentName?: string;
-  /**
-   * @example
-   * demo
-   */
   email?: string;
-  /**
-   * @example
-   * 1
-   */
   employeeType?: number;
-  /**
-   * @example
-   * san
-   */
   firstName?: string;
   isBooker?: boolean;
-  /**
-   * @example
-   * zhang
-   */
   lastName?: string;
   /**
    * @remarks
@@ -237,21 +161,10 @@ export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 18277123451
    */
   phone?: string;
   roomNo?: number;
-  /**
-   * @example
-   * 87817182
-   */
   staffNo?: string;
-  /**
-   * @example
-   * 1
-   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -310,32 +223,12 @@ export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
 }
 
 export class HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   checkStatus?: boolean;
-  /**
-   * @example
-   * true
-   */
   needCheck?: boolean;
   promotionCode?: string;
-  /**
-   * @example
-   * 23778127
-   */
   promotionId?: string;
   promotionName?: string;
-  /**
-   * @example
-   * 100
-   */
   promotionPrice?: number;
-  /**
-   * @example
-   * 1
-   */
   promotionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -372,10 +265,6 @@ export class HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList extends
 
 export class HotelOrderCreateRequestPromotionInfo extends $dara.Model {
   promotionDetailInfoList?: HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList[];
-  /**
-   * @example
-   * 100
-   */
   promotionTotalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -404,58 +293,37 @@ export class HotelOrderCreateRequestPromotionInfo extends $dara.Model {
 }
 
 export class HotelOrderCreateRequest extends $dara.Model {
+  arrivalTime?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123122
    */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2020-10-20
    */
   checkIn?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2020-10-20
    */
   checkOut?: string;
-  /**
-   * @example
-   * demo
-   */
   contractEmail?: string;
   contractName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 19281772123
    */
   contractPhone?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   corpPayPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * dis123
    */
   disOrderId?: string;
   extra?: string;
@@ -463,19 +331,14 @@ export class HotelOrderCreateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 671570615157
    */
   itemId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * fb5e1abf33924b6c912bd6d80deec0eb-1
    */
   itineraryNo?: string;
+  leaveTime?: string;
   memberInfo?: HotelOrderCreateRequestMemberInfo;
   /**
    * @remarks
@@ -485,70 +348,48 @@ export class HotelOrderCreateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1000
    */
   personPayPrice?: number;
   promotionInfo?: HotelOrderCreateRequestPromotionInfo;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1399417428510
    */
   ratePlanId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 187211
    */
   roomId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   roomNum?: number;
+  rpType?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2088441675613762
    */
   sellerId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2198781
    */
   shid?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   totalOrderPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * nonUltron_1673575241156_d91ea8ad16735752359161037bf6cf_c54d3768312a4b249b719f126377bf82
    */
   validateResKey?: string;
   static names(): { [key: string]: string } {
     return {
+      arrivalTime: 'arrival_time',
       btripUserId: 'btrip_user_id',
       checkIn: 'check_in',
       checkOut: 'check_out',
@@ -561,6 +402,7 @@ export class HotelOrderCreateRequest extends $dara.Model {
       invoiceInfo: 'invoice_info',
       itemId: 'item_id',
       itineraryNo: 'itinerary_no',
+      leaveTime: 'leave_time',
       memberInfo: 'member_info',
       occupantInfoList: 'occupant_info_list',
       personPayPrice: 'person_pay_price',
@@ -568,6 +410,7 @@ export class HotelOrderCreateRequest extends $dara.Model {
       ratePlanId: 'rate_plan_id',
       roomId: 'room_id',
       roomNum: 'room_num',
+      rpType: 'rp_type',
       sellerId: 'seller_id',
       shid: 'shid',
       totalOrderPrice: 'total_order_price',
@@ -577,6 +420,7 @@ export class HotelOrderCreateRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      arrivalTime: 'string',
       btripUserId: 'string',
       checkIn: 'string',
       checkOut: 'string',
@@ -589,6 +433,7 @@ export class HotelOrderCreateRequest extends $dara.Model {
       invoiceInfo: HotelOrderCreateRequestInvoiceInfo,
       itemId: 'number',
       itineraryNo: 'string',
+      leaveTime: 'string',
       memberInfo: HotelOrderCreateRequestMemberInfo,
       occupantInfoList: { 'type': 'array', 'itemType': HotelOrderCreateRequestOccupantInfoList },
       personPayPrice: 'number',
@@ -596,6 +441,7 @@ export class HotelOrderCreateRequest extends $dara.Model {
       ratePlanId: 'number',
       roomId: 'number',
       roomNum: 'number',
+      rpType: 'number',
       sellerId: 'number',
       shid: 'number',
       totalOrderPrice: 'number',

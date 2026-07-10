@@ -4,59 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo extends $dara.Model {
   arrAirportName?: string;
-  /**
-   * @example
-   * SHA
-   */
   arrCity?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2022-01-12T16:47Z
-   */
   arrTime?: string;
-  /**
-   * @example
-   * F
-   */
   cabin?: string;
-  /**
-   * @example
-   * 1
-   */
   cabinClass?: number;
   cabinClassStr?: string;
   depAirportName?: string;
-  /**
-   * @example
-   * SHA
-   */
   depCity?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2022-01-12T16:47Z
-   */
   depTime?: string;
-  /**
-   * @example
-   * 4
-   */
   discount?: string;
-  /**
-   * @example
-   * MU2759
-   */
   flightNo?: string;
-  /**
-   * @example
-   * 300
-   */
   price?: number;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -232,51 +192,19 @@ export class FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights exten
 }
 
 export class FlightExceedApplyQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 1231
-   */
   applyId?: number;
   applyIntentionInfoDo?: FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo;
   applyIntentionInfoDoList?: FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDoList[];
   applyRecommendFlights?: FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights;
   btripCause?: string;
-  /**
-   * @example
-   * 123
-   */
   corpId?: string;
   exceedReason?: string;
-  /**
-   * @example
-   * 1
-   */
   exceedType?: number;
   originStandard?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 2022-01-12T16:47Z
-   */
   submitTime?: string;
-  /**
-   * @example
-   * 0001A1100000007EX08O
-   */
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * test_corp
-   */
   thirdpartCorpId?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -338,27 +266,11 @@ export class FlightExceedApplyQueryResponseBodyModule extends $dara.Model {
 }
 
 export class FlightExceedApplyQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: FlightExceedApplyQueryResponseBodyModule;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

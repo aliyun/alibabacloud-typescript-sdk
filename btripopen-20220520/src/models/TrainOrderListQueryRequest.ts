@@ -3,51 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainOrderListQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   allApply?: boolean;
-  /**
-   * @example
-   * 11657
-   */
   applyId?: number;
   departId?: string;
-  /**
-   * @example
-   * 2022-05-15 22:27:00
-   */
   endTime?: string;
-  /**
-   * @example
-   * 3
-   */
   page?: number;
-  /**
-   * @example
-   * 25
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 2022-05-15 22:27:00
-   */
   startTime?: string;
-  /**
-   * @example
-   * CS-EDES9898
-   */
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * 2022-05-15 22:27:00
-   */
   updateEndTime?: string;
-  /**
-   * @example
-   * 2022-05-15 22:27:00
-   */
   updateStartTime?: string;
   userId?: string;
   static names(): { [key: string]: string } {

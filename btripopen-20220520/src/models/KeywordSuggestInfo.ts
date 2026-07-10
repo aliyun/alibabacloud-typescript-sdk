@@ -10,18 +10,26 @@ export class KeywordSuggestInfo extends $dara.Model {
    * 300100
    */
   cityCode?: number;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * 杭州东站
+   */
   displayName?: string;
   /**
    * @example
    * 53853318
    */
   hotelId?: string;
+  icon?: string;
   /**
    * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
+   * 4.8分
    */
-  icon?: string;
   point?: string;
   /**
    * @example
@@ -33,11 +41,11 @@ export class KeywordSuggestInfo extends $dara.Model {
    * 0
    */
   region?: number;
+  type?: number;
   /**
    * @example
-   * 10
+   * 景点
    */
-  type?: number;
   typeDesc?: string;
   static names(): { [key: string]: string } {
     return {

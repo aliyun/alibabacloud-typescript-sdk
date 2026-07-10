@@ -3,49 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CommonApplyQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 123
-   */
   applyId?: number;
-  /**
-   * @example
-   * 5
-   */
   bizCategory?: number;
   cause?: string;
-  /**
-   * @example
-   * 0001A1100000007EX08O
-   */
   corpId?: string;
   extendValue?: string;
-  /**
-   * @example
-   * 2021-03-18T20:26Z
-   */
   gmtCreate?: string;
   orderId?: number;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @example
-   * 1233
-   */
   thirdpartCorpId?: string;
-  /**
-   * @example
-   * 12344
-   */
   thirdpartId?: string;
   tripCause?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -94,27 +62,11 @@ export class CommonApplyQueryResponseBodyModule extends $dara.Model {
 }
 
 export class CommonApplyQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
   module?: CommonApplyQueryResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

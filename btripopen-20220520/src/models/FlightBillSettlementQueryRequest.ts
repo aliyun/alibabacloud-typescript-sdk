@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightBillSettlementQueryRequest extends $dara.Model {
+  applyId?: string;
   billBatch?: string;
   billRecordTimeEnd?: string;
   billRecordTimeStart?: string;
@@ -10,33 +11,20 @@ export class FlightBillSettlementQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNo?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 50
    */
   pageSize?: number;
-  /**
-   * @example
-   * 2021-10-01
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2021-10-01
-   */
   periodStart?: string;
   scrollId?: string;
   scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      applyId: 'apply_id',
       billBatch: 'bill_batch',
       billRecordTimeEnd: 'bill_record_time_end',
       billRecordTimeStart: 'bill_record_time_start',
@@ -52,6 +40,7 @@ export class FlightBillSettlementQueryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyId: 'string',
       billBatch: 'string',
       billRecordTimeEnd: 'string',
       billRecordTimeStart: 'string',

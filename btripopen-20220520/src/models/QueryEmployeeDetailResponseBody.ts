@@ -4,34 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryEmployeeDetailResponseBodyModule extends $dara.Model {
   email?: string;
-  /**
-   * @example
-   * false
-   */
   isLeave?: boolean;
-  /**
-   * @example
-   * "12138"
-   */
   jobNumber?: string;
   nickName?: string;
-  /**
-   * @example
-   * "123456"
-   */
   outDeptId?: string;
   outDeptIdList?: string[];
-  /**
-   * @example
-   * "abc12138"
-   */
   outEmployeeId?: string;
   phoneNo?: string;
   realName?: string;
-  /**
-   * @example
-   * "zhang/san"
-   */
   realNameEn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76,39 +56,12 @@ export class QueryEmployeeDetailResponseBodyModule extends $dara.Model {
 }
 
 export class QueryEmployeeDetailResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * None
-   */
   message?: string;
   module?: QueryEmployeeDetailResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,9 +6,6 @@ export class IntlFlightCreateOrderRequestContactInfo extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * XXX@aliyun.com
    */
   contactEmail?: string;
   /**
@@ -19,9 +16,6 @@ export class IntlFlightCreateOrderRequestContactInfo extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 13812341234
    */
   contactPhone?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +49,7 @@ export class IntlFlightCreateOrderRequestPassengerListCertInfo extends $dara.Mod
    * This parameter is required.
    * 
    * @example
-   * H123456
+   * E1234567
    */
   certNo?: string;
   /**
@@ -71,7 +65,7 @@ export class IntlFlightCreateOrderRequestPassengerListCertInfo extends $dara.Mod
    * This parameter is required.
    * 
    * @example
-   * 2030-01-01
+   * 2029-12-31
    */
   certValidDate?: string;
   /**
@@ -115,7 +109,7 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2020-01-01
+   * 1998-12-28
    */
   birthday?: string;
   /**
@@ -141,7 +135,7 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
   gender?: number;
   /**
    * @example
-   * ZNW0525
+   * L5000924
    */
   jobNo?: string;
   /**
@@ -155,9 +149,6 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * CN
    */
   nationalityCode?: string;
   /**
@@ -165,7 +156,7 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 18012341234
+   * 13100008888
    */
   phone?: string;
   /**
@@ -181,7 +172,7 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 13123123212
+   * 12292812036903456
    */
   userId?: string;
   /**
@@ -234,15 +225,7 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
 }
 
 export class IntlFlightCreateOrderRequest extends $dara.Model {
-  /**
-   * @example
-   * fcoid_deb6372db8194f1c94c23bc4fadc508d
-   */
   asyncCreateOrderKey?: string;
-  /**
-   * @example
-   * false
-   */
   asyncCreateOrderMode?: boolean;
   /**
    * @remarks
@@ -266,34 +249,19 @@ export class IntlFlightCreateOrderRequest extends $dara.Model {
    */
   contactInfo?: IntlFlightCreateOrderRequestContactInfo;
   extraInfo?: { [key: string]: string };
-  /**
-   * @example
-   * open12k0lclldfdc7v10E2HaRrOr00
-   */
   isvName?: string;
   orderPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 56319a175bdf4b1898190bd7edb603b5_0
    */
   otaItemId?: string;
-  /**
-   * @example
-   * F11380075736888770560
-   */
   outOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   passengerList?: IntlFlightCreateOrderRequestPassengerList[];
-  /**
-   * @example
-   * fcoid_deb6372db8194f1c94c23bc4fadc508d
-   */
   renderKey?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,26 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class CarApplyQueryResponseBodyApplyListApproverList extends $dara.Model {
   note?: string;
-  /**
-   * @example
-   * 2021-03-18T20:26Z
-   */
   operateTime?: string;
-  /**
-   * @example
-   * 1
-   */
   order?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -61,54 +45,18 @@ export class CarApplyQueryResponseBodyApplyListApproverList extends $dara.Model 
 
 export class CarApplyQueryResponseBodyApplyListItineraryList extends $dara.Model {
   arrCity?: string;
-  /**
-   * @example
-   * HGH
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * 2021-03-18T20:26Z
-   */
   arrDate?: string;
-  /**
-   * @example
-   * 1
-   */
   costCenterId?: number;
   costCenterName?: string;
   depCity?: string;
-  /**
-   * @example
-   * HGH
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * 2021-03-18T20:26Z
-   */
   depDate?: string;
-  /**
-   * @example
-   * 1
-   */
   invoiceId?: number;
   invoiceName?: string;
-  /**
-   * @example
-   * 1
-   */
   itineraryId?: string;
-  /**
-   * @example
-   * xm1
-   */
   projectCode?: string;
   projectTitle?: string;
-  /**
-   * @example
-   * 4
-   */
   trafficType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -215,43 +163,19 @@ export class CarApplyQueryResponseBodyApplyListTravelerStandard extends $dara.Mo
 export class CarApplyQueryResponseBodyApplyList extends $dara.Model {
   approverList?: CarApplyQueryResponseBodyApplyListApproverList[];
   businessType?: string;
-  /**
-   * @example
-   * depart1
-   */
   departId?: string;
   departName?: string;
-  /**
-   * @example
-   * 2021-03-18T20:26Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2021-03-18T20:26Z
-   */
   gmtModified?: string;
   itineraryList?: CarApplyQueryResponseBodyApplyListItineraryList[];
   orderId?: number;
   relatedThirdApplyId?: string;
-  /**
-   * @example
-   * 2
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   thirdpartId?: string;
   travelerStandard?: CarApplyQueryResponseBodyApplyListTravelerStandard[];
   tripCause?: string;
   tripTitle?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -318,31 +242,11 @@ export class CarApplyQueryResponseBodyApplyList extends $dara.Model {
 
 export class CarApplyQueryResponseBody extends $dara.Model {
   applyList?: CarApplyQueryResponseBodyApplyList[];
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
-  /**
-   * @example
-   * 6
-   */
   total?: number;
-  /**
-   * @example
-   * 210bcc3a16583004579056128d33d7
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

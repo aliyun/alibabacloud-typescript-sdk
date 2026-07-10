@@ -3,34 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MealApplyApproveRequest extends $dara.Model {
-  /**
-   * @example
-   * 2022-07-12 16:12:53
-   */
   operateTime?: string;
   remark?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   status?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
   thirdPartApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 62141
    */
   userId?: string;
   static names(): { [key: string]: string } {

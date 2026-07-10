@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureOrderCreateResponseBodyModuleInsureOrderDetailList extends $dara.Model {
-  /**
-   * @example
-   * 1992939412431231
-   */
   outSubInsOrderId?: string;
-  /**
-   * @example
-   * 121234444
-   */
   policyNo?: string;
-  /**
-   * @example
-   * INIT
-   */
   status?: string;
-  /**
-   * @example
-   * 1022196500378001
-   */
   subInsOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,21 +35,9 @@ export class InsureOrderCreateResponseBodyModuleInsureOrderDetailList extends $d
 }
 
 export class InsureOrderCreateResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   copies?: number;
   insureOrderDetailList?: InsureOrderCreateResponseBodyModuleInsureOrderDetailList[];
-  /**
-   * @example
-   * 1021000196500370001
-   */
   insureOrderId?: string;
-  /**
-   * @example
-   * 3000
-   */
   premium?: number;
   static names(): { [key: string]: string } {
     return {
@@ -98,27 +70,11 @@ export class InsureOrderCreateResponseBodyModule extends $dara.Model {
 }
 
 export class InsureOrderCreateResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: InsureOrderCreateResponseBodyModule;
-  /**
-   * @example
-   * C6055EA5-C566-511D-9FC4-5E4D45182711
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210f079916782711059363565d6be1
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

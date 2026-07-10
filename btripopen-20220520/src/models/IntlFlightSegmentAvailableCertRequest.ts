@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightSegmentAvailableCertRequest extends $dara.Model {
-  /**
-   * @example
-   * ZJTD
-   */
   isvName?: string;
-  /**
-   * @example
-   * chinese
-   */
   language?: string;
-  /**
-   * @example
-   * 21341234
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {

@@ -5,20 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListAirlineInfo extends $dara.Model {
   airlineChineseName?: string;
   airlineChineseShortName?: string;
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
-  /**
-   * @example
-   * //gw.alicdn.com/tfs/TB12fJAFHr1gK0jSZR0XXbP8XXa-450-450.png_80x80.jpg
-   */
   airlineIcon?: string;
-  /**
-   * @example
-   * false
-   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -50,17 +38,9 @@ export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListAirlin
 }
 
 export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * XIL
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,17 +70,9 @@ export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListArrAir
 }
 
 export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PEK
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T2
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,10 +106,6 @@ export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListFlight
   airlineChineseShortName?: string;
   airlineCode?: string;
   airlineIcon?: string;
-  /**
-   * @example
-   * false
-   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -243,10 +211,6 @@ export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListFlight
   airlineChineseShortName?: string;
   airlineCode?: string;
   airlineIcon?: string;
-  /**
-   * @example
-   * false
-   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -284,15 +248,7 @@ export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListFlight
   transferDepTime?: string;
   transferFlightNo?: string;
   transferFlightSize?: string;
-  /**
-   * @example
-   * false
-   */
   transferShare?: boolean;
-  /**
-   * @example
-   * 60
-   */
   transferStopTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -333,50 +289,14 @@ export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListFlight
 }
 
 export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListPriceInfoDTOReShopPriceInfoDTO extends $dara.Model {
-  /**
-   * @example
-   * -1
-   */
   reShopAdultChangeFee?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopAdultPrice?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopAdultPriceGap?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopChildChangeFee?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopChildPrice?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopChildPriceGap?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopInfChangeFee?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopInfPrice?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopInfPriceGap?: number;
   static names(): { [key: string]: string } {
     return {
@@ -416,65 +336,17 @@ export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListPriceI
 }
 
 export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListPriceInfoDTO extends $dara.Model {
-  /**
-   * @example
-   * 126000
-   */
   adultPrice?: number;
-  /**
-   * @example
-   * 11000
-   */
   adultTax?: number;
-  /**
-   * @example
-   * 137000
-   */
   adultTotalPrice?: number;
-  /**
-   * @example
-   * 126000
-   */
   beforeControlPrice?: number;
-  /**
-   * @example
-   * 64000
-   */
   childPrice?: number;
-  /**
-   * @example
-   * 2000
-   */
   childTax?: number;
-  /**
-   * @example
-   * 66000
-   */
   childTotalPrice?: number;
-  /**
-   * @example
-   * 12000
-   */
   infantPrice?: number;
-  /**
-   * @example
-   * 0
-   */
   infantTax?: number;
-  /**
-   * @example
-   * 12000
-   */
   infantTotalPrice?: number;
-  /**
-   * @example
-   * 1300
-   */
   originalAdultPrice?: number;
-  /**
-   * @example
-   * 12300
-   */
   originalAdultTotalPrice?: number;
   reShopPriceInfoDTO?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListPriceInfoDTOReShopPriceInfoDTO;
   static names(): { [key: string]: string } {
@@ -528,82 +400,30 @@ export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListPriceI
 export class FlightModifyListingSearchV2ResponseBodyModuleDirectFlightList extends $dara.Model {
   airlineInfo?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListAirlineInfo;
   arrAirportInfo?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListArrAirportInfo;
-  /**
-   * @example
-   * BJS
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * 2023-09-18 10:25:00
-   */
   arrTime?: string;
   cabinClass?: string;
   cabinClassName?: string;
   depAirportInfo?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListDepAirportInfo;
-  /**
-   * @example
-   * XIL
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * 2023-09-18 09:10:00
-   */
   depTime?: string;
-  /**
-   * @example
-   * 240
-   */
   duration?: number;
-  /**
-   * @example
-   * CA1110
-   */
   flightNo?: string;
   flightShareInfo?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListFlightShareInfo;
   flightSize?: string;
   flightStopInfo?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListFlightStopInfo;
   flightTransferInfo?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListFlightTransferInfo;
-  /**
-   * @example
-   * ARJ
-   */
   flightType?: string;
-  /**
-   * @example
-   * 0
-   */
   journeySeq?: number;
-  /**
-   * @example
-   * 8
-   */
   leftNum?: string;
   manufacturer?: string;
   mealDesc?: string;
   priceInfoDTO?: FlightModifyListingSearchV2ResponseBodyModuleDirectFlightListPriceInfoDTO;
-  /**
-   * @example
-   * 0
-   */
   segmentSeq?: number;
-  /**
-   * @example
-   * false
-   */
   share?: boolean;
   shortFlightSize?: string;
   spanDay?: string;
-  /**
-   * @example
-   * false
-   */
   stop?: boolean;
-  /**
-   * @example
-   * false
-   */
   transfer?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -803,10 +623,6 @@ export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListFlig
   airlineChineseShortName?: string;
   airlineCode?: string;
   airlineIcon?: string;
-  /**
-   * @example
-   * false
-   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -912,10 +728,6 @@ export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListFlig
   airlineChineseShortName?: string;
   airlineCode?: string;
   airlineIcon?: string;
-  /**
-   * @example
-   * false
-   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -953,15 +765,7 @@ export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListFlig
   transferDepTime?: string;
   transferFlightNo?: string;
   transferFlightSize?: string;
-  /**
-   * @example
-   * false
-   */
   transferShare?: boolean;
-  /**
-   * @example
-   * 20
-   */
   transferStopTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1002,50 +806,14 @@ export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListFlig
 }
 
 export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListPriceInfoDTOReShopPriceInfoDTO extends $dara.Model {
-  /**
-   * @example
-   * -1
-   */
   reShopAdultChangeFee?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopAdultPrice?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopAdultPriceGap?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopChildChangeFee?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopChildPrice?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopChildPriceGap?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopInfChangeFee?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopInfPrice?: number;
-  /**
-   * @example
-   * -1
-   */
   reShopInfPriceGap?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1085,65 +853,17 @@ export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListPric
 }
 
 export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListPriceInfoDTO extends $dara.Model {
-  /**
-   * @example
-   * 1000
-   */
   adultPrice?: number;
-  /**
-   * @example
-   * 1000
-   */
   adultTax?: number;
-  /**
-   * @example
-   * 1000
-   */
   adultTotalPrice?: number;
-  /**
-   * @example
-   * 1000
-   */
   beforeControlPrice?: number;
-  /**
-   * @example
-   * 1000
-   */
   childPrice?: number;
-  /**
-   * @example
-   * 1000
-   */
   childTax?: number;
-  /**
-   * @example
-   * 1000
-   */
   childTotalPrice?: number;
-  /**
-   * @example
-   * 1000
-   */
   infantPrice?: number;
-  /**
-   * @example
-   * 1000
-   */
   infantTax?: number;
-  /**
-   * @example
-   * 1000
-   */
   infantTotalPrice?: number;
-  /**
-   * @example
-   * 1000
-   */
   originalAdultPrice?: number;
-  /**
-   * @example
-   * 1000
-   */
   originalAdultTotalPrice?: number;
   reShopPriceInfoDTO?: FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListPriceInfoDTOReShopPriceInfoDTO;
   static names(): { [key: string]: string } {
@@ -1204,10 +924,6 @@ export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightList ext
   depAirportInfo?: FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListDepAirportInfo;
   depCityCode?: string;
   depTime?: string;
-  /**
-   * @example
-   * 240
-   */
   duration?: number;
   flightNo?: string;
   flightShareInfo?: FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListFlightShareInfo;
@@ -1215,40 +931,16 @@ export class FlightModifyListingSearchV2ResponseBodyModuleTransferFlightList ext
   flightStopInfo?: FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListFlightStopInfo;
   flightTransferInfo?: FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListFlightTransferInfo;
   flightType?: string;
-  /**
-   * @example
-   * 0
-   */
   journeySeq?: number;
-  /**
-   * @example
-   * 7
-   */
   leftNum?: string;
   manufacturer?: string;
   mealDesc?: string;
   priceInfoDTO?: FlightModifyListingSearchV2ResponseBodyModuleTransferFlightListPriceInfoDTO;
-  /**
-   * @example
-   * 0
-   */
   segmentSeq?: number;
-  /**
-   * @example
-   * false
-   */
   share?: boolean;
   shortFlightSize?: string;
   spanDay?: string;
-  /**
-   * @example
-   * false
-   */
   stop?: boolean;
-  /**
-   * @example
-   * false
-   */
   transfer?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1349,10 +1041,6 @@ export class FlightModifyListingSearchV2ResponseBodyModule extends $dara.Model {
   nextReqWaitTime?: number;
   retry?: boolean;
   searchRetryToken?: string;
-  /**
-   * @example
-   * a2ffebfe733742aab5c491d960ba3d59
-   */
   sessionId?: string;
   transferFlightList?: FlightModifyListingSearchV2ResponseBodyModuleTransferFlightList[];
   transferTitle?: string;
@@ -1396,37 +1084,11 @@ export class FlightModifyListingSearchV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightModifyListingSearchV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: FlightModifyListingSearchV2ResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 2136019116915615924561621e06ee
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

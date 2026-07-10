@@ -7,10 +7,6 @@ import { ModuleItemListSubItemsBaggageRuleOfferBaggageInfoMapValue } from "./Mod
 
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * MU
-   */
   airlineCode?: string;
   airlineName?: string;
   shortName?: string;
@@ -40,17 +36,9 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PKX
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * --
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -80,17 +68,9 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -120,10 +100,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * DR
-   */
   airlineCode?: string;
   airlineName?: string;
   shortName?: string;
@@ -154,10 +130,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo extends $dara.Model {
   operatingAirlineInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
-  /**
-   * @example
-   * CX601
-   */
   operatingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -233,15 +205,7 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   depCityLuggageDirect?: number;
-  /**
-   * @example
-   * 0
-   */
   stopCityLuggageDirect?: number;
   static names(): { [key: string]: string } {
     return {
@@ -268,10 +232,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosSegmentVisaRemark extends $dara.Model {
   depCityVisaRemark?: string;
-  /**
-   * @example
-   * 1
-   */
   depCityVisaType?: number;
   stopCityVisaRemarks?: string[];
   stopCityVisaTypes?: number[];
@@ -311,77 +271,29 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfos extends $dara.Model {
   airlineInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosAirlineInfo;
   arrAirportInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo;
-  /**
-   * @example
-   * BJS
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 09:45
-   */
   arrTime?: string;
   depAirportInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
-  /**
-   * @example
-   * HGH
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   depTime?: string;
-  /**
-   * @example
-   * 140
-   */
   duration?: number;
-  /**
-   * @example
-   * MU5131
-   */
   flightNo?: string;
   flightShareInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
   flightSize?: string;
   flightStopInfoList?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfoList[];
-  /**
-   * @example
-   * 320
-   */
   flightType?: string;
   luggageDirectInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo;
   manufacturer?: string;
   mealDesc?: string;
-  /**
-   * @example
-   * 0
-   */
   oneMore?: number;
   oneMoreShow?: string;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
-  /**
-   * @example
-   * KN6728HGHPKX0725
-   */
   segmentKey?: string;
   segmentVisaRemark?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosSegmentVisaRemark;
-  /**
-   * @example
-   * false
-   */
   share?: boolean;
   shortFlightSize?: string;
-  /**
-   * @example
-   * false
-   */
   stop?: boolean;
   totalTime?: string;
   static names(): { [key: string]: string } {
@@ -479,43 +391,15 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfos extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 09:45
-   */
   arrTime?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   depTime?: string;
-  /**
-   * @example
-   * 140
-   */
   duration?: number;
   flightSegmentInfos?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfos[];
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   transferTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -614,10 +498,6 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListLabelList extends $dar
 export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsBaggageRule extends $dara.Model {
   baggageDigest?: string;
   offerBaggageInfoMap?: { [key: string]: ModuleItemListSubItemsBaggageRuleOfferBaggageInfoMapValue[] };
-  /**
-   * @example
-   * true
-   */
   structuredBaggage?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -648,24 +528,12 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsBaggageRule ex
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   cancelFeeInd?: boolean;
-  /**
-   * @example
-   * true
-   */
   changeFeeInd?: boolean;
   changeRuleDesc?: string;
   offerPenaltyInfoMap?: { [key: string]: ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue[] };
   refundChangeDigest?: string;
   refundRuleDesc?: string;
-  /**
-   * @example
-   * false
-   */
   structuredRefund?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -735,10 +603,6 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItems extends $dara
   segmentKeys?: string[];
   segmentPositionList?: IntlFlightOtaSearchResponseBodyModuleItemListSubItemsSegmentPositionList[];
   shoppingItemMap?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValue };
-  /**
-   * @example
-   * 07df0bd9-f803-4a50-8449-f4bd675d9939
-   */
   uniqKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -788,10 +652,6 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItems extends $dara
 
 export class IntlFlightOtaSearchResponseBodyModuleItemList extends $dara.Model {
   agreementPriceCodes?: IntlFlightOtaSearchResponseBodyModuleItemListAgreementPriceCodes[];
-  /**
-   * @example
-   * e50d380fc05942cc8ac57af8ae02f448_0
-   */
   itemId?: string;
   itemType?: string;
   labelList?: IntlFlightOtaSearchResponseBodyModuleItemListLabelList[];
@@ -873,31 +733,11 @@ export class IntlFlightOtaSearchResponseBodyModule extends $dara.Model {
 }
 
 export class IntlFlightOtaSearchResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module。
-   */
   module?: IntlFlightOtaSearchResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 2150435016896473589786246e03e9
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -68,20 +68,8 @@ export class HotelRoomInfoResponseBodyModuleBedInfoGroupList extends $dara.Model
 
 export class HotelRoomInfoResponseBodyModuleBedInfos extends $dara.Model {
   bedDesc?: string;
-  /**
-   * @example
-   * 2
-   */
   bedNum?: number;
-  /**
-   * @example
-   * 1.8*2.0m
-   */
   bedSize?: string;
-  /**
-   * @example
-   * 1
-   */
   bedType?: string;
   length?: string;
   width?: string;
@@ -119,10 +107,6 @@ export class HotelRoomInfoResponseBodyModuleBedInfos extends $dara.Model {
 export class HotelRoomInfoResponseBodyModuleRoomImages extends $dara.Model {
   bedInfos2?: string;
   tag?: number;
-  /**
-   * @example
-   * https://img.alicdn.com/imgextra/i3/6000000000003/O1CN01xkZQR41BtPxK1PQCb_!!6000000000003-0-hotel.jpg
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -152,68 +136,24 @@ export class HotelRoomInfoResponseBodyModuleRoomImages extends $dara.Model {
 export class HotelRoomInfoResponseBodyModule extends $dara.Model {
   bedInfoGroupList?: HotelRoomInfoResponseBodyModuleBedInfoGroupList[];
   bedInfos?: HotelRoomInfoResponseBodyModuleBedInfos[];
-  /**
-   * @example
-   * 1
-   */
   extraBed?: number;
-  /**
-   * @example
-   * demo
-   */
   extraBedDesc?: string;
-  /**
-   * @example
-   * 2
-   */
   floor?: string;
-  /**
-   * @example
-   * 0
-   */
   internetWay?: string;
-  /**
-   * @example
-   * 3
-   */
   maxOccupancy?: number;
   roomDesc?: string;
   roomFacilities?: string;
   roomFacilityList?: string[];
-  /**
-   * @example
-   * 84536009
-   */
   roomId?: string;
-  /**
-   * @example
-   * //img.alicdn.com/imgextra/i2/6000000007493/O1CN010Vmxaz25DqUblX82A_!!6000000007493-2-hotel.png
-   */
   roomImage?: string;
   roomImages?: HotelRoomInfoResponseBodyModuleRoomImages[];
   roomName?: string;
   roomType?: number;
   roomarea?: string;
-  /**
-   * @example
-   * 3
-   */
   rooms?: number;
   smoke?: string;
-  /**
-   * @example
-   * 2
-   */
   window?: string;
-  /**
-   * @example
-   * 0
-   */
   windowBad?: string;
-  /**
-   * @example
-   * demo
-   */
   windowView?: string;
   static names(): { [key: string]: string } {
     return {
@@ -289,34 +229,11 @@ export class HotelRoomInfoResponseBodyModule extends $dara.Model {
 }
 
 export class HotelRoomInfoResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
-  /**
-   * @example
-   * operation success.
-   */
   message?: string;
   module?: HotelRoomInfoResponseBodyModule[];
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

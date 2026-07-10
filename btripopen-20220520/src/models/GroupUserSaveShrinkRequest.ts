@@ -7,20 +7,8 @@ export class GroupUserSaveShrinkRequest extends $dara.Model {
   birthday?: string;
   certListShrink?: string;
   gender?: string;
-  /**
-   * @example
-   * 1001
-   */
   jobNo?: string;
-  /**
-   * @example
-   * 18000000000
-   */
   phone?: string;
-  /**
-   * @example
-   * ce/shi
-   */
   realNameEn?: string;
   /**
    * @remarks
@@ -30,9 +18,6 @@ export class GroupUserSaveShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   userId?: string;
   /**

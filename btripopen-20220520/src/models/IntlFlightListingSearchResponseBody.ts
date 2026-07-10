@@ -97,10 +97,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListBestPriceIte
 }
 
 export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * 9H
-   */
   airlineCode?: string;
   airlineName?: string;
   shortName?: string;
@@ -130,17 +126,9 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
 }
 
 export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PKX
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * --
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -170,17 +158,9 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
 }
 
 export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -210,10 +190,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
 }
 
 export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * DR
-   */
   airlineCode?: string;
   airlineName?: string;
   shortName?: string;
@@ -244,10 +220,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
 
 export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo extends $dara.Model {
   operatingAirlineInfo?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
-  /**
-   * @example
-   * CX601
-   */
   operatingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -325,78 +297,27 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
 export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos extends $dara.Model {
   airlineInfo?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo;
   arrAirportInfo?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo;
-  /**
-   * @example
-   * BJS
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 09:45
-   */
   arrTime?: string;
   depAirportInfo?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
-  /**
-   * @example
-   * HGH
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   depTime?: string;
-  /**
-   * @remarks
-   * duration
-   * 
-   * @example
-   * 140
-   */
   duration?: number;
-  /**
-   * @example
-   * HO1116
-   */
   flightNo?: string;
   flightShareInfo?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
   flightSize?: string;
   flightStopInfoList?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoList[];
-  /**
-   * @example
-   * 320
-   */
   flightType?: string;
   manufacturer?: string;
   mealDesc?: string;
-  /**
-   * @example
-   * 0
-   */
   oneMore?: number;
   oneMoreShow?: string;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
-  /**
-   * @example
-   * KN6728HGHPKX0725
-   */
   segmentKey?: string;
-  /**
-   * @example
-   * false
-   */
   share?: boolean;
   shortFlightSize?: string;
-  /**
-   * @example
-   * false
-   */
   stop?: boolean;
   totalTime?: string;
   static names(): { [key: string]: string } {
@@ -484,43 +405,15 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
 }
 
 export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfos extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 09:45
-   */
   arrTime?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   depTime?: string;
-  /**
-   * @example
-   * 60
-   */
   duration?: number;
   flightSegmentInfos?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos[];
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   transferTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -598,20 +491,8 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemList extends $da
 
 export class IntlFlightListingSearchResponseBodyModule extends $dara.Model {
   flightItemList?: IntlFlightListingSearchResponseBodyModuleFlightItemList[];
-  /**
-   * @example
-   * false
-   */
   needContinue?: boolean;
-  /**
-   * @example
-   * ASDFASDFASDFASDFASDF
-   */
   queryRecordId?: string;
-  /**
-   * @example
-   * ee229f2d-1835-4199-bfe6-fd14afe8645e
-   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -644,27 +525,11 @@ export class IntlFlightListingSearchResponseBodyModule extends $dara.Model {
 }
 
 export class IntlFlightListingSearchResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: IntlFlightListingSearchResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210bc4b116835992457938931db4de
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

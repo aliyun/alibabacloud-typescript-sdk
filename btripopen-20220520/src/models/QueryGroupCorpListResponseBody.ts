@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryGroupCorpListResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * corp1
-   */
   corpId?: string;
   corpName?: string;
   static names(): { [key: string]: string } {
@@ -33,27 +29,11 @@ export class QueryGroupCorpListResponseBodyModule extends $dara.Model {
 }
 
 export class QueryGroupCorpListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * A3F8DCAB-8301-5770-BD9F-71B0BF9E1A6E
-   */
   requestId?: string;
-  /**
-   * @example
-   * 0
-   */
   code?: number;
   message?: string;
   module?: QueryGroupCorpListResponseBodyModule[];
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

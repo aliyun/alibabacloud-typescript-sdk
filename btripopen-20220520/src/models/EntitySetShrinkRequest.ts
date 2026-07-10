@@ -7,9 +7,6 @@ export class EntitySetShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 340049
    */
   thirdpartId?: string;
   static names(): { [key: string]: string } {

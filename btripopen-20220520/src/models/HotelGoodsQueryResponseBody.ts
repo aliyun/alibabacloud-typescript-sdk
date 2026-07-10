@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHotelCancelPolicyDTOBtripHotelCancelPolicyInfoDTOList extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   hour?: number;
-  /**
-   * @example
-   * 20
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -38,10 +30,6 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHote
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHotelCancelPolicyDTO extends $dara.Model {
   btripHotelCancelPolicyInfoDTOList?: HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHotelCancelPolicyDTOBtripHotelCancelPolicyInfoDTOList[];
-  /**
-   * @example
-   * 1
-   */
   cancelPolicyType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -72,10 +60,6 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHote
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRule extends $dara.Model {
   btripHotelCancelPolicyDTO?: HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHotelCancelPolicyDTO;
   cancelPolicyTitle?: string;
-  /**
-   * @example
-   * 2023-02-27
-   */
   checkIn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -199,41 +183,13 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc extends $da
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   beforeDiscountPrice?: number;
-  /**
-   * @example
-   * demo
-   */
   breakfast?: string;
-  /**
-   * @example
-   * 1000
-   */
   discountPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   lastDiscountsPrice?: number;
   lastDiscountsRoundingPrice?: number;
-  /**
-   * @example
-   * 1
-   */
   lastNum?: number;
-  /**
-   * @example
-   * 2023-03-25
-   */
   rateStartTime?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -270,181 +226,154 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO 
   }
 }
 
+export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailAvgOnsitePrice extends $dara.Model {
+  currency?: string;
+  foreignCurrency?: string;
+  foreignPriceCent?: number;
+  priceCent?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'currency',
+      foreignCurrency: 'foreign_currency',
+      foreignPriceCent: 'foreign_price_cent',
+      priceCent: 'price_cent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      foreignCurrency: 'string',
+      foreignPriceCent: 'number',
+      priceCent: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailDailyOnsitePrice extends $dara.Model {
+  currency?: string;
+  day?: string;
+  foreignCurrency?: string;
+  foreignPriceCent?: number;
+  priceCent?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'currency',
+      day: 'day',
+      foreignCurrency: 'foreign_currency',
+      foreignPriceCent: 'foreign_price_cent',
+      priceCent: 'price_cent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      day: 'string',
+      foreignCurrency: 'string',
+      foreignPriceCent: 'number',
+      priceCent: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetail extends $dara.Model {
+  avgOnsitePrice?: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailAvgOnsitePrice;
+  dailyOnsitePrice?: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailDailyOnsitePrice[];
+  static names(): { [key: string]: string } {
+    return {
+      avgOnsitePrice: 'avg_onsite_price',
+      dailyOnsitePrice: 'daily_onsite_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgOnsitePrice: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailAvgOnsitePrice,
+      dailyOnsitePrice: { 'type': 'array', 'itemType': HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailDailyOnsitePrice },
+    };
+  }
+
+  validate() {
+    if(this.avgOnsitePrice && typeof (this.avgOnsitePrice as any).validate === 'function') {
+      (this.avgOnsitePrice as any).validate();
+    }
+    if(Array.isArray(this.dailyOnsitePrice)) {
+      $dara.Model.validateArray(this.dailyOnsitePrice);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
   bedDesc?: string;
   bedType?: string;
   breakfast?: string;
   btripCancelRule?: HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRule;
   btripHotelCancelDesc?: HotelGoodsQueryResponseBodyModuleRoomsRatesBtripHotelCancelDesc[];
-  /**
-   * @example
-   * true
-   */
   canSmoking?: boolean;
   cancelPolicyDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   cancelPolicyType?: number;
-  /**
-   * @example
-   * 0
-   */
   companyAassist?: string;
   companyAssistType?: string;
-  /**
-   * @example
-   * 0
-   */
   confirmType?: number;
-  /**
-   * @example
-   * cny
-   */
   currencyCode?: string;
-  /**
-   * @example
-   * demo
-   */
   dailyPriceFormatYuan?: string;
-  /**
-   * @example
-   * 400
-   */
   dailyPriceView?: string;
   discountDesc?: HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc;
-  /**
-   * @example
-   * demo
-   */
   endTimeDaily?: string;
   hotelDetailRatePriceDTO?: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO[];
   hotelMemberBenefit?: { [key: string]: string };
-  /**
-   * @example
-   * true
-   */
+  hotelOnsitePriceDetail?: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetail;
   instantConfirm?: boolean;
   inventoryDesc?: string;
-  /**
-   * @example
-   * 100
-   */
   inventoryPrice?: string;
-  /**
-   * @example
-   * true
-   */
   isBusinessPay4Goods?: boolean;
   isGuarantee?: number;
-  /**
-   * @example
-   * true
-   */
   isNeedEmail?: boolean;
-  /**
-   * @example
-   * 612673015638
-   */
   itemId?: number;
-  /**
-   * @example
-   * demo
-   */
   lastCancelTime?: string;
-  /**
-   * @example
-   * 2
-   */
   maxOccupancy?: number;
-  /**
-   * @example
-   * 2
-   */
   minAdvHours?: number;
-  /**
-   * @example
-   * 3
-   */
   minDays?: number;
   needCertificate?: boolean;
-  /**
-   * @example
-   * 1
-   */
   nod?: number;
-  /**
-   * @example
-   * 2
-   */
   nop?: number;
-  /**
-   * @example
-   * 0
-   */
   orderShipTime?: number;
-  /**
-   * @example
-   * 1
-   */
   paymentType?: number;
-  /**
-   * @example
-   * 0
-   */
   priceType?: number;
-  /**
-   * @example
-   * demo
-   */
   promotionInfo?: string;
-  /**
-   * @example
-   * 4509447432148
-   */
   rateId?: number;
   rateKey?: string;
   ratePlanName?: string;
-  /**
-   * @example
-   * 4509447432148
-   */
   rpId?: number;
-  /**
-   * @example
-   * 4011822148
-   */
   sellerId?: number;
-  /**
-   * @example
-   * demo
-   */
   startTimeDaily?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 2321
-   */
   supplierCode?: string;
-  /**
-   * @example
-   * demo
-   */
   supplierName?: string;
-  /**
-   * @example
-   * true
-   */
   supportSpecialInvoice?: boolean;
-  /**
-   * @example
-   * 40000
-   */
+  taxFeeDesc?: string;
   unroundingDailyPriceFormatYuan?: string;
   static names(): { [key: string]: string } {
     return {
@@ -466,6 +395,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       endTimeDaily: 'end_time_daily',
       hotelDetailRatePriceDTO: 'hotel_detail_rate_price_d_t_o',
       hotelMemberBenefit: 'hotel_member_benefit',
+      hotelOnsitePriceDetail: 'hotel_onsite_price_detail',
       instantConfirm: 'instant_confirm',
       inventoryDesc: 'inventory_desc',
       inventoryPrice: 'inventory_price',
@@ -494,6 +424,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       supplierCode: 'supplier_code',
       supplierName: 'supplier_name',
       supportSpecialInvoice: 'support_special_invoice',
+      taxFeeDesc: 'tax_fee_desc',
       unroundingDailyPriceFormatYuan: 'unrounding_daily_price_format_yuan',
     };
   }
@@ -518,6 +449,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       endTimeDaily: 'string',
       hotelDetailRatePriceDTO: { 'type': 'array', 'itemType': HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO },
       hotelMemberBenefit: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      hotelOnsitePriceDetail: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetail,
       instantConfirm: 'boolean',
       inventoryDesc: 'string',
       inventoryPrice: 'string',
@@ -546,6 +478,7 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
       supplierCode: 'string',
       supplierName: 'string',
       supportSpecialInvoice: 'boolean',
+      taxFeeDesc: 'string',
       unroundingDailyPriceFormatYuan: 'string',
     };
   }
@@ -566,6 +499,9 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
     if(this.hotelMemberBenefit) {
       $dara.Model.validateMap(this.hotelMemberBenefit);
     }
+    if(this.hotelOnsitePriceDetail && typeof (this.hotelOnsitePriceDetail as any).validate === 'function') {
+      (this.hotelOnsitePriceDetail as any).validate();
+    }
     super.validate();
   }
 
@@ -575,16 +511,8 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRoomService extends $dara.Model {
-  /**
-   * @example
-   * #000000
-   */
   color?: string;
   desc?: string;
-  /**
-   * @example
-   * #4AA900
-   */
   highlightColorColor?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -615,52 +543,20 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRoomService extends $dara.Mod
 }
 
 export class HotelGoodsQueryResponseBodyModuleRooms extends $dara.Model {
-  /**
-   * @example
-   * 27
-   */
   area?: string;
   bedTypeString?: string;
-  /**
-   * @example
-   * true
-   */
   extraBed?: boolean;
   facility?: string;
-  /**
-   * @example
-   * 1,2,3,4,5,6
-   */
   floor?: string;
-  /**
-   * @example
-   * 1
-   */
   maxOccupancy?: number;
   name?: string;
-  /**
-   * @example
-   * 0
-   */
   networkService?: string;
   pics?: string;
   rates?: HotelGoodsQueryResponseBodyModuleRoomsRates[];
-  /**
-   * @example
-   * demo
-   */
   roomDasc?: string;
   roomFacility?: string[];
   roomService?: HotelGoodsQueryResponseBodyModuleRoomsRoomService[];
-  /**
-   * @example
-   * 100929
-   */
   srid?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   windowType?: string;
   static names(): { [key: string]: string } {
@@ -726,45 +622,17 @@ export class HotelGoodsQueryResponseBodyModuleRooms extends $dara.Model {
 export class HotelGoodsQueryResponseBodyModule extends $dara.Model {
   address?: string;
   bookingInstructions?: { [key: string]: string };
-  /**
-   * @example
-   * true
-   */
   canForeigner?: boolean;
-  /**
-   * @example
-   * 2022-05-15
-   */
   checkIn?: string;
-  /**
-   * @example
-   * 2022-05-15
-   */
   checkOut?: string;
   descriptions?: string[];
   dinamicBannerPicUrls?: string[];
-  /**
-   * @example
-   * 17:00
-   */
   earlyArrivalTime?: string;
   hotelGroupDesc?: string;
-  /**
-   * @example
-   * 29382
-   */
   hotelId?: number;
   hotelName?: string;
-  /**
-   * @example
-   * 12:00
-   */
   lateArrivalTime?: string;
   rooms?: HotelGoodsQueryResponseBodyModuleRooms[];
-  /**
-   * @example
-   * demo
-   */
   searchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -826,31 +694,11 @@ export class HotelGoodsQueryResponseBodyModule extends $dara.Model {
 }
 
 export class HotelGoodsQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * None
-   */
   message?: string;
   module?: HotelGoodsQueryResponseBodyModule;
-  /**
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210e847f16611516748613869de4f6
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

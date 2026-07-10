@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AccessTokenResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 70000
-   */
   expire?: number;
-  /**
-   * @example
-   * 37j76df
-   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,20 +29,8 @@ export class AccessTokenResponseBodyData extends $dara.Model {
 }
 
 export class AccessTokenResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 70000
-   */
   expire?: number;
-  /**
-   * @example
-   * 1652410740914
-   */
   start?: number;
-  /**
-   * @example
-   * 37j76df
-   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,34 +58,12 @@ export class AccessTokenResponseBodyModule extends $dara.Model {
 }
 
 export class AccessTokenResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   data?: AccessTokenResponseBodyData;
   message?: string;
   module?: AccessTokenResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * 成功标识
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

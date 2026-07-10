@@ -3,39 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingPayRequest extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   corpPayPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * dis123
    */
   disOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * refun123
    */
   disSubOrderId?: string;
   extra?: { [key: string]: string };
-  /**
-   * @example
-   * 100
-   */
   personalPayPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   totalPayPrice?: number;
   static names(): { [key: string]: string } {

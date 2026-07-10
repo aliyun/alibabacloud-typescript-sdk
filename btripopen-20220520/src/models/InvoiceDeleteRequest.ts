@@ -6,9 +6,6 @@ export class InvoiceDeleteRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 340049
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

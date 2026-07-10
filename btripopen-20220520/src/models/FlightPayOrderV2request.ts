@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightPayOrderV2Request extends $dara.Model {
-  /**
-   * @example
-   * cheshiapi
-   */
   isvName?: string;
-  /**
-   * @example
-   * cheshiapi002kwl
-   */
   orderId?: string;
-  /**
-   * @example
-   * 1017002195798359400
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * 5100
-   */
   totalPrice?: number;
-  /**
-   * @example
-   * 10
-   */
   totalServiceFeePrice?: number;
   static names(): { [key: string]: string } {
     return {

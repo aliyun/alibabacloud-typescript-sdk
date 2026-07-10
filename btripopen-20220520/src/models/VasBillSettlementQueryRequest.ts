@@ -3,61 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VasBillSettlementQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * 20250501
-   */
+  applyId?: string;
   billBatch?: string;
   billRecordTimeEnd?: string;
   billRecordTimeStart?: string;
-  /**
-   * @example
-   * cooperator_alibtrip
-   */
   cooperatorId?: string;
-  /**
-   * @example
-   * 12345
-   */
   orderId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNo?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 30
    */
   pageSize?: number;
-  /**
-   * @example
-   * 2022-07-01
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2021-10-01
-   */
   periodStart?: string;
-  /**
-   * @example
-   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4MDAwMDAwMDA3MjdkMzgw
-   */
   scrollId?: string;
-  /**
-   * @example
-   * true
-   */
   scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {
+      applyId: 'apply_id',
       billBatch: 'bill_batch',
       billRecordTimeEnd: 'bill_record_time_end',
       billRecordTimeStart: 'bill_record_time_start',
@@ -74,6 +42,7 @@ export class VasBillSettlementQueryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyId: 'string',
       billBatch: 'string',
       billRecordTimeEnd: 'string',
       billRecordTimeStart: 'string',

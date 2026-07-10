@@ -217,16 +217,8 @@ export class IntlFlightReShopConsultResponseBody extends $dara.Model {
    * 成功
    */
   message?: string;
-  /**
-   * @example
-   * true
-   */
   module?: IntlFlightReShopConsultResponseBodyModule;
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   /**
    * @example

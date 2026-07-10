@@ -412,31 +412,15 @@ export class IntlFlightOrderDetailResponseBodyModuleJourneyListFlightSegmentInfo
 }
 
 export class IntlFlightOrderDetailResponseBodyModuleJourneyList extends $dara.Model {
-  /**
-   * @example
-   * HKG
-   */
   arrCityCode?: string;
   arrCityName?: string;
   arrTime?: string;
-  /**
-   * @example
-   * SHA
-   */
   depCityCode?: string;
   depCityName?: string;
   depTime?: string;
   duration?: number;
   flightSegmentInfos?: IntlFlightOrderDetailResponseBodyModuleJourneyListFlightSegmentInfos[];
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   transferTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -483,10 +467,6 @@ export class IntlFlightOrderDetailResponseBodyModuleJourneyList extends $dara.Mo
 export class IntlFlightOrderDetailResponseBodyModuleOrderItemListBaggageRule extends $dara.Model {
   baggageDigest?: string;
   offerBaggageInfoMap?: { [key: string]: ModuleOrderItemListBaggageRuleOfferBaggageInfoMapValue[] };
-  /**
-   * @example
-   * true
-   */
   structuredBaggage?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -522,20 +502,8 @@ export class IntlFlightOrderDetailResponseBodyModuleOrderItemListPassengerPriceL
    * 0
    */
   passengerType?: number;
-  /**
-   * @example
-   * 21300
-   */
   sellPrice?: number;
-  /**
-   * @example
-   * 19300
-   */
   tax?: number;
-  /**
-   * @example
-   * 2000
-   */
   ticketPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -565,24 +533,12 @@ export class IntlFlightOrderDetailResponseBodyModuleOrderItemListPassengerPriceL
 }
 
 export class IntlFlightOrderDetailResponseBodyModuleOrderItemListRefundChangeRule extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   cancelFeeInd?: boolean;
-  /**
-   * @example
-   * false
-   */
   changeFeeInd?: boolean;
   changeRuleDesc?: string;
   offerPenaltyInfoMap?: { [key: string]: ModuleOrderItemListRefundChangeRuleOfferPenaltyInfoMapValue[] };
   refundChangeDigest?: string;
   refundRuleDesc?: string;
-  /**
-   * @example
-   * true
-   */
   structuredRefund?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -670,41 +626,17 @@ export class IntlFlightOrderDetailResponseBodyModulePassengerList extends $dara.
    * ZHANG/SAN
    */
   fullName?: string;
-  /**
-   * @example
-   * 0
-   */
   gender?: number;
-  /**
-   * @example
-   * 1001101
-   */
   jobNo?: string;
   nationality?: string;
-  /**
-   * @example
-   * CN
-   */
   nationalityCode?: string;
-  /**
-   * @example
-   * 8432002
-   */
   passengerId?: number;
   /**
    * @example
    * 0
    */
   type?: number;
-  /**
-   * @example
-   * 12292812036903456
-   */
   userId?: string;
-  /**
-   * @example
-   * 0
-   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -890,55 +822,23 @@ export class IntlFlightOrderDetailResponseBodyModule extends $dara.Model {
   bookerUserId?: string;
   bookerUserName?: string;
   closeReason?: string;
-  /**
-   * @example
-   * 1709708165000
-   */
   closeTime?: string;
   contactInfo?: IntlFlightOrderDetailResponseBodyModuleContactInfo;
   journeyList?: IntlFlightOrderDetailResponseBodyModuleJourneyList[];
-  /**
-   * @example
-   * 1012000000000000
-   */
   orderId?: string;
   orderItemList?: IntlFlightOrderDetailResponseBodyModuleOrderItemList[];
   orderStatus?: number;
-  /**
-   * @example
-   * F11374007131319304192
-   */
   outOrderId?: string;
   passengerList?: IntlFlightOrderDetailResponseBodyModulePassengerList[];
   passengerTicketList?: IntlFlightOrderDetailResponseBodyModulePassengerTicketList[];
   payLatestTime?: string;
-  /**
-   * @example
-   * 1
-   */
   payStatus?: number;
-  /**
-   * @example
-   * 2024-03-06 15:00:35
-   */
   payTime?: string;
-  /**
-   * @example
-   * 8
-   */
   payType?: number;
   successTime?: string;
-  /**
-   * @example
-   * 21300
-   */
   totalPrice?: number;
   totalTaxPrice?: number;
   totalTicketPrice?: number;
-  /**
-   * @example
-   * 0
-   */
   tripType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1029,10 +929,6 @@ export class IntlFlightOrderDetailResponseBody extends $dara.Model {
   message?: string;
   module?: IntlFlightOrderDetailResponseBodyModule;
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   /**
    * @example

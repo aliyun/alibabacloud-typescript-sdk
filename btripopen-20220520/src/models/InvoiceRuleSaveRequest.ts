@@ -3,16 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvoiceRuleSaveRequestEntities extends $dara.Model {
-  /**
-   * @example
-   * 123
-   */
   id?: string;
   name?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -40,19 +32,12 @@ export class InvoiceRuleSaveRequestEntities extends $dara.Model {
 }
 
 export class InvoiceRuleSaveRequest extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   allEmploye?: boolean;
   entities?: InvoiceRuleSaveRequestEntities[];
   scope?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * i123
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

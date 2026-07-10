@@ -4,26 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyListQueryResponseBodyModuleListApproverList extends $dara.Model {
   note?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   operateTime?: string;
-  /**
-   * @example
-   * 1
-   */
   order?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -137,42 +121,18 @@ export class ApplyListQueryResponseBodyModuleListExternalTravelerList extends $d
 
 export class ApplyListQueryResponseBodyModuleListItineraryList extends $dara.Model {
   arrCity?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   arrDate?: string;
   costCenterName?: string;
   depCity?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   depDate?: string;
   invoiceName?: string;
-  /**
-   * @example
-   * abcd
-   */
   itineraryId?: string;
-  /**
-   * @example
-   * xm1
-   */
   projectCode?: string;
   projectTitle?: string;
   thirdpartCostCenterId?: string;
   thirdpartInvoiceId?: string;
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * 0
-   */
   trafficType?: number;
-  /**
-   * @example
-   * 1
-   */
   tripWay?: number;
   static names(): { [key: string]: string } {
     return {
@@ -222,42 +182,18 @@ export class ApplyListQueryResponseBodyModuleListItineraryList extends $dara.Mod
 }
 
 export class ApplyListQueryResponseBodyModuleListItinerarySetList extends $dara.Model {
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   arrDate?: string;
-  /**
-   * @example
-   * BJS，HGH
-   */
   cityCodeSet?: string;
   citySet?: string;
   costCenterName?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   depDate?: string;
   invoiceName?: string;
-  /**
-   * @example
-   * abcd
-   */
   itineraryId?: string;
-  /**
-   * @example
-   * 12345
-   */
   projectCode?: string;
   projectTitle?: string;
   thirdpartCostCenterId?: string;
   thirdpartInvoiceId?: string;
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * 0
-   */
   trafficType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -341,10 +277,6 @@ export class ApplyListQueryResponseBodyModuleListTravelerList extends $dara.Mode
   projectCode?: string;
   projectTitle?: string;
   thirdpartDepartId?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -394,98 +326,34 @@ export class ApplyListQueryResponseBodyModuleListTravelerList extends $dara.Mode
 }
 
 export class ApplyListQueryResponseBodyModuleList extends $dara.Model {
-  /**
-   * @example
-   * 201710111505000464651
-   */
   applyShowId?: string;
   approverList?: ApplyListQueryResponseBodyModuleListApproverList[];
   carRule?: ApplyListQueryResponseBodyModuleListCarRule;
-  /**
-   * @example
-   * corp1
-   */
   corpId?: string;
-  /**
-   * @example
-   * abc
-   */
   corpName?: string;
-  /**
-   * @example
-   * depart1
-   */
   departId?: string;
   departName?: string;
   externalTravelerList?: ApplyListQueryResponseBodyModuleListExternalTravelerList[];
-  /**
-   * @example
-   * abc1234
-   */
   flowCode?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 1476
-   */
   id?: number;
   itineraryList?: ApplyListQueryResponseBodyModuleListItineraryList[];
-  /**
-   * @example
-   * 0
-   */
   itineraryRule?: number;
   itinerarySetList?: ApplyListQueryResponseBodyModuleListItinerarySetList[];
   jobNo?: string;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * abc
-   */
   thirdpartBusinessId?: string;
-  /**
-   * @example
-   * abc
-   */
   thirdpartId?: string;
   travelerList?: ApplyListQueryResponseBodyModuleListTravelerList[];
   tripCause?: string;
-  /**
-   * @example
-   * 1
-   */
   tripDay?: number;
   tripTitle?: string;
-  /**
-   * @example
-   * 2
-   */
   type?: number;
-  /**
-   * @example
-   * abc
-   */
   unionNo?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -586,27 +454,11 @@ export class ApplyListQueryResponseBodyModuleList extends $dara.Model {
 }
 
 export class ApplyListQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   moduleList?: ApplyListQueryResponseBodyModuleList[];
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

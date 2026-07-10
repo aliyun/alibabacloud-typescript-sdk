@@ -12,22 +12,12 @@ export class GroupDepartSaveRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 001
    */
   outerDeptId?: string;
-  /**
-   * @example
-   * 002
-   */
   outerDeptPid?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   status?: number;
   subCorpIdList?: string[];

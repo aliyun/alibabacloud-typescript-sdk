@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetailsPassengerInfo extends $dara.Model {
-  /**
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
-   */
   passengerCertNo?: string;
-  /**
-   * @example
-   * 170d9ac6f8807f9ec603c688f45f78a41
-   */
   passengerCertType?: string;
-  /**
-   * @example
-   * 123
-   */
   passengerId?: string;
-  /**
-   * @example
-   * 949c9f34f677a0e5d249dfc94f5e62cc7
-   */
   passengerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,36 +35,12 @@ export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTi
 }
 
 export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetails extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   changeFee?: number;
-  /**
-   * @example
-   * 5
-   */
   changeRate?: number;
-  /**
-   * @example
-   * 10000
-   */
   changeRefundFee?: number;
-  /**
-   * @example
-   * 10
-   */
   changeRefundRate?: number;
   passengerInfo?: TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetailsPassengerInfo;
-  /**
-   * @example
-   * 14
-   */
   seatType?: string;
-  /**
-   * @example
-   * 100
-   */
   ticketPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -119,26 +79,10 @@ export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTi
 }
 
 export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetails extends $dara.Model {
-  /**
-   * @example
-   * BTC
-   */
   arrStationCode?: string;
   changeTicketDetails?: TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetailsChangeTicketDetails[];
-  /**
-   * @example
-   * BDC
-   */
   depStationCode?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   depTime?: string;
-  /**
-   * @example
-   * K2345
-   */
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -174,15 +118,7 @@ export class TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetails extends
 
 export class TrainFeeCalculateChangeResponseBodyModule extends $dara.Model {
   changeTrainDetails?: TrainFeeCalculateChangeResponseBodyModuleChangeTrainDetails[];
-  /**
-   * @example
-   * 123456
-   */
   distributeOrderId?: string;
-  /**
-   * @example
-   * 1683901850297448200
-   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,34 +149,11 @@ export class TrainFeeCalculateChangeResponseBodyModule extends $dara.Model {
 }
 
 export class TrainFeeCalculateChangeResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: TrainFeeCalculateChangeResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

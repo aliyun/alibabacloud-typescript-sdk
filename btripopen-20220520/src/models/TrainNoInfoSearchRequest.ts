@@ -11,9 +11,6 @@ export class TrainNoInfoSearchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-08-15
    */
   depDate?: string;
   /**
@@ -21,26 +18,10 @@ export class TrainNoInfoSearchRequest extends $dara.Model {
    * This parameter is required.
    */
   depLocation?: string;
-  /**
-   * @example
-   * qwwweqswxxa
-   */
   lineKey?: string;
-  /**
-   * @example
-   * 2023-08-15
-   */
   middleDate?: string;
   middleStation?: string;
-  /**
-   * @example
-   * 12342123212
-   */
   orderId?: string;
-  /**
-   * @example
-   * K2345
-   */
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {

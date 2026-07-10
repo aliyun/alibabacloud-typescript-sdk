@@ -5,10 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class InvoiceSearchRequest extends $dara.Model {
   thirdPartId?: string;
   title?: string;
-  /**
-   * @example
-   * 12345
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

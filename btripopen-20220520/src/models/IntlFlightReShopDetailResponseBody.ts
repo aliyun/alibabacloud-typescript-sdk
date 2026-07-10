@@ -26,10 +26,6 @@ export class IntlFlightReShopDetailResponseBodyModuleBaggageRule extends $dara.M
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * NS
-   */
   airlineCode?: string;
   airlineName?: string;
   shortName?: string;
@@ -59,17 +55,9 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * DLC
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T1
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,17 +87,9 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PEK
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T1
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,10 +119,6 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
   airlineName?: string;
   shortName?: string;
@@ -173,10 +149,6 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosFlightShareInfo extends $dara.Model {
   operatingAirlineInfo?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
-  /**
-   * @example
-   * CA1234
-   */
   operatingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -205,42 +177,14 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosFlightStopInfoList extends $dara.Model {
-  /**
-   * @example
-   * PEK
-   */
   stopAirport?: string;
   stopAirportName?: string;
-  /**
-   * @example
-   * T3
-   */
   stopArrTerm?: string;
-  /**
-   * @example
-   * 2024-01-01 05:00
-   */
   stopArrTime?: string;
-  /**
-   * @example
-   * BJS
-   */
   stopCityCode?: string;
   stopCityName?: string;
-  /**
-   * @example
-   * T2
-   */
   stopDepTerm?: string;
-  /**
-   * @example
-   * 2024-01-01 07:00
-   */
   stopDepTime?: string;
-  /**
-   * @example
-   * 120
-   */
   stopTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -280,15 +224,7 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosLuggageDirectInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   depCityLuggageDirect?: number;
-  /**
-   * @example
-   * 1
-   */
   stopCityLuggageDirect?: number;
   static names(): { [key: string]: string } {
     return {
@@ -315,10 +251,6 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosSegmentVisaRemark extends $dara.Model {
   depCityVisaRemark?: string;
-  /**
-   * @example
-   * 1
-   */
   depCityVisaType?: number;
   stopCityVisaRemarks?: string[];
   stopCityVisaTypes?: number[];
@@ -358,86 +290,30 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfos extends $dara.Model {
   airlineInfo?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosAirlineInfo;
   arrAirportInfo?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosArrAirportInfo;
-  /**
-   * @example
-   * HKG
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2025-01-01 02:00
-   */
   arrTime?: string;
   depAirportInfo?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosDepAirportInfo;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2025-01-01 01:00
-   */
   depTime?: string;
-  /**
-   * @example
-   * 130
-   */
   duration?: number;
-  /**
-   * @example
-   * NS8210
-   */
   flightNo?: string;
   flightShareInfo?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosFlightShareInfo;
   flightSize?: string;
   flightStopInfoList?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosFlightStopInfoList[];
-  /**
-   * @example
-   * 737
-   */
   flightType?: string;
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
   luggageDirectInfo?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosLuggageDirectInfo;
   manufacturer?: string;
   mealDesc?: string;
-  /**
-   * @example
-   * 0
-   */
   oneMore?: number;
-  /**
-   * @example
-   * -
-   */
   oneMoreShow?: string;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
-  /**
-   * @example
-   * NS8210XIYHGH0501
-   */
   segmentKey?: string;
   segmentVisaRemark?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfosSegmentVisaRemark;
-  /**
-   * @example
-   * true
-   */
   share?: boolean;
   shortFlightSize?: string;
-  /**
-   * @example
-   * true
-   */
   stop?: boolean;
   totalTime?: string;
   static names(): { [key: string]: string } {
@@ -537,43 +413,15 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInf
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleJourneyList extends $dara.Model {
-  /**
-   * @example
-   * HKG
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2025-01-01 02:00
-   */
   arrTime?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2025-01-01 01:00
-   */
   depTime?: string;
-  /**
-   * @example
-   * 60
-   */
   duration?: number;
   flightSegmentInfos?: IntlFlightReShopDetailResponseBodyModuleJourneyListFlightSegmentInfos[];
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   transferTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -618,10 +466,6 @@ export class IntlFlightReShopDetailResponseBodyModuleJourneyList extends $dara.M
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
   airlineName?: string;
   shortName?: string;
@@ -651,17 +495,9 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * HKG
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -691,17 +527,9 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PEK
-   */
   airportCode?: string;
   airportName?: string;
   airportShortName?: string;
-  /**
-   * @example
-   * T1
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -731,10 +559,6 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * MU
-   */
   airlineCode?: string;
   airlineName?: string;
   shortName?: string;
@@ -765,10 +589,6 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosFlightShareInfo extends $dara.Model {
   operatingAirlineInfo?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
-  /**
-   * @example
-   * CA0001
-   */
   operatingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -797,42 +617,14 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosFlightStopInfoList extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   stopAirport?: string;
   stopAirportName?: string;
-  /**
-   * @example
-   * T1
-   */
   stopArrTerm?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   stopArrTime?: string;
-  /**
-   * @example
-   * HGH
-   */
   stopCityCode?: string;
   stopCityName?: string;
-  /**
-   * @example
-   * T1
-   */
   stopDepTerm?: string;
-  /**
-   * @example
-   * 2023-08-13 09:25
-   */
   stopDepTime?: string;
-  /**
-   * @example
-   * 20
-   */
   stopTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -872,15 +664,7 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosLuggageDirectInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   depCityLuggageDirect?: number;
-  /**
-   * @example
-   * 1
-   */
   stopCityLuggageDirect?: number;
   static names(): { [key: string]: string } {
     return {
@@ -907,10 +691,6 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosSegmentVisaRemark extends $dara.Model {
   depCityVisaRemark?: string;
-  /**
-   * @example
-   * 1
-   */
   depCityVisaType?: number;
   stopCityVisaRemarks?: string[];
   stopCityVisaTypes?: number[];
@@ -950,82 +730,30 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfos extends $dara.Model {
   airlineInfo?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosAirlineInfo;
   arrAirportInfo?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosArrAirportInfo;
-  /**
-   * @example
-   * HKG
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 09:25
-   */
   arrTime?: string;
   depAirportInfo?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosDepAirportInfo;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2023-08-13 07:25
-   */
   depTime?: string;
-  /**
-   * @example
-   * 120
-   */
   duration?: number;
-  /**
-   * @example
-   * NS8210
-   */
   flightNo?: string;
   flightShareInfo?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosFlightShareInfo;
   flightSize?: string;
   flightStopInfoList?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosFlightStopInfoList[];
-  /**
-   * @example
-   * 738
-   */
   flightType?: string;
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
   luggageDirectInfo?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosLuggageDirectInfo;
   manufacturer?: string;
   mealDesc?: string;
-  /**
-   * @example
-   * 1
-   */
   oneMore?: number;
   oneMoreShow?: string;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
-  /**
-   * @example
-   * NS8210XIYHGH0501
-   */
   segmentKey?: string;
   segmentVisaRemark?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfosSegmentVisaRemark;
-  /**
-   * @example
-   * true
-   */
   share?: boolean;
   shortFlightSize?: string;
-  /**
-   * @example
-   * true
-   */
   stop?: boolean;
   totalTime?: string;
   static names(): { [key: string]: string } {
@@ -1125,43 +853,15 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegm
 }
 
 export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyList extends $dara.Model {
-  /**
-   * @example
-   * HKG
-   */
   arrCityCode?: string;
   arrCityName?: string;
-  /**
-   * @example
-   * 2025-01-01 02:00
-   */
   arrTime?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2025-01-01 01:00
-   */
   depTime?: string;
-  /**
-   * @example
-   * 60
-   */
   duration?: number;
   flightSegmentInfos?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyListFlightSegmentInfos[];
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   transferTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1206,46 +906,14 @@ export class IntlFlightReShopDetailResponseBodyModuleOriginJourneyList extends $
 }
 
 export class IntlFlightReShopDetailResponseBodyModulePassengerList extends $dara.Model {
-  /**
-   * @example
-   * ZHANG/SAN
-   */
   fullName?: string;
-  /**
-   * @example
-   * 0
-   */
   gender?: number;
-  /**
-   * @example
-   * 76230022
-   */
   jobNo?: string;
   nationality?: string;
-  /**
-   * @example
-   * CN
-   */
   nationalityCode?: string;
-  /**
-   * @example
-   * 8432002
-   */
   passengerId?: number;
-  /**
-   * @example
-   * 0
-   */
   type?: number;
-  /**
-   * @example
-   * btrip8432002
-   */
   userId?: string;
-  /**
-   * @example
-   * 0
-   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1285,25 +953,9 @@ export class IntlFlightReShopDetailResponseBodyModulePassengerList extends $dara
 }
 
 export class IntlFlightReShopDetailResponseBodyModulePassengerPriceInfoListPriceInfo extends $dara.Model {
-  /**
-   * @example
-   * 4000
-   */
   handlingAmount?: number;
-  /**
-   * @example
-   * 0
-   */
   taxDiffAmount?: number;
-  /**
-   * @example
-   * 125000
-   */
   totalAmount?: number;
-  /**
-   * @example
-   * 2000
-   */
   upgradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1333,10 +985,6 @@ export class IntlFlightReShopDetailResponseBodyModulePassengerPriceInfoListPrice
 }
 
 export class IntlFlightReShopDetailResponseBodyModulePassengerPriceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 100001
-   */
   passengerId?: number;
   priceInfo?: IntlFlightReShopDetailResponseBodyModulePassengerPriceInfoListPriceInfo;
   static names(): { [key: string]: string } {
@@ -1366,35 +1014,11 @@ export class IntlFlightReShopDetailResponseBodyModulePassengerPriceInfoList exte
 }
 
 export class IntlFlightReShopDetailResponseBodyModulePassengerTicketListTicketListTicketSegmentList extends $dara.Model {
-  /**
-   * @example
-   * G
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
-  /**
-   * @example
-   * false
-   */
   modified?: boolean;
-  /**
-   * @example
-   * OPEN_FOR_USE
-   */
   openTicketStatus?: string;
-  /**
-   * @example
-   * false
-   */
   refunded?: boolean;
-  /**
-   * @example
-   * HX236HKGPVG0509
-   */
   segmentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1428,21 +1052,9 @@ export class IntlFlightReShopDetailResponseBodyModulePassengerTicketListTicketLi
 }
 
 export class IntlFlightReShopDetailResponseBodyModulePassengerTicketListTicketList extends $dara.Model {
-  /**
-   * @example
-   * 2025-01-01 00:00:09
-   */
   issueTime?: string;
-  /**
-   * @example
-   * P123456
-   */
   pnrNo?: string;
   segmentKeyList?: string[];
-  /**
-   * @example
-   * 781-9574833593
-   */
   ticketNo?: string;
   ticketSegmentList?: IntlFlightReShopDetailResponseBodyModulePassengerTicketListTicketListTicketSegmentList[];
   static names(): { [key: string]: string } {
@@ -1481,10 +1093,6 @@ export class IntlFlightReShopDetailResponseBodyModulePassengerTicketListTicketLi
 }
 
 export class IntlFlightReShopDetailResponseBodyModulePassengerTicketList extends $dara.Model {
-  /**
-   * @example
-   * 2345678
-   */
   passengerId?: number;
   ticketList?: IntlFlightReShopDetailResponseBodyModulePassengerTicketListTicketList[];
   static names(): { [key: string]: string } {
@@ -1514,25 +1122,9 @@ export class IntlFlightReShopDetailResponseBodyModulePassengerTicketList extends
 }
 
 export class IntlFlightReShopDetailResponseBodyModulePriceInfo extends $dara.Model {
-  /**
-   * @example
-   * 4000
-   */
   handlingAmount?: number;
-  /**
-   * @example
-   * 0
-   */
   taxDiffAmount?: number;
-  /**
-   * @example
-   * 125000
-   */
   totalAmount?: number;
-  /**
-   * @example
-   * 2000
-   */
   upgradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1587,68 +1179,24 @@ export class IntlFlightReShopDetailResponseBodyModuleRefundChangeRule extends $d
 export class IntlFlightReShopDetailResponseBodyModule extends $dara.Model {
   baggageRule?: IntlFlightReShopDetailResponseBodyModuleBaggageRule;
   closeReason?: string;
-  /**
-   * @example
-   * 2024-03-06 15:00:35
-   */
   closeTime?: string;
-  /**
-   * @example
-   * 1
-   */
   closeType?: number;
   journeyList?: IntlFlightReShopDetailResponseBodyModuleJourneyList[];
-  /**
-   * @example
-   * 1017124195788186048
-   */
   orderId?: number;
   originJourneyList?: IntlFlightReShopDetailResponseBodyModuleOriginJourneyList[];
-  /**
-   * @example
-   * F11552194294228713472
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * JPM20241024354
-   */
   outReShopApplyId?: string;
   passengerList?: IntlFlightReShopDetailResponseBodyModulePassengerList[];
   passengerPriceInfoList?: IntlFlightReShopDetailResponseBodyModulePassengerPriceInfoList[];
   passengerTicketList?: IntlFlightReShopDetailResponseBodyModulePassengerTicketList[];
-  /**
-   * @example
-   * 2024-03-06 15:35:00
-   */
   payLatestTime?: string;
-  /**
-   * @example
-   * 0
-   */
   payStatus?: number;
   priceInfo?: IntlFlightReShopDetailResponseBodyModulePriceInfo;
-  /**
-   * @example
-   * 1017035199374643191
-   */
   reShopApplyId?: number;
-  /**
-   * @example
-   * 0
-   */
   reShopReasonCode?: string;
   reShopReasonDesc?: string;
   refundChangeRule?: IntlFlightReShopDetailResponseBodyModuleRefundChangeRule;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 2024-03-06 15:01:35
-   */
   successTime?: string;
   userIntentionMemo?: string;
   static names(): { [key: string]: string } {

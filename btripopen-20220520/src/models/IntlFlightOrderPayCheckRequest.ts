@@ -13,23 +13,12 @@ export class IntlFlightOrderPayCheckRequest extends $dara.Model {
    * ZHANG/SAN
    */
   buyerName?: string;
-  /**
-   * @example
-   * TRAVEL
-   */
   isvName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1002094194679957528
    */
   orderId?: string;
-  /**
-   * @example
-   * F11374007131319304192
-   */
   outOrderId?: string;
   static names(): { [key: string]: string } {
     return {

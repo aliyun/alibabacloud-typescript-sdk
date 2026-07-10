@@ -3,56 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfosBookTicketInfos extends $dara.Model {
-  /**
-   * @example
-   * 04
-   */
   coachNo?: string;
-  /**
-   * @example
-   * 1111
-   */
   failCode?: string;
   failReason?: string;
-  /**
-   * @example
-   * 123456
-   */
   passengerId?: string;
-  /**
-   * @example
-   * 10000
-   */
   realTicketPrice?: number;
-  /**
-   * @example
-   * 1A
-   */
   seatNo?: string;
-  /**
-   * @example
-   * 14
-   */
   seatType?: string;
-  /**
-   * @example
-   * null
-   */
   ticketEntrance?: string;
-  /**
-   * @example
-   * 100
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 11
-   */
   ticketStatus?: number;
-  /**
-   * @example
-   * 0
-   */
   ticketType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,33 +56,13 @@ export class TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfosBookT
 }
 
 export class TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfos extends $dara.Model {
-  /**
-   * @example
-   * BTC
-   */
   arrStationCode?: string;
   arrStationName?: string;
-  /**
-   * @example
-   * 2024-05-07 15:19:01
-   */
   arriveTime?: string;
   bookTicketInfos?: TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfosBookTicketInfos[];
-  /**
-   * @example
-   * BDC
-   */
   depStationCode?: string;
   depStationName?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   depTime?: string;
-  /**
-   * @example
-   * D1234
-   */
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -164,26 +104,10 @@ export class TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfos exte
 
 export class TrainOrderDetailQueryResponseBodyModuleBookInfos extends $dara.Model {
   bookTrainInfos?: TrainOrderDetailQueryResponseBodyModuleBookInfosBookTrainInfos[];
-  /**
-   * @example
-   * 1111
-   */
   failCode?: string;
   failMsg?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   lastPayTime?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * GW123456
-   */
   ticketNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -220,71 +144,19 @@ export class TrainOrderDetailQueryResponseBodyModuleBookInfos extends $dara.Mode
 }
 
 export class TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfosChangeTicketInfos extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   changeCost?: number;
-  /**
-   * @example
-   * 0
-   */
   changeDiff?: number;
-  /**
-   * @example
-   * 0
-   */
   changeGapHandingFee?: number;
-  /**
-   * @example
-   * 0
-   */
   changeMinTicketAmountHandingFee?: number;
-  /**
-   * @example
-   * 04
-   */
   coachNo?: string;
-  /**
-   * @example
-   * 4000
-   */
   failCode?: string;
   failReason?: string;
-  /**
-   * @example
-   * 123456
-   */
   passengerId?: string;
-  /**
-   * @example
-   * 10000
-   */
   realTicketPrice?: number;
-  /**
-   * @example
-   * 1A
-   */
   seatNo?: string;
-  /**
-   * @example
-   * 14
-   */
   seatType?: string;
-  /**
-   * @example
-   * null
-   */
   ticketEntrance?: string;
-  /**
-   * @example
-   * 1234
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 11
-   */
   ticketStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -334,33 +206,13 @@ export class TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfosC
 }
 
 export class TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfos extends $dara.Model {
-  /**
-   * @example
-   * BDC
-   */
   arrStationCode?: string;
   arrStationName?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   arriveTime?: string;
   changeTicketInfos?: TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfosChangeTicketInfos[];
-  /**
-   * @example
-   * BTC
-   */
   depStationCode?: string;
   depStationName?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   depTime?: string;
-  /**
-   * @example
-   * D1234
-   */
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -401,26 +253,10 @@ export class TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfos 
 }
 
 export class TrainOrderDetailQueryResponseBodyModuleChangeInfos extends $dara.Model {
-  /**
-   * @example
-   * 1234567890
-   */
   changeApplyId?: string;
   changeTrainInfos?: TrainOrderDetailQueryResponseBodyModuleChangeInfosChangeTrainInfos[];
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   limitPayTime?: string;
-  /**
-   * @example
-   * 12345
-   */
   outChangeApplyId?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -455,15 +291,7 @@ export class TrainOrderDetailQueryResponseBodyModuleChangeInfos extends $dara.Mo
 }
 
 export class TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetailsOfflineRefundInfos extends $dara.Model {
-  /**
-   * @example
-   * 123456
-   */
   passengerId?: string;
-  /**
-   * @example
-   * 111
-   */
   refundPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -489,21 +317,9 @@ export class TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetailsOfflineR
 }
 
 export class TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetails extends $dara.Model {
-  /**
-   * @example
-   * 123456
-   */
   offlineRefundId?: string;
   offlineRefundInfos?: TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetailsOfflineRefundInfos[];
-  /**
-   * @example
-   * 1
-   */
   offlineRefundType?: string;
-  /**
-   * @example
-   * 10000
-   */
   refundTotalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -537,38 +353,14 @@ export class TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetails extends
 
 export class TrainOrderDetailQueryResponseBodyModulePassengerInfoSCostCenterInfo extends $dara.Model {
   cascadeDeptName?: string;
-  /**
-   * @example
-   * 111111
-   */
   costCenterId?: string;
   costCenterName?: string;
-  /**
-   * @example
-   * 123456
-   */
   costCenterNo?: string;
-  /**
-   * @example
-   * 582000002311
-   */
   departId?: string;
   departName?: string;
-  /**
-   * @example
-   * 11111
-   */
   invoiceId?: string;
   invoiceTitle?: string;
-  /**
-   * @example
-   * 123456
-   */
   passengerId?: string;
-  /**
-   * @example
-   * 1234
-   */
   projectCode?: string;
   projectTitle?: string;
   static names(): { [key: string]: string } {
@@ -614,40 +406,12 @@ export class TrainOrderDetailQueryResponseBodyModulePassengerInfoSCostCenterInfo
 
 export class TrainOrderDetailQueryResponseBodyModulePassengerInfoS extends $dara.Model {
   costCenterInfo?: TrainOrderDetailQueryResponseBodyModulePassengerInfoSCostCenterInfo;
-  /**
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
-   */
   countryCode?: string;
-  /**
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
-   */
   passengerCertNo?: string;
-  /**
-   * @example
-   * 170d9ac6f8807f9ec603c688f45f78a41
-   */
   passengerCertType?: string;
-  /**
-   * @example
-   * 123456
-   */
   passengerId?: string;
-  /**
-   * @example
-   * b6a6fc1bdf1ba60e25c2e132b612c8819
-   */
   passengerMobile?: string;
-  /**
-   * @example
-   * 949c9f34f677a0e5d249dfc94f5e62cc7
-   */
   passengerName?: string;
-  /**
-   * @example
-   * b6a6fc1bdf1ba60e25c2e132b612c8819
-   */
   validDateEnd?: string;
   static names(): { [key: string]: string } {
     return {
@@ -688,25 +452,9 @@ export class TrainOrderDetailQueryResponseBodyModulePassengerInfoS extends $dara
 }
 
 export class TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfoRefundTicketInfos extends $dara.Model {
-  /**
-   * @example
-   * 123456
-   */
   passengerId?: string;
-  /**
-   * @example
-   * 0
-   */
   refundCost?: number;
-  /**
-   * @example
-   * 10000
-   */
   refundPrice?: number;
-  /**
-   * @example
-   * 10000
-   */
   ticketPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -737,27 +485,11 @@ export class TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfoRe
 
 export class TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfo extends $dara.Model {
   arrStationName?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   arrTime?: string;
-  /**
-   * @example
-   * BTC
-   */
   depStationCode?: string;
   depStationName?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   depTime?: string;
   refundTicketInfos?: TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfoRefundTicketInfos[];
-  /**
-   * @example
-   * K1234
-   */
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -796,30 +528,11 @@ export class TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfo e
 }
 
 export class TrainOrderDetailQueryResponseBodyModuleRefundInfos extends $dara.Model {
-  /**
-   * @example
-   * 1111
-   */
   failCode?: string;
   failMsg?: string;
-  /**
-   * @example
-   * 123456778
-   */
   outRefundId?: string;
-  /**
-   * @remarks
-   * String
-   * 
-   * @example
-   * 123456
-   */
   refundId?: string;
   refundTrainInfo?: TrainOrderDetailQueryResponseBodyModuleRefundInfosRefundTrainInfo[];
-  /**
-   * @example
-   * 1
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -859,15 +572,7 @@ export class TrainOrderDetailQueryResponseBodyModule extends $dara.Model {
   bookInfos?: TrainOrderDetailQueryResponseBodyModuleBookInfos;
   changeInfos?: TrainOrderDetailQueryResponseBodyModuleChangeInfos[];
   offlineRefundDetails?: TrainOrderDetailQueryResponseBodyModuleOfflineRefundDetails[];
-  /**
-   * @example
-   * 1017028198411054446
-   */
   orderId?: string;
-  /**
-   * @example
-   * 3703184209587306496
-   */
   outOrderId?: string;
   passengerInfoS?: TrainOrderDetailQueryResponseBodyModulePassengerInfoS[];
   refundInfos?: TrainOrderDetailQueryResponseBodyModuleRefundInfos[];
@@ -920,34 +625,11 @@ export class TrainOrderDetailQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TrainOrderDetailQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: TrainOrderDetailQueryResponseBodyModule;
-  /**
-   * @example
-   * 210bc81a17090871660176894d008c
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 2103a05c16872420814992343d8a09
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

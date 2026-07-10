@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelExceedApplyQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * 1287123
-   */
   applyId?: number;
   businessInstanceId?: string;
   static names(): { [key: string]: string } {

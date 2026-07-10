@@ -3,17 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TravelStandardRelateQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   fromGroup?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 6516571
    */
   ruleId?: number;
   static names(): { [key: string]: string } {

@@ -3,37 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $dara.Model {
-  /**
-   * @example
-   * 03
-   */
   changeCoachNo?: string;
-  /**
-   * @example
-   * 100
-   */
   changeGapFee?: number;
-  /**
-   * @example
-   * 100
-   */
   changeHandlingFee?: number;
   changeOrderId?: string;
-  /**
-   * @example
-   * 004C
-   */
   changeSeatNo?: string;
   changeSeatTypeName?: string;
-  /**
-   * @example
-   * 100
-   */
   changeServiceFee?: number;
-  /**
-   * @example
-   * D103
-   */
   changeTrainNo?: string;
   changeTrainTypeName?: string;
   checkInTime?: string;
@@ -43,45 +19,17 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $da
   fromStationName?: string;
   gmtCreate?: string;
   gmtModify?: string;
-  /**
-   * @example
-   * CS987JKDF
-   */
   originTicketNo?: string;
-  /**
-   * @example
-   * m
-   */
   outTicketStatus?: string;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   shortTicketNo?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   startTime?: string;
   ticketEntrance?: string;
-  /**
-   * @example
-   * CS987JKDF
-   */
   ticketNo?: string;
   ticketStatus?: number;
   toCityName?: string;
   toStationName?: string;
-  /**
-   * @example
-   * 0
-   */
   useTicket?: string;
-  /**
-   * @example
-   * 12312
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,10 +107,6 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $da
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleInvoiceInfo extends $dara.Model {
-  /**
-   * @example
-   * 3815504
-   */
   id?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -189,80 +133,28 @@ export class TrainOrderQueryV2ResponseBodyModuleInvoiceInfo extends $dara.Model 
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $dara.Model {
-  /**
-   * @example
-   * 1003784135
-   */
   applyId?: string;
   btripTitle?: string;
   contactName?: string;
-  /**
-   * @example
-   * 12110002222
-   */
   contactPhone?: string;
-  /**
-   * @example
-   * btripsy4yd7v0gdpdntpp
-   */
   corpId?: string;
   corpName?: string;
   departId?: string;
   departName?: string;
-  /**
-   * @example
-   * 1422113021033961000
-   */
   exceedApplyId?: string;
-  /**
-   * @example
-   * 1422113021033961000
-   */
   exceedThirdpartApplyId?: string;
   gmtCreate?: string;
   gmtModify?: string;
-  /**
-   * @example
-   * 42942924
-   */
   itineraryId?: string;
-  /**
-   * @example
-   * 2849819724653209258
-   */
   orderId?: number;
-  /**
-   * @example
-   * 4
-   */
   orderStatus?: number;
   replenishOrderIds?: string;
   replenishOriginalOrderId?: string;
   thirdPartBusinessId?: string;
-  /**
-   * @example
-   * 01-2023-01214
-   */
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * DHDI2209141OEGHWRN
-   */
   thirdpartDepartId?: string;
-  /**
-   * @example
-   * CS-FLIGHT
-   */
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * 0
-   */
   tripType?: number;
-  /**
-   * @example
-   * 1231212
-   */
   userId?: string;
   userNick?: string;
   static names(): { [key: string]: string } {
@@ -333,48 +225,16 @@ export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $dara.Mode
 }
 
 export class TrainOrderQueryV2ResponseBodyModulePassengerInfoList extends $dara.Model {
-  /**
-   * @example
-   * 11564
-   */
   costCenterId?: number;
   costCenterName?: string;
-  /**
-   * @example
-   * CS-3345
-   */
   costCenterNumber?: string;
-  /**
-   * @example
-   * CS-PROJECT
-   */
   projectCode?: string;
-  /**
-   * @example
-   * 133576
-   */
   projectId?: number;
   projectTitle?: string;
-  /**
-   * @example
-   * CS-KDISL
-   */
   thirdpartCostCenterId?: string;
-  /**
-   * @example
-   * CS-22562
-   */
   thirdpartProjectId?: string;
-  /**
-   * @example
-   * 1231231
-   */
   userId?: string;
   userName?: string;
-  /**
-   * @example
-   * 0
-   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -419,26 +279,10 @@ export class TrainOrderQueryV2ResponseBodyModulePassengerInfoList extends $dara.
 
 export class TrainOrderQueryV2ResponseBodyModulePriceInfoList extends $dara.Model {
   categoryCode?: number;
-  /**
-   * @example
-   * 1669344020
-   */
   gmtCreate?: string;
   passengerName?: string;
-  /**
-   * @example
-   * 4
-   */
   payType?: number;
-  /**
-   * @example
-   * 176000
-   */
   price?: number;
-  /**
-   * @example
-   * 12345678910987654321
-   */
   tradeId?: string;
   type?: number;
   static names(): { [key: string]: string } {
@@ -478,25 +322,9 @@ export class TrainOrderQueryV2ResponseBodyModuleRefundTicketInfoList extends $da
   gmtCreate?: string;
   gmtModify?: string;
   refundApplyId?: string;
-  /**
-   * @example
-   * 10
-   */
   refundFee?: number;
-  /**
-   * @example
-   * 10
-   */
   refundServiceFee?: number;
-  /**
-   * @example
-   * CS987JKDF
-   */
   ticketNo?: string;
-  /**
-   * @example
-   * 1231231
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -532,75 +360,27 @@ export class TrainOrderQueryV2ResponseBodyModuleRefundTicketInfoList extends $da
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrainTicketInfos extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   changed?: boolean;
   checkInTime?: string;
   checkOutTime?: string;
-  /**
-   * @example
-   * 01
-   */
   coachNo?: string;
   endTime?: string;
   gmtCreate?: string;
   gmtModify?: string;
-  /**
-   * @example
-   * 1
-   */
   outTicketStatus?: string;
-  /**
-   * @example
-   * 2
-   */
   payType?: number;
-  /**
-   * @example
-   * 02A
-   */
   seatNo?: string;
   seatTypeName?: string;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
-  /**
-   * @example
-   * 100
-   */
   serviceFee?: number;
   shortTicketNo?: string;
   startTime?: string;
   ticketEntrance?: string;
-  /**
-   * @example
-   * ew123121
-   */
   ticketNo?: string;
-  /**
-   * @example
-   * 400
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 1
-   */
   ticketStatus?: number;
   trainTypeName?: string;
-  /**
-   * @example
-   * 0
-   */
   useTicket?: string;
-  /**
-   * @example
-   * 231212
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -671,18 +451,7 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
   fromCityAdCode?: string;
   fromCityName?: string;
   fromStationName?: string;
-  /**
-   * @remarks
-   * itemId
-   * 
-   * @example
-   * 12312
-   */
   itemId?: number;
-  /**
-   * @example
-   * 120
-   */
   runTime?: number;
   subFromCityAdCode?: string;
   subFromCityAdName?: string;
@@ -691,10 +460,6 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
   toCityAdCode?: string;
   toCityName?: string;
   toStationName?: string;
-  /**
-   * @example
-   * D11
-   */
   trainNo?: string;
   trainTicketInfos?: TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrainTicketInfos[];
   static names(): { [key: string]: string } {
@@ -752,32 +517,16 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   costTime?: string;
-  /**
-   * @example
-   * 2022-11-15 00:00:00
-   */
   endTime?: string;
   fromCityAdCode?: string;
   fromCityName?: string;
   fromStationName?: string;
   middleCity?: string;
   middleCityAdCode?: string;
-  /**
-   * @example
-   * 2023-01-29 18:10:00
-   */
   middleDate?: string;
   middleStation?: string;
   middleType?: string;
-  /**
-   * @example
-   * 2022-11-01 00:00:00
-   */
   startTime?: string;
   subFromCityAdCode?: string;
   subFromCityAdName?: string;
@@ -788,10 +537,6 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo 
   toCityAdCode?: string;
   toCityName?: string;
   toStationName?: string;
-  /**
-   * @example
-   * 60
-   */
   waitTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -949,33 +694,11 @@ export class TrainOrderQueryV2ResponseBodyModule extends $dara.Model {
 }
 
 export class TrainOrderQueryV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
   module?: TrainOrderQueryV2ResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 1213ds1d
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 123412dcdsac sd
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

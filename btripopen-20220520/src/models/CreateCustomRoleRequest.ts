@@ -6,9 +6,6 @@ export class CreateCustomRoleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123abc
    */
   roleId?: string;
   /**

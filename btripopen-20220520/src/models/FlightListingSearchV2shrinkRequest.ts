@@ -3,44 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightListingSearchV2ShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
   cabinTypeListShrink?: string;
-  /**
-   * @example
-   * true
-   */
   directOnly?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cheshi
    */
   isvName?: string;
-  /**
-   * @example
-   * false
-   */
   needMultiClassPrice?: boolean;
-  /**
-   * @example
-   * true
-   */
   needQueryServiceFee?: boolean;
-  /**
-   * @example
-   * true
-   */
   needShareFlight?: boolean;
-  /**
-   * @example
-   * false
-   */
   needYCBestPrice?: boolean;
   /**
    * @remarks
@@ -50,17 +23,11 @@ export class FlightListingSearchV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   searchMode?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   tripType?: number;
   static names(): { [key: string]: string } {

@@ -3,19 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvoiceRuleSaveShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   allEmploye?: boolean;
   entitiesShrink?: string;
   scope?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * i123
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

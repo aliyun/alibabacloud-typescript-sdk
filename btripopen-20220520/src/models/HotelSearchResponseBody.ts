@@ -71,79 +71,23 @@ export class HotelSearchResponseBodyModuleItemsDiscountDesc extends $dara.Model 
 
 export class HotelSearchResponseBodyModuleItems extends $dara.Model {
   brandName?: string;
-  /**
-   * @example
-   * 1902
-   */
   btandCode?: string;
-  /**
-   * @example
-   * 330100
-   */
   cityCode?: string;
   discountDesc?: HotelSearchResponseBodyModuleItemsDiscountDesc;
-  /**
-   * @example
-   * 100
-   */
   distance?: number;
-  /**
-   * @example
-   * 330100
-   */
   districtCode?: string;
   hotelAddress?: string;
-  /**
-   * @example
-   * 55335212
-   */
   hotelCode?: string;
-  /**
-   * @example
-   * Business travel hotel
-   */
   hotelEnName?: string;
   hotelName?: string;
-  /**
-   * @example
-   * 3
-   */
   hotelStar?: string;
-  /**
-   * @example
-   * https://img.alicdn.com/imgextra/i3/6000000000003/O1CN01xkZQR41BtPxK1PQCb_!!6000000000003-0-hotel.jpg
-   */
   imageUrl?: string;
-  /**
-   * @example
-   * true
-   */
   isProtocol?: boolean;
-  /**
-   * @example
-   * 119.844005,30.054384
-   */
   location?: string;
-  /**
-   * @example
-   * 100
-   */
   minPrice?: number;
   originalMinPrice?: number;
-  /**
-   * @example
-   * 3.2
-   */
   score?: string;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @example
-   * 0571-88886784-8888
-   */
   tel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -235,31 +179,11 @@ export class HotelSearchResponseBodyModule extends $dara.Model {
 }
 
 export class HotelSearchResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
-  /**
-   * @example
-   * None
-   */
   message?: string;
   module?: HotelSearchResponseBodyModule;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

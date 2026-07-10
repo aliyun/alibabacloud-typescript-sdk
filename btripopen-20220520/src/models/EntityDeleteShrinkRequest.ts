@@ -6,18 +6,12 @@ export class EntityDeleteShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * true
    */
   delAll?: boolean;
   entityDOListShrink?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12345
    */
   thirdpartId?: string;
   static names(): { [key: string]: string } {

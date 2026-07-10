@@ -3,118 +3,48 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelSearchShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   adultNum?: string;
   brandCodeShrink?: string;
-  /**
-   * @example
-   * 1000
-   */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-02-22
    */
   checkInDate?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-02-22
    */
   checkOutDate?: string;
-  /**
-   * @example
-   * 330100
-   */
   cityCode?: string;
-  /**
-   * @example
-   * 1
-   */
   dir?: number;
-  /**
-   * @example
-   * 100
-   */
   distance?: number;
-  /**
-   * @example
-   * 330000
-   */
   districtCode?: string;
-  /**
-   * @example
-   * 0
-   */
   hotelStar?: string;
-  /**
-   * @example
-   * true
-   */
   isProtocol?: boolean;
   keyWords?: string;
-  /**
-   * @example
-   * 120.010059, 30.284666
-   */
   location?: string;
-  /**
-   * @example
-   * 1000
-   */
   maxPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   minPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNo?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 20
    */
   pageSize?: number;
-  /**
-   * @example
-   * 1
-   */
   payOverType?: number;
-  /**
-   * @example
-   * 0
-   */
   paymentType?: number;
+  poi?: string;
   shidsShrink?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   sortCode?: number;
-  /**
-   * @example
-   * 0
-   */
   superMan?: number;
   static names(): { [key: string]: string } {
     return {
@@ -137,6 +67,7 @@ export class HotelSearchShrinkRequest extends $dara.Model {
       pageSize: 'page_size',
       payOverType: 'pay_over_type',
       paymentType: 'payment_type',
+      poi: 'poi',
       shidsShrink: 'shids',
       sortCode: 'sort_code',
       superMan: 'super_man',
@@ -164,6 +95,7 @@ export class HotelSearchShrinkRequest extends $dara.Model {
       pageSize: 'number',
       payOverType: 'number',
       paymentType: 'number',
+      poi: 'string',
       shidsShrink: 'string',
       sortCode: 'number',
       superMan: 'number',

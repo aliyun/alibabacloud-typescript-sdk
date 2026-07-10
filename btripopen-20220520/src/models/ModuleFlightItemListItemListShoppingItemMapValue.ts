@@ -6,15 +6,7 @@ import { ModuleFlightItemListItemListShoppingItemMapValueSegmentPriceValue } fro
 
 export class ModuleFlightItemListItemListShoppingItemMapValueSearchPricePriceShowInfo extends $dara.Model {
   discountInfo?: string;
-  /**
-   * @example
-   * 0.8
-   */
   discountNum?: number;
-  /**
-   * @example
-   * false
-   */
   showTicketPrice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -42,67 +34,20 @@ export class ModuleFlightItemListItemListShoppingItemMapValueSearchPricePriceSho
 }
 
 export class ModuleFlightItemListItemListShoppingItemMapValueSearchPrice extends $dara.Model {
-  /**
-   * @example
-   * 17400
-   */
   floorPrice?: number;
-  /**
-   * @example
-   * 121000
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   sellPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   originalSellPrice?: number;
   baseTotalPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   beforeControlPrice?: number;
-  /**
-   * @example
-   * 11000
-   */
   tax?: number;
   supplyPrice?: number;
-  /**
-   * @example
-   * 242000
-   */
   basicCabinPrice?: number;
-  /**
-   * @example
-   * 5000
-   */
   buildPrice?: number;
-  /**
-   * @example
-   * 6000
-   */
   oilPrice?: number;
   firstStandardPrice?: number;
   businessStandardPrice?: number;
-  /**
-   * @example
-   * 242000
-   */
   commonStandardPrice?: number;
-  /**
-   * @remarks
-   * fdPrice
-   * 
-   * @example
-   * fdPrice
-   */
   interTicketPrice?: number;
   subtractedPrice?: number;
   originCommonPrice?: number;
@@ -111,10 +56,6 @@ export class ModuleFlightItemListItemListShoppingItemMapValueSearchPrice extends
   installmentPrice?: number;
   competitionDynamicPrice?: number;
   competitionPromotionPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   minBeforeControlPriceOfNormal?: number;
   priceShowInfo?: ModuleFlightItemListItemListShoppingItemMapValueSearchPricePriceShowInfo;
   static names(): { [key: string]: string } {
@@ -188,13 +129,6 @@ export class ModuleFlightItemListItemListShoppingItemMapValueSearchPrice extends
 }
 
 export class ModuleFlightItemListItemListShoppingItemMapValue extends $dara.Model {
-  /**
-   * @remarks
-   * id
-   * 
-   * @example
-   * ADT07df0bd9-f803-4a50-8449-f4bd675d9939
-   */
   id?: string;
   cabinQuantity?: { [key: string]: ModuleFlightItemListItemListShoppingItemMapValueCabinQuantityValue };
   searchPrice?: ModuleFlightItemListItemListShoppingItemMapValueSearchPrice;

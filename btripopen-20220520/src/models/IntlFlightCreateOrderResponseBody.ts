@@ -3,36 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightCreateOrderResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * deb6372db8194f1c94c23bc4fadc508d
-   */
   asyncCreateOrderKey?: string;
-  /**
-   * @example
-   * 1003038197806523003
-   */
   orderId?: string;
-  /**
-   * @example
-   * F11378244642107293696
-   */
   outOrderId?: string;
   payLatestTime?: string;
-  /**
-   * @example
-   * 0
-   */
   payStatus?: number;
-  /**
-   * @example
-   * -1
-   */
   status?: number;
-  /**
-   * @example
-   * 22300
-   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,20 +55,8 @@ export class IntlFlightCreateOrderResponseBody extends $dara.Model {
    */
   message?: string;
   module?: IntlFlightCreateOrderResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 2103ad1116826479016562032da98c
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

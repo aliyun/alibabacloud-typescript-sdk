@@ -3,75 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleOrderItemListRefundChangeRuleOfferPenaltyInfoMapValue extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   struct?: boolean;
-  /**
-   * @example
-   * true
-   */
   cancelFeeInd?: boolean;
-  /**
-   * @example
-   * false
-   */
   changeFeeInd?: boolean;
-  /**
-   * @example
-   * false
-   */
   upgradeFeeInd?: boolean;
-  /**
-   * @example
-   * false
-   */
   reissueInd?: boolean;
-  /**
-   * @example
-   * 0
-   */
   penaltyTypeCode?: number;
-  /**
-   * @example
-   * 1
-   */
   penaltyApplyRangeCode?: number;
-  /**
-   * @example
-   * 0
-   */
   penaltyChargeTypeCode?: number;
-  /**
-   * @example
-   * 1
-   */
   fee?: number;
-  /**
-   * @example
-   * CNY
-   */
   currency?: string;
-  /**
-   * @example
-   * 0
-   */
   penaltyPercent?: number;
-  /**
-   * @example
-   * 1
-   */
   startTime?: number;
-  /**
-   * @example
-   * 10
-   */
   endTime?: number;
-  /**
-   * @example
-   * 0
-   */
   timeUnitCode?: number;
   title?: string;
   depTime?: string;

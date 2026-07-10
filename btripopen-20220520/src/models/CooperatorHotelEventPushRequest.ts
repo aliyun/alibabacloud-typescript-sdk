@@ -3,43 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CooperatorHotelEventPushRequest extends $dara.Model {
-  /**
-   * @example
-   * 11
-   */
   changeOrderStatus?: number;
   changeOrderStatusDesc?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * coop_123456
    */
   cooperatorOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * USER_LEAVE
    */
   event?: string;
   eventDesc?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 204-09-01 10:55:20
    */
   eventTime?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   orderId?: string;
   static names(): { [key: string]: string } {

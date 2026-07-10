@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightModifyOrderDetailV2Request extends $dara.Model {
-  /**
-   * @example
-   * name
-   */
   isvName?: string;
-  /**
-   * @example
-   * 1019195786853020
-   */
   modifyApplyId?: string;
-  /**
-   * @example
-   * false
-   */
   needQueryServiceFee?: boolean;
-  /**
-   * @example
-   * 1017002195370467200
-   */
   orderId?: string;
   outModifyApplyId?: string;
   outOrderId?: string;

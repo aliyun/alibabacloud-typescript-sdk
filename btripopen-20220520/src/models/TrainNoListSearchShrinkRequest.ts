@@ -11,9 +11,6 @@ export class TrainNoListSearchShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2024-05-16
    */
   depDate?: string;
   /**
@@ -26,10 +23,6 @@ export class TrainNoListSearchShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   optionShrink?: string;
-  /**
-   * @example
-   * null
-   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {

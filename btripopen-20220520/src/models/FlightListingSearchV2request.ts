@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightListingSearchV2RequestSearchJourneysSelectedFlights extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   arrAirportCode?: string;
-  /**
-   * @example
-   * HGH
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * PKX
-   */
   depAirportCode?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * 2023-09-01 07:10:00
-   */
   flightTime?: string;
-  /**
-   * @example
-   * HO3925
-   */
   marketFlightNo?: string;
-  /**
-   * @example
-   * CX601
-   */
   operateFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,25 +47,16 @@ export class FlightListingSearchV2RequestSearchJourneys extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * HGH
    */
   arrCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * BJS
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-09-01
    */
   depDate?: string;
   selectedFlights?: FlightListingSearchV2RequestSearchJourneysSelectedFlights[];
@@ -128,44 +91,17 @@ export class FlightListingSearchV2RequestSearchJourneys extends $dara.Model {
 }
 
 export class FlightListingSearchV2Request extends $dara.Model {
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
   cabinTypeList?: number[];
-  /**
-   * @example
-   * true
-   */
   directOnly?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cheshi
    */
   isvName?: string;
-  /**
-   * @example
-   * false
-   */
   needMultiClassPrice?: boolean;
-  /**
-   * @example
-   * true
-   */
   needQueryServiceFee?: boolean;
-  /**
-   * @example
-   * true
-   */
   needShareFlight?: boolean;
-  /**
-   * @example
-   * false
-   */
   needYCBestPrice?: boolean;
   /**
    * @remarks
@@ -175,17 +111,11 @@ export class FlightListingSearchV2Request extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   searchMode?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   tripType?: number;
   static names(): { [key: string]: string } {

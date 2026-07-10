@@ -3,27 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExternalUserUpdateShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 2000-01-02
-   */
   birthday?: string;
   certRequestListShrink?: string;
-  /**
-   * @example
-   * zhangsan@alibaba-inc.com
-   */
   email?: string;
-  /**
-   * @example
-   * 13438009765
-   */
   phone?: string;
   realName?: string;
-  /**
-   * @example
-   * zhang/san
-   */
   realNameEn?: string;
   static names(): { [key: string]: string } {
     return {

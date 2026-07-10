@@ -41,62 +41,23 @@ export class IsvUserSaveRequestUserList extends $dara.Model {
   baseCityCode?: string;
   birthday?: string;
   certList?: IsvUserSaveRequestUserListCertList[];
-  /**
-   * @example
-   * 10
-   */
   departId?: number;
-  /**
-   * @example
-   * 123@163.com
-   */
   email?: string;
   gender?: string;
   isAdmin?: boolean;
-  /**
-   * @example
-   * 8797
-   */
   jobNo?: string;
-  /**
-   * @example
-   * 0
-   */
   leaveStatus?: number;
-  /**
-   * @example
-   * 123456
-   */
   managerUserId?: string;
-  /**
-   * @example
-   * 15364762829
-   */
   phone?: string;
   position?: string;
-  /**
-   * @example
-   * 20
-   */
   positionLevel?: string;
-  /**
-   * @example
-   * ceshi
-   */
   realNameEn?: string;
   roleIdList?: string[];
-  /**
-   * @example
-   * 123
-   */
   thirdDepartId?: string;
   thirdDepartIdList?: string[];
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   userId?: string;
   /**

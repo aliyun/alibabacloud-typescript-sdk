@@ -3,31 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TBAccountUnbindResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
-  /**
-   * @example
-   * true
-   */
   module?: boolean;
-  /**
-   * @example
-   * 456456575656757
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

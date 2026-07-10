@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightSearchListResponseBodyModuleFlightListAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
   airlineName?: string;
   airlineSimpleName?: string;
@@ -36,22 +32,10 @@ export class FlightSearchListResponseBodyModuleFlightListAirlineInfo extends $da
 }
 
 export class FlightSearchListResponseBodyModuleFlightListArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   airportCode?: string;
   airportName?: string;
-  /**
-   * @example
-   * HGH
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,15 +68,7 @@ export class FlightSearchListResponseBodyModuleFlightListArrAirportInfo extends 
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription extends $dara.Model {
   desc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i4/O1CN01UynXG31pjsEtA3tMF_!!6000000005397-2-tps-36-36.png
-   */
   icon?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN01qe7wL21gJ0SmEXXL7_!!6000000004120-2-tps-1206-768.png
-   */
   image?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -123,25 +99,9 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   image?: string;
-  /**
-   * @example
-   * 50
-   */
   largest?: string;
-  /**
-   * @example
-   * 40
-   */
   middle?: string;
-  /**
-   * @example
-   * 20
-   */
   smallest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -172,17 +132,9 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes extends $dara.Model {
   baggageDesc?: string[];
-  /**
-   * @example
-   * 0
-   */
   baggageSubContentType?: number;
   description?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription;
   imageDO?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO;
-  /**
-   * @example
-   * true
-   */
   isHighlight?: boolean;
   subTitle?: string;
   static names(): { [key: string]: string } {
@@ -228,18 +180,7 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItems extends $dara.Model {
   baggageSubContentVisualizes?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes[];
   extraContentVisualizes?: any[];
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -278,16 +219,8 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemTips extends $dara.Model {
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
-   */
   logo?: string;
   tipsDesc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
-   */
   tipsImage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -316,18 +249,10 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItem extends $dara.Model {
   baggageSubItems?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItems[];
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   tableHead?: string;
   tips?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemTips;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -368,25 +293,9 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -421,10 +330,6 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -454,15 +359,7 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemExtraContents extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   content?: string;
-  /**
-   * @example
-   * demo
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -490,10 +387,6 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -521,18 +414,7 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents[];
   title?: string;
@@ -568,19 +450,11 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItem extends $dara.Model {
   extraContents?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemExtraContents[];
-  /**
-   * @example
-   * 0
-   */
   index?: number;
   refundSubItems?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemRefundSubItems[];
   subTableHead?: string[];
   tableHead?: string;
   title?: string;
-  /**
-   * @example
-   * 0
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -626,25 +500,9 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -679,10 +537,6 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleInfo[];
   static names(): { [key: string]: string } {
@@ -712,15 +566,7 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemExtraContents extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   content?: string;
-  /**
-   * @example
-   * demo
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -748,10 +594,6 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -779,18 +621,7 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents[];
   title?: string;
@@ -826,23 +657,11 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItem extends $dara.Model {
   extraContents?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemExtraContents[];
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   refundSubItems?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemRefundSubItems[];
   subTableHead?: string[];
   tableHead?: string;
-  /**
-   * @example
-   * demo
-   */
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -888,25 +707,9 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListSignRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -941,10 +744,6 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListSignRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListSignRuleInfo[];
   static names(): { [key: string]: string } {
@@ -975,25 +774,9 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListUpgradeRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -1028,10 +811,6 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListUpgradeRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListUpgradeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -1061,18 +840,10 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 }
 
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleList extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   baggageInfo?: string;
   baggageItem?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItem;
   changeRule?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRule;
   changeRuleItem?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItem;
-  /**
-   * @example
-   * {}
-   */
   extra?: string;
   refundRule?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRule;
   refundRuleItem?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItem;
@@ -1142,108 +913,28 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRule
 export class FlightSearchListResponseBodyModuleFlightListCabinInfoList extends $dara.Model {
   agentId?: number;
   basicCabinPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   buildPrice?: number;
-  /**
-   * @example
-   * G
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   cabinClassName?: string;
-  /**
-   * @example
-   * G
-   */
   childCabin?: string;
   className?: string;
-  /**
-   * @example
-   * demo
-   */
   classRule?: string;
-  /**
-   * @example
-   * 10
-   */
   discount?: string;
   flightRuleList?: FlightSearchListResponseBodyModuleFlightListCabinInfoListFlightRuleList[];
-  /**
-   * @example
-   * demo
-   */
   flightRuleListStr?: string;
-  /**
-   * @example
-   * 1
-   */
   invoiceType?: number;
-  /**
-   * @example
-   * true
-   */
   isProtocol?: boolean;
-  /**
-   * @example
-   * {"key":"value"}
-   */
   memo?: string;
-  /**
-   * @example
-   * 100
-   */
   oilPrice?: number;
-  /**
-   * @example
-   * 1000_1_0
-   */
   orderParams?: string;
-  /**
-   * @example
-   * wisdiii2ii22ii2
-   */
   otaItemId?: string;
-  /**
-   * @example
-   * 100
-   */
   price?: number;
-  /**
-   * @example
-   * 1
-   */
   productType?: number;
-  /**
-   * @example
-   * demo
-   */
   productTypeDesc?: string;
-  /**
-   * @example
-   * 100
-   */
   promotionPrice?: string;
-  /**
-   * @example
-   * 1
-   */
   remainedSeatCount?: string;
-  /**
-   * @example
-   * 100
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1318,22 +1009,10 @@ export class FlightSearchListResponseBodyModuleFlightListCabinInfoList extends $
 }
 
 export class FlightSearchListResponseBodyModuleFlightListDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PEK
-   */
   airportCode?: string;
   airportName?: string;
-  /**
-   * @example
-   * BJS
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1366,15 +1045,7 @@ export class FlightSearchListResponseBodyModuleFlightListDepAirportInfo extends 
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription extends $dara.Model {
   desc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i4/O1CN01UynXG31pjsEtA3tMF_!!6000000005397-2-tps-36-36.png
-   */
   icon?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN01qe7wL21gJ0SmEXXL7_!!6000000004120-2-tps-1206-768.png
-   */
   image?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -1405,25 +1076,9 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageIt
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   image?: string;
-  /**
-   * @example
-   * 50
-   */
   largest?: string;
-  /**
-   * @example
-   * 40
-   */
   middle?: string;
-  /**
-   * @example
-   * 20
-   */
   smallest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1454,17 +1109,9 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageIt
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes extends $dara.Model {
   baggageDesc?: string[];
-  /**
-   * @example
-   * 1
-   */
   baggageSubContentType?: number;
   description?: FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription;
   imageDO?: FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO;
-  /**
-   * @example
-   * true
-   */
   isHighlight?: boolean;
   subTitle?: string;
   static names(): { [key: string]: string } {
@@ -1510,18 +1157,7 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageIt
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItems extends $dara.Model {
   baggageSubContentVisualizes?: FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes[];
   extraContentVisualizes?: any[];
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -1560,16 +1196,8 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageIt
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemTips extends $dara.Model {
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
-   */
   logo?: string;
   tipsDesc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
-   */
   tipsImage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1598,18 +1226,10 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageIt
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItem extends $dara.Model {
   baggageSubItems?: FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItems[];
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   tableHead?: string;
   tips?: FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItemTips;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1650,25 +1270,9 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageIt
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -1703,10 +1307,6 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRul
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRule extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -1764,10 +1364,6 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRul
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1795,18 +1391,7 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRul
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleItemRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents[];
   title?: string;
@@ -1842,19 +1427,11 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRul
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleItem extends $dara.Model {
   extraContents?: FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleItemExtraContents[];
-  /**
-   * @example
-   * 0
-   */
   index?: number;
   refundSubItems?: FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleItemRefundSubItems[];
   subTableHead?: string[];
   tableHead?: string;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1900,25 +1477,9 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRul
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -1953,10 +1514,6 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRul
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRule extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleInfo[];
   static names(): { [key: string]: string } {
@@ -1986,15 +1543,7 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRul
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleItemExtraContents extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   content?: string;
-  /**
-   * @example
-   * demo
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2022,10 +1571,6 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRul
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2053,18 +1598,7 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRul
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleItemRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents[];
   title?: string;
@@ -2100,19 +1634,11 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRul
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleItem extends $dara.Model {
   extraContents?: FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleItemExtraContents[];
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   refundSubItems?: FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleItemRefundSubItems[];
   subTableHead?: string[];
   tableHead?: string;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2158,25 +1684,9 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRul
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListSignRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -2211,10 +1721,6 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListSignRuleI
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListSignRule extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListFlightRuleListSignRuleInfo[];
   static names(): { [key: string]: string } {
@@ -2245,25 +1751,9 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListSignRule 
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListUpgradeRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -2298,10 +1788,6 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListUpgradeRu
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleListUpgradeRule extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListFlightRuleListUpgradeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -2331,18 +1817,10 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleListUpgradeRu
 }
 
 export class FlightSearchListResponseBodyModuleFlightListFlightRuleList extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   baggageInfo?: string;
   baggageItem?: FlightSearchListResponseBodyModuleFlightListFlightRuleListBaggageItem;
   changeRule?: FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRule;
   changeRuleItem?: FlightSearchListResponseBodyModuleFlightListFlightRuleListChangeRuleItem;
-  /**
-   * @example
-   * {}
-   */
   extra?: string;
   refundRule?: FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRule;
   refundRuleItem?: FlightSearchListResponseBodyModuleFlightListFlightRuleListRefundRuleItem;
@@ -2410,10 +1888,6 @@ export class FlightSearchListResponseBodyModuleFlightListFlightRuleList extends 
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * ZH
-   */
   airlineCode?: string;
   airlineName?: string;
   airlineSimpleName?: string;
@@ -2443,22 +1917,10 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferAir
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   airportCode?: string;
   airportName?: string;
-  /**
-   * @example
-   * HGH
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * T4
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2490,22 +1952,10 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferArr
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PEK
-   */
   airportCode?: string;
   airportName?: string;
-  /**
-   * @example
-   * BJS
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2538,15 +1988,7 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferDep
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription extends $dara.Model {
   desc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i4/O1CN01UynXG31pjsEtA3tMF_!!6000000005397-2-tps-36-36.png
-   */
   icon?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN01qe7wL21gJ0SmEXXL7_!!6000000004120-2-tps-1206-768.png
-   */
   image?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -2577,25 +2019,9 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   image?: string;
-  /**
-   * @example
-   * 50
-   */
   largest?: string;
-  /**
-   * @example
-   * 40
-   */
   middle?: string;
-  /**
-   * @example
-   * 20
-   */
   smallest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2626,17 +2052,9 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes extends $dara.Model {
   baggageDesc?: string[];
-  /**
-   * @example
-   * 1
-   */
   baggageSubContentType?: number;
   description?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription;
   imageDO?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO;
-  /**
-   * @example
-   * true
-   */
   isHighlight?: boolean;
   subTitle?: string;
   static names(): { [key: string]: string } {
@@ -2682,23 +2100,8 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemBaggageSubItems extends $dara.Model {
   baggageSubContentVisualizes?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes[];
   extraContentVisualizes?: any[];
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
-  /**
-   * @example
-   * 1
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2736,16 +2139,8 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemTips extends $dara.Model {
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
-   */
   logo?: string;
   tipsDesc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
-   */
   tipsImage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2774,18 +2169,10 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItem extends $dara.Model {
   baggageSubItems?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemBaggageSubItems[];
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   tableHead?: string;
   tips?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItemTips;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2826,25 +2213,9 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 100
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -2879,10 +2250,6 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -2912,15 +2279,7 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleItemExtraContents extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   content?: string;
-  /**
-   * @example
-   * demo
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2948,10 +2307,6 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2979,18 +2334,7 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleItemRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents[];
   title?: string;
@@ -3026,19 +2370,11 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleItem extends $dara.Model {
   extraContents?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleItemExtraContents[];
-  /**
-   * @example
-   * 0
-   */
   index?: number;
   refundSubItems?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleItemRefundSubItems[];
   subTableHead?: string[];
   tableHead?: string;
   title?: string;
-  /**
-   * @example
-   * 0
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3084,25 +2420,9 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 100
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -3137,10 +2457,6 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleInfo[];
   static names(): { [key: string]: string } {
@@ -3170,15 +2486,7 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleItemExtraContents extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   content?: string;
-  /**
-   * @example
-   * demo
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3206,10 +2514,6 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3237,18 +2541,7 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleItemRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @remarks
-   * PTC
-   * 
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents[];
   title?: string;
@@ -3284,23 +2577,11 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleItem extends $dara.Model {
   extraContents?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleItemExtraContents[];
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   refundSubItems?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleItemRefundSubItems[];
   subTableHead?: string[];
   tableHead?: string;
-  /**
-   * @example
-   * demo
-   */
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3346,25 +2627,9 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListSignRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -3399,10 +2664,6 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListSignRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListSignRuleInfo[];
   static names(): { [key: string]: string } {
@@ -3433,25 +2694,9 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListUpgradeRuleInfo extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 100
-   */
   cost?: number;
-  /**
-   * @example
-   * 10
-   */
   costPercent?: number;
-  /**
-   * @example
-   * 1675036500000
-   */
   timeStamp?: number;
-  /**
-   * @example
-   * demo
-   */
   timeType?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -3486,10 +2731,6 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListUpgradeRule extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   able?: boolean;
   info?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListUpgradeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -3519,26 +2760,14 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 }
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleList extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   baggageInfo?: string;
   baggageItem?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListBaggageItem;
   changeRule?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRule;
   changeRuleItem?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListChangeRuleItem;
-  /**
-   * @example
-   * {}
-   */
   extra?: string;
   refundRule?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRule;
   refundRuleItem?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListRefundRuleItem;
   signRule?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListSignRule;
-  /**
-   * @example
-   * demo
-   */
   tuigaiqianInfo?: string;
   upgradeRule?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleListUpgradeRule;
   static names(): { [key: string]: string } {
@@ -3603,28 +2832,12 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFli
 
 export class FlightSearchListResponseBodyModuleFlightListTransferInfo extends $dara.Model {
   flightSize?: string;
-  /**
-   * @example
-   * demo
-   */
   flightType?: string;
   transferAirlineInfo?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferAirlineInfo;
   transferArrAirportInfo?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferArrAirportInfo;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   transferArrDate?: string;
   transferDepAirportInfo?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferDepAirportInfo;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   transferDepDate?: string;
-  /**
-   * @example
-   * CA1234
-   */
   transferFlightNo?: string;
   transferFlightRuleList?: FlightSearchListResponseBodyModuleFlightListTransferInfoTransferFlightRuleList[];
   static names(): { [key: string]: string } {
@@ -3679,174 +2892,46 @@ export class FlightSearchListResponseBodyModuleFlightListTransferInfo extends $d
 export class FlightSearchListResponseBodyModuleFlightList extends $dara.Model {
   airlineInfo?: FlightSearchListResponseBodyModuleFlightListAirlineInfo;
   arrAirportInfo?: FlightSearchListResponseBodyModuleFlightListArrAirportInfo;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   arrDate?: string;
   basicCabinPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   buildPrice?: number;
-  /**
-   * @example
-   * Y
-   */
   cabin?: string;
-  /**
-   * @example
-   * 2
-   */
   cabinClass?: string;
   cabinInfoList?: FlightSearchListResponseBodyModuleFlightListCabinInfoList[];
-  /**
-   * @example
-   * FM
-   */
   carrierAirline?: string;
-  /**
-   * @example
-   * FM9152
-   */
   carrierNo?: string;
   classRule?: string;
   depAirportInfo?: FlightSearchListResponseBodyModuleFlightListDepAirportInfo;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   depDate?: string;
-  /**
-   * @example
-   * 1
-   */
   discount?: number;
-  /**
-   * @example
-   * CA1234
-   */
   flightNo?: string;
   flightRuleList?: FlightSearchListResponseBodyModuleFlightListFlightRuleList[];
-  /**
-   * @example
-   * demo
-   */
   flightRuleListStr?: string;
   flightSize?: string;
-  /**
-   * @example
-   * demo
-   */
   flightType?: string;
-  /**
-   * @example
-   * 1
-   */
   invoiceType?: number;
-  /**
-   * @example
-   * true
-   */
   isProtocol?: boolean;
-  /**
-   * @example
-   * false
-   */
   isShare?: boolean;
-  /**
-   * @example
-   * false
-   */
   isStop?: boolean;
-  /**
-   * @example
-   * false
-   */
   isTransfer?: boolean;
   mealDesc?: string;
-  /**
-   * @example
-   * {"key":"value"}
-   */
   memo?: string;
-  /**
-   * @example
-   * 100
-   */
   oilPrice?: number;
-  /**
-   * @example
-   * wisdiii2ii22ii2
-   */
   otaItemId?: string;
-  /**
-   * @example
-   * 100
-   */
   price?: number;
-  /**
-   * @example
-   * 1
-   */
   productType?: number;
   productTypeDesc?: string;
-  /**
-   * @example
-   * 100
-   */
   promotionPrice?: string;
-  /**
-   * @example
-   * 1
-   */
   remainedSeatCount?: string;
-  /**
-   * @example
-   * 1000_1_0
-   */
   secretParams?: string;
-  /**
-   * @example
-   * 1
-   */
   segmentNumber?: string;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   stopArrTime?: string;
-  /**
-   * @example
-   * HGH
-   */
   stopCity?: string;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   stopDepTime?: string;
-  /**
-   * @example
-   * 100
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   totalPrice?: string;
   transferInfo?: FlightSearchListResponseBodyModuleFlightListTransferInfo;
-  /**
-   * @example
-   * 1
-   */
   tripType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3973,10 +3058,6 @@ export class FlightSearchListResponseBodyModuleFlightList extends $dara.Model {
 
 export class FlightSearchListResponseBodyModule extends $dara.Model {
   flightList?: FlightSearchListResponseBodyModuleFlightList[];
-  /**
-   * @example
-   * false
-   */
   isReplacePnr?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4005,27 +3086,11 @@ export class FlightSearchListResponseBodyModule extends $dara.Model {
 }
 
 export class FlightSearchListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: FlightSearchListResponseBodyModule;
-  /**
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

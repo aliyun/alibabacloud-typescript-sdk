@@ -8,82 +8,30 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
   arrAirportCode?: string;
   arrCity?: string;
   arrCityCode?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   arrTime?: string;
-  /**
-   * @example
-   * V
-   */
   changeCabin?: string;
-  /**
-   * @example
-   * Y
-   */
   changeCabinLevel?: string;
-  /**
-   * @example
-   * 100
-   */
   changeFee?: number;
-  /**
-   * @example
-   * MU7767
-   */
   changeFlightNo?: string;
-  /**
-   * @example
-   * 33576
-   */
   changeOrderId?: number;
   changeReason?: string;
-  /**
-   * @example
-   * 0
-   */
   changeType?: number;
   depAirport?: string;
   depAirportCode?: string;
   depCity?: string;
   depCityCode?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   depTime?: string;
   discount?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtModify?: string;
   journeyIndex?: number;
-  /**
-   * @example
-   * 00-123123
-   */
   originTicketNo?: string;
   outApplyId?: string;
   segmentIndex?: number;
   stopCity?: string;
-  /**
-   * @example
-   * 000-123123
-   */
   ticketNo?: string;
   ticketStatus?: string;
   ticketStatusCode?: number;
-  /**
-   * @example
-   * 100
-   */
   upgradeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -344,71 +292,27 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoListStopCityInfoList ex
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $dara.Model {
-  /**
-   * @example
-   * MU
-   */
   airlineCode?: string;
   airlineName?: string;
   arrAirportCityCounty?: FlightOrderQueryResponseBodyModuleFlightInfoListArrAirportCityCounty;
-  /**
-   * @example
-   * LHW
-   */
   arrAirportCode?: string;
   arrAirportName?: string;
   arrCityAdCode?: string;
-  /**
-   * @example
-   * LHW
-   */
   arrCityCode?: string;
   arrCityName?: string;
   arrTerminal?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   arrTime?: string;
-  /**
-   * @example
-   * V
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinLevel?: string;
   depAirportCityCounty?: FlightOrderQueryResponseBodyModuleFlightInfoListDepAirportCityCounty;
-  /**
-   * @example
-   * NGB
-   */
   depAirportCode?: string;
   depAirportName?: string;
   depCityAdCode?: string;
-  /**
-   * @example
-   * NGB
-   */
   depCityCode?: string;
   depCityName?: string;
   depTerminal?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   depTime?: string;
-  /**
-   * @example
-   * 900
-   */
   flightMile?: number;
-  /**
-   * @example
-   * MU3849
-   */
   flightNo?: string;
   journeyIndex?: number;
   segmentIndex?: number;
@@ -509,40 +413,16 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
   depCity?: string;
   depCityCode?: string;
   flightNo?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtModify?: string;
   journeyIndex?: number;
   outApplyId?: string;
   personalRefundTicketFee?: number;
-  /**
-   * @example
-   * 43667
-   */
   refundOrderId?: number;
   refundReason?: string;
-  /**
-   * @example
-   * 100
-   */
   refundTicketFee?: number;
-  /**
-   * @example
-   * 0
-   */
   refundType?: number;
   segmentIndex?: number;
-  /**
-   * @example
-   * 000-13232
-   */
   ticketNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -612,73 +492,25 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $dar
   arrAirportCode?: string;
   arrCity?: string;
   arrCityCode?: string;
-  /**
-   * @example
-   * 100
-   */
   buildPrice?: number;
-  /**
-   * @example
-   * false
-   */
   changed?: boolean;
   depAirport?: string;
   depAirportCode?: string;
   depCity?: string;
   depCityCode?: string;
-  /**
-   * @example
-   * 10
-   */
   discount?: number;
   flightNo?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtModify?: string;
   journeyIndex?: number;
-  /**
-   * @example
-   * 100
-   */
   oilPrice?: number;
-  /**
-   * @example
-   * 1
-   */
   payType?: number;
   personalPrice?: number;
   segmentIndex?: number;
-  /**
-   * @example
-   * 100
-   */
   settlePrice?: number;
-  /**
-   * @example
-   * 000-123
-   */
   ticketNo?: string;
-  /**
-   * @example
-   * 100
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * OPEN
-   */
   ticketStatus?: string;
-  /**
-   * @example
-   * 1
-   */
   ticketStatusCode?: number;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -751,21 +583,9 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $dar
 }
 
 export class FlightOrderQueryResponseBodyModuleInsuranceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   amount?: number;
-  /**
-   * @example
-   * 345-987-098
-   */
   insuranceNo?: string;
   name?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   type?: string;
   static names(): { [key: string]: string } {
@@ -798,10 +618,6 @@ export class FlightOrderQueryResponseBodyModuleInsuranceInfoList extends $dara.M
 }
 
 export class FlightOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
-  /**
-   * @example
-   * 43316
-   */
   id?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -828,10 +644,6 @@ export class FlightOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
 }
 
 export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
-  /**
-   * @example
-   * 175634
-   */
   applyId?: string;
   btripTitle?: string;
   contactName?: string;
@@ -841,48 +653,16 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model
   departName?: string;
   exceedApplyId?: string;
   exceedThirdPartApplyId?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtModify?: string;
-  /**
-   * @example
-   * 13628
-   */
   itineraryId?: string;
-  /**
-   * @example
-   * 146178
-   */
   orderId?: number;
-  /**
-   * @example
-   * 5
-   */
   orderStatus?: number;
   supplier?: string;
-  /**
-   * @example
-   * CS-FLIGHT
-   */
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
   thirdpartCorpId?: string;
-  /**
-   * @example
-   * CS-FLIGHT
-   */
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * 0
-   */
   tripType?: number;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -947,39 +727,15 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model
 }
 
 export class FlightOrderQueryResponseBodyModulePassengerInfoList extends $dara.Model {
-  /**
-   * @example
-   * 13446
-   */
   costCenterId?: number;
   costCenterName?: string;
-  /**
-   * @example
-   * CS-3345
-   */
   costCenterNumber?: string;
-  /**
-   * @example
-   * CS-PROJECT
-   */
   projectCode?: string;
-  /**
-   * @example
-   * 133576
-   */
   projectId?: number;
   projectTitle?: string;
-  /**
-   * @example
-   * CS-THIRDPROJECT
-   */
   thirdpartProjectId?: string;
   userId?: string;
   userName?: string;
-  /**
-   * @example
-   * 0
-   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1021,36 +777,12 @@ export class FlightOrderQueryResponseBodyModulePassengerInfoList extends $dara.M
 }
 
 export class FlightOrderQueryResponseBodyModulePriceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   categoryCode?: number;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtCreate?: string;
   passengerName?: string;
-  /**
-   * @example
-   * 4
-   */
   payType?: number;
-  /**
-   * @example
-   * 100
-   */
   price?: number;
-  /**
-   * @example
-   * CS73290
-   */
   tradeId?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1160,27 +892,11 @@ export class FlightOrderQueryResponseBodyModule extends $dara.Model {
 }
 
 export class FlightOrderQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: FlightOrderQueryResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

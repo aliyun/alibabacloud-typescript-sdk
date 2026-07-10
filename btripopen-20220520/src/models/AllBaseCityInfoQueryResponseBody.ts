@@ -97,34 +97,11 @@ export class AllBaseCityInfoQueryResponseBodyModule extends $dara.Model {
 }
 
 export class AllBaseCityInfoQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * success
-   */
   code?: string;
-  /**
-   * @example
-   * demo
-   */
   message?: string;
   module?: AllBaseCityInfoQueryResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210f079e16603757182131635d866a
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,16 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class TravelStandardQueryResponseBodyModuleReserveRuleMainReserveRule extends $dara.Model {
   openServiceTypeList?: string[];
-  /**
-   * @example
-   * 2006517149
-   */
   ruleCode?: number;
   ruleDesc?: string;
-  /**
-   * @example
-   * 6517149
-   */
   ruleId?: number;
   ruleName?: string;
   static names(): { [key: string]: string } {
@@ -49,15 +41,7 @@ export class TravelStandardQueryResponseBodyModuleReserveRuleMainReserveRule ext
 }
 
 export class TravelStandardQueryResponseBodyModuleReserveRuleModuleConfigList extends $dara.Model {
-  /**
-   * @example
-   * FLIGHT_ADVANCE_BUY_DAY
-   */
   code?: string;
-  /**
-   * @example
-   * 3
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -147,30 +131,11 @@ export class TravelStandardQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TravelStandardQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
   module?: TravelStandardQueryResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210bcc3a16583004579056128d33d7
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

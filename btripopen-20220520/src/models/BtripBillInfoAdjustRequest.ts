@@ -6,35 +6,12 @@ export class BtripBillInfoAdjustRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   primaryId?: number;
-  /**
-   * @example
-   * GA15131
-   */
   thirdPartCostCenterId?: string;
-  /**
-   * @example
-   * GA15131
-   */
   thirdPartDepartmentId?: string;
-  /**
-   * @example
-   * GA15131
-   */
   thirdPartInvoiceId?: string;
-  /**
-   * @example
-   * GA15131
-   */
   thirdPartProjectId?: string;
-  /**
-   * @example
-   * 123
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,41 +6,26 @@ export class CooperatorSyncPayStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
   cooperatorOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12345
    */
   cooperatorPayNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1017018197205925373
    */
   orderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * SUCCESS
    */
   payStatus?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1726022215000
    */
   payTime?: number;
   static names(): { [key: string]: string } {

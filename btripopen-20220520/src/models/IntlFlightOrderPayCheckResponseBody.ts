@@ -14,10 +14,6 @@ export class IntlFlightOrderPayCheckResponseBody extends $dara.Model {
    */
   message?: string;
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   /**
    * @example

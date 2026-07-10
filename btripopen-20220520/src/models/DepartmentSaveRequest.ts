@@ -3,40 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DepartmentSaveRequestDepartList extends $dara.Model {
-  /**
-   * @example
-   * 10
-   */
   departId?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   departName?: string;
-  /**
-   * @example
-   * 10
-   */
   departPid?: number;
-  /**
-   * @example
-   * 001|002|003
-   */
   managerIds?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * testdepartid001
-   */
   thirdDepartId?: string;
-  /**
-   * @example
-   * testdepartpid001
-   */
   thirdDepartPid?: string;
   static names(): { [key: string]: string } {
     return {

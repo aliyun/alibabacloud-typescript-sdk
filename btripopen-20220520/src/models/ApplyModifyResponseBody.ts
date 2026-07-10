@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApplyModifyResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 118526587
-   */
   applyId?: number;
-  /**
-   * @example
-   * thirdpart12132
-   */
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * 20220702001
-   */
   thirdpartBusinessId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,31 +32,11 @@ export class ApplyModifyResponseBodyModule extends $dara.Model {
 }
 
 export class ApplyModifyResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module。
-   */
   module?: ApplyModifyResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

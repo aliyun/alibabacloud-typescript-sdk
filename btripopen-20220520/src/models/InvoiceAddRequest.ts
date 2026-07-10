@@ -3,34 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvoiceAddRequest extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
   address?: string;
   bankName?: string;
-  /**
-   * @example
-   * 123456
-   */
   bankNo?: string;
   mailThirdPartId?: string;
-  /**
-   * @example
-   * 12345
-   */
   taxNo?: string;
-  /**
-   * @example
-   * 123
-   */
   tel?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 340049
    */
   thirdPartId?: string;
   /**
@@ -41,9 +22,6 @@ export class InvoiceAddRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   type?: number;
   unitType?: number;

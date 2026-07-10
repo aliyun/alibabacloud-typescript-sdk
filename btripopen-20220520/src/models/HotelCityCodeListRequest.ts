@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelCityCodeListRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   countryCode?: string;
   static names(): { [key: string]: string } {
     return {

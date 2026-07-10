@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EntityAddResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   addNum?: number;
-  /**
-   * @example
-   * 2
-   */
   selectedUserNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -37,30 +29,11 @@ export class EntityAddResponseBodyModule extends $dara.Model {
 }
 
 export class EntityAddResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: EntityAddResponseBodyModule;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

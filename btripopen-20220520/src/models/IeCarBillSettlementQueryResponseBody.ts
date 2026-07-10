@@ -3,113 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IeCarBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
-  /**
-   * @example
-   * 20251201
-   */
   accountMonth?: string;
-  /**
-   * @example
-   * 2025-01-01 00:00:00
-   */
   adjustTime?: string;
-  /**
-   * @example
-   * 123aaa
-   */
   alipayId?: string;
-  /**
-   * @example
-   * 124
-   */
   alipayTradeNo?: string;
-  /**
-   * @example
-   * 123
-   */
   applyArrCityCode?: string;
   applyArrCityName?: string;
-  /**
-   * @example
-   * 123
-   */
   applyDepCityCode?: string;
   applyDepCityName?: string;
   applyExtendField?: string;
-  /**
-   * @example
-   * 265741695
-   */
   applyId?: string;
-  /**
-   * @example
-   * 123@qq.com
-   */
   approverEmail?: string;
-  /**
-   * @example
-   * 11
-   */
   approverId?: string;
   approverName?: string;
   arrCity?: string;
-  /**
-   * @example
-   * 131000
-   */
   arrCityCode?: string;
   arrCountry?: string;
-  /**
-   * @example
-   * 2025-12-02 10:00:00
-   */
   arrDate?: string;
-  /**
-   * @example
-   * 2025-12-02 10:00:00
-   */
   arrDateLocal?: string;
   arrLocation?: string;
   baseLocation?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   billRecordTime?: string;
-  /**
-   * @example
-   * 2025-11-01 00:00:00
-   */
   billRecordTimeStr?: string;
   billingEntity?: string;
   bookChannel?: string;
   bookMode?: string;
   bookModel?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   bookTime?: string;
-  /**
-   * @example
-   * 2025-12-01 10:00:00
-   */
   bookTimeLocal?: string;
-  /**
-   * @example
-   * 1234
-   */
   bookerId?: string;
-  /**
-   * @example
-   * A1234
-   */
   bookerJobNo?: string;
   bookerName?: string;
-  /**
-   * @example
-   * 123
-   */
   bookerUseId?: string;
   businessCategory?: string;
   capitalDirection?: string;
@@ -117,302 +41,91 @@ export class IeCarBillSettlementQueryResponseBodyModuleItems extends $dara.Model
   cascadeDepartment?: string;
   categoryDesc?: string;
   costCenter?: string;
-  /**
-   * @example
-   * cs1
-   */
   costCenterNumber?: string;
-  /**
-   * @example
-   * code1
-   */
   costDepartment?: string;
-  /**
-   * @example
-   * 0.0
-   */
   coupon?: number;
-  /**
-   * @example
-   * 3.0
-   */
   couponPrice?: number;
-  /**
-   * @example
-   * "{\\"key1\\":\\"value1\\",\\"key2\\":\\"value2\\",\\"key3\\":\\"value3\\"}"
-   */
   customContent?: string;
-  /**
-   * @example
-   * 0.11
-   */
   deductibleTax?: number;
-  /**
-   * @example
-   * 131000
-   */
   depCityCode?: string;
   depCountry?: string;
-  /**
-   * @example
-   * 2025-12-01 10:00:00
-   */
   depDateLocal?: string;
   department?: string;
-  /**
-   * @example
-   * 1112
-   */
   departmentId?: string;
   deptCity?: string;
-  /**
-   * @example
-   * 2025-12-01 10:00:00
-   */
   deptDate?: string;
   deptLocation?: string;
-  /**
-   * @example
-   * 2.0
-   */
   driverAddDetail?: string;
-  /**
-   * @example
-   * 1.0
-   */
   driverAddFee?: number;
-  /**
-   * @example
-   * 100
-   */
   estimateDriveDistance?: string;
-  /**
-   * @example
-   * 110.0
-   */
   estimatePrice?: number;
-  /**
-   * @example
-   * 140101
-   */
   feeType?: string;
   feeTypeDesc?: string;
   financialSubject?: string;
   foreignersTag?: string;
-  /**
-   * @example
-   * 1
-   */
   index?: string;
   invoiceTitle?: string;
   lastDepartment?: string;
   levelName?: string;
-  /**
-   * @remarks
-   * Location
-   */
   location?: string;
-  /**
-   * @example
-   * 112
-   */
   mainApplyId?: string;
-  /**
-   * @example
-   * q1
-   */
   mappingCompanyCode?: string;
   memo?: string;
-  /**
-   * @example
-   * 1017034204020120044
-   */
   orderId?: string;
-  /**
-   * @example
-   * 100.0
-   */
   orderPrice?: number;
   orderStatusDesc?: string;
-  /**
-   * @example
-   * 112
-   */
   originApplyId?: string;
-  /**
-   * @example
-   * 123
-   */
   overApplyId?: string;
-  /**
-   * @example
-   * EN01002423
-   */
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 10.0
-   */
   personSettleFee?: number;
   position?: string;
   positionLevel?: string;
-  /**
-   * @example
-   * 72328485
-   */
   primaryId?: number;
-  /**
-   * @example
-   * www123
-   */
   processorOaCode?: string;
-  /**
-   * @example
-   * acs
-   */
   projectCode?: string;
   projectName?: string;
-  /**
-   * @example
-   * 10.0
-   */
   protocolDiscountFee?: number;
   providerName?: string;
-  /**
-   * @example
-   * 111224324
-   */
   purchaseOrderId?: string;
-  /**
-   * @example
-   * 120
-   */
   realDriveDistance?: string;
   realFromAddr?: string;
   realToAddr?: string;
   recordStatus?: string;
   remark?: string;
-  /**
-   * @example
-   * 1
-   */
   sceneId?: string;
   sceneName?: string;
-  /**
-   * @example
-   * 5.0
-   */
   serviceFee?: number;
   settleTypeDesc?: string;
-  /**
-   * @example
-   * 110.0
-   */
   settlementFee?: number;
-  /**
-   * @example
-   * 0.0
-   */
   settlementGrantFee?: number;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   settlementTime?: string;
   settlementType?: string;
-  /**
-   * @example
-   * 188385292
-   */
   showSubOrderId?: string;
-  /**
-   * @remarks
-   * SIO
-   * 
-   * @example
-   * SIO
-   */
   sio?: string;
   specialOrder?: string;
   specialReason?: string;
-  /**
-   * @example
-   * 2
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * 188385292
-   */
   subOrderId?: string;
-  /**
-   * @example
-   * 123456789
-   */
   supplementApplyId?: string;
-  /**
-   * @example
-   * 9%
-   */
   taxRate?: string;
-  /**
-   * @example
-   * cs2
-   */
   thirdInvoiceId?: string;
-  /**
-   * @example
-   * 11
-   */
   thirdItineraryId?: string;
-  /**
-   * @example
-   * 123
-   */
   thirdPartBusinessId?: string;
-  /**
-   * @example
-   * 7244-1968
-   */
   thirdpartApplyId?: string;
   timeType?: string;
   tradeActionDesc?: string;
-  /**
-   * @example
-   * 123@qq.com
-   */
   travelerEmail?: string;
-  /**
-   * @example
-   * 1234
-   */
   travelerId?: string;
-  /**
-   * @example
-   * A1234
-   */
   travelerJobNo?: string;
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
-  /**
-   * @example
-   * 123
-   */
   travelerUseId?: string;
   userConfirmDesc?: string;
-  /**
-   * @example
-   * 12
-   */
   vehicleSceneId?: string;
   vehicleSceneName?: string;
-  /**
-   * @example
-   * 1
-   */
   voucherType?: number;
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
@@ -685,32 +398,12 @@ export class IeCarBillSettlementQueryResponseBodyModuleItems extends $dara.Model
 }
 
 export class IeCarBillSettlementQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 14
-   */
   category?: number;
   corpId?: string;
   items?: IeCarBillSettlementQueryResponseBodyModuleItems[];
-  /**
-   * @example
-   * 2021-10-14
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2021-10-13
-   */
   periodStart?: string;
-  /**
-   * @example
-   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4MDAwMDAwMDA4YTU2NDMy
-   */
   scrollId?: string;
-  /**
-   * @example
-   * 100
-   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -749,30 +442,11 @@ export class IeCarBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class IeCarBillSettlementQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: IeCarBillSettlementQueryResponseBodyModule;
-  /**
-   * @example
-   * A1984987-9C0D-5EEB-A2AC-0D5D76D41705
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 3b5287ed17606676287351344d0095
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

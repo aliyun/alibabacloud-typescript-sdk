@@ -3,33 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelIndexInfoRequest extends $dara.Model {
-  /**
-   * @example
-   * 330000
-   */
   cityCode?: string;
-  /**
-   * @example
-   * 0
-   */
   hotelStatus?: number;
+  internation?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 20
    */
   pageSize?: number;
-  /**
-   * @example
-   * 1038882
-   */
   pageToken?: string;
   static names(): { [key: string]: string } {
     return {
       cityCode: 'city_code',
       hotelStatus: 'hotel_status',
+      internation: 'internation',
       pageSize: 'page_size',
       pageToken: 'page_token',
     };
@@ -39,6 +26,7 @@ export class HotelIndexInfoRequest extends $dara.Model {
     return {
       cityCode: 'string',
       hotelStatus: 'number',
+      internation: 'boolean',
       pageSize: 'number',
       pageToken: 'string',
     };

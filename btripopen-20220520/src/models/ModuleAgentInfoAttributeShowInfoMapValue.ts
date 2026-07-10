@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleAgentInfoAttributeShowInfoMapValue extends $dara.Model {
-  /**
-   * @example
-   * FIRST_BAGGAGE
-   */
   code?: string;
   name?: string;
   text?: string;

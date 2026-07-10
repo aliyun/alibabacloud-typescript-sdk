@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EntityAddRequestEntityDOList extends $dara.Model {
-  /**
-   * @example
-   * 12345
-   */
   entityId?: string;
-  /**
-   * @example
-   * 1
-   */
   entityType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,9 +33,6 @@ export class EntityAddRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 340049
    */
   thirdpartId?: string;
   static names(): { [key: string]: string } {

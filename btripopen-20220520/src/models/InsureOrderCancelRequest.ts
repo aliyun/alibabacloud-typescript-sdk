@@ -6,21 +6,10 @@ export class InsureOrderCancelRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2000310301
    */
   btripUserId?: string;
   buyerName?: string;
-  /**
-   * @example
-   * open12igetbis4o07v10B1TlOWcM00
-   */
   isvName?: string;
-  /**
-   * @example
-   * fliggy
-   */
   supplierCode?: string;
   static names(): { [key: string]: string } {
     return {

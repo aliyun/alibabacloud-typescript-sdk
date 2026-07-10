@@ -4,85 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class MealOrderDetailQueryResponseBodyModule extends $dara.Model {
   applyId?: number;
-  /**
-   * @example
-   * 2024032522001423601409393178
-   */
   corpCodeOrderId?: string;
-  /**
-   * @example
-   * dingaa15ca45cba9ee744a5
-   */
   corpId?: string;
-  /**
-   * @example
-   * 100
-   */
   corpPayAmount?: number;
-  /**
-   * @example
-   * 100
-   */
   corpRefundAmount?: number;
   mealReason?: string;
   merchantName?: string;
-  /**
-   * @example
-   * 1034088398073015303
-   */
   orderId?: string;
-  /**
-   * @example
-   * 1
-   */
   orderStatus?: number;
-  /**
-   * @example
-   * 1
-   */
   orderSubStatus?: number;
   orderType?: string;
-  /**
-   * @example
-   * 100
-   */
   payAmount?: number;
-  /**
-   * @example
-   * 1
-   */
   payType?: number;
-  /**
-   * @example
-   * 100
-   */
   personPayAmount?: number;
-  /**
-   * @example
-   * 100
-   */
   personRefundAmount?: number;
-  /**
-   * @example
-   * 100
-   */
+  receiptImageUrls?: string;
   refundAmount?: number;
   sceneName?: string;
-  /**
-   * @example
-   * 1711702782
-   */
   settleTime?: string;
   thirdPartApplyId?: string;
-  /**
-   * @example
-   * 17509140000
-   */
   userAlipayId?: string;
-  /**
-   * @example
-   * 014134681304653773
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101,6 +42,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $dara.Model {
       payType: 'pay_type',
       personPayAmount: 'person_pay_amount',
       personRefundAmount: 'person_refund_amount',
+      receiptImageUrls: 'receipt_image_urls',
       refundAmount: 'refund_amount',
       sceneName: 'scene_name',
       settleTime: 'settle_time',
@@ -127,6 +69,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $dara.Model {
       payType: 'number',
       personPayAmount: 'number',
       personRefundAmount: 'number',
+      receiptImageUrls: 'string',
       refundAmount: 'number',
       sceneName: 'string',
       settleTime: 'string',
@@ -146,34 +89,11 @@ export class MealOrderDetailQueryResponseBodyModule extends $dara.Model {
 }
 
 export class MealOrderDetailQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
-  /**
-   * @example
-   * None
-   */
   message?: string;
   module?: MealOrderDetailQueryResponseBodyModule;
-  /**
-   * @example
-   * 9BCDD5DE-E6CB-5C25-93B9-9BE178A0AA56
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210f079e16603757182131635d866a
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

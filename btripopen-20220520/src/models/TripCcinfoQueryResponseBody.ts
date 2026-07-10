@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TripCCInfoQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * user_12138
-   */
   notifier?: string;
-  /**
-   * @example
-   * 1525104000
-   */
   notifyStartTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -37,34 +29,11 @@ export class TripCCInfoQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TripCCInfoQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module。
-   */
   module?: TripCCInfoQueryResponseBodyModule[];
-  /**
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

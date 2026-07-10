@@ -7,9 +7,6 @@ export class TravelStandardScopeSaveHeaders extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * feth00jqwls
    */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {

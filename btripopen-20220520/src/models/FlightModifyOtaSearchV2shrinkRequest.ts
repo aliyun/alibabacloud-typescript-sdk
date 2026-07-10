@@ -5,32 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class FlightModifyOtaSearchV2ShrinkRequest extends $dara.Model {
   cabinClassShrink?: string;
   depDateShrink?: string;
-  /**
-   * @example
-   * name
-   */
   isvName?: string;
-  /**
-   * @example
-   * 1017002195370467200
-   */
   orderId?: number;
-  /**
-   * @example
-   * 1017002195370467200
-   */
   outOrderId?: string;
   passengerSegmentRelationsShrink?: string;
   selectedSegmentsShrink?: string;
-  /**
-   * @example
-   * 590f17eca9374f20ac7e8ed8a7db2f35
-   */
   sessionId?: string;
-  /**
-   * @example
-   * true
-   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {

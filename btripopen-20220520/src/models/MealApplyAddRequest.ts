@@ -6,9 +6,6 @@ export class MealApplyAddRequestApplyUser extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * userId1
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -33,10 +30,6 @@ export class MealApplyAddRequestApplyUser extends $dara.Model {
 }
 
 export class MealApplyAddRequestItineraryListCities extends $dara.Model {
-  /**
-   * @example
-   * 330702
-   */
   cityCode?: string;
   cityName?: string;
   static names(): { [key: string]: string } {
@@ -71,23 +64,13 @@ export class MealApplyAddRequestItineraryList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2025-02-05 00:00:00
    */
   endDate?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2025-02-05 00:00:00
    */
   startDate?: string;
-  /**
-   * @example
-   * 2134
-   */
   thirdpartItineraryId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,63 +108,33 @@ export class MealApplyAddRequest extends $dara.Model {
    * This parameter is required.
    */
   applyUser?: MealApplyAddRequestApplyUser;
-  /**
-   * @example
-   * 23
-   */
   costCenterId?: number;
   extendField?: string;
-  /**
-   * @example
-   * 123
-   */
   invoiceId?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   itineraryList?: MealApplyAddRequestItineraryList[];
-  /**
-   * @example
-   * 1
-   */
   mealAmount?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   mealCause?: string;
-  /**
-   * @example
-   * project123
-   */
   projectCode?: string;
   projectTitle?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   status?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
   thirdPartApplyId?: string;
-  /**
-   * @example
-   * 1200F00010
-   */
   thirdPartCostCenterId?: string;
-  /**
-   * @example
-   * GA15131
-   */
   thirdPartInvoiceId?: string;
   static names(): { [key: string]: string } {
     return {

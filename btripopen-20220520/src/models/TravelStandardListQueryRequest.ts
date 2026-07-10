@@ -3,25 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TravelStandardListQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   fromGroup?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNo?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 10
    */
   pageSize?: number;
   ruleName?: string;

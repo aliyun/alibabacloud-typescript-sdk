@@ -3,46 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CarOrderListQueryResponseBodyModulePriceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   categoryCode?: number;
-  /**
-   * @example
-   * 1
-   */
   categoryType?: number;
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   gmtCreate?: string;
   passengerName?: string;
-  /**
-   * @example
-   * 1
-   */
   payType?: number;
-  /**
-   * @example
-   * 100
-   */
   personPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   price?: number;
-  /**
-   * @example
-   * 8908076767
-   */
   tradeId?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -82,10 +50,6 @@ export class CarOrderListQueryResponseBodyModulePriceInfoList extends $dara.Mode
 }
 
 export class CarOrderListQueryResponseBodyModuleUserAffiliateList extends $dara.Model {
-  /**
-   * @example
-   * 11342
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -112,117 +76,41 @@ export class CarOrderListQueryResponseBodyModuleUserAffiliateList extends $dara.
 }
 
 export class CarOrderListQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 117429516
-   */
   applyId?: number;
-  /**
-   * @example
-   * 201802031353000525653
-   */
   applyShowId?: string;
   btripTitle?: string;
-  /**
-   * @example
-   * TRAVEL
-   */
   businessCategory?: string;
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   cancelTime?: string;
   carInfo?: string;
-  /**
-   * @example
-   * 1
-   */
   carLevel?: number;
   corpId?: string;
   corpName?: string;
-  /**
-   * @example
-   * 11376
-   */
   costCenterId?: number;
   costCenterName?: string;
-  /**
-   * @example
-   * CT-134JHK
-   */
   costCenterNumber?: string;
   deptId?: number;
   deptName?: string;
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   driverConfirmTime?: string;
-  /**
-   * @example
-   * 100
-   */
   estimatePrice?: number;
   fromAddress?: string;
   fromCityAdCode?: string;
   fromCityName?: string;
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 3615085
-   */
   id?: number;
-  /**
-   * @example
-   * 11876
-   */
   invoiceId?: number;
   invoiceTitle?: string;
-  /**
-   * @example
-   * true
-   */
   isSpecial?: boolean;
   memo?: string;
   orderId?: string;
   orderStatus?: number;
   passengerName?: string;
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   payTime?: string;
   priceInfoList?: CarOrderListQueryResponseBodyModulePriceInfoList[];
-  /**
-   * @example
-   * P- JI87KK
-   */
   projectCode?: string;
-  /**
-   * @example
-   * 11546
-   */
   projectId?: number;
   projectTitle?: string;
-  /**
-   * @example
-   * 2
-   */
   provider?: number;
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   publishTime?: string;
   realFromAddress?: string;
   realFromCityAdCode?: string;
@@ -230,41 +118,17 @@ export class CarOrderListQueryResponseBodyModule extends $dara.Model {
   realToAddress?: string;
   realToCityAdCode?: string;
   realToCityName?: string;
-  /**
-   * @example
-   * 1
-   */
   serviceType?: number;
   specialTypes?: string[];
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   takenTime?: string;
-  /**
-   * @example
-   * CS-OIPK34H
-   */
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
-  /**
-   * @example
-   * CS-112JKDF
-   */
   thirdpartItineraryId?: string;
   toAddress?: string;
   toCityAdCode?: string;
   toCityName?: string;
-  /**
-   * @example
-   * 1.2
-   */
   travelDistance?: number;
   userAffiliateList?: CarOrderListQueryResponseBodyModuleUserAffiliateList[];
-  /**
-   * @example
-   * 1
-   */
   userConfirm?: number;
   userId?: string;
   userName?: string;
@@ -409,20 +273,8 @@ export class CarOrderListQueryResponseBodyModule extends $dara.Model {
 }
 
 export class CarOrderListQueryResponseBodyPageInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   page?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 1000
-   */
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -450,31 +302,12 @@ export class CarOrderListQueryResponseBodyPageInfo extends $dara.Model {
 }
 
 export class CarOrderListQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: CarOrderListQueryResponseBodyModule[];
   pageInfo?: CarOrderListQueryResponseBodyPageInfo;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

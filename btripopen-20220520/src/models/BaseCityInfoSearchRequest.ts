@@ -12,9 +12,6 @@ export class BaseCityInfoSearchRequest extends $dara.Model {
    * @remarks
    * This parameter is required.
    * 
-   * @example
-   * 0
-   * 
    * **if can be null:**
    * false
    */

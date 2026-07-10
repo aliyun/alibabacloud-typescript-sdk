@@ -38,21 +38,9 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleAttributes extends $dara
 }
 
 export class FlightModifyOrderDetailV2ResponseBodyModuleContactInfoDTO extends $dara.Model {
-  /**
-   * @example
-   * 17816963077@163.com
-   */
   contactEmail?: string;
   contactName?: string;
-  /**
-   * @example
-   * 17816963077
-   */
   contactPhone?: string;
-  /**
-   * @example
-   * false
-   */
   sendMsgToPassenger?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -120,15 +108,7 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOSFlight
 }
 
 export class FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOSSegmentPosition extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -154,81 +134,33 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOSSegmen
 }
 
 export class FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOS extends $dara.Model {
-  /**
-   * @example
-   * MU
-   */
   airlineCode?: string;
   airlineIconUrl?: string;
   airlineName?: string;
-  /**
-   * @example
-   * HGH
-   */
   arrAirportCode?: string;
   arrAirportName?: string;
-  /**
-   * @example
-   * HGH
-   */
   arrCityCode?: string;
   arrCityName?: string;
   arrTerminal?: string;
-  /**
-   * @example
-   * 2023-10-03 09:30:00
-   */
   arrTime?: string;
-  /**
-   * @example
-   * Y
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   cabinClassName?: string;
-  /**
-   * @example
-   * 10
-   */
   cabinDiscount?: number;
   carrierAirlineCode?: string;
   carrierAirlineIconUrl?: string;
   carrierAirlineName?: string;
   carrierFlightNo?: string;
-  /**
-   * @example
-   * PKX
-   */
   depAirportCode?: string;
   depAirportName?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
   depCityName?: string;
   depTerminal?: string;
-  /**
-   * @example
-   * 2023-10-03 07:30:00
-   */
   depTime?: string;
   flightChange?: FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOSFlightChange;
-  /**
-   * @example
-   * MU5193
-   */
   flightNo?: string;
   flightType?: string;
   mealDesc?: string;
-  /**
-   * @example
-   * 1194012
-   */
   segmentIId?: string;
   segmentPosition?: FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOSSegmentPosition;
   stopArrTime?: string;
@@ -353,48 +285,16 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFe
 }
 
 export class FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOS extends $dara.Model {
-  /**
-   * @example
-   * 2000-08-19
-   */
   birthDate?: string;
-  /**
-   * @example
-   * 430131413423435353
-   */
   certNo?: string;
-  /**
-   * @example
-   * 0
-   */
   certType?: number;
   changeFee?: FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFee;
-  /**
-   * @example
-   * 1
-   */
   gender?: number;
   originTicketNos?: string[];
-  /**
-   * @example
-   * 12172819047252004460056
-   */
   passengerId?: string;
   passengerName?: string;
-  /**
-   * @example
-   * 0
-   */
   passengerType?: number;
-  /**
-   * @example
-   * 17635462345
-   */
   phone?: string;
-  /**
-   * @example
-   * 3243028
-   */
   pid?: number;
   ticketNoSegmentMap?: { [key: string]: any };
   ticketNos?: string[];
@@ -456,76 +356,24 @@ export class FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOS extends
 }
 
 export class FlightModifyOrderDetailV2ResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 2023-08-14 11:28:01
-   */
   applyTime?: string;
   attributes?: FlightModifyOrderDetailV2ResponseBodyModuleAttributes;
-  /**
-   * @example
-   * 17635462345@163.com
-   */
   bookUserEmail?: string;
   bookUserName?: string;
-  /**
-   * @example
-   * 17635462345
-   */
   bookuserPhone?: string;
   changeFailReason?: string;
   contactInfoDTO?: FlightModifyOrderDetailV2ResponseBodyModuleContactInfoDTO;
   destFlightInfoDTOS?: FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOS[];
-  /**
-   * @example
-   * 2023-08-14 11:48:01
-   */
   lastPayTime?: string;
-  /**
-   * @example
-   * 1017124195788186048
-   */
   orderId?: number;
-  /**
-   * @example
-   * 1017124195788186048
-   */
   outOrderId?: string;
-  /**
-   * @example
-   * 1019195836916029
-   */
   outSubOrderId?: string;
-  /**
-   * @example
-   * 2023-08-14 11:38:01
-   */
   payTime?: string;
   reason?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 1019195836916029
-   */
   subOrderId?: number;
-  /**
-   * @example
-   * 2023-08-19 15:24:08
-   */
   ticketTime?: string;
-  /**
-   * @example
-   * 100
-   */
   totalPrice?: number;
-  /**
-   * @example
-   * 0
-   */
   totalServiceFeePrice?: number;
   travelerInfoDTOS?: FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOS[];
   static names(): { [key: string]: string } {
@@ -600,37 +448,11 @@ export class FlightModifyOrderDetailV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightModifyOrderDetailV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: FlightModifyOrderDetailV2ResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210bc2dc16839612026565712dcbe6
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

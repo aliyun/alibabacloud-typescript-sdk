@@ -6,17 +6,11 @@ export class TravelStandardQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * false
    */
   fromGroup?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2006523763
    */
   ruleCode?: number;
   /**

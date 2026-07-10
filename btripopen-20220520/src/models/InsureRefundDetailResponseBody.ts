@@ -4,20 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class InsureRefundDetailResponseBodyModuleInsureOrderApplicant extends $dara.Model {
   certName?: string;
-  /**
-   * @example
-   * 300000000000000001
-   */
   certNo?: string;
-  /**
-   * @example
-   * 102
-   */
   certType?: string;
-  /**
-   * @example
-   * 10000000
-   */
   phone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,50 +36,14 @@ export class InsureRefundDetailResponseBodyModuleInsureOrderApplicant extends $d
 
 export class InsureRefundDetailResponseBodyModuleInsureOrder extends $dara.Model {
   applicant?: InsureRefundDetailResponseBodyModuleInsureOrderApplicant;
-  /**
-   * @example
-   * 5142701029379
-   */
   bizOrderId?: string;
-  /**
-   * @example
-   * 1
-   */
   bizType?: number;
-  /**
-   * @example
-   * 2023-04-11T21:21Z
-   */
   closeTime?: string;
-  /**
-   * @example
-   * 100000000001
-   */
   insOrderId?: string;
-  /**
-   * @example
-   * 200300333333
-   */
   outInsOrderId?: string;
-  /**
-   * @example
-   * 2023-04-11T21:21Z
-   */
   payTime?: string;
-  /**
-   * @example
-   * 83000
-   */
   price?: number;
-  /**
-   * @example
-   * 4
-   */
   settleType?: number;
-  /**
-   * @example
-   * PAID
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -136,42 +88,14 @@ export class InsureRefundDetailResponseBodyModuleInsureOrder extends $dara.Model
 }
 
 export class InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment extends $dara.Model {
-  /**
-   * @example
-   * WHA
-   */
   arrAirportCode?: string;
   arrCity?: string;
-  /**
-   * @example
-   * YTY
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * 2023-05-27 23:00:00
-   */
   arrTime?: string;
-  /**
-   * @example
-   * NGB
-   */
   depAirportCode?: string;
   depCity?: string;
-  /**
-   * @example
-   * NGB
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * 2023-05-27 20:30:00
-   */
   depTime?: string;
-  /**
-   * @example
-   * CZ3501
-   */
   flightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -211,36 +135,12 @@ export class InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment
 }
 
 export class InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured extends $dara.Model {
-  /**
-   * @example
-   * 1996-07-25
-   */
   birthday?: string;
-  /**
-   * @example
-   * 10000001
-   */
   btripUserId?: string;
   certName?: string;
-  /**
-   * @example
-   * 300000000000000000
-   */
   certNo?: string;
-  /**
-   * @example
-   * 102
-   */
   certType?: string;
-  /**
-   * @example
-   * F
-   */
   gender?: string;
-  /**
-   * @example
-   * 1000000
-   */
   phone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -276,68 +176,20 @@ export class InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured exten
 }
 
 export class InsureRefundDetailResponseBodyModuleSubOrderRefundList extends $dara.Model {
-  /**
-   * @example
-   * 2023-04-17T20:25Z
-   */
   effectiveEndTime?: string;
-  /**
-   * @example
-   * 2023-04-17T20:25Z
-   */
   effectiveStartTime?: string;
   insureSegment?: InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment;
-  /**
-   * @example
-   * 2023-04-17T20:07Z
-   */
   insureTime?: string;
   insured?: InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured;
-  /**
-   * @example
-   * OUT123333444
-   */
   outSubInsOrderId?: string;
-  /**
-   * @example
-   * T230411000000140183629
-   */
   policyNo?: string;
-  /**
-   * @example
-   * 1024194640018002
-   */
   policyRefundNo?: string;
-  /**
-   * @example
-   * 73000
-   */
   price?: number;
   productName?: string;
-  /**
-   * @example
-   * 008801.accident.flight.104000
-   */
   productNo?: string;
-  /**
-   * @example
-   * REFUND_SUCCESS
-   */
   refundStatus?: string;
-  /**
-   * @example
-   * 2023-04-17T20:25Z
-   */
   refundTime?: string;
-  /**
-   * @example
-   * REFUND_SUCCESS
-   */
   status?: string;
-  /**
-   * @example
-   * s1231231344
-   */
   subInsOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -395,31 +247,11 @@ export class InsureRefundDetailResponseBodyModuleSubOrderRefundList extends $dar
 }
 
 export class InsureRefundDetailResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 1423050918202760437
-   */
   applyId?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-07-04T16:13Z
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 100000000001
-   */
   insOrderId?: string;
   insureOrder?: InsureRefundDetailResponseBodyModuleInsureOrder;
-  /**
-   * @example
-   * 23102301010
-   */
   outApplyId?: string;
   subOrderRefundList?: InsureRefundDetailResponseBodyModuleSubOrderRefundList[];
   static names(): { [key: string]: string } {
@@ -462,27 +294,11 @@ export class InsureRefundDetailResponseBodyModule extends $dara.Model {
 }
 
 export class InsureRefundDetailResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: InsureRefundDetailResponseBodyModule;
-  /**
-   * @example
-   * 2103a75b16843756660655464d56a9
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210bc44e16818128994413918de6c1
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

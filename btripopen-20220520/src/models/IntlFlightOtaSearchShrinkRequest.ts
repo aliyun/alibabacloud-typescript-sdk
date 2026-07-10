@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightOtaSearchShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 10023
-   */
   btripUserId?: string;
   buyerName?: string;
-  /**
-   * @example
-   * 0
-   */
   cabinType?: number;
-  /**
-   * @example
-   * open12igetbis4o07v10B1TlOWcM00
-   */
   isvName?: string;
   /**
    * @remarks
@@ -28,9 +16,6 @@ export class IntlFlightOtaSearchShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   tripType?: number;
   static names(): { [key: string]: string } {

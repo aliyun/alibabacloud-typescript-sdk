@@ -3,31 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainStopoverSearchResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   arrTime?: string;
-  /**
-   * @example
-   * 2024-05-06 15:19:01
-   */
   depTime?: string;
   stationName?: string;
-  /**
-   * @example
-   * 0
-   */
   stationNo?: string;
-  /**
-   * @example
-   * 0
-   */
   stationType?: string;
-  /**
-   * @example
-   * 22
-   */
   stopOverTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,34 +41,11 @@ export class TrainStopoverSearchResponseBodyModule extends $dara.Model {
 }
 
 export class TrainStopoverSearchResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: TrainStopoverSearchResponseBodyModule[];
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

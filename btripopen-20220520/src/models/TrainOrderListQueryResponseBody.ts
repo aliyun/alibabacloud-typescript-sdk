@@ -4,16 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class TrainOrderListQueryResponseBodyModuleCostCenter extends $dara.Model {
   corpId?: string;
-  /**
-   * @example
-   * 11643
-   */
   id?: number;
   name?: string;
-  /**
-   * @example
-   * CS112234
-   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,10 +35,6 @@ export class TrainOrderListQueryResponseBodyModuleCostCenter extends $dara.Model
 }
 
 export class TrainOrderListQueryResponseBodyModuleInvoice extends $dara.Model {
-  /**
-   * @example
-   * 11324
-   */
   id?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -73,64 +61,20 @@ export class TrainOrderListQueryResponseBodyModuleInvoice extends $dara.Model {
 }
 
 export class TrainOrderListQueryResponseBodyModulePriceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   categoryCode?: number;
-  /**
-   * @example
-   * 1
-   */
   categoryType?: number;
   endCity?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   endTime?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * CS-663
-   */
   originalTrainNo?: string;
   passengerName?: string;
-  /**
-   * @example
-   * 1
-   */
   payType?: number;
-  /**
-   * @example
-   * 100
-   */
   price?: number;
   seatType?: string;
   startCity?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   startTime?: string;
-  /**
-   * @example
-   * cs1165734212
-   */
   tradeId?: string;
-  /**
-   * @example
-   * Z1521
-   */
   trainNo?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -208,18 +152,10 @@ export class TrainOrderListQueryResponseBodyModuleUserAffiliateList extends $dar
 }
 
 export class TrainOrderListQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 11367
-   */
   applyId?: number;
   arrCity?: string;
   arrCityAdCode?: string;
   arrStation?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   arrTime?: string;
   btripTitle?: string;
   contactName?: string;
@@ -229,83 +165,27 @@ export class TrainOrderListQueryResponseBodyModule extends $dara.Model {
   depCity?: string;
   depCityAdCode?: string;
   depStation?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   depTime?: string;
   departId?: string;
   departName?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 1478652
-   */
   id?: number;
   invoice?: TrainOrderListQueryResponseBodyModuleInvoice;
   priceInfoList?: TrainOrderListQueryResponseBodyModulePriceInfoList[];
-  /**
-   * @example
-   * PCXIDF
-   */
   projectCode?: string;
-  /**
-   * @example
-   * 12425
-   */
   projectId?: number;
   projectTitle?: string;
   riderName?: string;
-  /**
-   * @example
-   * 100
-   */
   runTime?: string;
   seatType?: string;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   thirdPartBusinessId?: string;
-  /**
-   * @example
-   * CS-SKPFDS
-   */
   thirdPartProjectId?: string;
-  /**
-   * @example
-   * CSIODJUSN
-   */
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * CS-IT89D
-   */
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * 1
-   */
   ticketCount?: number;
-  /**
-   * @example
-   * CS-663
-   */
   ticketNo12306?: string;
-  /**
-   * @example
-   * CS-663
-   */
   trainNumber?: string;
   trainType?: string;
   userAffiliateList?: TrainOrderListQueryResponseBodyModuleUserAffiliateList[];
@@ -421,20 +301,8 @@ export class TrainOrderListQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TrainOrderListQueryResponseBodyPageInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   page?: number;
-  /**
-   * @example
-   * 50
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 100
-   */
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -462,28 +330,12 @@ export class TrainOrderListQueryResponseBodyPageInfo extends $dara.Model {
 }
 
 export class TrainOrderListQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: TrainOrderListQueryResponseBodyModule[];
   pageInfo?: TrainOrderListQueryResponseBodyPageInfo;
-  /**
-   * @example
-   * F93C3EBD-17BE-5FE6-BF06-96A6F1AC8DC5
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,33 +6,21 @@ export class TrainOrderCreateRequestBookTrainInfosBookTicketInfos extends $dara.
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   passengerId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 14
    */
   seatType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   ticketPrice?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   ticketType?: string;
   static names(): { [key: string]: string } {
@@ -66,9 +54,6 @@ export class TrainOrderCreateRequestBookTrainInfos extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * BDC
    */
   arrStationCode?: string;
   /**
@@ -76,38 +61,21 @@ export class TrainOrderCreateRequestBookTrainInfos extends $dara.Model {
    * This parameter is required.
    */
   bookTicketInfos?: TrainOrderCreateRequestBookTrainInfosBookTicketInfos[];
-  /**
-   * @example
-   * 1T
-   */
   chooseBeds?: string;
-  /**
-   * @example
-   * 1T
-   */
   chooseSeats?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * BTC
    */
   depStationCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2024-05-06 15:19:01
    */
   depTime?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * K123456
    */
   trainNo?: string;
   static names(): { [key: string]: string } {
@@ -147,15 +115,7 @@ export class TrainOrderCreateRequestBookTrainInfos extends $dara.Model {
 }
 
 export class TrainOrderCreateRequestBusinessInfo extends $dara.Model {
-  /**
-   * @example
-   * 4321
-   */
   customerApplyId?: string;
-  /**
-   * @example
-   * 1234
-   */
   customerItineraryId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -184,25 +144,16 @@ export class TrainOrderCreateRequestContactInfo extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   passengerId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * b6a6fc1bdf1ba60e25c2e132b612c8819
    */
   passengerMobile?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 949c9f34f677a0e5d249dfc94f5e62cc7
    */
   passengerName?: string;
   static names(): { [key: string]: string } {
@@ -232,33 +183,13 @@ export class TrainOrderCreateRequestContactInfo extends $dara.Model {
 
 export class TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo extends $dara.Model {
   cascadeDeptName?: string;
-  /**
-   * @example
-   * 123321
-   */
   costCenterId?: string;
   costCenterName?: string;
-  /**
-   * @example
-   * 12332112344
-   */
   costCenterNo?: string;
-  /**
-   * @example
-   * 010000009
-   */
   departId?: string;
   departName?: string;
-  /**
-   * @example
-   * 111111
-   */
   invoiceId?: string;
   invoiceTitle?: string;
-  /**
-   * @example
-   * acs
-   */
   projectCode?: string;
   projectTitle?: string;
   static names(): { [key: string]: string } {
@@ -302,52 +233,28 @@ export class TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo extends $da
 
 export class TrainOrderCreateRequestPassengerOpenInfoS extends $dara.Model {
   costCenterInfo?: TrainOrderCreateRequestPassengerOpenInfoSCostCenterInfo;
-  /**
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
-   */
   countryCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
    */
   passengerCertNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 949c9f34f677a0e5d249dfc94f5e62cc7
    */
   passengerCertType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   passengerId?: string;
-  /**
-   * @example
-   * b6a6fc1bdf1ba60e25c2e132b612c8819
-   */
   passengerMobile?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 949c9f34f677a0e5d249dfc94f5e62cc7
    */
   passengerName?: string;
-  /**
-   * @example
-   * 291487e553c5abde3b611aae283e2526f0d733ab55094aadc0b5ba587222a233c
-   */
   validDateEnd?: string;
   static names(): { [key: string]: string } {
     return {
@@ -388,10 +295,6 @@ export class TrainOrderCreateRequestPassengerOpenInfoS extends $dara.Model {
 }
 
 export class TrainOrderCreateRequest extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   acceptNoSeat?: string;
   /**
    * @remarks
@@ -401,9 +304,6 @@ export class TrainOrderCreateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12344321
    */
   btripUserId?: string;
   /**
@@ -417,22 +317,11 @@ export class TrainOrderCreateRequest extends $dara.Model {
    * This parameter is required.
    */
   contactInfo?: TrainOrderCreateRequestContactInfo;
-  /**
-   * @example
-   * 0
-   */
   forceMatch?: string;
-  /**
-   * @example
-   * false
-   */
   isPayNow?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456
    */
   outOrderId?: string;
   /**

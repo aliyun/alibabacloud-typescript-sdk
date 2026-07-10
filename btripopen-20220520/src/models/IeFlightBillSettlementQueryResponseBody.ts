@@ -4,350 +4,123 @@ import * as $dara from '@darabonba/typescript';
 
 export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara.Model {
   adjustTime?: string;
-  /**
-   * @example
-   * 1
-   */
   advanceDay?: number;
-  /**
-   * @example
-   * MU
-   */
   airlineCorpCode?: string;
   airlineCorpName?: string;
-  /**
-   * @example
-   * 2021123432260
-   */
   alipayTradeNo?: string;
   applyArrCityCode?: string;
   applyArrCityName?: string;
   applyDepCityCode?: string;
   applyDepCityName?: string;
-  /**
-   * @remarks
-   * 审批扩展自定义字段
-   */
   applyExtendField?: string;
-  /**
-   * @example
-   * 103189557
-   */
   applyId?: string;
   approverEmail?: string;
   approverId?: string;
   approverName?: string;
-  /**
-   * @example
-   * CAN
-   */
   arrAirportCode?: string;
   arrCity?: string;
   arrCityCode?: string;
   arrCountry?: string;
   arrCountryCode?: string;
-  /**
-   * @example
-   * 2021-10-02
-   */
   arrDate?: string;
   arrStation?: string;
-  /**
-   * @example
-   * 13:30:00
-   */
   arrTime?: string;
   baseLocation?: string;
-  /**
-   * @example
-   * 2020-12-23T20:18Z
-   */
   billRecordTime?: string;
   bookMode?: string;
-  /**
-   * @example
-   * 2021-10-01 00:17:05
-   */
   bookTime?: string;
-  /**
-   * @example
-   * al_xinuan.zsy
-   */
   bookerId?: string;
-  /**
-   * @example
-   * 70022164
-   */
   bookerJobNo?: string;
   bookerName?: string;
-  /**
-   * @example
-   * 23.9
-   */
   btripCouponFee?: number;
   businessTripResult?: string;
-  /**
-   * @example
-   * R
-   */
   cabin?: string;
   cabinClass?: string;
-  /**
-   * @example
-   * 1
-   */
   capitalDirection?: string;
   cascadeDepartment?: string;
   categoryDesc?: string;
-  /**
-   * @example
-   * 23.0
-   */
   changeFee?: number;
   changeResult?: string;
-  /**
-   * @example
-   * 460
-   */
   corpPayOrderFee?: number;
   costCenter?: string;
-  /**
-   * @example
-   * 8b7f3cd-24324-097
-   */
   costCenterNumber?: string;
   costDepartment?: string;
-  /**
-   * @example
-   * 1
-   */
   coupon?: number;
   customContent?: string;
   deductibleTax?: number;
-  /**
-   * @example
-   * KHN
-   */
   depAirportCode?: string;
   depCityCode?: string;
   depCountry?: string;
   depCountryCode?: string;
   department?: string;
-  /**
-   * @example
-   * 2345866
-   */
   departmentId?: string;
   deptCity?: string;
-  /**
-   * @example
-   * 2021-10-02
-   */
   deptDate?: string;
   deptStation?: string;
-  /**
-   * @example
-   * 12:00:00
-   */
   deptTime?: string;
-  /**
-   * @example
-   * 51%
-   */
   discount?: string;
   exceedReason?: string;
-  /**
-   * @example
-   * 20101
-   */
   feeType?: string;
   feeTypeDesc?: string;
-  /**
-   * @example
-   * MU9684
-   */
   flightNo?: string;
   foreignersTag?: string;
-  /**
-   * @example
-   * 4564547
-   */
   index?: string;
   insOrderId?: string;
-  /**
-   * @example
-   * 23.9
-   */
   insuranceFee?: number;
-  /**
-   * @example
-   * 15548214852
-   */
   insuranceNumber?: string;
   insuranceProductName?: string;
   invoiceTitle?: string;
   location?: string;
   mappingCompanyCode?: string;
-  /**
-   * @example
-   * 2021-10-01 00:17:13
-   */
   mostDifferenceDeptTime?: string;
-  /**
-   * @example
-   * 23%
-   */
   mostDifferenceDiscount?: string;
-  /**
-   * @example
-   * MU9684
-   */
   mostDifferenceFlightNo?: string;
-  /**
-   * @example
-   * 23.9
-   */
   mostDifferencePrice?: number;
   mostDifferenceReason?: string;
-  /**
-   * @example
-   * 23.9
-   */
   mostPrice?: number;
-  /**
-   * @example
-   * 23.9
-   */
   negotiationCouponFee?: number;
-  /**
-   * @example
-   * 234223423423
-   */
   orderId?: string;
-  /**
-   * @example
-   * null
-   */
   orderStatusDesc?: string;
-  /**
-   * @example
-   * 234324324423
-   */
   overApplyId?: string;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
   position?: string;
   positionLevel?: string;
-  /**
-   * @example
-   * 4564547
-   */
   primaryId?: number;
   processorOaCode?: string;
-  /**
-   * @example
-   * 23423432423
-   */
   projectCode?: string;
   projectName?: string;
   refundChangeCost?: number;
-  /**
-   * @example
-   * 23.9
-   */
   refundFee?: number;
   refundResult?: string;
   remark?: string;
   repeatRefund?: string;
-  /**
-   * @example
-   * 410
-   */
   sealPrice?: number;
   segmentList?: string;
   segmentType?: string;
-  /**
-   * @example
-   * 23.9
-   */
   serviceFee?: number;
   settleTypeDesc?: string;
-  /**
-   * @example
-   * 350
-   */
   settlementFee?: number;
-  /**
-   * @example
-   * 6.11
-   */
   settlementGrantFee?: number;
-  /**
-   * @example
-   * 2021-10-08 23:39:01
-   */
   settlementTime?: string;
-  /**
-   * @example
-   * 4
-   */
   settlementType?: string;
   sio?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * 123123232
-   */
   subOrderId?: string;
-  /**
-   * @example
-   * 125.6
-   */
   taxFee?: number;
-  /**
-   * @remarks
-   * 税率
-   * 
-   * @example
-   * 6%
-   */
   taxRate?: string;
   thirdItineraryId?: string;
-  /**
-   * @example
-   * 781-6586234234324
-   */
   ticketId?: string;
-  /**
-   * @example
-   * CAN-KUL-BKK
-   */
   trade?: string;
   tradeActionDesc?: string;
   travelerEmail?: string;
-  /**
-   * @example
-   * 54463464
-   */
   travelerId?: string;
-  /**
-   * @example
-   * 326246
-   */
   travelerJobNo?: string;
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
   tripType?: number;
-  /**
-   * @example
-   * 11
-   */
   voucherType?: number;
   voucherTypeDesc?: string;
   voyageName?: string;
@@ -613,32 +386,12 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
 }
 
 export class IeFlightBillSettlementQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 11
-   */
   category?: number;
-  /**
-   * @example
-   * corp1
-   */
   corpId?: string;
   dataList?: IeFlightBillSettlementQueryResponseBodyModuleDataList[];
-  /**
-   * @example
-   * 2021-10-14
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2021-10-13
-   */
   periodStart?: string;
   scrollId?: string;
-  /**
-   * @example
-   * 1402
-   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -677,32 +430,12 @@ export class IeFlightBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class IeFlightBillSettlementQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: IeFlightBillSettlementQueryResponseBodyModule;
-  /**
-   * @example
-   * true
-   */
   morePage?: boolean;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210e842b16611337974412836dae27
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

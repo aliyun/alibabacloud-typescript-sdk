@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingCancelResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 0000-00-00 00:00:00
-   */
   cancelTime?: string;
-  /**
-   * @example
-   * mid1243
-   */
   disSubOrderId?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -40,27 +32,11 @@ export class TicketChangingCancelResponseBodyModule extends $dara.Model {
 }
 
 export class TicketChangingCancelResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: TicketChangingCancelResponseBodyModule;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210f079e16603757182131635d866a
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

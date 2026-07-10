@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CostCenterQueryResponseBodyModuleEntityDOS extends $dara.Model {
-  /**
-   * @example
-   * ding1234567
-   */
   corpId?: string;
-  /**
-   * @example
-   * 12345
-   */
   entityId?: string;
-  /**
-   * @example
-   * 1
-   */
   entityType?: string;
-  /**
-   * @example
-   * default_bus
-   */
   name?: string;
-  /**
-   * @example
-   * 10
-   */
   userNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,45 +38,14 @@ export class CostCenterQueryResponseBodyModuleEntityDOS extends $dara.Model {
 }
 
 export class CostCenterQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * a@alipay.com
-   */
   alipayNo?: string;
-  /**
-   * @example
-   * ding12345678
-   */
   corpId?: string;
   disable?: number;
   entityDOS?: CostCenterQueryResponseBodyModuleEntityDOS[];
-  /**
-   * @example
-   * 7232
-   */
   id?: number;
-  /**
-   * @example
-   * 123456
-   */
   number?: string;
-  /**
-   * @remarks
-   * rule code
-   * 
-   * @example
-   * 500578154
-   */
   ruleCode?: number;
-  /**
-   * @example
-   * 1
-   */
   scope?: number;
-  /**
-   * @example
-   * 1
-   */
   thirdpartId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -142,35 +91,12 @@ export class CostCenterQueryResponseBodyModule extends $dara.Model {
 }
 
 export class CostCenterQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: CostCenterQueryResponseBodyModule[];
-  /**
-   * @example
-   * true
-   */
   morePage?: boolean;
-  /**
-   * @example
-   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

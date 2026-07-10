@@ -29,51 +29,15 @@ export class AddEmployeeRequestBaseLocationList extends $dara.Model {
 }
 
 export class AddEmployeeRequestCertList extends $dara.Model {
-  /**
-   * @example
-   * 2000-01-02
-   */
   birthday?: string;
-  /**
-   * @example
-   * 2099-03-12
-   */
   certExpiredTime?: string;
-  /**
-   * @example
-   * CN
-   */
   certNation?: string;
-  /**
-   * @example
-   * 123
-   */
   certNo?: string;
-  /**
-   * @example
-   * 0
-   */
   certType?: number;
-  /**
-   * @example
-   * F
-   */
   gender?: string;
-  /**
-   * @example
-   * CN
-   */
   nationality?: string;
-  /**
-   * @example
-   * 13111111111
-   */
   phone?: string;
   realName?: string;
-  /**
-   * @example
-   * John/Wilson
-   */
   realNameEn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -118,83 +82,28 @@ export class AddEmployeeRequest extends $dara.Model {
   accountEmail?: string;
   accountPhone?: string;
   attribute?: string;
-  /**
-   * @example
-   * https://static-legacy.dingtalk.com/media/lADPF8XMoxJeUkbNA2LNA5s_923_866.jpg
-   */
   avatar?: string;
   baseCityCodeList?: string[];
   baseLocationList?: AddEmployeeRequestBaseLocationList[];
-  /**
-   * @example
-   * 2000-01-02
-   */
   birthday?: string;
   certList?: AddEmployeeRequestCertList[];
   customRoleCodeList?: string[];
-  /**
-   * @example
-   * 123@163.com
-   */
   email?: string;
-  /**
-   * @example
-   * F
-   */
   gender?: string;
-  /**
-   * @example
-   * false
-   */
   isAdmin?: boolean;
-  /**
-   * @example
-   * false
-   */
   isBoss?: boolean;
-  /**
-   * @example
-   * false
-   */
   isDeptLeader?: boolean;
-  /**
-   * @example
-   * 1001
-   */
   jobNo?: string;
-  /**
-   * @example
-   * user456
-   */
   managerUserId?: string;
   outDeptIdList?: string[];
-  /**
-   * @example
-   * 13111111111
-   */
   phone?: string;
-  /**
-   * @example
-   * M4
-   */
   positionLevel?: string;
   realName?: string;
-  /**
-   * @example
-   * John/Wilson
-   */
   realNameEn?: string;
-  /**
-   * @example
-   * union123
-   */
   unionId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * user123
    */
   userId?: string;
   /**

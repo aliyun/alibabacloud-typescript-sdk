@@ -3,36 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExternalUserUpdateRequestCertRequestList extends $dara.Model {
-  /**
-   * @example
-   * 2034-10-01
-   */
   certExpiredTime?: string;
-  /**
-   * @example
-   * CN
-   */
   certNation?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 330101199010010213
    */
   certNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   certType?: number;
-  /**
-   * @example
-   * CN
-   */
   nationality?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,27 +46,11 @@ export class ExternalUserUpdateRequestCertRequestList extends $dara.Model {
 }
 
 export class ExternalUserUpdateRequest extends $dara.Model {
-  /**
-   * @example
-   * 2000-01-02
-   */
   birthday?: string;
   certRequestList?: ExternalUserUpdateRequestCertRequestList[];
-  /**
-   * @example
-   * zhangsan@alibaba-inc.com
-   */
   email?: string;
-  /**
-   * @example
-   * 13438009765
-   */
   phone?: string;
   realName?: string;
-  /**
-   * @example
-   * zhang/san
-   */
   realNameEn?: string;
   static names(): { [key: string]: string } {
     return {

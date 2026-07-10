@@ -6,17 +6,11 @@ export class TrainOrderDetailQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2083528200659337994
    */
   orderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 3703190607180169216
    */
   outOrderId?: string;
   static names(): { [key: string]: string } {

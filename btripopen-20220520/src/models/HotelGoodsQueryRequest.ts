@@ -3,77 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelGoodsQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   adultNum?: string;
-  /**
-   * @example
-   * false
-   */
   agreementPrice?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-02-27
    */
   beginDate?: string;
-  /**
-   * @example
-   * false
-   */
   breakfastIncluded?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 100
    */
   btripUserId?: string;
-  /**
-   * @example
-   * 330100
-   */
   cityCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2023-02-28
    */
   endDate?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 182873
    */
   hotelId?: string;
-  /**
-   * @example
-   * 0
-   */
   payOverType?: number;
-  /**
-   * @example
-   * 0
-   */
   paymentType?: number;
-  /**
-   * @example
-   * false
-   */
   specialInvoice?: boolean;
-  /**
-   * @example
-   * 0
-   */
   superMan?: number;
   static names(): { [key: string]: string } {
     return {

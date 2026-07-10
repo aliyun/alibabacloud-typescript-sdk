@@ -3,52 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderListQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   allApply?: boolean;
-  /**
-   * @example
-   * 165782
-   */
   applyId?: number;
   category?: number;
   departId?: string;
-  /**
-   * @example
-   * 2022-07-01 00:00:00
-   */
   endTime?: string;
-  /**
-   * @example
-   * 1
-   */
   page?: number;
-  /**
-   * @example
-   * 50
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 2022-07-01 00:00:00
-   */
   startTime?: string;
-  /**
-   * @example
-   * CS154JKOI
-   */
   thirdpartApplyId?: string;
-  /**
-   * @example
-   * 2022-07-01 00:00:00
-   */
   updateEndTime?: string;
-  /**
-   * @example
-   * 2022-07-01 00:00:00
-   */
   updateStartTime?: string;
   userId?: string;
   static names(): { [key: string]: string } {

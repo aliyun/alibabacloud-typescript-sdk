@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightRefundApplyResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 2025011317110900006
-   */
   outRefundApplyId?: string;
-  /**
-   * @example
-   * 1000000005186043
-   */
   refundApplyId?: string;
   static names(): { [key: string]: string } {
     return {

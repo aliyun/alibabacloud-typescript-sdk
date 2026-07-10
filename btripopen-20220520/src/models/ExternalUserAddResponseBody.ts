@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExternalUserAddResponseBody extends $dara.Model {
-  /**
-   * @example
-   * success
-   */
   code?: string;
   message?: string;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 210f079416784321627628333de4ab
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

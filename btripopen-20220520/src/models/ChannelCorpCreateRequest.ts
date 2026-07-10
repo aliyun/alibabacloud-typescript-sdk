@@ -3,46 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChannelCorpCreateRequest extends $dara.Model {
+  administratorEmail?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   administratorName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 18378889782
-   */
   administratorPhone?: string;
+  baseCurrency?: string;
+  btripRegion?: string;
   city?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   corpName?: string;
+  corpNameEn?: string;
+  extendField?: string;
   province?: string;
-  /**
-   * @example
-   * 1
-   */
   scope?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 00001
    */
   thirdCorpId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      administratorEmail: 'administrator_email',
       administratorName: 'administrator_name',
       administratorPhone: 'administrator_phone',
+      baseCurrency: 'base_currency',
+      btripRegion: 'btrip_region',
       city: 'city',
       corpName: 'corp_name',
+      corpNameEn: 'corp_name_en',
+      extendField: 'extend_field',
       province: 'province',
       scope: 'scope',
       thirdCorpId: 'third_corp_id',
@@ -52,10 +48,15 @@ export class ChannelCorpCreateRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      administratorEmail: 'string',
       administratorName: 'string',
       administratorPhone: 'string',
+      baseCurrency: 'string',
+      btripRegion: 'string',
       city: 'string',
       corpName: 'string',
+      corpNameEn: 'string',
+      extendField: 'string',
       province: 'string',
       scope: 'number',
       thirdCorpId: 'string',

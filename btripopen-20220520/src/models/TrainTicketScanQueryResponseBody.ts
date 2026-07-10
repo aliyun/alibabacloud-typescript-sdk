@@ -5,85 +5,35 @@ import * as $dara from '@darabonba/typescript';
 export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
   applyId?: string;
   arrStation?: string;
-  /**
-   * @example
-   * 2022-12-01
-   */
   billDate?: string;
   coachName?: string;
   costCenter?: string;
   depStation?: string;
-  /**
-   * @example
-   * 2023-01-12 10:00:00
-   */
   depTime?: string;
   department?: string;
   electronicTicketNo?: string;
   feeTypeShowCode?: number;
   hasChanged?: boolean;
-  /**
-   * @example
-   * 71
-   */
   id?: string;
   invoiceDate?: string;
   invoiceMaterial?: number;
   invoiceTitle?: string;
   ofdUrl?: string;
-  /**
-   * @example
-   * 3137168772101111000
-   */
   orderId?: number;
   originTicketNo?: string;
-  /**
-   * @example
-   * https://www.testurl.com
-   */
   ossUrl?: string;
   passenger?: string;
   pdfUrl?: string;
-  /**
-   * @example
-   * 100
-   */
   price?: string;
   project?: string;
   purchaserName?: string;
   purchaserTaxNo?: string;
   seat?: string;
   seatNo?: string;
-  /**
-   * @example
-   * 30671211200127U123456
-   */
   serialNumber?: string;
-  /**
-   * @example
-   * 8.26
-   */
   taxAmount?: string;
-  /**
-   * @example
-   * 9%
-   */
   taxRate?: string;
-  /**
-   * @remarks
-   * 取票号
-   * 
-   * @example
-   * 784-1111111111
-   */
   ticketNo?: string;
-  /**
-   * @remarks
-   * 车次
-   * 
-   * @example
-   * G99
-   */
   trainNo?: string;
   xmlUrl?: string;
   static names(): { [key: string]: string } {
@@ -173,25 +123,9 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
 
 export class TrainTicketScanQueryResponseBodyModule extends $dara.Model {
   items?: TrainTicketScanQueryResponseBodyModuleItems[];
-  /**
-   * @example
-   * 1
-   */
   pageNo?: number;
-  /**
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 2
-   */
   totalPage?: number;
-  /**
-   * @example
-   * 30
-   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -226,33 +160,11 @@ export class TrainTicketScanQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TrainTicketScanQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
   module?: TrainTicketScanQueryResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

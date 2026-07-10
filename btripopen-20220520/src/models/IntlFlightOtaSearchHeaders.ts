@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class IntlFlightOtaSearchHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * feth00jqwls
-   */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {
     return {

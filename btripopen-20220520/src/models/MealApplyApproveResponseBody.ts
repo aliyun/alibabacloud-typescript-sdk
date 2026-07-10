@@ -3,29 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MealApplyApproveResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   code?: string;
   message?: string;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210e847f16611516748613869de4f6
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("btripopen", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -440,6 +440,74 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.AddInvoiceEntityHeaders({ });
     return await this.addInvoiceEntityWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 新增项目负责人
+   * 
+   * @param tmpReq - AddProjectManagerRequest
+   * @param headers - AddProjectManagerHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddProjectManagerResponse
+   */
+  async addProjectManagerWithOptions(tmpReq: $_model.AddProjectManagerRequest, headers: $_model.AddProjectManagerHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.AddProjectManagerResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddProjectManagerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.orgEntities)) {
+      request.orgEntitiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orgEntities, "org_entities", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orgEntitiesShrink)) {
+      body["org_entities"] = request.orgEntitiesShrink;
+    }
+
+    if (!$dara.isNull(request.outProjectId)) {
+      body["out_project_id"] = request.outProjectId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["project_id"] = request.projectId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddProjectManager",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/cost/v1/project/manager/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddProjectManagerResponse>(await this.callApi(params, req, runtime), new $_model.AddProjectManagerResponse({}));
+  }
+
+  /**
+   * 新增项目负责人
+   * 
+   * @param request - AddProjectManagerRequest
+   * @returns AddProjectManagerResponse
+   */
+  async addProjectManager(request: $_model.AddProjectManagerRequest): Promise<$_model.AddProjectManagerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.AddProjectManagerHeaders({ });
+    return await this.addProjectManagerWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1669,6 +1737,148 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量/单个查询部门
+   * 
+   * @param request - BatchQueryDepartmentRequest
+   * @param headers - BatchQueryDepartmentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchQueryDepartmentResponse
+   */
+  async batchQueryDepartmentWithOptions(request: $_model.BatchQueryDepartmentRequest, headers: $_model.BatchQueryDepartmentHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.BatchQueryDepartmentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modifiedTimeGreaterOrEqualThan)) {
+      body["modified_time_greater_or_equal_than"] = request.modifiedTimeGreaterOrEqualThan;
+    }
+
+    if (!$dara.isNull(request.outDeptId)) {
+      body["out_dept_id"] = request.outDeptId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["page_size"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      body["page_token"] = request.pageToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchQueryDepartment",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/department/v2/batch_query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchQueryDepartmentResponse>(await this.callApi(params, req, runtime), new $_model.BatchQueryDepartmentResponse({}));
+  }
+
+  /**
+   * 批量/单个查询部门
+   * 
+   * @param request - BatchQueryDepartmentRequest
+   * @returns BatchQueryDepartmentResponse
+   */
+  async batchQueryDepartment(request: $_model.BatchQueryDepartmentRequest): Promise<$_model.BatchQueryDepartmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.BatchQueryDepartmentHeaders({ });
+    return await this.batchQueryDepartmentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Submits a batch.
+   * 
+   * @param tmpReq - BatchSubmitPreBillRequest
+   * @param headers - BatchSubmitPreBillHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchSubmitPreBillResponse
+   */
+  async batchSubmitPreBillWithOptions(tmpReq: $_model.BatchSubmitPreBillRequest, headers: $_model.BatchSubmitPreBillHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.BatchSubmitPreBillResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchSubmitPreBillShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.values)) {
+      request.valuesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.values, "values", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appIp)) {
+      query["app_ip"] = request.appIp;
+    }
+
+    if (!$dara.isNull(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.customerDecision)) {
+      query["customer_decision"] = request.customerDecision;
+    }
+
+    if (!$dara.isNull(request.dimension)) {
+      query["dimension"] = request.dimension;
+    }
+
+    if (!$dara.isNull(request.valuesShrink)) {
+      query["values"] = request.valuesShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = String(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchSubmitPreBill",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/prebill/v1/batchSubmit`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchSubmitPreBillResponse>(await this.callApi(params, req, runtime), new $_model.BatchSubmitPreBillResponse({}));
+  }
+
+  /**
+   * Submits a batch.
+   * 
+   * @param request - BatchSubmitPreBillRequest
+   * @returns BatchSubmitPreBillResponse
+   */
+  async batchSubmitPreBill(request: $_model.BatchSubmitPreBillRequest): Promise<$_model.BatchSubmitPreBillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.BatchSubmitPreBillHeaders({ });
+    return await this.batchSubmitPreBillWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 商旅账单内容修改
    * 
    * @param request - BtripBillInfoAdjustRequest
@@ -1743,7 +1953,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步市内用车审批单
+   * Synchronizes an intra-city car service approval form.
+   * 
+   * @remarks
+   * Synchronizes an intra-city car service approval form for a specified enterprise.
+   * 1. To use this operation, enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+   * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
    * 
    * @param tmpReq - CarApplyAddRequest
    * @param headers - CarApplyAddHeaders
@@ -1754,6 +1969,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CarApplyAddShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.itineraryList)) {
+      request.itineraryListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itineraryList, "itinerary_list", "json");
+    }
+
     if (!$dara.isNull(tmpReq.travelerStandard)) {
       request.travelerStandardShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.travelerStandard, "traveler_standard", "json");
     }
@@ -1777,6 +1996,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.finishedDate)) {
       body["finished_date"] = request.finishedDate;
+    }
+
+    if (!$dara.isNull(request.itineraryListShrink)) {
+      body["itinerary_list"] = request.itineraryListShrink;
     }
 
     if (!$dara.isNull(request.projectCode)) {
@@ -1855,7 +2078,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步市内用车审批单
+   * Synchronizes an intra-city car service approval form.
+   * 
+   * @remarks
+   * Synchronizes an intra-city car service approval form for a specified enterprise.
+   * 1. To use this operation, enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+   * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
    * 
    * @param request - CarApplyAddRequest
    * @returns CarApplyAddResponse
@@ -2021,6 +2249,10 @@ export default class Client extends OpenApi {
   async carBillSettlementQueryWithOptions(request: $_model.CarBillSettlementQueryRequest, headers: $_model.CarBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CarBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -2307,6 +2539,10 @@ export default class Client extends OpenApi {
   async channelCorpCreateWithOptions(request: $_model.ChannelCorpCreateRequest, headers: $_model.ChannelCorpCreateHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ChannelCorpCreateResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.administratorEmail)) {
+      body["administrator_email"] = request.administratorEmail;
+    }
+
     if (!$dara.isNull(request.administratorName)) {
       body["administrator_name"] = request.administratorName;
     }
@@ -2315,12 +2551,28 @@ export default class Client extends OpenApi {
       body["administrator_phone"] = request.administratorPhone;
     }
 
+    if (!$dara.isNull(request.baseCurrency)) {
+      body["base_currency"] = request.baseCurrency;
+    }
+
+    if (!$dara.isNull(request.btripRegion)) {
+      body["btrip_region"] = request.btripRegion;
+    }
+
     if (!$dara.isNull(request.city)) {
       body["city"] = request.city;
     }
 
     if (!$dara.isNull(request.corpName)) {
       body["corp_name"] = request.corpName;
+    }
+
+    if (!$dara.isNull(request.corpNameEn)) {
+      body["corp_name_en"] = request.corpNameEn;
+    }
+
+    if (!$dara.isNull(request.extendField)) {
+      body["extend_field"] = request.extendField;
     }
 
     if (!$dara.isNull(request.province)) {
@@ -2573,6 +2825,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Confirms a pre-billing bill.
+   * 
+   * @param request - ConfirmPreBillRequest
+   * @param headers - ConfirmPreBillHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmPreBillResponse
+   */
+  async confirmPreBillWithOptions(request: $_model.ConfirmPreBillRequest, headers: $_model.ConfirmPreBillHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ConfirmPreBillResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = String(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfirmPreBill",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/prebill/v1/confirm`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfirmPreBillResponse>(await this.callApi(params, req, runtime), new $_model.ConfirmPreBillResponse({}));
+  }
+
+  /**
+   * Confirms a pre-billing bill.
+   * 
+   * @param request - ConfirmPreBillRequest
+   * @returns ConfirmPreBillResponse
+   */
+  async confirmPreBill(request: $_model.ConfirmPreBillRequest): Promise<$_model.ConfirmPreBillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ConfirmPreBillHeaders({ });
+    return await this.confirmPreBillWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询服务商机票记账数据
    * 
    * @param request - CooperatorFlightBillSettlementQueryRequest
@@ -2583,6 +2889,10 @@ export default class Client extends OpenApi {
   async cooperatorFlightBillSettlementQueryWithOptions(request: $_model.CooperatorFlightBillSettlementQueryRequest, headers: $_model.CooperatorFlightBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CooperatorFlightBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -2677,6 +2987,10 @@ export default class Client extends OpenApi {
   async cooperatorHotelBillSettlementQueryWithOptions(request: $_model.CooperatorHotelBillSettlementQueryRequest, headers: $_model.CooperatorHotelBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CooperatorHotelBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -4436,6 +4750,10 @@ export default class Client extends OpenApi {
   async flightBillSettlementQueryWithOptions(request: $_model.FlightBillSettlementQueryRequest, headers: $_model.FlightBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.FlightBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -5850,7 +6168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询机票订单列表
+   * 国内查询机票订单列表
    * 
    * @param request - FlightOrderListQueryRequest
    * @param headers - FlightOrderListQueryHeaders
@@ -5932,7 +6250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询机票订单列表
+   * 国内查询机票订单列表
    * 
    * @param request - FlightOrderListQueryRequest
    * @returns FlightOrderListQueryResponse
@@ -5944,7 +6262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 机票订单列表查询
+   * 国内机票订单列表查询
    * 
    * @param tmpReq - FlightOrderListQueryV2Request
    * @param headers - FlightOrderListQueryV2Headers
@@ -6048,7 +6366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 机票订单列表查询
+   * 国内机票订单列表查询
    * 
    * @param request - FlightOrderListQueryV2Request
    * @returns FlightOrderListQueryV2Response
@@ -6060,7 +6378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询机票订单详情（含票信息）
+   * 国内查询机票订单详情（含票信息）
    * 
    * @param request - FlightOrderQueryRequest
    * @param headers - FlightOrderQueryHeaders
@@ -6106,7 +6424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询机票订单详情（含票信息）
+   * 国内查询机票订单详情（含票信息）
    * 
    * @param request - FlightOrderQueryRequest
    * @returns FlightOrderQueryResponse
@@ -7124,6 +7442,10 @@ export default class Client extends OpenApi {
   async fuPointBillSettlementQueryWithOptions(request: $_model.FuPointBillSettlementQueryRequest, headers: $_model.FuPointBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.FuPointBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -7568,6 +7890,10 @@ export default class Client extends OpenApi {
   async hotelBillSettlementQueryWithOptions(request: $_model.HotelBillSettlementQueryRequest, headers: $_model.HotelBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.HotelBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -7876,6 +8202,10 @@ export default class Client extends OpenApi {
       query["hotel_status"] = request.hotelStatus;
     }
 
+    if (!$dara.isNull(request.internation)) {
+      query["internation"] = request.internation;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["page_size"] = request.pageSize;
     }
@@ -8152,6 +8482,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.arrivalTime)) {
+      body["arrival_time"] = request.arrivalTime;
+    }
+
     if (!$dara.isNull(request.btripUserId)) {
       body["btrip_user_id"] = request.btripUserId;
     }
@@ -8200,6 +8534,10 @@ export default class Client extends OpenApi {
       body["itinerary_no"] = request.itineraryNo;
     }
 
+    if (!$dara.isNull(request.leaveTime)) {
+      body["leave_time"] = request.leaveTime;
+    }
+
     if (!$dara.isNull(request.memberInfoShrink)) {
       body["member_info"] = request.memberInfoShrink;
     }
@@ -8226,6 +8564,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.roomNum)) {
       body["room_num"] = request.roomNum;
+    }
+
+    if (!$dara.isNull(request.rpType)) {
+      body["rp_type"] = request.rpType;
     }
 
     if (!$dara.isNull(request.sellerId)) {
@@ -8626,6 +8968,10 @@ export default class Client extends OpenApi {
       query["room_num"] = request.roomNum;
     }
 
+    if (!$dara.isNull(request.rpType)) {
+      query["rp_type"] = request.rpType;
+    }
+
     if (!$dara.isNull(request.searchRoomPrice)) {
       query["search_room_price"] = request.searchRoomPrice;
     }
@@ -8968,6 +9314,10 @@ export default class Client extends OpenApi {
       query["payment_type"] = request.paymentType;
     }
 
+    if (!$dara.isNull(request.poi)) {
+      query["poi"] = request.poi;
+    }
+
     if (!$dara.isNull(request.shidsShrink)) {
       query["shids"] = request.shidsShrink;
     }
@@ -9154,7 +9504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * International Flight Order Details
+   * 国际机票订单详情
    * 
    * @param request - IFlightOrderDetailQueryRequest
    * @param headers - IFlightOrderDetailQueryHeaders
@@ -9196,7 +9546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * International Flight Order Details
+   * 国际机票订单详情
    * 
    * @param request - IFlightOrderDetailQueryRequest
    * @returns IFlightOrderDetailQueryResponse
@@ -9318,6 +9668,10 @@ export default class Client extends OpenApi {
   async ieCarBillSettlementQueryWithOptions(request: $_model.IeCarBillSettlementQueryRequest, headers: $_model.IeCarBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IeCarBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -9408,6 +9762,10 @@ export default class Client extends OpenApi {
   async ieFlightBillSettlementQueryWithOptions(request: $_model.IeFlightBillSettlementQueryRequest, headers: $_model.IeFlightBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IeFlightBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -9498,6 +9856,10 @@ export default class Client extends OpenApi {
   async ieHotelBillSettlementQueryWithOptions(request: $_model.IeHotelBillSettlementQueryRequest, headers: $_model.IeHotelBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IeHotelBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -12444,6 +12806,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改用餐审批单
+   * 
+   * @param tmpReq - MealApplyModifyRequest
+   * @param headers - MealApplyModifyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MealApplyModifyResponse
+   */
+  async mealApplyModifyWithOptions(tmpReq: $_model.MealApplyModifyRequest, headers: $_model.MealApplyModifyHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.MealApplyModifyResponse> {
+    tmpReq.validate();
+    let request = new $_model.MealApplyModifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.applyUser)) {
+      request.applyUserShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applyUser, "apply_user", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.itineraryList)) {
+      request.itineraryListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itineraryList, "itinerary_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyUserShrink)) {
+      body["apply_user"] = request.applyUserShrink;
+    }
+
+    if (!$dara.isNull(request.costCenterId)) {
+      body["cost_center_id"] = request.costCenterId;
+    }
+
+    if (!$dara.isNull(request.extendField)) {
+      body["extend_field"] = request.extendField;
+    }
+
+    if (!$dara.isNull(request.invoiceId)) {
+      body["invoice_id"] = request.invoiceId;
+    }
+
+    if (!$dara.isNull(request.itineraryListShrink)) {
+      body["itinerary_list"] = request.itineraryListShrink;
+    }
+
+    if (!$dara.isNull(request.mealAmount)) {
+      body["meal_amount"] = request.mealAmount;
+    }
+
+    if (!$dara.isNull(request.mealCause)) {
+      body["meal_cause"] = request.mealCause;
+    }
+
+    if (!$dara.isNull(request.projectCode)) {
+      body["project_code"] = request.projectCode;
+    }
+
+    if (!$dara.isNull(request.projectTitle)) {
+      body["project_title"] = request.projectTitle;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.thirdPartApplyId)) {
+      body["third_part_apply_id"] = request.thirdPartApplyId;
+    }
+
+    if (!$dara.isNull(request.thirdPartCostCenterId)) {
+      body["third_part_cost_center_id"] = request.thirdPartCostCenterId;
+    }
+
+    if (!$dara.isNull(request.thirdPartInvoiceId)) {
+      body["third_part_invoice_id"] = request.thirdPartInvoiceId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MealApplyModify",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/apply/v1/meal/modify`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MealApplyModifyResponse>(await this.callApi(params, req, runtime), new $_model.MealApplyModifyResponse({}));
+  }
+
+  /**
+   * 修改用餐审批单
+   * 
+   * @param request - MealApplyModifyRequest
+   * @returns MealApplyModifyResponse
+   */
+  async mealApplyModify(request: $_model.MealApplyModifyRequest): Promise<$_model.MealApplyModifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.MealApplyModifyHeaders({ });
+    return await this.mealApplyModifyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询用餐申请单
    * 
    * @param request - MealApplyQueryRequest
@@ -12508,6 +12982,10 @@ export default class Client extends OpenApi {
   async mealBillSettlementQueryWithOptions(request: $_model.MealBillSettlementQueryRequest, headers: $_model.MealBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.MealBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -12884,6 +13362,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询企业预出账月账单
+   * 
+   * @param request - MonthPreBillGetRequest
+   * @param headers - MonthPreBillGetHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MonthPreBillGetResponse
+   */
+  async monthPreBillGetWithOptions(request: $_model.MonthPreBillGetRequest, headers: $_model.MonthPreBillGetHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.MonthPreBillGetResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billBatch)) {
+      query["bill_batch"] = request.billBatch;
+    }
+
+    if (!$dara.isNull(request.billMonth)) {
+      query["bill_month"] = request.billMonth;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = String(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MonthPreBillGet",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/open/v1/month-pre-bill`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MonthPreBillGetResponse>(await this.callApi(params, req, runtime), new $_model.MonthPreBillGetResponse({}));
+  }
+
+  /**
+   * 查询企业预出账月账单
+   * 
+   * @param request - MonthPreBillGetRequest
+   * @returns MonthPreBillGetResponse
+   */
+  async monthPreBillGet(request: $_model.MonthPreBillGetRequest): Promise<$_model.MonthPreBillGetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.MonthPreBillGetHeaders({ });
+    return await this.monthPreBillGetWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询订单退款明细
    * 
    * @param request - OrderRefundDetailQueryRequest
@@ -12954,6 +13490,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.code)) {
       body["code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.hasManager)) {
+      body["has_manager"] = request.hasManager;
     }
 
     if (!$dara.isNull(request.projectName)) {
@@ -13078,6 +13618,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.code)) {
       body["code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.hasManager)) {
+      body["has_manager"] = request.hasManager;
     }
 
     if (!$dara.isNull(request.projectName)) {
@@ -13423,6 +13967,78 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.QueryReimbursementOrderHeaders({ });
     return await this.queryReimbursementOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除项目负责人
+   * 
+   * @param tmpReq - RemoveProjectManagerRequest
+   * @param headers - RemoveProjectManagerHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveProjectManagerResponse
+   */
+  async removeProjectManagerWithOptions(tmpReq: $_model.RemoveProjectManagerRequest, headers: $_model.RemoveProjectManagerHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveProjectManagerResponse> {
+    tmpReq.validate();
+    let request = new $_model.RemoveProjectManagerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.orgEntities)) {
+      request.orgEntitiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orgEntities, "org_entities", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orgEntitiesShrink)) {
+      body["org_entities"] = request.orgEntitiesShrink;
+    }
+
+    if (!$dara.isNull(request.outProjectId)) {
+      body["out_project_id"] = request.outProjectId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["project_id"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.removeAll)) {
+      body["remove_all"] = request.removeAll;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveProjectManager",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/cost/v1/project/manager/remove`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveProjectManagerResponse>(await this.callApi(params, req, runtime), new $_model.RemoveProjectManagerResponse({}));
+  }
+
+  /**
+   * 删除项目负责人
+   * 
+   * @param request - RemoveProjectManagerRequest
+   * @returns RemoveProjectManagerResponse
+   */
+  async removeProjectManager(request: $_model.RemoveProjectManagerRequest): Promise<$_model.RemoveProjectManagerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.RemoveProjectManagerHeaders({ });
+    return await this.removeProjectManagerWithOptions(request, headers, runtime);
   }
 
   /**
@@ -14290,6 +14906,10 @@ export default class Client extends OpenApi {
   async trainBillSettlementQueryWithOptions(request: $_model.TrainBillSettlementQueryRequest, headers: $_model.TrainBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.TrainBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }
@@ -16518,6 +17138,10 @@ export default class Client extends OpenApi {
   async vasBillSettlementQueryWithOptions(request: $_model.VasBillSettlementQueryRequest, headers: $_model.VasBillSettlementQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.VasBillSettlementQueryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyId)) {
+      query["apply_id"] = request.applyId;
+    }
+
     if (!$dara.isNull(request.billBatch)) {
       query["bill_batch"] = request.billBatch;
     }

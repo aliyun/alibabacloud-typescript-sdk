@@ -4,26 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyQueryResponseBodyModuleApproverList extends $dara.Model {
   note?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   operateTime?: string;
-  /**
-   * @example
-   * 1
-   */
   order?: number;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -86,16 +70,8 @@ export class ApplyQueryResponseBodyModuleCarRule extends $dara.Model {
 }
 
 export class ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * 100000
-   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -153,28 +129,12 @@ export class ApplyQueryResponseBodyModuleExternalTravelerListHotelIntlCitys exte
 
 export class ApplyQueryResponseBodyModuleExternalTravelerList extends $dara.Model {
   attribute?: string;
-  /**
-   * @example
-   * 1
-   */
   businessDiscount?: number;
   costCenterName?: string;
   departId?: string;
-  /**
-   * @example
-   * 1
-   */
   economyDiscount?: number;
   externalUserId?: string;
-  /**
-   * @example
-   * 1
-   */
   firstDiscount?: number;
-  /**
-   * @example
-   * F
-   */
   flightCabins?: string;
   flightIntlRuleCode?: number;
   flightRuleCode?: number;
@@ -185,26 +145,14 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $dara.Mode
   invoiceName?: string;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 1
-   */
   premiumEconomyDiscount?: number;
   projectCode?: string;
   projectTitle?: string;
-  /**
-   * @example
-   * 1
-   */
   reserveType?: number;
   thirdPartInvoiceId?: string;
   thirdpartCostCenterId?: string;
   thirdpartDepartId?: string;
   trainRuleCode?: number;
-  /**
-   * @example
-   * 1
-   */
   trainSeats?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -287,15 +235,7 @@ export class ApplyQueryResponseBodyModuleExternalTravelerList extends $dara.Mode
 }
 
 export class ApplyQueryResponseBodyModuleHotelShare extends $dara.Model {
-  /**
-   * @example
-   * 70
-   */
   param?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -345,54 +285,24 @@ export class ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard ex
 
 export class ApplyQueryResponseBodyModuleItineraryList extends $dara.Model {
   arrCity?: string;
-  /**
-   * @example
-   * 330100
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   arrDate?: string;
   attribute?: string;
-  /**
-   * @example
-   * accac
-   */
+  canOrderTypeList?: string[];
   costCenterName?: string;
   depCity?: string;
-  /**
-   * @example
-   * 330100
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   depDate?: string;
   invoiceName?: string;
   itineraryId?: string;
+  itineraryNo?: string;
   itineraryTravelStandard?: ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard;
-  /**
-   * @example
-   * xm1
-   */
   projectCode?: string;
   projectTitle?: string;
   thirdpartCostCenterId?: string;
   thirdpartInvoiceId?: string;
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * 1
-   */
   trafficType?: number;
-  /**
-   * @example
-   * 1
-   */
   tripWay?: number;
   static names(): { [key: string]: string } {
     return {
@@ -400,12 +310,14 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $dara.Model {
       arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
       attribute: 'attribute',
+      canOrderTypeList: 'can_order_type_list',
       costCenterName: 'cost_center_name',
       depCity: 'dep_city',
       depCityCode: 'dep_city_code',
       depDate: 'dep_date',
       invoiceName: 'invoice_name',
       itineraryId: 'itinerary_id',
+      itineraryNo: 'itinerary_no',
       itineraryTravelStandard: 'itinerary_travel_standard',
       projectCode: 'project_code',
       projectTitle: 'project_title',
@@ -423,12 +335,14 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $dara.Model {
       arrCityCode: 'string',
       arrDate: 'string',
       attribute: 'string',
+      canOrderTypeList: { 'type': 'array', 'itemType': 'string' },
       costCenterName: 'string',
       depCity: 'string',
       depCityCode: 'string',
       depDate: 'string',
       invoiceName: 'string',
       itineraryId: 'string',
+      itineraryNo: 'string',
       itineraryTravelStandard: ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard,
       projectCode: 'string',
       projectTitle: 'string',
@@ -441,6 +355,9 @@ export class ApplyQueryResponseBodyModuleItineraryList extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.canOrderTypeList)) {
+      $dara.Model.validateArray(this.canOrderTypeList);
+    }
     if(this.itineraryTravelStandard && typeof (this.itineraryTravelStandard as any).validate === 'function') {
       (this.itineraryTravelStandard as any).validate();
     }
@@ -476,55 +393,35 @@ export class ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard
 }
 
 export class ApplyQueryResponseBodyModuleItinerarySetList extends $dara.Model {
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   arrDate?: string;
   attribute?: string;
-  /**
-   * @example
-   * BJS，HGH
-   */
+  canOrderTypeList?: string[];
   cityCodeSet?: string;
   citySet?: string;
   costCenterName?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   depDate?: string;
   invoiceName?: string;
-  /**
-   * @example
-   * 12345
-   */
   itineraryId?: string;
+  itineraryNo?: string;
   itineraryTravelStandard?: ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard;
-  /**
-   * @example
-   * projecttow
-   */
   projectCode?: string;
   projectTitle?: string;
   thirdpartCostCenterId?: string;
   thirdpartInvoiceId?: string;
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * 0
-   */
   trafficType?: number;
   static names(): { [key: string]: string } {
     return {
       arrDate: 'arr_date',
       attribute: 'attribute',
+      canOrderTypeList: 'can_order_type_list',
       cityCodeSet: 'city_code_set',
       citySet: 'city_set',
       costCenterName: 'cost_center_name',
       depDate: 'dep_date',
       invoiceName: 'invoice_name',
       itineraryId: 'itinerary_id',
+      itineraryNo: 'itinerary_no',
       itineraryTravelStandard: 'itinerary_travel_standard',
       projectCode: 'project_code',
       projectTitle: 'project_title',
@@ -539,12 +436,14 @@ export class ApplyQueryResponseBodyModuleItinerarySetList extends $dara.Model {
     return {
       arrDate: 'string',
       attribute: 'string',
+      canOrderTypeList: { 'type': 'array', 'itemType': 'string' },
       cityCodeSet: 'string',
       citySet: 'string',
       costCenterName: 'string',
       depDate: 'string',
       invoiceName: 'string',
       itineraryId: 'string',
+      itineraryNo: 'string',
       itineraryTravelStandard: ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard,
       projectCode: 'string',
       projectTitle: 'string',
@@ -556,6 +455,9 @@ export class ApplyQueryResponseBodyModuleItinerarySetList extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.canOrderTypeList)) {
+      $dara.Model.validateArray(this.canOrderTypeList);
+    }
     if(this.itineraryTravelStandard && typeof (this.itineraryTravelStandard as any).validate === 'function') {
       (this.itineraryTravelStandard as any).validate();
     }
@@ -594,16 +496,8 @@ export class ApplyQueryResponseBodyModuleTravelerListCarCitySet extends $dara.Mo
 }
 
 export class ApplyQueryResponseBodyModuleTravelerListHotelCitys extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * 100000
-   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -661,28 +555,12 @@ export class ApplyQueryResponseBodyModuleTravelerListHotelIntlCitys extends $dar
 
 export class ApplyQueryResponseBodyModuleTravelerList extends $dara.Model {
   attribute?: string;
-  /**
-   * @example
-   * 1
-   */
   businessDiscount?: number;
   carCitySet?: ApplyQueryResponseBodyModuleTravelerListCarCitySet[];
   costCenterName?: string;
   departId?: string;
-  /**
-   * @example
-   * 1
-   */
   economyDiscount?: number;
-  /**
-   * @example
-   * 1
-   */
   firstDiscount?: number;
-  /**
-   * @example
-   * F
-   */
   flightCabins?: string;
   flightIntlRuleCode?: number;
   flightRuleCode?: number;
@@ -693,31 +571,15 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $dara.Model {
   invoiceName?: string;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 1
-   */
   premiumEconomyDiscount?: number;
   projectCode?: string;
   projectTitle?: string;
-  /**
-   * @example
-   * 1
-   */
   reserveType?: number;
   thirdPartInvoiceId?: string;
   thirdpartCostCenterId?: string;
   thirdpartDepartId?: string;
   trainRuleCode?: number;
-  /**
-   * @example
-   * 1
-   */
   trainSeats?: string;
-  /**
-   * @example
-   * 3423
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -805,145 +667,47 @@ export class ApplyQueryResponseBodyModuleTravelerList extends $dara.Model {
 }
 
 export class ApplyQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 201710111505000464651
-   */
   applyShowId?: string;
   approverList?: ApplyQueryResponseBodyModuleApproverList[];
-  /**
-   * @example
-   * 100000
-   */
   budget?: number;
-  /**
-   * @example
-   * 1
-   */
   budgetMerge?: number;
   carRule?: ApplyQueryResponseBodyModuleCarRule;
-  /**
-   * @example
-   * corpid
-   */
   corpId?: string;
   corpName?: string;
-  /**
-   * @example
-   * dept1
-   */
   departId?: string;
-  /**
-   * @example
-   * adv
-   */
   departName?: string;
-  /**
-   * @remarks
-   * 补充描述，账单中将会体现此字段的值。可以用于企业的统计和对账
-   * 
-   * @example
-   * {"cost_center":"成本中心"}
-   */
   extendField?: string;
   externalTravelerList?: ApplyQueryResponseBodyModuleExternalTravelerList[];
-  /**
-   * @example
-   * 10000
-   */
   flightBudget?: number;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2018-09-19T14:03Z
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 100000
-   */
   hotelBudget?: number;
   hotelShare?: ApplyQueryResponseBodyModuleHotelShare;
-  /**
-   * @example
-   * 3298
-   */
   id?: number;
   intlFlightBudget?: number;
   intlHotelBudget?: number;
   itineraryList?: ApplyQueryResponseBodyModuleItineraryList[];
-  /**
-   * @example
-   * 0
-   */
   itineraryRule?: number;
   itinerarySetList?: ApplyQueryResponseBodyModuleItinerarySetList[];
-  /**
-   * @example
-   * 0
-   */
+  jobNo?: string;
   limitTraveler?: number;
   mealBudget?: number;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * 1213
-   */
   thirdpartBusinessId?: string;
-  /**
-   * @example
-   * 1214254
-   */
   thirdpartId?: string;
-  /**
-   * @example
-   * 1
-   */
   togetherBookRule?: number;
-  /**
-   * @example
-   * 10000
-   */
   trainBudget?: number;
   travelerList?: ApplyQueryResponseBodyModuleTravelerList[];
   tripCause?: string;
-  /**
-   * @example
-   * 2
-   */
   tripDay?: number;
   tripTitle?: string;
-  /**
-   * @example
-   * 2
-   */
   type?: number;
-  /**
-   * @example
-   * abd123
-   */
   unionNo?: string;
-  /**
-   * @example
-   * user1
-   */
   userId?: string;
   userName?: string;
-  /**
-   * @example
-   * 10000
-   */
   vehicleBudget?: number;
   static names(): { [key: string]: string } {
     return {
@@ -969,6 +733,7 @@ export class ApplyQueryResponseBodyModule extends $dara.Model {
       itineraryList: 'itinerary_list',
       itineraryRule: 'itinerary_rule',
       itinerarySetList: 'itinerary_set_list',
+      jobNo: 'job_no',
       limitTraveler: 'limit_traveler',
       mealBudget: 'meal_budget',
       paymentDepartmentId: 'payment_department_id',
@@ -1015,6 +780,7 @@ export class ApplyQueryResponseBodyModule extends $dara.Model {
       itineraryList: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleItineraryList },
       itineraryRule: 'number',
       itinerarySetList: { 'type': 'array', 'itemType': ApplyQueryResponseBodyModuleItinerarySetList },
+      jobNo: 'string',
       limitTraveler: 'number',
       mealBudget: 'number',
       paymentDepartmentId: 'string',
@@ -1068,27 +834,11 @@ export class ApplyQueryResponseBodyModule extends $dara.Model {
 }
 
 export class ApplyQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: ApplyQueryResponseBodyModule;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

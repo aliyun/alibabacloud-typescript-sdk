@@ -14,17 +14,11 @@ export class IsvRuleSaveShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   status?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   userId?: string;
   static names(): { [key: string]: string } {

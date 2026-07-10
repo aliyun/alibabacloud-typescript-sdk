@@ -35,52 +35,20 @@ export class CarOrderQueryResponseBodyModuleCarInfoWayPoints extends $dara.Model
 }
 
 export class CarOrderQueryResponseBodyModuleCarInfo extends $dara.Model {
-  /**
-   * @example
-   * TRAVEL
-   */
   businessCategory?: string;
-  /**
-   * @example
-   * 1669274251000
-   */
   cancelTime?: number;
   carInfo?: string;
-  /**
-   * @example
-   * 601
-   */
   carLevel?: number;
   driverCard?: string;
-  /**
-   * @example
-   * 1669274251000
-   */
   driverConfirmTime?: number;
   driverName?: string;
-  /**
-   * @example
-   * 2900
-   */
   estimatePrice?: number;
   fromAddress?: string;
   fromCityAdCode?: string;
   fromCityName?: string;
-  /**
-   * @example
-   * true
-   */
   isSpecial?: boolean;
   memo?: string;
-  /**
-   * @example
-   * 1669274251000
-   */
   payTime?: number;
-  /**
-   * @example
-   * 1669274251000
-   */
   publishTime?: number;
   realFromAddress?: string;
   realFromCityAdCode?: string;
@@ -88,28 +56,12 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $dara.Model {
   realToAddress?: string;
   realToCityAdCode?: string;
   realToCityName?: string;
-  /**
-   * @example
-   * 3
-   */
   serviceType?: number;
-  /**
-   * @example
-   * v_sp_t_1,v_sp_t_2,v_sp_t_3,v_sp_t_4,v_sp_t_5
-   */
   specialTypes?: string;
-  /**
-   * @example
-   * 1669274251000
-   */
   takenTime?: number;
   toAddress?: string;
   toCityAdCode?: string;
   toCityName?: string;
-  /**
-   * @example
-   * 12
-   */
   travelDistance?: string;
   wayPoints?: CarOrderQueryResponseBodyModuleCarInfoWayPoints[];
   static names(): { [key: string]: string } {
@@ -193,15 +145,7 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   id?: number;
-  /**
-   * @example
-   * xxxx
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -227,76 +171,24 @@ export class CarOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
-  /**
-   * @example
-   * xxxxx
-   */
   applyId?: string;
   btripCause?: string;
   btripTitle?: string;
   carOrderSourceType?: number;
-  /**
-   * @example
-   * xxxxxxxx
-   */
   corpId?: string;
   corpName?: string;
-  /**
-   * @example
-   * 10101010
-   */
   departId?: string;
   departName?: string;
-  /**
-   * @example
-   * 1669274251000
-   */
   gmtCreate?: number;
-  /**
-   * @example
-   * 1669274251000
-   */
   gmtModified?: number;
-  /**
-   * @example
-   * xxxxx
-   */
   itineraryId?: string;
-  /**
-   * @example
-   * 1012000000000000
-   */
   orderId?: number;
-  /**
-   * @example
-   * 5
-   */
   orderStatus?: number;
-  /**
-   * @example
-   * 100000
-   */
   subOrderId?: number;
-  /**
-   * @example
-   * thirdpart_1010101010
-   */
   thirdDepartId?: string;
-  /**
-   * @example
-   * xxxxx
-   */
   thirdpartApplyId?: string;
   thirdpartBusinessId?: string;
-  /**
-   * @example
-   * xxxxx
-   */
   thirdpartItineraryId?: string;
-  /**
-   * @example
-   * xxxxxxxx
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -359,52 +251,16 @@ export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBodyModulePassengerList extends $dara.Model {
-  /**
-   * @example
-   * costId
-   */
   costCenterId?: number;
-  /**
-   * @example
-   * costName
-   */
   costCenterName?: string;
-  /**
-   * @example
-   * costNumber
-   */
   costCenterNumber?: string;
-  /**
-   * @example
-   * projectCode1
-   */
   projectCode?: string;
-  /**
-   * @example
-   * projectId
-   */
   projectId?: number;
   projectTitle?: string;
-  /**
-   * @example
-   * thirdpartCostId
-   */
   thirdpartCostCenterId?: string;
-  /**
-   * @example
-   * thirdpartProjectId
-   */
   thirdpartProjectId?: string;
-  /**
-   * @example
-   * userId
-   */
   userId?: string;
   userName?: string;
-  /**
-   * @example
-   * 1
-   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -448,40 +304,12 @@ export class CarOrderQueryResponseBodyModulePassengerList extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBodyModulePriceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   categoryCode?: number;
-  /**
-   * @example
-   * 1669274251000
-   */
   gmtCreate?: number;
-  /**
-   * @example
-   * 4
-   */
   payType?: number;
-  /**
-   * @example
-   * 1000
-   */
   personPrice?: number;
-  /**
-   * @example
-   * 2000
-   */
   price?: number;
-  /**
-   * @example
-   * 1012000000001
-   */
   tradeId?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -567,33 +395,11 @@ export class CarOrderQueryResponseBodyModule extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: CarOrderQueryResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

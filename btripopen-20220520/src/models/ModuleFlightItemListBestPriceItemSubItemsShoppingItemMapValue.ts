@@ -6,15 +6,7 @@ import { ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSegmentPri
 
 export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPricePriceShowInfo extends $dara.Model {
   discountInfo?: string;
-  /**
-   * @example
-   * 0.8
-   */
   discountNum?: number;
-  /**
-   * @example
-   * false
-   */
   showTicketPrice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -42,67 +34,20 @@ export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearch
 }
 
 export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPrice extends $dara.Model {
-  /**
-   * @example
-   * 17400
-   */
   floorPrice?: number;
-  /**
-   * @example
-   * 121000
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   sellPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   originalSellPrice?: number;
   baseTotalPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   beforeControlPrice?: number;
-  /**
-   * @example
-   * 11000
-   */
   tax?: number;
   supplyPrice?: number;
-  /**
-   * @example
-   * 242000
-   */
   basicCabinPrice?: number;
-  /**
-   * @example
-   * 5000
-   */
   buildPrice?: number;
-  /**
-   * @example
-   * 6000
-   */
   oilPrice?: number;
   firstStandardPrice?: number;
   businessStandardPrice?: number;
-  /**
-   * @example
-   * 242000
-   */
   commonStandardPrice?: number;
-  /**
-   * @remarks
-   * fdPrice
-   * 
-   * @example
-   * fdPrice
-   */
   interTicketPrice?: number;
   subtractedPrice?: number;
   originCommonPrice?: number;
@@ -111,10 +56,6 @@ export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearch
   installmentPrice?: number;
   competitionDynamicPrice?: number;
   competitionPromotionPrice?: number;
-  /**
-   * @example
-   * 17400
-   */
   minBeforeControlPriceOfNormal?: number;
   priceShowInfo?: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPricePriceShowInfo;
   static names(): { [key: string]: string } {
@@ -188,13 +129,6 @@ export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearch
 }
 
 export class ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValue extends $dara.Model {
-  /**
-   * @remarks
-   * id
-   * 
-   * @example
-   * ADT07df0bd9-f803-4a50-8449-f4bd675d9939
-   */
   id?: string;
   cabinQuantity?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueCabinQuantityValue };
   searchPrice?: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValueSearchPrice;

@@ -6,9 +6,6 @@ export class TrainOrderQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2627694109810885616
    */
   orderId?: number;
   userId?: string;

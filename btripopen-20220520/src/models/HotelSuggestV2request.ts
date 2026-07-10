@@ -3,33 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelSuggestV2Request extends $dara.Model {
-  /**
-   * @example
-   * 1000
-   */
   btripUserId?: string;
-  /**
-   * @example
-   * 2024-05-15
-   */
   checkIn?: string;
-  /**
-   * @example
-   * 2024-06-04
-   */
   checkOut?: string;
-  /**
-   * @example
-   * 330100
-   */
   cityCode?: string;
   keyword?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   searchType?: number;
   static names(): { [key: string]: string } {

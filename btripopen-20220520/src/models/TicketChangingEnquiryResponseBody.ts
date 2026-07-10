@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo extends $dara.Model {
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
   airlineName?: string;
   airlineSimpleName?: string;
@@ -36,22 +32,10 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo ex
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * HGH
-   */
   airportCode?: string;
   airportName?: string;
-  /**
-   * @example
-   * HGH
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * T4
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,15 +68,7 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription extends $dara.Model {
   desc?: string;
-  /**
-   * @example
-   * demo
-   */
   icon?: string;
-  /**
-   * @example
-   * demo
-   */
   image?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -123,25 +99,9 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO extends $dara.Model {
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01kLt3m923XsUs6WVif_!!6000000007266-2-tps-280-300.png
-   */
   image?: string;
-  /**
-   * @example
-   * 50
-   */
   largest?: string;
-  /**
-   * @example
-   * 40
-   */
   middle?: string;
-  /**
-   * @example
-   * 20
-   */
   smallest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -172,17 +132,9 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes extends $dara.Model {
   baggageDesc?: string[];
-  /**
-   * @example
-   * 1
-   */
   baggageSubContentType?: number;
   description?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription;
   imageDO?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO;
-  /**
-   * @example
-   * true
-   */
   isHighlight?: boolean;
   subTitle?: string;
   static names(): { [key: string]: string } {
@@ -228,10 +180,6 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents extends $dara.Model {
   baggageDesc?: string;
   icon?: string;
-  /**
-   * @example
-   * 0
-   */
   style?: number;
   subTitle?: string;
   static names(): { [key: string]: string } {
@@ -262,27 +210,11 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems extends $dara.Model {
-  /**
-   * @remarks
-   * attributes
-   */
   attributes?: { [key: string]: any };
   baggageSubContentVisualizes?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes[];
   baggageSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents[];
-  /**
-   * @example
-   * demo
-   */
   content?: string;
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @example
-   * ADT
-   */
   ptc?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -328,16 +260,8 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips extends $dara.Model {
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
-   */
   logo?: string;
   tipsDesc?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
-   */
   tipsImage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -366,18 +290,10 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails extends $dara.Model {
   baggageSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems[];
-  /**
-   * @example
-   * 0
-   */
   index?: number;
   tableHead?: string;
   tips?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -417,10 +333,6 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
   content?: string;
   icon?: string;
   title?: string;
@@ -452,10 +364,6 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 0
-   */
   style?: string;
   static names(): { [key: string]: string } {
     return {
@@ -483,20 +391,8 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   content?: string;
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents[];
   title?: string;
@@ -534,18 +430,10 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails extends $dara.Model {
   extraContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents[];
-  /**
-   * @example
-   * 0
-   */
   index?: number;
   refundSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems[];
   tableHead?: string;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -585,10 +473,6 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
   content?: string;
   icon?: string;
   title?: string;
@@ -620,10 +504,6 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents extends $dara.Model {
   feeDesc?: string;
   feeRange?: string;
-  /**
-   * @example
-   * 0
-   */
   style?: string;
   static names(): { [key: string]: string } {
     return {
@@ -651,20 +531,8 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   content?: string;
-  /**
-   * @example
-   * true
-   */
   isStruct?: boolean;
-  /**
-   * @example
-   * ADT
-   */
   ptc?: string;
   refundSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents[];
   title?: string;
@@ -702,18 +570,10 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails extends $dara.Model {
   extraContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents[];
-  /**
-   * @example
-   * 0
-   */
   index?: number;
   refundSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems[];
   tableHead?: string;
   title?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -791,25 +651,9 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   passengerType?: number;
-  /**
-   * @example
-   * 100
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   upgradeFee?: number;
-  /**
-   * @example
-   * 100
-   */
   upgradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -839,38 +683,14 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModif
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList extends $dara.Model {
-  /**
-   * @example
-   * G
-   */
   cabin?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   cabinDesc?: string;
-  /**
-   * @example
-   * 80
-   */
   cabinDiscount?: number;
   changeOtaItemRuleRq?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq;
-  /**
-   * @example
-   * G
-   */
   childCabin?: string;
-  /**
-   * @example
-   * 0
-   */
   leftNum?: string;
   modifyPriceList?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList[];
-  /**
-   * @example
-   * 360379a11ee84e9aa011baa41b758fe6
-   */
   otaItemid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -916,22 +736,10 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList exte
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo extends $dara.Model {
-  /**
-   * @example
-   * PEK
-   */
   airportCode?: string;
   airportName?: string;
-  /**
-   * @example
-   * BJS
-   */
   cityCode?: string;
   cityName?: string;
-  /**
-   * @example
-   * T3
-   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -963,25 +771,9 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListLowestCabinPrice extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   passengerType?: number;
-  /**
-   * @example
-   * 100
-   */
   ticketPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   upgradeFee?: number;
-  /**
-   * @example
-   * 100
-   */
   upgradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1014,68 +806,20 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoList extends $dara
   airlineInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo;
   arrAirportInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo;
   cabinList?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList[];
-  /**
-   * @example
-   * CA1704
-   */
   carrierAirline?: string;
-  /**
-   * @example
-   * CA1704
-   */
   carrierNo?: string;
   depAirportInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo;
-  /**
-   * @example
-   * HGH
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * CA1351
-   */
   flightNo?: string;
-  /**
-   * @example
-   * false
-   */
   isShare?: boolean;
-  /**
-   * @example
-   * Y
-   */
   lowestCabin?: string;
-  /**
-   * @example
-   * Y
-   */
   lowestCabinClass?: string;
   lowestCabinDesc?: string;
-  /**
-   * @example
-   * 0
-   */
   lowestCabinNum?: string;
   lowestCabinPrice?: TicketChangingEnquiryResponseBodyModuleFlightInfoListLowestCabinPrice[];
-  /**
-   * @example
-   * 2000-00-00 00:00:00
-   */
   modifyFlightArrTime?: string;
-  /**
-   * @example
-   * 2000-00-00 00:00:00
-   */
   modifyFlightDepDate?: string;
-  /**
-   * @example
-   * 2000-00-00 00:00:00
-   */
   modifyFlightDepTime?: string;
-  /**
-   * @example
-   * d1fb9e0a794f45e1b762d36ff1d17zz
-   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1174,27 +918,11 @@ export class TicketChangingEnquiryResponseBodyModule extends $dara.Model {
 }
 
 export class TicketChangingEnquiryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: TicketChangingEnquiryResponseBodyModule;
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

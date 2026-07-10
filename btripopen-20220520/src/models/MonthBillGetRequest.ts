@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class MonthBillGetRequest extends $dara.Model {
   billBatch?: string;
-  /**
-   * @example
-   * 202207
-   */
   billMonth?: string;
   static names(): { [key: string]: string } {
     return {

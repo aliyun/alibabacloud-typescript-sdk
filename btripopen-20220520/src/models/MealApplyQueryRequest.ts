@@ -6,9 +6,6 @@ export class MealApplyQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
   thirdPartApplyId?: string;
   static names(): { [key: string]: string } {

@@ -4,25 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class TripBusinessInstanceQueryResponseBodyModule extends $dara.Model {
   businessData?: string;
+  businessFormData?: string;
   creator?: string;
-  /**
-   * @example
-   * 1525104000
-   */
   gmtCreate?: number;
-  /**
-   * @example
-   * 1525104000
-   */
   gmtModified?: number;
-  /**
-   * @example
-   * RUNNING
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
       businessData: 'business_data',
+      businessFormData: 'business_form_data',
       creator: 'creator',
       gmtCreate: 'gmt_create',
       gmtModified: 'gmt_modified',
@@ -33,6 +23,7 @@ export class TripBusinessInstanceQueryResponseBodyModule extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       businessData: 'string',
+      businessFormData: 'string',
       creator: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
@@ -50,34 +41,11 @@ export class TripBusinessInstanceQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TripBusinessInstanceQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module。
-   */
   module?: TripBusinessInstanceQueryResponseBodyModule;
-  /**
-   * @example
-   * C61ECFF6-606B-5F66-B81D-D77369043A5F
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 210bc44416869853114684533da3c2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

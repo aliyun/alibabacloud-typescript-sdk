@@ -24,9 +24,6 @@ export class EstimatedPriceQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1670601600000
    */
   endTime?: number;
   /**
@@ -37,22 +34,12 @@ export class EstimatedPriceQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1670428800000
    */
   startTime?: number;
-  /**
-   * @example
-   * btrip123
-   */
   subCorpId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 12345678910
    */
   userId?: string;
   static names(): { [key: string]: string } {

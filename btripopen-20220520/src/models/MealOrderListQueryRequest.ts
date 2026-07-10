@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MealOrderListQueryRequest extends $dara.Model {
-  /**
-   * @example
-   * 1000
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

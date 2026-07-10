@@ -6,9 +6,6 @@ export class AddressGetRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   actionType?: number;
   arrCityCode?: string;
@@ -17,27 +14,15 @@ export class AddressGetRequest extends $dara.Model {
   depCityCode?: string;
   depCityName?: string;
   depDate?: string;
-  /**
-   * @example
-   * 460e254b5a5b4bd0801744a2790e5d78
-   */
   itineraryId?: string;
   middlePage?: number;
   orderId?: string;
   phone?: string;
   sessionParameters?: string;
   subCorpId?: string;
-  /**
-   * @example
-   * https://alibtrip.open.com
-   */
   taobaoCallbackUrl?: string;
   thirdpartApplyId?: string;
   travelerId?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   useBookingProxy?: number;
   /**

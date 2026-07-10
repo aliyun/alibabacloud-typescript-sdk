@@ -3,86 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightSearchListRequest extends $dara.Model {
-  /**
-   * @example
-   * CA
-   */
   airlineCode?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * HGH
    */
   arrCityCode?: string;
-  /**
-   * @example
-   * BJS
-   */
   arrCityName?: string;
-  /**
-   * @example
-   * 2000-00-00 00:00:00
-   */
   arrDate?: string;
-  /**
-   * @example
-   * Y
-   */
   cabinClass?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * HGH
    */
   depCityCode?: string;
-  /**
-   * @example
-   * HGH
-   */
   depCityName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2000-00-00 00:00:00
    */
   depDate?: string;
-  /**
-   * @example
-   * CA2323
-   */
   flightNo?: string;
-  /**
-   * @example
-   * false
-   */
   needMultiClassPrice?: boolean;
-  /**
-   * @example
-   * HGH
-   */
   transferCityCode?: string;
-  /**
-   * @example
-   * CA2323
-   */
   transferFlightNo?: string;
-  /**
-   * @example
-   * BJS
-   */
   transferLeaveDate?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 0
    */
   tripType?: string;
   static names(): { [key: string]: string } {

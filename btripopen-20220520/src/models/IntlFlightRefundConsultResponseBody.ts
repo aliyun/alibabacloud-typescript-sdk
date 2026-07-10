@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoListPassengerList extends $dara.Model {
-  /**
-   * @example
-   * ZHANG/SAN
-   */
   fullName?: string;
-  /**
-   * @example
-   * 1000001
-   */
   passengerId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -37,26 +29,10 @@ export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoL
 }
 
 export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoListPassengerSegmentStatusInfoList extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   canRefund?: boolean;
-  /**
-   * @example
-   * 1000001
-   */
   passengerId?: number;
-  /**
-   * @example
-   * CZ5009PKXHKG0616
-   */
   segmentKey?: string;
   unRefundReason?: string;
-  /**
-   * @example
-   * 3
-   */
   unRefundReasonCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,16 +64,8 @@ export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoL
 }
 
 export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoListRefundReasonInfoList extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   reasonCode?: string;
   reasonDesc?: string;
-  /**
-   * @example
-   * true
-   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -125,40 +93,12 @@ export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoL
 }
 
 export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoListSegmentList extends $dara.Model {
-  /**
-   * @example
-   * HKG
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * BJS
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * 2025-06-16 19:20
-   */
   depTime?: string;
-  /**
-   * @example
-   * CZ5009
-   */
   flightNo?: string;
-  /**
-   * @example
-   * 0
-   */
   journeyIndex?: number;
-  /**
-   * @example
-   * 0
-   */
   segmentIndex?: number;
-  /**
-   * @example
-   * CZ5009PKXHKG0616
-   */
   segmentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -194,10 +134,6 @@ export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoL
 }
 
 export class IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoList extends $dara.Model {
-  /**
-   * @example
-   * edcac4f4c79d40ccb141ddb6da567e65
-   */
   passengerJourneyGroupKey?: string;
   passengerList?: IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoListPassengerList[];
   passengerSegmentStatusInfoList?: IntlFlightRefundConsultResponseBodyModulePassengerJourneyGroupInfoListPassengerSegmentStatusInfoList[];

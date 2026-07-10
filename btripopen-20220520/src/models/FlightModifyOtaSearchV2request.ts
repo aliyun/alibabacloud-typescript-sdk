@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightModifyOtaSearchV2RequestPassengerSegmentRelations extends $dara.Model {
-  /**
-   * @example
-   * 3243028
-   */
   passengerId?: string;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -36,40 +32,12 @@ export class FlightModifyOtaSearchV2RequestPassengerSegmentRelations extends $da
 }
 
 export class FlightModifyOtaSearchV2RequestSelectedSegments extends $dara.Model {
-  /**
-   * @example
-   * BJS
-   */
   arrCityCode?: string;
-  /**
-   * @example
-   * XIL
-   */
   depCityCode?: string;
-  /**
-   * @example
-   * 2023-09-18 09:10:00
-   */
   depDateTime?: string;
-  /**
-   * @example
-   * 0
-   */
   journeySeq?: number;
-  /**
-   * @example
-   * CA1110
-   */
   marketingFlightNo?: string;
-  /**
-   * @example
-   * MU8625
-   */
   operatingFlightNo?: string;
-  /**
-   * @example
-   * 0
-   */
   segmentSeq?: number;
   static names(): { [key: string]: string } {
     return {
@@ -107,32 +75,12 @@ export class FlightModifyOtaSearchV2RequestSelectedSegments extends $dara.Model 
 export class FlightModifyOtaSearchV2Request extends $dara.Model {
   cabinClass?: number[];
   depDate?: string[];
-  /**
-   * @example
-   * name
-   */
   isvName?: string;
-  /**
-   * @example
-   * 1017002195370467200
-   */
   orderId?: number;
-  /**
-   * @example
-   * 1017002195370467200
-   */
   outOrderId?: string;
   passengerSegmentRelations?: FlightModifyOtaSearchV2RequestPassengerSegmentRelations[];
   selectedSegments?: FlightModifyOtaSearchV2RequestSelectedSegments[];
-  /**
-   * @example
-   * 590f17eca9374f20ac7e8ed8a7db2f35
-   */
   sessionId?: string;
-  /**
-   * @example
-   * true
-   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {

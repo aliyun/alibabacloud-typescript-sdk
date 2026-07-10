@@ -91,24 +91,12 @@ export class QueryReimbursementOrderResponseBodyModuleExpensesInvoiceInfos exten
 }
 
 export class QueryReimbursementOrderResponseBodyModuleExpenses extends $dara.Model {
-  /**
-   * @example
-   * 20
-   */
   amount?: string;
   currency?: string;
   expenseCity?: string;
   expenseCompositions?: QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions[];
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   expenseTime?: string;
   expenseType?: string;
-  /**
-   * @example
-   * code
-   */
   expenseTypeCode?: string;
   invoiceInfos?: QueryReimbursementOrderResponseBodyModuleExpensesInvoiceInfos[];
   reimbExpenseId?: number;
@@ -163,20 +151,8 @@ export class QueryReimbursementOrderResponseBodyModuleExpenses extends $dara.Mod
 
 export class QueryReimbursementOrderResponseBodyModuleItineraries extends $dara.Model {
   arrCity?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   arrDate?: string;
-  /**
-   * @example
-   * CTU
-   */
   depCity?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   depDate?: string;
   trafficWay?: string;
   tripWay?: string;
@@ -212,20 +188,14 @@ export class QueryReimbursementOrderResponseBodyModuleItineraries extends $dara.
 }
 
 export class QueryReimbursementOrderResponseBodyModulePaymentInfos extends $dara.Model {
-  /**
-   * @example
-   * 20.00
-   */
   amount?: string;
+  cnapsCode?: string;
   payeeAccountNumber?: string;
-  /**
-   * @example
-   * userId
-   */
   payeeUserId?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
+      cnapsCode: 'cnaps_code',
       payeeAccountNumber: 'payee_account_number',
       payeeUserId: 'payee_user_id',
     };
@@ -234,6 +204,7 @@ export class QueryReimbursementOrderResponseBodyModulePaymentInfos extends $dara
   static types(): { [key: string]: any } {
     return {
       amount: 'string',
+      cnapsCode: 'string',
       payeeAccountNumber: 'string',
       payeeUserId: 'string',
     };
@@ -249,20 +220,8 @@ export class QueryReimbursementOrderResponseBodyModulePaymentInfos extends $dara
 }
 
 export class QueryReimbursementOrderResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 10.00
-   */
   companyAmount?: string;
-  /**
-   * @example
-   * 20.00
-   */
   companyPayAmount?: string;
-  /**
-   * @example
-   * dinga809ed71b9201f35
-   */
   corpId?: string;
   costCenterCode?: string;
   costCenterName?: string;
@@ -270,41 +229,21 @@ export class QueryReimbursementOrderResponseBodyModule extends $dara.Model {
   expensesCoverDeptId?: string;
   expensesCoverDeptName?: string;
   expensesCoverInvoiceTitle?: string;
-  /**
-   * @example
-   * 2022-05-15T22:27Z
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2022-07-20T10:40Z
-   */
   gmtModified?: string;
   isDeleted?: string;
   itineraries?: QueryReimbursementOrderResponseBodyModuleItineraries[];
   paymentFinishTime?: string;
   paymentInfos?: QueryReimbursementOrderResponseBodyModulePaymentInfos[];
-  /**
-   * @example
-   * 10.00
-   */
   personalAmount?: string;
   processEndTime?: string;
   projectCode?: string;
   projectName?: string;
   reason?: string;
-  /**
-   * @example
-   * RT203956
-   */
   reimbursementNo?: string;
   remark?: string;
   status?: string;
   travelThirdApplyId?: string;
-  /**
-   * @example
-   * userId
-   */
   userId?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -388,33 +327,11 @@ export class QueryReimbursementOrderResponseBodyModule extends $dara.Model {
 }
 
 export class QueryReimbursementOrderResponseBody extends $dara.Model {
-  /**
-   * @example
-   * PARAM_ERROR
-   */
   code?: string;
   message?: string;
   module?: QueryReimbursementOrderResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

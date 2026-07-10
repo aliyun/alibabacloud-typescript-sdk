@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelCityCodeListResponseBodyModuleCitysDistricts extends $dara.Model {
-  /**
-   * @example
-   * 330000
-   */
   districtCode?: string;
   districtName?: string;
   static names(): { [key: string]: string } {
@@ -33,10 +29,6 @@ export class HotelCityCodeListResponseBodyModuleCitysDistricts extends $dara.Mod
 }
 
 export class HotelCityCodeListResponseBodyModuleCitys extends $dara.Model {
-  /**
-   * @example
-   * 445222
-   */
   cityCode?: string;
   cityName?: string;
   districts?: HotelCityCodeListResponseBodyModuleCitysDistricts[];
@@ -70,10 +62,6 @@ export class HotelCityCodeListResponseBodyModuleCitys extends $dara.Model {
 
 export class HotelCityCodeListResponseBodyModule extends $dara.Model {
   citys?: HotelCityCodeListResponseBodyModuleCitys[];
-  /**
-   * @example
-   * 108800
-   */
   proviceCode?: string;
   provinceName?: string;
   static names(): { [key: string]: string } {
@@ -105,31 +93,11 @@ export class HotelCityCodeListResponseBodyModule extends $dara.Model {
 }
 
 export class HotelCityCodeListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * response is empty.
-   */
   message?: string;
   module?: HotelCityCodeListResponseBodyModule[];
-  /**
-   * @example
-   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

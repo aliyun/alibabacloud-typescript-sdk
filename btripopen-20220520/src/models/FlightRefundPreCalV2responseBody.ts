@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundPreCalV2ResponseBodyModuleMultiRefundFeeDTOS extends $dara.Model {
-  /**
-   * @example
-   * 3243028
-   */
   passengerId?: string;
   passengerName?: string;
-  /**
-   * @example
-   * 10000
-   */
   preRefundMoney?: number;
-  /**
-   * @example
-   * 100
-   */
   refundChargeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -48,15 +36,7 @@ export class FlightRefundPreCalV2ResponseBodyModuleMultiRefundFeeDTOS extends $d
 
 export class FlightRefundPreCalV2ResponseBodyModuleRefundReasonOptionDTOS extends $dara.Model {
   reason?: string;
-  /**
-   * @example
-   * 2
-   */
   reasonType?: number;
-  /**
-   * @example
-   * true
-   */
   volunteer?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -85,21 +65,9 @@ export class FlightRefundPreCalV2ResponseBodyModuleRefundReasonOptionDTOS extend
 
 export class FlightRefundPreCalV2ResponseBodyModule extends $dara.Model {
   multiRefundFeeDTOS?: FlightRefundPreCalV2ResponseBodyModuleMultiRefundFeeDTOS[];
-  /**
-   * @example
-   * 10000
-   */
   preRefundMoney?: number;
-  /**
-   * @example
-   * 100
-   */
   refundChargeFee?: number;
   refundReasonOptionDTOS?: FlightRefundPreCalV2ResponseBodyModuleRefundReasonOptionDTOS[];
-  /**
-   * @example
-   * 100
-   */
   serviceChargeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -137,37 +105,11 @@ export class FlightRefundPreCalV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightRefundPreCalV2ResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   message?: string;
-  /**
-   * @remarks
-   * module
-   */
   module?: FlightRefundPreCalV2ResponseBodyModule;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 92359A00-85D8-16C4-AED0-249618DEEC17
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * traceId
-   * 
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

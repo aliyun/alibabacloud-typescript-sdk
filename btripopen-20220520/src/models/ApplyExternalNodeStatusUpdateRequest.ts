@@ -4,21 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyExternalNodeStatusUpdateRequestOperationRecords extends $dara.Model {
   comment?: string;
-  /**
-   * @example
-   * 2023-05-28 11:33:28
-   */
   operateTime?: string;
   operatorName?: string;
-  /**
-   * @example
-   * AGREE
-   */
   result?: string;
-  /**
-   * @example
-   * PROCESS_APPROVE
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,18 +41,12 @@ export class ApplyExternalNodeStatusUpdateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123
    */
   nodeId?: string;
   operationRecords?: ApplyExternalNodeStatusUpdateRequestOperationRecords[];
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * PROCESS_AGREE
    */
   processActionResult?: string;
   static names(): { [key: string]: string } {

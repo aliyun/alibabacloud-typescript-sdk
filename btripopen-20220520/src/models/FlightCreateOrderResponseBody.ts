@@ -3,45 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightCreateOrderResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 3287177727711
-   */
   alipayTradeNo?: string;
-  /**
-   * @example
-   * 123
-   */
   btripOrderId?: number;
-  /**
-   * @example
-   * dis123
-   */
   disOrderId?: string;
-  /**
-   * @example
-   * 2000-00-00 00:00:00
-   */
   lastPayTime?: string;
-  /**
-   * @example
-   * 1
-   */
   orderStatus?: number;
-  /**
-   * @example
-   * 1
-   */
   payStatus?: number;
-  /**
-   * @example
-   * 100
-   */
   paymentPrice?: number;
-  /**
-   * @example
-   * 100
-   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,27 +47,11 @@ export class FlightCreateOrderResponseBodyModule extends $dara.Model {
 }
 
 export class FlightCreateOrderResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: string;
   message?: string;
   module?: FlightCreateOrderResponseBodyModule;
-  /**
-   * @example
-   * A5009956-1077-52FB-B520-EA8C7E91D722
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 21041ce316577904808056433edbb2
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

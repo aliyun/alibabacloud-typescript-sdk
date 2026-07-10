@@ -11,9 +11,6 @@ export class HotelOrderChangeApplyRequestRoomInfoList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 112
    */
   roomNo?: number;
   static names(): { [key: string]: string } {
@@ -43,17 +40,10 @@ export class HotelOrderChangeApplyRequestRoomInfoList extends $dara.Model {
 }
 
 export class HotelOrderChangeApplyRequest extends $dara.Model {
-  /**
-   * @example
-   * 123122
-   */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 3685792244476194816
    */
   disOrderId?: string;
   /**
@@ -69,9 +59,6 @@ export class HotelOrderChangeApplyRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1402002197440511306
    */
   saleOrderId?: string;
   static names(): { [key: string]: string } {

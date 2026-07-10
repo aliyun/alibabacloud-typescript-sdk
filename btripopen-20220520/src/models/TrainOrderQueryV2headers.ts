@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class TrainOrderQueryV2Headers extends $dara.Model {
   commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * 112dcasca
-   */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {
     return {

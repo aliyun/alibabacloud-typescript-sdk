@@ -6,57 +6,36 @@ export class TicketChangingEnquiryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * BJS
    */
   arrCity?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * HGH
    */
   depCity?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * dis123
    */
   disOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   isVoluntary?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 2000-00-00 00:00:00
    */
   modifyDepartDate?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * CA1704
    */
   modifyFlightNo?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ece19e8b1047898a5a98b6487348c2
    */
   sessionId?: string;
   static names(): { [key: string]: string } {

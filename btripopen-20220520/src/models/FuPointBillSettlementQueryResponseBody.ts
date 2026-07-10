@@ -4,257 +4,82 @@ import * as $dara from '@darabonba/typescript';
 
 export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
   adjustTime?: string;
-  /**
-   * @example
-   * 123aaa
-   */
   alipayId?: string;
-  /**
-   * @example
-   * 124
-   */
   alipayTradeNo?: string;
-  /**
-   * @example
-   * CD
-   */
   applyArrCityCode?: string;
   applyArrCityName?: string;
-  /**
-   * @example
-   * 123
-   */
   applyDepCityCode?: string;
   applyDepCityName?: string;
   applyExtendField?: string;
-  /**
-   * @example
-   * 1424041616244499302
-   */
   applyId?: string;
-  /**
-   * @example
-   * 123@qq.com
-   */
   approverEmail?: string;
-  /**
-   * @example
-   * 11
-   */
   approverId?: string;
   approverName?: string;
-  /**
-   * @example
-   * 10.5
-   */
   awardNum?: number;
-  /**
-   * @example
-   * 100.12
-   */
   basisAmount?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   billRecordTime?: string;
   billingEntity?: string;
   bookMode?: string;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   bookTime?: string;
-  /**
-   * @example
-   * 1234
-   */
   bookerId?: string;
-  /**
-   * @example
-   * zs123
-   */
   bookerJobNo?: string;
   bookerName?: string;
   capitalDirection?: string;
   cascadeDepartment?: string;
   categoryDesc?: string;
-  /**
-   * @example
-   * 100.32
-   */
   categoryOrderSettlePrice?: string;
   costCenter?: string;
-  /**
-   * @example
-   * cs1
-   */
   costCenterNumber?: string;
   costDepartment?: string;
-  /**
-   * @example
-   * 0.11
-   */
   deductibleTax?: number;
   department?: string;
-  /**
-   * @example
-   * 1112
-   */
   departmentId?: string;
   feeType?: string;
   feeTypeDesc?: string;
   foreignersTag?: string;
-  /**
-   * @example
-   * 10
-   */
   grantNum?: number;
-  /**
-   * @example
-   * 1
-   */
   index?: string;
   invoiceTitle?: string;
-  /**
-   * @remarks
-   * Location
-   */
   location?: string;
   makeInvoice?: string;
   mappingCompanyCode?: string;
-  /**
-   * @example
-   * 4801105714092
-   */
   orderId?: string;
   orderStatusDesc?: string;
   originCategory?: string;
-  /**
-   * @example
-   * 111234
-   */
   originOrderId?: string;
-  /**
-   * @example
-   * 123
-   */
   overApplyId?: string;
-  /**
-   * @example
-   * 123
-   */
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
-  /**
-   * @example
-   * 93746933
-   */
   primaryId?: number;
   processorOaCode?: string;
-  /**
-   * @example
-   * acs
-   */
   projectCode?: string;
   projectName?: string;
-  /**
-   * @example
-   * 111224324
-   */
   purchaseOrderId?: string;
   remark?: string;
-  /**
-   * @example
-   * 10.45
-   */
   saveAmount?: number;
-  /**
-   * @example
-   * 1
-   */
   sceneId?: string;
   sceneName?: string;
   settleTypeDesc?: string;
-  /**
-   * @example
-   * 110.0
-   */
   settlementFee?: number;
-  /**
-   * @example
-   * 0.0
-   */
   settlementGrantFee?: number;
-  /**
-   * @example
-   * 2023-01-01 00:00:00
-   */
   settlementTime?: string;
   settlementType?: string;
-  /**
-   * @example
-   * 166564408
-   */
   showSubOrderId?: string;
-  /**
-   * @remarks
-   * SIO
-   * 
-   * @example
-   * SIO
-   */
   sio?: string;
-  /**
-   * @example
-   * 2
-   */
   status?: number;
   statusDesc?: string;
-  /**
-   * @example
-   * 1019199938284381
-   */
   subOrderId?: string;
-  /**
-   * @example
-   * 9%
-   */
   taxRate?: string;
-  /**
-   * @example
-   * cs2
-   */
   thirdInvoiceId?: string;
-  /**
-   * @example
-   * 11
-   */
   thirdItineraryId?: string;
   tradeActionDesc?: string;
   tradeReason?: string;
-  /**
-   * @example
-   * 123@qq.com
-   */
   travelerEmail?: string;
-  /**
-   * @example
-   * 1234
-   */
   travelerId?: string;
-  /**
-   * @example
-   * A1234
-   */
   travelerJobNo?: string;
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
-  /**
-   * @example
-   * 11
-   */
   voucherType?: number;
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
@@ -435,36 +260,12 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
 }
 
 export class FuPointBillSettlementQueryResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 10
-   */
   category?: number;
-  /**
-   * @example
-   * corpid
-   */
   corpId?: string;
   items?: FuPointBillSettlementQueryResponseBodyModuleItems[];
-  /**
-   * @example
-   * 2022-07-02
-   */
   periodEnd?: string;
-  /**
-   * @example
-   * 2021-10-13
-   */
   periodStart?: string;
-  /**
-   * @example
-   * 1qwe
-   */
   scrollId?: string;
-  /**
-   * @example
-   * 30
-   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -503,39 +304,12 @@ export class FuPointBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class FuPointBillSettlementQueryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCESS
-   */
   code?: number;
-  /**
-   * @remarks
-   * module。
-   */
   module?: FuPointBillSettlementQueryResponseBodyModule;
-  /**
-   * @example
-   * true
-   */
   morePage?: boolean;
-  /**
-   * @example
-   * 210bc22017109867047728291dd406
-   */
   requestId?: string;
   resultMsg?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @remarks
-   * trace_id
-   * 
-   * @example
-   * 213e382517240341253056547e41fc
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
