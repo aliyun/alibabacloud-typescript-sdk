@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster to which the node group belongs.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,14 +15,14 @@ export class CreateNodeGroupShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The configurations of the node group.
+   * The node ID.
    * 
    * This parameter is required.
    */
   nodeGroupShrink?: string;
   /**
    * @remarks
-   * The configuration of the node unit.
+   * The node information.
    * 
    * @example
    * {\\"NodeUnitId\\":\\"3c2999a8-2b95-4409-93c5-ad3985fc5c9f\\",\\"ResourceGroupId\\":\\"\\",\\"MaxNodes\\":0,\\"NodeUnitName\\":\\"asi_cn-serverless-sale_e01-lingjun-psale\\"}

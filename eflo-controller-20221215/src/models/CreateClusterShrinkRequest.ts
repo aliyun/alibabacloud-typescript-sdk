@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key.
+   * The tag key.
    * 
    * @example
    * env-name
@@ -13,7 +13,7 @@ export class CreateClusterShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value.
+   * The tag value.
    * 
    * @example
    * dev
@@ -45,15 +45,15 @@ export class CreateClusterShrinkRequestTag extends $dara.Model {
 export class CreateClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
-   * Standard cluster test
+   * 标准集群测试
    */
   clusterDescription?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * Standard_Cluster
@@ -61,7 +61,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The type of the cluster.
+   * The cluster type.
    * 
    * @example
    * Lite
@@ -82,7 +82,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Specifies whether to skip failed nodes. The default value is False.
+   * Specifies whether to skip failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -95,7 +95,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   networksShrink?: string;
   /**
    * @remarks
-   * The vSwitches for the node.
+   * The node vSwitches.
    */
   nimizVSwitchesShrink?: string;
   /**

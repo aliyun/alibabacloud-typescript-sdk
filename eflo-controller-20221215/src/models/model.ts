@@ -121,6 +121,7 @@ export { ShrinkClusterRequestNodeGroupsHyperNodes } from './ShrinkClusterRequest
 export { ShrinkClusterRequestNodeGroupsNodes } from './ShrinkClusterRequest';
 export { ShrinkClusterRequestNodeGroups } from './ShrinkClusterRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
+export { UpdateNodeGroupRequestSystemDisk } from './UpdateNodeGroupRequest';
 export { ApproveOperationRequest } from './ApproveOperationRequest';
 export { ApproveOperationResponseBody } from './ApproveOperationResponseBody';
 export { ApproveOperationResponse } from './ApproveOperationResponse';
@@ -307,5 +308,6 @@ export { UntagResourcesRequest } from './UntagResourcesRequest';
 export { UntagResourcesResponseBody } from './UntagResourcesResponseBody';
 export { UntagResourcesResponse } from './UntagResourcesResponse';
 export { UpdateNodeGroupRequest } from './UpdateNodeGroupRequest';
+export { UpdateNodeGroupShrinkRequest } from './UpdateNodeGroupShrinkRequest';
 export { UpdateNodeGroupResponseBody } from './UpdateNodeGroupResponseBody';
 export { UpdateNodeGroupResponse } from './UpdateNodeGroupResponse';

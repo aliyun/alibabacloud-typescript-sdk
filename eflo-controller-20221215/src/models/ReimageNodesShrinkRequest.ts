@@ -13,7 +13,7 @@ export class ReimageNodesShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to skip failed nodes. The default value is False.
+   * Specifies whether to skip failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -26,11 +26,10 @@ export class ReimageNodesShrinkRequest extends $dara.Model {
   nodesShrink?: string;
   /**
    * @remarks
-   * The custom data.
+   * The custom executable shell script. The script must be Base64-encoded. The maximum size of the raw data is 16 KB.
    * 
    * @example
-   * #!/bin/sh
-   * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+   * ZWNobyBoZWxsbyBlY3Mh
    */
   userData?: string;
   static names(): { [key: string]: string } {

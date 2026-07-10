@@ -41,7 +41,7 @@ export class CreateClusterRequestComponentsComponentConfig extends $dara.Model {
   basicArgs?: any;
   /**
    * @remarks
-   * The node pool configuration. This is used to establish the mapping between node groups and node pools. This parameter is required when ComponentType is set to ACKEdge. Otherwise, leave it empty.
+   * The node pool configuration, which is used to establish the mapping between node groups and node pools. This parameter is required when ComponentType is set to ACKEdge. Leave this parameter empty for other component types.
    */
   nodeUnits?: any[];
   static names(): { [key: string]: string } {
@@ -121,7 +121,7 @@ export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds exten
   name?: string;
   /**
    * @remarks
-   * The source cluster subnet for the IP address.
+   * The cluster subnet from which the IP address is allocated.
    * 
    * @example
    * 172.16.0.0/24
@@ -201,7 +201,7 @@ export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBond
   name?: string;
   /**
    * @remarks
-   * The source cluster subnet for the IP address.
+   * The cluster subnet from which the IP address is allocated.
    * 
    * @example
    * 192.168.1.0/24
@@ -281,7 +281,7 @@ export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds exten
   name?: string;
   /**
    * @remarks
-   * The source cluster subnet for the IP address.
+   * The cluster subnet from which the IP address is allocated.
    * 
    * @example
    * 10.0.0.0/24
@@ -403,7 +403,7 @@ export class CreateClusterRequestNetworksIpAllocationPolicy extends $dara.Model 
 export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block of the subnet.
+   * The subnet CIDR block.
    * 
    * @example
    * 10.0.1.8/24
@@ -453,7 +453,7 @@ export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $dara.Mode
 export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   /**
    * @remarks
-   * The Cloud Enterprise Network (CEN) ID.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * @example
    * cen-1gb1eftc5qp2ao75fo
@@ -461,7 +461,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The Cloud Link CIDR block.
+   * The cloud link CIDR block.
    * 
    * @example
    * 172.16.0.0/24
@@ -469,7 +469,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   cloudLinkCidr?: string;
   /**
    * @remarks
-   * The Cloud Link ID.
+   * The cloud link ID.
    * 
    * @example
    * vcc-cn-c4dtycm5i08
@@ -477,7 +477,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   cloudLinkId?: string;
   /**
    * @remarks
-   * The VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-0jl2x45apm6odc2c10h25
@@ -485,7 +485,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   monitorVpcId?: string;
   /**
    * @remarks
-   * The vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-0jl2w3ffbghkss0x2foff
@@ -493,7 +493,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   monitorVswitchId?: string;
   /**
    * @remarks
-   * The CIDR block of the cluster.
+   * The cluster CIDR block.
    * 
    * @example
    * 192.168.0.0/16
@@ -501,7 +501,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   vpdCidr?: string;
   /**
    * @remarks
-   * The subnets of the cluster.
+   * The cluster subnets.
    */
   vpdSubnets?: CreateClusterRequestNetworksNewVpdInfoVpdSubnets[];
   static names(): { [key: string]: string } {
@@ -543,7 +543,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
 export class CreateClusterRequestNetworksVpdInfo extends $dara.Model {
   /**
    * @remarks
-   * The VPD ID.
+   * The VPC ID.
    * 
    * @example
    * vpd-vfuz6ejv
@@ -583,7 +583,7 @@ export class CreateClusterRequestNetworksVpdInfo extends $dara.Model {
 export class CreateClusterRequestNetworks extends $dara.Model {
   /**
    * @remarks
-   * The IP address allocation policy.
+   * The IP allocation policy.
    */
   ipAllocationPolicy?: CreateClusterRequestNetworksIpAllocationPolicy[];
   /**
@@ -683,7 +683,7 @@ export class CreateClusterRequestNetworks extends $dara.Model {
 export class CreateClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable performance burst.
+   * Specifies whether to enable I/O performance burst.
    * 
    * @example
    * true
@@ -691,9 +691,9 @@ export class CreateClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * The disk type. Valid value:
+   * The cloud disk type. Valid values:
    * 
-   * - cloud_essd: ESSD.
+   *  - cloud_essd: Enterprise SSD (ESSD).
    * 
    * @example
    * cloud_essd
@@ -701,7 +701,7 @@ export class CreateClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
   category?: string;
   /**
    * @remarks
-   * Specifies whether to delete the data disk when the node is released.
+   * Specifies whether the data cloud disk is deleted when the node is unsubscribed.
    * 
    * @example
    * true
@@ -709,15 +709,11 @@ export class CreateClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
   deleteWithNode?: boolean;
   /**
    * @remarks
-   * The performance level of the ESSD that you create as a data disk. Valid values:
-   * 
-   * - PL0: A single disk delivers up to 10,000 random read/write IOPS.
-   * 
-   * - PL1: A single disk delivers up to 50,000 random read/write IOPS.
-   * 
-   * - PL2: A single disk delivers up to 100,000 random read/write IOPS.
-   * 
-   * - PL3: A single disk delivers up to 1,000,000 random read/write IOPS.
+   * Settings for the performance level (PL) when an ESSD is created as the data cloud disk. Valid values:
+   * - PL0: a maximum of 10,000 random read/write IOPS per cloud disk.
+   * - PL1: a maximum of 50,000 random read/write IOPS per cloud disk.
+   * - PL2: a maximum of 100,000 random read/write IOPS per cloud disk.
+   * - PL3: a maximum of 1,000,000 random read/write IOPS per cloud disk.
    * 
    * Default value: PL1.
    * 
@@ -727,7 +723,7 @@ export class CreateClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk.
+   * The provisioned performance of read/write IOPS for the ESSD AutoPL cloud disk (per disk).
    * 
    * @example
    * 10000
@@ -735,7 +731,7 @@ export class CreateClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
   provisionedIops?: number;
   /**
    * @remarks
-   * The disk size in GiB.
+   * The cloud disk size. Unit: GiB.
    * 
    * @example
    * 180
@@ -775,7 +771,7 @@ export class CreateClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Mode
 export class CreateClusterRequestNodeGroupsHyperNodes extends $dara.Model {
   /**
    * @remarks
-   * The list of data disks.
+   * The list of data cloud disks.
    */
   dataDisk?: CreateClusterRequestNodeGroupsHyperNodesDataDisk[];
   /**
@@ -788,7 +784,7 @@ export class CreateClusterRequestNodeGroupsHyperNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The supernode ID.
+   * The hyper node ID.
    * 
    * @example
    * e01-dw72u2c23jk
@@ -855,7 +851,7 @@ export class CreateClusterRequestNodeGroupsHyperNodes extends $dara.Model {
 export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable performance burst.
+   * Specifies whether to enable I/O performance burst.
    * 
    * @example
    * false
@@ -863,7 +859,7 @@ export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * The type.
+   * The cloud disk type.
    * 
    * @example
    * cloud_essd
@@ -871,7 +867,7 @@ export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to delete the data disk when the node is released.
+   * Specifies whether the data cloud disk is deleted when the node is unsubscribed.
    * 
    * @example
    * true
@@ -879,7 +875,7 @@ export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   deleteWithNode?: boolean;
   /**
    * @remarks
-   * The performance metric of the data disk.
+   * The performance parameter of the data cloud disk.
    * 
    * @example
    * PL0
@@ -887,7 +883,7 @@ export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned performance (IOPS). The value must be in the range of 0 to 50,000.
+   * The provisioned performance (IOPS). Valid values: 0 to 50000.
    * 
    * @example
    * 1000
@@ -895,7 +891,7 @@ export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   provisionedIops?: number;
   /**
    * @remarks
-   * The disk size.
+   * The cloud disk size.
    * 
    * @example
    * 10
@@ -935,7 +931,7 @@ export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
 export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   /**
    * @remarks
-   * The specifications of the data disk.
+   * The data cloud disk specifications.
    */
   dataDisk?: CreateClusterRequestNodeGroupsNodesDataDisk[];
   /**
@@ -972,7 +968,7 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-0jlasms92fdxqd3wlf8ny
@@ -1015,9 +1011,9 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
 export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The disk type. Valid value:
+   * The cloud disk type. Valid values:
    * 
-   * - cloud_essd: enhanced SSD (ESSD).
+   *  - cloud_essd: Enterprise SSD (ESSD).
    * 
    * @example
    * cloud_essd
@@ -1025,11 +1021,9 @@ export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The performance level of the ESSD that you create as a system disk. Valid values:
-   * 
-   * - PL0: A single disk delivers up to 10,000 random read/write input/output operations per second (IOPS).
-   * 
-   * - PL1: A single disk delivers up to 50,000 random read/write IOPS.
+   * Settings for the performance level (PL) when an ESSD is created as the system cloud disk. Valid values:
+   * - PL0: a maximum of 10,000 random read/write IOPS per cloud disk.
+   * - PL1: a maximum of 50,000 random read/write IOPS per cloud disk.
    * 
    * @example
    * PL1
@@ -1037,7 +1031,7 @@ export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The unit is GB.
+   * The cloud disk size. Unit: GB.
    * 
    * @example
    * 9999
@@ -1071,7 +1065,7 @@ export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
 export class CreateClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable file system mounting.
+   * Specifies whether file system mounting is supported.
    * 
    * @example
    * false
@@ -1079,12 +1073,12 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * The list of supernodes.
+   * The list of hyper nodes.
    */
   hyperNodes?: CreateClusterRequestNodeGroupsHyperNodes[];
   /**
    * @remarks
-   * The OS image ID.
+   * The system image ID.
    * 
    * @example
    * i190297201634099844192
@@ -1092,7 +1086,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the key pair.
+   * The key pair name.
    * 
    * @example
    * test-keypair
@@ -1103,7 +1097,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
    * The logon password.
    * 
    * @example
-   * Password
+   * 密码
    */
   loginPassword?: string;
   /**
@@ -1116,15 +1110,15 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * The description of the node group.
+   * The node group description.
    * 
    * @example
-   * Default node group
+   * 默认节点组
    */
   nodeGroupDescription?: string;
   /**
    * @remarks
-   * The name of the node group.
+   * The node group name.
    * 
    * @example
    * emr-default
@@ -1137,8 +1131,8 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   nodes?: CreateClusterRequestNodeGroupsNodes[];
   /**
    * @remarks
-   * The name of the RAM role for the node. You can call the ListRoles operation of the RAM API to query the RAM roles that you have created. The trusted entity of the role must be Intelligent Computing LINGJUN.
-   * Note: You cannot clear an existing role.
+   * The RAM role name of the node. You can call the RAM API ListRoles to query the node RAM roles that you have created. The trusted entity of the specified role must be set to Lingjun AI Computing Service.
+   * Note: Clearing an existing role is not supported.
    * 
    * @example
    * xianwen-test-ram-role
@@ -1146,12 +1140,12 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   ramRoleName?: string;
   /**
    * @remarks
-   * The information about the system disk.
+   * The system cloud disk information.
    */
   systemDisk?: CreateClusterRequestNodeGroupsSystemDisk;
   /**
    * @remarks
-   * The instance user data. The data must be Base64-encoded. The raw data can be up to 16 KB in size.
+   * The custom executable shell script. The script must be Base64-encoded. The maximum size of the raw data is 16 KB.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
@@ -1159,7 +1153,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * Specifies whether to enable GPU virtualization.
+   * Specifies whether to enable GPU splitting.
    * 
    * @example
    * false
@@ -1232,7 +1226,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
 export class CreateClusterRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key.
+   * The tag key.
    * 
    * @example
    * env-name
@@ -1240,7 +1234,7 @@ export class CreateClusterRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value.
+   * The tag value.
    * 
    * @example
    * dev
@@ -1272,15 +1266,15 @@ export class CreateClusterRequestTag extends $dara.Model {
 export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
-   * Standard cluster test
+   * 标准集群测试
    */
   clusterDescription?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * Standard_Cluster
@@ -1288,7 +1282,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The type of the cluster.
+   * The cluster type.
    * 
    * @example
    * Lite
@@ -1309,7 +1303,7 @@ export class CreateClusterRequest extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Specifies whether to skip failed nodes. The default value is False.
+   * Specifies whether to skip failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -1322,7 +1316,7 @@ export class CreateClusterRequest extends $dara.Model {
   networks?: CreateClusterRequestNetworks;
   /**
    * @remarks
-   * The vSwitches for the node.
+   * The node vSwitches.
    */
   nimizVSwitches?: string[];
   /**

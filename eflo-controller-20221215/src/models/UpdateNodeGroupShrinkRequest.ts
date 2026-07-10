@@ -2,30 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateNodeGroupRequestSystemDisk extends $dara.Model {
-  performanceLevel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      performanceLevel: 'PerformanceLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      performanceLevel: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateNodeGroupRequest extends $dara.Model {
+export class UpdateNodeGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether file storage mounting is supported.
@@ -83,7 +60,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
    * xianwen-test-ram-role
    */
   ramRoleName?: string;
-  systemDisk?: UpdateNodeGroupRequestSystemDisk;
+  systemDiskShrink?: string;
   /**
    * @remarks
    * The custom executable shell script. The script must be Base64-encoded. The maximum size of the raw data is 16 KB.
@@ -101,7 +78,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
       newNodeGroupName: 'NewNodeGroupName',
       nodeGroupId: 'NodeGroupId',
       ramRoleName: 'RamRoleName',
-      systemDisk: 'SystemDisk',
+      systemDiskShrink: 'SystemDisk',
       userData: 'UserData',
     };
   }
@@ -115,15 +92,12 @@ export class UpdateNodeGroupRequest extends $dara.Model {
       newNodeGroupName: 'string',
       nodeGroupId: 'string',
       ramRoleName: 'string',
-      systemDisk: UpdateNodeGroupRequestSystemDisk,
+      systemDiskShrink: 'string',
       userData: 'string',
     };
   }
 
   validate() {
-    if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
-      (this.systemDisk as any).validate();
-    }
     super.validate();
   }
 

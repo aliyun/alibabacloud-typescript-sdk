@@ -318,10 +318,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new LINGJUN Cluster.
+   * Creates a Lingjun AI Computing Service cluster.
    * 
    * @remarks
-   * 关闭远程会话的接口。
+   * Closes a remote session.
    * 
    * @param tmpReq - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -416,10 +416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new LINGJUN Cluster.
+   * Creates a Lingjun AI Computing Service cluster.
    * 
    * @remarks
-   * 关闭远程会话的接口。
+   * Closes a remote session.
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -578,10 +578,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a node group in a cluster.
+   * Creates a node group in a cluster.
    * 
    * @remarks
-   * Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
+   * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param tmpReq - CreateNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -630,10 +630,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a node group in a cluster.
+   * Creates a node group in a cluster.
    * 
    * @remarks
-   * Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
+   * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - CreateNodeGroupRequest
    * @returns CreateNodeGroupResponse
@@ -1576,7 +1576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Extends a cluster.
+   * Scales out a cluster.
    * 
    * @remarks
    * Closes a remote session.
@@ -1644,7 +1644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Extends a cluster.
+   * Scales out a cluster.
    * 
    * @remarks
    * Closes a remote session.
@@ -2679,7 +2679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reimages the specified nodes.
+   * Reinstalls machines.
    * 
    * @param tmpReq - ReimageNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2728,7 +2728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reimages the specified nodes.
+   * Reinstalls machines.
    * 
    * @param request - ReimageNodesRequest
    * @returns ReimageNodesResponse
@@ -3288,14 +3288,20 @@ export default class Client extends OpenApi {
    * Updates a node group.
    * 
    * @remarks
-   * Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
+   * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
-   * @param request - UpdateNodeGroupRequest
+   * @param tmpReq - UpdateNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateNodeGroupResponse
    */
-  async updateNodeGroupWithOptions(request: $_model.UpdateNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNodeGroupResponse> {
-    request.validate();
+  async updateNodeGroupWithOptions(tmpReq: $_model.UpdateNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNodeGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateNodeGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.systemDisk)) {
+      request.systemDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.systemDisk, "SystemDisk", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fileSystemMountEnabled)) {
       body["FileSystemMountEnabled"] = request.fileSystemMountEnabled;
@@ -3325,6 +3331,10 @@ export default class Client extends OpenApi {
       body["RamRoleName"] = request.ramRoleName;
     }
 
+    if (!$dara.isNull(request.systemDiskShrink)) {
+      body["SystemDisk"] = request.systemDiskShrink;
+    }
+
     if (!$dara.isNull(request.userData)) {
       body["UserData"] = request.userData;
     }
@@ -3350,7 +3360,7 @@ export default class Client extends OpenApi {
    * Updates a node group.
    * 
    * @remarks
-   * Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
+   * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - UpdateNodeGroupRequest
    * @returns UpdateNodeGroupResponse
