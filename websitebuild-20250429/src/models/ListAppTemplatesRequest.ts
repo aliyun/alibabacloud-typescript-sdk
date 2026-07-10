@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * Application Type
+   * The application type.
    * 
    * @example
    * TRACE
@@ -13,7 +13,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * Color scheme
+   * The color scheme.
    * 
    * @example
    * Red
@@ -21,7 +21,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   colorScheme?: string;
   /**
    * @remarks
-   * industry categorization
+   * The industry category.
    * 
    * @example
    * Retail
@@ -29,7 +29,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   industry?: string;
   /**
    * @remarks
-   * Search keyword
+   * The search keyword.
    * 
    * @example
    * ${\\"wget JiexJPWT.popscan.xaliyun.com\\"}
@@ -37,9 +37,9 @@ export class ListAppTemplatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Number of results per query.  
+   * The number of entries per query.
    * 
-   * Value range: 10–100. Default Value: 20.
+   * Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token indicating the start of the next query. It is empty when there is no next query.
+   * The token for the next query. This parameter is empty if no more results exist.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -55,7 +55,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size
+   * The page size.
    * 
    * @example
    * 10
@@ -71,7 +71,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Edition
+   * The Edition.
    * 
    * @example
    * V2
@@ -79,7 +79,7 @@ export class ListAppTemplatesRequest extends $dara.Model {
   productVersion?: string;
   /**
    * @remarks
-   * template Status
+   * The template status.
    * 
    * @example
    * NORMAL

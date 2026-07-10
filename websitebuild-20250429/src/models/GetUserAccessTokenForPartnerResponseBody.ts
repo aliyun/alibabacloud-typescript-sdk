@@ -28,7 +28,7 @@ export class GetUserAccessTokenForPartnerResponseBodyModule extends $dara.Model 
 export class GetUserAccessTokenForPartnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
+   * The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error codes in this topic.
    * 
    * @example
    * 0

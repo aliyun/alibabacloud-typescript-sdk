@@ -13,6 +13,7 @@ export { ModuleVersionsValueComponentsValuePropertiesValueValues } from './Modul
 export { ModuleDataComponentsValuePropertiesValueValues } from './ModuleDataComponentsValuePropertiesValue';
 export { ModuleNextComponentsValuePropertiesValueValues } from './ModuleNextComponentsValuePropertiesValue';
 export { AllocateSupabaseForAdminResponseBodyModule } from './AllocateSupabaseForAdminResponseBody';
+export { AuthorizeAppProxyOpsResponseBodyModule } from './AuthorizeAppProxyOpsResponseBody';
 export { BatchCheckResourceMeasureResponseBodyModule } from './BatchCheckResourceMeasureResponseBody';
 export { BindAppDomainResponseBodyModuleDnsConflictRecords } from './BindAppDomainResponseBody';
 export { BindAppDomainResponseBodyModuleDnsConflict } from './BindAppDomainResponseBody';
@@ -214,6 +215,9 @@ export { ModuleNextComponentsValuePropertiesValue } from './ModuleNextComponents
 export { AllocateSupabaseForAdminRequest } from './AllocateSupabaseForAdminRequest';
 export { AllocateSupabaseForAdminResponseBody } from './AllocateSupabaseForAdminResponseBody';
 export { AllocateSupabaseForAdminResponse } from './AllocateSupabaseForAdminResponse';
+export { AuthorizeAppProxyOpsRequest } from './AuthorizeAppProxyOpsRequest';
+export { AuthorizeAppProxyOpsResponseBody } from './AuthorizeAppProxyOpsResponseBody';
+export { AuthorizeAppProxyOpsResponse } from './AuthorizeAppProxyOpsResponse';
 export { BatchCheckResourceMeasureRequest } from './BatchCheckResourceMeasureRequest';
 export { BatchCheckResourceMeasureResponseBody } from './BatchCheckResourceMeasureResponseBody';
 export { BatchCheckResourceMeasureResponse } from './BatchCheckResourceMeasureResponse';

@@ -106,6 +106,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Grants proxy-based O&M permissions for an application instance.
+   * 
+   * @param request - AuthorizeAppProxyOpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeAppProxyOpsResponse
+   */
+  async authorizeAppProxyOpsWithOptions(request: $_model.AuthorizeAppProxyOpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeAppProxyOpsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeAppProxyOps",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeAppProxyOpsResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeAppProxyOpsResponse({}));
+  }
+
+  /**
+   * Grants proxy-based O&M permissions for an application instance.
+   * 
+   * @param request - AuthorizeAppProxyOpsRequest
+   * @returns AuthorizeAppProxyOpsResponse
+   */
+  async authorizeAppProxyOps(request: $_model.AuthorizeAppProxyOpsRequest): Promise<$_model.AuthorizeAppProxyOpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.authorizeAppProxyOpsWithOptions(request, runtime);
+  }
+
+  /**
    * Checks resource usage in batches.
    * 
    * @remarks
@@ -4966,10 +5008,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query template list
+   * Queries the list of website templates.
    * 
    * @remarks
-   * Obtain barcode generation plugin configuration information
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - ListAppTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5036,10 +5078,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query template list
+   * Queries the list of website templates.
    * 
    * @remarks
-   * Obtain barcode generation plugin configuration information
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - ListAppTemplatesRequest
    * @returns ListAppTemplatesResponse
