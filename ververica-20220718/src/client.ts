@@ -3954,6 +3954,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes an SQL query script task.
+   * 
+   * @param request - StartSqlExecutionRequest
+   * @param headers - StartSqlExecutionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartSqlExecutionResponse
+   */
+  async startSqlExecutionWithOptions(namespace: string, request: $_model.StartSqlExecutionRequest, headers: $_model.StartSqlExecutionHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StartSqlExecutionResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartSqlExecution",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-execution`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartSqlExecutionResponse>(await this.callApi(params, req, runtime), new $_model.StartSqlExecutionResponse({}));
+  }
+
+  /**
+   * Executes an SQL query script task.
+   * 
+   * @param request - StartSqlExecutionRequest
+   * @returns StartSqlExecutionResponse
+   */
+  async startSqlExecution(namespace: string, request: $_model.StartSqlExecutionRequest): Promise<$_model.StartSqlExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.StartSqlExecutionHeaders({ });
+    return await this.startSqlExecutionWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Stops the application of a scheduled plan.
    * 
    * @param headers - StopApplyScheduledPlanHeaders
