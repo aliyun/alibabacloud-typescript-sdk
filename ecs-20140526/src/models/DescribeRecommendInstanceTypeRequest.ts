@@ -50,7 +50,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The collection of alternative instance families from which alternative instance types are selected. You can set up to 10 instance families in this parameter.
+   * Settings for the collection of alternative instance families from which alternative instance types are selected. You can specify up to 10 instance families.
    * 
    * @example
    * ecs.hfg6
@@ -96,7 +96,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
    * The network type of the ECS instance. Valid values:
    * 
    * - vpc: virtual private cloud (VPC).
-   * - classic: classic network. The classic network is no longer available. For more information, see [Retirement notice](https://help.aliyun.com/document_detail/2833134.html).
+   * - classic: classic network. The classic network is no longer available. For more information, see [Discontinuation notice](https://help.aliyun.com/document_detail/2833134.html).
    * 
    * Default value: vpc.
    * 
@@ -110,7 +110,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The priority recommendation strategy. Valid values:
+   * The priority-based recommendation strategy. Valid values:
    * 
    * - InventoryFirst: inventory first.
    * - PriceFirst: price first. Instance types are sorted by the hourly vCPU unit price in ascending order.
@@ -155,7 +155,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
    * - SpotWithPriceLimit: a spot instance with a maximum hourly price.
    * - SpotAsPriceGo: a spot instance for which the system automatically bids at up to the pay-as-you-go price.
    * 
-   * > When you use SpotStrategy, set InstanceChargeType to PostPaid.
+   * > When you use SpotStrategy, set InstanceChargerType to PostPaid.
    * 
    * Default value: NoSpot.
    * 

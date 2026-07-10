@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * m-bp146shijn7hujku****
@@ -13,7 +13,7 @@ export class CreateImageResponseBody extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C8B26B44-0189-443E-9816-*******

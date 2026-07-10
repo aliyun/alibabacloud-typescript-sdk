@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The ID of the automatic snapshot policy to apply to the system disk.
+   * The ID of the automatic snapshot policy applied to the system disk.
    * 
    * @example
    * sp-gc7c37d4ylw7mtnk****
@@ -13,11 +13,10 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the performance burst feature for the system disk. Valid values:
+   * Specifies whether to enable the performance burst feature. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: enables the performance burst feature.
+   * - false: does not enable the performance burst feature.
    * 
    * @example
    * true
@@ -27,19 +26,14 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
    * @remarks
    * The category of the system disk. Valid values:
    * 
-   * - cloud: basic disk.
-   * 
-   * - cloud_efficiency: ultra disk.
-   * 
-   * - cloud_ssd: standard SSD.
-   * 
-   * - cloud_essd: Enterprise SSD (ESSD). You can use `SystemDisk.PerformanceLevel` to set the performance level of the ESSD to use as the system disk.
-   * 
+   * -   cloud: basic disk.
+   * -   cloud_efficiency: ultra disk.
+   * -   cloud_ssd: standard SSD.
+   * -   cloud_essd: enterprise SSD (ESSD). You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the disk.
    * - cloud_auto: ESSD AutoPL disk.
-   * 
    * - cloud_essd_entry: ESSD Entry disk.
    * 
-   * For non-I/O optimized instances of retired instance types, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
+   * For retired instance types that are not I/O optimized, the default value is cloud. Otherwise, the default value is cloud_efficiency.
    * 
    * @example
    * cloud_ssd
@@ -49,9 +43,8 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
    * @remarks
    * Specifies whether to release the system disk when the instance is released. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: releases the system disk when the instance is released.
+   * - false: does not release the system disk when the instance is released.
    * 
    * Default value: true.
    * 
@@ -69,7 +62,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testSystemDiskName
@@ -79,13 +72,12 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
    * @remarks
    * Specifies whether to encrypt the system disk. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: encrypts the system disk.
+   * - false: does not encrypt the system disk.
    * 
    * Default value: false.
    * 
-   * > If you create an instance in Hong Kong Zone D or Singapore Zone A, you cannot encrypt the system disk.
+   * > Zone D in Hong Kong (China) and Zone A in Singapore do not support system disk encryption when you create instances.
    * 
    * @example
    * false
@@ -93,7 +85,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
   encrypted?: string;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is unavailable for general users.
+   * > This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * null
@@ -101,7 +93,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
   iops?: number;
   /**
    * @remarks
-   * The ID of the KMS key to use for the system disk.
+   * The KMS key ID of the system disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -109,17 +101,14 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * The performance level of the ESSD to use as the system disk. Default value: PL0. Valid values:
+   * The performance level of the ESSD used as the system disk. Valid values:
    * 
-   * - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+   * - PL0 (default): a single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1: a single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
-   * - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * 
-   * - PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * 
-   * - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
-   * 
-   * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * For information about how to select an ESSD performance level, see [Enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL0
@@ -127,11 +116,11 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
+   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline Performance}.
    * 
-   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
+   * Baseline Performance = min{1,800 + 50 × Capacity, 50,000}
    * 
-   * > This parameter is available only if you set the SystemDisk.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
+   * > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the provisioned performance of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
    * 
    * @example
    * 50000
@@ -141,11 +130,10 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
    * @remarks
    * The size of the system disk. Unit: GiB. Valid values:
    * 
-   * - Valid values if you set SystemDisk.Category to cloud: 20 to 500.
+   * - cloud: 20 to 500.
+   * - Other disk categories: 20 to 2048.
    * 
-   * - Valid values if you set SystemDisk.Category to other disk categories: 20 to 2048.
-   * 
-   * The value of this parameter must be at least 20 and greater than or equal to the size of the image.
+   * The value of this parameter must be greater than or equal to max{20, ImageSize}.
    * 
    * @example
    * 40
@@ -197,7 +185,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
 export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   /**
    * @remarks
-   * The ID of the automatic snapshot policy to apply to data disk N.
+   * The ID of the automatic snapshot policy applied to the data disk.
    * 
    * @example
    * sp-m5e7fa9ute44ssa****
@@ -205,11 +193,10 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the performance burst feature for the system disk. Valid values:
+   * Specifies whether to enable the performance burst feature. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: enables the performance burst feature.
+   * - false: does not enable the performance burst feature.
    * 
    * @example
    * true
@@ -219,19 +206,22 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
    * @remarks
    * The category of data disk N. Valid values:
    * 
-   * - cloud: basic disk
-   * 
-   * - cloud_efficiency: utra disk
-   * 
-   * - cloud_ssd: standard SSD
-   * 
-   * - cloud_essd: ESSD
-   * 
-   * - cloud_auto: ESSD AutoPL disk
-   * 
-   * - cloud_essd_entry: ESSD Entry disk
+   * - cloud_efficiency: ultra disk.
+   * - cloud_ssd: standard SSD.
+   * - cloud_essd: enterprise SSD.
+   * - cloud: basic disk.
+   * - cloud_auto: ESSD AutoPL disk.
+   * - cloud_regional_disk_auto: regional ESSD.
+   * - cloud_essd_entry: ESSD Entry disk.
+   *   > The cloud_essd_entry value is supported only when `InstanceType` is set to the `ecs.u1` or `ecs.e` instance family.
+   * - elastic_ephemeral_disk_standard: elastic ephemeral disk - standard.
+   * - elastic_ephemeral_disk_premium: elastic ephemeral disk - Premium Edition.
    * 
    * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
+   * Default value description:
+   * 
+   * - If InstanceType is a retired instance type that is not I/O optimized, the default value of this parameter is `cloud`.
+   * - In other cases, the default value is `cloud_efficiency`.<props="china">After January 30, 2026, if the I/O optimized instance type does not support cloud_auto, the default value is cloud_efficiency. Otherwise, the default value is cloud_auto, and the performance burst feature is enabled by default (which incurs additional fees. For details, see [Billing examples](~~368372#p_75k_2hp_7gp~~)). For more information, see [Change notice](https://www.aliyun.com/notice/117844).
    * 
    * @example
    * cloud_ssd
@@ -239,11 +229,10 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to release data disk N when the associated instance is released. Valid values:
+   * Specifies whether to release the data disk when the instance is released. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: releases the data disk when the instance is released.
+   * - false: does not release the data disk when the instance is released.
    * 
    * Default value: true.
    * 
@@ -253,7 +242,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   deleteWithInstance?: boolean;
   /**
    * @remarks
-   * The description of data disk N. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the data disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * testDataDiskDescription
@@ -261,13 +250,12 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The mount point of data disk N. The mount points are named based on the number of data disks:
+   * The mount point of the data disk. The naming convention varies based on the number of data disks attached:
+   * - 1 to 25 data disks: /dev/xvd`[b-z]`
    * 
-   * - 1st to 25th data disks: /dev/xvd`[b-z]`.
+   * - More than 25 data disks: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
    * 
-   * - From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
-   * 
-   * > This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
+   * > This parameter is intended only for full image (whole-machine image) scenarios. You can set this parameter to the mount point of a data disk in the full image and modify the corresponding `DataDisk.N.Size` and `DataDisk.N.Category` parameters to change the disk category and size of the data disk in the full image.
    * 
    * @example
    * /dev/xvdb
@@ -275,7 +263,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the data disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testDataDiskName
@@ -283,7 +271,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt data disk N.
+   * Specifies whether to encrypt the data disk.
    * 
    * @example
    * false
@@ -291,7 +279,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   encrypted?: string;
   /**
    * @remarks
-   * The ID of the KMS key used for the data disk.
+   * The KMS key ID for the data disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d****
@@ -299,17 +287,14 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
+   * The performance level of the ESSD used as a data disk. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
    * 
-   * - PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+   * - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1 (default): a single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
-   * - PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
-   * 
-   * - PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
-   * 
-   * - PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
-   * 
-   * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * For information about how to select an ESSD performance level, see [Enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -317,11 +302,11 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline Performance}.
    * 
-   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
+   * Baseline Performance = min{1,800 + 50 × Capacity, 50,000}
    * 
-   * > This parameter is available only if you set DiskCategory to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
+   * > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the provisioned performance of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
    * 
    * @example
    * 50000
@@ -331,25 +316,16 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
    * @remarks
    * The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
    * 
-   * - Valid values if you set DataDisk.N.Category to cloud: 5 to 2000.
-   * 
-   * - Valid values if you set DataDisk.N.Category to cloud_efficiency: 20 to 32768.
-   * 
-   * - Valid values if you set DataDisk.N.Category to cloud_ssd: 20 to 32768.
-   * 
-   * - Valid values if you set DataDisk.N.Category to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
-   * 
-   *   - Valid values if DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
-   * 
-   *   - Valid values if DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
-   * 
-   *   - Valid values if DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
-   * 
-   *   - Valid values if you set DataDisk.N.PerformanceLevel to PL3: 1261 to 32768.
-   * 
-   * - Valid values if you set DataDisk.N.Category to cloud_auto: 1 to 32768.
-   * 
-   * - Valid values if you set DataDisk.N.Category to cloud_essd_entry: 10 to 32768.
+   * -   cloud: 5 to 2000.
+   * -   cloud_efficiency: 20 to 32768.
+   * -   cloud_ssd: 20 to 32768.
+   * -   cloud_essd: The valid value range depends on the value of `DataDisk.N.PerformanceLevel`.
+   *     - PL0: 1 to 32768.
+   *     - PL1: 20 to 32768.
+   *     - PL2: 461 to 32768.
+   *     - PL3: 1261 to 32768.
+   * - cloud_auto: 1 to 32,768.
+   * - cloud_essd_entry: 10 to 32,768.
    * 
    * The value of this parameter must be greater than or equal to the size of the snapshot specified by `SnapshotId`.
    * 
@@ -359,9 +335,9 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. If you specify `DataDisk.N.SnapshotId`, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot.
+   * The ID of the snapshot used to create data disk N. Valid values of N: 1 to 16. After you specify `DataDisk.N.SnapshotId`, the `DataDisk.N.Size` parameter is ignored. The actual size of the created disk is the size of the specified snapshot.
    * 
-   * > Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+   * > You cannot use snapshots created on or before July 15, 2013. Such requests are rejected.
    * 
    * @example
    * s-bp17441ohwka0yuh****
@@ -415,11 +391,10 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
 export class CreateLaunchTemplateRequestImageOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the instance that uses the image supports logons of the ecs-user user. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the instance that uses this image supports logon with the ecs-user account.
+   * Valid values:
+   * - true: supported.
+   * - false: not supported.
    * 
    * @example
    * false
@@ -449,11 +424,11 @@ export class CreateLaunchTemplateRequestImageOptions extends $dara.Model {
 export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to release ENI N when the instance is released. Valid values:
+   * Specifies whether to retain the ENI when the instance is released. Valid values:
    * 
-   * - true
+   * - true: does not retain the ENI.
    * 
-   * - false
+   * - false: retains the ENI.
    * 
    * Default value: true.
    * 
@@ -465,7 +440,7 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   deleteOnRelease?: boolean;
   /**
    * @remarks
-   * The description of the secondary ENI. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. The value of N in `NetworkInterface.N` cannot be greater than 1.
+   * The description of the secondary network interface controller (NIC). The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. The value of N in `NetworkInterface.N` cannot be greater than 1.
    * 
    * @example
    * testEniDescription
@@ -473,13 +448,12 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of ENI N. Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * The type of the network interface controller (NIC). Valid values of N: 1 to 2. If you set N to 1, you can configure a primary or secondary NIC. If you set N to 2, you must configure one primary NIC and one secondary NIC.
    * 
    * Valid values:
    * 
-   * - Primary
-   * 
-   * - Secondary
+   * - Primary: primary NIC.
+   * - Secondary: secondary NIC.
    * 
    * Default value: Secondary.
    * 
@@ -489,13 +463,13 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The name of ENI N.
+   * The name of the network interface controller (NIC).
    * 
    * Take note of the following items:
    * 
-   * - Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * - Valid values of N: 1 to 2. If you set N to 1, you can configure a primary or secondary NIC. If you set N to 2, you must configure one primary NIC and one secondary NIC.
    * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Primary`, you do not need to specify this parameter.
+   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, you do not need to set this parameter.
    * 
    * @example
    * testEniName
@@ -506,8 +480,7 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
    * The communication mode of the primary ENI. Valid values:
    * 
    * - Standard: uses the TCP communication mode.
-   * 
-   * - HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
+   * - HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the RDMA communication mode.
    * 
    * @example
    * Standard
@@ -515,21 +488,19 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   networkInterfaceTrafficMode?: string;
   /**
    * @remarks
-   * The primary IP address to assign to ENI N.
+   * Adds a network interface controller (NIC) and sets the primary IP address.
    * 
    * Take note of the following items:
    * 
-   * - Valid values of N: 1 and 2.
+   * - Valid values of N: 1 to 2.
+   *     - If you set N to 1, you can configure a primary or secondary NIC. If the `Amount` parameter is set to a value greater than 1 and you configure a primary NIC with this parameter specified, consecutive primary IP addresses starting from the specified IP address are allocated to multiple ECS instances in batch. In this case, you cannot attach a secondary NIC to the instances.
+   *     - If you set N to 2, you must configure one primary NIC and one secondary NIC. If the `Amount` parameter is set to a value greater than 1 and this parameter is specified for the primary NIC, you cannot configure a secondary NIC (that is, you cannot set `NetworkInterface.2.InstanceType=Secondary`).
    * 
-   *   - If the value of N is 1, you can configure a primary or secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, the specified number of instances are created and consecutive primary IP addresses starting from the specified IP address are assigned to the instances. In this case, you cannot attach secondary ENIs to the instances.
+   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, this parameter has the same effect as `PrivateIpAddress`, but you cannot specify both this parameter and `PrivateIpAddress`.
    * 
-   *   - If the value of N is 2, you must configure a primary ENI and a secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, you cannot set `NetworkInterface.2.InstanceType` to Secondary to attach a secondary ENI.
+   * - If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter specifies the primary IP address of the secondary NIC. By default, an IP address is randomly selected from the vSwitch CIDR block to which the NIC belongs.
    * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Primary`, this parameter is equivalent to `PrivateIpAddress`. You cannot specify both this parameter and `PrivateIpAddress` in the same request.
-   * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, the specified primary IP address is assigned to the secondary ENI. The default value is an IP address that is randomly selected from within the CIDR block of the vSwitch to which to connect the secondary ENI.
-   * 
-   * > You can attach only a single secondary ENI when you create an instance. After the instance is created, you can call the [CreateNetworkInterface](https://help.aliyun.com/document_detail/58504.html) and [AttachNetworkInterface](https://help.aliyun.com/document_detail/58515.html) operations to attach more secondary ENIs.
+   * > When you create an ECS instance, you can attach up to one secondary NIC. After the instance is created, you can invoke [CreateNetworkInterface](https://help.aliyun.com/document_detail/58504.html) and [AttachNetworkInterface](https://help.aliyun.com/document_detail/58515.html) to attach more secondary NICs.
    * 
    * @example
    * ``192.168.**.**``
@@ -537,15 +508,15 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   primaryIpAddress?: string;
   /**
    * @remarks
-   * The ID of the security group to which to assign ENI N.
+   * The ID of the security group to which the network interface controller (NIC) belongs.
    * 
    * Take note of the following items:
    * 
-   * - Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * - Valid values of N: 1 to 2. If you set N to 1, you can configure a primary or secondary NIC. If you set N to 2, you must configure one primary NIC and one secondary NIC.
    * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `SecurityGroupId`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
+   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, you must set this parameter. This parameter has the same effect as `SecurityGroupId`, but you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
    * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+   * - If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. Default value: the security group of the ECS instance.
    * 
    * @example
    * sg-bp15ed6xe1yxeycg****
@@ -553,17 +524,16 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The IDs of security groups to which to assign ENI N.
+   * The IDs of one or more security groups to which the network interface controller (NIC) belongs.
    * 
-   * - Valid values of the first N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
-   * 
-   * - The second N in this parameter indicates that one or more security group IDs can be specified. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits" topic.
+   * - The first N has a valid value range of 1 to 2. If you set N to 1, you can configure a primary or secondary NIC. If you set N to 2, you must configure one primary NIC and one secondary NIC.
+   * - The second N specifies one or more security group IDs. The valid value range of N depends on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
    * 
    * Take note of the following items:
    * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter or `NetworkInterface.N.SecurityGroupId`. In this case, this parameter is equivalent to `SecurityGroupIds.N`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupId`.
+   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, you must set this parameter or `NetworkInterface.N.SecurityGroupId`. This parameter has the same effect as `SecurityGroupIds.N`, but you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupId`.
    * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+   * - If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. Default value: the security group of the ECS instance.
    * 
    * @example
    * sg-bp67acfmxazb4p****
@@ -571,15 +541,15 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The ID of the vSwitch to which to connect ENI N.
+   * The vSwitch ID of the network interface controller (NIC).
    * 
    * Take note of the following items:
    * 
-   * - Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * - Valid values of N: 1 to 2. If you set N to 1, you can configure a primary or secondary NIC. If you set N to 2, you must configure one primary NIC and one secondary NIC.
    * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `VSwitchId`. You cannot specify both NetworkInterface.N.VSwitchId and `VSwitchId` in the same request.
+   * - If `NetworkInterface.N.InstanceType` is set to `Primary`, this parameter is required. This parameter has the same effect as `VSwitchId`, but you cannot specify both this parameter and `VSwitchId`.
    * 
-   * - If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the VSwitchId value.
+   * - If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, this parameter is optional. Default value: the vSwitch of the ECS instance.
    * 
    * @example
    * vsw-bp1s5fnvk4gn2tws0****
@@ -628,25 +598,20 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
 export class CreateLaunchTemplateRequestSecurityOptions extends $dara.Model {
   /**
    * @remarks
-   * The trusted system mode. Valid value: vTPM.
+   * The trusted system mode. Set the value to vTPM.
    * 
-   * Currently, the following instance families support the trusted system mode:
+   * The following instance families support trusted system mode:
+   * - g7, c7, and r7.
+   * - Enhanced instance families (g7t, c7t, and r7t).
    * 
-   * - g7, c7, r7.
+   * When you create ECS instances of the preceding instance types, you must configure this parameter. Take note of the following items:
    * 
-   * - Security-enhanced instance families (g7t, c7t, r7t).
+   * - To use Alibaba Cloud Trusted System, set this parameter to vTPM. Then, Alibaba Cloud Trusted System performs trusted verification when the instance starts.
+   * - If you do not use Alibaba Cloud Trusted System, you do not need to configure this parameter. However, if the ECS instance that you create uses the Enclave-based confidential computing pattern (`SecurityOptions.ConfidentialComputingMode=Enclave`), the trusted system is also enabled for the instance.
+   * - When you use OpenAPI to create a trusted ECS instance, you can only invoke `RunInstances`. `CreateInstance` does not support the `SecurityOptions.TrustedSystemMode` parameter.
+   * > If you specify the instance as a trusted instance during creation, you can replace the system disk only with an image that supports the trusted system.
    * 
-   * When you create an ECS instance using one of the above instance families, you must configure this parameter as follows:
-   * 
-   * - If you use Alibaba Cloud Trusted System, set this parameter to vTPM. This enables trusted validation through Alibaba Cloud Trusted System when the instance starts.
-   * 
-   * - If you do not use Alibaba Cloud Trusted System, you can leave this parameter unset. However, note that if your ECS instance uses the Enclave confidential computing mode (`SecurityOptions.ConfidentialComputingMode=Enclave`), the trusted system will still be enabled automatically.
-   * 
-   * - When creating a trusted ECS instance via OpenAPI, you can only use the `RunInstances` operation. The `CreateInstance` operation does not currently support setting the `SecurityOptions.TrustedSystemMode` parameter.
-   * 
-   * > If you specify an instance as a trusted instance during creation, you can only use images that support the trusted system when replacing its system disk.
-   * 
-   * For more information about the trusted system, see [Function Overview of Trusted Features on Security-Enhanced Instances](https://help.aliyun.com/document_detail/201394.html).
+   * For more information about the trusted system, see [Overview of trusted features for security-enhanced instances](https://help.aliyun.com/document_detail/201394.html).
    * 
    * @example
    * vTPM
@@ -676,7 +641,7 @@ export class CreateLaunchTemplateRequestSecurityOptions extends $dara.Model {
 export class CreateLaunchTemplateRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the instance, disks, and primary ENI that are created from the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http\\:// or https\\://. The tag key cannot start with acs: or aliyun.
+   * The tag key for instances, disks, and primary ENIs created from this template version. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -684,7 +649,7 @@ export class CreateLaunchTemplateRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the instance, disks, and primary ENI that are created from the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http\\:// or https\\://.
+   * The tag value for instances, disks, and primary ENIs created from this template version. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -716,7 +681,7 @@ export class CreateLaunchTemplateRequestTag extends $dara.Model {
 export class CreateLaunchTemplateRequestTemplateTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * The tag key of the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -724,7 +689,7 @@ export class CreateLaunchTemplateRequestTemplateTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+   * The tag value of the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag value cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -757,13 +722,13 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   systemDisk?: CreateLaunchTemplateRequestSystemDisk;
   /**
    * @remarks
-   * The automatic release time of the instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The automatic release time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * - If the value of `ss` is not `00`, the time is automatically rounded down to the nearest minute based on the value of `mm`.
+   * - If the value of seconds (`ss`) is not `00`, the time is automatically rounded down to the start of the current minute (`mm`).
    * 
-   * - The specified time must be at least 30 minutes later than the current time.
+   * - The earliest release time is 30 minutes after the current time.
    * 
-   * - The specified time can be at most three years later than the current time.
+   * - The latest release time cannot be more than three years from the current time.
    * 
    * @example
    * 2018-01-01T12:05:00Z
@@ -773,13 +738,12 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: enables auto-renewal.
+   * - false: does not enable auto-renewal.
    * 
    * Default value: false.
    * 
-   * > This parameter takes effect only if you set `InstanceChargeType` to `PrePaid`.
+   * > This parameter takes effect only when `InstanceChargeType` is set to `PrePaid`.
    * 
    * @example
    * true
@@ -787,9 +751,15 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period of the instance. Valid values:
+   * The auto-renewal period. Valid values: 
+   *          
+   * <props="china">
+   * - If PeriodUnit is set to Week: 1, 2, and 3.
+   * - If PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
    * 
-   * Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
+   * 
+   * 
+   * <props="intl">If PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
    * 
    * Default value: 1.
    * 
@@ -799,11 +769,10 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The performance mode of the burstable instance. Valid values:
+   * The running mode of the burstable instance. Valid values:
    * 
-   * - Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-   * 
-   * - Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * - Standard: standard mode. For more information, see the performance constrained mode section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * - Unlimited: unlimited mode. For more information, see the unlimited mode section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * 
    * @example
    * Standard
@@ -811,20 +780,19 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   creditSpecification?: string;
   /**
    * @remarks
-   * The data disks.
+   * The list of data disk information.
    */
   dataDisk?: CreateLaunchTemplateRequestDataDisk[];
   /**
    * @remarks
-   * Specifies whether to enable release protection for the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance. Valid values:
+   * The release protection attribute of the instance. Specifies whether the instance can be released from the console or by calling [DeleteInstance](https://help.aliyun.com/document_detail/25507.html). Valid values:
+   * - true: enables release protection.
    * 
-   * - true
-   * 
-   * - false
+   * - false: disables release protection.
    * 
    * Default value: false.
    * 
-   * > This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
+   * > This attribute applies only to pay-as-you-go instances. It can only restrict manual release operations and does not affect system-initiated releases.
    * 
    * @example
    * false
@@ -832,7 +800,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The ID of the deployment set to which to deploy the instance.
+   * The ID of the deployment set.
    * 
    * @example
    * ds-bp1brhwhoqinyjd6****
@@ -840,7 +808,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   deploymentSetId?: string;
   /**
    * @remarks
-   * The instance description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * testECSDescription
@@ -849,8 +817,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the operating system configuration of the instance.
-   * 
-   * > This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+   * > This parameter will be deprecated. For better compatibility, use other parameters.
    * 
    * @example
    * false
@@ -858,13 +825,11 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   enableVmOsConfig?: boolean;
   /**
    * @remarks
-   * The instance hostname.
+   * The hostname of the Elastic Compute Service server.
    * 
-   * - The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
-   * 
-   * - For Windows instances, the hostname must be 2 to 15 characters in length and cannot contain periods (.) or contain only digits. It can contain letters, digits, and hyphens (-).
-   * 
-   * - For instances that run other operating systems such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
+   * -   The hostname cannot start or end with a period (.) or a hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
+   * -   Windows instances: The hostname must be 2 to 15 characters in length and cannot contain periods (.) or consist entirely of digits. It can contain letters, digits, and hyphens (-).
+   * -   Other instances (such as Linux): The hostname must be 2 to 64 characters in length. It can contain multiple periods (.), with each segment between periods allowing letters, digits, and hyphens (-).
    * 
    * @example
    * testHostName
@@ -874,13 +839,12 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the access channel for instance metadata. Valid values:
    * 
-   * - enabled
-   * 
-   * - disabled
+   * - enabled: enables the access channel.
+   * - disabled: disables the access channel.
    * 
    * Default value: enabled.
    * 
-   * > For information about instance metadata, see [Obtain information about an ECS instance, such as instance attributes inside ECS instances from instance metadata service](https://help.aliyun.com/document_detail/108460.html).
+   * > For more information about instance metadata, see [Overview of ECS instance metadata](https://help.aliyun.com/document_detail/108460.html).
    * 
    * @example
    * enabled
@@ -888,7 +852,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   httpEndpoint?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not available for use.
    * 
    * @example
    * 3
@@ -896,15 +860,15 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   httpPutResponseHopLimit?: number;
   /**
    * @remarks
-   * Specifies whether to forcefully use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
+   * Specifies whether to forcefully use the security-hardened mode (IMDSv2) to access instance metadata. Valid values:
    * 
-   * - optional: does not forcefully use the security hardening mode (IMDSv2).
-   * 
-   * - required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+   * - optional: does not forcefully use the security-hardened mode.
+   * - required: forcefully uses the security-hardened mode. After you set this value, instance metadata cannot be accessed in normal mode.
    * 
    * Default value: optional.
    * 
-   * > For information about the modes of accessing instance metadata, see [Obtain information about an ECS instance, such as instance attributes inside ECS instances from instance metadata service](https://help.aliyun.com/document_detail/108460.html).
+   * > For more information about the modes for
+   * [Instance metadata overview](https://help.aliyun.com/document_detail/108460.html)
    * 
    * @example
    * optional
@@ -912,7 +876,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   httpTokens?: string;
   /**
    * @remarks
-   * The ID of the image to use to create the instance. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available images.
+   * The image ID. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources.
    * 
    * @example
    * win2008r2_64_ent_sp1_en-us_40G_alibase_20170915.vhd
@@ -920,20 +884,17 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Details about the image options.
+   * The image-related property information.
    */
   imageOptions?: CreateLaunchTemplateRequestImageOptions;
   /**
    * @remarks
    * The source of the image. Valid values:
    * 
-   * - system: public image provided by Alibaba Cloud.
-   * 
-   * - self: custom image that you created.
-   * 
-   * - others: shared image from another Alibaba Cloud account.
-   * 
-   * - marketplace:[Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/) image. If Alibaba Cloud Marketplace images are available, you can use the images without the need to subscribe to the images. Take note of the billing details of Alibaba Cloud Marketplace images.
+   * - system: a public image provided by Alibaba Cloud.
+   * - self: a custom image that you created.
+   * - others: a shared image from another Alibaba Cloud account.
+   * - marketplace: an image from <props="china"><ph>[Alibaba Cloud Marketplace](https://market.aliyun.com/)</ph><props="intl"><ph>[Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/)</ph>. You can use Alibaba Cloud Marketplace images directly without subscribing to them first. Check the billing details of the Alibaba Cloud Marketplace image on your own.
    * 
    * @example
    * system
@@ -943,8 +904,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - PrePaid: subscription. If you set this parameter to PrePaid, make sure that your account has sufficient credits.Otherwise, an `InvalidPayMethod` error is returned.
-   * 
+   * - PrePaid: subscription. If you set this parameter to PrePaid, <props="china"><ph>confirm that your account supports balance payments and credit payments</ph><props="intl"><ph>confirm that your account supports credit payments</ph>. Otherwise, an `InvalidPayMethod` error is returned.
    * - PostPaid: pay-as-you-go.
    * 
    * @example
@@ -953,9 +913,9 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
+   * The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, and characters from the Unicode letter category (including Chinese characters). The name can contain colons (:), underscores (_), periods (.), and hyphens (-). The default value is the `InstanceId` of the instance.
    * 
-   * When you create multiple ECS instances at a time, you can batch configure sequential names for the instances. The instance names can contain square brackets ([]) and commas (,). For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
+   * When you create multiple ECS instances, you can specify sequential instance names. The names can contain brackets ([]) and commas (,). For more information, see [Specify sequential instance names or hostnames](https://help.aliyun.com/document_detail/196048.html).
    * 
    * @example
    * k8s-node-[1,4]-alibabacloud
@@ -963,7 +923,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance type of the instance. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html). Alternatively, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
+   * The instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html). You can also invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the most recent instance type list.
    * 
    * @example
    * ecs.g5.large
@@ -973,11 +933,10 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
    * @remarks
    * The billing method for network usage. Valid values:
    * 
-   * - PayByBandwidth: pay-by-bandwidth
+   * - PayByBandwidth: pay-by-bandwidth.
+   * - PayByTraffic: pay-by-traffic.
    * 
-   * - PayByTraffic: pay-by-traffic
-   * 
-   * > When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidths may be limited. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as bandwidth upper limits instead of guaranteed service metrics. When resource contention occurs, the peak bandwidth may be limited. If your workloads require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -987,9 +946,8 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
    * @remarks
    * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
    * 
-   * - When the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10 and the default value is 10.
-   * 
-   * - When the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value and the default value is the `InternetMaxBandwidthOut` value.
+   * - If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s: 1 to 10. Default value: 10.
+   * - If the purchased outbound public bandwidth is greater than 10 Mbit/s: 1 to the value of `InternetMaxBandwidthOut`. Default value: the value of `InternetMaxBandwidthOut`.
    * 
    * @example
    * 10
@@ -1005,11 +963,10 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Specifies whether to create an I/O optimized instance. Valid values:
+   * Specifies whether the instance is I/O optimized. Valid values:
    * 
-   * - none: creates a non-I/O optimized instance.
-   * 
-   * - optimized: creates an I/O optimized instance.
+   * -   none: not I/O optimized.
+   * -   optimized: I/O optimized.
    * 
    * @example
    * optimized
@@ -1017,7 +974,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   ioOptimized?: string;
   /**
    * @remarks
-   * The number of IPv6 addresses to randomly generate for the primary elastic network interface (ENI). Valid values: 1 to 10.
+   * The number of randomly generated IPv6 addresses to assign to the primary ENI. Valid values: 1 to 10.
    * 
    * @example
    * 1
@@ -1025,11 +982,10 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   ipv6AddressCount?: number;
   /**
    * @remarks
-   * The name of the key pair. This parameter is empty by default.
+   * The name of the key pair.
    * 
-   * - For Windows instances, this parameter is ignored The `Password` parameter takes effect even if the KeyPairName parameter is specified.
-   * 
-   * - For Linux instances, the password-based logon method is disabled by default.
+   * -   For Windows instances, this parameter is ignored. Even if you specify this parameter, only the `Password` content is used.
+   * -   For Linux instances, password-based logon is disabled during initialization.
    * 
    * @example
    * testKeyPairName
@@ -1037,7 +993,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The name of the launch template. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the launch template. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -1047,16 +1003,15 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   launchTemplateName?: string;
   /**
    * @remarks
-   * The information of the ENIs.
+   * The network interface controller (NIC) information.
    */
   networkInterface?: CreateLaunchTemplateRequestNetworkInterface[];
   /**
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * - classic: classic network
-   * 
-   * - vpc: VPC
+   * - classic: classic network. This feature has been retired. For more information, see [Retirement notice](https://help.aliyun.com/document_detail/2833134.html).
+   * - vpc: VPC.
    * 
    * @example
    * vpc
@@ -1066,9 +1021,9 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to use the preset password of the image.
+   * Specifies whether to use the password preset in the image.
    * 
-   * > If you set the PasswordInherit parameter to true, make sure that you leave the Password parameter empty and the selected image has a preset password.
+   * > When you use this parameter, the Password parameter must be empty. Make sure that the image you use has a password configured.
    * 
    * @example
    * false
@@ -1076,7 +1031,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   passwordInherit?: boolean;
   /**
    * @remarks
-   * The subscription duration of the instance. Unit: months. This parameter is valid and required only when `InstanceChargeType` is set to `PrePaid`. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * The subscription duration of the resource. Unit: months. This parameter takes effect and is required only when `InstanceChargeType` is set to `PrePaid`. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 1
@@ -1084,9 +1039,15 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription period. Valid values:
+   * The unit of the subscription billable methods duration. Valid values: 
    * 
-   * Month (default)
+   * <props="china">
+   * - Week.
+   * - Month (default).
+   * 
+   * 
+   * 
+   * <props="intl">Month (default).
    * 
    * @example
    * Month
@@ -1094,9 +1055,9 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The private IP address to assign to the instance.
+   * The private IP address of the instance.
    * 
-   * To assign a private IP address to an instance that resides in a VPC, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
+   * When you specify a private IP address for a VPC-connected ECS instance, the IP address must be from the idle CIDR block of the vSwitch (`VSwitchId`).
    * 
    * @example
    * ``10.1.**.**``
@@ -1104,7 +1065,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   privateIpAddress?: string;
   /**
    * @remarks
-   * The name of the instance Resource Access Management (RAM) role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created.
+   * The name of the instance RAM role. You can call the RAM API [ListRoles](https://help.aliyun.com/document_detail/28713.html) to query the instance RAM roles that you have created.
    * 
    * @example
    * testRamRoleName
@@ -1112,7 +1073,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   ramRoleName?: string;
   /**
    * @remarks
-   * The ID of the region in which to create the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -1122,7 +1083,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which to assign the instance, Elastic Block Storage (EBS) device, and elastic network interface (ENI).
+   * The ID of the resource group to which the instance, block storage, and elastic network interface controller (NIC) belong.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -1134,9 +1095,8 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable security hardening for the operating system. Valid values:
    * 
-   * - Active: enables security hardening. This value is applicable only to public images.
-   * 
-   * - Deactive: does not enable security hardening. This value is applicable to all images.
+   * -   Active: enables security hardening. This value is applicable only to public images.
+   * -   Deactive: does not enable security hardening. This value is applicable to all image types.
    * 
    * @example
    * Deactive
@@ -1144,9 +1104,9 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   securityEnhancementStrategy?: string;
   /**
    * @remarks
-   * The ID of the security group to which to assign the instance. Instances in the same security group can communicate with each other. A security group can contain up to 1,000 instances.
+   * The ID of the security group to which the instance belongs. Instances in the same security group can communicate with each other. A security group can contain up to 1,000 instances.
    * 
-   * > You cannot specify both the `SecurityGroupId` and `SecurityGroupIds.N` parameters.
+   * > You cannot specify both `SecurityGroupId` and `SecurityGroupIds.N`.
    * 
    * @example
    * sg-bp15ed6xe1yxeycg****
@@ -1154,9 +1114,9 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The IDs of the security groups to which to assign the instance. The valid values of N are based on the maximum number of security groups to which the instance can belong. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
+   * The IDs of one or more security groups to which the instance belongs. The valid value range of N depends on the maximum number of security groups to which an instance can belong. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
    * 
-   * > You cannot specify both the `SecurityGroupId` and `SecurityGroupIds.N` parameters.
+   * > You cannot specify both `SecurityGroupId` and `SecurityGroupIds.N`.
    * 
    * @example
    * sg-bp15ed6xe1yxeycg7****
@@ -1164,20 +1124,18 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   securityGroupIds?: string[];
   /**
    * @remarks
-   * Security options.
+   * The security options.
    */
   securityOptions?: CreateLaunchTemplateRequestSecurityOptions;
   /**
    * @remarks
    * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
+   * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
+   * - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * 
-   * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * Alibaba Cloud sends an ECS system event notification 5 minutes before the instance is released. Spot instances are billed by second. Select an appropriate protection period based on the expected task execution duration.
    * 
-   * - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-   * 
-   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify a protection period based on your business requirements.
-   * 
-   * > This parameter takes effect only if SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
+   * > This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
    * 
    * @example
    * 1
@@ -1185,7 +1143,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   spotDuration?: number;
   /**
    * @remarks
-   * The maximum hourly price of the instance. The value is accurate to three decimal places. This parameter is valid only when the `SpotStrategy` parameter is set to `SpotWithPriceLimit`.
+   * The maximum hourly price of the instance. This parameter supports up to three decimal places and takes effect when `SpotStrategy` is set to `SpotWithPriceLimit`.
    * 
    * @example
    * 0.97
@@ -1193,13 +1151,11 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   spotPriceLimit?: number;
   /**
    * @remarks
-   * The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
+   * The preemption policy for the pay-as-you-go instance. This parameter takes effect when `InstanceChargeType` is set to `PostPaid`. Valid values:
    * 
-   * - NoSpot: The instance is a regular pay-as-you-go instance.
-   * 
-   * - SpotWithPriceLimit: The instance is created as a spot instance with a user-defined maximum hourly price.
-   * 
-   * - SpotAsPriceGo: The instance is created as a spot instance for which the market price at the time of purchase is automatically used as the bidding price.
+   * -   NoSpot: The instance is a regular pay-as-you-go instance.
+   * -   SpotWithPriceLimit: The instance is a spot instance with a user-defined maximum hourly price.
+   * -   SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is automatically used as the bid price.
    * 
    * @example
    * NoSpot
@@ -1207,11 +1163,12 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * The tags to add to the instance, disks, and primary ENI that are created from the launch template.
+   * The tags for instances, disks, and primary ENIs created from this template version.
    * 
-   * **Scenario**
-   * 
-   * If you created a launch template by calling the CreateLaunchTemplate operation and use the default version that is automatically generated for the launch template to create instances, the specified tags are automatically added to the created instances, disks, and primary ENIs. For more information about the default versions of launch templates, see [xxxx]\\(url).
+   * <details>
+   * <summary>Scenarios</summary>
+   * After you call CreateLaunchTemplate to create a template, the auto-generated default version uses these tags to tag instances, disks, and primary ENIs when you create instances.
+   * </details>
    */
   tag?: CreateLaunchTemplateRequestTag[];
   /**
@@ -1224,14 +1181,14 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   templateResourceGroupId?: string;
   /**
    * @remarks
-   * The tags to add to the launch template.
+   * The tag key-value pairs of the launch template itself.
    * 
-   * > You can add tags to or query the tags of launch templates by calling API operations. You cannot add tags to or query the tags of launch templates in the ECS console.
+   * > Currently, you can create and query tags for launch templates only by using API operations. The console does not support creating or viewing these tags.
    */
   templateTag?: CreateLaunchTemplateRequestTemplateTag[];
   /**
    * @remarks
-   * The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 32 KB.
+   * The instance user data. The data must be Base64-encoded. The maximum size of the raw data is 32 KB.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
@@ -1239,7 +1196,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which to connect the instance. This parameter is required if you specify the VpcId parameter.
+   * The vSwitch ID. This parameter is required when you create a VPC-connected instance.
    * 
    * @example
    * vsw-bp1s5fnvk4gn2tws0****
@@ -1263,7 +1220,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone in which to create the instance.
+   * The zone ID of the instance.
    * 
    * @example
    * cn-hangzhou-g

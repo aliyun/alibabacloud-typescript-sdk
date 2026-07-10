@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneDisksRequestArn extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not yet available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class CloneDisksRequestArn extends $dara.Model {
   assumeRoleFor?: string;
   /**
    * @remarks
-   * > This parameter is not yet available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -21,7 +21,7 @@ export class CloneDisksRequestArn extends $dara.Model {
   roleType?: string;
   /**
    * @remarks
-   * > This parameter is not yet available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -55,7 +55,7 @@ export class CloneDisksRequestArn extends $dara.Model {
 export class CloneDisksRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the new disk. Valid values of N: 1 to 20. The tag key must be 1 to 128 characters in length and cannot start with `aliyun` or `acs:` or contain `http://` or `https://`.
+   * The tag key of the disk. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -63,7 +63,7 @@ export class CloneDisksRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the new disk. Valid values of N: 1 to 20. The tag value can be an empty string or up to 128 characters in length, and it cannot contain `http://` or `https://`.
+   * The tag value of the disk. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -95,18 +95,15 @@ export class CloneDisksRequestTag extends $dara.Model {
 export class CloneDisksRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not yet available.
+   * > This parameter is not publicly available.
    */
   arn?: CloneDisksRequestArn[];
   /**
    * @remarks
-   * Specifies whether to enable performance bursting for the new disk. Valid values:
-   * 
-   * - `true`: Enables performance bursting.
-   * 
-   * - `false`: Disables performance bursting.
-   * 
-   * > This parameter is valid only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/zh/ecs/user-guide/essd-autopl-disks).
+   * Specifies whether to enable the performance burst feature for the new disk. Valid values:
+   * - true: enables the performance burst feature.
+   * - false: does not enable the performance burst feature.
+   * > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essd-autopl-disks).
    * 
    * @example
    * true
@@ -114,7 +111,7 @@ export class CloneDisksRequest extends $dara.Model {
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * A client-generated token that, when provided, ensures the idempotence of the request. The token must be unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -122,21 +119,16 @@ export class CloneDisksRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The type of the new disk. Valid values:
+   * The category of the new disk. Valid values:
    * 
-   * - `cloud_essd`: ESSD cloud disk.
+   * - cloud_essd: standard SSD.
+   * - cloud_auto: ESSD AutoPL disk.
+   * - cloud_essd_entry: ESSD Entry disk.
+   * - cloud_regional_disk_auto: regional Standard SSD (ESSD).
    * 
-   * - `cloud_auto`: ESSD AutoPL cloud disk.
-   * 
-   * - `cloud_essd_entry`: ESSD Entry cloud disk.
-   * 
-   * - `cloud_regional_disk_auto`: regional disk.
-   * 
-   * > Disk type limits for cloning
-   * >
-   * > - A non-regional disk can be cloned only as a non-regional disk.
-   * >
-   * > - A regional disk can be cloned only as a regional disk.
+   * > Disk category restrictions for disk cloning:
+   * > - Non-regional disks can only be cloned to non-regional disk types.
+   * > - Regional disks can only be cloned to regional disk types.
    * 
    * This parameter is required.
    * 
@@ -146,9 +138,9 @@ export class CloneDisksRequest extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * The name of the new disk. The name must be 2 to 128 characters in length. It must start with a letter and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the disk. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The name must start with a letter.
    * 
-   * Default value: none.
+   * Default value: empty.
    * 
    * @example
    * MyDiskName
@@ -156,11 +148,9 @@ export class CloneDisksRequest extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * 
-   * - `true`: Performs a dry run to check the request without cloning the disk. The system checks whether your AccessKey is valid, whether the RAM user is authorized, and whether the required parameters are specified. If the request fails the check, the system returns the corresponding error message. If the request passes the check, the `DryRunOperation` error code is returned.
-   * 
-   * - `false` (default): Sends a normal request. If the request passes the check, the system returns a 2xx HTTP status code and clones the disk.
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * - true: sends a check request without querying the filing status. The system checks whether your AccessKey pair is valid, whether RAM user authorization is granted, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check passes, the DryRunOperation error code is returned.
+   * - false (default): sends a normal request. After the check passes, a 2XX HTTP status code is returned and the filing status is queried.
    * 
    * @example
    * true
@@ -168,11 +158,9 @@ export class CloneDisksRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the new disk. Valid values:
-   * 
-   * - `true`: The disk is encrypted.
-   * 
-   * - `false`: The disk is not encrypted.
+   * Specifies whether the new disk is encrypted. Valid values:
+   * - true: The new disk is encrypted.
+   * - false: The new disk is not encrypted.
    * 
    * Default value: false.
    * 
@@ -182,7 +170,7 @@ export class CloneDisksRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The ID of the KMS key to use for the new disk.
+   * The key ID of the KMS key used by the new disk.
    * 
    * @example
    * key-szz67b2f696f4wh9yeg5d
@@ -190,11 +178,10 @@ export class CloneDisksRequest extends $dara.Model {
   kmsKeyId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the multi-attach feature for the new disk. Valid values:
+   * Specifies whether to enable the multi-attach attribute for the new disk. Settings for this parameter. Valid values:
    * 
-   * - `Disabled`: Disables the multi-attach feature.
-   * 
-   * - `Enabled`: Enables the multi-attach feature. You can set this parameter to `Enabled` only for ESSD cloud disks.
+   * - Disabled: disables the multi-attach attribute.
+   * - Enabled: enables the multi-attach attribute. Only standard SSDs support the value `Enabled`.
    * 
    * This parameter is required.
    * 
@@ -205,19 +192,16 @@ export class CloneDisksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The performance level of the new ESSD cloud disk. Valid values:
+   * The performance level (PL) of the enterprise SSD to create. Settings for this parameter vary based on the standard SSD type. Valid values:
    * 
-   * - `PL0`: A single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1: a single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
-   * - `PL1`: A single disk can deliver up to 50,000 random read/write IOPS.
+   * > If DiskCategory is set to cloud_essd, PerformanceLevel is required.
    * 
-   * - `PL2`: A single disk can deliver up to 100,000 random read/write IOPS.
-   * 
-   * - `PL3`: A single disk can deliver up to 1,000,000 random read/write IOPS.
-   * 
-   * > This parameter is required when `DiskCategory` is set to `cloud_essd`.
-   * 
-   * For more information about how to select an ESSD performance level, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
+   * For more information about how to select an ESSD performance level, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -225,15 +209,13 @@ export class CloneDisksRequest extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values:
+   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values:
+   * - Capacity (GiB) <= 3: provisioned performance is not supported.
+   * - Capacity (GiB) >= 4: [0, min{(1,000 IOPS/GiB × Capacity - Baseline IOPS), 50,000}]
    * 
-   * - You cannot set this parameter for disks that are 3 GiB or smaller in size.
+   * Baseline performance = max{min{1,800 + 50 × Capacity, 50,000}, 3,000}.
    * 
-   * - For disks that are 4 GiB or larger in size, the value must be in the range of `[0, min(1000 * Size - baseline performance, 50000)]`.
-   * 
-   * baseline performance = `max(min(1800 + 50 * Size, 50000), 3000)`.
-   * 
-   * > This parameter is valid only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/zh/ecs/user-guide/essd-autopl-disks).
+   * > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essd-autopl-disks).
    * 
    * @example
    * 10
@@ -241,7 +223,7 @@ export class CloneDisksRequest extends $dara.Model {
   provisionedIops?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/zh/ecs/api-regions-describeregions) operation to view the latest list of Alibaba Cloud regions.
+   * The region ID. You can call [DescribeRegions](https://www.alibabacloud.com/help/en/ecs/api-regions-describeregions) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -251,7 +233,7 @@ export class CloneDisksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group for the new disk.
+   * The ID of the resource group to which the disk belongs.
    * 
    * @example
    * rg-bp199lyny9b3****
@@ -260,23 +242,16 @@ export class CloneDisksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The size of the new disk, in GiB. The value must be greater than or equal to the size of the source disk. The value range varies based on the `DiskCategory` value:
+   * The capacity of the new disk. Unit: GiB. You must specify a value for this parameter. Valid values:
    * 
-   * - `cloud_essd`: The value range depends on the `PerformanceLevel` value.
-   * 
-   *   - `PL0`: 1 to 65,536
-   * 
-   *   - `PL1`: 20 to 65,536
-   * 
-   *   - `PL2`: 461 to 65,536
-   * 
-   *   - `PL3`: 1,261 to 65,536
-   * 
-   * - `cloud_auto`: 1 to 65,536
-   * 
-   * - `cloud_essd_entry`: 10 to 32,768
-   * 
-   * - `cloud_regional_disk_auto`: 10 to 65,536
+   * - cloud_essd: the valid value range varies based on the performance level.
+   *     - PL0: 1 to 65,536.
+   *     - PL1: 20 to 65,536.
+   *     - PL2: 461 to 65,536.
+   *     - PL3: 1,261 to 65,536.
+   * - cloud_auto: 1 to 65,536.
+   * - cloud_essd_entry: 10 to 32,768.
+   * - cloud_regional_disk_auto: 10 to 65,536.
    * 
    * This parameter is required.
    * 
@@ -296,7 +271,7 @@ export class CloneDisksRequest extends $dara.Model {
   sourceDiskId?: string;
   /**
    * @remarks
-   * The tags to add to the new disk.
+   * The list of tags for the disk.
    */
   tag?: CloneDisksRequestTag[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLaunchTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the launch template.
+   * The launch template ID.
    * 
    * @example
    * lt-m5eiaupmvm2op9d****
@@ -13,7 +13,7 @@ export class CreateLaunchTemplateResponseBody extends $dara.Model {
   launchTemplateId?: string;
   /**
    * @remarks
-   * The version number of the launch template.
+   * The launch template version number.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class CreateLaunchTemplateResponseBody extends $dara.Model {
   launchTemplateVersionNumber?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

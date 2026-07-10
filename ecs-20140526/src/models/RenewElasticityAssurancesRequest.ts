@@ -66,7 +66,7 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period. Unit: months. Valid values: 1, 2, 3, 6, 12, 24, and 36.
+   * The auto-renewal duration. Unit: months. Valid values: 1, 2, 3, 6, 12, 24, and 36.
    * 
    * - When `PeriodUnit=Month`, the default value is 1.
    * 
@@ -93,7 +93,7 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The renewal period. The unit of the renewal period is determined by the `PeriodUnit` parameter. Valid values:
+   * The renewal duration. The unit of the duration is determined by the `PeriodUnit` parameter. Valid values:
    * 
    * - When `PeriodUnit` is set to `Weekly`: 1, 2, and 3.
    * 
@@ -110,7 +110,7 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal period. Valid values:
+   * The unit of the renewal duration. Valid values:
    * 
    * - Weekly: week
    * 

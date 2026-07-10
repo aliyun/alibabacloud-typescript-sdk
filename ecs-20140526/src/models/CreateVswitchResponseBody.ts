@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVSwitchResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The ID of the created VSwitch.
-   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
