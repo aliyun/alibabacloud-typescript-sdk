@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAssetsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The custom tag key.
    * 
-   * The tag key can be up to 64 characters in length and can contain letters, digits, and the following characters: `-@#*<>|[]()+=&%$!~`. It cannot start with `dw:`.
-   * 
-   * This parameter is required.
+   * The tag key can be up to 64 characters in length, cannot start with `dw:`, and supports only letters, digits, and the following special characters: `-@#*<>|[]()+=&%$!~`.
    * 
    * @example
    * key
@@ -48,17 +46,27 @@ export class ListDataAssetsRequestTags extends $dara.Model {
 
 export class ListDataAssetsRequest extends $dara.Model {
   /**
+   * @example
+   * 1001
+   */
+  assetDomainId?: number;
+  /**
+   * @example
+   * cate-xxxxxxxx
+   */
+  categoryUuid?: string;
+  /**
    * @remarks
-   * The data asset IDs.
+   * The list of unique data asset IDs.
    */
   dataAssetIds?: string[];
   /**
    * @remarks
-   * The type of the data asset. Valid values:
+   * The Asset Type of the data asset. Valid values:
    * 
-   * - ACS::DataWorks::Table
+   * - ACS::DataWorks::Table: table.
    * 
-   * - ACS::DataWorks::Task
+   * - ACS::DataWorks::Task: scheduling node.
    * 
    * @example
    * ACS::DataWorks::Task
@@ -66,16 +74,19 @@ export class ListDataAssetsRequest extends $dara.Model {
   dataAssetType?: string;
   /**
    * @remarks
-   * The environment of the workspace to which the data asset belongs. Valid values:
-   * 
-   * - Dev: development environment
-   * 
-   * - Prod: production environment
+   * The workspace environment to which the data asset belongs. Valid values:
+   * - Dev: development environment.
+   * - Prod: production environment.
    * 
    * @example
    * Prod
    */
   envType?: string;
+  /**
+   * @example
+   * 资产域名称
+   */
+  name?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -94,7 +105,7 @@ export class ListDataAssetsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 10000
@@ -102,20 +113,19 @@ export class ListDataAssetsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tags that are added to data assets. This parameter specifies a filter condition.
-   * 
-   * - You can specify multiple tags, which are in the logical OR relation. For example, you can query the data assets that contain one of the following tags: `["key1:v1", "key2:v1", "key3:v1"]`.
-   * 
-   * - If you do not configure this parameter, tag-based filtering is not performed.
-   * 
-   * This parameter is required.
+   * The list of tags associated with data assets. Tags are used as query filters:
+   * - Multiple values have an OR relationship. For example, `["key1:v1", "key2:v1", "key3:v1"]` queries data assets that contain any of the specified tags.
+   * - If this parameter is not specified or is left empty, no tag-based filtering is applied.
    */
   tags?: ListDataAssetsRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      assetDomainId: 'AssetDomainId',
+      categoryUuid: 'CategoryUuid',
       dataAssetIds: 'DataAssetIds',
       dataAssetType: 'DataAssetType',
       envType: 'EnvType',
+      name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
@@ -125,9 +135,12 @@ export class ListDataAssetsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      assetDomainId: 'number',
+      categoryUuid: 'string',
       dataAssetIds: { 'type': 'array', 'itemType': 'string' },
       dataAssetType: 'string',
       envType: 'string',
+      name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'number',

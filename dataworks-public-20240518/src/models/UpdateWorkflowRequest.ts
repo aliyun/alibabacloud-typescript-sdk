@@ -6,14 +6,10 @@ export class UpdateWorkflowRequestDependencies extends $dara.Model {
   /**
    * @remarks
    * The dependency type. Valid values:
-   * 
-   * - CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
-   * 
-   * - CrossCycleDependsOnSelf: Depends on itself across cycles.
-   * 
-   * - CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
-   * 
-   * - Normal: Depends on nodes in the same cycle.
+   * - CrossCycleDependsOnChildren: cross-cycle dependency on first-level child nodes
+   * - CrossCycleDependsOnSelf: cross-cycle dependency on the current node
+   * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * - Normal: same-cycle dependency
    * 
    * This parameter is required.
    * 
@@ -23,7 +19,7 @@ export class UpdateWorkflowRequestDependencies extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The output identifier of the upstream task. (This parameter is returned only if `Normal` is set and the node input is configured.)
+   * The output identifier of the upstream node. This field is returned when the dependency type is `same-cycle dependency` and input content is specified.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -31,7 +27,7 @@ export class UpdateWorkflowRequestDependencies extends $dara.Model {
   upstreamOutput?: string;
   /**
    * @remarks
-   * The ID of the upstream task. (This parameter is returned only if `Normal` or `CrossCycleDependsOnOtherNode` is set and the node input is not configured.)
+   * The ID of the upstream node. This field is returned when the dependency type is `cross-cycle dependency on other nodes` or `same-cycle dependency` without input content specified. It is not returned in other cases.
    * 
    * @example
    * 1234
@@ -65,7 +61,7 @@ export class UpdateWorkflowRequestDependencies extends $dara.Model {
 export class UpdateWorkflowRequestOutputsTaskOutputs extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the output.
+   * The output identifier.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -95,7 +91,7 @@ export class UpdateWorkflowRequestOutputsTaskOutputs extends $dara.Model {
 export class UpdateWorkflowRequestOutputs extends $dara.Model {
   /**
    * @remarks
-   * The task outputs.
+   * The list of workflow node output definitions.
    */
   taskOutputs?: UpdateWorkflowRequestOutputsTaskOutputs[];
   static names(): { [key: string]: string } {
@@ -198,14 +194,10 @@ export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
   /**
    * @remarks
    * The dependency type. Valid values:
-   * 
-   * - CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
-   * 
-   * - CrossCycleDependsOnSelf: Depends on itself across cycles.
-   * 
-   * - CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
-   * 
-   * - Normal: Depends on nodes in the same cycle.
+   * - CrossCycleDependsOnChildren: cross-cycle dependency on first-level child nodes
+   * - CrossCycleDependsOnSelf: cross-cycle dependency on the current node
+   * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * - Normal: same-cycle dependency
    * 
    * This parameter is required.
    * 
@@ -215,7 +207,7 @@ export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The output identifier of the upstream task. (This parameter is returned only if `Normal` is set and the node input is configured.)
+   * The output identifier of the upstream node. This field is returned when the dependency type is `same-cycle dependency` and input content is specified.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -223,7 +215,7 @@ export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
   upstreamOutput?: string;
   /**
    * @remarks
-   * The ID of the upstream task. (This parameter is returned only if `Normal` or `CrossCycleDependsOnOtherNode` is set and the node input is not configured.)
+   * The ID of the upstream node. This field is returned when the dependency type is `cross-cycle dependency on other nodes` or `same-cycle dependency` without input content specified. It is not returned in other cases.
    * 
    * @example
    * 1234
@@ -257,7 +249,7 @@ export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
 export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * key1
@@ -266,14 +258,10 @@ export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
   /**
    * @remarks
    * The type. Valid values:
-   * 
-   * - Constant: constant value.
-   * 
-   * - PassThrough: node output.
-   * 
-   * - System: variable.
-   * 
-   * - NodeOutput: script output.
+   * - Constant: constant
+   * - PassThrough: output of a parameter node
+   * - System: variable
+   * - NodeOutput: script output
    * 
    * This parameter is required.
    * 
@@ -283,7 +271,7 @@ export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * value1
@@ -317,7 +305,7 @@ export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
 export class UpdateWorkflowRequestTasksInputs extends $dara.Model {
   /**
    * @remarks
-   * The variables. By default, the settings of all input variables are deleted if this parameter is set to null or not specified.
+   * The list of variable definitions. If this field is not specified or is an empty array, all Inputs.Variables configurations are deleted by default.
    */
   variables?: UpdateWorkflowRequestTasksInputsVariables[];
   static names(): { [key: string]: string } {
@@ -347,7 +335,7 @@ export class UpdateWorkflowRequestTasksInputs extends $dara.Model {
 export class UpdateWorkflowRequestTasksOutputsTaskOutputs extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the output.
+   * The output identifier.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -377,7 +365,7 @@ export class UpdateWorkflowRequestTasksOutputsTaskOutputs extends $dara.Model {
 export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * key1
@@ -386,14 +374,10 @@ export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
   /**
    * @remarks
    * The type. Valid values:
-   * 
-   * - Constant: constant value.
-   * 
-   * - PassThrough: node output.
-   * 
-   * - System: variable.
-   * 
-   * - NodeOutput: script output.
+   * - Constant: constant
+   * - PassThrough: output of a parameter node
+   * - System: variable
+   * - NodeOutput: script output
    * 
    * This parameter is required.
    * 
@@ -403,7 +387,7 @@ export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * value1
@@ -437,12 +421,12 @@ export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
 export class UpdateWorkflowRequestTasksOutputs extends $dara.Model {
   /**
    * @remarks
-   * The task outputs. By default, all task output information is deleted if this parameter is set to null or not specified.
+   * The list of node output definitions. If this field is not specified or is an empty array, all TaskOutputs configurations are deleted by default.
    */
   taskOutputs?: UpdateWorkflowRequestTasksOutputsTaskOutputs[];
   /**
    * @remarks
-   * The variables. Note: The settings of all output variables are deleted if this parameter is set to null or not specified.
+   * The list of variable definitions. If this field is not specified or is an empty array, all Outputs.Variables configurations are deleted by default.
    */
   variables?: UpdateWorkflowRequestTasksOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -477,7 +461,7 @@ export class UpdateWorkflowRequestTasksOutputs extends $dara.Model {
 export class UpdateWorkflowRequestTasksRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The CU consumption configured for the node.
    * 
    * @example
    * 0.25
@@ -485,7 +469,7 @@ export class UpdateWorkflowRequestTasksRuntimeResource extends $dara.Model {
   cu?: string;
   /**
    * @remarks
-   * The image ID used in the task runtime configuration.
+   * The image ID configured for the node.
    * 
    * @example
    * i-xxxxxx
@@ -493,7 +477,7 @@ export class UpdateWorkflowRequestTasksRuntimeResource extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The identifier of the scheduling resource group used in the task runtime configuration.
+   * The identifier of the schedule resource group configured for the node.
    * 
    * This parameter is required.
    * 
@@ -537,7 +521,7 @@ export class UpdateWorkflowRequestTasksScript extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The script parameter list.
+   * The list of script parameters.
    * 
    * @example
    * para1=$bizdate
@@ -569,7 +553,7 @@ export class UpdateWorkflowRequestTasksScript extends $dara.Model {
 export class UpdateWorkflowRequestTasksTags extends $dara.Model {
   /**
    * @remarks
-   * The key of a tag.
+   * The tag key.
    * 
    * This parameter is required.
    * 
@@ -579,7 +563,7 @@ export class UpdateWorkflowRequestTasksTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of a tag.
+   * The tag value.
    * 
    * @example
    * value1
@@ -611,13 +595,10 @@ export class UpdateWorkflowRequestTasksTags extends $dara.Model {
 export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The run mode when triggered. This parameter takes effect only when type is set to Scheduler. Valid values:
+   * - Pause: paused
+   * - Skip: dry run
+   * - Normal: normal execution
    * 
    * This parameter is required.
    * 
@@ -628,10 +609,8 @@ export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
   /**
    * @remarks
    * The trigger type. Valid values:
-   * 
-   * - Scheduler: periodically triggered
-   * 
-   * - Manual
+   * - Scheduler: triggered by a scheduling cycle
+   * - Manual: manually triggered
    * 
    * @example
    * Scheduler
@@ -671,7 +650,7 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   baseLineId?: number;
   /**
    * @remarks
-   * The client-side unique token for the task, used to ensure asynchronous processing and idempotency. If not specified during creation, the system will automatically generate one. This token is uniquely associated with the resource ID. If provided when updating or deleting resources, this parameter must match the client token used during creation.
+   * The client unique code of the node, used for asynchronous operations and idempotence. If not specified during creation, the system automatically generates one, and the code is uniquely bound to the resource ID. If this parameter is specified during update or deletion, it must be consistent with the client unique code used during creation.
    * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
@@ -679,17 +658,17 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   clientUniqueCode?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The associated data source information.
    */
   dataSource?: UpdateWorkflowRequestTasksDataSource;
   /**
    * @remarks
-   * The dependency information. Note: If this parameter is left empty or set to an empty array, all dependency configurations will be deleted.
+   * The dependency information. If this field is not specified or is an empty array, all Dependencies configurations are deleted by default.
    */
   dependencies?: UpdateWorkflowRequestTasksDependencies[];
   /**
    * @remarks
-   * The description of the task.
+   * The description.
    * 
    * @example
    * Test
@@ -697,11 +676,9 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project environment.
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The project environment. Valid values:
+   * - Prod: production
+   * - Dev: development
    * 
    * @example
    * Prod
@@ -709,7 +686,7 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The ID of the task. Specifying this field triggers a full update for the corresponding task. If left unspecified, a new task will be created.
+   * The node ID. If this field is specified, the corresponding node is fully updated. If this field is not specified, a new node is created.
    * 
    * @example
    * 1234
@@ -717,12 +694,12 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The input information. By default, all input information is deleted if this parameter is set to null.
+   * The input information. If this field is empty, all Inputs configurations are deleted by default.
    */
   inputs?: UpdateWorkflowRequestTasksInputs;
   /**
    * @remarks
-   * The name of the task.
+   * The name of the node.
    * 
    * This parameter is required.
    * 
@@ -732,7 +709,7 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output information. By default, all output information is deleted if this parameter is set to null.
+   * The output information. If this field is empty, all Outputs configurations are deleted by default.
    */
   outputs?: UpdateWorkflowRequestTasksOutputs;
   /**
@@ -747,7 +724,7 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The retry interval in seconds.
+   * The retry time interval, in seconds.
    * 
    * @example
    * 60
@@ -755,13 +732,10 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * Configuration for whether the task can be rerun.
-   * 
-   * - AllDenied: The task cannot be rerun.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails.
-   * 
-   * - AllAllowed: The task can always be rerun.
+   * Specifies whether the node can be rerun. Valid values:
+   * - AllDenied: cannot be rerun regardless of success or failure
+   * - FailureAllowed: can be rerun only upon failure
+   * - AllAllowed: can be rerun regardless of success or failure
    * 
    * This parameter is required.
    * 
@@ -771,7 +745,7 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The number of retry attempts. Takes effect when the task is configured to allow reruns.
+   * The number of retries. This parameter takes effect only when the node is configured to allow reruns.
    * 
    * @example
    * 3
@@ -779,24 +753,24 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * Runtime environment configurations, such as resource group information.
+   * The runtime environment configuration, such as resource group information.
    * 
    * This parameter is required.
    */
   runtimeResource?: UpdateWorkflowRequestTasksRuntimeResource;
   /**
    * @remarks
-   * The run script information.
+   * The script information.
    */
   script?: UpdateWorkflowRequestTasksScript;
   /**
    * @remarks
-   * The list of task tags. Note: If this field is unspecified or set to an empty array, all existing Tag configurations will be deleted by default.
+   * The list of node tags. If this field is not specified or is an empty array, all Tags configurations are deleted by default.
    */
   tags?: UpdateWorkflowRequestTasksTags[];
   /**
    * @remarks
-   * The task execution timeout in seconds.
+   * The timeout period for node execution, in seconds.
    * 
    * @example
    * 3600
@@ -804,14 +778,14 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The trigger method.
+   * The trigger configuration of the node.
    * 
    * This parameter is required.
    */
   trigger?: UpdateWorkflowRequestTasksTrigger;
   /**
    * @remarks
-   * The type of the task.
+   * The node type.
    * 
    * This parameter is required.
    * 
@@ -905,7 +879,7 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
 export class UpdateWorkflowRequestTrigger extends $dara.Model {
   /**
    * @remarks
-   * The Cron expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The cron expression. This parameter takes effect only when type is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -913,7 +887,7 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The expiration time of periodic triggering. Takes effect only when type is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
+   * The time when the periodic trigger expires. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -921,7 +895,7 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time when periodic triggering takes effect. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
+   * The effective period of the epoch trigger. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -930,10 +904,8 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
   /**
    * @remarks
    * The trigger type. Valid values:
-   * 
-   * - Scheduler: periodically triggered
-   * 
-   * - Manual
+   * - Scheduler: triggered by a scheduling cycle
+   * - Manual: manually triggered
    * 
    * This parameter is required.
    * 
@@ -971,7 +943,7 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
 export class UpdateWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique code of the client. This parameter is used to create a workflow asynchronously and implement the idempotence of the workflow. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+   * The client unique code of the workflow, used for asynchronous operations and idempotence. If not specified during creation, the system automatically generates one, and the code is uniquely bound to the resource ID. If this parameter is specified during update or deletion, it must be consistent with the client unique code used during creation.
    * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
@@ -992,11 +964,9 @@ export class UpdateWorkflowRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project environment.
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The project environment. Valid values:
+   * - Prod: production
+   * - Dev: development
    * 
    * @example
    * Prod
@@ -1014,11 +984,10 @@ export class UpdateWorkflowRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The instance generation mode.
+   * The instance generation mode. Valid values:
    * 
-   * - T+1: the next day
-   * 
-   * - Immediately Note: Periodic instances will only be generated normally if the workflow\\"s scheduled time is more than 10 minutes after the workflow publication time. Real-time instance generation is not available during the batch instance generation period (23:30 to 24:00). While workflows can be published during this time, instances will not be regenerated immediately after submission.
+   * - T+1: Instances are generated the next day.
+   * - Immediately: Instances are generated immediately. Periodic instances are generated only if the scheduled time of the workflow is at least 10 minutes after the workflow is published. During the full instance generation period (22:00 to 24:00), real-time instance generation is not available. You can submit and publish workflows during this period, but instances are not regenerated after submission.
    * 
    * @example
    * T+1
@@ -1026,7 +995,7 @@ export class UpdateWorkflowRequest extends $dara.Model {
   instanceMode?: string;
   /**
    * @remarks
-   * The name of the workflow.
+   * The name.
    * 
    * This parameter is required.
    * 
@@ -1051,7 +1020,7 @@ export class UpdateWorkflowRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The parameters.
+   * The parameter list.
    * 
    * @example
    * para1=$bizdate para2=$[yyyymmdd]
@@ -1059,17 +1028,17 @@ export class UpdateWorkflowRequest extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of workflow tags.
    */
   tags?: UpdateWorkflowRequestTags[];
   /**
    * @remarks
-   * Details about tasks.
+   * The node list.
    */
   tasks?: UpdateWorkflowRequestTasks[];
   /**
    * @remarks
-   * The trigger method.
+   * The trigger configuration.
    * 
    * This parameter is required.
    */

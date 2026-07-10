@@ -461,6 +461,7 @@ export { ListDIJobsResponseBodyPagingInfo } from './ListDijobsResponseBody';
 export { ListDataAssetTagsResponseBodyPagingInfoDataAssetTags } from './ListDataAssetTagsResponseBody';
 export { ListDataAssetTagsResponseBodyPagingInfo } from './ListDataAssetTagsResponseBody';
 export { ListDataAssetsRequestTags } from './ListDataAssetsRequest';
+export { ListDataAssetsResponseBodyPagingInfoDataAssetsAssetCategories } from './ListDataAssetsResponseBody';
 export { ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings } from './ListDataAssetsResponseBody';
 export { ListDataAssetsResponseBodyPagingInfoDataAssets } from './ListDataAssetsResponseBody';
 export { ListDataAssetsResponseBodyPagingInfo } from './ListDataAssetsResponseBody';

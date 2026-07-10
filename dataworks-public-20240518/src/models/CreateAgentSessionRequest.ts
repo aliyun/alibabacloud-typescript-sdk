@@ -113,10 +113,22 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
    * yolo
    */
   mode?: string;
+  /**
+   * @example
+   * Serverless_res_group_123123123_564657857
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * skill-name-1,skill-name2,skill-name-3
+   */
+  skills?: string;
   static names(): { [key: string]: string } {
     return {
       executionLane: 'ExecutionLane',
       mode: 'Mode',
+      resourceGroupId: 'ResourceGroupId',
+      skills: 'Skills',
     };
   }
 
@@ -124,6 +136,8 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
     return {
       executionLane: 'string',
       mode: 'string',
+      resourceGroupId: 'string',
+      skills: 'string',
     };
   }
 

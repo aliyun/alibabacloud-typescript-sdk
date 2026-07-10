@@ -2,10 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListDataAssetsResponseBodyPagingInfoDataAssetsAssetCategories extends $dara.Model {
+  /**
+   * @example
+   * 1001
+   */
+  assetDomainId?: string;
+  /**
+   * @example
+   * cate-xxxxxx
+   */
+  id?: string;
+  /**
+   * @example
+   * 资产域名称
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetDomainId: 'AssetDomainId',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetDomainId: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the lineage-based automatic backtrack feature is enabled for the mapping.
+   * Indicates whether automatic lineage tracing is enabled.
    * 
    * @example
    * false
@@ -37,11 +78,10 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings 
   key?: string;
   /**
    * @remarks
-   * The way in which the mapping between the data asset and the tag is created. Valid values:
+   * The source of the mapping between the data asset and the tag. Valid values:
    * 
-   * - System
-   * 
-   * - UserDefined
+   * - System: The mapping is created by the data asset governance system.
+   * - UserDefined: The mapping is manually created by a user.
    * 
    * @example
    * UserDefined
@@ -87,18 +127,17 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings 
 }
 
 export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model {
+  assetCategories?: ListDataAssetsResponseBodyPagingInfoDataAssetsAssetCategories[];
   /**
    * @remarks
-   * The mappings between data assets and tags.
+   * The list of tags associated with the data asset.
    */
   dataAssetTagMappings?: ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings[];
   /**
    * @remarks
-   * The environment of the workspace to which the data asset belongs. Valid values:
-   * 
-   * - Dev: development environment
-   * 
-   * - Prod: production environment
+   * The workspace environment to which the data asset belongs. Valid values:
+   * - Dev: development environment.
+   * - Prod: production environment.
    * 
    * @example
    * Prod
@@ -130,11 +169,11 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
   projectId?: number;
   /**
    * @remarks
-   * The type of the data asset. Valid values:
+   * The Asset Type of the data asset. Valid values:
    * 
-   * - ACS::DataWorks::Table
+   * - ACS::DataWorks::Table: table.
    * 
-   * - ACS::DataWorks::Task
+   * - ACS::DataWorks::Task: scheduling node.
    * 
    * @example
    * ACS::DataWorks::Task
@@ -142,6 +181,7 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      assetCategories: 'AssetCategories',
       dataAssetTagMappings: 'DataAssetTagMappings',
       envType: 'EnvType',
       id: 'Id',
@@ -153,6 +193,7 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      assetCategories: { 'type': 'array', 'itemType': ListDataAssetsResponseBodyPagingInfoDataAssetsAssetCategories },
       dataAssetTagMappings: { 'type': 'array', 'itemType': ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings },
       envType: 'string',
       id: 'string',
@@ -163,6 +204,9 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
   }
 
   validate() {
+    if(Array.isArray(this.assetCategories)) {
+      $dara.Model.validateArray(this.assetCategories);
+    }
     if(Array.isArray(this.dataAssetTagMappings)) {
       $dara.Model.validateArray(this.dataAssetTagMappings);
     }
@@ -177,7 +221,7 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
 export class ListDataAssetsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The data assets.
+   * The list of data assets.
    */
   dataAssets?: ListDataAssetsResponseBodyPagingInfoDataAssets[];
   /**
@@ -198,7 +242,7 @@ export class ListDataAssetsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -242,7 +286,7 @@ export class ListDataAssetsResponseBody extends $dara.Model {
   pagingInfo?: ListDataAssetsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 0bc1ec92159376

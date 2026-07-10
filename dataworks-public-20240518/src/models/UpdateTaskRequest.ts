@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTaskRequestDataSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * odps_test
@@ -36,14 +36,10 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
   /**
    * @remarks
    * The dependency type. Valid values:
-   * 
-   * - CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
-   * 
-   * - CrossCycleDependsOnSelf: Depends on itself across cycles.
-   * 
-   * - CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
-   * 
-   * - Normal: Depends on nodes in the same cycle.
+   * - CrossCycleDependsOnChildren: cross-cycle dependency on first-level child nodes.
+   * - CrossCycleDependsOnSelf: cross-cycle dependency on self.
+   * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes.
+   * - Normal: same-cycle dependency.
    * 
    * This parameter is required.
    * 
@@ -53,7 +49,7 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The output identifier of the upstream task. (This parameter is returned only if `Normal` is set and the node input is configured.)
+   * The output identifier of the upstream node. This field is returned when the dependency type is same-cycle dependency and input content is configured.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -61,7 +57,7 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
   upstreamOutput?: string;
   /**
    * @remarks
-   * The ID of the upstream task. (This parameter is returned only if `Normal` or `CrossCycleDependsOnOtherNode` is set and the node input is not configured.)
+   * The ID of the upstream node. This field is returned when the dependency type is cross-cycle dependency on other nodes, or same-cycle dependency without input content configured. It is not returned in other cases.
    * 
    * @example
    * 1234
@@ -95,7 +91,7 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
 export class UpdateTaskRequestInputsVariables extends $dara.Model {
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * key1
@@ -104,13 +100,9 @@ export class UpdateTaskRequestInputsVariables extends $dara.Model {
   /**
    * @remarks
    * The type. Valid values:
-   * 
-   * - Constant: constant value.
-   * 
-   * - PassThrough: node output.
-   * 
+   * - Constant: constant.
+   * - PassThrough: parameter node output.
    * - System: variable.
-   * 
    * - NodeOutput: script output.
    * 
    * This parameter is required.
@@ -121,7 +113,7 @@ export class UpdateTaskRequestInputsVariables extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * value1
@@ -155,7 +147,7 @@ export class UpdateTaskRequestInputsVariables extends $dara.Model {
 export class UpdateTaskRequestInputs extends $dara.Model {
   /**
    * @remarks
-   * The variables.
+   * The list of variable definitions.
    */
   variables?: UpdateTaskRequestInputsVariables[];
   static names(): { [key: string]: string } {
@@ -185,7 +177,7 @@ export class UpdateTaskRequestInputs extends $dara.Model {
 export class UpdateTaskRequestOutputsTaskOutputs extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the output.
+   * The output identifier.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -215,7 +207,7 @@ export class UpdateTaskRequestOutputsTaskOutputs extends $dara.Model {
 export class UpdateTaskRequestOutputsVariables extends $dara.Model {
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * key1
@@ -224,13 +216,9 @@ export class UpdateTaskRequestOutputsVariables extends $dara.Model {
   /**
    * @remarks
    * The type. Valid values:
-   * 
-   * - Constant: constant value.
-   * 
-   * - PassThrough: node output.
-   * 
+   * - Constant: constant.
+   * - PassThrough: parameter node output.
    * - System: variable.
-   * 
    * - NodeOutput: script output.
    * 
    * This parameter is required.
@@ -241,7 +229,7 @@ export class UpdateTaskRequestOutputsVariables extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * value1
@@ -275,12 +263,12 @@ export class UpdateTaskRequestOutputsVariables extends $dara.Model {
 export class UpdateTaskRequestOutputs extends $dara.Model {
   /**
    * @remarks
-   * The task outputs.
+   * The list of node output definitions.
    */
   taskOutputs?: UpdateTaskRequestOutputsTaskOutputs[];
   /**
    * @remarks
-   * The variables.
+   * The list of variable definitions.
    */
   variables?: UpdateTaskRequestOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -315,7 +303,7 @@ export class UpdateTaskRequestOutputs extends $dara.Model {
 export class UpdateTaskRequestRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The default number of compute units (CUs) configured for task running.
+   * The CU consumption configured for the node.
    * 
    * @example
    * 0.25
@@ -323,7 +311,7 @@ export class UpdateTaskRequestRuntimeResource extends $dara.Model {
   cu?: string;
   /**
    * @remarks
-   * The image ID used in the task runtime configuration.
+   * The image ID configured for the node.
    * 
    * @example
    * i-xxxxxx
@@ -331,7 +319,7 @@ export class UpdateTaskRequestRuntimeResource extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The identifier of the scheduling resource group used in the task runtime configuration.
+   * The identifier of the schedule resource group configured for the node.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -375,7 +363,7 @@ export class UpdateTaskRequestScript extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The script parameter list.
+   * The list of script parameters.
    * 
    * @example
    * para1=$bizdate
@@ -407,7 +395,7 @@ export class UpdateTaskRequestScript extends $dara.Model {
 export class UpdateTaskRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of a tag.
+   * The tag key.
    * 
    * This parameter is required.
    * 
@@ -417,7 +405,7 @@ export class UpdateTaskRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of a tag.
+   * The tag value.
    * 
    * @example
    * value1
@@ -449,7 +437,7 @@ export class UpdateTaskRequestTags extends $dara.Model {
 export class UpdateTaskRequestTrigger extends $dara.Model {
   /**
    * @remarks
-   * The Cron expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The cron expression. This parameter takes effect when Type is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -457,11 +445,9 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * Cycle type. This parameter takes effect only when Type is set to Scheduler and the cron expression specifies hourly scheduling. Default value: Daily
-   * 
-   * - Daily: Schedules jobs on a daily basis.
-   * 
-   * - NotDaily: Schedules jobs on an hourly basis.
+   * The epoch type. This parameter takes effect when Type is set to Scheduler and the cron expression specifies timed scheduling at a specific hour. Default value: Daily. Valid values:
+   * - Daily: daily scheduling.
+   * - NotDaily: hourly scheduling.
    * 
    * @example
    * Daily
@@ -469,7 +455,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
-   * The expiration time of periodic triggering. Takes effect only when type is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
+   * The expiration time of the periodic trigger. This parameter takes effect when Type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -477,13 +463,10 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The run mode when triggered. This parameter takes effect when Type is set to Scheduler. Valid values:
+   * - Pause: paused.
+   * - Skip: dry run.
+   * - Normal: normal run.
    * 
    * @example
    * Normal
@@ -491,7 +474,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The time when periodic triggering takes effect. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
+   * The effective period of the epoch trigger. This parameter takes effect when Type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -499,11 +482,9 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The triggering type. Valid values:
-   * 
-   * - Scheduler: periodically triggered
-   * 
-   * - Manual
+   * The trigger type. Valid values:
+   * - Scheduler: periodic scheduling trigger.
+   * - Manual: manual trigger.
    * 
    * @example
    * Scheduler
@@ -543,7 +524,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
 export class UpdateTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique code of the client. This code uniquely identifies a task. This parameter is used to create a task asynchronously and implement the idempotence of the task. If you do not specify this parameter when you create the task, the system automatically generates a unique code. The unique code is uniquely associated with the task ID. If you specify this parameter when you update or delete the task, the value of this parameter must be the unique code that is used to create the task.
+   * The client unique code of the node, used to uniquely identify a node. This code is used to implement asynchronous operations and idempotence. If not specified during creation, the system automatically generates one, and the code is uniquely bound to the resource ID. When updating or deleting a resource, if this parameter is specified, it must be consistent with the client unique code used during creation.
    * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
@@ -551,7 +532,7 @@ export class UpdateTaskRequest extends $dara.Model {
   clientUniqueCode?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The associated data source information.
    */
   dataSource?: UpdateTaskRequestDataSource;
   /**
@@ -561,7 +542,7 @@ export class UpdateTaskRequest extends $dara.Model {
   dependencies?: UpdateTaskRequestDependencies[];
   /**
    * @remarks
-   * The description of the task.
+   * The description.
    * 
    * @example
    * test
@@ -569,11 +550,9 @@ export class UpdateTaskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project environment.
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The project environment. Valid values:
+   * - Prod: production.
+   * - Dev: development.
    * 
    * @example
    * Prod
@@ -581,7 +560,7 @@ export class UpdateTaskRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The task ID.
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -596,11 +575,9 @@ export class UpdateTaskRequest extends $dara.Model {
   inputs?: UpdateTaskRequestInputs;
   /**
    * @remarks
-   * The instance generation mode.
-   * 
-   * - T+1: the next day
-   * 
-   * - Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
+   * The instance generation mode. Valid values:
+   * - T+1: The instance is generated the next day.
+   * - Immediately: The instance is generated immediately. Note: Only periodic instances whose scheduled time is at least ten minutes after the node publish time are generated normally. During the full instance generation period (22:00 to 24:00), real-time instance generation is not available. You can submit and publish nodes, but new nodes do not automatically generate instances.
    * 
    * @example
    * T+1
@@ -608,7 +585,7 @@ export class UpdateTaskRequest extends $dara.Model {
   instanceMode?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * SQL node
@@ -621,7 +598,7 @@ export class UpdateTaskRequest extends $dara.Model {
   outputs?: UpdateTaskRequestOutputs;
   /**
    * @remarks
-   * The account ID of the task owner.
+   * The account ID of the node owner.
    * 
    * @example
    * 1000
@@ -629,7 +606,7 @@ export class UpdateTaskRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The rerun interval. Unit: milliseconds. Must not exceed 1800000.
+   * The retry time interval, in milliseconds. The value cannot exceed 1800000.
    * 
    * @example
    * 60000
@@ -637,13 +614,10 @@ export class UpdateTaskRequest extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode. Valid values:
-   * 
-   * - AllDenied: The task cannot be rerun.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails.
-   * 
-   * - AllAllowed: The task can always be rerun.
+   * Specifies whether the node can be rerun. Valid values:
+   * - AllDenied: The node cannot be rerun regardless of whether it succeeds or fails.
+   * - FailureAllowed: The node can be rerun only when it fails.
+   * - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
    * 
    * @example
    * AllAllowed
@@ -651,7 +625,7 @@ export class UpdateTaskRequest extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * The number of retries. This parameter takes effect when the node is configured to allow reruns.
    * 
    * @example
    * 3
@@ -659,22 +633,22 @@ export class UpdateTaskRequest extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * Runtime environment configurations, such as resource group information.
+   * The environment configuration, such as resource group information.
    */
   runtimeResource?: UpdateTaskRequestRuntimeResource;
   /**
    * @remarks
-   * The run script information.
+   * The script information.
    */
   script?: UpdateTaskRequestScript;
   /**
    * @remarks
-   * The tags.
+   * The list of node tags.
    */
   tags?: UpdateTaskRequestTags[];
   /**
    * @remarks
-   * Task execution timeout in seconds. Must be greater than 3600.
+   * The node execution timeout period, in seconds. The value must be greater than 3600.
    * 
    * @example
    * 3600
@@ -682,7 +656,7 @@ export class UpdateTaskRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The triggering method.
+   * The node trigger method.
    */
   trigger?: UpdateTaskRequestTrigger;
   static names(): { [key: string]: string } {
