@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCredentialResponseBodyCredentialCredentialContentOAuthClientContent extends $dara.Model {
   /**
    * @remarks
-   * The OAuth client ID.
+   * The client_id of the OAuth protocol.
    * 
    * @example
    * dmvncmxersdxxxxxx
@@ -35,7 +35,7 @@ export class GetCredentialResponseBodyCredentialCredentialContentOAuthClientCont
 export class GetCredentialResponseBodyCredentialCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * The credential content for an OAuth client. This parameter is returned only when `CredentialType` is `oauth_client`.
+   * The content of the OAuth client credential.
    */
   OAuthClientContent?: GetCredentialResponseBodyCredentialCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class GetCredentialResponseBodyCredentialCredentialContent extends $dara.
 export class GetCredentialResponseBodyCredential extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the credential, in Unix timestamp format (milliseconds).
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830225000
@@ -78,11 +78,9 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialContent?: GetCredentialResponseBodyCredentialCredentialContent;
   /**
    * @remarks
-   * How the credential was created. Valid values:
-   * 
-   * - `system_init`: The credential was created by the system.
-   * 
-   * - `user_custom`: The credential was created by a user.
+   * The creation type of the credential. Valid values:
+   * - system_init: Created by the system.
+   * - user_custom: Created by the user.
    * 
    * @example
    * user_custom
@@ -91,7 +89,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialExternalId?: string;
   /**
    * @remarks
-   * The ID of the credential.
+   * The credential ID.
    * 
    * @example
    * cred_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -99,7 +97,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The identifier of the credential.
+   * The credential identifier.
    * 
    * @example
    * credential_identifier_test
@@ -107,7 +105,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialIdentifier?: string;
   /**
    * @remarks
-   * The name of the credential.
+   * The credential name.
    * 
    * @example
    * credential_name
@@ -115,11 +113,9 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * The use case of the credential. Valid values:
-   * 
-   * - `llm`: a large language model (LLM).
-   * 
-   * - `saas`: a third-party Software as a Service (SaaS) application.
+   * The scenarios label of the credential. Valid values:
+   * - llm: Large language model.
+   * - saas: Third-party SaaS service.
    * 
    * @example
    * llm
@@ -128,7 +124,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialSharingScope?: string;
   /**
    * @remarks
-   * The ID of the subject that owns the credential.
+   * The ID of the subject to which the credential belongs.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -136,9 +132,8 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * The type of the subject that owns the credential. Valid value:
-   * 
-   * - `authentication_token_provider`: The subject is an authentication token provider.
+   * The type of the subject to which the credential belongs. Valid values:
+   * - authentication_token_provider: Authentication token provider.
    * 
    * @example
    * authentication_token_provider
@@ -146,11 +141,9 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialSubjectType?: string;
   /**
    * @remarks
-   * The type of the credential. Valid values:
-   * 
-   * - `api_key`: An API key.
-   * 
-   * - `oauth_client`: An OAuth client.
+   * The credential type. Valid values:
+   * - api_key: API key credential.
+   * - oauth_client: OAuth client credential.
    * 
    * @example
    * api_key
@@ -158,7 +151,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The user-defined description of the credential.
+   * The credential description.
    * 
    * @example
    * credential_description
@@ -167,7 +160,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   exclusiveUserId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -175,11 +168,9 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The status of the credential. Valid values:
-   * 
-   * - `enabled`: The credential is active.
-   * 
-   * - `disabled`: The credential is inactive.
+   * The credential status. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -187,7 +178,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time the credential was last updated, in Unix timestamp format (milliseconds).
+   * The update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830227000
@@ -252,7 +243,7 @@ export class GetCredentialResponseBodyCredential extends $dara.Model {
 export class GetCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The credential details.
+   * The credential information.
    */
   credential?: GetCredentialResponseBodyCredential;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeResourceServerFromClientRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the client application.
+   * The ID of the Client application.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RevokeResourceServerFromClientRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the resource server application.
+   * The ID of the ResourceServer application.
    * 
    * This parameter is required.
    * 

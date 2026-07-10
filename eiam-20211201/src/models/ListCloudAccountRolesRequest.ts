@@ -6,14 +6,10 @@ export class ListCloudAccountRolesRequestFilter extends $dara.Model {
   /**
    * @remarks
    * The name of the filter field. Valid values:
-   * 
-   * - CloudAccountRoleId: The ID of the cloud role.
-   * 
-   * - CloudAccountRoleName: The name of the cloud role.
-   * 
-   * - CloudAccountRoleExternalId: The external ID of the cloud role.
-   * 
-   * - CloudAccountRoleUsageType: The usage type of the cloud role.
+   * - CloudAccountRoleId: the cloud role ID.
+   * - CloudAccountRoleName: the cloud role name.
+   * - CloudAccountRoleExternalId: the external identifier of the cloud role.
+   * - CloudAccountRoleUsageType: the usage type of the cloud role.
    * 
    * @example
    * CloudAccountRoleId
@@ -21,7 +17,7 @@ export class ListCloudAccountRolesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of values for the filter field.
+   * The values of the filter field.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -53,7 +49,7 @@ export class ListCloudAccountRolesRequestFilter extends $dara.Model {
 export class ListCloudAccountRolesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The cloud account ID.
    * 
    * This parameter is required.
    * 
@@ -78,9 +74,9 @@ export class ListCloudAccountRolesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of records to return on each page.
+   * The maximum number of records per page.
    * 
-   * - The default value is 20.
+   * - If this parameter is not specified, the default value is 20.
    * 
    * - The maximum value is 100.
    * 
@@ -90,7 +86,7 @@ export class ListCloudAccountRolesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the start of the next page of results.
+   * The token that identifies the start position of the next page.
    * 
    * - If this parameter is not specified, the query starts from the first page.
    * 

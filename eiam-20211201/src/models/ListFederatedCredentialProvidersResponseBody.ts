@@ -51,7 +51,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   dynamicJwks?: string;
   /**
    * @remarks
-   * The issuer.
+   * Issuer
    * 
    * @example
    * https://example.com
@@ -59,7 +59,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   issuer?: string;
   /**
    * @remarks
-   * The timestamp of the last JWKS retrieval.
+   * The time when the JWKS was last obtained.
    * 
    * @example
    * 1729061324000
@@ -75,7 +75,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   jwksSource?: string;
   /**
    * @remarks
-   * The JSON Web Key Set (JWKS) endpoint.
+   * The JWKS endpoint.
    * 
    * @example
    * https://example.com
@@ -148,7 +148,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPkcs7ProviderConfigCertificatesCertificateMetadata extends $dara.Model {
   /**
    * @remarks
-   * The expiration time.
+   * The time when the certificate expires.
    * 
    * @example
    * 1729061324000
@@ -156,7 +156,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   notAfter?: number;
   /**
    * @remarks
-   * The validity start time.
+   * The effective period of the certificate.
    * 
    * @example
    * 1729061324000
@@ -188,12 +188,12 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPkcs7ProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * The metadata of the certificate.
+   * The certificate metadata.
    */
   certificateMetadata?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPkcs7ProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * The content of the certificate.
+   * The certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -240,12 +240,12 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPkcs7ProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of PKCS7 certificates.
+   * The list of PKCS7 certificates.
    */
   certificates?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPkcs7ProviderConfigCertificates[];
   /**
    * @remarks
-   * The Cryptographic Message Syntax (CMS) verification mode.
+   * The CMS verification mode.
    * 
    * @example
    * cert
@@ -253,7 +253,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * The validity period of the signature.
+   * The signature effective time.
    * 
    * @example
    * 3600
@@ -261,7 +261,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   signatureEffectiveTime?: number;
   /**
    * @remarks
-   * The expression used to obtain the signing time.
+   * The expression used to retrieve the signing time.
    * 
    * @example
    * pkcs7.payload.jsonData.audience.signingTime
@@ -269,7 +269,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   signingTimeValueExpression?: string;
   /**
    * @remarks
-   * The source of the certificate trust anchor.
+   * The certificate trust anchor source.
    * 
    * @example
    * alibaba_cloud
@@ -320,7 +320,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfigCertificatesCertificateMetadata extends $dara.Model {
   /**
    * @remarks
-   * The expiration time.
+   * The time when the certificate expires.
    * 
    * @example
    * 1729061324000
@@ -328,7 +328,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   notAfter?: number;
   /**
    * @remarks
-   * The validity start time.
+   * The effective period of the certificate.
    * 
    * @example
    * 1729061324000
@@ -360,12 +360,12 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * The metadata of the certificate.
+   * The certificate metadata.
    */
   certificateMetadata?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfigCertificatesCertificateMetadata;
   /**
    * @remarks
-   * The content of the root certificate.
+   * The root certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -375,7 +375,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   content?: string;
   /**
    * @remarks
-   * The fingerprint of the root certificate.
+   * The root certificate fingerprint.
    * 
    * @example
    * 2b18947a6a9fc7764fd8b5fb18a863b0c6daxxx
@@ -412,12 +412,12 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of root certificates.
+   * The root certificates.
    */
   certificates?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * The method for obtaining the root certificate.
+   * The method used to retrieve the root certificate.
    * 
    * @example
    * custom
@@ -463,7 +463,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   cloudIdPProviderConfig?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersCloudIdPProviderConfig;
   /**
    * @remarks
-   * The provider\\"s creation time.
+   * The creation time.
    * 
    * @example
    * 1729061324000
@@ -471,7 +471,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   createTime?: number;
   /**
    * @remarks
-   * The provider\\"s description.
+   * The description.
    * 
    * @example
    * test
@@ -479,7 +479,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   description?: string;
   /**
    * @remarks
-   * The ID of the federated credential provider.
+   * The federated trust source ID.
    * 
    * @example
    * fcp_asda123XXX
@@ -487,7 +487,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   federatedCredentialProviderId?: string;
   /**
    * @remarks
-   * The name of the federated credential provider.
+   * The name of the federated trust source.
    * 
    * @example
    * pkcs7test
@@ -495,7 +495,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   federatedCredentialProviderName?: string;
   /**
    * @remarks
-   * The type of the federated credential provider.
+   * The type of the federated trust source.
    * 
    * @example
    * pkcs7
@@ -511,7 +511,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the network access endpoint.
+   * The network access endpoint ID.
    * 
    * @example
    * inae_public
@@ -519,7 +519,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The OpenID Connect (OIDC) configuration.
+   * The OIDC configuration.
    */
   oidcProviderConfig?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersOidcProviderConfig;
   /**
@@ -534,7 +534,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   privateCaProviderConfig?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPrivateCaProviderConfig;
   /**
    * @remarks
-   * The provider\\"s status.
+   * The status.
    * 
    * @example
    * enabled
@@ -542,7 +542,7 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
   status?: string;
   /**
    * @remarks
-   * The provider\\"s last update time.
+   * The update time.
    * 
    * @example
    * 1729061324000
@@ -608,12 +608,12 @@ export class ListFederatedCredentialProvidersResponseBodyFederatedCredentialProv
 export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of federated credential providers.
+   * The list of federated trust sources.
    */
   federatedCredentialProviders?: ListFederatedCredentialProvidersResponseBodyFederatedCredentialProviders[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -621,7 +621,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. This parameter is empty if all results have been returned.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -629,7 +629,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token for the previous page of results.
+   * The pagination token returned by this call.
    * 
    * @example
    * PTxxxexample
@@ -645,7 +645,7 @@ export class ListFederatedCredentialProvidersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

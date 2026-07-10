@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the federated credential provider.
+   * The name of the federated trust source.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   federatedCredentialProviderName?: string;
   /**
    * @remarks
-   * The type of the federated credential provider.
+   * The type of the federated trust source.
    * 
    * @example
    * pkcs7
@@ -31,7 +31,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -39,7 +39,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The pagination token.
    * 
    * @example
    * NTxxxxxexample
@@ -47,7 +47,7 @@ export class ListFederatedCredentialProvidersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token to retrieve the previous page of results.
+   * The token used to query the previous page.
    * 
    * @example
    * PTxxxxxexample

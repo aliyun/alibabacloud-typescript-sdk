@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveApplicationAccountFromUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application account.
+   * The application account ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemoveApplicationAccountFromUserRequest extends $dara.Model {
   applicationAccountId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RemoveApplicationAccountFromUserRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RemoveApplicationAccountFromUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * This parameter is required.
    * 

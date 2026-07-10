@@ -15,7 +15,7 @@ export class RevokeApplicationFromUsersRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色ID。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -33,7 +33,7 @@ export class RevokeApplicationFromUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A list of account IDs. A single operation supports up to 100 account IDs.
+   * The list of account IDs. A maximum of 100 account IDs are supported in a single operation.
    * 
    * This parameter is required.
    * 

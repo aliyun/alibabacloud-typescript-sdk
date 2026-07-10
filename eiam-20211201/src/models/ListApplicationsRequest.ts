@@ -6,8 +6,7 @@ export class ListApplicationsRequestCustomFields extends $dara.Model {
   /**
    * @remarks
    * The custom field identifier. Valid values:
-   * 
-   * - `agent_type`: The agent type.
+   * - agent_type: the agent type.
    * 
    * @example
    * agent_type
@@ -47,7 +46,7 @@ export class ListApplicationsRequestCustomFields extends $dara.Model {
 export class ListApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The application creation type. If unspecified, only user-created (`user_custom`) applications are returned. To query applications of all types, set this parameter to `all`.
+   * The application creation type. If this parameter is left empty, applications of the user_custom type are queried by default. To query applications of all types, set this parameter to all.
    * 
    * @example
    * system_init
@@ -55,7 +54,7 @@ export class ListApplicationsRequest extends $dara.Model {
   applicationCreationType?: string;
   /**
    * @remarks
-   * The application identity type. If unspecified, only applications of the `application` type are returned. To query all identity types, set this parameter to `all`.
+   * The application identity type. If this parameter is left empty, applications of the application type are queried by default. To query applications of all identity types, set this parameter to all.
    * 
    * @example
    * application
@@ -63,7 +62,7 @@ export class ListApplicationsRequest extends $dara.Model {
   applicationIdentityType?: string;
   /**
    * @remarks
-   * A list of application IDs.
+   * The list of application IDs.
    * 
    * @example
    * Ram Account SSO
@@ -71,7 +70,7 @@ export class ListApplicationsRequest extends $dara.Model {
   applicationIds?: string[];
   /**
    * @remarks
-   * The application name. Only prefix matching is supported.
+   * The application name. Only left fuzzy match is supported.
    * 
    * @example
    * Ram Account SSO
@@ -79,11 +78,9 @@ export class ListApplicationsRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The authorization type for application access. Valid values:
-   * 
-   * - `authorize_required`: Access requires explicit authorization.
-   * 
-   * - `default_all`: All members have access by default.
+   * The application access authorization type. Valid values:
+   * - authorize_required: Explicit authorization is required for access.
+   * - default_all: All members have access permissions by default.
    * 
    * @example
    * authorize_required
@@ -91,7 +88,7 @@ export class ListApplicationsRequest extends $dara.Model {
   authorizationType?: string;
   /**
    * @remarks
-   * A list of custom fields.
+   * The list of custom fields.
    */
   customFields?: ListApplicationsRequestCustomFields[];
   /**
@@ -106,12 +103,13 @@ export class ListApplicationsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The status of the M2M client identity.
+   * Specifies whether the M2M Client identity is enabled.
    * 
    * @example
    * enabled
    */
   m2MClientStatus?: string;
+  managedServiceCode?: string;
   /**
    * @remarks
    * The page number.
@@ -130,15 +128,16 @@ export class ListApplicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the resource server capability.
+   * Specifies whether the ResourceServer capability is enabled.
    * 
    * @example
    * enabled
    */
   resourceServerStatus?: string;
+  serviceManaged?: boolean;
   /**
    * @remarks
-   * A filter for the Single Sign-On (SSO) type. You can specify multiple types, separated by a comma. Example: `oauth2/m2m,oidc+oauth2/m2m`.
+   * The SSO type filter condition. Multiple types can be separated by commas, such as oauth2/m2m,oidc+oauth2/m2m.
    * 
    * @example
    * oauth2/m2m
@@ -147,10 +146,8 @@ export class ListApplicationsRequest extends $dara.Model {
   /**
    * @remarks
    * The application status. Valid values:
-   * 
-   * - `enabled`: Enabled.
-   * 
-   * - `disabled`: Disabled.
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -166,9 +163,11 @@ export class ListApplicationsRequest extends $dara.Model {
       customFields: 'CustomFields',
       instanceId: 'InstanceId',
       m2MClientStatus: 'M2MClientStatus',
+      managedServiceCode: 'ManagedServiceCode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceServerStatus: 'ResourceServerStatus',
+      serviceManaged: 'ServiceManaged',
       ssoType: 'SsoType',
       status: 'Status',
     };
@@ -184,9 +183,11 @@ export class ListApplicationsRequest extends $dara.Model {
       customFields: { 'type': 'array', 'itemType': ListApplicationsRequestCustomFields },
       instanceId: 'string',
       m2MClientStatus: 'string',
+      managedServiceCode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceServerStatus: 'string',
+      serviceManaged: 'boolean',
       ssoType: 'string',
       status: 'string',
     };

@@ -60,7 +60,7 @@ export class ListResourceServersForUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -68,7 +68,7 @@ export class ListResourceServersForUserRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. Set this to the NextToken value from the previous API call.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * NTxxxxxexample

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListCredentialsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The field to filter on. Valid value:
-   * 
-   * - `CredentialIdentifier`: the credential identifier.
+   * The name of the filter field. Valid values:
+   * - CredentialIdentifier: the credential identifier.
    * 
    * @example
    * CredentialIdentifier
@@ -15,7 +14,7 @@ export class ListCredentialsRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The values for the specified filter field.
+   * The list of filter field values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -48,7 +47,7 @@ export class ListCredentialsRequest extends $dara.Model {
   credentialExternalIds?: string[];
   /**
    * @remarks
-   * The credential IDs.
+   * The list of credential IDs.
    */
   credentialIds?: string[];
   credentialSharingScopes?: string[];
@@ -70,10 +69,8 @@ export class ListCredentialsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page.
-   * 
+   * The maximum number of entries per page.
    * - Default value: 20.
-   * 
    * - Maximum value: 100.
    * 
    * @example
@@ -82,7 +79,7 @@ export class ListCredentialsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token.
    * 
    * @example
    * NTxxxxxexample
@@ -90,7 +87,7 @@ export class ListCredentialsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The credential statuses.
+   * The list of credential statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

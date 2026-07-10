@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application that you want to disable.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DisableApplicationRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

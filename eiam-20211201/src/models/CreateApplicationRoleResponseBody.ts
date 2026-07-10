@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application role.
+   * The application role ID.
    * 
    * @example
    * approle_01kghbvoptu5262q35aalvq7cxxxx

@@ -13,7 +13,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * @example
    * There is no permission.
@@ -45,12 +45,12 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
 export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResult extends $dara.Model {
   /**
    * @remarks
-   * The reason for the error. This parameter is returned only if the value of CloudAccountRoleHealth is unhealthy.
+   * The error reason. This field is returned when the health check status is unhealthy.
    */
   errorReason?: GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The time of the last check. This value is a UNIX timestamp in milliseconds.
+   * The time of the last health check. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -58,11 +58,11 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
   lastCheckTime?: number;
   /**
    * @remarks
-   * The result of the health check. Valid values:
+   * The cloud role health check result. Valid values:
    * 
-   * - success: The health check is successful.
+   * - success: succeeded.
    * 
-   * - failed: The health check failed.
+   * - failed: failed.
    * 
    * @example
    * success
@@ -99,7 +99,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
 export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The cloud account ID.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -107,7 +107,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountId?: string;
   /**
    * @remarks
-   * The external ID of the cloud account role.
+   * The cloud role identifier.
    * 
    * @example
    * acs:ram::xxx:role/role-test
@@ -115,13 +115,10 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleExternalId?: string;
   /**
    * @remarks
-   * The health check status of the cloud role. Valid values:
-   * 
-   * - healthy: The role is healthy.
-   * 
-   * - unhealthy: The role is unhealthy.
-   * 
-   * - unknown: The health status is unknown.
+   * The cloud role health status. Valid values:
+   * - healthy: healthy.
+   * - unhealthy: unhealthy.
+   * - unknown: unknown.
    * 
    * @example
    * healthy
@@ -129,12 +126,12 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleHealth?: string;
   /**
    * @remarks
-   * The result of the health check for the cloud role.
+   * The cloud role health check result.
    */
   cloudAccountRoleHealthCheckResult?: GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResult;
   /**
    * @remarks
-   * The ID of the cloud role.
+   * The cloud role ID.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -142,7 +139,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleId?: string;
   /**
    * @remarks
-   * The name of the cloud role.
+   * The cloud role name.
    * 
    * @example
    * role-test
@@ -150,9 +147,9 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleName?: string;
   /**
    * @remarks
-   * The type of the cloud role. The format of this parameter varies based on the cloud account type. The following value is supported:
+   * The cloud role type. The specific format depends on the cloud account type. Valid values:
    * 
-   * - role: for an Alibaba Cloud account.
+   * - role: applicable to Alibaba Cloud accounts.
    * 
    * @example
    * role
@@ -160,11 +157,9 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleType?: string;
   /**
    * @remarks
-   * The usage type of the cloud role. Valid values:
-   * 
-   * - system: The role is used by the system.
-   * 
-   * - user: The role is used by a user.
+   * The cloud role usage type. Valid values:
+   * - system: system.
+   * - user: user.
    * 
    * @example
    * system
@@ -172,7 +167,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleUsageType?: string;
   /**
    * @remarks
-   * The time when the cloud role was created. This value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1719320115000
@@ -180,7 +175,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   createTime?: number;
   /**
    * @remarks
-   * The description of the cloud role.
+   * The cloud role description.
    * 
    * @example
    * cloud_account_role_description
@@ -196,11 +191,9 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The status of the cloud role. Valid values:
-   * 
-   * - enabled: The role is enabled.
-   * 
-   * - disable: The role is disabled.
+   * The cloud role status. Valid values:
+   * - enabled: enabled.
+   * - disable: disabled.
    * 
    * @example
    * enabled
@@ -208,7 +201,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The time when the cloud role was last updated. This value is a UNIX timestamp in milliseconds.
+   * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830227000
@@ -265,7 +258,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
 export class GetCloudAccountRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the cloud role.
+   * The cloud role details.
    */
   cloudAccountRole?: GetCloudAccountRoleResponseBodyCloudAccountRole;
   /**

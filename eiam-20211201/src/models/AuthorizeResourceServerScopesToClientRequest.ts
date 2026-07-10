@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeResourceServerScopesToClientRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the client application.
+   * The unique identifier of the Client application.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class AuthorizeResourceServerScopesToClientRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the resource server application.
+   * The unique identifier of the ResourceServer application.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class AuthorizeResourceServerScopesToClientRequest extends $dara.Model {
   resourceServerApplicationId?: string;
   /**
    * @remarks
-   * The list of scope permission IDs for the resource server.
+   * The list of Scope permission IDs under the ResourceServer.
    * 
    * This parameter is required.
    * 

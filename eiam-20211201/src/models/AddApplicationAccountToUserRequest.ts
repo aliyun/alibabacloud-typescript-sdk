@@ -15,7 +15,7 @@ export class AddApplicationAccountToUserRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The name of the application account.
+   * The application account name.
    * 
    * This parameter is required.
    * 

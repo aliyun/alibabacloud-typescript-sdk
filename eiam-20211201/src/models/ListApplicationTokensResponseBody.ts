@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID.
+   * aliUid。
    * 
    * @example
    * 1973166921975xxxx
@@ -21,7 +21,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   applicationId?: string;
   /**
    * @remarks
-   * The application token.
+   * The application tokens.
    * 
    * @example
    * SATFwqX8zxGf83pJcJw78KFGjmrft4erWeZYBGS8oE7NN6qoE217yaJpUdMb1UuuGqhDiF43sCA4CF91CTL5iGntqwyLuaAcS9FJ9HfGadE5a7TjiwVafwrBYktxxxx
@@ -29,7 +29,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   applicationToken?: string;
   /**
    * @remarks
-   * The ID of the application token.
+   * The application token ID.
    * 
    * @example
    * token_ndfxxigahelfne2y2hodehrxxxx
@@ -37,7 +37,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   applicationTokenId?: string;
   /**
    * @remarks
-   * The type of the application token.
+   * The application token type.
    * 
    * @example
    * bearer_token
@@ -53,7 +53,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The description of the application token.
+   * The application token description.
    * 
    * @example
    * jwqtts-0430
@@ -69,7 +69,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   expirationTime?: number;
   /**
    * @remarks
-   * The ID of the IDaaS EIAM instance.
+   * The IDaaS EIAM instance ID.
    * 
    * @example
    * idaas_ki6hd7ihir4ybawogqk6kqxxxx
@@ -85,7 +85,7 @@ export class ListApplicationTokensResponseBodyApplicationTokens extends $dara.Mo
   lastUsedTime?: number;
   /**
    * @remarks
-   * The status.
+   * The enabling status.
    * 
    * @example
    * enabled

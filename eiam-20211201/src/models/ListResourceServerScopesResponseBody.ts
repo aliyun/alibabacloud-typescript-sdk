@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceServerScopesResponseBodyResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * Application ID.
+   * The application ID.
    * 
    * @example
    * app_xxxxxxxxxxx
@@ -13,7 +13,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   applicationId?: string;
   /**
    * @remarks
-   * Authorization type.
+   * The authorization type.
    * 
    * @example
    * authorize_required
@@ -21,7 +21,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   authorizationType?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * idaas_xxxxxxxxxxx
@@ -29,7 +29,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   instanceId?: string;
   /**
    * @remarks
-   * Scope permission ID.
+   * The scope permission ID.
    * 
    * @example
    * rss_xxxxxxxxxxx
@@ -37,7 +37,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * Scope permission name.
+   * The scope permission name.
    * 
    * @example
    * 读取全部用户
@@ -45,7 +45,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   resourceServerScopeName?: string;
   /**
    * @remarks
-   * Scope permission type.
+   * The scope permission type.
    * 
    * @example
    * urn:alibaba:idaas:resourceserver:scope:delegated
@@ -53,7 +53,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
   resourceServerScopeType?: string;
   /**
    * @remarks
-   * Scope permission value.
+   * The scope permission value.
    * 
    * @example
    * User:Write:ALL
@@ -95,7 +95,7 @@ export class ListResourceServerScopesResponseBodyResourceServerScopes extends $d
 export class ListResourceServerScopesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Number of rows per page in paginated queries.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class ListResourceServerScopesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next page query.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxexample
@@ -111,7 +111,7 @@ export class ListResourceServerScopesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Token for the previous page query.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxexample
@@ -119,7 +119,7 @@ export class ListResourceServerScopesResponseBody extends $dara.Model {
   previousToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -127,12 +127,12 @@ export class ListResourceServerScopesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of Scope permissions under the ResourceServer.
+   * The list of scope permissions under the ResourceServer.
    */
   resourceServerScopes?: ListResourceServerScopesResponseBodyResourceServerScopes[];
   /**
    * @remarks
-   * Total number of items in the list.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

@@ -15,7 +15,7 @@ export class CreateApplicationRoleRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The name of the application role.
+   * The application role name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateApplicationRoleRequest extends $dara.Model {
   applicationRoleName?: string;
   /**
    * @remarks
-   * The value of the application role.
+   * The application role value.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateApplicationRoleRequest extends $dara.Model {
   applicationRoleValue?: string;
   /**
    * @remarks
-   * A client token used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 

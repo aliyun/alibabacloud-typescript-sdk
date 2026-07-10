@@ -29,7 +29,7 @@ export class ObtainApplicationClientSecretResponseBodyApplicationClientSecret ex
   clientSecret?: string;
   /**
    * @remarks
-   * The expiration time of the client secret. This is a UNIX timestamp. Unit: milliseconds.
+   * The expiration time of the client secret. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1749830226000
@@ -45,7 +45,7 @@ export class ObtainApplicationClientSecretResponseBodyApplicationClientSecret ex
   instanceId?: string;
   /**
    * @remarks
-   * The last time the client secret was used. This is a UNIX timestamp. Unit: milliseconds.
+   * The time when the client secret was last used. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -62,10 +62,8 @@ export class ObtainApplicationClientSecretResponseBodyApplicationClientSecret ex
   /**
    * @remarks
    * The status of the client secret. Valid values:
-   * 
-   * - enabled: The secret is enabled.
-   * 
-   * - disabled: The secret is disabled.
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -109,7 +107,7 @@ export class ObtainApplicationClientSecretResponseBodyApplicationClientSecret ex
 export class ObtainApplicationClientSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The secret information.
+   * The client secret information.
    */
   applicationClientSecret?: ObtainApplicationClientSecretResponseBodyApplicationClientSecret;
   /**

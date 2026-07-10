@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponseBodyCheckApplicationProvisioningUserPrimaryOuResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates if the authorization is granted.
+   * Indicates whether authorization is allowed.
    */
   allowAuthorization?: boolean;
   /**

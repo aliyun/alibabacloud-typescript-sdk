@@ -59,8 +59,8 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
   /**
    * @remarks
    * The health check result of the cloud account. Valid values:
-   * - success: Succeeded.
-   * - failed: Failed.
+   * - success: The health check succeeded.
+   * - failed: The health check failed.
    * 
    * @example
    * success
@@ -240,7 +240,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   cloudAccounts?: ListCloudAccountsResponseBodyCloudAccounts[];
   /**
    * @remarks
-   * The number of rows per page for paging.
+   * The number of rows per page when paging is used.
    * 
    * @example
    * 20
@@ -248,7 +248,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned for the current call.
+   * The token returned for the current call to indicate the starting position of the next page.
    * 
    * @example
    * NTxxxexample

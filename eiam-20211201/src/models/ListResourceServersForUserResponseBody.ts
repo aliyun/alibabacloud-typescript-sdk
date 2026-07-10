@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceServersForUserResponseBodyResourceServersResourceServerScopes extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a direct authorization exists.
+   * Indicates whether direct authorization exists. Valid values:
+   * - true: Direct authorization exists.
+   * - false: Direct authorization does not exist.
    * 
    * @example
    * true
@@ -13,7 +15,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
   hasDirectAuthorization?: boolean;
   /**
    * @remarks
-   * Indicates whether an inherited permission exists.
+   * Indicates whether inherited authorization exists.
    * 
    * @example
    * false
@@ -21,7 +23,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
   hasInheritAuthorization?: boolean;
   /**
    * @remarks
-   * The ID of the Scope permission.
+   * The Scope permission ID.
    * 
    * @example
    * ress_nbte4bb3qqqnaq73rlmkqixxxx
@@ -29,7 +31,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
   resourceServerScopeId?: string;
   /**
    * @remarks
-   * The name of the Scope permission.
+   * The Scope permission name.
    * 
    * @example
    * Read All User
@@ -65,7 +67,7 @@ export class ListResourceServersForUserResponseBodyResourceServersResourceServer
 export class ListResourceServersForUserResponseBodyResourceServers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ResourceServer application.
+   * The ResourceServer application ID.
    * 
    * @example
    * app_nbsomva32b6utec3hgi7scxxxx
@@ -89,7 +91,7 @@ export class ListResourceServersForUserResponseBodyResourceServers extends $dara
   resourceServerIdentifier?: string;
   /**
    * @remarks
-   * The list of granted Scope permissions.
+   * The list of authorized Scope permissions.
    */
   resourceServerScopes?: ListResourceServersForUserResponseBodyResourceServersResourceServerScopes[];
   static names(): { [key: string]: string } {
@@ -125,7 +127,7 @@ export class ListResourceServersForUserResponseBodyResourceServers extends $dara
 export class ListResourceServersForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -133,7 +135,7 @@ export class ListResourceServersForUserResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token for the next page.
    * 
    * @example
    * NTxxxexample

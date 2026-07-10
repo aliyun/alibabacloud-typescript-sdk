@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the credential provider.
+   * The credential provider ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteCredentialProviderRequest extends $dara.Model {
   credentialProviderId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

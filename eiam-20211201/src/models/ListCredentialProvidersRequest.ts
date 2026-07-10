@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListCredentialProvidersRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * Filter condition name. Valid values:
+   * The filter condition name. Valid values:
    * 
-   * - CredentialProviderName: Credential provider name.
-   * 
-   * - CredentialProviderIdentifier: Credential provider identifier.
+   * - CredentialProviderName: the credential provider name.
+   * - CredentialProviderIdentifier: the credential provider identifier.
    * 
    * @example
    * CredentialProviderName
@@ -17,7 +16,7 @@ export class ListCredentialProvidersRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * List of filter condition values.
+   * The list of filter condition values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -49,22 +48,22 @@ export class ListCredentialProvidersRequestFilter extends $dara.Model {
 export class ListCredentialProvidersRequest extends $dara.Model {
   /**
    * @remarks
-   * List of credential provider IDs.
+   * The list of credential provider IDs.
    */
   credentialProviderIds?: string[];
   /**
    * @remarks
-   * List of credential provider types.
+   * The list of credential provider types.
    */
   credentialProviderTypes?: string[];
   /**
    * @remarks
-   * List of filter conditions.
+   * The list of filter conditions.
    */
   filter?: ListCredentialProvidersRequestFilter[];
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -74,7 +73,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page size for paged queries.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -82,7 +81,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Query token.
+   * The pagination token.
    * 
    * @example
    * NTxxxxxexample
@@ -90,7 +89,7 @@ export class ListCredentialProvidersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * List of credential provider statuses.
+   * The list of credential provider statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

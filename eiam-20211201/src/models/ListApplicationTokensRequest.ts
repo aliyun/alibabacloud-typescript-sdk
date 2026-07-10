@@ -15,7 +15,7 @@ export class ListApplicationTokensRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The type of the application token.
+   * The application token type.
    * 
    * This parameter is required.
    * 

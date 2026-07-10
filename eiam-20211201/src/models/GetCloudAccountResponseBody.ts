@@ -246,7 +246,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The most recent update time. The value is a UNIX timestamp in milliseconds.
+   * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830227000

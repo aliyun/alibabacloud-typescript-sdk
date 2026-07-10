@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationFederatedCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application federated credential.
+   * The application federated identity credential ID.
    * 
    * @example
    * afc_asd123daxxxx

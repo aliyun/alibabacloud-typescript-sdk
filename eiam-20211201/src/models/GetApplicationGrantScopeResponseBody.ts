@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationGrantScopeResponseBodyApplicationGrantScope extends $dara.Model {
   /**
    * @remarks
-   * The permissions of the Developer API feature.
+   * The collection of API authorization scopes.
    */
   grantScopes?: string[];
   static names(): { [key: string]: string } {
@@ -35,12 +35,12 @@ export class GetApplicationGrantScopeResponseBodyApplicationGrantScope extends $
 export class GetApplicationGrantScopeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The permissions of the Developer API feature.
+   * The authorization scope.
    */
   applicationGrantScope?: GetApplicationGrantScopeResponseBodyApplicationGrantScope;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

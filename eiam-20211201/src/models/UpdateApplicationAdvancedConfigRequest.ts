@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of IDs of supported custom user fields.
+   * The list of supported user custom field IDs.
    */
   supportedUserCustomFieldIds?: string[];
   /**
    * @remarks
-   * The namespace of the user extension fields.
+   * The namespace of user extended fields.
    * 
    * @example
    * urn:ietf:params:scim:schemas:extension:customfield:2.0:User
@@ -65,7 +65,7 @@ export class UpdateApplicationAdvancedConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The advanced configuration of the SCIM server.
+   * The SCIM server advanced configuration.
    */
   scimServerAdvancedConfig?: UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig;
   static names(): { [key: string]: string } {

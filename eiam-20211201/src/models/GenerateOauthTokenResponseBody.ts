@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
   /**
    * @remarks
-   * The access token.
+   * Access Token。
    * 
    * @example
    * ***
@@ -13,7 +13,7 @@ export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The expiration time, in Unix timestamp format (seconds since epoch).
+   * The expiration time, in UNIX timestamp format. Unit: seconds.
    * 
    * @example
    * 1770186372
@@ -29,7 +29,7 @@ export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
   expiresIn?: number;
   /**
    * @remarks
-   * The token type. Only Bearer is supported.
+   * The token type. Currently, only Bearer is supported.
    * 
    * @example
    * Bearer

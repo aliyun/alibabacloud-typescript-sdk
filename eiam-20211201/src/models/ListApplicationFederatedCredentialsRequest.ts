@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationFederatedCredentialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the application federated credential.
+   * The type of the application federated credential provider.
    * 
    * @example
    * oidc
@@ -33,7 +33,7 @@ export class ListApplicationFederatedCredentialsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 20
@@ -41,7 +41,7 @@ export class ListApplicationFederatedCredentialsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token.
+   * The pagination token used to retrieve the next page of results.
    * 
    * @example
    * NTxxxxxexample
@@ -49,7 +49,7 @@ export class ListApplicationFederatedCredentialsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token to retrieve the previous page of results.
+   * The pagination token used to retrieve the previous page of results.
    * 
    * @example
    * PTxxxxxexample

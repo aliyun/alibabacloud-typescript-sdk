@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -13,7 +13,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the application role.
+   * The application role ID.
    * 
    * @example
    * approle_01kh2vuo8v9splv8maak1d22rxxxx
@@ -21,7 +21,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   applicationRoleId?: string;
   /**
    * @remarks
-   * The name of the application role.
+   * The application role name.
    * 
    * @example
    * Admin Role
@@ -29,7 +29,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   applicationRoleName?: string;
   /**
    * @remarks
-   * The value of the application role.
+   * The application role value.
    * 
    * @example
    * admin_role
@@ -37,7 +37,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   applicationRoleValue?: string;
   /**
    * @remarks
-   * The description of the application role.
+   * The application role description.
    * 
    * @example
    * Admin Role Description
@@ -45,7 +45,7 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxx
@@ -85,12 +85,12 @@ export class GetApplicationRoleResponseBodyApplicationRole extends $dara.Model {
 export class GetApplicationRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the application role.
+   * The application role information.
    */
   applicationRole?: GetApplicationRoleResponseBodyApplicationRole;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

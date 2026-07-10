@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigJwtProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * List of allowed JWT issuers.
+   * The list of allowed JWT issuers.
    */
   allowedTokenIssuers?: string[];
   /**
    * @remarks
-   * Enable JWT derived short token.
+   * Indicates whether the JWT derived short token feature is enabled.
    * 
    * @example
    * false
@@ -18,7 +18,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   derivedShortTokenEnabled?: boolean;
   /**
    * @remarks
-   * Validity period of the JWT. Unit: seconds.
+   * The validity period of the JWT, in seconds.
    * 
    * @example
    * 900
@@ -26,7 +26,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   expiration?: number;
   /**
    * @remarks
-   * Enable JWT expiration cleanup.
+   * Indicates whether JWT expiration cleanup is enabled.
    * 
    * @example
    * true
@@ -34,7 +34,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   expirationCleanupEnabled?: boolean;
   /**
    * @remarks
-   * JWT issuer.
+   * JWT issuer。
    * 
    * @example
    * https://test.issuer.com
@@ -42,7 +42,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   issuer?: string;
   /**
    * @remarks
-   * JWKs endpoint URL.
+   * The JWKs endpoint URL.
    * 
    * @example
    * https://example123456.aliyunidaas.com/api/v2/auths_ngz2wj35ixxxdyat55nexxxxxx/oauth2/jwks
@@ -85,7 +85,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
 export class GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigOAuthProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * Client ID, corresponding to client_id in the OAuth protocol.
+   * The client_id in the OAuth protocol.
    * 
    * @example
    * client_id_example_xxx
@@ -93,13 +93,11 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   clientId?: string;
   /**
    * @remarks
-   * Scope, corresponding to scope in the OAuth protocol.
+   * The scope in the OAuth protocol.
    * 
-   * > The Scope value configured for the OAuth credential provider serves as the default. If you do not specify the scope parameter when calling the Developer API to obtain an OAuth access token, the system uses this default Scope value.
+   * > The scope configuration of the OAuth credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth access token, the scope configuration of the credential provider is used for issuance.
    * 
-   * >Notice: 
-   * 
-   * Separate multiple Scope values with spaces.
+   * >Notice: Multiple scope values are separated by spaces.
    * 
    * @example
    * example:test_01 example:test_02
@@ -107,7 +105,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
   scope?: string;
   /**
    * @remarks
-   * Token endpoint, corresponding to the OAuth protocol.
+   * The token endpoint of the OAuth protocol.
    * 
    * @example
    * https://example.com/token
@@ -141,19 +139,19 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
 export class GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * Configuration for a JWT credential provider.
+   * The configuration of the JWT credential provider.
    */
   jwtProviderConfig?: GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigJwtProviderConfig;
   /**
    * @remarks
-   * Configuration for an OAuth credential provider.
+   * The configuration of the OAuth credential provider.
    */
   OAuthProviderConfig?: GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfigOAuthProviderConfig;
   /**
    * @remarks
-   * List of credential IDs for sensitive configurations of the credential provider.
+   * The list of credential IDs corresponding to the sensitive configurations of the credential provider.
    * 
-   * > The system securely stores sensitive configuration information as credentials.
+   * > The system securely stores the sensitive configuration information of the credential provider in the form of credentials.
    */
   providerCredentialIds?: string[];
   static names(): { [key: string]: string } {
@@ -193,7 +191,7 @@ export class GetCredentialProviderResponseBodyCredentialProviderCredentialProvid
 export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.Model {
   /**
    * @remarks
-   * Creation time of the credential provider, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time of the credential provider. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -201,16 +199,15 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * Credential provider configuration.
+   * The credential provider configuration.
    */
   credentialProviderConfig?: GetCredentialProviderResponseBodyCredentialProviderCredentialProviderConfig;
   /**
    * @remarks
-   * Credential provider creation type. Valid values:
+   * The credential provider creation type. Valid values:
    * 
-   * - system_init: Created by the system
-   * 
-   * - user_custom: Created by a user
+   * - system_init: Created by the system.
+   * - user_custom: Created by the user.
    * 
    * @example
    * user_custom
@@ -218,7 +215,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderCreationType?: string;
   /**
    * @remarks
-   * Credential provider ID.
+   * The credential provider ID.
    * 
    * @example
    * atp_01kr2cmj5gxxx4fvmls2e93dxxxxx
@@ -226,7 +223,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderId?: string;
   /**
    * @remarks
-   * Credential provider identifier.
+   * The credential provider identifier.
    * 
    * @example
    * test_example_identifier
@@ -234,7 +231,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderIdentifier?: string;
   /**
    * @remarks
-   * Credential provider name.
+   * The credential provider name.
    * 
    * @example
    * test_example_name
@@ -242,11 +239,10 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderName?: string;
   /**
    * @remarks
-   * Credential provider type. Valid values:
+   * The credential provider type. Valid values:
    * 
-   * - oauth: OAuth credential provider
-   * 
-   * - jwt: JWT credential provider
+   * - oauth: OAuth credential provider.
+   * - jwt: JWT credential provider.
    * 
    * @example
    * oauth
@@ -254,7 +250,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   credentialProviderType?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * This is an example description
@@ -262,7 +258,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   description?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -270,11 +266,10 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * Credential provider status. Valid values:
+   * The credential provider status. Valid values:
    * 
-   * - enabled: Enabled
-   * 
-   * - disabled: Disabled
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -282,7 +277,7 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
   status?: string;
   /**
    * @remarks
-   * Update time of the credential provider, in UNIX timestamp format. Unit: milliseconds.
+   * The update time of the credential provider. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -335,12 +330,12 @@ export class GetCredentialProviderResponseBodyCredentialProvider extends $dara.M
 export class GetCredentialProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Credential provider.
+   * The credential provider.
    */
   credentialProvider?: GetCredentialProviderResponseBodyCredentialProvider;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

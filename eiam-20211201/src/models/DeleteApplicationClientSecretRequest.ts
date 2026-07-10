@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationClientSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application for which you want to delete a client key.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteApplicationClientSecretRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteApplicationClientSecretRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the client key that you want to delete for the application.
+   * The client secret ID of the application.
    * 
    * This parameter is required.
    * 

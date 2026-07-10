@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * Credential provider ID.
+   * The credential provider ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCredentialProviderRequest extends $dara.Model {
   credentialProviderId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

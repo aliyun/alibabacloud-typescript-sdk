@@ -85,12 +85,12 @@ export class UpdateApplicationInfoRequest extends $dara.Model {
   applicationOwner?: UpdateApplicationInfoRequestApplicationOwner;
   /**
    * @remarks
-   * The collection of application visibility settings.
+   * The application visibility settings.
    */
   applicationVisibility?: string[];
   /**
    * @remarks
-   * The idempotent token.
+   * The idempotence token.
    * 
    * @example
    * client-token-example

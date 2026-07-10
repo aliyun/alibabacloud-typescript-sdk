@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application template.
+   * The application template ID.
    * 
    * This parameter is required.
    * 

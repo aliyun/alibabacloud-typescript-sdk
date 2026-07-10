@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFederatedCredentialProviderDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the federated credential provider.
+   * The description of the federated trust source.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class UpdateFederatedCredentialProviderDescriptionRequest extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The federated credential provider ID.
+   * The federated trust source ID.
    * 
    * This parameter is required.
    * 

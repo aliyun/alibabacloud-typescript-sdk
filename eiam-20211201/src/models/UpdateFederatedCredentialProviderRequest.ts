@@ -10,7 +10,7 @@ export class UpdateFederatedCredentialProviderRequestOidcProviderConfig extends 
   audiences?: string[];
   /**
    * @remarks
-   * The source of the JSON Web Key Set (JWKS).
+   * The JWKS source.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class UpdateFederatedCredentialProviderRequestOidcProviderConfig extends 
   jwksSource?: string;
   /**
    * @remarks
-   * JWKS endpoint
+   * The JWKS endpoint.
    * 
    * @example
    * https://example.com/jwks
@@ -28,7 +28,7 @@ export class UpdateFederatedCredentialProviderRequestOidcProviderConfig extends 
   jwksUri?: string;
   /**
    * @remarks
-   * The statically obtained JWKS.
+   * The statically retrieved JWKS.
    * 
    * @example
    * {
@@ -124,7 +124,7 @@ export class UpdateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   certificates?: UpdateFederatedCredentialProviderRequestPkcs7ProviderConfigCertificates[];
   /**
    * @remarks
-   * The Cryptographic Message Syntax (CMS) verification mode.
+   * The CMS verification mode.
    * 
    * @example
    * cert
@@ -140,7 +140,7 @@ export class UpdateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   signatureEffectiveTime?: number;
   /**
    * @remarks
-   * The expression to obtain the signing time.
+   * The expression used to retrieve the signing time.
    * 
    * @example
    * pkcs7.signingTime
@@ -238,7 +238,7 @@ export class UpdateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
   certificates?: UpdateFederatedCredentialProviderRequestPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * The method to obtain the root certificate.
+   * The method used to retrieve the root certificate.
    * 
    * This parameter is required.
    * 
@@ -248,7 +248,7 @@ export class UpdateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The trust condition for the root certificate.
+   * The trust condition of the root certificate.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -285,7 +285,7 @@ export class UpdateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
 export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the federated credential provider.
+   * The federated trust source ID.
    * 
    * This parameter is required.
    * 
@@ -295,7 +295,7 @@ export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   federatedCredentialProviderId?: string;
   /**
    * @remarks
-   * The name of the federated credential provider.
+   * The federated trust source name.
    * 
    * This parameter is required.
    * 
@@ -315,7 +315,7 @@ export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the network access endpoint.
+   * The network access endpoint ID.
    * 
    * @example
    * nae_public
@@ -323,7 +323,7 @@ export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The OpenID Connect (OIDC) configuration.
+   * The OIDC configuration.
    */
   oidcProviderConfig?: UpdateFederatedCredentialProviderRequestOidcProviderConfig;
   /**
@@ -333,7 +333,7 @@ export class UpdateFederatedCredentialProviderRequest extends $dara.Model {
   pkcs7ProviderConfig?: UpdateFederatedCredentialProviderRequestPkcs7ProviderConfig;
   /**
    * @remarks
-   * The configuration of the private certificate authority (CA).
+   * The private CA configuration.
    */
   privateCaProviderConfig?: UpdateFederatedCredentialProviderRequestPrivateCaProviderConfig;
   static names(): { [key: string]: string } {

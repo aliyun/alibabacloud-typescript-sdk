@@ -32,12 +32,12 @@ export class CreateFederatedCredentialProviderRequestCloudIdPProviderConfig exte
 export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * A list of audiences. The `aud` claim in the OIDC token must match a value from this list.
+   * The list of audiences.
    */
   audiences?: string[];
   /**
    * @remarks
-   * The issuer identifier for the OIDC provider. This value must match the `iss` claim in the token.
+   * Issuer
    * 
    * @example
    * https://example.com
@@ -45,7 +45,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   issuer?: string;
   /**
    * @remarks
-   * The source of the JSON Web Key Set (JWKS).
+   * The source of the JWKS.
    * 
    * @example
    * static
@@ -53,7 +53,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   jwksSource?: string;
   /**
    * @remarks
-   * The URI of the JWKS endpoint.
+   * The JWKS endpoint.
    * 
    * @example
    * https://example.com/jwks
@@ -61,7 +61,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   jwksUri?: string;
   /**
    * @remarks
-   * The static JWKS content in JSON format.
+   * The statically retrieved JWKS.
    * 
    * @example
    * {
@@ -79,7 +79,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
   staticJwks?: string;
   /**
    * @remarks
-   * The condition the OIDC token must meet to be trusted.
+   * The trust condition.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -122,7 +122,7 @@ export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends 
 export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * The content of the PEM-encoded certificate.
+   * The content of the root certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -154,12 +154,12 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfigCertific
 export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The certificates for verifying the PKCS7 signature.
+   * The list of PKCS7 certificates.
    */
   certificates?: CreateFederatedCredentialProviderRequestPkcs7ProviderConfigCertificates[];
   /**
    * @remarks
-   * The Cryptographic Message Syntax (CMS) verification mode.
+   * The CMS verification mode.
    * 
    * @example
    * cert_chain
@@ -167,7 +167,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   cmsVerificationMode?: string;
   /**
    * @remarks
-   * The validity period of the signature, in seconds.
+   * The validity period of the signature.
    * 
    * @example
    * 1200
@@ -175,7 +175,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   signatureEffectiveTime?: number;
   /**
    * @remarks
-   * The expression to extract the signing time from the signature.
+   * The expression used to retrieve the signing time.
    * 
    * @example
    * pkcs7.signingTime
@@ -183,7 +183,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   signingTimeValueExpression?: string;
   /**
    * @remarks
-   * The source of the trust anchor.
+   * The source of the certificate trust anchor.
    * 
    * @example
    * custom
@@ -191,7 +191,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The condition that the signature data must meet to be trusted.
+   * The trust condition.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -234,7 +234,7 @@ export class CreateFederatedCredentialProviderRequestPkcs7ProviderConfig extends
 export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * The content of the PEM-encoded certificate.
+   * The content of the root certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -266,12 +266,12 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfigCert
 export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The root certificates that form the trust anchor.
+   * The list of root certificates.
    */
   certificates?: CreateFederatedCredentialProviderRequestPrivateCaProviderConfigCertificates[];
   /**
    * @remarks
-   * The source of the trust anchor.
+   * The method used to retrieve the root certificate.
    * 
    * @example
    * custom
@@ -279,7 +279,7 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
   trustAnchorSource?: string;
   /**
    * @remarks
-   * The condition for trusting the root certificate.
+   * The trust condition for the root certificate.
    * 
    * @example
    * IsNullOrEmpty("jwt.issuer")
@@ -317,7 +317,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   cloudIdPProviderConfig?: CreateFederatedCredentialProviderRequestCloudIdPProviderConfig;
   /**
    * @remarks
-   * The description of the federated credential provider.
+   * The description of the federated trust source.
    * 
    * @example
    * test
@@ -325,7 +325,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the federated credential provider.
+   * The name of the federated trust source.
    * 
    * This parameter is required.
    * 
@@ -335,7 +335,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   federatedCredentialProviderName?: string;
   /**
    * @remarks
-   * The type of the federated credential provider.
+   * The type of the federated trust source.
    * 
    * This parameter is required.
    * 
@@ -355,7 +355,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The network access endpoint ID.
+   * The ID of the network access endpoint.
    * 
    * @example
    * nae_example_id
@@ -363,17 +363,17 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The configuration for an OIDC-based provider.
+   * The OIDC configuration.
    */
   oidcProviderConfig?: CreateFederatedCredentialProviderRequestOidcProviderConfig;
   /**
    * @remarks
-   * The configuration for a PKCS7-based provider.
+   * The PKCS7 configuration.
    */
   pkcs7ProviderConfig?: CreateFederatedCredentialProviderRequestPkcs7ProviderConfig;
   /**
    * @remarks
-   * The configuration for a private CA-based provider.
+   * The private CA configuration.
    */
   privateCaProviderConfig?: CreateFederatedCredentialProviderRequestPrivateCaProviderConfig;
   static names(): { [key: string]: string } {

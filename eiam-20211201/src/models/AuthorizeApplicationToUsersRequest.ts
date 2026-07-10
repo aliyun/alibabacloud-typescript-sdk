@@ -15,7 +15,7 @@ export class AuthorizeApplicationToUsersRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色ID。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -33,7 +33,7 @@ export class AuthorizeApplicationToUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IDs of the users. A single request can contain up to 100 user IDs.
+   * The list of account IDs. You can specify up to 100 account IDs in a single request.
    * 
    * This parameter is required.
    * 

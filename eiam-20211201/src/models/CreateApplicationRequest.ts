@@ -63,11 +63,9 @@ export class CreateApplicationRequestCustomFields extends $dara.Model {
 export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The identity type of the application. The default value is application. Valid values:
-   * 
-   * - application: A standard application.
-   * 
-   * - agent: An automated agent.
+   * The application identity type. Default value: application. Valid values:
+   * - application: application.
+   * - agent: agent.
    * 
    * @example
    * application
@@ -86,11 +84,9 @@ export class CreateApplicationRequest extends $dara.Model {
   applicationOwner?: CreateApplicationRequestApplicationOwner;
   /**
    * @remarks
-   * Specifies how the application is created. Valid values:
-   * 
-   * - urn:alibaba:idaas:app:source:template: Creates the application from an application template.
-   * 
-   * - urn:alibaba:idaas:app:source:standard: Creates the application from a standard protocol.
+   * The source from which the application is created. Valid values:
+   * - urn:alibaba:idaas:app:source:template: application template.
+   * - urn:alibaba:idaas:app:source:standard: standard protocol.
    * 
    * This parameter is required.
    * 
@@ -100,7 +96,7 @@ export class CreateApplicationRequest extends $dara.Model {
   applicationSourceType?: string;
   /**
    * @remarks
-   * The ID of the application template. This parameter is required if ApplicationSourceType is urn:alibaba:idaas:app:source:template.
+   * The application template ID. This parameter is required when ApplicationSourceType is set to urn:alibaba:idaas:app:source:template.
    * 
    * @example
    * apt_ramuser_mjqrsi
@@ -135,11 +131,9 @@ export class CreateApplicationRequest extends $dara.Model {
   logoUrl?: string;
   /**
    * @remarks
-   * The single sign-on (SSO) protocol. Valid values:
-   * 
-   * - saml2: SAML 2.0
-   * 
-   * - oidc: OpenID Connect
+   * The single sign-on protocol. Valid values:
+   * - saml2: SAML 2.0 protocol.
+   * - oidc: OpenID Connect protocol.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddApplicationAccountToUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application account.
+   * The application account ID.
    * 
    * @example
    * aac_m6z7awz5kresi2ezgajsbkxxxx

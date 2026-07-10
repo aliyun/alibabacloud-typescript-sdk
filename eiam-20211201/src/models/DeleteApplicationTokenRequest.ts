@@ -15,7 +15,7 @@ export class DeleteApplicationTokenRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the application token.
+   * The application token ID.
    * 
    * This parameter is required.
    * 

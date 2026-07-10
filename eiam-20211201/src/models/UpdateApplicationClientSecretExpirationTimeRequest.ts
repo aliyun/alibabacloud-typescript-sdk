@@ -15,7 +15,7 @@ export class UpdateApplicationClientSecretExpirationTimeRequest extends $dara.Mo
   applicationId?: string;
   /**
    * @remarks
-   * The expiration time of the client secret. This is a UNIX timestamp in milliseconds. The minimum validity period is 1 day, and the maximum validity period is 3 years.
+   * The expiration time of the client secret. The value is a UNIX timestamp in milliseconds. The minimum validity period that can be set is 1 day, and the maximum validity period is 3 years.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UpdateApplicationClientSecretExpirationTimeRequest extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the client secret.
+   * The client secret.
    * 
    * This parameter is required.
    * 

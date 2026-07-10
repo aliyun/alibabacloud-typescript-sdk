@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the application template is permanently free.
+   * Indicates whether the application template is always free.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo exten
 export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application template.
+   * The application template ID.
    * 
    * @example
    * apt_ramintlrole_ixxxxx
@@ -43,7 +43,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   applicationTemplateId?: string;
   /**
    * @remarks
-   * The name of the application template.
+   * The application template name.
    * 
    * @example
    * Alibaba Cloud
@@ -59,7 +59,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   createTime?: number;
   /**
    * @remarks
-   * The description of the application template.
+   * The application template description.
    * 
    * @example
    * Alibaba Cloud SSO
@@ -67,7 +67,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   description?: string;
   /**
    * @remarks
-   * The URL of the help document for the application template.
+   * The help document URL of the application template.
    * 
    * @example
    * https://example.com/document_detail/409xxx.html
@@ -75,7 +75,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   helpDocumentUrl?: string;
   /**
    * @remarks
-   * The URL of the logo for the application template.
+   * The logo URL of the application template.
    * 
    * @example
    * https://example.com/imgextra/i4/O1CN01xTLxLb1WtyKksHW1H_!!6000000002847-2-tps-xxx-xxx.png
@@ -91,12 +91,12 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   managedServiceCode?: string;
   /**
    * @remarks
-   * The sales information about the application template.
+   * The sale information of the application template.
    */
   saleInfo?: GetApplicationTemplateResponseBodyApplicationTemplateSaleInfo;
   /**
    * @remarks
-   * The URL of the console for the Alibaba Cloud service that manages the application template.
+   * The console URL of the Alibaba Cloud service that manages the application template.
    * 
    * @example
    * https://example.com/?p=bastion
@@ -112,7 +112,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The supported Single Sign-On (SSO) protocols.
+   * The supported SSO protocols.
    */
   ssoTypes?: string[];
   /**
@@ -175,7 +175,7 @@ export class GetApplicationTemplateResponseBodyApplicationTemplate extends $dara
 export class GetApplicationTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the application template.
+   * The application template information.
    */
   applicationTemplate?: GetApplicationTemplateResponseBodyApplicationTemplate;
   /**

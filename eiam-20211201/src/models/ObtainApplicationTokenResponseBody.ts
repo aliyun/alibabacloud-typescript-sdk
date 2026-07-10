@@ -29,7 +29,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   applicationTokenId?: string;
   /**
    * @remarks
-   * The type of the application token.
+   * The application token type.
    * 
    * @example
    * bearer_token
@@ -53,7 +53,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   expirationTime?: number;
   /**
    * @remarks
-   * The ID of the IDaaS EIAM instance.
+   * The IDaaS EIAM instance ID.
    * 
    * @example
    * idaas_ki6hd7ihir4ybawogqk6kqxxxx
@@ -61,7 +61,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The time when the token was last used.
+   * The last used time.
    * 
    * @example
    * 1735610930000
@@ -69,7 +69,7 @@ export class ObtainApplicationTokenResponseBodyApplicationToken extends $dara.Mo
   lastUsedTime?: number;
   /**
    * @remarks
-   * The status.
+   * The enabling status.
    * 
    * @example
    * enabled

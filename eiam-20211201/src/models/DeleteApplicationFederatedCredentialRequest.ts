@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationFederatedCredentialRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application\\"s federated credential.
+   * The application federated identity credential ID.
    * 
    * This parameter is required.
    * 

@@ -33,7 +33,7 @@ export class ListApplicationAccountsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

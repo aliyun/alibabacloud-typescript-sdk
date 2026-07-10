@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClientPublicKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the client public key for the application.
+   * The ID of the application ClientPublicKey.
    * 
    * @example
    * KEYCKmEYW9byWTdjuRbmCjd2Bhg6VpkAxxxx

@@ -21,7 +21,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the application\\"s ClientPublicKey.
+   * The ID of the application ClientPublicKey.
    * 
    * @example
    * KEYEqDnDJhztiEAwSin7MZoxGcihzCAuxxxx
@@ -29,7 +29,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   clientPublicKeyId?: string;
   /**
    * @remarks
-   * The time when the public key was created.
+   * The creation time.
    * 
    * @example
    * 1731305755000
@@ -45,7 +45,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the key was last used.
+   * The last time the key pair was used.
    * 
    * @example
    * 1771305755000
@@ -53,7 +53,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
   lastUsedTime?: number;
   /**
    * @remarks
-   * Indicates whether this is the primary key.
+   * Indicates whether the key pair is used with priority.
    * 
    * @example
    * true
@@ -123,7 +123,7 @@ export class GetClientPublicKeyResponseBodyClientPublicKey extends $dara.Model {
 export class GetClientPublicKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information about the application\\"s ClientPublicKey.
+   * The application ClientPublicKey information.
    */
   clientPublicKey?: GetClientPublicKeyResponseBodyClientPublicKey;
   /**

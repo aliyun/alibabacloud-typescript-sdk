@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCredentialProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the credential provider.
+   * The credential provider ID.
    * 
    * @example
    * atp_01kr2cmj5gxxx4fvmls2e93dxxxxx
