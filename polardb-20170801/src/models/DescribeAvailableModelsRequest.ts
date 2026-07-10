@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableModelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The service type. The value must be set to `aideploy`.
+   * aideploy
    * 
    * @example
    * aideploy

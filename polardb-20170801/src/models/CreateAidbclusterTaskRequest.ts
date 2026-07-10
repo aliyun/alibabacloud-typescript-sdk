@@ -23,7 +23,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The ID of the training dataset. This parameter is required for fine-tuning.
+   * The training dataset ID. This parameter is required for fine-tuning.
    * 
    * @example
    * pds-2zetrain***
@@ -31,7 +31,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   datasetPath?: string;
   /**
    * @remarks
-   * The ID of the validation dataset. This parameter is required for evaluation.
+   * The validation dataset ID. This parameter is required for evaluation.
    * 
    * @example
    * pds-2zetrain***
@@ -39,9 +39,8 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   evalDatasetPath?: string;
   /**
    * @remarks
-   * The type of model service. Valid values:
-   * 
-   * - **aitrain**: For model operator tuning.
+   * The model service type. Valid values:
+   *  * **aitrain**: model operator tuning
    * 
    * This parameter is required.
    * 
@@ -52,10 +51,8 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The model name.
-   * 
-   * - For a **preset model**, specify the model name.
-   * 
-   * - For a **custom model**, specify the path to the model. This option is for models trained in a cold storage edition instance.
+   * * **For a preset model, specify the name of the selected model.**
+   * * **For a custom model, specify the path where the model is stored (the model trained in a cold storage instance).**
    * 
    * This parameter is required.
    * 
@@ -66,10 +63,8 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The model source. Valid values:
-   * 
-   * - **public**: A preset model.
-   * 
-   * - **custom**: A custom model.
+   * * **public**: preset model
+   * * **custom**: custom model
    * 
    * This parameter is required.
    * 
@@ -79,7 +74,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   modelSource?: string;
   /**
    * @remarks
-   * The type of the custom model.
+   * The custom model type.
    * 
    * @example
    * qwen3
@@ -99,7 +94,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The runtime parameters, specified as a JSON string.
+   * The running parameters in JSON string format.
    * 
    * This parameter is required.
    * 
@@ -117,15 +112,16 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The description of the model service.
    * 
    * @example
    * xxxx
    */
   taskName?: string;
+  tuneArch?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-*******************
@@ -165,6 +161,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
       runningParameter: 'RunningParameter',
       securityGroupId: 'SecurityGroupId',
       taskName: 'TaskName',
+      tuneArch: 'TuneArch',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -189,6 +186,7 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
       runningParameter: 'string',
       securityGroupId: 'string',
       taskName: 'string',
+      tuneArch: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
       zoneId: 'string',

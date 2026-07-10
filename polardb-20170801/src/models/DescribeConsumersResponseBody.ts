@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConsumersResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The models that the consumer is allowed to access, specified as a JSON array in string format.
+   * The list of supported models.
    * 
    * @example
    * "[]"
@@ -13,7 +13,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   allowedModels?: string;
   /**
    * @remarks
-   * The full API key. This value is returned only by this operation.
+   * The full API key, returned only in this response.
    * 
    * @example
    * xxxxxxxx
@@ -21,7 +21,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The consumer group ID.
+   * The user group ID.
    * 
    * @example
    * cg-xxxxxx
@@ -29,7 +29,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The consumer group name.
+   * The user group name.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   consumerGroupName?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * The user ID.
    * 
    * @example
    * c-mqveroemc***
@@ -45,7 +45,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The time when the consumer was created.
+   * The creation time.
    * 
    * @example
    * 2026-01-28T09:56:03+08:00
@@ -53,7 +53,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the consumer was last modified.
+   * The update time.
    * 
    * @example
    * 2026-01-04T16:09:29+08:00
@@ -61,7 +61,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The total usage.
+   * The total cumulative usage.
    * 
    * @example
    * 1000
@@ -69,7 +69,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   lifetimeCostCount?: number;
   /**
    * @remarks
-   * The total number of tokens consumed.
+   * The total cost for the current month.
    * 
    * @example
    * 100
@@ -77,7 +77,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   lifetimeTokenCount?: number;
   /**
    * @remarks
-   * The month-to-date usage.
+   * The usage for the current month.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   mtdCostCount?: number;
   /**
    * @remarks
-   * The number of tokens consumed month-to-date.
+   * The total cumulative cost.
    * 
    * @example
    * 10000
@@ -93,7 +93,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   mtdTokenCount?: number;
   /**
    * @remarks
-   * The consumer name.
+   * The username.
    * 
    * @example
    * test
@@ -101,7 +101,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The consumer nickname.
+   * The nickname.
    * 
    * @example
    * yonghu
@@ -155,7 +155,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
 export class DescribeConsumersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of consumers.
+   * The list of users.
    */
   items?: DescribeConsumersResponseBodyItems[];
   /**
@@ -168,7 +168,7 @@ export class DescribeConsumersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of records on the current page.
    * 
    * @example
    * 1
@@ -176,7 +176,7 @@ export class DescribeConsumersResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The page size. Valid values: 30, 50, and 100. The default value is 30.
+   * The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
    * 
    * @example
    * 30
@@ -184,7 +184,7 @@ export class DescribeConsumersResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

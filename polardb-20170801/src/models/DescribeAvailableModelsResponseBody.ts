@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableModelsResponseBodyItemsGpuRequired extends $dara.Model {
   /**
    * @remarks
-   * The minimum number of GPUs required.
+   * The minimum number of GPUs.
    * 
    * @example
    * xx
@@ -45,12 +45,12 @@ export class DescribeAvailableModelsResponseBodyItemsGpuRequired extends $dara.M
 export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The required GPU configurations.
+   * The supported GPU types.
    */
   gpuRequired?: DescribeAvailableModelsResponseBodyItemsGpuRequired[];
   /**
    * @remarks
-   * The minimum number of CPU cores required.
+   * The minimum number of CPUs.
    * 
    * @example
    * 8
@@ -58,7 +58,7 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
   minimumCpu?: number;
   /**
    * @remarks
-   * The minimum memory required, in MiB.
+   * The minimum memory size.
    * 
    * @example
    * 16384
@@ -85,6 +85,7 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
    * The supported GPU models.
    */
   supportedGpuModels?: string[];
+  tuneArch?: string;
   static names(): { [key: string]: string } {
     return {
       gpuRequired: 'GpuRequired',
@@ -93,6 +94,7 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
       modelName: 'ModelName',
       modelSeries: 'ModelSeries',
       supportedGpuModels: 'SupportedGpuModels',
+      tuneArch: 'TuneArch',
     };
   }
 
@@ -104,6 +106,7 @@ export class DescribeAvailableModelsResponseBodyItems extends $dara.Model {
       modelName: 'string',
       modelSeries: 'string',
       supportedGpuModels: { 'type': 'array', 'itemType': 'string' },
+      tuneArch: 'string',
     };
   }
 
@@ -133,7 +136,7 @@ export class DescribeAvailableModelsResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The engine version.
+   * The database engine version.
    * 
    * @example
    * 3.0
@@ -146,7 +149,7 @@ export class DescribeAvailableModelsResponseBody extends $dara.Model {
   items?: DescribeAvailableModelsResponseBodyItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 3AA69096-757C-4647-B36C-29EBC2******

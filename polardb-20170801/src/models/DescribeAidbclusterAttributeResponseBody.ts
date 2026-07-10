@@ -124,13 +124,13 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
    * * **Creating**: being created 
    * * **Running**: running 
    * * **Deleting**: being deleted  
-   * * **Rebooting**: restarting  
+   * * **Rebooting**: being restarted  
    * * **DBNodeCreating**: adding a node  
    * * **DBNodeDeleting**: deleting a node 
    * * **ClassChanging**: changing node specifications  
-   * * **MinorVersionUpgrading**: upgrading the minor engine version
+   * * **MinorVersionUpgrading**: upgrading the minor version
    * * **Maintaining**: under maintenance  
-   * * **Switching**: switching.
+   * * **Switching**: being switched
    * 
    * @example
    * Running
@@ -266,7 +266,7 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems ex
    * The network type of the connection string. Valid values:
    * * **Public**: public endpoint
    * * **Private**: private endpoint
-   * * **Inner**: private endpoint (classic network).
+   * * **Inner**: private endpoint (classic network)
    * 
    * @example
    * Public
@@ -335,10 +335,149 @@ export class DescribeAIDBClusterAttributeResponseBodyEndpointList extends $dara.
   }
 }
 
+export class DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfoTimeSlices extends $dara.Model {
+  beginTime?: string;
+  endTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'string',
+      endTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfo extends $dara.Model {
+  timeSlices?: DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfoTimeSlices[];
+  static names(): { [key: string]: string } {
+    return {
+      timeSlices: 'TimeSlices',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeSlices: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfoTimeSlices },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.timeSlices)) {
+      $dara.Model.validateArray(this.timeSlices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigLabels extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigTaints extends $dara.Model {
+  effect?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfig extends $dara.Model {
+  labels?: DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigLabels[];
+  taints?: DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigTaints[];
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'Labels',
+      taints: 'Taints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigLabels },
+      taints: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigTaints },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    if(Array.isArray(this.taints)) {
+      $dara.Model.validateArray(this.taints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAIDBClusterAttributeResponseBodyVolumes extends $dara.Model {
   /**
    * @remarks
-   * The mount path in the container.
+   * The mount path inside the container.
    * 
    * @example
    * /var/run/secrets/kubernetes.io/serviceaccount
@@ -409,9 +548,9 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * - vnode: managed by ACK
-   * - container: logon-enabled container
-   * - maas: model service.
+   * - vnode: ACK-managed
+   * - container: loginable container
+   * - maas: model service
    * 
    * @example
    * vnode
@@ -459,7 +598,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * - **DBNodeCreating**: adding a node
    * - **DBNodeDeleting**: deleting a node
    * - **ClassChanging**: changing node specifications 
-   * - **Deleted**: released.
+   * - **Deleted**: released
    * 
    * @example
    * Running
@@ -478,7 +617,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * 
    * **2.0**
    * 
-   * **3.0**.
+   * **3.0**
    * 
    * @example
    * 1.0
@@ -501,7 +640,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * @remarks
    * The cluster expiration time.
    * 
-   * > This parameter is returned only for **Prepaid** (subscription) clusters. An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+   * > This parameter returns a value only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -513,7 +652,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * 
    * - **true**
    * 
-   * - **false**.
+   * - **false**
    * 
    * @example
    * false
@@ -546,7 +685,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   kubeClusterId?: string;
   /**
    * @remarks
-   * The instance lock mode. The value **lock** indicates that the instance is automatically locked due to expiration or overdue payment.
+   * The instance lock mode. The value **lock** indicates that the instance is automatically expired or has an overdue payment.
    * 
    * @example
    * Unlock
@@ -615,7 +754,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * @remarks
    * The architecture type. Valid values:
    * - container: AI container
-   * - ainode: AI node.
+   * - ainode: AI node
    * 
    * @example
    * container
@@ -623,21 +762,23 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   runType?: string;
   /**
    * @remarks
-   * Valid values for PolarDB Enterprise Edition:
+   * Valid values for Enterprise Edition storage type:
    * - **PSL5**
    * - **PSL4**
    * 
-   * Valid values for PolarDB for MySQL Standard Edition:
+   * Valid values for Standard Edition storage type:
    * - **ESSDPL0**
    * - **ESSDPL1**
    * - **ESSDPL2**
    * - **ESSDPL3**
-   * - **ESSDAUTOPL**.
+   * - **ESSDAUTOPL**
    * 
    * @example
    * essdpl1
    */
   storageType?: string;
+  timeSlicesInfo?: DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfo;
+  timeSlicesType?: string;
   /**
    * @remarks
    * The VPC ID specified for the zone switchover.
@@ -656,6 +797,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * vsw-*********************
    */
   vSwitchId?: string;
+  vnodeKubernetesConfig?: DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfig;
   /**
    * @remarks
    * The list of data cloud disks.
@@ -671,7 +813,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The zone IDs.
    * 
    * @example
    * cn-hangzhou-i,cn-hangzhou-g
@@ -705,8 +847,11 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       requestId: 'RequestId',
       runType: 'RunType',
       storageType: 'StorageType',
+      timeSlicesInfo: 'TimeSlicesInfo',
+      timeSlicesType: 'TimeSlicesType',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
+      vnodeKubernetesConfig: 'VnodeKubernetesConfig',
       volumes: 'Volumes',
       zoneId: 'ZoneId',
       zoneIds: 'ZoneIds',
@@ -741,8 +886,11 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       requestId: 'string',
       runType: 'string',
       storageType: 'string',
+      timeSlicesInfo: DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfo,
+      timeSlicesType: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
+      vnodeKubernetesConfig: DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfig,
       volumes: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyVolumes },
       zoneId: 'string',
       zoneIds: 'string',
@@ -755,6 +903,12 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.endpointList)) {
       $dara.Model.validateArray(this.endpointList);
+    }
+    if(this.timeSlicesInfo && typeof (this.timeSlicesInfo as any).validate === 'function') {
+      (this.timeSlicesInfo as any).validate();
+    }
+    if(this.vnodeKubernetesConfig && typeof (this.vnodeKubernetesConfig as any).validate === 'function') {
+      (this.vnodeKubernetesConfig as any).validate();
     }
     if(Array.isArray(this.volumes)) {
       $dara.Model.validateArray(this.volumes);

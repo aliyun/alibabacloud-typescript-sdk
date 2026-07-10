@@ -15,6 +15,11 @@ export class DescribeDBClusterAccessWhitelistRequest extends $dara.Model {
   DBClusterId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * pfs-xxx
+   */
+  pfsInstanceId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -22,6 +27,7 @@ export class DescribeDBClusterAccessWhitelistRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pfsInstanceId: 'PfsInstanceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -32,6 +38,7 @@ export class DescribeDBClusterAccessWhitelistRequest extends $dara.Model {
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      pfsInstanceId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };

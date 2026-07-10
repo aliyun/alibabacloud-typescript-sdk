@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * The consumer group ID.
+   * The user group ID.
    * 
    * @example
    * cg-xxxxxxxx
@@ -13,12 +13,14 @@ export class DescribeConsumersRequest extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * The user ID.
    * 
    * @example
    * c-mqveroemc***
    */
   consumerId?: string;
+  consumerName?: string;
+  consumerNameList?: string;
   /**
    * @remarks
    * The gateway instance ID.
@@ -31,7 +33,7 @@ export class DescribeConsumersRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -39,13 +41,11 @@ export class DescribeConsumersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values are:
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**. The default is **30**.
+   * The number of entries per page. Valid values:
+   * * **30**
+   * * **50**
+   * * **100**
+   * Default value: **30**.
    * 
    * @example
    * 30
@@ -63,6 +63,8 @@ export class DescribeConsumersRequest extends $dara.Model {
     return {
       consumerGroupId: 'ConsumerGroupId',
       consumerId: 'ConsumerId',
+      consumerName: 'ConsumerName',
+      consumerNameList: 'ConsumerNameList',
       gwClusterId: 'GwClusterId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -74,6 +76,8 @@ export class DescribeConsumersRequest extends $dara.Model {
     return {
       consumerGroupId: 'string',
       consumerId: 'string',
+      consumerName: 'string',
+      consumerNameList: 'string',
       gwClusterId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

@@ -2070,7 +2070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model operator instance.
+   * Creates a model creation operator instance.
    * 
    * @param request - CreateAIDBClusterTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2143,6 +2143,10 @@ export default class Client extends OpenApi {
       query["TaskName"] = request.taskName;
     }
 
+    if (!$dara.isNull(request.tuneArch)) {
+      query["TuneArch"] = request.tuneArch;
+    }
+
     if (!$dara.isNull(request.VPCId)) {
       query["VPCId"] = request.VPCId;
     }
@@ -2173,7 +2177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model operator instance.
+   * Creates a model creation operator instance.
    * 
    * @param request - CreateAIDBClusterTaskRequest
    * @returns CreateAIDBClusterTaskResponse
@@ -3001,11 +3005,9 @@ export default class Client extends OpenApi {
    * Creates a full snapshot backup for a PolarDB cluster.
    * 
    * @remarks
-   * > - Each cluster can have up to three manually created backups at a time.
-   * >
-   * > - If you receive the error message `Exceeding the daily backup times of this DB cluster`, this indicates that three manual backups already exist for your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation again.
-   * >
-   * > - After you call this operation, a backup job is created in the background. The job may take a long time to complete if the data volume is large.
+   * > * Each cluster can have up to three manually created backups at the same time.
+   * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+   * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3016,6 +3018,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
     }
 
     if (!$dara.isNull(request.DBClusterId)) {
@@ -3059,11 +3065,9 @@ export default class Client extends OpenApi {
    * Creates a full snapshot backup for a PolarDB cluster.
    * 
    * @remarks
-   * > - Each cluster can have up to three manually created backups at a time.
-   * >
-   * > - If you receive the error message `Exceeding the daily backup times of this DB cluster`, this indicates that three manual backups already exist for your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation again.
-   * >
-   * > - After you call this operation, a backup job is created in the background. The job may take a long time to complete if the data volume is large.
+   * > * Each cluster can have up to three manually created backups at the same time.
+   * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+   * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -8954,7 +8958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get task instance details
+   * Retrieves the details of a task instance.
    * 
    * @param request - DescribeAIDBClusterTaskAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9009,7 +9013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get task instance details
+   * Retrieves the details of a task instance.
    * 
    * @param request - DescribeAIDBClusterTaskAttributeRequest
    * @returns DescribeAIDBClusterTaskAttributeResponse
@@ -9166,12 +9170,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of model operators for a specified PolarDB instance.
+   * Retrieves the list of model operators for a specified PolarDB database instance.
    * 
    * @remarks
-   * ## Request
-   * - This API returns a list of model operators filtered by the `RelativeDBClusterId` and `KubeType` parameters.
-   * - Note: Ensure the provided `RelativeDBClusterId` matches the ID of an existing PolarDB database instance. Otherwise, no data will be returned.
+   * ## Description
+   * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+   * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
    * 
    * @param request - DescribeAIDBClusterTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9226,12 +9230,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of model operators for a specified PolarDB instance.
+   * Retrieves the list of model operators for a specified PolarDB database instance.
    * 
    * @remarks
-   * ## Request
-   * - This API returns a list of model operators filtered by the `RelativeDBClusterId` and `KubeType` parameters.
-   * - Note: Ensure the provided `RelativeDBClusterId` matches the ID of an existing PolarDB database instance. Otherwise, no data will be returned.
+   * ## Description
+   * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+   * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
    * 
    * @param request - DescribeAIDBClusterTasksRequest
    * @returns DescribeAIDBClusterTasksResponse
@@ -10512,7 +10516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI Application Log Details
+   * Queries the log details of an AI application.
    * 
    * @param request - DescribeApplicationLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10595,7 +10599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI Application Log Details
+   * Queries the log details of an AI application.
    * 
    * @param request - DescribeApplicationLogsRequest
    * @returns DescribeApplicationLogsResponse
@@ -11022,7 +11026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the available models in an AI cluster.
+   * Retrieves the list of AI cluster models.
    * 
    * @param request - DescribeAvailableModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11057,7 +11061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the available models in an AI cluster.
+   * Retrieves the list of AI cluster models.
    * 
    * @param request - DescribeAvailableModelsRequest
    * @returns DescribeAvailableModelsResponse
@@ -11328,7 +11332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries backup information for a PolarDB cluster.
+   * Queries the backup information of a PolarDB cluster.
    * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11407,7 +11411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries backup information for a PolarDB cluster.
+   * Queries the backup information of a PolarDB cluster.
    * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
@@ -11528,7 +11532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying budget policies
+   * Queries cost budget policies.
    * 
    * @param request - DescribeBudgetPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11565,6 +11569,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.scopeRefName)) {
+      query["ScopeRefName"] = request.scopeRefName;
+    }
+
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
@@ -11587,7 +11595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying budget policies
+   * Queries cost budget policies.
    * 
    * @param request - DescribeBudgetPoliciesRequest
    * @returns DescribeBudgetPoliciesResponse
@@ -11890,7 +11898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of consumers.
+   * Queries the list of consumers.
    * 
    * @param request - DescribeConsumersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11905,6 +11913,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.consumerId)) {
       query["ConsumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.consumerName)) {
+      query["ConsumerName"] = request.consumerName;
+    }
+
+    if (!$dara.isNull(request.consumerNameList)) {
+      query["ConsumerNameList"] = request.consumerNameList;
     }
 
     if (!$dara.isNull(request.gwClusterId)) {
@@ -11941,7 +11957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of consumers.
+   * Queries the list of consumers.
    * 
    * @param request - DescribeConsumersRequest
    * @returns DescribeConsumersResponse
@@ -12242,7 +12258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP whitelists and security groups that are allowed to access a database cluster.
+   * Queries the IP whitelist and security groups that are allowed to access a database cluster.
    * 
    * @param request - DescribeDBClusterAccessWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12261,6 +12277,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -12289,7 +12309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP whitelists and security groups that are allowed to access a database cluster.
+   * Queries the IP whitelist and security groups that are allowed to access a database cluster.
    * 
    * @param request - DescribeDBClusterAccessWhitelistRequest
    * @returns DescribeDBClusterAccessWhitelistResponse
@@ -13104,6 +13124,134 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the price of a cluster.
+   * 
+   * @param tmpReq - DescribeDBClusterPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterPriceResponse
+   */
+  async describeDBClusterPriceWithOptions(tmpReq: $_model.DescribeDBClusterPriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterPriceResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeDBClusterPriceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.DBNodes)) {
+      request.DBNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBNodes, "DBNodes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.creationCategory)) {
+      query["CreationCategory"] = request.creationCategory;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeClass)) {
+      query["DBNodeClass"] = request.DBNodeClass;
+    }
+
+    if (!$dara.isNull(request.DBNodeIds)) {
+      query["DBNodeIds"] = request.DBNodeIds;
+    }
+
+    if (!$dara.isNull(request.DBNodeNum)) {
+      query["DBNodeNum"] = request.DBNodeNum;
+    }
+
+    if (!$dara.isNull(request.DBNodesShrink)) {
+      query["DBNodes"] = request.DBNodesShrink;
+    }
+
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
+    }
+
+    if (!$dara.isNull(request.hotStandbyCluster)) {
+      query["HotStandbyCluster"] = request.hotStandbyCluster;
+    }
+
+    if (!$dara.isNull(request.modifyType)) {
+      query["ModifyType"] = request.modifyType;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.provisionedIops)) {
+      query["ProvisionedIops"] = request.provisionedIops;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serverlessType)) {
+      query["ServerlessType"] = request.serverlessType;
+    }
+
+    if (!$dara.isNull(request.storageChargeType)) {
+      query["StorageChargeType"] = request.storageChargeType;
+    }
+
+    if (!$dara.isNull(request.storageSpace)) {
+      query["StorageSpace"] = request.storageSpace;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterPrice",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterPriceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterPriceResponse({}));
+  }
+
+  /**
+   * Queries the price of a cluster.
+   * 
+   * @param request - DescribeDBClusterPriceRequest
+   * @returns DescribeDBClusterPriceResponse
+   */
+  async describeDBClusterPrice(request: $_model.DescribeDBClusterPriceRequest): Promise<$_model.DescribeDBClusterPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterPriceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a database cluster proxy.
    * 
    * @param request - DescribeDBClusterProxyRequest
@@ -13189,6 +13337,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -17544,7 +17696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看polarfs信息
+   * Queries PolarFS information.
    * 
    * @param request - DescribePolarFsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17607,7 +17759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看polarfs信息
+   * Queries PolarFS information.
    * 
    * @param request - DescribePolarFsRequest
    * @returns DescribePolarFsResponse
@@ -22790,7 +22942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies the access whitelist for a cluster. The whitelist can be an IP address whitelist or a security group.
+   * Creates or modifies the whitelist of a cluster, including the IP whitelist and security groups.
    * 
    * @param request - ModifyDBClusterAccessWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22821,6 +22973,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -22861,7 +23017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies the access whitelist for a cluster. The whitelist can be an IP address whitelist or a security group.
+   * Creates or modifies the whitelist of a cluster, including the IP whitelist and security groups.
    * 
    * @param request - ModifyDBClusterAccessWhitelistRequest
    * @returns ModifyDBClusterAccessWhitelistResponse
@@ -24028,7 +24184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables SSL encryption for a PolarDB cluster, or updates its CA certificate.
+   * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
    * 
    * @param request - ModifyDBClusterSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24037,6 +24193,10 @@ export default class Client extends OpenApi {
   async modifyDBClusterSSLWithOptions(request: $_model.ModifyDBClusterSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterSSLResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.connectionString)) {
+      query["ConnectionString"] = request.connectionString;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -24055,6 +24215,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -24091,7 +24255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables SSL encryption for a PolarDB cluster, or updates its CA certificate.
+   * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
    * 
    * @param request - ModifyDBClusterSSLRequest
    * @returns ModifyDBClusterSSLResponse

@@ -42,6 +42,84 @@ export class DescribePolarFsAttributeResponseBodyCustomBucketPathList extends $d
   }
 }
 
+export class DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems extends $dara.Model {
+  connectionString?: string;
+  IPAddress?: string;
+  netType?: string;
+  port?: string;
+  VPCId?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionString: 'ConnectionString',
+      IPAddress: 'IPAddress',
+      netType: 'NetType',
+      port: 'Port',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionString: 'string',
+      IPAddress: 'string',
+      netType: 'string',
+      port: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolarFsAttributeResponseBodyEndpointItems extends $dara.Model {
+  addressItems?: DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems[];
+  /**
+   * @example
+   * ep-xxxxxxxxx
+   */
+  DBEndpointId?: string;
+  /**
+   * @example
+   * S3Gateway
+   */
+  endpointType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressItems: 'AddressItems',
+      DBEndpointId: 'DBEndpointId',
+      endpointType: 'EndpointType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressItems: { 'type': 'array', 'itemType': DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems },
+      DBEndpointId: 'string',
+      endpointType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.addressItems)) {
+      $dara.Model.validateArray(this.addressItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePolarFsAttributeResponseBodyMountInfo extends $dara.Model {
   /**
    * @remarks
@@ -103,7 +181,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   accelerateType?: string;
   /**
    * @remarks
-   * The acceleration storage space, in GB.
+   * The acceleration storage space. Unit: GB.
    * 
    * @example
    * 1000
@@ -111,9 +189,9 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   acceleratedStorageSpace?: number;
   /**
    * @remarks
-   * Indicates whether the acceleration cache is enabled. Valid values:
-   * - **ON**: enabled.
-   * - **OFF**: disabled.
+   * Specifies whether the acceleration cache is enabled. Valid values:
+   * - **ON**: Enabled.
+   * - **OFF**: Disabled.
    * 
    * @example
    * ON
@@ -121,7 +199,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   acceleratingEnable?: string;
   /**
    * @remarks
-   * The bandwidth, in MB/s.
+   * The bandwidth. Unit: MB/s.
    * 
    * @example
    * 100
@@ -129,7 +207,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The bandwidth baseline, in MB/s/TiB.
+   * The bandwidth baseline. Unit: MB/s/TiB.
    * 
    * @example
    * 100
@@ -137,7 +215,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   bandwidthBaseLine?: number;
   /**
    * @remarks
-   * The storage bucket ID.
+   * The bucket ID.
    * 
    * @example
    * xxx
@@ -186,21 +264,23 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * The list of custom storage paths.
    */
   customBucketPathList?: DescribePolarFsAttributeResponseBodyCustomBucketPathList[];
+  DBEndpointId?: string;
   /**
    * @remarks
    * The database ecosystem type. Valid values: 
    * * **MySQL**
-   * * **PostgreSQL**.
+   * * **PostgreSQL**
    * 
    * @example
    * MySQL
    */
   DBType?: string;
+  endpointItems?: DescribePolarFsAttributeResponseBodyEndpointItems[];
   /**
    * @remarks
    * The expiration time of the cluster.
    * 
-   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+   * > This parameter is returned only for clusters that use the **Prepaid** (subscription) billing method. An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
    * 
    * @example
    * 2025-10-10T16:00:00Z
@@ -209,7 +289,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the cluster has expired.
-   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
+   * > This parameter is returned only for clusters that use the **Prepaid** (subscription) billing method.
    * 
    * @example
    * false
@@ -227,22 +307,25 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * @remarks
    * The lock mode. Valid values: 
    * 
-   * - **Unlock**: not locked.
-   * - **ManualLock**: manually locked. 
-   * - **LockByExpiration**: automatically locked due to cluster expiration.
+   * - **Unlock**: Not locked.
+   * - **ManualLock**: Manually locked. 
+   * - **LockByExpiration**: Automatically locked due to cluster expiration.
    * 
    * @example
    * Unlock
    */
   lockMode?: string;
+  maxscaleEndpointId?: string;
+  metaConnString?: string;
   /**
    * @example
    * pc-xxxxxxxxxxxxxxxxx
    */
   metaInstanceName?: string;
+  metaMxsConnString?: string;
   /**
    * @remarks
-   * The metadata URL for Fuse mounting (encrypted).
+   * The encrypted metadata URL for Fuse mounting.
    * 
    * @example
    * e6cc1d2e2a6fa292038d999fda6501*****
@@ -299,7 +382,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance version. Valid values:
-   * - **PolarFS 2.0**: 2.0
+   * - **PolarFS 2.0**: 2.0.
    * - **PolarFS 1.0**: 1.0.
    * 
    * @example
@@ -356,7 +439,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The storage space, in GB.
+   * The storage space. Unit: GB.
    * 
    * @example
    * 1000
@@ -364,11 +447,11 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   storageSpace?: number;
   /**
    * @remarks
-   * Valid values for the High-performance Edition storage type:
+   * The storage type for the High-performance Edition. Valid values:
    * * **ESSDPL1**
    * * **ESSDPL0**
    * 
-   * Valid values for the Basic Edition storage type:
+   * The storage type for the Basic Edition. Valid values:
    * * **city_redundancy**: zone-redundant storage.
    * 
    * @example
@@ -377,12 +460,22 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The used storage space, in bytes.
+   * The used storage space. Unit: bytes.
    * 
    * @example
    * 3012558848
    */
   storageUsed?: number;
+  /**
+   * @example
+   * lakebase_acc
+   */
+  userDefaultAccName?: string;
+  /**
+   * @example
+   * EncryptedSecretKey==
+   */
+  userDefaultAccSk?: string;
   /**
    * @remarks
    * The VPC ID.
@@ -420,12 +513,17 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       createTime: 'CreateTime',
       customBucketPath: 'CustomBucketPath',
       customBucketPathList: 'CustomBucketPathList',
+      DBEndpointId: 'DBEndpointId',
       DBType: 'DBType',
+      endpointItems: 'EndpointItems',
       expireTime: 'ExpireTime',
       expired: 'Expired',
       fileSystemId: 'FileSystemId',
       lockMode: 'LockMode',
+      maxscaleEndpointId: 'MaxscaleEndpointId',
+      metaConnString: 'MetaConnString',
       metaInstanceName: 'MetaInstanceName',
+      metaMxsConnString: 'MetaMxsConnString',
       metaUrl: 'MetaUrl',
       minorVersion: 'MinorVersion',
       mountInfo: 'MountInfo',
@@ -443,6 +541,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       storageSpace: 'StorageSpace',
       storageType: 'StorageType',
       storageUsed: 'StorageUsed',
+      userDefaultAccName: 'UserDefaultAccName',
+      userDefaultAccSk: 'UserDefaultAccSk',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -462,12 +562,17 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       createTime: 'string',
       customBucketPath: 'string',
       customBucketPathList: { 'type': 'array', 'itemType': DescribePolarFsAttributeResponseBodyCustomBucketPathList },
+      DBEndpointId: 'string',
       DBType: 'string',
+      endpointItems: { 'type': 'array', 'itemType': DescribePolarFsAttributeResponseBodyEndpointItems },
       expireTime: 'string',
       expired: 'string',
       fileSystemId: 'string',
       lockMode: 'string',
+      maxscaleEndpointId: 'string',
+      metaConnString: 'string',
       metaInstanceName: 'string',
+      metaMxsConnString: 'string',
       metaUrl: 'string',
       minorVersion: 'string',
       mountInfo: DescribePolarFsAttributeResponseBodyMountInfo,
@@ -485,6 +590,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       storageSpace: 'number',
       storageType: 'string',
       storageUsed: 'number',
+      userDefaultAccName: 'string',
+      userDefaultAccSk: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
@@ -494,6 +601,9 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.customBucketPathList)) {
       $dara.Model.validateArray(this.customBucketPathList);
+    }
+    if(Array.isArray(this.endpointItems)) {
+      $dara.Model.validateArray(this.endpointItems);
     }
     if(this.mountInfo && typeof (this.mountInfo as any).validate === 'function') {
       (this.mountInfo as any).validate();

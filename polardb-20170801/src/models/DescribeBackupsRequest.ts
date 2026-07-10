@@ -13,11 +13,9 @@ export class DescribeBackupsRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The backup mode. Valid values:
-   * 
-   * - **Automated**: System automatic backup.
-   * 
-   * - **Manual**: Manual backup.
+   * The backup mode. Valid values: 
+   * * **Automated**: automatic backup.
+   * * **Manual**: manual backup.
    * 
    * @example
    * Automated
@@ -25,9 +23,9 @@ export class DescribeBackupsRequest extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The destination region for cross-region backup.
+   * The destination region for cross-region backups.
    * 
-   * > This parameter is supported only for PolarDB for MySQL.
+   * > Currently, only PolarDB for MySQL supports this parameter.
    * 
    * @example
    * cn-hangzhou
@@ -36,10 +34,8 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * The backup status. Valid values:
-   * 
-   * - **Success**: The backup is complete.
-   * 
-   * - **Failed**: The backup failed.
+   * * **Success**: The backup is complete.
+   * * **Failed**: The backup failed.
    * 
    * @example
    * Success
@@ -57,7 +53,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. Specify the time in `YYYY-MM-DDThh:mmZ` format (UTC time).
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 
@@ -69,7 +65,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be an integer greater than 0 and no greater than the maximum value of the Integer type. Default value: **1**.
+   * The page number. Set the value to an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -77,13 +73,10 @@ export class DescribeBackupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * The number of entries per page. Valid values: 
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: **30**.
    * 
@@ -95,7 +88,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time of the query. Specify the time in `YYYY-MM-DDThh:mmZ` format (UTC time).
+   * The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 

@@ -282,21 +282,33 @@ export class DescribePolarFsResponseBodyItems extends $dara.Model {
 export class DescribePolarFsResponseBody extends $dara.Model {
   items?: DescribePolarFsResponseBodyItems;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on the current page.
+   * 
    * @example
    * 13
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 8CD1852F-8176-55E4-891C-4478DC00CC7A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 16
    */

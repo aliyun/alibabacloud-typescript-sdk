@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The alert threshold, as a percentage (0 to 100).
+   * The alert threshold percentage. Valid values: 0 to 100.
    * 
    * @example
    * 80
@@ -13,7 +13,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   alertThresholdPct?: string;
   /**
    * @remarks
-   * Indicates whether the alert threshold was triggered.
+   * Indicates whether the alert threshold has been triggered.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   alertTriggered?: boolean;
   /**
    * @remarks
-   * The ID of the dimension object. This parameter is required when `BudgetDimensionType` is set to `ConsumerGroup` or `Consumer`.
+   * The dimension object ID. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
    * 
    * @example
    * cg-p3gk2oh55c**
@@ -29,11 +29,10 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   budgetDimensionRefId?: string;
   /**
    * @remarks
-   * The dimension of the budget policy. Valid values:
+   * The policy type. Valid values:
    * 
-   * - **ConsumerGroup**: consumer group
-   * 
-   * - **Consumer**: consumer
+   * - **ConsumerGroup**: total budget for a user group
+   * - **Consumer**: total budget for a user
    * 
    * @example
    * ConsumerGroup
@@ -41,7 +40,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   budgetDimensionType?: string;
   /**
    * @remarks
-   * The number of budget points.
+   * The budget points.
    * 
    * @example
    * 10000
@@ -59,11 +58,9 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
    * @remarks
    * The budget type. Valid values:
    * 
-   * - **GlobalTotal**: Global budget
-   * 
-   * - **ConsumerTotal**: Consumer budget
-   * 
-   * - **ConsumerGroupTotal**: Consumer group budget
+   * - **GlobalTotal**: global total budget
+   * - **ConsumerTotal**: total budget for a user
+   * - **ConsumerGroupTotal**: total budget for a user group
    * 
    * @example
    * GlobalTotal
@@ -71,7 +68,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   budgetType?: string;
   /**
    * @remarks
-   * Indicates whether the budget was exceeded.
+   * Indicates whether the quota has been exceeded.
    * 
    * @example
    * false
@@ -95,7 +92,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The gateway cluster ID.
+   * The gateway instance ID.
    * 
    * @example
    * pg-xxxxxxxx
@@ -103,7 +100,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The day of the month (1 to 28) on which the budget is reset.
+   * The day of the month on which the budget resets. Valid values: 1 to 28.
    * 
    * @example
    * 2
@@ -111,11 +108,10 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
   resetDayOfMonth?: string;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The policy status. Valid values:
    * 
    * - **Enabled**: enabled
-   * 
-   * - **Disabled**: disabled
+   * - **Disenabled**: disabled
    * 
    * @example
    * Enabled
@@ -179,7 +175,7 @@ export class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
 export class DescribeBudgetPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of budget policies.
+   * The list of budget policies.
    */
   items?: DescribeBudgetPoliciesResponseBodyItems[];
   /**
@@ -200,8 +196,8 @@ export class DescribeBudgetPoliciesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of records to return on each page. Valid values: **30**, **50**, and **100**.
-   * 
+   * The number of entries per page. Valid values: **30**, **50**, and **100**.
+   *                               
    * Default value: **30**.
    * 
    * @example
@@ -210,7 +206,7 @@ export class DescribeBudgetPoliciesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

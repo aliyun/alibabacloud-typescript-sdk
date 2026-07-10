@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIDBClusterTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The model operator type.
+   * The template operator type.
    * 
    * @example
    * aitrain
@@ -23,7 +23,7 @@ export class DescribeAIDBClusterTasksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the PolarDB instance.
+   * The instance ID of the PolarDB instance.
    * 
    * @example
    * pc-2ze88***

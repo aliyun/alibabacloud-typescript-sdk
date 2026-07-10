@@ -21,7 +21,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
   path?: string;
   /**
    * @remarks
-   * The proportion of the training set reserved for validation.
+   * The ratio of data split from the training set.
    * 
    * @example
    * 0.1
@@ -29,11 +29,10 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
   splitDatasetRatio?: string;
   /**
    * @remarks
-   * The type of the dataset. Valid values:
+   * The type. Valid values:
    * 
-   * - **train**: The training set.
-   * 
-   * - **eval**: The validation set.
+   * * **train**: training set.
+   * * **eval**: validation set.
    * 
    * @example
    * train
@@ -77,7 +76,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   completedTime?: string;
   /**
    * @remarks
-   * The base model.
+   * The foundation model.
    * 
    * @example
    * Qwen-1.7B
@@ -85,7 +84,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   modelName?: string;
   /**
    * @remarks
-   * The path to the custom model.
+   * The path of the custom model.
    * 
    * @example
    * Qwen-1.7B
@@ -93,11 +92,10 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   modelPath?: string;
   /**
    * @remarks
-   * The source of the model. Valid values:
+   * The model source. Valid values:
    * 
-   * - **public**: A pre-built model.
-   * 
-   * - **custom**: A custom model.
+   * * **public**: pre-trained model.
+   * * **custom**: custom model.
    * 
    * @example
    * public
@@ -123,9 +121,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
    * @remarks
    * The task type. Valid values:
    * 
-   * - **sft**: Supervised Fine-tuning.
-   * 
-   * - **grpo**: Reinforcement learning.
+   * * **sft**: SFT-efficient training.
+   * * **grpo**: GRPO-reinforcement learning.
    * 
    * @example
    * stf
@@ -135,9 +132,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
    * @remarks
    * The training method. Valid values:
    * 
-   * - **lora**: Low-Rank Adaptation (LoRA) training.
-   * 
-   * - **full**: Full training.
+   * * **lora**
+   * * **full**: full-parameter training.
    * 
    * @example
    * lora
@@ -181,7 +177,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
 export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access information for the model in a test deployment.
+   * The access information of the model in the test deployment scenario.
    * 
    * @example
    * {\\"networkInterfaceId\\":\\"eni-2zea***\\",\\"port\\":\\"8000\\",\\"host\\":\\"192.**.**.**\\"}
@@ -189,7 +185,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   accessInfo?: string;
   /**
    * @remarks
-   * The cluster network type.
+   * The network type of the cluster.
    * 
    * @example
    * VPC
@@ -197,7 +193,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   clusterNetworkType?: string;
   /**
    * @remarks
-   * The task creation time.
+   * The creation time.
    * 
    * @example
    * 2025-11-12T03:45:13Z
@@ -205,7 +201,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The cluster description.
+   * The task name.
    * 
    * @example
    * task01
@@ -213,7 +209,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The task ID.
    * 
    * @example
    * pm-2ze99***
@@ -223,11 +219,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
    * @remarks
    * The training status. Valid values:
    * 
-   * - **ACTIVATION**: Training in progress.
-   * 
-   * - **COMPLETED**: Training successful.
-   * 
-   * - **FAILED**: Training failed.
+   * * **ACTIVATION**: Training in progress.
+   * * **COMPLETED**: Training succeeded.
+   * * **FAILED**: Training failed.
    * 
    * @example
    * COMPLETED
@@ -235,13 +229,11 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   DBClusterStatus?: string;
   /**
    * @remarks
-   * The training status description. Valid values:
+   * The training status. Valid values:
    * 
-   * - **ACTIVATION**: Training in progress.
-   * 
-   * - **COMPLETED**: Training successful.
-   * 
-   * - **FAILED**: Training failed.
+   * * **ACTIVATION**: Training in progress.
+   * * **COMPLETED**: Training succeeded.
+   * * **FAILED**: Training failed.
    * 
    * @example
    * COMPLETED
@@ -257,9 +249,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version. Valid value:
+   * The version. Valid values:
    * 
-   * - **3.1**: Model operator tuning.
+   * * **3.1**: model operator tuning.
    * 
    * @example
    * 3.1
@@ -267,17 +259,17 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The datasets used for the task.
+   * The datasets.
    */
   dataSets?: DescribeAIDBClusterTaskAttributeResponseBodyDataSets[];
   /**
    * @remarks
-   * A list of objects containing additional information about the task.
+   * The additional information, including runtime parameters.
    */
   extraInfo?: { [key: string]: any }[];
   /**
    * @remarks
-   * The instance type. Valid value:
+   * The type of the instance. Valid values:
    * 
    * - **18**.
    * 
@@ -289,9 +281,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
    * @remarks
    * The lock mode. Valid values:
    * 
-   * - **0**: Locked.
-   * 
-   * - **1**: Unlocked.
+   * * **0**: Locked.
+   * * **1**: Unlocked.
    * 
    * @example
    * 1
@@ -315,12 +306,12 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   maintainStartTime?: string;
   /**
    * @remarks
-   * A comma-separated list of output model paths from the model fine-tuning task.
+   * The list of output model paths in the model fine-tuning scenario.
    */
   modelPath?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 45D24263-7E3A-4140-9472-************
@@ -328,12 +319,13 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of objects containing information about each training task.
+   * The task information.
    */
   taskInfo?: DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo[];
+  tuneArch?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-**********
@@ -367,6 +359,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
       modelPath: 'ModelPath',
       requestId: 'RequestId',
       taskInfo: 'TaskInfo',
+      tuneArch: 'TuneArch',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
     };
@@ -392,6 +385,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
       modelPath: 'string',
       requestId: 'string',
       taskInfo: { 'type': 'array', 'itemType': DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo },
+      tuneArch: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
     };

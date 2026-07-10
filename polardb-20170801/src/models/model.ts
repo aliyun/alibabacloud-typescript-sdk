@@ -39,6 +39,11 @@ export { DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes } from './D
 export { DescribeAIDBClusterAttributeResponseBodyDBNodes } from './DescribeAidbclusterAttributeResponseBody';
 export { DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems } from './DescribeAidbclusterAttributeResponseBody';
 export { DescribeAIDBClusterAttributeResponseBodyEndpointList } from './DescribeAidbclusterAttributeResponseBody';
+export { DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfoTimeSlices } from './DescribeAidbclusterAttributeResponseBody';
+export { DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfo } from './DescribeAidbclusterAttributeResponseBody';
+export { DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigLabels } from './DescribeAidbclusterAttributeResponseBody';
+export { DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfigTaints } from './DescribeAidbclusterAttributeResponseBody';
+export { DescribeAIDBClusterAttributeResponseBodyVnodeKubernetesConfig } from './DescribeAidbclusterAttributeResponseBody';
 export { DescribeAIDBClusterAttributeResponseBodyVolumes } from './DescribeAidbclusterAttributeResponseBody';
 export { DescribeAIDBClusterDatasetsResponseBodyDatasets } from './DescribeAidbclusterDatasetsResponseBody';
 export { DescribeAIDBClusterPerformanceResponseBodyPerformanceKeysPoints } from './DescribeAidbclusterPerformanceResponseBody';
@@ -167,6 +172,13 @@ export { DescribeDBClusterPerformanceResponseBodyPerformanceKeysPerformanceItemP
 export { DescribeDBClusterPerformanceResponseBodyPerformanceKeysPerformanceItemPoints } from './DescribeDbclusterPerformanceResponseBody';
 export { DescribeDBClusterPerformanceResponseBodyPerformanceKeysPerformanceItem } from './DescribeDbclusterPerformanceResponseBody';
 export { DescribeDBClusterPerformanceResponseBodyPerformanceKeys } from './DescribeDbclusterPerformanceResponseBody';
+export { DescribeDBClusterPriceRequestDBNodes } from './DescribeDbclusterPriceRequest';
+export { DescribeDBClusterPriceResponseBodyPriceInfoCouponsCoupon } from './DescribeDbclusterPriceResponseBody';
+export { DescribeDBClusterPriceResponseBodyPriceInfoCoupons } from './DescribeDbclusterPriceResponseBody';
+export { DescribeDBClusterPriceResponseBodyPriceInfoRuleIds } from './DescribeDbclusterPriceResponseBody';
+export { DescribeDBClusterPriceResponseBodyPriceInfo } from './DescribeDbclusterPriceResponseBody';
+export { DescribeDBClusterPriceResponseBodyRulesRule } from './DescribeDbclusterPriceResponseBody';
+export { DescribeDBClusterPriceResponseBodyRules } from './DescribeDbclusterPriceResponseBody';
 export { DescribeDBClusterProxyResponseBodyChildInstances } from './DescribeDbclusterProxyResponseBody';
 export { DescribeDBClusterSSLResponseBodyItems } from './DescribeDbclusterSslresponseBody';
 export { DescribeDBClusterVersionResponseBodyDBRevisionVersionList } from './DescribeDbclusterVersionResponseBody';
@@ -302,6 +314,8 @@ export { DescribePolarFsResponseBodyItemsPolarFsPathsTags } from './DescribePola
 export { DescribePolarFsResponseBodyItemsPolarFsPaths } from './DescribePolarFsResponseBody';
 export { DescribePolarFsResponseBodyItems } from './DescribePolarFsResponseBody';
 export { DescribePolarFsAttributeResponseBodyCustomBucketPathList } from './DescribePolarFsAttributeResponseBody';
+export { DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems } from './DescribePolarFsAttributeResponseBody';
+export { DescribePolarFsAttributeResponseBodyEndpointItems } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsAttributeResponseBodyMountInfo } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsObjectsResponseBodyItems } from './DescribePolarFsObjectsResponseBody';
 export { DescribePolarFsQuotaResponseBodyPolicyItems } from './DescribePolarFsQuotaResponseBody';
@@ -945,6 +959,10 @@ export { DescribeDBClusterParametersResponse } from './DescribeDbclusterParamete
 export { DescribeDBClusterPerformanceRequest } from './DescribeDbclusterPerformanceRequest';
 export { DescribeDBClusterPerformanceResponseBody } from './DescribeDbclusterPerformanceResponseBody';
 export { DescribeDBClusterPerformanceResponse } from './DescribeDbclusterPerformanceResponse';
+export { DescribeDBClusterPriceRequest } from './DescribeDbclusterPriceRequest';
+export { DescribeDBClusterPriceShrinkRequest } from './DescribeDbclusterPriceShrinkRequest';
+export { DescribeDBClusterPriceResponseBody } from './DescribeDbclusterPriceResponseBody';
+export { DescribeDBClusterPriceResponse } from './DescribeDbclusterPriceResponse';
 export { DescribeDBClusterProxyRequest } from './DescribeDbclusterProxyRequest';
 export { DescribeDBClusterProxyResponseBody } from './DescribeDbclusterProxyResponseBody';
 export { DescribeDBClusterProxyResponse } from './DescribeDbclusterProxyResponse';

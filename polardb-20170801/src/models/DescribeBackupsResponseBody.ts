@@ -12,6 +12,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
   backupStatus?: string;
   backupType?: string;
   backupsLevel?: string;
+  comment?: string;
   consistentTime?: string;
   DBClusterId?: string;
   expectExpireTime?: string;
@@ -29,6 +30,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
       backupStatus: 'BackupStatus',
       backupType: 'BackupType',
       backupsLevel: 'BackupsLevel',
+      comment: 'Comment',
       consistentTime: 'ConsistentTime',
       DBClusterId: 'DBClusterId',
       expectExpireTime: 'ExpectExpireTime',
@@ -49,6 +51,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
       backupStatus: 'string',
       backupType: 'string',
       backupsLevel: 'string',
+      comment: 'string',
       consistentTime: 'string',
       DBClusterId: 'string',
       expectExpireTime: 'string',
@@ -121,13 +124,10 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total size of level-2 backups in the specified region, in bytes.
-   * 
-   * > - Supported only for storage classes PSL4 and PSL5.
-   * >
-   * > - Supported only for clusters with the level-2 backup feature enabled.
-   * >
-   * > - If this field is not returned, the level-2 backup size is 0.
+   * The total size of level-2 backups in the specified region. Unit: bytes.
+   * > - Only PSL4 and PSL5 storage types are supported.
+   * > - Only clusters with the level-2 backup feature enabled are supported.
+   * > - If this parameter is not returned, the level-2 backup size is 0.
    * 
    * @example
    * 4639948800

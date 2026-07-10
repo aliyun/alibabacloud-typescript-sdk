@@ -13,13 +13,13 @@ export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
   DBEndpointId?: string;
   /**
    * @remarks
-   * Indicates whether automatic rotation of SSL certificates is enabled. Valid values:
+   * Indicates whether automatic SSL certificate rotation is enabled. Valid values:
    * 
-   * - **Enable**: enabled
+   * - **Enable**: Enabled.
    * 
-   * - **Disable**: disabled
+   * - **Disable**: Disabled.
    * 
-   * > This parameter is supported only when the database engine is compatible with PostgreSQL or Oracle syntax.
+   * > This parameter is supported only when the database engine is PostgreSQL-compatible or Oracle-syntax-compatible.
    * 
    * @example
    * Enable
@@ -27,7 +27,7 @@ export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
   SSLAutoRotate?: string;
   /**
    * @remarks
-   * The SSL connection endpoint.
+   * The SSL connection address.
    * 
    * @example
    * pc-************.mysql.polardb.rds.aliyuncs.com
@@ -35,11 +35,10 @@ export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
   SSLConnectionString?: string;
   /**
    * @remarks
-   * Indicates whether SSL encryption is enabled. Valid values:
+   * Indicates whether Secure Sockets Layer (SSL) encryption is enabled. Valid values:
    * 
-   * - **Enabled**: enabled.
-   * 
-   * - **Disabled**: disabled.
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Shutdown.
    * 
    * @example
    * Enabled
@@ -47,7 +46,7 @@ export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
   SSLEnabled?: string;
   /**
    * @remarks
-   * The certificate validity period. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
+   * The expiration time of the SSL certificate. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2021-11-13T07:14:22Z
@@ -85,7 +84,7 @@ export class DescribeDBClusterSSLResponseBodyItems extends $dara.Model {
 export class DescribeDBClusterSSLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of SSL connection information.
+   * The list of SSL connection information.
    */
   items?: DescribeDBClusterSSLResponseBodyItems[];
   /**
@@ -98,11 +97,11 @@ export class DescribeDBClusterSSLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether automatic rotation of SSL certificates is enabled. Valid values:
+   * Indicates whether automatic SSL certificate rotation is enabled. Valid values:
    * 
-   * - **Enable**: enabled
+   * - **Enable**: Enabled.
    * 
-   * - **Disable**: disabled
+   * - **Disable**: Disabled.
    * 
    * > This parameter is supported only for PolarDB for MySQL.
    * 

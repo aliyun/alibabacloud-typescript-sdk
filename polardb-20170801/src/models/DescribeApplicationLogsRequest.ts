@@ -15,7 +15,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The component instance ID.
+   * The subcomponent instance ID.
    * 
    * @example
    * pac-xxx
@@ -31,17 +31,17 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   containerName?: string;
   /**
    * @remarks
-   * The end time for the query. Specify the time in `YYYY-MM-DDTHH:mmZ` format (UTC).
+   * The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 
    * @example
-   * 2026-03-25T02:11:00Z
+   * 2026-03-25T02:11Z
    */
   endTime?: string;
   /**
    * @remarks
-   * The keyword to search for. This parameter applies only to polarclaw instances.
+   * The search keyword. This parameter is used for PolarClaw instances.
    * 
    * @example
    * Config
@@ -49,7 +49,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The log level. This parameter applies only to polarclaw instances.
+   * The log level. This parameter is used for PolarClaw instances.
    * 
    * @example
    * WARN
@@ -59,7 +59,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number to return. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 3
@@ -67,7 +67,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **30**. Valid values: 30 to 100.
+   * The number of entries per page. Default value: **30**. Valid values: 30 to 100.
    * 
    * @example
    * 100
@@ -86,17 +86,17 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The start time for the query. Specify the time in `YYYY-MM-DDTHH:mmZ` format (UTC).
+   * The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
    * 
    * This parameter is required.
    * 
    * @example
-   * 2026-03-25T01:57:00Z
+   * 2026-03-25T01:57Z
    */
   startTime?: string;
   /**
    * @remarks
-   * The log type. This parameter applies only to polarclaw instances. Currently, only `gateway` is supported.
+   * The log type. This parameter is used for PolarClaw instances. Currently, only gateway is supported.
    * 
    * @example
    * gateway

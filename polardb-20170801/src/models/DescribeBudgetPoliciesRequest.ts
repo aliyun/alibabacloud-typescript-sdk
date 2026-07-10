@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBudgetPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer group or user. This parameter is required if BudgetDimensionType is set to ConsumerGroup or Consumer.
+   * The dimension object ID. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
    * 
    * @example
    * cg-p3gk2oh55c**
@@ -15,9 +15,8 @@ export class DescribeBudgetPoliciesRequest extends $dara.Model {
    * @remarks
    * The policy type. Valid values:
    * 
-   * - **ConsumerGroup**: The policy applies to a consumer group.
-   * 
-   * - **Consumer**: The policy applies to a user.
+   * - **ConsumerGroup**: total budget for a user group
+   * - **Consumer**: total budget for a user
    * 
    * @example
    * ConsumerGroup
@@ -51,15 +50,12 @@ export class DescribeBudgetPoliciesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries per page. Valid values: 
+   * * **30**
+   * * **50**
+   * * **100**
    * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
-   * 
-   * The default value is **30**.
+   * Default value: **30**.
    * 
    * @example
    * 30
@@ -73,13 +69,13 @@ export class DescribeBudgetPoliciesRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  scopeRefName?: string;
   /**
    * @remarks
    * The policy status. Valid values:
    * 
-   * - **Enabled**
-   * 
-   * - **Disabled**
+   * - **Enabled**: enabled
+   * - **Disenabled**: disabled
    * 
    * @example
    * Enabled
@@ -94,6 +90,7 @@ export class DescribeBudgetPoliciesRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      scopeRefName: 'ScopeRefName',
       status: 'Status',
     };
   }
@@ -107,6 +104,7 @@ export class DescribeBudgetPoliciesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      scopeRefName: 'string',
       status: 'string',
     };
   }
