@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchPeekMessageRequest extends $dara.Model {
+  /**
+   * @example
+   * 16
+   */
   numOfMessages?: number;
   peekonly?: boolean;
   static names(): { [key: string]: string } {

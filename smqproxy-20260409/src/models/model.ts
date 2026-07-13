@@ -3,6 +3,8 @@ export { BatchReceiveMessageResponseBodyMessages } from './BatchReceiveMessageRe
 export { BatchSendMessageRequestMessages } from './BatchSendMessageRequest';
 export { BatchSendMessageResponseBodyMessages } from './BatchSendMessageResponseBody';
 export { PublishMessageRequestMessageAttributes } from './PublishMessageRequest';
+export { MessagesUserPropertiesValue } from './MessagesUserPropertiesValue';
+export { UserPropertiesValue } from './UserPropertiesValue';
 export { BatchDeleteMessageRequest } from './BatchDeleteMessageRequest';
 export { BatchDeleteMessageResponse } from './BatchDeleteMessageResponse';
 export { BatchPeekMessageRequest } from './BatchPeekMessageRequest';

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { UserPropertiesValue } from "./UserPropertiesValue";
 
 
 export class SendMessageRequest extends $dara.Model {
@@ -27,7 +28,7 @@ export class SendMessageRequest extends $dara.Model {
    * @example
    * {"key1":"value1", "key2":"value2"}
    */
-  userProperties?: string;
+  userProperties?: { [key: string]: UserPropertiesValue };
   static names(): { [key: string]: string } {
     return {
       delaySeconds: 'DelaySeconds',
@@ -44,11 +45,14 @@ export class SendMessageRequest extends $dara.Model {
       messageBody: 'string',
       messageGroupId: 'string',
       priority: 'number',
-      userProperties: 'string',
+      userProperties: { 'type': 'map', 'keyType': 'string', 'valueType': UserPropertiesValue },
     };
   }
 
   validate() {
+    if(this.userProperties) {
+      $dara.Model.validateMap(this.userProperties);
+    }
     super.validate();
   }
 

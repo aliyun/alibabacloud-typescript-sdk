@@ -50,6 +50,7 @@ export class PublishMessageRequest extends $dara.Model {
    * hello topic
    */
   messageBody?: string;
+  messageGroupId?: string;
   /**
    * @example
    * order-event
@@ -59,6 +60,7 @@ export class PublishMessageRequest extends $dara.Model {
     return {
       messageAttributes: 'MessageAttributes',
       messageBody: 'MessageBody',
+      messageGroupId: 'MessageGroupId',
       messageTag: 'MessageTag',
     };
   }
@@ -67,6 +69,7 @@ export class PublishMessageRequest extends $dara.Model {
     return {
       messageAttributes: PublishMessageRequestMessageAttributes,
       messageBody: 'string',
+      messageGroupId: 'string',
       messageTag: 'string',
     };
   }

@@ -2,21 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ReceiveMessageRequest extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
-  waitseconds?: number;
+export class MessagesUserPropertiesValue extends $dara.Model {
+  dataType?: string;
+  stringValue?: string;
+  binaryValue?: string;
   static names(): { [key: string]: string } {
     return {
-      waitseconds: 'waitseconds',
+      dataType: 'DataType',
+      stringValue: 'StringValue',
+      binaryValue: 'BinaryValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      waitseconds: 'number',
+      dataType: 'string',
+      stringValue: 'string',
+      binaryValue: 'string',
     };
   }
 

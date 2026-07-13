@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/smqproxy20260409",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
-    "@alicloud/gateway-mns": "^0.0.1",
+    "@alicloud/gateway-mns": "^0.0.2",
     "@alicloud/openapi-core": "^1.0.0"
   },
   "files": [

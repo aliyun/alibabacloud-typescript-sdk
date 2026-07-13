@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchReceiveMessageRequest extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
   numOfMessages?: number;
+  /**
+   * @example
+   * 0
+   */
   waitseconds?: number;
   static names(): { [key: string]: string } {
     return {

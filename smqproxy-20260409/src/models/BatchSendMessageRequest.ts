@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { MessagesUserPropertiesValue } from "./MessagesUserPropertiesValue";
 
 
 export class BatchSendMessageRequestMessages extends $dara.Model {
@@ -23,12 +24,14 @@ export class BatchSendMessageRequestMessages extends $dara.Model {
    * 1
    */
   priority?: number;
+  userProperties?: { [key: string]: MessagesUserPropertiesValue };
   static names(): { [key: string]: string } {
     return {
       delaySeconds: 'DelaySeconds',
       messageBody: 'MessageBody',
       messageGroupId: 'MessageGroupId',
       priority: 'Priority',
+      userProperties: 'UserProperties',
     };
   }
 
@@ -38,10 +41,14 @@ export class BatchSendMessageRequestMessages extends $dara.Model {
       messageBody: 'string',
       messageGroupId: 'string',
       priority: 'number',
+      userProperties: { 'type': 'map', 'keyType': 'string', 'valueType': MessagesUserPropertiesValue },
     };
   }
 
   validate() {
+    if(this.userProperties) {
+      $dara.Model.validateMap(this.userProperties);
+    }
     super.validate();
   }
 

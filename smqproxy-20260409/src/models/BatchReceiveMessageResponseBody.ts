@@ -1,19 +1,64 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { MessagesUserPropertiesValue } from "./MessagesUserPropertiesValue";
 
 
 export class BatchReceiveMessageResponseBodyMessages extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   dequeueCount?: number;
+  /**
+   * @example
+   * 1250700979348
+   */
   enqueueTime?: number;
+  /**
+   * @example
+   * 1250700979348
+   */
   firstDequeueTime?: number;
+  /**
+   * @example
+   * This is test message 1.
+   */
   messageBody?: string;
+  /**
+   * @example
+   * C5DD56A39F5F7BB8B3337C6D11B6D8BE
+   */
   messageBodyMD5?: string;
+  /**
+   * @example
+   * test-group
+   */
   messageGroupId?: string;
+  /**
+   * @example
+   * 5F290C926D472878214D9529A8FA200000001
+   */
   messageId?: string;
+  /**
+   * @example
+   * 1250700979348
+   */
   nextVisibleTime?: number;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * 1-ODU4OTkzNDU5My0xNDMyNzI3ODI3LTItOA==
+   */
   receiptHandle?: string;
-  userProperties?: string;
+  /**
+   * @example
+   * {"properties1":"value"}
+   */
+  userProperties?: { [key: string]: MessagesUserPropertiesValue };
   static names(): { [key: string]: string } {
     return {
       dequeueCount: 'DequeueCount',
@@ -42,11 +87,14 @@ export class BatchReceiveMessageResponseBodyMessages extends $dara.Model {
       nextVisibleTime: 'number',
       priority: 'number',
       receiptHandle: 'string',
-      userProperties: 'string',
+      userProperties: { 'type': 'map', 'keyType': 'string', 'valueType': MessagesUserPropertiesValue },
     };
   }
 
   validate() {
+    if(this.userProperties) {
+      $dara.Model.validateMap(this.userProperties);
+    }
     super.validate();
   }
 
