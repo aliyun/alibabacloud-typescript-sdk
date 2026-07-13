@@ -24,6 +24,7 @@ export class UpdateAppSeoStatusRequest extends $dara.Model {
    * 123123
    */
   seAuthInfo?: string;
+  seIndexStatus?: number;
   /**
    * @remarks
    * The search engine type.
@@ -37,6 +38,7 @@ export class UpdateAppSeoStatusRequest extends $dara.Model {
       bizId: 'BizId',
       domain: 'Domain',
       seAuthInfo: 'SeAuthInfo',
+      seIndexStatus: 'SeIndexStatus',
       seType: 'SeType',
     };
   }
@@ -46,6 +48,7 @@ export class UpdateAppSeoStatusRequest extends $dara.Model {
       bizId: 'string',
       domain: 'string',
       seAuthInfo: 'string',
+      seIndexStatus: 'number',
       seType: 'string',
     };
   }

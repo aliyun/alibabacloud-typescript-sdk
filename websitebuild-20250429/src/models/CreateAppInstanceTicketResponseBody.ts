@@ -93,7 +93,7 @@ export class CreateAppInstanceTicketResponseBodyModule extends $dara.Model {
   refreshTokenValue?: string;
   /**
    * @remarks
-   * The external unique identifier.
+   * The external unique ID.
    * 
    * @example
    * hdm_33be9750d595b6cd7c93a80b46734b22
@@ -153,7 +153,7 @@ export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -177,8 +177,8 @@ export class CreateAppInstanceTicketResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERRROR

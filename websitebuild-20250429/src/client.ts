@@ -1076,7 +1076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a login-free ticket for a website builder instance.
+   * Creates a passwordless login ticket.
    * 
    * @param request - CreateAppInstanceTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1091,6 +1091,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1111,7 +1115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a login-free ticket for a website builder instance.
+   * Creates a passwordless login ticket.
    * 
    * @param request - CreateAppInstanceTicketRequest
    * @returns CreateAppInstanceTicketResponse
@@ -8239,6 +8243,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.seAuthInfo)) {
       query["SeAuthInfo"] = request.seAuthInfo;
+    }
+
+    if (!$dara.isNull(request.seIndexStatus)) {
+      query["SeIndexStatus"] = request.seIndexStatus;
     }
 
     if (!$dara.isNull(request.seType)) {
