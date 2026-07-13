@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubscribeRequestDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The queue to which dead-letter messages are delivered.
+   * The destination queue for dead-letter message delivery.
    * 
    * @example
    * deadLetterTargetQueue
@@ -13,7 +13,7 @@ export class SubscribeRequestDlqPolicy extends $dara.Model {
   deadLetterTargetQueue?: string;
   /**
    * @remarks
-   * Specifies whether to enable the dead-letter message delivery.
+   * Specifies whether to enable dead-letter message delivery.
    * 
    * @example
    * true
@@ -43,7 +43,21 @@ export class SubscribeRequestDlqPolicy extends $dara.Model {
 }
 
 export class SubscribeRequestDmAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The sender address.
+   * 
+   * @example
+   * notify@example.com
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * The email subject.
+   * 
+   * @example
+   * notify
+   */
   subject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,7 +83,21 @@ export class SubscribeRequestDmAttributes extends $dara.Model {
 }
 
 export class SubscribeRequestDysmsAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The SMS signature name.
+   * 
+   * @example
+   * 阿里云短信测试专用
+   */
   signName?: string;
+  /**
+   * @remarks
+   * The SMS template code.
+   * 
+   * @example
+   * 123456
+   */
   templateCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,6 +123,13 @@ export class SubscribeRequestDysmsAttributes extends $dara.Model {
 }
 
 export class SubscribeRequestKafkaAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The Kafka push type is deprecated.
+   * 
+   * @example
+   * Default empty string
+   */
   businessMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -118,7 +153,18 @@ export class SubscribeRequestKafkaAttributes extends $dara.Model {
 }
 
 export class SubscribeRequestTenantRateLimitPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the throttling policy. Valid values: true and false.
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of pushes or consumptions per second.
+   * 
+   * @example
+   * 50
+   */
   maxReceivesPerSecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -149,30 +195,52 @@ export class SubscribeRequest extends $dara.Model {
    * The dead-letter queue policy.
    */
   dlqPolicy?: SubscribeRequestDlqPolicy;
+  /**
+   * @remarks
+   * The email push attributes. This parameter is required when PushType is set to dm. The value is in JSON format and contains the following fields:
+   * 
+   * - AccountName: The sender address configured in DirectMail (such as notify@example.com).
+   * - Subject: The email subject.
+   */
   dmAttributes?: SubscribeRequestDmAttributes;
+  /**
+   * @remarks
+   * The SMS push attributes. This parameter is required when PushType is set to alisms. The value is in JSON format and contains the following fields:
+   * 
+   * - TemplateCode: The SMS template code, which can be obtained from the Short Message Service console.
+   * - SignName: The SMS signature name.
+   */
   dysmsAttributes?: SubscribeRequestDysmsAttributes;
   /**
    * @remarks
-   * The receiver endpoint. The format of the endpoint varies based on the terminal type.
+   * ## Endpoint address for receiving messages
    * 
-   * *   If you set PushType to http, set Endpoint to an `HTTP URL that starts with http:// or https://`.
-   * *   If you set PushType to queue, set Endpoint to a `queue name`.
-   * *   If you set PushType to mpush, set Endpoint to an `AppKey`.
-   * *   If you set PushType to alisms, set Endpoint to a `mobile number`.
-   * *   If you set PushType to email, set Endpoint to an `email address`.
+   * The format varies depending on the value of `PushType`:
+   * 
+   * - `PushType=http`: An HTTP/HTTPS callback URL, such as `http://example.com/callback` or `https://example.com/callback`.
+   * - `PushType=queue`: The ARN of the destination queue, in the format `acs:mns:{RegionId}:{Alibaba Cloud account ID}:queues/{QueueName}`.
+   * - `PushType=dm`: The email push endpoint, in the fixed format `smq-ep:dm:{Alibaba Cloud account ID}:__dynamic`. Replace `{Alibaba Cloud account ID}` with your Alibaba Cloud account ID.
+   * - `PushType=dysms`: The SMS push endpoint, in the format `smq-ep:dysms:{Alibaba Cloud account ID}:{PhoneNumber}`.
+   * - `PushType=kafka`: The Kafka push endpoint. The Kafka push type is deprecated.
+   * - `PushType=fc`: The Function Compute endpoint, in the format `acs:fc:{RegionId}:{Alibaba Cloud account ID}:services/{ServiceName}/functions/{FunctionName}`.
+   * - `PushType=eventbus`: The EventBridge endpoint, in the format `acs:eventbridge:{RegionId}:{Alibaba Cloud account ID}:eventbus/{EventBusName}`.
    * 
    * This parameter is required.
    * 
    * @example
-   * http://example.com
+   * http://*****.com/uri1/xxx
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The Kafka push type is deprecated.
+   */
   kafkaAttributes?: SubscribeRequestKafkaAttributes;
   /**
    * @remarks
-   * The tag that is used to filter messages. Only messages that have the same tag can be pushed. Set the value to a string of no more than 16 characters.
+   * The tag used for message filtering in this subscription. Only messages with a matching tag are pushed. The value is a string of up to 16 characters.
    * 
-   * By default, no tag is specified to filter messages.
+   * By default, no message filtering is applied.
    * 
    * @example
    * important
@@ -180,11 +248,13 @@ export class SubscribeRequest extends $dara.Model {
   messageTag?: string;
   /**
    * @remarks
-   * The content format of the messages that are pushed to the endpoint. Valid values:
+   * ## Format of the pushed message content
    * 
-   * *   XML
-   * *   JSON
-   * *   SIMPLIFIED
+   * Valid values:
+   * 
+   * - `XML`: The message body is pushed in XML format. This is the default value.
+   * - `JSON`: The message body is pushed in JSON format.
+   * - `SIMPLIFIED`: Only the raw message body content is pushed, without SMQ metadata wrapping.
    * 
    * @example
    * XML
@@ -192,10 +262,11 @@ export class SubscribeRequest extends $dara.Model {
   notifyContentFormat?: string;
   /**
    * @remarks
-   * The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+   * The retry strategy when an error occurs while pushing messages to the endpoint. Valid values:
    * 
-   * *   BACKOFF_RETRY
-   * *   EXPONENTIAL_DECAY_RETRY
+   * - BACKOFF_RETRY: backoff retry.
+   * 
+   * - EXPONENTIAL_DECAY_RETRY: exponential decay retry.
    * 
    * @example
    * BACKOFF_RETRY
@@ -203,13 +274,25 @@ export class SubscribeRequest extends $dara.Model {
   notifyStrategy?: string;
   /**
    * @remarks
-   * The terminal type. Valid values:
+   * ## Push type of the subscription
    * 
-   * *   http: HTTP services
-   * *   queue: queues
-   * *   mpush: mobile devices
-   * *   alisms: Alibaba Cloud Short Message Service (SMS)
-   * *   email: emails
+   * Valid values:
+   * 
+   * - `http`: HTTP/HTTPS push. Pushes messages to a specified HTTP or HTTPS callback URL.
+   * - `queue`: Queue push. Pushes messages to a specified SMQ queue.
+   * - `dm`: Email push. Sends notifications through DirectMail. You must also set the `DmAttributes` and `StsRoleArn` parameters.
+   * - `dysms`: SMS push. Sends notifications through Alibaba Cloud Short Message Service. You must also set the `DysmsAttributes` parameter.
+   * 
+   * - `fc`: Function Compute push. Pushes messages to Alibaba Cloud Function Compute (FC).
+   * - `eventbus`: EventBridge push. Pushes messages to an EventBridge event bus.
+   * 
+   * **Note:**
+   * The following values are deprecated and are only used for compatibility with legacy subscriptions:
+   * 
+   * - `mpush`: Mobile push.
+   * - `alisms`: Legacy SMS.
+   * - `email`: Legacy email. Use `dm` instead.
+   * - `kafka`: Kafka push type is deprecated.
    * 
    * This parameter is required.
    * 
@@ -217,6 +300,13 @@ export class SubscribeRequest extends $dara.Model {
    * queue
    */
   pushType?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role assumed by the service. The format is acs:ram::{Alibaba Cloud account ID}:role/{RoleName}. Replace {Alibaba Cloud account ID} with the Alibaba Cloud account ID that calls the API operation.
+   * 
+   * @example
+   * acs:ram::1234567890:role/AliyunMNSNotificationRole
+   */
   stsRoleArn?: string;
   /**
    * @remarks
@@ -228,6 +318,10 @@ export class SubscribeRequest extends $dara.Model {
    * testSubscription
    */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The throttling policy.
+   */
   tenantRateLimitPolicy?: SubscribeRequestTenantRateLimitPolicy;
   /**
    * @remarks
@@ -236,7 +330,7 @@ export class SubscribeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * topic****1
    */
   topicName?: string;
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeEndpointAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACL policy. Valid values:
+   * The access control list (ACL) policy. Valid value:
    * 
-   * *   **allow**: indicates that this operation is included in the Cidr whitelist. (Only the allow is supported.)
+   * - **allow**: A CIDR whitelist. Only allow is supported.
    * 
    * This parameter is required.
    * 
@@ -17,16 +17,16 @@ export class AuthorizeEndpointAclRequest extends $dara.Model {
   aclStrategy?: string;
   /**
    * @remarks
-   * The list of CIDR block.
+   * A list of CIDR blocks.
    * 
    * This parameter is required.
    */
   cidrList?: string[];
   /**
    * @remarks
-   * The type of the endpoint. Valid values:
+   * The type of the endpoint. Valid value:
    * 
-   * *   **public**: indicates public endpoint. (Only the public endpoint is supported.)
+   * - **public**: An internet endpoint. Only public is supported.
    * 
    * This parameter is required.
    * 

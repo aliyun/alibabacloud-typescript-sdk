@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTopicRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the topic that you want to delete.
+   * The name of the topic to delete.
    * 
    * This parameter is required.
    * 

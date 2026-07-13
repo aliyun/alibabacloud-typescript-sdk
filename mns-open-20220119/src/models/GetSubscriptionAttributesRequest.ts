@@ -15,7 +15,7 @@ export class GetSubscriptionAttributesRequest extends $dara.Model {
   subscriptionName?: string;
   /**
    * @remarks
-   * The name of the topic.
+   * The name of the topic to which the subscription belongs.
    * 
    * This parameter is required.
    * 

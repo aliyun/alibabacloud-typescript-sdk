@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicAttributesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * tag1
@@ -13,7 +13,7 @@ export class GetTopicAttributesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class GetTopicAttributesRequestTag extends $dara.Model {
 export class GetTopicAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag.
+   * The list of resource tags.
    */
   tag?: GetTopicAttributesRequestTag[];
   /**

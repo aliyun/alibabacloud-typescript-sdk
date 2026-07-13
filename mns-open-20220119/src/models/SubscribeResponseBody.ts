@@ -13,7 +13,7 @@ export class SubscribeResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    * 
    * @example
    * {\\"Code\\": 200, \\"Success\\": True}
@@ -21,7 +21,7 @@ export class SubscribeResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success

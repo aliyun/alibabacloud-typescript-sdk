@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class EnableEndpointResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success
@@ -21,7 +21,7 @@ export class EnableEndpointResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -29,7 +29,7 @@ export class EnableEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status.
+   * The status of the response.
    * 
    * @example
    * Success

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetEventRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the Alibaba Cloud product that triggers the event notification.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetEventRuleRequest extends $dara.Model {
   productName?: string;
   /**
    * @remarks
+   * The name of the event notification rule.
+   * 
    * This parameter is required.
    * 
    * @example

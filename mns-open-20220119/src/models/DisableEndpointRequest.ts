@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DisableEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the endpoint. Value:
+   * The type of the endpoint. Valid value:
    * 
-   * *   **public**: indicates an public endpoint. (Only the public endpoint is supported.)
+   * - **public**: The Internet endpoint. Currently, only public is supported.
    * 
    * This parameter is required.
    * 

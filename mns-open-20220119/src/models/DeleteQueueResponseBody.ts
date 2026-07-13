@@ -13,7 +13,10 @@ export class DeleteQueueResponseBodyData extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
+   * 
+   * @example
+   * 无
    */
   message?: string;
   /**
@@ -60,12 +63,12 @@ export class DeleteQueueResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DeleteQueueResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success
@@ -73,7 +76,7 @@ export class DeleteQueueResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -81,7 +84,7 @@ export class DeleteQueueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status.
+   * The status of the response.
    * 
    * @example
    * Success

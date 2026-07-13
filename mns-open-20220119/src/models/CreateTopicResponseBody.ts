@@ -13,7 +13,10 @@ export class CreateTopicResponseBodyData extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
+   * 
+   * @example
+   * 无
    */
   message?: string;
   /**
@@ -60,12 +63,12 @@ export class CreateTopicResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreateTopicResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success

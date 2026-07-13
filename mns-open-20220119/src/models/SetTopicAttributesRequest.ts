@@ -7,21 +7,27 @@ export class SetTopicAttributesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the log management feature. Valid values:
    * 
-   * *   true: enabled.
-   * *   false: disabled. Default value: false.
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
+   * Default value: false.
    * 
    * @example
-   * True
+   * true
    */
   enableLogging?: boolean;
+  enableSSE?: boolean;
+  kmsKeyId?: string;
   /**
    * @remarks
-   * The maximum length of the message that is sent to the topic. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+   * The maximum length of the message body sent to the topic. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
    * 
    * @example
    * 65536
    */
   maxMessageSize?: number;
+  sseAlgorithm?: string;
+  sseType?: string;
   /**
    * @remarks
    * The name of the topic.
@@ -35,7 +41,11 @@ export class SetTopicAttributesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enableLogging: 'EnableLogging',
+      enableSSE: 'EnableSSE',
+      kmsKeyId: 'KmsKeyId',
       maxMessageSize: 'MaxMessageSize',
+      sseAlgorithm: 'SseAlgorithm',
+      sseType: 'SseType',
       topicName: 'TopicName',
     };
   }
@@ -43,7 +53,11 @@ export class SetTopicAttributesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enableLogging: 'boolean',
+      enableSSE: 'boolean',
+      kmsKeyId: 'string',
       maxMessageSize: 'number',
+      sseAlgorithm: 'string',
+      sseType: 'string',
       topicName: 'string',
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicAttributesResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * tag1
@@ -13,7 +13,7 @@ export class GetTopicAttributesResponseBodyDataTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * test
@@ -51,9 +51,12 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
    * 1449554277
    */
   createTime?: number;
+  enableSSE?: boolean;
+  encryptionEnabled?: boolean;
+  kmsKeyId?: string;
   /**
    * @remarks
-   * The time when the topic was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The most recent time when the topic attributes were modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1449554460
@@ -61,10 +64,11 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * Indicates whether the logging feature is enabled. Valid values:
+   * Indicates whether the Log Management feature is enabled. Valid values:
    * 
-   * *   True
-   * *   False
+   * - True: Enabled.
+   * 
+   * - False: Disabled.
    * 
    * @example
    * True
@@ -72,7 +76,7 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   loggingEnabled?: boolean;
   /**
    * @remarks
-   * The maximum length of the message that is sent to the topic. Unit: bytes.
+   * The maximum length of the message body sent to the topic. Unit: bytes.
    * 
    * @example
    * 65536
@@ -88,15 +92,17 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   messageCount?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the topic. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+   * The maximum duration for which a message is retained in the topic. After the period of time specified by this parameter elapses since the message is sent to the topic, the message is deleted regardless of whether it is successfully pushed to the user. Unit: seconds.
    * 
    * @example
    * 86400
    */
   messageRetentionPeriod?: number;
+  sseAlgorithm?: string;
+  sseType?: string;
   /**
    * @remarks
-   * The tags added to the resources.
+   * The list of resource tags.
    */
   tags?: GetTopicAttributesResponseBodyDataTags[];
   /**
@@ -112,6 +118,15 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
    * demo-topic
    */
   topicName?: string;
+  /**
+   * @remarks
+   * The type of the topic. Valid values:
+   *    * normal: normal topic
+   *    * fifo: FIFO topic
+   * 
+   * @example
+   * normal
+   */
   topicType?: string;
   /**
    * @example
@@ -121,11 +136,16 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      enableSSE: 'EnableSSE',
+      encryptionEnabled: 'EncryptionEnabled',
+      kmsKeyId: 'KmsKeyId',
       lastModifyTime: 'LastModifyTime',
       loggingEnabled: 'LoggingEnabled',
       maxMessageSize: 'MaxMessageSize',
       messageCount: 'MessageCount',
       messageRetentionPeriod: 'MessageRetentionPeriod',
+      sseAlgorithm: 'SseAlgorithm',
+      sseType: 'SseType',
       tags: 'Tags',
       topicInnerUrl: 'TopicInnerUrl',
       topicName: 'TopicName',
@@ -137,11 +157,16 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
+      enableSSE: 'boolean',
+      encryptionEnabled: 'boolean',
+      kmsKeyId: 'string',
       lastModifyTime: 'number',
       loggingEnabled: 'boolean',
       maxMessageSize: 'number',
       messageCount: 'number',
       messageRetentionPeriod: 'number',
+      sseAlgorithm: 'string',
+      sseType: 'string',
       tags: { 'type': 'array', 'itemType': GetTopicAttributesResponseBodyDataTags },
       topicInnerUrl: 'string',
       topicName: 'string',
@@ -173,12 +198,12 @@ export class GetTopicAttributesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetTopicAttributesResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success

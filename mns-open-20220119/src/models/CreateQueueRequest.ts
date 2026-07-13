@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQueueRequestDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The queue to which dead-letter messages are delivered.
+   * The target queue for dead-letter message delivery.
    * 
    * @example
    * deadLetterQueue
@@ -13,7 +13,7 @@ export class CreateQueueRequestDlqPolicy extends $dara.Model {
   deadLetterTargetQueue?: string;
   /**
    * @remarks
-   * Specifies whether to enable the dead-letter message delivery.
+   * Specifies whether to enable dead-letter message delivery.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreateQueueRequestDlqPolicy extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of retries.
+   * The maximum number of times a message can be delivered.
    * 
    * @example
    * 3
@@ -63,7 +63,7 @@ export class CreateQueueRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * test
@@ -93,7 +93,24 @@ export class CreateQueueRequestTag extends $dara.Model {
 }
 
 export class CreateQueueRequestTenantRateLimitPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable rate limiting. Valid values:
+   * 
+   * - true
+   * - false
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of receives per second.
+   * 
+   * @example
+   * 1000
+   */
   maxReceivesPerSecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -121,7 +138,11 @@ export class CreateQueueRequestTenantRateLimitPolicy extends $dara.Model {
 export class CreateQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The period after which all messages sent to the queue are consumed. Valid values: 0 to 604800. Unit: seconds. Default value: 0
+   * The delay period for all messages sent to the queue. A message sent to the queue can be consumed only after the delay period specified by this parameter elapses. Unit: seconds.
+   * 
+   * Valid values: 0 to 604800.
+   * 
+   * Default value: 0.
    * 
    * @example
    * 0
@@ -129,15 +150,16 @@ export class CreateQueueRequest extends $dara.Model {
   delaySeconds?: number;
   /**
    * @remarks
-   * The dead-letter queue policy.
+   * The dead-letter policy.
    */
   dlqPolicy?: CreateQueueRequestDlqPolicy;
   /**
    * @remarks
    * Specifies whether to enable the log management feature. Valid values:
    * 
-   * *   true: enabled.
-   * *   false: disabled.
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
    * 
    * Default value: false.
    * 
@@ -145,9 +167,15 @@ export class CreateQueueRequest extends $dara.Model {
    * true
    */
   enableLogging?: boolean;
+  enableSSE?: boolean;
+  kmsKeyId?: string;
   /**
    * @remarks
-   * The maximum length of the message that is sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+   * The maximum size of a message body that can be sent to the queue. Unit: bytes.
+   * 
+   * Valid values: 1024 to 65536.
+   * 
+   * Default value: 65536.
    * 
    * @example
    * 65536
@@ -155,7 +183,11 @@ export class CreateQueueRequest extends $dara.Model {
   maximumMessageSize?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is consumed. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
+   * The maximum duration for which a message is retained in the queue. After the specified duration elapses from the time the message is sent to the queue, the message is deleted regardless of whether it has been consumed. Unit: seconds.
+   * 
+   * Valid values: 60 to 604800.
+   * 
+   * Default value: 345600.
    * 
    * @example
    * 345600
@@ -163,7 +195,11 @@ export class CreateQueueRequest extends $dara.Model {
   messageRetentionPeriod?: number;
   /**
    * @remarks
-   * The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Valid values: 0 to 30. Unit: seconds. Default value: 0
+   * The maximum wait time for a ReceiveMessage request when the queue is empty. Unit: seconds.
+   * 
+   * Valid values: 0 to 30.
+   * 
+   * Default value: 0.
    * 
    * @example
    * 0
@@ -179,16 +215,35 @@ export class CreateQueueRequest extends $dara.Model {
    * 06273500-249F-5863-121D-74D51123****
    */
   queueName?: string;
-  queueType?: string;
   /**
    * @remarks
-   * The tags.
+   * The type of the queue. Valid values:
+   *    * normal: standard queue.
+   *    * fifo: FIFO queue.
+   * 
+   * @example
+   * normal
+   */
+  queueType?: string;
+  sseAlgorithm?: string;
+  sseType?: string;
+  /**
+   * @remarks
+   * The list of resource tags.
    */
   tag?: CreateQueueRequestTag[];
+  /**
+   * @remarks
+   * The rate limiting policy.
+   */
   tenantRateLimitPolicy?: CreateQueueRequestTenantRateLimitPolicy;
   /**
    * @remarks
-   * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+   * The duration for which a consumed message stays in the Inactive state after it is changed from the Active state. Unit: seconds.
+   * 
+   * Valid values: 1 to 43200.
+   * 
+   * Default value: 30.
    * 
    * @example
    * 60
@@ -199,11 +254,15 @@ export class CreateQueueRequest extends $dara.Model {
       delaySeconds: 'DelaySeconds',
       dlqPolicy: 'DlqPolicy',
       enableLogging: 'EnableLogging',
+      enableSSE: 'EnableSSE',
+      kmsKeyId: 'KmsKeyId',
       maximumMessageSize: 'MaximumMessageSize',
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
       queueType: 'QueueType',
+      sseAlgorithm: 'SseAlgorithm',
+      sseType: 'SseType',
       tag: 'Tag',
       tenantRateLimitPolicy: 'TenantRateLimitPolicy',
       visibilityTimeout: 'VisibilityTimeout',
@@ -215,11 +274,15 @@ export class CreateQueueRequest extends $dara.Model {
       delaySeconds: 'number',
       dlqPolicy: CreateQueueRequestDlqPolicy,
       enableLogging: 'boolean',
+      enableSSE: 'boolean',
+      kmsKeyId: 'string',
       maximumMessageSize: 'number',
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
       queueType: 'string',
+      sseAlgorithm: 'string',
+      sseType: 'string',
       tag: { 'type': 'array', 'itemType': CreateQueueRequestTag },
       tenantRateLimitPolicy: CreateQueueRequestTenantRateLimitPolicy,
       visibilityTimeout: 'number',

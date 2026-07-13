@@ -13,12 +13,12 @@ export class DeleteTopicResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: { [key: string]: any };
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success

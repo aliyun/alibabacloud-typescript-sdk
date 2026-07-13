@@ -13,7 +13,10 @@ export class CreateQueueResponseBodyData extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
+   * 
+   * @example
+   * 无
    */
   message?: string;
   /**
@@ -60,12 +63,12 @@ export class CreateQueueResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreateQueueResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTopicResponseBodyDataPageDataTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * tag1
@@ -13,7 +13,7 @@ export class ListTopicResponseBodyDataPageDataTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * test
@@ -45,15 +45,18 @@ export class ListTopicResponseBodyDataPageDataTags extends $dara.Model {
 export class ListTopicResponseBodyDataPageData extends $dara.Model {
   /**
    * @remarks
-   * The time when the subscription was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the subscription was created. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1449554962
    */
   createTime?: number;
+  enableSSE?: boolean;
+  encryptionEnabled?: boolean;
+  kmsKeyId?: string;
   /**
    * @remarks
-   * The time when the subscription was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the subscription attributes were last modified. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1449554962
@@ -61,10 +64,11 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * Indicates whether the logging feature is enabled.
+   * Indicates whether the Log Management feature is enabled. Valid values:
    * 
-   * *   True
-   * *   False
+   * - True: Enabled.
+   * 
+   * - False: Disabled.
    * 
    * @example
    * True
@@ -72,7 +76,7 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
   loggingEnabled?: boolean;
   /**
    * @remarks
-   * The maximum length of the message that is sent to the topic. Unit: bytes.
+   * The maximum length of the message body sent to the topic. Unit: bytes.
    * 
    * @example
    * 65536
@@ -88,20 +92,22 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
   messageCount?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the topic. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+   * The maximum duration for which a message is retained in the topic. After the time specified by this parameter elapses since the message is sent to the topic, the message is deleted regardless of whether it has been successfully pushed to the user. Unit: seconds.
    * 
    * @example
    * 86400
    */
   messageRetentionPeriod?: number;
+  sseAlgorithm?: string;
+  sseType?: string;
   /**
    * @remarks
-   * The tags added to the resources.
+   * The list of resource tags.
    */
   tags?: ListTopicResponseBodyDataPageDataTags[];
   /**
    * @remarks
-   * The internal URL of the message topic. The internal URL can be accessed over an internal network.
+   * The internal URL of the topic.
    * 
    * @example
    * http:// 111111111****.mns.us-west-1-internal.aliyuncs.com/topics/testTopic
@@ -115,10 +121,19 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
    * demo-topic
    */
   topicName?: string;
+  /**
+   * @remarks
+   * The type of the topic. Valid values:
+   *    * normal: normal topic
+   *    * fifo: FIFO topic
+   * 
+   * @example
+   * normal
+   */
   topicType?: string;
   /**
    * @remarks
-   * The URL of the message topic.
+   * The URL of the topic.
    * 
    * @example
    * http:// 111111111****.mns.us-west-1.aliyuncs.com/topics/testTopic
@@ -127,11 +142,16 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      enableSSE: 'EnableSSE',
+      encryptionEnabled: 'EncryptionEnabled',
+      kmsKeyId: 'KmsKeyId',
       lastModifyTime: 'LastModifyTime',
       loggingEnabled: 'LoggingEnabled',
       maxMessageSize: 'MaxMessageSize',
       messageCount: 'MessageCount',
       messageRetentionPeriod: 'MessageRetentionPeriod',
+      sseAlgorithm: 'SseAlgorithm',
+      sseType: 'SseType',
       tags: 'Tags',
       topicInnerUrl: 'TopicInnerUrl',
       topicName: 'TopicName',
@@ -143,11 +163,16 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
+      enableSSE: 'boolean',
+      encryptionEnabled: 'boolean',
+      kmsKeyId: 'string',
       lastModifyTime: 'number',
       loggingEnabled: 'boolean',
       maxMessageSize: 'number',
       messageCount: 'number',
       messageRetentionPeriod: 'number',
+      sseAlgorithm: 'string',
+      sseType: 'string',
       tags: { 'type': 'array', 'itemType': ListTopicResponseBodyDataPageDataTags },
       topicInnerUrl: 'string',
       topicName: 'string',
@@ -171,12 +196,12 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
 export class ListTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The data returned on the current page.
+   * The results returned on the current page.
    */
   pageData?: ListTopicResponseBodyDataPageData[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -184,7 +209,7 @@ export class ListTopicResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of results returned per page.
    * 
    * @example
    * 50
@@ -192,7 +217,7 @@ export class ListTopicResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of results.
    * 
    * @example
    * 130
@@ -239,12 +264,12 @@ export class ListTopicResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListTopicResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success
@@ -252,7 +277,7 @@ export class ListTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -260,7 +285,7 @@ export class ListTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status.
+   * The status of the response.
    * 
    * @example
    * Success

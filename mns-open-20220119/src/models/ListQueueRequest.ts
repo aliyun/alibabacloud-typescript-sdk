@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQueueRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * tag1
@@ -13,7 +13,7 @@ export class ListQueueRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * test
@@ -45,7 +45,11 @@ export class ListQueueRequestTag extends $dara.Model {
 export class ListQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Valid values: 1 to 100000000. If you set this parameter to a value smaller than 1, the value of this parameter is 1 by default. If you set this parameter to a value greater than 100000000, the value of this parameter is 100000000 by default.
+   * The page number of the results to return.
+   * 
+   * Valid values: 1 to 100000000.
+   * 
+   * If you set this parameter to a value less than 1, the system uses 1 by default. If you set this parameter to a value greater than 100000000, the system uses 100000000 by default.
    * 
    * @example
    * 1
@@ -53,7 +57,11 @@ export class ListQueueRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Value values: 10 to 50. If you set this parameter to a value smaller than 10, the value of this parameter is 10 by default. If you set this parameter to a value greater than 50, the value of this parameter is 50 by default.
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 10 to 50.
+   * 
+   * If you set this parameter to a value less than 10, the system uses 10 by default. If you set this parameter to a value greater than 50, the system uses 50 by default.
    * 
    * @example
    * 20
@@ -67,10 +75,19 @@ export class ListQueueRequest extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The type of the queue. Valid values:
+   *    * normal: standard queue
+   *    * fifo: FIFO queue
+   * 
+   * @example
+   * normal
+   */
   queueType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of resource tags.
    */
   tag?: ListQueueRequestTag[];
   static names(): { [key: string]: string } {

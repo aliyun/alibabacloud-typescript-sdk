@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SetQueueAttributesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The period after which all messages sent to the queue are consumed. Valid values: 0 to 604800. Unit: seconds. Default value: 0
+   * The delay time for all messages sent to this queue. Messages sent to the queue can be consumed only after the delay time specified by this parameter has elapsed.
+   * 
+   * Valid values: 0 to 604800. Unit: seconds.
+   * 
+   * Default value: 0.
    * 
    * @example
    * 0
@@ -20,16 +24,25 @@ export class SetQueueAttributesShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the log management feature. Valid values:
    * 
-   * *   true: enabled.
-   * *   false: disabled. Default value: false.
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
+   * 
+   * Default value: false.
    * 
    * @example
-   * True
+   * true
    */
   enableLogging?: boolean;
+  enableSSE?: boolean;
+  kmsKeyId?: string;
   /**
    * @remarks
-   * The maximum length of the message that is sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+   * The maximum length of the message body sent to this queue.
+   * 
+   * Valid values: 1024 to 65536. Unit: bytes.
+   * 
+   * Default value: 65536.
    * 
    * @example
    * 1024
@@ -37,7 +50,11 @@ export class SetQueueAttributesShrinkRequest extends $dara.Model {
   maximumMessageSize?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
+   * The maximum duration for which a message is retained in this queue. After the time specified by this parameter has elapsed since the message was sent to the queue, the message is deleted regardless of whether it has been consumed.
+   * 
+   * Valid values: 60 to 604800. Unit: seconds.
+   * 
+   * Default value: 345600.
    * 
    * @example
    * 120
@@ -45,7 +62,11 @@ export class SetQueueAttributesShrinkRequest extends $dara.Model {
   messageRetentionPeriod?: number;
   /**
    * @remarks
-   * The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Valid values: 0 to 30. Unit: seconds. Default value: 0
+   * The maximum wait time for a ReceiveMessage request on this queue when no messages are available in the queue.
+   * 
+   * Valid values: 0 to 30. Unit: seconds.
+   * 
+   * Default value: 0.
    * 
    * @example
    * 0
@@ -61,10 +82,16 @@ export class SetQueueAttributesShrinkRequest extends $dara.Model {
    * testqueue
    */
   queueName?: string;
+  sseAlgorithm?: string;
+  sseType?: string;
   tenantRateLimitPolicyShrink?: string;
   /**
    * @remarks
-   * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+   * The duration for which a message stays in the Inactive state after it is consumed from the queue and changes from the Active state to the Inactive state.
+   * 
+   * Valid values: 1 to 43200. Unit: seconds.
+   * 
+   * Default value: 30.
    * 
    * @example
    * 60
@@ -75,10 +102,14 @@ export class SetQueueAttributesShrinkRequest extends $dara.Model {
       delaySeconds: 'DelaySeconds',
       dlqPolicyShrink: 'DlqPolicy',
       enableLogging: 'EnableLogging',
+      enableSSE: 'EnableSSE',
+      kmsKeyId: 'KmsKeyId',
       maximumMessageSize: 'MaximumMessageSize',
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
+      sseAlgorithm: 'SseAlgorithm',
+      sseType: 'SseType',
       tenantRateLimitPolicyShrink: 'TenantRateLimitPolicy',
       visibilityTimeout: 'VisibilityTimeout',
     };
@@ -89,10 +120,14 @@ export class SetQueueAttributesShrinkRequest extends $dara.Model {
       delaySeconds: 'number',
       dlqPolicyShrink: 'string',
       enableLogging: 'boolean',
+      enableSSE: 'boolean',
+      kmsKeyId: 'string',
       maximumMessageSize: 'number',
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
+      sseAlgorithm: 'string',
+      sseType: 'string',
       tenantRateLimitPolicyShrink: 'string',
       visibilityTimeout: 'number',
     };

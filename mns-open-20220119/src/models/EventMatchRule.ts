@@ -4,12 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class EventMatchRule extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to match.
+   * 
    * @example
    * true
    */
   matchState?: boolean;
+  /**
+   * @remarks
+   * The full name to match.
+   * 
+   * @example
+   * testBucket/folder1/file1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The prefix to match.
+   * 
+   * @example
+   * testBucket/prefix1xxx
+   */
   prefix?: string;
+  /**
+   * @remarks
+   * The suffix to match.
+   * 
+   * @example
+   * suffix/xxxx.test
+   */
   suffix?: string;
   static names(): { [key: string]: string } {
     return {

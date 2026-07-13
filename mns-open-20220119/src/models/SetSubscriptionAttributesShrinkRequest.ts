@@ -10,10 +10,11 @@ export class SetSubscriptionAttributesShrinkRequest extends $dara.Model {
   dlqPolicyShrink?: string;
   /**
    * @remarks
-   * The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+   * The retry policy for message delivery failures to the endpoint. Valid values:
    * 
-   * *   BACKOFF_RETRY
-   * *   EXPONENTIAL_DECAY_RETRY
+   * - BACKOFF_RETRY: backoff retry.
+   * 
+   * - EXPONENTIAL_DECAY_RETRY: exponential decay retry.
    * 
    * @example
    * BACKOFF_RETRY

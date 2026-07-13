@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQueueResponseBodyDataPageDataDlqPolicy extends $dara.Model {
   /**
    * @remarks
-   * The queue to which dead-letter messages are delivered.
+   * The target queue for dead-letter message delivery.
    * 
    * @example
    * deadLetterTargetQueue
@@ -13,7 +13,7 @@ export class ListQueueResponseBodyDataPageDataDlqPolicy extends $dara.Model {
   deadLetterTargetQueue?: string;
   /**
    * @remarks
-   * Specifies whether to enable the dead-letter message delivery.
+   * Indicates whether dead-letter message delivery is enabled.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListQueueResponseBodyDataPageDataDlqPolicy extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of retries.
+   * The maximum number of times a message can be delivered.
    * 
    * @example
    * 3
@@ -55,7 +55,7 @@ export class ListQueueResponseBodyDataPageDataDlqPolicy extends $dara.Model {
 export class ListQueueResponseBodyDataPageDataTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * tag1
@@ -63,7 +63,7 @@ export class ListQueueResponseBodyDataPageDataTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * test
@@ -95,15 +95,17 @@ export class ListQueueResponseBodyDataPageDataTags extends $dara.Model {
 export class ListQueueResponseBodyDataPageData extends $dara.Model {
   /**
    * @remarks
-   * The total number of messages that are in the Active state in the queue. The value is an approximate number. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
+   * The approximate total number of messages in the Active state in this queue.
+   * 
+   * This field will default to 0 in the future and is not recommended. Use CloudMonitor API to retrieve this metric instead.
    * 
    * @example
-   * 20
+   * 0
    */
   activeMessages?: number;
   /**
    * @remarks
-   * The time when the queue was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the queue was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1250700999
@@ -111,7 +113,9 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The total number of the messages that are in the Delayed state in the queue. The value is an approximate number. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
+   * The approximate total number of messages in the Delayed state in this queue.
+   * 
+   * This field will default to 0 in the future and is not recommended. Use CloudMonitor API to retrieve this metric instead.
    * 
    * @example
    * 0
@@ -119,7 +123,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   delayMessages?: number;
   /**
    * @remarks
-   * The period after which all messages sent to the queue are consumed. Unit: seconds.
+   * The delay period after which all messages sent to this queue become consumable. Unit: seconds.
    * 
    * @example
    * 30
@@ -130,17 +134,22 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
    * The dead-letter queue policy.
    */
   dlqPolicy?: ListQueueResponseBodyDataPageDataDlqPolicy;
+  enableSSE?: boolean;
+  encryptionEnabled?: boolean;
   /**
    * @remarks
-   * The total number of the messages that are in the Inactive state in the queue. The value is an approximate number. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
+   * The approximate total number of messages in the Inactive state in this queue.
+   * 
+   * This field will default to 0 in the future and is not recommended. Use CloudMonitor API to retrieve this metric instead.
    * 
    * @example
    * 0
    */
   inactiveMessages?: number;
+  kmsKeyId?: string;
   /**
    * @remarks
-   * The time when the queue was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The most recent time when the queue attributes were modified. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1250700999
@@ -148,10 +157,11 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * Indicates whether the logging feature is enabled. Valid values:
+   * Indicates whether the log management feature is enabled.
    * 
-   * *   True
-   * *   False
+   * - True: Enabled.
+   * 
+   * - False: Disabled.
    * 
    * @example
    * True
@@ -159,7 +169,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   loggingEnabled?: boolean;
   /**
    * @remarks
-   * The maximum length of the message that is sent to the queue. Unit: bytes.
+   * The maximum size of a message body that can be sent to this queue. Unit: bytes.
    * 
    * @example
    * 65536
@@ -167,7 +177,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   maximumMessageSize?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+   * The maximum period for which a message can be retained in this queue. After the specified period elapses since a message is sent to the queue, the message is deleted regardless of whether it has been consumed. Unit: seconds.
    * 
    * @example
    * 65536
@@ -175,7 +185,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   messageRetentionPeriod?: number;
   /**
    * @remarks
-   * The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Unit: seconds.
+   * The maximum wait time for a ReceiveMessage request when the queue is empty. Unit: seconds.
    * 
    * @example
    * 0
@@ -189,15 +199,30 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
-  queueType?: string;
   /**
    * @remarks
-   * The tags added to the resources.
+   * The type of the queue. Valid values:
+   *    * normal: standard queue
+   *    * fifo: FIFO queue
+   * 
+   * @example
+   * normal
+   */
+  queueType?: string;
+  sseAlgorithm?: string;
+  sseType?: string;
+  /**
+   * @remarks
+   * The list of resource tags.
    */
   tags?: ListQueueResponseBodyDataPageDataTags[];
   /**
    * @remarks
-   * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+   * The duration for which a message stays in the Inactive state after it is consumed from the queue.
+   * 
+   * Valid values: 1 to 43200. Unit: seconds.
+   * 
+   * Default value: 30.
    * 
    * @example
    * 60
@@ -210,7 +235,10 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
       delayMessages: 'DelayMessages',
       delaySeconds: 'DelaySeconds',
       dlqPolicy: 'DlqPolicy',
+      enableSSE: 'EnableSSE',
+      encryptionEnabled: 'EncryptionEnabled',
       inactiveMessages: 'InactiveMessages',
+      kmsKeyId: 'KmsKeyId',
       lastModifyTime: 'LastModifyTime',
       loggingEnabled: 'LoggingEnabled',
       maximumMessageSize: 'MaximumMessageSize',
@@ -218,6 +246,8 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
       queueType: 'QueueType',
+      sseAlgorithm: 'SseAlgorithm',
+      sseType: 'SseType',
       tags: 'Tags',
       visibilityTimeout: 'VisibilityTimeout',
     };
@@ -230,7 +260,10 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
       delayMessages: 'number',
       delaySeconds: 'number',
       dlqPolicy: ListQueueResponseBodyDataPageDataDlqPolicy,
+      enableSSE: 'boolean',
+      encryptionEnabled: 'boolean',
       inactiveMessages: 'number',
+      kmsKeyId: 'string',
       lastModifyTime: 'number',
       loggingEnabled: 'boolean',
       maximumMessageSize: 'number',
@@ -238,6 +271,8 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
       pollingWaitSeconds: 'number',
       queueName: 'string',
       queueType: 'string',
+      sseAlgorithm: 'string',
+      sseType: 'string',
       tags: { 'type': 'array', 'itemType': ListQueueResponseBodyDataPageDataTags },
       visibilityTimeout: 'number',
     };
@@ -261,12 +296,12 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
 export class ListQueueResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The data returned on the current page.
+   * The results returned on the current page.
    */
   pageData?: ListQueueResponseBodyDataPageData[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -274,7 +309,7 @@ export class ListQueueResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 50
@@ -282,7 +317,7 @@ export class ListQueueResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 3
@@ -290,7 +325,7 @@ export class ListQueueResponseBodyData extends $dara.Model {
   pages?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 20
@@ -349,12 +384,12 @@ export class ListQueueResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListQueueResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success
@@ -362,7 +397,7 @@ export class ListQueueResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -370,7 +405,7 @@ export class ListQueueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status.
+   * The status of the response.
    * 
    * @example
    * Success

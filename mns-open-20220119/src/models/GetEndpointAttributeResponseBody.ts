@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
   /**
    * @remarks
-   * The ACL policy. Valid values:
+   * The access control list (ACL) policy. Valid value:
    * 
-   * *   **allow**: indicates that the current endpoint allows access from the corresponding CIDR block. (Only allow is supported.)
+   * - **allow**: The endpoint allows access from the specified CIDR block. This is the only supported value.
    * 
    * @example
    * allow
@@ -23,7 +23,7 @@ export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the CIDR block was created.
    * 
    * @example
    * 1701951224000
@@ -57,12 +57,12 @@ export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
 export class GetEndpointAttributeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of CIDR block.
+   * The list of CIDR blocks.
    */
   cidrList?: GetEndpointAttributeResponseBodyDataCidrList[];
   /**
    * @remarks
-   * Specifies whether the endpoint is enabled.
+   * Indicates whether the endpoint is enabled.
    * 
    * @example
    * true
@@ -97,7 +97,7 @@ export class GetEndpointAttributeResponseBodyData extends $dara.Model {
 export class GetEndpointAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -110,7 +110,7 @@ export class GetEndpointAttributeResponseBody extends $dara.Model {
   data?: GetEndpointAttributeResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success
@@ -118,7 +118,7 @@ export class GetEndpointAttributeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -126,7 +126,7 @@ export class GetEndpointAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status.
+   * The status of the response.
    * 
    * @example
    * Success

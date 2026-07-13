@@ -12,6 +12,37 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "mns-open.us-west-1.aliyuncs.com",
+      'us-east-1': "mns-open.us-east-1.aliyuncs.com",
+      'me-east-1': "mns-open.me-east-1.aliyuncs.com",
+      'me-central-1': "mns-open.me-central-1.aliyuncs.com",
+      'eu-west-1': "mns-open.eu-west-1.aliyuncs.com",
+      'eu-central-1': "mns-open.eu-central-1.aliyuncs.com",
+      'cn-zhengzhou-jva': "mns-open.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-zhangjiakou': "mns-open.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "mns-open.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen-finance-1': "mns-open.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-shenzhen': "mns-open.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "mns-open.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "mns-open.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "mns-open.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "mns-open.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "mns-open.cn-hongkong.aliyuncs.com",
+      'cn-heyuan-acdr-1': "mns-open.cn-heyuan-acdr-1.aliyuncs.com",
+      'cn-heyuan': "mns-open.cn-heyuan.aliyuncs.com",
+      'cn-hangzhou-finance': "mns-open.cn-hangzhou-finance.aliyuncs.com",
+      'cn-hangzhou': "mns-open.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "mns-open.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "mns-open.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "mns-open.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "mns-open.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-5': "mns-open.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "mns-open.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-1': "mns-open.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "mns-open.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "mns-open.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("mns-open", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +61,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to add one or more rules of access control lists (ACLs) for the endpoint of a type.
+   * Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
    * 
    * @param tmpReq - AuthorizeEndpointAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75,7 +106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to add one or more rules of access control lists (ACLs) for the endpoint of a type.
+   * Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
    * 
    * @param request - AuthorizeEndpointAclRequest
    * @returns AuthorizeEndpointAclResponse
@@ -86,7 +117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建事件规则
+   * Creates an event rule.
    * 
    * @param tmpReq - CreateEventRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -163,7 +194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建事件规则
+   * Creates an event rule.
    * 
    * @param request - CreateEventRuleRequest
    * @returns CreateEventRuleResponse
@@ -205,6 +236,14 @@ export default class Client extends OpenApi {
       query["EnableLogging"] = request.enableLogging;
     }
 
+    if (!$dara.isNull(request.enableSSE)) {
+      query["EnableSSE"] = request.enableSSE;
+    }
+
+    if (!$dara.isNull(request.kmsKeyId)) {
+      query["KmsKeyId"] = request.kmsKeyId;
+    }
+
     if (!$dara.isNull(request.maximumMessageSize)) {
       query["MaximumMessageSize"] = request.maximumMessageSize;
     }
@@ -223,6 +262,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.queueType)) {
       query["QueueType"] = request.queueType;
+    }
+
+    if (!$dara.isNull(request.sseAlgorithm)) {
+      query["SseAlgorithm"] = request.sseAlgorithm;
+    }
+
+    if (!$dara.isNull(request.sseType)) {
+      query["SseType"] = request.sseType;
     }
 
     if (!$dara.isNull(request.tag)) {
@@ -266,7 +313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a topic.
+   * Calls the CreateTopic operation to create a topic.
    * 
    * @param request - CreateTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -288,8 +335,24 @@ export default class Client extends OpenApi {
       body["EnableLogging"] = request.enableLogging;
     }
 
+    if (!$dara.isNull(request.enableSSE)) {
+      body["EnableSSE"] = request.enableSSE;
+    }
+
+    if (!$dara.isNull(request.kmsKeyId)) {
+      body["KmsKeyId"] = request.kmsKeyId;
+    }
+
     if (!$dara.isNull(request.maxMessageSize)) {
       body["MaxMessageSize"] = request.maxMessageSize;
+    }
+
+    if (!$dara.isNull(request.sseAlgorithm)) {
+      body["SseAlgorithm"] = request.sseAlgorithm;
+    }
+
+    if (!$dara.isNull(request.sseType)) {
+      body["SseType"] = request.sseType;
     }
 
     if (!$dara.isNull(request.topicName)) {
@@ -315,7 +378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a topic.
+   * Calls the CreateTopic operation to create a topic.
    * 
    * @param request - CreateTopicRequest
    * @returns CreateTopicResponse
@@ -326,7 +389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除事件规则
+   * Deletes an event rule.
    * 
    * @param request - DeleteEventRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -361,7 +424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除事件规则
+   * Deletes an event rule.
    * 
    * @param request - DeleteEventRuleRequest
    * @returns DeleteEventRuleResponse
@@ -372,7 +435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a queue.
+   * Calls the DeleteQueue operation to delete a created queue.
    * 
    * @param request - DeleteQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -403,7 +466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a queue.
+   * Calls the DeleteQueue operation to delete a created queue.
    * 
    * @param request - DeleteQueueRequest
    * @returns DeleteQueueResponse
@@ -414,7 +477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a topic.
+   * Calls the DeleteTopic operation to delete a topic.
    * 
    * @param request - DeleteTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -445,7 +508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a topic.
+   * Calls the DeleteTopic operation to delete a topic.
    * 
    * @param request - DeleteTopicRequest
    * @returns DeleteTopicResponse
@@ -456,7 +519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to disenable the endpoint of a type. After the endpoint is disabled, all requests from the endpoint are blocked and an error is returned.
+   * This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
    * 
    * @param request - DisableEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -487,7 +550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to disenable the endpoint of a type. After the endpoint is disabled, all requests from the endpoint are blocked and an error is returned.
+   * This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
    * 
    * @param request - DisableEndpointRequest
    * @returns DisableEndpointResponse
@@ -498,7 +561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to enable the endpoint of a type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
+   * This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
    * 
    * @param request - EnableEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -529,7 +592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to enable the endpoint of a type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
+   * This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
    * 
    * @param request - EnableEndpointRequest
    * @returns EnableEndpointResponse
@@ -540,7 +603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetEndpointAttribute
+   * Queries the attributes of an endpoint.
    * 
    * @param request - GetEndpointAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -571,7 +634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetEndpointAttribute
+   * Queries the attributes of an endpoint.
    * 
    * @param request - GetEndpointAttributeRequest
    * @returns GetEndpointAttributeResponse
@@ -582,7 +645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取事件通知规则
+   * Retrieves an event notification rule.
    * 
    * @param request - GetEventRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -617,7 +680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取事件通知规则
+   * Retrieves an event notification rule.
    * 
    * @param request - GetEventRuleRequest
    * @returns GetEventRuleResponse
@@ -628,7 +691,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of an existing queue.
+   * Retrieves the attributes of a created queue.
+   * 
+   * @remarks
+   * >Warning: 
+   * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+   *     - ActiveMessages
+   *     - InactiveMessages
+   *     - DelayMessages 
+   *   </p>
+   *   <p>Use the following alternatives to obtain replacement solutions:</p>
+   *   <ul>
+   *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
+   *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+   *       <ul>
+   *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
+   *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
+   *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+   *       </ul>
+   *     </li>
+   *   </ul>
+   * </warning>
    * 
    * @param request - GetQueueAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -663,7 +746,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of an existing queue.
+   * Retrieves the attributes of a created queue.
+   * 
+   * @remarks
+   * >Warning: 
+   * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+   *     - ActiveMessages
+   *     - InactiveMessages
+   *     - DelayMessages 
+   *   </p>
+   *   <p>Use the following alternatives to obtain replacement solutions:</p>
+   *   <ul>
+   *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
+   *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+   *       <ul>
+   *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
+   *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
+   *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+   *       </ul>
+   *     </li>
+   *   </ul>
+   * </warning>
    * 
    * @param request - GetQueueAttributesRequest
    * @returns GetQueueAttributesResponse
@@ -674,7 +777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of a subscription.
+   * Retrieves the properties of a subscription.
    * 
    * @param request - GetSubscriptionAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -709,7 +812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attributes of a subscription.
+   * Retrieves the properties of a subscription.
    * 
    * @param request - GetSubscriptionAttributesRequest
    * @returns GetSubscriptionAttributesResponse
@@ -766,7 +869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件通知列表
+   * Queries a list of event notification rules.
    * 
    * @param tmpReq - ListEventRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -835,7 +938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件通知列表
+   * Queries a list of event notification rules.
    * 
    * @param request - ListEventRulesRequest
    * @returns ListEventRulesResponse
@@ -846,7 +949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
+   * Lists all queues under a specified Alibaba Cloud account with pagination support.
    * 
    * @param request - ListQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -893,7 +996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
+   * Lists all queues under a specified Alibaba Cloud account with pagination support.
    * 
    * @param request - ListQueueRequest
    * @returns ListQueueResponse
@@ -904,7 +1007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all subscriptions to a topic. The subscriptions are displayed by page.
+   * You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
    * 
    * @param request - ListSubscriptionByTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -955,7 +1058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all subscriptions to a topic. The subscriptions are displayed by page.
+   * You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
    * 
    * @param request - ListSubscriptionByTopicRequest
    * @returns ListSubscriptionByTopicResponse
@@ -966,7 +1069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
+   * Queries the list of topics under an Alibaba Cloud account with paginated results.
    * 
    * @param request - ListTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1013,7 +1116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
+   * Queries the list of topics under an Alibaba Cloud account with paginated results.
    * 
    * @param request - ListTopicRequest
    * @returns ListTopicResponse
@@ -1024,7 +1127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to delete one or more rules of access control lists (ACLs) for the endpoint of a type.
+   * Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
    * 
    * @param tmpReq - RevokeEndpointAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1069,7 +1172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to delete one or more rules of access control lists (ACLs) for the endpoint of a type.
+   * Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
    * 
    * @param request - RevokeEndpointAclRequest
    * @returns RevokeEndpointAclResponse
@@ -1080,7 +1183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a queue.
+   * Calls the SetQueueAttributes operation to modify queue attributes.
    * 
    * @param tmpReq - SetQueueAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1111,6 +1214,14 @@ export default class Client extends OpenApi {
       query["EnableLogging"] = request.enableLogging;
     }
 
+    if (!$dara.isNull(request.enableSSE)) {
+      query["EnableSSE"] = request.enableSSE;
+    }
+
+    if (!$dara.isNull(request.kmsKeyId)) {
+      query["KmsKeyId"] = request.kmsKeyId;
+    }
+
     if (!$dara.isNull(request.maximumMessageSize)) {
       query["MaximumMessageSize"] = request.maximumMessageSize;
     }
@@ -1125,6 +1236,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.queueName)) {
       query["QueueName"] = request.queueName;
+    }
+
+    if (!$dara.isNull(request.sseAlgorithm)) {
+      query["SseAlgorithm"] = request.sseAlgorithm;
+    }
+
+    if (!$dara.isNull(request.sseType)) {
+      query["SseType"] = request.sseType;
     }
 
     if (!$dara.isNull(request.tenantRateLimitPolicyShrink)) {
@@ -1153,7 +1272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a queue.
+   * Calls the SetQueueAttributes operation to modify queue attributes.
    * 
    * @param request - SetQueueAttributesRequest
    * @returns SetQueueAttributesResponse
@@ -1164,7 +1283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a subscription.
+   * Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
    * 
    * @param tmpReq - SetSubscriptionAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1225,7 +1344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a subscription.
+   * Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
    * 
    * @param request - SetSubscriptionAttributesRequest
    * @returns SetSubscriptionAttributesResponse
@@ -1236,7 +1355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a topic.
+   * Calls the SetTopicAttributes operation to modify the attributes of a topic.
    * 
    * @param request - SetTopicAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1249,8 +1368,24 @@ export default class Client extends OpenApi {
       query["EnableLogging"] = request.enableLogging;
     }
 
+    if (!$dara.isNull(request.enableSSE)) {
+      query["EnableSSE"] = request.enableSSE;
+    }
+
+    if (!$dara.isNull(request.kmsKeyId)) {
+      query["KmsKeyId"] = request.kmsKeyId;
+    }
+
     if (!$dara.isNull(request.maxMessageSize)) {
       query["MaxMessageSize"] = request.maxMessageSize;
+    }
+
+    if (!$dara.isNull(request.sseAlgorithm)) {
+      query["SseAlgorithm"] = request.sseAlgorithm;
+    }
+
+    if (!$dara.isNull(request.sseType)) {
+      query["SseType"] = request.sseType;
     }
 
     if (!$dara.isNull(request.topicName)) {
@@ -1275,7 +1410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a topic.
+   * Calls the SetTopicAttributes operation to modify the attributes of a topic.
    * 
    * @param request - SetTopicAttributesRequest
    * @returns SetTopicAttributesResponse
@@ -1286,7 +1421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a subscription to a topic.
+   * Calls the Subscribe operation to create a subscription for a topic.
    * 
    * @param tmpReq - SubscribeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1387,7 +1522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a subscription to a topic.
+   * Calls the Subscribe operation to create a subscription for a topic.
    * 
    * @param request - SubscribeRequest
    * @returns SubscribeResponse
@@ -1398,7 +1533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a subscription.
+   * You can call Unsubscribe to cancel an existing subscription.
    * 
    * @param request - UnsubscribeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,7 +1568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a subscription.
+   * You can call Unsubscribe to cancel an existing subscription.
    * 
    * @param request - UnsubscribeRequest
    * @returns UnsubscribeResponse
