@@ -2084,7 +2084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves entities to be remediated and a list of playbooks.
+   * Retrieves the list of entities that require disposition and the list of playbooks.
    * 
    * @param request - DescribeDisposeAndPlaybookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2143,7 +2143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves entities to be remediated and a list of playbooks.
+   * Retrieves the list of entities that require disposition and the list of playbooks.
    * 
    * @param request - DescribeDisposeAndPlaybookRequest
    * @returns DescribeDisposeAndPlaybookResponse
@@ -3169,6 +3169,62 @@ export default class Client extends OpenApi {
   async getCapacity(request: $_model.GetCapacityRequest): Promise<$_model.GetCapacityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCapacityWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of user data storage on the Log Management page.
+   * 
+   * @remarks
+   * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * 
+   * @param request - GetDataStorageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataStorageResponse
+   */
+  async getDataStorageWithOptions(request: $_model.GetDataStorageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataStorageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataStorage",
+      version: "2022-06-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataStorageResponse>(await this.callApi(params, req, runtime), new $_model.GetDataStorageResponse({}));
+  }
+
+  /**
+   * Retrieves the details of user data storage on the Log Management page.
+   * 
+   * @remarks
+   * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * 
+   * @param request - GetDataStorageRequest
+   * @returns GetDataStorageResponse
+   */
+  async getDataStorage(request: $_model.GetDataStorageRequest): Promise<$_model.GetDataStorageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataStorageWithOptions(request, runtime);
   }
 
   /**
