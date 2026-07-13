@@ -1,2444 +1,63 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CheckRulesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * acs:ecs:123***890:cn-shanghai:instance/i-001***90
-   */
-  resourceArn?: string;
-  /**
-   * @example
-   * rule-000***dav
-   */
-  ruleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceArn: 'ResourceArn',
-      ruleId: 'RuleId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      resourceArn: 'string',
-      ruleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckRulesResponseBody extends $tea.Model {
-  data?: CheckRulesResponseBodyData;
-  /**
-   * @example
-   * 700683DE-0154-56D4-8D76-3B7A2C2C7DF9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CheckRulesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckRulesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseBdrcServiceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 663D8898-E0B5-5964-BF28-A191CE6A1825
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseBdrcServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CloseBdrcServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CloseBdrcServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCheckDetailsRequest extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * cae**********699
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * acs:ecs:123***890:cn-shanghai:instance/i-001***90
-   */
-  resourceArn?: string;
-  /**
-   * @example
-   * rule-000***dav
-   */
-  ruleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceArn: 'ResourceArn',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceArn: 'string',
-      ruleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCheckDetailsResponseBody extends $tea.Model {
-  data?: DescribeCheckDetailsResponseBodyData;
-  /**
-   * @example
-   * 92793A50-0B97-59F1-BAEA-EAED83BA1998
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeCheckDetailsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCheckDetailsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCheckDetailsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCheckDetailsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsResponseBody extends $tea.Model {
-  data?: DescribeProductsResponseBodyData;
-  /**
-   * @example
-   * 30FB202A-1D22-5394-AB02-4477CDFCF51F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeProductsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeProductsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeProductsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcesRequest extends $tea.Model {
-  /**
-   * @example
-   * LRS
-   */
-  dataRedundancyType?: string;
-  /**
-   * @example
-   * rule-000c***yc9
-   */
-  failedRuleTemplate?: string;
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * cae**********699
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * i-0003***110
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * ACS::ECS::Instance
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * protectionScore
-   */
-  sortBy?: string;
-  /**
-   * @example
-   * ASC
-   */
-  sortOrder?: string;
-  /**
-   * @example
-   * ARCHIVE
-   */
-  storageClass?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataRedundancyType: 'DataRedundancyType',
-      failedRuleTemplate: 'FailedRuleTemplate',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      sortBy: 'SortBy',
-      sortOrder: 'SortOrder',
-      storageClass: 'StorageClass',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataRedundancyType: 'string',
-      failedRuleTemplate: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-      sortBy: 'string',
-      sortOrder: 'string',
-      storageClass: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcesResponseBody extends $tea.Model {
-  data?: DescribeResourcesResponseBodyData;
-  /**
-   * @example
-   * 700683DE-0154-56D4-8D76-3B7A2C2C7DF9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeResourcesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRulesRequest extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * cae**********699
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * ACS::ECS::Instance
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRulesResponseBody extends $tea.Model {
-  data?: DescribeRulesResponseBodyData;
-  /**
-   * @example
-   * 86DEBAC9-AB6A-59AB-9E5C-A540E579ECC9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeRulesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRulesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTaskResponseBody extends $tea.Model {
-  data?: DescribeTaskResponseBodyData;
-  /**
-   * @example
-   * 14DFF801-A4E3-5136-AAB8-7D246012CD7A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeTaskResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksRequest extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * cae**********699
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * RUNNING
-   */
-  taskStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      taskStatus: 'TaskStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      taskStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponseBody extends $tea.Model {
-  data?: DescribeTasksResponseBodyData;
-  /**
-   * @example
-   * AE43C4CB-8074-5EBD-9806-8CA6D12800B1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeTasksResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTopRiskyResourcesRequest extends $tea.Model {
-  /**
-   * @example
-   * ACS::ECS::Instance
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTopRiskyResourcesResponseBody extends $tea.Model {
-  data?: DescribeTopRiskyResourcesResponseBodyData;
-  /**
-   * @example
-   * 34081B20-C4C0-514F-93F6-8EEC3D1A587E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeTopRiskyResourcesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTopRiskyResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTopRiskyResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTopRiskyResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableCheckProductRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ecs
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableCheckProductResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 89E3CBB7-16F3-52AE-BD32-31A43A2A807F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableCheckProductResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisableCheckProductResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisableCheckProductResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableCheckResourceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * acs:ecs:123***890:cn-shanghai:instance/i-001***90
-   */
-  resourceArn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceArn: 'ResourceArn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceArn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableCheckResourceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 86DEBAC9-AB6A-59AB-9E5C-A540E579ECC9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableCheckResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisableCheckResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisableCheckResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableCheckProductRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ecs
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableCheckProductResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 8724BC18-904D-5A0D-BFF4-F0554F0037E7
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableCheckProductResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EnableCheckProductResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EnableCheckProductResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableCheckResourceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * acs:ecs:123***890:cn-shanghai:instance/i-001***90
-   */
-  resourceArn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceArn: 'ResourceArn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceArn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableCheckResourceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E583A0FF-803C-51C4-9AC9-E029471ACD6A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableCheckResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EnableCheckResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EnableCheckResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBdrcServiceResponseBody extends $tea.Model {
-  data?: GetBdrcServiceResponseBodyData;
-  /**
-   * @example
-   * 5748C531-80B1-5C31-8421-63A1830B9E48
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetBdrcServiceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBdrcServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetBdrcServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetBdrcServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenBdrcServiceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 86DEBAC9-AB6A-59AB-9E5C-A540E579ECC9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenBdrcServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenBdrcServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenBdrcServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourcesRequest extends $tea.Model {
-  /**
-   * @example
-   * ACS::ECS::Instance
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourcesResponseBody extends $tea.Model {
-  data?: UpdateResourcesResponseBodyData;
-  /**
-   * @example
-   * 5B2F09BF-CEBD-5A7E-AC01-E7F86169A5E5
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: UpdateResourcesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckRulesResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * t-0000e4w0u1v592zdf6s7
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCheckDetailsResponseBodyDataContent extends $tea.Model {
-  /**
-   * @example
-   * PASSED
-   */
-  checkStatus?: string;
-  /**
-   * @example
-   * 1701725715
-   */
-  checkTime?: number;
-  /**
-   * @example
-   * {"ecsAutoSnapshotPolicyIds":[],"hbrBackupPlans":[{"planId":"po-xxxxxxxx","sourceType":"UDM_ECS"}]}
-   */
-  detail?: string;
-  /**
-   * @example
-   * ecs
-   */
-  productType?: string;
-  /**
-   * @example
-   * acs:ecs:123***890:cn-shanghai:instance/i-001***90
-   */
-  resourceArn?: string;
-  /**
-   * @example
-   * i-xxxxxxxx
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * test server
-   */
-  resourceName?: string;
-  /**
-   * @example
-   * ACS::ECS::Instance
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * rule-xxxxxxxx
-   */
-  ruleId?: string;
-  /**
-   * @example
-   * ecs-backup
-   */
-  ruleTemplate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      checkStatus: 'CheckStatus',
-      checkTime: 'CheckTime',
-      detail: 'Detail',
-      productType: 'ProductType',
-      resourceArn: 'ResourceArn',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-      ruleId: 'RuleId',
-      ruleTemplate: 'RuleTemplate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkStatus: 'string',
-      checkTime: 'number',
-      detail: 'string',
-      productType: 'string',
-      resourceArn: 'string',
-      resourceId: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-      ruleId: 'string',
-      ruleTemplate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCheckDetailsResponseBodyData extends $tea.Model {
-  content?: DescribeCheckDetailsResponseBodyDataContent[];
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAOTzWWYAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM4NzA3NTcwMzY2MjMwNzY2ODcyMzAzMTY2Nzg3ODY5MzY=
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'array', 'itemType': DescribeCheckDetailsResponseBodyDataContent },
-      maxResults: 'number',
-      nextToken: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsResponseBodyDataContentProtectionScoreDistributionRange extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  from?: number;
-  /**
-   * @example
-   * 60
-   */
-  to?: number;
-  static names(): { [key: string]: string } {
-    return {
-      from: 'From',
-      to: 'To',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      from: 'number',
-      to: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsResponseBodyDataContentProtectionScoreDistribution extends $tea.Model {
-  /**
-   * @example
-   * 5
-   */
-  count?: number;
-  range?: DescribeProductsResponseBodyDataContentProtectionScoreDistributionRange;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      range: 'Range',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      range: DescribeProductsResponseBodyDataContentProtectionScoreDistributionRange,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsResponseBodyDataContent extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  checkFailedCount?: number;
-  /**
-   * @example
-   * 1
-   */
-  checkFailedResourceCount?: number;
-  /**
-   * @example
-   * 1
-   */
-  disableCheckResourceCount?: number;
-  /**
-   * @example
-   * true
-   */
-  enableCheck?: boolean;
-  /**
-   * @example
-   * oss
-   */
-  productType?: string;
-  /**
-   * @example
-   * 90
-   */
-  protectionScore?: number;
-  protectionScoreDistribution?: DescribeProductsResponseBodyDataContentProtectionScoreDistribution[];
-  /**
-   * @example
-   * 1726036498
-   */
-  protectionScoreUpdatedTime?: number;
-  /**
-   * @example
-   * 1
-   */
-  riskCount?: number;
-  /**
-   * @example
-   * 1
-   */
-  riskyResourceCount?: number;
-  /**
-   * @example
-   * 100
-   */
-  totalResourceCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      checkFailedCount: 'CheckFailedCount',
-      checkFailedResourceCount: 'CheckFailedResourceCount',
-      disableCheckResourceCount: 'DisableCheckResourceCount',
-      enableCheck: 'EnableCheck',
-      productType: 'ProductType',
-      protectionScore: 'ProtectionScore',
-      protectionScoreDistribution: 'ProtectionScoreDistribution',
-      protectionScoreUpdatedTime: 'ProtectionScoreUpdatedTime',
-      riskCount: 'RiskCount',
-      riskyResourceCount: 'RiskyResourceCount',
-      totalResourceCount: 'TotalResourceCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkFailedCount: 'number',
-      checkFailedResourceCount: 'number',
-      disableCheckResourceCount: 'number',
-      enableCheck: 'boolean',
-      productType: 'string',
-      protectionScore: 'number',
-      protectionScoreDistribution: { 'type': 'array', 'itemType': DescribeProductsResponseBodyDataContentProtectionScoreDistribution },
-      protectionScoreUpdatedTime: 'number',
-      riskCount: 'number',
-      riskyResourceCount: 'number',
-      totalResourceCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsResponseBodyData extends $tea.Model {
-  content?: DescribeProductsResponseBodyDataContent[];
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * b4fd3cffcacafd65e3818a0b9b2ff9a2
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 50
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'array', 'itemType': DescribeProductsResponseBodyDataContent },
-      maxResults: 'number',
-      nextToken: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcesResponseBodyDataContent extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  archiveDataSize?: number;
-  /**
-   * @example
-   * 0
-   */
-  checkFailedCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  coldArchiveDataSize?: number;
-  /**
-   * @example
-   * 1697798340
-   */
-  createTime?: number;
-  dataRedundancyType?: string;
-  /**
-   * @example
-   * 0
-   */
-  enableCheck?: boolean;
-  /**
-   * @example
-   * 0
-   */
-  iaDataSize?: number;
-  /**
-   * @example
-   * ecs
-   */
-  productType?: string;
-  /**
-   * @example
-   * 0
-   */
-  protectionScore?: number;
-  /**
-   * @example
-   * 0
-   */
-  protectionScoreUpdatedTime?: number;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * acs:ecs:cn-hangzhou:xxxxxxxx:instance/xxxxx
-   */
-  resourceArn?: string;
-  /**
-   * @example
-   * i-xxxxxxxx
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * test server
-   */
-  resourceName?: string;
-  /**
-   * @example
-   * ACS::ECS::Instance
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * 0
-   */
-  riskCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  standardDataSize?: number;
-  /**
-   * @example
-   * Running
-   */
-  status?: string;
-  storageClass?: string;
-  /**
-   * @example
-   * 0
-   */
-  totalDataSize?: number;
-  /**
-   * @remarks
-   * vSwitch ID
-   * 
-   * @example
-   * vsw-xxxxxxxx
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * vpc ID
-   * 
-   * @example
-   * vpc-xxxxxxxx
-   */
-  vpcId?: string;
-  /**
-   * @example
-   * cn-hangzhou-i
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      archiveDataSize: 'ArchiveDataSize',
-      checkFailedCount: 'CheckFailedCount',
-      coldArchiveDataSize: 'ColdArchiveDataSize',
-      createTime: 'CreateTime',
-      dataRedundancyType: 'DataRedundancyType',
-      enableCheck: 'EnableCheck',
-      iaDataSize: 'IaDataSize',
-      productType: 'ProductType',
-      protectionScore: 'ProtectionScore',
-      protectionScoreUpdatedTime: 'ProtectionScoreUpdatedTime',
-      regionId: 'RegionId',
-      resourceArn: 'ResourceArn',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-      riskCount: 'RiskCount',
-      standardDataSize: 'StandardDataSize',
-      status: 'Status',
-      storageClass: 'StorageClass',
-      totalDataSize: 'TotalDataSize',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      archiveDataSize: 'number',
-      checkFailedCount: 'number',
-      coldArchiveDataSize: 'number',
-      createTime: 'number',
-      dataRedundancyType: 'string',
-      enableCheck: 'boolean',
-      iaDataSize: 'number',
-      productType: 'string',
-      protectionScore: 'number',
-      protectionScoreUpdatedTime: 'number',
-      regionId: 'string',
-      resourceArn: 'string',
-      resourceId: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-      riskCount: 'number',
-      standardDataSize: 'number',
-      status: 'string',
-      storageClass: 'string',
-      totalDataSize: 'number',
-      vSwitchId: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeResourcesResponseBodyData extends $tea.Model {
-  content?: DescribeResourcesResponseBodyDataContent[];
-  /**
-   * @example
-   * 100
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * fb836242f4225fa0f0e0257362dfc6dd
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 149
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'array', 'itemType': DescribeResourcesResponseBodyDataContent },
-      maxResults: 'number',
-      nextToken: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRulesResponseBodyDataContent extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  checkFailedResourceCount?: number;
-  /**
-   * @example
-   * PASSED
-   */
-  checkStatus?: string;
-  /**
-   * @example
-   * 1704157635
-   */
-  checkTime?: number;
-  /**
-   * @example
-   * ecs
-   */
-  productType?: string;
-  /**
-   * @example
-   * ACS::ECS::Instance
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * 0
-   */
-  riskyResourceCount?: number;
-  /**
-   * @example
-   * rule-bp11ggd8wr762
-   */
-  ruleId?: string;
-  /**
-   * @example
-   * ecs-backup
-   */
-  ruleTemplate?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalResourceCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      checkFailedResourceCount: 'CheckFailedResourceCount',
-      checkStatus: 'CheckStatus',
-      checkTime: 'CheckTime',
-      productType: 'ProductType',
-      resourceType: 'ResourceType',
-      riskyResourceCount: 'RiskyResourceCount',
-      ruleId: 'RuleId',
-      ruleTemplate: 'RuleTemplate',
-      totalResourceCount: 'TotalResourceCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkFailedResourceCount: 'number',
-      checkStatus: 'string',
-      checkTime: 'number',
-      productType: 'string',
-      resourceType: 'string',
-      riskyResourceCount: 'number',
-      ruleId: 'string',
-      ruleTemplate: 'string',
-      totalResourceCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRulesResponseBodyData extends $tea.Model {
-  content?: DescribeRulesResponseBodyDataContent[];
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * 0975951c75d7b41464c8d08ae17043ca
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 42
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'array', 'itemType': DescribeRulesResponseBodyDataContent },
-      maxResults: 'number',
-      nextToken: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTaskResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1724983927
-   */
-  completeTime?: number;
-  /**
-   * @example
-   * too many requests.
-   */
-  errorMessage?: string;
-  executionId?: string;
-  /**
-   * @example
-   * 1719026680
-   */
-  expireTime?: number;
-  /**
-   * @example
-   * 100
-   */
-  progress?: number;
-  /**
-   * @example
-   * 784076D6-BD6D-5564-9CEA-834EB11F0C62
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1724983927
-   */
-  startTime?: number;
-  taskDescription?: string;
-  /**
-   * @example
-   * {"resourceTypes":["ACS::ECS::Instance","ACS::OSS::Bucket","ACS::OTS::Instance","ACS::NAS::FileSystem"]}
-   */
-  taskDetail?: string;
-  /**
-   * @example
-   * t-xxxxxxxx
-   */
-  taskId?: string;
-  /**
-   * @example
-   * test5566
-   */
-  taskName?: string;
-  taskPriority?: string;
-  /**
-   * @example
-   * RUNNING
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * UPDATE_RESOURCES
-   */
-  taskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      completeTime: 'CompleteTime',
-      errorMessage: 'ErrorMessage',
-      executionId: 'ExecutionId',
-      expireTime: 'ExpireTime',
-      progress: 'Progress',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-      taskDescription: 'TaskDescription',
-      taskDetail: 'TaskDetail',
-      taskId: 'TaskId',
-      taskName: 'TaskName',
-      taskPriority: 'TaskPriority',
-      taskStatus: 'TaskStatus',
-      taskType: 'TaskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      completeTime: 'number',
-      errorMessage: 'string',
-      executionId: 'string',
-      expireTime: 'number',
-      progress: 'number',
-      requestId: 'string',
-      startTime: 'number',
-      taskDescription: 'string',
-      taskDetail: 'string',
-      taskId: 'string',
-      taskName: 'string',
-      taskPriority: 'string',
-      taskStatus: 'string',
-      taskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponseBodyDataContent extends $tea.Model {
-  /**
-   * @example
-   * 1724983927
-   */
-  completeTime?: number;
-  /**
-   * @example
-   * device not online
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * empty
-   */
-  executionId?: string;
-  /**
-   * @example
-   * 1724983927
-   */
-  expireTime?: number;
-  /**
-   * @example
-   * 100
-   */
-  progress?: number;
-  /**
-   * @example
-   * AE43C4CB-8074-5EBD-9806-8CA6D12800B1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1724983927
-   */
-  startTime?: number;
-  /**
-   * @example
-   * empty
-   */
-  taskDescription?: string;
-  /**
-   * @example
-   * {"resourceTypes":["ACS::ECS::Instance","ACS::OSS::Bucket","ACS::OTS::Instance","ACS::NAS::FileSystem"]}
-   */
-  taskDetail?: string;
-  /**
-   * @example
-   * t-0000e4w0u1v592zdf6s7
-   */
-  taskId?: string;
-  /**
-   * @example
-   * empty
-   */
-  taskName?: string;
-  /**
-   * @example
-   * HIGH
-   */
-  taskPriority?: string;
-  /**
-   * @example
-   * RUNNING
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * UPDATE_RESOURCES
-   */
-  taskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      completeTime: 'CompleteTime',
-      errorMessage: 'ErrorMessage',
-      executionId: 'ExecutionId',
-      expireTime: 'ExpireTime',
-      progress: 'Progress',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-      taskDescription: 'TaskDescription',
-      taskDetail: 'TaskDetail',
-      taskId: 'TaskId',
-      taskName: 'TaskName',
-      taskPriority: 'TaskPriority',
-      taskStatus: 'TaskStatus',
-      taskType: 'TaskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      completeTime: 'number',
-      errorMessage: 'string',
-      executionId: 'string',
-      expireTime: 'number',
-      progress: 'number',
-      requestId: 'string',
-      startTime: 'number',
-      taskDescription: 'string',
-      taskDetail: 'string',
-      taskId: 'string',
-      taskName: 'string',
-      taskPriority: 'string',
-      taskStatus: 'string',
-      taskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponseBodyData extends $tea.Model {
-  content?: DescribeTasksResponseBodyDataContent[];
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * f4b8c2504545a3b41af5e75147d17d12e3818a0b9b2ff9a2
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'array', 'itemType': DescribeTasksResponseBodyDataContent },
-      maxResults: 'number',
-      nextToken: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTopRiskyResourcesResponseBodyDataContent extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  archiveDataSize?: number;
-  /**
-   * @example
-   * 0
-   */
-  checkFailedCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  coldArchiveDataSize?: number;
-  /**
-   * @example
-   * 1697798340
-   */
-  createTime?: number;
-  dataRedundancyType?: string;
-  /**
-   * @example
-   * true
-   */
-  enableCheck?: boolean;
-  /**
-   * @example
-   * 0
-   */
-  iaDataSize?: number;
-  /**
-   * @example
-   * ecs
-   */
-  productType?: string;
-  /**
-   * @example
-   * 90
-   */
-  protectionScore?: number;
-  /**
-   * @example
-   * 1726036498
-   */
-  protectionScoreUpdatedTime?: number;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * acs:ecs:cn-hangzhou:xxxxxxxx:instance/xxxxx
-   */
-  resourceArn?: string;
-  /**
-   * @example
-   * i-xxxxxxxx
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * test-server
-   */
-  resourceName?: string;
-  /**
-   * @example
-   * ACS::ECS::Instance
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * 0
-   */
-  riskCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  standardDataSize?: number;
-  /**
-   * @example
-   * Running
-   */
-  status?: string;
-  storageClass?: string;
-  /**
-   * @example
-   * 0
-   */
-  totalDataSize?: number;
-  /**
-   * @remarks
-   * vSwitch ID
-   * 
-   * @example
-   * vsw-xxxxxxxx
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * vpc ID
-   * 
-   * @example
-   * vpc-xxxxxxxx
-   */
-  vpcId?: string;
-  /**
-   * @example
-   * cn-hangzhou-j
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      archiveDataSize: 'ArchiveDataSize',
-      checkFailedCount: 'CheckFailedCount',
-      coldArchiveDataSize: 'ColdArchiveDataSize',
-      createTime: 'CreateTime',
-      dataRedundancyType: 'DataRedundancyType',
-      enableCheck: 'EnableCheck',
-      iaDataSize: 'IaDataSize',
-      productType: 'ProductType',
-      protectionScore: 'ProtectionScore',
-      protectionScoreUpdatedTime: 'ProtectionScoreUpdatedTime',
-      regionId: 'RegionId',
-      resourceArn: 'ResourceArn',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-      riskCount: 'RiskCount',
-      standardDataSize: 'StandardDataSize',
-      status: 'Status',
-      storageClass: 'StorageClass',
-      totalDataSize: 'TotalDataSize',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      archiveDataSize: 'number',
-      checkFailedCount: 'number',
-      coldArchiveDataSize: 'number',
-      createTime: 'number',
-      dataRedundancyType: 'string',
-      enableCheck: 'boolean',
-      iaDataSize: 'number',
-      productType: 'string',
-      protectionScore: 'number',
-      protectionScoreUpdatedTime: 'number',
-      regionId: 'string',
-      resourceArn: 'string',
-      resourceId: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-      riskCount: 'number',
-      standardDataSize: 'number',
-      status: 'string',
-      storageClass: 'string',
-      totalDataSize: 'number',
-      vSwitchId: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTopRiskyResourcesResponseBodyData extends $tea.Model {
-  content?: DescribeTopRiskyResourcesResponseBodyDataContent[];
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * e557bc9a65fe22cb5e2a3b240f06b0de
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'array', 'itemType': DescribeTopRiskyResourcesResponseBodyDataContent },
-      maxResults: 'number',
-      nextToken: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBdrcServiceResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1726169608
-   */
-  openTime?: number;
-  /**
-   * @example
-   * 1726169608
-   */
-  protectionScoreUpdatedTime?: number;
-  /**
-   * @example
-   * SUCCESS
-   */
-  serviceInitializeStatus?: string;
-  /**
-   * @example
-   * OPENED
-   */
-  serviceStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      openTime: 'OpenTime',
-      protectionScoreUpdatedTime: 'ProtectionScoreUpdatedTime',
-      serviceInitializeStatus: 'ServiceInitializeStatus',
-      serviceStatus: 'ServiceStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      openTime: 'number',
-      protectionScoreUpdatedTime: 'number',
-      serviceInitializeStatus: 'string',
-      serviceStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourcesResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * t-bp1ewftyzmeg3bl4dtd2
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-shanghai-finance-1': "bdrc.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "bdrc.cn-shanghai.aliyuncs.com",
+      'ap-southeast-1': "bdrc.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("bdrc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
+   * Checks data protection scoring rules. Calling this operation triggers an asynchronous task to check whether your resources meet the data protection scoring requirements.
+   * 
    * @param request - CheckRulesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckRulesResponse
    */
-  async checkRulesWithOptions(request: CheckRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckRulesResponse> {
-    Util.validateModel(request);
+  async checkRulesWithOptions(request: $_model.CheckRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CheckRulesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceArn)) {
+    if (!$dara.isNull(request.resourceArn)) {
       body["ResourceArn"] = request.resourceArn;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       body["RuleId"] = request.ruleId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckRules",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2449,29 +68,33 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckRulesResponse>(await this.callApi(params, req, runtime), new CheckRulesResponse({}));
+    return $dara.cast<$_model.CheckRulesResponse>(await this.callApi(params, req, runtime), new $_model.CheckRulesResponse({}));
   }
 
   /**
+   * Checks data protection scoring rules. Calling this operation triggers an asynchronous task to check whether your resources meet the data protection scoring requirements.
+   * 
    * @param request - CheckRulesRequest
    * @returns CheckRulesResponse
    */
-  async checkRules(request: CheckRulesRequest): Promise<CheckRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async checkRules(request: $_model.CheckRulesRequest): Promise<$_model.CheckRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkRulesWithOptions(request, headers, runtime);
   }
 
   /**
+   * Shuts down the Backup and Disaster Recovery Center.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CloseBdrcServiceResponse
    */
-  async closeBdrcServiceWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseBdrcServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async closeBdrcServiceWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CloseBdrcServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CloseBdrcService",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2482,48 +105,259 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CloseBdrcServiceResponse>(await this.callApi(params, req, runtime), new CloseBdrcServiceResponse({}));
+    return $dara.cast<$_model.CloseBdrcServiceResponse>(await this.callApi(params, req, runtime), new $_model.CloseBdrcServiceResponse({}));
   }
 
   /**
+   * Shuts down the Backup and Disaster Recovery Center.
    * @returns CloseBdrcServiceResponse
    */
-  async closeBdrcService(): Promise<CloseBdrcServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async closeBdrcService(): Promise<$_model.CloseBdrcServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.closeBdrcServiceWithOptions(headers, runtime);
   }
 
   /**
+   * Creates a protection policy.
+   * 
+   * @param tmpReq - CreateProtectionPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProtectionPolicyResponse
+   */
+  async createProtectionPolicyWithOptions(tmpReq: $_model.CreateProtectionPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProtectionPolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateProtectionPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.boundResourceCategoryIds)) {
+      request.boundResourceCategoryIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.boundResourceCategoryIds, "BoundResourceCategoryIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.subProtectionPolicies)) {
+      request.subProtectionPoliciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subProtectionPolicies, "SubProtectionPolicies", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.boundResourceCategoryIdsShrink)) {
+      body["BoundResourceCategoryIds"] = request.boundResourceCategoryIdsShrink;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.protectionPolicyName)) {
+      body["ProtectionPolicyName"] = request.protectionPolicyName;
+    }
+
+    if (!$dara.isNull(request.protectionPolicyRegionId)) {
+      body["ProtectionPolicyRegionId"] = request.protectionPolicyRegionId;
+    }
+
+    if (!$dara.isNull(request.subProtectionPoliciesShrink)) {
+      body["SubProtectionPolicies"] = request.subProtectionPoliciesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProtectionPolicy",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/protection-policies`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProtectionPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateProtectionPolicyResponse({}));
+  }
+
+  /**
+   * Creates a protection policy.
+   * 
+   * @param request - CreateProtectionPolicyRequest
+   * @returns CreateProtectionPolicyResponse
+   */
+  async createProtectionPolicy(request: $_model.CreateProtectionPolicyRequest): Promise<$_model.CreateProtectionPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createProtectionPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a resource category.
+   * 
+   * @param request - CreateResourceCategoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceCategoryResponse
+   */
+  async createResourceCategoryWithOptions(request: $_model.CreateResourceCategoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceCategoryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceCategoryName)) {
+      body["ResourceCategoryName"] = request.resourceCategoryName;
+    }
+
+    if (!$dara.isNull(request.resourceMatcher)) {
+      body["ResourceMatcher"] = request.resourceMatcher;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateResourceCategory",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resource-categories/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateResourceCategoryResponse>(await this.callApi(params, req, runtime), new $_model.CreateResourceCategoryResponse({}));
+  }
+
+  /**
+   * Creates a resource category.
+   * 
+   * @param request - CreateResourceCategoryRequest
+   * @returns CreateResourceCategoryResponse
+   */
+  async createResourceCategory(request: $_model.CreateResourceCategoryRequest): Promise<$_model.CreateResourceCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createResourceCategoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Deletes a protection policy.
+   * 
+   * @param request - DeleteProtectionPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProtectionPolicyResponse
+   */
+  async deleteProtectionPolicyWithOptions(ProtectionPolicyId: string, request: $_model.DeleteProtectionPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProtectionPolicyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProtectionPolicy",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/protection-policies/${$dara.URL.percentEncode(ProtectionPolicyId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProtectionPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProtectionPolicyResponse({}));
+  }
+
+  /**
+   * Deletes a protection policy.
+   * 
+   * @param request - DeleteProtectionPolicyRequest
+   * @returns DeleteProtectionPolicyResponse
+   */
+  async deleteProtectionPolicy(ProtectionPolicyId: string, request: $_model.DeleteProtectionPolicyRequest): Promise<$_model.DeleteProtectionPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteProtectionPolicyWithOptions(ProtectionPolicyId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a resource category.
+   * 
+   * @param request - DeleteResourceCategoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceCategoryResponse
+   */
+  async deleteResourceCategoryWithOptions(request: $_model.DeleteResourceCategoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceCategoryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      body["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteResourceCategory",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resource-categories/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteResourceCategoryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteResourceCategoryResponse({}));
+  }
+
+  /**
+   * Deletes a resource category.
+   * 
+   * @param request - DeleteResourceCategoryRequest
+   * @returns DeleteResourceCategoryResponse
+   */
+  async deleteResourceCategory(request: $_model.DeleteResourceCategoryRequest): Promise<$_model.DeleteResourceCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteResourceCategoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the check results for data protection rules.
+   * 
    * @param request - DescribeCheckDetailsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCheckDetailsResponse
    */
-  async describeCheckDetailsWithOptions(request: DescribeCheckDetailsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeCheckDetailsResponse> {
-    Util.validateModel(request);
+  async describeCheckDetailsWithOptions(request: $_model.DescribeCheckDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCheckDetailsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceArn)) {
+    if (!$dara.isNull(request.resourceArn)) {
       query["ResourceArn"] = request.resourceArn;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeCheckDetails",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2534,29 +368,118 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCheckDetailsResponse>(await this.callApi(params, req, runtime), new DescribeCheckDetailsResponse({}));
+    return $dara.cast<$_model.DescribeCheckDetailsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCheckDetailsResponse({}));
   }
 
   /**
+   * Retrieves the check results for data protection rules.
+   * 
    * @param request - DescribeCheckDetailsRequest
    * @returns DescribeCheckDetailsResponse
    */
-  async describeCheckDetails(request: DescribeCheckDetailsRequest): Promise<DescribeCheckDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeCheckDetails(request: $_model.DescribeCheckDetailsRequest): Promise<$_model.DescribeCheckDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeCheckDetailsWithOptions(request, headers, runtime);
   }
 
   /**
+   * Queries statistics on data redundancy types for a cloud service.
+   * 
+   * @param tmpReq - DescribeProductDataRedundancyTypeStatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProductDataRedundancyTypeStatResponse
+   */
+  async describeProductDataRedundancyTypeStatWithOptions(tmpReq: $_model.DescribeProductDataRedundancyTypeStatRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeProductDataRedundancyTypeStatResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeProductDataRedundancyTypeStatShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceOwnerIds)) {
+      request.resourceOwnerIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceOwnerIds, "ResourceOwnerIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      query["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerIdsShrink)) {
+      query["ResourceOwnerIds"] = request.resourceOwnerIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeProductDataRedundancyTypeStat",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/products/data-redundancy-type-stat`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeProductDataRedundancyTypeStatResponse>(await this.callApi(params, req, runtime), new $_model.DescribeProductDataRedundancyTypeStatResponse({}));
+  }
+
+  /**
+   * Queries statistics on data redundancy types for a cloud service.
+   * 
+   * @param request - DescribeProductDataRedundancyTypeStatRequest
+   * @returns DescribeProductDataRedundancyTypeStatResponse
+   */
+  async describeProductDataRedundancyTypeStat(request: $_model.DescribeProductDataRedundancyTypeStatRequest): Promise<$_model.DescribeProductDataRedundancyTypeStatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeProductDataRedundancyTypeStatWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the data protection score status for cloud products.
+   * 
+   * @param tmpReq - DescribeProductsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProductsResponse
    */
-  async describeProductsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeProductsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeProductsWithOptions(tmpReq: $_model.DescribeProductsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeProductsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeProductsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceOwnerIds)) {
+      request.resourceOwnerIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceOwnerIds, "ResourceOwnerIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      query["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerIdsShrink)) {
+      query["ResourceOwnerIds"] = request.resourceOwnerIdsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeProducts",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2567,68 +490,95 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeProductsResponse>(await this.callApi(params, req, runtime), new DescribeProductsResponse({}));
+    return $dara.cast<$_model.DescribeProductsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeProductsResponse({}));
   }
 
   /**
+   * Queries the data protection score status for cloud products.
+   * 
+   * @param request - DescribeProductsRequest
    * @returns DescribeProductsResponse
    */
-  async describeProducts(): Promise<DescribeProductsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeProducts(request: $_model.DescribeProductsRequest): Promise<$_model.DescribeProductsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeProductsWithOptions(headers, runtime);
+    return await this.describeProductsWithOptions(request, headers, runtime);
   }
 
   /**
-   * @param request - DescribeResourcesRequest
+   * Query resources
+   * 
+   * @param tmpReq - DescribeResourcesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourcesResponse
    */
-  async describeResourcesWithOptions(request: DescribeResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourcesResponse> {
-    Util.validateModel(request);
+  async describeResourcesWithOptions(tmpReq: $_model.DescribeResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceOwnerIds)) {
+      request.resourceOwnerIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceOwnerIds, "ResourceOwnerIds", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dataRedundancyType)) {
+    if (!$dara.isNull(request.dataRedundancyType)) {
       query["DataRedundancyType"] = request.dataRedundancyType;
     }
 
-    if (!Util.isUnset(request.failedRuleTemplate)) {
+    if (!$dara.isNull(request.failedRuleTemplate)) {
       query["FailedRuleTemplate"] = request.failedRuleTemplate;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceArn)) {
+      query["ResourceArn"] = request.resourceArn;
+    }
+
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      query["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceOwnerIdsShrink)) {
+      query["ResourceOwnerIds"] = request.resourceOwnerIdsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.sortBy)) {
+    if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
-    if (!Util.isUnset(request.sortOrder)) {
+    if (!$dara.isNull(request.sortOrder)) {
       query["SortOrder"] = request.sortOrder;
     }
 
-    if (!Util.isUnset(request.storageClass)) {
+    if (!$dara.isNull(request.storageClass)) {
       query["StorageClass"] = request.storageClass;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeResources",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2639,45 +589,67 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeResourcesResponse>(await this.callApi(params, req, runtime), new DescribeResourcesResponse({}));
+    return $dara.cast<$_model.DescribeResourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeResourcesResponse({}));
   }
 
   /**
+   * Query resources
+   * 
    * @param request - DescribeResourcesRequest
    * @returns DescribeResourcesResponse
    */
-  async describeResources(request: DescribeResourcesRequest): Promise<DescribeResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeResources(request: $_model.DescribeResourcesRequest): Promise<$_model.DescribeResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeResourcesWithOptions(request, headers, runtime);
   }
 
   /**
-   * @param request - DescribeRulesRequest
+   * Lists all data protection rules.
+   * 
+   * @param tmpReq - DescribeRulesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRulesResponse
    */
-  async describeRulesWithOptions(request: DescribeRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRulesResponse> {
-    Util.validateModel(request);
+  async describeRulesWithOptions(tmpReq: $_model.DescribeRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceOwnerIds)) {
+      request.resourceOwnerIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceOwnerIds, "ResourceOwnerIds", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      query["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerIdsShrink)) {
+      query["ResourceOwnerIds"] = request.resourceOwnerIdsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRules",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2688,77 +660,88 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRulesResponse>(await this.callApi(params, req, runtime), new DescribeRulesResponse({}));
+    return $dara.cast<$_model.DescribeRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRulesResponse({}));
   }
 
   /**
+   * Lists all data protection rules.
+   * 
    * @param request - DescribeRulesRequest
    * @returns DescribeRulesResponse
    */
-  async describeRules(request: DescribeRulesRequest): Promise<DescribeRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeRules(request: $_model.DescribeRulesRequest): Promise<$_model.DescribeRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeRulesWithOptions(request, headers, runtime);
   }
 
   /**
+   * Retrieves the details of an asynchronous task.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTaskResponse
    */
-  async describeTaskWithOptions(TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTaskResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeTaskWithOptions(TaskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTask",
       version: "2023-08-08",
       protocol: "HTTPS",
-      pathname: `/api/v1/tasks/${OpenApiUtil.getEncodeParam(TaskId)}`,
+      pathname: `/api/v1/tasks/${$dara.URL.percentEncode(TaskId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTaskResponse>(await this.callApi(params, req, runtime), new DescribeTaskResponse({}));
+    return $dara.cast<$_model.DescribeTaskResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTaskResponse({}));
   }
 
   /**
+   * Retrieves the details of an asynchronous task.
    * @returns DescribeTaskResponse
    */
-  async describeTask(TaskId: string): Promise<DescribeTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeTask(TaskId: string): Promise<$_model.DescribeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTaskWithOptions(TaskId, headers, runtime);
   }
 
   /**
+   * Retrieves asynchronous tasks.
+   * 
    * @param request - DescribeTasksRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTasksResponse
    */
-  async describeTasksWithOptions(request: DescribeTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
-    Util.validateModel(request);
+  async describeTasksWithOptions(request: $_model.DescribeTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTasksResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       query["TaskStatus"] = request.taskStatus;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTasks",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2769,37 +752,55 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
+    return $dara.cast<$_model.DescribeTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTasksResponse({}));
   }
 
   /**
+   * Retrieves asynchronous tasks.
+   * 
    * @param request - DescribeTasksRequest
    * @returns DescribeTasksResponse
    */
-  async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeTasks(request: $_model.DescribeTasksRequest): Promise<$_model.DescribeTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTasksWithOptions(request, headers, runtime);
   }
 
   /**
-   * @param request - DescribeTopRiskyResourcesRequest
+   * Lists the most threatened resources.
+   * 
+   * @param tmpReq - DescribeTopRiskyResourcesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTopRiskyResourcesResponse
    */
-  async describeTopRiskyResourcesWithOptions(request: DescribeTopRiskyResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeTopRiskyResourcesResponse> {
-    Util.validateModel(request);
+  async describeTopRiskyResourcesWithOptions(tmpReq: $_model.DescribeTopRiskyResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTopRiskyResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeTopRiskyResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceOwnerIds)) {
+      request.resourceOwnerIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceOwnerIds, "ResourceOwnerIds", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      query["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerIdsShrink)) {
+      query["ResourceOwnerIds"] = request.resourceOwnerIdsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTopRiskyResources",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2810,37 +811,41 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTopRiskyResourcesResponse>(await this.callApi(params, req, runtime), new DescribeTopRiskyResourcesResponse({}));
+    return $dara.cast<$_model.DescribeTopRiskyResourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTopRiskyResourcesResponse({}));
   }
 
   /**
+   * Lists the most threatened resources.
+   * 
    * @param request - DescribeTopRiskyResourcesRequest
    * @returns DescribeTopRiskyResourcesResponse
    */
-  async describeTopRiskyResources(request: DescribeTopRiskyResourcesRequest): Promise<DescribeTopRiskyResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeTopRiskyResources(request: $_model.DescribeTopRiskyResourcesRequest): Promise<$_model.DescribeTopRiskyResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTopRiskyResourcesWithOptions(request, headers, runtime);
   }
 
   /**
+   * Disables the data protection score for a cloud product.
+   * 
    * @param request - DisableCheckProductRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableCheckProductResponse
    */
-  async disableCheckProductWithOptions(request: DisableCheckProductRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableCheckProductResponse> {
-    Util.validateModel(request);
+  async disableCheckProductWithOptions(request: $_model.DisableCheckProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableCheckProductResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisableCheckProduct",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2851,37 +856,41 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisableCheckProductResponse>(await this.callApi(params, req, runtime), new DisableCheckProductResponse({}));
+    return $dara.cast<$_model.DisableCheckProductResponse>(await this.callApi(params, req, runtime), new $_model.DisableCheckProductResponse({}));
   }
 
   /**
+   * Disables the data protection score for a cloud product.
+   * 
    * @param request - DisableCheckProductRequest
    * @returns DisableCheckProductResponse
    */
-  async disableCheckProduct(request: DisableCheckProductRequest): Promise<DisableCheckProductResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async disableCheckProduct(request: $_model.DisableCheckProductRequest): Promise<$_model.DisableCheckProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableCheckProductWithOptions(request, headers, runtime);
   }
 
   /**
+   * Disables the data protection score for a resource.
+   * 
    * @param request - DisableCheckResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableCheckResourceResponse
    */
-  async disableCheckResourceWithOptions(request: DisableCheckResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DisableCheckResourceResponse> {
-    Util.validateModel(request);
+  async disableCheckResourceWithOptions(request: $_model.DisableCheckResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableCheckResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceArn)) {
+    if (!$dara.isNull(request.resourceArn)) {
       body["ResourceArn"] = request.resourceArn;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisableCheckResource",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2892,37 +901,41 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisableCheckResourceResponse>(await this.callApi(params, req, runtime), new DisableCheckResourceResponse({}));
+    return $dara.cast<$_model.DisableCheckResourceResponse>(await this.callApi(params, req, runtime), new $_model.DisableCheckResourceResponse({}));
   }
 
   /**
+   * Disables the data protection score for a resource.
+   * 
    * @param request - DisableCheckResourceRequest
    * @returns DisableCheckResourceResponse
    */
-  async disableCheckResource(request: DisableCheckResourceRequest): Promise<DisableCheckResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async disableCheckResource(request: $_model.DisableCheckResourceRequest): Promise<$_model.DisableCheckResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableCheckResourceWithOptions(request, headers, runtime);
   }
 
   /**
+   * Enables data protection scoring for a cloud product.
+   * 
    * @param request - EnableCheckProductRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableCheckProductResponse
    */
-  async enableCheckProductWithOptions(request: EnableCheckProductRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableCheckProductResponse> {
-    Util.validateModel(request);
+  async enableCheckProductWithOptions(request: $_model.EnableCheckProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCheckProductResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EnableCheckProduct",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2933,37 +946,41 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableCheckProductResponse>(await this.callApi(params, req, runtime), new EnableCheckProductResponse({}));
+    return $dara.cast<$_model.EnableCheckProductResponse>(await this.callApi(params, req, runtime), new $_model.EnableCheckProductResponse({}));
   }
 
   /**
+   * Enables data protection scoring for a cloud product.
+   * 
    * @param request - EnableCheckProductRequest
    * @returns EnableCheckProductResponse
    */
-  async enableCheckProduct(request: EnableCheckProductRequest): Promise<EnableCheckProductResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async enableCheckProduct(request: $_model.EnableCheckProductRequest): Promise<$_model.EnableCheckProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableCheckProductWithOptions(request, headers, runtime);
   }
 
   /**
+   * Enables data protection scoring for a single resource.
+   * 
    * @param request - EnableCheckResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableCheckResourceResponse
    */
-  async enableCheckResourceWithOptions(request: EnableCheckResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EnableCheckResourceResponse> {
-    Util.validateModel(request);
+  async enableCheckResourceWithOptions(request: $_model.EnableCheckResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCheckResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceArn)) {
+    if (!$dara.isNull(request.resourceArn)) {
       body["ResourceArn"] = request.resourceArn;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EnableCheckResource",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -2974,29 +991,33 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableCheckResourceResponse>(await this.callApi(params, req, runtime), new EnableCheckResourceResponse({}));
+    return $dara.cast<$_model.EnableCheckResourceResponse>(await this.callApi(params, req, runtime), new $_model.EnableCheckResourceResponse({}));
   }
 
   /**
+   * Enables data protection scoring for a single resource.
+   * 
    * @param request - EnableCheckResourceRequest
    * @returns EnableCheckResourceResponse
    */
-  async enableCheckResource(request: EnableCheckResourceRequest): Promise<EnableCheckResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async enableCheckResource(request: $_model.EnableCheckResourceRequest): Promise<$_model.EnableCheckResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableCheckResourceWithOptions(request, headers, runtime);
   }
 
   /**
+   * Queries the status of the Backup and Disaster Recovery Center.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBdrcServiceResponse
    */
-  async getBdrcServiceWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetBdrcServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getBdrcServiceWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBdrcServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetBdrcService",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -3007,28 +1028,394 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetBdrcServiceResponse>(await this.callApi(params, req, runtime), new GetBdrcServiceResponse({}));
+    return $dara.cast<$_model.GetBdrcServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetBdrcServiceResponse({}));
   }
 
   /**
+   * Queries the status of the Backup and Disaster Recovery Center.
    * @returns GetBdrcServiceResponse
    */
-  async getBdrcService(): Promise<GetBdrcServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getBdrcService(): Promise<$_model.GetBdrcServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getBdrcServiceWithOptions(headers, runtime);
   }
 
   /**
+   * Retrieves a single message.
+   * 
+   * @param request - GetMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMessageResponse
+   */
+  async getMessageWithOptions(MessageId: string, request: $_model.GetMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMessageResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMessage",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/messages/${$dara.URL.percentEncode(MessageId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMessageResponse>(await this.callApi(params, req, runtime), new $_model.GetMessageResponse({}));
+  }
+
+  /**
+   * Retrieves a single message.
+   * 
+   * @param request - GetMessageRequest
+   * @returns GetMessageResponse
+   */
+  async getMessage(MessageId: string, request: $_model.GetMessageRequest): Promise<$_model.GetMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMessageWithOptions(MessageId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a protection policy.
+   * 
+   * @param request - GetProtectionPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProtectionPolicyResponse
+   */
+  async getProtectionPolicyWithOptions(ProtectionPolicyId: string, request: $_model.GetProtectionPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProtectionPolicyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProtectionPolicy",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/protection-policies/${$dara.URL.percentEncode(ProtectionPolicyId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProtectionPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetProtectionPolicyResponse({}));
+  }
+
+  /**
+   * Retrieves a protection policy.
+   * 
+   * @param request - GetProtectionPolicyRequest
+   * @returns GetProtectionPolicyResponse
+   */
+  async getProtectionPolicy(ProtectionPolicyId: string, request: $_model.GetProtectionPolicyRequest): Promise<$_model.GetProtectionPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProtectionPolicyWithOptions(ProtectionPolicyId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a single resource category.
+   * 
+   * @param request - GetResourceCategoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceCategoryResponse
+   */
+  async getResourceCategoryWithOptions(request: $_model.GetResourceCategoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceCategoryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      query["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceCategory",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resource-categories/get`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceCategoryResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceCategoryResponse({}));
+  }
+
+  /**
+   * Retrieves a single resource category.
+   * 
+   * @param request - GetResourceCategoryRequest
+   * @returns GetResourceCategoryResponse
+   */
+  async getResourceCategory(request: $_model.GetResourceCategoryRequest): Promise<$_model.GetResourceCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getResourceCategoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries messages in batches.
+   * 
+   * @param request - ListMessagesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMessagesResponse
+   */
+  async listMessagesWithOptions(request: $_model.ListMessagesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMessagesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.messageLevel)) {
+      query["MessageLevel"] = request.messageLevel;
+    }
+
+    if (!$dara.isNull(request.messageTimeEarlierThan)) {
+      query["MessageTimeEarlierThan"] = request.messageTimeEarlierThan;
+    }
+
+    if (!$dara.isNull(request.messageTimeLaterThan)) {
+      query["MessageTimeLaterThan"] = request.messageTimeLaterThan;
+    }
+
+    if (!$dara.isNull(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMessages",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/messages`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMessagesResponse>(await this.callApi(params, req, runtime), new $_model.ListMessagesResponse({}));
+  }
+
+  /**
+   * Queries messages in batches.
+   * 
+   * @param request - ListMessagesRequest
+   * @returns ListMessagesResponse
+   */
+  async listMessages(request: $_model.ListMessagesRequest): Promise<$_model.ListMessagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMessagesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a list of protection policies.
+   * 
+   * @param request - ListProtectionPoliciesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProtectionPoliciesResponse
+   */
+  async listProtectionPoliciesWithOptions(request: $_model.ListProtectionPoliciesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProtectionPoliciesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.protectionPolicyId)) {
+      query["ProtectionPolicyId"] = request.protectionPolicyId;
+    }
+
+    if (!$dara.isNull(request.protectionPolicyRegionId)) {
+      query["ProtectionPolicyRegionId"] = request.protectionPolicyRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProtectionPolicies",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/protection-policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProtectionPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListProtectionPoliciesResponse({}));
+  }
+
+  /**
+   * Retrieves a list of protection policies.
+   * 
+   * @param request - ListProtectionPoliciesRequest
+   * @returns ListProtectionPoliciesResponse
+   */
+  async listProtectionPolicies(request: $_model.ListProtectionPoliciesRequest): Promise<$_model.ListProtectionPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProtectionPoliciesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the application history of the protection policy.
+   * 
+   * @param request - ListProtectionPolicyApplicationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProtectionPolicyApplicationsResponse
+   */
+  async listProtectionPolicyApplicationsWithOptions(ProtectionPolicyId: string, request: $_model.ListProtectionPolicyApplicationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProtectionPolicyApplicationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyStatus)) {
+      query["ApplyStatus"] = request.applyStatus;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.subProtectionPolicyType)) {
+      query["SubProtectionPolicyType"] = request.subProtectionPolicyType;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProtectionPolicyApplications",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/protection-policies/${$dara.URL.percentEncode(ProtectionPolicyId)}/list-applications`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProtectionPolicyApplicationsResponse>(await this.callApi(params, req, runtime), new $_model.ListProtectionPolicyApplicationsResponse({}));
+  }
+
+  /**
+   * Retrieves the application history of the protection policy.
+   * 
+   * @param request - ListProtectionPolicyApplicationsRequest
+   * @returns ListProtectionPolicyApplicationsResponse
+   */
+  async listProtectionPolicyApplications(ProtectionPolicyId: string, request: $_model.ListProtectionPolicyApplicationsRequest): Promise<$_model.ListProtectionPolicyApplicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProtectionPolicyApplicationsWithOptions(ProtectionPolicyId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a list of resource categories.
+   * 
+   * @param request - ListResourceCategoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceCategoriesResponse
+   */
+  async listResourceCategoriesWithOptions(request: $_model.ListResourceCategoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourceCategoriesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      query["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListResourceCategories",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resource-categories/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListResourceCategoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListResourceCategoriesResponse({}));
+  }
+
+  /**
+   * Retrieves a list of resource categories.
+   * 
+   * @param request - ListResourceCategoriesRequest
+   * @returns ListResourceCategoriesResponse
+   */
+  async listResourceCategories(request: $_model.ListResourceCategoriesRequest): Promise<$_model.ListResourceCategoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listResourceCategoriesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Enables the Backup and Disaster Recovery Center.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenBdrcServiceResponse
    */
-  async openBdrcServiceWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OpenBdrcServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async openBdrcServiceWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.OpenBdrcServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OpenBdrcService",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -3039,36 +1426,159 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<OpenBdrcServiceResponse>(await this.callApi(params, req, runtime), new OpenBdrcServiceResponse({}));
+    return $dara.cast<$_model.OpenBdrcServiceResponse>(await this.callApi(params, req, runtime), new $_model.OpenBdrcServiceResponse({}));
   }
 
   /**
+   * Enables the Backup and Disaster Recovery Center.
    * @returns OpenBdrcServiceResponse
    */
-  async openBdrcService(): Promise<OpenBdrcServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async openBdrcService(): Promise<$_model.OpenBdrcServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.openBdrcServiceWithOptions(headers, runtime);
   }
 
   /**
+   * Updates a protection policy.
+   * 
+   * @param tmpReq - UpdateProtectionPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProtectionPolicyResponse
+   */
+  async updateProtectionPolicyWithOptions(ProtectionPolicyId: string, tmpReq: $_model.UpdateProtectionPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProtectionPolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateProtectionPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.boundResourceCategoryIds)) {
+      request.boundResourceCategoryIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.boundResourceCategoryIds, "BoundResourceCategoryIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.subProtectionPolicies)) {
+      request.subProtectionPoliciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subProtectionPolicies, "SubProtectionPolicies", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.boundResourceCategoryIdsShrink)) {
+      body["BoundResourceCategoryIds"] = request.boundResourceCategoryIdsShrink;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.protectionPolicyName)) {
+      body["ProtectionPolicyName"] = request.protectionPolicyName;
+    }
+
+    if (!$dara.isNull(request.subProtectionPoliciesShrink)) {
+      body["SubProtectionPolicies"] = request.subProtectionPoliciesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProtectionPolicy",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/protection-policies/${$dara.URL.percentEncode(ProtectionPolicyId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProtectionPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProtectionPolicyResponse({}));
+  }
+
+  /**
+   * Updates a protection policy.
+   * 
+   * @param request - UpdateProtectionPolicyRequest
+   * @returns UpdateProtectionPolicyResponse
+   */
+  async updateProtectionPolicy(ProtectionPolicyId: string, request: $_model.UpdateProtectionPolicyRequest): Promise<$_model.UpdateProtectionPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateProtectionPolicyWithOptions(ProtectionPolicyId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a resource category.
+   * 
+   * @param request - UpdateResourceCategoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceCategoryResponse
+   */
+  async updateResourceCategoryWithOptions(request: $_model.UpdateResourceCategoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateResourceCategoryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceCategoryId)) {
+      body["ResourceCategoryId"] = request.resourceCategoryId;
+    }
+
+    if (!$dara.isNull(request.resourceCategoryName)) {
+      body["ResourceCategoryName"] = request.resourceCategoryName;
+    }
+
+    if (!$dara.isNull(request.resourceMatcher)) {
+      body["ResourceMatcher"] = request.resourceMatcher;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateResourceCategory",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resource-categories/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateResourceCategoryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateResourceCategoryResponse({}));
+  }
+
+  /**
+   * Updates a resource category.
+   * 
+   * @param request - UpdateResourceCategoryRequest
+   * @returns UpdateResourceCategoryResponse
+   */
+  async updateResourceCategory(request: $_model.UpdateResourceCategoryRequest): Promise<$_model.UpdateResourceCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateResourceCategoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Updates the resource list. When you call this operation, an asynchronous task is triggered to update your resource list and data protection score.
+   * 
    * @param request - UpdateResourcesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateResourcesResponse
    */
-  async updateResourcesWithOptions(request: UpdateResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourcesResponse> {
-    Util.validateModel(request);
+  async updateResourcesWithOptions(request: $_model.UpdateResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateResourcesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateResources",
       version: "2023-08-08",
       protocol: "HTTPS",
@@ -3079,15 +1589,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateResourcesResponse>(await this.callApi(params, req, runtime), new UpdateResourcesResponse({}));
+    return $dara.cast<$_model.UpdateResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateResourcesResponse({}));
   }
 
   /**
+   * Updates the resource list. When you call this operation, an asynchronous task is triggered to update your resource list and data protection score.
+   * 
    * @param request - UpdateResourcesRequest
    * @returns UpdateResourcesResponse
    */
-  async updateResources(request: UpdateResourcesRequest): Promise<UpdateResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateResources(request: $_model.UpdateResourcesRequest): Promise<$_model.UpdateResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourcesWithOptions(request, headers, runtime);
   }
