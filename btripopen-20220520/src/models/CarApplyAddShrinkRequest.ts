@@ -16,7 +16,7 @@ export class CarApplyAddShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cities for car service. Separate multiple cities with Chinese commas (，).
-   * Note: A maximum of 10 cities can be specified. The values in city and city_code_set must correspond one-to-one.
+   * Note: A maximum of 10 cities are supported. The values in city and city_code_set must correspond one to one.
    * 
    * @example
    * 北京，杭州
@@ -26,7 +26,7 @@ export class CarApplyAddShrinkRequest extends $dara.Model {
    * @remarks
    * The city code set for intra-city car service. Separate multiple cities with Chinese commas (，).
    * Note: 1) Either city_code_set or city is required. If both are specified, city_code_set takes precedence.
-   * A maximum of 10 cities can be specified.
+   * A maximum of 10 cities are supported.
    * 
    * @example
    * 110100，330100
@@ -88,7 +88,7 @@ export class CarApplyAddShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the third-party cost center associated with the approval form.
-   * >Warning: This field is required. To make it optional, contact the operations team.
+   * >Warning: This field is required. To make it optional, contact operations.
    * 
    * @example
    * QA1411
@@ -98,7 +98,7 @@ export class CarApplyAddShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the third-party invoice header associated with the approval form.
    * 
-   * >Warning: This field is required. To make it optional, contact the operations team.
+   * >Warning: This field is required. To make it optional, contact operations.
    * 
    * @example
    * GA15131
@@ -114,10 +114,12 @@ export class CarApplyAddShrinkRequest extends $dara.Model {
   timesTotal?: number;
   /**
    * @remarks
-   * The type of available usage count for the approval form. If the enterprise does not need to limit the number of times the approval form can be used, set this parameter to 1 (unlimited) and set both times_total and times_used to 0. Valid values:
+   * The usage count type of the approval form. If the enterprise does not need to limit the number of times the approval form can be used, set this parameter to 1 (unlimited) and set both times_total and times_used to 0.
    * 
-   * - 1: unlimited.
-   * - 2: user-specified count.
+   * Valid values:
+   * 
+   * - 1: Unlimited.
+   * - 2: User-specified count.
    * 
    * @example
    * 1

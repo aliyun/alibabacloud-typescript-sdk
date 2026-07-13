@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class VatInvoiceScanQueryHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * A header parameter obtained from the "Enterprise access credential" API operation (added in the header). In HTTP mode, you can use corp_token=value in the URL as a substitute.
+   * 
+   * @example
+   * feth00jqwls
+   */
   xAcsBtripSoCorpToken?: string;
   static names(): { [key: string]: string } {
     return {
