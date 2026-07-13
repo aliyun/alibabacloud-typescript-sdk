@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of task IDs.
+   * The list of task IDs.
    */
   taskIds?: string[];
   static names(): { [key: string]: string } {

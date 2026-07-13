@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMobileAgentPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of package IDs.
+   * The list of resource plan IDs.
    */
   mobileAgentPackageIds?: string[];
   /**

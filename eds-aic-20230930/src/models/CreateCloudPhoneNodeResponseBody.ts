@@ -13,7 +13,7 @@ export class CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel extends $d
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The order ID of the bandwidth package.
+   * The bandwidth plan order ID.
    * 
    * @example
    * 25954415983*****
@@ -45,12 +45,12 @@ export class CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel extends $d
 export class CreateCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
   /**
    * @remarks
-   * A list of Cloud Phone instance IDs.
+   * The list of cloud phone instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The ID of the Cloud Phone matrix.
+   * The cloud phone matrix ID.
    * 
    * @example
    * cpn-e5kxgjyt8s1mb****
@@ -85,12 +85,12 @@ export class CreateCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
 export class CreateCloudPhoneNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the bandwidth package order.
+   * The bandwidth plan order information.
    */
   networkPackageOrderModel?: CreateCloudPhoneNodeResponseBodyNetworkPackageOrderModel;
   /**
    * @remarks
-   * A list of Cloud Phone matrices.
+   * The cloud phone matrix information.
    */
   nodeInfos?: CreateCloudPhoneNodeResponseBodyNodeInfos[];
   /**

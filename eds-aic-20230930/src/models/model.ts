@@ -119,6 +119,7 @@ export { RefreshAuthTokensResponseBodyDataTokens } from './RefreshAuthTokensResp
 export { RefreshAuthTokensResponseBodyData } from './RefreshAuthTokensResponseBody';
 export { ResetAndroidInstancesInGroupResponseBodyTasksChildTasks } from './ResetAndroidInstancesInGroupResponseBody';
 export { ResetAndroidInstancesInGroupResponseBodyTasks } from './ResetAndroidInstancesInGroupResponseBody';
+export { ResumeAgentTaskRequestClarificationAnswers } from './ResumeAgentTaskRequest';
 export { ResumeAgentTaskResponseBodyTasks } from './ResumeAgentTaskResponseBody';
 export { RunAgentTaskRequestTargets } from './RunAgentTaskRequest';
 export { RunAgentTaskResponseBodyTasks } from './RunAgentTaskResponseBody';

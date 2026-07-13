@@ -45,7 +45,7 @@ export class CreateAndroidInstanceGroupShrinkRequestTag extends $dara.Model {
 export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of instance groups to create. Valid values: 1 to 100. Default value: 1.
+   * The number of instance groups. Default value: 1. Maximum value: 100.
    * 
    * @example
    * 8
@@ -61,7 +61,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for subscription resources. Default value: false.
+   * Specifies whether to enable auto-renewal. Default value: false.
    * 
    * @example
    * false
@@ -71,7 +71,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   bandwidthPackageType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions where Cloud Phone instances are available.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions where cloud phone instances can be purchased.
    * 
    * This parameter is required.
    * 
@@ -79,9 +79,10 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  channelCookie?: string;
   /**
    * @remarks
-   * The billing method.
+   * The billing type.
    * 
    * @example
    * PostPaid
@@ -89,7 +90,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * A client-generated token to ensure request idempotence. This parameter prevents duplicate requests. The token can be up to 100 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent repeated submissions. The value cannot exceed 100 characters in length.
    * 
    * @example
    * asadbuvwiabdbvchj****
@@ -113,7 +114,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   gpuAcceleration?: boolean;
   /**
    * @remarks
-   * The image ID. You can call the [DescribeImageList](~~DescribeImageList~~) operation to query available images for Cloud Phone instances.
+   * The image ID. You can call [DescribeImageList](~~DescribeImageList~~) to query the list of cloud phone images.
    * 
    * This parameter is required.
    * 
@@ -123,9 +124,9 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the instance group.
+   * The instance group name.
    * 
-   * > The name can be up to 30 characters in length. It must start with an uppercase or lowercase letter or a Chinese character, and cannot start with `http://` or `https://`. The name can contain only Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * > The instance group name cannot exceed 30 characters in length. It must start with an uppercase letter, lowercase letter, or Chinese character. It cannot start with `http://` or `https://`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * Cloud phoneA
@@ -133,7 +134,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   instanceGroupName?: string;
   /**
    * @remarks
-   * The instance group specification. You can call the [DescribeSpec](~~DescribeSpec~~) operation to query the specifications that are available for Cloud Phone instances.
+   * The instance group specification. You can call [DescribeSpec](~~DescribeSpec~~) to query the specifications available for cloud phone instances.
    * 
    * This parameter is required.
    * 
@@ -152,9 +153,9 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   ipv6Bandwidth?: number;
   /**
    * @remarks
-   * The key pair ID. If you specify a valid key pair ID when you create the instance group, the system attaches the key pair to all successfully created instances. No separate API call is required to attach the key pair.
+   * The key pair ID. If you specify a valid key pair ID when creating an instance group, the key pair is bound to all instances that are successfully created, without the need to call the bindng operation again.
    * 
-   * > Attaching a key pair during a scale-out operation is not supported.
+   * > Binding a key pair during scale-out is not supported.
    * 
    * @example
    * kp-7o9xywwfutc1l****
@@ -164,7 +165,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The number of instances in the instance group. The maximum value is 100.
+   * The number of instances in the instance group. Maximum value: 100.
    * 
    * @example
    * 1
@@ -174,9 +175,9 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The network ID.
    * 
-   * - To create instances in a Shared Network: This parameter is optional. Specify the ID of a **Shared Network**. You can find the ID on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no Shared Network is available in the console, you can omit this parameter. The system automatically creates a Shared Network when you create the instance group.
+   * - To create a shared network instance: the network ID is optional. Specify the network ID of the **Shared Network** type on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no shared network exists in the console, you can leave this parameter empty. A shared network is automatically created when the instance group is created.
    * 
-   * - To create instances in a VPC: This parameter is required. Specify the ID of a **VPC**. You can find the ID on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no VPC is available in the console, you must create one first.
+   * - To create a VPC network instance: the network ID is required. Specify the network ID of the **VPC Network** type on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no VPC network exists in the console, create a network first.
    * 
    * @example
    * cn-hangzhou+dir-745976****
@@ -189,7 +190,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription duration. The PeriodUnit parameter specifies the unit.
+   * The subscription duration of the resource. The unit is specified by PeriodUnit.
    * 
    * @example
    * 1
@@ -205,7 +206,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The policy ID. You can call the [ListPolicyGroups](~~ListPolicyGroups~~) operation to query available policies.
+   * The policy ID. You can call [ListPolicyGroups](~~ListPolicyGroups~~) to query the list of policies.
    * 
    * @example
    * pg-b7bxrrwxkijjh****
@@ -216,16 +217,16 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   streamMode?: number;
   /**
    * @remarks
-   * The resource tags.
+   * The tags of the resource.
    */
   tag?: CreateAndroidInstanceGroupShrinkRequestTag[];
   /**
    * @remarks
-   * The vSwitch ID. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query available vSwitches.
+   * The vSwitch ID. You can call [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) to query the list of vSwitches.
    * 
-   * - If you create instances in a Shared Network, omit this parameter.
+   * - To create a shared network instance: leave this parameter empty.
    * 
-   * - If you create instances in a VPC, this parameter is required. The system creates the instances in the specified vSwitch.
+   * - To create a VPC network instance: the vSwitch ID is required. The specified vSwitch is used to create the instance.
    * 
    * @example
    * vsw-uf61uvzhz8ejaw776****
@@ -239,6 +240,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
       bandwidthPackageId: 'BandwidthPackageId',
       bandwidthPackageType: 'BandwidthPackageType',
       bizRegionId: 'BizRegionId',
+      channelCookie: 'ChannelCookie',
       chargeType: 'ChargeType',
       clientToken: 'ClientToken',
       enableIpv6: 'EnableIpv6',
@@ -273,6 +275,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
       bandwidthPackageId: 'string',
       bandwidthPackageType: 'string',
       bizRegionId: 'string',
+      channelCookie: 'string',
       chargeType: 'string',
       clientToken: 'string',
       enableIpv6: 'boolean',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the credit package.
+   * The ID of the credit booster package.
    * 
    * @example
    * crp-xagydbhfkah****
@@ -13,7 +13,7 @@ export class DescribeCreditPackageRequest extends $dara.Model {
   creditPackageId?: string;
   /**
    * @remarks
-   * The status of the credit package.
+   * The status of the credit booster package.
    * 
    * @example
    * ACTIVE

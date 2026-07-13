@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMobileAgentPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of packages.
+   * The number of resource plans.
    * 
    * @example
    * 1
@@ -13,13 +13,16 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   amount?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto-payment. Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - **true**: Enables auto-payment. You must ensure that your account balance is sufficient.
+   * - **true**: enables automatic payment. Make sure that your account balance is sufficient.
+   * - **false** (default): generates an order without charging the account.
    * 
-   * - **false** (default): An unpaid order is generated. Your account is not charged.
    * 
-   * > If your account balance is insufficient, you can set this parameter to `false` to generate an unpaid order. Then, you can log in to the Wuying Cloud Phone management console to pay for the order.
+   * 
+   * 
+   * > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated. You can log on to the CloudPhone console to complete the payment.
+   * >
    * 
    * @example
    * false
@@ -29,9 +32,8 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the instance. Valid values:
    * 
-   * - **true**: Enables auto-renewal.
-   * 
-   * - **false** (default): Disables auto-renewal.
+   * * **true**: enables auto-renewal.
+   * * **false** (default): disables auto-renewal.
    * 
    * @example
    * false
@@ -39,15 +41,16 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The region where the instance is located. Currently, only `cn-hangzhou` is supported.
+   * The region in which the instance resides. Currently, only cn-hangzhou is supported.
    * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
+  channelCookie?: string;
   /**
    * @remarks
-   * The credit amount.
+   * The credit quota.
    * 
    * @example
    * 10000.0
@@ -64,7 +67,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the node instance.
    * 
    * @example
    * CloudPhone
@@ -72,7 +75,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The package specification.
+   * The resource plan specification.
    * 
    * @example
    * advanced
@@ -81,7 +84,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   packageSpecId?: number;
   /**
    * @remarks
-   * The callback URL to which the user is redirected after a successful payment.
+   * The redirect URL after a successful payment.
    * 
    * @example
    * https://aim.wuying.aliyun.com/nodes
@@ -89,7 +92,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   paidCallbackUrl?: string;
   /**
    * @remarks
-   * The subscription period. The unit of the period is specified by the `PeriodUnit` parameter.
+   * The duration for which you want to purchase the resource. The unit is specified by `PeriodUnit`.
    * 
    * @example
    * 1
@@ -97,12 +100,11 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription period.
+   * The unit of the duration for which you want to purchase the resource.
+   * 
    * Valid values:
-   * 
-   * - **Month**
-   * 
-   * - **Year**
+   * - **Month**: month.
+   * - **Year**: year.
    * 
    * @example
    * Month
@@ -110,7 +112,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotional campaign.
    * 
    * @example
    * 50003308011****
@@ -122,6 +124,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       bizRegionId: 'BizRegionId',
+      channelCookie: 'ChannelCookie',
       creditAmount: 'CreditAmount',
       creditConfig: 'CreditConfig',
       imageId: 'ImageId',
@@ -141,6 +144,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       bizRegionId: 'string',
+      channelCookie: 'string',
       creditAmount: 'string',
       creditConfig: 'string',
       imageId: 'string',

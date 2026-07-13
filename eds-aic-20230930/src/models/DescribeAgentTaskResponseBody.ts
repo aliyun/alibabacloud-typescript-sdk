@@ -5,33 +5,35 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The task\\"s current status. Valid values:
+   * The current status of the task. Valid values:
    * 
-   * `PENDING`: The task is being created.
+   * PENDING: The task is being created.
    * 
-   * `RUNNING`: The task is running.
+   * RUNNING: The task is running.
    * 
-   * `COMPLETED`: The task has completed.
+   * COMPLETED: The task is completed.
    * 
-   * `FAILED`: The task failed.
+   * FAILED: The task failed.
    * 
-   * `TIMEOUT`: The task timed out.
+   * TIMEOUT: The task execution timed out.
    * 
    * @example
    * COMPLETED
    */
   currentStatus?: string;
+  digestSource?: string;
   /**
    * @remarks
-   * The mobile node ID.
+   * The Mobile node ID.
    * 
    * @example
    * acp-anzzuho371azi44xr
    */
   instanceId?: string;
+  reason?: string;
   /**
    * @remarks
-   * The task\\"s creation time, in ISO 8601 format.
+   * The time when the task was created, in ISO 8601 format.
    * 
    * @example
    * 2026-04-13T17:42:19Z
@@ -45,9 +47,10 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
    * 30
    */
   steps?: string;
+  taskDigest?: string;
   /**
    * @remarks
-   * The task duration. This field is returned only when `CurrentStatus` is `FAILED` or `COMPLETED`.
+   * The task duration. This field is returned only when CurrentStatus is FAILED or COMPLETED.
    * 
    * @example
    * 50
@@ -55,7 +58,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   taskDuration?: string;
   /**
    * @remarks
-   * The globally unique task ID.
+   * The task ID, which is globally unique.
    * 
    * @example
    * t-imr0fufqd7cle****
@@ -63,7 +66,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task result. This field is returned only when `CurrentStatus` is `COMPLETED` or `FAILED`.
+   * The task result in the desired state. This field is returned only when CurrentStatus is COMPLETED or FAILED.
    * 
    * @example
    * Download DingTalk succeeded.
@@ -71,7 +74,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   taskResult?: string;
   /**
    * @remarks
-   * The user prompt that the Agent uses to perform the task.
+   * The user instruction in natural language. The Agent performs operations based on this instruction.
    * 
    * @example
    * Download DingTalk from App Store
@@ -80,9 +83,12 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       currentStatus: 'CurrentStatus',
+      digestSource: 'DigestSource',
       instanceId: 'InstanceId',
+      reason: 'Reason',
       runningAt: 'RunningAt',
       steps: 'Steps',
+      taskDigest: 'TaskDigest',
       taskDuration: 'TaskDuration',
       taskId: 'TaskId',
       taskResult: 'TaskResult',
@@ -93,9 +99,12 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       currentStatus: 'string',
+      digestSource: 'string',
       instanceId: 'string',
+      reason: 'string',
       runningAt: 'string',
       steps: 'string',
+      taskDigest: 'string',
       taskDuration: 'string',
       taskId: 'string',
       taskResult: 'string',
@@ -115,7 +124,7 @@ export class DescribeAgentTaskResponseBodyTasks extends $dara.Model {
 export class DescribeAgentTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The API status code.
    * 
    * @example
    * For example, "200" indicates success.
@@ -123,7 +132,7 @@ export class DescribeAgentTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The task count.
+   * The number of tasks.
    * 
    * @example
    * 1
@@ -131,7 +140,7 @@ export class DescribeAgentTaskResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * Success.
@@ -147,7 +156,7 @@ export class DescribeAgentTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of tasks.
+   * The list of tasks.
    */
   tasks?: DescribeAgentTaskResponseBodyTasks[];
   static names(): { [key: string]: string } {

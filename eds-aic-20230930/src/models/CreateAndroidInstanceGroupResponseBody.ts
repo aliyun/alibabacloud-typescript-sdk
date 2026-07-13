@@ -13,7 +13,7 @@ export class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos extends $d
   instanceGroupId?: string;
   /**
    * @remarks
-   * The instance IDs.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
@@ -71,12 +71,12 @@ export class CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel exte
 export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance group IDs.
+   * The list of instance group IDs.
    */
   instanceGroupIds?: string[];
   /**
    * @remarks
-   * The created instance groups.
+   * The instance group information.
    */
   instanceGroupInfos?: CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos[];
   networkPackageOrderModel?: CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel;

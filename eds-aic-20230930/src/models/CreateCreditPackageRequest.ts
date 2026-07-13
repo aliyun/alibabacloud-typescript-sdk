@@ -5,18 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCreditPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable auto-payment. Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - **true**: Enables auto-payment. Make sure that your account has a sufficient balance.
+   * - **true**: enables automatic payment. Make sure that your account balance is sufficient.
+   * - **false** (default): generates an order without charging your account.
    * 
-   * - **false** (Default): Creates an unpaid order.
    * 
-   * > If your account has an insufficient balance, you can set this parameter to false. This generates an unpaid order. You can then pay for the order in the Wuying Cloud Phone management console.
+   * 
+   * 
+   * > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated, and you can log on to the Elastic Cloud Phone console to complete the payment.
    * 
    * @example
    * false
    */
   autoPay?: boolean;
+  channelCookie?: string;
   /**
    * @remarks
    * The number of credits.
@@ -25,9 +28,10 @@ export class CreateCreditPackageRequest extends $dara.Model {
    * 1000
    */
   creditAmount?: string;
+  packageAmount?: string;
   /**
    * @remarks
-   * The subscription duration. The PeriodUnit parameter specifies the unit for the duration.
+   * The duration for which you want to purchase the resource. The unit is specified by PeriodUnit.
    * 
    * @example
    * 6
@@ -35,12 +39,11 @@ export class CreateCreditPackageRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration.
+   * The unit of the duration for which you want to purchase the resource.
+   * 
    * Valid values:
-   * 
-   * - **Month**: The period is measured in months.
-   * 
-   * - **Year**: The period is measured in years.
+   * - **Month**: month.
+   * - **Year**: year.
    * 
    * @example
    * Month
@@ -48,7 +51,7 @@ export class CreateCreditPackageRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotional campaign.
    * 
    * @example
    * 50003308011****
@@ -57,7 +60,9 @@ export class CreateCreditPackageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      channelCookie: 'ChannelCookie',
       creditAmount: 'CreditAmount',
+      packageAmount: 'PackageAmount',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
@@ -67,7 +72,9 @@ export class CreateCreditPackageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      channelCookie: 'string',
       creditAmount: 'string',
+      packageAmount: 'string',
       period: 'number',
       periodUnit: 'string',
       promotionId: 'string',

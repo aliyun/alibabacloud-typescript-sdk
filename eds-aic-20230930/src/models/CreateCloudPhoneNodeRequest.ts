@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudPhoneNodeRequestDisplayConfig extends $dara.Model {
   /**
    * @remarks
-   * The dots per inch (DPI). Valid values: 72 to 600.
+   * The DPI. Valid values: 72 to 600.
    * 
    * @example
    * 240
@@ -13,7 +13,7 @@ export class CreateCloudPhoneNodeRequestDisplayConfig extends $dara.Model {
   dpi?: number;
   /**
    * @remarks
-   * > This parameter is not yet publicly available.
+   * > This parameter is not yet available for public use.
    * 
    * @example
    * null
@@ -55,7 +55,7 @@ export class CreateCloudPhoneNodeRequestDisplayConfig extends $dara.Model {
 export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the bandwidth package.
+   * The name of the bandwidth plan.
    * 
    * @example
    * inst-bandwidth-pkg-1
@@ -71,21 +71,17 @@ export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The billing method for the bandwidth package. Valid values:
+   * The billable methods of the bandwidth plan. Valid values:
    * 
    * <props="china">
    * 
    * - **PayByBandwidth** (default): pay-by-bandwidth.
+   * - **PayBy95**: pay-by-95th-percentile. IPv6 Internet bandwidth does not support pay-by-95th-percentile billing by default. To use this billing method, contact your account manager.
    * 
-   * - **PayBy95**: pay-by-95th-percentile. Note: This billing method is not supported for IPv6 public bandwidth by default. To enable it, contact your account manager.
-   * 
-   * 
-   * 
-   * \\-
    * 
    * <props="intl">
    * 
-   * **PayByBandwidth** (default): pay-by-bandwidth.
+   * - **PayByBandwidth** (default): pay-by-bandwidth.
    * 
    * @example
    * PayByBandwidth
@@ -93,7 +89,7 @@ export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The number of Cloud Phone instances that share one elastic IP address (EIP).
+   * The ratio of IP addresses to instances.
    * 
    * @example
    * 128
@@ -109,7 +105,7 @@ export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The maximum bandwidth of the bandwidth package, in Mbit/s. This value limits the aggregate bandwidth of all instances that use the package.
+   * The maximum bandwidth of the bandwidth plan. Unit: Mbit/s. The total bandwidth of all instances that use this bandwidth plan is subject to this limit.
    * 
    * @example
    * 200
@@ -118,7 +114,7 @@ export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
   paidCallbackUrl?: string;
   /**
    * @remarks
-   * The billing method.
+   * The billing type.
    * 
    * @example
    * PostPaid
@@ -228,7 +224,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The ID of the Shared Bandwidth instance.
+   * The ID of the Internet Shared Bandwidth instance.
    * 
    * @example
    * cbwp-uf6g3hgg*******8s3lxiob3
@@ -252,9 +248,10 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  channelCookie?: string;
   /**
    * @remarks
-   * The billing method. Only the subscription billing method is supported.
+   * The billing type. Only subscription is supported.
    * 
    * @example
    * PrePaid
@@ -262,7 +259,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The number of Cloud Phone matrices to purchase.
+   * The number of cloud phone matrices to purchase.
    * 
    * @example
    * 1
@@ -275,7 +272,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   displayConfig?: CreateCloudPhoneNodeRequestDisplayConfig;
   /**
    * @remarks
-   * The downstream bandwidth limit, in Mbit/s.
+   * The downstream bandwidth throttling. Unit: Mbit/s.
    * 
    * @example
    * 50
@@ -292,7 +289,6 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type.
-   * 
    * > To purchase more instance types, [contact pre-sales support](https://smartservice.console.aliyun.com/service/pre-sales-chat?spm=5176.6d6ecb63.0.0.729adda2VqVQx7).
    * 
    * @example
@@ -310,7 +306,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The network settings for the instance.
+   * The network mapping information of the instance.
    */
   networkInfo?: CreateCloudPhoneNodeRequestNetworkInfo;
   /**
@@ -323,7 +319,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The name of the Cloud Phone matrix.
+   * The name of the cloud phone matrix.
    * 
    * @example
    * node_name
@@ -332,11 +328,10 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription duration. The unit is specified by the `PeriodUnit` parameter.
+   * The subscription duration. The unit is specified by PeriodUnit.
    * 
-   * - If `PeriodUnit` is set to **Year**, this parameter can only be set to 1.
-   * 
-   * - If `PeriodUnit` is set to **Month**, valid values are 1, 2, 3, and 6.
+   * - If PeriodUnit is set to **year**, the value can only be 1.
+   * - If PeriodUnit is set to **month**, valid values are 1, 2, 3, and 6.
    * 
    * @example
    * 1
@@ -352,7 +347,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The number of Cloud Phone instances to create in a single Cloud Phone matrix.
+   * The number of cloud phone instances to create in a single matrix.
    * 
    * @example
    * 25
@@ -360,7 +355,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   phoneCount?: number;
   /**
    * @remarks
-   * The size of the independent internal storage, in GiB.
+   * The size of the independent device storage. Unit: GiB.
    * 
    * @example
    * 10
@@ -369,7 +364,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The vertical resolution, in pixels.
+   * The height of the resolution. Unit: pixels.
    * 
    * @example
    * 1280
@@ -377,7 +372,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   resolutionHeight?: number;
   /**
    * @remarks
-   * The horizontal resolution, in pixels.
+   * The width of the resolution. Unit: pixels.
    * 
    * @example
    * 720
@@ -385,9 +380,9 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   resolutionWidth?: number;
   /**
    * @remarks
-   * The size of the shared internal storage, in GiB.
+   * The size of the shared device storage. Unit: GiB.
    * 
-   * > The size must exceed 10 GiB per instance in the matrix.
+   * > The minimum value of the shared device storage must be greater than the number of instances in the matrix multiplied by 10 GiB.
    * 
    * @example
    * 200
@@ -395,7 +390,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   serverShareDataVolume?: number;
   /**
    * @remarks
-   * The server type.
+   * The specifications of the cloud phone matrix.
    * 
    * This parameter is required.
    * 
@@ -405,7 +400,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   serverType?: string;
   /**
    * @remarks
-   * The streaming mode for instances in the Cloud Phone matrix. Defaults to preemption mode.
+   * The streaming mode for instances in the cloud phone matrix. If this parameter is not specified, the default value is preemptive mode.
    * 
    * @example
    * 1
@@ -414,12 +409,12 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   swapSize?: number;
   /**
    * @remarks
-   * The resource tags.
+   * The tags of the resource.
    */
   tag?: CreateCloudPhoneNodeRequestTag[];
   /**
    * @remarks
-   * The upstream bandwidth limit, in Mbit/s.
+   * The upstream bandwidth throttling. Unit: Mbit/s.
    * 
    * @example
    * 50
@@ -427,7 +422,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   upBandwidthLimit?: number;
   /**
    * @remarks
-   * The template for instance creation. Set this parameter to `Random` to use a random template, or specify a template ID to use a specific template.
+   * Specifies whether to use a template during creation. Set this parameter to `Random` to use a random template from the template list. Alternatively, specify a template ID to use that template.
    * 
    * @example
    * Random
@@ -435,7 +430,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   useTemplate?: string;
   /**
    * @remarks
-   * The VSwitch ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-2zeekryyc1q3sm72l****
@@ -448,6 +443,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       bandwidthPackageId: 'BandwidthPackageId',
       bandwidthPackageType: 'BandwidthPackageType',
       bizRegionId: 'BizRegionId',
+      channelCookie: 'ChannelCookie',
       chargeType: 'ChargeType',
       count: 'Count',
       displayConfig: 'DisplayConfig',
@@ -485,6 +481,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       bandwidthPackageId: 'string',
       bandwidthPackageType: 'string',
       bizRegionId: 'string',
+      channelCookie: 'string',
       chargeType: 'string',
       count: 'string',
       displayConfig: CreateCloudPhoneNodeRequestDisplayConfig,

@@ -7,19 +7,13 @@ export class ResumeAgentTaskResponseBodyTasks extends $dara.Model {
    * @remarks
    * The current status of the task. Valid values:
    * 
-   * `PENDING`: The task is being created.
-   * 
-   * `RUNNING`: The task is running.
-   * 
-   * `COMPLETED`: The task has completed.
-   * 
-   * `FAILED`: The task has failed.
-   * 
-   * `TIMEOUT`: The task has timed out.
-   * 
-   * `PAUSING`: The task is pausing.
-   * 
-   * `PAUSED`: The task is paused.
+   * - PENDING: The task is being created.
+   * - RUNNING: The task is running.
+   * - COMPLETED: The task is completed.
+   * - FAILED: The task has failed.
+   * - TIMEOUT: The task has timed out.
+   * - PAUSING: The task is being paused.
+   * - PAUSED: The task is paused.
    * 
    * @example
    * RUNNING
@@ -35,7 +29,7 @@ export class ResumeAgentTaskResponseBodyTasks extends $dara.Model {
   failedReason?: string;
   /**
    * @remarks
-   * The ID of the mobile instance.
+   * The Mobile node ID.
    * 
    * @example
    * acp-ek65k51zoxia3x8xz
@@ -43,7 +37,7 @@ export class ResumeAgentTaskResponseBodyTasks extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the task was resumed, in ISO 8601 format.
+   * The time when the task is resumed, in ISO 8601 format.
    * 
    * @example
    * 2026-04-13T17:42:19Z
@@ -51,7 +45,7 @@ export class ResumeAgentTaskResponseBodyTasks extends $dara.Model {
   resumingAt?: string;
   /**
    * @remarks
-   * The globally unique ID of the task.
+   * The task ID, which is globally unique.
    * 
    * @example
    * t-imr0fufqd7cle****
@@ -113,7 +107,7 @@ export class ResumeAgentTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of tasks.
+   * The list of tasks.
    */
   tasks?: ResumeAgentTaskResponseBodyTasks[];
   static names(): { [key: string]: string } {
