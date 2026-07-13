@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmAvailableAlertGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en

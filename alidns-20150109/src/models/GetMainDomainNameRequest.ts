@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMainDomainNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The string. The string can be up to 128 characters in length.
+   * The domain name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,13 @@ export class GetMainDomainNameRequest extends $dara.Model {
   inputString?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * - zh: Chinese
+   * 
+   * - en: English
+   * 
+   * Default: zh
    * 
    * @example
    * en

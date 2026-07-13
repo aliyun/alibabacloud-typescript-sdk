@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the domain name.
+   * The domain ID.
    * 
    * @example
-   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   * 00efd71a-7************
    */
   domainId?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
    * The domain name.
    * 
    * @example
-   * dns-example.top
+   * example.com
    */
   domainName?: string;
   /**
@@ -24,7 +24,7 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
    * The ID of the domain name group.
    * 
    * @example
-   * 2223
+   * 2****
    */
   groupId?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The DNS resolution line.
+   * The resolution line.
    * 
    * @example
    * default
@@ -45,7 +45,7 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
   line?: string;
   /**
    * @remarks
-   * The lock state of the DNS record. Valid values: **true and false**.
+   * The lock status of the DNS record. Valid values: true and **false**.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
   locked?: boolean;
   /**
    * @remarks
-   * The priority of the mail exchanger (MX) record.
+   * The priority of the MX record.
    * 
    * @example
    * 5
@@ -61,7 +61,7 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+   * The Punycode for the Chinese domain name.
    * 
    * @example
    * xn--fsq270a.com
@@ -80,12 +80,12 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
    * The ID of the DNS record.
    * 
    * @example
-   * 9999985
+   * 9******
    */
   recordId?: string;
   /**
    * @remarks
-   * The description of your DNS record.
+   * The remarks for the DNS record.
    * 
    * @example
    * test
@@ -103,9 +103,9 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
    * @remarks
    * The status of the DNS record. Valid values:
    * 
-   * Enable: enabled
+   * Enable: The DNS record is enabled.
    * 
-   * Disable: disabled
+   * Disable: The DNS record is paused.
    * 
    * @example
    * Enable
@@ -113,7 +113,7 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time for which the DNS record is cached in a local DNS system.
+   * The time to live (TTL). This specifies the duration for which the DNS record is cached on a local DNS server.
    * 
    * @example
    * 600
@@ -121,7 +121,7 @@ export class DescribeDomainRecordInfoResponseBody extends $dara.Model {
   TTL?: number;
   /**
    * @remarks
-   * The type of the DNS record.
+   * The record type.
    * 
    * @example
    * MX

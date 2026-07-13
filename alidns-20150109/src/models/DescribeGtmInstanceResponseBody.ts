@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of access policies of the GTM instance.
+   * The number of access policies.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   accessStrategyNum?: number;
   /**
    * @remarks
-   * The number of address pools of the GTM instance.
+   * The number of address pools.
    * 
    * @example
    * 5
@@ -21,34 +21,35 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   addressPoolNum?: number;
   /**
    * @remarks
-   * The alert group of the GTM instance.
+   * The alert contact group.
    * 
    * @example
-   * [\\\\"Daily test - R\\&D group\\\\"]
+   * [\\"日常测试-研发组\\"]
    */
   alertGroup?: string;
   /**
    * @remarks
-   * The domain name of the GTM instance to which the service domain name is mapped by using a CNAME record.
+   * The CNAME access domain name.
    * 
    * @example
-   * instance1.14.com
+   * gtm-cn-wwo3a3hbz**.dns-example.top
    */
   cname?: string;
   /**
    * @remarks
-   * Indicates whether the CNAME is a custom domain name or is assigned by the system. Valid values:
+   * The CNAME access mode. Valid values:
    * 
-   * *   **SYSTEM_ASSIGN**
-   * *   **CUSTOM**
+   * - **SYSTEM_ASSIGN**: The system assigns a domain name.
+   * 
+   * - **CUSTOM**: You use a custom domain name.
    * 
    * @example
-   * SYSTEM_ASSIGN
+   * CUSTOM
    */
   cnameMode?: string;
   /**
    * @remarks
-   * The time when the GTM instance was created.
+   * The time when the instance was created.
    * 
    * @example
    * 2018-06-06T11:34Z
@@ -56,7 +57,7 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates the time when the GTM instance was created.
+   * The time when the instance was created. This is a UNIX timestamp.
    * 
    * @example
    * 1528284856000
@@ -64,7 +65,7 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The time when the GTM instance expires.
+   * The time when the instance expires.
    * 
    * @example
    * 2018-06-06T11:34Z
@@ -72,7 +73,7 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates the time when the GTM instance expires.
+   * The expiration time of the instance. This is a UNIX timestamp.
    * 
    * @example
    * 1528284856000
@@ -83,12 +84,12 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
    * The ID of the GTM instance.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The name of the GTM instance.
+   * The name of the instance.
    * 
    * @example
    * test
@@ -96,10 +97,11 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The load balancing policy. Valid values:
+   * The load balancing policy.
    * 
-   * *   **ALL_RR**: round robin
-   * *   **RATIO**: weighted round-robin
+   * - **ALL_RR**: round-robin
+   * 
+   * - **RATIO**: weighted round-robin
    * 
    * @example
    * RATIO
@@ -107,7 +109,7 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   lbaStrategy?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * E41AA251-F9BA-48C6-99B2-2B82B26A573A
@@ -123,7 +125,7 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The global time to live (TTL).
+   * The global TTL.
    * 
    * @example
    * 60
@@ -131,10 +133,10 @@ export class DescribeGtmInstanceResponseBody extends $dara.Model {
   ttl?: number;
   /**
    * @remarks
-   * The domain name of the application.
+   * The custom domain name.
    * 
    * @example
-   * www.example.com
+   * dns-example.top
    */
   userDomainName?: string;
   /**

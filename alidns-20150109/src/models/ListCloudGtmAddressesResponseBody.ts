@@ -164,7 +164,7 @@ export class ListCloudGtmAddressesResponseBody extends $dara.Model {
   addresses?: ListCloudGtmAddressesResponseBodyAddresses;
   /**
    * @remarks
-   * Current page number, starting from **1**, default is **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -172,7 +172,7 @@ export class ListCloudGtmAddressesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * The number of entries returned per page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -180,7 +180,7 @@ export class ListCloudGtmAddressesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -188,7 +188,7 @@ export class ListCloudGtmAddressesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Get the total number of addresses in the address list.
+   * The total number of addresses.
    * 
    * @example
    * 30
@@ -196,7 +196,7 @@ export class ListCloudGtmAddressesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 2

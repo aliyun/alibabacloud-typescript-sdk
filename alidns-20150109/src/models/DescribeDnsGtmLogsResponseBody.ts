@@ -76,7 +76,7 @@ export class DescribeDnsGtmLogsResponseBody extends $dara.Model {
   logs?: DescribeDnsGtmLogsResponseBodyLogs;
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -84,15 +84,15 @@ export class DescribeDnsGtmLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned per page. The maximum value is 100. The default value is 20.
    * 
    * @example
-   * 1
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 50C60A29-2E93-425A-ABA8-068686E28873
@@ -100,7 +100,7 @@ export class DescribeDnsGtmLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned on all pages.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class DescribeDnsGtmLogsResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

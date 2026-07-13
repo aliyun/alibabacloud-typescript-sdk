@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInterAuthStatisticsZoneOverviewResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of domain names with refused responses.
+   * 
    * @example
    * 6
    */
   refusedDomainCount?: number;
   /**
+   * @remarks
+   * The number of domain names with a sudden drop in QPS.
+   * 
    * @example
    * 66
    */
   suddenDropDomainCount?: number;
   /**
+   * @remarks
+   * The number of domain names with a sudden increase in QPS.
+   * 
    * @example
    * 56
    */
@@ -44,10 +53,14 @@ export class DescribeInterAuthStatisticsZoneOverviewResponseBodyData extends $da
 }
 
 export class DescribeInterAuthStatisticsZoneOverviewResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The overview data for the zone.
+   */
   data?: DescribeInterAuthStatisticsZoneOverviewResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382

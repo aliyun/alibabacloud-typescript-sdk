@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudGtmInstanceConfigBasicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique ID of the request.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -13,8 +13,10 @@ export class UpdateCloudGtmInstanceConfigBasicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful: 
-   * - **true**: The call succeeded. 
+   * Indicates whether the operation was successful:
+   * 
+   * - **true**: The call was successful.
+   * 
    * - **false**: The call failed.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRecursionRecordWeightRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that ensures the idempotence of the request. Generate a unique token for each request. The token can be up to 64 ASCII characters in length.
+   * 
    * @example
    * 21079fa016944979537637959d09bc
    */
   clientToken?: string;
   /**
    * @remarks
+   * The unique ID of the DNS record.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class UpdateRecursionRecordWeightRequest extends $dara.Model {
    */
   recordId?: string;
   /**
+   * @remarks
+   * The weight. The value can be an integer from 0 to 100.
+   * 
    * @example
    * 1
    */

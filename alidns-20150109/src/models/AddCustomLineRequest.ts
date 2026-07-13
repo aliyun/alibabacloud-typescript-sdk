@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCustomLineRequestIpSegment extends $dara.Model {
   /**
    * @remarks
-   * The end IP address of the CIDR block.
+   * The end IP address of the segment.
    * 
    * @example
    * 192.0.2.254
@@ -15,7 +15,7 @@ export class AddCustomLineRequestIpSegment extends $dara.Model {
   endIp?: string;
   /**
    * @remarks
-   * The start IP address of the CIDR block.
+   * The start IP address of the segment.
    * 
    * @example
    * 192.0.2.0
@@ -47,7 +47,7 @@ export class AddCustomLineRequestIpSegment extends $dara.Model {
 export class AddCustomLineRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name. You can call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
+   * The domain name.<props="china">Call the [DescribeDomains](https://help.aliyun.com/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c4g.11186623.help-menu-search-29697.d_0) operation to obtain the domain name.<props="intl">Call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
    * 
    * This parameter is required.
    * 
@@ -57,17 +57,18 @@ export class AddCustomLineRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The CIDR blocks.
+   * The list of IP address segments.
    * 
    * This parameter is required.
    */
   ipSegment?: AddCustomLineRequestIpSegment[];
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -78,6 +79,9 @@ export class AddCustomLineRequest extends $dara.Model {
    * The name of the custom line.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 北京线路
    */
   lineName?: string;
   static names(): { [key: string]: string } {

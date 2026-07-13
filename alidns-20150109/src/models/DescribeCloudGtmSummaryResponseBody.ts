@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudGtmSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of instances within the current account.
+   * The total number of instances in your account.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DescribeCloudGtmSummaryResponseBody extends $dara.Model {
   monitorTaskTotalQuota?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 199C3699-9A7B-41A1-BB5A-F1E862D3CB38

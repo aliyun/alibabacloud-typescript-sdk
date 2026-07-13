@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $dara.Model {
   /**
    * @remarks
-   * The timestamp.
+   * The timestamp of the statistical data, in milliseconds.
    * 
    * @example
    * 1544976000000
@@ -21,7 +21,7 @@ export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $dara.
   totalCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTP requests.
+   * The number of IPv4 HTTP requests.
    * 
    * @example
    * 3141592653
@@ -29,7 +29,7 @@ export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $dara.
   v4HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTPS requests.
+   * The number of IPv4 HTTPS requests.
    * 
    * @example
    * 3141592653
@@ -37,7 +37,7 @@ export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $dara.
   v4HttpsCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTP requests.
+   * The number of IPv6 HTTP requests.
    * 
    * @example
    * 3141592653
@@ -45,7 +45,7 @@ export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $dara.
   v6HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTPS requests.
+   * The number of IPv6 HTTPS requests.
    * 
    * @example
    * 3141592653
@@ -85,7 +85,7 @@ export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $dara.
 export class DescribeDohSubDomainStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 0F32959D-417B-4D66-8463-68606605E3E2
@@ -93,7 +93,7 @@ export class DescribeDohSubDomainStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistics list.
+   * A list of statistics.
    */
   statistics?: DescribeDohSubDomainStatisticsResponseBodyStatistics[];
   static names(): { [key: string]: string } {

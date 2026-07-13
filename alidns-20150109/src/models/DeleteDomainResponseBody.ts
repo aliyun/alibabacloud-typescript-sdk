@@ -13,7 +13,7 @@ export class DeleteDomainResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382

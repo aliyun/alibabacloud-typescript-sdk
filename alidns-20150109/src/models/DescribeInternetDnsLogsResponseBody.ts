@@ -125,7 +125,7 @@ export class DescribeInternetDnsLogsResponseBodyLogs extends $dara.Model {
 export class DescribeInternetDnsLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the log query is precise.
+   * Indicates whether the DNS resolution log query is precise.
    * 
    * @example
    * true
@@ -133,7 +133,7 @@ export class DescribeInternetDnsLogsResponseBody extends $dara.Model {
   complete?: boolean;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -142,7 +142,7 @@ export class DescribeInternetDnsLogsResponseBody extends $dara.Model {
   logs?: DescribeInternetDnsLogsResponseBodyLogs;
   /**
    * @remarks
-   * Page size for query.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -150,7 +150,7 @@ export class DescribeInternetDnsLogsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Unique request identifier.
+   * The unique ID of the request.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -158,7 +158,7 @@ export class DescribeInternetDnsLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 5
@@ -166,7 +166,7 @@ export class DescribeInternetDnsLogsResponseBody extends $dara.Model {
   totalPage?: number;
   /**
    * @remarks
-   * Total quantity.
+   * The total number of entries.
    * 
    * @example
    * 48

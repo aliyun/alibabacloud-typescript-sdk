@@ -57,7 +57,7 @@ export class DescribeDomainNsResponseBodyExpectDnsServers extends $dara.Model {
 export class DescribeDomainNsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether all the name servers are Alibaba Cloud DNS servers.
+   * Indicates whether all name servers are Alibaba Cloud DNS servers.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class DescribeDomainNsResponseBody extends $dara.Model {
   allAliDns?: boolean;
   /**
    * @remarks
-   * The cause code of the detection failure.
+   * The error code returned if the detection fails.
    * 
    * @example
    * DnsCheck.Failed
@@ -75,7 +75,7 @@ export class DescribeDomainNsResponseBody extends $dara.Model {
   expectDnsServers?: DescribeDomainNsResponseBodyExpectDnsServers;
   /**
    * @remarks
-   * Indicates whether the name servers include Alibaba Cloud DNS servers.
+   * Indicates whether the list of name servers includes Alibaba Cloud DNS servers.
    * 
    * @example
    * true
@@ -83,7 +83,7 @@ export class DescribeDomainNsResponseBody extends $dara.Model {
   includeAliDns?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 16C7DC7A-2FA7-4D14-8B12-88A2BB6373DB

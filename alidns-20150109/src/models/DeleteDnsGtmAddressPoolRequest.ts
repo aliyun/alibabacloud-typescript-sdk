@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDnsGtmAddressPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool.
+   * The ID of the address pool. To obtain the ID, call [DescribeDnsGtmInstanceAddressPools](https://www.alibabacloud.com/help/en/dns/latest/api-alidns-2015-01-09-describednsgtminstanceaddresspools).
    * 
    * This parameter is required.
    * 
    * @example
-   * testpool1
+   * testp******
    */
   addrPoolId?: string;
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language for some returned parameters. Default: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en

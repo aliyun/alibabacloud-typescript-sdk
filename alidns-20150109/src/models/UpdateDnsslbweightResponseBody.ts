@@ -8,12 +8,12 @@ export class UpdateDNSSLBWeightResponseBody extends $dara.Model {
    * The ID of the DNS record.
    * 
    * @example
-   * 9999985
+   * 9*******
    */
   recordId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382

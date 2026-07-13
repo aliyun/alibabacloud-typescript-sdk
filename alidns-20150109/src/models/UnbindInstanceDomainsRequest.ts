@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindInstanceDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain names.
+   * The list of domain names.
    * 
-   * Separate multiple domain names with commas (,). Up to 100 domain names can be entered.
+   * Separate multiple domain names with commas (,). You can specify up to 100 domain names.<props="intl"> For more information, see [DescribeDomains](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describedomains).
    * 
    * This parameter is required.
    * 
@@ -17,17 +17,21 @@ export class UnbindInstanceDomainsRequest extends $dara.Model {
   domainNames?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the authoritative domain name instance.<props="intl"> For more information, see [ListCloudGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-listcloudgtminstances).
    * 
    * This parameter is required.
    * 
    * @example
-   * 123
+   * dns-cn-9lb38ldq9**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the request and response. Default value: **zh**. Valid values:
+   * 
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en

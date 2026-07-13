@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmAccessStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en
@@ -13,7 +13,7 @@ export class DescribeGtmAccessStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the access policy that you want to query.
+   * The ID of the access policy.
    * 
    * This parameter is required.
    * 

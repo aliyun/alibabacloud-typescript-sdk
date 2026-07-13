@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDnsGtmInstanceGlobalConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
-   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF559**
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDNSSLBSubDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name. You can call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
+   * The domain name. Call the [DescribeDomains](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describedomains) operation to obtain the domain name.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class DescribeDNSSLBSubDomainsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response. Valid values are:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh**: Chinese. This is the default value.
+   * 
+   * - **en**: English.
    * 
    * @example
    * en
@@ -26,7 +27,7 @@ export class DescribeDNSSLBSubDomainsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -34,7 +35,7 @@ export class DescribeDNSSLBSubDomainsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 20
@@ -42,7 +43,7 @@ export class DescribeDNSSLBSubDomainsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The hostname.
+   * The host record.
    * 
    * @example
    * test
@@ -50,10 +51,10 @@ export class DescribeDNSSLBSubDomainsRequest extends $dara.Model {
   rr?: string;
   /**
    * @remarks
-   * The IP address of the user account.
+   * The IP address of the client.
    * 
    * @example
-   * 1.1.1.1
+   * 1.1.XX.XX
    */
   userClientIp?: string;
   static names(): { [key: string]: string } {

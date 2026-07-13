@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether DingTalk alert notifications are configured. Valid values:
+   * Indicates whether DingTalk notifications are configured. Valid values:
    * 
-   * *   true
-   * *   false | null
+   * - true: configured
+   * 
+   * - false or null: not configured
    * 
    * @example
    * true
@@ -18,8 +19,9 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig ex
    * @remarks
    * Indicates whether email notifications are configured. Valid values:
    * 
-   * *   true
-   * *   false | null
+   * - true: configured
+   * 
+   * - false or null: not configured
    * 
    * @example
    * true
@@ -29,11 +31,15 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig ex
    * @remarks
    * The type of the alert event. Valid values:
    * 
-   * *   ADDR_ALERT: The address is unavailable.
-   * *   ADDR_RESUME: The address becomes available.
-   * *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool set is unavailable.
-   * *   ADDR_POOL_GROUP_AVAILABLE: The address pool set becomes available.
-   * *   ACCESS_STRATEGY_POOL_GROUP_SWITCH: Switchover is triggered between the primary and secondary address pools.
+   * - ADDR_ALERT: The address is unavailable.
+   * 
+   * - ADDR_RESUME: The address is restored.
+   * 
+   * - ADDR_POOL_GROUP_UNAVAILABLE: The address pool collection is unavailable.
+   * 
+   * - ADDR_POOL_GROUP_AVAILABLE: The address pool collection is restored.
+   * 
+   * - ACCESS_STRATEGY_POOL_GROUP_SWITCH: A switchover occurs between the primary and secondary address pools.
    * 
    * @example
    * ADDR_ALERT
@@ -41,10 +47,11 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig ex
   noticeType?: string;
   /**
    * @remarks
-   * Indicates whether SMS notifications are configured. Valid values:
+   * Indicates whether text message notifications are configured. Valid values:
    * 
-   * *   true
-   * *   false | null
+   * - true: configured
+   * 
+   * - false or null: not configured
    * 
    * @example
    * true
@@ -80,25 +87,25 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig ex
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method.
+   * The alert notification methods.
    */
   alertConfig?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig[];
   /**
    * @remarks
-   * The alert contact groups. The value is in the JSON format.
+   * The alert contact group. The value is a JSON-formatted list of strings.
    * 
    * @example
-   * testgroup
+   * ["test1","test2"]
    */
   alertGroup?: string;
   /**
    * @remarks
-   * The type of the CNAME. Valid value:
+   * The type of the CNAME domain name used for access. Valid value:
    * 
-   * *   PUBLIC
+   * - PUBLIC: for Internet access
    * 
    * @example
-   * public
+   * PUBLIC
    */
   cnameType?: string;
   /**
@@ -111,18 +118,19 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $dara
   instanceName?: string;
   /**
    * @remarks
-   * Specifies whether to use a custom CNAME or a system-assigned CNAME to access GTM over the Internet. Valid values:
+   * The method to access the instance over the Internet using a CNAME record. Valid values:
    * 
-   * *   CUSTOM: a custom CNAME
-   * *   SYSTEM_ASSIGN: a system-assigned CNAME. You cannot set PublicCnameMode to this value.
+   * - CUSTOM: custom
+   * 
+   * - SYSTEM_ASSIGN: system-assigned (This feature is disabled.)
    * 
    * @example
-   * custom
+   * CUSTOM
    */
   publicCnameMode?: string;
   /**
    * @remarks
-   * The hostname of the domain name that is used to access GTM over the Internet.
+   * The hostname for Internet access.
    * 
    * @example
    * test.rr
@@ -130,37 +138,38 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $dara
   publicRr?: string;
   /**
    * @remarks
-   * The domain name that is used to access GTM over the Internet.
+   * The user\\"s service domain name that is accessible over the Internet.
    * 
    * @example
-   * example.com
+   * dns-example.top
    */
   publicUserDomainName?: string;
   /**
    * @remarks
-   * The canonical name (CNAME) that is used to access GTM over the Internet.
+   * The domain name used for Internet access.
    * 
    * @example
-   * test.rr.gtm-003.com
+   * gtm-cn-wwo3a3hbz**.dns-example.top
    */
   publicZoneName?: string;
   /**
    * @remarks
-   * The type of the access policy. Valid values:
+   * The mode of the access policy. Valid values:
    * 
-   * *   LATENCY: latency-based access policy
-   * *   GEO: geographical location-based access policy
+   * - LATENCY: latency-based
+   * 
+   * - GEO: geography-based
    * 
    * @example
-   * geo
+   * GEO
    */
   strategyMode?: string;
   /**
    * @remarks
-   * The global time to live (TTL).
+   * The global TTL.
    * 
    * @example
-   * 1
+   * 60
    */
   ttl?: number;
   static names(): { [key: string]: string } {
@@ -208,7 +217,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $dara
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $dara.Model {
   /**
    * @remarks
-   * The total number of sent DingTalk notifications.
+   * The total number of DingTalk messages that were sent.
    * 
    * @example
    * 100
@@ -216,7 +225,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $d
   dingtalkUsedCount?: number;
   /**
    * @remarks
-   * The total number of sent email notifications.
+   * The total number of emails that were sent.
    * 
    * @example
    * 100
@@ -224,7 +233,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $d
   emailUsedCount?: number;
   /**
    * @remarks
-   * The total number of sent SMS notifications.
+   * The total number of text messages that were sent.
    * 
    * @example
    * 100
@@ -232,7 +241,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $d
   smsUsedCount?: number;
   /**
    * @remarks
-   * The number of created detection tasks.
+   * The number of health check tasks that were created.
    * 
    * @example
    * 100
@@ -268,12 +277,12 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $d
 export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the instance.
+   * The configuration of the instance.
    */
   config?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig;
   /**
    * @remarks
-   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the instance was created.
    * 
    * @example
    * 2020-10-14T06:58Z
@@ -281,7 +290,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the instance was created.
    * 
    * @example
    * 1602658709000
@@ -289,7 +298,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model
   createTimestamp?: number;
   /**
    * @remarks
-   * The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the instance expires.
    * 
    * @example
    * 2020-10-14T06:58Z
@@ -297,7 +306,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model
   expireTime?: string;
   /**
    * @remarks
-   * The time when the instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the instance expires.
    * 
    * @example
    * 1602658709000
@@ -305,17 +314,17 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model
   expireTimestamp?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The billing method of the GTM instance. Valid value:
+   * The billing method. Valid value:
    * 
-   * *   Subscription.
+   * - Subscription
    * 
    * @example
    * Subscription
@@ -331,7 +340,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model
   resourceGroupId?: string;
   /**
    * @remarks
-   * The total number of Short Message Service (SMS) notifications.
+   * The total quota of text message notifications.
    * 
    * @example
    * 1
@@ -339,7 +348,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model
   smsQuota?: number;
   /**
    * @remarks
-   * The total number of detection tasks.
+   * The total number of health check tasks.
    * 
    * @example
    * 1
@@ -355,7 +364,7 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model
    * The version of the instance.
    * 
    * @example
-   * testVersion1
+   * standard
    */
   versionCode?: string;
   static names(): { [key: string]: string } {
@@ -410,12 +419,12 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $dara.Model
 export class DescribeDnsGtmInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Global Traffic Manager (GTM) instances.
+   * The list of Global Traffic Manager (GTM) instances.
    */
   gtmInstances?: DescribeDnsGtmInstancesResponseBodyGtmInstances[];
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The number of the page returned. The value starts from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -431,7 +440,7 @@ export class DescribeDnsGtmInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 84314904-D047-4176-A0EC-256D7F68C7F5
@@ -439,7 +448,7 @@ export class DescribeDnsGtmInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -447,7 +456,7 @@ export class DescribeDnsGtmInstancesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 123

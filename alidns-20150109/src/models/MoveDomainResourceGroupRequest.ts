@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MoveDomainResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. The default value is en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -20,7 +20,7 @@ export class MoveDomainResourceGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rg-aekzzk7hx3glaoq
+   * rg-aek*******
    */
   newResourceGroupId?: string;
   /**

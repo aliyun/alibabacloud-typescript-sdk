@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudGtmInstanceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * The ID of the domain name instance configuration. A GTM instance can have both an A record and an AAAA record for the same access domain name. In this case, the GTM instance has two domain name instance configurations. The ConfigId uniquely identifies each configuration.
    * 
    * @example
    * config-000**1
    */
   configId?: boolean;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * gtm-cn-xxxxx
    */
   instanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -26,10 +29,11 @@ export class CreateCloudGtmInstanceConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteRecursionZoneResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
    */

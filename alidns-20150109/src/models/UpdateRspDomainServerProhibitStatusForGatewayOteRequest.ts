@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRspDomainServerProhibitStatusForGatewayOteRequestAddStatusList extends $dara.Model {
   /**
+   * @remarks
+   * Domain name status.
+   * 
    * @example
    * serverDeleteProhibited
    */
   status?: string;
+  /**
+   * @remarks
+   * Description of the status.
+   * 
+   * @example
+   * 实名认证未通过，增加serverUpdateProhibited状态
+   */
   statusMsg?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +44,20 @@ export class UpdateRspDomainServerProhibitStatusForGatewayOteRequestAddStatusLis
 
 export class UpdateRspDomainServerProhibitStatusForGatewayOteRequestDeleteStatusList extends $dara.Model {
   /**
+   * @remarks
+   * Domain name status.
+   * 
    * @example
    * serverDeleteProhibited
    */
   status?: string;
+  /**
+   * @remarks
+   * Description of the status.
+   * 
+   * @example
+   * 实名认证通过，删除serverUpdateProhibited状态
+   */
   statusMsg?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,18 +83,30 @@ export class UpdateRspDomainServerProhibitStatusForGatewayOteRequestDeleteStatus
 }
 
 export class UpdateRspDomainServerProhibitStatusForGatewayOteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of domain name statuses to add.
+   */
   addStatusList?: UpdateRspDomainServerProhibitStatusForGatewayOteRequestAddStatusList[];
   /**
    * @remarks
+   * Idempotency token.
+   * 
    * This parameter is required.
    * 
    * @example
    * qwoefasdf
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * List of domain name statuses to remove.
+   */
   deleteStatusList?: UpdateRspDomainServerProhibitStatusForGatewayOteRequestDeleteStatusList[];
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example

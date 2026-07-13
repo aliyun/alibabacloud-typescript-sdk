@@ -313,7 +313,7 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends $da
   lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * C2851BA9-CE56-49AF-8D12-4FC6A49EE688
@@ -324,7 +324,7 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends $da
   selectedIpv6Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines;
   /**
    * @remarks
-   * Indicates whether we recommend that you set the source region to global.
+   * Indicates whether it is recommended to set a default line.
    * 
    * @example
    * true

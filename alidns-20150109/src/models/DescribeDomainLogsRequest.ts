@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the domain name group.
+   * The ID of the domain name group. If you do not specify this parameter, all groups are queried.
    * 
    * @example
-   * 2223
+   * 2****
    */
   groupId?: string;
   /**
    * @remarks
-   * The keyword for the query in "%KeyWord%" mode. The keyword is not case-sensitive.
+   * The keyword for the query. A case-insensitive \\`contains\\` search is performed.
    * 
    * @example
    * test
@@ -21,7 +21,13 @@ export class DescribeDomainLogsRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * The language of the request and response.
+   * 
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
+   * 
+   * The default value is **zh**.
    * 
    * @example
    * en
@@ -29,7 +35,7 @@ export class DescribeDomainLogsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number to return. The page number starts from **1**. Default value: **1**.
+   * The number of the page to return. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -37,7 +43,7 @@ export class DescribeDomainLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Maximum value: **100**. Default value: **20**.
+   * The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 20
@@ -45,7 +51,7 @@ export class DescribeDomainLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time for the query. Format: **YYYY-MM-DD**
+   * The start date. The format is **YYYY-MM-DD**.
    * 
    * @example
    * 2019-07-04
@@ -53,10 +59,13 @@ export class DescribeDomainLogsRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The type of object of which you want to query operation logs. Valid values:
+   * The type of content to query.
    * 
-   * *   domain: domain name
-   * *   slavedns: secondary Domain Name System (DNS)
+   * - domain: domain name
+   * 
+   * - slavedns: secondary DNS
+   * 
+   * If you do not specify this parameter, all types are queried.
    * 
    * @example
    * domain
@@ -64,7 +73,7 @@ export class DescribeDomainLogsRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The end time for the query. Format: **YYYY-MM-DD**
+   * The end date. The format is **YYYY-MM-DD**.
    * 
    * @example
    * 2019-07-04

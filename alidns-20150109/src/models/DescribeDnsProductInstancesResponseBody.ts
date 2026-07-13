@@ -153,8 +153,9 @@ export class DescribeDnsProductInstancesResponseBody extends $dara.Model {
    * @remarks
    * The type of the domain name. Valid values:
    * 
-   * *   PUBLIC (default): hosted public domain name
-   * *   CACHE: cached public domain name
+   * - PUBLIC: authoritative domain name (default)
+   * 
+   * - CACHE: authoritative proxy domain name
    * 
    * @example
    * PUBLIC
@@ -162,7 +163,7 @@ export class DescribeDnsProductInstancesResponseBody extends $dara.Model {
   domainType?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -170,7 +171,7 @@ export class DescribeDnsProductInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 2
@@ -181,12 +182,12 @@ export class DescribeDnsProductInstancesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   * 536E9CAD-DB30-4647-AC87-AA5CC38xxxxx
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of domain names.
+   * The total number of instances that match the query.
    * 
    * @example
    * 2

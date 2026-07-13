@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGtmAddressPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDNSSLBStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether weighted round-robin is enabled for the subdomain name.
+   * The latest status of the weight configuration.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class SetDNSSLBStatusResponseBody extends $dara.Model {
   open?: boolean;
   /**
    * @remarks
-   * The number of A records that are matched.
+   * The number of DNS records that match the rule.
    * 
    * @example
    * 8

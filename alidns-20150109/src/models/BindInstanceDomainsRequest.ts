@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class BindInstanceDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain names.
+   * A list of domain names.
    * 
-   * >  Separate multiple domain names with commas (,). Up to 100 domain names can be entered.
+   * > Separate multiple domain names with a comma (,). You can specify up to 100 domain names.
    * 
    * This parameter is required.
    * 
@@ -17,17 +17,23 @@ export class BindInstanceDomainsRequest extends $dara.Model {
   domainNames?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the Alibaba Cloud DNS instance. You can call the [ListCloudGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-listcloudgtminstances) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * sdfasdf
+   * s********
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * - zh: Chinese
+   * 
+   * - en: English
+   * 
+   * Default value: zh
    * 
    * @example
    * en

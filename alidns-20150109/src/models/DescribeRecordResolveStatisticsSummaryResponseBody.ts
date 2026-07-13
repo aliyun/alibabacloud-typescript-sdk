@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecordResolveStatisticsSummaryResponseBodyStatistics extends $dara.Model {
   /**
    * @remarks
-   * The number of DNS requests.
+   * The number of requests.
    * 
    * @example
    * 330
@@ -13,18 +13,19 @@ export class DescribeRecordResolveStatisticsSummaryResponseBodyStatistics extend
   count?: string;
   /**
    * @remarks
-   * The subdomain name.
+   * The subdomain.
    * 
    * @example
-   * tes.example.com
+   * test.example.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The type of the domain name. The parameter value is not case-sensitive. Valid values:
+   * The type of the domain name. This parameter is not case-sensitive. Valid values:
    * 
-   * *   PUBLIC (default): hosted public domain name
-   * *   CACHE: cache-accelerated domain name
+   * - PUBLIC: an authoritative domain name (default)
+   * 
+   * - CACHE: an authoritative proxy domain name
    * 
    * @example
    * PUBLIC
@@ -68,7 +69,7 @@ export class DescribeRecordResolveStatisticsSummaryResponseBodyStatistics extend
 export class DescribeRecordResolveStatisticsSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -76,7 +77,7 @@ export class DescribeRecordResolveStatisticsSummaryResponseBody extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
+   * The number of entries returned per page. The maximum value is **500**. The default value is **20**.
    * 
    * @example
    * 10
@@ -84,7 +85,7 @@ export class DescribeRecordResolveStatisticsSummaryResponseBody extends $dara.Mo
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
@@ -92,7 +93,7 @@ export class DescribeRecordResolveStatisticsSummaryResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The statistics.
+   * The list of statistics.
    */
   statistics?: DescribeRecordResolveStatisticsSummaryResponseBodyStatistics[];
   /**

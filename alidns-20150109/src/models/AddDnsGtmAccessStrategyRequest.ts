@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDnsGtmAccessStrategyRequestDefaultAddrPool extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool in the primary address pool set.
+   * The ID of the address pool.
    * 
    * @example
    * pool1
@@ -13,7 +13,7 @@ export class AddDnsGtmAccessStrategyRequestDefaultAddrPool extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The weight of the address pool in the primary address pool set.
+   * The weight of the address pool.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class AddDnsGtmAccessStrategyRequestDefaultAddrPool extends $dara.Model {
 export class AddDnsGtmAccessStrategyRequestFailoverAddrPool extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool in the secondary address pool set.
+   * The ID of the address pool.
    * 
    * @example
    * pool1
@@ -53,7 +53,7 @@ export class AddDnsGtmAccessStrategyRequestFailoverAddrPool extends $dara.Model 
   id?: string;
   /**
    * @remarks
-   * The weight of the address pool in the secondary address pool set.
+   * The weight of the address pool.
    * 
    * @example
    * 1
@@ -85,50 +85,54 @@ export class AddDnsGtmAccessStrategyRequestFailoverAddrPool extends $dara.Model 
 export class AddDnsGtmAccessStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The address pools in the primary address pool set.
+   * The collection of primary address pools.
    * 
    * This parameter is required.
    */
   defaultAddrPool?: AddDnsGtmAccessStrategyRequestDefaultAddrPool[];
   /**
    * @remarks
-   * The type of the primary address pool. Valid values:
+   * The type of the primary address pool.
    * 
-   * *   IPV4
-   * *   IPV6
-   * *   DOMAIN
+   * - IPV4
+   * 
+   * - IPV6
+   * 
+   * - DOMAIN
    * 
    * This parameter is required.
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   defaultAddrPoolType?: string;
   /**
    * @remarks
-   * Specifies whether to enable DNS resolution with optimal latency for the primary address pool set. Valid values:
+   * The latency-based scheduling optimization for the primary address pool collection.
    * 
-   * *   OPEN
-   * *   CLOSE
+   * - OPEN: enabled
+   * 
+   * - CLOSE: disabled
    * 
    * @example
-   * open
+   * OPEN
    */
   defaultLatencyOptimization?: string;
   /**
    * @remarks
-   * The load balancing policy of the primary address pool set. Valid values:
+   * The load balancing policy for the primary address pool collection.
    * 
-   * *   ALL_RR: returns all addresses.
-   * *   RATIO: returns addresses by weight.
+   * - ALL_RR: returns all addresses.
+   * 
+   * - RATIO: returns addresses by weight.
    * 
    * @example
-   * all_rr
+   * ALL_RR
    */
   defaultLbaStrategy?: string;
   /**
    * @remarks
-   * The maximum number of addresses returned from the primary address pool set.
+   * The maximum number of addresses returned from the primary address pool collection.
    * 
    * @example
    * 3
@@ -136,7 +140,7 @@ export class AddDnsGtmAccessStrategyRequest extends $dara.Model {
   defaultMaxReturnAddrNum?: number;
   /**
    * @remarks
-   * The minimum number of available addresses in the primary address pool set.
+   * The minimum number of active addresses in the primary address pool collection.
    * 
    * This parameter is required.
    * 
@@ -146,46 +150,50 @@ export class AddDnsGtmAccessStrategyRequest extends $dara.Model {
   defaultMinAvailableAddrNum?: number;
   /**
    * @remarks
-   * The address pools in the secondary address pool set. If no address pool exists in the secondary address pool set, set this parameter to EMPTY.
+   * The collection of failover address pools. If a failover address pool collection is not configured, enter "EMPTY".
    */
   failoverAddrPool?: AddDnsGtmAccessStrategyRequestFailoverAddrPool[];
   /**
    * @remarks
-   * The type of the secondary address pool. Valid values:
+   * The type of the failover address pool.
    * 
-   * *   IPV4
-   * *   IPV6
-   * *   DOMAIN
+   * - IPV4
+   * 
+   * - IPV6
+   * 
+   * - DOMAIN
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   failoverAddrPoolType?: string;
   /**
    * @remarks
-   * Specifies whether to enable DNS resolution with optimal latency for the secondary address pool set. Valid values:
+   * The latency-based scheduling optimization for the failover address pool collection.
    * 
-   * *   OPEN
-   * *   CLOSE
+   * - OPEN: enabled
+   * 
+   * - CLOSE: disabled
    * 
    * @example
-   * open
+   * OPEN
    */
   failoverLatencyOptimization?: string;
   /**
    * @remarks
-   * The load balancing policy of the secondary address pool set. Valid values:
+   * The load balancing policy for the failover address pool collection.
    * 
-   * *   ALL_RR: returns all addresses.
-   * *   RATIO: returns addresses by weight.
+   * - ALL_RR: returns all addresses.
+   * 
+   * - RATIO: returns addresses by weight.
    * 
    * @example
-   * all_rr
+   * ALL_RR
    */
   failoverLbaStrategy?: string;
   /**
    * @remarks
-   * The maximum number of addresses returned from the secondary address pool set.
+   * The maximum number of addresses returned from the failover address pool collection.
    * 
    * @example
    * 1
@@ -193,7 +201,7 @@ export class AddDnsGtmAccessStrategyRequest extends $dara.Model {
   failoverMaxReturnAddrNum?: number;
   /**
    * @remarks
-   * The minimum number of available addresses in the secondary address pool set.
+   * The minimum number of active addresses in the failover address pool collection.
    * 
    * @example
    * 1
@@ -211,7 +219,7 @@ export class AddDnsGtmAccessStrategyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -219,7 +227,7 @@ export class AddDnsGtmAccessStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The Domain Name System (DNS) request source. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Group.
+   * The source of the DNS request. For example, `["default", "drpeng"]` indicates a global policy and Dr. Peng Group.
    * 
    * @example
    * ["default", "drpeng"]
@@ -227,20 +235,21 @@ export class AddDnsGtmAccessStrategyRequest extends $dara.Model {
   lines?: string;
   /**
    * @remarks
-   * The type of the access policy. Valid values:
+   * The type of the access policy.
    * 
-   * *   GEO: geographical location-based access policy
-   * *   LATENCY: latency-based access policy
+   * - GEO: a location-based access policy.
+   * 
+   * - LATENCY: a latency-based access policy.
    * 
    * This parameter is required.
    * 
    * @example
-   * geo
+   * GEO
    */
   strategyMode?: string;
   /**
    * @remarks
-   * The name of the access policy.
+   * The policy name.
    * 
    * This parameter is required.
    * 

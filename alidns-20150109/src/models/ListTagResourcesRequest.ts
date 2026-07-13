@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The key value.
+   * The tag value.
    * 
    * @example
    * abcd
@@ -45,10 +45,11 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -56,7 +57,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token used to start the next query.
    * 
    * @example
    * 4698691
@@ -64,14 +65,14 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid value:
    * 
-   * *   **DOMAIN**: domain name
+   * - **DOMAIN**: domain name
    * 
    * This parameter is required.
    * 
@@ -81,7 +82,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * An array of tag key-value pairs.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

@@ -7,8 +7,9 @@ export class UpdateCloudGtmInstanceConfigAlertShrinkRequest extends $dara.Model 
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
+   * - zh-CN: Chinese
+   * 
+   * - en-US: English
    * 
    * @example
    * zh-CN
@@ -16,20 +17,21 @@ export class UpdateCloudGtmInstanceConfigAlertShrinkRequest extends $dara.Model 
   acceptLanguage?: string;
   /**
    * @remarks
-   * The alert configurations.
+   * A list of alert configurations.
    */
   alertConfigShrink?: string;
   /**
    * @remarks
-   * The alert contact groups.
+   * A list of alert notification groups.
    */
   alertGroupShrink?: string;
   /**
    * @remarks
-   * The alert configuration mode of the instance. Valid values:
+   * The alert configuration mode for the instance. Valid values:
    * 
-   * *   global: global alert configuration
-   * *   instance_config: custom alert configuration
+   * - global: The instance inherits the global alert configuration.
+   * 
+   * - instance_config: The instance uses a custom alert configuration.
    * 
    * @example
    * global
@@ -37,7 +39,7 @@ export class UpdateCloudGtmInstanceConfigAlertShrinkRequest extends $dara.Model 
   alertMode?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token that ensures the idempotence of the request. The client must generate a unique value for this parameter. The token can contain a maximum of 64 ASCII characters.
    * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22
@@ -45,7 +47,7 @@ export class UpdateCloudGtmInstanceConfigAlertShrinkRequest extends $dara.Model 
   clientToken?: string;
   /**
    * @remarks
-   * The configuration ID of the access domain name. Two configuration IDs exist when an A record and an AAAA record are configured for the access domain name that is bound to the GTM instance. This ID uniquely identifies a configuration.
+   * The ID of the domain name instance configuration. A GTM instance can have two configurations for the same access domain name if you configure both A and AAAA records. The ConfigId uniquely identifies a configuration.
    * 
    * @example
    * Config-000**11

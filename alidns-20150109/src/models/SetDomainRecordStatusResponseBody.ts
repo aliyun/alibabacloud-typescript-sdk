@@ -8,7 +8,7 @@ export class SetDomainRecordStatusResponseBody extends $dara.Model {
    * The ID of the DNS record.
    * 
    * @example
-   * 9999985
+   * 9*******
    */
   recordId?: string;
   /**
@@ -21,7 +21,7 @@ export class SetDomainRecordStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the DNS record.
+   * The current status of the DNS record.
    * 
    * @example
    * Disable

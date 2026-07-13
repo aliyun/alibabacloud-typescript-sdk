@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetrieveDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 9CC0D642-49D4-48DE-A1A5-9F218652E4A7

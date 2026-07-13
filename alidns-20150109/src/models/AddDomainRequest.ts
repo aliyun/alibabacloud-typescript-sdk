@@ -10,23 +10,24 @@ export class AddDomainRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * dns-example.top
+   * example.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The ID of the group to which the domain name will belong. The default value is the ID of the default group.
+   * The ID of the domain name group. If you do not specify this parameter, pass an empty string, or pass defaultGroup, the domain name is added to the default group. You can call the AddDomainGroup operation to obtain the group ID.
    * 
    * @example
-   * 2223
+   * defaultGroup
    */
   groupId?: string;
   /**
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * Default value: en.
    * 
@@ -36,10 +37,10 @@ export class AddDomainRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the resource group in Resource Management to which the domain name belongs. If you leave this parameter empty, the domain name is added to the default resource group.
    * 
    * @example
-   * rg-resourcegroupid
+   * ******resourcegroupid
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

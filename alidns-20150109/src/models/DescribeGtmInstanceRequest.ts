@@ -15,7 +15,7 @@ export class DescribeGtmInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the values of specific response parameters.
+   * The language.
    * 
    * @example
    * en
@@ -23,7 +23,7 @@ export class DescribeGtmInstanceRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether additional information is required. Default value: **false**. If the value is **true**, the AccessStrategyNum and AddressPoolNum parameters are returned.
+   * Specifies whether to return additional information. The default value is **false**. If you set this parameter to **true**, the response includes AccessStrategyNum (the number of access policies) and AddressPoolNum (the number of address pools).
    * 
    * @example
    * false

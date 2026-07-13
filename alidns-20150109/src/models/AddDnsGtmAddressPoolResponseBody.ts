@@ -8,7 +8,7 @@ export class AddDnsGtmAddressPoolResponseBody extends $dara.Model {
    * The ID of the address pool.
    * 
    * @example
-   * testpool1
+   * hrbv**
    */
   addrPoolId?: string;
   /**
@@ -16,15 +16,15 @@ export class AddDnsGtmAddressPoolResponseBody extends $dara.Model {
    * The ID of the health check configuration.
    * 
    * @example
-   * test1
+   * hra**a
    */
   monitorConfigId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
-   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   * 6856BCF6-11D6-4D7E-AC53-FD5799335**B
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -60,7 +60,7 @@ export class DescribeDomainStatisticsResponseBodyStatistics extends $dara.Model 
 export class DescribeDomainStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF

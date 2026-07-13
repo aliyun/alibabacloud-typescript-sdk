@@ -97,7 +97,7 @@ export class DescribeDomainRecordsResponseBody extends $dara.Model {
   domainRecords?: DescribeDomainRecordsResponseBodyDomainRecords;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class DescribeDomainRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of DNS records returned in this query.
    * 
    * @example
    * 20
@@ -121,7 +121,7 @@ export class DescribeDomainRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of DNS records.
    * 
    * @example
    * 2

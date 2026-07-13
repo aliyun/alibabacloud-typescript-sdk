@@ -37,7 +37,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends
   subDomain?: string;
   /**
    * @remarks
-   * Total number of requests.
+   * The total number of requests.
    * 
    * @example
    * 14141592653
@@ -45,7 +45,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends
   totalCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTP requests.
+   * The number of IPv4 HTTP requests.
    * 
    * @example
    * 3141592653
@@ -53,7 +53,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends
   v4HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTPS requests.
+   * The number of IPv4 HTTPS requests.
    * 
    * @example
    * 3141592653
@@ -61,7 +61,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends
   v4HttpsCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTP requests.
+   * The number of IPv6 HTTP requests.
    * 
    * @example
    * 3141592653
@@ -69,7 +69,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends
   v6HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTPS requests.
+   * The number of IPv6 HTTPS requests.
    * 
    * @example
    * 3141592653
@@ -123,7 +123,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBody extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -131,7 +131,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBody extends $dara.Mod
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 0F32959D-417B-4D66-8463-68606605E3E2
@@ -139,12 +139,12 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The statistics list.
+   * The list of statistics.
    */
   statistics?: DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics[];
   /**
    * @remarks
-   * Total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -152,7 +152,7 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBody extends $dara.Mod
   totalItems?: number;
   /**
    * @remarks
-   * Total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 50

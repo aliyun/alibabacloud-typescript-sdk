@@ -100,7 +100,7 @@ export class DescribeBatchResultDetailResponseBody extends $dara.Model {
   batchResultDetails?: DescribeBatchResultDetailResponseBodyBatchResultDetails;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class DescribeBatchResultDetailResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -124,7 +124,7 @@ export class DescribeBatchResultDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1

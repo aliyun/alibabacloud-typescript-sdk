@@ -7,8 +7,9 @@ export class ListCloudGtmAddressPoolsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US (default): English
+   * - zh-CN: Chinese.
+   * 
+   * - en-US: English. This is the default value.
    * 
    * @example
    * en-US
@@ -16,7 +17,7 @@ export class ListCloudGtmAddressPoolsRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Address pool name.
+   * The name of the address pool.
    * 
    * @example
    * AddressPool-1
@@ -26,9 +27,11 @@ export class ListCloudGtmAddressPoolsRequest extends $dara.Model {
    * @remarks
    * The type of the address pool. Valid values:
    * 
-   * *   IPv4: indicates that the service address to be resolved is an IPv4 address.
-   * *   IPv6: indicates that the service address to be resolved is an IPv6 address.
-   * *   domain: indicates that the service address to be resolved is a domain name.
+   * - IPv4: The address pool contains IPv4 addresses.
+   * 
+   * - IPv6: The address pool contains IPv6 addresses.
+   * 
+   * - domain: The address pool contains domain names.
    * 
    * @example
    * IPv4
@@ -36,18 +39,19 @@ export class ListCloudGtmAddressPoolsRequest extends $dara.Model {
   addressPoolType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token that is used to ensure the idempotence of the request. Make sure that the token is unique among different requests. The token can contain a maximum of 64 ASCII characters.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The enabling state of the address pool. Valid values:
+   * The status of the address pool. Valid values:
    * 
-   * *   enable: The address pool is enabled.
-   * *   disable: The address pool is disabled.
+   * - enable: The address pool is enabled.
+   * 
+   * - disable: The address pool is disabled.
    * 
    * @example
    * enable
@@ -55,7 +59,7 @@ export class ListCloudGtmAddressPoolsRequest extends $dara.Model {
   enableStatus?: string;
   /**
    * @remarks
-   * Current page number, starting at **1**, default is **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * This parameter is required.
    * 
@@ -65,7 +69,7 @@ export class ListCloudGtmAddressPoolsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
    * 
    * This parameter is required.
    * 
@@ -75,7 +79,7 @@ export class ListCloudGtmAddressPoolsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The additional description of the address pool.
+   * The remarks for the address pool.
    * 
    * @example
    * test

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDnsCacheDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * B57C121B-A45F-44D8-A9B2-XXXXXXX

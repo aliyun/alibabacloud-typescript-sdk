@@ -101,7 +101,15 @@ export class DescribeCloudGtmGlobalAlertResponseBodyAlertGroup extends $dara.Mod
 }
 
 export class DescribeCloudGtmGlobalAlertResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   alertConfig?: DescribeCloudGtmGlobalAlertResponseBodyAlertConfig;
+  /**
+   * @remarks
+   * The alert notification groups.
+   */
   alertGroup?: DescribeCloudGtmGlobalAlertResponseBodyAlertGroup;
   /**
    * @remarks

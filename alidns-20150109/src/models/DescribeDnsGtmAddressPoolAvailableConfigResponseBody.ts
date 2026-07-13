@@ -67,7 +67,7 @@ export class DescribeDnsGtmAddressPoolAvailableConfigResponseBody extends $dara.
   attributeInfos?: DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 199C3699-9A7B-41A1-BB5A-F1E862D3CB38

@@ -7,8 +7,9 @@ export class UpdateCloudGtmGlobalAlertShrinkRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
+   * - `zh-CN`: Chinese
+   * 
+   * - `en-US`: English
    * 
    * @example
    * en-US
@@ -16,17 +17,17 @@ export class UpdateCloudGtmGlobalAlertShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The alert configurations.
+   * A list of alert configurations.
    */
   alertConfigShrink?: string;
   /**
    * @remarks
-   * The alert contact groups.
+   * A list of alert notification groups.
    */
   alertGroupShrink?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token to ensure request idempotence. This token must be unique for each request, contain only ASCII characters, and be no more than 64 characters in length.
    * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22

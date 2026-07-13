@@ -85,7 +85,7 @@ export class DescribeDnsGtmInstanceAddressPoolsResponseBody extends $dara.Model 
   addrPools?: DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class DescribeDnsGtmInstanceAddressPoolsResponseBody extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned per page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeDnsGtmInstanceAddressPoolsResponseBody extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -109,7 +109,7 @@ export class DescribeDnsGtmInstanceAddressPoolsResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned on all pages.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class DescribeDnsGtmInstanceAddressPoolsResponseBody extends $dara.Model 
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

@@ -104,37 +104,58 @@ export class SearchRecursionRecordsResponseBodyRecords extends $dara.Model {
 
 export class SearchRecursionRecordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of records returned for the current request.
+   * 
    * @example
    * 500
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * 4698691
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The current page number. The value starts from **1**. The default value is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page. The maximum value is **100**. The default value is **20**.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   records?: SearchRecursionRecordsResponseBodyRecords;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
   totalItems?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */

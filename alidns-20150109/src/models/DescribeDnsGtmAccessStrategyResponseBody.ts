@@ -179,14 +179,16 @@ export class DescribeDnsGtmAccessStrategyResponseBodyLines extends $dara.Model {
 export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The primary/secondary switchover policy for address pool groups. Valid values:
+   * The switchover policy for the address pool group. Valid values:
    * 
-   * *   AUTO: performs automatic switchover between the primary and secondary address pool groups upon failures.
-   * *   DEFAULT: uses the primary address pool group.
-   * *   FAILOVER: uses the secondary address pool group.
+   * - AUTO: automatic switchover.
+   * 
+   * - DEFAULT: the primary address pool group.
+   * 
+   * - FAILOVER: the secondary address pool group.
    * 
    * @example
-   * auto
+   * AUTO
    */
   accessMode?: string;
   /**
@@ -199,7 +201,7 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the access policy was created.
+   * The time when the access policy was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1533773400000
@@ -209,8 +211,9 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
    * @remarks
    * The status of the primary address pool group. Valid values:
    * 
-   * *   AVAILABLE: available
-   * *   NOT_AVAILABLE: unavailable
+   * - AVAILABLE
+   * 
+   * - NOT_AVAILABLE
    * 
    * @example
    * AVAILABLE
@@ -220,12 +223,14 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
    * @remarks
    * The type of the primary address pool. Valid values:
    * 
-   * *   IPV4
-   * *   IPV6
-   * *   DOMAIN
+   * - IPV4
+   * 
+   * - IPV6
+   * 
+   * - DOMAIN
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   defaultAddrPoolType?: string;
   defaultAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools;
@@ -239,29 +244,31 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
   defaultAvailableAddrNum?: number;
   /**
    * @remarks
-   * Indicates whether scheduling optimization for latency resolution was enabled for the primary address pool group. Valid values:
+   * Indicates whether latency-based scheduling is enabled for the primary address pool group. Valid values:
    * 
-   * *   OPEN: enabled
-   * *   CLOSE: disabled
+   * - OPEN: enabled.
+   * 
+   * - CLOSE: disabled.
    * 
    * @example
-   * open
+   * OPEN
    */
   defaultLatencyOptimization?: string;
   /**
    * @remarks
-   * The load balancing policy of the primary address pool group. Valid values:
+   * The load balancing policy for the primary address pool group. Valid values:
    * 
-   * *   ALL_RR: returns all addresses.
-   * *   RATIO: returns addresses by weight.
+   * - ALL_RR: returns all addresses.
+   * 
+   * - RATIO: returns addresses by weight.
    * 
    * @example
-   * all_rr
+   * ALL_RR
    */
   defaultLbaStrategy?: string;
   /**
    * @remarks
-   * The maximum number of addresses returned from the primary address pool group.
+   * The maximum number of addresses that can be returned from the primary address pool group.
    * 
    * @example
    * 1
@@ -277,10 +284,11 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
   defaultMinAvailableAddrNum?: number;
   /**
    * @remarks
-   * The type of the active address pool group. Valid values:
+   * The type of the address pool group that is currently in effect. Valid values:
    * 
-   * *   DEFAULT: the primary address pool group
-   * *   FAILOVER: the secondary address pool group
+   * - DEFAULT: the primary address pool group.
+   * 
+   * - FAILOVER: the secondary address pool group.
    * 
    * @example
    * DEFAULT
@@ -290,8 +298,9 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
    * @remarks
    * The status of the secondary address pool group. Valid values:
    * 
-   * *   AVAILABLE: available
-   * *   NOT_AVAILABLE: unavailable
+   * - AVAILABLE
+   * 
+   * - NOT_AVAILABLE
    * 
    * @example
    * AVAILABLE
@@ -301,12 +310,14 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
    * @remarks
    * The type of the secondary address pool. Valid values:
    * 
-   * *   IPV4
-   * *   IPV6
-   * *   DOMAIN
+   * - IPV4
+   * 
+   * - IPV6
+   * 
+   * - DOMAIN
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   failoverAddrPoolType?: string;
   failoverAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools;
@@ -320,29 +331,31 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
   failoverAvailableAddrNum?: number;
   /**
    * @remarks
-   * Indicates whether scheduling optimization for latency resolution was enabled for the secondary address pool group. Valid values:
+   * Indicates whether latency-based scheduling is enabled for the secondary address pool group. Valid values:
    * 
-   * *   OPEN: enabled
-   * *   CLOSE: disabled
+   * - OPEN: enabled.
+   * 
+   * - CLOSE: disabled.
    * 
    * @example
-   * open
+   * OPEN
    */
   failoverLatencyOptimization?: string;
   /**
    * @remarks
-   * The load balancing policy of the secondary address pool group. Valid values:
+   * The load balancing policy for the secondary address pool group. Valid values:
    * 
-   * *   ALL_RR: returns all addresses.
-   * *   RATIO: returns addresses by weight.
+   * - ALL_RR: returns all addresses.
+   * 
+   * - RATIO: returns addresses by weight.
    * 
    * @example
-   * all_rr
+   * ALL_RR
    */
   failoverLbaStrategy?: string;
   /**
    * @remarks
-   * The maximum number of addresses returned from the secondary address pool group.
+   * The maximum number of addresses that can be returned from the secondary address pool group.
    * 
    * @example
    * 1
@@ -358,16 +371,16 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
   failoverMinAvailableAddrNum?: number;
   /**
    * @remarks
-   * The ID of the associated instance.
+   * The ID of the associated Global Traffic Manager (GTM) instance.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   lines?: DescribeDnsGtmAccessStrategyResponseBodyLines;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * BA1608CA-834C-4E63-8682-8AF0B11ED72D
@@ -378,18 +391,19 @@ export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
    * The ID of the access policy.
    * 
    * @example
-   * strategyId1
+   * hr***
    */
   strategyId?: string;
   /**
    * @remarks
    * The type of the access policy. Valid values:
    * 
-   * *   GEO: geographical location-based
-   * *   LATENCY: latency-based
+   * - GEO: a geolocation-based access policy.
+   * 
+   * - LATENCY: a latency-based access policy.
    * 
    * @example
-   * geo
+   * GEO
    */
   strategyMode?: string;
   /**

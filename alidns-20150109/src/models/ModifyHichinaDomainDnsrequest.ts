@@ -10,17 +10,18 @@ export class ModifyHichinaDomainDNSRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * example.com
+   * dns-example.top
    */
   domainName?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the return value. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
    * 
-   * Default value: en
+   * - en: English
+   * 
+   * Default: en
    * 
    * @example
    * en
@@ -28,7 +29,7 @@ export class ModifyHichinaDomainDNSRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 192.0.2.0

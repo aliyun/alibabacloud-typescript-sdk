@@ -173,36 +173,57 @@ export class SearchRecursionZonesResponseBodyZones extends $dara.Model {
 
 export class SearchRecursionZonesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of items to return for this request.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token used to retrieve the next page of results.
+   * 
    * @example
    * 4698691
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number. Pages start from **1**. The default is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of items returned on each page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of items.
+   * 
    * @example
    * 11
    */
   totalItems?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 123
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of DoH requests, including HTTP and HTTPS requests.
+   * The total number of DNS-over-HTTPS (DoH) requests. This value includes both HTTP and HTTPS requests.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   httpCount?: number;
   /**
    * @remarks
-   * The number of HTTPS requests. On the Traffic Analysis tab of the Public DNS console, the value of this parameter includes the number of DNS over HTTPs (DoH) requests. Therefore, the number of DoH requests is not separately displayed in the console.
+   * The number of HTTPS requests. On the Traffic Analysis tab of the Public DNS console, this parameter includes the number of DNS-over-HTTPS (DoH) requests. Therefore, DoH requests are not displayed separately in the console.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   ipCount?: number;
   /**
    * @remarks
-   * The statistical timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp of the statistics. Unit: milliseconds.
    * 
    * @example
    * 1706716800000
@@ -61,7 +61,7 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   udpTotalCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based requests.
+   * The number of IPv4 requests.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   v4Count?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTP requests.
+   * The number of IPv4 HTTP requests.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   v4HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTPS requests.
+   * The number of IPv4 HTTPS requests.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   v4HttpsCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based requests.
+   * The number of IPv6 requests.
    * 
    * @example
    * 0
@@ -93,7 +93,7 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   v6Count?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTP requests.
+   * The number of IPv6 HTTP requests.
    * 
    * @example
    * 0
@@ -101,7 +101,7 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
   v6HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTPS requests.
+   * The number of IPv6 HTTPS requests.
    * 
    * @example
    * 0
@@ -155,12 +155,12 @@ export class DescribePdnsRequestStatisticResponseBodyData extends $dara.Model {
 export class DescribePdnsRequestStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics on the DNS requests.
+   * A list of request statistics.
    */
   data?: DescribePdnsRequestStatisticResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382

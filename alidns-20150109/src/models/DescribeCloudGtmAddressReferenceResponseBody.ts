@@ -178,7 +178,7 @@ export class DescribeCloudGtmAddressReferenceResponseBodyAddressPools extends $d
 export class DescribeCloudGtmAddressReferenceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * IP address or domain name.
+   * The IP address or domain name.
    * 
    * @example
    * 223.5.XX.XX
@@ -186,16 +186,16 @@ export class DescribeCloudGtmAddressReferenceResponseBody extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The address ID. This ID uniquely identifies the address.
+   * The unique ID of the address.
    * 
    * @example
-   * addr-89564584963974**40
+   * addr-89564584963974****
    */
   addressId?: string;
   addressPools?: DescribeCloudGtmAddressReferenceResponseBodyAddressPools;
   /**
    * @remarks
-   * Address name.
+   * The name of the address.
    * 
    * @example
    * Address-1
@@ -203,7 +203,7 @@ export class DescribeCloudGtmAddressReferenceResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382

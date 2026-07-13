@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsProductInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The order in which you want to sort returned entries. Valid values:
+   * The sorting order. Valid values:
    * 
-   * *   DESC: Returned entries are sorted in descending order. If this parameter is left empty, returned entries are sorted in descending order by default.
-   * *   ASC: Returned entries are sorted in ascending order.
+   * - DESC: Descending order. This is the default value.
+   * 
+   * - ASC: Ascending order.
    * 
    * @example
    * DESC
@@ -16,10 +17,11 @@ export class DescribeDnsProductInstancesRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The type of the domain name. Valid values:
+   * The type of the domain name. This parameter is not case-sensitive. Valid values:
    * 
-   * *   PUBLIC (default): hosted public domain name
-   * *   CACHE: cached public domain name
+   * - PUBLIC: authoritative domain name (default)
+   * 
+   * - CACHE: authoritative proxy domain name
    * 
    * @example
    * PUBLIC
@@ -29,8 +31,9 @@ export class DescribeDnsProductInstancesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * Default value: en
    * 
@@ -40,10 +43,11 @@ export class DescribeDnsProductInstancesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The method that is used to sort returned entries. Valid values:
+   * The field to sort the results by. Valid values:
    * 
-   * *   createDate: sorts returned entries by creation time. If this parameter is left empty, returned entries are sorted by creation time by default.
-   * *   expireDate: sorts returned entries by expiration time.
+   * - createDate: Sorts the results by creation time. This is the default value.
+   * 
+   * - expireDate: Sorts the results by expiration time.
    * 
    * @example
    * createDate
@@ -51,7 +55,7 @@ export class DescribeDnsProductInstancesRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number. Pages start from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -67,7 +71,7 @@ export class DescribeDnsProductInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client\\"s IP address.
    * 
    * @example
    * 192.0.2.0
@@ -75,7 +79,7 @@ export class DescribeDnsProductInstancesRequest extends $dara.Model {
   userClientIp?: string;
   /**
    * @remarks
-   * The version code of the Alibaba Cloud DNS instance.
+   * The edition code of the Alibaba Cloud DNS instance.
    * 
    * @example
    * version1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGtmAddressPoolRequestAddr extends $dara.Model {
   /**
    * @remarks
-   * The weight of the address pool that you want to modify.
+   * The weight of the address.
    * 
    * @example
    * 1
@@ -13,11 +13,13 @@ export class UpdateGtmAddressPoolRequestAddr extends $dara.Model {
   lbaWeight?: number;
   /**
    * @remarks
-   * The mode of the address pool that you want to modify.
+   * The mode. Valid values:
    * 
-   * *   **SMART**: Intelligent return
-   * *   **ONLINE**: Always online
-   * *   **OFFLINE**: Always offline
+   * - **SMART**: Intelligent return
+   * 
+   * - **ONLINE**: Always online
+   * 
+   * - **OFFLINE**: Always offline
    * 
    * @example
    * SMART
@@ -25,10 +27,10 @@ export class UpdateGtmAddressPoolRequestAddr extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The addresses in the address pool.
+   * The address.
    * 
    * @example
-   * 1.1.1.1
+   * 1.1.XX.XX
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -59,12 +61,14 @@ export class UpdateGtmAddressPoolRequestAddr extends $dara.Model {
 export class UpdateGtmAddressPoolRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of addresses in the address pool.
+   * 
    * This parameter is required.
    */
   addr?: UpdateGtmAddressPoolRequestAddr[];
   /**
    * @remarks
-   * The ID of the address pool that you want to modify.
+   * The ID of the address pool.
    * 
    * This parameter is required.
    * 
@@ -74,7 +78,7 @@ export class UpdateGtmAddressPoolRequest extends $dara.Model {
   addrPoolId?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en
@@ -82,7 +86,7 @@ export class UpdateGtmAddressPoolRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The minimum number of available addresses in the address pool.
+   * The minimum number of active addresses in the address pool.
    * 
    * @example
    * 2
@@ -90,12 +94,19 @@ export class UpdateGtmAddressPoolRequest extends $dara.Model {
   minAvailableAddrNum?: number;
   /**
    * @remarks
-   * The name of the address pool that you want to modify.
+   * The name of the address pool.
+   * 
+   * @example
+   * 名称
    */
   name?: string;
   /**
    * @remarks
-   * The type of the address pool that you want to modify.
+   * The type of the address pool. Valid values:
+   * 
+   * - IP: IPv4 addresses
+   * 
+   * - DOMAIN: Domain names
    * 
    * This parameter is required.
    * 

@@ -21,7 +21,7 @@ export class DescribeGtmInstanceStatusResponseBody extends $dara.Model {
   addrPoolNotAvailableNum?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
@@ -29,10 +29,11 @@ export class DescribeGtmInstanceStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the instance. Valid values:
+   * The status of the instance. Valid values:
    * 
-   * *   ALLOW: The operation on the instance is allowed.
-   * *   DENY: The operation on the instance is not allowed.
+   * - ALLOW: Operations are allowed.
+   * 
+   * - DENY: Operations are denied.
    * 
    * @example
    * ALLOW
@@ -40,10 +41,11 @@ export class DescribeGtmInstanceStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reasons why the instance is in the current state. Valid values:
+   * A list of reasons for the instance status. Valid values:
    * 
-   * *   INSTANCE_OPERATE_BLACK_LIST: The operation on the instance is not allowed.
-   * *   BETA_INSTANCE: The instance is in public preview.
+   * - INSTANCE_OPERATE_BLACK_LIST: The instance is in a blacklist.
+   * 
+   * - BETA_INSTANCE: The instance is in public preview.
    * 
    * @example
    * ["BETA_INSTANCE"]
@@ -51,7 +53,7 @@ export class DescribeGtmInstanceStatusResponseBody extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The number of unavailable access policies.
+   * The number of access policies for which the active address pool is unavailable.
    * 
    * @example
    * 10
@@ -59,7 +61,7 @@ export class DescribeGtmInstanceStatusResponseBody extends $dara.Model {
   strategyNotAvailableNum?: number;
   /**
    * @remarks
-   * The number of access policies switched to the secondary address pool.
+   * The number of access policies that are switched to the failover address pool.
    * 
    * @example
    * 10

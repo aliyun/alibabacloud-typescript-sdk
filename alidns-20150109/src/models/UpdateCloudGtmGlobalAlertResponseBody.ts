@@ -13,10 +13,11 @@ export class UpdateCloudGtmGlobalAlertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the global alert configuration was successfully updated. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The update was successful.
+   * 
+   * - `false`: The update failed.
    * 
    * @example
    * true

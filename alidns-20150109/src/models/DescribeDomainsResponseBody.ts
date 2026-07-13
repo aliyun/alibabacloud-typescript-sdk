@@ -202,7 +202,7 @@ export class DescribeDomainsResponseBody extends $dara.Model {
   domains?: DescribeDomainsResponseBodyDomains;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -210,7 +210,7 @@ export class DescribeDomainsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 2
@@ -218,7 +218,7 @@ export class DescribeDomainsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 68386699-8B9E-4D5B-BC4C-75A28F6C2A00

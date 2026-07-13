@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudGtmAlertLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * Alert type:
-   * - ALERT
-   * - RESUME
+   * The alert type.
+   * 
+   * - ALERT: An alert is triggered.
+   * 
+   * - RESUME: The service has recovered.
    * 
    * @example
    * ALERT
@@ -15,7 +17,7 @@ export class ListCloudGtmAlertLogsRequest extends $dara.Model {
   actionType?: string;
   /**
    * @remarks
-   * The end time of the query (timestamp).
+   * The end of the time range to query. This is a UNIX timestamp.
    * 
    * This parameter is required.
    * 
@@ -25,11 +27,15 @@ export class ListCloudGtmAlertLogsRequest extends $dara.Model {
   endTimestamp?: number;
   /**
    * @remarks
-   * Alarm object types:
+   * The alert object.
+   * 
    * - GTM_ADDRESS: Address
-   * - GTM_ADDRESS_POOL: Address Pool
+   * 
+   * - GTM_ADDRESS_POOL: Address pool
+   * 
    * - GTM_INSTANCE: Instance
-   * - GTM_MONITOR_TEMPLATE: Health Check Template
+   * 
+   * - GTM_MONITOR_TEMPLATE: Health check template
    * 
    * @example
    * GTM_ADDRESS
@@ -37,7 +43,7 @@ export class ListCloudGtmAlertLogsRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * Search keyword, usually an address ID, address pool ID, domain information, etc.
+   * The keyword for the search. This is usually an address ID, address pool ID, or domain name.
    * 
    * @example
    * pool-895280232254422016
@@ -45,8 +51,10 @@ export class ListCloudGtmAlertLogsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Language type of the returned information:
+   * The language of the response.
+   * 
    * - zh-CN: Chinese
+   * 
    * - en-US: English
    * 
    * @example
@@ -55,7 +63,7 @@ export class ListCloudGtmAlertLogsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number, starting from **1**, default is **1**.
+   * The current page number. The value starts from **1**. The default value is **1**.
    * 
    * This parameter is required.
    * 
@@ -65,7 +73,7 @@ export class ListCloudGtmAlertLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
    * 
    * This parameter is required.
    * 
@@ -75,7 +83,7 @@ export class ListCloudGtmAlertLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query (timestamp).
+   * The start of the time range to query. This is a UNIX timestamp.
    * 
    * This parameter is required.
    * 

@@ -121,7 +121,7 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPools extends $dara.Mod
 export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the disaster recovery plan was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the disaster recovery plan was created.
    * 
    * @example
    * 2019-08-11T05:04Z
@@ -129,7 +129,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the disaster recovery plan was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the disaster recovery plan was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1565499867000
@@ -137,7 +137,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The number of faulty address pools.
+   * The number of abnormal address pools.
    * 
    * @example
    * 2
@@ -146,7 +146,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   faultAddrPools?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPools;
   /**
    * @remarks
-   * The time when the disaster recovery plan was last executed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the disaster recovery plan was last executed.
    * 
    * @example
    * 2019-08-11T05:04Z
@@ -154,7 +154,7 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   lastExecuteTime?: string;
   /**
    * @remarks
-   * The time when the disaster recovery plan was last executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the disaster recovery plan was last executed. This value is a UNIX timestamp.
    * 
    * @example
    * 1565505898000
@@ -162,18 +162,18 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   lastExecuteTimestamp?: number;
   /**
    * @remarks
-   * The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the disaster recovery plan was last rolled back. The value is a string that represents a UNIX timestamp.
    * 
    * @example
-   * 2019-08-11T06:45Z
+   * 1565505919000
    */
   lastRollbackTime?: string;
   /**
    * @remarks
-   * The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp.
    * 
    * @example
-   * 1565505919000
+   * 1565505898000
    */
   lastRollbackTimestamp?: number;
   /**
@@ -189,12 +189,12 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
    * The ID of the disaster recovery plan.
    * 
    * @example
-   * 55
+   * 10****
    */
   recoveryPlanId?: number;
   /**
    * @remarks
-   * The description of the disaster recovery plan.
+   * The remarks.
    * 
    * @example
    * remark-example
@@ -210,7 +210,13 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the disaster recovery plan.
+   * The status of the disaster recovery plan:
+   * 
+   * - UNEXECUTED: The disaster recovery plan is not executed.
+   * 
+   * - EXECUTED: The disaster recovery plan is being executed.
+   * 
+   * - ROLLED_BACK: The disaster recovery plan is being rolled back.
    * 
    * @example
    * UNEXECUTED
@@ -218,18 +224,18 @@ export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the disaster recovery plan was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the disaster recovery plan was last updated.
    * 
    * @example
-   * 2019-08-11T06:45Z
+   * 2024-03-29T13:20Z
    */
   updateTime?: string;
   /**
    * @remarks
-   * The time when the disaster recovery plan was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the disaster recovery plan was last updated. This value is a UNIX timestamp.
    * 
    * @example
-   * 1565499867000
+   * 1565505898000
    */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {

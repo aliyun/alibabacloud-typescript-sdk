@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainNsRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name. You can call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
+   * The domain name.<props="china"> You can call the [DescribeDomains](https://help.aliyun.com/document_detail/29751.html) operation to obtain this value.
+   * <props="intl">You can call the [DescribeDomains](https://www.alibabacloud.com/help/en/dns/latest/api-alidns-2015-01-09-describedomains) operation to obtain this value.
    * 
    * This parameter is required.
    * 
@@ -15,14 +16,14 @@ export class DescribeDomainNsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language of the content in the request and response.
+   * The language of the request and response.
    * 
    * Valid values:
    * 
-   * zh: Chinese\\
-   * en: English
+   * zh: Chinese<br>
+   * en: English<br>
    * 
-   * Default value: **zh**
+   * Default value: **zh**.
    * 
    * @example
    * en

@@ -88,7 +88,7 @@ export class DescribeGtmInstanceAddressPoolsResponseBody extends $dara.Model {
   addrPools?: DescribeGtmInstanceAddressPoolsResponseBodyAddrPools;
   /**
    * @remarks
-   * The number of the page returned.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -104,7 +104,7 @@ export class DescribeGtmInstanceAddressPoolsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -112,7 +112,7 @@ export class DescribeGtmInstanceAddressPoolsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned on all pages.
+   * The total number of entries returned.
    * 
    * @example
    * 2

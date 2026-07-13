@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePdnsRequestStatisticsResponseBodyDataThreatInfo extends $dara.Model {
   /**
    * @remarks
-   * The current version does not support this parameter.
+   * This parameter is not supported in the current version.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class DescribePdnsRequestStatisticsResponseBodyDataThreatInfo extends $da
   threatLevel?: string;
   /**
    * @remarks
-   * The current version does not support this parameter.
+   * This parameter is not supported in the current version.
    * 
    * @example
    * -
@@ -45,7 +45,7 @@ export class DescribePdnsRequestStatisticsResponseBodyDataThreatInfo extends $da
 export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of DoH requests, including the HTTP and HTTPS requests.
+   * The total number of DoH requests. This includes the total number of HTTP and HTTPS requests.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   httpCount?: number;
   /**
    * @remarks
-   * The number of HTTPS requests. On the Traffic Analysis tab of the public DNS console, the value of this parameter includes the number of DNS over HTTPs (DoH) requests. Therefore, the number of DoH requests is not separately displayed in the console.
+   * The number of HTTPS requests. On the Traffic Analysis tab of the Public DNS console, this parameter includes the number of DNS over HTTPS (DoH) requests. Therefore, the number of DoH requests is not separately displayed in the console.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   ipCount?: number;
   /**
    * @remarks
-   * The current version does not support this parameter.
+   * This parameter is not supported in the current version.
    * 
    * @example
    * -
@@ -93,7 +93,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   maxThreatLevel?: string;
   /**
    * @remarks
-   * The subdomain name.
+   * The subdomain.
    * 
    * @example
    * www.example.com
@@ -101,7 +101,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   subDomain?: string;
   /**
    * @remarks
-   * The current version does not support this parameter.
+   * This parameter is not supported in the current version.
    * 
    * @example
    * -
@@ -109,7 +109,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   threatCount?: number;
   /**
    * @remarks
-   * The current version does not support this parameter.
+   * This parameter is not supported in the current version.
    */
   threatInfo?: DescribePdnsRequestStatisticsResponseBodyDataThreatInfo[];
   /**
@@ -130,7 +130,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   udpTotalCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based requests.
+   * The number of IPv4 requests.
    * 
    * @example
    * 0
@@ -138,7 +138,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   v4Count?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTP requests.
+   * The number of IPv4 HTTP requests.
    * 
    * @example
    * 0
@@ -146,7 +146,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   v4HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTPS requests.
+   * The number of IPv4 HTTPS requests.
    * 
    * @example
    * 0
@@ -154,7 +154,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   v4HttpsCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based requests.
+   * The number of IPv6 requests.
    * 
    * @example
    * 0
@@ -162,7 +162,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   v6Count?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTP requests.
+   * The number of IPv6 HTTP requests.
    * 
    * @example
    * 0
@@ -170,7 +170,7 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
   v6HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTPS requests.
+   * The number of IPv6 HTTPS requests.
    * 
    * @example
    * 0
@@ -235,12 +235,12 @@ export class DescribePdnsRequestStatisticsResponseBodyData extends $dara.Model {
 export class DescribePdnsRequestStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics on the DNS requests.
+   * The list of request statistics.
    */
   data?: DescribePdnsRequestStatisticsResponseBodyData[];
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -248,7 +248,7 @@ export class DescribePdnsRequestStatisticsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **20**. Valid values: **1 to 100**.
+   * The number of entries returned per page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 10
@@ -256,7 +256,7 @@ export class DescribePdnsRequestStatisticsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -264,7 +264,7 @@ export class DescribePdnsRequestStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 49

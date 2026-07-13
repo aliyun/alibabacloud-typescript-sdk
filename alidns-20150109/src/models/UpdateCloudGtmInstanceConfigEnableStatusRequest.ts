@@ -7,8 +7,9 @@ export class UpdateCloudGtmInstanceConfigEnableStatusRequest extends $dara.Model
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   **zh-CN**: Chinese
-   * *   **en-US** (default): English
+   * - **zh-CN**: Chinese.
+   * 
+   * - **en-US** (default): English.
    * 
    * @example
    * zh-CN
@@ -16,28 +17,29 @@ export class UpdateCloudGtmInstanceConfigEnableStatusRequest extends $dara.Model
   acceptLanguage?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token that is used to ensure the idempotence of the request. The token must be unique among different requests and can contain a maximum of 64 ASCII characters.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * The ID of the domain name instance configuration. For the same access domain name and GTM instance, you can configure both A and AAAA records. This results in two domain name instance configurations for the GTM instance. The ConfigId uniquely identifies a specific configuration.
    * 
-   * You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+   * Call the [ListCloudGtmInstanceConfigs](https://help.aliyun.com/document_detail/2797349.html) operation to query the ConfigId of a domain name instance.
    * 
    * @example
-   * Config-000**11
+   * Config-000****
    */
   configId?: string;
   /**
    * @remarks
-   * The enabling state of the access domain name. Valid values:
+   * The enablement status of the domain name instance. Valid values:
    * 
-   * *   enable
-   * *   disable
+   * - enable: Enables the domain name instance.
+   * 
+   * - disable: Disables the domain name instance.
    * 
    * @example
    * enable
@@ -45,10 +47,10 @@ export class UpdateCloudGtmInstanceConfigEnableStatusRequest extends $dara.Model
   enableStatus?: string;
   /**
    * @remarks
-   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
+   * The ID of the GTM 3.0 instance that you want to modify.
    * 
    * @example
-   * gtm-cn-wwo3a3hbz**
+   * gtm-cn-wwo3a3h****
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

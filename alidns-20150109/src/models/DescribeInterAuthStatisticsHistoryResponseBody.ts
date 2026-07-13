@@ -4,36 +4,61 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInterAuthStatisticsHistoryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The request count.
+   * 
    * @example
    * 20
    */
   count?: number;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The DNS query protocol.
+   * 
+   * - UDP
+   * 
+   * - TCP
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The query type.
+   * 
    * @example
    * A
    */
   qtype?: string;
   /**
+   * @remarks
+   * The success rate or ratio.
+   * 
    * @example
    * 100
    */
   ratio?: number;
   /**
+   * @remarks
+   * The timestamp of the data point in milliseconds.
+   * 
    * @example
    * 1706716800000
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The zone name.
+   * 
    * @example
    * mt2.cn
    */
@@ -72,10 +97,14 @@ export class DescribeInterAuthStatisticsHistoryResponseBodyData extends $dara.Mo
 }
 
 export class DescribeInterAuthStatisticsHistoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of data objects.
+   */
   data?: DescribeInterAuthStatisticsHistoryResponseBodyData[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B

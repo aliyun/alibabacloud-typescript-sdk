@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDnsGtmAccessStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
@@ -13,10 +13,10 @@ export class UpdateDnsGtmAccessStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the access policy.
+   * The ID of the policy.
    * 
    * @example
-   * testStrategyId1
+   * testS******
    */
   strategyId?: string;
   static names(): { [key: string]: string } {

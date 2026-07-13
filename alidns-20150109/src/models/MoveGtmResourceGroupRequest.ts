@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MoveGtmResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: en, zh, and ja. Default value: en.
+   * 
    * @example
    * en
    */
   lang?: string;
   /**
    * @remarks
+   * The ID of the new resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class MoveGtmResourceGroupRequest extends $dara.Model {
   newResourceGroupId?: string;
   /**
    * @remarks
+   * The resource ID.
+   * 
    * This parameter is required.
    * 
    * @example

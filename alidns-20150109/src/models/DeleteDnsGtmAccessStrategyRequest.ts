@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDnsGtmAccessStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -13,12 +13,12 @@ export class DeleteDnsGtmAccessStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the access policy.
+   * The ID of the access policy. Call [DescribeDnsGtmAccessStrategies](https://help.aliyun.com/document_detail/2357191.html) to obtain the policy ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * testStrategyId1
+   * testSt******
    */
   strategyId?: string;
   static names(): { [key: string]: string } {

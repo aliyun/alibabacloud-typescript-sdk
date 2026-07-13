@@ -92,7 +92,7 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $dara.Model {
    * The ID of the address pool.
    * 
    * @example
-   * testpool1
+   * test*****
    */
   addrPoolId?: string;
   addrs?: DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs;
@@ -106,7 +106,7 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates the time when the address pool was created.
+   * The time when the address pool was created. This value is a UNIX timestamp.
    * 
    * @example
    * 1527690629357
@@ -114,13 +114,14 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The load balancing policy for the address pool. Valid values:
+   * The load balancing policy.
    * 
-   * *   ALL_RR: returns all addresses.
-   * *   RATIO: returns addresses by weight.
+   * - ALL_RR: Returns all addresses.
+   * 
+   * - RATIO: Returns addresses by weight.
    * 
    * @example
-   * all_rr
+   * ALL_RR
    */
   lbaStrategy?: string;
   /**
@@ -133,14 +134,16 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $dara.Model {
   monitorConfigId?: string;
   /**
    * @remarks
-   * Indicates the status of the health check. Valid values:
+   * The health check status of the address pool.
    * 
-   * *   OPEN: The health check is enabled.
-   * *   CLOSE: The health check is disabled.
-   * *   UNCONFIGURED: The health check is not configured.
+   * - OPEN: Enabled
+   * 
+   * - CLOSE: Disabled
+   * 
+   * - UNCONFIGURED: Not configured
    * 
    * @example
-   * open
+   * OPEN
    */
   monitorStatus?: string;
   /**
@@ -153,7 +156,7 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -161,14 +164,16 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the address pool. Valid values:
+   * The type of the address pool.
    * 
-   * *   IPV4: IPv4 address
-   * *   IPV6: IPv6 address
-   * *   DOMAIN: domain name
+   * - IPV4: IPv4 address
+   * 
+   * - IPV6: IPv6 address
+   * 
+   * - DOMAIN: Domain name
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   type?: string;
   /**
@@ -181,7 +186,7 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates the time when the address pool was last updated.
+   * The time when the address pool was last updated. This value is a UNIX timestamp.
    * 
    * @example
    * 1527690629357

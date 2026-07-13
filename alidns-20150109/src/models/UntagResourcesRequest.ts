@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags. Default value: false. This parameter is valid only when TagKey is left empty. Valid values: true and false.
+   * Specifies whether to remove all tags from the resource. The default value is false. This parameter takes effect only if the TagKey array is empty. Valid values: true and false.
    * 
    * @example
    * false
@@ -13,10 +13,11 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -24,7 +25,7 @@ export class UntagResourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource IDs.
    * 
    * This parameter is required.
    * 
@@ -34,9 +35,9 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid value: Valid values:
+   * The resource type. Valid value:
    * 
-   * *   **DOMAIN**: domain name
+   * - **DOMAIN**: a domain name
    * 
    * This parameter is required.
    * 
@@ -46,7 +47,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags added to the resource.
+   * The array of tag keys.
    * 
    * @example
    * The domain name.

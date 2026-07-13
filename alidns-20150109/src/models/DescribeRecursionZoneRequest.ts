@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecursionZoneRequest extends $dara.Model {
   /**
    * @remarks
+   * The zone ID. This is the unique identifier of the zone.
+   * 
    * This parameter is required.
    * 
    * @example

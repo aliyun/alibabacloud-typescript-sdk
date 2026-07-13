@@ -7,12 +7,15 @@ export class DescribeBatchResultCountRequest extends $dara.Model {
    * @remarks
    * The type of the batch operation. Valid values:
    * 
-   * *   **DOMAIN_ADD**: adds domain names in batches.
-   * *   **DOMAIN_DEL**: deletes domain names in batches.
-   * *   **RR_ADD**: adds Domain Name System (DNS) records in batches.
-   * *   **RR_DEL**: deletes DNS records in batches.
+   * - **DOMAIN_ADD**: Batch add domain names.
    * 
-   * >  If you do not specify this parameter, filtering is not required.
+   * - **DOMAIN_DEL**: Batch delete domain names.
+   * 
+   * - **RR_ADD**: Batch add DNS records.
+   * 
+   * - **RR_DEL**: Batch delete DNS records.
+   * 
+   * > If you leave this parameter empty, no filter is applied.
    * 
    * @example
    * DOMAIN_ADD
@@ -20,10 +23,11 @@ export class DescribeBatchResultCountRequest extends $dara.Model {
   batchType?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -33,10 +37,10 @@ export class DescribeBatchResultCountRequest extends $dara.Model {
    * @remarks
    * The task ID.
    * 
-   * >  If you specify TaskId, the execution result of the specified task is returned. If you do not specify TaskId, the execution result of the last task is returned.
+   * > If you specify a task ID, the results of that task are returned. If you leave this parameter empty, the results of the most recent task are returned.
    * 
    * @example
-   * 123456
+   * 1****
    */
   taskId?: number;
   static names(): { [key: string]: string } {

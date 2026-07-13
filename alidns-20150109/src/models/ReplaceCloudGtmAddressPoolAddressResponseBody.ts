@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceCloudGtmAddressPoolAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * The unique ID of the address pool.
    * 
    * @example
-   * pool-89618921167339**24
+   * pool-89618921167339****
    */
   addressPoolId?: string;
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique request ID.
    * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
@@ -21,8 +21,11 @@ export class ReplaceCloudGtmAddressPoolAddressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful:
-   * - true: Successful. - false: Failed.
+   * Indicates whether the operation was successful.
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

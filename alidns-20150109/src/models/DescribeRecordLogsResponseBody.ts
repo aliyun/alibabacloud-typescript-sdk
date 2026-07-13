@@ -66,7 +66,7 @@ export class DescribeRecordLogsResponseBodyRecordLogs extends $dara.Model {
 export class DescribeRecordLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -74,7 +74,7 @@ export class DescribeRecordLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of logs returned on the current page.
    * 
    * @example
    * 2
@@ -91,7 +91,7 @@ export class DescribeRecordLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of logs.
    * 
    * @example
    * 2

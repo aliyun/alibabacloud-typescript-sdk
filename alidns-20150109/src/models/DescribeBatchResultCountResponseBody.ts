@@ -21,10 +21,10 @@ export class DescribeBatchResultCountResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The cause of the execution failure.
+   * The reason why the task failed.
    * 
    * @example
-   * failed_reason
+   * No match is found for the domain name specified in the file.
    */
   reason?: string;
   /**
@@ -37,12 +37,15 @@ export class DescribeBatchResultCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the task. Valid values:
+   * The status of the task. Valid values:
    * 
-   * *   **-1**: No task for importing domain names or DNS records is submitted.
-   * *   **0**: The task is being processed.
-   * *   **1**: The task is complete.
-   * *   **2**: The task failed.
+   * - **-1**: No task was submitted to import domain names or DNS records.
+   * 
+   * - **0**: Processing
+   * 
+   * - **1**: Completed
+   * 
+   * - **2**: Failed
    * 
    * @example
    * 0
@@ -50,7 +53,7 @@ export class DescribeBatchResultCountResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The total number of domain names or DNS records that were processed.
+   * The total number of domain names or DNS records that were successfully processed.
    * 
    * @example
    * 2
@@ -61,12 +64,12 @@ export class DescribeBatchResultCountResponseBody extends $dara.Model {
    * The ID of the last task.
    * 
    * @example
-   * 123456
+   * 1******
    */
   taskId?: number;
   /**
    * @remarks
-   * The total number of DNS records that were processed in batches.
+   * The total number of records that are processed in batches.
    * 
    * @example
    * 4

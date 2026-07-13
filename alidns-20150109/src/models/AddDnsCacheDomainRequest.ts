@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AddDnsCacheDomainRequestSourceDnsServer extends $dara.Model {
   /**
    * @remarks
-   * The domain name or IP address of the origin DNS server.
+   * The domain name or IP address of the origin server.
    * 
    * This parameter is required.
    * 
    * @example
-   * 192.0.0.0
+   * 192.168.0.1
    */
   host?: string;
   /**
@@ -49,7 +49,7 @@ export class AddDnsCacheDomainRequestSourceDnsServer extends $dara.Model {
 export class AddDnsCacheDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+   * The maximum TTL for cached data from an origin fetch. The value must be an integer from 30 to 86400.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class AddDnsCacheDomainRequest extends $dara.Model {
   cacheTtlMax?: number;
   /**
    * @remarks
-   * The minimum time-to-live (TTL) period of the cached data retrieved from the origin Domain Name System (DNS) server. Unit: seconds. Valid values: 30 to 86400.
+   * The minimum time-to-live (TTL) for cached data from an origin fetch. The value must be an integer from 30 to 86400.
    * 
    * This parameter is required.
    * 
@@ -69,30 +69,33 @@ export class AddDnsCacheDomainRequest extends $dara.Model {
   cacheTtlMin?: number;
   /**
    * @remarks
-   * The domain name. You can call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
+   * The domain name.<props="china"> Call the [DescribeDomains](https://help.aliyun.com/en/dns/api-alidns-2015-01-09-describedomains) operation to query the domain name.
+   * <props="intl">Call the [DescribeDomains](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describedomains) operation to query the domain name.
    * 
    * This parameter is required.
    * 
    * @example
-   * dns.example.com
+   * example.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The instance ID of the cache-accelerated domain name. You can call the [ListCloudGtmInstances](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-listcloudgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the instance ID.
+   * The ID of the authoritative proxy instance.<props="china"> Call the [ListCloudGtmInstances](https://help.aliyun.com/en/dns/api-alidns-2015-01-09-listcloudgtminstances) operation to query the instance ID.
+   * <props="intl">Call the [ListCloudGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-listcloudgtminstances) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * dns-cn-j6666
+   * dns-cn-*****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. The default value is zh. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English Default: **zh**
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -108,14 +111,14 @@ export class AddDnsCacheDomainRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The origin DNS servers. A maximum of 10 origin DNS servers are supported.
+   * A list of origin DNS servers. You can specify up to 10 servers.
    * 
    * This parameter is required.
    */
   sourceDnsServer?: AddDnsCacheDomainRequestSourceDnsServer[];
   /**
    * @remarks
-   * Specifies whether the origin DNS server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+   * SUPPORT: The origin server supports EDNS.
    * 
    * This parameter is required.
    * 
@@ -125,7 +128,7 @@ export class AddDnsCacheDomainRequest extends $dara.Model {
   sourceEdns?: string;
   /**
    * @remarks
-   * The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+   * The protocol used for origin fetch. Valid values: TCP and UDP. The default value is UDP.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetDnsLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The account ID displayed on the Recursive Resolution (Public DNS) page after you activate Alibaba Cloud Public DNS.
+   * The ID of the Public DNS configuration.
    * 
    * @example
    * 51**4
@@ -16,24 +16,27 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
    * The domain name.
    * 
    * @example
-   * example.com
+   * www.example.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The end time of the query (timestamp, unit: milliseconds). >Warning: If the query time span is too large and the amount of resolution logs for the queried domain is excessive, it may lead to a query timeout or inaccurate query results.
+   * The end of the time range to query. This is a UNIX timestamp in milliseconds.
+   * >Warning: If you specify a wide time range, many logs may be returned. This can cause a query timeout or inaccurate results.
    * 
    * @example
-   * 1709196299999
+   * 1741526400000
    */
   endTimestamp?: number;
   /**
    * @remarks
-   * Return value language, options: 
-   * - zh: Chinese 
+   * The language of the response. Valid values:
+   * 
+   * - zh: Chinese
+   * 
    * - en: English
    * 
-   * Default: en
+   * Default value: en.
    * 
    * @example
    * en
@@ -41,9 +44,11 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Module type 
-   * - AUTHORITY (default): Public Authoritative DNS 
-   * - RECURSION: Public Recursive DNS
+   * The module type.
+   * 
+   * - AUTHORITY (default): public authoritative DNS
+   * 
+   * - RECURSION: public recursive DNS
    * 
    * @example
    * AUTHORITY
@@ -51,7 +56,7 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * Page number, default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -59,7 +64,7 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size for query.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -68,13 +73,19 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
   preciseSort?: boolean;
   /**
    * @remarks
-   * Query parameters 
-   * - sourceIp: Source IP address 
-   * - queryNameFuzzy: Domain name (fuzzy value) 
-   * - queryType: Record type 
-   * - value: Resolution result 
-   * - status: Status 
-   * - serverIp: Resolution server IP
+   * The query parameters.
+   * 
+   * - sourceIp: the source IP address
+   * 
+   * - queryNameFuzzy: the domain name (fuzzy match)
+   * 
+   * - queryType: the record type
+   * 
+   * - value: the resolution result
+   * 
+   * - status: the status
+   * 
+   * - serverIp: the IP address of the resolution server
    * 
    * @example
    * {"sourceIp":"59.82.XX.XX","queryType":"A"}
@@ -83,10 +94,10 @@ export class DescribeInternetDnsLogsRequest extends $dara.Model {
   recursionProtocolType?: string;
   /**
    * @remarks
-   * The start time of the query (timestamp, unit: milliseconds).
+   * The start of the time range to query. This is a UNIX timestamp in milliseconds.
    * 
    * @example
-   * 1709192640000
+   * 1738848000000
    */
   startTimestamp?: number;
   static names(): { [key: string]: string } {

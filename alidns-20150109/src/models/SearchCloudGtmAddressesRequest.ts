@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SearchCloudGtmAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the return value. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US (default): English
+   * - zh-CN: Chinese.
+   * 
+   * - en-US: English. This is the default value.
    * 
    * @example
    * en-US
@@ -16,7 +17,7 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Query by service address with precise conditions, supporting IP addresses or domain names.
+   * Performs an exact search by endpoint. IP addresses and domain names are supported.
    * 
    * @example
    * 223.5.XX.XX
@@ -24,17 +25,19 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The address ID. This ID uniquely identifies the address.
+   * The ID of the address. The address ID is a unique identifier.
    * 
    * @example
-   * addr-89518218114368**92
+   * addr-89518218114368****
    */
   addressId?: string;
   /**
    * @remarks
-   * Search by address availability status with precise conditions:
-   * - available
-   * - unavailable
+   * Performs an exact search by the availability status of the address.
+   * 
+   * - available: The address is available.
+   * 
+   * - unavailable: The address is unavailable.
    * 
    * @example
    * available
@@ -42,9 +45,11 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   availableStatus?: string;
   /**
    * @remarks
-   * Query by exact address enable status:
-   * - enable: enabled status
-   * - disable: disabled status
+   * Performs an exact search by the status of the address.
+   * 
+   * - enable: The address is enabled.
+   * 
+   * - disable: The address is disabled.
    * 
    * @example
    * enable
@@ -52,12 +57,15 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   enableStatus?: string;
   /**
    * @remarks
-   * The health state of the addresses that you want to query. Valid values:
+   * Performs an exact search by the health status of the address.
    * 
-   * *   ok: The addresses pass all health checks of the referenced health check templates.
-   * *   ok_alert: The addresses fail some health checks of the referenced health check templates, but the addresses are deemed available.
-   * *   ok_no_monitor: The addresses do not reference any health check template.
-   * *   exceptional: The addresses fail some or all health checks of the referenced health check templates, and the addresses are deemed unavailable.
+   * - ok: All health check tasks for the referenced health check template are normal.
+   * 
+   * - ok_alert: Some health check tasks for the referenced health check template are abnormal, but the address is still considered normal.
+   * 
+   * - ok_no_monitor: The address does not reference any health check templates.
+   * 
+   * - exceptional: Some or all health check tasks for the referenced health check template are abnormal, and the address is considered abnormal.
    * 
    * @example
    * ok
@@ -65,7 +73,7 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   healthStatus?: string;
   /**
    * @remarks
-   * Health check template name.
+   * The name of the health check template.
    * 
    * @example
    * Ping-IPv4
@@ -73,10 +81,11 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   monitorTemplateName?: string;
   /**
    * @remarks
-   * The logical condition for querying addresses by name. This parameter is required if you want to query addresses by name. Valid values:
+   * The search logic for querying by address name. This parameter is required when you query by address name.
    * 
-   * *   and: displays the results that match all search conditions.
-   * *   or: displays the results that match some or all search conditions.
+   * - and: The query returns results that match all the specified keywords.
+   * 
+   * - or: The query returns results that match some or all of the specified keywords.
    * 
    * @example
    * or
@@ -84,12 +93,12 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   nameSearchCondition?: string;
   /**
    * @remarks
-   * Address name, usually for users to distinguish between different addresses.
+   * The name of the address. This name is used for easy identification.
    */
   names?: string[];
   /**
    * @remarks
-   * Current page number, starting from 1, default is 1.
+   * The current page number. The value starts from 1. The default value is 1.
    * 
    * This parameter is required.
    * 
@@ -99,7 +108,7 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
    * 
    * This parameter is required.
    * 
@@ -109,11 +118,11 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The logical condition for querying addresses by additional description. This parameter is required if you want to query addresses by additional description. Valid values:
+   * The search logic for querying by address remarks. This parameter is required when you query by address remarks.
    * 
-   * and: displays the results that match all search conditions.
+   * and: The query returns results that match all the specified keywords.
    * 
-   * or: displays the results that match some or all search conditions.
+   * or: The query returns results that match some or all of the specified keywords.
    * 
    * @example
    * or
@@ -121,14 +130,17 @@ export class SearchCloudGtmAddressesRequest extends $dara.Model {
   remarkSearchCondition?: string;
   /**
    * @remarks
-   * Remarks for the address.
+   * The remarks for the address.
    */
   remarks?: string[];
   /**
    * @remarks
-   * Search precisely by address type conditions:
+   * Performs an exact search by the address type.
+   * 
    * - IPv4
+   * 
    * - IPv6
+   * 
    * - domain
    * 
    * @example

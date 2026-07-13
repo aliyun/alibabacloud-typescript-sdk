@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCustomLinesResponseBodyCustomLinesIpSegmentList extends $dara.Model {
+  /**
+   * @remarks
+   * The end IP address.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
   endIp?: string;
+  /**
+   * @remarks
+   * The start IP address.
+   * 
+   * @example
+   * 1.2.XX.XX
+   */
   startIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +48,7 @@ export class DescribeCustomLinesResponseBodyCustomLines extends $dara.Model {
    * The code of the custom line.
    * 
    * @example
-   * hra0yc-597
+   * hra0yc-5********
    */
   code?: string;
   /**
@@ -42,16 +56,20 @@ export class DescribeCustomLinesResponseBodyCustomLines extends $dara.Model {
    * The unique ID of the custom line.
    * 
    * @example
-   * 597
+   * 5*********
    */
   id?: number;
+  /**
+   * @remarks
+   * The list of IP address range. Use a hyphen (-) to separate the start and end IP address ranges. Enter one range per line. You can specify 1 to 50 lines. For a single IP address, enter it as IP1-IP1. IP address ranges cannot overlap.
+   */
   ipSegmentList?: DescribeCustomLinesResponseBodyCustomLinesIpSegmentList[];
   /**
    * @remarks
-   * The name of the custom line.
+   * The name of the line.
    * 
    * @example
-   * hra0yd-597
+   * hra0yd-5********
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -87,7 +105,7 @@ export class DescribeCustomLinesResponseBodyCustomLines extends $dara.Model {
 export class DescribeCustomLinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The custom lines.
+   * The list of custom lines.
    */
   customLines?: DescribeCustomLinesResponseBodyCustomLines[];
   /**
@@ -124,7 +142,7 @@ export class DescribeCustomLinesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

@@ -200,7 +200,7 @@ export class DescribeDnsGtmAccessStrategiesResponseBodyStrategies extends $dara.
 export class DescribeDnsGtmAccessStrategiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the returned page. The value starts from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -208,7 +208,7 @@ export class DescribeDnsGtmAccessStrategiesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 1
@@ -216,7 +216,7 @@ export class DescribeDnsGtmAccessStrategiesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 0CCC9971-CEC9-4132-824B-4AE611C07623
@@ -225,7 +225,7 @@ export class DescribeDnsGtmAccessStrategiesResponseBody extends $dara.Model {
   strategies?: DescribeDnsGtmAccessStrategiesResponseBodyStrategies;
   /**
    * @remarks
-   * The total number of entries returned on all pages.
+   * The total number of entries returned.
    * 
    * @example
    * 11

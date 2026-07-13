@@ -8,7 +8,7 @@ export class AddCustomLineResponseBody extends $dara.Model {
    * The code of the custom line.
    * 
    * @example
-   * hra0yc-597
+   * hra0yc-5******
    */
   lineCode?: string;
   /**
@@ -16,7 +16,7 @@ export class AddCustomLineResponseBody extends $dara.Model {
    * The unique ID of the custom line.
    * 
    * @example
-   * 597
+   * 5*****
    */
   lineId?: number;
   /**

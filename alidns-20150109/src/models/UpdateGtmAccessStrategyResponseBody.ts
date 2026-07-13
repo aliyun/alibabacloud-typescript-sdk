@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGtmAccessStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925

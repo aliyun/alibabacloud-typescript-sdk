@@ -16,7 +16,7 @@ export class OperateBatchDomainResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 345345
+   * 34****
    */
   taskId?: number;
   static names(): { [key: string]: string } {

@@ -251,7 +251,7 @@ export class SearchCloudGtmInstanceConfigsResponseBody extends $dara.Model {
   instanceConfigs?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigs;
   /**
    * @remarks
-   * Current page number, starting from 1, default is 1.
+   * The page number. The start value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -259,7 +259,7 @@ export class SearchCloudGtmInstanceConfigsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -267,7 +267,7 @@ export class SearchCloudGtmInstanceConfigsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique request ID.
    * 
    * @example
    * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
@@ -275,7 +275,7 @@ export class SearchCloudGtmInstanceConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of instance configuration entries.
+   * The total number of instance configurations.
    * 
    * @example
    * 15
@@ -283,7 +283,7 @@ export class SearchCloudGtmInstanceConfigsResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

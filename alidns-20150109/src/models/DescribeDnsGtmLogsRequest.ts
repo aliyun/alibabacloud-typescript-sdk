@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The timestamp that specifies the end of the time range to query.
+   * The end of the time range to query. This is a UNIX timestamp.
    * 
    * @example
    * 1516779348000
@@ -13,17 +13,17 @@ export class DescribeDnsGtmLogsRequest extends $dara.Model {
   endTimestamp?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID. Call the [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+   * The keyword. The search is performed in the \\`%KeyWord%\\` pattern and is not case-sensitive.
    * 
    * @example
    * demo
@@ -31,7 +31,7 @@ export class DescribeDnsGtmLogsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of some returned parameters. The default value is en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -39,7 +39,7 @@ export class DescribeDnsGtmLogsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -47,15 +47,15 @@ export class DescribeDnsGtmLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
-   * 1
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * The timestamp that specifies the beginning of the time range to query.
+   * The start of the time range to query. This is a UNIX timestamp.
    * 
    * @example
    * 1516779348000

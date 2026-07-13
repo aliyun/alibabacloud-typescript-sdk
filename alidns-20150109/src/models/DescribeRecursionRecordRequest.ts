@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecursionRecordRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the DNS record.
+   * 
    * This parameter is required.
    * 
    * @example

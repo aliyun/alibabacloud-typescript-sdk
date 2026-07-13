@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudGtmMonitorTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Unique request identification code.
+   * The request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -13,9 +13,11 @@ export class UpdateCloudGtmMonitorTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Modify the health check template operation status:
-   * - true: Operation successful
-   * - false: Operation failed
+   * Indicates whether the operation was successful.
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

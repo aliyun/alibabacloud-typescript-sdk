@@ -7,8 +7,9 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US (default): English
+   * - zh-CN: Chinese
+   * 
+   * - en-US (default): English
    * 
    * @example
    * en-US
@@ -16,18 +17,19 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique token for each request. The token can contain a maximum of 64 ASCII characters.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The enabling state of the access domain name. Valid values:
+   * The status of the domain name instance:
    * 
-   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the GTM instance takes effect.
-   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the GTM instance does not take effect.
+   * - enable: The GTM instance uses intelligent scheduling policies.
+   * 
+   * - disable: The intelligent scheduling policies of the GTM instance are unavailable.
    * 
    * @example
    * enable
@@ -35,15 +37,15 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
   enableStatus?: string;
   /**
    * @remarks
-   * The ID of the GTM 3.0 instance.
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
    * 
    * @example
-   * gtm-cn-wwo3a3hbz**
+   * gtm-cn-wwo3a3h****
    */
   instanceId?: string;
   /**
    * @remarks
-   * Current page number, starting at **1**, default is **1**.
+   * The page number. The value starts from **1**. Default value: **1**.
    * 
    * This parameter is required.
    * 
@@ -53,7 +55,7 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * The number of entries to return on each page for a paged query. Maximum value: **100**. Default value: **20**.
    * 
    * This parameter is required.
    * 
@@ -63,7 +65,7 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Remarks.
+   * The remarks.
    * 
    * @example
    * test
@@ -71,7 +73,7 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The GTM access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+   * The GTM access domain name. The domain name is a combination of the host record (ScheduleHostname) and the root or subdomain (ScheduleZoneName).
    * 
    * @example
    * www.example.com
@@ -79,7 +81,7 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
   scheduleDomainName?: string;
   /**
    * @remarks
-   * The zone (such as example.com) or subzone (such as a.example.com) of the GTM access domain name. In most cases, the zone or subzone is hosted in Authoritative DNS Resolution of the Alibaba Cloud DNS console within the account to which the GTM instance belongs.
+   * The root domain, such as example.com, or subdomain, such as a.example.com, of the GTM access domain name. This is typically a domain name that is hosted in an authoritative zone in the Alibaba Cloud DNS console and belongs to the same account as the GTM instance.
    * 
    * @example
    * example.com

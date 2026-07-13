@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmInstanceAddressPoolsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID. For more information, see [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0).
    * 
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Valid values: en, zh, and ja. The default value is en.
    * 
    * @example
    * en
@@ -23,7 +23,7 @@ export class DescribeDnsGtmInstanceAddressPoolsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -31,10 +31,10 @@ export class DescribeDnsGtmInstanceAddressPoolsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
-   * 1
+   * 20
    */
   pageSize?: number;
   static names(): { [key: string]: string } {

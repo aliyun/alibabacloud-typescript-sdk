@@ -10,7 +10,7 @@ export class DescribeGtmInstanceStatusRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**

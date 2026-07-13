@@ -123,7 +123,7 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBody extends $dara.
   lines?: DescribeGtmAccessStrategyAvailableConfigResponseBodyLines;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * C2851BA9-CE56-49AF-8D12-4FC6A49EE688
@@ -131,7 +131,7 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the global line is recommended.
+   * Indicates whether a global line is suggested.
    * 
    * @example
    * True

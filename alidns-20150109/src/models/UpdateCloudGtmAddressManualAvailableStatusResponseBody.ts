@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudGtmAddressManualAvailableStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique ID of the request.
    * 
    * @example
    * 0F32959D-417B-4D66-8463-68606605E3E2
@@ -13,10 +13,11 @@ export class UpdateCloudGtmAddressManualAvailableStatusResponseBody extends $dar
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

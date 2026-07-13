@@ -4,22 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSupportLinesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
    */
   lang?: string;
   /**
+   * @remarks
+   * The client IP address.
+   * 
    * @example
    * 1.1.*.*
    */

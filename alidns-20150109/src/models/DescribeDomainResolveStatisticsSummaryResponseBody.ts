@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainResolveStatisticsSummaryResponseBodyStatistics extends $dara.Model {
   /**
    * @remarks
-   * The number of DNS requests.
+   * The number of requests.
    * 
    * @example
    * 35509014
@@ -21,10 +21,11 @@ export class DescribeDomainResolveStatisticsSummaryResponseBodyStatistics extend
   domainName?: string;
   /**
    * @remarks
-   * The type of the domain name. Valid values:
+   * The type of the domain name.
    * 
-   * *   PUBLIC: hosted public domain name
-   * *   CACHE: cache-accelerated domain name
+   * - PUBLIC: Authoritative domain name
+   * 
+   * - CACHE: Authoritative proxy domain name
    * 
    * @example
    * CACHE
@@ -58,7 +59,7 @@ export class DescribeDomainResolveStatisticsSummaryResponseBodyStatistics extend
 export class DescribeDomainResolveStatisticsSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -66,15 +67,15 @@ export class DescribeDomainResolveStatisticsSummaryResponseBody extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **100**. Default value: **20**.
+   * The number of entries returned on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
-   * 10
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -82,12 +83,12 @@ export class DescribeDomainResolveStatisticsSummaryResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The statistics.
+   * The list of statistics.
    */
   statistics?: DescribeDomainResolveStatisticsSummaryResponseBodyStatistics[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -95,7 +96,7 @@ export class DescribeDomainResolveStatisticsSummaryResponseBody extends $dara.Mo
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

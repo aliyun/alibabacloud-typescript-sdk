@@ -4,36 +4,61 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
+   * @remarks
+   * The unauthorized operation that was attempted.
+   * 
    * @example
-   * CreateUser
+   * UpdateRspDomainServerProhibitStatusForGatewayOte
    */
   authAction?: string;
   /**
+   * @remarks
+   * Display name of the authenticated entity.
+   * 
    * @example
    * 2015555733387XXXX
    */
   authPrincipalDisplayName?: string;
   /**
+   * @remarks
+   * Owner ID of the authenticated entity.
+   * 
    * @example
    * 10469733312XXX
    */
   authPrincipalOwnerId?: string;
   /**
+   * @remarks
+   * Identity type.
+   * 
    * @example
    * SubUser
    */
   authPrincipalType?: string;
   /**
+   * @remarks
+   * Encrypted diagnostic message.
+   * 
    * @example
    * AQFohtp4aIbaeEXXXXQxNjFDLUIzMzgtNTXXXX05NkFCLUI2RkY5XXXXzAzQQ==
    */
   encodedDiagnosticMessage?: string;
   /**
+   * @remarks
+   * Reason for authentication failure. Valid values:
+   * 
+   * - ExplicitDeny
+   * 
+   * - ImplicitDeny
+   * 
    * @example
    * ImplicitDeny
    */
   noPermissionType?: string;
   /**
+   * @remarks
+   * Policy type.
+   * 
    * @example
    * DlpSend
    */
@@ -73,15 +98,28 @@ export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyAccessD
 
 export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyDataStatusList extends $dara.Model {
   /**
+   * @remarks
+   * Domain name.
+   * 
    * @example
-   * uptp.test.abchina.com.cn
+   * example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * Current domain name status.
+   * 
    * @example
    * serverUpdateProhibited
    */
   status?: string;
+  /**
+   * @remarks
+   * Description of the domain name status.
+   * 
+   * @example
+   * 实名认证未通过，增加serverUpdateProhibited状态
+   */
   statusMsg?: string;
   static names(): { [key: string]: string } {
     return {
@@ -110,10 +148,17 @@ export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyDataSta
 
 export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Domain name.
+   * 
    * @example
    * example.com
    */
   domainName?: string;
+  /**
+   * @remarks
+   * Status information for the task
+   */
   statusList?: UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyDataStatusList[];
   static names(): { [key: string]: string } {
     return {
@@ -142,19 +187,36 @@ export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyData ex
 }
 
 export class UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Detailed access-denied information. This field appears only when RAM authentication fails.
+   */
   accessDeniedDetail?: UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * List of returned data items.
+   */
   data?: UpdateRspDomainServerProhibitStatusForGatewayOteResponseBodyData;
   /**
+   * @remarks
+   * Indicates whether you can retry the request after failure. `true`: retry is allowed. `false`: retry is not allowed.
+   * 
    * @example
    * true
    */
   recoverableError?: boolean;
   /**
+   * @remarks
+   * Unique ID of the request.
+   * 
    * @example
    * 0629502C-6224-5DC9-A8ED-2ED73A2E3931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. `true`: succeeded. `false`: failed.
+   * 
    * @example
    * true
    */

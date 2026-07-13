@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers extends $dara.Model {
   /**
    * @remarks
-   * The domain name or IP address of the origin DNS server.
+   * The domain name or IP address of the origin server.
    * 
    * @example
    * ns8.alidns.com
@@ -45,7 +45,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers extends 
 export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   /**
    * @remarks
-   * The maximum time-to-live (TTL) period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+   * The maximum Time to Live (TTL) for cached data retrieved from the origin server. The value ranges from 30 to 86400.
    * 
    * @example
    * 86400
@@ -53,7 +53,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   cacheTtlMax?: number;
   /**
    * @remarks
-   * The minimum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+   * The minimum TTL for cached data retrieved from the origin server. The value ranges from 30 to 86400.
    * 
    * @example
    * 30
@@ -61,7 +61,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   cacheTtlMin?: number;
   /**
    * @remarks
-   * The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the domain name was added.
    * 
    * @example
    * 2022-10-17T06:13Z
@@ -69,7 +69,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the domain name was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the domain name was added.
    * 
    * @example
    * 1660546144000
@@ -77,23 +77,23 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The ID of the cache-accelerated domain name.
+   * The ID of the authoritative proxy domain.
    * 
    * @example
-   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   * 00efd71a-770e-*****************
    */
   domainId?: string;
   /**
    * @remarks
-   * The cache-accelerated domain name.
+   * The name of the authoritative proxy domain.
    * 
    * @example
-   * dns-example.top
+   * example.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The time when the instance expires. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The expiration time of the instance.
    * 
    * @example
    * 2022-12-02T16:00Z
@@ -101,7 +101,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The time when the instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the instance expires.
    * 
    * @example
    * 1692374400000
@@ -109,15 +109,15 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * The instance ID of the cache-accelerated domain name.
+   * The ID of the authoritative proxy domain instance.
    * 
    * @example
-   * i-7bg
+   * i-7***
    */
   instanceId?: string;
   /**
    * @remarks
-   * The description of the domain name.
+   * The remarks.
    * 
    * @example
    * remark
@@ -125,12 +125,12 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The origin DNS servers.
+   * The list of origin DNS servers.
    */
   sourceDnsServers?: DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers[];
   /**
    * @remarks
-   * Specifies whether the origin Domain Name System (DNS) server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+   * Indicates whether the origin server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
    * 
    * @example
    * SUPPORT
@@ -138,7 +138,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   sourceEdns?: string;
   /**
    * @remarks
-   * The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+   * The origin protocol. Valid values: TCP and UDP. The default value is UDP.
    * 
    * @example
    * UDP
@@ -146,7 +146,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   sourceProtocol?: string;
   /**
    * @remarks
-   * The time when the configurations of the domain name were updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the domain name was last updated.
    * 
    * @example
    * 2023-05-22T03:40Z
@@ -154,7 +154,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The time when the configurations of the domain name were updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp that indicates when the domain name was last updated.
    * 
    * @example
    * 1671690491000
@@ -162,7 +162,7 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
   updateTimestamp?: number;
   /**
    * @remarks
-   * The edition code of Alibaba Cloud DNS.
+   * The version code of Alibaba Cloud DNS.
    * 
    * @example
    * ultimate
@@ -225,12 +225,12 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $dara.Model {
 export class DescribeDnsCacheDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The domain names.
+   * The list of domain names returned.
    */
   domains?: DescribeDnsCacheDomainsResponseBodyDomains[];
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -238,7 +238,7 @@ export class DescribeDnsCacheDomainsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -246,7 +246,7 @@ export class DescribeDnsCacheDomainsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 57121A9C-CDCF-541F-AD39-275D89099420
@@ -254,7 +254,7 @@ export class DescribeDnsCacheDomainsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of domain names.
    * 
    * @example
    * 3

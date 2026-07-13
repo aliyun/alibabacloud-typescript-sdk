@@ -61,7 +61,7 @@ export class DescribeDomainGroupsResponseBody extends $dara.Model {
   domainGroups?: DescribeDomainGroupsResponseBodyDomainGroups;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The start value is **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class DescribeDomainGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 20
@@ -77,7 +77,7 @@ export class DescribeDomainGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -85,7 +85,7 @@ export class DescribeDomainGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of domain name groups.
    * 
    * @example
    * 1

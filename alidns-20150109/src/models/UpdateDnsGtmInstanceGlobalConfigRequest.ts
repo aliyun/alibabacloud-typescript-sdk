@@ -4,21 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to send alerts through DingTalk. Valid values:
+   * 
+   * - true: yes
+   * 
+   * - false: no
+   * 
    * @example
    * true
    */
   dingtalkNotice?: boolean;
   /**
+   * @remarks
+   * Specifies whether to send alerts by email. Valid values:
+   * 
+   * - true: yes
+   * 
+   * - false or null: no
+   * 
    * @example
    * true
    */
   emailNotice?: boolean;
   /**
+   * @remarks
+   * The type of the alert event. Valid values:
+   * 
+   * - ADDR_ALERT: An address becomes unavailable.
+   * 
+   * - ADDR_RESUME: An address becomes available.
+   * 
+   * - ADDR_POOL_GROUP_UNAVAILABLE: An address pool group becomes unavailable.
+   * 
+   * - ADDR_POOL_GROUP_AVAILABLE: An address pool group becomes available.
+   * 
+   * - ACCESS_STRATEGY_POOL_GROUP_SWITCH: A switchover occurs between the primary and secondary address pools.
+   * 
+   * - MONITOR_NODE_IP_CHANGE: The IP address of a monitoring node changes.
+   * 
    * @example
    * ADDR_ALERT
    */
   noticeType?: string;
   /**
+   * @remarks
+   * Specifies whether to send alerts through text messages. Valid values:
+   * 
+   * - true: yes
+   * 
+   * - false or null: no
+   * 
    * @example
    * true
    */
@@ -51,31 +87,36 @@ export class UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig extends $dara.Mo
 }
 
 export class UpdateDnsGtmInstanceGlobalConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   alertConfig?: UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig[];
   /**
    * @remarks
-   * The name of the alert group in the JSON format.
+   * The alert contact group. The value is a JSON-formatted \\`List\\<string>\\`.
    * 
    * @example
-   * alertGroup1
+   * ["test1","test2"]
    */
   alertGroup?: string;
   /**
    * @remarks
-   * The type of the canonical name (CNAME).
+   * The type of the CNAME record. Valid value:
    * 
-   * *   Set the value to PUBLIC.
+   * - PUBLIC: The CNAME record is used for Internet access.
    * 
    * @example
-   * public
+   * PUBLIC
    */
   cnameType?: string;
   /**
    * @remarks
-   * Specifies whether to enable force updates. Valid values:
+   * Specifies whether to forcefully update the instance. Valid values:
    * 
-   * *   true: enables force update without a conflict alert.
-   * *   false: disables force update. If a conflict occurs, the system displays an alert. null: This valid value of ForceUpdate provides the same information as the false value.
+   * - true: Forcefully updates the instance without checking for conflicts.
+   * 
+   * - false or null: Does not forcefully update the instance. The system checks for conflicts before the update.
    * 
    * @example
    * true
@@ -83,25 +124,25 @@ export class UpdateDnsGtmInstanceGlobalConfigRequest extends $dara.Model {
   forceUpdate?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the GTM instance. To obtain the instance ID, call the [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0) operation.
    * 
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The name of the instance. This parameter is required only for the first update.
+   * The name of the instance. This parameter is required when you update the instance for the first time. It is optional for subsequent updates.
    * 
    * @example
-   * test
+   * test-1
    */
   instanceName?: string;
   /**
    * @remarks
-   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Valid values: en, zh, and ja. The default value is en.
    * 
    * @example
    * en
@@ -109,18 +150,19 @@ export class UpdateDnsGtmInstanceGlobalConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether to use a custom CNAME domain name or a CNAME domain name assigned by the system to access the instance over the Internet. Valid values:
+   * The method used to access the instance over the Internet. Valid values:
    * 
-   * *   SYSTEM_ASSIGN: a CNAME domain name assigned by the system
-   * *   CUSTOM: a custom CNAME domain name
+   * - SYSTEM_ASSIGN: The system assigns a canonical name (CNAME) record. This option is disabled.
+   * 
+   * - CUSTOM: You specify a CNAME record.
    * 
    * @example
-   * custom
+   * CUSTOM
    */
   publicCnameMode?: string;
   /**
    * @remarks
-   * The hostname corresponding to the CNAME domain name that is used to access the instance over the Internet.
+   * The hostname of the CNAME record that is used for Internet access.
    * 
    * @example
    * test.rr
@@ -128,7 +170,7 @@ export class UpdateDnsGtmInstanceGlobalConfigRequest extends $dara.Model {
   publicRr?: string;
   /**
    * @remarks
-   * The service domain name that is used over the Internet.
+   * The service domain name that is accessed over the Internet.
    * 
    * @example
    * example.com
@@ -136,12 +178,12 @@ export class UpdateDnsGtmInstanceGlobalConfigRequest extends $dara.Model {
   publicUserDomainName?: string;
   /**
    * @remarks
-   * The CNAME domain name that is used to access the instance over the Internet, which is the primary domain name. This parameter is required when the PublicCnameMode parameter is set to CUSTOM.
+   * The primary domain name that is used to access the instance over the Internet using a CNAME record. This parameter is required if you set PublicCnameMode to CUSTOM.
    * 
-   * >  You must use the primary domain name. Do not include the hostname specified by the PublicRr parameter.
+   * > Enter the primary domain name. Do not include the hostname specified by the PublicRr parameter.
    * 
    * @example
-   * gtm-003.com
+   * www.example.com
    */
   publicZoneName?: string;
   /**
@@ -149,7 +191,7 @@ export class UpdateDnsGtmInstanceGlobalConfigRequest extends $dara.Model {
    * The global time to live (TTL).
    * 
    * @example
-   * 1
+   * 60
    */
   ttl?: number;
   static names(): { [key: string]: string } {

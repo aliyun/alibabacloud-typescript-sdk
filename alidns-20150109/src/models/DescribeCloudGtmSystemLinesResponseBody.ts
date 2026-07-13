@@ -66,7 +66,7 @@ export class DescribeCloudGtmSystemLinesResponseBodySystemLines extends $dara.Mo
 export class DescribeCloudGtmSystemLinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
@@ -75,10 +75,10 @@ export class DescribeCloudGtmSystemLinesResponseBody extends $dara.Model {
   systemLines?: DescribeCloudGtmSystemLinesResponseBodySystemLines;
   /**
    * @remarks
-   * The system lines, which are in a tree structure. Only a system line is listed in this example.
+   * The data of the system lines in a tree structure. The complete data is not listed due to its large size.
    * 
    * @example
-   * [{\\"displayName\\":\\"Default\\",\\"id\\":\\"default\\",\\"isAvailable\\":true,\\"name\\":\\"Default\\",\\"parentId\\":\\"\\"}]
+   * "SystemLinesTree":"[{\\"displayName\\":\\"默认\\",\\"id\\":\\"default\\",\\"isAvailable\\":true,\\"name\\":\\"默认\\",\\"parentId\\":\\"\\"}
    */
   systemLinesTree?: string;
   static names(): { [key: string]: string } {

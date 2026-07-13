@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDohUserInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of accessed domains.
+   * The number of added domain names.
    * 
    * @example
-   * 123
+   * 2
    */
   domainCount?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud public DNS user.
+   * The ID of the Public DNS user.
    * 
    * @example
    * 12345678
@@ -29,10 +29,10 @@ export class DescribeDohUserInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of accessed subdomains.
+   * The number of added subdomains.
    * 
    * @example
-   * 123
+   * 5
    */
   subDomainCount?: number;
   static names(): { [key: string]: string } {

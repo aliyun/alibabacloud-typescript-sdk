@@ -8,7 +8,7 @@ export class UpdateGtmRecoveryPlanResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   * 575A3E3A-E9FC-5435-9CAD-BD89533E****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

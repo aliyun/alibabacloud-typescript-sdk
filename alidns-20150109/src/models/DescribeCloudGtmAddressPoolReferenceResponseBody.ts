@@ -96,15 +96,15 @@ export class DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs ext
 export class DescribeCloudGtmAddressPoolReferenceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * The unique ID of the address pool.
    * 
    * @example
-   * pool-89528023225442**16
+   * pool-89528023225442****
    */
   addressPoolId?: string;
   /**
    * @remarks
-   * Address pool name.
+   * The name of the address pool.
    * 
    * @example
    * app
@@ -113,7 +113,7 @@ export class DescribeCloudGtmAddressPoolReferenceResponseBody extends $dara.Mode
   instanceConfigs?: DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs;
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique ID of the request.
    * 
    * @example
    * 853805EA-3D47-47D5-9A1A-A45C24313ABD

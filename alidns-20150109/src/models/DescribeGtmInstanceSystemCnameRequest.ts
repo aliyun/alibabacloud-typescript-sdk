@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmInstanceSystemCnameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Global Traffic Manager (GTM) instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The user language.
    * 
    * @example
    * en

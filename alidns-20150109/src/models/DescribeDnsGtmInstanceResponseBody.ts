@@ -64,20 +64,20 @@ export class DescribeDnsGtmInstanceResponseBodyConfig extends $dara.Model {
   alertConfig?: DescribeDnsGtmInstanceResponseBodyConfigAlertConfig;
   /**
    * @remarks
-   * The name of the alert group.
+   * The alert contact group. The value is a \\`List\\<string>\\` in JSON format.
    * 
    * @example
-   * alertgroup1
+   * ["test1","test2"]
    */
   alertGroup?: string;
   /**
    * @remarks
-   * The type of the CNAME domain name that is used to access the instance. Valid value:
+   * The type of the CNAME domain name used for access.
    * 
-   * *   PUBLIC: The CNAME domain name is used to access the instance over the Internet.
+   * - PUBLIC: Internet-facing
    * 
    * @example
-   * public
+   * PUBLIC
    */
   cnameType?: string;
   /**
@@ -85,31 +85,32 @@ export class DescribeDnsGtmInstanceResponseBodyConfig extends $dara.Model {
    * The name of the instance.
    * 
    * @example
-   * instancetest1
+   * test
    */
   instanceName?: string;
   /**
    * @remarks
-   * The domain name that is used to access the instance over the Internet.
+   * The public access domain name.
    * 
    * @example
-   * test.rr.gtm-003.com
+   * gtm-cn-wwo3a3hbz**.example.com
    */
   pubicZoneName?: string;
   /**
    * @remarks
-   * Indicates whether a custom CNAME domain name or a CNAME domain name assigned by the system is used to access the instance over the Internet. Valid values:
+   * The access method for the public CNAME.
    * 
-   * *   CUSTOM: A custom CNAME domain name is used.
-   * *   SYSTEM_ASSIGN: A CNAME domain name assigned by the system is used.
+   * - CUSTOM: custom
+   * 
+   * - SYSTEM_ASSIGN: system-assigned. This feature is disabled.
    * 
    * @example
-   * custom
+   * CUSTOM
    */
   publicCnameMode?: string;
   /**
    * @remarks
-   * The hostname corresponding to the CNAME domain name that is used to access the instance over the Internet.
+   * The hostname for public access.
    * 
    * @example
    * test.rr
@@ -117,7 +118,7 @@ export class DescribeDnsGtmInstanceResponseBodyConfig extends $dara.Model {
   publicRr?: string;
   /**
    * @remarks
-   * The service domain name that is used over the Internet.
+   * The user\\"s public service domain name.
    * 
    * @example
    * example.com
@@ -125,10 +126,11 @@ export class DescribeDnsGtmInstanceResponseBodyConfig extends $dara.Model {
   publicUserDomainName?: string;
   /**
    * @remarks
-   * The type of the access policy. Valid values:
+   * The access policy mode.
    * 
-   * *   LATENCY: Latency-based
-   * *   GEO: Geographical location-based
+   * - LATENCY: latency-based
+   * 
+   * - GEO: geography-based
    * 
    * @example
    * GEO
@@ -136,10 +138,10 @@ export class DescribeDnsGtmInstanceResponseBodyConfig extends $dara.Model {
   strategyMode?: string;
   /**
    * @remarks
-   * The global time to live (TTL).
+   * The global TTL.
    * 
    * @example
-   * 1
+   * 60
    */
   ttl?: number;
   static names(): { [key: string]: string } {
@@ -185,10 +187,17 @@ export class DescribeDnsGtmInstanceResponseBodyConfig extends $dara.Model {
 }
 
 export class DescribeDnsGtmInstanceResponseBodyUsedQuota extends $dara.Model {
+  /**
+   * @remarks
+   * The number of DingTalk notifications that were sent.
+   * 
+   * @example
+   * 123
+   */
   dingtalkUsedCount?: number;
   /**
    * @remarks
-   * The total number of emails that were sent.
+   * The number of email notifications that were sent.
    * 
    * @example
    * 123
@@ -196,7 +205,7 @@ export class DescribeDnsGtmInstanceResponseBodyUsedQuota extends $dara.Model {
   emailUsedCount?: number;
   /**
    * @remarks
-   * The total number of short messages that were sent.
+   * The number of text messages that were sent.
    * 
    * @example
    * 123
@@ -204,7 +213,7 @@ export class DescribeDnsGtmInstanceResponseBodyUsedQuota extends $dara.Model {
   smsUsedCount?: number;
   /**
    * @remarks
-   * The number of detection tasks that were created.
+   * The number of health check tasks that were created.
    * 
    * @example
    * 123
@@ -240,7 +249,7 @@ export class DescribeDnsGtmInstanceResponseBodyUsedQuota extends $dara.Model {
 export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the instance.
+   * The instance configuration.
    */
   config?: DescribeDnsGtmInstanceResponseBodyConfig;
   /**
@@ -253,7 +262,7 @@ export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The UNIX timestamp that indicates when the instance was created.
+   * The UNIX timestamp when the instance was created.
    * 
    * @example
    * 1602656937000
@@ -261,7 +270,7 @@ export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The expiration date.
    * 
    * @example
    * 2020-10-14T06:58Z
@@ -269,7 +278,7 @@ export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The UNIX timestamp that indicates when the instance expires.
+   * The UNIX timestamp when the instance expires.
    * 
    * @example
    * 1602656937000
@@ -280,14 +289,14 @@ export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
    * The ID of the instance.
    * 
    * @example
-   * instanceid1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The billing method. Valid value:
+   * The billing method.
    * 
-   * *   Subscription: You can pay in advance for the use of resources.
+   * - Subscription: subscription
    * 
    * @example
    * Subscription
@@ -295,7 +304,7 @@ export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 84314904-D047-4176-A0EC-256D7F68C7F5
@@ -303,15 +312,15 @@ export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The ID of the resource group.
    * 
    * @example
-   * resourcegroupid1
+   * resourc*****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The total number of SMS notifications.
+   * The quota on the number of text message notifications.
    * 
    * @example
    * 100
@@ -319,7 +328,7 @@ export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
   smsQuota?: number;
   /**
    * @remarks
-   * The total number of detection tasks.
+   * The quota on the number of health check tasks.
    * 
    * @example
    * 100
@@ -335,7 +344,7 @@ export class DescribeDnsGtmInstanceResponseBody extends $dara.Model {
    * The version of the instance.
    * 
    * @example
-   * versioncode1
+   * standard
    */
   versionCode?: string;
   static names(): { [key: string]: string } {

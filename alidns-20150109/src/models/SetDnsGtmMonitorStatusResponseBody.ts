@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDnsGtmMonitorStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B

@@ -91,10 +91,11 @@ export class DescribeCloudGtmInstanceConfigAlertResponseBody extends $dara.Model
   alertGroup?: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertGroup;
   /**
    * @remarks
-   * The alert configuration mode of the instance. Valid values:
+   * The alert configuration mode for the instance.
    * 
-   * *   global: global alert configuration
-   * *   instance_config: custom alert configuration
+   * - global: The instance inherits the global alert configuration.
+   * 
+   * - instance_config: The instance uses a custom alert configuration.
    * 
    * @example
    * global
@@ -102,7 +103,7 @@ export class DescribeCloudGtmInstanceConfigAlertResponseBody extends $dara.Model
   alertMode?: string;
   /**
    * @remarks
-   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * The ID of the instance configuration. For the same access domain name and GTM instance, you can configure both A and AAAA records. This creates two instance configurations. \\`ConfigId\\` uniquely identifies an instance configuration.
    * 
    * @example
    * Config-000**11
@@ -118,7 +119,7 @@ export class DescribeCloudGtmInstanceConfigAlertResponseBody extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 0F32959D-417B-4D66-8463-68606605E3E2

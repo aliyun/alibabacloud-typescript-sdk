@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveRspDomainServerHoldStatusForGatewayRequest extends $dara.Model {
   /**
    * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,21 @@ export class RemoveRspDomainServerHoldStatusForGatewayRequest extends $dara.Mode
   clientToken?: string;
   /**
    * @remarks
+   * The domain name.
+   * 
    * This parameter is required.
    * 
    * @example
    * example.com
    */
   domainName?: string;
+  /**
+   * @remarks
+   * The description of the status.
+   * 
+   * @example
+   * 实名认证通过，解除serverHold状态
+   */
   statusMsg?: string;
   static names(): { [key: string]: string } {
     return {

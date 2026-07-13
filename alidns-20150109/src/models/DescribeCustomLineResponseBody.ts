@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomLineResponseBodyIpSegmentList extends $dara.Model {
   /**
    * @remarks
-   * The end IP address of the CIDR block.
+   * The end IP address of the segment.
    * 
    * @example
-   * 11.1.1.3
+   * 1.1.XX.XX
    */
   endIp?: string;
   /**
    * @remarks
-   * The start IP address of the CIDR block.
+   * The start IP address of the segment.
    * 
    * @example
-   * 11.1.1.2
+   * 1.2.XX.XX
    */
   startIp?: string;
   static names(): { [key: string]: string } {
@@ -48,7 +48,7 @@ export class DescribeCustomLineResponseBody extends $dara.Model {
    * The code of the custom line.
    * 
    * @example
-   * hra0yc-597
+   * hra0yc-*********
    */
   code?: string;
   /**
@@ -61,25 +61,28 @@ export class DescribeCustomLineResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID/Name of the custom line.
+   * The ID of the custom line.
    * 
    * @example
-   * 597
+   * 5*******
    */
   id?: number;
   /**
    * @remarks
-   * The CIDR blocks. Separate IP addresses with a hyphen (-). Enter a CIDR block in each row. You can enter 1 to 50 CIDR blocks at a time. If a CIDR block contains only one IP address, enter the IP address in the format of IP1-IP1. Different CIDR blocks cannot be overlapped.
+   * The list of IP address segments. Use a hyphen (-) to separate the start and end IP addresses. Each line represents one segment. You can specify from 1 to 50 segments. For a single IP address, use the format IP1-IP1. IP address segments cannot overlap.
    */
   ipSegmentList?: DescribeCustomLineResponseBodyIpSegmentList[];
   /**
    * @remarks
    * The name of the custom line.
+   * 
+   * @example
+   * 测试线路
    */
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195

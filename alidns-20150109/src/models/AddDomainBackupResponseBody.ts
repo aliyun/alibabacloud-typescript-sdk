@@ -8,7 +8,7 @@ export class AddDomainBackupResponseBody extends $dara.Model {
    * The domain name.
    * 
    * @example
-   * test.aliyun.com
+   * dns-example.top
    */
   domainName?: string;
   /**
@@ -16,12 +16,12 @@ export class AddDomainBackupResponseBody extends $dara.Model {
    * The backup cycle.
    * 
    * @example
-   * DAY
+   * HOUR
    */
   periodType?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * FD552816-FCC8-4832-B4A2-2DA0C2BA1688

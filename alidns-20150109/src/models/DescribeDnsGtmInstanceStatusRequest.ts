@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmInstanceStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the instance. For more information, see [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances).
    * 
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en

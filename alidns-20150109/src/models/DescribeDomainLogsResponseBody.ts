@@ -73,7 +73,7 @@ export class DescribeDomainLogsResponseBody extends $dara.Model {
   domainLogs?: DescribeDomainLogsResponseBodyDomainLogs;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class DescribeDomainLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of logs returned on the current page.
    * 
    * @example
    * 2
@@ -89,7 +89,7 @@ export class DescribeDomainLogsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -97,7 +97,7 @@ export class DescribeDomainLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of logs.
    * 
    * @example
    * 2

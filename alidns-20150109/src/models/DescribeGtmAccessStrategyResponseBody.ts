@@ -63,7 +63,13 @@ export class DescribeGtmAccessStrategyResponseBodyLines extends $dara.Model {
 export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access policy.
+   * The switchover policy for the address pool groups:
+   * 
+   * - **AUTO**: Automatic switchover
+   * 
+   * - **DEFAULT**: Primary address pool group
+   * 
+   * - **FAILOVER**: Secondary address pool group
    * 
    * @example
    * AUTO
@@ -73,8 +79,9 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
    * @remarks
    * The access status. Valid values:
    * 
-   * *   **DEFAULT**: Indicates normal when the default address pool is accessed.
-   * *   **FAILOVER**: Indicates an exception when a failover address pool is accessed.
+   * - **DEFAULT**: Normal. Access requests are routed to the primary address pool group.
+   * 
+   * - **FAILOVER**: Abnormal. Access requests are routed to the secondary address pool group.
    * 
    * @example
    * DEFAULT
@@ -82,7 +89,13 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   accessStatus?: string;
   /**
    * @remarks
-   * Indicates whether health check is enabled for the default address pool.
+   * The health check status of the primary address pool group. Valid values:
+   * 
+   * - **OPEN**: Enabled
+   * 
+   * - **CLOSE**: Disabled
+   * 
+   * - **UNCONFIGURED**: Not configured
    * 
    * @example
    * OPEN
@@ -90,12 +103,19 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   defaultAddrPoolMonitorStatus?: string;
   /**
    * @remarks
-   * The name of the default address pool.
+   * The name of the primary address pool group.
+   * 
+   * @example
+   * 地址池1
    */
   defaultAddrPoolName?: string;
   /**
    * @remarks
-   * The availability status of the default address pool.
+   * The availability status of the primary address pool group. Valid values:
+   * 
+   * - **AVAILABLE**: The address pool group is available.
+   * 
+   * - **NOT_AVAILABLE**: The address pool group is unavailable.
    * 
    * @example
    * AVAILABLE
@@ -103,7 +123,7 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   defaultAddrPoolStatus?: string;
   /**
    * @remarks
-   * The ID of the default address pool.
+   * The ID of the primary address pool group.
    * 
    * @example
    * hra0i1
@@ -111,7 +131,7 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   defultAddrPoolId?: string;
   /**
    * @remarks
-   * The ID of the failover address pool.
+   * The ID of the secondary address pool group. If no secondary address pool group is configured, **EMPTY** is returned.
    * 
    * @example
    * hra0i2
@@ -119,7 +139,13 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   failoverAddrPoolId?: string;
   /**
    * @remarks
-   * Indicates whether health check is enabled for the failover address pool.
+   * The health check status of the secondary address pool group. Valid values:
+   * 
+   * - **OPEN**: Enabled
+   * 
+   * - **CLOSE**: Disabled
+   * 
+   * - **UNCONFIGURED**: Not configured
    * 
    * @example
    * OPEN
@@ -127,12 +153,19 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   failoverAddrPoolMonitorStatus?: string;
   /**
    * @remarks
-   * The name of the failover address pool.
+   * The name of the secondary address pool group.
+   * 
+   * @example
+   * 地址池2
    */
   failoverAddrPoolName?: string;
   /**
    * @remarks
-   * The availability status of the failover address pool.
+   * The availability status of the secondary address pool group. Valid values:
+   * 
+   * - **AVAILABLE**: The address pool group is available.
+   * 
+   * - **NOT_AVAILABLE**: The address pool group is unavailable.
    * 
    * @example
    * AVAILABLE
@@ -140,16 +173,16 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   failoverAddrPoolStatus?: string;
   /**
    * @remarks
-   * The ID of the GTM instance whose access policy details you want to query.
+   * The ID of the associated Global Traffic Manager (GTM) instance.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   lines?: DescribeGtmAccessStrategyResponseBodyLines;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * BA1608CA-834C-4E63-8682-8AF0B11ED72D
@@ -157,7 +190,7 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the access policy queried.
+   * The policy ID.
    * 
    * @example
    * hra0hs
@@ -165,7 +198,7 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   strategyId?: string;
   /**
    * @remarks
-   * The mode of traffic scheduling.
+   * The policy mode. SELF_DEFINED indicates a custom policy.
    * 
    * @example
    * SELF_DEFINED
@@ -173,7 +206,10 @@ export class DescribeGtmAccessStrategyResponseBody extends $dara.Model {
   strategyMode?: string;
   /**
    * @remarks
-   * The name of the access policy queried.
+   * The name of the access policy.
+   * 
+   * @example
+   * 全局
    */
   strategyName?: string;
   static names(): { [key: string]: string } {

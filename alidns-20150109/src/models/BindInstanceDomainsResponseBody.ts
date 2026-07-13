@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindInstanceDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of domain names that failed to be bound to the instance.
+   * The number of domain names that failed to be bound.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class BindInstanceDomainsResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -21,7 +21,7 @@ export class BindInstanceDomainsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of domain names that are bound to the instance.
+   * The number of domain names that were successfully bound.
    * 
    * @example
    * 2

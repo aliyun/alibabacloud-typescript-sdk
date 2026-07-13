@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to configure DingTalk notifications. Valid values:
+   * Whether to send a DingTalk notification when an alert is triggered. Valid values:
    * 
-   * *   true: configures DingTalk notifications. DingTalk notifications are sent when alerts are triggered.
-   * *   false: does not configure DingTalk notifications.
+   * - `true`: A DingTalk notification is sent.
+   * 
+   * - `false`: Do not send a DingTalk notification.
    * 
    * @example
    * false
@@ -16,10 +17,11 @@ export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $dara.Model {
   dingtalkNotice?: boolean;
   /**
    * @remarks
-   * Specifies whether to configure email notifications. Valid values:
+   * Whether to send an email notification when an alert is triggered. Valid values:
    * 
-   * *   true: configures email notifications. Emails are sent when alerts are triggered.
-   * *   false｜null: does not configure email notifications.
+   * - `true`: An email notification is sent.
+   * 
+   * - `false` or `null`: Do not send an email notification.
    * 
    * @example
    * true
@@ -27,36 +29,46 @@ export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $dara.Model {
   emailNotice?: boolean;
   /**
    * @remarks
-   * The type of the alert event. Valid values:
+   * The alert event type. Valid values:
    * 
-   * *   addr_alert: The address is unavailable.
-   * *   addr_resume: The address becomes available.
-   * *   addr_pool_unavailable: The address pool is unavailable.
-   * *   addr_pool_available: The address pool becomes available.
+   * - `addr_alert`: An address becomes unavailable.
+   * 
+   * - `addr_resume`: An address becomes available.
+   * 
+   * - `addr_pool_unavailable`: An address pool becomes unavailable.
+   * 
+   * - `addr_pool_available`: An address pool becomes available.
    * 
    * @example
    * addr_alert
    */
   noticeType?: string;
   /**
+   * @remarks
+   * The alert threshold for queries per second (QPS).
+   * 
    * @example
    * 10
    */
   qpsThreshold?: number;
   /**
    * @remarks
-   * Specifies whether to configure text message notifications. Valid values:
+   * Whether to send a text message notification when an alert is triggered. Valid values:
    * 
-   * *   true: configures text message notifications. Text messages are sent when alerts are triggered.
-   * *   false｜null: does not configure text message notifications.
+   * - `true`: A text message notification is sent.
    * 
-   * Only the China site (aliyun.com) supports text message notifications.
+   * - `false` or `null`: Do not send a text message notification.
+   * 
+   * Text message notifications are available only on the China site.
    * 
    * @example
    * true
    */
   smsNotice?: boolean;
   /**
+   * @remarks
+   * The alert threshold.
+   * 
    * @example
    * 100
    */
@@ -97,8 +109,9 @@ export class UpdateCloudGtmGlobalAlertRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
+   * - `zh-CN`: Chinese
+   * 
+   * - `en-US`: English
    * 
    * @example
    * en-US
@@ -106,17 +119,17 @@ export class UpdateCloudGtmGlobalAlertRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The alert configurations.
+   * A list of alert configurations.
    */
   alertConfig?: UpdateCloudGtmGlobalAlertRequestAlertConfig[];
   /**
    * @remarks
-   * The alert contact groups.
+   * A list of alert notification groups.
    */
   alertGroup?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token to ensure request idempotence. This token must be unique for each request, contain only ASCII characters, and be no more than 64 characters in length.
    * 
    * @example
    * 1ae05db4-10e7-11ef-b126-00163e24**22

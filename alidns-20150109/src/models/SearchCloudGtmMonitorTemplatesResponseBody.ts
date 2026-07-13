@@ -211,27 +211,42 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplates extends $dara.M
 
 export class SearchCloudGtmMonitorTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number. The value starts from **1**. The default value is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned on each page. The maximum value is 100. The default value is 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   templates?: SearchCloudGtmMonitorTemplatesResponseBodyTemplates;
   /**
+   * @remarks
+   * The total number of health check templates that are found.
+   * 
    * @example
    * 1
    */
   totalItems?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */

@@ -45,7 +45,7 @@ export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $d
   totalCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTP requests.
+   * The number of IPv4 HTTP requests.
    * 
    * @example
    * 3141592653
@@ -53,7 +53,7 @@ export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $d
   v4HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv4-based HTTPS requests.
+   * The number of IPv4 HTTPS requests.
    * 
    * @example
    * 3141592653
@@ -61,7 +61,7 @@ export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $d
   v4HttpsCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTP requests.
+   * The number of IPv6 HTTP requests.
    * 
    * @example
    * 3141592653
@@ -69,7 +69,7 @@ export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $d
   v6HttpCount?: number;
   /**
    * @remarks
-   * The number of IPv6-based HTTPS requests.
+   * The number of IPv6 HTTPS requests.
    * 
    * @example
    * 3141592653
@@ -115,7 +115,7 @@ export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $d
 export class DescribeDohDomainStatisticsSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The number of the returned page. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -123,7 +123,7 @@ export class DescribeDohDomainStatisticsSummaryResponseBody extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -131,7 +131,7 @@ export class DescribeDohDomainStatisticsSummaryResponseBody extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 0F32959D-417B-4D66-8463-68606605E3E2
@@ -139,12 +139,12 @@ export class DescribeDohDomainStatisticsSummaryResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The statistics list.
+   * A list of statistics.
    */
   statistics?: DescribeDohDomainStatisticsSummaryResponseBodyStatistics[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 300
@@ -152,7 +152,7 @@ export class DescribeDohDomainStatisticsSummaryResponseBody extends $dara.Model 
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 50

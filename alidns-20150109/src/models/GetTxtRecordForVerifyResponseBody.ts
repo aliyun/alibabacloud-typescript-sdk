@@ -7,7 +7,7 @@ export class GetTxtRecordForVerifyResponseBody extends $dara.Model {
    * @remarks
    * The domain name.
    * 
-   * >  If you do not specify this parameter, it is not returned.
+   * > This parameter is not returned if no value is specified for the DomainName parameter in the request.
    * 
    * @example
    * example.com
@@ -15,7 +15,7 @@ export class GetTxtRecordForVerifyResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The top-level domain name.
+   * The top-level domain (TLD).
    * 
    * @example
    * com
@@ -23,15 +23,15 @@ export class GetTxtRecordForVerifyResponseBody extends $dara.Model {
   parentDomainName?: string;
   /**
    * @remarks
-   * The hostname.
+   * The host record.
    * 
    * @example
-   * aliyunRetrieval
+   * aliyun******
    */
   RR?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 9CC0D642-49D4-48DE-A1A5-9F218652E4A7
@@ -41,7 +41,7 @@ export class GetTxtRecordForVerifyResponseBody extends $dara.Model {
    * @remarks
    * The record value.
    * 
-   * >  The validity period is three days.
+   * > The value is valid for three days.
    * 
    * @example
    * c99419e6997f41daaa3e*****

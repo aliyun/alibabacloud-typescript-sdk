@@ -5,17 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmAddrAttributeInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The addresses.
+   * The list of addresses.
    * 
    * This parameter is required.
    * 
    * @example
-   * ["1.1.1.1"]
+   * [
+   *       "1.1.XX.XX"
+   * ]
    */
   addrs?: string;
   /**
    * @remarks
-   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -23,16 +25,18 @@ export class DescribeDnsGtmAddrAttributeInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of addresses. Valid values:
+   * The address type:
    * 
-   * *   IPV4: IPv4 address
-   * *   IPv6: IPv6 address
-   * *   DOMAIN: domain name
+   * - IPV4: IPv4 address
+   * 
+   * - IPV6: IPv6 address
+   * 
+   * - DOMAIN: domain name
    * 
    * This parameter is required.
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   type?: string;
   static names(): { [key: string]: string } {

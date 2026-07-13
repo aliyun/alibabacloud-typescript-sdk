@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudGtmInstanceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -13,8 +13,11 @@ export class DeleteCloudGtmInstanceConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation to delete domain instance configurations was successful:
-   * - true: Operation successful - false: Operation failed
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

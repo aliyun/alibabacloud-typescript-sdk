@@ -13,9 +13,9 @@ export class DescribeDohDomainStatisticsSummaryRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * The end date of the query. The format is YYYY-MM-DD.
    * 
-   * The default value is the day when you perform the operation.
+   * The default value is the current date.
    * 
    * @example
    * 2019-07-04
@@ -23,7 +23,11 @@ export class DescribeDohDomainStatisticsSummaryRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The language type.
+   * The language of the request and response. The default value is **zh**. Valid values:
+   * 
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -31,7 +35,7 @@ export class DescribeDohDomainStatisticsSummaryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The number of the page to return. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -39,7 +43,7 @@ export class DescribeDohDomainStatisticsSummaryRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * The number of entries to return on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -47,9 +51,9 @@ export class DescribeDohDomainStatisticsSummaryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * The start date of the query. The format is YYYY-MM-DD.
    * 
-   * You can query only the DNS records of the last 90 days. `The value of StartDate must be greater than or equal to the difference between the current date and 90`.
+   * You can query data only from the last 90 days. This means `StartDate >= Now - 90`.
    * 
    * @example
    * 2019-07-04

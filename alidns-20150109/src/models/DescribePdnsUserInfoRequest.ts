@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePdnsUserInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid value:
+   * The language of the request and response. The default value is **zh**. Valid values:
    * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en

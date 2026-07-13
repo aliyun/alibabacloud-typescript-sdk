@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword of the domain name group for searches in %KeyWord% mode. The value is not case-sensitive.
+   * The keyword for the group name. The search uses the %KeyWord% pattern and is case-insensitive.
    * 
    * @example
    * Group
@@ -13,7 +13,13 @@ export class DescribeDomainGroupsRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the response. Valid values:
+   * 
+   * - zh: Chinese
+   * 
+   * - en: English
+   * 
+   * Default value: zh
    * 
    * @example
    * en
@@ -21,7 +27,7 @@ export class DescribeDomainGroupsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The start value is **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -29,7 +35,7 @@ export class DescribeDomainGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 20

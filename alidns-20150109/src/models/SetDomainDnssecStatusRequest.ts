@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDomainDnssecStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for which you want to enable the DNSSEC. Only the users of the paid editions of Alibaba Cloud DNS can enable this feature.
+   * The domain name for which you want to enable DNSSEC. This feature is available only to users of paid Alibaba Cloud DNS.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,13 @@ export class SetDomainDnssecStatusRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the return value. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
    * 
-   * Default value: en.
+   * - en: English
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -28,10 +29,11 @@ export class SetDomainDnssecStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The DNSSEC status. Valid values:
+   * The status of DNSSEC. Valid values:
    * 
-   * *   ON: enables DNSSEC for the domain name.
-   * *   OFF: disables DNSSEC for the domain name.
+   * - ON: Enables DNSSEC.
+   * 
+   * - OFF: Disables DNSSEC.
    * 
    * This parameter is required.
    * 

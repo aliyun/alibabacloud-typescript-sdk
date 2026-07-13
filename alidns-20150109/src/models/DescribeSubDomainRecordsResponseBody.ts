@@ -88,7 +88,7 @@ export class DescribeSubDomainRecordsResponseBody extends $dara.Model {
   domainRecords?: DescribeSubDomainRecordsResponseBodyDomainRecords;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -96,7 +96,7 @@ export class DescribeSubDomainRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records returned on the current page.
    * 
    * @example
    * 2
@@ -112,7 +112,7 @@ export class DescribeSubDomainRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of DNS records.
    * 
    * @example
    * 2

@@ -13,10 +13,11 @@ export class DescribeSubDomainRecordsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -32,7 +33,7 @@ export class DescribeSubDomainRecordsRequest extends $dara.Model {
   line?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -40,7 +41,7 @@ export class DescribeSubDomainRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -48,9 +49,13 @@ export class DescribeSubDomainRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * If you set SubDomain to `a.www.example.com` and leave
+   * For example, if you set SubDomain to a.www\\.example.com:
    * 
-   * DomainName empty, the system returns the DNS records that contain the hostname `a.www` for the domain name example.com. If you set SubDomain to a.www.example.com and set DomainName to www.example.com, the system returns the DNS records that contain the hostname `a` for the domain name www.example.com. If you set SubDomain to a.www.example.com and set DomainName to a.www.example.com, the system returns the DNS records that contain the hostname `@` for the domain name a.www.example.com.
+   * If you do not specify DomainName, the system queries the DNS records for the hostname a.www of the domain name example.com.
+   * 
+   * If you set DomainName to www\\.example.com, the system queries the DNS records for the hostname a of the domain name www\\.example.com.
+   * 
+   * If you set DomainName to "a.www\\.example.com", the system queries the DNS records for the hostname @ of the domain name a.www\\.example.com.
    * 
    * This parameter is required.
    * 
@@ -60,9 +65,9 @@ export class DescribeSubDomainRecordsRequest extends $dara.Model {
   subDomain?: string;
   /**
    * @remarks
-   * The type of DNS records. If you do not specify this parameter, all types of DNS records for the subdomain name are returned.
+   * The type of the DNS record. If you do not specify this parameter, all types of DNS records for the subdomain are returned.
    * 
-   * Valid values: **A, MX, CNAME, TXT, REDIRECT_URL, FORWORD_URL, NS, AAAA, and SRV**.
+   * The record types are case-insensitive and include the following: **A, MX, CNAME, TXT, REDIRECT_URL, FORWARD_URL, NS, AAAA, and SRV**.
    * 
    * @example
    * MX
@@ -70,7 +75,7 @@ export class DescribeSubDomainRecordsRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 192.0.2.0

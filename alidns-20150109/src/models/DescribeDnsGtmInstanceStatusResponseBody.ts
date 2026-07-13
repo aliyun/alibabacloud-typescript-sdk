@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmInstanceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of available addresses.
+   * The number of healthy addresses.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeDnsGtmInstanceStatusResponseBody extends $dara.Model {
   addrAvailableNum?: number;
   /**
    * @remarks
-   * The number of unavailable addresses.
+   * The number of unhealthy addresses.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeDnsGtmInstanceStatusResponseBody extends $dara.Model {
   addrPoolGroupNotAvailableNum?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
@@ -37,7 +37,7 @@ export class DescribeDnsGtmInstanceStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of access policies that are unavailable in the current active address pool group.
+   * The number of unavailable access policies for the active address pool group.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeDnsGtmInstanceStatusResponseBody extends $dara.Model {
   strategyNotAvailableNum?: number;
   /**
    * @remarks
-   * The number of access policies switched to the secondary address pool group.
+   * The number of access policies that are switched to the failover address pool group.
    * 
    * @example
    * 1

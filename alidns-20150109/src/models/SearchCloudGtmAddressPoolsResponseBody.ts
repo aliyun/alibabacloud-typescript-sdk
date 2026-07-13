@@ -261,10 +261,14 @@ export class SearchCloudGtmAddressPoolsResponseBodyAddressPools extends $dara.Mo
 }
 
 export class SearchCloudGtmAddressPoolsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPools?: SearchCloudGtmAddressPoolsResponseBodyAddressPools;
   /**
    * @remarks
-   * Current page number, starting from 1, default is 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -272,7 +276,7 @@ export class SearchCloudGtmAddressPoolsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * The number of entries returned on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -280,7 +284,7 @@ export class SearchCloudGtmAddressPoolsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Unique request identification code.
+   * The request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -288,7 +292,7 @@ export class SearchCloudGtmAddressPoolsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of address pools matching the query conditions.
+   * The total number of address pools that meet the query conditions.
    * 
    * @example
    * 11
@@ -296,7 +300,7 @@ export class SearchCloudGtmAddressPoolsResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1

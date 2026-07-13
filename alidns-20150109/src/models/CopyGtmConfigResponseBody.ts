@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopyGtmConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA

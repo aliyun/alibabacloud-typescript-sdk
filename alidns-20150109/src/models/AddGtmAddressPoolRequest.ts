@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGtmAddressPoolRequestAddr extends $dara.Model {
   /**
    * @remarks
-   * The weight of the address pool.
+   * The weight of the address.
    * 
    * @example
    * 1
@@ -13,11 +13,13 @@ export class AddGtmAddressPoolRequestAddr extends $dara.Model {
   lbaWeight?: number;
   /**
    * @remarks
-   * The mode of the address pool. Valid values:
+   * The mode of the address. Valid values:
    * 
-   * *   **SMART**: smart return
-   * *   **ONLINE**: always online
-   * *   **OFFLINE**: always offline
+   * - **SMART**: smart return
+   * 
+   * - **ONLINE**: always online
+   * 
+   * - **OFFLINE**: always offline
    * 
    * @example
    * SMART
@@ -25,10 +27,10 @@ export class AddGtmAddressPoolRequestAddr extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The address in the address pool.
+   * The address.
    * 
    * @example
-   * 1.1.1.1
+   * 1.1.XX.XX
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +61,7 @@ export class AddGtmAddressPoolRequestAddr extends $dara.Model {
 export class AddGtmAddressPoolRequestIspCityNode extends $dara.Model {
   /**
    * @remarks
-   * The code of the city where the monitored node is deployed. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+   * The city code of the monitoring node. For information about valid values, see the response of DescribeGtmMonitorAvailableConfig.
    * 
    * @example
    * 546
@@ -67,9 +69,11 @@ export class AddGtmAddressPoolRequestIspCityNode extends $dara.Model {
   cityCode?: string;
   /**
    * @remarks
-   * *   The code of the Internet service provider (ISP) to which the monitored node belongs. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
-   * *   If the value of the GroupType parameter is BGP or OVERSEAS, IspCode is optional. The default value is 465.
-   * *   If the value of the GroupType parameter is not BGP or OVERSEAS, IspCode is required and is used together with CityCode.
+   * - For information about valid values, see the response of DescribeGtmMonitorAvailableConfig.
+   * 
+   * - If GroupType is set to Border Gateway Protocol (BGP) or Overseas, IspCityNode.N.IspCode is optional. The default value is 465.
+   * 
+   * - If GroupType is not set to BGP or Overseas, IspCityNode.N.IspCode is required and must be used with IspCityNode.N.CityCode.
    * 
    * @example
    * 465
@@ -101,14 +105,14 @@ export class AddGtmAddressPoolRequestIspCityNode extends $dara.Model {
 export class AddGtmAddressPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The address pools.
+   * The list of addresses in the address pool.
    * 
    * This parameter is required.
    */
   addr?: AddGtmAddressPoolRequestAddr[];
   /**
    * @remarks
-   * The number of consecutive failures.
+   * The number of consecutive failed health checks.
    * 
    * @example
    * 2
@@ -116,7 +120,7 @@ export class AddGtmAddressPoolRequest extends $dara.Model {
   evaluationCount?: number;
   /**
    * @remarks
-   * The ID of the GTM instance for which you want to create an address pool.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -126,7 +130,7 @@ export class AddGtmAddressPoolRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The health check interval. Unit: seconds. Set the value to 60.
+   * The health check interval. Unit: seconds. The value must be 60.
    * 
    * @example
    * 60
@@ -134,12 +138,12 @@ export class AddGtmAddressPoolRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The monitored nodes.
+   * The list of city nodes for monitoring.
    */
   ispCityNode?: AddGtmAddressPoolRequestIspCityNode[];
   /**
    * @remarks
-   * The language of the values of specific response parameters.
+   * The response language.
    * 
    * @example
    * en
@@ -147,36 +151,43 @@ export class AddGtmAddressPoolRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The minimum number of available addresses in the address pool.
+   * The minimum number of available addresses.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2
+   * 1
    */
   minAvailableAddrNum?: number;
   /**
    * @remarks
-   * The extended information. The required parameters vary based on the value of ProtocolType.
+   * The extended information. The parameters that you must configure vary based on the health check protocol.
    * 
-   * When ProtocolType is set to HTTP or HTTPS:
+   * HTTP and HTTPS:
    * 
-   * *   port: the port that you want to check
-   * *   failureRate: the failure rate
-   * *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
-   * *   host: the host settings
-   * *   path: the URL path
+   * - port: The health check port.
    * 
-   * When ProtocolType is set to PING:
+   * - failureRate: The failure rate.
    * 
-   * *   packetNum: the number of ping packets
-   * *   packetLossRate: the packet loss rate
-   * *   failureRate: the failure rate
+   * - code: The return code. A response with a return code greater than the specified value is considered abnormal. Valid values: 400 and 500.
    * 
-   * When ProtocolType is set to TCP:
+   * - host: The host setting.
    * 
-   * *   port: the port that you want to check
-   * *   failureRate: the failure rate
+   * - path: The URL path.
+   * 
+   * PING:
+   * 
+   * - packetNum: The number of ping packets.
+   * 
+   * - packetLossRate: The packet loss rate.
+   * 
+   * - failureRate: The failure rate.
+   * 
+   * TCP:
+   * 
+   * - port: The health check port.
+   * 
+   * - failureRate: The failure rate.
    * 
    * @example
    * {"host":"aliyun.com","port":80}
@@ -184,10 +195,11 @@ export class AddGtmAddressPoolRequest extends $dara.Model {
   monitorExtendInfo?: string;
   /**
    * @remarks
-   * Specifies whether to enable the health check. Valid values:
+   * The status of the health check. Valid values:
    * 
-   * *   **OPEN**: enables the health check.
-   * *   **CLOSE**: disables the health check. This is the default value.
+   * - **OPEN**: enabled
+   * 
+   * - **CLOSE** (default): disabled
    * 
    * @example
    * OPEN
@@ -200,20 +212,23 @@ export class AddGtmAddressPoolRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Alibaba Cloud cluster
+   * 测试
    */
   name?: string;
   /**
    * @remarks
    * The health check protocol. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
-   * *   Ping
-   * *   TCP
+   * - HTTP
+   * 
+   * - HTTPS
+   * 
+   * - Ping
+   * 
+   * - TCP
    * 
    * @example
-   * HTTPS
+   * TCP
    */
   protocolType?: string;
   /**
@@ -221,15 +236,16 @@ export class AddGtmAddressPoolRequest extends $dara.Model {
    * The timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
    * 
    * @example
-   * 60
+   * 5000
    */
   timeout?: number;
   /**
    * @remarks
    * The type of the address pool. Valid values:
    * 
-   * *   **IP**: IPv4 address
-   * *   **DOMAIN**: domain name
+   * - **IP**: IPv4 address
+   * 
+   * - **DOMAIN**: domain name
    * 
    * This parameter is required.
    * 

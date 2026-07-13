@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The timestamp that specifies the end of the time range to query.
+   * The end of the time range to query. This value is a UNIX timestamp.
    * 
    * @example
-   * 1363453350000
+   * 1363453340000
    */
   endTimestamp?: number;
   /**
    * @remarks
-   * The ID of the GTM instance whose logs you want to query.
+   * The ID of the instance.
    * 
    * @example
    * gtm-cn-xxxxx
@@ -21,7 +21,7 @@ export class DescribeGtmLogsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The keyword for searching logs, in case-insensitive "%Keyword%" format.
+   * The keyword for a fuzzy search. The search uses the %Keyword% pattern and is case-insensitive.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class DescribeGtmLogsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The language of the response.
    * 
    * @example
    * en
@@ -37,7 +37,7 @@ export class DescribeGtmLogsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The number of the page to return. The value starts from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeGtmLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The beginning of the time range to query. This value is a UNIX timestamp.
    * 
    * @example
    * 1363453340000

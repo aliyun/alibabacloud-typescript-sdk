@@ -5,8 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudGtmAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * Return language value, options:
+   * The language of the return value. Valid values:
+   * 
    * - zh-CN: Chinese.
+   * 
    * - en-US: English.
    * 
    * @example
@@ -15,7 +17,7 @@ export class ListCloudGtmAddressesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * IP address or domain name.
+   * The IP address or domain name.
    * 
    * @example
    * 223.5.XX.XX
@@ -23,25 +25,27 @@ export class ListCloudGtmAddressesRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The address ID. This ID uniquely identifies the address.
+   * The unique ID of the address.
    * 
    * @example
-   * addr-89518218114368**92
+   * addr-89518218114368****
    */
   addressId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token that is used to ensure the idempotence of the request. The client must generate a unique token for each request. The token can contain a maximum of 64 ASCII characters.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   /**
    * @remarks
-   * Indicates the current availability of the address:
-   * - enable: Enabled status
-   * - disable: Disabled status
+   * The state of the address. Valid values:
+   * 
+   * - enable: The address is enabled.
+   * 
+   * - disable: The address is disabled.
    * 
    * @example
    * enable
@@ -49,12 +53,15 @@ export class ListCloudGtmAddressesRequest extends $dara.Model {
   enableStatus?: string;
   /**
    * @remarks
-   * The health check state of the address. Valid values:
+   * The health status of the address. Valid values:
    * 
-   * *   ok: The address passes all health checks of the referenced health check templates.
-   * *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
-   * *   ok_no_monitor: The address does not reference a health check template.
-   * *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+   * - ok: All health check tasks that are associated with the address are normal.
+   * 
+   * - ok_alert: Some health check tasks that are associated with the address are abnormal, but the address is still considered normal.
+   * 
+   * - ok_no_monitor: No health check template is associated with the address.
+   * 
+   * - exceptional: Some or all health check tasks that are associated with the address are abnormal, and the address is considered abnormal.
    * 
    * @example
    * ok
@@ -62,15 +69,15 @@ export class ListCloudGtmAddressesRequest extends $dara.Model {
   healthStatus?: string;
   /**
    * @remarks
-   * The ID of the health check template. This ID uniquely identifies the health check template.
+   * The unique ID of the health check template.
    * 
    * @example
-   * mtp-89518052425100**80
+   * mtp-89518052425100****
    */
   monitorTemplateId?: string;
   /**
    * @remarks
-   * Address name.
+   * The name of the address.
    * 
    * @example
    * test
@@ -78,7 +85,7 @@ export class ListCloudGtmAddressesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Current page number, starting from **1**, default is **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * This parameter is required.
    * 
@@ -88,7 +95,7 @@ export class ListCloudGtmAddressesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
    * 
    * This parameter is required.
    * 
@@ -98,9 +105,12 @@ export class ListCloudGtmAddressesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Address type:
+   * The type of the address. Valid values:
+   * 
    * - IPv4
+   * 
    * - IPv6
+   * 
    * - domain
    * 
    * @example

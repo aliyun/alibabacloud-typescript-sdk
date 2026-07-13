@@ -5,8 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SearchCloudGtmInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the return value. Options are:
-   * - **zh-CN**: Chinese. 
+   * The language of the response. Valid values:
+   * 
+   * - **zh-CN**: Chinese.
+   * 
    * - **en-US**: English.
    * 
    * @example
@@ -20,10 +22,10 @@ export class SearchCloudGtmInstancesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
+   * The client token that is used to ensure the idempotence of the request. Make sure that the token is unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   /**
@@ -31,12 +33,12 @@ export class SearchCloudGtmInstancesRequest extends $dara.Model {
    * The ID of the Global Traffic Manager (GTM) 3.0 instance.
    * 
    * @example
-   * gtm-cn-wwo3a3hbz**
+   * gtm-cn-wwo3a3h****
    */
   instanceId?: string;
   /**
    * @remarks
-   * Schedule instance name, supports fuzzy search.
+   * The name of the scheduling instance. Fuzzy search is supported.
    * 
    * @example
    * test
@@ -44,7 +46,7 @@ export class SearchCloudGtmInstancesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Current page number, starting from 1, default is 1.
+   * The number of the page to return. The value starts from 1. The default value is 1.
    * 
    * This parameter is required.
    * 
@@ -54,7 +56,7 @@ export class SearchCloudGtmInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
    * 
    * This parameter is required.
    * 

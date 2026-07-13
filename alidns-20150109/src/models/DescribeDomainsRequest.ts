@@ -5,15 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the domain name group. If you do not specify this parameter, all domain names are queried by default.
+   * The ID of the domain name group.
+   * 
+   * If you leave this parameter empty or pass an empty string, all domain names are queried.
+   * 
+   * If you set this parameter to defaultGroup, domain names in the default group are queried.
    * 
    * @example
-   * 2223
+   * defaultGroup
    */
   groupId?: string;
   /**
    * @remarks
-   * The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+   * The keyword. The search is performed in the %KeyWord% pattern and is not case-sensitive.
    * 
    * @example
    * com
@@ -21,7 +25,13 @@ export class DescribeDomainsRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The language type.
+   * The language of the response. Valid values:
+   * 
+   * - zh: Chinese
+   * 
+   * - en: English
+   * 
+   * Default value: zh.
    * 
    * @example
    * en
@@ -29,7 +39,7 @@ export class DescribeDomainsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -37,7 +47,7 @@ export class DescribeDomainsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+   * The number of entries per page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 20
@@ -48,15 +58,18 @@ export class DescribeDomainsRequest extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-resourcegroupid01
+   * rg-re********
    */
   resourceGroupId?: string;
   /**
    * @remarks
    * The search mode. Valid values:
    * 
-   * *   **LIKE**: fuzzy match.
-   * *   **EXACT**: exact match.
+   * - **LIKE**: fuzzy search
+   * 
+   * - **EXACT**: exact search
+   * 
+   * Default value: LIKE
    * 
    * @example
    * LIKE
@@ -64,7 +77,13 @@ export class DescribeDomainsRequest extends $dara.Model {
   searchMode?: string;
   /**
    * @remarks
-   * Specifies whether to query the starmark of the domain name.
+   * Specifies whether to query starred domain names. Valid values:
+   * 
+   * - **true**
+   * 
+   * - **false**
+   * 
+   * Default value: true
    * 
    * @example
    * true

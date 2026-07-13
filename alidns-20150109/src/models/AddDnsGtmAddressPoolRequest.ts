@@ -5,35 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class AddDnsGtmAddressPoolRequestAddr extends $dara.Model {
   /**
    * @remarks
-   * The address in the address pool.
+   * The address.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1.1.1.1
+   * 223.5.XX.XX
    */
   addr?: string;
   /**
    * @remarks
-   * The information about the source region of the address. The value of this parameter is a JSON string. Valid values:
+   * The source region of the address. This parameter is a JSON string.
    * 
-   * *   lineCode: the line code of the source region for the address
+   * - lineCode: The line code of the source region.
    * 
-   * *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
+   * - lineCodeRectifyType: The rectification type for the line code. Default value: AUTO.
    * 
-   *     *   NO_NEED: no need for rectification
-   *     *   RECTIFIED: rectified
-   *     *   AUTO: automatic rectification
+   *   - NO_NEED: No rectification is performed.
+   * 
+   *   - RECTIFIED: The line code is rectified.
+   * 
+   *   - AUTO: The line code is automatically rectified.
    * 
    * This parameter is required.
    * 
    * @example
-   * default
+   * {"lineCodeRectifyType":"AUTO", "lineCode":[]}
    */
   attributeInfo?: string;
   /**
    * @remarks
-   * The weight of the address.
+   * The weight.
    * 
    * @example
    * 1
@@ -41,21 +43,23 @@ export class AddDnsGtmAddressPoolRequestAddr extends $dara.Model {
   lbaWeight?: number;
   /**
    * @remarks
-   * The return mode of the addresses: Valid values:
+   * The mode. Valid values:
    * 
-   * *   SMART: smart return
-   * *   ONLINE: always online
-   * *   OFFLINE: always offline
+   * - SMART: smart return
+   * 
+   * - ONLINE: always online
+   * 
+   * - OFFLINE: always offline
    * 
    * This parameter is required.
    * 
    * @example
-   * online
+   * SMART
    */
   mode?: string;
   /**
    * @remarks
-   * The description of the address pool.
+   * The remarks.
    * 
    * @example
    * test
@@ -93,9 +97,9 @@ export class AddDnsGtmAddressPoolRequestAddr extends $dara.Model {
 export class AddDnsGtmAddressPoolRequestIspCityNode extends $dara.Model {
   /**
    * @remarks
-   * The city code.
+   * The city code. If MonitorStatus is set to OPEN, CityCode is required.
    * 
-   * Specify the parameter according to the value of CityCode returned by the DescribeGtmMonitorAvailableConfig operation.
+   * For information about the valid values, see the response of the DescribeDnsGtmMonitorAvailableConfig operation.
    * 
    * @example
    * 503
@@ -103,9 +107,8 @@ export class AddDnsGtmAddressPoolRequestIspCityNode extends $dara.Model {
   cityCode?: string;
   /**
    * @remarks
-   * *   The Internet service provider (ISP) node. Specify the parameter according to the value of IspCode returned by the DescribeGtmMonitorAvailableConfig operation.
-   * *   If the returned value of GroupType for the DescribeGtmMonitorAvailableConfig operation is BGP or Overseas, IspCode is not required and is set to 465 by default.
-   * *   If the returned value of GroupType for the DescribeGtmMonitorAvailableConfig operation is not BGP or Overseas, IspCode is required. When IspCode is specified, CityCode is required.
+   * If MonitorStatus is set to OPEN, IspCode is required.
+   * For information about the valid values, see the response of the DescribeDnsGtmMonitorAvailableConfig operation.
    * 
    * @example
    * 465
@@ -137,27 +140,28 @@ export class AddDnsGtmAddressPoolRequestIspCityNode extends $dara.Model {
 export class AddDnsGtmAddressPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The address pools.
+   * The list of addresses in the address pool.
    * 
    * This parameter is required.
    */
   addr?: AddDnsGtmAddressPoolRequestAddr[];
   /**
    * @remarks
-   * The number of consecutive failures.
+   * The number of consecutive failed health checks.
    * 
    * @example
-   * 1
+   * 2
    */
   evaluationCount?: number;
   /**
    * @remarks
    * The instance ID.
+   * <props="intl">Call [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances) to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-cs02xyk****
    */
   instanceId?: string;
   /**
@@ -165,17 +169,17 @@ export class AddDnsGtmAddressPoolRequest extends $dara.Model {
    * The health check interval. Unit: seconds.
    * 
    * @example
-   * 1
+   * 60
    */
   interval?: number;
   /**
    * @remarks
-   * The nodes for monitoring.
+   * The list of health check nodes. If MonitorStatus is set to OPEN, you must specify at least one valid health check node.
    */
   ispCityNode?: AddDnsGtmAddressPoolRequestIspCityNode[];
   /**
    * @remarks
-   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -183,80 +187,86 @@ export class AddDnsGtmAddressPoolRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The load balancing policy of the address pool. Valid values:
+   * The load balancing policy. Valid values:
    * 
-   * *   ALL_RR: returns all addresses.
-   * *   RATIO: returns addresses by weight.
+   * - ALL_RR: returns all addresses.
+   * 
+   * - RATIO: returns addresses by weight.
    * 
    * This parameter is required.
    * 
    * @example
-   * all_rr
+   * ALL_RR
    */
   lbaStrategy?: string;
   /**
    * @remarks
-   * The extended information. The required parameters vary based on the health check protocol.
+   * The extended information. This parameter is a JSON string. The required parameters vary based on the health check protocol:
    * 
-   * *   HTTP or HTTPS:
+   * - HTTP and HTTPS:
    * 
-   *     *   port: the port that you want to check
+   *   - port: The health check port.
    * 
-   *     *   host: the host settings
+   *   - host: The host settings.
    * 
-   *     *   path: the URL
+   *   - path: The URL path.
    * 
-   *     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
+   *   - code: The return code. A response with a status code greater than this value is considered abnormal. Valid values: 400 and 500.
    * 
-   *     *   failureRate: the failure rate
+   *   - failureRate: The failure rate.
    * 
-   *     *   sni: specifies whether to enable Server Name Indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
+   *   - sni: Specifies whether to enable Server Name Indication (SNI). This parameter is available only for the HTTPS protocol.
    * 
-   *         *   true: enables SNI.
-   *         *   other: disables SNI.
+   *     - true: Enable SNI.
    * 
-   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   *     - Other values: Disable SNI.
    * 
-   *         *   IPV4
-   *         *   IPV6
+   *   - nodeType: The type of the health check node when the address pool type is DOMAIN. Valid values:
    * 
-   * *   ping:
+   *     - IPV4
    * 
-   *     *   failureRate: the failure rate
+   *     - IPV6
    * 
-   *     *   packetNum: the number of ping packets
+   * - PING:
    * 
-   *     *   packetLossRate: the loss rate of ping packets
+   *   - failureRate: The failure rate.
    * 
-   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   *   - packetNum: The number of ping packets.
    * 
-   *         *   IPV4
-   *         *   IPV6
+   *   - packetLossRate: The packet loss rate.
    * 
-   * *   TCP:
+   *   - nodeType: The type of the health check node when the address pool type is DOMAIN. Valid values:
    * 
-   *     *   port: the port that you want to check
+   *     - IPV4
    * 
-   *     *   failureRate: the failure rate
+   *     - IPV6
    * 
-   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   * - TCP:
    * 
-   *         *   IPV4
-   *         *   IPV6
+   *   - port: The health check port.
+   * 
+   *   - failureRate: The failure rate.
+   * 
+   *   - nodeType: The type of the health check node when the address pool type is DOMAIN. Valid values:
+   * 
+   *     - IPV4
+   * 
+   *     - IPV6
    * 
    * @example
-   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   * {"failureRate":50,"port":80}
    */
   monitorExtendInfo?: string;
   /**
    * @remarks
-   * Specifies whether to enable the health check feature. If you set this parameter to OPEN, the system verifies the health check configurations. If you set this parameter to CLOSE, the system discards the health check configurations. Default value: CLOSE. Valid values:
+   * The status of the health check feature. Default value: CLOSE. If you set this parameter to OPEN, the health check configuration is verified. Otherwise, the configuration is ignored.
    * 
-   * *   OPEN: enables the health check feature.
-   * *   CLOSE: disables the health check feature.
+   * - OPEN: enabled
+   * 
+   * - CLOSE: disabled
    * 
    * @example
-   * open
+   * OPEN
    */
   monitorStatus?: string;
   /**
@@ -273,13 +283,16 @@ export class AddDnsGtmAddressPoolRequest extends $dara.Model {
    * @remarks
    * The health check protocol. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
-   * *   PING
-   * *   TCP
+   * - HTTP
+   * 
+   * - HTTPS
+   * 
+   * - PING
+   * 
+   * - TCP
    * 
    * @example
-   * http
+   * TCP
    */
   protocolType?: string;
   /**
@@ -287,21 +300,23 @@ export class AddDnsGtmAddressPoolRequest extends $dara.Model {
    * The timeout period. Unit: milliseconds.
    * 
    * @example
-   * 1
+   * 2000
    */
   timeout?: number;
   /**
    * @remarks
    * The type of the address pool. Valid values:
    * 
-   * *   IPV4: IPv4 address
-   * *   IPV6: IPv6 address
-   * *   DOMAIN: domain name
+   * - IPV4: IPv4 address
+   * 
+   * - IPV6: IPv6 address
+   * 
+   * - DOMAIN: domain name
    * 
    * This parameter is required.
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   type?: string;
   static names(): { [key: string]: string } {

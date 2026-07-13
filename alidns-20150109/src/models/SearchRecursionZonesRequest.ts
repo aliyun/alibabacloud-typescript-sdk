@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchRecursionZonesRequestEffectiveScopes extends $dara.Model {
   /**
+   * @remarks
+   * The type of the effective scope. Valid value: `account`.
+   * 
    * @example
    * account
    */
   effectiveType?: string;
   /**
+   * @remarks
+   * A list of scope values that correspond to the specified `EffectiveType`. For example, if `EffectiveType` is set to `account`, this parameter contains a list of account IDs for users that use recursive resolution.
+   * 
    * @example
    * [20003]
    */
@@ -41,28 +47,46 @@ export class SearchRecursionZonesRequestEffectiveScopes extends $dara.Model {
 
 export class SearchRecursionZonesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The sort order. Valid values: `asc`: ascending. `desc`: descending.
+   * 
    * @example
    * asc
    */
   direction?: string;
+  /**
+   * @remarks
+   * The list of effective scopes.
+   */
   effectiveScopes?: SearchRecursionZonesRequestEffectiveScopes[];
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: **1** to **100**. Default value: **20**.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results.
+   * 
    * @example
    * 4698691
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort field. Valid values: `UpdateTime`: the update time of the zone. `RecordCount`: the number of DNS records.
+   * 
    * @example
    * default
    */
   orderBy?: string;
   /**
    * @remarks
+   * The page number. Pages start at **1**. Default value: **1**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -71,6 +95,8 @@ export class SearchRecursionZonesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return per page. Valid values: 1 to 100. Default value: 20.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -78,11 +104,17 @@ export class SearchRecursionZonesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The remark for the zone. Fuzzy search is supported.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The name of the zone.
+   * 
    * @example
    * cheng.suow.cc
    */

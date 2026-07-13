@@ -90,7 +90,7 @@ export class DescribeGtmRecoveryPlansResponseBodyRecoveryPlans extends $dara.Mod
 export class DescribeGtmRecoveryPlansResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the returned page. Pages start from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class DescribeGtmRecoveryPlansResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 20
@@ -107,7 +107,7 @@ export class DescribeGtmRecoveryPlansResponseBody extends $dara.Model {
   recoveryPlans?: DescribeGtmRecoveryPlansResponseBodyRecoveryPlans;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 2BA072CF-CA21-4A34-B6C2-227BE2C58079
@@ -115,7 +115,7 @@ export class DescribeGtmRecoveryPlansResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -123,7 +123,7 @@ export class DescribeGtmRecoveryPlansResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGtmAddressPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool created.
+   * The ID of the address pool.
    * 
    * @example
    * hraf3x
@@ -21,7 +21,7 @@ export class AddGtmAddressPoolResponseBody extends $dara.Model {
   monitorConfigId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B

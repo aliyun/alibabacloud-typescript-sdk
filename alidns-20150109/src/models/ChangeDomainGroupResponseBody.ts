@@ -8,12 +8,12 @@ export class ChangeDomainGroupResponseBody extends $dara.Model {
    * The ID of the target domain name group.
    * 
    * @example
-   * 2223
+   * 60bb3ef15ace449082cf914ed3ea****
    */
   groupId?: string;
   /**
    * @remarks
-   * The name of the destination domain name group.
+   * The name of the target domain name group.
    * 
    * @example
    * MyGroup

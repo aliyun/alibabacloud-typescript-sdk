@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRecursionZonesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return for this request.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to start the next query.
+   * 
    * @example
    * 4698691
    */
   nextToken?: string;
   /**
    * @remarks
+   * The current page number. The value starts from **1**. The default value is **1**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class ListRecursionZonesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,11 +40,17 @@ export class ListRecursionZonesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test
    */
   remark?: string;
   /**
+   * @remarks
+   * The name of the zone.
+   * 
    * @example
    * lisheng999.com
    */

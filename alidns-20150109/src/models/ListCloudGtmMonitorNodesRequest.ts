@@ -7,11 +7,12 @@ export class ListCloudGtmMonitorNodesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   **zh-CN**: Chinese
-   * *   **en-US** (default): English
+   * - **zh-CN**: Chinese
+   * 
+   * - **en-US** (default): English
    * 
    * @example
-   * en-US
+   * zh-CN
    */
   acceptLanguage?: string;
   showDisabledNodes?: boolean;

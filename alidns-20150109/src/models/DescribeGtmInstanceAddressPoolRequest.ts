@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmInstanceAddressPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool that you want to query.
+   * The ID of the address pool.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1234
+   * hrbpnf
    */
   addrPoolId?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID. You can call the [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Default: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -23,15 +23,16 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends $dara.Mo
   lang?: string;
   /**
    * @remarks
-   * The type of the access policy. Valid values:
+   * The scheduling mode. Valid values:
    * 
-   * *   GEO: geographical location-based
-   * *   LATENCY: latency-based
+   * - GEO: Geolocation-based
+   * 
+   * - LATENCY: Latency-based
    * 
    * This parameter is required.
    * 
    * @example
-   * geo
+   * GEO
    */
   strategyMode?: string;
   static names(): { [key: string]: string } {

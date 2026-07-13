@@ -103,7 +103,7 @@ export class DescribeGtmLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned on all pages.
+   * The total number of entries returned.
    * 
    * @example
    * 224

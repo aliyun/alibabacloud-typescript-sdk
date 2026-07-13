@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudGtmInstanceConfigRemarkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which the returned results are displayed. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh-CN**: Chinese
-   * *   **en-US** (default): English
+   * - **zh-CN**: Chinese.
+   * 
+   * - **en-US** (default): English.
    * 
    * @example
    * en-US
@@ -16,31 +17,34 @@ export class UpdateCloudGtmInstanceConfigRemarkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique token for each request. The token can contain a maximum of 64 ASCII characters.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * The ID of the instance configuration. A GTM instance can have multiple configurations if you add both an A record and an AAAA record for the same domain name. The ConfigId uniquely identifies the configuration that you want to update.
    * 
-   * You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+   * For more information, see [ListCloudGtmInstanceConfigs](https://help.aliyun.com/document_detail/2797349.html).
    * 
    * @example
-   * Config-000**11
+   * Config-000****
    */
   configId?: string;
   /**
    * @remarks
-   * The ID of the GTM 3.0 instance for which you want to modify the description.
+   * The ID of the Global Traffic Manager (GTM) instance for which you want to update the remarks.
    * 
    * @example
-   * gtm-cn-wwo3a3hbz**
+   * gtm-cn-wwo3a3h****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The new remarks for the configuration.
+   * 
    * @example
    * API
    */

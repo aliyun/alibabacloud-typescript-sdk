@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmAvailableAlertGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en

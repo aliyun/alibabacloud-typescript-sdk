@@ -163,7 +163,7 @@ export class DescribeGtmAccessStrategiesResponseBodyStrategies extends $dara.Mod
 export class DescribeGtmAccessStrategiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the page returned.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -171,7 +171,7 @@ export class DescribeGtmAccessStrategiesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 20
@@ -179,7 +179,7 @@ export class DescribeGtmAccessStrategiesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 0CCC9971-CEC9-4132-824B-4AE611C07623
@@ -188,7 +188,7 @@ export class DescribeGtmAccessStrategiesResponseBody extends $dara.Model {
   strategies?: DescribeGtmAccessStrategiesResponseBodyStrategies;
   /**
    * @remarks
-   * The total number of entries returned on all pages.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -196,7 +196,7 @@ export class DescribeGtmAccessStrategiesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

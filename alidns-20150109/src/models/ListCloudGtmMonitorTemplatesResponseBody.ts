@@ -169,7 +169,7 @@ export class ListCloudGtmMonitorTemplatesResponseBodyTemplates extends $dara.Mod
 export class ListCloudGtmMonitorTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number, starting from 1, default is 1.
+   * The number of the returned page. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -177,7 +177,7 @@ export class ListCloudGtmMonitorTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+   * The number of entries returned on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -185,7 +185,7 @@ export class ListCloudGtmMonitorTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique request ID.
    * 
    * @example
    * 75446CC1-FC9A-4595-8D96-089D73D7A63D
@@ -194,7 +194,7 @@ export class ListCloudGtmMonitorTemplatesResponseBody extends $dara.Model {
   templates?: ListCloudGtmMonitorTemplatesResponseBodyTemplates;
   /**
    * @remarks
-   * Total number of health check template entries retrieved.
+   * The total number of health check templates.
    * 
    * @example
    * 30
@@ -202,7 +202,7 @@ export class ListCloudGtmMonitorTemplatesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * Total number of pages after data pagination.
+   * The total number of pages returned.
    * 
    * @example
    * 2

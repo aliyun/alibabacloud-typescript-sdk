@@ -7,8 +7,9 @@ export class CreateCloudGtmAddressPoolRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US (default): English
+   * - zh-CN: Chinese.
+   * 
+   * - en-US: English. This is the default value.
    * 
    * @example
    * en-US
@@ -16,7 +17,7 @@ export class CreateCloudGtmAddressPoolRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Address pool name, helping users distinguish the purpose of address pools.
+   * The name of the address pool. The name helps you identify the purpose of the address pool.
    * 
    * @example
    * Address pool-1
@@ -26,9 +27,11 @@ export class CreateCloudGtmAddressPoolRequest extends $dara.Model {
    * @remarks
    * The type of the address pool. Valid values:
    * 
-   * *   IPv4: IPv4 addresses are returned for Domain Name System (DNS) resolution.
-   * *   IPv6: IPv6 addresses are returned for DNS resolution.
-   * *   domain: Domain names are returned for DNS resolution.
+   * - IPv4: The endpoint is an IPv4 address.
+   * 
+   * - IPv6: The endpoint is an IPv6 address.
+   * 
+   * - domain: The endpoint is a domain name.
    * 
    * @example
    * IPv4
@@ -36,18 +39,19 @@ export class CreateCloudGtmAddressPoolRequest extends $dara.Model {
   addressPoolType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique token for each request. The token can be up to 64 ASCII characters in length.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The enabling state of the address pool. Valid values:
+   * The status of the address pool. Valid values:
    * 
-   * *   enable: The address pool is enabled, and the addresses in the address pool are returned for DNS resolution when the health check results are normal.
-   * *   disable: The address pool is disabled, and the addresses in the address pool are not returned for DNS resolution regardless of whether the health check results are normal or not.
+   * - enable: The address pool is enabled and can be used for DNS resolution if it passes health checks.
+   * 
+   * - disable: The address pool is disabled and cannot be used for DNS resolution, regardless of its health check status.
    * 
    * @example
    * enable
@@ -55,13 +59,17 @@ export class CreateCloudGtmAddressPoolRequest extends $dara.Model {
   enableStatus?: string;
   /**
    * @remarks
-   * The condition for determining the health status of the address pool. Valid values:
+   * The health status condition of the address pool. Valid values:
    * 
-   * *   any_ok: At least one address in the address pool is available.
-   * *   p30_ok: At least 30% of the addresses in the address pool are available.
-   * *   p50_ok: At least 50% of the addresses in the address pool are available.
-   * *   p70_ok: At least 70% of the addresses in the address pool are available.
-   * *   all_ok: All addresses in the address pool are available.
+   * - any_ok: At least one address in the address pool is active.
+   * 
+   * - p30_ok: At least 30% of the addresses in the address pool are active.
+   * 
+   * - p50_ok: At least 50% of the addresses in the address pool are active.
+   * 
+   * - p70_ok: At least 70% of the addresses in the address pool are active.
+   * 
+   * - all_ok: All addresses in the address pool are active.
    * 
    * @example
    * any_ok
@@ -69,7 +77,7 @@ export class CreateCloudGtmAddressPoolRequest extends $dara.Model {
   healthJudgement?: string;
   /**
    * @remarks
-   * Remarks for the address pool, helping users distinguish the usage scenarios of different address pools.
+   * Remarks about the address pool. The remarks help you identify the scenario in which the address pool is used.
    * 
    * @example
    * app

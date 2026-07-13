@@ -100,7 +100,7 @@ export class DescribeGtmInstancesResponseBody extends $dara.Model {
   gtmInstances?: DescribeGtmInstancesResponseBodyGtmInstances;
   /**
    * @remarks
-   * The returned page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class DescribeGtmInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 20
@@ -116,7 +116,7 @@ export class DescribeGtmInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 193B0163-7F93-42DF-AB05-ACEEB7D22707
@@ -124,7 +124,7 @@ export class DescribeGtmInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of items.
    * 
    * @example
    * 1
@@ -132,7 +132,7 @@ export class DescribeGtmInstancesResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

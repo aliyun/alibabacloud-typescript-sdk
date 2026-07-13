@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword that you use for query. Exact match is supported by instance ID or instance name.
+   * The keyword for an exact match search by instance ID or instance name.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeGtmInstancesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * The language.
    * 
    * @example
    * en
@@ -21,7 +21,7 @@ export class DescribeGtmInstancesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Specifies whether additional information is required. Default value: **false**.
+   * Specifies whether to return detailed information. The default value is **false**.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DescribeGtmInstancesRequest extends $dara.Model {
   needDetailAttributes?: boolean;
   /**
    * @remarks
-   * The page number to return.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeGtmInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries to return on each page for a paged query. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 20

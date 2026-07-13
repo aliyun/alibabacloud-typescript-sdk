@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGtmAddressPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool that you want to delete.
+   * The ID of the address pool.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteGtmAddressPoolRequest extends $dara.Model {
   addrPoolId?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en

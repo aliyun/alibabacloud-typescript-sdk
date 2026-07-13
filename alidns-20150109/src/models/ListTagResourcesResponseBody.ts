@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
-   * dns-example.com
+   * example.com
    */
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. Only DOMAIN is returned.
+   * The resource type. The value is DOMAIN.
    * 
    * @example
    * DOMAIN
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token to start the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * 4698691
@@ -73,7 +73,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 61092C8D-6AEB-4310-B74D-C632F89BF4FB
@@ -81,7 +81,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array that consists of the resource and the tags that are added to the resource, including information such as the resource ID, resource type, tag keys, and tag values.
+   * A collection of resources and their tags. It includes information such as the resource ID, resource type, tag key, and tag value.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

@@ -35,7 +35,7 @@ export class AddDomainResponseBody extends $dara.Model {
    * The ID of the domain name.
    * 
    * @example
-   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   * xxxxx6615cf240c697f9f7e207xxxxxx
    */
   domainId?: string;
   /**
@@ -43,7 +43,7 @@ export class AddDomainResponseBody extends $dara.Model {
    * The domain name.
    * 
    * @example
-   * dns-example.top
+   * example.com
    */
   domainName?: string;
   /**
@@ -51,7 +51,7 @@ export class AddDomainResponseBody extends $dara.Model {
    * The ID of the domain name group.
    * 
    * @example
-   * 2223
+   * defaultGroup
    */
   groupId?: string;
   /**
@@ -64,7 +64,7 @@ export class AddDomainResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+   * The Punycode for the Chinese domain name. This parameter is returned only for Chinese domain names.
    * 
    * @example
    * xn--fsq270a.com
@@ -72,10 +72,10 @@ export class AddDomainResponseBody extends $dara.Model {
   punyCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   * xxx508EF-00FD-xxx9-95A4-1E10BACxxxxx
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Default: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -13,7 +13,7 @@ export class DescribeTagsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. Pages start from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeTagsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Default value: 200.
+   * The number of entries per page. Default value: 200.
    * 
    * @example
    * 200
@@ -29,9 +29,9 @@ export class DescribeTagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid value:
    * 
-   * *   **DOMAIN**: domain name
+   * - **DOMAIN**: domain name
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmMonitorAvailableConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the values of specific response parameters.
+   * The language of the response.
    * 
    * @example
    * en

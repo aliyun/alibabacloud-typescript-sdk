@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGtmAccessStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The line codes of access regions.
+   * The source of the DNS requests.
    * 
    * @example
    * ["default", "mobile"]
@@ -13,7 +13,7 @@ export class UpdateGtmAccessStrategyRequest extends $dara.Model {
   accessLines?: string;
   /**
    * @remarks
-   * The ID of the default address pool.
+   * The ID of the primary address pool collection.
    * 
    * @example
    * hrsix
@@ -21,7 +21,7 @@ export class UpdateGtmAccessStrategyRequest extends $dara.Model {
   defaultAddrPoolId?: string;
   /**
    * @remarks
-   * The ID of the failover address pool.
+   * The ID of the failover address pool collection.
    * 
    * @example
    * hrsyw
@@ -29,7 +29,7 @@ export class UpdateGtmAccessStrategyRequest extends $dara.Model {
   failoverAddrPoolId?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en
@@ -37,7 +37,7 @@ export class UpdateGtmAccessStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the access policy that you want to query for the GTM instance.
+   * The ID of the access policy.
    * 
    * This parameter is required.
    * 
@@ -48,6 +48,9 @@ export class UpdateGtmAccessStrategyRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the access policy.
+   * 
+   * @example
+   * 访问策略测试
    */
   strategyName?: string;
   static names(): { [key: string]: string } {

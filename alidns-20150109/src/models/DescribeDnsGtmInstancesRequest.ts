@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword that you use for the query. Fuzzy search by instance ID or instance name is supported.
+   * The keyword for the query. Fuzzy search by instance ID and instance name is supported.
    * 
    * @example
-   * instance1
+   * test
    */
   keyword?: string;
   /**
    * @remarks
-   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -21,7 +21,7 @@ export class DescribeDnsGtmInstancesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The number of the page to return. The value starts from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeDnsGtmInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-testgroupid

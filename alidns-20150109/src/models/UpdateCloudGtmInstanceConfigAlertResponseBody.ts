@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudGtmInstanceConfigAlertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -13,10 +13,11 @@ export class UpdateCloudGtmInstanceConfigAlertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The operation was successful.
+   * 
+   * - **false**: The operation failed.
    * 
    * @example
    * true

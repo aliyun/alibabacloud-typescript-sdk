@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSubDomainRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The hostname.
+   * The host record.
    * 
    * @example
    * www
@@ -21,7 +21,7 @@ export class DeleteSubDomainRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the DNS records to be deleted.
+   * The total number of DNS records that were deleted.
    * 
    * @example
    * 1

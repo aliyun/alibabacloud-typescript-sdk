@@ -5,8 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudGtmInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Return language value. Options:
+   * The language of the response. Valid values:
+   * 
    * - zh-CN: Chinese.
+   * 
    * - en-US: English.
    * 
    * @example
@@ -20,10 +22,10 @@ export class ListCloudGtmInstancesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token that is used to ensure the idempotence of the request. Generate a unique value on the client. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   /**
@@ -31,12 +33,12 @@ export class ListCloudGtmInstancesRequest extends $dara.Model {
    * The ID of the GTM instance.
    * 
    * @example
-   * gtm-cn-jmp3qnw**03
+   * gtm-cn-jmp3qnw****
    */
   instanceId?: string;
   /**
    * @remarks
-   * Instance name, used to distinguish the business purpose of the instance.
+   * The name of the instance. This helps you identify the business purpose of the instance.
    * 
    * @example
    * test
@@ -44,7 +46,7 @@ export class ListCloudGtmInstancesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Current page number, starting from **1**, default is **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * This parameter is required.
    * 
@@ -54,7 +56,7 @@ export class ListCloudGtmInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
    * 
    * This parameter is required.
    * 

@@ -37,15 +37,15 @@ export class DescribeDomainDnssecInfoResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The delegation signer (DS) record. This parameter is returned if DNSSEC is enabled.
+   * The Delegation Signer (DS) record. This parameter is returned if DNSSEC is enabled.
    * 
    * @example
-   * example.com. 3600 IN DS 2371 13 2 C1A0424B97A049F1F9B2EA139CC298533219668164E343BD21203ABC4608C02A
+   * example.com. 3600 IN DS 2371 13 2 C1A0424B97A049F1F9B2EA139CC29853321966816***************
    */
   dsRecord?: string;
   /**
    * @remarks
-   * The flag. This parameter is returned if DNSSEC is enabled.
+   * The flags. This parameter is returned if DNSSEC is enabled.
    * 
    * @example
    * 257 (KSK)
@@ -64,12 +64,12 @@ export class DescribeDomainDnssecInfoResponseBody extends $dara.Model {
    * The public key. This parameter is returned if DNSSEC is enabled.
    * 
    * @example
-   * mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+KkxLbxILfDLUT0rAK9iUzy1L53eKGQ==
+   * mdsswUyr3DPW132m******************
    */
   publicKey?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -77,10 +77,11 @@ export class DescribeDomainDnssecInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the DNSSEC. Valid values:
+   * The status of DNSSEC. Valid values:
    * 
-   * *   ON
-   * *   OFF
+   * - ON: Enabled
+   * 
+   * - OFF: Disabled
    * 
    * @example
    * ON

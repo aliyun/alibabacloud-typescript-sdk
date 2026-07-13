@@ -8,7 +8,7 @@ export class UpdateDomainRecordResponseBody extends $dara.Model {
    * The ID of the DNS record.
    * 
    * @example
-   * 9999985
+   * 99******
    */
   recordId?: string;
   /**

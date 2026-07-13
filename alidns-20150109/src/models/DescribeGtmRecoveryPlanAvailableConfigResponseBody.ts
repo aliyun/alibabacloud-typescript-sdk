@@ -116,7 +116,7 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBody extends $dara.Mo
   instances?: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstances;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F8F8EF50-8B7F-4702-B294-97170A423403

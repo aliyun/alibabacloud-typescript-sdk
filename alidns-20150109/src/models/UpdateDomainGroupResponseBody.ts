@@ -8,7 +8,7 @@ export class UpdateDomainGroupResponseBody extends $dara.Model {
    * The ID of the domain name group.
    * 
    * @example
-   * 2223
+   * 60bb3ef15ace449082cf914ed3ea****
    */
   groupId?: string;
   /**
@@ -21,7 +21,7 @@ export class UpdateDomainGroupResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382

@@ -63,6 +63,9 @@ export class DescribeSupportLinesResponseBodyRecordLines extends $dara.Model {
 export class DescribeSupportLinesResponseBody extends $dara.Model {
   recordLines?: DescribeSupportLinesResponseBodyRecordLines;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CFDA0830-7D6E-4C13-8632-B57C7EDCF079
    */

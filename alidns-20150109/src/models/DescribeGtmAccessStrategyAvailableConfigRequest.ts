@@ -10,7 +10,7 @@ export class DescribeGtmAccessStrategyAvailableConfigRequest extends $dara.Model
    * This parameter is required.
    * 
    * @example
-   * gtm-cn-xxxx
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**

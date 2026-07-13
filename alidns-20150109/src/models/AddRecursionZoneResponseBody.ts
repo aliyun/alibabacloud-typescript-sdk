@@ -4,18 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddRecursionZoneResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 51899B6F-04A5-5B96-977D-340673091ACA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * Zone ID。
+   * The zone ID.
    * 
    * @example
    * 173671468000011

@@ -115,7 +115,7 @@ export class DescribeDomainInfoResponseBodyRecordLines extends $dara.Model {
 export class DescribeDomainInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the domain name was registered in Alibaba Cloud.
+   * Indicates whether the domain name was registered with Alibaba Cloud.
    * 
    * @example
    * true
@@ -136,12 +136,16 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
    * The ID of the domain name.
    * 
    * @example
-   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   * 00efd71a-7************
    */
   domainId?: string;
   /**
    * @remarks
-   * Indicates whether the DNS traffic analysis feature is enabled. Valid values:
+   * The status of the logging feature.
+   * 
+   * @example
+   * CLOSE：关闭状态
+   * OPEN：开启状态
    */
   domainLoggingSwitchStatus?: string;
   /**
@@ -157,7 +161,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
    * The ID of the domain name group.
    * 
    * @example
-   * 2223
+   * 2***
    */
   groupId?: string;
   /**
@@ -170,7 +174,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Indicates whether blackhole filtering was triggered.
+   * Indicates whether blackhole filtering is activated for the domain name.
    * 
    * @example
    * false
@@ -178,7 +182,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   inBlackHole?: boolean;
   /**
    * @remarks
-   * Indicates whether traffic scrubbing was in progress.
+   * Indicates whether the domain name is being scrubbed.
    * 
    * @example
    * false
@@ -189,12 +193,12 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
    * The ID of the Alibaba Cloud DNS instance.
    * 
    * @example
-   * i-7bg
+   * i-7**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The type of the DNS request line.
+   * The type of the DNS request source line.
    * 
    * @example
    * region_province
@@ -202,7 +206,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   lineType?: string;
   /**
    * @remarks
-   * The minimum TTL value.
+   * The minimum TTL.
    * 
    * @example
    * 1
@@ -210,7 +214,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   minTtl?: number;
   /**
    * @remarks
-   * The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+   * The Punycode for the Chinese domain name.
    * 
    * @example
    * example.com
@@ -218,7 +222,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   punyCode?: string;
   /**
    * @remarks
-   * The tree-structure DNS request lines.
+   * The list of DNS request source lines in a tree structure.
    * 
    * @example
    * {"default":{},"unicom":{},"telecom":{},"mobile":{},"edu":{},"oversea":{},"baidu":{},"biying":{},"google":{}}
@@ -227,7 +231,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   recordLines?: DescribeDomainInfoResponseBodyRecordLines;
   /**
    * @remarks
-   * Indicates whether the DNS request lines are regional lines.
+   * Indicates whether the line is a regional line.
    * 
    * @example
    * false
@@ -235,7 +239,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   regionLines?: boolean;
   /**
    * @remarks
-   * The description.
+   * The remarks.
    * 
    * @example
    * remark
@@ -243,7 +247,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -254,7 +258,7 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-aek3dj3wvclgcxo
+   * rg-aek3dj3******
    */
   resourceGroupId?: string;
   /**
@@ -267,10 +271,11 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   slaveDns?: boolean;
   /**
    * @remarks
-   * Indicates whether the queried domain name is a hosted subdomain name. Valid values:
+   * Indicates whether the queried domain is a hosted subdomain. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -278,15 +283,24 @@ export class DescribeDomainInfoResponseBody extends $dara.Model {
   subDomain?: boolean;
   /**
    * @remarks
-   * The version ID of Alibaba Cloud DNS.
+   * The edition ID of Alibaba Cloud DNS. Valid values:
+   * 
+   * - version_enterprise_advanced: Ultimate Edition
+   * 
+   * - version_personal: Personal Edition
+   * 
+   * - mianfei: Free Edition
    * 
    * @example
-   * version1
+   * mianfei
    */
   versionCode?: string;
   /**
    * @remarks
-   * The edition of Alibaba Cloud DNS.
+   * The name of the Alibaba Cloud DNS edition.
+   * 
+   * @example
+   * 企业旗舰版
    */
   versionName?: string;
   static names(): { [key: string]: string } {

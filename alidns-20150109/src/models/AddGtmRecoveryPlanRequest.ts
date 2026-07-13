@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGtmRecoveryPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of faulty address pools.
+   * The IDs of the faulty address pools.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddGtmRecoveryPlanRequest extends $dara.Model {
   faultAddrPool?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the user.
    * 
    * @example
    * en
@@ -33,7 +33,7 @@ export class AddGtmRecoveryPlanRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The description of the disaster recovery plan.
+   * The remarks.
    * 
    * @example
    * remark

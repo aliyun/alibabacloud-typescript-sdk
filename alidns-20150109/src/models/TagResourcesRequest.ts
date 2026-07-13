@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 20 characters in length and cannot start with `acs:` or`aliyun`.
+   * The tag key. The key cannot start with `acs:` or `aliyun` and cannot be longer than 20 bytes.
    * 
    * @example
    * abcd
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 20 bytes in length.
+   * The tag value. The value cannot be longer than 20 bytes.
    * 
    * @example
    * abcd
@@ -45,10 +45,11 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * The language of the request and response. Default value: **zh**. Valid values:
    * 
-   * *   **zh**: Chinese
-   * *   **en**: English
+   * - **zh**: Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -56,7 +57,7 @@ export class TagResourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The IDs of the resources.
    * 
    * This parameter is required.
    * 
@@ -66,9 +67,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid value:
    * 
-   * *   **DOMAIN**: domain name
+   * - **DOMAIN**: domain name
    * 
    * This parameter is required.
    * 
@@ -78,7 +79,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * An array of tag key-value pairs.
    * 
    * This parameter is required.
    */

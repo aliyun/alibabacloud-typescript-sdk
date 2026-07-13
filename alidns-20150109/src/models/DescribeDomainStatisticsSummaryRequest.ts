@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainStatisticsSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+   * The end date of the query. The format is **YYYY-MM-DD**.
    * 
-   * The default value is the day when you perform the operation.
+   * The default value is the current date.
    * 
    * @example
    * 2019-07-04
@@ -15,7 +15,7 @@ export class DescribeDomainStatisticsSummaryRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The keyword for searches in %KeyWord% mode. The value is not case-sensitive.
+   * The keyword. The search is performed in \\`%KeyWord%\\` mode and is case-insensitive.
    * 
    * @example
    * test
@@ -23,7 +23,11 @@ export class DescribeDomainStatisticsSummaryRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language type.
+   * The language of the response. Valid values:
+   * 
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
    * en
@@ -31,7 +35,7 @@ export class DescribeDomainStatisticsSummaryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * The page number. The start value is **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -39,7 +43,7 @@ export class DescribeDomainStatisticsSummaryRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * The number of entries per page. The maximum value is **100** and the minimum value is **1**. The default value is **20**.
    * 
    * @example
    * 20
@@ -47,10 +51,11 @@ export class DescribeDomainStatisticsSummaryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search mode of the keyword. Valid values:
+   * The search mode for the keyword. Valid values:
    * 
-   * *   **LIKE**: fuzzy match (default).
-   * *   **EXACT**: exact match.
+   * - **LIKE** (default): Fuzzy match
+   * 
+   * - **EXACT**: Exact match
    * 
    * @example
    * LIKE
@@ -58,9 +63,9 @@ export class DescribeDomainStatisticsSummaryRequest extends $dara.Model {
   searchMode?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+   * The start date of the query. The format is **YYYY-MM-DD**.
    * 
-   * You can only query DNS records of the last 90 days.
+   * You can query data from the last 90 days only. The value of `StartDate` must be greater than or equal to the current date minus 90 days.
    * 
    * This parameter is required.
    * 
@@ -70,7 +75,7 @@ export class DescribeDomainStatisticsSummaryRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The threshold of query volume that can be obtained. You can also obtain data about a domain name with the query volume less than or equal to the threshold. For example, if you set this parameter to 100, you can query domain names with less than 100 queries.
+   * The threshold for the number of requests. This operation returns domain names whose request count is less than or equal to the specified value. For example, if you set this parameter to 100, domain names with 100 or fewer requests are returned. If you do not specify this parameter, all domain names are returned.
    * 
    * @example
    * 12

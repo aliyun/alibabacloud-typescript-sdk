@@ -8,7 +8,7 @@ export class AddDomainGroupResponseBody extends $dara.Model {
    * The ID of the domain name group.
    * 
    * @example
-   * 2223
+   * d367113100944e488352f99e3c7d****
    */
   groupId?: string;
   /**

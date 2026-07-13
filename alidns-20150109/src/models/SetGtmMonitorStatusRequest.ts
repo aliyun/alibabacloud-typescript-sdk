@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetGtmMonitorStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The language used by the user.
+   * The language.
    * 
    * @example
    * en
@@ -13,7 +13,7 @@ export class SetGtmMonitorStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The health check ID.
+   * The health check configuration ID.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,11 @@ export class SetGtmMonitorStatusRequest extends $dara.Model {
   monitorConfigId?: string;
   /**
    * @remarks
-   * Specifies whether health check is enabled for the address pool. Valid values:
+   * The enabling status. Valid values:
    * 
-   * *   **OPEN**: Enabled
-   * *   **CLOSE**: Disabled
+   * - **OPEN**: Enable
+   * 
+   * - **CLOSE**: Disable
    * 
    * This parameter is required.
    * 

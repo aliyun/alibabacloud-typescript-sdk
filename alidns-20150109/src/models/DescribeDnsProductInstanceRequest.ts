@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsProductInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DNS instance. . You can call the [DescribeDomainInfo](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomaininfo?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the ID.
+   * The instance ID. <props="china">You can call [DescribeDomainInfo](https://help.aliyun.com/zh/dns/api-alidns-2015-01-09-describedomaininfo?spm=a2c4g.11186623.help-menu-search-29697.d_0) to obtain the instance ID.<props="intl">You can call [DescribeDomainInfo](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomaininfo?spm=a2c63.p38356.help-menu-search-29697.d_0) to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class DescribeDnsProductInstanceRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
    * 
-   * Default value: en
+   * - en: English
+   * 
+   * Default: en
    * 
    * @example
    * en
@@ -28,7 +29,7 @@ export class DescribeDnsProductInstanceRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 192.0.2.0

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGtmAccessStrategiesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GTM instance whose access policies you want to query.
+   * The ID of the instance.
    * 
    * @example
-   * instance1
+   * gtm-cn-wwo3a3hbz**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language used by the user.
+   * The language of the response.
    * 
    * @example
    * en
@@ -21,7 +21,7 @@ export class DescribeGtmAccessStrategiesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeGtmAccessStrategiesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20

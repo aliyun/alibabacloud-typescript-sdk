@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudGtmAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The address ID. This ID uniquely identifies the address.
+   * The unique ID of the address.
    * 
    * @example
-   * addr-8951821811436**192
+   * addr-8951821811436****
    */
   addressId?: string;
   /**
    * @remarks
-   * Unique request identification code.
+   * The request ID.
    * 
    * @example
    * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
@@ -21,9 +21,11 @@ export class CreateCloudGtmAddressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the address creation operation is successful:
-   * - true: Operation was successful
-   * - false: Operation was failed
+   * Indicates whether the address was created. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

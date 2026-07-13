@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmAccessStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of some returned parameters. The default value is en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -13,12 +13,12 @@ export class DescribeDnsGtmAccessStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the access policy.
+   * The ID of the access policy. For more information, see [DescribeDnsGtmAccessStrategies](https://help.aliyun.com/document_detail/2357191.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * strategyId1
+   * hr****
    */
   strategyId?: string;
   static names(): { [key: string]: string } {

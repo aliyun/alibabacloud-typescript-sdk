@@ -272,21 +272,28 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPools exte
 export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The policy for load balancing between address pools. Valid values:
+   * The load balancing policy for the address pools.
    * 
-   * *   round_robin: All address pools are returned for DNS requests from any source. All address pools are sorted in round-robin mode each time they are returned.
-   * *   sequence: The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number indicates the priority for returning the address pool. A smaller sequence number indicates a higher priority. If the address pool with the smallest sequence number is unavailable, the address pool with the second smallest sequence number is returned.
-   * *   weight: You can set a different weight value for each address pool. This way, address pools are returned based on the weight values.
-   * *   source_nearest: GTM returns different addresses based on the sources of DNS requests. This way, users can access nearby addresses.
+   * - round_robin: Returns all address pools for any DNS request. The address pools are rotated in order for each request.
+   * 
+   * - sequence: Returns the address pool with the smallest ordinal number for any DNS request. The ordinal number indicates the priority of the address pool. A smaller value indicates a higher priority. If the address pool with the smallest ordinal number is unavailable, the address pool with the next smallest ordinal number is returned.
+   * 
+   * - weight: Returns address pools based on the specified weight for each address pool.
+   * 
+   * - source_nearest: Returns different address pools based on the source of the DNS requests. This implements proximity-based access for users.
    * 
    * @example
    * round_robin
    */
   addressPoolLbStrategy?: string;
+  /**
+   * @remarks
+   * The address pools.
+   */
   addressPools?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPools;
   /**
    * @remarks
-   * Alert notification configuration.
+   * The alert notification configuration.
    * 
    * @example
    * [{\\"NoticeType\\":\\"addr_alert\\",\\"SmsNotice\\":true,\\"EmailNotice\\":true,\\"DingtalkNotice\\":true},{\\"NoticeType\\":\\"addr_resume\\",\\"SmsNotice\\":true,\\"EmailNotice\\":true,\\"DingtalkNotice\\":true},{\\"NoticeType\\":\\"addr_pool_unavailable\\",\\"SmsNotice\\":true,\\"EmailNotice\\":true,\\"DingtalkNotice\\":true},{\\"NoticeType\\":\\"addr_pool_available\\",\\"SmsNotice\\":true,\\"EmailNotice\\":true,\\"DingtalkNotice\\":true}]"
@@ -294,18 +301,19 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   alertConfig?: string;
   /**
    * @remarks
-   * Alert notification group.
+   * The alert group.
    * 
    * @example
-   * [\\"Default Contact Group\\"]
+   * [\\"云账号报警联系人\\"]
    */
   alertGroup?: string;
   /**
    * @remarks
-   * The availability state of the access domain name. Valid values:
+   * The service availability status of the instance.
    * 
-   * *   available: If the access domain name is **enabled** and the health state of the access domain name is **Normal**, the access domain name is deemed **available**.
-   * *   unavailable: If the access domain name is **disabled** or the health state of the access domain name is **Abnormal**, the access domain name is deemed **unavailable**.
+   * - `available`: The instance is enabled and its health status is Normal. The service is available for the access domain name.
+   * 
+   * - `unavailable`: The instance is disabled or its health status is abnormal. The service is unavailable for the access domain name.
    * 
    * @example
    * available
@@ -313,10 +321,11 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   availableStatus?: string;
   /**
    * @remarks
-   * The commodity code. Valid values:
+   * The commodity code.
    * 
-   * *   dns_gtm_public_cn: the commodity code on the China site (aliyun.com)
-   * *   dns_gtm_public_intl: the commodity code on the international site (alibabacloud.com)
+   * - dns_gtm_public_cn: The commodity code for the China site (aliyun.com).
+   * 
+   * - dns_gtm_public_intl: The commodity code for the international site (alibabacloud.com).
    * 
    * @example
    * dns_gtm_public_cn
@@ -324,15 +333,15 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   commodityCode?: string;
   /**
    * @remarks
-   * The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+   * The ID of the instance configuration. You can configure both A and AAAA records for the same access domain name and Global Traffic Manager (GTM) instance. In this case, the GTM instance has two configurations. The ConfigId uniquely identifies an instance configuration.
    * 
    * @example
-   * Config-000**11
+   * Config-000****
    */
   configId?: string;
   /**
    * @remarks
-   * Instance creation time.
+   * The time when the instance was created.
    * 
    * @example
    * 2024-03-15T01:46Z
@@ -340,7 +349,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * Instance creation time (timestamp).
+   * The UNIX timestamp that indicates when the instance was created.
    * 
    * @example
    * 1527690629357
@@ -348,10 +357,11 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   createTimestamp?: number;
   /**
    * @remarks
-   * The enabling state of the access domain name. Valid values:
+   * The enabled status of the instance.
    * 
-   * *   enable: The access domain name is enabled and the intelligent scheduling policy of the corresponding GTM instance takes effect.
-   * *   disable: The access domain name is disabled and the intelligent scheduling policy of the corresponding GTM instance does not take effect.
+   * - enable: The GTM instance is enabled and its intelligent scheduling policy is active.
+   * 
+   * - disable: The GTM instance is disabled and its intelligent scheduling policy is inactive.
    * 
    * @example
    * enable
@@ -359,11 +369,13 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   enableStatus?: string;
   /**
    * @remarks
-   * The health state of the access domain name. Valid values:
+   * The health status of the instance.
    * 
-   * *   ok: The health state of the access domain name is Normal and all address pools that are referenced by the access domain name are available.
-   * *   ok_alert: The health state of the access domain name is Warning and some of the address pools that are referenced by the access domain name are unavailable. In this case, the available address pools are normally used for DNS resolution, but the unavailable address pools cannot be used for DNS resolution.
-   * *   exceptional: The health state of the access domain name is Abnormal and all address pools that are referenced by the access domain name are unavailable. In this case, addresses in the non-empty address pool with the smallest sequence number are preferentially used for fallback resolution. This returns DNS results for clients as much as possible.
+   * - ok: Normal. All address pools referenced by the access domain name are available.
+   * 
+   * - ok_alert: Warning. Some of the address pools referenced by the access domain name are unavailable. In this state, DNS requests are resolved to the available address pools, but not to the unavailable ones.
+   * 
+   * - exceptional: Abnormal. All address pools referenced by the access domain name are unavailable. In this case, DNS requests are resolved to the addresses in the non-empty address pool with the smallest ordinal number as a failover measure. This helps ensure that clients can receive DNS responses.
    * 
    * @example
    * ok
@@ -371,15 +383,15 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   healthStatus?: string;
   /**
    * @remarks
-   * The ID of the GTM 3.0 instance.
+   * The ID of the Global Traffic Manager 3.0 instance.
    * 
    * @example
-   * gtm-cn-wwo3a3hbz**
+   * gtm-cn-wwo3a3h****
    */
   instanceId?: string;
   /**
    * @remarks
-   * Schedule instance name.
+   * The name of the GTM instance.
    * 
    * @example
    * test
@@ -387,7 +399,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   instanceName?: string;
   /**
    * @remarks
-   * Remarks of the configuration of domain instance.
+   * The remarks on the instance configuration.
    * 
    * @example
    * test
@@ -395,7 +407,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   remark?: string;
   /**
    * @remarks
-   * Unique request identification code.
+   * The request ID.
    * 
    * @example
    * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
@@ -403,7 +415,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The GTM access domain name. The value of this parameter is composed of the value of ScheduleHostname and the value of ScheduleZoneName.
+   * The GTM access domain name. The format is ScheduleHostname + ScheduleZoneName.
    * 
    * @example
    * www.example.com
@@ -411,7 +423,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   scheduleDomainName?: string;
   /**
    * @remarks
-   * Host name of the domain accessed by GTM.
+   * The host record of the GTM access domain name.
    * 
    * @example
    * www
@@ -419,10 +431,13 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   scheduleHostname?: string;
   /**
    * @remarks
-   * DNS record types for the ScheduleDomainName:
+   * The DNS record type of the GTM access domain name.
+   * 
    * - A: IPv4 address
+   * 
    * - AAAA: IPv6 address
-   * - CNAME: Domain name
+   * 
+   * - CNAME: canonical name
    * 
    * @example
    * A
@@ -430,10 +445,11 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   scheduleRrType?: string;
   /**
    * @remarks
-   * The allocation mode of the access domain name. Valid values:
+   * The assignment mode of the access domain name.
    * 
-   * *   custom: custom allocation. You must specify a custom hostname and associate the hostname with a zone or subzone within the account to which the GTM instance belongs to generate an access domain name.
-   * *   sys_assign: The system assigns an access domain name by default. This mode is no longer supported. Do not choose this mode.
+   * - custom: You can customize the host record and associate it with a primary domain name or a subdomain name under the account to which the GTM instance belongs. This generates the access domain name.
+   * 
+   * - sys_assign: The system assigns a default access domain name. This feature is no longer supported. Do not select this mode.
    * 
    * @example
    * custom
@@ -441,7 +457,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   scheduleZoneMode?: string;
   /**
    * @remarks
-   * The zone (such as example.com) or subzone (such as a.example.com) associated with the GTM access domain name. In most cases, the zone or subzone is hosted in Authoritative DNS Resolution of the Alibaba Cloud DNS console within the account to which the GTM instance belongs.
+   * The primary domain name (example.com) or subdomain name (a.example.com) of the GTM access domain name. This is typically a domain name hosted in the authoritative zone of the Alibaba Cloud DNS console under the account to which the GTM instance belongs.
    * 
    * @example
    * example.com
@@ -449,10 +465,11 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   scheduleZoneName?: string;
   /**
    * @remarks
-   * The mode used if the address pool with the smallest sequence number is recovered. This parameter is required when AddressPoolLbStrategy is set to sequence. Valid values:
+   * When the load balancing policy for address pools is sequence, this parameter specifies the service recovery mode for a resource that becomes available again.
    * 
-   * *   preemptive: The address pool with the smallest sequence number is preferentially used if this address pool is recovered.
-   * *   non_preemptive: The current address pool is still used even if the address pool with the smallest sequence number is recovered.
+   * - preemptive: The address pool with the smaller ordinal number is preferentially used.
+   * 
+   * - non_preemptive: The current address pool is still used.
    * 
    * @example
    * preemptive
@@ -460,7 +477,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   sequenceLbStrategyMode?: string;
   /**
    * @remarks
-   * Global TTL (in seconds), the TTL value for resolving the access domain to addresses in the address pool, which affects the caching time of DNS records in the ISP\\"s LocalDNS. Custom TTL values are supported.
+   * The global time to live (TTL) in seconds. This is the TTL value for the DNS records that map the access domain name to the addresses in the address pool. It affects the cache duration of the DNS records on carrier Local DNS servers. You can customize the TTL value.
    * 
    * @example
    * 60
@@ -468,7 +485,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   ttl?: number;
   /**
    * @remarks
-   * Last modified time.
+   * The time when the instance was last modified.
    * 
    * @example
    * 2024-03-15T01:46Z
@@ -476,7 +493,7 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   updateTime?: string;
   /**
    * @remarks
-   * Last modified time (timestamp).
+   * The UNIX timestamp that indicates when the instance was last modified.
    * 
    * @example
    * 1527690629357
@@ -484,8 +501,10 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $dara.Mo
   updateTimestamp?: number;
   /**
    * @remarks
-   * Global Traffic Management version 3.0 instances:
+   * The edition of the Global Traffic Manager 3.0 instance.
+   * 
    * - standard: Standard Edition
+   * 
    * - ultimate: Ultimate Edition
    * 
    * @example

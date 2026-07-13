@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchDnsGtmInstanceStrategyModeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GTM instance.
+   * The ID of the instance. To obtain the ID, call [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0).
    * 
    * This parameter is required.
    * 
    * @example
-   * instance1
+   * gtm-cn-cs02xyk4a**
    */
   instanceId?: string;
   /**
    * @remarks
-   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -23,10 +23,11 @@ export class SwitchDnsGtmInstanceStrategyModeRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The access policy type. Valid values:
+   * The access strategy mode. Valid values:
    * 
-   * *   GEO: geographical location-based
-   * *   LATENCY: latency-based
+   * - GEO: Geolocation-based
+   * 
+   * - LATENCY: Latency-based
    * 
    * This parameter is required.
    * 

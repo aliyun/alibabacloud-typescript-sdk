@@ -4,71 +4,117 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInterAuthStatisticsSummaryResponseBodyPageData extends $dara.Model {
   /**
+   * @remarks
+   * The start time of the current period (the 0th second of the minute).
+   * 
    * @example
    * 1776754800000
    */
   aggrTimestamp?: number;
   /**
+   * @remarks
+   * The number of requests.
+   * 
    * @example
    * 20
    */
   count?: number;
   /**
+   * @remarks
+   * The domain name. Queries the transfer records of the specified domain name.
+   * 
    * @example
    * nervermsf.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The fluctuation rate.
+   * 
    * @example
    * 19
    */
   fluctuationValue?: number;
   /**
+   * @remarks
+   * The resolution line.
+   * 
    * @example
    * default
    */
   line?: string;
   /**
+   * @remarks
+   * The value of the previous period.
+   * 
    * @example
    * 2227
    */
   previousCount?: number;
   /**
+   * @remarks
+   * The protocol type of the DNS resolution query request. Valid values:
+   * 
+   * - UDP
+   * 
+   * - TCP.
+   * 
    * @example
    * TCP%DF\\"
    */
   protocol?: string;
   /**
+   * @remarks
+   * The request record type.
+   * 
    * @example
    * A
    */
   qtype?: string;
   /**
+   * @remarks
+   * The success rate or proportion.
+   * 
    * @example
    * 20
    */
   ratio?: number;
   /**
+   * @remarks
+   * The DNS response code.
+   * 
    * @example
    * 0
    */
   rcode?: string;
   /**
+   * @remarks
+   * The source IP address.
+   * 
    * @example
    * 112.16.17.203
    */
   sourceIp?: string;
   /**
+   * @remarks
+   * The ISP of the request source.
+   * 
    * @example
    * telecom
    */
   sourceIsp?: string;
   /**
+   * @remarks
+   * The source region for copying the image. If not specified, a random region is selected.
+   * 
    * @example
    * cn-shenzhen
    */
   sourceRegion?: string;
   /**
+   * @remarks
+   * The zone name.
+   * 
    * @example
    * longzi.xyz
    */
@@ -122,12 +168,22 @@ export class DescribeInterAuthStatisticsSummaryResponseBodyPageData extends $dar
 
 export class DescribeInterAuthStatisticsSummaryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   curPage?: number;
+  /**
+   * @remarks
+   * The paginated data.
+   */
   pageData?: DescribeInterAuthStatisticsSummaryResponseBodyPageData[];
   /**
+   * @remarks
+   * The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 5
    */
@@ -141,11 +197,17 @@ export class DescribeInterAuthStatisticsSummaryResponseBody extends $dara.Model 
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 5
    */
   totalPage?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 48
    */

@@ -4,21 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCloudGtmMonitorTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B57C121B-A45F-44D8-A9B2-13E5A5044195
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The ID of the health check template. This ID uniquely identifies the health check template.
+   * The ID of the health check template. The ID is the unique identifier of the template.
    * 
    * @example
-   * mtp-89518052425100**80
+   * mtp-89518052425100****
    */
   templateId?: string;
   static names(): { [key: string]: string } {

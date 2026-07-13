@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDnsGtmAccessStrategyRequestDefaultAddrPool extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool in the primary address pool set.
+   * The ID of the address pool in the primary address pool collection.
    * 
    * @example
-   * pool1
+   * po***
    */
   id?: string;
   /**
    * @remarks
-   * The weight of the address pool in the primary address pool set.
+   * The weight of the address pool in the primary address pool collection.
    * 
    * @example
    * 1
@@ -45,15 +45,15 @@ export class UpdateDnsGtmAccessStrategyRequestDefaultAddrPool extends $dara.Mode
 export class UpdateDnsGtmAccessStrategyRequestFailoverAddrPool extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool in the secondary address pool set.
+   * The ID of the address pool in the failover address pool collection.
    * 
    * @example
-   * pool1
+   * po**
    */
   id?: string;
   /**
    * @remarks
-   * The weight of the address pool in the secondary address pool set.
+   * The weight of the address pool in the failover address pool collection.
    * 
    * @example
    * 1
@@ -85,11 +85,13 @@ export class UpdateDnsGtmAccessStrategyRequestFailoverAddrPool extends $dara.Mod
 export class UpdateDnsGtmAccessStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The primary/secondary switchover policy for address pool sets. Valid values:
+   * The switchover policy for the address pool collection:
    * 
-   * *   AUTO: performs automatic switchover between the primary and secondary address pool sets upon failures.
-   * *   DEFAULT: the primary address pool set
-   * *   FAILOVER: the secondary address pool set
+   * - AUTO: Automatic switchover
+   * 
+   * - DEFAULT: Primary address pool collection
+   * 
+   * - FAILOVER: Failover address pool collection
    * 
    * @example
    * DEFAULT
@@ -97,50 +99,54 @@ export class UpdateDnsGtmAccessStrategyRequest extends $dara.Model {
   accessMode?: string;
   /**
    * @remarks
-   * The address pools in the primary address pool set.
+   * The primary address pool collection.
    * 
    * This parameter is required.
    */
   defaultAddrPool?: UpdateDnsGtmAccessStrategyRequestDefaultAddrPool[];
   /**
    * @remarks
-   * The type of the primary address pool. Valid values:
+   * The type of the primary address pool:
    * 
-   * *   IPV4
-   * *   IPV6
-   * *   DOMAIN
+   * - IPV4
+   * 
+   * - IPV6
+   * 
+   * - DOMAIN
    * 
    * This parameter is required.
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   defaultAddrPoolType?: string;
   /**
    * @remarks
-   * Specifies whether to enable Domain Name System (DNS) resolution with optimal latency for the primary address pool set. Valid values:
+   * Specifies whether to enable latency-based scheduling for the primary address pool collection:
    * 
-   * *   OPEN
-   * *   CLOSE
+   * - OPEN: Enabled
+   * 
+   * - CLOSE: Disabled
    * 
    * @example
-   * open
+   * OPEN
    */
   defaultLatencyOptimization?: string;
   /**
    * @remarks
-   * The load balancing policy of the primary address pool set. Valid values:
+   * The load balancing policy for the primary address pool collection:
    * 
-   * *   ALL_RR: returns all addresses.
-   * *   RATIO: returns addresses by weight.
+   * - ALL_RR: Returns all addresses.
+   * 
+   * - RATIO: Returns addresses by weight.
    * 
    * @example
-   * all_rr
+   * ALL_RR
    */
   defaultLbaStrategy?: string;
   /**
    * @remarks
-   * The maximum number of addresses returned from the primary address pool set.
+   * The maximum number of addresses returned from the primary address pool collection.
    * 
    * @example
    * 1
@@ -148,7 +154,7 @@ export class UpdateDnsGtmAccessStrategyRequest extends $dara.Model {
   defaultMaxReturnAddrNum?: number;
   /**
    * @remarks
-   * The minimum number of available addresses in the primary address pool set.
+   * The minimum number of available addresses in the primary address pool collection.
    * 
    * This parameter is required.
    * 
@@ -158,46 +164,50 @@ export class UpdateDnsGtmAccessStrategyRequest extends $dara.Model {
   defaultMinAvailableAddrNum?: number;
   /**
    * @remarks
-   * The address pools in the secondary address pool set. If no address pool exists in the secondary address pool set, set this parameter to EMPTY.
+   * The failover address pool collection. If no failover address pool collection is configured, enter "EMPTY".
    */
   failoverAddrPool?: UpdateDnsGtmAccessStrategyRequestFailoverAddrPool[];
   /**
    * @remarks
-   * The type of the secondary address pool. Valid values:
+   * The type of the failover address pool:
    * 
-   * *   IPV4
-   * *   IPV6
-   * *   DOMAIN
+   * - IPV4
+   * 
+   * - IPV6
+   * 
+   * - DOMAIN
    * 
    * @example
-   * ipv4
+   * IPV4
    */
   failoverAddrPoolType?: string;
   /**
    * @remarks
-   * Specifies whether to enable DNS resolution with optimal latency for the secondary address pool set. Valid values:
+   * Specifies whether to enable latency-based scheduling for the failover address pool collection:
    * 
-   * *   OPEN
-   * *   CLOSE
+   * - OPEN: Enabled
+   * 
+   * - CLOSE: Disabled
    * 
    * @example
-   * open
+   * OPEN
    */
   failoverLatencyOptimization?: string;
   /**
    * @remarks
-   * The load balancing policy of the secondary address pool set. Valid values:
+   * The load balancing policy for the failover address pool collection:
    * 
-   * *   ALL_RR: returns all addresses.
-   * *   RATIO: returns addresses by weight.
+   * - ALL_RR: Returns all addresses.
+   * 
+   * - RATIO: Returns addresses by weight.
    * 
    * @example
-   * all_rr
+   * ALL_RR
    */
   failoverLbaStrategy?: string;
   /**
    * @remarks
-   * The maximum number of addresses returned from the secondary address pool set.
+   * The maximum number of addresses returned from the failover address pool collection.
    * 
    * @example
    * 1
@@ -205,7 +215,7 @@ export class UpdateDnsGtmAccessStrategyRequest extends $dara.Model {
   failoverMaxReturnAddrNum?: number;
   /**
    * @remarks
-   * The minimum number of available addresses in the secondary address pool set.
+   * The minimum number of available addresses in the failover address pool collection.
    * 
    * @example
    * 1
@@ -213,7 +223,7 @@ export class UpdateDnsGtmAccessStrategyRequest extends $dara.Model {
   failoverMinAvailableAddrNum?: number;
   /**
    * @remarks
-   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -221,7 +231,7 @@ export class UpdateDnsGtmAccessStrategyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The line codes of the source regions. Example: `["default", "drpeng"]`, which indicates the global line and Dr. Peng Group line.
+   * The line codes of the access regions. For example, `["default", "drpeng"]` specifies the global line and the Dr. Peng line.
    * 
    * @example
    * ["default", "drpeng"]
@@ -229,22 +239,22 @@ export class UpdateDnsGtmAccessStrategyRequest extends $dara.Model {
   lines?: string;
   /**
    * @remarks
-   * The ID of the access policy.
+   * The ID of the policy. To obtain the policy ID, call [DescribeDnsGtmAccessStrategies](https://help.aliyun.com/document_detail/2357191.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * StrategyId1
+   * hrb**
    */
   strategyId?: string;
   /**
    * @remarks
-   * The name of the access policy.
+   * The name of the policy.
    * 
    * This parameter is required.
    * 
    * @example
-   * StrategyName1
+   * test
    */
   strategyName?: string;
   static names(): { [key: string]: string } {

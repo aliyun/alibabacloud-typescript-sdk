@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePdnsUserInfoResponseBodyUserInfo extends $dara.Model {
   /**
    * @remarks
-   * The enabled access security types.
+   * The enabled secure access type. INSECURE indicates non-encrypted access. SECURE indicates encrypted access.
    * 
    * @example
    * SECURE
@@ -13,7 +13,7 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $dara.Model {
   availableAccessSecurityType?: string;
   /**
    * @remarks
-   * The enabled public recursive DNS service.
+   * The public recursive DNS services that are enabled.
    * 
    * @example
    * HTTP,HTTPS
@@ -21,18 +21,18 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $dara.Model {
   availableService?: string;
   /**
    * @remarks
-   * The configuration ID of the users in public recursive DNS.
+   * The ID of the dedicated configuration for public recursive DNS.
    * 
    * @example
-   * 10001
+   * 1***1
    */
   pdnsId?: number;
   /**
    * @remarks
-   * The SecretKey configured for a UDP-based CIDR block.
+   * The SecretKey for configuring the UDP access IP address segment.
    * 
    * @example
-   * 1c092d715b7a48de
+   * 1c09*******
    */
   secretKey?: string;
   /**
@@ -53,7 +53,7 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The status of the traffic analysis switch for the user in public recursive DNS service.
+   * The status of the switch for public recursive DNS traffic analysis.
    * 
    * @example
    * CLOSED
@@ -61,7 +61,7 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $dara.Model {
   statisticSwitchStatus?: string;
   /**
    * @remarks
-   * The disabled public recursive DNS service.
+   * The public recursive DNS services that are shut down.
    */
   stoppedService?: string;
   static names(): { [key: string]: string } {
@@ -102,7 +102,7 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $dara.Model {
 export class DescribePdnsUserInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * FD552816-FCC8-4832-B4A2-2DA0C2BA1688
@@ -110,7 +110,7 @@ export class DescribePdnsUserInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the user.
+   * The user information.
    */
   userInfo?: DescribePdnsUserInfoResponseBodyUserInfo;
   static names(): { [key: string]: string } {

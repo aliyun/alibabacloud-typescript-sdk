@@ -121,7 +121,7 @@ export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomains extends $dara.Mod
 export class DescribeDNSSLBSubDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value starts from **1**. The default value is **1**.
    * 
    * @example
    * 1
@@ -129,7 +129,7 @@ export class DescribeDNSSLBSubDomainsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * The number of entries returned per page. The maximum value is **100**. The default value is **20**.
    * 
    * @example
    * 1
@@ -137,7 +137,7 @@ export class DescribeDNSSLBSubDomainsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -146,7 +146,7 @@ export class DescribeDNSSLBSubDomainsResponseBody extends $dara.Model {
   slbSubDomains?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomains;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of subdomains.
    * 
    * @example
    * 1

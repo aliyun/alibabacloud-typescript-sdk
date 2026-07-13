@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindInstanceDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of domain names that failed to be unbound from the instance.
+   * The number of domain names that failed to be detached.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class UnbindInstanceDomainsResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 123
@@ -21,7 +21,7 @@ export class UnbindInstanceDomainsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of domain names that are unbound from the instance.
+   * The number of domain names that were successfully detached.
    * 
    * @example
    * 2

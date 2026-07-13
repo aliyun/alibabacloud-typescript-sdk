@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddRspDomainServerHoldStatusForGatewayRequest extends $dara.Model {
   /**
    * @remarks
+   * An idempotency parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AddRspDomainServerHoldStatusForGatewayRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,7 +25,12 @@ export class AddRspDomainServerHoldStatusForGatewayRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
+   * The status description.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 实名认证通过，解除serverHold状态
    */
   statusMsg?: string;
   static names(): { [key: string]: string } {

@@ -71,7 +71,7 @@ export class DescribeDomainStatisticsSummaryResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 5
@@ -79,7 +79,7 @@ export class DescribeDomainStatisticsSummaryResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * CC625C21-8832-4683-BF10-C3CFB1A4FA13
@@ -88,7 +88,7 @@ export class DescribeDomainStatisticsSummaryResponseBody extends $dara.Model {
   statistics?: DescribeDomainStatisticsSummaryResponseBodyStatistics;
   /**
    * @remarks
-   * The total number of data records.
+   * The total number of entries.
    * 
    * @example
    * 68
@@ -96,7 +96,7 @@ export class DescribeDomainStatisticsSummaryResponseBody extends $dara.Model {
   totalItems?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 14

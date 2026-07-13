@@ -10,17 +10,18 @@ export class AddDomainBackupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test.aliyun.com
+   * dns-example.top
    */
   domainName?: string;
   /**
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
    * 
-   * Default value: en.
+   * - en: English
+   * 
+   * Default value: en
    * 
    * @example
    * en
@@ -30,8 +31,9 @@ export class AddDomainBackupRequest extends $dara.Model {
    * @remarks
    * The backup cycle. Valid values:
    * 
-   * *   DAY: backs up data on a daily basis.
-   * *   HOUR: backs up data on an hourly basis.
+   * - DAY: Backs up the domain once a day.
+   * 
+   * - HOUR: Backs up the domain once an hour.
    * 
    * This parameter is required.
    * 

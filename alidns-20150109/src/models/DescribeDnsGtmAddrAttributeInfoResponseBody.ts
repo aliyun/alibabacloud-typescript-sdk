@@ -96,7 +96,7 @@ export class DescribeDnsGtmAddrAttributeInfoResponseBody extends $dara.Model {
   addr?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddr;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B

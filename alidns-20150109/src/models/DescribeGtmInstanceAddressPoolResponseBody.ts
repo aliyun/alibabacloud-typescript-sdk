@@ -78,7 +78,7 @@ export class DescribeGtmInstanceAddressPoolResponseBodyAddrs extends $dara.Model
 export class DescribeGtmInstanceAddressPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of addresses in the address pool queried.
+   * The number of addresses in the address pool.
    * 
    * @example
    * 2
@@ -102,21 +102,24 @@ export class DescribeGtmInstanceAddressPoolResponseBody extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the address pool was created. This is a UNIX timestamp.
+   * 
    * @example
    * 1527690629357
    */
   createTimestamp?: number;
   /**
    * @remarks
-   * The minimum number of available addresses in the address pool.
+   * The minimum number of available addresses.
    * 
    * @example
-   * 2
+   * 1
    */
   minAvailableAddrNum?: number;
   /**
    * @remarks
-   * The health check ID of the address pool.
+   * The ID of the monitoring configuration.
    * 
    * @example
    * 100abc
@@ -124,11 +127,13 @@ export class DescribeGtmInstanceAddressPoolResponseBody extends $dara.Model {
   monitorConfigId?: string;
   /**
    * @remarks
-   * Indicates whether health check was enabled for the address pool. Valid values:
+   * The monitoring status. Valid values:
    * 
-   * *   **OPEN**: Enabled
-   * *   **CLOSE**: Disabled
-   * *   **UNCONFIGURED**: Not configured
+   * - **OPEN**: Enabled
+   * 
+   * - **CLOSE**: Disabled
+   * 
+   * - **UNCONFIGURED**: Not configured
    * 
    * @example
    * OPEN
@@ -137,11 +142,14 @@ export class DescribeGtmInstanceAddressPoolResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the address pool.
+   * 
+   * @example
+   * 名称
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -151,8 +159,9 @@ export class DescribeGtmInstanceAddressPoolResponseBody extends $dara.Model {
    * @remarks
    * The availability status of the address pool. Valid values:
    * 
-   * *   **AVAILABLE**: Available
-   * *   **NOT_AVAILABLE**: Unavailable
+   * - **AVAILABLE**: The address pool is available.
+   * 
+   * - **NOT_AVAILABLE**: The address pool is unavailable.
    * 
    * @example
    * AVAILABLE
@@ -162,8 +171,9 @@ export class DescribeGtmInstanceAddressPoolResponseBody extends $dara.Model {
    * @remarks
    * The type of the address pool. Valid values:
    * 
-   * *   **IP**: IP address
-   * *   **DOMAIN**: Domain name
+   * - **IP**: IP address
+   * 
+   * - **DOMAIN**: Domain name
    * 
    * @example
    * IP
@@ -171,7 +181,7 @@ export class DescribeGtmInstanceAddressPoolResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The last time when the address pool was updated.
+   * The time when the address pool was last updated.
    * 
    * @example
    * 2017-12-28T13:08Z
@@ -179,7 +189,7 @@ export class DescribeGtmInstanceAddressPoolResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * A timestamp that indicates the last time the address pool was updated.
+   * The time when the address pool was last updated. This is a UNIX timestamp.
    * 
    * @example
    * 1527690629357

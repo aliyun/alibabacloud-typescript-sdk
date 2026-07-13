@@ -7,27 +7,28 @@ export class DescribeCloudGtmAddressReferenceRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US (default): English
+   * - zh-CN: Chinese
+   * 
+   * - en-US: English (default)
    * 
    * @example
-   * en-US
+   * zh-CN
    */
   acceptLanguage?: string;
   /**
    * @remarks
-   * The address ID. This ID uniquely identifies the address.
+   * The unique ID of the address.
    * 
    * @example
-   * addr-89518218114368**92
+   * addr-89518218114368****
    */
   addressId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Make sure that the client generates a unique token for each request. The token can contain a maximum of 64 ASCII characters.
    * 
    * @example
-   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   * 1ae05db4-10e7-11ef-b126-00163e24****
    */
   clientToken?: string;
   static names(): { [key: string]: string } {

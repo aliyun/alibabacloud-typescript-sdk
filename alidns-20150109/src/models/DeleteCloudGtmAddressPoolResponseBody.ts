@@ -5,18 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudGtmAddressPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool. This ID uniquely identifies the address pool.
+   * The unique ID of the address pool.
    * 
    * @example
-   * pool-89528023225442**16
+   * pool-89528023225442****
    */
   addressPoolId?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */

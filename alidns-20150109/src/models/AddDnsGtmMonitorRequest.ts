@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDnsGtmMonitorRequestIspCityNode extends $dara.Model {
   /**
    * @remarks
-   * The code of the city where the monitored node is deployed.
+   * The city code of the monitoring node.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class AddDnsGtmMonitorRequestIspCityNode extends $dara.Model {
   cityCode?: string;
   /**
    * @remarks
-   * The code of the Internet service provider (ISP) to which the monitored node belongs.
+   * The carrier code of the monitoring node.
    * 
    * @example
    * 123
@@ -45,17 +45,17 @@ export class AddDnsGtmMonitorRequestIspCityNode extends $dara.Model {
 export class AddDnsGtmMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the address pool.
+   * The ID of the address pool. You can call the [DescribeDnsGtmInstanceAddressPools](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstanceaddresspools) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * pool1
+   * po**
    */
   addrPoolId?: string;
   /**
    * @remarks
-   * The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+   * The number of consecutive health checks.
    * 
    * This parameter is required.
    * 
@@ -75,14 +75,14 @@ export class AddDnsGtmMonitorRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The monitored nodes.
+   * The list of monitoring nodes.
    * 
    * This parameter is required.
    */
   ispCityNode?: AddDnsGtmMonitorRequestIspCityNode[];
   /**
    * @remarks
-   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * The language of the response. Default value: en. Valid values: en, zh, and ja.
    * 
    * @example
    * en
@@ -90,73 +90,82 @@ export class AddDnsGtmMonitorRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The extended information. The required parameters vary based on the value of ProtocolType.
+   * The extended information. The parameters vary based on the protocol type.
    * 
-   * *   HTTP or HTTPS
+   * - HTTP or HTTPS
    * 
-   *     *   port: the port that you want to check
+   *   - port: The health check port.
    * 
-   *     *   host: the host settings
+   *   - host: The Host header.
    * 
-   *     *   path: the URL path
+   *   - path: The URL path.
    * 
-   *     *   code: the response code. The health check result is deemed abnormal if the returned value is greater than the specified value.
+   *   - code: The health check is considered abnormal if the returned HTTP status code is greater than this value.
    * 
-   *     *   failureRate: the failure rate
+   *   - failureRate: The failure rate.
    * 
-   *     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
+   *   - sni: Specifies whether to enable Server Name Indication (SNI). This parameter is used only when the health check protocol is HTTPS. Valid values:
    * 
-   *         *   true: enables SNI.
-   *         *   false: disables SNI.
+   *     - true
    * 
-   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   *     - false
    * 
-   *         *   IPV4
-   *         *   IPV6
+   *   - nodeType: The type of the monitoring node. This parameter is used when the address pool type is DOMAIN. Valid values:
    * 
-   * *   PING
+   *     - IPV4
    * 
-   *     *   failureRate: the failure rate
+   *     - IPV6
    * 
-   *     *   packetNum: the number of ping packets
+   * - PING
    * 
-   *     *   packetLossRate: the loss rate of ping packets
+   *   - failureRate: The failure rate.
    * 
-   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   *   - packetNum: The number of ping packets.
    * 
-   *         *   IPV4
-   *         *   IPV6
+   *   - packetLossRate: The packet loss rate.
    * 
-   * *   TCP
+   *   - nodeType: The type of the monitoring node. This parameter is used when the address pool type is DOMAIN. Valid values:
    * 
-   *     *   port: the port that you want to check
+   *     - IPV4
    * 
-   *     *   failureRate: the failure rate
+   *     - IPV6
    * 
-   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   * - TCP
    * 
-   *         *   IPV4
-   *         *   IPV6
+   *   - port: The health check port.
+   * 
+   *   - failureRate: The failure rate.
+   * 
+   *   - nodeType: The type of the monitoring node. This parameter is used when the address pool type is DOMAIN. Valid values:
+   * 
+   *     - IPV4
+   * 
+   *     - IPV6
+   * 
+   * > This parameter must be a JSON string.
    * 
    * This parameter is required.
    * 
    * @example
-   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   * {"failureRate":50,"port":80}
    */
   monitorExtendInfo?: string;
   /**
    * @remarks
    * The health check protocol. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
-   * *   PING
-   * *   TCP
+   * - HTTP
+   * 
+   * - HTTPS
+   * 
+   * - PING
+   * 
+   * - TCP
    * 
    * This parameter is required.
    * 
    * @example
-   * http
+   * TCP
    */
   protocolType?: string;
   /**
@@ -166,7 +175,7 @@ export class AddDnsGtmMonitorRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 30000
+   * 3000
    */
   timeout?: number;
   static names(): { [key: string]: string } {

@@ -5,23 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTransferDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the domain name for which you want to view the transfer record.
+   * The domain name. Use this parameter to query the transfer records of a specific domain name.
    * 
    * @example
-   * alidns.com
+   * example.top
    */
   domainName?: string;
   /**
    * @remarks
-   * The user ID from which the domain name was transferred to the current account.
+   * The ID of the source account. Use this parameter to query the list of domain names transferred from this account to the current account.
    * 
    * @example
-   * 123456
+   * 1*******
    */
   fromUserId?: number;
   /**
    * @remarks
-   * The language.
+   * The language of the response.
+   * 
+   * Valid values:
+   * 
+   * zh: Chinese
+   * 
+   * en: English
+   * 
+   * The default value is zh.
    * 
    * @example
    * en
@@ -29,7 +37,7 @@ export class DescribeTransferDomainsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value starts from 1. The default value is 1.
    * 
    * @example
    * 1
@@ -37,7 +45,7 @@ export class DescribeTransferDomainsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -45,18 +53,19 @@ export class DescribeTransferDomainsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The user ID to which the domain name was transferred from the current account.
+   * The ID of the destination account. Use this parameter to query the list of domain names transferred from the current account to this account.
    * 
    * @example
-   * 123456
+   * 1*******
    */
   targetUserId?: number;
   /**
    * @remarks
-   * The transfer type. Valid values:
+   * The type of transfer. Valid values:
    * 
-   * *   IN: The domain name was transferred to the current account.
-   * *   OUT: The domain name was transferred from the current account.
+   * - IN: The list of domain names transferred to the current account.
+   * 
+   * - OUT: The list of domain names transferred from the current account.
    * 
    * This parameter is required.
    * 

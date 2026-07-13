@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList extends $dara.Model {
   /**
+   * @remarks
+   * The domain name status.
+   * 
    * @example
    * serverDeleteProhibited
    */
   status?: string;
+  /**
+   * @remarks
+   * The description of the status.
+   * 
+   * @example
+   * 实名认证未通过，增加serverUpdateProhibited状态
+   */
   statusMsg?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,10 +44,20 @@ export class UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList e
 
 export class UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList extends $dara.Model {
   /**
+   * @remarks
+   * The domain name status.
+   * 
    * @example
    * serverDeleteProhibited
    */
   status?: string;
+  /**
+   * @remarks
+   * The description of the status.
+   * 
+   * @example
+   * 实名认证通过，删除serverUpdateProhibited状态
+   */
   statusMsg?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,18 +83,30 @@ export class UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusLis
 }
 
 export class UpdateRspDomainServerProhibitStatusForGatewayRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of domain name statuses to add.
+   */
   addStatusList?: UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList[];
   /**
    * @remarks
+   * A parameter that ensures idempotence.
+   * 
    * This parameter is required.
    * 
    * @example
    * asdf
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * A collection of domain name statuses to delete.
+   */
   deleteStatusList?: UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList[];
   /**
    * @remarks
+   * The domain name whose serverHold status you want to change.
+   * 
    * This parameter is required.
    * 
    * @example

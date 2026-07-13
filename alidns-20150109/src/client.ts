@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "central";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      public: "alidns.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("alidns", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,11 +33,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a custom line to the domain name.
+   * Adds a custom line for a domain name.
    * 
    * @remarks
-   * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+   * The end IP address of an IP address segment must be greater than or equal to its start IP address.
+   * The IP address ranges of segments cannot overlap across any custom lines for the domain name.
    * 
    * @param request - AddCustomLineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77,11 +80,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a custom line to the domain name.
+   * Adds a custom line for a domain name.
    * 
    * @remarks
-   * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+   * The end IP address of an IP address segment must be greater than or equal to its start IP address.
+   * The IP address ranges of segments cannot overlap across any custom lines for the domain name.
    * 
    * @param request - AddCustomLineRequest
    * @returns AddCustomLineResponse
@@ -92,7 +95,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a cache-accelerated domain name based on the specified parameters.
+   * Adds a domain name to the DNS authoritative proxy service.
    * 
    * @param request - AddDnsCacheDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -155,7 +158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a cache-accelerated domain name based on the specified parameters.
+   * Adds a domain name to the DNS authoritative proxy service.
    * 
    * @param request - AddDnsCacheDomainRequest
    * @returns AddDnsCacheDomainResponse
@@ -166,7 +169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access policy.
+   * Adds an access strategy.
    * 
    * @param request - AddDnsGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -261,7 +264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access policy.
+   * Adds an access strategy.
    * 
    * @param request - AddDnsGtmAccessStrategyRequest
    * @returns AddDnsGtmAccessStrategyResponse
@@ -272,7 +275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an address pool.
+   * Adds an address pool.
    * 
    * @param request - AddDnsGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -351,7 +354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an address pool.
+   * Adds an address pool.
    * 
    * @param request - AddDnsGtmAddressPoolRequest
    * @returns AddDnsGtmAddressPoolResponse
@@ -362,7 +365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a health check task.
+   * Creates a health check.
    * 
    * @remarks
    * **
@@ -424,7 +427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a health check task.
+   * Creates a health check.
    * 
    * @remarks
    * **
@@ -438,11 +441,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a domain name based on the specified parameters.
+   * Adds a domain name.
    * 
    * @remarks
-   * For more information about how to check whether a domain name is valid, see
-   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+   * For more information, see <props="china">[Domain name validity](https://help.aliyun.com/document_detail/67788.html)<props="intl">[Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
    * 
    * @param request - AddDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -485,11 +487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a domain name based on the specified parameters.
+   * Adds a domain name.
    * 
    * @remarks
-   * For more information about how to check whether a domain name is valid, see
-   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+   * For more information, see <props="china">[Domain name validity](https://help.aliyun.com/document_detail/67788.html)<props="intl">[Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
    * 
    * @param request - AddDomainRequest
    * @returns AddDomainResponse
@@ -500,7 +501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup for the domain name based on the specified domain name and backup cycle.
+   * Creates a backup for a domain based on the specified domain name and backup cycle.
    * 
    * @param request - AddDomainBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -539,7 +540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup for the domain name based on the specified domain name and backup cycle.
+   * Creates a backup for a domain based on the specified domain name and backup cycle.
    * 
    * @param request - AddDomainBackupRequest
    * @returns AddDomainBackupResponse
@@ -550,7 +551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a domain name group based on the specified parameters.
+   * Creates a domain name group.
    * 
    * @param request - AddDomainGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -585,7 +586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a domain name group based on the specified parameters.
+   * Creates a domain name group.
    * 
    * @param request - AddDomainGroupRequest
    * @returns AddDomainGroupResponse
@@ -596,7 +597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Domain Name System (DNS) record based on the specified parameters.
+   * Adds a DNS record.
    * 
    * @param request - AddDomainRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -659,7 +660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Domain Name System (DNS) record based on the specified parameters.
+   * Adds a DNS record.
    * 
    * @param request - AddDomainRecordRequest
    * @returns AddDomainRecordResponse
@@ -670,7 +671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+   * Creates an access strategy based on the specified parameters.
    * 
    * @param request - AddGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -721,7 +722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+   * Creates an access strategy based on the specified parameters.
    * 
    * @param request - AddGtmAccessStrategyRequest
    * @returns AddGtmAccessStrategyResponse
@@ -732,7 +733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an address pool.
+   * Adds an address pool.
    * 
    * @param request - AddGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -811,7 +812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an address pool.
+   * Adds an address pool.
    * 
    * @param request - AddGtmAddressPoolRequest
    * @returns AddGtmAddressPoolResponse
@@ -822,7 +823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a health check task.
+   * Adds a health check.
    * 
    * @param request - AddGtmMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -881,7 +882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a health check task.
+   * Adds a health check.
    * 
    * @param request - AddGtmMonitorRequest
    * @returns AddGtmMonitorResponse
@@ -892,7 +893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a disaster recovery plan.
+   * Adds a disaster recovery plan.
    * 
    * @param request - AddGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -935,7 +936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a disaster recovery plan.
+   * Adds a disaster recovery plan.
    * 
    * @param request - AddGtmRecoveryPlanRequest
    * @returns AddGtmRecoveryPlanResponse
@@ -946,7 +947,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds HTTPDNS authoritative DNS resolution records
+   * Adds an authoritative record for recursive resolution.
+   * 
+   * @remarks
+   * - You can specify a domain name (DomainName), page number (PageNumber), and page size (PageSize) to retrieve the list of DNS records for that domain name.
+   * - To find DNS records that contain a specific keyword, you can specify the keyword for the host record (RRKeyWord), record type (TypeKeyWord), or record value (ValueKeyWord).
+   * - By default, the list of DNS records is sorted from newest to oldest.
+   * - You can specify a domain group ID (GroupId). The \\`All Domains\\` group includes all domain names. The \\`Default Group\\` includes domain names that are not assigned to a group.
    * 
    * @param request - AddRecursionRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1013,7 +1020,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds HTTPDNS authoritative DNS resolution records
+   * Adds an authoritative record for recursive resolution.
+   * 
+   * @remarks
+   * - You can specify a domain name (DomainName), page number (PageNumber), and page size (PageSize) to retrieve the list of DNS records for that domain name.
+   * - To find DNS records that contain a specific keyword, you can specify the keyword for the host record (RRKeyWord), record type (TypeKeyWord), or record value (ValueKeyWord).
+   * - By default, the list of DNS records is sorted from newest to oldest.
+   * - You can specify a domain group ID (GroupId). The \\`All Domains\\` group includes all domain names. The \\`Default Group\\` includes domain names that are not assigned to a group.
    * 
    * @param request - AddRecursionRecordRequest
    * @returns AddRecursionRecordResponse
@@ -1024,7 +1037,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds HTTPDNS zone
+   * Adds a built-in authoritative domain name zone for recursive resolution.
+   * 
+   * @remarks
+   * The end IP address of each IP range must be greater than or equal to the start IP address.
+   * The IP address ranges of all IP ranges in all custom lines for a domain name cannot overlap.
    * 
    * @param request - AddRecursionZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1063,7 +1080,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds HTTPDNS zone
+   * Adds a built-in authoritative domain name zone for recursive resolution.
+   * 
+   * @remarks
+   * The end IP address of each IP range must be greater than or equal to the start IP address.
+   * The IP address ranges of all IP ranges in all custom lines for a domain name cannot overlap.
    * 
    * @param request - AddRecursionZoneRequest
    * @returns AddRecursionZoneResponse
@@ -1074,15 +1095,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于添加特定域名的serverHold状态信息。
+   * Adds the serverHold status to a specified domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Request description
+   * - This API adds the serverHold property to a specified domain name.
    * 
    * @param request - AddRspDomainServerHoldStatusForGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1121,15 +1138,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于添加特定域名的serverHold状态信息。
+   * Adds the serverHold status to a specified domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Request description
+   * - This API adds the serverHold property to a specified domain name.
    * 
    * @param request - AddRspDomainServerHoldStatusForGatewayRequest
    * @returns AddRspDomainServerHoldStatusForGatewayResponse
@@ -1140,15 +1153,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于删除特定域名的serverHold状态信息。
+   * Adds the serverHold status for a specified domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Request description
+   * - Adds the serverHold status for a specified domain name.
    * 
    * @param request - AddRspDomainServerHoldStatusForGatewayOteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1187,15 +1196,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于删除特定域名的serverHold状态信息。
+   * Adds the serverHold status for a specified domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Request description
+   * - Adds the serverHold status for a specified domain name.
    * 
    * @param request - AddRspDomainServerHoldStatusForGatewayOteRequest
    * @returns AddRspDomainServerHoldStatusForGatewayOteResponse
@@ -1206,11 +1211,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+   * Binds paid domain names in Alibaba Cloud DNS to an instance ID.
    * 
    * @remarks
-   * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+   * An instance is considered a new instance if its ID starts with \\"dns-\\". New instances support multiple domain names. You can call this operation to bind domain names directly to the instance. An error occurs if the number of domain names exceeds the instance\\"s limit.
+   * An instance is considered a legacy instance if its ID does not start with \\"dns-\\". Legacy instances support only one domain name. If you call this operation on a legacy instance that already has a domain name, the existing domain name is replaced.
    * 
    * @param request - BindInstanceDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1249,11 +1254,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+   * Binds paid domain names in Alibaba Cloud DNS to an instance ID.
    * 
    * @remarks
-   * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+   * An instance is considered a new instance if its ID starts with \\"dns-\\". New instances support multiple domain names. You can call this operation to bind domain names directly to the instance. An error occurs if the number of domain names exceeds the instance\\"s limit.
+   * An instance is considered a legacy instance if its ID does not start with \\"dns-\\". Legacy instances support only one domain name. If you call this operation on a legacy instance that already has a domain name, the existing domain name is replaced.
    * 
    * @param request - BindInstanceDomainsRequest
    * @returns BindInstanceDomainsResponse
@@ -1264,10 +1269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a domain name from the original group to the new group based on the specified parameters.
+   * Moves a domain name to a new group.
    * 
    * @remarks
-   * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+   * You can specify the ID of a domain name group (GroupId). The All Domains group contains all domain names, while the Default group contains domain names that are not assigned to any group.
    * 
    * @param request - ChangeDomainGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1306,10 +1311,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a domain name from the original group to the new group based on the specified parameters.
+   * Moves a domain name to a new group.
    * 
    * @remarks
-   * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+   * You can specify the ID of a domain name group (GroupId). The All Domains group contains all domain names, while the Default group contains domain names that are not assigned to any group.
    * 
    * @param request - ChangeDomainGroupRequest
    * @returns ChangeDomainGroupResponse
@@ -1320,11 +1325,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the domain name that is bound to an Alibaba Cloud DNS instance.
+   * Changes the domain name that is attached to a Cloud DNS product.
    * 
    * @remarks
-   *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
-   * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
+   * - **You can call this operation to change the domain name that is attached to a Cloud DNS product. To detach a domain name, call this operation and leave the NewDomain parameter empty.**
+   * - **This operation applies to instances of earlier versions. If you use a new edition, such as Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation instead.**
    * 
    * @param request - ChangeDomainOfDnsProductRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1371,11 +1376,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the domain name that is bound to an Alibaba Cloud DNS instance.
+   * Changes the domain name that is attached to a Cloud DNS product.
    * 
    * @remarks
-   *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
-   * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
+   * - **You can call this operation to change the domain name that is attached to a Cloud DNS product. To detach a domain name, call this operation and leave the NewDomain parameter empty.**
+   * - **This operation applies to instances of earlier versions. If you use a new edition, such as Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation instead.**
    * 
    * @param request - ChangeDomainOfDnsProductRequest
    * @returns ChangeDomainOfDnsProductResponse
@@ -1386,7 +1391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies the configurations of a Global Traffic Manager (GTM) instance.
+   * Copies a Global Traffic Manager (GTM) configuration.
    * 
    * @param request - CopyGtmConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1429,7 +1434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies the configurations of a Global Traffic Manager (GTM) instance.
+   * Copies a Global Traffic Manager (GTM) configuration.
    * 
    * @param request - CopyGtmConfigRequest
    * @returns CopyGtmConfigResponse
@@ -1440,7 +1445,207 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an address.
+   * Registers an agent.
+   * 
+   * @param tmpReq - CreateAtiAgentRegisterInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAtiAgentRegisterInfoResponse
+   */
+  async createAtiAgentRegisterInfoWithOptions(tmpReq: $_model.CreateAtiAgentRegisterInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAtiAgentRegisterInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAtiAgentRegisterInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.endpoints)) {
+      request.endpointsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endpoints, "Endpoints", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentDescription)) {
+      query["AgentDescription"] = request.agentDescription;
+    }
+
+    if (!$dara.isNull(request.agentDisplayName)) {
+      query["AgentDisplayName"] = request.agentDisplayName;
+    }
+
+    if (!$dara.isNull(request.agentHost)) {
+      query["AgentHost"] = request.agentHost;
+    }
+
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.endpointsShrink)) {
+      query["Endpoints"] = request.endpointsShrink;
+    }
+
+    if (!$dara.isNull(request.registrantId)) {
+      query["RegistrantId"] = request.registrantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAtiAgentRegisterInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAtiAgentRegisterInfoResponse>(await this.callApi(params, req, runtime), new $_model.CreateAtiAgentRegisterInfoResponse({}));
+  }
+
+  /**
+   * Registers an agent.
+   * 
+   * @param request - CreateAtiAgentRegisterInfoRequest
+   * @returns CreateAtiAgentRegisterInfoResponse
+   */
+  async createAtiAgentRegisterInfo(request: $_model.CreateAtiAgentRegisterInfoRequest): Promise<$_model.CreateAtiAgentRegisterInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAtiAgentRegisterInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Registers an agent - Step 2: Generates a DNS record for domain ownership verification.
+   * 
+   * @param request - CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse
+   */
+  async createAtiAgentRegisterInfoAcmeChallengeRecordWithOptions(request: $_model.CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentRegisterInfoId)) {
+      query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAtiAgentRegisterInfoAcmeChallengeRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse>(await this.callApi(params, req, runtime), new $_model.CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse({}));
+  }
+
+  /**
+   * Registers an agent - Step 2: Generates a DNS record for domain ownership verification.
+   * 
+   * @param request - CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest
+   * @returns CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse
+   */
+  async createAtiAgentRegisterInfoAcmeChallengeRecord(request: $_model.CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest): Promise<$_model.CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAtiAgentRegisterInfoAcmeChallengeRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a real-name registrant.
+   * 
+   * @param request - CreateAtiRegistrantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAtiRegistrantResponse
+   */
+  async createAtiRegistrantWithOptions(request: $_model.CreateAtiRegistrantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAtiRegistrantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cc)) {
+      query["Cc"] = request.cc;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.documentCode)) {
+      query["DocumentCode"] = request.documentCode;
+    }
+
+    if (!$dara.isNull(request.documentImage)) {
+      query["DocumentImage"] = request.documentImage;
+    }
+
+    if (!$dara.isNull(request.documentType)) {
+      query["DocumentType"] = request.documentType;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      query["Phone"] = request.phone;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.street)) {
+      query["Street"] = request.street;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAtiRegistrant",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAtiRegistrantResponse>(await this.callApi(params, req, runtime), new $_model.CreateAtiRegistrantResponse({}));
+  }
+
+  /**
+   * Submits a real-name registrant.
+   * 
+   * @param request - CreateAtiRegistrantRequest
+   * @returns CreateAtiRegistrantResponse
+   */
+  async createAtiRegistrant(request: $_model.CreateAtiRegistrantRequest): Promise<$_model.CreateAtiRegistrantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAtiRegistrantWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an address in Global Traffic Manager (GTM) 3.0.
    * 
    * @param tmpReq - CreateCloudGtmAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1521,7 +1726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an address.
+   * Creates an address in Global Traffic Manager (GTM) 3.0.
    * 
    * @param request - CreateCloudGtmAddressRequest
    * @returns CreateCloudGtmAddressResponse
@@ -1532,7 +1737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an address pool.
+   * Creates an address pool based on the specified parameters.
    * 
    * @param request - CreateCloudGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1587,7 +1792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an address pool.
+   * Creates an address pool based on the specified parameters.
    * 
    * @param request - CreateCloudGtmAddressPoolRequest
    * @returns CreateCloudGtmAddressPoolResponse
@@ -1598,7 +1803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建gtm实例配置
+   * Creates a configuration for a Global Traffic Manager (GTM) instance.
    * 
    * @param request - CreateCloudGtmInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1669,7 +1874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建gtm实例配置
+   * Creates a configuration for a Global Traffic Manager (GTM) instance.
    * 
    * @param request - CreateCloudGtmInstanceConfigRequest
    * @returns CreateCloudGtmInstanceConfigResponse
@@ -1680,7 +1885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a health check template.
+   * Creates a health check template in Global Traffic Manager (GTM) 3.0.
    * 
    * @param tmpReq - CreateCloudGtmMonitorTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1757,7 +1962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a health check template.
+   * Creates a health check template in Global Traffic Manager (GTM) 3.0.
    * 
    * @param request - CreateCloudGtmMonitorTemplateRequest
    * @returns CreateCloudGtmMonitorTemplateResponse
@@ -1768,7 +1973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AppKey in Alibaba Cloud Public DNS.
+   * Creates a public DNS AccessKey.
    * 
    * @param request - CreatePdnsAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1803,7 +2008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AppKey in Alibaba Cloud Public DNS.
+   * Creates a public DNS AccessKey.
    * 
    * @param request - CreatePdnsAppKeyRequest
    * @returns CreatePdnsAppKeyResponse
@@ -1814,7 +2019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建公共DNS Udp Ip地址段
+   * Create Public DNS UDP IP Address Segment
    * 
    * @param request - CreatePdnsUdpIpSegmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1857,7 +2062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建公共DNS Udp Ip地址段
+   * Create Public DNS UDP IP Address Segment
    * 
    * @param request - CreatePdnsUdpIpSegmentRequest
    * @returns CreatePdnsUdpIpSegmentResponse
@@ -1865,6 +2070,98 @@ export default class Client extends OpenApi {
   async createPdnsUdpIpSegment(request: $_model.CreatePdnsUdpIpSegmentRequest): Promise<$_model.CreatePdnsUdpIpSegmentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPdnsUdpIpSegmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes Agent registration information.
+   * 
+   * @param request - DeleteAtiAgentRegisterInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAtiAgentRegisterInfoResponse
+   */
+  async deleteAtiAgentRegisterInfoWithOptions(request: $_model.DeleteAtiAgentRegisterInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAtiAgentRegisterInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentRegisterInfoId)) {
+      query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAtiAgentRegisterInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAtiAgentRegisterInfoResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAtiAgentRegisterInfoResponse({}));
+  }
+
+  /**
+   * Deletes Agent registration information.
+   * 
+   * @param request - DeleteAtiAgentRegisterInfoRequest
+   * @returns DeleteAtiAgentRegisterInfoResponse
+   */
+  async deleteAtiAgentRegisterInfo(request: $_model.DeleteAtiAgentRegisterInfoRequest): Promise<$_model.DeleteAtiAgentRegisterInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAtiAgentRegisterInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Revokes a verified registrant.
+   * 
+   * @param request - DeleteAtiRegistrantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAtiRegistrantResponse
+   */
+  async deleteAtiRegistrantWithOptions(request: $_model.DeleteAtiRegistrantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAtiRegistrantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.registrantId)) {
+      query["RegistrantId"] = request.registrantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAtiRegistrant",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAtiRegistrantResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAtiRegistrantResponse({}));
+  }
+
+  /**
+   * Revokes a verified registrant.
+   * 
+   * @param request - DeleteAtiRegistrantRequest
+   * @returns DeleteAtiRegistrantResponse
+   */
+  async deleteAtiRegistrant(request: $_model.DeleteAtiRegistrantRequest): Promise<$_model.DeleteAtiRegistrantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAtiRegistrantWithOptions(request, runtime);
   }
 
   /**
@@ -1968,7 +2265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+   * Deletes an access domain name from the configuration of a Global Traffic Manager (GTM) 3.0 instance.
    * 
    * @param request - DeleteCloudGtmInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2011,7 +2308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+   * Deletes an access domain name from the configuration of a Global Traffic Manager (GTM) 3.0 instance.
    * 
    * @param request - DeleteCloudGtmInstanceConfigRequest
    * @returns DeleteCloudGtmInstanceConfigResponse
@@ -2072,7 +2369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes custom lines at a time by using the unique IDs.
+   * Deletes a batch of custom lines by specifying their unique IDs.
    * 
    * @param request - DeleteCustomLinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2107,7 +2404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes custom lines at a time by using the unique IDs.
+   * Deletes a batch of custom lines by specifying their unique IDs.
    * 
    * @param request - DeleteCustomLinesRequest
    * @returns DeleteCustomLinesResponse
@@ -2118,7 +2415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified cache-accelerated domain name.
+   * Deletes a specified domain name from the authoritative DNS proxy.
    * 
    * @param request - DeleteDnsCacheDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2153,7 +2450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified cache-accelerated domain name.
+   * Deletes a specified domain name from the authoritative DNS proxy.
    * 
    * @param request - DeleteDnsCacheDomainRequest
    * @returns DeleteDnsCacheDomainResponse
@@ -2164,7 +2461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access policy by policy ID.
+   * Deletes an access policy by its ID.
    * 
    * @param request - DeleteDnsGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2199,7 +2496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access policy by policy ID.
+   * Deletes an access policy by its ID.
    * 
    * @param request - DeleteDnsGtmAccessStrategyRequest
    * @returns DeleteDnsGtmAccessStrategyResponse
@@ -2210,7 +2507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an address pool by address pool ID.
+   * Deletes an address pool by its ID.
    * 
    * @param request - DeleteDnsGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2245,7 +2542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an address pool by address pool ID.
+   * Deletes an address pool by its ID.
    * 
    * @param request - DeleteDnsGtmAddressPoolRequest
    * @returns DeleteDnsGtmAddressPoolResponse
@@ -2256,7 +2553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a domain name based on the specified parameters.
+   * Deletes the specified domain name.
    * 
    * @param request - DeleteDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2291,7 +2588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a domain name based on the specified parameters.
+   * Deletes the specified domain name.
    * 
    * @param request - DeleteDomainRequest
    * @returns DeleteDomainResponse
@@ -2302,10 +2599,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+   * Deletes a domain name group and moves its domain names to the default group.
    * 
    * @remarks
-   * >  The default group cannot be deleted.
+   * > The default group cannot be deleted.
    * 
    * @param request - DeleteDomainGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2340,10 +2637,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+   * Deletes a domain name group and moves its domain names to the default group.
    * 
    * @remarks
-   * >  The default group cannot be deleted.
+   * > The default group cannot be deleted.
    * 
    * @param request - DeleteDomainGroupRequest
    * @returns DeleteDomainGroupResponse
@@ -2354,7 +2651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+   * Deletes a DNS record based on the specified request parameters.
    * 
    * @param request - DeleteDomainRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2393,7 +2690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+   * Deletes a DNS record based on the specified request parameters.
    * 
    * @param request - DeleteDomainRecordRequest
    * @returns DeleteDomainRecordResponse
@@ -2404,7 +2701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+   * Deletes an access policy.
    * 
    * @param request - DeleteGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2439,7 +2736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+   * Deletes an access policy.
    * 
    * @param request - DeleteGtmAccessStrategyRequest
    * @returns DeleteGtmAccessStrategyResponse
@@ -2450,7 +2747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+   * Deletes an address pool.
    * 
    * @param request - DeleteGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2485,7 +2782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+   * Deletes an address pool.
    * 
    * @param request - DeleteGtmAddressPoolRequest
    * @returns DeleteGtmAddressPoolResponse
@@ -2542,7 +2839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes HTTPDNS resolution records
+   * Deletes a built-in authoritative DNS record used for recursive resolution.
    * 
    * @param request - DeleteRecursionRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2577,7 +2874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes HTTPDNS resolution records
+   * Deletes a built-in authoritative DNS record used for recursive resolution.
    * 
    * @param request - DeleteRecursionRecordRequest
    * @returns DeleteRecursionRecordResponse
@@ -2588,7 +2885,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes HTTPDNS authoritative domain zone
+   * Deletes a built-in authoritative zone used for recursive resolution.
+   * 
+   * @remarks
+   * If a zone contains locked DNS records, this operation does not delete them.
    * 
    * @param request - DeleteRecursionZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2623,7 +2923,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes HTTPDNS authoritative domain zone
+   * Deletes a built-in authoritative zone used for recursive resolution.
+   * 
+   * @remarks
+   * If a zone contains locked DNS records, this operation does not delete them.
    * 
    * @param request - DeleteRecursionZoneRequest
    * @returns DeleteRecursionZoneResponse
@@ -2634,10 +2937,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+   * Deletes the DNS records for a specified host record.
    * 
    * @remarks
-   * If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
+   * Locked DNS records will not be deleted.
    * 
    * @param request - DeleteSubDomainRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2684,10 +2987,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+   * Deletes the DNS records for a specified host record.
    * 
    * @remarks
-   * If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
+   * Locked DNS records will not be deleted.
    * 
    * @param request - DeleteSubDomainRecordsRequest
    * @returns DeleteSubDomainRecordsResponse
@@ -2698,7 +3001,187 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
+   * Queries the details of an Agent registration.
+   * 
+   * @param request - DescribeAtiAgentRegisterInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAtiAgentRegisterInfoResponse
+   */
+  async describeAtiAgentRegisterInfoWithOptions(request: $_model.DescribeAtiAgentRegisterInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAtiAgentRegisterInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentRegisterInfoId)) {
+      query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAtiAgentRegisterInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAtiAgentRegisterInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAtiAgentRegisterInfoResponse({}));
+  }
+
+  /**
+   * Queries the details of an Agent registration.
+   * 
+   * @param request - DescribeAtiAgentRegisterInfoRequest
+   * @returns DescribeAtiAgentRegisterInfoResponse
+   */
+  async describeAtiAgentRegisterInfo(request: $_model.DescribeAtiAgentRegisterInfoRequest): Promise<$_model.DescribeAtiAgentRegisterInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAtiAgentRegisterInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries alert settings.
+   * 
+   * @param request - DescribeAtiAlertSettingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAtiAlertSettingsResponse
+   */
+  async describeAtiAlertSettingsWithOptions(request: $_model.DescribeAtiAlertSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAtiAlertSettingsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAtiAlertSettings",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAtiAlertSettingsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAtiAlertSettingsResponse({}));
+  }
+
+  /**
+   * Queries alert settings.
+   * 
+   * @param request - DescribeAtiAlertSettingsRequest
+   * @returns DescribeAtiAlertSettingsResponse
+   */
+  async describeAtiAlertSettings(request: $_model.DescribeAtiAlertSettingsRequest): Promise<$_model.DescribeAtiAlertSettingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAtiAlertSettingsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a certificate.
+   * 
+   * @param request - DescribeAtiCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAtiCertificateResponse
+   */
+  async describeAtiCertificateWithOptions(request: $_model.DescribeAtiCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAtiCertificateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentCertificateId)) {
+      query["AgentCertificateId"] = request.agentCertificateId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAtiCertificate",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAtiCertificateResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAtiCertificateResponse({}));
+  }
+
+  /**
+   * Queries the details of a certificate.
+   * 
+   * @param request - DescribeAtiCertificateRequest
+   * @returns DescribeAtiCertificateResponse
+   */
+  async describeAtiCertificate(request: $_model.DescribeAtiCertificateRequest): Promise<$_model.DescribeAtiCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAtiCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a real-name verified registrant.
+   * 
+   * @param request - DescribeAtiRegistrantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAtiRegistrantResponse
+   */
+  async describeAtiRegistrantWithOptions(request: $_model.DescribeAtiRegistrantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAtiRegistrantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.registrantId)) {
+      query["RegistrantId"] = request.registrantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAtiRegistrant",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAtiRegistrantResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAtiRegistrantResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a real-name verified registrant.
+   * 
+   * @param request - DescribeAtiRegistrantRequest
+   * @returns DescribeAtiRegistrantResponse
+   */
+  async describeAtiRegistrant(request: $_model.DescribeAtiRegistrantRequest): Promise<$_model.DescribeAtiRegistrantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAtiRegistrantWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the execution results of a batch operation task using a task ID. If you do not specify a task ID, the results of the most recent batch task are returned.
    * 
    * @param request - DescribeBatchResultCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2737,7 +3220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
+   * Queries the execution results of a batch operation task using a task ID. If you do not specify a task ID, the results of the most recent batch task are returned.
    * 
    * @param request - DescribeBatchResultCountRequest
    * @returns DescribeBatchResultCountResponse
@@ -2748,10 +3231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed results of a batch operation task.
+   * Retrieves the details of a batch processing result.
    * 
    * @remarks
-   * Before you call this operation, make sure that the batch operation task is complete.
+   * *Prerequisite: You can call this operation after the batch task is complete.**
    * 
    * @param request - DescribeBatchResultDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2802,10 +3285,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed results of a batch operation task.
+   * Retrieves the details of a batch processing result.
    * 
    * @remarks
-   * Before you call this operation, make sure that the batch operation task is complete.
+   * *Prerequisite: You can call this operation after the batch task is complete.**
    * 
    * @param request - DescribeBatchResultDetailRequest
    * @returns DescribeBatchResultDetailResponse
@@ -2816,7 +3299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of an address.
+   * Queries the configuration of an address based on the specified input parameters.
    * 
    * @param request - DescribeCloudGtmAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2855,7 +3338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of an address.
+   * Queries the configuration of an address based on the specified input parameters.
    * 
    * @param request - DescribeCloudGtmAddressRequest
    * @returns DescribeCloudGtmAddressResponse
@@ -2866,7 +3349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of an address pool.
+   * Retrieves the configuration of a specified address pool.
    * 
    * @param request - DescribeCloudGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2905,7 +3388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of an address pool.
+   * Retrieves the configuration of a specified address pool.
    * 
    * @param request - DescribeCloudGtmAddressPoolRequest
    * @returns DescribeCloudGtmAddressPoolResponse
@@ -2916,7 +3399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the access domain names that reference an address pool.
+   * Retrieves information about the instances that reference an address pool.
    * 
    * @param request - DescribeCloudGtmAddressPoolReferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2955,7 +3438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the access domain names that reference an address pool.
+   * Retrieves information about the instances that reference an address pool.
    * 
    * @param request - DescribeCloudGtmAddressPoolReferenceRequest
    * @returns DescribeCloudGtmAddressPoolReferenceResponse
@@ -2966,7 +3449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+   * Queries the address pools and Global Traffic Manager (GTM) 3.0 instances that reference a specified address.
    * 
    * @param request - DescribeCloudGtmAddressReferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3005,7 +3488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+   * Queries the address pools and Global Traffic Manager (GTM) 3.0 instances that reference a specified address.
    * 
    * @param request - DescribeCloudGtmAddressReferenceRequest
    * @returns DescribeCloudGtmAddressReferenceResponse
@@ -3016,7 +3499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局流量管理告警配置
+   * Queries the global alert configuration for Global Traffic Manager (GTM).
    * 
    * @param request - DescribeCloudGtmGlobalAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3051,7 +3534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局流量管理告警配置
+   * Queries the global alert configuration for Global Traffic Manager (GTM).
    * 
    * @param request - DescribeCloudGtmGlobalAlertRequest
    * @returns DescribeCloudGtmGlobalAlertResponse
@@ -3062,6 +3545,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the alert configuration for an instance.
+   * 
    * @param request - DescribeCloudGtmInstanceConfigAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmInstanceConfigAlertResponse
@@ -3103,6 +3588,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the alert configuration for an instance.
+   * 
    * @param request - DescribeCloudGtmInstanceConfigAlertRequest
    * @returns DescribeCloudGtmInstanceConfigAlertResponse
    */
@@ -3112,7 +3599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
+   * Queries the full configuration of a GTM 3.0 access domain name, including alert settings, address pools, and address details.
    * 
    * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3155,7 +3642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
+   * Queries the full configuration of a GTM 3.0 access domain name, including alert settings, address pools, and address details.
    * 
    * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
    * @returns DescribeCloudGtmInstanceConfigFullInfoResponse
@@ -3166,7 +3653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a health check template.
+   * Retrieves the configuration of a specified health check template.
    * 
    * @param request - DescribeCloudGtmMonitorTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3201,7 +3688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a health check template.
+   * Retrieves the configuration of a specified health check template.
    * 
    * @param request - DescribeCloudGtmMonitorTemplateRequest
    * @returns DescribeCloudGtmMonitorTemplateResponse
@@ -3250,6 +3737,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the system lines supported by Global Traffic Manager (GTM).
+   * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmSystemLinesResponse
    */
@@ -3270,6 +3759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the system lines supported by Global Traffic Manager (GTM).
    * @returns DescribeCloudGtmSystemLinesResponse
    */
   async describeCloudGtmSystemLines(): Promise<$_model.DescribeCloudGtmSystemLinesResponse> {
@@ -3278,7 +3768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom line by its unique ID.
+   * Queries a custom line by its unique ID.
    * 
    * @param request - DescribeCustomLineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3313,7 +3803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom line by its unique ID.
+   * Queries a custom line by its unique ID.
    * 
    * @param request - DescribeCustomLineRequest
    * @returns DescribeCustomLineResponse
@@ -3324,7 +3814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom lines by domain name.
+   * Queries the custom lines for a domain name.
    * 
    * @param request - DescribeCustomLinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3367,7 +3857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries custom lines by domain name.
+   * Queries the custom lines for a domain name.
    * 
    * @param request - DescribeCustomLinesRequest
    * @returns DescribeCustomLinesResponse
@@ -3378,7 +3868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+   * Retrieves a list of subdomains that have weight configurations based on the specified parameters.
    * 
    * @param request - DescribeDNSSLBSubDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3429,7 +3919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+   * Retrieves a list of subdomains that have weight configurations based on the specified parameters.
    * 
    * @param request - DescribeDNSSLBSubDomainsRequest
    * @returns DescribeDNSSLBSubDomainsResponse
@@ -3440,7 +3930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cache-accelerated domain names within your account based on the specified parameters.
+   * Queries authoritative proxy domain names based on the specified parameters.
    * 
    * @param request - DescribeDnsCacheDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3483,7 +3973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cache-accelerated domain names within your account based on the specified parameters.
+   * Queries authoritative proxy domain names based on the specified parameters.
    * 
    * @param request - DescribeDnsCacheDomainsRequest
    * @returns DescribeDnsCacheDomainsResponse
@@ -3494,7 +3984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the access policies of a GTM instance.
+   * Queries the access strategies for a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeDnsGtmAccessStrategiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3541,7 +4031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the access policies of a GTM instance.
+   * Queries the access strategies for a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeDnsGtmAccessStrategiesRequest
    * @returns DescribeDnsGtmAccessStrategiesResponse
@@ -3552,7 +4042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about an access policy.
+   * Retrieves the details of a specified access strategy.
    * 
    * @param request - DescribeDnsGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3587,7 +4077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about an access policy.
+   * Retrieves the details of a specified access strategy.
    * 
    * @param request - DescribeDnsGtmAccessStrategyRequest
    * @returns DescribeDnsGtmAccessStrategyResponse
@@ -3598,7 +4088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration items that can be set for an access policy.
+   * Describes the available configurations for an access policy based on an instance ID.
    * 
    * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3637,7 +4127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration items that can be set for an access policy.
+   * Describes the available configurations for an access policy based on an instance ID.
    * 
    * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
    * @returns DescribeDnsGtmAccessStrategyAvailableConfigResponse
@@ -3648,7 +4138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the source regions of addresses.
+   * Queries the region where an address is located.
    * 
    * @param request - DescribeDnsGtmAddrAttributeInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3687,7 +4177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the source regions of addresses.
+   * Queries the region where an address is located.
    * 
    * @param request - DescribeDnsGtmAddrAttributeInfoRequest
    * @returns DescribeDnsGtmAddrAttributeInfoResponse
@@ -3698,7 +4188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available configurations of an address pool of a GTM instance.
+   * Queries the available configurations for an address pool in a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3733,7 +4223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available configurations of an address pool of a GTM instance.
+   * Queries the available configurations for an address pool in a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
    * @returns DescribeDnsGtmAddressPoolAvailableConfigResponse
@@ -3744,7 +4234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+   * Queries the available alert contact groups.
    * 
    * @param request - DescribeDnsGtmAvailableAlertGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3775,7 +4265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+   * Queries the available alert contact groups.
    * 
    * @param request - DescribeDnsGtmAvailableAlertGroupRequest
    * @returns DescribeDnsGtmAvailableAlertGroupResponse
@@ -3786,7 +4276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of an instance based on the ID of the instance.
+   * Queries the details of an instance based on the specified instance ID.
    * 
    * @param request - DescribeDnsGtmInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3821,7 +4311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of an instance based on the ID of the instance.
+   * Queries the details of an instance based on the specified instance ID.
    * 
    * @param request - DescribeDnsGtmInstanceRequest
    * @returns DescribeDnsGtmInstanceResponse
@@ -3832,7 +4322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about an address pool by address pool ID.
+   * Queries the details of an address pool by its ID.
    * 
    * @param request - DescribeDnsGtmInstanceAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3867,7 +4357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries detailed information about an address pool by address pool ID.
+   * Queries the details of an address pool by its ID.
    * 
    * @param request - DescribeDnsGtmInstanceAddressPoolRequest
    * @returns DescribeDnsGtmInstanceAddressPoolResponse
@@ -3878,7 +4368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries address pools by the IDs of GTM instances.
+   * Retrieves the address pools of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3921,7 +4411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries address pools by the IDs of GTM instances.
+   * Retrieves the address pools of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
    * @returns DescribeDnsGtmInstanceAddressPoolsResponse
@@ -3932,7 +4422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the current status of the instance by instance ID.
+   * Describes the status of an instance based on its ID.
    * 
    * @param request - DescribeDnsGtmInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3967,7 +4457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the current status of the instance by instance ID.
+   * Describes the status of an instance based on its ID.
    * 
    * @param request - DescribeDnsGtmInstanceStatusRequest
    * @returns DescribeDnsGtmInstanceStatusResponse
@@ -3978,7 +4468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the canonical name (CNAME) assigned by the system for a GTM instance.
+   * Retrieves the system-assigned CNAME based on the specified instance ID.
    * 
    * @param request - DescribeDnsGtmInstanceSystemCnameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4013,7 +4503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the canonical name (CNAME) assigned by the system for a GTM instance.
+   * Retrieves the system-assigned CNAME based on the specified instance ID.
    * 
    * @param request - DescribeDnsGtmInstanceSystemCnameRequest
    * @returns DescribeDnsGtmInstanceSystemCnameResponse
@@ -4082,7 +4572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the operation logs by instance ID.
+   * Queries the operation logs for an instance.
    * 
    * @param request - DescribeDnsGtmLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4137,7 +4627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the operation logs by instance ID.
+   * Queries the operation logs for an instance.
    * 
    * @param request - DescribeDnsGtmLogsRequest
    * @returns DescribeDnsGtmLogsResponse
@@ -4148,7 +4638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration items that can be set for a health check task.
+   * Queries the available configurations for DNS health checks.
    * 
    * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4179,7 +4669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration items that can be set for a health check task.
+   * Queries the available configurations for DNS health checks.
    * 
    * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
    * @returns DescribeDnsGtmMonitorAvailableConfigResponse
@@ -4190,7 +4680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health check configuration of an address pool.
+   * Queries the health check configuration for an address pool.
    * 
    * @param request - DescribeDnsGtmMonitorConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4225,7 +4715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health check configuration of an address pool.
+   * Queries the health check configuration for an address pool.
    * 
    * @param request - DescribeDnsGtmMonitorConfigRequest
    * @returns DescribeDnsGtmMonitorConfigResponse
@@ -4236,7 +4726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+   * Retrieves the details of a paid Alibaba Cloud DNS instance by its instance ID.
    * 
    * @param request - DescribeDnsProductInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4275,7 +4765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+   * Retrieves the details of a paid Alibaba Cloud DNS instance by its instance ID.
    * 
    * @param request - DescribeDnsProductInstanceRequest
    * @returns DescribeDnsProductInstanceResponse
@@ -4286,10 +4776,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+   * Retrieves a list of paid DNS product instances that match the specified parameters.
    * 
    * @remarks
-   * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+   * > **If the response does not contain a domain name, the Alibaba Cloud DNS instance is not associated with any domain names.**
    * 
    * @param request - DescribeDnsProductInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4348,10 +4838,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+   * Retrieves a list of paid DNS product instances that match the specified parameters.
    * 
    * @remarks
-   * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+   * > **If the response does not contain a domain name, the Alibaba Cloud DNS instance is not associated with any domain names.**
    * 
    * @param request - DescribeDnsProductInstancesRequest
    * @returns DescribeDnsProductInstancesResponse
@@ -4362,7 +4852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on DoH-based requests for a domain name.
+   * Queries an overview of request statistics for a DNS over HTTPS (DoH) account.
    * 
    * @param request - DescribeDohAccountStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4401,7 +4891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on DoH-based requests for a domain name.
+   * Queries an overview of request statistics for a DNS over HTTPS (DoH) account.
    * 
    * @param request - DescribeDohAccountStatisticsRequest
    * @returns DescribeDohAccountStatisticsResponse
@@ -4412,7 +4902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The statistics on DoH-based requests for a domain name are queried.
+   * Retrieves an overview of statistics for DNS over HTTPS (DoH) requests for a domain name.
    * 
    * @param request - DescribeDohDomainStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4455,7 +4945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The statistics on DoH-based requests for a domain name are queried.
+   * Retrieves an overview of statistics for DNS over HTTPS (DoH) requests for a domain name.
    * 
    * @param request - DescribeDohDomainStatisticsRequest
    * @returns DescribeDohDomainStatisticsResponse
@@ -4466,7 +4956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on DoH-based requests for domain names.
+   * Queries request statistics for DNS over HTTPS (DoH) domain names.
    * 
    * @param request - DescribeDohDomainStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4517,7 +5007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on DoH-based requests for domain names.
+   * Queries request statistics for DNS over HTTPS (DoH) domain names.
    * 
    * @param request - DescribeDohDomainStatisticsSummaryRequest
    * @returns DescribeDohDomainStatisticsSummaryResponse
@@ -4528,7 +5018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the statistics on DoH-based requests for a subdomain name.
+   * Queries for statistics on DNS over HTTPS (DoH) requests for a subdomain.
    * 
    * @param request - DescribeDohSubDomainStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4571,7 +5061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the statistics on DoH-based requests for a subdomain name.
+   * Queries for statistics on DNS over HTTPS (DoH) requests for a subdomain.
    * 
    * @param request - DescribeDohSubDomainStatisticsRequest
    * @returns DescribeDohSubDomainStatisticsResponse
@@ -4582,7 +5072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on DoH-based requests for subdomain names.
+   * Queries a summary of request statistics for subdomains using DNS over HTTPS (DoH).
    * 
    * @param request - DescribeDohSubDomainStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4637,7 +5127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics on DoH-based requests for subdomain names.
+   * Queries a summary of request statistics for subdomains using DNS over HTTPS (DoH).
    * 
    * @param request - DescribeDohSubDomainStatisticsSummaryRequest
    * @returns DescribeDohSubDomainStatisticsSummaryResponse
@@ -4648,7 +5138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+   * Retrieves the basic information of a DNS over HTTPS (DoH) user.
    * 
    * @param request - DescribeDohUserInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4687,7 +5177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+   * Retrieves the basic information of a DNS over HTTPS (DoH) user.
    * 
    * @param request - DescribeDohUserInfoRequest
    * @returns DescribeDohUserInfoResponse
@@ -4698,7 +5188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+   * Queries the Domain Name System Security Extensions (DNSSEC) information for a specified domain name.
    * 
    * @param request - DescribeDomainDnssecInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4733,7 +5223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+   * Queries the Domain Name System Security Extensions (DNSSEC) information for a specified domain name.
    * 
    * @param request - DescribeDomainDnssecInfoRequest
    * @returns DescribeDomainDnssecInfoResponse
@@ -4744,7 +5234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all domain name groups based on the specified parameters.
+   * Queries domain name groups.
    * 
    * @param request - DescribeDomainGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4787,7 +5277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all domain name groups based on the specified parameters.
+   * Queries domain name groups.
    * 
    * @param request - DescribeDomainGroupsRequest
    * @returns DescribeDomainGroupsResponse
@@ -4798,10 +5288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a domain name based on specified parameters.
+   * Queries information about a specified domain name.
    * 
    * @remarks
-   * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+   * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Ultimate Edition. For more information about line enumeration, see the RecordLines response parameter.
    * 
    * @param request - DescribeDomainInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4840,10 +5330,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a domain name based on specified parameters.
+   * Queries information about a specified domain name.
    * 
    * @remarks
-   * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+   * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Ultimate Edition. For more information about line enumeration, see the RecordLines response parameter.
    * 
    * @param request - DescribeDomainInfoRequest
    * @returns DescribeDomainInfoResponse
@@ -4854,7 +5344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operation logs of domain names based on the specified parameters.
+   * Queries the operation logs for a domain name based on the specified parameters.
    * 
    * @param request - DescribeDomainLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4913,7 +5403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operation logs of domain names based on the specified parameters.
+   * Queries the operation logs for a domain name based on the specified parameters.
    * 
    * @param request - DescribeDomainLogsRequest
    * @returns DescribeDomainLogsResponse
@@ -4924,10 +5414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+   * Queries the current list of name servers for a domain name and determines whether the servers are managed by Alibaba Cloud DNS.
    * 
    * @remarks
-   * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+   * > This operation directly queries the authoritative server of the domain name registry to retrieve the DNS server names for the domain name. An error may be returned if the domain name is inactive. For example, if the domain name has a serverHold or clientHold status, or has not passed identity verification.
    * 
    * @param request - DescribeDomainNsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4962,10 +5452,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+   * Queries the current list of name servers for a domain name and determines whether the servers are managed by Alibaba Cloud DNS.
    * 
    * @remarks
-   * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+   * > This operation directly queries the authoritative server of the domain name registry to retrieve the DNS server names for the domain name. An error may be returned if the domain name is inactive. For example, if the domain name has a serverHold or clientHold status, or has not passed identity verification.
    * 
    * @param request - DescribeDomainNsRequest
    * @returns DescribeDomainNsResponse
@@ -4976,11 +5466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
-   * 
-   * @remarks
-   * ## Debugging
-   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+   * Retrieves the details of a DNS record by its ID.
    * 
    * @param request - DescribeDomainRecordInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5019,11 +5505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
-   * 
-   * @remarks
-   * ## Debugging
-   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+   * Retrieves the details of a DNS record by its ID.
    * 
    * @param request - DescribeDomainRecordInfoRequest
    * @returns DescribeDomainRecordInfoResponse
@@ -5034,13 +5516,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+   * Retrieves the DNS records for a specified root domain based on the input parameters.
    * 
    * @remarks
-   *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
-   * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
-   * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
-   * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+   * - You can specify the domain name (DomainName), page number (PageNumber), and page size (PageSize) to retrieve a list of DNS records.
+   * - You can specify a keyword for the host record (RRKeyWord), record type (TypeKeyWord), or record value (ValueKeyWord) to query DNS records that contain the keyword.
+   * - By default, DNS records are sorted in descending order by the time they were added.
+   * - You can specify a domain group ID (GroupId) to query the DNS records in a specific group.
    * 
    * @param request - DescribeDomainRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5127,13 +5609,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+   * Retrieves the DNS records for a specified root domain based on the input parameters.
    * 
    * @remarks
-   *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
-   * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
-   * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
-   * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+   * - You can specify the domain name (DomainName), page number (PageNumber), and page size (PageSize) to retrieve a list of DNS records.
+   * - You can specify a keyword for the host record (RRKeyWord), record type (TypeKeyWord), or record value (ValueKeyWord) to query DNS records that contain the keyword.
+   * - By default, DNS records are sorted in descending order by the time they were added.
+   * - You can specify a domain group ID (GroupId) to query the DNS records in a specific group.
    * 
    * @param request - DescribeDomainRecordsRequest
    * @returns DescribeDomainRecordsResponse
@@ -5144,7 +5626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resolution requests of all paid domain names within your account.
+   * Queries the request volumes for all paid domain names in your account.
    * 
    * @param request - DescribeDomainResolveStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5207,7 +5689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resolution requests of all paid domain names within your account.
+   * Queries the request volumes for all paid domain names in your account.
    * 
    * @param request - DescribeDomainResolveStatisticsSummaryRequest
    * @returns DescribeDomainResolveStatisticsSummaryResponse
@@ -5218,10 +5700,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+   * Queries the number of real-time requests for a specified primary domain name.
    * 
    * @remarks
-   * Real-time data is collected per hour.
+   * Real-time data is collected hourly.
    * 
    * @param request - DescribeDomainStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5268,10 +5750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+   * Queries the number of real-time requests for a specified primary domain name.
    * 
    * @remarks
-   * Real-time data is collected per hour.
+   * Real-time data is collected hourly.
    * 
    * @param request - DescribeDomainStatisticsRequest
    * @returns DescribeDomainStatisticsResponse
@@ -5282,7 +5764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+   * Queries the number of requests for all paid domain names in your account.
    * 
    * @param request - DescribeDomainStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5341,7 +5823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+   * Queries the number of requests for all paid domain names in your account.
    * 
    * @param request - DescribeDomainStatisticsSummaryRequest
    * @returns DescribeDomainStatisticsSummaryResponse
@@ -5352,13 +5834,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+   * Queries a list of domain names based on specified parameters.
    * 
    * @remarks
-   *   You can specify the PageNumber and PageSize parameters to query domain names.
-   * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
-   * *   By default, the domain names in a list are sorted in descending order of the time they were added.
-   * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+   * 1. You can specify a page number (PageNumber) and page size (PageSize) to retrieve a paginated list of domain names.
+   * 2. You can specify a keyword (KeyWord) to query for domain names that contain the specified keyword.
+   * 3. By default, domain names are sorted in descending order of their creation time.
+   * 4. You can specify a domain name group ID (GroupId) to query for domain names in a specific group. This lets you retrieve all domain names or only the domain names that are not assigned to a group.
    * 
    * @param request - DescribeDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5417,13 +5899,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+   * Queries a list of domain names based on specified parameters.
    * 
    * @remarks
-   *   You can specify the PageNumber and PageSize parameters to query domain names.
-   * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
-   * *   By default, the domain names in a list are sorted in descending order of the time they were added.
-   * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+   * 1. You can specify a page number (PageNumber) and page size (PageSize) to retrieve a paginated list of domain names.
+   * 2. You can specify a keyword (KeyWord) to query for domain names that contain the specified keyword.
+   * 3. By default, domain names are sorted in descending order of their creation time.
+   * 4. You can specify a domain name group ID (GroupId) to query for domain names in a specific group. This lets you retrieve all domain names or only the domain names that are not assigned to a group.
    * 
    * @param request - DescribeDomainsRequest
    * @returns DescribeDomainsResponse
@@ -5434,7 +5916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+   * Queries the access policies for an instance.
    * 
    * @param request - DescribeGtmAccessStrategiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5477,7 +5959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+   * Queries the access policies for an instance.
    * 
    * @param request - DescribeGtmAccessStrategiesRequest
    * @returns DescribeGtmAccessStrategiesResponse
@@ -5488,7 +5970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+   * Queries the details of an access policy based on the policy ID.
    * 
    * @param request - DescribeGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5523,7 +6005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+   * Queries the details of an access policy based on the policy ID.
    * 
    * @param request - DescribeGtmAccessStrategyRequest
    * @returns DescribeGtmAccessStrategyResponse
@@ -5534,7 +6016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration items that can be set for an access policy.
+   * Queries the available configurations for an access policy.
    * 
    * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5569,7 +6051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration items that can be set for an access policy.
+   * Queries the available configurations for an access policy.
    * 
    * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
    * @returns DescribeGtmAccessStrategyAvailableConfigResponse
@@ -5580,7 +6062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+   * Queries the list of available alert contact groups for a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeGtmAvailableAlertGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5611,7 +6093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+   * Queries the list of available alert contact groups for a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeGtmAvailableAlertGroupRequest
    * @returns DescribeGtmAvailableAlertGroupResponse
@@ -5622,7 +6104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a Global Traffic Manager (GTM) instance.
+   * Queries the details of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeGtmInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5661,7 +6143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a Global Traffic Manager (GTM) instance.
+   * Queries the details of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeGtmInstanceRequest
    * @returns DescribeGtmInstanceResponse
@@ -5672,7 +6154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+   * Describes the details of an address pool.
    * 
    * @param request - DescribeGtmInstanceAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5707,7 +6189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+   * Describes the details of an address pool.
    * 
    * @param request - DescribeGtmInstanceAddressPoolRequest
    * @returns DescribeGtmInstanceAddressPoolResponse
@@ -5718,7 +6200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+   * Describes the address pools of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeGtmInstanceAddressPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5761,7 +6243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+   * Describes the address pools of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - DescribeGtmInstanceAddressPoolsRequest
    * @returns DescribeGtmInstanceAddressPoolsResponse
@@ -5772,7 +6254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a Global Traffic Manager (GTM) instance.
+   * Queries the current status of an instance.
    * 
    * @param request - DescribeGtmInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5807,7 +6289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a Global Traffic Manager (GTM) instance.
+   * Queries the current status of an instance.
    * 
    * @param request - DescribeGtmInstanceStatusRequest
    * @returns DescribeGtmInstanceStatusResponse
@@ -5818,7 +6300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the CNAME record assigned by the system.
+   * Retrieves the system-assigned CNAME domain name.
    * 
    * @param request - DescribeGtmInstanceSystemCnameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5853,7 +6335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the CNAME record assigned by the system.
+   * Retrieves the system-assigned CNAME domain name.
    * 
    * @param request - DescribeGtmInstanceSystemCnameRequest
    * @returns DescribeGtmInstanceSystemCnameResponse
@@ -5864,7 +6346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Global Traffic Manager (GTM) instances under your account.
+   * Queries Global Traffic Manager (GTM) instances.
    * 
    * @param request - DescribeGtmInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5915,7 +6397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Global Traffic Manager (GTM) instances under your account.
+   * Queries Global Traffic Manager (GTM) instances.
    * 
    * @param request - DescribeGtmInstancesRequest
    * @returns DescribeGtmInstancesResponse
@@ -5926,7 +6408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+   * Queries a list of logs.
    * 
    * @param request - DescribeGtmLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5981,7 +6463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+   * Queries a list of logs.
    * 
    * @param request - DescribeGtmLogsRequest
    * @returns DescribeGtmLogsResponse
@@ -5992,7 +6474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries available monitored nodes.
+   * Retrieves the available configurations for health checks.
    * 
    * @param request - DescribeGtmMonitorAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6023,7 +6505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries available monitored nodes.
+   * Retrieves the available configurations for health checks.
    * 
    * @param request - DescribeGtmMonitorAvailableConfigRequest
    * @returns DescribeGtmMonitorAvailableConfigResponse
@@ -6034,7 +6516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+   * Retrieves the health check configuration for an address pool.
    * 
    * @param request - DescribeGtmMonitorConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6069,7 +6551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+   * Retrieves the health check configuration for an address pool.
    * 
    * @param request - DescribeGtmMonitorConfigRequest
    * @returns DescribeGtmMonitorConfigResponse
@@ -6080,7 +6562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a disaster recovery plan.
+   * Retrieves the details of a disaster recovery plan.
    * 
    * @param request - DescribeGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6115,7 +6597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a disaster recovery plan.
+   * Retrieves the details of a disaster recovery plan.
    * 
    * @param request - DescribeGtmRecoveryPlanRequest
    * @returns DescribeGtmRecoveryPlanResponse
@@ -6126,7 +6608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration items that can be set for a disaster recovery plan.
+   * Describes the available configurations for a disaster recovery plan.
    * 
    * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6157,7 +6639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration items that can be set for a disaster recovery plan.
+   * Describes the available configurations for a disaster recovery plan.
    * 
    * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
    * @returns DescribeGtmRecoveryPlanAvailableConfigResponse
@@ -6168,7 +6650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries disaster recovery plans.
+   * Queries a list of disaster recovery plans.
    * 
    * @param request - DescribeGtmRecoveryPlansRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6211,7 +6693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries disaster recovery plans.
+   * Queries a list of disaster recovery plans.
    * 
    * @param request - DescribeGtmRecoveryPlansRequest
    * @returns DescribeGtmRecoveryPlansResponse
@@ -6222,7 +6704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+   * Retrieves a list of domain names that are attached to an instance.
    * 
    * @param request - DescribeInstanceDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6269,7 +6751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+   * Retrieves a list of domain names that are attached to an instance.
    * 
    * @param request - DescribeInstanceDomainsRequest
    * @returns DescribeInstanceDomainsResponse
@@ -6280,7 +6762,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 公网权威解析统计信息全局总览
+   * Retrieves a global overview of statistics for public authoritative DNS.
+   * 
+   * @remarks
+   * Real-time data is aggregated hourly.
    * 
    * @param request - DescribeInterAuthStatisticsGlobalOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6323,7 +6808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 公网权威解析统计信息全局总览
+   * Retrieves a global overview of statistics for public authoritative DNS.
+   * 
+   * @remarks
+   * Real-time data is aggregated hourly.
    * 
    * @param request - DescribeInterAuthStatisticsGlobalOverviewRequest
    * @returns DescribeInterAuthStatisticsGlobalOverviewResponse
@@ -6334,7 +6822,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 公网权威解析统计信息趋势
+   * Historical statistics for public authoritative DNS resolution
+   * 
+   * @remarks
+   * Real-time data statistics are aggregated hourly.
    * 
    * @param request - DescribeInterAuthStatisticsHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6389,7 +6880,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 公网权威解析统计信息趋势
+   * Historical statistics for public authoritative DNS resolution
+   * 
+   * @remarks
+   * Real-time data statistics are aggregated hourly.
    * 
    * @param request - DescribeInterAuthStatisticsHistoryRequest
    * @returns DescribeInterAuthStatisticsHistoryResponse
@@ -6400,7 +6894,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 公网权威解析统计信息摘要列表
+   * Queries the summary list of public authoritative parse statistics.
+   * 
+   * @remarks
+   * Real-time data is aggregated by hour.
    * 
    * @param request - DescribeInterAuthStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6483,7 +6980,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 公网权威解析统计信息摘要列表
+   * Queries the summary list of public authoritative parse statistics.
+   * 
+   * @remarks
+   * Real-time data is aggregated by hour.
    * 
    * @param request - DescribeInterAuthStatisticsSummaryRequest
    * @returns DescribeInterAuthStatisticsSummaryResponse
@@ -6494,7 +6994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 公网权威解析统计信息Zone维度总览
+   * Retrieves a zone-level overview of statistics for public authoritative DNS.
    * 
    * @param request - DescribeInterAuthStatisticsZoneOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6533,7 +7033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 公网权威解析统计信息Zone维度总览
+   * Retrieves a zone-level overview of statistics for public authoritative DNS.
    * 
    * @param request - DescribeInterAuthStatisticsZoneOverviewRequest
    * @returns DescribeInterAuthStatisticsZoneOverviewResponse
@@ -6544,7 +7044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询解析日志
+   * Query parsing logs
    * 
    * @param request - DescribeInternetDnsLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6615,7 +7115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询解析日志
+   * Query parsing logs
    * 
    * @param request - DescribeInternetDnsLogsRequest
    * @returns DescribeInternetDnsLogsResponse
@@ -6626,7 +7126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取缓存刷新套餐包列表
+   * Queries the list of cache refresh instances.
    * 
    * @param request - DescribeIspFlushCacheInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6685,7 +7185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取缓存刷新套餐包列表
+   * Queries the list of cache refresh instances.
    * 
    * @param request - DescribeIspFlushCacheInstancesRequest
    * @returns DescribeIspFlushCacheInstancesResponse
@@ -6696,7 +7196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取剩余可缓存刷新次数
+   * Retrieves the remaining number of cache refresh operations available.
    * 
    * @param request - DescribeIspFlushCacheRemainQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6727,7 +7227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取剩余可缓存刷新次数
+   * Retrieves the remaining number of cache refresh operations available.
    * 
    * @param request - DescribeIspFlushCacheRemainQuotaRequest
    * @returns DescribeIspFlushCacheRemainQuotaResponse
@@ -6738,7 +7238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取缓存刷新任务详情
+   * Queries the details of a cache flush task.
    * 
    * @param request - DescribeIspFlushCacheTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6773,7 +7273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取缓存刷新任务详情
+   * Queries the details of a cache flush task.
    * 
    * @param request - DescribeIspFlushCacheTaskRequest
    * @returns DescribeIspFlushCacheTaskResponse
@@ -6784,7 +7284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取缓存刷新任务列表
+   * Queries the list of cache refresh tasks.
    * 
    * @param request - DescribeIspFlushCacheTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6843,7 +7343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取缓存刷新任务列表
+   * Queries the list of cache refresh tasks.
    * 
    * @param request - DescribeIspFlushCacheTasksRequest
    * @returns DescribeIspFlushCacheTasksResponse
@@ -6854,7 +7354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS用户数据概览
+   * Queries the overview of Public DNS user data.
    * 
    * @param request - DescribePdnsAccountSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6893,7 +7393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS用户数据概览
+   * Queries the overview of Public DNS user data.
    * 
    * @param request - DescribePdnsAccountSummaryRequest
    * @returns DescribePdnsAccountSummaryResponse
@@ -6904,7 +7404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS AppKey 详情
+   * Query the details of a public DNS AppKey
    * 
    * @param request - DescribePdnsAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6943,7 +7443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS AppKey 详情
+   * Query the details of a public DNS AppKey
    * 
    * @param request - DescribePdnsAppKeyRequest
    * @returns DescribePdnsAppKeyResponse
@@ -6954,7 +7454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS AppKey 列表
+   * Queries the list of AppKeys of Public DNS
    * 
    * @param request - DescribePdnsAppKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6985,7 +7485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS AppKey 列表
+   * Queries the list of AppKeys of Public DNS
    * 
    * @param request - DescribePdnsAppKeysRequest
    * @returns DescribePdnsAppKeysResponse
@@ -6996,7 +7496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS 操作日志列表
+   * Queries the operation log list of Public DNS.
    * 
    * @param request - DescribePdnsOperateLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7055,7 +7555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS 操作日志列表
+   * Queries the operation log list of Public DNS.
    * 
    * @param request - DescribePdnsOperateLogsRequest
    * @returns DescribePdnsOperateLogsResponse
@@ -7066,7 +7566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of requests for public DNS.
+   * Queries the request statistics for Public DNS.
    * 
    * @param request - DescribePdnsRequestStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7117,7 +7617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of requests for public DNS.
+   * Queries the request statistics for Public DNS.
    * 
    * @param request - DescribePdnsRequestStatisticRequest
    * @returns DescribePdnsRequestStatisticResponse
@@ -7128,7 +7628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of statistics on requests for Alibaba Cloud Public DNS.
+   * Queries the request statistics for a specified subdomain.
    * 
    * @param request - DescribePdnsRequestStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7187,7 +7687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of statistics on requests for Alibaba Cloud Public DNS.
+   * Queries the request statistics for a specified subdomain.
    * 
    * @param request - DescribePdnsRequestStatisticsRequest
    * @returns DescribePdnsRequestStatisticsResponse
@@ -7198,7 +7698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS 威胁日志列表
+   * Queries the list of Public DNS threat logs.
    * 
    * @param request - DescribePdnsThreatLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7261,7 +7761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS 威胁日志列表
+   * Queries the list of Public DNS threat logs.
    * 
    * @param request - DescribePdnsThreatLogsRequest
    * @returns DescribePdnsThreatLogsResponse
@@ -7272,7 +7772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS 威胁统计
+   * Retrieves Public DNS threat statistics.
    * 
    * @param request - DescribePdnsThreatStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7315,7 +7815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS 威胁统计
+   * Retrieves Public DNS threat statistics.
    * 
    * @param request - DescribePdnsThreatStatisticRequest
    * @returns DescribePdnsThreatStatisticResponse
@@ -7326,7 +7826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS 威胁统计列表
+   * Retrieves the public DNS threat statistics list.
    * 
    * @param request - DescribePdnsThreatStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7405,7 +7905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS 威胁统计列表
+   * Retrieves the public DNS threat statistics list.
    * 
    * @param request - DescribePdnsThreatStatisticsRequest
    * @returns DescribePdnsThreatStatisticsResponse
@@ -7416,7 +7916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS Udp IP段列表
+   * Retrieves the list of Public DNS UDP IP address ranges.
    * 
    * @param request - DescribePdnsUdpIpSegmentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7455,7 +7955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取公共DNS Udp IP段列表
+   * Retrieves the list of Public DNS UDP IP address ranges.
    * 
    * @param request - DescribePdnsUdpIpSegmentsRequest
    * @returns DescribePdnsUdpIpSegmentsResponse
@@ -7466,7 +7966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about users in Alibaba Cloud Public DNS.
+   * Retrieves user information for Public DNS.
    * 
    * @param request - DescribePdnsUserInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7497,7 +7997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about users in Alibaba Cloud Public DNS.
+   * Retrieves user information for Public DNS.
    * 
    * @param request - DescribePdnsUserInfoRequest
    * @returns DescribePdnsUserInfoResponse
@@ -7508,7 +8008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operation logs of a domain name based on the specified parameters.
+   * Queries the operation logs for the DNS records of a domain name.
    * 
    * @param request - DescribeRecordLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7567,7 +8067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operation logs of a domain name based on the specified parameters.
+   * Queries the operation logs for the DNS records of a domain name.
    * 
    * @param request - DescribeRecordLogsRequest
    * @returns DescribeRecordLogsResponse
@@ -7578,7 +8078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of resolution requests for all subdomain names of a specified domain name.
+   * Queries statistics on the request volume for all subdomains of a specified domain name.
    * 
    * @param request - DescribeRecordResolveStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7649,7 +8149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of resolution requests for all subdomain names of a specified domain name.
+   * Queries statistics on the request volume for all subdomains of a specified domain name.
    * 
    * @param request - DescribeRecordResolveStatisticsSummaryRequest
    * @returns DescribeRecordResolveStatisticsSummaryResponse
@@ -7660,10 +8160,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+   * Queries real-time data about DNS requests for a specified subdomain.
    * 
    * @remarks
-   * Real-time data is collected per hour.
+   * Real-time data is collected hourly.
    * 
    * @param request - DescribeRecordStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7714,10 +8214,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+   * Queries real-time data about DNS requests for a specified subdomain.
    * 
    * @remarks
-   * Real-time data is collected per hour.
+   * Real-time data is collected hourly.
    * 
    * @param request - DescribeRecordStatisticsRequest
    * @returns DescribeRecordStatisticsResponse
@@ -7728,7 +8228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+   * Queries statistics on the request volume for all subdomains of a specified domain name.
    * 
    * @param request - DescribeRecordStatisticsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7795,7 +8295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+   * Queries statistics on the request volume for all subdomains of a specified domain name.
    * 
    * @param request - DescribeRecordStatisticsSummaryRequest
    * @returns DescribeRecordStatisticsSummaryResponse
@@ -7806,7 +8306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of HTTPDNS resolution records
+   * Describes a built-in authoritative DNS record used for recursive resolution.
    * 
    * @param request - DescribeRecursionRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7837,7 +8337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of HTTPDNS resolution records
+   * Describes a built-in authoritative DNS record used for recursive resolution.
    * 
    * @param request - DescribeRecursionRecordRequest
    * @returns DescribeRecursionRecordResponse
@@ -7848,7 +8348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询递归解析内置权威域名zone详情
+   * Queries the details of an authoritative zone for recursive resolution.
+   * 
+   * @remarks
+   * Real-time data is measured hourly.
    * 
    * @param request - DescribeRecursionZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7879,7 +8382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询递归解析内置权威域名zone详情
+   * Queries the details of an authoritative zone for recursive resolution.
+   * 
+   * @remarks
+   * Real-time data is measured hourly.
    * 
    * @param request - DescribeRecursionZoneRequest
    * @returns DescribeRecursionZoneResponse
@@ -7890,7 +8396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+   * Retrieves all DNS records for a specific subdomain based on the specified parameters.
    * 
    * @param request - DescribeSubDomainRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7949,7 +8455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+   * Retrieves all DNS records for a specific subdomain based on the specified parameters.
    * 
    * @param request - DescribeSubDomainRecordsRequest
    * @returns DescribeSubDomainRecordsResponse
@@ -7960,7 +8466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all lines that are supported by Alibaba Cloud DNS.
+   * Queries all lines supported by Cloud DNS.
    * 
    * @param request - DescribeSupportLinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7999,7 +8505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all lines that are supported by Alibaba Cloud DNS.
+   * Queries all lines supported by Cloud DNS.
    * 
    * @param request - DescribeSupportLinesRequest
    * @returns DescribeSupportLinesResponse
@@ -8064,7 +8570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+   * Queries the domain names transferred between accounts based on the specified input parameters.
    * 
    * @param request - DescribeTransferDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8119,7 +8625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+   * Queries the domain names transferred between accounts based on the specified input parameters.
    * 
    * @param request - DescribeTransferDomainsRequest
    * @returns DescribeTransferDomainsResponse
@@ -8176,11 +8682,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a primary domain name based on the specified parameters.
+   * Retrieves the primary domain name from a specified domain name.
    * 
    * @remarks
-   * For more information about the difference between primary domain names and subdomain names, see
-   * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+   * For more information about primary and subdomain name levels, see
+   * <props="china">[Domain name levels](https://help.aliyun.com/document_detail/39803.html?spm=a2c4g.2357293.0.0.211f41ffUR1cPb). For example, if you enter `www.abc.com`, the output is abc.com.
+   * <props="intl">[Domain name levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, the output is abc.com.
    * 
    * @param request - GetMainDomainNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8215,11 +8722,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a primary domain name based on the specified parameters.
+   * Retrieves the primary domain name from a specified domain name.
    * 
    * @remarks
-   * For more information about the difference between primary domain names and subdomain names, see
-   * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+   * For more information about primary and subdomain name levels, see
+   * <props="china">[Domain name levels](https://help.aliyun.com/document_detail/39803.html?spm=a2c4g.2357293.0.0.211f41ffUR1cPb). For example, if you enter `www.abc.com`, the output is abc.com.
+   * <props="intl">[Domain name levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, the output is abc.com.
    * 
    * @param request - GetMainDomainNameRequest
    * @returns GetMainDomainNameResponse
@@ -8230,7 +8738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+   * Generates a TXT record for domain and subdomain verification. This operation supports batch retrieval.
    * 
    * @param request - GetTxtRecordForVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8269,7 +8777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+   * Generates a TXT record for domain and subdomain verification. This operation supports batch retrieval.
    * 
    * @param request - GetTxtRecordForVerifyRequest
    * @returns GetTxtRecordForVerifyResponse
@@ -8280,7 +8788,225 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of address pools.
+   * Queries the list of Agent registration information.
+   * 
+   * @param request - ListAtiAgentRegisterInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAtiAgentRegisterInfosResponse
+   */
+  async listAtiAgentRegisterInfosWithOptions(request: $_model.ListAtiAgentRegisterInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAtiAgentRegisterInfosResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentDisplayName)) {
+      query["AgentDisplayName"] = request.agentDisplayName;
+    }
+
+    if (!$dara.isNull(request.agentHost)) {
+      query["AgentHost"] = request.agentHost;
+    }
+
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAtiAgentRegisterInfos",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAtiAgentRegisterInfosResponse>(await this.callApi(params, req, runtime), new $_model.ListAtiAgentRegisterInfosResponse({}));
+  }
+
+  /**
+   * Queries the list of Agent registration information.
+   * 
+   * @param request - ListAtiAgentRegisterInfosRequest
+   * @returns ListAtiAgentRegisterInfosResponse
+   */
+  async listAtiAgentRegisterInfos(request: $_model.ListAtiAgentRegisterInfosRequest): Promise<$_model.ListAtiAgentRegisterInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAtiAgentRegisterInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of real-name registered contacts.
+   * 
+   * @param request - ListAtiChangeLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAtiChangeLogsResponse
+   */
+  async listAtiChangeLogsWithOptions(request: $_model.ListAtiChangeLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAtiChangeLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.operatorAccount)) {
+      query["OperatorAccount"] = request.operatorAccount;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAtiChangeLogs",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAtiChangeLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListAtiChangeLogsResponse({}));
+  }
+
+  /**
+   * Queries the list of real-name registered contacts.
+   * 
+   * @param request - ListAtiChangeLogsRequest
+   * @returns ListAtiChangeLogsResponse
+   */
+  async listAtiChangeLogs(request: $_model.ListAtiChangeLogsRequest): Promise<$_model.ListAtiChangeLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAtiChangeLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实名注册人列表
+   * 
+   * @param request - ListAtiRegistrantsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAtiRegistrantsResponse
+   */
+  async listAtiRegistrantsWithOptions(request: $_model.ListAtiRegistrantsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAtiRegistrantsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAtiRegistrants",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAtiRegistrantsResponse>(await this.callApi(params, req, runtime), new $_model.ListAtiRegistrantsResponse({}));
+  }
+
+  /**
+   * 查询实名注册人列表
+   * 
+   * @param request - ListAtiRegistrantsRequest
+   * @returns ListAtiRegistrantsResponse
+   */
+  async listAtiRegistrants(request: $_model.ListAtiRegistrantsRequest): Promise<$_model.ListAtiRegistrantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAtiRegistrantsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of address pools in Global Traffic Manager (GTM) 3.0.
    * 
    * @param request - ListCloudGtmAddressPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8339,7 +9065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of address pools.
+   * Queries the list of address pools in Global Traffic Manager (GTM) 3.0.
    * 
    * @param request - ListCloudGtmAddressPoolsRequest
    * @returns ListCloudGtmAddressPoolsResponse
@@ -8350,7 +9076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of addresses.
+   * Queries a list of addresses based on the specified parameters.
    * 
    * @param request - ListCloudGtmAddressesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8421,7 +9147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of addresses.
+   * Queries a list of addresses based on the specified parameters.
    * 
    * @param request - ListCloudGtmAddressesRequest
    * @returns ListCloudGtmAddressesResponse
@@ -8432,6 +9158,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of alert logs.
+   * 
    * @param request - ListCloudGtmAlertLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCloudGtmAlertLogsResponse
@@ -8489,6 +9217,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of alert logs.
+   * 
    * @param request - ListCloudGtmAlertLogsRequest
    * @returns ListCloudGtmAlertLogsResponse
    */
@@ -8536,7 +9266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+   * Retrieves a list of instance configurations that contain access domain names and address pool information.
    * 
    * @param request - ListCloudGtmInstanceConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8599,7 +9329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+   * Retrieves a list of instance configurations that contain access domain names and address pool information.
    * 
    * @param request - ListCloudGtmInstanceConfigsRequest
    * @returns ListCloudGtmInstanceConfigsResponse
@@ -8610,7 +9340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the GTM 3.0 instances based on the specified parameters.
+   * Retrieves a list of GTM 3.0 instances based on the specified parameters.
    * 
    * @param request - ListCloudGtmInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8665,7 +9395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the GTM 3.0 instances based on the specified parameters.
+   * Retrieves a list of GTM 3.0 instances based on the specified parameters.
    * 
    * @param request - ListCloudGtmInstancesRequest
    * @returns ListCloudGtmInstancesResponse
@@ -8676,7 +9406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of health check nodes.
+   * Lists the health check monitoring nodes based on the specified input parameters.
    * 
    * @param request - ListCloudGtmMonitorNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8711,7 +9441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of health check nodes.
+   * Lists the health check monitoring nodes based on the specified input parameters.
    * 
    * @param request - ListCloudGtmMonitorNodesRequest
    * @returns ListCloudGtmMonitorNodesResponse
@@ -8722,7 +9452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of health check templates based on specified parameters.
+   * Queries health check templates based on the specified parameters.
    * 
    * @param request - ListCloudGtmMonitorTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8773,7 +9503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of health check templates based on specified parameters.
+   * Queries health check templates based on the specified parameters.
    * 
    * @param request - ListCloudGtmMonitorTemplatesRequest
    * @returns ListCloudGtmMonitorTemplatesResponse
@@ -8784,7 +9514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the record details of HTTPDNS resolution records
+   * Lists the built-in authoritative records for recursive resolution.
    * 
    * @param request - ListRecursionRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8859,7 +9589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the record details of HTTPDNS resolution records
+   * Lists the built-in authoritative records for recursive resolution.
    * 
    * @param request - ListRecursionRecordsRequest
    * @returns ListRecursionRecordsResponse
@@ -8870,7 +9600,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries HTTPDNS authoritative zones
+   * Queries the zones that are used for recursive resolution of built-in authoritative domain names.
+   * 
+   * @remarks
+   * - Specify at least ResourceId.N or Tag.N (Tag.N.Key and Tag.N.Value) in your request to identify the resources to retrieve.
+   * - Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the tag key are returned. An error is returned if you specify only Tag.N.Value.
+   * - If you specify both Tag.N and ResourceId.N to filter resources, only the resources that are specified by ResourceId.N and match all the specified key-value pairs are returned.
+   * - If you specify multiple tag key-value pairs, the resources that match all of them are returned.
    * 
    * @param request - ListRecursionZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8921,7 +9657,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries HTTPDNS authoritative zones
+   * Queries the zones that are used for recursive resolution of built-in authoritative domain names.
+   * 
+   * @remarks
+   * - Specify at least ResourceId.N or Tag.N (Tag.N.Key and Tag.N.Value) in your request to identify the resources to retrieve.
+   * - Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the tag key are returned. An error is returned if you specify only Tag.N.Value.
+   * - If you specify both Tag.N and ResourceId.N to filter resources, only the resources that are specified by ResourceId.N and match all the specified key-value pairs are returned.
+   * - If you specify multiple tag key-value pairs, the resources that match all of them are returned.
    * 
    * @param request - ListRecursionZonesRequest
    * @returns ListRecursionZonesResponse
@@ -8935,10 +9677,10 @@ export default class Client extends OpenApi {
    * Queries resources by tag.
    * 
    * @remarks
-   *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-   * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
-   * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
-   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   * - To specify the objects to retrieve, your request must contain at least one of the following parameters: `ResourceId.N` or `Tag.N` (which consists of Tag.N.Key and Tag.N.Value).
+   * - Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with that tag key are returned. An error occurs if you specify only Tag.N.Value.
+   * - If you specify both Tag.N and ResourceId.N to filter resources, only the resources that are specified by ResourceId.N and match all the specified tag key-value pairs are returned.
+   * - If you specify multiple tag key-value pairs, only the resources that have all the specified key-value pairs are returned.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8988,10 +9730,10 @@ export default class Client extends OpenApi {
    * Queries resources by tag.
    * 
    * @remarks
-   *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-   * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
-   * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
-   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+   * - To specify the objects to retrieve, your request must contain at least one of the following parameters: `ResourceId.N` or `Tag.N` (which consists of Tag.N.Key and Tag.N.Value).
+   * - Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with that tag key are returned. An error occurs if you specify only Tag.N.Value.
+   * - If you specify both Tag.N and ResourceId.N to filter resources, only the resources that are specified by ResourceId.N and match all the specified tag key-value pairs are returned.
+   * - If you specify multiple tag key-value pairs, only the resources that have all the specified key-value pairs are returned.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -9002,11 +9744,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
+   * Changes the DNS servers for a domain name from a third-party provider to Alibaba Cloud DNS.
    * 
    * @remarks
-   * If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
-   * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
+   * After the operation is successful, the DNS servers are changed to Alibaba Cloud DNS servers. The names of these new servers end with hichina.com.
+   * > **Prerequisite: This operation applies to domain names that are registered with Alibaba Cloud and currently use third-party DNS servers.**
    * 
    * @param request - ModifyHichinaDomainDNSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9045,11 +9787,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
+   * Changes the DNS servers for a domain name from a third-party provider to Alibaba Cloud DNS.
    * 
    * @remarks
-   * If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
-   * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
+   * After the operation is successful, the DNS servers are changed to Alibaba Cloud DNS servers. The names of these new servers end with hichina.com.
+   * > **Prerequisite: This operation applies to domain names that are registered with Alibaba Cloud and currently use third-party DNS servers.**
    * 
    * @param request - ModifyHichinaDomainDNSRequest
    * @returns ModifyHichinaDomainDNSResponse
@@ -9060,7 +9802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a domain name to another resource group.
+   * Moves a domain name to a different resource group.
    * 
    * @param request - MoveDomainResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9099,7 +9841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a domain name to another resource group.
+   * Moves a domain name to a different resource group.
    * 
    * @param request - MoveDomainResourceGroupRequest
    * @returns MoveDomainResourceGroupResponse
@@ -9110,6 +9852,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Moves a Global Traffic Manager (GTM) instance to a new resource group.
+   * 
    * @param request - MoveGtmResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MoveGtmResourceGroupResponse
@@ -9147,6 +9891,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Moves a Global Traffic Manager (GTM) instance to a new resource group.
+   * 
    * @param request - MoveGtmResourceGroupRequest
    * @returns MoveGtmResourceGroupResponse
    */
@@ -9156,10 +9902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or deletes domain names and Domain Name System (DNS) records in batches.
+   * Adds or deletes domain names and DNS records in batches.
    * 
    * @remarks
-   * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+   * Use this operation for batch DNS tasks that do not require immediate execution.
    * 
    * @param request - OperateBatchDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9198,10 +9944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or deletes domain names and Domain Name System (DNS) records in batches.
+   * Adds or deletes domain names and DNS records in batches.
    * 
    * @remarks
-   * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+   * Use this operation for batch DNS tasks that do not require immediate execution.
    * 
    * @param request - OperateBatchDomainRequest
    * @returns OperateBatchDomainResponse
@@ -9212,7 +9958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停公共DNS服务
+   * Pause Public DNS Service
    * 
    * @param request - PausePdnsServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9247,7 +9993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停公共DNS服务
+   * Pause Public DNS Service
    * 
    * @param request - PausePdnsServiceRequest
    * @returns PausePdnsServiceResponse
@@ -9258,7 +10004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views disaster recovery plan.
+   * Previews a disaster recovery plan.
    * 
    * @param request - PreviewGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9301,7 +10047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views disaster recovery plan.
+   * Previews a disaster recovery plan.
    * 
    * @param request - PreviewGtmRecoveryPlanRequest
    * @returns PreviewGtmRecoveryPlanResponse
@@ -9312,7 +10058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除公共DNS AppKey
+   * Delete Public DNS AppKey
    * 
    * @param request - RemovePdnsAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9347,7 +10093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除公共DNS AppKey
+   * Delete Public DNS AppKey
    * 
    * @param request - RemovePdnsAppKeyRequest
    * @returns RemovePdnsAppKeyResponse
@@ -9358,7 +10104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除公共DNS Udp Ip地址段
+   * Remove Public DNS UDP IP Segment
    * 
    * @param request - RemovePdnsUdpIpSegmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9393,7 +10139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除公共DNS Udp Ip地址段
+   * Remove Public DNS UDP IP Segment
    * 
    * @param request - RemovePdnsUdpIpSegmentRequest
    * @returns RemovePdnsUdpIpSegmentResponse
@@ -9404,15 +10150,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于删除特定域名的serverHold状态信息。
+   * Removes the serverHold status of a specified domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Description
+   * - This operation removes the serverHold status of a specified domain name.
    * 
    * @param request - RemoveRspDomainServerHoldStatusForGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9451,15 +10193,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于删除特定域名的serverHold状态信息。
+   * Removes the serverHold status of a specified domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Description
+   * - This operation removes the serverHold status of a specified domain name.
    * 
    * @param request - RemoveRspDomainServerHoldStatusForGatewayRequest
    * @returns RemoveRspDomainServerHoldStatusForGatewayResponse
@@ -9470,15 +10208,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于删除特定域名的serverHold状态信息。
+   * Removes the serverHold status for a specified domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Description
+   * - This operation removes the serverHold status for a specified domain name.
    * 
    * @param request - RemoveRspDomainServerHoldStatusForGatewayOteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9517,15 +10251,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于删除特定域名的serverHold状态信息。
+   * Removes the serverHold status for a specified domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Description
+   * - This operation removes the serverHold status for a specified domain name.
    * 
    * @param request - RemoveRspDomainServerHoldStatusForGatewayOteRequest
    * @returns RemoveRspDomainServerHoldStatusForGatewayOteResponse
@@ -9536,7 +10266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces the addresses referenced by an address pool.
+   * Replaces the addresses in a specified address pool.
    * 
    * @param tmpReq - ReplaceCloudGtmAddressPoolAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9585,7 +10315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces the addresses referenced by an address pool.
+   * Replaces the addresses in a specified address pool.
    * 
    * @param request - ReplaceCloudGtmAddressPoolAddressRequest
    * @returns ReplaceCloudGtmAddressPoolAddressResponse
@@ -9596,7 +10326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces address pools that are associated with a GTM instance with new address pools.
+   * Replaces the address pools associated with an instance.
    * 
    * @param tmpReq - ReplaceCloudGtmInstanceConfigAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9649,7 +10379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces address pools that are associated with a GTM instance with new address pools.
+   * Replaces the address pools associated with an instance.
    * 
    * @param request - ReplaceCloudGtmInstanceConfigAddressPoolRequest
    * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
@@ -9660,7 +10390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复公共DNS服务
+   * Resume Public DNS Service
    * 
    * @param request - ResumePdnsServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9695,7 +10425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复公共DNS服务
+   * Resume Public DNS Service
    * 
    * @param request - ResumePdnsServiceRequest
    * @returns ResumePdnsServiceResponse
@@ -9709,7 +10439,7 @@ export default class Client extends OpenApi {
    * Retrieves a domain name.
    * 
    * @remarks
-   * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+   * Before you can retrieve a domain name, you must verify it using a TXT record. Use this operation in conjunction with the <props="china">[Generate a TXT record](https://help.aliyun.com/document_detail/145533.html) <props="intl">[Generate a TXT record](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation.
    * 
    * @param request - RetrieveDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9747,7 +10477,7 @@ export default class Client extends OpenApi {
    * Retrieves a domain name.
    * 
    * @remarks
-   * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+   * Before you can retrieve a domain name, you must verify it using a TXT record. Use this operation in conjunction with the <props="china">[Generate a TXT record](https://help.aliyun.com/document_detail/145533.html) <props="intl">[Generate a TXT record](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation.
    * 
    * @param request - RetrieveDomainRequest
    * @returns RetrieveDomainResponse
@@ -9755,6 +10485,106 @@ export default class Client extends OpenApi {
   async retrieveDomain(request: $_model.RetrieveDomainRequest): Promise<$_model.RetrieveDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.retrieveDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * Revokes the registration information of an Agent.
+   * 
+   * @param request - RevokeAtiAgentRegisterInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeAtiAgentRegisterInfoResponse
+   */
+  async revokeAtiAgentRegisterInfoWithOptions(request: $_model.RevokeAtiAgentRegisterInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeAtiAgentRegisterInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentRegisterInfoId)) {
+      query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!$dara.isNull(request.reasonCode)) {
+      query["ReasonCode"] = request.reasonCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeAtiAgentRegisterInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeAtiAgentRegisterInfoResponse>(await this.callApi(params, req, runtime), new $_model.RevokeAtiAgentRegisterInfoResponse({}));
+  }
+
+  /**
+   * Revokes the registration information of an Agent.
+   * 
+   * @param request - RevokeAtiAgentRegisterInfoRequest
+   * @returns RevokeAtiAgentRegisterInfoResponse
+   */
+  async revokeAtiAgentRegisterInfo(request: $_model.RevokeAtiAgentRegisterInfoRequest): Promise<$_model.RevokeAtiAgentRegisterInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeAtiAgentRegisterInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Revokes a real-name registrant.
+   * 
+   * @param request - RevokeAtiRegistrantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeAtiRegistrantResponse
+   */
+  async revokeAtiRegistrantWithOptions(request: $_model.RevokeAtiRegistrantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeAtiRegistrantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.registrantId)) {
+      query["RegistrantId"] = request.registrantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeAtiRegistrant",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeAtiRegistrantResponse>(await this.callApi(params, req, runtime), new $_model.RevokeAtiRegistrantResponse({}));
+  }
+
+  /**
+   * Revokes a real-name registrant.
+   * 
+   * @param request - RevokeAtiRegistrantRequest
+   * @returns RevokeAtiRegistrantResponse
+   */
+  async revokeAtiRegistrant(request: $_model.RevokeAtiRegistrantRequest): Promise<$_model.RevokeAtiRegistrantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeAtiRegistrantWithOptions(request, runtime);
   }
 
   /**
@@ -9804,7 +10634,81 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of address pools.
+   * Searches for agents in the Agent Marketplace.
+   * 
+   * @param request - SearchAtiAgentRegisterInfoMarketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchAtiAgentRegisterInfoMarketResponse
+   */
+  async searchAtiAgentRegisterInfoMarketWithOptions(request: $_model.SearchAtiAgentRegisterInfoMarketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchAtiAgentRegisterInfoMarketResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.trustLevel)) {
+      query["TrustLevel"] = request.trustLevel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchAtiAgentRegisterInfoMarket",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchAtiAgentRegisterInfoMarketResponse>(await this.callApi(params, req, runtime), new $_model.SearchAtiAgentRegisterInfoMarketResponse({}));
+  }
+
+  /**
+   * Searches for agents in the Agent Marketplace.
+   * 
+   * @param request - SearchAtiAgentRegisterInfoMarketRequest
+   * @returns SearchAtiAgentRegisterInfoMarketResponse
+   */
+  async searchAtiAgentRegisterInfoMarket(request: $_model.SearchAtiAgentRegisterInfoMarketRequest): Promise<$_model.SearchAtiAgentRegisterInfoMarketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchAtiAgentRegisterInfoMarketWithOptions(request, runtime);
+  }
+
+  /**
+   * Searches for address pools by name, remarks, or other criteria.
    * 
    * @param request - SearchCloudGtmAddressPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9871,7 +10775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of address pools.
+   * Searches for address pools by name, remarks, or other criteria.
    * 
    * @param request - SearchCloudGtmAddressPoolsRequest
    * @returns SearchCloudGtmAddressPoolsResponse
@@ -9882,7 +10786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+   * Searches for addresses based on criteria such as address name, remarks, referenced health check template, or address ID.
    * 
    * @param request - SearchCloudGtmAddressesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9965,7 +10869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+   * Searches for addresses based on criteria such as address name, remarks, referenced health check template, or address ID.
    * 
    * @param request - SearchCloudGtmAddressesRequest
    * @returns SearchCloudGtmAddressesResponse
@@ -9976,7 +10880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of an access domain name.
+   * Retrieves instance configurations that match the specified parameters.
    * 
    * @param request - SearchCloudGtmInstanceConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10047,7 +10951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of an access domain name.
+   * Retrieves instance configurations that match the specified parameters.
    * 
    * @param request - SearchCloudGtmInstanceConfigsRequest
    * @returns SearchCloudGtmInstanceConfigsResponse
@@ -10058,7 +10962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * This operation searches for instances based on specified parameters.
    * 
    * @param request - SearchCloudGtmInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10113,7 +11017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * This operation searches for instances based on specified parameters.
    * 
    * @param request - SearchCloudGtmInstancesRequest
    * @returns SearchCloudGtmInstancesResponse
@@ -10124,7 +11028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of health check templates.
+   * Searches for health check templates.
    * 
    * @param request - SearchCloudGtmMonitorTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10175,7 +11079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of health check templates.
+   * Searches for health check templates.
    * 
    * @param request - SearchCloudGtmMonitorTemplatesRequest
    * @returns SearchCloudGtmMonitorTemplatesResponse
@@ -10186,7 +11090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索递归解析内置权威解析记录
+   * Searches for built-in authoritative DNS records used for recursive resolution.
    * 
    * @param request - SearchRecursionRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10273,7 +11177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索递归解析内置权威解析记录
+   * Searches for built-in authoritative DNS records used for recursive resolution.
    * 
    * @param request - SearchRecursionRecordsRequest
    * @returns SearchRecursionRecordsResponse
@@ -10284,7 +11188,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索递归解析内置权威域名zone
+   * Searches for zones of built-in authoritative domain names used for recursive resolution.
+   * 
+   * @remarks
+   * - To retrieve resources, you must specify at least `ResourceId.N` or `Tag.N` (`Tag.N.Key` and `Tag.N.Value`) in the request.
+   * - `Tag.N` is a resource tag that consists of a key-value pair. If you specify only `Tag.N.Key`, all tag values associated with that key are returned. If you specify only `Tag.N.Value`, an error is returned.
+   * - If you specify both `Tag.N` and `ResourceId.N`, the operation returns only the resources that are identified by `ResourceId.N` and match all the specified tag key-value pairs.
+   * - If you specify multiple tag key-value pairs, only resources that match all of them are returned.
    * 
    * @param tmpReq - SearchRecursionZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10353,7 +11263,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索递归解析内置权威域名zone
+   * Searches for zones of built-in authoritative domain names used for recursive resolution.
+   * 
+   * @remarks
+   * - To retrieve resources, you must specify at least `ResourceId.N` or `Tag.N` (`Tag.N.Key` and `Tag.N.Value`) in the request.
+   * - `Tag.N` is a resource tag that consists of a key-value pair. If you specify only `Tag.N.Key`, all tag values associated with that key are returned. If you specify only `Tag.N.Value`, an error is returned.
+   * - If you specify both `Tag.N` and `ResourceId.N`, the operation returns only the resources that are identified by `ResourceId.N` and match all the specified tag key-value pairs.
+   * - If you specify multiple tag key-value pairs, only resources that match all of them are returned.
    * 
    * @param request - SearchRecursionZonesRequest
    * @returns SearchRecursionZonesResponse
@@ -10364,7 +11280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置全局流量管理实例配置日志开关
+   * Enables or disables the network traffic analysis feature for a Global Traffic Manager (GTM) instance. After this feature is enabled, you can view resolution logs and statistical reports for the domain name. You can also use the intelligent alerting feature based on abnormal metrics, such as resolution success rate and sudden changes in queries per second (QPS). This improves the observability and operations and maintenance (O&M) efficiency of the GTM instance.
    * 
    * @param request - SetCloudGtmInstanceConfigLogSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10407,7 +11323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置全局流量管理实例配置日志开关
+   * Enables or disables the network traffic analysis feature for a Global Traffic Manager (GTM) instance. After this feature is enabled, you can view resolution logs and statistical reports for the domain name. You can also use the intelligent alerting feature based on abnormal metrics, such as resolution success rate and sudden changes in queries per second (QPS). This improves the observability and operations and maintenance (O&M) efficiency of the GTM instance.
    * 
    * @param request - SetCloudGtmInstanceConfigLogSwitchRequest
    * @returns SetCloudGtmInstanceConfigLogSwitchResponse
@@ -10418,7 +11334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables weighted round-robin based on the specified parameters.
+   * Enables or disables the weight configuration.
    * 
    * @param request - SetDNSSLBStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10473,7 +11389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables weighted round-robin based on the specified parameters.
+   * Enables or disables the weight configuration.
    * 
    * @param request - SetDNSSLBStatusRequest
    * @returns SetDNSSLBStatusResponse
@@ -10484,10 +11400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the access policy that is available in address pools.
+   * Sets the access mode for an access policy.
    * 
    * @remarks
-   * ***
+   * **
    * 
    * @param request - SetDnsGtmAccessModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10526,10 +11442,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the access policy that is available in address pools.
+   * Sets the access mode for an access policy.
    * 
    * @remarks
-   * ***
+   * **
    * 
    * @param request - SetDnsGtmAccessModeRequest
    * @returns SetDnsGtmAccessModeResponse
@@ -10540,7 +11456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the health check status of an address pool.
+   * Sets the health check status for an address pool.
    * 
    * @param request - SetDnsGtmMonitorStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10579,7 +11495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the health check status of an address pool.
+   * Sets the health check status for an address pool.
    * 
    * @param request - SetDnsGtmMonitorStatusRequest
    * @returns SetDnsGtmMonitorStatusResponse
@@ -10590,7 +11506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
+   * Enables or disables Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only to users of paid Alibaba Cloud DNS.
    * 
    * @param request - SetDomainDnssecStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10629,7 +11545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
+   * Enables or disables Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only to users of paid Alibaba Cloud DNS.
    * 
    * @param request - SetDomainDnssecStatusRequest
    * @returns SetDomainDnssecStatusResponse
@@ -10640,7 +11556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+   * Sets the status of a DNS record.
    * 
    * @param request - SetDomainRecordStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10683,7 +11599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+   * Sets the status of a DNS record.
    * 
    * @param request - SetDomainRecordStatusRequest
    * @returns SetDomainRecordStatusResponse
@@ -10694,7 +11610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a policy for switchover between address pool sets.
+   * Modifies the address pool switchover policy based on the request parameters.
    * 
    * @param request - SetGtmAccessModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10733,7 +11649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a policy for switchover between address pool sets.
+   * Modifies the address pool switchover policy based on the request parameters.
    * 
    * @param request - SetGtmAccessModeRequest
    * @returns SetGtmAccessModeResponse
@@ -10744,7 +11660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+   * Sets the health check status of an address pool.
    * 
    * @param request - SetGtmMonitorStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10783,7 +11699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+   * Sets the health check status of an address pool.
    * 
    * @param request - SetGtmMonitorStatusRequest
    * @returns SetGtmMonitorStatusResponse
@@ -10794,7 +11710,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交缓存刷新任务
+   * Submits Agent registration information.
+   * 
+   * @param request - SubmitAtiAgentRegisterInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAtiAgentRegisterInfoResponse
+   */
+  async submitAtiAgentRegisterInfoWithOptions(request: $_model.SubmitAtiAgentRegisterInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAtiAgentRegisterInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentRegisterInfoId)) {
+      query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.identityCsr)) {
+      query["IdentityCsr"] = request.identityCsr;
+    }
+
+    if (!$dara.isNull(request.serverCertPem)) {
+      query["ServerCertPem"] = request.serverCertPem;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAtiAgentRegisterInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAtiAgentRegisterInfoResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAtiAgentRegisterInfoResponse({}));
+  }
+
+  /**
+   * Submits Agent registration information.
+   * 
+   * @param request - SubmitAtiAgentRegisterInfoRequest
+   * @returns SubmitAtiAgentRegisterInfoResponse
+   */
+  async submitAtiAgentRegisterInfo(request: $_model.SubmitAtiAgentRegisterInfoRequest): Promise<$_model.SubmitAtiAgentRegisterInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAtiAgentRegisterInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a cache refresh task.
    * 
    * @param request - SubmitIspFlushCacheTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10837,7 +11807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交缓存刷新任务
+   * Submits a cache refresh task.
    * 
    * @param request - SubmitIspFlushCacheTaskRequest
    * @returns SubmitIspFlushCacheTaskResponse
@@ -10848,7 +11818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the access policy type for a GTM instance.
+   * Switches the access strategy mode of an instance.
    * 
    * @param request - SwitchDnsGtmInstanceStrategyModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10887,7 +11857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the access policy type for a GTM instance.
+   * Switches the access strategy mode of an instance.
    * 
    * @param request - SwitchDnsGtmInstanceStrategyModeRequest
    * @returns SwitchDnsGtmInstanceStrategyModeResponse
@@ -10898,7 +11868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds and modifies a tag for a resource.
+   * Adds or modifies tags for resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10941,7 +11911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds and modifies a tag for a resource.
+   * Adds or modifies tags for resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -10952,7 +11922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers multiple domain names from the current account to another account at a time.
+   * Batch transfers DNS permissions for multiple domain names to a specified execution account.
    * 
    * @param request - TransferDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10995,7 +11965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers multiple domain names from the current account to another account at a time.
+   * Batch transfers DNS permissions for multiple domain names to a specified execution account.
    * 
    * @param request - TransferDomainRequest
    * @returns TransferDomainResponse
@@ -11006,11 +11976,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+   * Detaches domain names from a paid Alibaba Cloud DNS instance.
    * 
    * @remarks
-   * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+   * An instance with an ID that starts with \\`dns-\\` is a new version instance. New version instances support attaching multiple domain names. You can call an API operation to attach domain names directly to an instance. An error is returned if the number of domain names exceeds the instance limit.
+   * An instance with an ID that does not start with \\`dns-\\` is a legacy instance. Legacy instances support only one domain name. Therefore, if you call this operation for an instance that already has a domain name attached, the domain name is replaced.
    * 
    * @param request - UnbindInstanceDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11049,11 +12019,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+   * Detaches domain names from a paid Alibaba Cloud DNS instance.
    * 
    * @remarks
-   * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+   * An instance with an ID that starts with \\`dns-\\` is a new version instance. New version instances support attaching multiple domain names. You can call an API operation to attach domain names directly to an instance. An error is returned if the number of domain names exceeds the instance limit.
+   * An instance with an ID that does not start with \\`dns-\\` is a legacy instance. Legacy instances support only one domain name. Therefore, if you call this operation for an instance that already has a domain name attached, the domain name is replaced.
    * 
    * @param request - UnbindInstanceDomainsRequest
    * @returns UnbindInstanceDomainsResponse
@@ -11122,7 +12092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改 AppKey 状态
+   * Modify AppKey State
    * 
    * @param request - UpdateAppKeyStateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11161,7 +12131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改 AppKey 状态
+   * Modify AppKey State
    * 
    * @param request - UpdateAppKeyStateRequest
    * @returns UpdateAppKeyStateResponse
@@ -11172,7 +12142,219 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the condition for determining the health status of a specified address.
+   * Updates the registration information of an Agent.
+   * 
+   * @param tmpReq - UpdateAtiAgentRegisterInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAtiAgentRegisterInfoResponse
+   */
+  async updateAtiAgentRegisterInfoWithOptions(tmpReq: $_model.UpdateAtiAgentRegisterInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAtiAgentRegisterInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAtiAgentRegisterInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.endpoints)) {
+      request.endpointsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endpoints, "Endpoints", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentDescription)) {
+      query["AgentDescription"] = request.agentDescription;
+    }
+
+    if (!$dara.isNull(request.agentDisplayName)) {
+      query["AgentDisplayName"] = request.agentDisplayName;
+    }
+
+    if (!$dara.isNull(request.agentHost)) {
+      query["AgentHost"] = request.agentHost;
+    }
+
+    if (!$dara.isNull(request.agentRegisterInfoId)) {
+      query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
+    }
+
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.endpointsShrink)) {
+      query["Endpoints"] = request.endpointsShrink;
+    }
+
+    if (!$dara.isNull(request.registrantId)) {
+      query["RegistrantId"] = request.registrantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAtiAgentRegisterInfo",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAtiAgentRegisterInfoResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAtiAgentRegisterInfoResponse({}));
+  }
+
+  /**
+   * Updates the registration information of an Agent.
+   * 
+   * @param request - UpdateAtiAgentRegisterInfoRequest
+   * @returns UpdateAtiAgentRegisterInfoResponse
+   */
+  async updateAtiAgentRegisterInfo(request: $_model.UpdateAtiAgentRegisterInfoRequest): Promise<$_model.UpdateAtiAgentRegisterInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAtiAgentRegisterInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新告警设置
+   * 
+   * @param request - UpdateAtiAlertSettingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAtiAlertSettingsResponse
+   */
+  async updateAtiAlertSettingsWithOptions(request: $_model.UpdateAtiAlertSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAtiAlertSettingsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertConfig)) {
+      query["AlertConfig"] = request.alertConfig;
+    }
+
+    if (!$dara.isNull(request.alertGroup)) {
+      query["AlertGroup"] = request.alertGroup;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAtiAlertSettings",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAtiAlertSettingsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAtiAlertSettingsResponse({}));
+  }
+
+  /**
+   * 更新告警设置
+   * 
+   * @param request - UpdateAtiAlertSettingsRequest
+   * @returns UpdateAtiAlertSettingsResponse
+   */
+  async updateAtiAlertSettings(request: $_model.UpdateAtiAlertSettingsRequest): Promise<$_model.UpdateAtiAlertSettingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAtiAlertSettingsWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a registrant profile.
+   * 
+   * @param request - UpdateAtiRegistrantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAtiRegistrantResponse
+   */
+  async updateAtiRegistrantWithOptions(request: $_model.UpdateAtiRegistrantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAtiRegistrantResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cc)) {
+      query["Cc"] = request.cc;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.documentCode)) {
+      query["DocumentCode"] = request.documentCode;
+    }
+
+    if (!$dara.isNull(request.documentImage)) {
+      query["DocumentImage"] = request.documentImage;
+    }
+
+    if (!$dara.isNull(request.documentType)) {
+      query["DocumentType"] = request.documentType;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      query["Phone"] = request.phone;
+    }
+
+    if (!$dara.isNull(request.registrantId)) {
+      query["RegistrantId"] = request.registrantId;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.street)) {
+      query["Street"] = request.street;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAtiRegistrant",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAtiRegistrantResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAtiRegistrantResponse({}));
+  }
+
+  /**
+   * Modifies a registrant profile.
+   * 
+   * @param request - UpdateAtiRegistrantRequest
+   * @returns UpdateAtiRegistrantResponse
+   */
+  async updateAtiRegistrant(request: $_model.UpdateAtiRegistrantRequest): Promise<$_model.UpdateAtiRegistrantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAtiRegistrantWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the basic configuration of a specified address, such as the address name, type, and value.
    * 
    * @param tmpReq - UpdateCloudGtmAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11237,7 +12419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the condition for determining the health status of a specified address.
+   * Modifies the basic configuration of a specified address, such as the address name, type, and value.
    * 
    * @param request - UpdateCloudGtmAddressRequest
    * @returns UpdateCloudGtmAddressResponse
@@ -11248,11 +12430,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the enabling status of an address.
+   * Updates the enabled status of an address.
    * 
    * @remarks
-   *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
-   * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
+   * - The service status of an address is **active** if the address is **enabled** and its health check status is **Normal**.
+   * - The service status of an address is **unavailable** if the address is **disabled** or its health check status is **abnormal**.
    * 
    * @param request - UpdateCloudGtmAddressEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11295,11 +12477,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the enabling status of an address.
+   * Updates the enabled status of an address.
    * 
    * @remarks
-   *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
-   * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
+   * - The service status of an address is **active** if the address is **enabled** and its health check status is **Normal**.
+   * - The service status of an address is **unavailable** if the address is **disabled** or its health check status is **abnormal**.
    * 
    * @param request - UpdateCloudGtmAddressEnableStatusRequest
    * @returns UpdateCloudGtmAddressEnableStatusResponse
@@ -11310,7 +12492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the failover mode that is used when address exceptions are identified.
+   * Updates the failover method for an address based on the specified parameters.
    * 
    * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11357,7 +12539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the failover mode that is used when address exceptions are identified.
+   * Updates the failover method for an address based on the specified parameters.
    * 
    * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
    * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
@@ -11368,7 +12550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic configurations of an address pool.
+   * Modifies the basic configuration of an address pool.
    * 
    * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11415,7 +12597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic configurations of an address pool.
+   * Modifies the basic configuration of an address pool.
    * 
    * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
    * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
@@ -11426,11 +12608,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the enabling status of an address pool.
+   * Updates the enabled status of an address pool.
    * 
    * @remarks
-   *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
-   * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
+   * - An address pool is considered **active** if it is **enabled** and its health check status is **Normal**.
+   * - An address pool is considered **unavailable** if it is **disabled** or its health check status is **abnormal**.
    * 
    * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11473,11 +12655,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the enabling status of an address pool.
+   * Updates the enabled status of an address pool.
    * 
    * @remarks
-   *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
-   * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
+   * - An address pool is considered **active** if it is **enabled** and its health check status is **Normal**.
+   * - An address pool is considered **unavailable** if it is **disabled** or its health check status is **abnormal**.
    * 
    * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
    * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
@@ -11488,7 +12670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the load balancing policy of an address pool.
+   * Updates the load balancing policy of an address pool.
    * 
    * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11535,7 +12717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the load balancing policy of an address pool.
+   * Updates the load balancing policy of an address pool.
    * 
    * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
    * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
@@ -11546,7 +12728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the remarks of an address pool.
+   * Updates the remarks of an address pool.
    * 
    * @param request - UpdateCloudGtmAddressPoolRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11589,7 +12771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the remarks of an address pool.
+   * Updates the remarks of an address pool.
    * 
    * @param request - UpdateCloudGtmAddressPoolRemarkRequest
    * @returns UpdateCloudGtmAddressPoolRemarkResponse
@@ -11600,7 +12782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the remarks of an address.
+   * Updates the remarks for an address in Global Traffic Manager (GTM) 3.0.
    * 
    * @param request - UpdateCloudGtmAddressRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11643,7 +12825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the remarks of an address.
+   * Updates the remarks for an address in Global Traffic Manager (GTM) 3.0.
    * 
    * @param request - UpdateCloudGtmAddressRemarkRequest
    * @returns UpdateCloudGtmAddressRemarkResponse
@@ -11790,7 +12972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+   * Updates the global TTL configuration of a Global Traffic Manager (GTM) 3.0 instance based on the specified parameters.
    * 
    * @param request - UpdateCloudGtmInstanceConfigBasicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11845,7 +13027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+   * Updates the global TTL configuration of a Global Traffic Manager (GTM) 3.0 instance based on the specified parameters.
    * 
    * @param request - UpdateCloudGtmInstanceConfigBasicRequest
    * @returns UpdateCloudGtmInstanceConfigBasicResponse
@@ -11856,11 +13038,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the enabling status of an access domain name based on the specified parameters.
+   * Updates the enablement status of an instance configuration based on the input parameters.
    * 
    * @remarks
-   *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
-   * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+   * - If a domain name is **enabled** and its health status is **Normal**, the service associated with the access domain name is **active**.
+   * - If a domain name is **disabled** or its health status is **abnormal**, the service associated with the access domain name is **unavailable**.
    * 
    * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11907,11 +13089,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the enabling status of an access domain name based on the specified parameters.
+   * Updates the enablement status of an instance configuration based on the input parameters.
    * 
    * @remarks
-   *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
-   * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+   * - If a domain name is **enabled** and its health status is **Normal**, the service associated with the access domain name is **active**.
+   * - If a domain name is **disabled** or its health status is **abnormal**, the service associated with the access domain name is **unavailable**.
    * 
    * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
    * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
@@ -11922,7 +13104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the load balancing policy of a GTM instance.
+   * Updates the load balancing policy for an instance configuration.
    * 
    * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11973,7 +13155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the load balancing policy of a GTM instance.
+   * Updates the load balancing policy for an instance configuration.
    * 
    * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
    * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
@@ -11984,7 +13166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of a GTM instance based on the specified parameters.
+   * Updates the remarks for an instance configuration.
    * 
    * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12031,7 +13213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of a GTM instance based on the specified parameters.
+   * Updates the remarks for an instance configuration.
    * 
    * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
    * @returns UpdateCloudGtmInstanceConfigRemarkResponse
@@ -12092,7 +13274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a health check template based on specified parameters.
+   * Updates the configuration of a health check template.
    * 
    * @param tmpReq - UpdateCloudGtmMonitorTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12165,7 +13347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a health check template based on specified parameters.
+   * Updates the configuration of a health check template.
    * 
    * @param request - UpdateCloudGtmMonitorTemplateRequest
    * @returns UpdateCloudGtmMonitorTemplateResponse
@@ -12226,11 +13408,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom line with its unique ID.
+   * Updates a custom line specified by its unique ID.
    * 
    * @remarks
-   * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+   * For each IP range, the value of EndIp must be greater than or equal to the value of StartIp.
+   * The IP ranges of IP ranges cannot overlap across all custom lines for a domain name.
    * 
    * @param request - UpdateCustomLineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12273,11 +13455,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a custom line with its unique ID.
+   * Updates a custom line specified by its unique ID.
    * 
    * @remarks
-   * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+   * For each IP range, the value of EndIp must be greater than or equal to the value of StartIp.
+   * The IP ranges of IP ranges cannot overlap across all custom lines for a domain name.
    * 
    * @param request - UpdateCustomLineRequest
    * @returns UpdateCustomLineResponse
@@ -12288,7 +13470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+   * Modifies the weight of a DNS record based on the specified parameters.
    * 
    * @param request - UpdateDNSSLBWeightRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12331,7 +13513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+   * Modifies the weight of a DNS record based on the specified parameters.
    * 
    * @param request - UpdateDNSSLBWeightRequest
    * @returns UpdateDNSSLBWeightResponse
@@ -12342,7 +13524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the cache-accelerated domain name based on the specified parameters.
+   * Updates a DNS authoritative proxy domain.
    * 
    * @param request - UpdateDnsCacheDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12401,7 +13583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the cache-accelerated domain name based on the specified parameters.
+   * Updates a DNS authoritative proxy domain.
    * 
    * @param request - UpdateDnsCacheDomainRequest
    * @returns UpdateDnsCacheDomainResponse
@@ -12412,7 +13594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the remarks for the cache-accelerated domain name of the destination domain name.
+   * Updates the remark for a domain name in the DNS cache.
    * 
    * @param request - UpdateDnsCacheDomainRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12451,7 +13633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the remarks for the cache-accelerated domain name of the destination domain name.
+   * Updates the remark for a domain name in the DNS cache.
    * 
    * @param request - UpdateDnsCacheDomainRemarkRequest
    * @returns UpdateDnsCacheDomainRemarkResponse
@@ -12462,7 +13644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an access policy.
+   * Updates an existing access policy.
    * 
    * @param request - UpdateDnsGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12557,7 +13739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an access policy.
+   * Updates an existing access policy.
    * 
    * @param request - UpdateDnsGtmAccessStrategyRequest
    * @returns UpdateDnsGtmAccessStrategyResponse
@@ -12568,7 +13750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an address pool based on the specified parameters.
+   * Updates the configuration of an address pool.
    * 
    * @param request - UpdateDnsGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12615,7 +13797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an address pool based on the specified parameters.
+   * Updates the configuration of an address pool.
    * 
    * @param request - UpdateDnsGtmAddressPoolRequest
    * @returns UpdateDnsGtmAddressPoolResponse
@@ -12626,7 +13808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
+   * Updates the configuration of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12701,7 +13883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
+   * Updates the configuration of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
    * @returns UpdateDnsGtmInstanceGlobalConfigResponse
@@ -12712,7 +13894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a health check task.
+   * Modifies a health check configuration.
    * 
    * @param request - UpdateDnsGtmMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12771,7 +13953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a health check task.
+   * Modifies a health check configuration.
    * 
    * @param request - UpdateDnsGtmMonitorRequest
    * @returns UpdateDnsGtmMonitorResponse
@@ -12782,10 +13964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a domain name group based on the specified parameters.
+   * Modifies the name of a domain name group.
    * 
    * @remarks
-   * Modifies the name of an existing domain name group.
+   * This operation modifies the name of an existing domain name group.
    * 
    * @param request - UpdateDomainGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12824,10 +14006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a domain name group based on the specified parameters.
+   * Modifies the name of a domain name group.
    * 
    * @remarks
-   * Modifies the name of an existing domain name group.
+   * This operation modifies the name of an existing domain name group.
    * 
    * @param request - UpdateDomainGroupRequest
    * @returns UpdateDomainGroupResponse
@@ -12838,7 +14020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Domain Name System (DNS) record based on the specified parameters.
+   * Modifies a DNS record based on the specified parameters.
    * 
    * @param request - UpdateDomainRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12901,7 +14083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Domain Name System (DNS) record based on the specified parameters.
+   * Modifies a DNS record based on the specified parameters.
    * 
    * @param request - UpdateDomainRecordRequest
    * @returns UpdateDomainRecordResponse
@@ -12912,7 +14094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+   * Updates the remarks of a DNS record.
    * 
    * @param request - UpdateDomainRecordRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12955,7 +14137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+   * Updates the remarks of a DNS record.
    * 
    * @param request - UpdateDomainRecordRemarkRequest
    * @returns UpdateDomainRecordRemarkResponse
@@ -12966,7 +14148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a domain name based on the specified parameters.
+   * Updates the remarks for a domain name.
    * 
    * @param request - UpdateDomainRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13005,7 +14187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a domain name based on the specified parameters.
+   * Updates the remarks for a domain name.
    * 
    * @param request - UpdateDomainRemarkRequest
    * @returns UpdateDomainRemarkResponse
@@ -13016,7 +14198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+   * Updates an access policy.
    * 
    * @param request - UpdateGtmAccessStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13067,7 +14249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+   * Updates an access policy.
    * 
    * @param request - UpdateGtmAccessStrategyRequest
    * @returns UpdateGtmAccessStrategyResponse
@@ -13078,7 +14260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+   * Modifies an address pool.
    * 
    * @param request - UpdateGtmAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13129,7 +14311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+   * Modifies an address pool.
    * 
    * @param request - UpdateGtmAddressPoolRequest
    * @returns UpdateGtmAddressPoolResponse
@@ -13140,7 +14322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+   * Updates the global configuration of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - UpdateGtmInstanceGlobalConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13203,7 +14385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+   * Updates the global configuration of a Global Traffic Manager (GTM) instance.
    * 
    * @param request - UpdateGtmInstanceGlobalConfigRequest
    * @returns UpdateGtmInstanceGlobalConfigResponse
@@ -13214,7 +14396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+   * Updates a health check configuration.
    * 
    * @param request - UpdateGtmMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13273,7 +14455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+   * Updates a health check configuration.
    * 
    * @param request - UpdateGtmMonitorRequest
    * @returns UpdateGtmMonitorResponse
@@ -13284,7 +14466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a disaster recovery plan.
+   * Updates a disaster recovery plan.
    * 
    * @param request - UpdateGtmRecoveryPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13331,7 +14513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a disaster recovery plan.
+   * Updates a disaster recovery plan.
    * 
    * @param request - UpdateGtmRecoveryPlanRequest
    * @returns UpdateGtmRecoveryPlanResponse
@@ -13342,7 +14524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改缓存刷新套餐包配置
+   * Modifies the configuration of a cache refresh plan.
    * 
    * @param request - UpdateIspFlushCacheInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13381,7 +14563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改缓存刷新套餐包配置
+   * Modifies the configuration of a cache refresh plan.
    * 
    * @param request - UpdateIspFlushCacheInstanceConfigRequest
    * @returns UpdateIspFlushCacheInstanceConfigResponse
@@ -13392,7 +14574,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies HTTPDNS resolution records.
+   * Modifies a built-in authoritative record for recursive resolution.
+   * 
+   * @remarks
+   * If a DNS record is locked, it cannot be deleted.
    * 
    * @param request - UpdateRecursionRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13455,7 +14640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies HTTPDNS resolution records.
+   * Modifies a built-in authoritative record for recursive resolution.
+   * 
+   * @remarks
+   * If a DNS record is locked, it cannot be deleted.
    * 
    * @param request - UpdateRecursionRecordRequest
    * @returns UpdateRecursionRecordResponse
@@ -13466,7 +14654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of HTTPDNS authoritative DNS resolution records
+   * Updates the enable status of a recursion record.
    * 
    * @param request - UpdateRecursionRecordEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13505,7 +14693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of HTTPDNS authoritative DNS resolution records
+   * Updates the enable status of a recursion record.
    * 
    * @param request - UpdateRecursionRecordEnableStatusRequest
    * @returns UpdateRecursionRecordEnableStatusResponse
@@ -13516,7 +14704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies description of HTTPDNS resolution records.
+   * Updates the remarks for a built-in authoritative record in HTTPDNS.
    * 
    * @param request - UpdateRecursionRecordRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13555,7 +14743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies description of HTTPDNS resolution records.
+   * Updates the remarks for a built-in authoritative record in HTTPDNS.
    * 
    * @param request - UpdateRecursionRecordRemarkRequest
    * @returns UpdateRecursionRecordRemarkResponse
@@ -13566,7 +14754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies HTTPDNS authoritative DNS resolution record weights.
+   * Updates the weight of a DNS record for recursive resolution.
    * 
    * @param request - UpdateRecursionRecordWeightRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13605,7 +14793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies HTTPDNS authoritative DNS resolution record weights.
+   * Updates the weight of a DNS record for recursive resolution.
    * 
    * @param request - UpdateRecursionRecordWeightRequest
    * @returns UpdateRecursionRecordWeightResponse
@@ -13616,7 +14804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of weight algorithm of authoritative records
+   * Updates the enabled status of the weight algorithm for a DNS record used for recursive resolution.
    * 
    * @param request - UpdateRecursionRecordWeightEnableStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13667,7 +14855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the status of weight algorithm of authoritative records
+   * Updates the enabled status of the weight algorithm for a DNS record used for recursive resolution.
    * 
    * @param request - UpdateRecursionRecordWeightEnableStatusRequest
    * @returns UpdateRecursionRecordWeightEnableStatusResponse
@@ -13678,7 +14866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the effective scope of HTTPDNS
+   * Updates the effective scope of a built-in authoritative domain name zone in HTTPDNS.
    * 
    * @param tmpReq - UpdateRecursionZoneEffectiveScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13723,7 +14911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the effective scope of HTTPDNS
+   * Updates the effective scope of a built-in authoritative domain name zone in HTTPDNS.
    * 
    * @param request - UpdateRecursionZoneEffectiveScopeRequest
    * @returns UpdateRecursionZoneEffectiveScopeResponse
@@ -13734,7 +14922,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the HTTPDNS recursive proxy mode
+   * Modifies the recursive proxy mode for a zone.
+   * 
+   * @remarks
+   * The end IP address of each IP segment must be greater than or equal to the start IP address.
+   * The IP address ranges of all IP segments for the domain name cannot overlap across custom lines.
    * 
    * @param request - UpdateRecursionZoneProxyPatternRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13773,7 +14965,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the HTTPDNS recursive proxy mode
+   * Modifies the recursive proxy mode for a zone.
+   * 
+   * @remarks
+   * The end IP address of each IP segment must be greater than or equal to the start IP address.
+   * The IP address ranges of all IP segments for the domain name cannot overlap across custom lines.
    * 
    * @param request - UpdateRecursionZoneProxyPatternRequest
    * @returns UpdateRecursionZoneProxyPatternResponse
@@ -13784,7 +14980,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of HTTPDNS authoritative domain names.
+   * Modifies the remarks for a built-in authoritative domain name zone used for recursive resolution.
+   * 
+   * @remarks
+   * The end IP address of each IP segment must be greater than or equal to the start IP address.
+   * For a domain name, the IP address ranges of all IP segments in all custom lines cannot overlap.
    * 
    * @param request - UpdateRecursionZoneRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13823,7 +15023,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of HTTPDNS authoritative domain names.
+   * Modifies the remarks for a built-in authoritative domain name zone used for recursive resolution.
+   * 
+   * @remarks
+   * The end IP address of each IP segment must be greater than or equal to the start IP address.
+   * For a domain name, the IP address ranges of all IP segments in all custom lines cannot overlap.
    * 
    * @param request - UpdateRecursionZoneRemarkRequest
    * @returns UpdateRecursionZoneRemarkResponse
@@ -13834,15 +15038,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于更新特定域名的状态信息。
+   * Updates the server-side status of a domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Request description
+   * - This operation updates the server-side status of a domain name.
    * 
    * @param request - UpdateRspDomainServerProhibitStatusForGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13885,15 +15085,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于更新特定域名的状态信息。
+   * Updates the server-side status of a domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * ## Request description
+   * - This operation updates the server-side status of a domain name.
    * 
    * @param request - UpdateRspDomainServerProhibitStatusForGatewayRequest
    * @returns UpdateRspDomainServerProhibitStatusForGatewayResponse
@@ -13904,15 +15100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于更新特定域名的状态信息。
+   * Updates the server-side status of a domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * This operation updates the server-side status of a domain name.
    * 
    * @param request - UpdateRspDomainServerProhibitStatusForGatewayOteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13955,15 +15146,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于更新特定域名的状态信息。
+   * Updates the server-side status of a domain name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * This operation updates the server-side status of a domain name.
    * 
    * @param request - UpdateRspDomainServerProhibitStatusForGatewayOteRequest
    * @returns UpdateRspDomainServerProhibitStatusForGatewayOteResponse
@@ -13974,7 +15160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查实例主机名是否可添加
+   * Checks whether an instance hostname can be added.
    * 
    * @param request - ValidateDnsGtmCnameRrCanUseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14025,7 +15211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查实例主机名是否可添加
+   * Checks whether an instance hostname can be added.
    * 
    * @param request - ValidateDnsGtmCnameRrCanUseRequest
    * @returns ValidateDnsGtmCnameRrCanUseResponse
@@ -14036,7 +15222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证公共DNS Udp Ip地址段
+   * Validates a UDP IP address segment for Public DNS.
    * 
    * @param request - ValidatePdnsUdpIpSegmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14075,7 +15261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证公共DNS Udp Ip地址段
+   * Validates a UDP IP address segment for Public DNS.
    * 
    * @param request - ValidatePdnsUdpIpSegmentRequest
    * @returns ValidatePdnsUdpIpSegmentResponse
@@ -14083,6 +15269,98 @@ export default class Client extends OpenApi {
   async validatePdnsUdpIpSegment(request: $_model.ValidatePdnsUdpIpSegmentRequest): Promise<$_model.ValidatePdnsUdpIpSegmentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.validatePdnsUdpIpSegmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Verifies DNS records.
+   * 
+   * @param request - VerifyAtiAgentDnsRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyAtiAgentDnsRecordsResponse
+   */
+  async verifyAtiAgentDnsRecordsWithOptions(request: $_model.VerifyAtiAgentDnsRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyAtiAgentDnsRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentRegisterInfoId)) {
+      query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyAtiAgentDnsRecords",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyAtiAgentDnsRecordsResponse>(await this.callApi(params, req, runtime), new $_model.VerifyAtiAgentDnsRecordsResponse({}));
+  }
+
+  /**
+   * Verifies DNS records.
+   * 
+   * @param request - VerifyAtiAgentDnsRecordsRequest
+   * @returns VerifyAtiAgentDnsRecordsResponse
+   */
+  async verifyAtiAgentDnsRecords(request: $_model.VerifyAtiAgentDnsRecordsRequest): Promise<$_model.VerifyAtiAgentDnsRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.verifyAtiAgentDnsRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 触发 ACME 预检
+   * 
+   * @param request - VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse
+   */
+  async verifyAtiAgentRegisterInfoAcmeChallengeRecordWithOptions(request: $_model.VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentRegisterInfoId)) {
+      query["AgentRegisterInfoId"] = request.agentRegisterInfoId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyAtiAgentRegisterInfoAcmeChallengeRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse>(await this.callApi(params, req, runtime), new $_model.VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse({}));
+  }
+
+  /**
+   * 触发 ACME 预检
+   * 
+   * @param request - VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
+   * @returns VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse
+   */
+  async verifyAtiAgentRegisterInfoAcmeChallengeRecord(request: $_model.VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest): Promise<$_model.VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.verifyAtiAgentRegisterInfoAcmeChallengeRecordWithOptions(request, runtime);
   }
 
 }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDnsGtmInstanceSystemCnameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * 6856BCF6-11D6-4D7E-AC53-FD579933522B
@@ -13,10 +13,10 @@ export class DescribeDnsGtmInstanceSystemCnameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The CNAME domain name assigned by the system.
+   * The system-assigned CNAME.
    * 
    * @example
-   * gtminstance.com
+   * gtm-cn-mp91004xxxx.gtm-a2**.com
    */
   systemCname?: string;
   static names(): { [key: string]: string } {

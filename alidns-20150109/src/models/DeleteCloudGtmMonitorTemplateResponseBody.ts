@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudGtmMonitorTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Unique request identification code.
+   * The unique ID of the request.
    * 
    * @example
    * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
@@ -13,9 +13,11 @@ export class DeleteCloudGtmMonitorTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation to delete the health check template was successful:
-   * - true: Operation successful
-   * - false: Operation failed
+   * Indicates whether the operation was successful.
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
