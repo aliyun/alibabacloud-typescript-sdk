@@ -46,39 +46,12 @@ export class QueryTaskConcurrencyResponseBodyData extends $dara.Model {
 }
 
 export class QueryTaskConcurrencyResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: QueryTaskConcurrencyResponseBodyData;
-  /**
-   * @example
-   * successful
-   */
   message?: string;
-  /**
-   * @example
-   * 202BFA44-28D8-571E-B992-BA70F2E92FB0
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
-  /**
-   * @example
-   * 1743387963
-   */
   timestamp?: string;
-  /**
-   * @remarks
-   * Trace ID。
-   * 
-   * @example
-   * F47D4976-FC5A-5687-A890-B7923D3B429B
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

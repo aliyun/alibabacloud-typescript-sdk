@@ -5,6 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
   /**
    * @example
+   * 1735689600000
+   */
+  callEndTimeBegin?: number;
+  /**
+   * @example
+   * 1767225600000
+   */
+  callEndTimeEnd?: number;
+  /**
+   * @example
+   * 1735689600000
+   */
+  callStartTimeBegin?: number;
+  /**
+   * @example
+   * 1767225600000
+   */
+  callStartTimeEnd?: number;
+  /**
+   * @example
    * 1
    */
   current?: number;
@@ -29,9 +49,6 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
-   * @remarks
-   * nextToken
-   * 
    * @example
    * 51CC272E-D879-1B23-B98E-FCFB072D362B
    */
@@ -53,6 +70,10 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      callEndTimeBegin: 'CallEndTimeBegin',
+      callEndTimeEnd: 'CallEndTimeEnd',
+      callStartTimeBegin: 'CallStartTimeBegin',
+      callStartTimeEnd: 'CallStartTimeEnd',
       current: 'Current',
       customerNameOrPhone: 'CustomerNameOrPhone',
       displayStatusListShrink: 'DisplayStatusList',
@@ -67,6 +88,10 @@ export class ReadOutboundTaskCallListShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      callEndTimeBegin: 'number',
+      callEndTimeEnd: 'number',
+      callStartTimeBegin: 'number',
+      callStartTimeEnd: 'number',
       current: 'number',
       customerNameOrPhone: 'string',
       displayStatusListShrink: 'string',

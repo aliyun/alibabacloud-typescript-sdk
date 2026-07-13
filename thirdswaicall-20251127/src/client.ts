@@ -39,6 +39,10 @@ export default class Client extends OpenApi {
   async queryTaskConcurrencyWithOptions(request: $_model.QueryTaskConcurrencyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTaskConcurrencyResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applicationCode)) {
+      body["ApplicationCode"] = request.applicationCode;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
@@ -91,6 +95,22 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callEndTimeBegin)) {
+      body["CallEndTimeBegin"] = request.callEndTimeBegin;
+    }
+
+    if (!$dara.isNull(request.callEndTimeEnd)) {
+      body["CallEndTimeEnd"] = request.callEndTimeEnd;
+    }
+
+    if (!$dara.isNull(request.callStartTimeBegin)) {
+      body["CallStartTimeBegin"] = request.callStartTimeBegin;
+    }
+
+    if (!$dara.isNull(request.callStartTimeEnd)) {
+      body["CallStartTimeEnd"] = request.callStartTimeEnd;
+    }
+
     if (!$dara.isNull(request.current)) {
       body["Current"] = request.current;
     }

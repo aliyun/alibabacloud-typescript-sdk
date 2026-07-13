@@ -51,6 +51,7 @@ export class ReadOutboundTaskCallListResponseBodyRecordsDialogueList extends $da
 }
 
 export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
+  billingDuration?: number;
   /**
    * @example
    * 2025-09-23 19:38:44
@@ -148,6 +149,11 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
   recordUrl?: string;
   /**
    * @example
+   * 客户待跟进
+   */
+  remark?: string;
+  /**
+   * @example
    * 0
    */
   retryCount?: number;
@@ -188,6 +194,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      billingDuration: 'BillingDuration',
       callEndTime: 'CallEndTime',
       callId: 'CallId',
       callStartTime: 'CallStartTime',
@@ -207,6 +214,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
       labelTags: 'LabelTags',
       recordDetailReady: 'RecordDetailReady',
       recordUrl: 'RecordUrl',
+      remark: 'Remark',
       retryCount: 'RetryCount',
       sceneId: 'SceneId',
       status: 'Status',
@@ -220,6 +228,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      billingDuration: 'number',
       callEndTime: 'string',
       callId: 'string',
       callStartTime: 'string',
@@ -239,6 +248,7 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
       labelTags: { 'type': 'array', 'itemType': 'string' },
       recordDetailReady: 'boolean',
       recordUrl: 'string',
+      remark: 'string',
       retryCount: 'number',
       sceneId: 'string',
       status: 'string',
@@ -266,51 +276,15 @@ export class ReadOutboundTaskCallListResponseBodyRecords extends $dara.Model {
 }
 
 export class ReadOutboundTaskCallListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * 1
-   */
   current?: number;
-  /**
-   * @example
-   * successful
-   */
   message?: string;
   records?: ReadOutboundTaskCallListResponseBodyRecords[];
-  /**
-   * @example
-   * 202BFA44-28D8-571E-B992-BA70F2E92FB0
-   */
   requestId?: string;
-  /**
-   * @example
-   * 10
-   */
   size?: number;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
-  /**
-   * @example
-   * 1743387963
-   */
   timestamp?: string;
-  /**
-   * @example
-   * 3
-   */
   total?: number;
-  /**
-   * @example
-   * F47D4976-FC5A-5687-A890-B7923D3B429B
-   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
