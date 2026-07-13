@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DebugDialogueRequest extends $dara.Model {
   /**
    * @remarks
-   * The context of the conversation.
+   * The conversation context.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class DebugDialogueRequest extends $dara.Model {
   additionalContext?: string;
   /**
    * @remarks
-   * The ID of the conversation.
+   * The user utterance.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DebugDialogueRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The user\\"s utterance.
+   * The user utterance.
    * 
    * This parameter is required.
    * 

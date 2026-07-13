@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   /**
    * @remarks
-   * The avatar of the chatbot instance.
+   * The icon of the instance.
    * 
    * @example
    * https://dss0.ali.com/70cFuHS.jpg
@@ -13,7 +13,7 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the instance was created.
    * 
    * @example
    * 1582266750353
@@ -28,9 +28,6 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
    */
   instanceId?: string;
   /**
-   * @remarks
-   * The description of the chatbot instance.
-   * 
    * @example
    * ‘’
    */
@@ -45,7 +42,7 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   languageCode?: string;
   /**
    * @remarks
-   * The name of the chatbot instance.
+   * The name of the instance.
    * 
    * @example
    * 测试机器人
@@ -95,7 +92,7 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
 export class ListChatbotInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of chatbot instances.
+   * The list of instances.
    */
   bots?: ListChatbotInstancesResponseBodyBots[];
   /**
@@ -108,7 +105,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -124,7 +121,7 @@ export class ListChatbotInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of chatbot instances.
+   * The total number of entries.
    * 
    * @example
    * 10

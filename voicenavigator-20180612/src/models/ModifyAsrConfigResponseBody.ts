@@ -40,7 +40,7 @@ export class ModifyAsrConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of the modification.
+   * The modification result.
    */
   data?: ModifyAsrConfigResponseBodyData;
   /**

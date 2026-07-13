@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * A JSON-formatted string that contains a list of digital worker instance IDs.
+   * The list of digital employee scenario IDs.
    * 
    * @example
    * ["e4bebxxxxxxxxxxx"]
@@ -13,7 +13,7 @@ export class ListInstancesRequest extends $dara.Model {
   instanceIdListJsonString?: string;
   /**
    * @remarks
-   * The instance name. This parameter is used for filtering.
+   * The scenario name used as a filter condition.
    * 
    * @example
    * 测试
@@ -21,23 +21,23 @@ export class ListInstancesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The NLU service type. This parameter is used to filter instances by the source of their conversational AI capabilities. If you do not set this parameter, instances of all types are returned.
+   * The NLU type used to filter by dialog capability source. If this parameter is not specified, all types are selected.
    * 
-   * - `MANAGED`: managed. This value is deprecated.
+   *  * MANAGED: managed (deprecated).
    * 
-   * - `AUTHORIZED`: authorized. In the public cloud, this indicates the Chatbot service.
+   *  * AUTHORIZED: authorized. In the public cloud, this refers to Chatbot service.
    * 
-   * - `PROVIDED`: private. This service is configured in the console with parameters such as `as`, `sk`, and `chatEndpoint`.
+   *  * PROVIDED: private. Configured by specifying the AccessKey ID, AccessKey Secret, and chatEndpoint in the O&M console.
+   * * CCC_AUTHORIZED: uses a Chatbot authorized by Cloud Call Center.
    * 
-   * - `CCC_AUTHORIZED`: a chatbot authorized by Cloud Connect Center (CCC).
+   * * CCC_FUNCTION: uses Alibaba Cloud Function Compute.
    * 
-   * - `CCC_FUNCTION`: Alibaba Cloud Function Compute.
+   * * SSE_FUNCTION: uses a streaming function service. Function Compute that supports SSE, used to connect to third-party large language model chatbots.
    * 
-   * - `SSE_FUNCTION`: a streaming function service. This refers to a Function Compute instance that supports Server-Sent Events (SSE) for integration with third-party large language model (LLM) chatbots.
    * 
-   * - `PROMPTS`: integration with foundational models such as Qwen.
+   * * PROMPTS: connects to Qwen foundation models.
    * 
-   * - `LOCAL`: a private cloud instance of Chatbot.
+   * * LOCAL: private cloud, local Chatbot.
    * 
    * @example
    * ["CCC_AUTHORIZED"]
@@ -45,7 +45,7 @@ export class ListInstancesRequest extends $dara.Model {
   nluServiceTypeListJsonString?: string;
   /**
    * @remarks
-   * The inbound number. This parameter is used for filtering.
+   * The inbound number used as a filter condition.
    * 
    * @example
    * 021xxxxxxx
@@ -53,7 +53,7 @@ export class ListInstancesRequest extends $dara.Model {
   number?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ListInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -73,11 +73,9 @@ export class ListInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The instance status. This parameter is used for filtering. If you do not set this parameter, instances in all statuses are returned.
-   * 
-   * - `DISABLED`: disabled
-   * 
-   * - `PUBLISHED`: published
+   * The scenario status used as a filter condition. If this parameter is not specified, all statuses are selected.
+   * * DISABLED: offline.
+   * * PUBLISHED: published.
    * 
    * @example
    * PUBLISHED
@@ -87,7 +85,7 @@ export class ListInstancesRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > If you set `UnionSource` to `CCC`, set this parameter to the ID of your CCC instance.
+   * > When UnionSource is set to CCC, set UnionInstanceId to the instance ID of Cloud Call Center.
    * 
    * @example
    * zhyl
@@ -96,8 +94,7 @@ export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The source.
-   * 
-   * - `CCC`: Cloud Connect Center
+   * * CCC: Cloud Call Center.
    * 
    * @example
    * CCC

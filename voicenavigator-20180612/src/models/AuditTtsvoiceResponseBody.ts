@@ -8,7 +8,7 @@ export class AuditTTSVoiceResponseBody extends $dara.Model {
    * The preview URL.
    * 
    * @example
-   * http://voicenavigator-cn-shanghai.oss-cn-shanghai.aliyuncs.com/exported_files/2020-02-20/ttsConfig-1582188148528-abd8e407de0a49b381bb591bd91fc073.wav?Expires=1582188208&OSSAccessKeyId=LTAIppQY5rofntVJ&Signature=FaBassElzqGEB0H2TvTKPJsOJHs%3D
+   * http://voicenavigator-cn-shanghai.oss-cn-shanghai.aliyuncs.com/exported_files/2020-02-20/ttsConfig-1582188148528-abd8e407de0a49b381bb591bd91fc073.wav?Expires=1582188208&OSSAccessKeyId=LTAIppQY*******&Signature=FaBassElzqGEB0H2TvTKPJsOJHs%3D
    */
   auditionUrl?: string;
   /**

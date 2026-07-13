@@ -29,7 +29,7 @@ export class CreateDownloadUrlResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The message.
    * 
    * @example
    * get upload tool url success

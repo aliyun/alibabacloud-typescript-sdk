@@ -13,7 +13,7 @@ export class DisableInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. A value of \\"true\\" indicates that the operation was successful.
+   * The deletion status.
    * 
    * @example
    * true

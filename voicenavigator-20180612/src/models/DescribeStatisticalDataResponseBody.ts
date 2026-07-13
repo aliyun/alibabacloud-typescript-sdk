@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStatisticalDataResponseBodyStatisticalDataReports extends $dara.Model {
   /**
    * @remarks
-   * The pass rate of multi-turn dialogues.
+   * The multi-turn session pass rate.
    * 
    * @example
    * 80.00%
@@ -37,7 +37,7 @@ export class DescribeStatisticalDataResponseBodyStatisticalDataReports extends $
   resolvedQuestionNum?: number;
   /**
    * @remarks
-   * The date of the statistics.
+   * The statistical date.
    * 
    * @example
    * 19:00:00
@@ -45,7 +45,7 @@ export class DescribeStatisticalDataResponseBodyStatisticalDataReports extends $
   statisticalDate?: string;
   /**
    * @remarks
-   * The total number of conversations.
+   * The total number of sessions.
    * 
    * @example
    * 100
@@ -95,7 +95,7 @@ export class DescribeStatisticalDataResponseBodyStatisticalDataReports extends $
 export class DescribeStatisticalDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of conversations.
+   * The total number of sessions.
    * 
    * @example
    * 100
@@ -103,7 +103,7 @@ export class DescribeStatisticalDataResponseBody extends $dara.Model {
   conversationTotalNum?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
@@ -119,12 +119,12 @@ export class DescribeStatisticalDataResponseBody extends $dara.Model {
   resolvedQuestionTotalNum?: number;
   /**
    * @remarks
-   * The array of statistical data over time.
+   * The array of statistics grouped by time dimension.
    */
   statisticalDataReports?: DescribeStatisticalDataResponseBodyStatisticalDataReports[];
   /**
    * @remarks
-   * The total pass rate of multi-turn dialogues.
+   * The total multi-turn session pass rate.
    * 
    * @example
    * 80.00%

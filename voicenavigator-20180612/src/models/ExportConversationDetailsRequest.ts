@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExportConversationDetailsRequest extends $dara.Model {
+  abTestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp in milliseconds.
+   * The left boundary of the start date range.
    * 
    * @example
    * 1582266750353
@@ -13,7 +14,7 @@ export class ExportConversationDetailsRequest extends $dara.Model {
   beginTimeLeftRange?: number;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp in milliseconds.
+   * The right boundary of the start date range.
    * 
    * @example
    * 1640793599000
@@ -30,7 +31,7 @@ export class ExportConversationDetailsRequest extends $dara.Model {
   debugConversation?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -40,26 +41,15 @@ export class ExportConversationDetailsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * An array of optional parameters.
+   * The optional parameters.
    */
   options?: string[];
-  /**
-   * @remarks
-   * The result of the conversation.
-   */
   result?: number;
-  /**
-   * @remarks
-   * The minimum number of conversation turns.
-   */
   roundsLeftRange?: number;
-  /**
-   * @remarks
-   * The maximum number of conversation turns.
-   */
   roundsRightRange?: number;
   static names(): { [key: string]: string } {
     return {
+      abTestId: 'AbTestId',
       beginTimeLeftRange: 'BeginTimeLeftRange',
       beginTimeRightRange: 'BeginTimeRightRange',
       callingNumber: 'CallingNumber',
@@ -74,6 +64,7 @@ export class ExportConversationDetailsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      abTestId: 'string',
       beginTimeLeftRange: 'number',
       beginTimeRightRange: 'number',
       callingNumber: 'string',

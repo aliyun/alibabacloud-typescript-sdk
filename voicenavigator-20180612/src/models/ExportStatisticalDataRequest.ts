@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportStatisticalDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The start of the query time range. The value must be a Unix timestamp in milliseconds.
+   * The start time.
    * 
    * @example
    * 1582266750353
@@ -13,7 +13,7 @@ export class ExportStatisticalDataRequest extends $dara.Model {
   beginTimeLeftRange?: number;
   /**
    * @remarks
-   * The end of the query time range. The value must be a Unix timestamp in milliseconds.
+   * The end time used as a filter condition.
    * 
    * @example
    * 1582266750353
@@ -31,7 +31,7 @@ export class ExportStatisticalDataRequest extends $dara.Model {
   exportType?: string;
   /**
    * @remarks
-   * The ID of the Voice Navigator instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

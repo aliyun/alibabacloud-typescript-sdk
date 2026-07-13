@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDownloadTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the results to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListDownloadTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 

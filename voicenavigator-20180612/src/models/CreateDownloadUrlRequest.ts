@@ -15,7 +15,7 @@ export class CreateDownloadUrlRequest extends $dara.Model {
   downloadTaskId?: string;
   /**
    * @remarks
-   * The file ID. Call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain it.
+   * The ID of the file. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the file ID.
    * 
    * This parameter is required.
    * 

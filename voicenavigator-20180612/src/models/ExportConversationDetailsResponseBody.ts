@@ -13,7 +13,7 @@ export class ExportConversationDetailsResponseBody extends $dara.Model {
   exportTaskId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 75BAAB9B-40B2-5FF5-A59A-7BCF8154C6EE

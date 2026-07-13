@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExportProgressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The URL of the file.
+   * The file URL.
    * 
    * @example
    * http://ssml-test.oss-cn-shanghai.aliyuncs.com/key
@@ -13,7 +13,7 @@ export class DescribeExportProgressResponseBody extends $dara.Model {
   fileHttpUrl?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * b19af5ce5314ac08108d1b33fe20e15
@@ -21,7 +21,7 @@ export class DescribeExportProgressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the export task.
+   * The status.
    * 
    * @example
    * FINISHED

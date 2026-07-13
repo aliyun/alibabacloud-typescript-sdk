@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * A list of applicable operations.
+   * The list of applicable operations for the instance.
    */
   applicableOperations?: string[];
   /**
    * @remarks
-   * The maximum number of concurrent calls.
+   * The concurrency.
    * 
    * @example
    * 10
@@ -18,7 +18,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   concurrency?: number;
   /**
    * @remarks
-   * The time when the instance was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The creation time.
    * 
    * @example
    * 1658202465000
@@ -26,7 +26,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the instance.
+   * The description.
    * 
    * @example
    * 测试的实例
@@ -42,7 +42,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the instance was last modified. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The modification time.
    * 
    * @example
    * 1582266750353
@@ -50,7 +50,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The user who last modified the instance.
+   * The operator who performed the operation.
    * 
    * @example
    * xxx
@@ -58,7 +58,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   modifyUserName?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The name.
    * 
    * @example
    * 测试实例
@@ -66,7 +66,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameters of the NLU service in the JSON format.
+   * The large language model service parameters in JSON format.
    * 
    * @example
    * {"agentId":"1213503","isCCCAgent":"true","agentKey":"107e04a7519243eb83c9b549ea3b6829_p_ccc_public"}
@@ -79,7 +79,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   numbers?: string[];
   /**
    * @remarks
-   * The status of the instance.
+   * The instance status.
    * 
    * @example
    * Published
@@ -87,9 +87,10 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The instance ID from the source system.
+   * The instance ID.
    * 
-   * > If UnionSource is CCC, this parameter indicates the instance ID of the Cloud Communication Center instance.
+   * 
+   * > When UnionSource is set to CCC, UnionInstanceId is set to the instance ID of Cloud Call Center.
    * 
    * @example
    * zhyl
@@ -97,9 +98,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   unionInstanceId?: string;
   /**
    * @remarks
-   * The source of the instance.
+   * The source.
    * 
-   * - `CCC`: Cloud Communication Center
+   * - CCC: Cloud Call Center.
    * 
    * @example
    * CCC
@@ -159,12 +160,12 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of instances.
+   * The array of instances.
    */
   instances?: ListInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 2
@@ -172,7 +173,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -180,7 +181,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A8AED3C8-F57B-5D71-9A34-4A170287533F
@@ -188,7 +189,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

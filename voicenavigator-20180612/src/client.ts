@@ -34,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a chatbot with a navigation instance.
+   * Associates a Chatbot instance.
    * 
    * @param request - AssociateChatbotInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -85,7 +85,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a chatbot with a navigation instance.
+   * Associates a Chatbot instance.
    * 
    * @param request - AssociateChatbotInstanceRequest
    * @returns AssociateChatbotInstanceResponse
@@ -96,7 +96,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Previews a text-to-speech (TTS) voice.
+   * Previews a TTS voice.
    * 
    * @param request - AuditTTSVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -167,7 +167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Previews a text-to-speech (TTS) voice.
+   * Previews a TTS voice.
    * 
    * @param request - AuditTTSVoiceRequest
    * @returns AuditTTSVoiceResponse
@@ -298,7 +298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a temporary URL to download a file.
+   * Creates a download URL for a file.
    * 
    * @param request - CreateDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -325,7 +325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a temporary URL to download a file.
+   * Creates a download URL for a file.
    * 
    * @param request - CreateDownloadUrlRequest
    * @returns CreateDownloadUrlResponse
@@ -510,7 +510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a user utterance to the dialogue engine to debug a conversation flow.
+   * Debugs a conversation in the debug environment.
    * 
    * @param request - DebugDialogueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -553,7 +553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a user utterance to the dialogue engine to debug a conversation flow.
+   * Debugs a conversation in the debug environment.
    * 
    * @param request - DebugDialogueRequest
    * @returns DebugDialogueResponse
@@ -606,7 +606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a conversation.
+   * Queries conversation information.
    * 
    * @param request - DescribeConversationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -633,7 +633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a conversation.
+   * Queries conversation information.
    * 
    * @param request - DescribeConversationRequest
    * @returns DescribeConversationResponse
@@ -720,7 +720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details for a specified instance.
+   * Queries instance information.
    * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -747,7 +747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details for a specified instance.
+   * Queries instance information.
    * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
@@ -796,7 +796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a conversation recording.
+   * Retrieves the recording of a conversation.
    * 
    * @param request - DescribeRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -823,7 +823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a conversation recording.
+   * Retrieves the recording of a conversation.
    * 
    * @param request - DescribeRecordingRequest
    * @returns DescribeRecordingResponse
@@ -834,7 +834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the current instance\\"s statistics.
+   * Queries the statistics of the current instance.
    * 
    * @param request - DescribeStatisticalDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -861,7 +861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the current instance\\"s statistics.
+   * Queries the statistics of the current instance.
    * 
    * @param request - DescribeStatisticalDataRequest
    * @returns DescribeStatisticalDataResponse
@@ -980,7 +980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a Voice Navigator instance.
+   * Deletes an intelligent navigation instance.
    * 
    * @param request - DisableInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1011,7 +1011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a Voice Navigator instance.
+   * Deletes an intelligent navigation instance.
    * 
    * @param request - DisableInstanceRequest
    * @returns DisableInstanceResponse
@@ -1022,7 +1022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a Voice Navigator instance.
+   * Starts an instance.
    * 
    * @param request - EnableInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1053,7 +1053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a Voice Navigator instance.
+   * Starts an instance.
    * 
    * @param request - EnableInstanceRequest
    * @returns EnableInstanceResponse
@@ -1118,7 +1118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports conversation details.
+   * Exports session details.
    * 
    * @param request - ExportConversationDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1127,6 +1127,10 @@ export default class Client extends OpenApi {
   async exportConversationDetailsWithOptions(request: $_model.ExportConversationDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportConversationDetailsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.abTestId)) {
+      query["AbTestId"] = request.abTestId;
+    }
+
     if (!$dara.isNull(request.beginTimeLeftRange)) {
       query["BeginTimeLeftRange"] = request.beginTimeLeftRange;
     }
@@ -1181,7 +1185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports conversation details.
+   * Exports session details.
    * 
    * @param request - ExportConversationDetailsRequest
    * @returns ExportConversationDetailsResponse
@@ -1192,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports statistical data.
+   * Exports statistics.
    * 
    * @param request - ExportStatisticalDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1239,7 +1243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports statistical data.
+   * Exports statistics.
    * 
    * @param request - ExportStatisticalDataRequest
    * @returns ExportStatisticalDataResponse
@@ -1334,7 +1338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of chatbot instances.
+   * Queries a list of instances.
    * 
    * @param request - ListChatbotInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1361,7 +1365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of chatbot instances.
+   * Queries a list of instances.
    * 
    * @param request - ListChatbotInstancesRequest
    * @returns ListChatbotInstancesResponse
@@ -1410,7 +1414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the session list.
+   * Queries a list of sessions.
    * 
    * @param request - ListConversationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1437,7 +1441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the session list.
+   * Queries a list of sessions.
    * 
    * @param request - ListConversationsRequest
    * @returns ListConversationsResponse
@@ -1448,7 +1452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Download list
+   * Queries the list of download tasks.
    * 
    * @param request - ListDownloadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1483,7 +1487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Download list
+   * Queries the list of download tasks.
    * 
    * @param request - ListDownloadTasksRequest
    * @returns ListDownloadTasksResponse
@@ -1532,7 +1536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an ASR configuration.
+   * Modifies the ASR configuration.
    * 
    * @param request - ModifyAsrConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1599,7 +1603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an ASR configuration.
+   * Modifies the ASR configuration.
    * 
    * @param request - ModifyAsrConfigRequest
    * @returns ModifyAsrConfigResponse

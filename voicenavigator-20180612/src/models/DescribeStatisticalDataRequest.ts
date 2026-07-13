@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStatisticalDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The start of the query time range, specified as a Unix timestamp in milliseconds.
+   * The left boundary of the start time range.
    * 
    * @example
    * 1582283640000
@@ -13,7 +13,7 @@ export class DescribeStatisticalDataRequest extends $dara.Model {
   beginTimeLeftRange?: number;
   /**
    * @remarks
-   * The end of the query time range, specified as a Unix timestamp in milliseconds.
+   * The right boundary of the start time range.
    * 
    * @example
    * 1582298040000
@@ -31,7 +31,7 @@ export class DescribeStatisticalDataRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time unit. Valid values: `Day` and `Hour`.
+   * The date unit.
    * 
    * This parameter is required.
    * 

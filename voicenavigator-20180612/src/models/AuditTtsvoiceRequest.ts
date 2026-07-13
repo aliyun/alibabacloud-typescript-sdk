@@ -3,13 +3,41 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AuditTTSVoiceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the namespace.
+   * 
+   * @example
+   * b4331******a4640ce1f88e27ac8df0
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AppKey of the third-party voice configuration.
+   * 
+   * @example
+   * be******
+   */
   appKey?: string;
+  /**
+   * @remarks
+   * The TTS engine.
+   * 
+   * @example
+   * ali
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The extended parameters.
+   * 
+   * @example
+   * {}
+   */
   extParams?: string;
   /**
    * @remarks
-   * The instance ID of the navigation instance.
+   * The navigation instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +45,18 @@ export class AuditTTSVoiceRequest extends $dara.Model {
    * af81a389-91f0-4157-8d82-720edd02b66a
    */
   instanceId?: string;
+  /**
+   * @example
+   * 0
+   */
   pitchRate?: string;
+  /**
+   * @remarks
+   * The AccessKey secret.
+   * 
+   * @example
+   * ZDc3********DAzM2E0YjM5NTFkMDQ1
+   */
   secretKey?: string;
   /**
    * @remarks
@@ -31,7 +70,7 @@ export class AuditTTSVoiceRequest extends $dara.Model {
   speechRate?: string;
   /**
    * @remarks
-   * The text to preview.
+   * The preview text.
    * 
    * This parameter is required.
    * 

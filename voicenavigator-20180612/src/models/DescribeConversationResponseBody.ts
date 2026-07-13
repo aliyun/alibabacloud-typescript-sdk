@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConversationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the conversation started. This value is a UNIX timestamp in milliseconds.
+   * The start time.
    * 
    * @example
    * 1582103260434
@@ -21,7 +21,7 @@ export class DescribeConversationResponseBody extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * The ID of the conversation.
+   * The conversation ID.
    * 
    * @example
    * 2d5aa451-661f-4f08-b0c4-28eec78decc4
@@ -29,7 +29,7 @@ export class DescribeConversationResponseBody extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The number of effective answers.
+   * The number of effective Q&A pairs.
    * 
    * @example
    * 8
@@ -37,7 +37,7 @@ export class DescribeConversationResponseBody extends $dara.Model {
   effectiveAnswerCount?: number;
   /**
    * @remarks
-   * The time when the conversation ended. This value is a UNIX timestamp in milliseconds.
+   * The end time.
    * 
    * @example
    * 1582103299434
@@ -45,7 +45,7 @@ export class DescribeConversationResponseBody extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
@@ -53,7 +53,7 @@ export class DescribeConversationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the skill group.
+   * The skill group ID.
    * 
    * @example
    * ABABCBAC
@@ -61,7 +61,7 @@ export class DescribeConversationResponseBody extends $dara.Model {
   skillGroupId?: string;
   /**
    * @remarks
-   * Indicates whether an agent transfer occurred.
+   * Indicates whether the conversation was transferred to a human agent.
    * 
    * @example
    * true

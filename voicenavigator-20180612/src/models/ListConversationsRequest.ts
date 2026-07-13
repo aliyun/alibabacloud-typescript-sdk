@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConversationsRequest extends $dara.Model {
+  abTestId?: string;
   /**
    * @remarks
-   * The start of the time range to query. This value is a UNIX timestamp in milliseconds.
+   * The left boundary of the start time range.
    * 
    * @example
    * 1638288000000
@@ -13,7 +14,7 @@ export class ListConversationsRequest extends $dara.Model {
   beginTimeLeftRange?: number;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp in milliseconds.
+   * The right boundary of the start time range.
    * 
    * @example
    * 1637547875311
@@ -30,7 +31,7 @@ export class ListConversationsRequest extends $dara.Model {
   debugConversation?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance list.
    * 
    * This parameter is required.
    * 
@@ -40,7 +41,7 @@ export class ListConversationsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the conversation is in a sandbox environment. Valid values: `true` and `false`.
+   * Specifies whether the session is in a sandbox environment.
    * 
    * @example
    * false
@@ -58,7 +59,7 @@ export class ListConversationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -68,7 +69,7 @@ export class ListConversationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search query for filtering conversations.
+   * The query condition.
    * 
    * @example
    * 13788914724
@@ -76,7 +77,7 @@ export class ListConversationsRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The result of the conversation.
+   * The result.
    * 
    * @example
    * 0
@@ -84,7 +85,7 @@ export class ListConversationsRequest extends $dara.Model {
   result?: number;
   /**
    * @remarks
-   * The minimum number of rounds in the conversation.
+   * The left boundary of the rounds query range.
    * 
    * @example
    * 1
@@ -92,7 +93,7 @@ export class ListConversationsRequest extends $dara.Model {
   roundsLeftRange?: number;
   /**
    * @remarks
-   * The maximum number of rounds in the conversation.
+   * The right boundary of the rounds query range.
    * 
    * @example
    * 3
@@ -100,6 +101,7 @@ export class ListConversationsRequest extends $dara.Model {
   roundsRightRange?: number;
   static names(): { [key: string]: string } {
     return {
+      abTestId: 'AbTestId',
       beginTimeLeftRange: 'BeginTimeLeftRange',
       beginTimeRightRange: 'BeginTimeRightRange',
       callingNumber: 'CallingNumber',
@@ -117,6 +119,7 @@ export class ListConversationsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      abTestId: 'string',
       beginTimeLeftRange: 'number',
       beginTimeRightRange: 'number',
       callingNumber: 'string',

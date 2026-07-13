@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DebugDialogueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The next action returned by the dialogue engine.
+   * The action.
    * 
    * @example
    * Broadcast
@@ -13,7 +13,7 @@ export class DebugDialogueResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * Parameters for the returned action, as a JSON string.
+   * The action parameters.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class DebugDialogueResponseBody extends $dara.Model {
   actionParams?: string;
   /**
    * @remarks
-   * Indicates whether the Interactive Voice Response (IVR) playback can be interrupted.
+   * Indicates whether the IVR broadcast can be interrupted.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DebugDialogueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The textual response from the dialogue engine.
+   * The broadcast content.
    * 
    * @example
    * 80d11be3-faad-4101-b4b0-59dbea28aaf0

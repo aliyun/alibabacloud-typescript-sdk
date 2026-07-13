@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateChatbotInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The chatbot ID.
+   * The ID of the Chatbot instance.
    * 
    * @example
    * chatbot-720edd02b66a
@@ -13,7 +13,7 @@ export class AssociateChatbotInstanceRequest extends $dara.Model {
   chatbotInstanceId?: string;
   /**
    * @remarks
-   * The name of the chatbot.
+   * The name of the Chatbot instance.
    * 
    * @example
    * 客服机器人
@@ -21,7 +21,7 @@ export class AssociateChatbotInstanceRequest extends $dara.Model {
   chatbotName?: string;
   /**
    * @remarks
-   * The navigation instance ID.
+   * The instance ID of the navigation instance.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAsrConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application key.
+   * The engine.
    * 
    * @example
    * your-app-key
@@ -13,7 +13,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The acoustic model ID.
+   * The ASR acoustic model ID.
    * 
    * @example
    * 3b1d3031-8b6e-460a-8640-d330f2ca50b8
@@ -21,7 +21,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   asrAcousticModelId?: string;
   /**
    * @remarks
-   * The ASR class vocabulary ID.
+   * The ASR hotword ID.
    * 
    * @example
    * 3b1d3031-8b6e-460a-8640-d330f2ca50b8
@@ -29,7 +29,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   asrClassVocabularyId?: string;
   /**
    * @remarks
-   * The customization ID.
+   * The ASR dataset ID.
    * 
    * @example
    * 3b1d3031-8b6e-460a-8640-d330f2ca50b8
@@ -38,7 +38,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   asrOverrides?: string;
   /**
    * @remarks
-   * The vocabulary ID. You can view the ID on the [ASR Vocabulary Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
+   * The hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
    * 
    * @example
    * 3b1d3031-8b6e-460a-8640-d330f2ca50b8
@@ -54,7 +54,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * Parameters for the iFLYTEK engine.
+   * The iFLYTEK engine parameters.
    * 
    * @example
    * EngineXufei
@@ -62,7 +62,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   engineXufei?: string;
   /**
    * @remarks
-   * The NLS service type.
+   * NluServiceType
    * 
    * @example
    * Authorized

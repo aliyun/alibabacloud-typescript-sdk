@@ -13,7 +13,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
   fileId?: string;
   /**
    * @remarks
-   * The progress of the file download.
+   * The completion progress of the download task.
    * 
    * @example
    * 70
@@ -21,7 +21,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
   progress?: number;
   /**
    * @remarks
-   * The status of the file.
+   * The status.
    * 
    * @example
    * Published
@@ -29,7 +29,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
   status?: string;
   /**
    * @remarks
-   * The title of the file.
+   * The title.
    * 
    * @example
    * CBU阿里通信反馈-声音延迟
@@ -65,7 +65,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
 export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model {
   /**
    * @remarks
-   * A list of download task files.
+   * The list of download task files.
    */
   downloadTaskFiles?: ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles[];
   /**
@@ -78,7 +78,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
   expireTime?: number;
   /**
    * @remarks
-   * The status of the task.
+   * The status.
    * 
    * @example
    * Expired
@@ -94,7 +94,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
   taskId?: string;
   /**
    * @remarks
-   * The title of the task.
+   * The title.
    * 
    * @example
    * 批量高阶内存整理_2022_02_17_10
@@ -135,7 +135,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
 export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
   /**
    * @remarks
-   * A list of download tasks.
+   * The list of download tasks.
    */
   list?: ListDownloadTasksResponseBodyDownloadTasksList[];
   /**
@@ -148,7 +148,7 @@ export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The page size.
    * 
    * @example
    * 10
@@ -156,7 +156,7 @@ export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 2

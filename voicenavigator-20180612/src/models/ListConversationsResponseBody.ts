@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConversationsResponseBodyConversations extends $dara.Model {
+  abTestName?: string;
   /**
    * @remarks
    * The called number.
@@ -21,7 +22,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * The unique ID of the conversation.
+   * The session ID.
    * 
    * @example
    * 82b2eaae-ce5c-45f8-8231-f15b6b27e55c
@@ -31,7 +32,18 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   dsReportTitles?: string[];
   /**
    * @remarks
-   * The reason that the conversation ended. Valid values:<br>1: The conversation completed normally.<br>2: The bot hung up after a recognition failure.<br>3: The call was disconnected due to a silence timeout.<br>4: The user hung up after a recognition failure.<br>5: The user hung up for an unknown reason.<br>6: The call was transferred to an agent because an intent was matched.<br>7: The call was transferred to an agent due to a recognition failure.<br>8: No interaction from the user.<br>9: The call was interrupted by a system error.<br>10: The call was transferred to an IVR system because an intent was matched.<br>11: The call was transferred to an IVR system due to a recognition failure.<br><br><br><br><br><br><br><br><br><br><br>
+   * The reason for hanging up. Valid values:
+   *      1: Normal completion.
+   *      2: Bot hung up after unrecognized input.
+   *      3: Hung up due to silence timeout.
+   *      4: User hung up after unrecognized input.
+   *      5: User hung up without reason.
+   *      6: Transferred to human agent due to intent match.
+   *      7: Transferred to human agent due to unrecognized input.
+   *      8: No interaction from the user side.
+   *      9: System exception interruption.
+   *      10: Transferred to IVR due to intent match.
+   *      11: Transferred to IVR due to unrecognized input.
    * 
    * @example
    * 1
@@ -39,7 +51,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   endReason?: number;
   /**
    * @remarks
-   * The end time of the conversation, represented as a Unix timestamp in milliseconds.
+   * The end time.
    * 
    * @example
    * 1582266750353
@@ -47,7 +59,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Indicates whether the final audio playback was completed before the call was disconnected.
+   * Indicates whether the last playback was completed when the session ended.
    * 
    * @example
    * true
@@ -55,7 +67,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   hasLastPlaybackCompleted?: boolean;
   /**
    * @remarks
-   * Indicates whether the conversation was transferred to an agent.
+   * Indicates whether the session was transferred to a human agent.
    * 
    * @example
    * false
@@ -63,7 +75,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   hasToAgent?: boolean;
   /**
    * @remarks
-   * The number of rounds in the conversation.
+   * The number of conversation rounds.
    * 
    * @example
    * 2
@@ -71,7 +83,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   rounds?: number;
   /**
    * @remarks
-   * Indicates whether the conversation was run in a sandbox environment.
+   * Indicates whether the session is in a sandbox environment.
    * 
    * @example
    * true
@@ -79,7 +91,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   sandBox?: boolean;
   /**
    * @remarks
-   * The ID of the skill group.
+   * The skill group.
    * 
    * @example
    * skg-123
@@ -87,7 +99,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   skillGroup?: string;
   /**
    * @remarks
-   * The start time of the conversation, represented as a Unix timestamp in milliseconds.
+   * The start time.
    * 
    * @example
    * 1641625694286
@@ -95,6 +107,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      abTestName: 'AbTestName',
       calledNumber: 'CalledNumber',
       callingNumber: 'CallingNumber',
       conversationId: 'ConversationId',
@@ -113,6 +126,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      abTestName: 'string',
       calledNumber: 'string',
       callingNumber: 'string',
       conversationId: 'string',
@@ -144,7 +158,7 @@ export class ListConversationsResponseBodyConversations extends $dara.Model {
 export class ListConversationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of conversation objects.
+   * The list of sessions.
    */
   conversations?: ListConversationsResponseBodyConversations[];
   /**
@@ -173,7 +187,7 @@ export class ListConversationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of conversations.
+   * The total number of entries.
    * 
    * @example
    * 1

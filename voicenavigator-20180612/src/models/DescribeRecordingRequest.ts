@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecordingRequest extends $dara.Model {
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * This parameter is required.
    * 

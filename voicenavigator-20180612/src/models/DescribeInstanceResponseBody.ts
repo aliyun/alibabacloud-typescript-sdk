@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The capability type of the instance.<br>
-   * DEFAULT: Full capabilities.<br>
-   * VOICE_ONLY: Voice-only capabilities, which do not include conversation intervention.<br><br>
+   * The instance ability type.<br>
+   * DEFAULT: full abilities.<br>
+   * VOICE_ONLY: only voice abilities, without dialog intervention.
    * 
    * @example
    * VOICE_ONLY
@@ -15,12 +15,12 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   abilityType?: string;
   /**
    * @remarks
-   * Applicable operations.
+   * The list of applicable operations.
    */
   applicableOperations?: string[];
   /**
    * @remarks
-   * The concurrency of the instance.
+   * The instance concurrency.
    * 
    * @example
    * 10
@@ -28,7 +28,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   concurrency?: number;
   /**
    * @remarks
-   * The description of the instance.
+   * The description.
    * 
    * @example
    * 导航测试实例描述信息
@@ -44,7 +44,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The last modification time of the instance.
+   * The update time.
    * 
    * @example
    * 1683216000000
@@ -52,7 +52,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The user who last modified the instance.
+   * The user who last updated the instance.
    * 
    * @example
    * 2508711*******
@@ -77,7 +77,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the instance.
+   * The status.
    * 
    * @example
    * Published

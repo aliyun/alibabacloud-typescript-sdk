@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetAsrConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration level. Valid values: `0` (system), `1` (tenant), and `2` (instance).
+   * The policy level. Valid values:
+   * 
+   * - 0: system
+   * - 1: tenant
+   * - 2: instance
    * 
    * @example
    * 1
@@ -13,7 +17,7 @@ export class GetAsrConfigRequest extends $dara.Model {
   configLevel?: number;
   /**
    * @remarks
-   * The ID of the entry at the level specified by `ConfigLevel`.
+   * The entity ID corresponding to config_level.
    * 
    * @example
    * 3b1d3031-8b6e-460a-8640-d330f2ca50b8
