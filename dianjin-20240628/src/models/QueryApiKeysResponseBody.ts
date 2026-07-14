@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryApiKeysResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 2024-12-31T23:59:59Z
+   * 2024-01-01T00:00:00Z
    */
   expiresAt?: string;
   /**
@@ -20,25 +20,22 @@ export class QueryApiKeysResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @example
-   * a1b2c3d4e5f6...
+   * 1
    */
   keyHash?: string;
   /**
-   * @remarks
-   * **API Key ID**
-   * 
    * @example
-   * key_001
+   * 1
    */
   keyId?: string;
   /**
    * @example
-   * ACTIVE
+   * success
    */
   status?: string;
   /**
    * @example
-   * 100
+   * 1
    */
   tenantId?: string;
   static names(): { [key: string]: string } {
@@ -86,15 +83,7 @@ export class QueryApiKeysResponseBody extends $dara.Model {
    * ok
    */
   message?: string;
-  /**
-   * @example
-   * false
-   */
   retryAble?: boolean;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

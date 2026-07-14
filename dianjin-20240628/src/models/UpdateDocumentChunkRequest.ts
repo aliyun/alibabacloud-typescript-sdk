@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDocumentChunkRequestChunks extends $dara.Model {
   /**
    * @remarks
+   * Document chunk ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,12 @@ export class UpdateDocumentChunkRequestChunks extends $dara.Model {
   chunkId?: string;
   /**
    * @remarks
+   * Document chunk text.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 这是一段测试文本
    */
   chunkText?: string;
   static names(): { [key: string]: string } {
@@ -42,11 +49,15 @@ export class UpdateDocumentChunkRequestChunks extends $dara.Model {
 export class UpdateDocumentChunkRequest extends $dara.Model {
   /**
    * @remarks
+   * List of document chunks.
+   * 
    * This parameter is required.
    */
   chunks?: UpdateDocumentChunkRequestChunks[];
   /**
    * @remarks
+   * Library ID.
+   * 
    * This parameter is required.
    * 
    * @example

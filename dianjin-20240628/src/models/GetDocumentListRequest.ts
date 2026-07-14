@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDocumentListRequest extends $dara.Model {
   /**
    * @remarks
+   * The document library ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,15 +14,28 @@ export class GetDocumentListRequest extends $dara.Model {
    */
   libraryId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The document status.
+   * 
+   * @example
+   * 即将可用
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

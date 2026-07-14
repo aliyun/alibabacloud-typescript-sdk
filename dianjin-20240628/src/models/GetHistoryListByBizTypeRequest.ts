@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHistoryListByBizTypeRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique business identifier. When bizType is LibraryChat, bizId is the document library ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetHistoryListByBizTypeRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Business type. Supported values are LlmChat and LibraryChat.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class GetHistoryListByBizTypeRequest extends $dara.Model {
    */
   bizType?: string;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Number of records per page
+   * 
    * @example
    * 10
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitChatQuestionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Batch ID
+   * 
    * @example
    * 1869307330227937280
    */
@@ -31,37 +34,62 @@ export class SubmitChatQuestionResponseBodyData extends $dara.Model {
 
 export class SubmitChatQuestionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time taken
+   * 
    * @example
    * null
    */
   cost?: number;
+  /**
+   * @remarks
+   * Response data
+   */
   data?: SubmitChatQuestionResponseBodyData;
   /**
+   * @remarks
+   * Data type
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 915AAAB9-4908-5224-9E53-9E9D7D0AA94B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Timestamp
+   * 
    * @example
    * 2024-04-24 11:54:34
    */

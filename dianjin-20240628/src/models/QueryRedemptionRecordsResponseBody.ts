@@ -11,7 +11,7 @@ export class QueryRedemptionRecordsResponseBodyDataItems extends $dara.Model {
   effectiveAt?: string;
   /**
    * @example
-   * 2024-01-31T23:59:59Z
+   * 2024-01-01T00:00:00Z
    */
   expireAt?: string;
   /**
@@ -26,17 +26,17 @@ export class QueryRedemptionRecordsResponseBodyDataItems extends $dara.Model {
   id?: number;
   /**
    * @example
-   * a1b2c3d4e5f6...
+   * 1
    */
   keyHash?: string;
   /**
    * @example
-   * AR123233333
+   * 1
    */
   outBizNo?: string;
   /**
    * @example
-   * 500
+   * 100
    */
   quotaBalance?: number;
   /**
@@ -46,7 +46,7 @@ export class QueryRedemptionRecordsResponseBodyDataItems extends $dara.Model {
   quotaStatus?: string;
   /**
    * @example
-   * ORD20240101000001
+   * 1
    */
   redemptionOrderNo?: string;
   /**
@@ -56,12 +56,12 @@ export class QueryRedemptionRecordsResponseBodyDataItems extends $dara.Model {
   status?: string;
   /**
    * @example
-   * 37624
+   * 1
    */
   templateId?: number;
   /**
    * @example
-   * 10001
+   * 1
    */
   tenantId?: number;
   static names(): { [key: string]: string } {
@@ -126,7 +126,7 @@ export class QueryRedemptionRecordsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @example
-   * 0
+   * 100
    */
   total?: number;
   /**
@@ -175,18 +175,10 @@ export class QueryRedemptionRecordsResponseBody extends $dara.Model {
   data?: QueryRedemptionRecordsResponseBodyData;
   /**
    * @example
-   * success
+   * ok
    */
   message?: string;
-  /**
-   * @example
-   * false
-   */
   retryAble?: boolean;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

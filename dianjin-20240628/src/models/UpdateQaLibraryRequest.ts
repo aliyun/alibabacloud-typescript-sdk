@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateQaLibraryRequestParseQaResults extends $dara.Model {
   /**
    * @remarks
+   * The answer.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 这款**糯米大烧麦的净含量是900g。
    */
   answer?: string;
   /**
    * @remarks
+   * The question.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 这款**糯米大烧麦的净含量是多少？
    */
   question?: string;
   static names(): { [key: string]: string } {
@@ -39,16 +49,23 @@ export class UpdateQaLibraryRequestParseQaResults extends $dara.Model {
 export class UpdateQaLibraryRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of parsed Q\\&A pair results.
+   * 
    * This parameter is required.
    */
   parseQaResults?: UpdateQaLibraryRequestParseQaResults[];
   /**
+   * @remarks
+   * The ID of the Q\\&A library.
+   * 
    * @example
    * 6jh378d
    */
   qaLibraryId?: string;
   /**
    * @remarks
+   * The request ID.
+   * 
    * This parameter is required.
    * 
    * @example

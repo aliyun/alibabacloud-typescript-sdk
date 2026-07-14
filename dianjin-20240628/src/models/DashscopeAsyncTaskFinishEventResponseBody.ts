@@ -4,16 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class DashscopeAsyncTaskFinishEventResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code
+   * 
    * @example
    * 0
    */
   code?: string;
   /**
+   * @remarks
+   * Return message
+   * 
    * @example
    * 成功
    */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation can be retried
+   */
   retryAble?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the operation succeeded
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

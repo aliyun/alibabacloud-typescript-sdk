@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DashscopeAsyncTaskFinishEventHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * Indicates whether the request is part of a stress test
+   */
   xLoadTest?: boolean;
   static names(): { [key: string]: string } {
     return {

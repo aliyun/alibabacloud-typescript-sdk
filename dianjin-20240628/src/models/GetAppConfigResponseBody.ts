@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAppConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Embedding type list
+   */
   embeddingTypeList?: { [key: string]: string }[];
+  /**
+   * @remarks
+   * Frontend configuration
+   */
   frontendConfig?: { [key: string]: boolean };
+  /**
+   * @remarks
+   * Document library status list
+   */
   libraryDocumentStatusList?: { [key: string]: string }[];
+  /**
+   * @remarks
+   * Large Language Model (LLM) type list
+   */
   llmHelperTypeList?: { [key: string]: string }[];
+  /**
+   * @remarks
+   * Text index category list
+   */
   textIndexCategoryList?: string[];
+  /**
+   * @remarks
+   * Vector index category list
+   */
   vectorIndexCategoryList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -60,37 +84,62 @@ export class GetAppConfigResponseBodyData extends $dara.Model {
 
 export class GetAppConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time consumed
+   * 
    * @example
    * null
    */
   cost?: number;
+  /**
+   * @remarks
+   * Returned data
+   */
   data?: GetAppConfigResponseBodyData;
   /**
+   * @remarks
+   * Data type
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * None
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * EF4B5C9B-3BC8-5171-A47B-4C5CF3DC3258
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is successful
+   * 
    * @example
    * True
    */
   success?: boolean;
   /**
+   * @remarks
+   * Timestamp
+   * 
    * @example
    * 2024-04-24 11:54:34
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EndToEndRealTimeDialogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1C98B466-D6E0-5252-A60B-F345CBB33DDB
    */

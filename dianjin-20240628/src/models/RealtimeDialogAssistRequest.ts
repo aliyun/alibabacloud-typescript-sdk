@@ -4,42 +4,67 @@ import * as $dara from '@darabonba/typescript';
 
 export class RealtimeDialogAssistRequestConversationModel extends $dara.Model {
   /**
+   * @remarks
+   * Start time of this utterance, offset in milliseconds from the session start.
+   * 
    * @example
    * 1
    */
   begin?: number;
   /**
+   * @remarks
+   * Start time of this utterance
+   * 
    * @example
    * 2025-12-12 09:00:00
    */
   beginTime?: string;
   /**
    * @remarks
+   * Specific content of the dialog
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 你好
    */
   content?: string;
   /**
+   * @remarks
+   * Unique identity of the dialog role
+   * 
    * @example
    * 98457834685635
    */
   customerId?: string;
   /**
+   * @remarks
+   * Customer service ID
+   * 
    * @example
    * 1374683645635
    */
   customerServiceId?: string;
   /**
+   * @remarks
+   * Agent type. 0: Robot, 1: Human.
+   * 
    * @example
    * 0
    */
   customerServiceType?: string;
   /**
+   * @remarks
+   * End time of this utterance, offset in milliseconds from the session start.
+   * 
    * @example
    * 1
    */
   end?: number;
   /**
    * @remarks
+   * Role. 0 indicates customer, 1 indicates agent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +72,9 @@ export class RealtimeDialogAssistRequestConversationModel extends $dara.Model {
    */
   role?: number;
   /**
+   * @remarks
+   * Type of dialog content. Currently, only text is supported.
+   * 
    * @example
    * text
    */
@@ -90,12 +118,17 @@ export class RealtimeDialogAssistRequestConversationModel extends $dara.Model {
 
 export class RealtimeDialogAssistRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether to analyze
+   * 
    * @example
    * false
    */
   analysis?: boolean;
   /**
    * @remarks
+   * Business type. Currently, only dialogAssist is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -104,15 +137,23 @@ export class RealtimeDialogAssistRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
+   * Dialog list
+   * 
    * This parameter is required.
    */
   conversationModel?: RealtimeDialogAssistRequestConversationModel[];
   /**
+   * @remarks
+   * Number of historical dialog turns included
+   * 
    * @example
    * 0
    */
   dialogMemoryTurns?: number;
   /**
+   * @remarks
+   * Hang up the session
+   * 
    * @example
    * false
    */
@@ -120,10 +161,19 @@ export class RealtimeDialogAssistRequest extends $dara.Model {
   /**
    * @remarks
    * metaData
+   * 
+   * @example
+   * {
+   *       "phoneTailNumber": "机主尾号：98X1",
+   *       "preScreeningQuota": "预审额度：3万",
+   *       "generalInterest": "平台一般利息：20.4%"
+   *     }
    */
   metaData?: { [key: string]: any };
   /**
    * @remarks
+   * Request ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -131,18 +181,30 @@ export class RealtimeDialogAssistRequest extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Portion of the previous agent utterance already broadcast
+   * 
    * @example
    * 你好
    */
   scriptContentPlayed?: string;
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example
    * 1915593248420413441
    */
   sessionId?: string;
+  /**
+   * @remarks
+   * Whether the user interrupted
+   * 
+   * @example
+   * true
+   */
   userVad?: boolean;
   static names(): { [key: string]: string } {
     return {

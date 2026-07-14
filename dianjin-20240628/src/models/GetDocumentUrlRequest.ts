@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDocumentUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The document ID.
+   * 
    * This parameter is required.
    * 
    * @example

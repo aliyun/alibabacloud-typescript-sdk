@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetLibraryRequest extends $dara.Model {
   /**
    * @remarks
+   * The document library ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDialogDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example

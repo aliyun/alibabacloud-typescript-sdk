@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RunDialogAnalysisRequest extends $dara.Model {
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example

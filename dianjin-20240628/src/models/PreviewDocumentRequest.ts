@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PreviewDocumentRequest extends $dara.Model {
   /**
    * @remarks
+   * Document ID.
+   * 
    * This parameter is required.
    * 
    * @example

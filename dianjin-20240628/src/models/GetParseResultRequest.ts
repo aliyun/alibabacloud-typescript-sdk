@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetParseResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The document ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,21 @@ export class GetParseResultRequest extends $dara.Model {
   docId?: string;
   /**
    * @remarks
+   * The document library ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * sjdgdsfg
    */
   libraryId?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the result as a URL. If true, the parsing result is in resultUrl, and result is empty. If false, the parsing result is in result, and resultUrl is empty.
+   * 
+   * @example
+   * false
+   */
   useUrlResult?: boolean;
   static names(): { [key: string]: string } {
     return {

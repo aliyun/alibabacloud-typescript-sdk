@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePredefinedDocumentRequestChunks extends $dara.Model {
   /**
+   * @remarks
+   * The metadata for the document chunk.
+   * 
    * @example
    * {"a": "1"}
    */
   chunkMeta?: { [key: string]: any };
   /**
+   * @remarks
+   * The order of the chunk. This parameter is optional.
+   * 
    * @example
    * 1
    */
   chunkOrder?: number;
   /**
+   * @remarks
+   * The text content of the document chunk.
+   * 
    * @example
    * 这是一段测试文本
    */
   chunkText?: string;
   /**
+   * @remarks
+   * The type of the document chunk.
+   * 
    * @example
    * text
    */
@@ -54,18 +66,31 @@ export class CreatePredefinedDocumentRequestChunks extends $dara.Model {
 }
 
 export class CreatePredefinedDocumentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of document chunks.
+   */
   chunks?: CreatePredefinedDocumentRequestChunks[];
   /**
+   * @remarks
+   * The ID of the document library.
+   * 
    * @example
    * a1b2c3
    */
   libraryId?: string;
   /**
+   * @remarks
+   * The metadata.
+   * 
    * @example
    * {"a": "1"}
    */
   metadata?: { [key: string]: any };
   /**
+   * @remarks
+   * The title of the document.
+   * 
    * @example
    * 测试文档
    */

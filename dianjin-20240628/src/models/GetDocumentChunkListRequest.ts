@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDocumentChunkListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of document chunk IDs
+   */
   chunkIdList?: string[];
   /**
    * @remarks
+   * Document ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class GetDocumentChunkListRequest extends $dara.Model {
   docId?: string;
   /**
    * @remarks
+   * Library ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,26 +29,41 @@ export class GetDocumentChunkListRequest extends $dara.Model {
    */
   libraryId?: string;
   /**
+   * @remarks
+   * Sorting method
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * Sort field
+   * 
    * @example
    * gmtCreate
    */
   orderBy?: string;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Search query keyword
+   * 
    * @example
    * test
    */

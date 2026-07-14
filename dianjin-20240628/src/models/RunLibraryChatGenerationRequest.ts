@@ -4,20 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunLibraryChatGenerationRequestQueryCriteriaAnd extends $dara.Model {
   /**
+   * @remarks
+   * The weight of the tag. A value less than 1 decreases the weight of the corresponding keyword. A value greater than 1 increases the weight.
+   * 
    * @example
    * 0.5
    */
   boost?: number;
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * city
    */
   key?: string;
   /**
+   * @remarks
+   * The operator for the tag. It specifies the relationship between the metadata key\\"s stored value and your input value.
+   * 
+   * - eq: Equal to.
+   * 
+   * - lte: Less than or equal to.
+   * 
+   * - gte: Greater than or equal to.
+   * 
+   * - lt: Less than.
+   * 
+   * - gt: Greater than.
+   * 
    * @example
    * eq
    */
   operator?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * 北京
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,20 +74,46 @@ export class RunLibraryChatGenerationRequestQueryCriteriaAnd extends $dara.Model
 
 export class RunLibraryChatGenerationRequestQueryCriteriaOr extends $dara.Model {
   /**
+   * @remarks
+   * The weight of the tag. A value less than 1 decreases the weight of the corresponding keyword. A value greater than 1 increases the weight.
+   * 
    * @example
    * 0.5
    */
   boost?: number;
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * city
    */
   key?: string;
   /**
+   * @remarks
+   * The operator for the tag. It specifies the relationship between the metadata key\\"s stored value and your input value.
+   * 
+   * - eq: Equal to.
+   * 
+   * - lte: Less than or equal to.
+   * 
+   * - gte: Greater than or equal to.
+   * 
+   * - lt: Less than.
+   * 
+   * - gt: Greater than.
+   * 
    * @example
    * eq
    */
   operator?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * 北京
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,7 +143,15 @@ export class RunLibraryChatGenerationRequestQueryCriteriaOr extends $dara.Model 
 }
 
 export class RunLibraryChatGenerationRequestQueryCriteria extends $dara.Model {
+  /**
+   * @remarks
+   * The \\`and\\` expression, used to filter documents or document chunks.
+   */
   and?: RunLibraryChatGenerationRequestQueryCriteriaAnd[];
+  /**
+   * @remarks
+   * The \\`or\\` expression, used to filter documents or document chunks.
+   */
   or?: RunLibraryChatGenerationRequestQueryCriteriaOr[];
   static names(): { [key: string]: string } {
     return {
@@ -124,11 +184,17 @@ export class RunLibraryChatGenerationRequestQueryCriteria extends $dara.Model {
 
 export class RunLibraryChatGenerationRequestTextSearchParameter extends $dara.Model {
   /**
+   * @remarks
+   * The number of rows to return.
+   * 
    * @example
    * 10
    */
   limit?: number;
   /**
+   * @remarks
+   * The search tokenizer. Valid values: \\`Standard\\`, \\`IkMaxWord\\`, and \\`IkSmart\\`. Configure this parameter as needed. If left empty, the tokenizer attached to the document library is used.
+   * 
    * @example
    * IkMaxWord
    */
@@ -158,6 +224,9 @@ export class RunLibraryChatGenerationRequestTextSearchParameter extends $dara.Mo
 
 export class RunLibraryChatGenerationRequestVectorSearchParameter extends $dara.Model {
   /**
+   * @remarks
+   * The number of rows to return.
+   * 
    * @example
    * 10
    */
@@ -184,29 +253,47 @@ export class RunLibraryChatGenerationRequestVectorSearchParameter extends $dara.
 }
 
 export class RunLibraryChatGenerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of document IDs.
+   */
   docIdList?: string[];
   /**
+   * @remarks
+   * Specifies whether to enable multi-turn enhancement.
+   * 
    * @example
    * false
    */
   enableFollowUp?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable query splitting.
+   * 
    * @example
    * false
    */
   enableMultiQuery?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable openQA.
+   * 
    * @example
    * false
    */
   enableOpenQa?: boolean;
   /**
+   * @remarks
+   * The Large Language Model (LLM) used for multi-turn query enhancement.
+   * 
    * @example
    * qwen-max
    */
   followUpLlm?: string;
   /**
    * @remarks
+   * The ID of the document library.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -215,6 +302,8 @@ export class RunLibraryChatGenerationRequest extends $dara.Model {
   libraryId?: string;
   /**
    * @remarks
+   * The type of the LLM.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -222,43 +311,79 @@ export class RunLibraryChatGenerationRequest extends $dara.Model {
    */
   llmType?: string;
   /**
+   * @remarks
+   * The LLM used for query splitting.
+   * 
    * @example
    * qwen-max
    */
   multiQueryLlm?: string;
   /**
    * @remarks
+   * The query entered by the user.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 这两天北京气候怎么样
    */
   query?: string;
+  /**
+   * @remarks
+   * The property filter.
+   */
   queryCriteria?: RunLibraryChatGenerationRequestQueryCriteria;
   /**
+   * @remarks
+   * The type of the sort policy. Valid values: \\`linear\\` and \\`model\\`. \\`linear\\`: rule-based sorting. \\`model\\`: model-based sorting (LLM).
+   * 
    * @example
    * linear
    */
   rerankType?: string;
   /**
    * @remarks
-   * sessionId
+   * The session ID.
    * 
    * @example
    * null
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Specifies whether to use streaming or non-streaming mode.
+   * 
    * @example
    * false
    */
   stream?: boolean;
+  /**
+   * @remarks
+   * A list of subqueries.
+   */
   subQueryList?: string[];
+  /**
+   * @remarks
+   * Search engine parameters: text search parameters.
+   */
   textSearchParameter?: RunLibraryChatGenerationRequestTextSearchParameter;
   /**
+   * @remarks
+   * The final number of retrieved corpus entries.
+   * 
    * @example
    * 1
    */
   topK?: number;
+  /**
+   * @remarks
+   * Search engine parameters: vector search parameters.
+   */
   vectorSearchParameter?: RunLibraryChatGenerationRequestVectorSearchParameter;
   /**
+   * @remarks
+   * Specifies whether to return document references.
+   * 
    * @example
    * false
    */

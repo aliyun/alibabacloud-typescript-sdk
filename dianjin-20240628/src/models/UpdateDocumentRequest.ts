@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDocumentRequest extends $dara.Model {
   /**
    * @remarks
+   * Document ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateDocumentRequest extends $dara.Model {
   docId?: string;
   /**
    * @remarks
+   * Document library ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class UpdateDocumentRequest extends $dara.Model {
    */
   libraryId?: string;
   /**
+   * @remarks
+   * Document metadata.
+   * 
    * @example
    * {
    *         "businessId": "12321"
@@ -27,6 +34,9 @@ export class UpdateDocumentRequest extends $dara.Model {
    */
   meta?: { [key: string]: any };
   /**
+   * @remarks
+   * Document title.
+   * 
    * @example
    * test
    */

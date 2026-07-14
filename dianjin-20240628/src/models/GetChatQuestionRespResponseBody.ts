@@ -3,29 +3,69 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetChatQuestionRespResponseBodyDataQuestionList extends $dara.Model {
+  /**
+   * @remarks
+   * Question content
+   * 
+   * @example
+   * 今天天气怎么样
+   */
   content?: string;
   /**
+   * @remarks
+   * Original question time
+   * 
    * @example
    * 2024-11-17 10:05:00
    */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * Original question
+   * 
+   * @example
+   * 今天天气怎么样
+   */
   oriContent?: string;
+  /**
+   * @remarks
+   * Reply content
+   * 
+   * @example
+   * 感谢您的支持！
+   */
   reply?: string;
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * 1732846760323001
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Question type [PRODUCT_QA (Audio submission), GOSSIP (Operation submission), UNKNOWN (Unknown)]
+   * 
    * @example
    * PRODUCT_QA
    */
   type?: string;
   /**
+   * @remarks
+   * Unique ID of the user who asked the question in the live channel.
+   * 
    * @example
    * 39847834568436
    */
   userId?: string;
+  /**
+   * @remarks
+   * Name of the user who asked the question in the live channel.
+   * 
+   * @example
+   * 张*
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,10 +104,17 @@ export class GetChatQuestionRespResponseBodyDataQuestionList extends $dara.Model
 
 export class GetChatQuestionRespResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Current state [INIT (Initialization), PROCESSING (Processing), COMPLETED (Completed)]
+   * 
    * @example
    * PROCESSING
    */
   currentState?: string;
+  /**
+   * @remarks
+   * Question list
+   */
   questionList?: GetChatQuestionRespResponseBodyDataQuestionList[];
   static names(): { [key: string]: string } {
     return {
@@ -97,37 +144,62 @@ export class GetChatQuestionRespResponseBodyData extends $dara.Model {
 
 export class GetChatQuestionRespResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time consumed
+   * 
    * @example
    * null
    */
   cost?: number;
+  /**
+   * @remarks
+   * Response data
+   */
   data?: GetChatQuestionRespResponseBodyData;
   /**
+   * @remarks
+   * Data type
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 44BD277A-87F9-5310-8D63-3E6645F1DA85
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Timestamp
+   * 
    * @example
    * 2024-01-01 00:00:00
    */

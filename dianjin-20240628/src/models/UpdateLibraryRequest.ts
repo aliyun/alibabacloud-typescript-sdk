@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateLibraryRequestIndexSettingChunkStrategy extends $dara.Model {
   /**
+   * @remarks
+   * Layout-based chunking
+   * 
    * @example
    * true
    */
   docTreeSplit?: boolean;
   /**
+   * @remarks
+   * Layout-based chunking size
+   * 
    * @example
    * 160
    */
   docTreeSplitSize?: number;
   /**
+   * @remarks
+   * Enhance images
+   * 
    * @example
    * true
    */
   enhanceGraph?: boolean;
   /**
+   * @remarks
+   * Enhance tables
+   * 
    * @example
    * true
    */
   enhanceTable?: boolean;
   /**
+   * @remarks
+   * Chunk overlap length
+   * 
    * @example
    * 20
    */
   overlap?: number;
   /**
+   * @remarks
+   * Split by sentence. Default is true
+   * 
    * @example
    * true
    */
   sentenceSplit?: boolean;
   /**
+   * @remarks
+   * Average sentence-based chunking length
+   * 
    * @example
    * 160
    */
   sentenceSplitSize?: number;
   /**
+   * @remarks
+   * Fixed-length chunking size
+   * 
    * @example
    * 256
    */
   size?: number;
   /**
+   * @remarks
+   * Enable chunking
+   * 
    * @example
    * true
    */
@@ -87,13 +114,16 @@ export class UpdateLibraryRequestIndexSettingChunkStrategy extends $dara.Model {
 
 export class UpdateLibraryRequestIndexSettingModelConfig extends $dara.Model {
   /**
+   * @remarks
+   * Temperature
+   * 
    * @example
    * 0.8
    */
   temperature?: number;
   /**
    * @remarks
-   * topP
+   * Top P
    * 
    * @example
    * 0.8
@@ -124,36 +154,57 @@ export class UpdateLibraryRequestIndexSettingModelConfig extends $dara.Model {
 
 export class UpdateLibraryRequestIndexSettingQueryEnhancer extends $dara.Model {
   /**
+   * @remarks
+   * Multi-turn enhancement
+   * 
    * @example
    * true
    */
   enableFollowUp?: boolean;
   /**
+   * @remarks
+   * Use Large Language Models (LLMs) to decompose queries
+   * 
    * @example
    * true
    */
   enableMultiQuery?: boolean;
   /**
+   * @remarks
+   * Use Large Language Models (LLMs) to answer queries
+   * 
    * @example
    * true
    */
   enableOpenQa?: boolean;
   /**
+   * @remarks
+   * Rewrite queries using domain knowledge
+   * 
    * @example
    * true
    */
   enableQueryRewrite?: boolean;
   /**
+   * @remarks
+   * Record session history
+   * 
    * @example
    * true
    */
   enableSession?: boolean;
   /**
+   * @remarks
+   * Document library ID used for query rewriting
+   * 
    * @example
    * sjdhgfc
    */
   localKnowledgeId?: string;
   /**
+   * @remarks
+   * Include document references in responses
+   * 
    * @example
    * true
    */
@@ -193,11 +244,17 @@ export class UpdateLibraryRequestIndexSettingQueryEnhancer extends $dara.Model {
 
 export class UpdateLibraryRequestIndexSettingRecallStrategy extends $dara.Model {
   /**
+   * @remarks
+   * Merge and sort strategy
+   * 
    * @example
    * model
    */
   documentRankType?: string;
   /**
+   * @remarks
+   * Number of results from two-way merge and summarization
+   * 
    * @example
    * 10
    */
@@ -227,31 +284,49 @@ export class UpdateLibraryRequestIndexSettingRecallStrategy extends $dara.Model 
 
 export class UpdateLibraryRequestIndexSettingTextIndexSetting extends $dara.Model {
   /**
+   * @remarks
+   * Text index type
+   * 
    * @example
    * ElasticSearch
    */
   category?: string;
   /**
+   * @remarks
+   * Enable text indexing
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * Text index analyzer: Standard, IkMaxWord, or IkSmart
+   * 
    * @example
    * Standard
    */
   indexAnalyzer?: string;
   /**
+   * @remarks
+   * Text index ranking threshold
+   * 
    * @example
    * 0.5
    */
   rankThreshold?: number;
   /**
+   * @remarks
+   * Text index search analyzer: Standard, IkMaxWord, or IkSmart
+   * 
    * @example
    * Standard
    */
   searchAnalyzer?: string;
   /**
+   * @remarks
+   * Number of final summarized results from text indexing
+   * 
    * @example
    * 50
    */
@@ -289,26 +364,41 @@ export class UpdateLibraryRequestIndexSettingTextIndexSetting extends $dara.Mode
 
 export class UpdateLibraryRequestIndexSettingVectorIndexSetting extends $dara.Model {
   /**
+   * @remarks
+   * Vector index source. We recommend ADB
+   * 
    * @example
    * ADB
    */
   category?: string;
   /**
+   * @remarks
+   * Text embedding model for vector indexing
+   * 
    * @example
    * DashScope
    */
   embeddingType?: string;
   /**
+   * @remarks
+   * Enable vector indexing
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * Vector index ranking threshold
+   * 
    * @example
    * 0.5
    */
   rankThreshold?: number;
   /**
+   * @remarks
+   * Number of final summarized results from vector indexing
+   * 
    * @example
    * 10
    */
@@ -343,12 +433,43 @@ export class UpdateLibraryRequestIndexSettingVectorIndexSetting extends $dara.Mo
 }
 
 export class UpdateLibraryRequestIndexSetting extends $dara.Model {
+  /**
+   * @remarks
+   * Chunking strategy
+   */
   chunkStrategy?: UpdateLibraryRequestIndexSettingChunkStrategy;
+  /**
+   * @remarks
+   * Model configuration
+   */
   modelConfig?: UpdateLibraryRequestIndexSettingModelConfig;
+  /**
+   * @remarks
+   * Prompt role style
+   * 
+   * @example
+   * 你是一位文档分析专家，非常善于从给定的知识中，找到重点，像老师给学生讲课一样把问题回答清晰。你的回答富有逻辑性，遇到复杂问题，你善于一步一步思考。
+   */
   promptRoleStyle?: string;
+  /**
+   * @remarks
+   * Query enhancement
+   */
   queryEnhancer?: UpdateLibraryRequestIndexSettingQueryEnhancer;
+  /**
+   * @remarks
+   * Retrieval strategy
+   */
   recallStrategy?: UpdateLibraryRequestIndexSettingRecallStrategy;
+  /**
+   * @remarks
+   * Text index settings
+   */
   textIndexSetting?: UpdateLibraryRequestIndexSettingTextIndexSetting;
+  /**
+   * @remarks
+   * Vector index settings
+   */
   vectorIndexSetting?: UpdateLibraryRequestIndexSettingVectorIndexSetting;
   static names(): { [key: string]: string } {
     return {
@@ -402,16 +523,36 @@ export class UpdateLibraryRequestIndexSetting extends $dara.Model {
 }
 
 export class UpdateLibraryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Document library description
+   * 
+   * @example
+   * 文档库描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * Document library index configuration
+   */
   indexSetting?: UpdateLibraryRequestIndexSetting;
   /**
    * @remarks
+   * Document library ID
+   * 
    * This parameter is required.
    * 
    * @example
    * dsfbashdbb
    */
   libraryId?: string;
+  /**
+   * @remarks
+   * Document library name
+   * 
+   * @example
+   * 测试文档库
+   */
   libraryName?: string;
   static names(): { [key: string]: string } {
     return {

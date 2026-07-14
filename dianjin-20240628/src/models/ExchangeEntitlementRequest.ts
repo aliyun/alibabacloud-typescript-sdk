@@ -8,12 +8,12 @@ export class ExchangeEntitlementRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * your_user_id_001
+   * 1
    */
   externalUserId?: string;
   /**
    * @example
-   * a1b2c3d4e5f6...
+   * sbyusgdfjsg
    */
   keyHash?: string;
   /**
@@ -29,7 +29,7 @@ export class ExchangeEntitlementRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10001
+   * 1
    */
   templateId?: number;
   /**

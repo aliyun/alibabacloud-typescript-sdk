@@ -3,12 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDocumentChunkListResponseBodyDataRecordsPos extends $dara.Model {
+  /**
+   * @remarks
+   * Coordinate
+   */
   axisArray?: number[];
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   page?: number;
+  /**
+   * @remarks
+   * Text highlight area, used for highlighting text-type files
+   */
   textHighlightArea?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -43,59 +54,110 @@ export class GetDocumentChunkListResponseBodyDataRecordsPos extends $dara.Model 
 
 export class GetDocumentChunkListResponseBodyDataRecords extends $dara.Model {
   /**
+   * @remarks
+   * Document chunk ID
+   * 
    * @example
    * 28377468263482764
    */
   chunkId?: string;
   /**
+   * @remarks
+   * Document chunk metadata
+   * 
    * @example
    * {"a":"1"}
    */
   chunkMeta?: { [key: string]: any };
   /**
+   * @remarks
+   * Document chunk OSS address
+   * 
    * @example
    * oss-xxxx-hangzhou.com/test.pdf
    */
   chunkOssUrl?: string;
+  /**
+   * @remarks
+   * Document chunk text
+   * 
+   * @example
+   * 这是一段测试文本
+   */
   chunkText?: string;
   /**
+   * @remarks
+   * Document chunk type
+   * 
    * @example
    * text
    */
   chunkType?: string;
   /**
+   * @remarks
+   * Document ID
+   * 
    * @example
    * 8947387648356
    */
   docId?: string;
   /**
+   * @remarks
+   * Document type
+   * 
    * @example
    * pdf
    */
   fileType?: string;
   /**
+   * @remarks
+   * Library ID
+   * 
    * @example
    * jhsdvne
    */
   libraryId?: string;
+  /**
+   * @remarks
+   * Library name
+   * 
+   * @example
+   * 测试文档库
+   */
   libraryName?: string;
   /**
+   * @remarks
+   * Next document chunk ID
+   * 
    * @example
    * 947538465
    */
   nextChunkId?: string;
+  /**
+   * @remarks
+   * Document chunk position
+   */
   pos?: GetDocumentChunkListResponseBodyDataRecordsPos[];
   /**
+   * @remarks
+   * Previous document chunk ID
+   * 
    * @example
    * 9848346548365
    */
   preChunkId?: string;
   /**
+   * @remarks
+   * Document chunk score
+   * 
    * @example
    * 0.5
    */
   score?: number;
   /**
+   * @remarks
+   * Document title
+   * 
    * @example
    * test
    */
@@ -155,22 +217,38 @@ export class GetDocumentChunkListResponseBodyDataRecords extends $dara.Model {
 
 export class GetDocumentChunkListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Current page
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * Records per page
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Records
+   */
   records?: GetDocumentChunkListResponseBodyDataRecords[];
   /**
+   * @remarks
+   * Total pages
+   * 
    * @example
    * 10
    */
   totalPages?: number;
   /**
+   * @remarks
+   * Total records
+   * 
    * @example
    * 100
    */
@@ -209,37 +287,62 @@ export class GetDocumentChunkListResponseBodyData extends $dara.Model {
 
 export class GetDocumentChunkListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time consumed
+   * 
    * @example
    * null
    */
   cost?: number;
+  /**
+   * @remarks
+   * Response data
+   */
   data?: GetDocumentChunkListResponseBodyData;
   /**
+   * @remarks
+   * Data type
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 2B8F6DC9-6FAF-576F-9095-CCD90FB2BDDF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success status
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Timestamp
+   * 
    * @example
    * 2024-04-24 11:54:34
    */

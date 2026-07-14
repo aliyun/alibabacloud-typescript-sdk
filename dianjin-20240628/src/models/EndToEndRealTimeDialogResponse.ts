@@ -1,34 +1,25 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { EndToEndRealTimeDialogResponseBody } from "./EndToEndRealTimeDialogResponseBody";
+import { $WebSocketUtils }from '@alicloud/openapi-core';
 
 
 export class EndToEndRealTimeDialogResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EndToEndRealTimeDialogResponseBody;
+  webSocketClient?: $WebSocketUtils.WebSocketClient;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
+      webSocketClient: 'webSocketClient',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EndToEndRealTimeDialogResponseBody,
+      webSocketClient: $WebSocketUtils.WebSocketClient,
     };
   }
 
   validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
+    if(this.webSocketClient && typeof (this.webSocketClient as any).validate === 'function') {
+      (this.webSocketClient as any).validate();
     }
     super.validate();
   }

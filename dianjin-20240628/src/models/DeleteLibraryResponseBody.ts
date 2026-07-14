@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteLibraryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 30F6AD44-F078-540D-B5A5-1E519C8E9E6D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded
+   * 
    * @example
    * true
    */

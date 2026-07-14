@@ -8,7 +8,7 @@ export class QueryApiKeysRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1001
+   * 1
    */
   externalUserId?: string;
   static names(): { [key: string]: string } {

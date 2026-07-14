@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryRedemptionRecordsRequest extends $dara.Model {
   /**
    * @example
-   * 1001
+   * 1
    */
   externalUserId?: string;
   /**
@@ -20,7 +20,7 @@ export class QueryRedemptionRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @example
-   * ORD20240101000001
+   * 1
    */
   redemptionOrderNo?: string;
   static names(): { [key: string]: string } {

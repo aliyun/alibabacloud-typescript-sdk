@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReIndexResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Processing time
+   * 
    * @example
    * null
    */
   cost?: number;
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * True
    */
   data?: string;
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32FFC91D-0A9F-585A-B84F-8A54C5187035
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The timestamp in YYYY-MM-DD HH:MM:SS format.
+   * 
    * @example
    * 2024-04-24 11:54:34
    */

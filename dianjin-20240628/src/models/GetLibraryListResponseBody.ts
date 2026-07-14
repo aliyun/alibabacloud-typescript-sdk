@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLibraryListResponseBodyDataRecordsIndexSettingChunkStrategy extends $dara.Model {
   /**
+   * @remarks
+   * Layout chunking
+   * 
    * @example
    * true
    */
   docTreeSplit?: boolean;
   /**
+   * @remarks
+   * Layout chunking size
+   * 
    * @example
    * 160
    */
   docTreeSplitSize?: number;
   /**
+   * @remarks
+   * Enhance images
+   * 
    * @example
    * true
    */
   enhanceGraph?: boolean;
   /**
+   * @remarks
+   * Enhance tables
+   * 
    * @example
    * true
    */
   enhanceTable?: boolean;
   /**
+   * @remarks
+   * Chunk overlap length
+   * 
    * @example
    * 40
    */
   overlap?: number;
   /**
+   * @remarks
+   * Split by sentence
+   * 
    * @example
    * true
    */
   sentenceSplit?: boolean;
   /**
+   * @remarks
+   * Split by sentence size
+   * 
    * @example
    * 160
    */
   sentenceSplitSize?: number;
   /**
+   * @remarks
+   * Chunk size
+   * 
    * @example
    * 256
    */
   size?: number;
   /**
+   * @remarks
+   * Chunking enabled
+   * 
    * @example
    * true
    */
@@ -87,6 +114,9 @@ export class GetLibraryListResponseBodyDataRecordsIndexSettingChunkStrategy exte
 
 export class GetLibraryListResponseBodyDataRecordsIndexSettingModelConfig extends $dara.Model {
   /**
+   * @remarks
+   * Temperature
+   * 
    * @example
    * 0.8
    */
@@ -124,36 +154,57 @@ export class GetLibraryListResponseBodyDataRecordsIndexSettingModelConfig extend
 
 export class GetLibraryListResponseBodyDataRecordsIndexSettingQueryEnhancer extends $dara.Model {
   /**
+   * @remarks
+   * Multi-turn enhancement
+   * 
    * @example
    * true
    */
   enableFollowUp?: boolean;
   /**
+   * @remarks
+   * Use Large Language Model (LLM) knowledge to decompose questions
+   * 
    * @example
    * true
    */
   enableMultiQuery?: boolean;
   /**
+   * @remarks
+   * Use Large Language Model (LLM) knowledge to answer questions
+   * 
    * @example
    * true
    */
   enableOpenQa?: boolean;
   /**
+   * @remarks
+   * Rewrite questions based on domain knowledge
+   * 
    * @example
    * true
    */
   enableQueryRewrite?: boolean;
   /**
+   * @remarks
+   * Record session
+   * 
    * @example
    * true
    */
   enableSession?: boolean;
   /**
+   * @remarks
+   * Document library ID used for knowledge rewriting
+   * 
    * @example
    * sdbcjsbc
    */
   localKnowledgeId?: string;
   /**
+   * @remarks
+   * Include document reference
+   * 
    * @example
    * true
    */
@@ -193,11 +244,17 @@ export class GetLibraryListResponseBodyDataRecordsIndexSettingQueryEnhancer exte
 
 export class GetLibraryListResponseBodyDataRecordsIndexSettingRecallStrategy extends $dara.Model {
   /**
+   * @remarks
+   * Merge and sort policy
+   * 
    * @example
    * model
    */
   documentRankType?: string;
   /**
+   * @remarks
+   * Number of results from two-way merge summary
+   * 
    * @example
    * 10
    */
@@ -227,31 +284,49 @@ export class GetLibraryListResponseBodyDataRecordsIndexSettingRecallStrategy ext
 
 export class GetLibraryListResponseBodyDataRecordsIndexSettingTextIndexSetting extends $dara.Model {
   /**
+   * @remarks
+   * Text index type
+   * 
    * @example
    * ElasticSearch
    */
   category?: string;
   /**
+   * @remarks
+   * Text index enabled
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * Index analyzer for text index: (Standard, IkMaxWord, IkSmart)
+   * 
    * @example
    * Standard
    */
   indexAnalyzer?: string;
   /**
+   * @remarks
+   * Text index sort threshold
+   * 
    * @example
    * null
    */
   rankThreshold?: number;
   /**
+   * @remarks
+   * Search analyzer for text index: (Standard, IkMaxWord, IkSmart)
+   * 
    * @example
    * Standard
    */
   searchAnalyzer?: string;
   /**
+   * @remarks
+   * Number of final summary results for text index
+   * 
    * @example
    * 10
    */
@@ -289,26 +364,41 @@ export class GetLibraryListResponseBodyDataRecordsIndexSettingTextIndexSetting e
 
 export class GetLibraryListResponseBodyDataRecordsIndexSettingVectorIndexSetting extends $dara.Model {
   /**
+   * @remarks
+   * Vector index source. Recommended: ADB
+   * 
    * @example
    * ADB
    */
   category?: string;
   /**
+   * @remarks
+   * Vector index text embedding model
+   * 
    * @example
    * DashScope
    */
   embeddingType?: string;
   /**
+   * @remarks
+   * Enabled
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * Vector index sort threshold
+   * 
    * @example
    * null
    */
   rankThreshold?: number;
   /**
+   * @remarks
+   * Number of final summary results for vector index
+   * 
    * @example
    * 10
    */
@@ -343,12 +433,43 @@ export class GetLibraryListResponseBodyDataRecordsIndexSettingVectorIndexSetting
 }
 
 export class GetLibraryListResponseBodyDataRecordsIndexSetting extends $dara.Model {
+  /**
+   * @remarks
+   * Chunking strategy
+   */
   chunkStrategy?: GetLibraryListResponseBodyDataRecordsIndexSettingChunkStrategy;
+  /**
+   * @remarks
+   * Model Configuration
+   */
   modelConfig?: GetLibraryListResponseBodyDataRecordsIndexSettingModelConfig;
+  /**
+   * @remarks
+   * Prompt role style
+   * 
+   * @example
+   * 你是一个信息处理专家。
+   */
   promptRoleStyle?: string;
+  /**
+   * @remarks
+   * Query enhancement
+   */
   queryEnhancer?: GetLibraryListResponseBodyDataRecordsIndexSettingQueryEnhancer;
+  /**
+   * @remarks
+   * Recall strategy
+   */
   recallStrategy?: GetLibraryListResponseBodyDataRecordsIndexSettingRecallStrategy;
+  /**
+   * @remarks
+   * Text index settings
+   */
   textIndexSetting?: GetLibraryListResponseBodyDataRecordsIndexSettingTextIndexSetting;
+  /**
+   * @remarks
+   * Vector index settings
+   */
   vectorIndexSetting?: GetLibraryListResponseBodyDataRecordsIndexSettingVectorIndexSetting;
   static names(): { [key: string]: string } {
     return {
@@ -402,28 +523,58 @@ export class GetLibraryListResponseBodyDataRecordsIndexSetting extends $dara.Mod
 }
 
 export class GetLibraryListResponseBodyDataRecords extends $dara.Model {
+  /**
+   * @remarks
+   * Document library description
+   * 
+   * @example
+   * 文档库
+   */
   description?: string;
   /**
+   * @remarks
+   * Document count
+   * 
    * @example
    * 10
    */
   documentCount?: number;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 2024-01-01 00:00:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Modification time
+   * 
    * @example
    * 2024-01-01 00:00:00
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Document library ID
+   * 
    * @example
    * 24vs4aa42jv1rg7
    */
   id?: string;
+  /**
+   * @remarks
+   * Document library index settings
+   */
   indexSetting?: GetLibraryListResponseBodyDataRecordsIndexSetting;
+  /**
+   * @remarks
+   * Document library name
+   * 
+   * @example
+   * 测试文档库
+   */
   libraryName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -463,22 +614,38 @@ export class GetLibraryListResponseBodyDataRecords extends $dara.Model {
 
 export class GetLibraryListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * Number of records per page
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Record list
+   */
   records?: GetLibraryListResponseBodyDataRecords[];
   /**
+   * @remarks
+   * Total pages
+   * 
    * @example
    * 10
    */
   totalPages?: number;
   /**
+   * @remarks
+   * Total records
+   * 
    * @example
    * 100
    */
@@ -517,37 +684,62 @@ export class GetLibraryListResponseBodyData extends $dara.Model {
 
 export class GetLibraryListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time consumed
+   * 
    * @example
    * null
    */
   cost?: number;
+  /**
+   * @remarks
+   * Returned data
+   */
   data?: GetLibraryListResponseBodyData;
   /**
+   * @remarks
+   * Data type
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 0a06dfe817156528535968405edce3
    */
   requestId?: string;
   /**
+   * @remarks
+   * Successful
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Timestamp
+   * 
    * @example
    * 2024-01-01 00:00:00
    */

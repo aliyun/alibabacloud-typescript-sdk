@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetUsageRequest extends $dara.Model {
   /**
    * @example
-   * 1001
+   * 1
    */
   externalUserId?: string;
   /**
    * @example
-   * R123456789
+   * 1
    */
   redemptionOrderNo?: string;
   static names(): { [key: string]: string } {

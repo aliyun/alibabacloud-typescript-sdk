@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvokePluginRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Request parameters.
+   * 
+   * @example
+   * {
+   *         "query": "介绍一下贵金属业务",
+   *         "filters": [
+   *             {
+   *                 "libraryId": "9xznrxw"
+   *             }
+   *         ],
+   *         "topK": 1
+   *     }
+   */
   params?: { [key: string]: any };
   /**
+   * @remarks
+   * The plugin ID.
+   * 
    * @example
    * 3mj87da7zr
    */

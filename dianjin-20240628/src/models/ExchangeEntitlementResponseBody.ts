@@ -6,7 +6,7 @@ export class ExchangeEntitlementResponseBodyDataTemplate extends $dara.Model {
   allowedModels?: string[];
   /**
    * @example
-   * 1000
+   * 100000
    */
   quotaLimit?: number;
   /**
@@ -79,7 +79,7 @@ export class ExchangeEntitlementResponseBodyData extends $dara.Model {
   expireAt?: string;
   /**
    * @example
-   * a1b2c3d4e5f6...
+   * a1b2c3d4e5f6
    */
   keyHash?: string;
   /**
@@ -87,10 +87,6 @@ export class ExchangeEntitlementResponseBodyData extends $dara.Model {
    * ORD20240101000001
    */
   redemptionOrderNo?: string;
-  /**
-   * @example
-   * false
-   */
   reused?: boolean;
   template?: ExchangeEntitlementResponseBodyDataTemplate;
   static names(): { [key: string]: string } {
@@ -140,18 +136,10 @@ export class ExchangeEntitlementResponseBody extends $dara.Model {
   data?: ExchangeEntitlementResponseBodyData;
   /**
    * @example
-   * success
+   * ok
    */
   message?: string;
-  /**
-   * @example
-   * false
-   */
   retryAble?: boolean;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

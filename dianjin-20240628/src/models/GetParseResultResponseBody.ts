@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetParseResultResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * pdf
    */
   fileType?: string;
   /**
+   * @remarks
+   * The provider type.
+   * 
    * @example
    * null
    */
   providerType?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * b0a202e2-5031-4589-a6d7-39185f0d8d01
    */
   requestId?: string;
   /**
+   * @remarks
+   * The parsing result.
+   * 
    * @example
    * {
    *           "Status": "Success",
@@ -28,8 +40,18 @@ export class GetParseResultResponseBodyData extends $dara.Model {
    *         }
    */
   result?: { [key: string]: any };
+  /**
+   * @remarks
+   * The parsing result returned as a URL. You can download it directly. Note: Only PDF, DOC, DOCX, PPT, and PPTX file types have parsing results.
+   * 
+   * @example
+   * https://xxx.oss-cn-beijing.aliyuncs.com/library/3mjeoywx7z/1826661605606129665.json
+   */
   resultUrl?: string;
   /**
+   * @remarks
+   * The document parsing status.
+   * 
    * @example
    * WaitRefresh
    */
@@ -70,37 +92,62 @@ export class GetParseResultResponseBodyData extends $dara.Model {
 
 export class GetParseResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The time consumed.
+   * 
    * @example
    * null
    */
   cost?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetParseResultResponseBodyData;
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0abb793617204049360065953ec6dd
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 2024-04-24 11:54:34
    */

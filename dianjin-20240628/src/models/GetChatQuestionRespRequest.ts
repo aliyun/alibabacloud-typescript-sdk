@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatQuestionRespRequest extends $dara.Model {
   /**
    * @remarks
+   * Question batch ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetChatQuestionRespRequest extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example

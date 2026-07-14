@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GenDocQaResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The document ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GenDocQaResultRequest extends $dara.Model {
   docId?: string;
   /**
    * @remarks
+   * The document library ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GenDocQaResultRequest extends $dara.Model {
   libraryId?: string;
   /**
    * @remarks
+   * The request ID. This ID uniquely identifies the request. The first request with this ID starts the Q\\&A pair parsing. Subsequent requests with the same ID query the parsing status and results.
+   * 
    * This parameter is required.
    * 
    * @example

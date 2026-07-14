@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFinReportSummaryTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Document ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateFinReportSummaryTaskRequest extends $dara.Model {
   docId?: string;
   /**
    * @remarks
+   * Enable table
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,13 +24,25 @@ export class CreateFinReportSummaryTaskRequest extends $dara.Model {
    */
   enableTable?: boolean;
   /**
+   * @remarks
+   * End page
+   * 
    * @example
    * 10
    */
   endPage?: number;
+  /**
+   * @remarks
+   * Instruction
+   * 
+   * @example
+   * 请帮我总结一下。
+   */
   instruction?: string;
   /**
    * @remarks
+   * Document library ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +51,8 @@ export class CreateFinReportSummaryTaskRequest extends $dara.Model {
   libraryId?: string;
   /**
    * @remarks
+   * Model ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,11 +60,17 @@ export class CreateFinReportSummaryTaskRequest extends $dara.Model {
    */
   modelId?: string;
   /**
+   * @remarks
+   * Start page
+   * 
    * @example
    * 1
    */
   startPage?: number;
   /**
+   * @remarks
+   * Task type. Optional. Defaults to finance_report. If you set this to custom, provide an instruction.
+   * 
    * @example
    * custom
    */

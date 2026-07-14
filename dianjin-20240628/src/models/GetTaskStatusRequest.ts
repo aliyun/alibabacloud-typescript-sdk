@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetTaskStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * Task ID
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 17071319
    */
   taskId?: string;
   static names(): { [key: string]: string } {

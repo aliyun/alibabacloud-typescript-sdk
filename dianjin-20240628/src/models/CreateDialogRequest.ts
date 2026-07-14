@@ -5,35 +5,62 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDialogRequest extends $dara.Model {
   /**
    * @remarks
+   * The channel.
+   * 
    * This parameter is required.
    * 
    * @example
    * taobao
    */
   channel?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the intent library.
+   * 
+   * @example
+   * false
+   */
   enableLibrary?: boolean;
   /**
+   * @remarks
+   * Other information.
+   * 
    * @example
    * null
    */
   metaData?: { [key: string]: any };
   /**
    * @remarks
+   * The playbook code.
+   * 
    * This parameter is required.
    * 
    * @example
    * live_broadcast_qa
    */
   playCode?: string;
+  /**
+   * @remarks
+   * A list of Q\\&A library IDs.
+   */
   qaLibraryList?: string[];
   /**
    * @remarks
+   * The request ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ebf83826-dc1c-46f8-9759-0fb6da4c8xxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable autonomous Q\\&A.
+   * 
+   * @example
+   * false
+   */
   selfDirected?: boolean;
   static names(): { [key: string]: string } {
     return {

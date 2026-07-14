@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLibraryRequest extends $dara.Model {
   /**
    * @remarks
+   * Document library ID
+   * 
    * This parameter is required.
    * 
    * @example

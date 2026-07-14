@@ -6,7 +6,7 @@ export class GetUsageResponseBodyDataEntitlements extends $dara.Model {
   allowedModels?: string[];
   /**
    * @example
-   * 238746
+   * 1
    */
   bindingId?: number;
   /**
@@ -16,32 +16,32 @@ export class GetUsageResponseBodyDataEntitlements extends $dara.Model {
   effectiveAt?: string;
   /**
    * @example
-   * 2024-01-31T00:00:00Z
+   * 2024-01-01T00:00:00Z
    */
   expireAt?: string;
   /**
    * @example
-   * 1000
+   * 1
    */
   quotaInitial?: number;
   /**
    * @example
-   * 500
+   * 1
    */
   quotaRemaining?: number;
   /**
    * @example
-   * 500
+   * 1
    */
   quotaUsed?: number;
   /**
    * @example
-   * ACTIVE
+   * success
    */
   status?: string;
   /**
    * @example
-   * 893724
+   * 1
    */
   templateId?: number;
   /**
@@ -94,17 +94,17 @@ export class GetUsageResponseBodyDataEntitlements extends $dara.Model {
 export class GetUsageResponseBodyDataModelStats extends $dara.Model {
   /**
    * @example
-   * 1000
+   * 50
    */
   inputUsage?: number;
   /**
    * @example
-   * qwen-turbo
+   * qwen-max
    */
   model?: string;
   /**
    * @example
-   * 500
+   * 50
    */
   outputUsage?: number;
   /**
@@ -114,7 +114,7 @@ export class GetUsageResponseBodyDataModelStats extends $dara.Model {
   requests?: number;
   /**
    * @example
-   * 1500
+   * 100
    */
   totalUsage?: number;
   static names(): { [key: string]: string } {
@@ -149,12 +149,12 @@ export class GetUsageResponseBodyDataModelStats extends $dara.Model {
 export class GetUsageResponseBodyDataSummary extends $dara.Model {
   /**
    * @example
-   * 500
+   * 50
    */
   totalInputUsage?: number;
   /**
    * @example
-   * 500
+   * 50
    */
   totalOutputUsage?: number;
   /**
@@ -164,7 +164,7 @@ export class GetUsageResponseBodyDataSummary extends $dara.Model {
   totalRequests?: number;
   /**
    * @example
-   * 1000
+   * 100
    */
   totalUsage?: number;
   static names(): { [key: string]: string } {
@@ -241,18 +241,10 @@ export class GetUsageResponseBody extends $dara.Model {
   data?: GetUsageResponseBodyData;
   /**
    * @example
-   * success
+   * ok
    */
   message?: string;
-  /**
-   * @example
-   * false
-   */
   retryAble?: boolean;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

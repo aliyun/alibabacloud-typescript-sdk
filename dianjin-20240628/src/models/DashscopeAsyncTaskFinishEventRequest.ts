@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DashscopeAsyncTaskFinishEventRequest extends $dara.Model {
   /**
+   * @remarks
+   * Request body parameters
+   * 
    * @example
    * {}
    */

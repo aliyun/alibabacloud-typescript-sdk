@@ -7,6 +7,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
   /**
    * @remarks
+   * Document ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +17,8 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
   docId?: string;
   /**
    * @remarks
+   * Document year
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +26,17 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
    */
   docYear?: number;
   /**
+   * @remarks
+   * End page number
+   * 
    * @example
    * 2
    */
   endPage?: number;
   /**
    * @remarks
+   * Document library ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +44,9 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
    */
   libraryId?: string;
   /**
+   * @remarks
+   * Start page number
+   * 
    * @example
    * 1
    */
@@ -71,22 +83,41 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $dara.Model {
 export class CreateAnnualDocSummaryTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * List of years to analyze
+   * 
    * This parameter is required.
    */
   anaYears?: number[];
   /**
    * @remarks
+   * List of document information
+   * 
    * This parameter is required.
    */
   docInfos?: CreateAnnualDocSummaryTaskRequestDocInfos[];
   /**
+   * @remarks
+   * Enable table extraction. Default is true.
+   * 
    * @example
    * true
    */
   enableTable?: boolean;
+  /**
+   * @remarks
+   * Instruction
+   * 
+   * @example
+   * 你是资深的证券研究员，对xx年上市公司进行业绩分析。根据参考信息从如下方面详细分析：
+   * 1. 整体业绩变化情况，包括营收，利润等详细指标变化情况
+   * 2. 业绩变化情况具体原因，包括各个业务变化情况
+   * 严格只输出xx年情况。
+   */
   instruction?: string;
   /**
    * @remarks
+   * Model ID
+   * 
    * This parameter is required.
    * 
    * @example

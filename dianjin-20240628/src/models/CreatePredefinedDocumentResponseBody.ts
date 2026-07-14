@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePredefinedDocumentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The time consumed.
+   * 
    * @example
    * null
    */
   cost?: number;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * 1782981430906818562
    */
   data?: string;
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0a06dfe617018288881568684e2937
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 2024-04-24 11:54:34
    */

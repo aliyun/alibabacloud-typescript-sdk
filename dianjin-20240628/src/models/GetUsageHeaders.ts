@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUsageHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * false
-   */
   xLoadTest?: boolean;
   static names(): { [key: string]: string } {
     return {

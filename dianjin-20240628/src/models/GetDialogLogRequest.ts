@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDialogLogRequest extends $dara.Model {
   /**
+   * @remarks
+   * The \\`id\\` field returned by the real-time conversation API.
+   * 
    * @example
    * 175600129454077743fb03ac54955a4be72ec08f9c216
    */
   id?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 1758010668S001w4paq82azm
    */

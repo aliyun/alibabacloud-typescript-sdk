@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDocumentRequest extends $dara.Model {
   /**
    * @remarks
+   * List of document IDs.
+   * 
    * This parameter is required.
    */
   docIds?: string[];
   /**
    * @remarks
+   * Document library ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,37 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDialogAnalysisTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The time consumed by the request.
+   * 
    * @example
    * null
    */
   cost?: number;
+  /**
+   * @remarks
+   * The response data, which is a list of session IDs.
+   */
   data?: string[];
   /**
+   * @remarks
+   * The data type.
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EF4B5C9B-3BC8-5171-A47B-4C5CF3DC3258
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The timestamp.
+   * 
    * @example
    * 2024-04-24 11:54:34
    */

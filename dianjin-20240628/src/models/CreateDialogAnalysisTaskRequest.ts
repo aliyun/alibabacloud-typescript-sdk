@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDialogAnalysisTaskRequestConversationListDialogueList extends $dara.Model {
   /**
    * @remarks
+   * The content of the dialogue.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 您好，我是2001，很高兴为您服务！
    */
   content?: string;
   /**
    * @remarks
+   * The role.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +49,8 @@ export class CreateDialogAnalysisTaskRequestConversationListDialogueList extends
 export class CreateDialogAnalysisTaskRequestConversationList extends $dara.Model {
   /**
    * @remarks
+   * A list of dialogues.
+   * 
    * This parameter is required.
    */
   dialogueList?: CreateDialogAnalysisTaskRequestConversationListDialogueList[];
@@ -70,13 +79,30 @@ export class CreateDialogAnalysisTaskRequestConversationList extends $dara.Model
 }
 
 export class CreateDialogAnalysisTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of analysis nodes. If you leave this parameter empty, all nodes are analyzed. You can specify one or more nodes.
+   */
   analysisNodes?: string[];
   /**
    * @remarks
+   * The session content. You can specify multiple sessions.
+   * 
    * This parameter is required.
    */
   conversationList?: CreateDialogAnalysisTaskRequestConversationList[];
   /**
+   * @remarks
+   * The metadata. This includes business-related properties that are used during session analysis. The business system passes these properties in real time when it initiates the analysis task.
+   * 
+   * ```
+   * {
+   *   "labels": "XXX",  // Tags
+   *   "summaryConstraints": "XXX",   // Summary dimensions
+   *   "sopInfo": "XXX"  // SOP information
+   * }
+   * ```
+   * 
    * @example
    * {
    * "labels": "XXX",
@@ -87,6 +113,8 @@ export class CreateDialogAnalysisTaskRequest extends $dara.Model {
   metaData?: { [key: string]: any };
   /**
    * @remarks
+   * The session scenario code, which is associated with the session analysis configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,6 +123,8 @@ export class CreateDialogAnalysisTaskRequest extends $dara.Model {
   playCode?: string;
   /**
    * @remarks
+   * The request ID.
+   * 
    * This parameter is required.
    * 
    * @example

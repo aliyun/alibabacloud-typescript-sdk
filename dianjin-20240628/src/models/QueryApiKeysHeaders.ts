@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryApiKeysHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * true
-   */
   xLoadTest?: boolean;
   static names(): { [key: string]: string } {
     return {

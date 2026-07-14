@@ -3,18 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RealtimeDialogAssistResponseBodyDataAssistScripts extends $dara.Model {
+  /**
+   * @remarks
+   * Recommended utterance
+   * 
+   * @example
+   * 可按照SOP流程回应。
+   */
   assistScript?: string;
   /**
+   * @remarks
+   * Intent encoding
+   * 
    * @example
-   * 1920005488515465216
+   * "1920005488515465216"
    */
   intentCode?: string;
   /**
+   * @remarks
+   * Intent labels
+   * 
    * @example
    * null
    */
   intentLabels?: string;
+  /**
+   * @remarks
+   * Intent name
+   * 
+   * @example
+   * 礼貌问答
+   */
   intentName?: string;
+  /**
+   * @remarks
+   * Whether intent escaped
+   * 
+   * @example
+   * true
+   */
   isDefault?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -47,20 +74,36 @@ export class RealtimeDialogAssistResponseBodyDataAssistScripts extends $dara.Mod
 
 export class RealtimeDialogAssistResponseBodyDataAssistSop extends $dara.Model {
   /**
+   * @remarks
+   * Recommended flow
+   * 
    * @example
    * XXX
    */
   assistSop?: string;
   /**
+   * @remarks
+   * Intent encoding
+   * 
    * @example
    * XXX
    */
   intentCode?: string;
   /**
+   * @remarks
+   * Intent name
+   * 
    * @example
    * XXX
    */
   intentName?: string;
+  /**
+   * @remarks
+   * Indicates whether the intent is to escape.
+   * 
+   * @example
+   * true
+   */
   isDefault?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -90,28 +133,50 @@ export class RealtimeDialogAssistResponseBodyDataAssistSop extends $dara.Model {
 }
 
 export class RealtimeDialogAssistResponseBodyDataConversationModel extends $dara.Model {
+  /**
+   * @remarks
+   * Specific content of the dialog
+   * 
+   * @example
+   * 你好
+   */
   content?: string;
   /**
+   * @remarks
+   * Unique identity of the dialog role
+   * 
    * @example
-   * 98457834685635
+   * "98457834685635"
    */
   customerId?: string;
   /**
+   * @remarks
+   * Customer service ID
+   * 
    * @example
-   * 1374683645635
+   * "1374683645635"
    */
   customerServiceId?: string;
   /**
+   * @remarks
+   * Agent type. 0: Robot, 1: Human.
+   * 
    * @example
-   * 0
+   * "0"
    */
   customerServiceType?: string;
   /**
+   * @remarks
+   * Role. 0 indicates customer, 1 indicates agent.
+   * 
    * @example
-   * 0
+   * "0"
    */
   role?: string;
   /**
+   * @remarks
+   * Type of dialog content
+   * 
    * @example
    * text
    */
@@ -148,19 +213,51 @@ export class RealtimeDialogAssistResponseBodyDataConversationModel extends $dara
 }
 
 export class RealtimeDialogAssistResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Analysis process
+   * 
+   * @example
+   * 客户回答的内容与提供的意图列表描述均不匹配，没有表达出对账单、还款、天气或其他服务的具体需求或问题。
+   */
   analysisProcess?: string;
+  /**
+   * @remarks
+   * List of dialog assist results
+   */
   assistScripts?: RealtimeDialogAssistResponseBodyDataAssistScripts[];
+  /**
+   * @remarks
+   * List of flow assist results
+   */
   assistSop?: RealtimeDialogAssistResponseBodyDataAssistSop[];
+  /**
+   * @remarks
+   * Current dialog content
+   */
   conversationModel?: RealtimeDialogAssistResponseBodyDataConversationModel[];
+  /**
+   * @remarks
+   * Whether interrupted
+   * 
+   * @example
+   * true
+   */
   interrupt?: boolean;
   /**
+   * @remarks
+   * Unique request ID. This request ID matches the request ID in the input parameter.
+   * 
    * @example
    * 0FC6636E-380A-5369-AE01-D1C15BB9B254
    */
   requestId?: string;
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
-   * 1915593248420413441
+   * "1915593248420413441"
    */
   sessionId?: string;
   static names(): { [key: string]: string } {
@@ -207,37 +304,62 @@ export class RealtimeDialogAssistResponseBodyData extends $dara.Model {
 
 export class RealtimeDialogAssistResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Time consumed
+   * 
    * @example
    * null
    */
   cost?: number;
+  /**
+   * @remarks
+   * Response data
+   */
   data?: RealtimeDialogAssistResponseBodyData;
   /**
+   * @remarks
+   * Data type
+   * 
    * @example
    * null
    */
   dataType?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID. This is the system-recorded request ID. If issues arise, provide this ID to the Model Studio DianJin R\\&D team for troubleshooting.
+   * 
    * @example
    * 67C7021A-D268-553D-8C15-A087B9604028
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether successful
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Timestamp
+   * 
    * @example
    * 2024-04-24 11:54:34
    */
