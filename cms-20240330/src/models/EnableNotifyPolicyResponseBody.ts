@@ -2,34 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateNotifyStrategyResponseBody extends $dara.Model {
+export class EnableNotifyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the notification policy.
+   * Id of the request
    * 
    * @example
-   * 12312-31-23-123-1-23123
-   */
-  notifyStrategyId?: string;
-  /**
-   * @remarks
-   * The unique ID of the request, which is used for troubleshooting.
-   * 
-   * @example
-   * 8FDE2569-626B-5176-9844-28877A*****
+   * 0CEC5375-C554-562B-A65F-***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
+  success?: boolean;
+  /**
+   * @remarks
+   * The unique identifier of the notification policy.
+   * 
+   * @example
+   * 7076c75c-c804-461e-975f-c6f9ed5af745
+   */
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
-      notifyStrategyId: 'notifyStrategyId',
       requestId: 'requestId',
+      success: 'success',
+      uuid: 'uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      notifyStrategyId: 'string',
       requestId: 'string',
+      success: 'boolean',
+      uuid: 'string',
     };
   }
 

@@ -2,35 +2,30 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DirectNotifyChannel extends $dara.Model {
+export class DisableNotifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID. Used to isolate notification policy resources across different business spaces.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * default-cms-xxxx-cn-hangzhou
    */
-  identifiers?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  type?: string;
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
-      identifiers: 'identifiers',
-      type: 'type',
+      workspace: 'workspace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      identifiers: { 'type': 'array', 'itemType': 'string' },
-      type: 'string',
+      workspace: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.identifiers)) {
-      $dara.Model.validateArray(this.identifiers);
-    }
     super.validate();
   }
 

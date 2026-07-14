@@ -2,35 +2,30 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DirectNotifyChannel extends $dara.Model {
+export class EnableNotifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * default
    */
-  identifiers?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  type?: string;
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
-      identifiers: 'identifiers',
-      type: 'type',
+      workspace: 'workspace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      identifiers: { 'type': 'array', 'itemType': 'string' },
-      type: 'string',
+      workspace: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.identifiers)) {
-      $dara.Model.validateArray(this.identifiers);
-    }
     super.validate();
   }
 

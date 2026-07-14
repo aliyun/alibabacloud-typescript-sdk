@@ -3,19 +3,23 @@ import * as $dara from '@darabonba/typescript';
 import { FilterSetting } from "./FilterSetting";
 
 
-export class NotifyStrategyForSNSViewCustomTemplateEntries extends $dara.Model {
-  targetType?: string;
+export class NotifyStrategyDetailCustomTemplateEntries extends $dara.Model {
+  /**
+   * @remarks
+   * The UUID of the notification template.
+   * 
+   * @example
+   * template-uuid-xxx
+   */
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
-      targetType: 'targetType',
       templateUuid: 'templateUuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      targetType: 'string',
       templateUuid: 'string',
     };
   }
@@ -29,10 +33,38 @@ export class NotifyStrategyForSNSViewCustomTemplateEntries extends $dara.Model {
   }
 }
 
-export class NotifyStrategyForSNSViewGroupingSetting extends $dara.Model {
+export class NotifyStrategyDetailGroupingSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The event fields by which events are grouped for noise reduction. Events in the same group are merged into a single notification. An empty array indicates no grouping.
+   * 
+   * @example
+   * ["alertname"]
+   */
   groupingKeys?: string[];
+  /**
+   * @remarks
+   * The check period in minutes.
+   * 
+   * @example
+   * 0
+   */
   periodMin?: number;
+  /**
+   * @remarks
+   * The silence duration in seconds.
+   * 
+   * @example
+   * 0
+   */
   silenceSec?: number;
+  /**
+   * @remarks
+   * The number of trigger times.
+   * 
+   * @example
+   * 0
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -64,9 +96,30 @@ export class NotifyStrategyForSNSViewGroupingSetting extends $dara.Model {
   }
 }
 
-export class NotifyStrategyForSNSViewRoutesChannels extends $dara.Model {
+export class NotifyStrategyDetailRoutesChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The channel type. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP.
+   * 
+   * @example
+   * WEBHOOK
+   */
   channelType?: string;
+  /**
+   * @remarks
+   * The enabled sub-channels. Valid values: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK.
+   * 
+   * @example
+   * ["EMAIL","SMS"]
+   */
   enabledSubChannels?: string[];
+  /**
+   * @remarks
+   * The list of receiver identifiers.
+   * 
+   * @example
+   * ["webhook-uuid-xxx"]
+   */
   receivers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +152,38 @@ export class NotifyStrategyForSNSViewRoutesChannels extends $dara.Model {
   }
 }
 
-export class NotifyStrategyForSNSViewRoutesEffectTimeRange extends $dara.Model {
+export class NotifyStrategyDetailRoutesEffectTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * The effective days of the week. Valid values: 0 to 6 (0 = Sunday, 6 = Saturday). The value 7 is not supported.
+   * 
+   * @example
+   * [0,1,2,3,4,5,6]
+   */
   dayInWeek?: number[];
+  /**
+   * @remarks
+   * The end time of the day in minutes. Valid values: 0 to 1439.
+   * 
+   * @example
+   * 1439
+   */
   endTimeInMinute?: number;
+  /**
+   * @remarks
+   * The start time of the day in minutes. Valid values: 0 to 1438.
+   * 
+   * @example
+   * 0
+   */
   startTimeInMinute?: number;
+  /**
+   * @remarks
+   * The IANA time zone identifier.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,13 +215,44 @@ export class NotifyStrategyForSNSViewRoutesEffectTimeRange extends $dara.Model {
   }
 }
 
-export class NotifyStrategyForSNSViewRoutes extends $dara.Model {
-  channels?: NotifyStrategyForSNSViewRoutesChannels[];
+export class NotifyStrategyDetailRoutes extends $dara.Model {
+  /**
+   * @remarks
+   * The list of notification channels.
+   * 
+   * @example
+   * []
+   */
+  channels?: NotifyStrategyDetailRoutesChannels[];
+  /**
+   * @remarks
+   * The digital employee name. This parameter is required when enableRca is set to true.
+   * 
+   * @example
+   * 数字员工名
+   */
   digitalEmployeeName?: string;
-  effectTimeRange?: NotifyStrategyForSNSViewRoutesEffectTimeRange;
+  /**
+   * @remarks
+   * The effective time range.
+   */
+  effectTimeRange?: NotifyStrategyDetailRoutesEffectTimeRange;
+  /**
+   * @remarks
+   * Specifies whether to enable root cause analysis (RCA).
+   * 
+   * @example
+   * false
+   */
   enableRca?: boolean;
+  /**
+   * @remarks
+   * The route-level event filter conditions.
+   * 
+   * @example
+   * {}
+   */
   filterSetting?: FilterSetting;
-  severities?: string[];
   static names(): { [key: string]: string } {
     return {
       channels: 'channels',
@@ -148,18 +260,16 @@ export class NotifyStrategyForSNSViewRoutes extends $dara.Model {
       effectTimeRange: 'effectTimeRange',
       enableRca: 'enableRca',
       filterSetting: 'filterSetting',
-      severities: 'severities',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      channels: { 'type': 'array', 'itemType': NotifyStrategyForSNSViewRoutesChannels },
+      channels: { 'type': 'array', 'itemType': NotifyStrategyDetailRoutesChannels },
       digitalEmployeeName: 'string',
-      effectTimeRange: NotifyStrategyForSNSViewRoutesEffectTimeRange,
+      effectTimeRange: NotifyStrategyDetailRoutesEffectTimeRange,
       enableRca: 'boolean',
       filterSetting: FilterSetting,
-      severities: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -173,9 +283,6 @@ export class NotifyStrategyForSNSViewRoutes extends $dara.Model {
     if(this.filterSetting && typeof (this.filterSetting as any).validate === 'function') {
       (this.filterSetting as any).validate();
     }
-    if(Array.isArray(this.severities)) {
-      $dara.Model.validateArray(this.severities);
-    }
     super.validate();
   }
 
@@ -184,62 +291,61 @@ export class NotifyStrategyForSNSViewRoutes extends $dara.Model {
   }
 }
 
-export class NotifyStrategyForSNSView extends $dara.Model {
-  createTime?: string;
-  customTemplateEntries?: NotifyStrategyForSNSViewCustomTemplateEntries[];
+export class NotifyStrategyDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The list of custom notification templates.
+   * 
+   * @example
+   * []
+   */
+  customTemplateEntries?: NotifyStrategyDetailCustomTemplateEntries[];
+  /**
+   * @remarks
+   * The description of the notification policy.
+   * 
+   * @example
+   * 生产环境告警通知策略
+   */
   description?: string;
-  enable?: boolean;
-  enableIncidentManagement?: boolean;
-  groupingSetting?: NotifyStrategyForSNSViewGroupingSetting;
+  /**
+   * @remarks
+   * The grouping and merging settings.
+   */
+  groupingSetting?: NotifyStrategyDetailGroupingSetting;
+  /**
+   * @remarks
+   * Specifies whether to ignore notifications for recovery events. A value of true indicates that recovery notifications are not sent.
+   * 
+   * @example
+   * true
+   */
   ignoreRestoredNotification?: boolean;
-  incidentResponsePlanId?: string;
-  mode?: string;
-  notifyStrategyId?: string;
-  notifyStrategyName?: string;
-  routes?: NotifyStrategyForSNSViewRoutes[];
-  syncFromType?: string;
-  updateTime?: string;
-  userId?: string;
-  workspace?: string;
+  /**
+   * @remarks
+   * The list of notification channel routing settings.
+   * 
+   * @example
+   * []
+   */
+  routes?: NotifyStrategyDetailRoutes[];
   static names(): { [key: string]: string } {
     return {
-      createTime: 'createTime',
       customTemplateEntries: 'customTemplateEntries',
       description: 'description',
-      enable: 'enable',
-      enableIncidentManagement: 'enableIncidentManagement',
       groupingSetting: 'groupingSetting',
       ignoreRestoredNotification: 'ignoreRestoredNotification',
-      incidentResponsePlanId: 'incidentResponsePlanId',
-      mode: 'mode',
-      notifyStrategyId: 'notifyStrategyId',
-      notifyStrategyName: 'notifyStrategyName',
       routes: 'routes',
-      syncFromType: 'syncFromType',
-      updateTime: 'updateTime',
-      userId: 'userId',
-      workspace: 'workspace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'string',
-      customTemplateEntries: { 'type': 'array', 'itemType': NotifyStrategyForSNSViewCustomTemplateEntries },
+      customTemplateEntries: { 'type': 'array', 'itemType': NotifyStrategyDetailCustomTemplateEntries },
       description: 'string',
-      enable: 'boolean',
-      enableIncidentManagement: 'boolean',
-      groupingSetting: NotifyStrategyForSNSViewGroupingSetting,
+      groupingSetting: NotifyStrategyDetailGroupingSetting,
       ignoreRestoredNotification: 'boolean',
-      incidentResponsePlanId: 'string',
-      mode: 'string',
-      notifyStrategyId: 'string',
-      notifyStrategyName: 'string',
-      routes: { 'type': 'array', 'itemType': NotifyStrategyForSNSViewRoutes },
-      syncFromType: 'string',
-      updateTime: 'string',
-      userId: 'string',
-      workspace: 'string',
+      routes: { 'type': 'array', 'itemType': NotifyStrategyDetailRoutes },
     };
   }
 

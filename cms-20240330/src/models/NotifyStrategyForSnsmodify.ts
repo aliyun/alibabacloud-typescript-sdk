@@ -66,13 +66,30 @@ export class NotifyStrategyForSNSModifyGroupingSetting extends $dara.Model {
 export class NotifyStrategyForSNSModifyRoutesChannels extends $dara.Model {
   /**
    * @remarks
+   * The notification channel type. The value must be one of the following uppercase enum values: DING (DingTalk chatbot), WEIXIN (WeCom chatbot), FEISHU (Lark chatbot), SLACK, TEAMS, WEBHOOK (custom webhook), CONTACT (contact, requires enabledSubChannels to specify sub-channels), GROUP (contact group), DUTY (on-call schedule), or DING_COOL_APP (DingTalk Cool App). Note: Lowercase values such as EMAIL or SMS are not supported. To send email, text message, or voice notifications, set channelType to CONTACT and specify EMAIL, SMS, or VOICE in enabledSubChannels.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * WEBHOOK
    */
   channelType?: string;
+  /**
+   * @remarks
+   * Required only when channelType is CONTACT, GROUP, or DUTY. Valid values: EMAIL (email), SMS (text message), VOICE (voice call), DING (DingTalk work notification), WEIXIN (WeCom message), FEISHU (Lark message), and WEBHOOK. For example, to notify a contact by email and text message, set channelType to CONTACT and enabledSubChannels to ["EMAIL","SMS"]. This field is not required for other channelType values such as WEBHOOK or DING.
+   * 
+   * @example
+   * ["EMAIL","SMS"]
+   */
   enabledSubChannels?: string[];
   /**
    * @remarks
+   * The list of receiver identifiers. For the WEBHOOK type, specify the webhook UUID. For DING, WEIXIN, or FEISHU, specify the chatbot UUID. For CONTACT, specify the contact ID. For GROUP, specify the contact group ID. For DUTY, specify the on-call schedule UUID. At least one element is required.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ["my-webhook-uuid"]
    */
   receivers?: string[];
   static names(): { [key: string]: string } {
@@ -107,9 +124,37 @@ export class NotifyStrategyForSNSModifyRoutesChannels extends $dara.Model {
 }
 
 export class NotifyStrategyForSNSModifyRoutesEffectTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * The days of the week on which the setting takes effect. Array element values range from 0 to 6 (0 = Sunday, 1 = Monday, 2 = Tuesday, ... 6 = Saturday). Note: The value 7 is not supported. The maximum value is 6. Example for all days: [0,1,2,3,4,5,6]. Example for weekdays only: [1,2,3,4,5].
+   * 
+   * @example
+   * [0,1,2,3,4,5,6]
+   */
   dayInWeek?: number[];
+  /**
+   * @remarks
+   * The end time of the day, expressed as the number of minutes from 00:00. Valid values: 0 to 1439 (23 × 60 + 59 = 1439, which represents 23:59).
+   * 
+   * @example
+   * 1439
+   */
   endTimeInMinute?: number;
+  /**
+   * @remarks
+   * The start time of the day, expressed as the number of minutes from 00:00. Valid values: 0 to 1439 (0 represents 00:00).
+   * 
+   * @example
+   * 0
+   */
   startTimeInMinute?: number;
+  /**
+   * @remarks
+   * The IANA time zone identifier, such as Asia/Shanghai or America/Los_Angeles.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -204,13 +249,21 @@ export class NotifyStrategyForSNSModifyRoutesFilterSetting extends $dara.Model {
 
 export class NotifyStrategyForSNSModifyRoutes extends $dara.Model {
   channels?: NotifyStrategyForSNSModifyRoutesChannels[];
+  digitalEmployeeName?: string;
+  /**
+   * @remarks
+   * The effective period settings for notifications. Defines on which days and during which time range the system sends notifications.
+   */
   effectTimeRange?: NotifyStrategyForSNSModifyRoutesEffectTimeRange;
+  enableRca?: boolean;
   filterSetting?: NotifyStrategyForSNSModifyRoutesFilterSetting;
   severities?: string[];
   static names(): { [key: string]: string } {
     return {
       channels: 'channels',
+      digitalEmployeeName: 'digitalEmployeeName',
       effectTimeRange: 'effectTimeRange',
+      enableRca: 'enableRca',
       filterSetting: 'filterSetting',
       severities: 'severities',
     };
@@ -219,7 +272,9 @@ export class NotifyStrategyForSNSModifyRoutes extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       channels: { 'type': 'array', 'itemType': NotifyStrategyForSNSModifyRoutesChannels },
+      digitalEmployeeName: 'string',
       effectTimeRange: NotifyStrategyForSNSModifyRoutesEffectTimeRange,
+      enableRca: 'boolean',
       filterSetting: NotifyStrategyForSNSModifyRoutesFilterSetting,
       severities: { 'type': 'array', 'itemType': 'string' },
     };

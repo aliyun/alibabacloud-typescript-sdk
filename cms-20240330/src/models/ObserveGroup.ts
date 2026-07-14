@@ -1,5 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ObserveGroupDiscoverRule } from "./ObserveGroupDiscoverRule";
+import { ObserveGroupPromInstance } from "./ObserveGroupPromInstance";
 
 
 export class ObserveGroupTags extends $dara.Model {
@@ -44,42 +46,42 @@ export class ObserveGroup extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The time when the group was created, in UTC format (yyyy-MM-ddTHH:mm:ssZ).
+   * The creation time in UTC format: yyyy-MM-ddTHH:mm:ssZ.
    */
   createTime?: string;
   /**
    * @remarks
-   * The description of the observability group, which describes the business purpose.
+   * The description of the observability group, which explains its business purpose.
    */
   description?: string;
   /**
    * @remarks
    * The list of entity discovery rules that define which entities the group automatically matches.
    */
-  discoverRules?: string;
+  discoverRules?: ObserveGroupDiscoverRule[];
   /**
    * @remarks
-   * The number of entities in each category. The key is the category domain (such as acs for Alibaba Cloud services, apm, or rum, which is extensible). The value is the number of entities in that category that belong to this group. This parameter is returned only when withEntityCount is set to true.
+   * The number of entities in each category. The key is the category domain (acs for cloud services, apm, or rum, which is extensible). The value is the number of entities in that category that belong to this group. Returned only when withEntityCount is set to true.
    */
   entityCounts?: { [key: string]: number };
   /**
    * @remarks
-   * The extended information, which is a JSON string that contains alert templates, alert contact groups, pause policies, and other settings.
+   * The extended information as a JSON string, which carries alert templates, alert contact groups, and suspension policies.
    */
   extraInfo?: string;
   /**
    * @remarks
-   * Indicates whether the current user has favorited this group. This value is used as the filter criterion for the My Favorites feature.
+   * Indicates whether the current user has followed this group. This value is used as the filter criterion for the My Favorites feature.
    */
   favorited?: boolean;
   /**
    * @remarks
-   * The globally unique ID of the observability group, in the format of og-<16-character hash>. This ID is used across metrics, alerts, and the console.
+   * The globally unique ID of the observability group. Format: og-<16-character hash>. Used uniformly across metrics, alerts, and consoles.
    */
   groupId?: string;
   /**
    * @remarks
-   * The name of the observability group. The name must be unique within the workspace.
+   * The name of the observability group. Must be unique within the same workspace.
    */
   groupName?: string;
   /**
@@ -97,17 +99,27 @@ export class ObserveGroup extends $dara.Model {
   health?: number;
   /**
    * @remarks
-   * The time when the group was last modified, in UTC format (yyyy-MM-ddTHH:mm:ssZ). This value is automatically updated when any property of the resource changes.
+   * The last modification time in UTC format: yyyy-MM-ddTHH:mm:ssZ. Automatically updated when any resource attribute changes.
    */
   modifyTime?: string;
   /**
    * @remarks
-   * The product_group.id of the version 1.0 application group. This parameter is returned only when sourceOrigin is set to synced_from_1_0.
+   * Specifies whether og_entity_info metric output is enabled. When enabled, the data plane writes the group membership information to the target Prometheus instance.
+   */
+  ogEntityInfoEnabled?: boolean;
+  /**
+   * @remarks
+   * The set of Prometheus instances to which og_entity_info is written. Includes two source types: system (automatically identified by the system) and custom (user-defined).
+   */
+  ogEntityInfoPromInstances?: ObserveGroupPromInstance[];
+  /**
+   * @remarks
+   * The product_group.id of the version 1.0 application group. This parameter is valid only when sourceOrigin is set to synced_from_1_0.
    */
   originGroupId?: string;
   /**
    * @remarks
-   * The region ID of the group.
+   * The region ID to which the group belongs.
    */
   regionId?: string;
   /**
@@ -124,12 +136,12 @@ export class ObserveGroup extends $dara.Model {
   sourceOrigin?: string;
   /**
    * @remarks
-   * The resource tags (Alibaba Cloud standard tags), which are an array of key-value pairs.
+   * The resource tags (Alibaba Cloud standard tags) as an array of key-value pairs.
    */
   tags?: ObserveGroupTags[];
   /**
    * @remarks
-   * The workspace ID to which the group belongs. This value is set at the workspace level and cannot be changed after the group is created.
+   * The workspace ID to which the group belongs. This value is set at the workspace level and cannot be changed after creation.
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
@@ -146,6 +158,8 @@ export class ObserveGroup extends $dara.Model {
       groupType: 'groupType',
       health: 'health',
       modifyTime: 'modifyTime',
+      ogEntityInfoEnabled: 'ogEntityInfoEnabled',
+      ogEntityInfoPromInstances: 'ogEntityInfoPromInstances',
       originGroupId: 'originGroupId',
       regionId: 'regionId',
       resourceGroupId: 'resourceGroupId',
@@ -160,7 +174,7 @@ export class ObserveGroup extends $dara.Model {
       aliUid: 'string',
       createTime: 'string',
       description: 'string',
-      discoverRules: 'string',
+      discoverRules: { 'type': 'array', 'itemType': ObserveGroupDiscoverRule },
       entityCounts: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       extraInfo: 'string',
       favorited: 'boolean',
@@ -169,6 +183,8 @@ export class ObserveGroup extends $dara.Model {
       groupType: 'string',
       health: 'number',
       modifyTime: 'string',
+      ogEntityInfoEnabled: 'boolean',
+      ogEntityInfoPromInstances: { 'type': 'array', 'itemType': ObserveGroupPromInstance },
       originGroupId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -179,8 +195,14 @@ export class ObserveGroup extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.discoverRules)) {
+      $dara.Model.validateArray(this.discoverRules);
+    }
     if(this.entityCounts) {
       $dara.Model.validateMap(this.entityCounts);
+    }
+    if(Array.isArray(this.ogEntityInfoPromInstances)) {
+      $dara.Model.validateArray(this.ogEntityInfoPromInstances);
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

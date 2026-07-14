@@ -1,40 +1,43 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { NotifyStrategyForModify } from "./NotifyStrategyForModify";
 
 
-export class UpdateNotifyStrategyRequest extends $dara.Model {
+export class DeleteNotifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body parameters.
-   */
-  body?: NotifyStrategyForModify;
-  /**
-   * @remarks
-   * The workspace name.
+   * The unique identifier of the notification policy, returned by the creation operation.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * workspace-test
+   * np-12345678-1234-1234-1234-123456789012
+   */
+  uuid?: string;
+  /**
+   * @remarks
+   * The workspace ID. Used to isolate notification policy resources across different business spaces.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * default-cms-xxxx-cn-hangzhou
    */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
-      body: 'body',
+      uuid: 'uuid',
       workspace: 'workspace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      body: NotifyStrategyForModify,
+      uuid: 'string',
       workspace: 'string',
     };
   }
 
   validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
     super.validate();
   }
 

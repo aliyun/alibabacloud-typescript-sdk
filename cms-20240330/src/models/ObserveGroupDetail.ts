@@ -1,5 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ObserveGroupDiscoverRule } from "./ObserveGroupDiscoverRule";
+import { ObserveGroupPromInstance } from "./ObserveGroupPromInstance";
 
 
 export class ObserveGroupDetailEntitySummaries extends $dara.Model {
@@ -10,7 +12,7 @@ export class ObserveGroupDetailEntitySummaries extends $dara.Model {
   entityCategory?: string;
   /**
    * @remarks
-   * The entity count.
+   * The number of entities.
    */
   entityCount?: number;
   /**
@@ -50,6 +52,40 @@ export class ObserveGroupDetailEntitySummaries extends $dara.Model {
   }
 }
 
+export class ObserveGroupDetailTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tagKey',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ObserveGroupDetail extends $dara.Model {
   /**
    * @remarks
@@ -70,26 +106,26 @@ export class ObserveGroupDetail extends $dara.Model {
    * @remarks
    * The list of entity discovery rules that define which entities the group automatically matches.
    */
-  discoverRules?: string;
+  discoverRules?: ObserveGroupDiscoverRule[];
   /**
    * @remarks
-   * The statistics of entities in the group, grouped by entity type.
+   * The statistics of entities in the group, categorized by entity type.
    */
   entitySummaries?: ObserveGroupDetailEntitySummaries[];
   /**
    * @remarks
-   * The extended information in JSON string format, which carries alert templates, alert contact groups, pause policies, and other configurations.
+   * The extended information in JSON string format, which carries alert templates, alert contact groups, suspension policies, and other configurations.
    */
   extraInfo?: string;
   /**
    * @remarks
-   * Indicates whether the current user has favorited the group.
+   * Indicates whether the current user has followed the group.
    */
   favorited?: boolean;
   groupId?: string;
   /**
    * @remarks
-   * The name of the observability group. The name must be unique within the workspace.
+   * The name of the observability group. The name must be unique within the same workspace.
    */
   groupName?: string;
   /**
@@ -104,7 +140,17 @@ export class ObserveGroupDetail extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The ID of the version 1.0 application group (product_group.id). This parameter is valid only when sourceOrigin is set to synced_from_1_0.
+   * Specifies whether to enable the og_entity_info metric output. When enabled, the data plane writes the group ownership information to the target Prometheus instance.
+   */
+  ogEntityInfoEnabled?: boolean;
+  /**
+   * @remarks
+   * The set of Prometheus instances to which og_entity_info is written. This includes two source types: system (automatically identified by the system) and custom (user-defined).
+   */
+  ogEntityInfoPromInstances?: ObserveGroupPromInstance[];
+  /**
+   * @remarks
+   * The product_group.id of the version 1.0 application group. This parameter is valid only when sourceOrigin is set to synced_from_1_0.
    */
   originGroupId?: string;
   /**
@@ -126,6 +172,11 @@ export class ObserveGroupDetail extends $dara.Model {
   sourceOrigin?: string;
   /**
    * @remarks
+   * The resource tags (Alibaba Cloud standard tags), represented as an array of key-value pairs.
+   */
+  tags?: ObserveGroupDetailTags[];
+  /**
+   * @remarks
    * The workspace ID to which the group belongs. This value is set at the workspace level and cannot be changed after the group is created.
    */
   workspaceId?: string;
@@ -142,10 +193,13 @@ export class ObserveGroupDetail extends $dara.Model {
       groupName: 'groupName',
       groupType: 'groupType',
       modifyTime: 'modifyTime',
+      ogEntityInfoEnabled: 'ogEntityInfoEnabled',
+      ogEntityInfoPromInstances: 'ogEntityInfoPromInstances',
       originGroupId: 'originGroupId',
       regionId: 'regionId',
       resourceGroupId: 'resourceGroupId',
       sourceOrigin: 'sourceOrigin',
+      tags: 'tags',
       workspaceId: 'workspaceId',
     };
   }
@@ -155,7 +209,7 @@ export class ObserveGroupDetail extends $dara.Model {
       aliUid: 'string',
       createTime: 'string',
       description: 'string',
-      discoverRules: 'string',
+      discoverRules: { 'type': 'array', 'itemType': ObserveGroupDiscoverRule },
       entitySummaries: { 'type': 'array', 'itemType': ObserveGroupDetailEntitySummaries },
       extraInfo: 'string',
       favorited: 'boolean',
@@ -163,17 +217,29 @@ export class ObserveGroupDetail extends $dara.Model {
       groupName: 'string',
       groupType: 'string',
       modifyTime: 'string',
+      ogEntityInfoEnabled: 'boolean',
+      ogEntityInfoPromInstances: { 'type': 'array', 'itemType': ObserveGroupPromInstance },
       originGroupId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       sourceOrigin: 'string',
+      tags: { 'type': 'array', 'itemType': ObserveGroupDetailTags },
       workspaceId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.discoverRules)) {
+      $dara.Model.validateArray(this.discoverRules);
+    }
     if(Array.isArray(this.entitySummaries)) {
       $dara.Model.validateArray(this.entitySummaries);
+    }
+    if(Array.isArray(this.ogEntityInfoPromInstances)) {
+      $dara.Model.validateArray(this.ogEntityInfoPromInstances);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

@@ -1050,6 +1050,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a notification policy.
+   * 
+   * @remarks
+   * Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+   * 
+   * @param request - CreateNotifyPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNotifyPolicyResponse
+   */
+  async createNotifyPolicyWithOptions(request: $_model.CreateNotifyPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNotifyPolicyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNotifyPolicy",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/api/eventbase/notify-policy/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNotifyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateNotifyPolicyResponse({}));
+  }
+
+  /**
+   * Creates a notification policy.
+   * 
+   * @remarks
+   * Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+   * 
+   * @param request - CreateNotifyPolicyRequest
+   * @returns CreateNotifyPolicyResponse
+   */
+  async createNotifyPolicy(request: $_model.CreateNotifyPolicyRequest): Promise<$_model.CreateNotifyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createNotifyPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Create a pipeline.
    * 
    * @param request - CreatePipelineRequest
@@ -2295,6 +2347,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+   * 
+   * @remarks
+   * Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+   * 
+   * @param request - DeleteNotifyPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNotifyPolicyResponse
+   */
+  async deleteNotifyPolicyWithOptions(request: $_model.DeleteNotifyPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNotifyPolicyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.uuid)) {
+      query["uuid"] = request.uuid;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNotifyPolicy",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/api/eventbase/notify-policy`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNotifyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNotifyPolicyResponse({}));
+  }
+
+  /**
+   * Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+   * 
+   * @remarks
+   * Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+   * 
+   * @param request - DeleteNotifyPolicyRequest
+   * @returns DeleteNotifyPolicyResponse
+   */
+  async deleteNotifyPolicy(request: $_model.DeleteNotifyPolicyRequest): Promise<$_model.DeleteNotifyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteNotifyPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes a pipeline.
    * 
    * @param request - DeletePipelineRequest
@@ -2864,6 +2971,108 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+   * 
+   * @remarks
+   * Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+   * 
+   * @param request - DisableNotifyPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableNotifyPolicyResponse
+   */
+  async disableNotifyPolicyWithOptions(uuid: string, request: $_model.DisableNotifyPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableNotifyPolicyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableNotifyPolicy",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/api/eventbase/notify-policy/${$dara.URL.percentEncode(uuid)}/disable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableNotifyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DisableNotifyPolicyResponse({}));
+  }
+
+  /**
+   * Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+   * 
+   * @remarks
+   * Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+   * 
+   * @param request - DisableNotifyPolicyRequest
+   * @returns DisableNotifyPolicyResponse
+   */
+  async disableNotifyPolicy(uuid: string, request: $_model.DisableNotifyPolicyRequest): Promise<$_model.DisableNotifyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableNotifyPolicyWithOptions(uuid, request, headers, runtime);
+  }
+
+  /**
+   * Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
+   * 
+   * @remarks
+   * Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+   * 
+   * @param request - EnableNotifyPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableNotifyPolicyResponse
+   */
+  async enableNotifyPolicyWithOptions(uuid: string, request: $_model.EnableNotifyPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableNotifyPolicyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableNotifyPolicy",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/api/eventbase/notify-policy/${$dara.URL.percentEncode(uuid)}/enable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableNotifyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.EnableNotifyPolicyResponse({}));
+  }
+
+  /**
+   * Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
+   * 
+   * @remarks
+   * Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+   * 
+   * @param request - EnableNotifyPolicyRequest
+   * @returns EnableNotifyPolicyResponse
+   */
+  async enableNotifyPolicy(uuid: string, request: $_model.EnableNotifyPolicyRequest): Promise<$_model.EnableNotifyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableNotifyPolicyWithOptions(uuid, request, headers, runtime);
   }
 
   /**
@@ -3921,6 +4130,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the details of a specified notification policy.
+   * 
+   * @remarks
+   * Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+   * 
+   * @param request - GetNotifyPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNotifyPolicyResponse
+   */
+  async getNotifyPolicyWithOptions(request: $_model.GetNotifyPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetNotifyPolicyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.uuid)) {
+      query["uuid"] = request.uuid;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNotifyPolicy",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/api/eventbase/notify-policy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNotifyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetNotifyPolicyResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a specified notification policy.
+   * 
+   * @remarks
+   * Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+   * 
+   * @param request - GetNotifyPolicyRequest
+   * @returns GetNotifyPolicyResponse
+   */
+  async getNotifyPolicy(request: $_model.GetNotifyPolicyRequest): Promise<$_model.GetNotifyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getNotifyPolicyWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5821,6 +6085,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists notify policies.
+   * 
+   * @remarks
+   * Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+   * 
+   * @param request - ListNotifyPoliciesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNotifyPoliciesResponse
+   */
+  async listNotifyPoliciesWithOptions(request: $_model.ListNotifyPoliciesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNotifyPoliciesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderDesc)) {
+      query["orderDesc"] = request.orderDesc;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNotifyPolicies",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/api/eventbase/notify-policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNotifyPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListNotifyPoliciesResponse({}));
+  }
+
+  /**
+   * Lists notify policies.
+   * 
+   * @remarks
+   * Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+   * 
+   * @param request - ListNotifyPoliciesRequest
+   * @returns ListNotifyPoliciesResponse
+   */
+  async listNotifyPolicies(request: $_model.ListNotifyPoliciesRequest): Promise<$_model.ListNotifyPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listNotifyPoliciesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Lists pipelines.
    * 
    * @param request - ListPipelinesRequest
@@ -7679,6 +8014,58 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Updates a notification policy.
+   * 
+   * @remarks
+   * Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+   * 
+   * @param request - UpdateNotifyPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNotifyPolicyResponse
+   */
+  async updateNotifyPolicyWithOptions(request: $_model.UpdateNotifyPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNotifyPolicyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNotifyPolicy",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/api/eventbase/notify-policy/update`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNotifyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNotifyPolicyResponse({}));
+  }
+
+  /**
+   * Updates a notification policy.
+   * 
+   * @remarks
+   * Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+   * 
+   * @param request - UpdateNotifyPolicyRequest
+   * @returns UpdateNotifyPolicyResponse
+   */
+  async updateNotifyPolicy(request: $_model.UpdateNotifyPolicyRequest): Promise<$_model.UpdateNotifyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNotifyPolicyWithOptions(request, headers, runtime);
   }
 
   /**

@@ -6,10 +6,18 @@ import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 
 export class SubscriptionForSNSModify extends $dara.Model {
   filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * Specifies whether to subscribe to legacy product events (CMS 1.0 / ARMS / SLS events where workspace=null). Valid values:
+   * - true: Subscribe.
+   * - false or null: Do not subscribe.
+   */
+  subscribeLegacyEvent?: boolean;
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {
       filterSetting: 'filterSetting',
+      subscribeLegacyEvent: 'subscribeLegacyEvent',
       workspaceFilterSetting: 'workspaceFilterSetting',
     };
   }
@@ -17,6 +25,7 @@ export class SubscriptionForSNSModify extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       filterSetting: FilterSetting,
+      subscribeLegacyEvent: 'boolean',
       workspaceFilterSetting: WorkspaceFilterSetting,
     };
   }

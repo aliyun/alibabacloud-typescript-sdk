@@ -1,48 +1,51 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { AlertRuleTimeSpan } from "./AlertRuleTimeSpan";
+import { SeverityNotifyConfig } from "./SeverityNotifyConfig";
 
 
 export class AlertRuleNotification extends $dara.Model {
   /**
    * @remarks
-   * A list of contact IDs.
+   * The list of contact IDs.
    */
   contacts?: string[];
   /**
    * @remarks
-   * A list of custom webhook notification object IDs.
+   * The list of custom webhook Notification Recipient IDs.
    */
   customWebhooks?: string[];
   /**
    * @remarks
-   * A list of DingTalk Cool App webhook notification object IDs.
+   * The list of DingTalk Cool App webhook Notification Recipient IDs.
    */
   dingCoolAppWebhooks?: string[];
   /**
    * @remarks
-   * A list of DingTalk webhook notification object IDs.
+   * The list of DingTalk webhook Notification Recipient IDs.
    */
   dingWebhooks?: string[];
   /**
    * @remarks
-   * A list of Lark webhook notification object IDs.
+   * The list of Lark webhook Notification Recipient IDs.
    */
   fsWebhooks?: string[];
   /**
    * @remarks
-   * A list of contact group IDs.
+   * The list of contact group IDs.
    */
   groups?: string[];
   /**
    * @remarks
-   * The notification period. Notifications are sent only within this period.
+   * The notification time period. Notifications are sent only during this time period.
    */
   notifyTime?: AlertRuleTimeSpan;
   qwencloudContacts?: { [key: string]: {[key: string]: any} };
+  sendOk?: boolean;
+  severityNotifications?: { [key: string]: SeverityNotifyConfig };
   /**
    * @remarks
-   * The notification silence period. Unit: seconds.
+   * The notification mute duration, in seconds.
    * 
    * @example
    * 86400
@@ -50,12 +53,12 @@ export class AlertRuleNotification extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * A list of Slack webhook notification object IDs.
+   * The list of Slack webhook Notification Recipient IDs.
    */
   slackWebhooks?: string[];
   /**
    * @remarks
-   * A list of WeChat webhook notification object IDs.
+   * The list of WeChat webhook Notification Recipient IDs.
    */
   wxWebhooks?: string[];
   static names(): { [key: string]: string } {
@@ -68,6 +71,8 @@ export class AlertRuleNotification extends $dara.Model {
       groups: 'groups',
       notifyTime: 'notifyTime',
       qwencloudContacts: 'qwencloudContacts',
+      sendOk: 'sendOk',
+      severityNotifications: 'severityNotifications',
       silenceTime: 'silenceTime',
       slackWebhooks: 'slackWebhooks',
       wxWebhooks: 'wxWebhooks',
@@ -84,6 +89,8 @@ export class AlertRuleNotification extends $dara.Model {
       groups: { 'type': 'array', 'itemType': 'string' },
       notifyTime: AlertRuleTimeSpan,
       qwencloudContacts: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
+      sendOk: 'boolean',
+      severityNotifications: { 'type': 'map', 'keyType': 'string', 'valueType': SeverityNotifyConfig },
       silenceTime: 'number',
       slackWebhooks: { 'type': 'array', 'itemType': 'string' },
       wxWebhooks: { 'type': 'array', 'itemType': 'string' },
@@ -114,6 +121,9 @@ export class AlertRuleNotification extends $dara.Model {
     }
     if(this.qwencloudContacts) {
       $dara.Model.validateMap(this.qwencloudContacts);
+    }
+    if(this.severityNotifications) {
+      $dara.Model.validateMap(this.severityNotifications);
     }
     if(Array.isArray(this.slackWebhooks)) {
       $dara.Model.validateArray(this.slackWebhooks);

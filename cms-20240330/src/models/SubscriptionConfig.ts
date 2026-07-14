@@ -4,62 +4,45 @@ import { FilterSetting } from "./FilterSetting";
 import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 
 
-export class SubscriptionForSNSView extends $dara.Model {
-  createTime?: string;
-  enable?: boolean;
-  filterSetting?: FilterSetting;
-  mode?: string;
-  name?: string;
-  notifyStrategyUuid?: string;
-  regionId?: string;
+export class SubscriptionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: subscribed. false or null: not subscribed.
+   * The event content filtering conditions.
+   * 
+   * @example
+   * {}
+   */
+  filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * Specifies whether to subscribe to legacy product events (events with an empty workspace from CMS 1.0, ARMS, or SLS). Valid values:
+   * - true: Subscribe.
+   * - false/null: Do not subscribe.
+   * 
+   * @example
+   * false
    */
   subscribeLegacyEvent?: boolean;
-  subscriptionType?: string;
-  syncFromType?: string;
-  updateTime?: string;
-  userId?: string;
-  uuid?: string;
-  workspace?: string;
+  /**
+   * @remarks
+   * The cross-workspace event routing (global subscription) settings.
+   * 
+   * @example
+   * {}
+   */
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {
-      createTime: 'createTime',
-      enable: 'enable',
       filterSetting: 'filterSetting',
-      mode: 'mode',
-      name: 'name',
-      notifyStrategyUuid: 'notifyStrategyUuid',
-      regionId: 'regionId',
       subscribeLegacyEvent: 'subscribeLegacyEvent',
-      subscriptionType: 'subscriptionType',
-      syncFromType: 'syncFromType',
-      updateTime: 'updateTime',
-      userId: 'userId',
-      uuid: 'uuid',
-      workspace: 'workspace',
       workspaceFilterSetting: 'workspaceFilterSetting',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'string',
-      enable: 'boolean',
       filterSetting: FilterSetting,
-      mode: 'string',
-      name: 'string',
-      notifyStrategyUuid: 'string',
-      regionId: 'string',
       subscribeLegacyEvent: 'boolean',
-      subscriptionType: 'string',
-      syncFromType: 'string',
-      updateTime: 'string',
-      userId: 'string',
-      uuid: 'string',
-      workspace: 'string',
       workspaceFilterSetting: WorkspaceFilterSetting,
     };
   }

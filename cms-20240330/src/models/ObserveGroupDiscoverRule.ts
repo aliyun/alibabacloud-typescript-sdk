@@ -10,13 +10,13 @@ export class ObserveGroupDiscoverRuleNameRulesTags extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The list of matching values.
+   * The matching value list.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
-      op: 'Op',
-      tagValues: 'TagValues',
+      op: 'op',
+      tagValues: 'tagValues',
     };
   }
 
@@ -47,13 +47,13 @@ export class ObserveGroupDiscoverRuleNameRules extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The list of name conditions.
+   * The name condition list.
    */
   tags?: ObserveGroupDiscoverRuleNameRulesTags[];
   static names(): { [key: string]: string } {
     return {
-      op: 'Op',
-      tags: 'Tags',
+      op: 'op',
+      tags: 'tags',
     };
   }
 
@@ -89,14 +89,14 @@ export class ObserveGroupDiscoverRuleTagRulesTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The list of tag values.
+   * The tag value list.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
-      op: 'Op',
-      tagKey: 'TagKey',
-      tagValues: 'TagValues',
+      op: 'op',
+      tagKey: 'tagKey',
+      tagValues: 'tagValues',
     };
   }
 
@@ -128,13 +128,13 @@ export class ObserveGroupDiscoverRuleTagRules extends $dara.Model {
   op?: string;
   /**
    * @remarks
-   * The list of tag conditions.
+   * The tag condition list.
    */
   tags?: ObserveGroupDiscoverRuleTagRulesTags[];
   static names(): { [key: string]: string } {
     return {
-      op: 'Op',
-      tags: 'Tags',
+      op: 'op',
+      tags: 'tags',
     };
   }
 
@@ -165,12 +165,12 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The entity type (legacy). This parameter is retained for backward compatibility. Use entityTypes instead.
+   * The entity type (legacy). Retained for backward compatibility. Use entityTypes instead.
    */
   entityType?: string;
   /**
    * @remarks
-   * The list of entity types. A single rule can match across multiple types, such as acs.ecs.instance, acs.rds.instance, and acs.arms.service.
+   * The list of entity types. A single rule can match multiple types, such as acs.ecs.instance, acs.rds.instance, and acs.arms.service.
    */
   entityTypes?: string[];
   /**
@@ -180,7 +180,7 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The list of manually specified instance IDs. This is an enumeration type and includes instances synchronized manually in version 1.0.
+   * The list of manually specified instance IDs in enumeration mode, including instances synchronized manually in version 1.0.
    */
   instanceIds?: string[];
   /**
@@ -190,7 +190,7 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
   nameRules?: ObserveGroupDiscoverRuleNameRules;
   /**
    * @remarks
-   * The list of region IDs used for region-based filtering.
+   * The list of region IDs used for filtering by region.
    */
   regionIds?: string[];
   /**
@@ -200,7 +200,7 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The stable ID of the rule, used as an anchor for editing, deleting, and enabling or disabling operations. Format: dr-<16-character hash>.
+   * The stable rule ID used as an anchor for editing, deleting, and enabling or disabling operations. Format: dr-<16-character hash>.
    */
   ruleId?: string;
   /**
@@ -215,7 +215,7 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The complete SPL expression for advanced configuration. If this parameter is not empty, it takes precedence over other filter fields.
+   * The full SPL expression for advanced configuration. If this parameter is not empty, it takes precedence over other filter fields.
    */
   spl?: string;
   /**
@@ -230,20 +230,20 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
-      enabled: 'Enabled',
-      entityType: 'EntityType',
-      entityTypes: 'EntityTypes',
-      gmtCreate: 'GmtCreate',
-      instanceIds: 'InstanceIds',
-      nameRules: 'NameRules',
-      regionIds: 'RegionIds',
-      resourceGroupId: 'ResourceGroupId',
-      ruleId: 'RuleId',
-      ruleType: 'RuleType',
-      scope: 'Scope',
-      spl: 'Spl',
-      tagRules: 'TagRules',
-      userId: 'UserId',
+      enabled: 'enabled',
+      entityType: 'entityType',
+      entityTypes: 'entityTypes',
+      gmtCreate: 'gmtCreate',
+      instanceIds: 'instanceIds',
+      nameRules: 'nameRules',
+      regionIds: 'regionIds',
+      resourceGroupId: 'resourceGroupId',
+      ruleId: 'ruleId',
+      ruleType: 'ruleType',
+      scope: 'scope',
+      spl: 'spl',
+      tagRules: 'tagRules',
+      userId: 'userId',
     };
   }
 
