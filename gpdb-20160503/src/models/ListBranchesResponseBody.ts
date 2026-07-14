@@ -155,7 +155,7 @@ export class ListBranchesResponseBody extends $dara.Model {
   branches?: ListBranchesResponseBodyBranches;
   /**
    * @remarks
-   * The maximum number of records returned in this query.
+   * The maximum number of records to return in this request.
    * 
    * @example
    * 20
@@ -163,7 +163,7 @@ export class ListBranchesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. It is not required for the first query. For subsequent queries, use the NextToken returned from the previous query.
+   * The cursor for the paged query. You do not need to specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response for paging.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -203,7 +203,7 @@ export class ListBranchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of branches that match the query conditions.
+   * The total number of branches that match the query criteria.
    * 
    * @example
    * 20

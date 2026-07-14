@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteStatementRequestRagWorkspaceCollection extends $dara.Model {
   /**
    * @remarks
-   * Collection name.  
+   * The collection name.
    * 
-   * > You can view the list by using the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API.
+   * > You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query the list.
    * 
    * @example
    * mycollection
@@ -15,9 +15,9 @@ export class ExecuteStatementRequestRagWorkspaceCollection extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * Namespace.  
+   * The namespace.
    * 
-   * > You can view the list by using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+   * > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query the list.
    * 
    * @example
    * mynamespace
@@ -51,7 +51,7 @@ export class ExecuteStatementRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -59,7 +59,7 @@ export class ExecuteStatementRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * This parameter is required.
    * 
@@ -70,13 +70,13 @@ export class ExecuteStatementRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The configuration parameters.
+   * The list of configuration parameters.
    */
   parameters?: any[];
   /**
    * @remarks
-   * Parameters for the vector dataset.  
-   * > When WorkspaceId is not empty, you must also pass this parameter.
+   * The vector dataset parameters.
+   * > If WorkspaceId is not empty, this parameter is required.
    */
   ragWorkspaceCollection?: ExecuteStatementRequestRagWorkspaceCollection;
   /**
@@ -91,10 +91,9 @@ export class ExecuteStatementRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The execution type. Valid values:
-   * 
-   * *   synchronous
-   * *   asynchronous (not supported)
+   * The run type. Valid values:
+   * - synchronous: synchronous execution.
+   * - asynchronous: asynchronous execution. Currently not supported.
    * 
    * @example
    * synchronous
@@ -102,9 +101,9 @@ export class ExecuteStatementRequest extends $dara.Model {
   runType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. You can call the CreateSecret operation to create an access credential.
+   * The access credential. Created by calling the CreateSecret operation.
    * 
-   * >  To call the ExecuteStatement operation as a Resource Access Management (RAM) user, the RAM user must have the permissions to call the UseSecret or GetSecretValue operation on the ARN of the access credential.
+   * > When you access this operation by using a RAM user, you must have the UseSecret or GetSecretValue permission on this SecretArn.
    * 
    * This parameter is required.
    * 
@@ -114,7 +113,7 @@ export class ExecuteStatementRequest extends $dara.Model {
   secretArn?: string;
   /**
    * @remarks
-   * The SQL statements that you want to execute.
+   * The SQL statement to execute.
    * 
    * @example
    * select * from table1
@@ -122,12 +121,12 @@ export class ExecuteStatementRequest extends $dara.Model {
   sql?: string;
   /**
    * @remarks
-   * The SQL statements.
+   * The list of multiple SQL statements.
    */
   sqls?: string[];
   /**
    * @remarks
-   * The name of the set of SQL statements that you want to execute. This parameter takes effect when the RunType parameter is set to asynchronous.
+   * The name of the execution statement. This parameter takes effect only when RunType is set to asynchronous.
    * 
    * @example
    * test
@@ -135,7 +134,7 @@ export class ExecuteStatementRequest extends $dara.Model {
   statementName?: string;
   /**
    * @remarks
-   * The ID of a workspace composed of multiple database instances. This parameter and DBInstanceId cannot both be empty. If both are specified, this parameter takes precedence.
+   * The ID of the workspace that consists of multiple database instances. This parameter and DBInstanceId cannot both be empty. If both this parameter and DBInstanceId are specified, this parameter takes precedence.
    * 
    * @example
    * gp-ws-*****

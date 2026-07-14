@@ -7,7 +7,7 @@ export class DescribeTableRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -15,7 +15,7 @@ export class DescribeTableRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class DescribeTableRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the schema to which the table belongs.
+   * The name of the schema that contains the table.
    * 
    * This parameter is required.
    * 
@@ -46,9 +46,9 @@ export class DescribeTableRequest extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. You can call the CreateSecret operation to create an access credential.
+   * The access credential. Created by calling the CreateSecret operation.
    * 
-   * >  To call the DescribeTable operation as a Resource Access Management (RAM) user, the RAM user must have the permissions to call the UseSecret or GetSecretValue operation on the ARN of the access credential.
+   * > When you access this operation by using a RAM user, you must have the UseSecret or GetSecretValue permission on this SecretArn.
    * 
    * This parameter is required.
    * 
@@ -58,7 +58,7 @@ export class DescribeTableRequest extends $dara.Model {
   secretArn?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class DescribeTableRequest extends $dara.Model {
   table?: string;
   /**
    * @remarks
-   * The ID of the workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. If both parameters are specified, this parameter takes precedence.
+   * The ID of the workspace that consists of multiple database instances. This parameter and DBInstanceId cannot both be empty. If both this parameter and DBInstanceId are specified, this parameter takes precedence.
    * 
    * @example
    * gp-ws-*****

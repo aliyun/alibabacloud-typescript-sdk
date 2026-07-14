@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIndexResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID. It can be used to query the job status or cancel the job.
+   * The task ID, which is used to query the task status or cancel the task.
    * 
    * @example
    * 231460f8-75dc-405e-a669-0c5204887e91
@@ -13,7 +13,7 @@ export class CreateIndexResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The returned message.
+   * The detailed information returned by the operation.
    * 
    * @example
    * Successfully create job
@@ -21,7 +21,7 @@ export class CreateIndexResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -29,10 +29,9 @@ export class CreateIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The operation was successful.
+   * - **fail**: The operation failed.
    * 
    * @example
    * success

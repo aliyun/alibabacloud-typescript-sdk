@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeModelOperatorApiKeyRequest extends $dara.Model {
   /**
+   * @remarks
+   * API KEY ID。
+   * 
    * @example
    * 1
    */

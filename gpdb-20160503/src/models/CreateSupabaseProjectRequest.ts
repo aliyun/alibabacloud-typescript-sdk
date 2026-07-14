@@ -21,7 +21,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto start/stop. If this parameter is not specified, the default value is false.
+   * Specifies whether to enable auto start/stop. If this parameter is not specified, the default value false is used.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   autoScale?: boolean;
   /**
    * @remarks
-   * The idempotency token. This token ensures that duplicate requests do not trigger the same operation more than once.
+   * The idempotency token. Ensures that duplicate requests do not result in duplicate operations.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -44,7 +44,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * - PL0
    * - PL1
    * - PL2
-   * - PL3.
+   * - PL3
    * 
    * @example
    * PL0
@@ -52,12 +52,12 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   diskPerformanceLevel?: string;
   /**
    * @remarks
-   * The DPI engine version. If this parameter is not specified, the default value PG15 is used.
+   * The DPI engine version. If this parameter is not specified, the default value PG15 is used. PG17 and later versions support the data sandbox (branch) feature.
    * 
    * Valid values:
    * 
    * - PG15: PostgreSQL 15.
-   * - PG17: PostgreSQL 17.
+   * - PG17: PostgreSQL 17, which supports the data sandbox feature.
    * 
    * @example
    * PG15
@@ -108,7 +108,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The specifications of the Supabase project. The Free billing type uses free-tier specifications. For paid billing types, the specifications must match those available on the console.
+   * The specifications of the Supabase project. The Free billing type uses free-tier specifications. For paid billing types, the specifications must match those available in the console.
    * 
    * This parameter is required.
    * 
@@ -144,7 +144,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   storageSize?: number;
   /**
    * @remarks
-   * The subscription duration of the resource. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
+   * The subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
    * 
    * @example
    * 1
@@ -172,7 +172,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as the value of this parameter.
+   * The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as this parameter value.
    * 
    * This parameter is required.
    * 

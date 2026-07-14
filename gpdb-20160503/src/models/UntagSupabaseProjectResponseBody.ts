@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagSupabaseProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 34b32a0a-08ef-4a87-b6be-cdd9f56fc3ad

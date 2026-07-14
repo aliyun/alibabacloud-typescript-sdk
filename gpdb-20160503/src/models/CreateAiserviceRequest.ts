@@ -7,7 +7,7 @@ export class CreateAIServiceRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > Call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to list all AnalyticDB for PostgreSQL instances in the destination region, including their instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class CreateAIServiceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A description of the service.
+   * The description.
    * 
    * @example
    * dramatest
@@ -25,13 +25,11 @@ export class CreateAIServiceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * A comma-separated list of IP addresses or CIDR blocks in the IP address whitelist. You can specify up to 1000 entries. To block all external IP access, use 127.0.0.1. Valid formats include the following:
+   * The list of IP addresses in IP address whitelist group. You can specify up to 1,000 IP addresses, separated by commas (,). The value 127.0.0.1 indicates that no external IP addresses are allowed to access the instance. The following formats are supported:
+   * - 10.23.12.24 (IP address)
+   * - 10.23.12.24/24 (CIDR block. The value /24 indicates the length of the prefix in the address, which ranges from 1 to 32.)
    * 
-   * - 10.23.12.24 (an IPv4 address)
-   * 
-   * - 10.23.12.24/24 (a CIDR block, where /24 indicates the prefix length, from 1 to 32)
-   * 
-   * > After you create the service, call the ModifyAIServiceSecurityIps operation to update the IP address whitelist.
+   * > After the service is created, you can call the ModifyAIServiceSecurityIps operation to modify IP address whitelist.
    * 
    * @example
    * 127.0.0.1
@@ -39,15 +37,11 @@ export class CreateAIServiceRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The service account. It must meet these requirements:
-   * 
-   * - Contain only lowercase letters, digits, and underscores.
-   * 
-   * - Start with a lowercase letter and end with a lowercase letter or digit.
-   * 
-   * - Not start with gp.
-   * 
-   * - Be 2 to 16 characters long.
+   * The service account. The following limits apply:
+   * - The account name can contain lowercase letters, digits, and underscores (_).
+   * - The account name must start with a lowercase letter and end with a lowercase letter or digit.
+   * - The account name cannot start with gp.
+   * - The account name must be 2 to 16 characters in length.
    * 
    * This parameter is required.
    * 
@@ -57,13 +51,10 @@ export class CreateAIServiceRequest extends $dara.Model {
   serviceAccount?: string;
   /**
    * @remarks
-   * The password for the service account. It must meet these requirements:
-   * 
-   * - Contain at least three of the following: uppercase letters, lowercase letters, digits, and special characters.
-   * 
-   * - Support these special characters: !@#$%^&\\*()_+-=.
-   * 
-   * - Be 8 to 32 characters long.
+   * The password of the service account. The following limits apply:
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - Supported special characters: !@#$%^&*()_+-=
+   * - The password must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -73,7 +64,7 @@ export class CreateAIServiceRequest extends $dara.Model {
   serviceAccountPassword?: string;
   /**
    * @remarks
-   * The service type. Only drama is supported.
+   * The service type. Currently, only drama is supported.
    * 
    * This parameter is required.
    * 

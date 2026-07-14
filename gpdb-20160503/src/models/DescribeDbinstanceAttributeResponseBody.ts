@@ -317,7 +317,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   items?: DescribeDBInstanceAttributeResponseBodyItems;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 5E6EDEB8-D73E-5F2D-B948-86C8AEB05A68

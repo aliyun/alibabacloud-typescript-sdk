@@ -42,7 +42,7 @@ export class DescribeModelServiceResponseBody extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * Model parameters.
+   * The model parameters.
    * 
    * @example
    * Not yet available.
@@ -58,7 +58,7 @@ export class DescribeModelServiceResponseBody extends $dara.Model {
   modelServiceId?: string;
   /**
    * @remarks
-   * The internal endpoint.
+   * The internal network connection string.
    * 
    * @example
    * http://ms-xxxxxxx.xxxx.rds.aliyuncs.com
@@ -66,7 +66,7 @@ export class DescribeModelServiceResponseBody extends $dara.Model {
   privateConnectUrl?: string;
   /**
    * @remarks
-   * The public endpoint.
+   * The public network connection string.
    * 
    * @example
    * http://ms-xxxxxxx-o.xxxx.rds.aliyuncs.com
@@ -74,7 +74,7 @@ export class DescribeModelServiceResponseBody extends $dara.Model {
   publicConnectUrl?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -82,7 +82,7 @@ export class DescribeModelServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A comma-separated list of IP addresses and CIDR blocks allowed to connect.
+   * The list of IP addresses in the IP whitelist, separated by commas.
    * 
    * @example
    * 127.0.0.1
@@ -90,7 +90,7 @@ export class DescribeModelServiceResponseBody extends $dara.Model {
   securityIpList?: string;
   /**
    * @remarks
-   * The status of the model service.
+   * The model service status.
    * 
    * @example
    * - deployming

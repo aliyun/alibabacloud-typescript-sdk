@@ -65,7 +65,7 @@ export class ListSupabaseProjectTagsResponseBodyTagResources extends $dara.Model
 export class ListSupabaseProjectTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token for the next page of results. This parameter is not returned if no more results are available.
+   * The token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -73,7 +73,7 @@ export class ListSupabaseProjectTagsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 34b32a0a-08ef-4a87-b6be-cdd9f56fc3ad
@@ -81,7 +81,7 @@ export class ListSupabaseProjectTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of tagged resources.
+   * The details.
    */
   tagResources?: ListSupabaseProjectTagsResponseBodyTagResources[];
   static names(): { [key: string]: string } {

@@ -29,7 +29,7 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
    * @remarks
    * The method used to merge results from multiple knowledge bases. Default value: RRF. Valid values:
    * - RRF
-   * - Weight.
+   * - Weight
    * 
    * @example
    * RRF

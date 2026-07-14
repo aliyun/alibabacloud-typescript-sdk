@@ -87,7 +87,7 @@ export class GetStatementResultResponseBodyData extends $dara.Model {
   records?: GetStatementResultResponseBodyDataRecords;
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of rows.
    * 
    * @example
    * 10
@@ -132,7 +132,7 @@ export class GetStatementResultResponseBody extends $dara.Model {
   data?: GetStatementResultResponseBodyData;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * success
@@ -140,7 +140,7 @@ export class GetStatementResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -148,10 +148,10 @@ export class GetStatementResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * API execution status, with values as follows:
+   * The execution status of the API operation. Valid values:
    * 
-   * - **false**: Execution failed.
-   * - **true**: Execution succeeded.
+   * - **false**: Failed.
+   * - **true**: Succeeded.
    * 
    * @example
    * success

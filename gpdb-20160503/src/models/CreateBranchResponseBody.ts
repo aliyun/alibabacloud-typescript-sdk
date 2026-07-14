@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBranchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The branch ID. This ID uniquely identifies a Supabase branch.
+   * The branch ID, which uniquely identifies a Supabase branch.
    * 
    * @example
    * br-xxxx
@@ -13,7 +13,7 @@ export class CreateBranchResponseBody extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The Supabase project ID that corresponds to the primary branch.
+   * The ID of the Supabase project that corresponds to the primary branch.
    * 
    * @example
    * spb-xxxx

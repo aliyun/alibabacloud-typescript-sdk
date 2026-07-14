@@ -1228,6 +1228,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建API密钥
+   * 
+   * @remarks
+   * 创建API密钥。
+   * 
+   * @param tmpReq - CreateApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApiKeyResponse
+   */
+  async createApiKeyWithOptions(tmpReq: $_model.CreateApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApiKeyResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateApiKeyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.serviceIds)) {
+      request.serviceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceIds, "ServiceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceIdsShrink)) {
+      query["ServiceIds"] = request.serviceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApiKey",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateApiKeyResponse({}));
+  }
+
+  /**
+   * 创建API密钥
+   * 
+   * @remarks
+   * 创建API密钥。
+   * 
+   * @param request - CreateApiKeyRequest
+   * @returns CreateApiKeyResponse
+   */
+  async createApiKey(request: $_model.CreateApiKeyRequest): Promise<$_model.CreateApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a backup set.
    * 
    * @param request - CreateBackupRequest
@@ -1990,7 +2060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a knowledge base
+   * Creates a knowledge base.
    * 
    * @param tmpReq - CreateDocumentCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2147,7 +2217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a knowledge base
+   * Creates a knowledge base.
    * 
    * @param request - CreateDocumentCollectionRequest
    * @returns CreateDocumentCollectionResponse
@@ -2360,7 +2430,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
+   * Creates an index.
+   * Usage notes:
+   * 1. Only scalar indexes are supported.
+   * 2. Write operations on the table are prohibited during index creation.
+   * 3. Creating an index on a table with a large amount of data consumes CPU and I/O resources of the instance. If instance availability is affected, call CancelCreateIndexJob to cancel the index creation.
    * 
    * @param request - CreateIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2427,7 +2501,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
+   * Creates an index.
+   * Usage notes:
+   * 1. Only scalar indexes are supported.
+   * 2. Write operations on the table are prohibited during index creation.
+   * 3. Creating an index on a table with a large amount of data consumes CPU and I/O resources of the instance. If instance availability is affected, call CancelCreateIndexJob to cancel the index creation.
    * 
    * @param request - CreateIndexRequest
    * @returns CreateIndexResponse
@@ -2508,7 +2586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型算子 API KEY
+   * Creates a model creation operator API key.
    * 
    * @param request - CreateModelOperatorApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2539,7 +2617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型算子 API KEY
+   * Creates a model creation operator API key.
    * 
    * @param request - CreateModelOperatorApiKeyRequest
    * @returns CreateModelOperatorApiKeyResponse
@@ -2553,7 +2631,7 @@ export default class Client extends OpenApi {
    * Creates a model service.
    * 
    * @remarks
-   * Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+   * Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param tmpReq - CreateModelServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2639,7 +2717,7 @@ export default class Client extends OpenApi {
    * Creates a model service.
    * 
    * @remarks
-   * Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+   * Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param request - CreateModelServiceRequest
    * @returns CreateModelServiceResponse
@@ -2801,7 +2879,7 @@ export default class Client extends OpenApi {
    * Creates a SaaS service.
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+   * Before you use this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param request - CreateSaasServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2863,7 +2941,7 @@ export default class Client extends OpenApi {
    * Creates a SaaS service.
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+   * Before you use this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param request - CreateSaasServiceRequest
    * @returns CreateSaasServiceResponse
@@ -3806,6 +3884,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除API密钥
+   * 
+   * @remarks
+   * 删除API密钥。
+   * 
+   * @param request - DeleteApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApiKeyResponse
+   */
+  async deleteApiKeyWithOptions(request: $_model.DeleteApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApiKey",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApiKeyResponse({}));
+  }
+
+  /**
+   * 删除API密钥
+   * 
+   * @remarks
+   * 删除API密钥。
+   * 
+   * @param request - DeleteApiKeyRequest
+   * @returns DeleteApiKeyResponse
+   */
+  async deleteApiKey(request: $_model.DeleteApiKeyRequest): Promise<$_model.DeleteApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
    * 
    * @param request - DeleteBackupRequest
@@ -3855,7 +3985,7 @@ export default class Client extends OpenApi {
    * Deletes a Supabase branch.
    * 
    * @remarks
-   * Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+   * Deletes a specified Supabase branch. The default branch or a branch that still has child branches cannot be deleted.
    * 
    * @param request - DeleteBranchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3893,7 +4023,7 @@ export default class Client extends OpenApi {
    * Deletes a Supabase branch.
    * 
    * @remarks
-   * Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+   * Deletes a specified Supabase branch. The default branch or a branch that still has child branches cannot be deleted.
    * 
    * @param request - DeleteBranchRequest
    * @returns DeleteBranchResponse
@@ -5106,10 +5236,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除恢复点
+   * Deletes a snapshot of a Supabase project.
    * 
    * @remarks
-   * 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+   * Deletes a snapshot from a specified Supabase project by ProjectId and Lsn.
    * 
    * @param request - DeleteSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5148,10 +5278,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除恢复点
+   * Deletes a snapshot of a Supabase project.
    * 
    * @remarks
-   * 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+   * Deletes a snapshot from a specified Supabase project by ProjectId and Lsn.
    * 
    * @param request - DeleteSnapshotRequest
    * @returns DeleteSnapshotResponse
@@ -6200,14 +6330,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of an AnalyticDB for PostgreSQL instance.
+   * Queries the details of an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   * ## How-To  
-   * This API is typically used to view information such as the specifications, network type, and instance status of an AnalyticDB for PostgreSQL instance.  
-   * ## Queries per second (QPS) limit  
-   * The default QPS limit for this API is 1000 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may affect your business operations. Please invoke the API appropriately.  
-   * <props="china">The QPS value provided in this document is for reference only. For accurate information, see [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+   * ## Operation description
+   * This operation is used to query information about an AnalyticDB for PostgreSQL instance, such as the instance specifications, network type, and instance status.
+   * ## QPS limit
+   * The default QPS limit for a single user for this operation is 1,000 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+   * <props="china">The QPS limit in this topic is a default reference value. For accurate information, refer to the [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6246,14 +6376,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of an AnalyticDB for PostgreSQL instance.
+   * Queries the details of an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   * ## How-To  
-   * This API is typically used to view information such as the specifications, network type, and instance status of an AnalyticDB for PostgreSQL instance.  
-   * ## Queries per second (QPS) limit  
-   * The default QPS limit for this API is 1000 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may affect your business operations. Please invoke the API appropriately.  
-   * <props="china">The QPS value provided in this document is for reference only. For accurate information, see [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+   * ## Operation description
+   * This operation is used to query information about an AnalyticDB for PostgreSQL instance, such as the instance specifications, network type, and instance status.
+   * ## QPS limit
+   * The default QPS limit for a single user for this operation is 1,000 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+   * <props="china">The QPS limit in this topic is a default reference value. For accurate information, refer to the [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -6904,7 +7034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
+   * Queries the maximum throughput of an instance.
    * 
    * @param request - DescribeDBInstanceSupportMaxPerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6939,7 +7069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
+   * Queries the maximum throughput of an instance.
    * 
    * @param request - DescribeDBInstanceSupportMaxPerformanceRequest
    * @returns DescribeDBInstanceSupportMaxPerformanceResponse
@@ -8498,7 +8628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型算子 API KEY 详情
+   * Retrieves the details of a model operator API key.
    * 
    * @param request - DescribeModelOperatorApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8529,7 +8659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型算子 API KEY 详情
+   * Retrieves the details of a model operator API key.
    * 
    * @param request - DescribeModelOperatorApiKeyRequest
    * @returns DescribeModelOperatorApiKeyResponse
@@ -8540,7 +8670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型算子用量
+   * Retrieves the usage metrics of model operators.
    * 
    * @param tmpReq - DescribeModelOperatorUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8609,7 +8739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型算子用量
+   * Retrieves the usage metrics of model operators.
    * 
    * @param request - DescribeModelOperatorUsageRequest
    * @returns DescribeModelOperatorUsageResponse
@@ -8620,13 +8750,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a model service.
+   * Queries a model service.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * This interface is used to view the details of a model service.
-   * ## [](#qps-)QPS limit
-   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
+   * ## Operation description
+   * You can call this operation to query the details of a model service.
+   * ## Rate limit
+   * The maximum number of queries per second (QPS) per user for this operation is 1,000. If the number of calls exceeds the limit, throttling is triggered. Throttling may affect your business. Call this operation as needed.
    * 
    * @param request - DescribeModelServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8661,13 +8791,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a model service.
+   * Queries a model service.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * This interface is used to view the details of a model service.
-   * ## [](#qps-)QPS limit
-   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
+   * ## Operation description
+   * You can call this operation to query the details of a model service.
+   * ## Rate limit
+   * The maximum number of queries per second (QPS) per user for this operation is 1,000. If the number of calls exceeds the limit, throttling is triggered. Throttling may affect your business. Call this operation as needed.
    * 
    * @param request - DescribeModelServiceRequest
    * @returns DescribeModelServiceResponse
@@ -9752,7 +9882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View table details.
+   * Queries the details of a table.
    * 
    * @param request - DescribeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9811,7 +9941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View table details.
+   * Queries the details of a table.
    * 
    * @param request - DescribeTableRequest
    * @returns DescribeTableResponse
@@ -10602,7 +10732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Execute an SQL statement.
+   * Executes an SQL statement.
    * 
    * @param tmpReq - ExecuteStatementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10693,7 +10823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Execute an SQL statement.
+   * Executes an SQL statement.
    * 
    * @param request - ExecuteStatementRequest
    * @returns ExecuteStatementResponse
@@ -10704,7 +10834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a database account.
+   * Retrieves information about a specific account.
    * 
    * @param request - GetAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10739,7 +10869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a database account.
+   * Retrieves information about a specific account.
    * 
    * @param request - GetAccountRequest
    * @returns GetAccountResponse
@@ -10747,6 +10877,58 @@ export default class Client extends OpenApi {
   async getAccount(request: $_model.GetAccountRequest): Promise<$_model.GetAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取API密钥详情
+   * 
+   * @remarks
+   * 获取API密钥详情。
+   * 
+   * @param request - GetApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApiKeyResponse
+   */
+  async getApiKeyWithOptions(request: $_model.GetApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApiKey",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.GetApiKeyResponse({}));
+  }
+
+  /**
+   * 获取API密钥详情
+   * 
+   * @remarks
+   * 获取API密钥详情。
+   * 
+   * @param request - GetApiKeyRequest
+   * @returns GetApiKeyResponse
+   */
+  async getApiKey(request: $_model.GetApiKeyRequest): Promise<$_model.GetApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApiKeyWithOptions(request, runtime);
   }
 
   /**
@@ -11048,7 +11230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Asynchronous SQL Execution Result
+   * Retrieves the result of an asynchronous SQL execution.
    * 
    * @param request - GetStatementResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11099,7 +11281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Asynchronous SQL Execution Result
+   * Retrieves the result of an asynchronous SQL execution.
    * 
    * @param request - GetStatementResultRequest
    * @returns GetStatementResultResponse
@@ -11266,12 +11448,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the progress and result of an asynchronous document upload job based on the job ID.
+   * Retrieves the progress and result of an asynchronous document upload task by job ID.
    * 
    * @remarks
-   * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-   * > Suggestions
-   * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
+   * This operation is related to UploadDocumentAsync. You can call UploadDocumentAsync to create an upload task and obtain a job ID, and then call this operation to view the execution information of the job.
+   * > Usage notes
+   * > - Estimate the timeout based on the document complexity and the number of vector entries after chunking. The timeout generally does not exceed 2 hours.
    * 
    * @param request - GetUploadDocumentJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11328,12 +11510,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the progress and result of an asynchronous document upload job based on the job ID.
+   * Retrieves the progress and result of an asynchronous document upload task by job ID.
    * 
    * @remarks
-   * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-   * > Suggestions
-   * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
+   * This operation is related to UploadDocumentAsync. You can call UploadDocumentAsync to create an upload task and obtain a job ID, and then call this operation to view the execution information of the job.
+   * > Usage notes
+   * > - Estimate the timeout based on the document complexity and the number of vector entries after chunking. The timeout generally does not exceed 2 hours.
    * 
    * @param request - GetUploadDocumentJobRequest
    * @returns GetUploadDocumentJobResponse
@@ -11421,6 +11603,60 @@ export default class Client extends OpenApi {
   async getUpsertCollectionDataJob(request: $_model.GetUpsertCollectionDataJobRequest): Promise<$_model.GetUpsertCollectionDataJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUpsertCollectionDataJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询SaaS工作空间
+   * 
+   * @remarks
+   * ## 使用说明
+   * 本接口用于查看指定工作空间信息。
+   * 
+   * @param request - GetWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspaceWithOptions(request: $_model.GetWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspace",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceResponse({}));
+  }
+
+  /**
+   * 查询SaaS工作空间
+   * 
+   * @remarks
+   * ## 使用说明
+   * 本接口用于查看指定工作空间信息。
+   * 
+   * @param request - GetWorkspaceRequest
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspace(request: $_model.GetWorkspaceRequest): Promise<$_model.GetWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkspaceWithOptions(request, runtime);
   }
 
   /**
@@ -11610,10 +11846,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AINode resource pools.
+   * Queries the list of AI nodes.
    * 
    * @remarks
-   * - This operation lists the AINode resource pools for the specified instance.
+   * - This operation is used to query the list of AI nodes.
    * 
    * @param request - ListAINodePoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11648,10 +11884,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AINode resource pools.
+   * Queries the list of AI nodes.
    * 
    * @remarks
-   * - This operation lists the AINode resource pools for the specified instance.
+   * - This operation is used to query the list of AI nodes.
    * 
    * @param request - ListAINodePoolsRequest
    * @returns ListAINodePoolsResponse
@@ -11662,7 +11898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists AI services.
+   * Retrieves the list of AI services.
    * 
    * @param request - ListAIServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11705,7 +11941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists AI services.
+   * Retrieves the list of AI services.
    * 
    * @param request - ListAIServicesRequest
    * @returns ListAIServicesResponse
@@ -11713,6 +11949,70 @@ export default class Client extends OpenApi {
   async listAIServices(request: $_model.ListAIServicesRequest): Promise<$_model.ListAIServicesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAIServicesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询API密钥列表
+   * 
+   * @remarks
+   * 查询API密钥列表。
+   * 
+   * @param request - ListApiKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiKeysResponse
+   */
+  async listApiKeysWithOptions(request: $_model.ListApiKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApiKeys",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListApiKeysResponse({}));
+  }
+
+  /**
+   * 查询API密钥列表
+   * 
+   * @remarks
+   * 查询API密钥列表。
+   * 
+   * @param request - ListApiKeysRequest
+   * @returns ListApiKeysResponse
+   */
+  async listApiKeys(request: $_model.ListApiKeysRequest): Promise<$_model.ListApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApiKeysWithOptions(request, runtime);
   }
 
   /**
@@ -11762,10 +12062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the branch list of a Supabase project.
+   * Queries the branch list of a Supabase project.
    * 
    * @remarks
-   * This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+   * Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
    * 
    * @param request - ListBranchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11828,10 +12128,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the branch list of a Supabase project.
+   * Queries the branch list of a Supabase project.
    * 
    * @remarks
-   * This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+   * Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
    * 
    * @param request - ListBranchesRequest
    * @returns ListBranchesResponse
@@ -11842,7 +12142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get document chunk details
+   * Retrieves the details of document chunks.
    * 
    * @param request - ListChunksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11909,7 +12209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get document chunk details
+   * Retrieves the details of document chunks.
    * 
    * @param request - ListChunksRequest
    * @returns ListChunksResponse
@@ -12508,7 +12808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型算子 API KEY 列表
+   * Retrieves the list of API keys for model operators.
    * 
    * @param request - ListModelOperatorApiKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12543,7 +12843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型算子 API KEY 列表
+   * Retrieves the list of API keys for model operators.
    * 
    * @param request - ListModelOperatorApiKeysRequest
    * @returns ListModelOperatorApiKeysResponse
@@ -12554,7 +12854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型服务列表
+   * Retrieves a list of model services.
    * 
    * @param request - ListModelOperatorServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12589,7 +12889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型服务列表
+   * Retrieves a list of model services.
    * 
    * @param request - ListModelOperatorServicesRequest
    * @returns ListModelOperatorServicesResponse
@@ -12778,11 +13078,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query SaaS Service List
+   * Queries the list of SaaS services.
    * 
    * @remarks
-   * ## Usage Notes
-   * This API operation is used to view information about all SaaS services.
+   * ## Operation description
+   * This operation is used to query information about all SaaS services.
    * 
    * @param request - ListSaasServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12829,11 +13129,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query SaaS Service List
+   * Queries the list of SaaS services.
    * 
    * @remarks
-   * ## Usage Notes
-   * This API operation is used to view information about all SaaS services.
+   * ## Operation description
+   * This operation is used to query information about all SaaS services.
    * 
    * @param request - ListSaasServiceRequest
    * @returns ListSaasServiceResponse
@@ -13216,10 +13516,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the tags of Supabase instances.
+   * Queries the tags of a Supabase instance.
    * 
    * @remarks
-   * - This operation queries the tags of Supabase instances.
+   * - This operation queries the tag list of Supabase instances.
    * 
    * @param request - ListSupabaseProjectTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13266,10 +13566,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the tags of Supabase instances.
+   * Queries the tags of a Supabase instance.
    * 
    * @remarks
-   * - This operation queries the tags of Supabase instances.
+   * - This operation queries the tag list of Supabase instances.
    * 
    * @param request - ListSupabaseProjectTagsRequest
    * @returns ListSupabaseProjectTagsResponse
@@ -13622,7 +13922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP address whitelist for an AI service.
+   * Modifies the whitelist of an AI service.
    * 
    * @param request - ModifyAIServiceSecurityIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13665,7 +13965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP address whitelist for an AI service.
+   * Modifies the whitelist of an AI service.
    * 
    * @param request - ModifyAIServiceSecurityIpsRequest
    * @returns ModifyAIServiceSecurityIpsResponse
@@ -13978,7 +14278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the development mode of an instance.
+   * Modifies the deployment mode of an instance.
    * 
    * @param request - ModifyDBInstanceDeploymentModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14021,7 +14321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the development mode of an instance.
+   * Modifies the deployment mode of an instance.
    * 
    * @param request - ModifyDBInstanceDeploymentModeRequest
    * @returns ModifyDBInstanceDeploymentModeResponse
@@ -15242,10 +15542,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the auto-scaling policy of an ADBPG Supabase instance.
+   * Modifies the automatic start and stop policy for a Supabase instance.
    * 
    * @remarks
-   * - This operation applies only to ADBPG Supabase instances.
+   * - Only ADBPG Supabase instances are supported.
    * 
    * @param request - ModifySupabaseAutoScalePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15284,10 +15584,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the auto-scaling policy of an ADBPG Supabase instance.
+   * Modifies the automatic start and stop policy for a Supabase instance.
    * 
    * @remarks
-   * - This operation applies only to ADBPG Supabase instances.
+   * - Only ADBPG Supabase instances are supported.
    * 
    * @param request - ModifySupabaseAutoScalePolicyRequest
    * @returns ModifySupabaseAutoScalePolicyResponse
@@ -15298,10 +15598,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change the Supabase project description
+   * Modifies the description of a Supabase project.
    * 
    * @remarks
-   * *Before you use this operation, make sure you fully understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL (Supabase)**.
+   * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.。
    * 
    * @param request - ModifySupabaseProjectDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15340,10 +15640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change the Supabase project description
+   * Modifies the description of a Supabase project.
    * 
    * @remarks
-   * *Before you use this operation, make sure you fully understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL (Supabase)**.
+   * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.。
    * 
    * @param request - ModifySupabaseProjectDescriptionRequest
    * @returns ModifySupabaseProjectDescriptionResponse
@@ -15354,10 +15654,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales the compute resource or expands the storage resource (cloud disk size) for a Supabase project.
+   * Modifies the resources of a Supabase instance, including upgrading or downgrading compute resources and expanding storage resources (cloud disk size).
    * 
    * @remarks
-   * *Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) for AnalyticDB PostgreSQL Supabase.**
+   * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.
    * 
    * @param request - ModifySupabaseProjectResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15404,10 +15704,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales the compute resource or expands the storage resource (cloud disk size) for a Supabase project.
+   * Modifies the resources of a Supabase instance, including upgrading or downgrading compute resources and expanding storage resources (cloud disk size).
    * 
    * @remarks
-   * *Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) for AnalyticDB PostgreSQL Supabase.**
+   * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.
    * 
    * @param request - ModifySupabaseProjectResourceRequest
    * @returns ModifySupabaseProjectResourceResponse
@@ -15693,7 +15993,7 @@ export default class Client extends OpenApi {
    * Pauses a Supabase instance.
    * 
    * @remarks
-   * This operation pauses a Supabase instance.
+   * Pauses a Supabase instance.
    * 
    * @param request - PauseSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15731,7 +16031,7 @@ export default class Client extends OpenApi {
    * Pauses a Supabase instance.
    * 
    * @remarks
-   * This operation pauses a Supabase instance.
+   * Pauses a Supabase instance.
    * 
    * @param request - PauseSupabaseProjectRequest
    * @returns PauseSupabaseProjectResponse
@@ -16132,7 +16432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
+   * Retrieves vectors and metadata from multiple specified document collections using natural language statements, merges multi-channel recall results, and returns the combined results.
    * 
    * @param tmpReq - QueryKnowledgeBasesContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16213,7 +16513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
+   * Retrieves vectors and metadata from multiple specified document collections using natural language statements, merges multi-channel recall results, and returns the combined results.
    * 
    * @param request - QueryKnowledgeBasesContentRequest
    * @returns QueryKnowledgeBasesContentResponse
@@ -16801,7 +17101,7 @@ export default class Client extends OpenApi {
    * Restores a Supabase project from a snapshot.
    * 
    * @remarks
-   * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+   * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and the target branch. FinalizeRestore controls whether to complete the restoration immediately.
    * 
    * @param request - RestoreSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16859,7 +17159,7 @@ export default class Client extends OpenApi {
    * Restores a Supabase project from a snapshot.
    * 
    * @remarks
-   * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+   * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and the target branch. FinalizeRestore controls whether to complete the restoration immediately.
    * 
    * @param request - RestoreSnapshotRequest
    * @returns RestoreSnapshotResponse
@@ -17031,7 +17331,7 @@ export default class Client extends OpenApi {
    * Resumes a Supabase instance.
    * 
    * @remarks
-   * This operation retrieves details about a Supabase instance.
+   * Queries the details of a Supabase instance.
    * 
    * @param request - ResumeSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17069,7 +17369,7 @@ export default class Client extends OpenApi {
    * Resumes a Supabase instance.
    * 
    * @remarks
-   * This operation retrieves details about a Supabase instance.
+   * Queries the details of a Supabase instance.
    * 
    * @param request - ResumeSupabaseProjectRequest
    * @returns ResumeSupabaseProjectResponse
@@ -17392,10 +17692,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to Supabase project instances.
+   * Tags a Supabase project.
    * 
    * @remarks
-   * Adds or overwrites tags on one or more Supabase instances. If a specified tag key already exists, its value is overwritten with the new value.
+   * Queries the details of a Supabase instance.
    * 
    * @param request - TagSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17438,10 +17738,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to Supabase project instances.
+   * Tags a Supabase project.
    * 
    * @remarks
-   * Adds or overwrites tags on one or more Supabase instances. If a specified tag key already exists, its value is overwritten with the new value.
+   * Queries the details of a Supabase instance.
    * 
    * @param request - TagSupabaseProjectRequest
    * @returns TagSupabaseProjectResponse
@@ -17452,7 +17752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates text embeddings using an embedding model.
+   * Vectorizes text documents by using a model.
    * 
    * @param tmpReq - TextEmbeddingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17511,7 +17811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates text embeddings using an embedding model.
+   * Vectorizes text documents by using a model.
    * 
    * @param request - TextEmbeddingRequest
    * @returns TextEmbeddingResponse
@@ -17712,10 +18012,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from one or more Supabase instances.
+   * Unbinds tags from a Supabase instance.
    * 
    * @remarks
-   * This operation removes one or more specified tags from Supabase instances.
+   * Queries the details of a Supabase instance.
    * 
    * @param request - UntagSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17762,10 +18062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from one or more Supabase instances.
+   * Unbinds tags from a Supabase instance.
    * 
    * @remarks
-   * This operation removes one or more specified tags from Supabase instances.
+   * Queries the details of a Supabase instance.
    * 
    * @param request - UntagSupabaseProjectRequest
    * @returns UntagSupabaseProjectResponse
@@ -18027,8 +18327,8 @@ export default class Client extends OpenApi {
    * Changes the specifications of an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   * This operation does not support modifying instances in storage-reserved mode.
-   * Before you call this operation, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+   * This operation does not support instances in storage reservation mode.
+   * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param request - UpgradeDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18122,8 +18422,8 @@ export default class Client extends OpenApi {
    * Changes the specifications of an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   * This operation does not support modifying instances in storage-reserved mode.
-   * Before you call this operation, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+   * This operation does not support instances in storage reservation mode.
+   * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param request - UpgradeDBInstanceRequest
    * @returns UpgradeDBInstanceResponse
@@ -18254,17 +18554,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronous Document Upload
+   * Asynchronously uploads a document.
    * 
    * @remarks
-   * The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
+   * The server loads and splits a document based on the file name extension, performs vectorization by using the embedding model specified when you invoke the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multimodal embedding of text and images in various formats.
    * Related operations:
-   * *   You can call the GetUploadDocumentJob operation to query the progress and result of a document upload job.
-   * *   You can call the CancelUploadDocumentJob operation to cancel a document upload job.
-   * > 
-   * *   After a document upload request is submitted, the request is queued for processing. Up to 20 documents in the Pending and Running states can be processed within a Resource Access Management (RAM) user or Alibaba Cloud account.
-   * *   A text document can be split into up to 100,000 chunks.
-   * *   If a document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query up to 10,000 images.
+   * - You can invoke the GetUploadDocumentJob operation to query the progress and result of a document upload job.
+   * - You can invoke the CancelUploadDocumentJob operation to cancel a document upload job.
+   * > - After you commit a document upload request, the request is queued for processing. A maximum of 20 documents in the Pending and Running states can be processed for each Resource Access Management (RAM) user or Alibaba Cloud account.
+   * >- A text document can be split into a maximum of 100,000 chunks.
+   * >- If the document collection uses the OnePeace model, a maximum of 10,000 images can be uploaded and queried for each RAM user or Alibaba Cloud account.
    * 
    * @param tmpReq - UploadDocumentAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18375,17 +18674,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronous Document Upload
+   * Asynchronously uploads a document.
    * 
    * @remarks
-   * The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
+   * The server loads and splits a document based on the file name extension, performs vectorization by using the embedding model specified when you invoke the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multimodal embedding of text and images in various formats.
    * Related operations:
-   * *   You can call the GetUploadDocumentJob operation to query the progress and result of a document upload job.
-   * *   You can call the CancelUploadDocumentJob operation to cancel a document upload job.
-   * > 
-   * *   After a document upload request is submitted, the request is queued for processing. Up to 20 documents in the Pending and Running states can be processed within a Resource Access Management (RAM) user or Alibaba Cloud account.
-   * *   A text document can be split into up to 100,000 chunks.
-   * *   If a document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query up to 10,000 images.
+   * - You can invoke the GetUploadDocumentJob operation to query the progress and result of a document upload job.
+   * - You can invoke the CancelUploadDocumentJob operation to cancel a document upload job.
+   * > - After you commit a document upload request, the request is queued for processing. A maximum of 20 documents in the Pending and Running states can be processed for each Resource Access Management (RAM) user or Alibaba Cloud account.
+   * >- A text document can be split into a maximum of 100,000 chunks.
+   * >- If the document collection uses the OnePeace model, a maximum of 10,000 images can be uploaded and queried for each RAM user or Alibaba Cloud account.
    * 
    * @param request - UploadDocumentAsyncRequest
    * @returns UploadDocumentAsyncResponse

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSnapshotRequest extends $dara.Model {
   /**
    * @remarks
+   * The LSN of the snapshot to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteSnapshotRequest extends $dara.Model {
   lsn?: string;
   /**
    * @remarks
+   * The Supabase project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DeleteSnapshotRequest extends $dara.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The region ID. Specifies the region in which to query or perform the operation.
+   * 
    * @example
    * cn-hangzhou
    */

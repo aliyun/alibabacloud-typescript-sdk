@@ -29,7 +29,7 @@ export class CreateSnapshotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The actual point in time that corresponds to the created snapshot.
+   * The actual point in time corresponding to the created snapshot.
    * 
    * @example
    * 2026-04-08T09:11:12Z

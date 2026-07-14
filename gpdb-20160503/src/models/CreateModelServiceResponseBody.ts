@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the model service.
+   * The model service ID.
    * 
    * @example
    * ms-xxxxxxxxx

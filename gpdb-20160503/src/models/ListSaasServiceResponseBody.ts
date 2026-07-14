@@ -13,7 +13,7 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The computing resources.
+   * The compute resource.
    * 
    * @example
    * 1
@@ -31,8 +31,8 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
    * @remarks
    * The billing type. Valid values:
    * 
-   * - **POSTPAY**: pay-as-you-go.
-   * - **PREPAY**: subscription.
+   * - **POSTPAY**: Pay-as-you-go.
+   * - **PREPAY**: Subscription.
    * 
    * @example
    * POSTPAY
@@ -64,7 +64,7 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service type:
+   * The service type. Valid values:
    * 
    * - **memory**
    * - **drama**
@@ -75,10 +75,10 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The service status:
+   * The service status. Valid values:
    * 
-   * - active: Running
-   * - creating: Being created
+   * - active: Running.
+   * - creating: Being created.
    * 
    * @example
    * active
@@ -124,12 +124,12 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
 export class ListSaasServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of service details.
+   * The list of instance details.
    */
   items?: ListSaasServiceResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries returned in this request. Default value: 10.
+   * The maximum number of entries to return. Default value: 10.
    * 
    * @example
    * 50
@@ -137,7 +137,7 @@ export class ListSaasServiceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query to begin with.
+   * The pagination token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the service was created.
+   * The creation time.
    * 
    * @example
    * 2026-03-01T00:00:00Z
@@ -13,7 +13,7 @@ export class DescribeAIServiceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the service.
+   * The description.
    * 
    * @example
    * dramatest
@@ -29,7 +29,7 @@ export class DescribeAIServiceResponseBody extends $dara.Model {
   privateApiDevUrl?: string;
   /**
    * @remarks
-   * The internal endpoint of the Workbench.
+   * The internal endpoint of the workbench.
    * 
    * @example
    * 192.168.0.1
@@ -45,7 +45,7 @@ export class DescribeAIServiceResponseBody extends $dara.Model {
   publicApiDevUrl?: string;
   /**
    * @remarks
-   * The public endpoint of the Workbench.
+   * The public endpoint of the workbench.
    * 
    * @example
    * 8.8.8.8
@@ -53,7 +53,7 @@ export class DescribeAIServiceResponseBody extends $dara.Model {
   publicWorkbenchUrl?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -61,7 +61,7 @@ export class DescribeAIServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A comma-separated list of IP addresses in the IP address whitelist group.
+   * The IP addresses in the IP address whitelist group, separated by commas (,).
    * 
    * @example
    * 127.0.0.1
@@ -77,7 +77,7 @@ export class DescribeAIServiceResponseBody extends $dara.Model {
   serviceAccount?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * drama-123456
@@ -85,11 +85,9 @@ export class DescribeAIServiceResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The status of the service. Valid values:
-   * 
-   * - deploying: The service is being deployed.
-   * 
-   * - active: The service is running.
+   * The service status. Valid values:
+   * - deploying: being deployed.
+   * - active: running.
    * 
    * @example
    * active

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token. Ensures that repeated requests do not execute the same operation more than once.
+   * The idempotency token. Ensures that repeated requests do not execute the same operation more than once.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000

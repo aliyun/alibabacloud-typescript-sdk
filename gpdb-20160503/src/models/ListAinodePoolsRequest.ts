@@ -15,7 +15,7 @@ export class ListAINodePoolsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID。
    * 
    * @example
    * cn-hangzhou

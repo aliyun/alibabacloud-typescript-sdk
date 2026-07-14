@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStatementResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID. Can be obtained by calling DescribeDBInstances.
+   * The instance ID. You can call DescribeDBInstances to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetStatementResultRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Database name.
+   * The database name.
    * 
    * @example
    * test
@@ -23,7 +23,7 @@ export class GetStatementResultRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * Task ID for asynchronous SQL execution.
+   * The task ID of the asynchronous SQL execution.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class GetStatementResultRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Region ID where the instance is located.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -44,9 +44,9 @@ export class GetStatementResultRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Access credential. Created through the CreateSecret interface.
+   * The access credential. Created by calling the CreateSecret operation.
    * 
-   * > When accessing this interface with a sub-account, the sub-account must have the UseSecret or GetSecretValue permission for this SecretArn.
+   * > When you access this operation by using a RAM user, you must have the UseSecret or GetSecretValue permission on this SecretArn.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TextEmbeddingShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,10 @@ export class TextEmbeddingShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The number of embedding dimensions. The default value is the number of dimensions supported by the embedding algorithm.
+   * The vector dimensions. Default value: the dimensions supported by the embedding model.
    * 
    * > 
-   * 
-   * *   The text-embedding-v3 supports 1024, 768, and 512 dimensions. Default value: 1024.
+   * > - text-embedding-v3 supports 1024, 768, and 512 dimensions. Default value: 1024.
    * 
    * @example
    * 1024
@@ -27,7 +26,7 @@ export class TextEmbeddingShrinkRequest extends $dara.Model {
   dimension?: number;
   /**
    * @remarks
-   * A list of text content to be embedded. The list length must not exceed 100.
+   * The list of text content to vectorize. The list can contain up to 100 entries.
    * 
    * @example
    * What is ADBPG?
@@ -35,14 +34,13 @@ export class TextEmbeddingShrinkRequest extends $dara.Model {
   inputShrink?: string;
   /**
    * @remarks
-   * The text embedding model. Valid values:
-   * 
-   * *   text-embedding-v1:1536 dimensions
-   * *   text-embedding-v2:1536 dimensions
-   * *   text-embedding-v3 (default):1024, 768, and 512 dimensions
-   * *   text2vec: 1024 dimensions
-   * *   m3e-base: 768 dimensions
-   * *   m3e-small: 512 dimensions
+   * The embedding model. Valid values:
+   * - text-embedding-v1: 1536 dimensions
+   * - text-embedding-v2: 1536 dimensions
+   * - text-embedding-v3 (default): 1024, 768, or 512 dimensions
+   * - text2vec (not recommended): 1024 dimensions
+   * - m3e-base (not recommended): 768 dimensions
+   * - m3e-small (not recommended): 512 dimensions
    * 
    * @example
    * text-embedding-v3
@@ -51,7 +49,7 @@ export class TextEmbeddingShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeModelOperatorUsageResponseBodyKeysSeriesValues extends $dara.Model {
+  /**
+   * @remarks
+   * The specific metric information, consisting of a timestamp and a metric value.
+   */
   point?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -30,20 +34,33 @@ export class DescribeModelOperatorUsageResponseBodyKeysSeriesValues extends $dar
 
 export class DescribeModelOperatorUsageResponseBodyKeysSeries extends $dara.Model {
   /**
+   * @remarks
+   * The API key ID. This value is returned only when GroupBy contains api_key.
+   * 
    * @example
    * 1
    */
   apiKeyId?: number;
   /**
+   * @remarks
+   * The model name when GroupBy contains model. The api_key_id string when GroupBy contains only api_key.
+   * 
    * @example
    * qwen3.6-plus
    */
   name?: string;
   /**
+   * @remarks
+   * The normalized GroupBy value: model, api_key, or model,api_key.
+   * 
    * @example
    * model
    */
   role?: string;
+  /**
+   * @remarks
+   * The list of metric values. Each value corresponds to a collection time point.
+   */
   values?: DescribeModelOperatorUsageResponseBodyKeysSeriesValues[];
   static names(): { [key: string]: string } {
     return {
@@ -77,12 +94,26 @@ export class DescribeModelOperatorUsageResponseBodyKeysSeries extends $dara.Mode
 
 export class DescribeModelOperatorUsageResponseBodyKeys extends $dara.Model {
   /**
+   * @remarks
+   * The metric name.
+   * 
    * @example
    * request_count
    */
   name?: string;
+  /**
+   * @remarks
+   * The collection of metric values.
+   */
   series?: DescribeModelOperatorUsageResponseBodyKeysSeries[];
   /**
+   * @remarks
+   * The unit. Valid values:
+   * 
+   * - requests
+   * - tokens
+   * - %
+   * 
    * @example
    * requests
    */
@@ -117,22 +148,38 @@ export class DescribeModelOperatorUsageResponseBodyKeys extends $dara.Model {
 
 export class DescribeModelOperatorUsageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the query. The time is in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
+   * 
    * @example
    * 2026-06-02T00:00Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The list of metric values.
+   */
   keys?: DescribeModelOperatorUsageResponseBodyKeys[];
   /**
+   * @remarks
+   * The actual bucket size used, in seconds.
+   * 
    * @example
    * 1
    */
   period?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time of the query. The time is in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
+   * 
    * @example
    * 2026-06-01T00:00Z
    */

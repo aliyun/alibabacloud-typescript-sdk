@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySupabaseProjectResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The modification type.
+   * The specification change type.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifySupabaseProjectResourceRequest extends $dara.Model {
   modifyType?: string;
   /**
    * @remarks
-   * The Supabase project ID.
+   * The Supabase instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifySupabaseProjectResourceRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The new project specifications.
+   * The specifications of the Supabase instance.
    * 
    * @example
    * 2C4G

@@ -87,7 +87,7 @@ export class ExecuteStatementResponseBodyData extends $dara.Model {
   records?: ExecuteStatementResponseBodyDataRecords;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of rows.
    * 
    * @example
    * 10
@@ -127,7 +127,7 @@ export class ExecuteStatementResponseBodyData extends $dara.Model {
 export class ExecuteStatementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the SQL statements were created.
+   * The creation time.
    * 
    * @example
    * 2023-12-04T10:08:47+0800
@@ -143,12 +143,12 @@ export class ExecuteStatementResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The returned results of the synchronous call.
+   * The result returned for synchronous calls.
    */
   data?: ExecuteStatementResponseBodyData;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adbtest
@@ -156,7 +156,7 @@ export class ExecuteStatementResponseBody extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The ID of the job for asynchronously executing the SQL statements.
+   * The task ID for asynchronous SQL execution.
    * 
    * @example
    * ABB39CC3
@@ -164,7 +164,7 @@ export class ExecuteStatementResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -180,7 +180,7 @@ export class ExecuteStatementResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ARN of the access credential for the created Data API account.
+   * The access credential.
    * 
    * @example
    * acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
@@ -188,10 +188,9 @@ export class ExecuteStatementResponseBody extends $dara.Model {
   secretArn?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The execution is successful.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

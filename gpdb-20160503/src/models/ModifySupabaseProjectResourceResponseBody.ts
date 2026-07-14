@@ -13,7 +13,7 @@ export class ModifySupabaseProjectResourceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The Supabase project ID.
+   * The Supabase instance ID.
    * 
    * @example
    * sbp-tyarplz****

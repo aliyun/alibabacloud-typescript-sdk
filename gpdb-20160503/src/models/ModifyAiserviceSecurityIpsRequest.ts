@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAIServiceSecurityIpsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
-   * 
-   * > To view details of all instances in a destination region, including their IDs, call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation.
+   * The instance ID.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in a region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,11 +16,9 @@ export class ModifyAIServiceSecurityIpsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A comma-separated list of IP addresses or CIDR blocks in the IP address whitelist group. You can specify up to 1000 entries. To block all external IP addresses, set this parameter to 127.0.0.1. Valid formats include the following:
-   * 
-   * - 10.23.12.24 (an IPv4 address)
-   * 
-   * - 10.23.12.24/24 (a CIDR block. The number after the slash indicates the prefix length and must be between 1 and 32.)
+   * The list of IP addresses in the IP address whitelist group. You can add up to 1,000 IP addresses, separated by commas (,). The value 127.0.0.1 indicates that no external IP addresses are allowed to access the instance. The following formats are supported:
+   * - 10.23.12.24 (IP address)
+   * - 10.23.12.24/24 (CIDR pattern, Classless Inter-Domain Routing. /24 specifies the prefix length, which ranges from 1 to 32.)
    * 
    * This parameter is required.
    * 
@@ -31,7 +28,7 @@ export class ModifyAIServiceSecurityIpsRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +38,7 @@ export class ModifyAIServiceSecurityIpsRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service type. Only drama is supported.
+   * The service type. Currently, only drama is supported.
    * 
    * This parameter is required.
    * 

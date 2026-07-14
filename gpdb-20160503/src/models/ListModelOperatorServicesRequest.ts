@@ -4,11 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelOperatorServicesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * - **20**
+   * - **50**
+   * - **100**
+   * 
+   * Default value: **20**.
+   * 
    * @example
    * 20
    */

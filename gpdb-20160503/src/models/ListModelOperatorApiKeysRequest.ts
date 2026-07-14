@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelOperatorApiKeysRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of Integer. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page. Valid values:
+   * 
+   * - **20**
+   * - **50**
+   * - **100**
+   * 
+   * Default value: **20**.
+   * 
    * @example
    * 20
    */

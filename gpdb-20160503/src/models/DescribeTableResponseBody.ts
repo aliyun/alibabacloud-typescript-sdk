@@ -33,7 +33,7 @@ export class DescribeTableResponseBody extends $dara.Model {
   columnList?: DescribeTableResponseBodyColumnList;
   /**
    * @remarks
-   * The returned message.
+   * The detailed information returned by the operation.
    * 
    * @example
    * success
@@ -49,10 +49,9 @@ export class DescribeTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The execution was successful.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

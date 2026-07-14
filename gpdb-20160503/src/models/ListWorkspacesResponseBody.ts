@@ -16,7 +16,7 @@ export class ListWorkspacesResponseBodyItemsApikeysAuthServices extends $dara.Mo
    * The service type. Valid values:
    * 
    * - memory
-   * - drama.
+   * - drama
    * 
    * @example
    * drama
@@ -166,7 +166,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * [Deprecated].
+   * [Deprecated]
    * 
    * @example
    * deprecated
@@ -193,7 +193,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
    * The service type. Valid values:
    * 
    * - memory
-   * - drama.
+   * - drama
    * 
    * @example
    * memory

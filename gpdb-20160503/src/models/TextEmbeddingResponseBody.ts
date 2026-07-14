@@ -86,7 +86,7 @@ export class TextEmbeddingResponseBodyResults extends $dara.Model {
 export class TextEmbeddingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The message details.
    * 
    * @example
    * Successful
@@ -94,7 +94,7 @@ export class TextEmbeddingResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -103,10 +103,9 @@ export class TextEmbeddingResponseBody extends $dara.Model {
   results?: TextEmbeddingResponseBodyResults;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The API execution status. Valid values:
+   * - **success**: The execution is successful.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

@@ -63,7 +63,7 @@ export class CreateBranchRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The branch description.
+   * The description of the branch.
    * 
    * @example
    * test branch
@@ -71,7 +71,7 @@ export class CreateBranchRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time at which the branch automatically expires and is deleted. The value is in ISO 8601 UTC format.
+   * The time when the branch automatically expires and is deleted. The value is in the ISO 8601 UTC format.
    * 
    * @example
    * 2026-10-08T09:11:12Z
@@ -91,7 +91,7 @@ export class CreateBranchRequest extends $dara.Model {
   initSource?: string;
   /**
    * @remarks
-   * The parent branch ID. This parameter specifies the parent branch for the new branch or query condition.
+   * The ID of the parent branch. This parameter specifies the parent branch for the new branch or query condition.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class CreateBranchRequest extends $dara.Model {
   parentBranchId?: string;
   /**
    * @remarks
-   * The log sequence number (LSN) from the parent branch at which the branch is created.
+   * The log sequence number (LSN) selected when creating a branch from the parent branch.
    * 
    * @example
    * 0/3522648
@@ -109,7 +109,7 @@ export class CreateBranchRequest extends $dara.Model {
   parentLsn?: string;
   /**
    * @remarks
-   * The point in time for data synchronization from the parent branch when creating the branch. The value is in ISO 8601 UTC format.
+   * The point in time for data synchronization when creating a branch from the parent branch. The value is in the ISO 8601 UTC format.
    * 
    * Default value: the current time.
    * 
@@ -119,7 +119,7 @@ export class CreateBranchRequest extends $dara.Model {
   parentTimestamp?: string;
   /**
    * @remarks
-   * The Supabase project ID that corresponds to the primary branch.
+   * The ID of the Supabase project that corresponds to the primary branch.
    * 
    * This parameter is required.
    * 

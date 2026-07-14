@@ -85,7 +85,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the branch expires and is automatically deleted, in ISO 8601 UTC format.
+   * The time when the branch automatically expires and is deleted, in ISO 8601 UTC format.
    * 
    * @example
    * 2026-10-08T09:11:12Z
@@ -105,7 +105,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   initSource?: string;
   /**
    * @remarks
-   * Indicates whether this is the default branch.
+   * Indicates whether the branch is the default branch.
    * 
    * @example
    * true
@@ -113,7 +113,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The parent branch ID, which specifies the parent branch of a new branch or a query condition.
+   * The parent branch ID, which specifies the parent branch for a new branch or a query condition.
    * 
    * @example
    * br-main
@@ -129,7 +129,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentBranchName?: string;
   /**
    * @remarks
-   * The Log Sequence Number (LSN) of the parent branch at the time this branch was created.
+   * The LSN of the parent branch at the time this branch was created.
    * 
    * @example
    * 0/3522648
@@ -149,7 +149,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentTimestamp?: string;
   /**
    * @remarks
-   * The Supabase project ID that corresponds to the primary branch.
+   * The Supabase project ID associated with the primary branch.
    * 
    * @example
    * spb-xxxx
@@ -185,7 +185,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of branch tags.
+   * The branch tag list.
    */
   tags?: DescribeBranchResponseBodyBranchTags[];
   static names(): { [key: string]: string } {
@@ -247,7 +247,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
 export class DescribeBranchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The branch list. Each element represents a Supabase branch.
+   * The branch information. Each element represents a Supabase branch.
    */
   branch?: DescribeBranchResponseBodyBranch;
   /**

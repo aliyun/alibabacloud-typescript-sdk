@@ -17,7 +17,7 @@ export class PauseSupabaseProjectRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou

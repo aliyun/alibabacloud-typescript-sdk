@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UntagSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the instance. This parameter takes effect only when `TagKey.N` is not specified. Valid values:
+   * Specifies whether to unbind all tags from the instance. This parameter takes effect only when TagKey.N is not specified in the request. Valid values:
    * 
    * - true
-   * 
    * - false
    * 
-   * Default value: false
+   * Default value: false.
    * 
    * @example
    * false
@@ -27,16 +26,14 @@ export class UntagSupabaseProjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The instance IDs. You can specify up to 50 instance IDs.
+   * The instance ID. Valid values of N: 1 to 50.
    */
   resourceId?: string[];
   /**
    * @remarks
    * The resource type. Valid values:
-   * 
-   * - `instance`: a reserved mode instance.
-   * 
-   * - `ALIYUN::GPDB::INSTANCE`: an elastic mode instance.
+   * - `instance`: reserved mode instance.
+   * - `ALIYUN::GPDB::INSTANCE`: elastic mode instance.
    * 
    * @example
    * instance
@@ -44,7 +41,7 @@ export class UntagSupabaseProjectRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The keys of the tags that you want to remove. You can specify up to 20 tag keys.
+   * The tag key of the resource. Valid values of N: 1 to 20.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

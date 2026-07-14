@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara.Model {
   /**
    * @remarks
-   * The type of the bound object.
+   * The type of the object to which the AI node is bound.
    * 
    * @example
    * model_serving
@@ -13,11 +13,9 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
   bindObject?: string;
   /**
    * @remarks
-   * The binding status.
-   * 
-   * - `unbound`: The node is not bound.
-   * 
-   * - `bound`: The node is bound.
+   * The status of the AI node. Valid values:
+   * - unbound: The AI node is not bound.
+   * - bound: The AI node is bound.
    * 
    * @example
    * bound
@@ -25,7 +23,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
   bindStatus?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the AI node was created.
    * 
    * @example
    * 2024-10-09T02:07:15Z
@@ -41,7 +39,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
   namespace?: string;
   /**
    * @remarks
-   * The name of the AINode.
+   * The name of the AI node.
    * 
    * @example
    * ai-xxxxxxxxx
@@ -49,7 +47,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
   nodeName?: string;
   /**
    * @remarks
-   * The AINode specification. The following specifications are supported:
+   * The node specifications of the AI node. The following specifications are supported:
    * 
    * ```
    * ADB.AIMedium.1
@@ -87,7 +85,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
   nodeSpec?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the AI node was last updated.
    * 
    * @example
    * 2025-06-16T02:04:42Z
@@ -139,12 +137,12 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
 export class ListAINodePoolsResponseBodyAINodePoolInfos extends $dara.Model {
   /**
    * @remarks
-   * The details of AINodes.
+   * The detailed information about the AI nodes.
    */
   AINodeInfos?: ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos[];
   /**
    * @remarks
-   * The ID of the AINode resource pool.
+   * The ID of the resource pool to which the AI node belongs.
    * 
    * @example
    * aipool-xxxxxxxxx
@@ -189,7 +187,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfos extends $dara.Model {
 export class ListAINodePoolsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the AINode resource pools.
+   * The details of the AI node resource pools.
    */
   AINodePoolInfos?: ListAINodePoolsResponseBodyAINodePoolInfos[];
   /**

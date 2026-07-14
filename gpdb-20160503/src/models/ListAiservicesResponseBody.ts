@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIServicesResponseBodyServices extends $dara.Model {
   /**
    * @remarks
-   * The time when the AI service was created.
+   * The creation time.
    * 
    * @example
    * 2026-03-01T00:00:00Z
@@ -13,7 +13,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the AI service.
+   * The description.
    * 
    * @example
    * dramatest
@@ -21,7 +21,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The private endpoint for API debugging.
+   * The internal endpoint for API debugging.
    * 
    * @example
    * 192.168.0.1/api-docs
@@ -29,7 +29,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   privateApiDevUrl?: string;
   /**
    * @remarks
-   * The private endpoint of the Workbench.
+   * The internal endpoint of the workbench.
    * 
    * @example
    * 192.168.0.1
@@ -45,7 +45,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   publicApiDevUrl?: string;
   /**
    * @remarks
-   * The public endpoint of the Workbench.
+   * The public endpoint of the workbench.
    * 
    * @example
    * 8.8.8.8
@@ -53,7 +53,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   publicWorkbenchUrl?: string;
   /**
    * @remarks
-   * The list of IP addresses in the IP address whitelist group. Separate multiple IP addresses with commas.
+   * The list of IP addresses in the IP address whitelist group, separated by commas.
    * 
    * @example
    * 127.0.0.1
@@ -69,7 +69,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   serviceAccount?: string;
   /**
    * @remarks
-   * The ID of the AI service.
+   * The service ID.
    * 
    * @example
    * drama-123456
@@ -77,11 +77,9 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The status of the AI service. Valid values:
-   * 
-   * - deploying
-   * 
-   * - active
+   * The service status. Valid values:
+   * - deploying: being deployed
+   * - active: running
    * 
    * @example
    * active
@@ -129,7 +127,7 @@ export class ListAIServicesResponseBodyServices extends $dara.Model {
 export class ListAIServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -145,7 +143,7 @@ export class ListAIServicesResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -153,7 +151,7 @@ export class ListAIServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of AI services.
+   * The list of services.
    */
   services?: ListAIServicesResponseBodyServices[];
   /**
