@@ -17,7 +17,8 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   modelLibrary?: string;
   /**
    * @remarks
-   * The page number to return in a paged query.<br>Default value: 1.
+   * The page number of the current page in a paged query. Paging starts from page 1.    
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -25,7 +26,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query.
+   * The maximum number of entries per page in a paged query. Paging is used to return results in batches.
    * 
    * @example
    * 20
@@ -33,7 +34,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of Cloud Desktop policy IDs.
+   * The list of cloud desktop policy IDs.
    */
   policyGroupId?: string[];
   portProxy?: string;
@@ -49,7 +50,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The scope where the Cloud Desktop policy takes effect.
+   * The effective scope of the cloud desktop policy.
    * 
    * @example
    * GLOBAL

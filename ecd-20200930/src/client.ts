@@ -12,6 +12,32 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "ecd.us-west-1.aliyuncs.com",
+      'us-east-1': "ecd.us-east-1.aliyuncs.com",
+      'me-east-1': "ecd.me-east-1.aliyuncs.com",
+      'me-central-1': "ecd.me-central-1.aliyuncs.com",
+      'eu-west-1': "ecd.eu-west-1.aliyuncs.com",
+      'eu-central-1': "ecd.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "ecd.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "ecd.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen': "ecd.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "ecd.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "ecd.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "ecd.cn-qingdao.aliyuncs.com",
+      'cn-nanjing': "ecd.cn-nanjing.aliyuncs.com",
+      'cn-hongkong': "ecd.cn-hongkong.aliyuncs.com",
+      'cn-hangzhou-finance': "ecd.cn-hangzhou-finance.aliyuncs.com",
+      'cn-hangzhou': "ecd.cn-hangzhou.aliyuncs.com",
+      'cn-guangzhou': "ecd.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "ecd.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "ecd.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "ecd.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "ecd.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "ecd.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-1': "ecd.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "ecd.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ecd", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1972,7 +1998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a NAS file system and associate it with the office network of the shared cloud computer.
+   * Creates a NAS file system and binds it to the office network of a shared cloud computer.
    * 
    * @param request - CreateAndBindNasFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2031,7 +2057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a NAS file system and associate it with the office network of the shared cloud computer.
+   * Creates a NAS file system and binds it to the office network of a shared cloud computer.
    * 
    * @param request - CreateAndBindNasFileSystemRequest
    * @returns CreateAndBindNasFileSystemResponse
@@ -3686,25 +3712,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more Elastic Desktop Service (EDS) desktops. If you provide user information, the desktops are automatically assigned to the specified users.
+   * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
    * 
    * @remarks
-   * Before you create a cloud desktop, meet the following requirements:
-   * - Create an office site (formerly a workspace) and users:
-   *   - Simple office site: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-   *   - AD connector office site: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
-   * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or use an existing policy.
-   * **Request examples**
+   * Before creating cloud desktops, complete the following preparations:
+   * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
+   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+   * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
+   * **Call examples:**
    * <details>
-   * <summary>
-   * Example: Create a cloud desktop from a bundle
-   * </summary>
+   * <summary>Example of creating with a template</summary>
    * ```
    * {
-   *   "RegionId": "cn-hangzhou",
+   *   "RegionId": "ap-southeast-1",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "BundleId": "b-enterprise_office_8c16g_windows2022"
@@ -3712,15 +3736,13 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>
-   * Example: Create a cloud desktop with custom settings
-   * </summary>
+   * <summary>Example of creating without a template</summary>
    * ```
    * {
-   *   "RegionId": "cn-hangzhou",
+   *   "RegionId": "ap-southeast-1",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
@@ -3734,15 +3756,13 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>
-   * Example: Create a cloud desktop with a monthly usage package
-   * </summary>
+   * <summary>Example of creating a monthly hourly package</summary>
    * ```
    * {
-   *   "RegionId": "cn-hangzhou",
+   *   "RegionId": "ap-southeast-1",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
@@ -3761,16 +3781,14 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>
-   * Example: Create an agent resource
-   * </summary>
+   * <summary>Example of creating an Agent resource</summary>
    * ```
    * {
-   *   "RegionId": "cn-hangzhou",
+   *   "RegionId": "ap-southeast-1",
    *   "BundleId": "b-openclaw-linux",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
    *     "DesktopType": "cloud.space.4c.8g"
@@ -3783,7 +3801,7 @@ export default class Client extends OpenApi {
    * }
    * ```
    * </details>
-   * To automatically run user commands on a cloud desktop, configure the `UserCommands` parameter.
+   * To have cloud desktops automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
    * 
    * @param tmpReq - CreateDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3882,6 +3900,10 @@ export default class Client extends OpenApi {
       query["OfficeSiteId"] = request.officeSiteId;
     }
 
+    if (!$dara.isNull(request.ouPath)) {
+      query["OuPath"] = request.ouPath;
+    }
+
     if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
@@ -3924,6 +3946,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.snapshotPolicyId)) {
       query["SnapshotPolicyId"] = request.snapshotPolicyId;
+    }
+
+    if (!$dara.isNull(request.subPayType)) {
+      query["SubPayType"] = request.subPayType;
     }
 
     if (!$dara.isNull(request.subnetId)) {
@@ -3980,25 +4006,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more Elastic Desktop Service (EDS) desktops. If you provide user information, the desktops are automatically assigned to the specified users.
+   * Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
    * 
    * @remarks
-   * Before you create a cloud desktop, meet the following requirements:
-   * - Create an office site (formerly a workspace) and users:
-   *   - Simple office site: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-   *   - AD connector office site: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
-   * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or use an existing policy.
-   * **Request examples**
+   * Before creating cloud desktops, complete the following preparations:
+   * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
+   *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+   *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+   * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
+   * **Call examples:**
    * <details>
-   * <summary>
-   * Example: Create a cloud desktop from a bundle
-   * </summary>
+   * <summary>Example of creating with a template</summary>
    * ```
    * {
-   *   "RegionId": "cn-hangzhou",
+   *   "RegionId": "ap-southeast-1",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "BundleId": "b-enterprise_office_8c16g_windows2022"
@@ -4006,15 +4030,13 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>
-   * Example: Create a cloud desktop with custom settings
-   * </summary>
+   * <summary>Example of creating without a template</summary>
    * ```
    * {
-   *   "RegionId": "cn-hangzhou",
+   *   "RegionId": "ap-southeast-1",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
@@ -4028,15 +4050,13 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>
-   * Example: Create a cloud desktop with a monthly usage package
-   * </summary>
+   * <summary>Example of creating a monthly hourly package</summary>
    * ```
    * {
-   *   "RegionId": "cn-hangzhou",
+   *   "RegionId": "ap-southeast-1",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
    *   "PolicyGroupId": "system-all-enabled-policy",
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
@@ -4055,16 +4075,14 @@ export default class Client extends OpenApi {
    * ```
    * </details>
    * <details>
-   * <summary>
-   * Example: Create an agent resource
-   * </summary>
+   * <summary>Example of creating an Agent resource</summary>
    * ```
    * {
-   *   "RegionId": "cn-hangzhou",
+   *   "RegionId": "ap-southeast-1",
    *   "BundleId": "b-openclaw-linux",
    *   "DesktopName": "test-desktop-name",
    *   "Amount": "1",
-   *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+   *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
    *   "ChargeType": "PostPaid",
    *   "DesktopAttachment": {
    *     "DesktopType": "cloud.space.4c.8g"
@@ -4077,7 +4095,7 @@ export default class Client extends OpenApi {
    * }
    * ```
    * </details>
-   * To automatically run user commands on a cloud desktop, configure the `UserCommands` parameter.
+   * To have cloud desktops automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
    * 
    * @param request - CreateDesktopsRequest
    * @returns CreateDesktopsResponse
@@ -4554,7 +4572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a network package for an office network.
+   * Creates a premium bandwidth plan for an office network.
    * 
    * @param request - CreateNetworkPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4611,6 +4629,10 @@ export default class Client extends OpenApi {
       query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4629,7 +4651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a network package for an office network.
+   * Creates a premium bandwidth plan for an office network.
    * 
    * @param request - CreateNetworkPackageRequest
    * @returns CreateNetworkPackageResponse
@@ -7529,7 +7551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query details of policies that are not region-specific.
+   * Queries the details of region-free policies.
    * 
    * @param request - DescribeCenterPolicyListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7592,7 +7614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query details of policies that are not region-specific.
+   * Queries the details of region-free policies.
    * 
    * @param request - DescribeCenterPolicyListRequest
    * @returns DescribeCenterPolicyListResponse
@@ -9507,74 +9529,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cloud computer-level traffic statistics of a single office network.
-   * 
-   * @remarks
-   * > You can query only the traffic data in the last 90 days.
-   * 
-   * @param request - DescribeFlowStatisticRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeFlowStatisticResponse
-   */
-  async describeFlowStatisticWithOptions(request: $_model.DescribeFlowStatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFlowStatisticResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.desktopId)) {
-      query["DesktopId"] = request.desktopId;
-    }
-
-    if (!$dara.isNull(request.officeSiteId)) {
-      query["OfficeSiteId"] = request.officeSiteId;
-    }
-
-    if (!$dara.isNull(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!$dara.isNull(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!$dara.isNull(request.period)) {
-      query["Period"] = request.period;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeFlowStatistic",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeFlowStatisticResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFlowStatisticResponse({}));
-  }
-
-  /**
-   * Queries cloud computer-level traffic statistics of a single office network.
-   * 
-   * @remarks
-   * > You can query only the traffic data in the last 90 days.
-   * 
-   * @param request - DescribeFlowStatisticRequest
-   * @returns DescribeFlowStatisticResponse
-   */
-  async describeFlowStatistic(request: $_model.DescribeFlowStatisticRequest): Promise<$_model.DescribeFlowStatisticResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeFlowStatisticWithOptions(request, runtime);
-  }
-
-  /**
    * 查询DNAT条目
    * 
    * @param request - DescribeForwardTableEntriesRequest
@@ -10715,7 +10669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more premium bandwidth plans.
+   * Queries the details of one or more premium Internet bandwidth plans.
    * 
    * @param request - DescribeNetworkPackagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10744,6 +10698,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10762,7 +10720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more premium bandwidth plans.
+   * Queries the details of one or more premium Internet bandwidth plans.
    * 
    * @param request - DescribeNetworkPackagesRequest
    * @returns DescribeNetworkPackagesResponse
@@ -12157,7 +12115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of Cloud Desktop templates.
+   * Queries the details of cloud computer templates.
    * 
    * @param request - DescribeTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12224,7 +12182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of Cloud Desktop templates.
+   * Queries the details of cloud computer templates.
    * 
    * @param request - DescribeTemplatesRequest
    * @returns DescribeTemplatesResponse
@@ -14165,10 +14123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags of cloud computers.
+   * Queries the list of tags that are added to cloud computers.
    * 
    * @remarks
-   * You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+   * You must specify at least one of the following parameters in the request to specify the query object: `ResourceId.N`, `Tag.N.Key`, or `Tag.N.Value`.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14219,10 +14177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags of cloud computers.
+   * Queries the list of tags that are added to cloud computers.
    * 
    * @remarks
-   * You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+   * You must specify at least one of the following parameters in the request to specify the query object: `ResourceId.N`, `Tag.N.Key`, or `Tag.N.Value`.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -14799,7 +14757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name and snapshot retention period of an automatic snapshot policy.
+   * Modifies the configuration items of an automatic snapshot policy, including the policy name and snapshot retention period.
    * 
    * @param request - ModifyAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14850,7 +14808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name and snapshot retention period of an automatic snapshot policy.
+   * Modifies the configuration items of an automatic snapshot policy, including the policy name and snapshot retention period.
    * 
    * @param request - ModifyAutoSnapshotPolicyRequest
    * @returns ModifyAutoSnapshotPolicyResponse
@@ -19966,10 +19924,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
+   * Enables or disables the single sign-on (SSO) feature for an AD-based office network.
    * 
    * @remarks
-   * This operation is supported only for AD directories, not for RAM directories.
+   * This operation has the same effect as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). Use the SetOfficeSiteSsoStatus operation instead.
    * 
    * @param request - SetDirectorySsoStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20008,10 +19966,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
+   * Enables or disables the single sign-on (SSO) feature for an AD-based office network.
    * 
    * @remarks
-   * This operation is supported only for AD directories, not for RAM directories.
+   * This operation has the same effect as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). Use the SetOfficeSiteSsoStatus operation instead.
    * 
    * @param request - SetDirectorySsoStatusRequest
    * @returns SetDirectorySsoStatusResponse
@@ -20368,10 +20326,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+   * Adds tags to specified cloud desktops. This makes it easier to filter and manage cloud desktops by tag.
    * 
    * @remarks
-   * If TagKey is specified, the new TagValue value overrides the original TagValue value.
+   * If the specified TagKey already exists, the new TagValue overwrites the original TagValue.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20414,10 +20372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+   * Adds tags to specified cloud desktops. This makes it easier to filter and manage cloud desktops by tag.
    * 
    * @remarks
-   * If TagKey is specified, the new TagValue value overrides the original TagValue value.
+   * If the specified TagKey already exists, the new TagValue overwrites the original TagValue.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -20640,7 +20598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+   * Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20687,7 +20645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+   * Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse

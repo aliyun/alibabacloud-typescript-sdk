@@ -2,10 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateNetworkPackageRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNetworkPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-payment.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * false
@@ -21,13 +47,11 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The bandwidth of the network package, in Mbps.
+   * The bandwidth of the premium bandwidth plan. Unit: Mbit/s.    
    * 
-   * - For subscription network packages, the value range is 2 to 1,000.
-   * 
-   * - For pay-as-you-go network packages that are billed by traffic, the value range is 2 to 200.
-   * 
-   * - For pay-as-you-go network packages that are billed by bandwidth, the value range is 2 to 1,000.
+   * - If the premium bandwidth plan uses the subscription billing method, the valid values are 2 to 1000.
+   * - If the premium bandwidth plan uses the pay-as-you-go billing method and the billing type is pay-by-data-transfer (PayByTraffic), the valid values are 2 to 200.
+   * - If the premium bandwidth plan uses the pay-as-you-go billing method and the billing type is pay-by-bandwidth (PayByBandwidth), the valid values are 2 to 1000.
    * 
    * This parameter is required.
    * 
@@ -38,17 +62,13 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   channelCookie?: string;
   /**
    * @remarks
-   * The billing method for the network package.
+   * The billable methods of the premium bandwidth plan.
    * 
-   * - When `PayType` is set to `PrePaid`, the only valid value is:
-   * 
-   *   - `PayByBandwidth`: pay-by-bandwidth.
-   * 
-   * - When `PayType` is set to `PostPaid`, valid values are:
-   * 
-   *   - `PayByTraffic`: pay-by-traffic.
-   * 
-   *   - `PayByBandwidth`: pay-by-bandwidth.
+   * - If the parameter `PayType` is set to `PrePaid`, valid values:
+   *     - PayByBandwidth: billing by fixed bandwidth.
+   * - If the parameter `PayType` is set to `PostPaid`, valid values:
+   *     - PayByTraffic: billing by data transfer.
+   *     - PayByBandwidth: billing by fixed bandwidth.
    * 
    * @example
    * PayByTraffic
@@ -72,13 +92,11 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The subscription duration of the network package. This parameter is required and applies only when `PayType` is set to `PrePaid`. The valid values for this parameter depend on the value of `PeriodUnit`.
+   * The subscription duration of the premium bandwidth plan. This parameter takes effect and is required only when PayType is set to PrePaid. Valid values are determined by the PeriodUnit parameter.
    * 
-   * - If `PeriodUnit` is set to `Week`, the only valid value is 1.
-   * 
-   * - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
-   * 
-   * - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
+   * - If PeriodUnit is set to Week, the valid value is 1.
+   * - If PeriodUnit is set to Month, valid values are 1, 2, 3, and 6.
+   * - If PeriodUnit is set to Year, valid values are 1, 2, and 3.
    * 
    * Default value: 1.
    * 
@@ -88,7 +106,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration for the network package. This parameter is required and applies only when `PayType` is set to `PrePaid`.
+   * The unit of the subscription duration for the premium bandwidth plan. This parameter takes effect and is required only when PayType is set to PrePaid.
    * 
    * @example
    * Week
@@ -104,7 +122,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to get the list of regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -113,6 +131,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
    */
   regionId?: string;
   resellerOwnerUid?: number;
+  tag?: CreateNetworkPackageRequestTag[];
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -127,6 +146,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
       promotionId: 'PromotionId',
       regionId: 'RegionId',
       resellerOwnerUid: 'ResellerOwnerUid',
+      tag: 'Tag',
     };
   }
 
@@ -144,10 +164,14 @@ export class CreateNetworkPackageRequest extends $dara.Model {
       promotionId: 'string',
       regionId: 'string',
       resellerOwnerUid: 'number',
+      tag: { 'type': 'array', 'itemType': CreateNetworkPackageRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

@@ -42,6 +42,7 @@ export { CreateDesktopsShrinkRequestTag } from './CreateDesktopsShrinkRequest';
 export { CreateDesktopsShrinkRequestUserCommands } from './CreateDesktopsShrinkRequest';
 export { CreateDriveResponseBodyDrive } from './CreateDriveResponseBody';
 export { CreateEcdReportTaskRequestFilterList } from './CreateEcdReportTaskRequest';
+export { CreateNetworkPackageRequestTag } from './CreateNetworkPackageRequest';
 export { CreateOfficeSiteAcceleratorRequestAccelerateRegion } from './CreateOfficeSiteAcceleratorRequest';
 export { CreatePolicyGroupRequestAuthorizeAccessPolicyRule } from './CreatePolicyGroupRequest';
 export { CreatePolicyGroupRequestAuthorizeSecurityPolicyRule } from './CreatePolicyGroupRequest';
@@ -116,7 +117,6 @@ export { DescribeDirectoriesResponseBodyDirectories } from './DescribeDirectorie
 export { DescribeDrivesResponseBodyDrivesDesktopGroups } from './DescribeDrivesResponseBody';
 export { DescribeDrivesResponseBodyDrives } from './DescribeDrivesResponseBody';
 export { DescribeEcdReportTasksResponseBodyExportTaskList } from './DescribeEcdReportTasksResponseBody';
-export { DescribeFlowStatisticResponseBodyDesktopFlowStatistic } from './DescribeFlowStatisticResponseBody';
 export { DescribeForwardTableEntriesResponseBodyForwardTableEntries } from './DescribeForwardTableEntriesResponseBody';
 export { DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions } from './DescribeFotaPendingDesktopsResponseBody';
 export { DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops } from './DescribeFotaPendingDesktopsResponseBody';
@@ -145,6 +145,8 @@ export { DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites } from './Desc
 export { DescribeNASFileSystemsResponseBodyFileSystems } from './DescribeNasfileSystemsResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysIpLists } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGateways } from './DescribeNatGatewaysResponseBody';
+export { DescribeNetworkPackagesRequestTag } from './DescribeNetworkPackagesRequest';
+export { DescribeNetworkPackagesResponseBodyNetworkPackagesTags } from './DescribeNetworkPackagesResponseBody';
 export { DescribeNetworkPackagesResponseBodyNetworkPackages } from './DescribeNetworkPackagesResponseBody';
 export { DescribeOfficeSitesResponseBodyOfficeSitesADConnectors } from './DescribeOfficeSitesResponseBody';
 export { DescribeOfficeSitesResponseBodyOfficeSitesLogs } from './DescribeOfficeSitesResponseBody';
@@ -660,9 +662,6 @@ export { DescribeEcdReportTasksResponse } from './DescribeEcdReportTasksResponse
 export { DescribeFlowMetricRequest } from './DescribeFlowMetricRequest';
 export { DescribeFlowMetricResponseBody } from './DescribeFlowMetricResponseBody';
 export { DescribeFlowMetricResponse } from './DescribeFlowMetricResponse';
-export { DescribeFlowStatisticRequest } from './DescribeFlowStatisticRequest';
-export { DescribeFlowStatisticResponseBody } from './DescribeFlowStatisticResponseBody';
-export { DescribeFlowStatisticResponse } from './DescribeFlowStatisticResponse';
 export { DescribeForwardTableEntriesRequest } from './DescribeForwardTableEntriesRequest';
 export { DescribeForwardTableEntriesResponseBody } from './DescribeForwardTableEntriesResponseBody';
 export { DescribeForwardTableEntriesResponse } from './DescribeForwardTableEntriesResponse';

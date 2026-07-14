@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplatesResponseBodyDataDataDiskList extends $dara.Model {
   /**
    * @remarks
-   * Data disk performance level.
+   * The performance level of the data cloud disk.
    * 
    * @example
    * AutoPL
@@ -13,7 +13,7 @@ export class DescribeTemplatesResponseBodyDataDataDiskList extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * Data disk size in GiB.
+   * The data cloud disk size. Unit: GiB.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class DescribeTemplatesResponseBodyDataDataDiskList extends $dara.Model {
 export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Model {
   /**
    * @remarks
-   * Number of vCPUs in the Cloud Desktop instance type.
+   * The number of vCPUs included in the cloud computer instance type.
    * 
    * @example
    * 4
@@ -53,7 +53,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   cpuCount?: number;
   /**
    * @remarks
-   * GPU memory size. This field appears only for graphics instance types.
+   * The GPU memory information. This field is displayed only when the instance type is a graphics-accelerated type.
    * 
    * @example
    * 4GiB
@@ -61,7 +61,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   gpuSpec?: string;
   /**
    * @remarks
-   * Memory size in MiB.
+   * The memory size. Unit: MiB.
    * 
    * @example
    * 8192
@@ -69,7 +69,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   memorySize?: number;
   /**
    * @remarks
-   * Office site ID.
+   * The office network ID.
    * 
    * @example
    * cn-beijing+dir-3040*****
@@ -77,7 +77,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   officeSiteId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shenzhen
@@ -85,7 +85,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * Cloud Desktop instance type ID.
+   * The cloud computer instance type ID.
    * 
    * @example
    * eds.enterprise_office.4c8g
@@ -93,7 +93,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   resourceInstanceType?: string;
   /**
    * @remarks
-   * Snapshot policy ID.
+   * The snapshot policy ID.
    * 
    * @example
    * sp-b9fasjuu0*****
@@ -101,7 +101,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   snapshotPolicyId?: string;
   /**
    * @remarks
-   * Subnet ID.
+   * The subnet ID.
    * 
    * @example
    * vsw-dgea1*****
@@ -109,7 +109,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   subnetId?: string;
   /**
    * @remarks
-   * Whether disk encryption is enabled.
+   * Indicates whether disk encryption is enabled.
    * 
    * @example
    * false
@@ -117,7 +117,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
   volumeEncryptionEnable?: boolean;
   /**
    * @remarks
-   * KMS key ID used when disk encryption is enabled.
+   * The KMS key ID used when disk encryption is enabled.
    * 
    * @example
    * 3bc77be0-cbce-4a29-b07b-13f16394****
@@ -165,7 +165,7 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
 export class DescribeTemplatesResponseBodyDataResourceTagList extends $dara.Model {
   /**
    * @remarks
-   * Tag key.
+   * The tag key.
    * 
    * @example
    * env
@@ -173,7 +173,7 @@ export class DescribeTemplatesResponseBodyDataResourceTagList extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value.
    * 
    * @example
    * test
@@ -205,7 +205,7 @@ export class DescribeTemplatesResponseBodyDataResourceTagList extends $dara.Mode
 export class DescribeTemplatesResponseBodyDataSiteConfigList extends $dara.Model {
   /**
    * @remarks
-   * Application control policy ID.
+   * The application control policy ID.
    * 
    * @example
    * bwr-5a5371e0*******
@@ -213,7 +213,7 @@ export class DescribeTemplatesResponseBodyDataSiteConfigList extends $dara.Model
   appRuleId?: string;
   /**
    * @remarks
-   * Site name.
+   * The site name.
    * 
    * @example
    * mainland
@@ -248,12 +248,12 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Data disk size and specification configuration.
+   * The size and specification configurations of data cloud disks.
    */
   dataDiskList?: DescribeTemplatesResponseBodyDataDataDiskList[];
   /**
    * @remarks
-   * Default startup language for the template.
+   * The default startup language configured in the template.
    * 
    * @example
    * zh-CN
@@ -261,7 +261,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   defaultLanguage?: string;
   /**
    * @remarks
-   * Template description.
+   * The template description.
    * 
    * @example
    * My template
@@ -269,7 +269,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Template creation time in UTC.
+   * The creation time of the template (UTC).
    * 
    * @example
    * 2025-04-25T05:18:46.000+00:00
@@ -277,7 +277,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Template modification time in UTC.
+   * The last modification time of the template (UTC).
    * 
    * @example
    * 2025-04-25T05:18:46.000+00:00
@@ -285,7 +285,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Image ID.
+   * The image ID.
    * 
    * @example
    * m-5q8ehbihx*****
@@ -293,7 +293,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Image type.
+   * The image type.
    * 
    * @example
    * User
@@ -303,7 +303,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * Policy ID.
+   * The policy group ID.
    * 
    * @example
    * pg-0caoeogkhz*****
@@ -312,7 +312,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   postPaidAfterUsedUp?: boolean;
   /**
    * @remarks
-   * Product type.
+   * The product type.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -320,12 +320,12 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Region-specific configuration parameters.
+   * The region-specific configuration parameters.
    */
   regionConfigList?: DescribeTemplatesResponseBodyDataRegionConfigList[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1871984F-51F6-5588-BAF6-******
@@ -333,7 +333,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-a5fqjjqaejt***
@@ -341,17 +341,17 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Cloud Desktop tags in key-value format.
+   * The cloud computer tags in key-value format.
    */
   resourceTagList?: DescribeTemplatesResponseBodyDataResourceTagList[];
   /**
    * @remarks
-   * Site configuration management.
+   * The site configuration management.
    */
   siteConfigList?: DescribeTemplatesResponseBodyDataSiteConfigList[];
   /**
    * @remarks
-   * System disk type.
+   * The system cloud disk type.
    * 
    * @example
    * AutoPL
@@ -359,7 +359,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * System disk size in GiB.
+   * The system cloud disk size. Unit: GiB.
    * 
    * @example
    * 80
@@ -367,7 +367,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * Template ID.
+   * The template ID.
    * 
    * @example
    * b-0caoeogs88y*****
@@ -375,7 +375,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * Template name.
+   * The template name.
    * 
    * @example
    * My template 001
@@ -383,7 +383,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * Template type.
+   * The templatetype.
    * 
    * @example
    * USER_TEMPLATE
@@ -391,7 +391,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * Scheduled task group ID.
+   * The scheduled task group ID.
    * 
    * @example
    * bcc-dweha*****
@@ -486,7 +486,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
 export class DescribeTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Operation result. Returns `success` if successful. Otherwise, returns an error message.
+   * The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -494,12 +494,12 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * List of template information.
+   * The list of queried template information.
    */
   data?: DescribeTemplatesResponseBodyData[];
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -507,7 +507,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message. This parameter is not returned when Code is `success`.
+   * The error message. This parameter is not returned when Code is `success`.
    * 
    * @example
    * success
@@ -515,7 +515,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -523,7 +523,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Entries per page.
+   * The number of rows per page.
    * 
    * @example
    * 20
@@ -531,7 +531,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1871984F-51F6-5588-BAF6-*******
@@ -539,7 +539,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * True
@@ -547,7 +547,7 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 94

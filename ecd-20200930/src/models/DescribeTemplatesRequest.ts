@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * Region filter for template queries.
+   * The region filter condition for the template query. 
    * 
-   * > If you set this parameter, results exclude configurations for other regions.
+   * > If this parameter is specified, region-specific configurations that do not match are excluded from the query results.
    * 
    * @example
    * cn-beijing
@@ -15,7 +15,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * > This parameter is not available for public use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null
@@ -23,7 +23,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * Cloud Desktop image ID. You can find this ID on the Image Management page. Supported image types include OS images and custom images.
+   * The cloud computer image ID. You can obtain the ID from the image management page. System images, custom images, and other image types are supported.
    * 
    * @example
    * m-dnz9xjgbm8*****
@@ -31,7 +31,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Keyword for fuzzy search. Searches template IDs and template names.
+   * The keyword. Fuzzy match is supported for the template ID and template name fields.
    * 
    * @example
    * abc
@@ -39,7 +39,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Page number for paged queries.
+   * The page number of the current page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Maximum number of entries per page for paged queries.
+   * The maximum number of rows per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 20
@@ -55,7 +55,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Product type. Set this parameter to `CloudDesktop`.
+   * The product type. Set this parameter to `CloudDesktop`.
    * 
    * @example
    * CloudDesktop
@@ -63,12 +63,12 @@ export class DescribeTemplatesRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * List of template IDs to query.
+   * The list of template IDs to query.
    */
   templateIds?: string[];
   /**
    * @remarks
-   * Query by template name.
+   * The template name used for the query.
    * 
    * @example
    * My cloud desktop template 001
@@ -76,7 +76,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * Template type to query. If you omit this parameter, the system returns all template types.
+   * The templatetype to query. If this parameter is not specified, templates of all types are queried.
    * 
    * @example
    * USER_TEMPLATE

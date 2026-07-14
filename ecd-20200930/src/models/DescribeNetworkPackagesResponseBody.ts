@@ -2,10 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeNetworkPackagesResponseBodyNetworkPackagesTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth provided by the premium bandwidth plan. Unit: Mbit/s.
+   * The bandwidth of the premium Internet bandwidth plan. Unit: Mbit/s.
    * 
    * @example
    * 10
@@ -15,31 +41,13 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * @remarks
    * The business status.
    * 
-   * Valid values:
-   * 
-   * - Expired
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - Normal
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
    * @example
    * Normal
    */
   businessStatus?: string;
   /**
    * @remarks
-   * The time when the premium bandwidth plan was created.
+   * The creation time.
    * 
    * @example
    * 2021-05-10T02:35:26Z
@@ -47,16 +55,15 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The public egress IP address of the premium bandwidth plan.
+   * The public egress IP address of the premium Internet bandwidth plan.
    */
   eipAddresses?: string[];
   /**
    * @remarks
-   * The time when the premium bandwidth plan expires.
+   * The expiration time of the premium Internet bandwidth plan.
    * 
-   * - If the plan is a subscription one, the time when the plan expires is returned.
-   * 
-   * - If the plan is a pay-as-you-go one, `2099-12-31T15:59:59Z` is returned.
+   * - If the plan uses the subscription billing method, the actual expiration time is returned.
+   * - If the plan uses the pay-as-you-go billing method, `2099-12-31T15:59:59Z` is returned.
    * 
    * @example
    * 2099-12-31T15:59:59Z
@@ -64,17 +71,13 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   expiredTime?: string;
   /**
    * @remarks
-   * The charge type of the premium bandwidth plan.
+   * The billing method of the premium Internet bandwidth plan.
    * 
-   * - Valid value when the `PayType` parameter is set to `PrePaid`:
-   * 
-   *   - PayByBandwidth: charges by fixed bandwidth.
-   * 
-   * - Valid values when the `PayType` parameter is set to `PostPaid`:
-   * 
-   *   - PayByTraffic: charges by data transfer.
-   * 
-   *   - PayByBandwidth: charges by fixed bandwidth.
+   * - If the parameter `PayType` is set to `PrePaid`, valid values:
+   *     - PayByBandwidth: pay-by-bandwidth.
+   * - If the parameter `PayType` is set to `PostPaid`, valid values:
+   *     - PayByTraffic: pay-by-data-transfer.
+   *     - PayByBandwidth: pay-by-bandwidth.
    * 
    * @example
    * PayByTraffic
@@ -82,7 +85,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   internetChargeType?: string;
   /**
    * @remarks
-   * The ID of the premium bandwidth plan.
+   * The ID of the premium Internet bandwidth plan.
    * 
    * @example
    * np-amtp8e8q1o9e4****
@@ -90,41 +93,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   networkPackageId?: string;
   /**
    * @remarks
-   * The status of the premium bandwidth plan.
-   * 
-   * Valid values:
-   * 
-   * - Creating
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - Released
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - InUse
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - Releasing
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
+   * The status of the premium Internet bandwidth plan.
    * 
    * @example
    * InUse
@@ -148,15 +117,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   officeSiteName?: string;
   /**
    * @remarks
-   * The type of the office network.
-   * 
-   * Valid values:
-   * 
-   * - standard: advanced office network
-   * 
-   * - customized: custom office network
-   * 
-   * - basic: basic office network
+   * The office network type.
    * 
    * @example
    * basic
@@ -164,13 +125,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   officeSiteVpcType?: string;
   /**
    * @remarks
-   * The billing method of the premium bandwidth plan.
-   * 
-   * Valid values:
-   * 
-   * - PostPaid: pay-as-you-go
-   * 
-   * - PrePaid: subscription
+   * The billing method.
    * 
    * @example
    * PostPaid
@@ -178,7 +133,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   payType?: string;
   /**
    * @remarks
-   * The time when the reserved network bandwidth took effect.
+   * The effective period of the reserved network bandwidth.
    * 
    * @example
    * 2021-07-10T00:00:00Z
@@ -186,7 +141,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
   reservationActiveTime?: string;
   /**
    * @remarks
-   * The peak bandwidth that is reserved for the premium bandwidth plan. Unit: Mbit/s.
+   * The peak reserved network bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 20
@@ -196,16 +151,11 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * @remarks
    * The billing method of the reserved network bandwidth.
    * 
-   * Valid values:
-   * 
-   * - PayByTraffic: charges by data transfer.
-   * 
-   * - PayByBandwidth: charges by fixed bandwidth.
-   * 
    * @example
    * PayByBandwidth
    */
   reservationInternetChargeType?: string;
+  tags?: DescribeNetworkPackagesResponseBodyNetworkPackagesTags[];
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -223,6 +173,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
       reservationActiveTime: 'ReservationActiveTime',
       reservationBandwidth: 'ReservationBandwidth',
       reservationInternetChargeType: 'ReservationInternetChargeType',
+      tags: 'Tags',
     };
   }
 
@@ -243,12 +194,16 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
       reservationActiveTime: 'string',
       reservationBandwidth: 'number',
       reservationInternetChargeType: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeNetworkPackagesResponseBodyNetworkPackagesTags },
     };
   }
 
   validate() {
     if(Array.isArray(this.eipAddresses)) {
       $dara.Model.validateArray(this.eipAddresses);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -261,12 +216,12 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
 export class DescribeNetworkPackagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The premium bandwidth plans.
+   * The list of premium Internet bandwidth plans.
    */
   networkPackages?: DescribeNetworkPackagesResponseBodyNetworkPackages[];
   /**
    * @remarks
-   * The token that is used to start the next query. If the value of this parameter is empty, all results are returned.
+   * The token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -274,7 +229,7 @@ export class DescribeNetworkPackagesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

@@ -13,7 +13,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The ID of the shared cloud computer.
    * 
    * This parameter is required.
    * 
@@ -23,15 +23,9 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt data in the NAS file system. You can use keys that are hosted by Key Management Service (KMS) to encrypt data in a file system. When you read and write the encrypted data, the data is automatically decrypted. Valid values:
+   * Specifies whether the file system uses a KMS-managed key to encrypt data at rest. Encrypted data does not need to be decrypted during read and write operations.
    * 
-   * - 0: does not encrypt data in the NAS file system.
-   * 
-   * - 1: encrypts data in the NAS file system by using a NAS-managed key. `If you set `FileSystemType`  to  `standard`  or  `extreme`, you can use a NAS-managed key to encrypt data in a NAS file system.`
-   * 
-   * - 2: encrypts data in the NAS file system by using a KMS-managed key. `If` you set FileSystemType`  to  `extreme`, you can use a KMS-managed key to encrypt data in a NAS file system.`
-   * 
-   * Default value: 0.
+   * > NAS-managed keys are supported when `FileSystemType` is set to `standard` or `extreme`. User-managed keys are supported when `FileSystemType` is set to `extreme`.
    * 
    * @example
    * 0
@@ -39,7 +33,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   encryptType?: number;
   /**
    * @remarks
-   * The list of users.
+   * The list of user IDs.
    */
   endUserIds?: string[];
   /**
@@ -54,7 +48,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   fileSystemName?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The ID of the office network.
    * 
    * This parameter is required.
    * 
@@ -64,7 +58,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -74,13 +68,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The storage type of the NAS file system. Valid values:
-   * 
-   * - Capacity
-   * 
-   * - Performance
-   * 
-   * Default value: Capacity.
+   * The storage specification type of the NAS file system.
    * 
    * This parameter is required.
    * 

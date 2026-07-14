@@ -2,16 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeNetworkPackagesRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkPackagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The charge type of the pay-as-you-go premium bandwidth plan.
-   * 
-   * Valid values:
-   * 
-   * - PayByTraffic: charges by data transfer.
-   * 
-   * - PayByBandwidth: charges by fixed bandwidth.
+   * The billing method of the pay-as-you-go premium Internet bandwidth plan.
    * 
    * @example
    * PayByBandwidth
@@ -19,11 +39,10 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query.    
    * 
-   * - Maximum value: 100
-   * 
-   * - Default value: 10
+   * - Maximum value: 100.    
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -31,7 +50,7 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the premium bandwidth plan. You can specify 1 to 100 IDs.
+   * The IDs of the premium Internet bandwidth plans. You can specify 1 to 100 IDs.
    * 
    * @example
    * np-amtp8e8q1o9e4****
@@ -39,7 +58,7 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
   networkPackageId?: string[];
   /**
    * @remarks
-   * The token that determines the start point of the next query.
+   * The token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -47,7 +66,7 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -55,6 +74,7 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  tag?: DescribeNetworkPackagesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       internetChargeType: 'InternetChargeType',
@@ -62,6 +82,7 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
       networkPackageId: 'NetworkPackageId',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      tag: 'Tag',
     };
   }
 
@@ -72,12 +93,16 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
       networkPackageId: { 'type': 'array', 'itemType': 'string' },
       nextToken: 'string',
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeNetworkPackagesRequestTag },
     };
   }
 
   validate() {
     if(Array.isArray(this.networkPackageId)) {
       $dara.Model.validateArray(this.networkPackageId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }

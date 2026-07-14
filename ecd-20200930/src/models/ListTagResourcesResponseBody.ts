@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The resource ID, which is the cloud computer ID.
+   * The ID of the resource, that is, the ID of the cloud computer.
    * 
    * @example
    * ecd-ia2zw38bi6cm7****
@@ -13,11 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource.
-   * 
-   * Valid values:
-   * 
-   * - ALIYUN::GWS::INSTANCE: cloud computer.
+   * The resource type.
    * 
    * @example
    * ALIYUN::GWS::INSTANCE
@@ -25,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag keys.
+   * The tag key.
    * 
    * @example
    * department
@@ -33,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag values.
+   * The tag value.
    * 
    * @example
    * design
@@ -69,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. If NextToken is empty, no next page exists.
+   * The token that determines the start point of the next query. If this parameter is empty, no next query is to be sent.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

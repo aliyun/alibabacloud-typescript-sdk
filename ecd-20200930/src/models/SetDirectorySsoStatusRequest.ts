@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDirectorySsoStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The AD directory ID.
+   * The ID of the AD office network.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,8 @@ export class SetDirectorySsoStatusRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * Specifies whether to enable SSO. Valid values:
-   * 
-   * - true: enables SSO.
-   * 
+   * Specifies whether to enable or disable single sign-on (SSO). Valid values:
+   * - true: enables SSO
    * - false: disables SSO.
    * 
    * This parameter is required.
@@ -29,7 +27,7 @@ export class SetDirectorySsoStatusRequest extends $dara.Model {
   enableSso?: boolean;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

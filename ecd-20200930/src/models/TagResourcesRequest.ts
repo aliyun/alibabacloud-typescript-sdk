@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag keys. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` and cannot contain `http://` or `https://`.
+   * The tag key. If you specify this parameter, the value cannot be an empty string. The value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * department
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag values. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+   * The tag value. The value can be an empty string. The value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * design
@@ -45,7 +45,7 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by Wuying Cloud Desktop.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs, which are cloud computer IDs. You can specify 1 to 50 IDs.
+   * The list of resource IDs, that is, the list of cloud desktop IDs. You can specify 1 to 50 resource IDs.
    * 
    * This parameter is required.
    * 
@@ -65,11 +65,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource.
-   * 
-   * Valid values:
-   * 
-   * - ALIYUN::GWS::INSTANCE: cloud computer.
+   * The resource type.
    * 
    * This parameter is required.
    * 
@@ -79,7 +75,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags that you want to add to the cloud computers. You can specify 1 to 20 tags.
+   * The list of tags. You can specify 1 to 20 tags.
    * 
    * This parameter is required.
    */
