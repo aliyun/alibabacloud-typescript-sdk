@@ -22,12 +22,9 @@ export class GetChatappTemplateMetricResponseBodyDataCliented extends $dara.Mode
   /**
    * @remarks
    * The button type. Valid values:
-   * 
-   * - phone_number_button: The call button.
-   * 
-   * - url_button: The URL button.
-   * 
-   * - quick_reply_button: The auto-reply button.
+   * - phone_number_button: a phone call button.
+   * - url_button: a URL button.
+   * - quick_relpy_button: a quick reply button.
    * 
    * @example
    * quick_reply_button
@@ -61,7 +58,7 @@ export class GetChatappTemplateMetricResponseBodyDataCliented extends $dara.Mode
 export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The statistics about button clicks.
+   * The list of button click statistics.
    */
   cliented?: GetChatappTemplateMetricResponseBodyDataCliented[];
   /**
@@ -74,7 +71,7 @@ export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
   deliveredCount?: number;
   /**
    * @remarks
-   * The end time for metric collection. This is a UNIX timestamp. Unit: milliseconds.
+   * The end time of the metric collection period. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1668138331485
@@ -82,7 +79,7 @@ export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * The language of the template.
+   * The template language.
    * 
    * @example
    * en
@@ -106,7 +103,7 @@ export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
   sentCount?: number;
   /**
    * @remarks
-   * The start time for metric collection. This is a UNIX timestamp. Unit: milliseconds.
+   * The start time of the metric collection period. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1673919240001
@@ -169,7 +166,7 @@ export class GetChatappTemplateMetricResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request. Valid values:
+   * The request status code. Valid values:
    * 
    * - OK: The request was successful.
    * 

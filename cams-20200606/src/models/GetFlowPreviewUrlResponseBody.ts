@@ -53,6 +53,10 @@ export class GetFlowPreviewUrlResponseBodyData extends $dara.Model {
 }
 
 export class GetFlowPreviewUrlResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks

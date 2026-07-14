@@ -6,18 +6,35 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddAddressRecoverSuspendRequestAuditRecord extends $dara.Model {
   /**
+   * @remarks
+   * The reason for the application.
+   * 
    * @example
    * 示例值示例值示例值
    */
   applyReason?: string;
+  /**
+   * @remarks
+   * The list of destination countries for messages.
+   */
   messageDestinationCountry?: string[];
+  /**
+   * @remarks
+   * The list of international destination countries for messages.
+   */
   messageDestinationInternationalCountry?: string[];
   /**
+   * @remarks
+   * The recovery date.
+   * 
    * @example
    * 示例值示例值
    */
   recoveryDate?: string;
   /**
+   * @remarks
+   * The suspension date.
+   * 
    * @example
    * 示例值示例值
    */
@@ -58,14 +75,24 @@ export class AddAddressRecoverSuspendRequestAuditRecord extends $dara.Model {
 }
 
 export class AddAddressRecoverSuspendRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The audit record.
+   */
   auditRecord?: AddAddressRecoverSuspendRequestAuditRecord;
   /**
+   * @remarks
+   * The customer space ID.
+   * 
    * @example
    * 示例值示例值示例值
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The request type.
+   * 
    * @example
    * 示例值
    */

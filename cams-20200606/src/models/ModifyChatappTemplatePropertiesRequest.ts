@@ -4,29 +4,39 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyChatappTemplatePropertiesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether sending is allowed.
+   * 
    * @example
    * true
    */
   allowSend?: boolean;
   /**
+   * @remarks
+   * Specifies whether to block sending after the Utility template category is changed.
+   * 
    * @example
    * false
    */
   categoryChangePaused?: boolean;
   /**
    * @remarks
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * cams-idk***
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * The template language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * zh_CN
    */
   language?: string;
   ownerId?: number;
@@ -34,18 +44,24 @@ export class ModifyChatappTemplatePropertiesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The template code.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 929938***
    */
   templateCode?: string;
   /**
    * @remarks
+   * The templatetype.
+   * 
+   * - **WHATSAPP**
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * WHATSAPP
    */
   templateType?: string;
   static names(): { [key: string]: string } {

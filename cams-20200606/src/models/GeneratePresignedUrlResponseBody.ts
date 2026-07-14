@@ -4,8 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class GeneratePresignedUrlResponseBodyData extends $dara.Model {
   /**
-   * @example
-   * 示例值示例值
+   * @remarks
+   * The material path.
+   * 
+   * > For Viber, the recommended image size is 800 × 800.
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -30,24 +32,55 @@ export class GeneratePresignedUrlResponseBodyData extends $dara.Model {
 }
 
 export class GeneratePresignedUrlResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 示例值示例值示例值
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GeneratePresignedUrlResponseBodyData;
   /**
+   * @remarks
+   * The additional message.
+   * 
    * @example
-   * 示例值示例值
+   * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
+   * 
    * @example
-   * 示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A94866**
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: Successful.
+   * 
+   * - false: Failed.
+   * 
    * @example
    * false
    */

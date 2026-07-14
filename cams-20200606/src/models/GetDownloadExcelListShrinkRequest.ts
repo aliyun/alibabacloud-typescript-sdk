@@ -11,7 +11,7 @@ export class GetDownloadExcelListShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @example
-   * 示例值示例值
+   * aa
    */
   condition?: string;
   countryNamesShrink?: string;

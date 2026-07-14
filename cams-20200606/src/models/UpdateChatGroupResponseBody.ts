@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class UpdateChatGroupResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code. Valid values:
+   * The response code. Valid values:
    * 
    * - OK: The request was successful.
    * 
@@ -50,9 +50,7 @@ export class UpdateChatGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * 
    * - **true**: The call was successful.
-   * 
    * - **false**: The call failed.
    * 
    * @example

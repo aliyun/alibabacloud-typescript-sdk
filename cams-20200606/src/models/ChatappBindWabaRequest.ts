@@ -8,7 +8,7 @@ export class ChatappBindWabaRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The WABA ID.
+   * waba Id。
    * 
    * This parameter is required.
    * 

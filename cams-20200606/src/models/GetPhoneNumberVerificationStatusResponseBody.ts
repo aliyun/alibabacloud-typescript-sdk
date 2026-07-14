@@ -53,6 +53,10 @@ export class GetPhoneNumberVerificationStatusResponseBodyData extends $dara.Mode
 }
 
 export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks

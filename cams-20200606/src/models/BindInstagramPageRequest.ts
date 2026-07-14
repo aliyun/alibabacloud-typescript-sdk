@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindInstagramPageRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class BindInstagramPageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The page ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,9 @@ export class BindInstagramPageRequest extends $dara.Model {
    */
   pageId?: string;
   /**
+   * @remarks
+   * The region of the instance.
+   * 
    * @example
    * ap-southeast-1
    */

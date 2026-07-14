@@ -5,19 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListPageAdAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * cams-**
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The PageId of Messenger.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 230***
    */
   pageId?: string;
   resourceOwnerAccount?: string;

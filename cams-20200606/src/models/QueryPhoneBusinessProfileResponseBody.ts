@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The business profile.
+   * The about information.
    * 
    * @example
    * business profile
@@ -37,7 +37,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The profile picture.
+   * The profile picture URL.
    * 
    * @example
    * https://example.img
@@ -103,9 +103,9 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request.
+   * The request status code.
    * 
-   * - OK indicates that the request is successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -115,7 +115,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: QueryPhoneBusinessProfileResponseBodyData;
   /**
@@ -136,11 +136,9 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * - **true**: successful.
-   * 
-   * - **false**: failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

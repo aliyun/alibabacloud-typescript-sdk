@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatGroupResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The business number.
+   * The business phone number.
    * 
    * @example
    * 8613800**
@@ -21,7 +21,7 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
   businessRole?: string;
   /**
    * @remarks
-   * The group description.
+   * The description.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time the group was last updated.
+   * The update time.
    * 
    * @example
    * 94
@@ -69,7 +69,7 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The group invitation link.
+   * The invite link.
    * 
    * @example
    * https://chat.whatsapp.com/***
@@ -77,7 +77,7 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
   inviteLink?: string;
   /**
    * @remarks
-   * The group\\"s profile picture.
+   * The group profile picture.
    */
   profilePictureFile?: string;
   /**
@@ -90,7 +90,7 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The total number of group participants.
+   * The number of group members.
    * 
    * @example
    * 35
@@ -147,7 +147,7 @@ export class ListChatGroupResponseBodyData extends $dara.Model {
   list?: ListChatGroupResponseBodyDataList[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 51
@@ -182,7 +182,7 @@ export class ListChatGroupResponseBodyData extends $dara.Model {
 export class ListChatGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denied error.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -190,9 +190,9 @@ export class ListChatGroupResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code. Valid values:
+   * The request status code. Valid values:
    * 
-   * - `OK`: The request succeeded.
+   * - OK: The request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -207,7 +207,7 @@ export class ListChatGroupResponseBody extends $dara.Model {
   data?: ListChatGroupResponseBodyData;
   /**
    * @remarks
-   * The response message. This parameter is returned only when an error occurs.
+   * The prompt message. This parameter has a value when an exception is returned.
    * 
    * @example
    * None
@@ -223,11 +223,9 @@ export class ListChatGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

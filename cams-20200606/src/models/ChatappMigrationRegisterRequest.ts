@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappMigrationRegisterRequest extends $dara.Model {
   /**
    * @remarks
-   * None
+   * The space ID of the ISV sub-customer.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ChatappMigrationRegisterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * phone number.
+   * The phone number.
    * 
    * This parameter is required.
    * 

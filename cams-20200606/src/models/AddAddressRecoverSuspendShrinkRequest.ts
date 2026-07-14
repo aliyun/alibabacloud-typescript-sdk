@@ -3,14 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddAddressRecoverSuspendShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The audit record.
+   */
   auditRecordShrink?: string;
   /**
+   * @remarks
+   * The customer space ID.
+   * 
    * @example
    * 示例值示例值示例值
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The request type.
+   * 
    * @example
    * 示例值
    */

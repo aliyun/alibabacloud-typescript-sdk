@@ -4,42 +4,79 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListChatFlowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   /**
+   * @remarks
+   * The flow trigger type. Valid values:
+   * - TriggeredManually
+   * - TriggeredByWhatsApp
+   * - TriggeredByInstagram
+   * - TriggeredByViber
+   * - TriggeredByMessenger
+   * 
    * @example
-   * 示例值
+   * TriggeredByWhatsApp
    */
   flowTriggerType?: string;
   /**
+   * @remarks
+   * The search keyword. This parameter is used for fuzzy match of flow names.
+   * 
    * @example
-   * 示例值示例值
+   * LLM
    */
   keyword?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
-   * 41
+   * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 42
+   * 20
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * Specifies whether to return the online status. Valid values:
+   * 
+   * - true: Yes.
+   * 
+   * - false: No.
+   * 
    * @example
    * true
    */
   returnWithOnlineVersion?: boolean;
   /**
+   * @remarks
+   * The flow status. Default value: NORMAL.
+   * 
    * @example
-   * 示例值示例值示例值
+   * NORMAL
    */
   status?: string;
   static names(): { [key: string]: string } {

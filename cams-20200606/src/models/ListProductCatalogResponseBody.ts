@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductCatalogResponseBodyModelPagingCursors extends $dara.Model {
   /**
    * @remarks
-   * The cursor that points to the end of the page of the returned data.
+   * The position of the next record.
    * 
    * @example
    * sjsuueu83838
@@ -13,7 +13,7 @@ export class ListProductCatalogResponseBodyModelPagingCursors extends $dara.Mode
   after?: string;
   /**
    * @remarks
-   * The cursor that points to the beginning of the page of the returned data.
+   * The position of the previous record.
    * 
    * @example
    * sjjsjdjjdjd83883
@@ -45,7 +45,7 @@ export class ListProductCatalogResponseBodyModelPagingCursors extends $dara.Mode
 export class ListProductCatalogResponseBodyModelPaging extends $dara.Model {
   /**
    * @remarks
-   * The cursors for pagination.
+   * The cursor position for pagination.
    */
   cursors?: ListProductCatalogResponseBodyModelPagingCursors;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class ListProductCatalogResponseBodyModelPaging extends $dara.Model {
 export class ListProductCatalogResponseBodyModel extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned data object.
    */
   data?: { [key: string]: any }[];
   /**
@@ -123,11 +123,11 @@ export class ListProductCatalogResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
-   * - The value OK indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
-   * - Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -143,7 +143,7 @@ export class ListProductCatalogResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   model?: ListProductCatalogResponseBodyModel;
   /**
@@ -156,11 +156,9 @@ export class ListProductCatalogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

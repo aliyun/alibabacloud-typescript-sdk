@@ -44,21 +44,25 @@ export class ListDmTagResponseBodyData extends $dara.Model {
 }
 
 export class ListDmTagResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
   data?: ListDmTagResponseBodyData[];
   /**
    * @example
-   * 示例值示例值示例值
+   * OK
    */
   message?: string;
   /**
    * @example
-   * 示例值
+   * hgfh77-gfh55***
    */
   requestId?: string;
   /**

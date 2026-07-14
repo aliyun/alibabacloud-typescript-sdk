@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDmAccountResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The account name.
+   * 
    * @example
    * send1@xx.xx.asia
    */
   accountName?: string;
   /**
+   * @remarks
+   * The time when the account was created.
+   * 
    * @example
    * 1743579634000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the email address.
+   * 
    * @example
-   * 示例值示例值
+   * a@b.com
    */
   mailAddressId?: string;
   /**
+   * @remarks
+   * The type of the sender address. Valid values:
+   * 
+   * - batch: batch emails
+   * - trigger: triggered emails
+   * 
    * @example
    * trigger
    */
@@ -51,29 +66,63 @@ export class ListDmAccountResponseBodyData extends $dara.Model {
 }
 
 export class ListDmAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response status code. Valid values:
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListDmAccountResponseBodyData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值
+   * xis-sx***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: Successful.
+   * 
+   * - false: Failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */

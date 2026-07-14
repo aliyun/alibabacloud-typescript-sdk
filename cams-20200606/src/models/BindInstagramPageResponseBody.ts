@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class BindInstagramPageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The account ID.
+   * 
    * @example
    * 13243543543
    */
   accountId?: string;
   /**
+   * @remarks
+   * The connection status.
+   * 
    * @example
    * connected
    */
   connectionStatus?: string;
   /**
+   * @remarks
+   * The current page ID.
+   * 
    * @example
    * 1234322333
    */
   pageId?: string;
   /**
+   * @remarks
+   * The page name.
+   * 
    * @example
    * iwhalecloud
    */
@@ -51,24 +63,49 @@ export class BindInstagramPageResponseBodyData extends $dara.Model {
 }
 
 export class BindInstagramPageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: BindInstagramPageResponseBodyData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * fdsfdsf-22fk***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * false
    */

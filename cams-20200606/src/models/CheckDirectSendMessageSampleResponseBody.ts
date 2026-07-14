@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDirectSendMessageSampleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The category of the WhatsApp template. Valid values:
+   * The WhatsApp template category. Valid values:
    * 
-   * - **UTILITY**: A template related to a specific, agreed-upon transaction.
+   * - **UTILITY**: transaction-related.
    * 
-   * - **MARKETING**: A template for promotional or marketing purposes.
+   * - **MARKETING**: marketing template.
    * 
    * @example
    * example
@@ -17,11 +17,11 @@ export class CheckDirectSendMessageSampleResponseBodyData extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Whether the validation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The validation succeeded.
+   * - true: Successful.
    * 
-   * - false: The validation failed.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class CheckDirectSendMessageSampleResponseBodyData extends $dara.Model {
 export class CheckDirectSendMessageSampleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -61,9 +61,9 @@ export class CheckDirectSendMessageSampleResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request.
+   * The request status code.
    * 
-   * - `OK` indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
    * 
@@ -73,7 +73,7 @@ export class CheckDirectSendMessageSampleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: CheckDirectSendMessageSampleResponseBodyData;
   /**
@@ -86,7 +86,7 @@ export class CheckDirectSendMessageSampleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. Use this ID to trace logs and troubleshoot issues.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * example
@@ -94,11 +94,11 @@ export class CheckDirectSendMessageSampleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The request was successful.
+   * - true: Successful.
    * 
-   * - false: The request failed.
+   * - false: Failed.
    * 
    * @example
    * true

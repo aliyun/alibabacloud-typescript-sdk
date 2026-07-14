@@ -4,24 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlowUnbindPhoneShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The message channel type. Valid values:
+   * 
+   * - INSTAGRAM
+   * 
+   * - WHATSAPP
+   * 
+   * - MESSENGER
+   * 
+   * <props="intl">
+   * 
+   * - VIBER
+   * 
    * @example
-   * 示例值示例值
+   * WHATSAPP
    */
   channelType?: string;
   /**
    * @remarks
+   * The flow code. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * 9ccc41**************************
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The flow version. In the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the flow name to go to the orchestration canvas and view the flow version.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   flowVersion?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * A list of phone numbers, Page IDs, Account IDs, or Service IDs for the channel instance.
+   */
   phoneNumbersShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

@@ -45,7 +45,7 @@ export class ModifyChatappTemplateResponseBodyData extends $dara.Model {
 export class ModifyChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The access denied details.
    * 
    * @example
    * None
@@ -55,7 +55,7 @@ export class ModifyChatappTemplateResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates a successful request.
+   * - OK indicates the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

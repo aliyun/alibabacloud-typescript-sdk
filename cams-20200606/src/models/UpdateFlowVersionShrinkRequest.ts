@@ -4,30 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFlowVersionShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The extended business information. The default value is an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtendShrink?: string;
   /**
+   * @remarks
+   * The code of the flow. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * 
    * @example
-   * 示例值
+   * 9ccc41**************************
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The version of the flow. In the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the flow name to open the canvas and view the flow version.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   flowVersion?: string;
   /**
+   * @remarks
+   * The DSL data of the flow version, in JSON format. To obtain this data, orchestrate the components on the canvas in the Flow Editor. After you save the flow, click **Settings** > **Export** in the upper-right corner of the canvas to export the flow as a JSON data file.
+   * 
    * @example
-   * 示例值示例值
+   * {
+   *   "schema": {
+   *     "namespace": "External",
+   *     "version": "1.0",
+   *     "copyright": "Alibaba Cloud"
+   *   },
+   *   "editor": "H4sIAAAAAAAAA+1YbU/c***********************",
+   *   "flow": {
+   *     "triggerType": "TriggeredByWhatsApp"
+   *   }
+   * }
    */
   flowViewModel?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The remarks for the version.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 修复发送WhatsApp消息错误
    */
   remark?: string;
   resourceOwnerAccount?: string;

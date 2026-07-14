@@ -10,7 +10,7 @@ export class CreateFlowResponseBodyData extends $dara.Model {
   categories?: string[];
   /**
    * @remarks
-   * The flow ID.
+   * Flow ID。
    * 
    * @example
    * 333993838***
@@ -18,7 +18,7 @@ export class CreateFlowResponseBodyData extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The name of the flow.
+   * The name of the Flow.
    * 
    * @example
    * test1
@@ -53,10 +53,17 @@ export class CreateFlowResponseBodyData extends $dara.Model {
 }
 
 export class CreateFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. A value of OK indicates that the request was successful.
+   * The response code. OK indicates success.
    * 
    * @example
    * OK

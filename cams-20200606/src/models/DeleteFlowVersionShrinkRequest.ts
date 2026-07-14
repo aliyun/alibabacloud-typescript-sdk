@@ -4,19 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFlowVersionShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtendShrink?: string;
   /**
+   * @remarks
+   * The flow code. You can view the flow code in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * 
    * @example
-   * 示例值
+   * 9ccc41**************************
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The flow version. Click a flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas page and view the flow version.
+   * 
    * @example
-   * 示例值示例值
+   * 1
    */
   flowVersion?: string;
   ownerId?: number;

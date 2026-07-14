@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncMessengerSubscriptionTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The Space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of the direct customer.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class SyncMessengerSubscriptionTokenRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Page ID.
+   * The PageId of Messenger.
    * 
    * This parameter is required.
    * 

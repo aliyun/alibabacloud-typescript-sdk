@@ -3,21 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetViberPauseTimesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * OK
    */
   code?: string;
+  /**
+   * @example
+   * 11
+   */
   data?: { [key: string]: any };
   /**
    * @example
-   * 示例值示例值示例值
+   * success
    */
   message?: string;
   /**
    * @example
-   * 示例值
+   * 90E63D28-E31D-1EB2**9-A94866411B2O
    */
   requestId?: string;
   /**

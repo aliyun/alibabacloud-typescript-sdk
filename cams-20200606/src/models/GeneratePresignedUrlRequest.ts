@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GeneratePresignedUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The OSS path.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * /aaa/111/aa.png
    */
   filePath?: string;
   ownerId?: number;

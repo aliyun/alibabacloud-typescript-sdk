@@ -4,25 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFlowVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. The default value is ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. The default value is an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   /**
+   * @remarks
+   * The code of the flow. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * 
    * @example
-   * 示例值示例值
+   * 9ccc41**************************
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The version of the flow to copy. To view the historical versions of a flow, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) and click a flow name to open the orchestration canvas.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   flowVersionCopyFrom?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The remarks for the version.
+   * 
    * @example
-   * 示例值示例值
+   * 修复发送WhatsApp消息错误
    */
   remark?: string;
   resourceOwnerAccount?: string;

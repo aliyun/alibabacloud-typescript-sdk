@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappPhoneNumberDeregisterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * 无
@@ -15,7 +15,7 @@ export class ChatappPhoneNumberDeregisterResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request is successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

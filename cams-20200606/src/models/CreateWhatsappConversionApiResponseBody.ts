@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateWhatsappConversionApiResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
   /**

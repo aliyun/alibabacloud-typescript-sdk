@@ -14,17 +14,17 @@ export class MoveContactToGroupShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * [{"id":1}]
    */
   contacts?: string;
   /**
    * @example
-   * 示例值
+   * [{"id":1}]
    */
   linkExistGroups?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * [{"groupName":"aaa"}]
    */
   linkNewGroups?: string;
   ownerId?: number;

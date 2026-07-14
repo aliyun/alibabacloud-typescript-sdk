@@ -4,27 +4,50 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadFlowVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   /**
+   * @remarks
+   * The flow code. You can view the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * 
    * @example
-   * 示例值示例值
+   * 9ccc41**************************
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The flow version. You can click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view the flow version, or call [ListFlowVersion](https://help.aliyun.com/document_detail/2937202.html) to retrieve the flow version.
+   * 
    * @example
-   * 示例值
+   * 1
    */
   flowVersion?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The flow version status. Valid values:
+   * - DRAFT: draft.
+   * - DELETED: deleted.
+   * - ONLINE: online.
+   * - OFFLINE: offline.
+   * 
    * @example
-   * 示例值
+   * DRAFT
    */
   status?: string;
   static names(): { [key: string]: string } {

@@ -4,34 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code.
+   * 
    * @example
    * 示例值示例值示例值
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information.
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   /**
+   * @remarks
+   * The contact description.
+   * 
    * @example
    * 15111111111
    */
   contactDetails?: string;
   /**
+   * @remarks
+   * The contact name.
+   * 
    * @example
    * mary
    */
   contactName?: string;
   /**
+   * @remarks
+   * The country.
+   * 
    * @example
    * China
    */
   country?: string;
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * 示例值示例值
    */
   email?: string;
+  /**
+   * @remarks
+   * The file path.
+   * 
+   * @example
+   * src/main/resources/config/promql_node.yaml
+   */
   filePath?: string;
   /**
    * @remarks
+   * The group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,6 +71,9 @@ export class AddGroupRequest extends $dara.Model {
   groupName?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test
    */

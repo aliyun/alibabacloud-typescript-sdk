@@ -3,28 +3,58 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlowBindPhoneResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the result was successful. Valid values:
+   * 
+   * - true: Yes.
+   * 
+   * - false: No.
+   * 
    * @example
    * false
    */
   model?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */

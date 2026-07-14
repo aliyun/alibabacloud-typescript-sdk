@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMigrationVerifyCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The Space ID of the Independent Software Vendor (ISV) sub-customer.
+   * The space ID of the ISV sub-customer.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetMigrationVerifyCodeRequest extends $dara.Model {
   locale?: string;
   /**
    * @remarks
-   * The verification method.
+   * The verification code delivery method.
    * 
    * This parameter is required.
    * 

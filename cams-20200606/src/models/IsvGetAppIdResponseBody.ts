@@ -13,7 +13,7 @@ export class IsvGetAppIdResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The app ID.
+   * The App ID.
    * 
    * @example
    * 23hr3v****
@@ -21,11 +21,11 @@ export class IsvGetAppIdResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The status code of the request.
+   * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
-   * - For information about other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -33,7 +33,7 @@ export class IsvGetAppIdResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The configuration ID.
+   * The configuration item ID.
    * 
    * @example
    * 28972951817****

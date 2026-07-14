@@ -5,18 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatappMessageRequestPage extends $dara.Model {
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 49
+   * 1
    */
   index?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 78
+   * 10
    */
   size?: number;
   static names(): { [key: string]: string } {
@@ -45,6 +49,12 @@ export class ListChatappMessageRequestPage extends $dara.Model {
 export class ListChatappMessageRequest extends $dara.Model {
   /**
    * @remarks
+   * The business phone number.
+   * 
+   * - For WhatsApp channels, view the business phone number in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **WABA Management** > **Phone Number Management** console.
+   * 
+   * <props="intl">- For Viber channels, view the Service ID in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Service Account Management** console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +63,12 @@ export class ListChatappMessageRequest extends $dara.Model {
   businessNumber?: string;
   /**
    * @remarks
+   * The channel type. Valid values:
+   * 
+   * - **whatsapp**
+   * 
+   * - **viber**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,19 +76,27 @@ export class ListChatappMessageRequest extends $dara.Model {
    */
   channelType?: string;
   /**
+   * @remarks
+   * The message receiving status of the user.
+   * 
    * @example
    * success
    */
   clientAcceptStatus?: string;
   /**
    * @remarks
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer. View the Space ID in the [Channel Management](https://chatapp.console.aliyun.com/CustomerList) console.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * cams-************
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The end time. This value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1727057232686
    */
@@ -83,16 +107,27 @@ export class ListChatappMessageRequest extends $dara.Model {
    */
   endTimeStr?: string;
   /**
+   * @remarks
+   * The message type. Valid values:
+   * - DOWN: outbound message.
+   * - UP: inbound message.
+   * 
    * @example
    * UP
    */
   eventAction?: string;
   /**
+   * @remarks
+   * The bulk message ID. View the bulk message ID in the [**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message List** > **Bulk Sending List** console.
+   * 
    * @example
    * 9292****
    */
   groupMessageId?: string;
   /**
+   * @remarks
+   * The message status.
+   * 
    * @example
    * success
    */
@@ -100,12 +135,17 @@ export class ListChatappMessageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The pagination object.
+   * 
    * This parameter is required.
    */
   page?: ListChatappMessageRequestPage;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The start time. This value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1727057232686
    */
@@ -116,11 +156,17 @@ export class ListChatappMessageRequest extends $dara.Model {
    */
   startTimeStr?: string;
   /**
+   * @remarks
+   * The template code. View the template code in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Template Design** console.
+   * 
    * @example
    * 9938***
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The user phone number. This is the phone number that you imported when sending messages in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message Sending** console.
+   * 
    * @example
    * 86138***
    */

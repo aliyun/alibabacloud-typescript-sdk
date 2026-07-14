@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstagramPageRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID. Only non-Alibaba Cloud hosts are supported.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * inst-8t47hh***5pyj0ps
    */
   instanceId?: string;
   ownerId?: number;

@@ -13,7 +13,7 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
   deliveredCount?: number;
   /**
    * @remarks
-   * The end time of metric collection. This is a UNIX timestamp in milliseconds.
+   * The end time of the metric collection period. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1667196043904
@@ -21,7 +21,7 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * The granularity of the metrics.
+   * The metric granularity.
    * 
    * @example
    * DAILY
@@ -45,7 +45,7 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
   sentCount?: number;
   /**
    * @remarks
-   * The start time of metric collection. This is a UNIX timestamp in milliseconds.
+   * The start time of the metric collection period. This value is a timestamp in milliseconds.
    * 
    * @example
    * 1669619491000
@@ -85,7 +85,7 @@ export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
 export class GetChatappPhoneNumberMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The access denied details.
    * 
    * @example
    * None
@@ -93,11 +93,11 @@ export class GetChatappPhoneNumberMetricResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request. Valid values:
+   * The request status code. Valid values:
    * 
    * - OK: The request was successful.
    * 
-   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [API error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -105,7 +105,7 @@ export class GetChatappPhoneNumberMetricResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The list of returned data.
    */
   data?: GetChatappPhoneNumberMetricResponseBodyData[];
   /**

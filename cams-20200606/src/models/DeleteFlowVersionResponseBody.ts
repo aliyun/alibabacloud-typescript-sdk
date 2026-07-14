@@ -3,26 +3,56 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteFlowVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed reason why access was denied.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
-   * 示例值
+   * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The response content.
+   * 
+   * @example
+   * 434991
+   */
   response?: { [key: string]: any };
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: Successful.
+   * 
+   * - false: Failed.
+   * 
    * @example
-   * false
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

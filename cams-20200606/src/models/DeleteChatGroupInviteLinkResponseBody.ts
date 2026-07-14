@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChatGroupInviteLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -49,11 +49,9 @@ export class DeleteChatGroupInviteLinkResponseBody extends $dara.Model {
   result?: number;
   /**
    * @remarks
-   * Indicates if the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

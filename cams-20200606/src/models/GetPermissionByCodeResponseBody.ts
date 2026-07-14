@@ -3,12 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPermissionByCodeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * No
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request.
+   * The response code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetChatappPhoneNumberSettingRequest extends $dara.Model {
   /**
+   * @remarks
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
+   * 
    * @example
    * C29393993****
    */
@@ -11,6 +14,8 @@ export class GetChatappPhoneNumberSettingRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The phone number.
+   * 
    * This parameter is required.
    * 
    * @example

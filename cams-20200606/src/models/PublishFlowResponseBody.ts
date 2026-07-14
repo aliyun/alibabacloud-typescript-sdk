@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublishFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -22,7 +29,7 @@ export class PublishFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DAC72B08-3327-33EF-BEDC-8EC3E83A6575

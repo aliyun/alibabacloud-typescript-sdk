@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business information.
+   * The about information.
    * 
    * @example
    * business profile
@@ -21,7 +21,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * The space ID of the ISV sub-customer.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The description of the phone number.
+   * The description.
    * 
    * @example
    * test
@@ -48,7 +48,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The mobile phone number.
+   * The phone number.
    * 
    * This parameter is required.
    * 
@@ -58,7 +58,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The URL of the profile picture.
+   * The profile picture URL.
    * 
    * @example
    * http://a.img
@@ -68,9 +68,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The industry.
-   * 
-   * > Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
+   * The industry vertical.
    * 
    * @example
    * OTHER
@@ -78,7 +76,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   vertical?: string;
   /**
    * @remarks
-   * The URLs of the websites.
+   * The websites.
    */
   websitesShrink?: string;
   static names(): { [key: string]: string } {

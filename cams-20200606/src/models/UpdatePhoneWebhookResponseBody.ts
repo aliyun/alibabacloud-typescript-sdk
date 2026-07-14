@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePhoneWebhookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access denied for detailed information.
+   * The access denied details.
    * 
    * @example
    * 无
@@ -13,11 +13,11 @@ export class UpdatePhoneWebhookResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The request status code.
    * 
-   * - A value of OK indicates that the call is successful.
+   * - OK indicates that the request was successful.
    * 
-   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -25,7 +25,7 @@ export class UpdatePhoneWebhookResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Prompt message, there is a value when an exception is returned.
+   * The prompt message. This parameter is returned when an exception occurs.
    * 
    * @example
    * null

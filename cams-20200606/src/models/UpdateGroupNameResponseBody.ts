@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateGroupNameResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
    * @example

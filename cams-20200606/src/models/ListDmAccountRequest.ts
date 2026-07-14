@@ -4,26 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDmAccountRequest extends $dara.Model {
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
-   * 示例值
+   * a
    */
   keyword?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
-   * 83
+   * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 86
+   * 10
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The sending type.
+   * 
    * @example
-   * 示例值示例值
+   * batch
    */
   sendType?: string;
   static names(): { [key: string]: string } {

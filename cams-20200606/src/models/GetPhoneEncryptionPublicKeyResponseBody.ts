@@ -13,11 +13,11 @@ export class GetPhoneEncryptionPublicKeyResponseBodyData extends $dara.Model {
   encryptionPublicKey?: string;
   /**
    * @remarks
-   * The status of the public key. Valid values:
+   * The validity status of the public key. Valid values:
    * 
-   * - MISMATCH: The public key is invalid.
+   * - MISMATCH: invalid.
    * 
-   * - VALID: The public key is valid.
+   * - VALID: valid.
    * 
    * @example
    * VALID
@@ -57,6 +57,13 @@ export class GetPhoneEncryptionPublicKeyResponseBodyData extends $dara.Model {
 }
 
 export class GetPhoneEncryptionPublicKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks

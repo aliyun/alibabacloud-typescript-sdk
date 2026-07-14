@@ -5,30 +5,43 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The folder.
+   * 
    * This parameter is required.
    */
   categoriesShrink?: string;
   /**
+   * @remarks
+   * The space ID of the ISV sub-customer.
+   * 
    * @example
-   * 示例值示例值
+   * cams-1sdkjwen2
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The URL of the WA Flow Endpoint
+   * 
    * @example
    * http://www.***.com
    */
   endpointUri?: string;
   /**
+   * @remarks
+   * The ID of the flow.
+   * 
    * @example
-   * 示例值
+   * 21231232312
    */
   flowId?: string;
   /**
    * @remarks
+   * The name of the flow.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Flow-**001
    */
   flowName?: string;
   ownerId?: number;

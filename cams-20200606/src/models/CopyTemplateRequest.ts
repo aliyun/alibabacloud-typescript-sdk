@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CopyTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The space ID of the ISV sub-customer.
+   * 
    * @example
    * 示例值示例值示例值
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * 示例值示例值示例值
    */
@@ -18,14 +24,18 @@ export class CopyTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The template code.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * 12456
    */
   sceneTemplateCode?: string;
   /**
    * @remarks
+   * The template name.
+   * 
    * This parameter is required.
    * 
    * @example

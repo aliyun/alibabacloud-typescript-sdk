@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePhoneEncryptionPublicKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -22,7 +29,7 @@ export class UpdatePhoneEncryptionPublicKeyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O

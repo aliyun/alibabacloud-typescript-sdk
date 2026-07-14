@@ -13,11 +13,11 @@ export class ChatappVerifyAndRegisterResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code.
    * 
-   * - A value of OK indicates that the call is successful.
+   * - OK indicates that the request was successful.
    * 
-   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -25,7 +25,7 @@ export class ChatappVerifyAndRegisterResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * None
@@ -33,7 +33,7 @@ export class ChatappVerifyAndRegisterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****
@@ -42,9 +42,7 @@ export class ChatappVerifyAndRegisterResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * 
    * - **true**: The call was successful.
-   * 
    * - **false**: The call failed.
    * 
    * @example

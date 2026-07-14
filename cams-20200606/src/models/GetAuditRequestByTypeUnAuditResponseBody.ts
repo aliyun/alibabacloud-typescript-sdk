@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyAddress extends $dara.Model {
   /**
    * @example
-   * 示例值示例值示例值
+   * xxxxcompany
    */
   companyAddress?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 111
    */
   companyAddressTitle?: string;
   static names(): { [key: string]: string } {
@@ -39,12 +39,12 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyAddre
 export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyTel extends $dara.Model {
   /**
    * @example
-   * 示例值
+   * 143243**
    */
   companyTelNumber?: string;
   /**
    * @example
-   * 示例值
+   * example
    */
   companyTelTitle?: string;
   static names(): { [key: string]: string } {
@@ -73,65 +73,65 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyTel e
 export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $dara.Model {
   /**
    * @example
-   * 示例值示例值示例值
+   * eighteenUp
    */
   ageLimit?: string;
   /**
    * @example
-   * 示例值示例值
+   * bnv
    */
   applyReason?: string;
   /**
    * @example
-   * 示例值
+   * aaa
    */
   businessAccountName?: string;
   companyAddress?: GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyAddress[];
   /**
    * @example
-   * 示例值示例值
+   * Company English Name
    */
   companyEnglishName?: string;
   /**
    * @example
-   * 示例值示例值
+   * xxxxcompany
    */
   companyLegalName?: string;
   /**
    * @example
-   * 示例值示例值
+   * jack
    */
   companyLegalPerson?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * CompanyProfile
    */
   companyProfile?: string;
   companyRegisteredCountry?: string[];
   companyTel?: GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyTel[];
   /**
    * @example
-   * 示例值
+   * qqemail@gmail.com
    */
   contactMail?: string;
   /**
    * @example
-   * 示例值示例值
+   * N
    */
   enableAutoReply?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * xxx
    */
   industryDescription?: string;
   /**
    * @example
-   * 示例值
+   * it
    */
   industryInvolved?: string;
   /**
    * @example
-   * 示例值示例值
+   * https://www.xxxxxxx
    */
   letterGuarantee?: string;
   logo?: string[];
@@ -139,42 +139,42 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   messageDestinationInternationalCountry?: string[];
   /**
    * @example
-   * 示例值示例值示例值
+   * MessageDialogueIntroduction
    */
   messageDialogueIntroduction?: string;
   /**
    * @example
-   * 示例值示例值
+   * 2025-11-01
    */
   messageEnableDate?: string;
   /**
    * @example
-   * 示例值示例值
+   * Message Session Name
    */
   messageSessionName?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * n
    */
   nowRecovery?: string;
   /**
    * @example
-   * 示例值示例值
+   * 2025-111-06
    */
   recoveryDate?: string;
   /**
    * @example
-   * 示例值示例值
+   * aaaqq
    */
   replyContent?: string;
   /**
    * @example
-   * 示例值示例值
+   * SuspensionDate
    */
   suspensionDate?: string;
   /**
    * @example
-   * 示例值
+   * www.xxxxx
    */
   webAddress?: string;
   static names(): { [key: string]: string } {
@@ -269,68 +269,68 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
 export class GetAuditRequestByTypeUnAuditResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 示例值示例值
+   * 21432
    */
   aliUid?: string;
   auditRecord?: GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord;
   /**
    * @example
-   * 示例值示例值
+   * pass
    */
   auditResult?: string;
   /**
    * @example
-   * 示例值
+   * 20250106
    */
   auditTime?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 11
    */
   creator?: string;
   /**
    * @example
-   * 示例值示例值
+   * 1789200
    */
   gmtCreate?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 20251624
    */
   gmtModifier?: string;
   /**
    * @example
-   * 示例值示例值
+   * id
    */
   id?: string;
   /**
    * @example
-   * 示例值示例值
+   * 475646
    */
   maapServiceNo?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   modifier?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 45345435435
    */
   requestNo?: string;
   /**
    * @example
-   * 示例值示例值
+   * viber_open
    */
   requestType?: string;
   /**
    * @example
-   * 示例值示例值
+   * A
    */
   state?: string;
   /**
    * @example
-   * 示例值示例值
+   * 345436456546
    */
   subscriberCode?: string;
   static names(): { [key: string]: string } {
@@ -384,21 +384,25 @@ export class GetAuditRequestByTypeUnAuditResponseBodyData extends $dara.Model {
 }
 
 export class GetAuditRequestByTypeUnAuditResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * OK
    */
   code?: string;
   data?: GetAuditRequestByTypeUnAuditResponseBodyData;
   /**
    * @example
-   * 示例值示例值
+   * success
    */
   message?: string;
   /**
    * @example
-   * 示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A9486***
    */
   requestId?: string;
   /**

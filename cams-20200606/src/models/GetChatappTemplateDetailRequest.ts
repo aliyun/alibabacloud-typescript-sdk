@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatappTemplateDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the user within the ISV account.
+   * The SpaceId of the ISV sub-customer or the instance ID of a direct customer.
    * 
    * @example
    * 28251486512358****
@@ -13,9 +13,9 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
+   * The WabaId of the ISV customer.
    * 
-   * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+   * > This parameter is deprecated. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -25,7 +25,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The independent software vendor (ISV) verification code. This parameter is used to verify whether the user is authorized by the ISV account.
+   * The ISV verification code, which is used to verify whether the sub-account is authorized by the ISV.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -33,7 +33,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The language of the template. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The code of the message template.
+   * The code of the template.
    * 
    * @example
    * ****4b5c79c9432497a075bdfca36bf5
@@ -51,7 +51,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * Name of a template.
+   * The name of the template.
    * 
    * @example
    * test_name
@@ -59,13 +59,11 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type of the message template. Valid values:
+   * The templatetype.
    * 
    * - **WHATSAPP**
    * 
    * - **VIBER**
-   * 
-   * - LINE (developing)
    * 
    * @example
    * WHATSAPP

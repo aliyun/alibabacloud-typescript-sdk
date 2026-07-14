@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteGroupByIdResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
   /**
@@ -21,7 +25,7 @@ export class DeleteGroupByIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @example
-   * 示例值示例值
+   * 1223-1111
    */
   requestId?: string;
   /**

@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MoveContactToGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值
+   * OK
    */
   code?: string;
   data?: { [key: string]: any };

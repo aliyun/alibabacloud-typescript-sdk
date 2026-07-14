@@ -4,17 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhoneEncryptionPublicKeyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the Space ID on the
+   * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
+   * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)
+   * page.
+   * 
    * @example
-   * 示例值
+   * cams-kei****
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The phone number. You can view it on the
+   * <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)
+   * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)> **Manage** > **WABA Management** > **Number Management** page.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 86189********
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;

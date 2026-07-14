@@ -4,100 +4,173 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMarketingFlowResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The campaign code.
+   * 
    * @example
-   * 示例值示例值
+   * 3243243***
    */
   activityCode?: string;
   /**
+   * @remarks
+   * The campaign description.
+   * 
    * @example
-   * 示例值示例值
+   * aaa
    */
   activityDesc?: string;
   /**
+   * @remarks
+   * The campaign name.
+   * 
    * @example
-   * 示例值示例值示例值
+   * aaa
    */
   activityName?: string;
   /**
+   * @remarks
+   * The campaign status.
+   * 
    * @example
-   * 示例值示例值示例值
+   * active
    */
   activityStatus?: string;
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值
+   * {}
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: "{}".
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   /**
+   * @remarks
+   * The upgrade start time. The upgrade start time is specified as a cron expression.
+   * 
+   * For example, `0 0 4 1/1 * ?` indicates that the upgrade starts at 4:00 on the first day of each month and is performed at 4:00 every day.
+   * 
    * @example
-   * 示例值
+   * 0 0 4 1/1 * ?
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
-   * 示例值
+   * 2025-01-01 XX1:11:11
    */
   endDate?: string;
   /**
+   * @remarks
+   * The execution method.
+   * 
    * @example
-   * 示例值
+   * 1(默认corn)
    */
   executionType?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
-   * 示例值
+   * 2025-XX-01 11:11:11
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The modification time (deprecated).
+   * 
    * @example
-   * 示例值
+   * N/A
    */
   gmtModifier?: string;
   /**
+   * @remarks
+   * The operational activity ID.
+   * 
    * @example
    * 99
    */
   id?: number;
   /**
+   * @remarks
+   * Indicates whether custom parameters are enabled.
+   * 
    * @example
    * Y
    */
   paramFlag?: string;
+  /**
+   * @remarks
+   * The custom user parameters.
+   * 
+   * @example
+   * {\\"CustomerLimit\\":false}
+   */
   params?: { [key: string]: any };
   /**
+   * @remarks
+   * The associated flow code.
+   * 
    * @example
-   * 示例值示例值
+   * dsafdsf***
    */
   relatedFlowCode?: string;
   /**
+   * @remarks
+   * The name of the associated flow.
+   * 
    * @example
-   * 示例值示例值
+   * aaa
    */
   relatedFlowName?: string;
   /**
+   * @remarks
+   * The ID of the associated group.
+   * 
    * @example
-   * 示例值
+   * 54354**
    */
   relatedGroupId?: string;
   /**
+   * @remarks
+   * The name of the associated group.
+   * 
    * @example
-   * 示例值示例值
+   * AAA
    */
   relatedGroupName?: string;
   /**
+   * @remarks
+   * The specific time. This parameter is valid when the execution method is set to 2.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 特定时间(执行方式为2时)
    */
   specificTime?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
-   * 示例值示例值
+   * 2025-01-XX 11:11:11
    */
   startDate?: string;
   /**
+   * @remarks
+   * The tenant.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 1111
    */
   tenantCode?: string;
   static names(): { [key: string]: string } {
@@ -168,29 +241,62 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
 }
 
 export class ListMarketingFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 2993***
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: ListMarketingFlowResponseBodyData[];
   /**
+   * @remarks
+   * The message returned for the request.
+   * 
    * @example
    * NULL
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
+   * 
    * @example
-   * OK
+   * CB6122C9-09B5-5926-**476A96CB0
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - true: The call was successful.                                 
+   * - false: The call failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries in the list.
+   * 
    * @example
    * 15
    */

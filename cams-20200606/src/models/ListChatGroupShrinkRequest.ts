@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business number.
+   * The business phone number.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
   businessNumber?: string;
   /**
    * @remarks
-   * The channel type. Valid value: **WHATSAPP**.
+   * The channel type. Valid values: **WHATSAPP**.
    * 
-   * > Only the WhatsApp channel is supported.
+   * > Only the WhatsApp channel type is supported.
    * 
    * @example
    * WHATSAPP
@@ -25,7 +25,7 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The instance ID (or SpaceId) of an ISV sub-customer, which also serves as the channel ID. You can find it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -72,19 +72,16 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The paging information.
+   * The pagination information.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * Example value
    */
   pageShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The group title.
+   * The group subject.
    * 
    * @example
    * test

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindDmAccountRequestExtendAttr extends $dara.Model {
   /**
    * @remarks
+   * The account name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BindDmAccountRequestExtendAttr extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
+   * The send type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class BindDmAccountRequestExtendAttr extends $dara.Model {
 export class BindDmAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The account code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +59,8 @@ export class BindDmAccountRequest extends $dara.Model {
   accountCode?: string;
   /**
    * @remarks
+   * The SpaceId of the ISV sub-customer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +69,8 @@ export class BindDmAccountRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The extended attributes.
+   * 
    * This parameter is required.
    */
   extendAttr?: BindDmAccountRequestExtendAttr;

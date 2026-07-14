@@ -6,18 +6,22 @@ export class ListFlowNodeGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 85
+   * 1
    */
   pageNo?: number;
   /**
    * @remarks
+   * The number of records per page.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 84
+   * 10
    */
   pageSize?: number;
   resourceOwnerAccount?: string;

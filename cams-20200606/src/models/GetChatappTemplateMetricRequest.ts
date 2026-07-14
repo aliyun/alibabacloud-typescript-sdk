@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChatappTemplateMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * The Space ID or instance ID of the ISV sub-customer. This is the channel ID. View the channel ID on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * The space ID or instance ID of the ISV sub-customer, which is also the channel ID. You can view it on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) interface.
    * 
    * @example
    * cams-************
@@ -13,7 +13,7 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. This is a UNIX timestamp. Unit: milliseconds.
+   * The end time of the query. This value is a timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,8 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
   /**
    * @remarks
    * The metric granularity. Valid values:
-   * 
-   * - DAILY: Metrics are collected by day.
-   * 
-   * - HALF_HOUR: Metrics are collected every half an hour.
+   * - DAILY: collects metrics on a daily basis.
+   * - HALF_HOUR: collects metrics every half hour.
    * 
    * @example
    * DAILY
@@ -35,7 +33,7 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV.
+   * The ISV verification code, which is used to verify whether the RAM user is authorized by the ISV.
    * 
    * @example
    * skdi3kksloslikd****
@@ -43,7 +41,7 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The language of the template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For more languages, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * @example
    * en
@@ -54,7 +52,7 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start of the time range to query. This is a UNIX timestamp. Unit: milliseconds.
+   * The start time of the query. This value is a timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -64,7 +62,7 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
   start?: number;
   /**
    * @remarks
-   * The template code. View the template code on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Template Design** page.
+   * The template code. You can view the template code on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Template Design** page.
    * 
    * This parameter is required.
    * 
@@ -74,11 +72,10 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The template type. Valid value:
-   * 
+   * The templatetype. Valid values:
    * - WHATSAPP
    * 
-   * > If you do not pass this parameter, the default value WHATSAPP is used.
+   * > If this parameter is not specified, the default value is WHATSAPP.
    * 
    * @example
    * WHATSAPP

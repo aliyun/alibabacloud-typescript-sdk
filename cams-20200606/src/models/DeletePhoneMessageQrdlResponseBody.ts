@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeletePhoneMessageQrdlResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks

@@ -5,26 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ListViberServiceMessageResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 示例值示例值
+   * 测试
    */
   businessAccountName?: string;
   destinationCountryId?: string[];
   destinationInternationalCountryId?: string[];
   /**
    * @example
-   * 示例值
+   * 医疗服务
    */
   industryInvolved?: string;
   messageDestinationCountry?: string[];
   messageDestinationInternationalCountry?: string[];
   /**
    * @example
-   * 示例值示例值示例值
+   * 25644
    */
   serviceId?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * stop
    */
   state?: string;
   static names(): { [key: string]: string } {
@@ -75,21 +75,25 @@ export class ListViberServiceMessageResponseBodyData extends $dara.Model {
 }
 
 export class ListViberServiceMessageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值
+   * OK
    */
   code?: string;
   data?: ListViberServiceMessageResponseBodyData[];
   /**
    * @example
-   * 示例值示例值示例值
+   * successful
    */
   message?: string;
   /**
    * @example
-   * 示例值示例值
+   * ddhjdn-dnjdnkdjknd**
    */
   requestId?: string;
   /**

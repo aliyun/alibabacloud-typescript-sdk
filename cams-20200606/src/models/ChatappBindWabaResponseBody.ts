@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappBindWabaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The customer\\"s Space ID.
+   * The customer space ID.
    * 
    * @example
    * C0202939293****
@@ -13,7 +13,7 @@ export class ChatappBindWabaResponseBodyData extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The WABA ID.
+   * waba Id。
    * 
    * @example
    * 293982****
@@ -45,7 +45,7 @@ export class ChatappBindWabaResponseBodyData extends $dara.Model {
 export class ChatappBindWabaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The access denied detail.
    * 
    * @example
    * None
@@ -55,7 +55,7 @@ export class ChatappBindWabaResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -87,10 +87,8 @@ export class ChatappBindWabaResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful.
-   * 
-   * - **true**: successful.
-   * 
-   * - **false**: failed.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFlowJSONAssetResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The flow ID.
+   * Flow ID。
    * 
    * @example
    * 92675332812643****
@@ -33,10 +33,17 @@ export class UpdateFlowJSONAssetResponseBodyData extends $dara.Model {
 }
 
 export class UpdateFlowJSONAssetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. A value of OK indicates a successful request.
+   * The response code. OK indicates success.
    * 
    * @example
    * OK

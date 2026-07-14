@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWabaMmlStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The Meta embedded authorization code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateWabaMmlStatusRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
+   * The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +28,8 @@ export class UpdateWabaMmlStatusRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * waba Id。
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,17 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The flow categories.
+   * The flow folder.
    */
   categories?: string[];
   /**
+   * @remarks
+   * The URL of the WA Flow Endpoint
+   * 
    * @example
    * http://www.abc.com
    */
   endpointUri?: string;
   /**
    * @remarks
-   * The flow ID.
+   * Flow ID。
    * 
    * @example
    * 92675332812643****
@@ -23,7 +26,7 @@ export class ModifyFlowResponseBodyData extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The flow name.
+   * The name of the flow.
    * 
    * @example
    * flow_001
@@ -60,10 +63,17 @@ export class ModifyFlowResponseBodyData extends $dara.Model {
 }
 
 export class ModifyFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * A value of OK indicates that the request was successful.
+   * The response code. OK indicates success.
    * 
    * @example
    * OK

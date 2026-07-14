@@ -11,7 +11,7 @@ export class GetDownloadExcelListRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @example
-   * 示例值示例值
+   * aa
    */
   condition?: string;
   countryNames?: string[];

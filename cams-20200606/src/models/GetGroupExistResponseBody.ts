@@ -3,25 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetGroupExistResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * False
    */
   data?: string;
   /**
    * @example
-   * 示例值示例值
+   * success
    */
   message?: string;
   /**
    * @example
-   * 示例值
+   * 90E63D28-E31D-1EB2-8939-A9486641****
    */
   requestId?: string;
   /**

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListFacebookPostsRequest extends $dara.Model {
   /**
    * @remarks
+   * The space ID of the ISV sub-customer.
+   * 
    * This parameter is required.
    * 
    * @example

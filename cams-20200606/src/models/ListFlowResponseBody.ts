@@ -53,6 +53,10 @@ export class ListFlowResponseBodyData extends $dara.Model {
 }
 
 export class ListFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks

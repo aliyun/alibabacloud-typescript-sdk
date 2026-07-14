@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappVerifyAndRegisterRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the ISV sub-customer.
+   * The SpaceId of the ISV sub-customer.
    * 
    * This parameter is required.
    * 

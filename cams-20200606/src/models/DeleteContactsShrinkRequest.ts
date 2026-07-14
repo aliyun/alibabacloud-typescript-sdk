@@ -11,22 +11,22 @@ export class DeleteContactsShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @example
-   * 示例值示例值
+   * 1507486****
    */
   contactDetails?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * hahaha
    */
   contactName?: string;
   /**
    * @example
-   * 示例值
+   * China
    */
   country?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * http://****
    */
   filePath?: string;
   ownerId?: number;

@@ -4,14 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteChatFlowShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. The default value is ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The extended business information. The default value is an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtendShrink?: string;
   /**
+   * @remarks
+   * The flow code. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * 
    * @example
-   * 示例值
+   * 9ccc41**************************
    */
   flowCode?: string;
   ownerId?: number;

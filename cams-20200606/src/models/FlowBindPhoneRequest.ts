@@ -5,43 +5,72 @@ import * as $dara from '@darabonba/typescript';
 export class FlowBindPhoneRequest extends $dara.Model {
   /**
    * @remarks
+   * The message channel code. This is the channel ID. View the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * cams-8c8*********
    */
   channelCode?: string;
   /**
    * @remarks
+   * The message channel type. Valid values:
+   * 
+   * - INSTAGRAM
+   * 
+   * - WHATSAPP
+   * 
+   * - MESSENGER
+   * 
+   * <props="intl">
+   * 
+   * - VIBER
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * WHATSAPP
    */
   channelType?: string;
   /**
    * @remarks
+   * The flow code. View the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 9ccc41**************************
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The flow version. On the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to go to the flow editor canvas and view the flow version.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   flowVersion?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * A list of phone numbers, PageIds, AccountIds<props="intl">, or ServiceIds for the channel instance.
+   */
   phoneNumbers?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The WABA account ID, PageId, AccountId<props="intl">, or ServiceId.
+   * 
+   * - If \\`ChannelType\\` is \\`WHATSAPP\\`, pass the WABA account ID. View the WABA account ID on the **WABA Management** page by navigating to **Channel Management** > **Manage**.
+   * 
+   * - If \\`ChannelType\\` is not \\`WHATSAPP\\`, pass the PageId for \\`MESSENGER\\` or the AccountId for \\`INSTAGRAM\\`<props="intl">. For \\`VIBER\\`, pass the ServiceId.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * 1952************
    */
   wabaId?: string;
   static names(): { [key: string]: string } {

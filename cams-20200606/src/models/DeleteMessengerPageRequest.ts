@@ -8,7 +8,7 @@ export class DeleteMessengerPageRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * e01-in-71cc15xxx
    */
   instanceId?: string;
   ownerId?: number;

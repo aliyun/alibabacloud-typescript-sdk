@@ -4,24 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFlowJSONAssetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The space ID of the ISV sub-customer.
+   * 
    * @example
-   * 示例值示例值
+   * cams-sdk2j3dnxxxx
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * The file path.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * http://www.xxxx.com/files/document.json
    */
   filePath?: string;
   /**
    * @remarks
+   * The flow ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 2322334234234
    */
   flowId?: string;
   ownerId?: number;

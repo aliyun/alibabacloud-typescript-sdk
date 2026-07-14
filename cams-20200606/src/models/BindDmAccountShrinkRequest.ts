@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindDmAccountShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The account code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BindDmAccountShrinkRequest extends $dara.Model {
   accountCode?: string;
   /**
    * @remarks
+   * The SpaceId of the ISV sub-customer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class BindDmAccountShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The extended attributes.
+   * 
    * This parameter is required.
    */
   extendAttrShrink?: string;

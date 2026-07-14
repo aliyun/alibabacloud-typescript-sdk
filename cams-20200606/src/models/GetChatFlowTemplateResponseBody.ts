@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetChatFlowTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the returned data.
+   */
   response?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -29,11 +33,54 @@ export class GetChatFlowTemplateResponseBodyData extends $dara.Model {
 }
 
 export class GetChatFlowTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetChatFlowTemplateResponseBodyData;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * None
+   */
   message?: string;
+  /**
+   * @remarks
+   * The unique ID of the request.
+   * 
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

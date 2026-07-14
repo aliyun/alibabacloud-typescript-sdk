@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadChatFlowLogSettingRequest extends $dara.Model {
   /**
+   * @remarks
+   * The code of the flow. You can find the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * 
    * @example
-   * 示例值示例值
+   * 9ccc41**************************
    */
   flowCode?: string;
   ownerId?: number;

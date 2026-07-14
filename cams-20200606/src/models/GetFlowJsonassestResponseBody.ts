@@ -43,6 +43,10 @@ export class GetFlowJSONAssestResponseBodyData extends $dara.Model {
 }
 
 export class GetFlowJSONAssestResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the access denial.
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks

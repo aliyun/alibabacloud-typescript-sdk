@@ -5,33 +5,57 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatFlowTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
   /**
+   * @remarks
+   * The keyword for the search. The operation performs a fuzzy query for template names based on this keyword.
+   * 
    * @example
-   * 示例值示例值
+   * LLM
    */
   keyword?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
-   * 75
+   * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 72
+   * 10
    */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The trigger type of the flow. Valid values:
+   * 
+   * - TriggeredManually
+   * 
+   * - TriggeredByWhatsApp
+   * 
+   * - TriggeredByInstagram
+   * 
+   * - TriggeredByViber
+   * 
+   * - TriggeredByMessenger
+   * 
    * @example
-   * 示例值
+   * TriggeredByWhatsApp
    */
   triggerType?: string;
   static names(): { [key: string]: string } {

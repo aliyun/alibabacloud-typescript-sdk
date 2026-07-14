@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMMLActiveResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @example
@@ -16,7 +20,7 @@ export class QueryMMLActiveResponseBody extends $dara.Model {
   data?: string;
   /**
    * @example
-   * 示例值
+   * success
    */
   message?: string;
   /**

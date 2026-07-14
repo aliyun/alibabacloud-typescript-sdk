@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteMarketingFlowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The activity code. You can use the system-generated code or modify it to use a custom code.
+   * 
    * @example
-   * 示例值示例值
+   * 1111
    */
   activityCode?: string;
   /**
+   * @remarks
+   * The activity ID (deprecated).
+   * 
    * @example
-   * 示例值示例值
+   * 已弃用
    */
   activityId?: string;
   ownerId?: number;

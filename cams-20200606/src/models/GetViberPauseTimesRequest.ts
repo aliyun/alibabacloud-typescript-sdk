@@ -8,7 +8,7 @@ export class GetViberPauseTimesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * cams-x***
    */
   custSpaceId?: string;
   ownerId?: number;

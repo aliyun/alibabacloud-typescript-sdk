@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListBindDmAccountResponseBodyDataExtendAttr extends $dara.Model {
   /**
    * @example
-   * 示例值示例值示例值
+   * xx@xx.com
    */
   accountName?: string;
   /**
    * @example
-   * 示例值
+   * batch
    */
   sendType?: string;
   static names(): { [key: string]: string } {
@@ -39,18 +39,18 @@ export class ListBindDmAccountResponseBodyDataExtendAttr extends $dara.Model {
 export class ListBindDmAccountResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 示例值示例值
+   * xx@xx.com
    */
   accountCode?: string;
   extendAttr?: ListBindDmAccountResponseBodyDataExtendAttr;
   /**
    * @example
-   * 示例值示例值示例值
+   * cams-*
    */
   instanceId?: string;
   /**
    * @example
-   * 示例值
+   * ins
    */
   instanceName?: string;
   static names(): { [key: string]: string } {
@@ -84,21 +84,25 @@ export class ListBindDmAccountResponseBodyData extends $dara.Model {
 }
 
 export class ListBindDmAccountResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
   data?: ListBindDmAccountResponseBodyData[];
   /**
    * @example
-   * 示例值示例值
+   * OK
    */
   message?: string;
   /**
    * @example
-   * 示例值示例值
+   * xxx-xx**
    */
   requestId?: string;
   /**

@@ -13,7 +13,11 @@ export class ModifyPhoneBusinessProfileResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The URL of the website.
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -21,7 +25,7 @@ export class ModifyPhoneBusinessProfileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The prompt message. A value is returned when an exception occurs.
    * 
    * @example
    * SUCCESS
@@ -29,7 +33,7 @@ export class ModifyPhoneBusinessProfileResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The websites.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -37,11 +41,9 @@ export class ModifyPhoneBusinessProfileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

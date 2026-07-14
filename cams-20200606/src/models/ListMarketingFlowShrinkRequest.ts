@@ -4,43 +4,74 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMarketingFlowShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The campaign code. You can use the system code or modify it to use a custom code.
+   * 
    * @example
    * rewrwerw
    */
   activityCode?: string;
   /**
+   * @remarks
+   * The name of the node task instance.
+   * 
    * @example
    * werewew
    */
   activityName?: string;
   /**
+   * @remarks
+   * The campaign status.
+   * 
    * @example
    * sucess
    */
   activityStatus?: string;
   /**
+   * @remarks
+   * The business tenant code. Default value: ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. Default value: "{}".
+   * 
+   * @example
+   * {}
+   */
   bizExtendShrink?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   pageIndex?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
-   * 示例值示例值
+   * 1
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The ID of the associated flow.
+   * 
    * @example
    * asdfsdfdsfs
    */
   relatedFlowCode?: string;
   /**
+   * @remarks
+   * The ID of the associated group.
+   * 
    * @example
    * 68
    */

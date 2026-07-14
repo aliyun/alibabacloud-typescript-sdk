@@ -3,28 +3,56 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The access denied details.
+   * 
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 200
+   * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data object.
+   * 
    * @example
    * true
    */
   data?: string;
   /**
+   * @remarks
+   * The prompt message. This parameter has a value when an exception is returned.
+   * 
    * @example
    * true
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * dgdf5-bvcv**
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * false
    */

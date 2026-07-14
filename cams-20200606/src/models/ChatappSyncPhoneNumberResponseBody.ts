@@ -221,30 +221,28 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   callingConfigure?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigure;
   /**
    * @remarks
-   * The verification state of the phone number.
+   * The verification status. Valid values:
    * 
-   * Valid values:
-   * 
-   * - REVOKED: The review application is revoked.
-   * 
-   * - MORE_INFORMATION_REQUESTED: More information needs to be provided.
-   * 
-   * - VERIFIED: The phone number passes the verification.
-   * 
-   * - REJECTED: The phone number fails to pass the verification.
+   * - REVOKED: The verification request is revoked.
+   * - MORE_INFORMATION_REQUESTED: More information is required.
+   * - VERIFIED: The verification is passed.
+   * - REJECTED: The verification is rejected.
    * 
    * @example
    * VERIFIED
    */
   codeVerificationStatus?: string;
   /**
+   * @remarks
+   * Indicates whether the phone number is OBA-certified.
+   * 
    * @example
    * N
    */
   isOfficial?: string;
   /**
    * @remarks
-   * The number of phone numbers to which messages can be sent in a day.
+   * The messaging limit tier of the phone number.
    * 
    * @example
    * TIER_10K
@@ -252,7 +250,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   messagingLimitTier?: string;
   /**
    * @remarks
-   * The review status of the business display name.
+   * The name review status.
    * 
    * @example
    * Approval
@@ -260,7 +258,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   nameStatus?: string;
   /**
    * @remarks
-   * The review status of the new business display name.
+   * The review status of the new name.
    * 
    * @example
    * Approval
@@ -278,45 +276,13 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
    * @remarks
    * The quality rating of the phone number.
    * 
-   * Valid values:
-   * 
-   * - RED
-   * 
-   * - YELLOW
-   * 
-   * - GREEN
-   * 
    * @example
    * GREEN
    */
   qualityRating?: string;
   /**
    * @remarks
-   * The state of the phone number.
-   * 
-   * Valid values:
-   * 
-   * - MIGRATED
-   * 
-   * - FLAGGED
-   * 
-   * - DISCONNECTED
-   * 
-   * - UNVERIFIED
-   * 
-   * - BANNED
-   * 
-   * - RATE_LIMITED
-   * 
-   * - PENDING
-   * 
-   * - CONNECTED
-   * 
-   * - UNKNOWN
-   * 
-   * - DELETED
-   * 
-   * - RESTRICTED
+   * The status of the phone number.
    * 
    * @example
    * PENDING
@@ -324,7 +290,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The callback URL to which status reports are sent by using HTTP callbacks.
+   * The callback URL for status reports.
    * 
    * @example
    * https://www.alibaba.com/status
@@ -340,7 +306,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   statusQueue?: string;
   /**
    * @remarks
-   * The URL that receives the MO messages.
+   * The callback URL for upstream messages.
    * 
    * @example
    * https://www.alibaba.com/inbound
@@ -348,7 +314,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   upCallbackUrl?: string;
   /**
    * @remarks
-   * The mobile originated (MO) message queue.
+   * The upstream MSMQ.
    * 
    * @example
    * alicom-0939****-queue
@@ -356,7 +322,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   upQueue?: string;
   /**
    * @remarks
-   * The display name of the business to which the phone number belongs.
+   * The verified name of the phone number.
    * 
    * @example
    * Alibaba
@@ -423,11 +389,11 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The response code.
    * 
-   * - A value of OK indicates that the call is successful.
+   * - A value of OK indicates that the request is successful.
    * 
-   * - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -435,7 +401,7 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * 无
@@ -443,12 +409,12 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The phone numbers.
+   * The list of phone numbers.
    */
   phoneNumbers?: ChatappSyncPhoneNumberResponseBodyPhoneNumbers[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -456,10 +422,8 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * - **true**: The call was successful.
-   * 
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
    * - **false**: The call failed.
    * 
    * @example

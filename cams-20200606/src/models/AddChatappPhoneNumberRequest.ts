@@ -15,7 +15,7 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   cc?: string;
   /**
    * @remarks
-   * The Space ID of the Independent Software Vendor (ISV) sub-customer.
+   * The space ID of the ISV sub-customer.
    * 
    * This parameter is required.
    * 
@@ -36,8 +36,7 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The pre-verified phone number.
-   * 
+   * The pre-validated phone number.
    * > This parameter is deprecated.
    * 
    * @example
@@ -50,7 +49,7 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the phone number.
+   * The display name of the phone number.
    * 
    * This parameter is required.
    * 

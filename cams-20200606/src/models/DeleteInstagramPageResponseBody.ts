@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteInstagramPageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * ok
+   * OK
    */
   code?: string;
   /**

@@ -29,7 +29,7 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The message content.
+   * The prefilled message content.
    * 
    * @example
    * Hello
@@ -37,7 +37,7 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
   prefilledMessage?: string;
   /**
    * @remarks
-   * The URL of the QR code.
+   * The URL of the QR code image.
    * 
    * @example
    * https://img.png
@@ -45,7 +45,7 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
   qrImageUrl?: string;
   /**
    * @remarks
-   * The code.
+   * The QR code identifier.
    * 
    * @example
    * IUIED999
@@ -83,10 +83,17 @@ export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
 }
 
 export class ListPhoneMessageQrdlResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The access denied details.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * A value of OK indicates that the request was successful.
+   * The response code. OK indicates success.
    * 
    * @example
    * OK

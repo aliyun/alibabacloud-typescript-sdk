@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConversationalAutomationRequestCommands extends $dara.Model {
   /**
    * @remarks
-   * The description of the command.
+   * The command description.
    * 
    * @example
    * Command 1
@@ -45,12 +45,12 @@ export class UpdateConversationalAutomationRequestCommands extends $dara.Model {
 export class UpdateConversationalAutomationRequest extends $dara.Model {
   /**
    * @remarks
-   * The commands.
+   * The list of commands.
    */
   commands?: UpdateConversationalAutomationRequestCommands[];
   /**
    * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class UpdateConversationalAutomationRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the welcoming message.
+   * Specifies whether to enable the welcome message.
    * 
    * @example
    * true
@@ -69,7 +69,7 @@ export class UpdateConversationalAutomationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The phone number of the enterprise.
+   * The business phone number.
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class UpdateConversationalAutomationRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The opening remarks.
+   * The list of conversation starters.
    */
   prompts?: string[];
   resourceOwnerAccount?: string;

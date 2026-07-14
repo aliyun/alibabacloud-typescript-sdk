@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The business number. To view the business numbers, call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * The business phone number. You can view the business phone number by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class UpdateChatGroupRequest extends $dara.Model {
   businessNumber?: string;
   /**
    * @remarks
-   * The channel type. Valid value:
+   * The channel type. Valid values:
    * 
    * - **WHATSAPP**.
    * 
-   * > Only the WhatsApp channel is supported.
+   * > Only the WhatsApp channel type is supported.
    * 
    * @example
    * WHATSAPP
@@ -27,9 +27,7 @@ export class UpdateChatGroupRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The Space ID of the ISV sub-customer, or the instance ID of the direct customer. View the Space ID on the
-   * 
-   * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * The space ID of the ISV sub-customer, which is also the instance ID. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -42,12 +40,12 @@ export class UpdateChatGroupRequest extends $dara.Model {
    * The group description.
    * 
    * @example
-   * Test
+   * test
    */
   description?: string;
   /**
    * @remarks
-   * The group ID. To view the group IDs, call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * The group ID. You can view the group ID by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
    * 
    * This parameter is required.
    * 
@@ -60,23 +58,20 @@ export class UpdateChatGroupRequest extends $dara.Model {
    * @remarks
    * The group profile picture.
    * 
-   * > Image requirements
-   * >
-   * > - Supported MIME type: image/jpeg.
-   * >
-   * > - Maximum file size: 5 MB.
-   * >
-   * > - The image must be square. Minimum dimensions: 192x192 pixels.
+   * > Image restrictions:
+   * > - Supported MIME type: image/jpeg
+   * > - Maximum image size: 5 MB
+   * > - The image must be square with a minimum dimension of 192 × 192 pixels.
    */
   profilePictureFile?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The group title.
+   * The group subject.
    * 
    * @example
-   * This is a test title.
+   * test title
    */
   subject?: string;
   static names(): { [key: string]: string } {

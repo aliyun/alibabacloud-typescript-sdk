@@ -3,25 +3,56 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateChatFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
-   * 示例值
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
-   * 示例值
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   response?: { [key: string]: any };
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
+   * 
    * @example
    * true
    */

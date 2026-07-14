@@ -4,133 +4,219 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListChatappMessageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The business phone number.
+   * 
    * @example
-   * 示例值示例值
+   * 86183********
    */
   businessNumber?: string;
   /**
+   * @remarks
+   * The channel type.
+   * 
    * @example
-   * 示例值示例值示例值
+   * WHATSAPP
    */
   channelType?: string;
   /**
+   * @remarks
+   * The name of the message receiving status.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Success
    */
   clientAcceptStatusName?: string;
   /**
+   * @remarks
+   * The message read status.
+   * 
    * @example
-   * 示例值示例值
+   * success
    */
   clientReadStatus?: string;
   /**
+   * @remarks
+   * The message read status name.
+   * 
    * @example
-   * 示例值示例值
+   * Success
    */
   clientReadStatusName?: string;
   /**
+   * @remarks
+   * The conversation ID.
+   * 
    * @example
-   * 示例值示例值
+   * 805a66**************************
    */
   conversationId?: string;
   /**
+   * @remarks
+   * The inbound or outbound message type.
+   * 
    * @example
-   * 示例值示例值
+   * DOWN
    */
   eventAction?: string;
   /**
+   * @remarks
+   * The name of the inbound or outbound message type. Valid values:
+   * 
+   * - DOWN: outbound message.
+   * 
+   * - UP: inbound message.
+   * 
    * @example
-   * 示例值
+   * DOWN
    */
   eventActionName?: string;
   /**
+   * @remarks
+   * The fallback content.
+   * 
    * @example
-   * 示例值
+   * None
    */
   failBackContent?: string;
   /**
+   * @remarks
+   * Indicates whether the message falls back to SMS. Valid values:
+   * 
+   * - Y: Yes.
+   * 
+   * - N: No.
+   * 
    * @example
    * Y
    */
   failBackFlag?: string;
   /**
+   * @remarks
+   * The reason for the sending failure.
+   * 
    * @example
-   * 示例值示例值
+   * timeout
    */
   failReason?: string;
   /**
+   * @remarks
+   * The template language. For more languages, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * 
    * @example
-   * 示例值示例值
+   * en
    */
   languageCode?: string;
   /**
+   * @remarks
+   * The message content.
+   * 
    * @example
-   * 示例值示例值
+   * test
    */
   message?: string;
   /**
+   * @remarks
+   * The message ID.
+   * 
    * @example
-   * 示例值
+   * 202509*******************
    */
   messageId?: string;
   /**
+   * @remarks
+   * The message source.
+   * 
    * @example
-   * 示例值示例值
+   * api
    */
   messageSource?: string;
   /**
+   * @remarks
+   * The message status.
+   * 
    * @example
-   * 示例值示例值
+   * success
    */
   messageStatus?: string;
   /**
+   * @remarks
+   * The message status name.
+   * 
    * @example
-   * 示例值
+   * Success
    */
   messageStatusName?: string;
   /**
+   * @remarks
+   * The message type.
+   * 
    * @example
-   * 示例值示例值
+   * INTERACTIVE
    */
   messageType?: string;
   /**
+   * @remarks
+   * The message type name.
+   * 
    * @example
-   * 示例值示例值
+   * interactive
    */
   messageTypeName?: string;
   /**
+   * @remarks
+   * The month of the message.
+   * 
    * @example
-   * 示例值示例值
+   * 202507
    */
   month?: string;
   /**
+   * @remarks
+   * The sending time.
+   * 
    * @example
-   * 示例值示例值
+   * 2025-07-11T01:16:49.761+00:00
    */
   sendTime?: string;
   /**
+   * @remarks
+   * The template code.
+   * 
    * @example
-   * 示例值示例值
+   * 1103***************
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
-   * 示例值示例值
+   * picture_template
    */
   templateName?: string;
   /**
+   * @remarks
+   * The type.
+   * 
    * @example
-   * 示例值示例值
+   * message
    */
   type?: string;
   /**
+   * @remarks
+   * The unique message ID.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 20250911******************************
    */
   uniqueMessageId?: string;
   /**
+   * @remarks
+   * The user phone number.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 86177********
    */
   userNumber?: string;
   static names(): { [key: string]: string } {
@@ -205,24 +291,53 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
 }
 
 export class ListChatappMessageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The access denied details.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
+   * - OK: The request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 示例值示例值示例值
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of returned data objects.
+   */
   data?: ListChatappMessageResponseBodyData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值
+   * 608F9CCA-B5EB-3D72-8047-B25D6D75BDEC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * false
    */

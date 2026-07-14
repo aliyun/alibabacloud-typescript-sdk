@@ -3,24 +3,58 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateWabaMmlStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * 示例值示例值
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 示例值示例值示例值
    */
   message?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * 1
+   */
   model?: { [key: string]: any };
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 示例值示例值
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: Successful.
+   * 
+   * - false: Failed.
+   * 
    * @example
    * false
    */

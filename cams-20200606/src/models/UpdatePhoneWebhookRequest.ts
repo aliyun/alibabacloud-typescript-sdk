@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePhoneWebhookRequest extends $dara.Model {
   /**
    * @remarks
-   * SpaceId for ISV sub clients.
+   * The SpaceId of the ISV sub-customer.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * Whether to use HTTP to receive receipts. Value:
+   * Specifies whether to use HTTP to receive receipts. Valid values:
    * 
    * - Y: Yes.
    * 
@@ -28,7 +28,7 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * phone number.
+   * The phone number.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Whether to use queue method to receive receipts. Value:
+   * Specifies whether to use a queue to receive receipts. Valid values:
    * 
    * - Y: Yes.
    * 
@@ -52,7 +52,7 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * HTTP status report interface callback address.
+   * The callback URL for the HTTP-based status report.
    * 
    * @example
    * http://www.aliyun.com
@@ -60,7 +60,7 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
   statusCallbackUrl?: string;
   /**
    * @remarks
-   * HTTP upstream message interface callback address.
+   * The callback URL for the HTTP-based upstream message.
    * 
    * @example
    * http://aliyun.com

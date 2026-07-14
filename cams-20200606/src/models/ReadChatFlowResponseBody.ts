@@ -3,26 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadChatFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed reason why the access was denied.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   response?: { [key: string]: any };
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * 
+   * - true: The operation is successful.
+   * 
+   * - false: The operation failed.
+   * 
    * @example
-   * false
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

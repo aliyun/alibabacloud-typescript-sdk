@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWhatsappConversionApiShrinkRequest extends $dara.Model {
   /**
    * @example
-   * 示例值
+   * code
    */
   code?: string;
   /**
    * @example
-   * 示例值示例值
+   * 131
    */
   instanceId?: string;
   ownerId?: number;

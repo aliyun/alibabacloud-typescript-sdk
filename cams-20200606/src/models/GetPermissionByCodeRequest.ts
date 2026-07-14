@@ -5,18 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class GetPermissionByCodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The authorization code.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * flow_001
    */
   code?: string;
   /**
+   * @remarks
+   * The space ID of the ISV sub-customer.
+   * 
    * @example
-   * 示例值
+   * cams-isj23ljd912
    */
   custSpaceId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The permissions.
+   */
   permissions?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

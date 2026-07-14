@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeprecateFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The reason why access was denied.
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks

@@ -4,27 +4,56 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateChatFlowShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. The default value is ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * Business extension information. The default value is an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtendShrink?: string;
   /**
+   * @remarks
+   * The trigger type for the flow. Valid values:
+   * 
+   * - TriggeredManually
+   * 
+   * - TriggeredByWhatsApp
+   * 
+   * - TriggeredByMessenger
+   * 
+   * - TriggeredByInstagram
+   * 
+   * - TriggeredByViber
+   * 
    * @example
-   * 示例值
+   * TriggeredByWhatsApp
    */
   flowTriggerType?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The remarks for the flow.
+   * 
    * @example
-   * 示例值示例值
+   * 通过API触发下发验证模板
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The title of the flow.
+   * 
    * @example
-   * 示例值
+   * WhatsApp自动回复
    */
   title?: string;
   static names(): { [key: string]: string } {

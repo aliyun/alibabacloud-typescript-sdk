@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class GetWhatsappConversionApiResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 示例值
+   * 111
    */
   datasetId?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 7832312
    */
   pageId?: string;
   /**
    * @example
-   * 示例值
+   * aaa
    */
   pageName?: string;
   static names(): { [key: string]: string } {
@@ -44,21 +44,25 @@ export class GetWhatsappConversionApiResponseBodyData extends $dara.Model {
 }
 
 export class GetWhatsappConversionApiResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * OK
    */
   code?: string;
   data?: GetWhatsappConversionApiResponseBodyData[];
   /**
    * @example
-   * 示例值示例值
+   * success
    */
   message?: string;
   /**
    * @example
-   * 示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A9486641****
    */
   requestId?: string;
   /**

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPageAdAccountResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Meta ad account ID.
+   * 
    * @example
    * 29393****
    */
   adAccountId?: string;
   /**
+   * @remarks
+   * The name of the ad account.
+   * 
    * @example
    * Alibaba
    */
   adAccountName?: string;
   /**
+   * @remarks
+   * The currency.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * The PageId of Messenger.
+   * 
    * @example
    * 2030***
    */
@@ -51,24 +63,55 @@ export class ListPageAdAccountResponseBodyData extends $dara.Model {
 }
 
 export class ListPageAdAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * 无
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, refer to [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: ListPageAdAccountResponseBodyData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 39**
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * - true: Successful.
+   * 
+   * - false: Failed.
+   * 
    * @example
    * true
    */

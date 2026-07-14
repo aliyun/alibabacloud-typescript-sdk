@@ -16,7 +16,7 @@ export class GetFbInstagramPagesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * inst-8t47hh***5pyj0ps
    */
   instanceId?: string;
   ownerId?: number;

@@ -4,16 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFlowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The SpaceId of the ISV sub-customer.
+   * 
    * @example
-   * 示例值示例值
+   * cams-awlkj23a09jd
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * The workflow ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 346699123
    */
   flowId?: string;
   ownerId?: number;

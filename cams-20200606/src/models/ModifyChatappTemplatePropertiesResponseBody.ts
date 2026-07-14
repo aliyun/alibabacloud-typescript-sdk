@@ -3,24 +3,56 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyChatappTemplatePropertiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The request status code.
+   * 
+   * - OK indicates that the request was successful.
+   * 
+   * - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+   * 
    * @example
-   * 示例值
+   * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值
+   * None
    */
   message?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * true
+   */
   model?: { [key: string]: any };
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 399s88-***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * false
    */

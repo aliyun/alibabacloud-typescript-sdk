@@ -4,24 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class IsvGetAppIdRequest extends $dara.Model {
   /**
+   * @remarks
+   * The version.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 2
    */
   intlVersion?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The permissions.
+   * 
    * @example
-   * 示例值示例值
+   * Example value
    */
   permissions?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The channel type. Valid values:
+   * 
+   * - whatsapp: WhatsApp.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * whatsapp
    */
   type?: string;
   static names(): { [key: string]: string } {

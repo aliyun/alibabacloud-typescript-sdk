@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncBusinessAppHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied detail.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -13,9 +13,9 @@ export class SyncBusinessAppHistoryResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code.
+   * The request status code. Valid values:
    * 
-   * - `OK`: The request was successful.
+   * - OK: The request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -41,11 +41,9 @@ export class SyncBusinessAppHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

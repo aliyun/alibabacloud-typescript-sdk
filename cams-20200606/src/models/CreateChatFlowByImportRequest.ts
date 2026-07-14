@@ -4,27 +4,56 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateChatFlowByImportRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business tenant code. The default value is ALICOM_OPAAS.
+   * 
    * @example
-   * 示例值示例值
+   * ALICOM_OPAAS
    */
   bizCode?: string;
+  /**
+   * @remarks
+   * The business extension information. The default value is an empty collection.
+   * 
+   * @example
+   * {}
+   */
   bizExtend?: { [key: string]: any };
   /**
+   * @remarks
+   * The flow DSL data to import. This is a block of data in JSON format. To obtain this data, arrange the components on the canvas in the Flow Editor, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas. The flow is exported as a JSON data file.
+   * 
    * @example
-   * 示例值示例值
+   * {
+   *   "schema": {
+   *     "namespace": "External",
+   *     "version": "1.0",
+   *     "copyright": "Alibaba Cloud"
+   *   },
+   *   "editor": "H4sIAAAAAAAAA+1YbU/c***********************",
+   *   "flow": {
+   *     "triggerType": "TriggeredByWhatsApp"
+   *   }
+   * }
    */
   flowViewModel?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The remarks for the flow.
+   * 
    * @example
-   * 示例值示例值
+   * 触发订阅
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The title of the flow.
+   * 
    * @example
-   * 示例值示例值示例值
+   * WhatsApp触发订阅
    */
   title?: string;
   static names(): { [key: string]: string } {

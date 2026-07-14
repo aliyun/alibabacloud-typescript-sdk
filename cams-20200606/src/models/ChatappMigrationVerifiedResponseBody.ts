@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappMigrationVerifiedResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the phone number.
+   * The phone number ID.
    * 
    * @example
    * 8282889****
@@ -45,7 +45,7 @@ export class ChatappMigrationVerifiedResponseBodyData extends $dara.Model {
 export class ChatappMigrationVerifiedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -53,9 +53,9 @@ export class ChatappMigrationVerifiedResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

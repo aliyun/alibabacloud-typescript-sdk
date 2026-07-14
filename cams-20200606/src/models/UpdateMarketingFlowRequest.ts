@@ -4,70 +4,109 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMarketingFLowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The code of the campaign to modify.
+   * 
    * @example
-   * 示例值示例值
+   * 115311507XXXX49888
    */
   activityCode?: string;
   /**
+   * @remarks
+   * The campaign description.
+   * 
    * @example
-   * 示例值
+   * 活动描述
    */
   activityDesc?: string;
   /**
+   * @remarks
+   * The ID of the campaign to modify.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 674574575658675XX
    */
   activityId?: string;
   /**
+   * @remarks
+   * The campaign name.
+   * 
    * @example
-   * 示例值示例值示例值
+   * test
    */
   activityName?: string;
   /**
-   * @example
-   * 示例值示例值示例值
+   * @remarks
+   * The cron expression for timed scheduling.
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
-   * 示例值示例值
+   * 2025-11-26 09:59:00
    */
   endDate?: string;
   /**
    * @remarks
+   * The execution method. Set this parameter to 1 (cron).
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * 1
    */
   executionType?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Specifies whether to use custom pass-through parameters.
+   * 
    * @example
-   * 示例值
+   * Y:传入自定义参数 N:不传参数
    */
   paramFlag?: string;
+  /**
+   * @remarks
+   * The custom pass-through parameters.
+   * 
+   * @example
+   * {"testEmail":"wy****999@alibaba-inc.com"}
+   */
   params?: { [key: string]: any };
   /**
+   * @remarks
+   * The code of the associated flow.
+   * 
    * @example
-   * 示例值
+   * cf-kr3k31**mfeir8w
    */
   relatedFlowCode?: string;
   /**
+   * @remarks
+   * The name of the associated flow.
+   * 
    * @example
-   * 示例值示例值
+   * testflow
    */
   relatedFlowName?: string;
   /**
+   * @remarks
+   * The ID of the associated group.
+   * 
    * @example
-   * 42
+   * 114345654645XX
    */
   relatedGroupId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
-   * 示例值示例值
+   * 2025-11-25 09:59:00
    */
   startDate?: string;
   static names(): { [key: string]: string } {

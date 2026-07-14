@@ -14,7 +14,7 @@ export class GetGroupExistRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * aaa
    */
   groupName?: string;
   ownerId?: number;

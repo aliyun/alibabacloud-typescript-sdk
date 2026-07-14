@@ -8,7 +8,7 @@ export class ListViberServiceMessageRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * cams-8e4**96uhvk
    */
   custSpaceId?: string;
   ownerId?: number;
