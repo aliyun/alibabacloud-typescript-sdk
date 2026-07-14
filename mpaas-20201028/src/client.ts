@@ -5426,6 +5426,10 @@ export default class Client extends OpenApi {
       body["UnBindStartTime"] = request.unBindStartTime;
     }
 
+    if (!$dara.isNull(request.vendorTemplate)) {
+      body["VendorTemplate"] = request.vendorTemplate;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -5564,6 +5568,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.transparentMessageUrgency)) {
       body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
+    }
+
+    if (!$dara.isNull(request.vendorTemplate)) {
+      body["VendorTemplate"] = request.vendorTemplate;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -5892,6 +5900,10 @@ export default class Client extends OpenApi {
       body["Uri"] = request.uri;
     }
 
+    if (!$dara.isNull(request.vendorTemplate)) {
+      body["VendorTemplate"] = request.vendorTemplate;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -6052,6 +6064,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.transparentMessageUrgency)) {
       body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
+    }
+
+    if (!$dara.isNull(request.vendorTemplate)) {
+      body["VendorTemplate"] = request.vendorTemplate;
     }
 
     if (!$dara.isNull(request.workspaceId)) {

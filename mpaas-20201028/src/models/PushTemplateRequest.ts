@@ -51,6 +51,7 @@ export class PushTemplateRequest extends $dara.Model {
   thirdChannelCategory?: { [key: string]: any };
   transparentMessagePayload?: any;
   transparentMessageUrgency?: string;
+  vendorTemplate?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -86,6 +87,7 @@ export class PushTemplateRequest extends $dara.Model {
       thirdChannelCategory: 'ThirdChannelCategory',
       transparentMessagePayload: 'TransparentMessagePayload',
       transparentMessageUrgency: 'TransparentMessageUrgency',
+      vendorTemplate: 'VendorTemplate',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -120,6 +122,7 @@ export class PushTemplateRequest extends $dara.Model {
       thirdChannelCategory: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       transparentMessagePayload: 'any',
       transparentMessageUrgency: 'string',
+      vendorTemplate: 'string',
       workspaceId: 'string',
     };
   }
