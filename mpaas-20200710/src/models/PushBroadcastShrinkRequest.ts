@@ -52,6 +52,7 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
   unBindEndTime?: number;
   unBindPeriod?: number;
   unBindStartTime?: number;
+  vendorTemplate?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -88,6 +89,7 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
       unBindEndTime: 'UnBindEndTime',
       unBindPeriod: 'UnBindPeriod',
       unBindStartTime: 'UnBindStartTime',
+      vendorTemplate: 'VendorTemplate',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -123,6 +125,7 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
       unBindEndTime: 'number',
       unBindPeriod: 'number',
       unBindStartTime: 'number',
+      vendorTemplate: 'string',
       workspaceId: 'string',
     };
   }

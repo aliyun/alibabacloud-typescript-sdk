@@ -86,6 +86,7 @@ export class PushMultipleShrinkRequest extends $dara.Model {
   thirdChannelCategoryShrink?: string;
   transparentMessagePayload?: any;
   transparentMessageUrgency?: string;
+  vendorTemplate?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -116,6 +117,7 @@ export class PushMultipleShrinkRequest extends $dara.Model {
       thirdChannelCategoryShrink: 'ThirdChannelCategory',
       transparentMessagePayload: 'TransparentMessagePayload',
       transparentMessageUrgency: 'TransparentMessageUrgency',
+      vendorTemplate: 'VendorTemplate',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -145,6 +147,7 @@ export class PushMultipleShrinkRequest extends $dara.Model {
       thirdChannelCategoryShrink: 'string',
       transparentMessagePayload: 'any',
       transparentMessageUrgency: 'string',
+      vendorTemplate: 'string',
       workspaceId: 'string',
     };
   }

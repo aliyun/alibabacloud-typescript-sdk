@@ -55,6 +55,7 @@ export class PushSimpleRequest extends $dara.Model {
   transparentMessagePayload?: any;
   transparentMessageUrgency?: string;
   uri?: string;
+  vendorTemplate?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -90,6 +91,7 @@ export class PushSimpleRequest extends $dara.Model {
       transparentMessagePayload: 'TransparentMessagePayload',
       transparentMessageUrgency: 'TransparentMessageUrgency',
       uri: 'Uri',
+      vendorTemplate: 'VendorTemplate',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -124,6 +126,7 @@ export class PushSimpleRequest extends $dara.Model {
       transparentMessagePayload: 'any',
       transparentMessageUrgency: 'string',
       uri: 'string',
+      vendorTemplate: 'string',
       workspaceId: 'string',
     };
   }
