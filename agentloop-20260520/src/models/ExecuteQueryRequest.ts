@@ -28,6 +28,7 @@ export class ExecuteQueryRequest extends $dara.Model {
    * SQL
    */
   type?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       from: 'from',
@@ -37,6 +38,7 @@ export class ExecuteQueryRequest extends $dara.Model {
       query: 'query',
       to: 'to',
       type: 'type',
+      version: 'version',
     };
   }
 
@@ -49,6 +51,7 @@ export class ExecuteQueryRequest extends $dara.Model {
       query: 'string',
       to: 'number',
       type: 'string',
+      version: 'string',
     };
   }
 

@@ -620,6 +620,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a pipeline.
+   * 
+   * @param request - CreatePipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePipelineResponse
+   */
+  async createPipelineWithOptions(agentSpace: string, request: $_model.CreatePipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePipelineResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.executePolicy)) {
+      body["executePolicy"] = request.executePolicy;
+    }
+
+    if (!$dara.isNull(request.pipeline)) {
+      body["pipeline"] = request.pipeline;
+    }
+
+    if (!$dara.isNull(request.pipelineName)) {
+      body["pipelineName"] = request.pipelineName;
+    }
+
+    if (!$dara.isNull(request.sink)) {
+      body["sink"] = request.sink;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePipeline",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/pipeline`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePipelineResponse>(await this.callApi(params, req, runtime), new $_model.CreatePipelineResponse({}));
+  }
+
+  /**
+   * Creates a pipeline.
+   * 
+   * @param request - CreatePipelineRequest
+   * @returns CreatePipelineResponse
+   */
+  async createPipeline(agentSpace: string, request: $_model.CreatePipelineRequest): Promise<$_model.CreatePipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPipelineWithOptions(agentSpace, request, headers, runtime);
+  }
+
+  /**
    * Deletes an AgentSpace.
    * 
    * @param request - DeleteAgentSpaceRequest
@@ -1086,6 +1157,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.type)) {
       body["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2210,6 +2285,79 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.pausePipelineWithOptions(agentSpace, pipelineName, request, headers, runtime);
+  }
+
+  /**
+   * Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+   * 
+   * @remarks
+   * ## Request description
+   * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
+   * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
+   * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+   * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
+   * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+   * 
+   * @param request - PreviewPipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewPipelineResponse
+   */
+  async previewPipelineWithOptions(agentSpace: string, request: $_model.PreviewPipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PreviewPipelineResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fromTime)) {
+      body["fromTime"] = request.fromTime;
+    }
+
+    if (!$dara.isNull(request.pipeline)) {
+      body["pipeline"] = request.pipeline;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.toTime)) {
+      body["toTime"] = request.toTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PreviewPipeline",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/pipeline/preview`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PreviewPipelineResponse>(await this.callApi(params, req, runtime), new $_model.PreviewPipelineResponse({}));
+  }
+
+  /**
+   * Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+   * 
+   * @remarks
+   * ## Request description
+   * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
+   * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
+   * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+   * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
+   * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+   * 
+   * @param request - PreviewPipelineRequest
+   * @returns PreviewPipelineResponse
+   */
+  async previewPipeline(agentSpace: string, request: $_model.PreviewPipelineRequest): Promise<$_model.PreviewPipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.previewPipelineWithOptions(agentSpace, request, headers, runtime);
   }
 
   /**
