@@ -2,38 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetAgenticSpaceRequest extends $dara.Model {
+export class ModifyCpfsAccessPointRequest extends $dara.Model {
   /**
    * @remarks
-   * AgenticSpace Id。
-   * 
    * This parameter is required.
    * 
    * @example
-   * agentic-229oypxjgpau2****
+   * ap-ie15yd****
    */
-  agenticSpaceId?: string;
+  accessPointId?: string;
+  /**
+   * @example
+   * Description
+   */
+  description?: string;
   /**
    * @remarks
-   * The file system ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 06229oypxjgox0u****
+   * bmcpfs-099394bd928c****
    */
   fileSystemId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      agenticSpaceId: 'AgenticSpaceId',
+      accessPointId: 'AccessPointId',
+      description: 'Description',
       fileSystemId: 'FileSystemId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agenticSpaceId: 'string',
+      accessPointId: 'string',
+      description: 'string',
       fileSystemId: 'string',
+      regionId: 'string',
     };
   }
 

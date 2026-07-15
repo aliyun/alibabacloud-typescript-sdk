@@ -13,7 +13,7 @@ export class AttachVscToFilesystemsRequestResourceIds extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The virtual storage channel ID.
+   * The Virtual Storage Channel ID.
    * 
    * @example
    * vsc-8vb864o3ppwfvh****
@@ -43,8 +43,29 @@ export class AttachVscToFilesystemsRequestResourceIds extends $dara.Model {
 }
 
 export class AttachVscToFilesystemsRequestRoleChain extends $dara.Model {
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account on whose behalf the service assumes the role.
+   * 
+   * @example
+   * 176498472570****
+   */
   assumeRoleFor?: string;
+  /**
+   * @remarks
+   * The resource descriptor of the specified role. Format: acs:ram::$accountID:role/$roleName.
+   * 
+   * @example
+   * acs:ram::123472233814****:role/aliyunnasclientvsc****
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The role type. Valid values: service and user.
+   * 
+   * @example
+   * service
+   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -86,11 +107,16 @@ export class AttachVscToFilesystemsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID information of file systems and virtual storage channels. A maximum of 10 entries can be specified per batch.
+   * The ID information of file systems and Virtual Storage Channels. A maximum of 10 entries can be specified per batch.
    * 
    * This parameter is required.
    */
   resourceIds?: AttachVscToFilesystemsRequestResourceIds[];
+  /**
+   * @remarks
+   * The role chain.
+   * > This parameter is required only for cross-account scenarios.
+   */
   roleChain?: AttachVscToFilesystemsRequestRoleChain[];
   static names(): { [key: string]: string } {
     return {

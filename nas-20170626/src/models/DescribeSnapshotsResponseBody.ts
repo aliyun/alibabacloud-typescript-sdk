@@ -96,7 +96,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
 export class DescribeSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the snapshot list.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   snapshots?: DescribeSnapshotsResponseBodySnapshots;
   /**
    * @remarks
-   * The total number of snapshots returned.
+   * The total number of snapshots.
    * 
    * @example
    * 36

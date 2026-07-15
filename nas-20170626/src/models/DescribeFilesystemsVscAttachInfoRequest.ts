@@ -43,8 +43,29 @@ export class DescribeFilesystemsVscAttachInfoRequestResourceIds extends $dara.Mo
 }
 
 export class DescribeFilesystemsVscAttachInfoRequestRoleChain extends $dara.Model {
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account, which specifies the account on whose behalf the service assumes the role.
+   * 
+   * @example
+   * 101522855006****
+   */
   assumeRoleFor?: string;
+  /**
+   * @remarks
+   * The resource descriptor of the specified role. Format: acs:ram::$accountID:role/$roleName.
+   * 
+   * @example
+   * acs:ram::123472233814****:role/aliyunnasclientvsc****
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The role type. Valid values: service and user.
+   * 
+   * @example
+   * service
+   */
   roleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -98,6 +119,11 @@ export class DescribeFilesystemsVscAttachInfoRequest extends $dara.Model {
    * This parameter is required.
    */
   resourceIds?: DescribeFilesystemsVscAttachInfoRequestResourceIds[];
+  /**
+   * @remarks
+   * The role chain.
+   * >Required only for cross-account scenarios.
+   */
   roleChain?: DescribeFilesystemsVscAttachInfoRequestRoleChain[];
   static names(): { [key: string]: string } {
     return {

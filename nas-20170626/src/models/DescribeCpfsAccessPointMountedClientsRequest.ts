@@ -2,56 +2,58 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeRegionsRequest extends $dara.Model {
+export class DescribeCpfsAccessPointMountedClientsRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system type.
-   * 
-   * Valid values:
-   * - all: all types.
-   * - standard (default): General-purpose NAS.
-   * - extreme: Extreme NAS.
-   * - cpfs: CPFS.
+   * This parameter is required.
    * 
    * @example
-   * standard
+   * ap-ie15yd****
    */
-  fileSystemType?: string;
+  accessPointId?: string;
   /**
    * @remarks
-   * The page number of the list.
+   * This parameter is required.
    * 
-   * Start value (default value): 1.
-   * 
+   * @example
+   * bmcpfs-370lx1ev9ss27o0****
+   */
+  fileSystemId?: string;
+  /**
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * The number of regions on each page during a paged query.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 10.
-   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      fileSystemType: 'FileSystemType',
+      accessPointId: 'AccessPointId',
+      fileSystemId: 'FileSystemId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystemType: 'string',
+      accessPointId: 'string',
+      fileSystemId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 

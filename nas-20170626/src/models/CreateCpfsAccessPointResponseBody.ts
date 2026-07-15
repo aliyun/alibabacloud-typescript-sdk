@@ -2,33 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateDataFlowResponseBody extends $dara.Model {
+export class CreateCpfsAccessPointResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The data flow ID.
-   * 
    * @example
-   * df-194433a5be31****
+   * ap-ie15yd****
    */
-  dataFlowId?: string;
+  accessPointId?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0D****3E
+   * 98696EF0-1607-4E9D-B01D-F20930B6****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      dataFlowId: 'DataFlowId',
+      accessPointId: 'AccessPointId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataFlowId: 'string',
+      accessPointId: 'string',
       requestId: 'string',
     };
   }

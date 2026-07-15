@@ -61,9 +61,9 @@ export class DescribeFileSystemsRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * - General-purpose NAS: 31a8e4****.
-   * - Extreme NAS: Must start with extreme-, such as extreme-0015****.
-   * - CPFS (locally redundant): Must start with cpfs-, such as cpfs-125487****.
-   * - CPFS SE (zone-redundant): Must start with cpfsse-, such as cpfsse-022c71b134****.
+   * - Extreme NAS: must start with extreme-, such as extreme-0015****.
+   * - Cloud Parallel File Storage (CPFS) (locally redundant): must start with cpfs-, such as cpfs-125487****.
+   * - CPFS SE (zone-redundant): must start with cpfsse-, such as cpfsse-022c71b134****.
    * 
    * @example
    * 31a8e4****
@@ -99,7 +99,7 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of file systems on each page in a paging query.
+   * The number of file systems on each page during a paged query.
    * 
    * Valid values: 1 to 100.
    * 
@@ -119,6 +119,7 @@ export class DescribeFileSystemsRequest extends $dara.Model {
    * rg-acfmwavnfef****
    */
   resourceGroupId?: string;
+  storageType?: string;
   /**
    * @remarks
    * The tag information.
@@ -141,6 +142,7 @@ export class DescribeFileSystemsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
+      storageType: 'StorageType',
       tag: 'Tag',
       vpcId: 'VpcId',
     };
@@ -153,6 +155,7 @@ export class DescribeFileSystemsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
+      storageType: 'string',
       tag: { 'type': 'array', 'itemType': DescribeFileSystemsRequestTag },
       vpcId: 'string',
     };

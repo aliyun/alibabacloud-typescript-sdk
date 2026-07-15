@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara.Model {
   /**
    * @remarks
-   * The size of the archived data that is dumped to the recycle bin. Unit: bytes.
+   * The storage usage of archived data in the recycle bin. Unit: bytes.
    * 
    * @example
    * 1611661312
@@ -13,7 +13,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   archiveSize?: number;
   /**
    * @remarks
-   * The time at which the recycle bin was enabled.
+   * The time when the recycle bin was enabled. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2021-05-30T10:08:08Z
@@ -21,9 +21,9 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   enableTime?: string;
   /**
    * @remarks
-   * The retention period of the files in the recycle bin. Unit: days.
+   * The retention period of files in the recycle bin. Unit: days.
    * 
-   * If the recycle bin is disabled, 0 is returned for this parameter.
+   * If the recycle bin is disabled, this parameter returns 0.
    * 
    * @example
    * 0
@@ -31,7 +31,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   reservedDays?: number;
   /**
    * @remarks
-   * The size of the Infrequent Access (IA) data that is dumped to the recycle bin. Unit: bytes.
+   * The storage usage of Infrequent Access (IA) data in the recycle bin. Unit: bytes.
    * 
    * @example
    * 100
@@ -39,7 +39,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   secondarySize?: number;
   /**
    * @remarks
-   * The size of the files that are dumped to the recycle bin. Unit: bytes.
+   * The storage usage of files in the recycle bin. Unit: bytes.
    * 
    * @example
    * 100
@@ -47,12 +47,12 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   size?: number;
   /**
    * @remarks
-   * The status of the recycle bin.
+   * The recycle bin status.
    * 
    * Valid values:
    * 
-   * *   Enable: The recycle bin is enabled.
-   * *   Disable: The recycle bin is disabled.
+   * - Enable: The recycle bin is enabled.
+   * - Disable: The recycle bin is disabled.
    * 
    * @example
    * Disable
@@ -92,7 +92,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
 export class GetRecycleBinAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the recycle bin.
+   * The recycle bin description.
    */
   recycleBinAttribute?: GetRecycleBinAttributeResponseBodyRecycleBinAttribute;
   /**

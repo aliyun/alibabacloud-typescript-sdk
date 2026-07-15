@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends $dara.Model {
   /**
    * @remarks
-   * The permission group that is associated with the export directory of the protocol service.
+   * The permission group associated with the protocol service export directory.
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -13,7 +13,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   accessGroupName?: string;
   /**
    * @remarks
-   * The time when the export directory of the protocol service was created.
+   * The time when the protocol service export directory was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2018-12-12T07:28:38Z
@@ -21,7 +21,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   createTime?: string;
   /**
    * @remarks
-   * The description of the export directory for the protocol service.
+   * The description of the protocol service export directory.
    * 
    * @example
    * 此协议服务导出目录的描述。
@@ -29,7 +29,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   description?: string;
   /**
    * @remarks
-   * The ID of the export directory for the protocol service.
+   * The ID of the protocol service export directory.
    * 
    * @example
    * exp-19abf5beab8d****
@@ -37,7 +37,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   exportId?: string;
   /**
    * @remarks
-   * The fileset ID of the export directory for the protocol service.
+   * The fileset ID of the protocol service export directory.
    * 
    * @example
    * fset-1902718ea0ae****
@@ -45,7 +45,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   fsetId?: string;
   /**
    * @remarks
-   * The export directory of the protocol service.
+   * The exported directory of the protocol service.
    * 
    * @example
    * /path/
@@ -53,7 +53,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   path?: string;
   /**
    * @remarks
-   * The domain name of the export directory for the protocol service.
+   * The domain name of the protocol service export directory.
    * 
    * @example
    * cpfs-123****.cn-hangzhou.cpfs.aliyuncs.com
@@ -61,7 +61,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   protocolMountTargetDomain?: string;
   /**
    * @remarks
-   * The ID of the protocol service.
+   * The protocol service ID.
    * 
    * @example
    * ptc-123****
@@ -77,7 +77,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   protocolType?: string;
   /**
    * @remarks
-   * The status of the mount target.
+   * The mount target status.
    * 
    * @example
    * CREATING
@@ -85,7 +85,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID of the export directory for the protocol service.
+   * The vSwitch ID of the protocol service export directory.
    * 
    * @example
    * vsw-2vc3c2lybvdllxyq4****
@@ -93,12 +93,12 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
   vSwitchId?: string;
   /**
    * @remarks
-   * A list of IDs for the zone-redundant vSwitches.
+   * The list of zone-redundant vSwitch IDs.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID of the export directory for the protocol service.
+   * The VPC ID of the protocol service export directory.
    * 
    * @example
    * vpc-2vct297b8157bth9z****
@@ -155,7 +155,7 @@ export class DescribeProtocolMountTargetResponseBodyProtocolMountTargets extends
 export class DescribeProtocolMountTargetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The marker used to retrieve the remaining export directories in subsequent queries.
    * 
    * @example
    * aBcdeg==
@@ -163,7 +163,7 @@ export class DescribeProtocolMountTargetResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The export directories of the protocol service.
+   * The collection of protocol service export directories.
    */
   protocolMountTargets?: DescribeProtocolMountTargetResponseBodyProtocolMountTargets[];
   /**

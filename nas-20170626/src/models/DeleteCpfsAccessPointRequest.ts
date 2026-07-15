@@ -2,26 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetRecycleBinAttributeRequest extends $dara.Model {
+export class DeleteCpfsAccessPointRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 1ca404****
+   * ap-ie15yd****
+   */
+  accessPointId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bmcpfs-099394bd928c****
    */
   fileSystemId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessPointId: 'AccessPointId',
       fileSystemId: 'FileSystemId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessPointId: 'string',
       fileSystemId: 'string',
+      regionId: 'string',
     };
   }
 

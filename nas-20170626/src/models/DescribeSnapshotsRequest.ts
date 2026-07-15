@@ -13,9 +13,9 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The type of the file system.
+   * The file system type.
    * 
-   * Valid value: extreme, which indicates Extreme File Storage NAS (NAS) file systems.
+   * Valid values: extreme (Extreme NAS file system)
    * 
    * @example
    * extreme
@@ -23,9 +23,9 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the snapshot list.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query. Settings for the number of rows per page in paging.
    * 
    * Valid values: 1 to 100.
    * 
@@ -47,7 +47,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
    * @remarks
    * The snapshot IDs.
    * 
-   * You can specify a maximum of 100 snapshot IDs. You must separate snapshot IDs with commas (,).
+   * You can specify multiple snapshot IDs separated by commas (,). A maximum of 100 IDs are supported.
    * 
    * @example
    * s-extreme-67pxwk9aevrkr****,s-extreme-snapsho****,s-extreme-6tmsbas6ljhwh****
@@ -63,13 +63,12 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotName?: string;
   /**
    * @remarks
-   * The type of the snapshot.
+   * The snapshot type.
    * 
    * Valid values:
-   * 
-   * *   auto: auto snapshot
-   * *   user: manual snapshot
-   * *   all (default): all snapshot types
+   * - auto: automatic snapshot
+   * - user: manually created snapshot
+   * - all (default): all snapshot types
    * 
    * @example
    * all
@@ -77,14 +76,14 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The status of the snapshot.
+   * The snapshot status.
    * 
    * Valid values:
    * 
-   * *   progressing: The snapshot is being created.
-   * *   accomplished: The snapshot is created.
-   * *   failed: The snapshot fails to be created.
-   * *   all (default): all snapshot states.
+   * - progressing: The snapshot is being created.
+   * - accomplished: The snapshot is created.
+   * - failed: The snapshot failed to be created.
+   * - all (default): all snapshot statuses
    * 
    * @example
    * all
