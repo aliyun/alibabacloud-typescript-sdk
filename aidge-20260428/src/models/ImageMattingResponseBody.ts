@@ -21,7 +21,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The quality score of the matting result.
+   * The matting quality score.
    * 
    * @example
    * 0.11
@@ -107,7 +107,7 @@ export class ImageMattingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * - true: Successful.
    * - false: Failed.
    * 

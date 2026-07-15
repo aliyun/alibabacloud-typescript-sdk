@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DocumentTranslateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the asynchronous task. Use this ID to query the task status and result.
+   * The unique identifier of the asynchronous task, used to query the task status and result.
    * 
    * @example
    * 6071a030-5c92-9df1-96d0-44952343439a
@@ -48,7 +48,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   data?: DocumentTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. Not returned for successful calls.
    * 
    * @example
    * Success
@@ -64,9 +64,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
    * 
    * @example
    * True

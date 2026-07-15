@@ -4,8 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class TextTranslateRequest extends $dara.Model {
   /**
+   * @example
+   * MyCompany-Chat
+   */
+  bizName?: string;
+  /**
    * @remarks
-   * The format type of the source text. Optional. Valid values: text (plain text format) and html (web page format that preserves HTML tags).
+   * The format type of the source text. This parameter is optional. Valid values: text (plain text format) and html (web page format that preserves HTML tags).
    * 
    * @example
    * text
@@ -13,7 +18,7 @@ export class TextTranslateRequest extends $dara.Model {
   formatType?: string;
   /**
    * @remarks
-   * The intervention glossary ID. Optional. Create the glossary in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
+   * The intervention glossary ID. This parameter is optional. The glossary must be created separately in the console and its ID provided here. If the glossary ID is empty, the translation result is not modified.
    * 
    * @example
    * glossary_1
@@ -21,7 +26,7 @@ export class TextTranslateRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * The source language code. Optional. If not specified, the language is automatically detected. Set to auto for automatic language detection.
+   * The source language code. This parameter is optional. If not specified, the language is automatically detected. You can pass auto for language detection.
    * 
    * @example
    * auto
@@ -29,7 +34,7 @@ export class TextTranslateRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The list of texts to translate. Required. The total character length cannot exceed 50,000, and the list length cannot exceed 50.
+   * The list of texts to translate. This parameter is required. The total character length cannot exceed 50,000, and the list length cannot exceed 50.
    * 
    * This parameter is required.
    * 
@@ -39,7 +44,7 @@ export class TextTranslateRequest extends $dara.Model {
   sourceTextList?: string[];
   /**
    * @remarks
-   * The target language code. Required. More than 100 language directions are supported. For details, refer to the supported language directions list.
+   * The target language code. This parameter is required. More than 100 language directions are supported. For details, refer to the supported language directions list.
    * 
    * This parameter is required.
    * 
@@ -47,23 +52,32 @@ export class TextTranslateRequest extends $dara.Model {
    * ko
    */
   targetLanguage?: string;
+  /**
+   * @example
+   * e-commerce-title
+   */
+  translateScene?: string;
   static names(): { [key: string]: string } {
     return {
+      bizName: 'BizName',
       formatType: 'FormatType',
       glossary: 'Glossary',
       sourceLanguage: 'SourceLanguage',
       sourceTextList: 'SourceTextList',
       targetLanguage: 'TargetLanguage',
+      translateScene: 'TranslateScene',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizName: 'string',
       formatType: 'string',
       glossary: 'string',
       sourceLanguage: 'string',
       sourceTextList: { 'type': 'array', 'itemType': 'string' },
       targetLanguage: 'string',
+      translateScene: 'string',
     };
   }
 

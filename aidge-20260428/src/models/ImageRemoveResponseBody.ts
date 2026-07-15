@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemoveResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Height of the result image (pixels)
+   * The height of the result image, in pixels.
    * 
    * @example
    * 800
@@ -13,7 +13,7 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * URL of the removal result image
+   * The URL of the result image after erasure.
    * 
    * @example
    * http://dashscope-7c2c.oss-cn-shanghai.aliyuncs.com/xxx.jpg
@@ -21,7 +21,7 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Usage information
+   * The usage information.
    * 
    * @example
    * {"ProcessedImageCount":1}
@@ -29,7 +29,7 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
   usageMap?: { [key: string]: number };
   /**
    * @remarks
-   * Width of the result image (pixels)
+   * The width of the result image, in pixels.
    * 
    * @example
    * 800
@@ -68,7 +68,7 @@ export class ImageRemoveResponseBodyData extends $dara.Model {
 export class ImageRemoveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 200
@@ -76,12 +76,12 @@ export class ImageRemoveResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Intelligent removal result
+   * The intelligent erasure result.
    */
   data?: ImageRemoveResponseBodyData;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * OK
@@ -97,7 +97,7 @@ export class ImageRemoveResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the call was successful
+   * Indicates whether the call was successful.
    * 
    * @example
    * True

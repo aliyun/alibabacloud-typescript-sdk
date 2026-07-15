@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ImageTranslationPlusResponseBody } from "./ImageTranslationPlusResponseBody";
+import { ImageRemovalProResponseBody } from "./ImageRemovalProResponseBody";
 
 
-export class ImageTranslationPlusResponse extends $dara.Model {
+export class ImageRemovalProResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: ImageTranslationPlusResponseBody;
+  body?: ImageRemovalProResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class ImageTranslationPlusResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: ImageTranslationPlusResponseBody,
+      body: ImageRemovalProResponseBody,
     };
   }
 

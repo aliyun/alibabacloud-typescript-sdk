@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
   /**
+   * @remarks
+   * The step result. Valid values: PASS, FAIL, and UNABLE_TO_JUDGE.
+   * 
    * @example
    * PASS
    */
   result?: string;
   /**
+   * @remarks
+   * The step ID.
+   * 
    * @example
    * XXX
    */
@@ -38,22 +44,38 @@ export class MaterialInspectionResponseBodyDataResultSteps extends $dara.Model {
 
 export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
   /**
+   * @remarks
+   * The natural language summary, such as "1 rule: 1 PASS, all inspection items are compliant."
+   * 
    * @example
    * 1项规则：1 PASS，所有检测项合规
    */
   evidence?: string;
   /**
+   * @remarks
+   * The overall result. Valid values: PASS and FAIL.
+   * 
    * @example
    * PASS
    */
   overallResult?: string;
   /**
+   * @remarks
+   * The request ID returned as-is from the input.
+   * 
    * @example
    * req-001
    */
   reqId?: string;
+  /**
+   * @remarks
+   * The list of detection steps.
+   */
   steps?: MaterialInspectionResponseBodyDataResultSteps[];
   /**
+   * @remarks
+   * The detection type.
+   * 
    * @example
    * Stamp
    */
@@ -91,8 +113,15 @@ export class MaterialInspectionResponseBodyDataResult extends $dara.Model {
 }
 
 export class MaterialInspectionResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The inspection result.
+   */
   result?: MaterialInspectionResponseBodyDataResult;
   /**
+   * @remarks
+   * The usage information. The key is the usage metric name and the value is the count.
+   * 
    * @example
    * {"ProcessingCount":1}
    */
@@ -128,22 +157,38 @@ export class MaterialInspectionResponseBodyData extends $dara.Model {
 
 export class MaterialInspectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. This parameter is not returned for successful calls.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The material display detection result.
+   */
   data?: MaterialInspectionResponseBodyData;
   /**
+   * @remarks
+   * The error message. This parameter is not returned for successful calls.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
+   * 
    * @example
    * True
    */
