@@ -29,7 +29,7 @@ export class CarApplyAddResponseBody extends $dara.Model {
   module?: number;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique ID of the request.
    * 
    * @example
    * C61ECFF6-606B-5F66-B81D-D77369043A5F

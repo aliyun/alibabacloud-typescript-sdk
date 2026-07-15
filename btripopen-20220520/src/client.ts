@@ -1957,8 +1957,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Synchronizes an intra-city car service approval form for a specified enterprise.
-   * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
-   * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+   * 1. To use this operation, you must enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+   * 2. To use this operation, you must include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
    * 
    * @param tmpReq - CarApplyAddRequest
    * @param headers - CarApplyAddHeaders
@@ -2082,8 +2082,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Synchronizes an intra-city car service approval form for a specified enterprise.
-   * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
-   * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+   * 1. To use this operation, you must enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+   * 2. To use this operation, you must include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
    * 
    * @param request - CarApplyAddRequest
    * @returns CarApplyAddResponse
@@ -4407,6 +4407,80 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.EstimatedPriceQueryHeaders({ });
     return await this.estimatedPriceQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 预估价格查询v2.0
+   * 
+   * @param request - EstimatedPriceQueryV2Request
+   * @param headers - EstimatedPriceQueryV2Headers
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EstimatedPriceQueryV2Response
+   */
+  async estimatedPriceQueryV2WithOptions(request: $_model.EstimatedPriceQueryV2Request, headers: $_model.EstimatedPriceQueryV2Headers, runtime: $dara.RuntimeOptions): Promise<$_model.EstimatedPriceQueryV2Response> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["biz_type"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.departDate)) {
+      query["depart_date"] = request.departDate;
+    }
+
+    if (!$dara.isNull(request.fromCity)) {
+      query["from_city"] = request.fromCity;
+    }
+
+    if (!$dara.isNull(request.leaveDate)) {
+      query["leave_date"] = request.leaveDate;
+    }
+
+    if (!$dara.isNull(request.toCity)) {
+      query["to_city"] = request.toCity;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["user_id"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripSoCorpToken)) {
+      realHeaders["x-acs-btrip-so-corp-token"] = String(headers.xAcsBtripSoCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EstimatedPriceQueryV2",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/costcenter/v3/estimated-price`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EstimatedPriceQueryV2Response>(await this.callApi(params, req, runtime), new $_model.EstimatedPriceQueryV2Response({}));
+  }
+
+  /**
+   * 预估价格查询v2.0
+   * 
+   * @param request - EstimatedPriceQueryV2Request
+   * @returns EstimatedPriceQueryV2Response
+   */
+  async estimatedPriceQueryV2(request: $_model.EstimatedPriceQueryV2Request): Promise<$_model.EstimatedPriceQueryV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.EstimatedPriceQueryV2Headers({ });
+    return await this.estimatedPriceQueryV2WithOptions(request, headers, runtime);
   }
 
   /**

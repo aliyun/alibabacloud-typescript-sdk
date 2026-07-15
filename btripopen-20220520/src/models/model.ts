@@ -210,6 +210,7 @@ export { EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive
 export { EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes } from './EstimatedPriceQueryResponseBody';
 export { EstimatedPriceQueryResponseBodyModuleTrafficFee } from './EstimatedPriceQueryResponseBody';
 export { EstimatedPriceQueryResponseBodyModule } from './EstimatedPriceQueryResponseBody';
+export { EstimatedPriceQueryV2ResponseBodyModule } from './EstimatedPriceQueryV2responseBody';
 export { ExternalUserAddRequestCertRequestList } from './ExternalUserAddRequest';
 export { ExternalUserQueryResponseBodyModule } from './ExternalUserQueryResponseBody';
 export { ExternalUserUpdateRequestCertRequestList } from './ExternalUserUpdateRequest';
@@ -1124,6 +1125,7 @@ export { VatInvoiceScanQueryResponseBodyModuleItems } from './VatInvoiceScanQuer
 export { VatInvoiceScanQueryResponseBodyModule } from './VatInvoiceScanQueryResponseBody';
 export { WaitApplyInvoiceTaskDetailQueryResponseBodyModule } from './WaitApplyInvoiceTaskDetailQueryResponseBody';
 export { KeywordSuggestInfo } from './KeywordSuggestInfo';
+export { ModulePriceMapValue } from './ModulePriceMapValue';
 export { ModuleFlightItemListBestPriceItemFlightRuleInfosValue } from './ModuleFlightItemListBestPriceItemFlightRuleInfosValue';
 export { ModuleFlightItemListBestPriceItemShoppingItemMapValue } from './ModuleFlightItemListBestPriceItemShoppingItemMapValue';
 export { ModuleFlightItemListBestPriceItemSubItemPositionMapValue } from './ModuleFlightItemListBestPriceItemSubItemPositionMapValue';
@@ -1396,6 +1398,10 @@ export { EstimatedPriceQueryHeaders } from './EstimatedPriceQueryHeaders';
 export { EstimatedPriceQueryRequest } from './EstimatedPriceQueryRequest';
 export { EstimatedPriceQueryResponseBody } from './EstimatedPriceQueryResponseBody';
 export { EstimatedPriceQueryResponse } from './EstimatedPriceQueryResponse';
+export { EstimatedPriceQueryV2Headers } from './EstimatedPriceQueryV2headers';
+export { EstimatedPriceQueryV2Request } from './EstimatedPriceQueryV2request';
+export { EstimatedPriceQueryV2ResponseBody } from './EstimatedPriceQueryV2responseBody';
+export { EstimatedPriceQueryV2Response } from './EstimatedPriceQueryV2response';
 export { ExceedApplySyncHeaders } from './ExceedApplySyncHeaders';
 export { ExceedApplySyncRequest } from './ExceedApplySyncRequest';
 export { ExceedApplySyncResponseBody } from './ExceedApplySyncResponseBody';
