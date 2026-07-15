@@ -7191,12 +7191,28 @@ export default class Client extends OpenApi {
       query["Audience"] = request.audience;
     }
 
+    if (!$dara.isNull(request.grantType)) {
+      query["GrantType"] = request.grantType;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.requestedTokenType)) {
+      query["RequestedTokenType"] = request.requestedTokenType;
+    }
+
     if (!$dara.isNull(request.scopeValues)) {
       query["ScopeValues"] = request.scopeValues;
+    }
+
+    if (!$dara.isNull(request.subjectToken)) {
+      query["SubjectToken"] = request.subjectToken;
+    }
+
+    if (!$dara.isNull(request.subjectTokenType)) {
+      query["SubjectTokenType"] = request.subjectTokenType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

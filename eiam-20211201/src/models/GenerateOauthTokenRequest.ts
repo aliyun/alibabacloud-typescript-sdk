@@ -23,6 +23,7 @@ export class GenerateOauthTokenRequest extends $dara.Model {
    * https://example.com
    */
   audience?: string;
+  grantType?: string;
   /**
    * @remarks
    * The instance ID.
@@ -33,6 +34,7 @@ export class GenerateOauthTokenRequest extends $dara.Model {
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  requestedTokenType?: string;
   /**
    * @remarks
    * The permission scopes.
@@ -40,12 +42,18 @@ export class GenerateOauthTokenRequest extends $dara.Model {
    * This parameter is required.
    */
   scopeValues?: string[];
+  subjectToken?: string;
+  subjectTokenType?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
       audience: 'Audience',
+      grantType: 'GrantType',
       instanceId: 'InstanceId',
+      requestedTokenType: 'RequestedTokenType',
       scopeValues: 'ScopeValues',
+      subjectToken: 'SubjectToken',
+      subjectTokenType: 'SubjectTokenType',
     };
   }
 
@@ -53,8 +61,12 @@ export class GenerateOauthTokenRequest extends $dara.Model {
     return {
       applicationId: 'string',
       audience: 'string',
+      grantType: 'string',
       instanceId: 'string',
+      requestedTokenType: 'string',
       scopeValues: { 'type': 'array', 'itemType': 'string' },
+      subjectToken: 'string',
+      subjectTokenType: 'string',
     };
   }
 

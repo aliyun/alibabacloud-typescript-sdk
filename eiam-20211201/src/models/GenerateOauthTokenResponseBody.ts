@@ -13,7 +13,7 @@ export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The expiration time, in UNIX timestamp format. Unit: seconds.
+   * The expiration time, in UNIX timestamp format, in seconds.
    * 
    * @example
    * 1770186372
@@ -27,6 +27,7 @@ export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
    * 1200
    */
   expiresIn?: number;
+  issuedTokenType?: string;
   /**
    * @remarks
    * The token type. Currently, only Bearer is supported.
@@ -40,6 +41,7 @@ export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
       accessToken: 'AccessToken',
       expiresAt: 'ExpiresAt',
       expiresIn: 'ExpiresIn',
+      issuedTokenType: 'IssuedTokenType',
       tokenType: 'TokenType',
     };
   }
@@ -49,6 +51,7 @@ export class GenerateOauthTokenResponseBodyTokenResponse extends $dara.Model {
       accessToken: 'string',
       expiresAt: 'number',
       expiresIn: 'number',
+      issuedTokenType: 'string',
       tokenType: 'string',
     };
   }
