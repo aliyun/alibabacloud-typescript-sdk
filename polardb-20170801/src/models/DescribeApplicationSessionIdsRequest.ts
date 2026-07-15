@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeApplicationLogsRequest extends $dara.Model {
+export class DescribeApplicationSessionIdsRequest extends $dara.Model {
   /**
    * @remarks
    * The application ID.
@@ -15,62 +15,30 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The instance ID of the subcomponent.
-   * 
-   * @example
-   * pac-xxx
-   */
-  componentName?: string;
-  /**
-   * @remarks
-   * The container name.
-   * 
-   * @example
-   * analytics
-   */
-  containerName?: string;
-  /**
-   * @remarks
-   * The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+   * The end of the time range to query.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2026-03-25T02:11Z
+   * 2020-02-01T18:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The search keyword. This parameter is used for PolarClaw instances.
-   * 
-   * @example
-   * Config
-   */
-  keyword?: string;
-  /**
-   * @remarks
-   * The log level. This parameter is used for PolarClaw instances.
-   * 
-   * @example
-   * WARN
-   */
-  level?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number.
    * 
    * @example
-   * 3
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **30**. Valid values: 30 to 100.
+   * The number of entries per page.
    * 
    * @example
-   * 100
+   * 30
    */
   pageSize?: number;
   /**
@@ -91,25 +59,13 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2026-03-25T01:57Z
+   * 2022-11-15T16:00Z
    */
   startTime?: string;
-  /**
-   * @remarks
-   * The log type. This parameter is used for PolarClaw instances. Currently, only gateway is supported.
-   * 
-   * @example
-   * gateway
-   */
-  type?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
-      componentName: 'ComponentName',
-      containerName: 'ContainerName',
       endTime: 'EndTime',
-      keyword: 'Keyword',
-      level: 'Level',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -117,18 +73,13 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       startTime: 'StartTime',
-      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
-      componentName: 'string',
-      containerName: 'string',
       endTime: 'string',
-      keyword: 'string',
-      level: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -136,7 +87,6 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       startTime: 'string',
-      type: 'string',
     };
   }
 

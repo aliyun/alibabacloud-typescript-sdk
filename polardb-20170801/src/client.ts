@@ -10683,6 +10683,14 @@ export default class Client extends OpenApi {
       query["ConsumerGroup"] = request.consumerGroup;
     }
 
+    if (!$dara.isNull(request.downsample)) {
+      query["Downsample"] = request.downsample;
+    }
+
+    if (!$dara.isNull(request.endStep)) {
+      query["EndStep"] = request.endStep;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
@@ -10695,8 +10703,16 @@ export default class Client extends OpenApi {
       query["Key"] = request.key;
     }
 
+    if (!$dara.isNull(request.maxPoints)) {
+      query["MaxPoints"] = request.maxPoints;
+    }
+
     if (!$dara.isNull(request.modelService)) {
       query["ModelService"] = request.modelService;
+    }
+
+    if (!$dara.isNull(request.startStep)) {
+      query["StartStep"] = request.startStep;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -10821,6 +10837,80 @@ export default class Client extends OpenApi {
   async describeApplicationServerlessConf(request: $_model.DescribeApplicationServerlessConfRequest): Promise<$_model.DescribeApplicationServerlessConfResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeApplicationServerlessConfWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries AI application sessions.
+   * 
+   * @param request - DescribeApplicationSessionIdsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationSessionIdsResponse
+   */
+  async describeApplicationSessionIdsWithOptions(request: $_model.DescribeApplicationSessionIdsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationSessionIdsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationSessionIds",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationSessionIdsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationSessionIdsResponse({}));
+  }
+
+  /**
+   * Queries AI application sessions.
+   * 
+   * @param request - DescribeApplicationSessionIdsRequest
+   * @returns DescribeApplicationSessionIdsResponse
+   */
+  async describeApplicationSessionIds(request: $_model.DescribeApplicationSessionIdsRequest): Promise<$_model.DescribeApplicationSessionIdsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationSessionIdsWithOptions(request, runtime);
   }
 
   /**

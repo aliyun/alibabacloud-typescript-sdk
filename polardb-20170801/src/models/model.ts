@@ -103,6 +103,8 @@ export { DescribeApplicationPerformanceResponseBodyPerformanceKeysPerformanceIte
 export { DescribeApplicationPerformanceResponseBodyPerformanceKeys } from './DescribeApplicationPerformanceResponseBody';
 export { DescribeApplicationPromptsResponseBodyItems } from './DescribeApplicationPromptsResponseBody';
 export { DescribeApplicationServerlessConfResponseBodyServerlessConfItems } from './DescribeApplicationServerlessConfResponseBody';
+export { DescribeApplicationSessionIdsResponseBodyItemsItems } from './DescribeApplicationSessionIdsResponseBody';
+export { DescribeApplicationSessionIdsResponseBodyItems } from './DescribeApplicationSessionIdsResponseBody';
 export { DescribeApplicationsRequestTag } from './DescribeApplicationsRequest';
 export { DescribeApplicationsResponseBodyItemsApplicationsEndpointsEndpoint } from './DescribeApplicationsResponseBody';
 export { DescribeApplicationsResponseBodyItemsApplicationsEndpoints } from './DescribeApplicationsResponseBody';
@@ -853,6 +855,9 @@ export { DescribeApplicationPromptsResponse } from './DescribeApplicationPrompts
 export { DescribeApplicationServerlessConfRequest } from './DescribeApplicationServerlessConfRequest';
 export { DescribeApplicationServerlessConfResponseBody } from './DescribeApplicationServerlessConfResponseBody';
 export { DescribeApplicationServerlessConfResponse } from './DescribeApplicationServerlessConfResponse';
+export { DescribeApplicationSessionIdsRequest } from './DescribeApplicationSessionIdsRequest';
+export { DescribeApplicationSessionIdsResponseBody } from './DescribeApplicationSessionIdsResponseBody';
+export { DescribeApplicationSessionIdsResponse } from './DescribeApplicationSessionIdsResponse';
 export { DescribeApplicationsRequest } from './DescribeApplicationsRequest';
 export { DescribeApplicationsResponseBody } from './DescribeApplicationsResponseBody';
 export { DescribeApplicationsResponse } from './DescribeApplicationsResponse';

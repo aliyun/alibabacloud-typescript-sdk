@@ -29,6 +29,8 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
    * cg-xxxxxx
    */
   consumerGroup?: string;
+  downsample?: string;
+  endStep?: number;
   /**
    * @remarks
    * The end time for the query. Specify the time in UTC in the `yyyy-MM-ddTHH:mmZ` format.
@@ -71,6 +73,7 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
    * PolarDBSupabaseMemUsage
    */
   key?: string;
+  maxPoints?: number;
   /**
    * @remarks
    * The ID of the model service.
@@ -79,6 +82,7 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
    * ms-xxxxxx
    */
   modelService?: string;
+  startStep?: number;
   /**
    * @remarks
    * The start time for the query. Specify the time in UTC in the `yyyy-MM-ddTHH:mmZ` format.
@@ -94,10 +98,14 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       consumer: 'Consumer',
       consumerGroup: 'ConsumerGroup',
+      downsample: 'Downsample',
+      endStep: 'EndStep',
       endTime: 'EndTime',
       interval: 'Interval',
       key: 'Key',
+      maxPoints: 'MaxPoints',
       modelService: 'ModelService',
+      startStep: 'StartStep',
       startTime: 'StartTime',
     };
   }
@@ -107,10 +115,14 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
       applicationId: 'string',
       consumer: 'string',
       consumerGroup: 'string',
+      downsample: 'string',
+      endStep: 'number',
       endTime: 'string',
       interval: 'string',
       key: 'string',
+      maxPoints: 'number',
       modelService: 'string',
+      startStep: 'number',
       startTime: 'string',
     };
   }

@@ -11,6 +11,7 @@ export class DescribeApplicationLogsResponseBodyItemsLogRecords extends $dara.Mo
   fileName?: string;
   fullFilePath?: string;
   hostname?: string;
+  insName?: string;
   logLevelId?: number;
   logLevelName?: string;
   method?: string;
@@ -18,6 +19,7 @@ export class DescribeApplicationLogsResponseBodyItemsLogRecords extends $dara.Mo
   runtime?: string;
   runtimeVersion?: string;
   time?: string;
+  timestamp?: number;
   static names(): { [key: string]: string } {
     return {
       componentName: 'ComponentName',
@@ -28,6 +30,7 @@ export class DescribeApplicationLogsResponseBodyItemsLogRecords extends $dara.Mo
       fileName: 'FileName',
       fullFilePath: 'FullFilePath',
       hostname: 'Hostname',
+      insName: 'InsName',
       logLevelId: 'LogLevelId',
       logLevelName: 'LogLevelName',
       method: 'Method',
@@ -35,6 +38,7 @@ export class DescribeApplicationLogsResponseBodyItemsLogRecords extends $dara.Mo
       runtime: 'Runtime',
       runtimeVersion: 'RuntimeVersion',
       time: 'Time',
+      timestamp: 'Timestamp',
     };
   }
 
@@ -48,6 +52,7 @@ export class DescribeApplicationLogsResponseBodyItemsLogRecords extends $dara.Mo
       fileName: 'string',
       fullFilePath: 'string',
       hostname: 'string',
+      insName: 'string',
       logLevelId: 'number',
       logLevelName: 'string',
       method: 'string',
@@ -55,6 +60,7 @@ export class DescribeApplicationLogsResponseBodyItemsLogRecords extends $dara.Mo
       runtime: 'string',
       runtimeVersion: 'string',
       time: 'string',
+      timestamp: 'number',
     };
   }
 

@@ -3,10 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApplicationPerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue extends $dara.Model {
+  step?: number;
   timestamp?: number;
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      step: 'Step',
       timestamp: 'Timestamp',
       value: 'Value',
     };
@@ -14,6 +16,7 @@ export class DescribeApplicationPerformanceResponseBodyPerformanceKeysPerformanc
 
   static types(): { [key: string]: any } {
     return {
+      step: 'number',
       timestamp: 'number',
       value: 'string',
     };
@@ -143,6 +146,7 @@ export class DescribeApplicationPerformanceResponseBody extends $dara.Model {
    * 2025-05-23T02:21:00Z
    */
   endTime?: string;
+  interval?: string;
   /**
    * @remarks
    * The performance metrics.
@@ -169,6 +173,7 @@ export class DescribeApplicationPerformanceResponseBody extends $dara.Model {
       applicationId: 'ApplicationId',
       applicationType: 'ApplicationType',
       endTime: 'EndTime',
+      interval: 'Interval',
       performanceKeys: 'PerformanceKeys',
       requestId: 'RequestId',
       startTime: 'StartTime',
@@ -180,6 +185,7 @@ export class DescribeApplicationPerformanceResponseBody extends $dara.Model {
       applicationId: 'string',
       applicationType: 'string',
       endTime: 'string',
+      interval: 'string',
       performanceKeys: DescribeApplicationPerformanceResponseBodyPerformanceKeys,
       requestId: 'string',
       startTime: 'string',
