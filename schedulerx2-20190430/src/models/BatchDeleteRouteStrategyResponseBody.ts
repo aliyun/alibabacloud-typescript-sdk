@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteRouteStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class BatchDeleteRouteStrategyResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The returned message.
    * 
    * @example
    * job is not existed, jobId=162837
@@ -29,10 +29,11 @@ export class BatchDeleteRouteStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * true: The request was successful.
-   * false: The request failed.
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

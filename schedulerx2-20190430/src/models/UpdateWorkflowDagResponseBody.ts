@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkflowDagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The Return Code.
    * 
    * @example
    * 200
@@ -13,12 +13,12 @@ export class UpdateWorkflowDagResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned error message.
+   * The Error Message returned on failure.
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The Request ID.
    * 
    * @example
    * 39090022-1F3B-4797-8518-6B61095F1AF0
@@ -26,10 +26,11 @@ export class UpdateWorkflowDagResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call succeeded. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The API call succeeded.
+   * 
+   * - false: The API call failed.
    * 
    * @example
    * true

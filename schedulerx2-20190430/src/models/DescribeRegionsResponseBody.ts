@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The display name of the region, which varies based on the current language.
+   * The display name of the region. This value varies based on the language specified in the request.
    * 
    * @example
-   * China (Hangzhou)
+   * Hangzhou
    */
   localName?: string;
   /**
    * @remarks
-   * The endpoint of the region.
+   * The service endpoint for the region.
    * 
    * @example
    * schedulerx.cn-hangzhou.aliyuncs.com
@@ -21,7 +21,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   regionEndpoint?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message that was returned only if the corresponding error occurred.
+   * The error message. This parameter is returned only if the request fails.
    * 
    * @example
    * disable failed jobs=[99341]
@@ -71,12 +71,12 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The available regions.
+   * A list of available regions.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4F68ABED-AC31-4412-9297-D9A8F0401108
@@ -84,10 +84,11 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true

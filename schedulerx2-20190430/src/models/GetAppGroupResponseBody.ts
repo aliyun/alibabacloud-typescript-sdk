@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AppKey of the application.
+   * The application\\"s AppKey.
    * 
    * @example
    * QI4lWMZ+xk1rNB67jFUhaw==
@@ -13,7 +13,7 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * DocTest
@@ -21,7 +21,7 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application version. 1: Basic version, 2: Professional version.
+   * The application version. Valid values:
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * The number of jobs that are configured for the application group.
+   * The number of jobs currently configured for the App Group.
    * 
    * @example
    * 1
@@ -37,16 +37,20 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
   curJobs?: number;
   /**
    * @remarks
-   * The description of the application.
+   * The application description.
    * 
    * @example
    * Test
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable log collection. The default value is false.
+   */
   enableLog?: boolean;
   /**
    * @remarks
-   * The ID of the application.
+   * The App Group ID.
    * 
    * @example
    * testSchedulerx.defaultGroup
@@ -54,7 +58,7 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The maximum number of jobs that can be configured for the application group.
+   * The maximum number of jobs that can be configured for the App Group.
    * 
    * @example
    * 1000
@@ -62,33 +66,43 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
   maxJobs?: number;
   /**
    * @remarks
-   * The alert notification configurations.
+   * The alarm notification configuration.
    * 
-   * >  For more information about this parameter, see the following **additional information about request parameters**.
+   * > For more information, see the **MonitorConfigJson** section below.
    * 
    * @example
-   * {"sendChannel":"sms,mail,ding"}
+   * {
+   *     "sendChannel": "ding,sms,mail,phone",
+   *     "alarmType": "Contacts",
+   *     "webhookIsAtAll": false
+   * }
    */
   monitorConfigJson?: string;
   /**
    * @remarks
-   * The alert contact configurations.
+   * The alarm contact configuration.
    * 
-   * >  For more information about this parameter, see the following **additional information about request parameters**.
+   * > For more information, see the **MonitorContactsJson** section below.
    * 
    * @example
-   * [ {"name": "Peter"}, {"name": "Paul"} ]
+   * [
+   *     {"name": "Alice Johnson"},
+   *     {"name": "Lee Smith"}
+   * ]
    */
   monitorContactsJson?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
    */
   namespace?: string;
   /**
+   * @remarks
+   * The name of the notification policy.
+   * 
    * @example
    * test-workday-notification
    */
@@ -139,7 +153,7 @@ export class GetAppGroupResponseBodyData extends $dara.Model {
 export class GetAppGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -147,12 +161,12 @@ export class GetAppGroupResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The information about the application group.
+   * The details of the App Group.
    */
   data?: GetAppGroupResponseBodyData;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The returned message.
    * 
    * @example
    * app is not existed, groupId=xxxx, namesapce=xxxx
@@ -160,7 +174,7 @@ export class GetAppGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 39090022-1F3B-4797-8518-6B61095F1AF0
@@ -171,6 +185,7 @@ export class GetAppGroupResponseBody extends $dara.Model {
    * Indicates whether the request was successful. Valid values:
    * 
    * - **true**: The request was successful.
+   * 
    * - **false**: The request failed.
    * 
    * @example

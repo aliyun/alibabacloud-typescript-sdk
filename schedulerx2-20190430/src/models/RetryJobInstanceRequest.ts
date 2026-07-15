@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetryJobInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
+   * The application group ID. You can obtain the application group ID on the Application Management page in the console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RetryJobInstanceRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RetryJobInstanceRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The job instance ID.
+   * The node instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RetryJobInstanceRequest extends $dara.Model {
   jobInstanceId?: number;
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+   * The namespace ID. You can obtain the namespace ID on the Namespace page in the console.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class RetryJobInstanceRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace. This parameter is required only for a special third party.
+   * This parameter is required only for special third-party users.
    * 
    * @example
    * schedulerx

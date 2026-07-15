@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
+   * The ID of the application group. You can find this ID on the **Application Management** page in the console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ExecuteWorkflowRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The dynamic parameter of the workflow instance. The value of the parameter can be up to 1,000 bytes in length.
+   * The dynamic parameters for the workflow instance. The value cannot exceed 1,000 bytes.
    * 
    * @example
    * test
@@ -23,7 +23,7 @@ export class ExecuteWorkflowRequest extends $dara.Model {
   instanceParameters?: string;
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+   * The ID of the namespace. You can find this ID on the **Namespace** page in the console.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ExecuteWorkflowRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace. This parameter is required only for a special third party.
+   * This parameter is required only for specific third-party integrations.
    * 
    * @example
    * schedulerx
@@ -41,7 +41,7 @@ export class ExecuteWorkflowRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The region information.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 

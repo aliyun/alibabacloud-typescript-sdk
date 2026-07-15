@@ -8,7 +8,7 @@ export class UpdateNamespaceRequest extends $dara.Model {
    * The description of the namespace.
    * 
    * @example
-   * Test
+   * Namespace reserved for testing
    */
   description?: string;
   /**
@@ -26,7 +26,7 @@ export class UpdateNamespaceRequest extends $dara.Model {
    * The name of the namespace.
    * 
    * @example
-   * test
+   * Test Namespace
    */
   namespaceName?: string;
   /**

@@ -30,7 +30,7 @@ export class GetJobInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 11111111
+   * 1685883418
    */
   jobInstanceId?: number;
   /**
@@ -53,6 +53,8 @@ export class GetJobInstanceRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
+   * Region ID
+   * 
    * This parameter is required.
    * 
    * @example

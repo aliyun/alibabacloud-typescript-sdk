@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application group.
+   * The application group ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetWorkFlowRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetWorkFlowRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace.
+   * The namespace source.
    * 
    * @example
    * source
@@ -33,7 +33,7 @@ export class GetWorkFlowRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The region information.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class GetWorkFlowRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the workflow.
+   * The workflow ID.
    * 
    * This parameter is required.
    * 

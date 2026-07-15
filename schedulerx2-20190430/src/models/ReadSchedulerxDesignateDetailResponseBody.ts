@@ -138,7 +138,7 @@ export class ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVosMetr
    * The used disk space in MB.
    * 
    * @example
-   * 0.14865875
+   * 148
    */
   diskUsed?: number;
   /**

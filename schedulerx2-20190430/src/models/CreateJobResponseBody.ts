@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The node ID.
    * 
    * @example
    * 92583
@@ -35,7 +35,7 @@ export class CreateJobResponseBodyData extends $dara.Model {
 export class CreateJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class CreateJobResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the job.
+   * The node details.
    */
   data?: CreateJobResponseBodyData;
   /**
    * @remarks
-   * The additional information returned.
+   * The additional information.
    * 
    * @example
    * message
@@ -64,10 +64,10 @@ export class CreateJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * If you set JobType to k8s, this parameter is required. Valid values:
+   * Indicates whether the node was created successfully. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The node was created successfully.
+   * - **false**: The node failed to be created.
    * 
    * @example
    * true

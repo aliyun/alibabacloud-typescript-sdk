@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNamespaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The UID of the namespace.
+   * The namespace UID.
    * 
    * @example
    * adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
@@ -35,7 +35,7 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
 export class CreateNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The information about the namespace.
+   * The namespace information.
    */
   data?: CreateNamespaceResponseBodyData;
   /**
    * @remarks
-   * The error message that is returned only if the corresponding error occurs.
+   * The error message returned if the request fails.
    * 
    * @example
    * namespace=test3 is existed, noting update
@@ -64,10 +64,11 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application was created. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The namespace was successfully created.
+   * 
+   * - **false**: The namespace failed to be created.
    * 
    * @example
    * true

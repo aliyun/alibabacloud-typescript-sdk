@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateJobResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information returned only if an error occurs.
+   * The additional information. The error message is returned only when a fault occurs.
    * 
    * @example
    * job type is java className can not be blank

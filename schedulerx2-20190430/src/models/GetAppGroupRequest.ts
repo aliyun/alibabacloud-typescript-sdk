@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+   * The App Group ID. You can obtain this ID on the **Application Management** page in the console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAppGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the namespace. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
+   * The namespace ID. You can obtain this ID on the **Namespaces** page in the console.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetAppGroupRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

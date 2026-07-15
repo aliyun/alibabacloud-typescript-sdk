@@ -61,8 +61,9 @@ export class ListWorkFlowsRequest extends $dara.Model {
    * @remarks
    * The job status.
    * 
-   * *   **0**: disables the job.
-   * *   **1**: enables the routing policy.
+   * - **0**: disables the job.
+   * 
+   * - **1**: enables the routing policy.
    * 
    * @example
    * 1
@@ -73,7 +74,7 @@ export class ListWorkFlowsRequest extends $dara.Model {
    * The workflow name.
    * 
    * @example
-   * test3
+   * Test3
    */
   workflowName?: string;
   static names(): { [key: string]: string } {

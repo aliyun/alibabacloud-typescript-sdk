@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+   * The ID of the Application. You can find this ID on the **Application Management** page in the Console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BatchDeleteJobsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The job IDs. Separate multiple job IDs with commas (,).
+   * The IDs of the Jobs to delete.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class BatchDeleteJobsRequest extends $dara.Model {
   jobIdList?: number[];
   /**
    * @remarks
-   * The ID of the namespace to which the job belongs. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
+   * The ID of the Namespace that contains the Jobs. You can find this ID on the **Namespace** page in the Console.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class BatchDeleteJobsRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace. This parameter is required only for a special third party.
+   * This parameter is required only for specific third-party integrations.
    * 
    * @example
    * Schedulerx
@@ -43,7 +43,7 @@ export class BatchDeleteJobsRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The ID of the region to which the job belongs.
+   * The Region where the Jobs are located.
    * 
    * This parameter is required.
    * 

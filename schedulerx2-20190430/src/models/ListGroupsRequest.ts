@@ -13,7 +13,7 @@ export class ListGroupsRequest extends $dara.Model {
   appGroupName?: string;
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
+   * The namespace. You can obtain the ID of the namespace on the **Namespace** page in the console.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListGroupsRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace. This parameter is required only for a special third party.
+   * This parameter is required only for specific third-party integrations.
    * 
    * @example
    * schedulerx
@@ -31,7 +31,7 @@ export class ListGroupsRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou

@@ -19,6 +19,10 @@ export class UpdateAppGroupRequest extends $dara.Model {
    * Test
    */
   description?: string;
+  /**
+   * @remarks
+   * Enable logging
+   */
   enableLog?: boolean;
   /**
    * @remarks
@@ -55,7 +59,10 @@ export class UpdateAppGroupRequest extends $dara.Model {
    * The configuration of alert contacts. The value is a JSON string.
    * 
    * @example
-   * [{"userName":"Tom","userPhone":"89756******"},{"userName":"Bob","ding":"http://www.example.com"}]
+   * [
+   *     {"name": "Alice Johnson"},
+   *     {"name": "Lee Smith"}
+   * ]
    */
   monitorContactsJson?: string;
   /**
@@ -69,6 +76,9 @@ export class UpdateAppGroupRequest extends $dara.Model {
    */
   namespace?: string;
   /**
+   * @remarks
+   * Notification policy name
+   * 
    * @example
    * test-workday-notification
    */

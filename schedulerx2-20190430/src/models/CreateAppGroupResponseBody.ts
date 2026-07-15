@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The job group ID.
+   * The Application Group ID.
    * 
    * @example
    * 6607
@@ -15,7 +15,7 @@ export class CreateAppGroupResponseBodyData extends $dara.Model {
   appGroupId?: number;
   /**
    * @remarks
-   * The AppKey for the application.
+   * The Application Key (AppKey).
    * 
    * @example
    * adcExHZviL******
@@ -47,7 +47,7 @@ export class CreateAppGroupResponseBodyData extends $dara.Model {
 export class CreateAppGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * 200
@@ -55,12 +55,12 @@ export class CreateAppGroupResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The information about the job group.
+   * Information about the created Application Group.
    */
   data?: CreateAppGroupResponseBodyData;
   /**
    * @remarks
-   * The error message that is returned only if the corresponding error occurs.
+   * The error message. Returned only when the request fails.
    * 
    * @example
    * Your request is denied as lack of ssl protect.
@@ -68,7 +68,7 @@ export class CreateAppGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier for the request.
    * 
    * @example
    * 883AFE93-FB03-4FA9-A958-E750C6DE120C
@@ -76,10 +76,11 @@ export class CreateAppGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application was created. Valid values:
+   * Indicates whether the Application Group was successfully created. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The Application Group was successfully created.
+   * 
+   * - **false**: The Application Group failed to be created.
    * 
    * @example
    * true

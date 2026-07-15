@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteWorkflowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The workflow instance ID.
+   * The ID of the workflow instance.
    * 
    * @example
    * 111111
@@ -35,7 +35,7 @@ export class ExecuteWorkflowResponseBodyData extends $dara.Model {
 export class ExecuteWorkflowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class ExecuteWorkflowResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * If the request is successful, the ID of the workflow instance is returned.
+   * The data returned for a successful request. It contains the workflow instance ID.
    */
   data?: ExecuteWorkflowResponseBodyData;
   /**
    * @remarks
-   * The error message that is returned only if the corresponding error occurs.
+   * The error message. This parameter is returned only if the request fails.
    * 
    * @example
    * Cannot find product according to your domain.
@@ -56,7 +56,7 @@ export class ExecuteWorkflowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 4F68ABED-AC31-4412-9297-D9A8F0401108

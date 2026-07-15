@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class BatchDeleteJobsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The additional information returned.
+   * The response message.
    * 
    * @example
    * message
@@ -21,7 +21,7 @@ export class BatchDeleteJobsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique Request ID.
    * 
    * @example
    * 71BCC0E3-64B2-4B63-A870-AFB64EBCB5A7
@@ -29,10 +29,11 @@ export class BatchDeleteJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether multiple jobs were deleted at a time. Valid values:
+   * Indicates if the operation succeeded. Valid values:
    * 
-   * *   **true**: Multiple jobs were deleted at a time.
-   * *   **false**: Multiple jobs were not deleted at a time.
+   * - **true**: The operation succeeded.
+   * 
+   * - **false**: The operation failed.
    * 
    * @example
    * true

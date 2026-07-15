@@ -24,7 +24,7 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $dara.Model
    * The user who executes the job.
    * 
    * @example
-   * A
+   * John Smith
    */
   executor?: string;
   /**
@@ -32,7 +32,7 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $dara.Model
    * The job instance ID.
    * 
    * @example
-   * 11111111
+   * 1189853849
    */
   instanceId?: number;
   /**
@@ -64,7 +64,7 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $dara.Model
    * The progress of the job instance.
    * 
    * @example
-   * complete
+   * {"taskProgress":[{"name":"MAP_TASK_ROOT","total":1,"pulled":1,"running":0,"success":0,"failed":0}],"workerProgress":[{"workerAddr":"11.122.241.245:34865","total":1,"pulled":1,"running":0,"success":0,"failed":0}]}
    */
   progress?: string;
   /**
@@ -72,7 +72,7 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $dara.Model
    * The execution results of the job instance.
    * 
    * @example
-   * success
+   * {\\"TotalSize\\": 31, \\"CurrentPage\\": 5, \\"PageSize\\": 10}
    */
   result?: string;
   /**
@@ -95,11 +95,15 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $dara.Model
    * @remarks
    * The state of the job instance. Valid values:
    * 
-   * *   **1**: The job instance is waiting for execution.
-   * *   **3**: The job instance is running.
-   * *   **4**: The job instance is successful.
-   * *   **5**: The job instance failed.
-   * *   **9**: The job instance is rejected.
+   * - **1**: The job instance is waiting for execution.
+   * 
+   * - **3**: The job instance is running.
+   * 
+   * - **4**: The job instance is successful.
+   * 
+   * - **5**: The job instance failed.
+   * 
+   * - **9**: The job instance is rejected.
    * 
    * Enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus
    * 
@@ -111,10 +115,13 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $dara.Model
    * @remarks
    * The method that is used to specify the time when to schedule the job instance. Valid values:
    * 
-   * *   **1**: cron
-   * *   **3**: fix_rate
-   * *   **4**: second_delay
-   * *   **100**: api
+   * - **1**: cron
+   * 
+   * - **3**: fix_rate
+   * 
+   * - **4**: second_delay
+   * 
+   * - **100**: api
    * 
    * Enumeration class: com.alibaba.schedulerx.common.domain.TimeType
    * 
@@ -134,16 +141,20 @@ export class GetJobInstanceResponseBodyDataJobInstanceDetail extends $dara.Model
    * @remarks
    * The trigger type of the job instance. Valid values:
    * 
-   * *   **1**: The job instance was triggered at the scheduled time.
-   * *   **2**: The job instance was triggered due to data update.
-   * *   **3**: The job instance was triggered by an API call.
-   * *   **4**: The job instance was triggered because it is manually rerun.
-   * *   **5**: The job instance was triggered because the system automatically reruns the job instance upon a system exception, such as a database exception.
+   * - **1**: The job instance was triggered at the scheduled time.
+   * 
+   * - **2**: The job instance was triggered due to data update.
+   * 
+   * - **3**: The job instance was triggered by an API call.
+   * 
+   * - **4**: The job instance was triggered because it is manually rerun.
+   * 
+   * - **5**: The job instance was triggered because the system automatically reruns the job instance upon a system exception, such as a database exception.
    * 
    * Enumeration class: com.alibaba.schedulerx.common.domain.TriggerType
    * 
    * @example
-   * 3
+   * 1
    */
   triggerType?: number;
   /**
@@ -254,7 +265,7 @@ export class GetJobInstanceResponseBody extends $dara.Model {
    * The error message that is returned only if the corresponding error occurs.
    * 
    * @example
-   * jobid: 92583 not match groupId: testSchedulerx.defaultGroup
+   * jobId=xxx is not existed
    */
   message?: string;
   /**
@@ -269,8 +280,9 @@ export class GetJobInstanceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

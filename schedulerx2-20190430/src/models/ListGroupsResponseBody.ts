@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsResponseBodyDataAppGroups extends $dara.Model {
   /**
    * @remarks
-   * The application group ID.
+   * The ID of the application group.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $dara.Model {
   appGroupId?: number;
   /**
    * @remarks
-   * The AppKey for the application.
+   * The application key.
    * 
    * @example
    * a3G77O6NZxq/lyo1NC****==
@@ -29,7 +29,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application version. 1: Basic version, 2: Professional version.
+   * The application version. Valid values: 1 (Basic Edition) and 2 (Professional Edition).
    * 
    * @example
    * 2
@@ -43,10 +43,21 @@ export class ListGroupsResponseBodyDataAppGroups extends $dara.Model {
    * Test
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether logging is enabled.
+   * 
+   * - true: Logging is enabled.
+   * 
+   * - false: Logging is disabled.
+   * 
+   * @example
+   * false
+   */
   enableLog?: boolean;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * DocTest.Group
@@ -98,7 +109,7 @@ export class ListGroupsResponseBodyDataAppGroups extends $dara.Model {
 export class ListGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The applications and their details.
+   * The list of applications and their details.
    */
   appGroups?: ListGroupsResponseBodyDataAppGroups[];
   static names(): { [key: string]: string } {
@@ -136,7 +147,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The applications.
+   * The list of applications.
    */
   data?: ListGroupsResponseBodyData;
   /**
@@ -157,10 +168,11 @@ export class ListGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true

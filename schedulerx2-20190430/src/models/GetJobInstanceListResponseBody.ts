@@ -32,7 +32,7 @@ export class GetJobInstanceListResponseBodyDataJobInstanceDetails extends $dara.
    * The job instance ID.
    * 
    * @example
-   * 11111111
+   * 1042499986
    */
   instanceId?: number;
   /**
@@ -232,7 +232,7 @@ export class GetJobInstanceListResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 4F68ABED-AC31-4412-9297-D9A8F0401108
+   * 704A2A61-3681-5568-92F7-2DFCC53F33D1
    */
   requestId?: string;
   /**

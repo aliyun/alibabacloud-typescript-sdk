@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteRouteStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
+   * The ID of the Application. You can find the ID on the **Application Management** page in the Console.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class BatchDeleteRouteStrategyRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The IDs of the jobs.
+   * A list of Job IDs.
    */
   jobIdList?: number[];
   /**
    * @remarks
-   * The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in the SchedulerX console.
+   * The ID of the Namespace. You can find the ID on the **Namespaces** page in the Console.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class BatchDeleteRouteStrategyRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The ID of the Region.
    * 
    * This parameter is required.
    * 

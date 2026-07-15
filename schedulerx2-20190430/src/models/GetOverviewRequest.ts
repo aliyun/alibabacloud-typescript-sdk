@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOverviewRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value must be a UNIX timestamp (in seconds). If left empty, the current time is used.
+   * The end timestamp of the data, in seconds. Example: 1684166400. If this parameter is not specified, the current time is used by default.
    * 
    * @example
    * 1684166400
@@ -23,8 +23,8 @@ export class GetOverviewRequest extends $dara.Model {
    * @remarks
    * The metric type. Valid values:
    * 
-   * *   0: the basic job data.
-   * *   1: the job running data.
+   * - 0: basic task information.
+   * - 1: task execution information.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class GetOverviewRequest extends $dara.Model {
   metricType?: number;
   /**
    * @remarks
-   * The unique identifier (UID) of the namespace.
+   * The namespace UID.
    * 
    * @example
    * adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
@@ -42,7 +42,7 @@ export class GetOverviewRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace. This parameter is required only for a special third party.
+   * The source of the namespace. This parameter is required only for special third-party integrations.
    * 
    * @example
    * schedulerx
@@ -50,10 +50,10 @@ export class GetOverviewRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The query type. Valid values:
+   * The operation type. Valid values:
    * 
-   * *   query: queries data in a time range.
-   * *   query_range: queries time series data in a time range.
+   * - query: queries interval data.
+   * - query_range: queries interval time series data.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class GetOverviewRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value must be a UNIX timestamp (in seconds).
+   * The start timestamp of the data, in seconds. Example: 1684166400.
    * 
    * This parameter is required.
    * 

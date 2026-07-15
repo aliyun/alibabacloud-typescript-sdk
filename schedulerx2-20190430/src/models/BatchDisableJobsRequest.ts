@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDisableJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+   * The ID of the application group. You can find this ID on the **Application Management** page in the console.
    * 
    * @example
    * testSchedulerx.defaultGroup
@@ -13,7 +13,7 @@ export class BatchDisableJobsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The job IDs. Separate multiple job IDs with commas (,).
+   * The IDs of the jobs to disable.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class BatchDisableJobsRequest extends $dara.Model {
   jobIdList?: number[];
   /**
    * @remarks
-   * The ID of the namespace to which the job belongs. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
+   * The ID of the namespace that contains the jobs. You can find this ID on the **Namespaces** page in the console.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class BatchDisableJobsRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace. This parameter is required only for a special third party.
+   * This parameter is used only by specific third-party services.
    * 
    * @example
    * schedulerx
@@ -41,7 +41,7 @@ export class BatchDisableJobsRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The ID of the region to which the job belongs.
+   * The ID of the region where the jobs are located.
    * 
    * This parameter is required.
    * 

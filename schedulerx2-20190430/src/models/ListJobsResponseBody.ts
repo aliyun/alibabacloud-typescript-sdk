@@ -29,7 +29,7 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfoContactInfo extends $dara
   userName?: string;
   /**
    * @remarks
-   * The mobile number of the user.
+   * The mobile phone number of the user.
    * 
    * @example
    * 1381111****
@@ -65,10 +65,11 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfoContactInfo extends $dara
 export class ListJobsResponseBodyDataJobsJobMonitorInfoMonitorConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the feature of generating an alert upon a failure is enabled. Valid values:
+   * Specifies whether to enable the failure alert switch. Valid values:
    * 
-   * *   **true**: The feature is enabled.
-   * *   **false**: The feature is disabled.
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -76,7 +77,7 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfoMonitorConfig extends $da
   failEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether the feature of generating an alert when no machine is available for running the job is enabled.
+   * Specifies whether to enable the no-available-machine alert.
    * 
    * @example
    * true
@@ -84,7 +85,7 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfoMonitorConfig extends $da
   missWorkerEnable?: boolean;
   /**
    * @remarks
-   * The method that is used to send an alert notification. Only Short Message Service (SMS) is supported.
+   * The alert notification method. Currently, only sms is supported.
    * 
    * @example
    * sms
@@ -92,7 +93,7 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfoMonitorConfig extends $da
   sendChannel?: string;
   /**
    * @remarks
-   * The timeout threshold. Unit: seconds. Default value: 7200.
+   * The timeout threshold, in seconds. Default value: 7200.
    * 
    * @example
    * 12300
@@ -100,10 +101,11 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfoMonitorConfig extends $da
   timeout?: number;
   /**
    * @remarks
-   * Indicates whether the feature of generating an alert upon a timeout is enabled. Valid values:
+   * Specifies whether to enable the timeout alert switch. Valid values:
    * 
-   * *   **true**: The feature is enabled.
-   * *   **false**: The feature is disabled.
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -111,10 +113,11 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfoMonitorConfig extends $da
   timeoutEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether the feature of stopping job triggering upon a timeout is enabled. By default, the feature is disabled.
+   * Specifies whether to enable the timeout termination switch for the current trigger. This is disabled by default. Valid values:
    * 
-   * *   **true**: The feature is enabled.
-   * *   **false**: The feature is disabled.
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
    * 
    * @example
    * false
@@ -159,7 +162,7 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfo extends $dara.Model {
   contactInfo?: ListJobsResponseBodyDataJobsJobMonitorInfoContactInfo[];
   /**
    * @remarks
-   * The configurations of the alerting feature and the alert threshold.
+   * The alert switch and threshold configuration.
    */
   monitorConfig?: ListJobsResponseBodyDataJobsJobMonitorInfoMonitorConfig;
   static names(): { [key: string]: string } {
@@ -194,7 +197,7 @@ export class ListJobsResponseBodyDataJobsJobMonitorInfo extends $dara.Model {
 export class ListJobsResponseBodyDataJobsMapTaskXAttrs extends $dara.Model {
   /**
    * @remarks
-   * The number of threads that are triggered by a standalone job at a time. Default value: 5.
+   * The number of threads for a single trigger on a single machine. Default value: 5.
    * 
    * @example
    * 5
@@ -202,7 +205,7 @@ export class ListJobsResponseBodyDataJobsMapTaskXAttrs extends $dara.Model {
   consumerSize?: number;
   /**
    * @remarks
-   * The number of task distribution threads. Default value: 5.
+   * The number of subtask dispatch threads. Default value: 5.
    * 
    * @example
    * 5
@@ -210,7 +213,7 @@ export class ListJobsResponseBodyDataJobsMapTaskXAttrs extends $dara.Model {
   dispatcherSize?: number;
   /**
    * @remarks
-   * The number of tasks that are pulled by a parallel job at a time. Default value: 100.
+   * The number of subtasks pulled per batch for a parallel node. Default value: 100.
    * 
    * @example
    * 100
@@ -218,7 +221,7 @@ export class ListJobsResponseBodyDataJobsMapTaskXAttrs extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The maximum number of task queues that can be cached. Default value: 10000.
+   * The upper limit of the subtask queue cache. Default value: 10000.
    * 
    * @example
    * 10000
@@ -226,7 +229,7 @@ export class ListJobsResponseBodyDataJobsMapTaskXAttrs extends $dara.Model {
   queueSize?: number;
   /**
    * @remarks
-   * The interval at which the system retries to run the task after a task failure.
+   * The retry interval for a subtask on failure.
    * 
    * @example
    * 0
@@ -234,7 +237,7 @@ export class ListJobsResponseBodyDataJobsMapTaskXAttrs extends $dara.Model {
   taskAttemptInterval?: number;
   /**
    * @remarks
-   * The number of retries after a task failure.
+   * The number of retries for a subtask on failure.
    * 
    * @example
    * 0
@@ -274,15 +277,15 @@ export class ListJobsResponseBodyDataJobsMapTaskXAttrs extends $dara.Model {
 export class ListJobsResponseBodyDataJobsTimeConfig extends $dara.Model {
   /**
    * @remarks
-   * If the TimeType parameter is set to cron, you can specify custom calendar days.
+   * The custom calendar that can be specified for the cron type.
    * 
    * @example
-   * Business days
+   * workday
    */
   calendar?: string;
   /**
    * @remarks
-   * The time offset if the TimeType parameter is set to cron. Unit: seconds.
+   * The time offset that can be specified for the cron type, in seconds.
    * 
    * @example
    * 0
@@ -292,10 +295,13 @@ export class ListJobsResponseBodyDataJobsTimeConfig extends $dara.Model {
    * @remarks
    * The time expression. Valid values:
    * 
-   * *   **api**: indicates that no time expression is used to specify the time when to schedule the job.
-   * *   **fix_rate**: indicates that the job is triggered at a fixed frequency. For example, a value of 30 indicates that the job is triggered every 30 seconds.
-   * *   **cron**: indicates that a standard CRON expression is used to specify the time when to schedule the job.
-   * *   **second_delay**: indicates that the job is triggered after a fixed delay. Valid values: 1 to 60. Unit: seconds.
+   * - **api**: No time expression.
+   * 
+   * - **fix_rate**: A specific fixed frequency value. For example, 30 indicates that the node is triggered every 30 seconds.
+   * 
+   * - **cron**: A standard cron expression.
+   * 
+   * - **second_delay**: A fixed delay in seconds before each execution (1s to 60s).
    * 
    * @example
    * 0 0/10 * * * ?
@@ -303,12 +309,15 @@ export class ListJobsResponseBodyDataJobsTimeConfig extends $dara.Model {
   timeExpression?: string;
   /**
    * @remarks
-   * The method that is used to specify the time when to schedule the job. Valid values:
+   * The time configuration type. Valid values:
    * 
-   * *   **1**: cron
-   * *   **3**: fix_rate
-   * *   **4**: second_delay
-   * *   **100**: api
+   * - **1**: cron
+   * 
+   * - **3**: fix_rate
+   * 
+   * - **4**: second_delay
+   * 
+   * - **100**: api
    * 
    * @example
    * 1
@@ -344,7 +353,7 @@ export class ListJobsResponseBodyDataJobsTimeConfig extends $dara.Model {
 export class ListJobsResponseBodyDataJobs extends $dara.Model {
   /**
    * @remarks
-   * The interval at which the system retries to run the job after a job failure. Unit: seconds. Default value: 30.
+   * The retry interval on error, in seconds. Default value: 30.
    * 
    * @example
    * 30
@@ -352,7 +361,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   attemptInterval?: number;
   /**
    * @remarks
-   * The full path of the job interface class. This parameter is returned only for a Java job.
+   * The full path of the node interface class. This field is returned only when the node is of the Java type.
    * 
    * @example
    * com.alibaba.schedulerx.test.helloworld
@@ -360,7 +369,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The script of the job. This parameter is returned only for a Python, Shell, or Go job.
+   * The script code content for Python, Shell, or Go node types.
    * 
    * @example
    * echo \\"hello\\"
@@ -368,7 +377,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The description of the job.
+   * The node description.
    * 
    * @example
    * Test
@@ -376,14 +385,19 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The execution mode of the job. Valid values:
+   * The node execution mode. Valid values:
    * 
-   * *   **standalone**: The job runs in standalone mode.
-   * *   **broadcast**: The job runs in broadcast mode.
-   * *   **parallel**: The job runs in parallel computing mode.
-   * *   **grid**: The job runs in memory grid mode.
-   * *   **batch**: The job runs in grid computing mode.
-   * *   **shard**: The job runs in multipart mode.
+   * - **standalone**: standalone
+   * 
+   * - **broadcast**: broadcast
+   * 
+   * - **parallel**: parallel computing
+   * 
+   * - **grid**: memory grid
+   * 
+   * - **batch**: grid computing
+   * 
+   * - **shard**: shard
    * 
    * @example
    * standalone
@@ -391,7 +405,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   executeMode?: string;
   /**
    * @remarks
-   * The full path to which a JAR package is uploaded in Object Storage Service (OSS).
+   * The full path of the JAR package in OSS.
    * 
    * @example
    * https:doc***.oss-cn-hangzhou.aliyuncs.com/sc-****-D-0.0.2-SNAPSHOT.jar
@@ -399,7 +413,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   jarUrl?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The node ID.
    * 
    * @example
    * 99341
@@ -407,12 +421,12 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The monitoring information of the job.
+   * The node monitoring information.
    */
   jobMonitorInfo?: ListJobsResponseBodyDataJobsJobMonitorInfo;
   /**
    * @remarks
-   * The type of the job.
+   * The node type.
    * 
    * @example
    * java
@@ -420,12 +434,12 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The advanced configurations of the job. The parameters are returned only if the value of the ExecuteMode parameter is parallel, grid, or batch.
+   * The advanced configuration. This is used only for parallel computing, memory grid, and grid computing.
    */
   mapTaskXAttrs?: ListJobsResponseBodyDataJobsMapTaskXAttrs;
   /**
    * @remarks
-   * The maximum number of retries after a job failure. This parameter is specified based on your business requirements. Default value: 0.
+   * The maximum number of retries on error. Set this based on business requirements. Default value: 0.
    * 
    * @example
    * 0
@@ -433,7 +447,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum number of instances that can concurrently run for the job. Default value: 1. A value of 1 indicates that if the last triggered instance is running, the next instance is not triggered even if the scheduled point in time for running the instance is reached.
+   * The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger will not be initiated even if the scheduled time has arrived.
    * 
    * @example
    * 1
@@ -441,7 +455,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   maxConcurrency?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The node name.
    * 
    * @example
    * helloworld
@@ -449,18 +463,20 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The user-defined parameters. These parameters can be obtained when the job is running.
+   * The user-defined parameters that can be obtained at runtime.
    * 
    * @example
    * test
    */
   parameters?: string;
+  startTime?: number;
   /**
    * @remarks
-   * Indicates whether the job is enabled. Valid values:
+   * The node status. Valid values:
    * 
-   * *   **1**: The job is enabled and can be triggered.
-   * *   **0**: The job is disabled and cannot be triggered.
+   * - **1**: Enabled. The node can be triggered normally.
+   * 
+   * - **0**: Disabled. The node will not be triggered.
    * 
    * @example
    * 1
@@ -468,12 +484,12 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The time configurations.
+   * The time configuration information.
    */
   timeConfig?: ListJobsResponseBodyDataJobsTimeConfig;
   /**
    * @remarks
-   * The extended fields.
+   * The node extension field.
    * 
    * @example
    * {"pageSize":5,"queueSize":10,"consumerSize":5,"dispatcherSize":5,"taskMaxAttempt":0,"taskAttemptInterval":0,"globalConsumerSize":1000,"taskDispatchMode":"push"}
@@ -495,6 +511,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
       parameters: 'Parameters',
+      startTime: 'StartTime',
       status: 'Status',
       timeConfig: 'TimeConfig',
       XAttrs: 'XAttrs',
@@ -517,6 +534,7 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
       maxConcurrency: 'string',
       name: 'string',
       parameters: 'string',
+      startTime: 'number',
       status: 'number',
       timeConfig: ListJobsResponseBodyDataJobsTimeConfig,
       XAttrs: 'string',
@@ -544,11 +562,23 @@ export class ListJobsResponseBodyDataJobs extends $dara.Model {
 export class ListJobsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The jobs and their details.
+   * The node list and node details.
    */
   jobs?: ListJobsResponseBodyDataJobs[];
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of records per page.
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of records.
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -583,7 +613,7 @@ export class ListJobsResponseBodyData extends $dara.Model {
 export class ListJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The request status code.
    * 
    * @example
    * 200
@@ -591,12 +621,12 @@ export class ListJobsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The information about the jobs.
+   * The node list information.
    */
   data?: ListJobsResponseBodyData;
   /**
    * @remarks
-   * The error message that is returned if an error occurs.
+   * The error message. This parameter is returned only if an error occurs.
    * 
    * @example
    * namespace can not find namespace: 1a72ecb1-b4cc-400a-a71b-20cdec9b****, namespaceSource:null
@@ -604,7 +634,7 @@ export class ListJobsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 71BCC0E3-64B2-4B63-A870-AFB64EBCB58B
@@ -612,10 +642,11 @@ export class ListJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   **true**: The call is successful.
-   * *   **false**: The call fails.
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The AppKey for the application.
+   * The AppKey of the application.
    * 
    * @example
    * adcExHZviLcl****
@@ -13,7 +13,7 @@ export class CreateAppGroupRequest extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,11 @@ export class CreateAppGroupRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The type of application. Valid values:
+   * The application type.
    * 
-   * *   `TRACE`: Application Monitoring
-   * *   `EBPF`: Application Monitoring eBPF Edition
+   * - `1`: Standard application.
+   * 
+   * - `2`: Kubernetes (K8s) application.
    * 
    * @example
    * 1
@@ -34,7 +35,7 @@ export class CreateAppGroupRequest extends $dara.Model {
   appType?: number;
   /**
    * @remarks
-   * The application version. 1: Basic version, 2: Professional version.
+   * The application version. Valid values: `1` (Basic Edition) and `2` (Professional Edition).
    * 
    * @example
    * 2
@@ -42,7 +43,7 @@ export class CreateAppGroupRequest extends $dara.Model {
   appVersion?: number;
   /**
    * @remarks
-   * The description of the application.
+   * The application description.
    * 
    * @example
    * Test
@@ -50,10 +51,11 @@ export class CreateAppGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable logging. Valid values:
+   * Specifies whether to enable logging.
    * 
-   * *   `true`: enabled
-   * *   `false`: disabled
+   * - `true`: Enable logging.
+   * 
+   * - `false`: Disable logging.
    * 
    * @example
    * true
@@ -61,7 +63,7 @@ export class CreateAppGroupRequest extends $dara.Model {
   enableLog?: boolean;
   /**
    * @remarks
-   * The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
+   * The ID of the application group. You can find this ID on the **Application Management** page in the console.
    * 
    * This parameter is required.
    * 
@@ -79,23 +81,34 @@ export class CreateAppGroupRequest extends $dara.Model {
   maxJobs?: number;
   /**
    * @remarks
-   * The configuration of the alert. The value is a JSON string. For more information about this parameter, see **Additional information about request parameters**.
+   * Specifies the alert notification configuration as a JSON string. The string can contain the following properties: `sendChannel`, `alarmType`, and `webhookIsAtAll`.
+   * 
+   * > For more information, see the **Additional information about request parameters** section.
    * 
    * @example
-   * {"sendChannel":"sms,ding"}
+   * {
+   *     "sendChannel": "ding,sms,mail,phone",
+   *     "alarmType": "Contacts",
+   *     "webhookIsAtAll": false
+   * }
    */
   monitorConfigJson?: string;
   /**
    * @remarks
-   * The configuration of alert contacts. The value is a JSON string.
+   * The alert contacts. This can include individual contacts and contact groups.
+   * 
+   * > For more information, see the **Additional information about request parameters** section.
    * 
    * @example
-   * [{"userName":"Tom","userPhone":"89756******"},{"userName":"Bob","ding":"http://www.example.com"}]
+   * [
+   *     {"name": "Alice Johnson"},
+   *     {"name": "Lee Smith"}
+   * ]
    */
   monitorContactsJson?: string;
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+   * The ID of the namespace. You can find this ID on the **Namespace** page in the console.
    * 
    * This parameter is required.
    * 
@@ -113,20 +126,23 @@ export class CreateAppGroupRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * This parameter is not supported. You do not need to specify this parameter.
+   * This parameter is currently unsupported and can be left unspecified.
    * 
    * @example
    * schedulerx
    */
   namespaceSource?: string;
   /**
+   * @remarks
+   * The notification policy name.
+   * 
    * @example
    * test-workday-notification
    */
   notificationPolicyName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou
@@ -134,7 +150,7 @@ export class CreateAppGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to schedule a busy worker.
+   * Specifies whether to schedule jobs on a busy worker.
    * 
    * @example
    * false

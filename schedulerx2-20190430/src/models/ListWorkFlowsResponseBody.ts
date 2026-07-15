@@ -48,7 +48,7 @@ export class ListWorkFlowsResponseBodyDataRecords extends $dara.Model {
    * The workflow name.
    * 
    * @example
-   * test3
+   * Test3
    */
   name?: string;
   /**

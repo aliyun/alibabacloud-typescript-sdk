@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetJobInstanceSuccessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class SetJobInstanceSuccessResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned error message.
+   * The error message.
    * 
    * @example
    * jobId=xxx is not existed
@@ -29,10 +29,10 @@ export class SetJobInstanceSuccessResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

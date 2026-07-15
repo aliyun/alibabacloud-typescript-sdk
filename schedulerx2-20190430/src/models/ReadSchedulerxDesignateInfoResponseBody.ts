@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authentication operation.
+   * The requested operation that was denied.
    * 
    * @example
    * edas:ReadSchedulerxDesignateInfo
@@ -13,7 +13,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail extends $
   authAction?: string;
   /**
    * @remarks
-   * The principal name.
+   * The display name of the Principal.
    * 
    * @example
    * 209312833131416xxx
@@ -21,7 +21,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail extends $
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * The principal account.
+   * The ID of the Alibaba Cloud account to which the Principal belongs.
    * 
    * @example
    * 1827811800526xxx
@@ -29,7 +29,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail extends $
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The principal type.
+   * The type of the Principal.
    * 
    * @example
    * SubUser
@@ -45,7 +45,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail extends $
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The permission denial type.
+   * The type of permission denial.
    * 
    * @example
    * ImplicitDeny
@@ -53,7 +53,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail extends $
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of Policy that caused the denial.
    * 
    * @example
    * AccountLevelIdentityBasedPolicy
@@ -95,7 +95,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail extends $
 export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics extends $dara.Model {
   /**
    * @remarks
-   * The most recent value of CPU workload.
+   * The most recent CPU Load.
    * 
    * @example
    * 0
@@ -103,7 +103,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   cpuLoad1?: number;
   /**
    * @remarks
-   * The average of the latest five values of CPU workload.
+   * The average CPU Load over the last five minutes.
    * 
    * @example
    * 0
@@ -111,7 +111,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   cpuLoad5?: number;
   /**
    * @remarks
-   * The number of available CPU processors.
+   * The number of available CPU cores.
    * 
    * @example
    * 1
@@ -119,7 +119,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   cpuProcessors?: number;
   /**
    * @remarks
-   * The total disk capacity in MB.
+   * The total disk capacity, in MB.
    * 
    * @example
    * 1024
@@ -127,7 +127,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   diskMax?: number;
   /**
    * @remarks
-   * The disk usage.
+   * The Disk Usage, as a percentage.
    * 
    * @example
    * 0.19142496008515167
@@ -135,7 +135,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   diskUsage?: number;
   /**
    * @remarks
-   * The used disk space in MB.
+   * The used disk space, in MB.
    * 
    * @example
    * 148
@@ -143,7 +143,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   diskUsed?: number;
   /**
    * @remarks
-   * The number of job executions.
+   * The number of task executions.
    * 
    * @example
    * 56
@@ -151,7 +151,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   execCount?: number;
   /**
    * @remarks
-   * The most recent value of heap memory usage.
+   * The most recent Heap Memory usage, as a percentage.
    * 
    * @example
    * 0.06072874493927125
@@ -159,7 +159,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   heap1Usage?: number;
   /**
    * @remarks
-   * The most recent value of used heap memory in MB.
+   * The amount of Heap Memory used in the most recent measurement, in MB.
    * 
    * @example
    * 14
@@ -167,7 +167,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   heap1Used?: number;
   /**
    * @remarks
-   * The average of the latest five values of heap memory usage.
+   * The average Heap Memory usage over the last five minutes, as a percentage.
    * 
    * @example
    * 0.06477732793522267
@@ -175,7 +175,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   heap5Usage?: number;
   /**
    * @remarks
-   * The maximum heap memory in MB.
+   * The maximum available Heap Memory, in MB.
    * 
    * @example
    * 500
@@ -191,7 +191,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
   sharePoolAvailableSize?: number;
   /**
    * @remarks
-   * The queue size in the shared pool.
+   * The size of the queue in the shared pool.
    * 
    * @example
    * 1
@@ -245,12 +245,15 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetric
 export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos extends $dara.Model {
   /**
    * @remarks
-   * The status of the workers. Valid values:
+   * The status of the Worker. Valid values:
    * 
-   * *   FREE: idle.
-   * *   LOAD5_BUSY: The average of the latest five values of CPU workload is too high.
-   * *   HEAP5_BUSY: The average of the latest five values of heap memory usage is too high.
-   * *   DISK_BUSY: The disk usage is too high.
+   * - `FREE`: The Worker is idle.
+   * 
+   * - `LOAD5_BUSY`: The 5-minute average CPU Load is high.
+   * 
+   * - `HEAP5_BUSY`: The 5-minute average Heap Memory usage is high.
+   * 
+   * - `DISK_BUSY`: The Disk Usage is high.
    * 
    * @example
    * FREE
@@ -258,10 +261,11 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos exten
   busy?: string;
   /**
    * @remarks
-   * Indicates whether the workers are specified.
+   * Indicates whether the Worker is designated. Valid values:
    * 
-   * *   true: The workers are specified.
-   * *   false: The workers are not specified.
+   * - `true`: The Worker is designated.
+   * 
+   * - `false`: The Worker is not designated.
    * 
    * @example
    * true
@@ -269,10 +273,11 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos exten
   checked?: boolean;
   /**
    * @remarks
-   * The information returned based on the value of the DesignateType parameter.
+   * The value of the key. The meaning of this parameter depends on the value of the `DesignateType` parameter.
    * 
-   * *   If you set the DesignateType parameter to 2, the tags of the workers are returned.
-   * *   If you set the DesignateType parameter to 1, the IP addresses of the workers are returned.
+   * - If `DesignateType` is `1`, this parameter indicates the address of the Worker.
+   * 
+   * - If `DesignateType` is `2`, this parameter indicates the Tag of the Worker.
    * 
    * @example
    * 10.52.169.25
@@ -280,12 +285,12 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos exten
   key?: string;
   /**
    * @remarks
-   * The metric values.
+   * The performance metrics for the Worker.
    */
   metrics?: ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics;
   /**
    * @remarks
-   * Indicates whether the workers are offline.
+   * Indicates whether the Worker is offline.
    * 
    * @example
    * fasle
@@ -293,7 +298,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos exten
   offline?: boolean;
   /**
    * @remarks
-   * The number of workers.
+   * The number of Workers.
    * 
    * @example
    * 1
@@ -301,7 +306,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos exten
   size?: number;
   /**
    * @remarks
-   * The startup method of the workers.
+   * The startup mode of the Worker.
    * 
    * @example
    * pod
@@ -309,7 +314,7 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos exten
   starter?: string;
   /**
    * @remarks
-   * The version of the workers.
+   * The version of the Worker.
    * 
    * @example
    * 1.12.5
@@ -356,17 +361,18 @@ export class ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos exten
 export class ReadSchedulerxDesignateInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * *
+   * - The details of the designated Workers.
    */
   designateDetailVos?: ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos[];
   /**
    * @remarks
-   * The information type of the specified workers.
+   * The type of designated resource. Valid values:
    * 
-   * *   1: the IP address of the specified workers.
-   * *   2: the tags of the specified workers.
+   * - `1`: The task is designated to run on a specific Worker.
    * 
-   * >  The default value of the DesignateType parameter is 1.
+   * - `2`: The task is designated to run on Workers with a specific tag.
+   * 
+   * > The default configuration for a task is to designate a specific Worker (`1`).
    * 
    * @example
    * 1
@@ -374,12 +380,13 @@ export class ReadSchedulerxDesignateInfoResponseBodyData extends $dara.Model {
   designateType?: number;
   /**
    * @remarks
-   * Indicates whether to enable failover for the workers. If you set this parameter to true, the job is scheduled to other workers when the specified workers go offline.
+   * Indicates whether Failover is enabled. If enabled, the task can be scheduled on non-designated Workers if all designated Workers are offline. Valid values:
    * 
-   * *   true: enables failover for the workers.
-   * *   false: disables failover for the workers.
+   * - `true`: Enabled.
    * 
-   * >  The default value of the Transferable parameter is false.
+   * - `false`: Disabled.
+   * 
+   * > By default, Failover is disabled (false).
    * 
    * @example
    * true
@@ -416,12 +423,12 @@ export class ReadSchedulerxDesignateInfoResponseBodyData extends $dara.Model {
 export class ReadSchedulerxDesignateInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * Details about the access denial.
    */
   accessDeniedDetail?: ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -429,12 +436,12 @@ export class ReadSchedulerxDesignateInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * *
+   * - The returned data object.
    */
   data?: ReadSchedulerxDesignateInfoResponseBodyData;
   /**
    * @remarks
-   * The error message returned only if an error occurs.
+   * The error message returned if the request fails.
    * 
    * @example
    * jobId=xxx is not existed
@@ -442,7 +449,7 @@ export class ReadSchedulerxDesignateInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique Request ID.
    * 
    * @example
    * 4F68ABED-AC31-4412-9297-D9A8F0401108

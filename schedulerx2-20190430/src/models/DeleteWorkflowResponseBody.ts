@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWorkflowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The return code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteWorkflowResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message that is returned only if the corresponding error occurs.
+   * The error message. This parameter is returned only if the request fails.
    * 
    * @example
    * Your request is denied as lack of ssl protect.
@@ -21,7 +21,7 @@ export class DeleteWorkflowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4F68ABED-AC31-4412-9297-D9A8F0401108
@@ -29,10 +29,11 @@ export class DeleteWorkflowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the workflow was deleted. Valid values:
+   * Indicates whether the workflow was deleted successfully. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The workflow was deleted.
+   * 
+   * - **false**: The workflow was not deleted.
    * 
    * @example
    * true

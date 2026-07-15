@@ -18,7 +18,7 @@ export class EnableJobRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 92583
+   * 92555
    */
   jobId?: number;
   /**

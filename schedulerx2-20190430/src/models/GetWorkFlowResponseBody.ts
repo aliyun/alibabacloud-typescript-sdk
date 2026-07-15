@@ -11,28 +11,49 @@ export class GetWorkFlowResponseBodyDataWorkFlowInfo extends $dara.Model {
    * my first workflow
    */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the application group.
+   * 
+   * @example
+   * hxm.test
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The maximum number of concurrent instances.
+   * 
+   * @example
+   * 1
+   */
   maxConcurrency?: string;
   /**
    * @remarks
-   * The name of the workflow.
+   * The workflow name.
    * 
    * @example
    * workflow_111
    */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * 8150f906-2a40-4420-8cc1-68d2fe4dd69c
+   */
   namespace?: string;
   /**
    * @remarks
-   * The status of the workflow.
+   * The workflow status.
    * 
    * @example
-   * Successful
+   * enable
    */
   status?: string;
   /**
    * @remarks
-   * The time expression of the workflow.
+   * The time expression for the workflow.
    * 
    * @example
    * 0 0 2 * * ?
@@ -48,7 +69,7 @@ export class GetWorkFlowResponseBodyDataWorkFlowInfo extends $dara.Model {
   timeType?: string;
   /**
    * @remarks
-   * The ID of the workflow.
+   * The workflow ID.
    * 
    * @example
    * 1234xxx
@@ -94,7 +115,7 @@ export class GetWorkFlowResponseBodyDataWorkFlowInfo extends $dara.Model {
 export class GetWorkFlowResponseBodyDataWorkFlowNodeInfoEdges extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source job.
+   * The source job ID.
    * 
    * @example
    * 100
@@ -102,7 +123,7 @@ export class GetWorkFlowResponseBodyDataWorkFlowNodeInfoEdges extends $dara.Mode
   source?: number;
   /**
    * @remarks
-   * The ID of the object job.
+   * The target job ID.
    * 
    * @example
    * 200
@@ -134,7 +155,7 @@ export class GetWorkFlowResponseBodyDataWorkFlowNodeInfoEdges extends $dara.Mode
 export class GetWorkFlowResponseBodyDataWorkFlowNodeInfoNodes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
    * 123456xxx
@@ -142,7 +163,7 @@ export class GetWorkFlowResponseBodyDataWorkFlowNodeInfoNodes extends $dara.Mode
   id?: number;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * job_111
@@ -150,7 +171,7 @@ export class GetWorkFlowResponseBodyDataWorkFlowNodeInfoNodes extends $dara.Mode
   label?: string;
   /**
    * @remarks
-   * The status of the job.
+   * The job status.
    * 
    * @example
    * 1
@@ -184,7 +205,7 @@ export class GetWorkFlowResponseBodyDataWorkFlowNodeInfoNodes extends $dara.Mode
 export class GetWorkFlowResponseBodyDataWorkFlowNodeInfo extends $dara.Model {
   /**
    * @remarks
-   * The workflow edges.
+   * The list of workflow edges.
    */
   edges?: GetWorkFlowResponseBodyDataWorkFlowNodeInfoEdges[];
   /**
@@ -224,12 +245,12 @@ export class GetWorkFlowResponseBodyDataWorkFlowNodeInfo extends $dara.Model {
 export class GetWorkFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The basic information of the workflow.
+   * The basic information about the workflow.
    */
   workFlowInfo?: GetWorkFlowResponseBodyDataWorkFlowInfo;
   /**
    * @remarks
-   * The node information of the workflow.
+   * The workflow node information.
    */
   workFlowNodeInfo?: GetWorkFlowResponseBodyDataWorkFlowNodeInfo;
   static names(): { [key: string]: string } {
@@ -264,7 +285,7 @@ export class GetWorkFlowResponseBodyData extends $dara.Model {
 export class GetWorkFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error codes
+   * The error code.
    * 
    * @example
    * 200
@@ -272,12 +293,12 @@ export class GetWorkFlowResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data of the workflow.
+   * The workflow data.
    */
   data?: GetWorkFlowResponseBodyData;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * workflow is not existed
@@ -285,7 +306,7 @@ export class GetWorkFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 45678xxx
@@ -293,7 +314,7 @@ export class GetWorkFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the API call.
+   * Indicates whether the request succeeded.
    * 
    * @example
    * true

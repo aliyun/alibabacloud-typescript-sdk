@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the namespace.
+   * The namespace description.
    * 
    * @example
    * Test
@@ -13,7 +13,7 @@ export class CreateNamespaceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateNamespaceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. For example, `cn-hangzhou` specifies the China (Hangzhou) region.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateNamespaceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The unique identifier (UID) of the namespace. We recommend that you use the universally unique identifier (UUID) to generate the UID.
+   * The namespace UID. This value must be globally unique. We recommend that you use a UUID.
    * 
    * @example
    * adcfc35d-e2fe-4fe9-bbaa-20e90ffc****

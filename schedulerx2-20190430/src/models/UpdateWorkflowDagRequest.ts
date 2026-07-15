@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkflowDagRequest extends $dara.Model {
   /**
    * @remarks
-   * The directed acyclic graph (DAG) of the workflow, including the information about the nodes and the edges. Specify the value of this parameter in the JSON format.
+   * The definition of the workflow\\"s directed acyclic graph (DAG), including nodes and edges, as a JSON string.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateWorkflowDagRequest extends $dara.Model {
   dagJson?: string;
   /**
    * @remarks
-   * The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
+   * The Application Group ID. You can find this ID on the **Application Management** page in the console.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateWorkflowDagRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+   * The Namespace ID. You can obtain the ID on the **Namespaces** page in the console.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UpdateWorkflowDagRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace. This parameter is required only for a special third party.
+   * This parameter is required only for specific third-party integrations.
    * 
    * @example
    * schedulerx
@@ -43,7 +43,7 @@ export class UpdateWorkflowDagRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The region ID.
+   * The Region ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UpdateWorkflowDagRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The workflow ID.
+   * The Workflow ID.
    * 
    * This parameter is required.
    * 

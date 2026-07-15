@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+   * The application ID. You can obtain the ID on the **Application Management** page in the console.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListJobsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The node name.
    * 
    * @example
    * helloword
@@ -23,7 +23,7 @@ export class ListJobsRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The ID of the namespace. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
+   * The namespace. You can obtain the namespace on the **Namespace** page in the console.
    * 
    * This parameter is required.
    * 
@@ -33,17 +33,25 @@ export class ListJobsRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source of the namespace. This parameter is required only for a special third party.
+   * Required only for special third-party users.
    * 
    * @example
    * schedulerx
    */
   namespaceSource?: string;
+  /**
+   * @remarks
+   * The page number.
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The number of records per page.
+   */
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -53,10 +61,11 @@ export class ListJobsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the job. Valid values:
+   * The node status.
    * 
-   * *   **0**: disables the job.
-   * *   **1**: enables the job.
+   * - **0**: disabled
+   * 
+   * - **1**: enabled
    * 
    * @example
    * 1

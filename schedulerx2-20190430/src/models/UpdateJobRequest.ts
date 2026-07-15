@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobRequestContactInfo extends $dara.Model {
   /**
    * @remarks
-   * The webhook URL of the DingTalk chatbot.[](https://open.dingtalk.com/document/org/application-types)
+   * The webhook URL of the DingTalk chatbot in the DingTalk group for alert contacts. References: [DingTalk development documentation](https://open.dingtalk.com/document/org/application-types).
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=**********
@@ -13,7 +13,7 @@ export class UpdateJobRequestContactInfo extends $dara.Model {
   ding?: string;
   /**
    * @remarks
-   * The email address of the alert contact.
+   * The email address of the user.
    * 
    * @example
    * test***@***.com
@@ -21,7 +21,7 @@ export class UpdateJobRequestContactInfo extends $dara.Model {
   userMail?: string;
   /**
    * @remarks
-   * The name of the alert contact.
+   * The username.
    * 
    * @example
    * userA
@@ -29,7 +29,7 @@ export class UpdateJobRequestContactInfo extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The mobile phone number of the alert contact.
+   * The mobile phone number of the user.
    * 
    * @example
    * 1381111****
@@ -65,7 +65,7 @@ export class UpdateJobRequestContactInfo extends $dara.Model {
 export class UpdateJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The interval of retries after a job failure. Default value: 30. Unit: seconds.
+   * The retry interval on errors. Unit: seconds. Default value: 30.
    * 
    * @example
    * 30
@@ -73,17 +73,17 @@ export class UpdateJobRequest extends $dara.Model {
   attemptInterval?: number;
   /**
    * @remarks
-   * If you set TimeType to 1 (cron), you can specify calendar days.
+   * The custom calendar that can be optionally specified for the cron type.
    * 
    * @example
-   * Business days
+   * workday
    */
   calendar?: string;
   /**
    * @remarks
-   * The full path of the job interface class.
+   * The full path of the node interface class.
    * 
-   * This field is available only when you set the job type to java. In this case, you must enter a full path.
+   * This field is required only for Java node types, and the full path must be specified.
    * 
    * @example
    * com.alibaba.test.helloworld
@@ -91,7 +91,7 @@ export class UpdateJobRequest extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The number of threads that are triggered by a single worker at a time. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
+   * The advanced configuration for parallel grid tasks. The number of threads for a single trigger on a single machine. Default value: 5.
    * 
    * @example
    * 5
@@ -99,12 +99,14 @@ export class UpdateJobRequest extends $dara.Model {
   consumerSize?: number;
   /**
    * @remarks
-   * The information about the alert contact.
+   * The contact information for the node.
+   * >Notice: This field is deprecated.</notice>
    */
   contactInfo?: UpdateJobRequestContactInfo[];
   /**
    * @remarks
-   * The script content. This parameter is required when you set the job type to python, shell, go, or k8s.
+   * - If the node type is python, shell, or k8s, specify the corresponding script content.
+   * - If the node type is golang, the content format example is {"jobName":"HelloWorld"}.
    * 
    * @example
    * echo \\"hello\\"
@@ -112,7 +114,7 @@ export class UpdateJobRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * If you set TimeType to 1 (cron), you can specify a time offset. Unit: seconds.
+   * The time offset that can be optionally specified for the cron type. Unit: seconds.
    * 
    * @example
    * 2400
@@ -120,7 +122,7 @@ export class UpdateJobRequest extends $dara.Model {
   dataOffset?: number;
   /**
    * @remarks
-   * The job description.
+   * The node description.
    * 
    * @example
    * test
@@ -128,7 +130,7 @@ export class UpdateJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The number of task distribution threads. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
+   * The advanced configuration for parallel grid tasks. The number of subtask dispatch threads. Default value: 5.
    * 
    * @example
    * 5
@@ -136,13 +138,13 @@ export class UpdateJobRequest extends $dara.Model {
   dispatcherSize?: number;
   /**
    * @remarks
-   * The execution mode of the job. Valid values:
+   * The node execution mode. Valid values:
    * 
-   * *   **Stand-alone operation**: standalone
-   * *   **Broadcast run**: broadcatst
-   * *   **Visual MapReduce**: parallel
-   * *   **MapReduce**: batch
-   * *   **Shard run**: shard
+   * - **standalone**: standalone
+   * - **broadcatst**: broadcast
+   * - **parallel**: visual MapReduce
+   * - **batch**: MapReduce
+   * - **shard**: shard
    * 
    * @example
    * standalone
@@ -150,10 +152,10 @@ export class UpdateJobRequest extends $dara.Model {
   executeMode?: string;
   /**
    * @remarks
-   * Specifies whether to turn on Failure alarm. If the switch is turned on, an alert will be generated upon a failure. Valid values:
+   * Specifies whether to enable the failure alert. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -161,7 +163,7 @@ export class UpdateJobRequest extends $dara.Model {
   failEnable?: boolean;
   /**
    * @remarks
-   * The number of consecutive failures. An alert will be received if the number of consecutive failures reaches the value of this parameter.
+   * The number of consecutive failures before an alert is triggered.
    * 
    * @example
    * 1
@@ -169,7 +171,7 @@ export class UpdateJobRequest extends $dara.Model {
   failTimes?: number;
   /**
    * @remarks
-   * The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
+   * The application ID. You can obtain the application ID on the Application Management page in the console.
    * 
    * This parameter is required.
    * 
@@ -179,7 +181,7 @@ export class UpdateJobRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The job ID. You can obtain the job ID on the Task Management page in the SchedulerX console.
+   * The node ID. You can obtain the node ID on the Task Management page in the console.
    * 
    * This parameter is required.
    * 
@@ -189,7 +191,7 @@ export class UpdateJobRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The maximum number of retries after a job failure. This parameter is specified based on your business requirements.
+   * The maximum number of retries on errors. Set this parameter based on your business requirements.
    * 
    * @example
    * 0
@@ -197,7 +199,7 @@ export class UpdateJobRequest extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum number of concurrent instances. Default value: 1. The default value indicates that only one instance is allowed to run at a time. When an instance is running, another instance is not triggered even if the scheduled time for running the instance is reached.
+   * The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger is not performed even if the scheduled time has arrived.
    * 
    * @example
    * 1
@@ -205,10 +207,9 @@ export class UpdateJobRequest extends $dara.Model {
   maxConcurrency?: number;
   /**
    * @remarks
-   * Specifies whether to turn on No machine alarm available. If the switch is turned on, an alert will be generated when no machine is available for running the job. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Specifies whether to enable the no-available-machine alert. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -216,7 +217,7 @@ export class UpdateJobRequest extends $dara.Model {
   missWorkerEnable?: boolean;
   /**
    * @remarks
-   * The job name.
+   * The node name.
    * 
    * @example
    * helloword
@@ -224,7 +225,7 @@ export class UpdateJobRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+   * The namespace ID. You can obtain the namespace ID on the Namespace page in the console.
    * 
    * This parameter is required.
    * 
@@ -234,7 +235,7 @@ export class UpdateJobRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The namespace source. This parameter is required only for a special third party.
+   * This parameter is required only for special third-party users.
    * 
    * @example
    * schedulerx
@@ -242,7 +243,7 @@ export class UpdateJobRequest extends $dara.Model {
   namespaceSource?: string;
   /**
    * @remarks
-   * The number of tasks that can be pulled at a time. Default value: 100. This parameter is an advanced configuration item of the MapReduce job.
+   * The advanced configuration for parallel grid tasks. The number of subtasks pulled per request. Default value: 100.
    * 
    * @example
    * 100
@@ -250,16 +251,27 @@ export class UpdateJobRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The user-defined parameters that you can obtain when the job is running.
+   * The user-defined parameters that can be obtained at runtime.
    * 
    * @example
    * test
    */
   parameters?: string;
+  /**
+   * @remarks
+   * The node priority. Valid values:
+   * - **1**: low
+   * - **5**: medium
+   * - **10**: high
+   * - **15**: very high
+   * 
+   * @example
+   * 5
+   */
   priority?: number;
   /**
    * @remarks
-   * The maximum number of tasks that can be queued. Default value: 10000. This parameter is an advanced configuration item of the MapReduce job.
+   * The advanced configuration for parallel grid tasks. The maximum cache size of the subtask queue. Default value: 10000.
    * 
    * @example
    * 10000
@@ -277,15 +289,16 @@ export class UpdateJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The method that is used to send alerts. Only Short Message Service (SMS) is supported.
+   * The alert notification method. Currently, only sms is supported.
    * 
    * @example
    * sms
    */
   sendChannel?: string;
+  startTime?: number;
   /**
    * @remarks
-   * Specifies whether to turn on Successful notice. If the switch is turned on, a notice will be sent when a job succeeds.
+   * Specifies whether to enable the success notification.
    * 
    * @example
    * false
@@ -293,7 +306,7 @@ export class UpdateJobRequest extends $dara.Model {
   successNoticeEnable?: boolean;
   /**
    * @remarks
-   * The interval of retries after a task failure. This parameter is an advanced configuration item of the MapReduce job.
+   * The advanced configuration for parallel grid tasks. The retry interval for failed subtasks.
    * 
    * @example
    * 0
@@ -301,7 +314,7 @@ export class UpdateJobRequest extends $dara.Model {
   taskAttemptInterval?: number;
   /**
    * @remarks
-   * The job mode. Valid values: push and pull. This parameter is an advanced configuration item of the MapReduce job.
+   * The advanced configuration for parallel grid tasks. Specifies the push model or pull model.
    * 
    * @example
    * push
@@ -309,7 +322,7 @@ export class UpdateJobRequest extends $dara.Model {
   taskDispatchMode?: string;
   /**
    * @remarks
-   * The number of retries after a task failure. This parameter is an advanced configuration item of the MapReduce job.
+   * The advanced configuration for parallel grid tasks. The number of retries for failed subtasks.
    * 
    * @example
    * 0
@@ -317,7 +330,7 @@ export class UpdateJobRequest extends $dara.Model {
   taskMaxAttempt?: number;
   /**
    * @remarks
-   * Custom task template for the k8s task type.
+   * The custom task template for k8s node types.
    * 
    * @example
    * apiVersion: v1
@@ -346,12 +359,12 @@ export class UpdateJobRequest extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The time expression. Specify the time expression based on the value of TimeType:
+   * The time expression. Set the time expression based on the selected time type.
    * 
-   * *   If you set TimeType to **1** (cron), specify this parameter to a standard CRON expression.
-   * *   If you set TimeType to **100** (api), no time expression is required.
-   * *   If you set TimeType to **3** (fixed_rate), specify this parameter to a fixed frequency in seconds. For example, if you set this parameter to 30, the system triggers a job every 30 seconds.
-   * *   If you set TimeType to **4** (second_delay), specify this parameter to a fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
+   * - **cron**: Specify a standard cron expression. Online verification is supported.
+   * - **api**: No time expression is required.
+   * - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
+   * - **second_delay**: Specify a fixed delay in seconds before each execution (1s to 60s).
    * 
    * @example
    * 30
@@ -359,12 +372,13 @@ export class UpdateJobRequest extends $dara.Model {
   timeExpression?: string;
   /**
    * @remarks
-   * The time type. Valid values:
+   * The time configuration type. Valid values:
    * 
-   * *   **1**: cron
-   * *   **3**: fix_rate
-   * *   **4**: second_delay
-   * *   **100**: api
+   * - **1**: cron
+   * - **3**: fix_rate
+   * - **4**: second_delay
+   * - **5**: one_time
+   * - **100**: api
    * 
    * @example
    * 1
@@ -380,10 +394,10 @@ export class UpdateJobRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * Specifies whether to turn on Timeout alarm. If the switch is turned on, an alert will be generated upon a timeout. Valid values:
+   * Specifies whether to enable the timeout alert. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -391,10 +405,10 @@ export class UpdateJobRequest extends $dara.Model {
   timeoutEnable?: boolean;
   /**
    * @remarks
-   * Specifies whether to turn on Timeout termination. If the switch is turned on, the job will be terminated upon a timeout. Valid values:
+   * Specifies whether to enable the timeout termination for the current trigger. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -402,7 +416,7 @@ export class UpdateJobRequest extends $dara.Model {
   timeoutKillEnable?: boolean;
   /**
    * @remarks
-   * Time zone.
+   * The time zone.
    * 
    * @example
    * GMT+8
@@ -410,7 +424,9 @@ export class UpdateJobRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * If you set JobType to k8s, this parameter is required. xxljob task: {"resource":"job"} shell task: {"image":"busybox","resource":"shell"}
+   * The parameter that must be configured for k8s node types.
+   * Job task: {"resource":"job"}
+   * Shell task: {"image":"busybox","resource":"shell"}
    * 
    * @example
    * {"resource":"shell","fileFormat":"unix","templateType":"customTemplate"}
@@ -444,6 +460,7 @@ export class UpdateJobRequest extends $dara.Model {
       queueSize: 'QueueSize',
       regionId: 'RegionId',
       sendChannel: 'SendChannel',
+      startTime: 'StartTime',
       successNoticeEnable: 'SuccessNoticeEnable',
       taskAttemptInterval: 'TaskAttemptInterval',
       taskDispatchMode: 'TaskDispatchMode',
@@ -487,6 +504,7 @@ export class UpdateJobRequest extends $dara.Model {
       queueSize: 'number',
       regionId: 'string',
       sendChannel: 'string',
+      startTime: 'number',
       successNoticeEnable: 'boolean',
       taskAttemptInterval: 'number',
       taskDispatchMode: 'string',
