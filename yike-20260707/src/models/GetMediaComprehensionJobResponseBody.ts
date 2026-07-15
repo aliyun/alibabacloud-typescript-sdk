@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $dara.Model {
   errorCode?: string;
   errorMessage?: string;
