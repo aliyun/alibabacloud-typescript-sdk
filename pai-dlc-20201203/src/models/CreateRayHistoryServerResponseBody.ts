@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRayHistoryServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the created Ray History Server.
+   * 
    * @example
    * rhsxxxx
    */
   rayHistoryServerId?: string;
   /**
+   * @remarks
+   * The request ID of this call, used for diagnostics and troubleshooting.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
    */

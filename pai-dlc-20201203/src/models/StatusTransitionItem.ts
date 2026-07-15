@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StatusTransitionItem extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of this status (UTC).
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The reason code for this status.
+   */
   reasonCode?: string;
+  /**
+   * @remarks
+   * The detailed message for this status.
+   */
   reasonMessage?: string;
+  /**
+   * @remarks
+   * The start time of this status (UTC).
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The job status.
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

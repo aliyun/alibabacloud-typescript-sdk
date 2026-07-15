@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTensorboardRequest extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the jobs. Valid values:
+   * Visibility of the task. Valid values:
    * 
-   * *   PUBLIC: The jobs are public in the workspace.
-   * *   PRIVATE: The jobs are visible only to you and the administrator of the workspace.
+   * - PUBLIC: Visible to all users in this workspace.
+   * 
+   * - PRIVATE: Visible only to you and administrators in this workspace.
    * 
    * @example
    * PRIVATE
@@ -16,7 +17,7 @@ export class UpdateTensorboardRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The maximum running time. Unit: minutes.
+   * Maximum runtime. Unit: minutes.
    * 
    * @example
    * 300
@@ -25,7 +26,7 @@ export class UpdateTensorboardRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * Workspace ID. For more information about how to get a workspace ID, see [ListWorkspaces]().
    * 
    * @example
    * 380

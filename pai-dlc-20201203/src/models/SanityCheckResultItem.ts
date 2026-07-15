@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SanityCheckResultItem extends $dara.Model {
   /**
    * @remarks
-   * The nth time the check is performed.
+   * The sequence number of the check.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class SanityCheckResultItem extends $dara.Model {
   checkNumber?: number;
   /**
    * @remarks
-   * The time when the check ends.
+   * The end time of the check.
    * 
    * @example
    * 2023-11-30T16:47:30.378817+08:00
@@ -21,12 +21,12 @@ export class SanityCheckResultItem extends $dara.Model {
   finishedAt?: string;
   /**
    * @remarks
-   * The detailed information about the check results.
+   * The details of the check result.
    */
   message?: string;
   /**
    * @remarks
-   * The check phase.
+   * The phase of the check.
    * 
    * @example
    * CheckInit
@@ -34,7 +34,7 @@ export class SanityCheckResultItem extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The time when the check starts.
+   * The start time of the check.
    * 
    * @example
    * 2023-11-30T16:47:30.343005+08:00
@@ -42,7 +42,7 @@ export class SanityCheckResultItem extends $dara.Model {
   startedAt?: string;
   /**
    * @remarks
-   * The check status.
+   * The status of the check.
    * 
    * @example
    * Succeeded

@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   /**
+   * @remarks
+   * The default version number.
+   * 
    * @example
    * 2
    */
   defaultVersion?: number;
   /**
+   * @remarks
+   * The description of the job template.
+   * 
    * @example
    * job description
    */
   description?: string;
   /**
    * @remarks
+   * The creation time of the template, in UTC and ISO 8601 format.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -23,6 +31,8 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * The modification time of the template, in UTC and ISO 8601 format.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -30,36 +40,57 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
    */
   gmtModifyTime?: string;
   /**
+   * @remarks
+   * Custom metadata, represented as a collection of key-value pairs.
+   * 
    * @example
    * {}
    */
   metadata?: { [key: string]: any };
   /**
+   * @remarks
+   * The ID of the modifier.
+   * 
    * @example
    * 20**************26
    */
   modifiedBy?: string;
   /**
+   * @remarks
+   * The ID of the job template.
+   * 
    * @example
    * tpl1r5g9ait7****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The name of the job template.
+   * 
    * @example
    * job-template-1772516653885
    */
   templateName?: string;
   /**
+   * @remarks
+   * The ID of the tenant.
+   * 
    * @example
    * 142388383837****
    */
   tenantId?: string;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 20**************26
    */
   userId?: string;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 88****
    */
@@ -109,26 +140,39 @@ export class ListJobTemplatesResponseBodyJobTemplates extends $dara.Model {
 }
 
 export class ListJobTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of job templates.
+   */
   jobTemplates?: ListJobTemplatesResponseBodyJobTemplates[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results on the current page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
    * @remarks
-   * 本次请求的 ID，用于诊断和答疑。
+   * The unique ID of the request. Use this ID to troubleshoot issues.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0D*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of job templates that match the filter conditions.
+   * 
    * @example
    * 100
    */

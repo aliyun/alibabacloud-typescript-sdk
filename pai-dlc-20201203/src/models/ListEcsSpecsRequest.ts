@@ -70,7 +70,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
    * *   GmtCreateTime
    * 
    * @example
-   * Gpu
+   * GPU
    */
   sortBy?: string;
   static names(): { [key: string]: string } {

@@ -5,18 +5,36 @@ import { SeccompProfile } from "./SeccompProfile";
 
 
 export class SecurityContext extends $dara.Model {
+  /**
+   * @remarks
+   * The Linux capabilities configuration of the container.
+   */
   capabilities?: SecurityContextCapabilities;
+  /**
+   * @remarks
+   * Specifies whether to enable privileged mode. This option is available only for specific Lingjun AI Computing Service subscription user scenarios.
+   */
   privileged?: boolean;
   /**
+   * @remarks
+   * The GID of the user that runs the container.
+   * 
    * @example
    * 1000
    */
   runAsGroup?: number;
   /**
+   * @remarks
+   * The UID of the user that runs the container.
+   * 
    * @example
    * 1000
    */
   runAsUser?: number;
+  /**
+   * @remarks
+   * The Seccomp profile configuration.
+   */
   seccompProfile?: SeccompProfile;
   static names(): { [key: string]: string } {
     return {

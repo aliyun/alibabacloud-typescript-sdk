@@ -2,24 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetJobRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to return job details. Default value: true.
-   * 
-   * @example
-   * true
-   */
-  needDetail?: boolean;
+export class HyperNodeSchedulingConfig extends $dara.Model {
+  minAvailable?: number;
+  qualityPolicy?: string;
   static names(): { [key: string]: string } {
     return {
-      needDetail: 'NeedDetail',
+      minAvailable: 'MinAvailable',
+      qualityPolicy: 'QualityPolicy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      needDetail: 'boolean',
+      minAvailable: 'number',
+      qualityPolicy: 'string',
     };
   }
 

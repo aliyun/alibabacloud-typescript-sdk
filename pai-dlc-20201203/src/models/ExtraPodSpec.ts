@@ -8,37 +8,41 @@ import { SecurityContext } from "./SecurityContext";
 export class ExtraPodSpec extends $dara.Model {
   /**
    * @remarks
-   * The containers to be initialized.
+   * A list of init containers that run to completion before the main container starts.
    */
   initContainers?: ContainerSpec[];
   /**
    * @remarks
-   * The lifecycle object.
+   * Defines lifecycle hooks for the main container.
    */
   lifecycle?: Lifecycle;
+  /**
+   * @remarks
+   * Defines the security context for the main container.
+   */
   mainContainerSecurityContext?: SecurityContext;
   /**
    * @remarks
-   * The pod annotations.
+   * Key-value pairs to apply to the pod as annotations. Use annotations to attach arbitrary, non-identifying metadata.
    * 
    * @deprecated
    */
   podAnnotations?: { [key: string]: string };
   /**
    * @remarks
-   * The pod labels.
+   * Key-value pairs to apply to the pod as labels. Use labels to organize and select pods.
    * 
    * @deprecated
    */
   podLabels?: { [key: string]: string };
   /**
    * @remarks
-   * The local paths shared between containers.
+   * A list of local directory paths to mount and share among all containers in the pod.
    */
   sharedVolumeMountPaths?: string[];
   /**
    * @remarks
-   * The sidecar containers.
+   * A list of sidecar containers.
    */
   sideCarContainers?: ContainerSpec[];
   static names(): { [key: string]: string } {

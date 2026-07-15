@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * 字段约束规则。Key 为 JSONPath 表达式，Value 为约束类型：locked（锁定不可覆盖）、overridable（可覆盖）、required（必填）。
+   * The field constraint rules. The key is a JSONPath expression, and the value is a constraint type: `locked` (cannot be overridden), `overridable` (can be overridden), or `required` (must be specified).
    * 
    * @example
    * {\\"JobSpecs[0].Image\\":\\"locked\\",\\"UserCommand\\":\\"locked\\",\\"JobType\\":\\"locked\\"}
@@ -13,7 +13,7 @@ export class CreateJobTemplateRequest extends $dara.Model {
   constraints?: { [key: string]: any };
   /**
    * @remarks
-   * 任务模板的配置内容，包含作业配置参数，以 JSON 格式传入。
+   * The configuration of the job template, which must be a JSON string containing the job configuration parameters.
    * 
    * This parameter is required.
    * 
@@ -22,13 +22,16 @@ export class CreateJobTemplateRequest extends $dara.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The description of the job template.
+   * 
    * @example
    * Template description
    */
   description?: string;
   /**
    * @remarks
-   * 用户自定义的键值对元数据，用于存储模板的附加信息。
+   * User-defined key-value metadata.
    * 
    * @example
    * {}
@@ -36,6 +39,8 @@ export class CreateJobTemplateRequest extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
+   * The name of the job template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,7 +49,7 @@ export class CreateJobTemplateRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * 工作空间 ID。如何获取工作空间 ID，请参见 ListWorkspaces。
+   * The ID of the workspace that contains the job template.
    * 
    * This parameter is required.
    * 

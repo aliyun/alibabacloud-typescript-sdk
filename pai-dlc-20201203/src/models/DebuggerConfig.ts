@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DebuggerConfig extends $dara.Model {
   /**
    * @example
-   * {\"description\":\"这是一个新的pytorchjob模板\"}
+   * {\\"description\\":\\"这是一个新的pytorchjob模板\\"}
    */
   content?: string;
   /**

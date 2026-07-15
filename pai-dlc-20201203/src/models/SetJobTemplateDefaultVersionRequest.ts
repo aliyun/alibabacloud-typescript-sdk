@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetJobTemplateDefaultVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * 要设置为默认的模板版本号
+   * The version number to set as the default.
    * 
    * This parameter is required.
    * 

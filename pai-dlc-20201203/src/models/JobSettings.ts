@@ -7,18 +7,18 @@ import { ModelConfig } from "./ModelConfig";
 export class JobSettings extends $dara.Model {
   /**
    * @remarks
-   * The additional advanced parameter configurations.
+   * The extra advanced parameter settings.
    */
   advancedSettings?: { [key: string]: any };
   /**
    * @remarks
-   * Whether to mount all RDMA network interface controllers
+   * Specifies whether to mount all RDMA network interfaces.
    */
   allocateAllRDMADevices?: boolean;
   allowUnschedulableNodes?: boolean;
   /**
    * @remarks
-   * The ID of the user associated with the job.
+   * The user ID associated with the job.
    * 
    * @example
    * 16****
@@ -32,13 +32,16 @@ export class JobSettings extends $dara.Model {
    * SilkFlow
    */
   caller?: string;
+  /**
+   * @remarks
+   * The DataJuicer task configuration.
+   */
   dataJuicerConfig?: DataJuicerConfig;
   /**
    * @remarks
-   * Whether inventory check is skipped. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to skip the inventory check. Valid values:
+   * - true
+   * - false
    * 
    * @example
    * false
@@ -46,7 +49,7 @@ export class JobSettings extends $dara.Model {
   disableEcsStockCheck?: boolean;
   /**
    * @remarks
-   * The NVIDIA driver configurations.
+   * The NVIDIA driver configuration.
    * 
    * @example
    * 535.54.03
@@ -54,7 +57,7 @@ export class JobSettings extends $dara.Model {
   driver?: string;
   /**
    * @remarks
-   * Whether the CPU affinity is enabled. This parameter takes effect only when you use subscription general computing resources.
+   * The CPU affinity setting. This setting takes effect only when general-purpose subscription computing resources are used.
    * 
    * @example
    * true
@@ -63,10 +66,9 @@ export class JobSettings extends $dara.Model {
   enableDSWDev?: boolean;
   /**
    * @remarks
-   * Whether fault tolerance monitoring is enabled for the job. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable fault tolerance monitoring for the job. Valid values:
+   * - true
+   * - false
    * 
    * @example
    * false
@@ -74,10 +76,9 @@ export class JobSettings extends $dara.Model {
   enableErrorMonitoringInAIMaster?: boolean;
   /**
    * @remarks
-   * Whether data is written to Object Storage Service (OSS) in append mode. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether OSS append writes are allowed. Valid values:
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -85,10 +86,9 @@ export class JobSettings extends $dara.Model {
   enableOssAppend?: boolean;
   /**
    * @remarks
-   * Whether RDMA is enabled for the job. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether the job is allowed to use RDMA. Valid values:
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -96,10 +96,9 @@ export class JobSettings extends $dara.Model {
   enableRDMA?: boolean;
   /**
    * @remarks
-   * Whether sanity check is enabled for the job. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable computing power health check for the job. Valid values:
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -107,10 +106,9 @@ export class JobSettings extends $dara.Model {
   enableSanityCheck?: boolean;
   /**
    * @remarks
-   * Whether tidal resources are allowed for the job. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether the job is allowed to use tidal resources. Valid values:
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -118,7 +116,7 @@ export class JobSettings extends $dara.Model {
   enableTideResource?: boolean;
   /**
    * @remarks
-   * The configuration parameters after you enable fault tolerance monitoring. For example, you can specify whether to enable log hang-based detection.
+   * The configuration parameters for fault tolerance monitoring after it is enabled. For example, you can specify whether to enable log hang-based detection.
    * 
    * @example
    * --enable-log-hang-detection true
@@ -126,7 +124,7 @@ export class JobSettings extends $dara.Model {
   errorMonitoringArgs?: string;
   /**
    * @remarks
-   * The retention period after the job ends. Unit: minutes.
+   * The duration (in minutes) for which the job is retained after it ends.
    * 
    * @example
    * 30
@@ -140,10 +138,14 @@ export class JobSettings extends $dara.Model {
    * Always
    */
   jobReservedPolicy?: string;
+  /**
+   * @remarks
+   * The output model configuration. This parameter currently takes effect only in federated training scenarios.
+   */
   modelConfig?: ModelConfig;
   /**
    * @remarks
-   * Whether the job accepts oversold resources. Valid values: ForbiddenQuotaOverSold, AcceptQuotaOverSold, and ForceQuotaOverSold.
+   * The oversold resource usage mode for the job (not accepted, acceptable, or only accepted).
    * 
    * @example
    * AcceptQuotaOverSold
@@ -151,25 +153,31 @@ export class JobSettings extends $dara.Model {
   oversoldType?: string;
   /**
    * @remarks
-   * The pipeline ID.
+   * The workflow ID.
    * 
    * @example
-   * pid-123456
+   * pid-12****
    */
   pipelineId?: string;
   /**
    * @remarks
-   * The configuration parameters for sanity check.
+   * The configuration parameters for computing power health check.
    * 
    * @example
    * --sanity-check-timing=AfterJobFaultTolerant --sanity-check-timeout-ops=MarkJobFail
    */
   sanityCheckArgs?: string;
   /**
+   * @example
+   * /bin/bash
+   */
+  shell?: string;
+  /**
    * @remarks
-   * The custom tag.
+   * The custom tags.
    */
   tags?: { [key: string]: string };
+  terminationGracePeriodSeconds?: number;
   static names(): { [key: string]: string } {
     return {
       advancedSettings: 'AdvancedSettings',
@@ -194,7 +202,9 @@ export class JobSettings extends $dara.Model {
       oversoldType: 'OversoldType',
       pipelineId: 'PipelineId',
       sanityCheckArgs: 'SanityCheckArgs',
+      shell: 'Shell',
       tags: 'Tags',
+      terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
     };
   }
 
@@ -222,7 +232,9 @@ export class JobSettings extends $dara.Model {
       oversoldType: 'string',
       pipelineId: 'string',
       sanityCheckArgs: 'string',
+      shell: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      terminationGracePeriodSeconds: 'number',
     };
   }
 

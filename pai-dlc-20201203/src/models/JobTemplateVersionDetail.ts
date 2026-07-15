@@ -6,24 +6,24 @@ export class JobTemplateVersionDetail extends $dara.Model {
   constraints?: { [key: string]: string };
   /**
    * @remarks
-   * 任务模板的配置内容，支持 CreateJob 接口的所有参数字段，以 JSON 对象存储
+   * Configuration content of the job template. It supports all parameter fields of the CreateJob API and is stored as a JSON object.
    */
   content?: string;
   /**
    * @remarks
-   * 创建该版本的用户ID
+   * User ID that created this version
    */
   createdBy?: string;
   /**
    * @remarks
-   * 该版本的创建时间
+   * Creation time of this version
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    */
   gmtCreated?: string;
   /**
    * @remarks
-   * 模板版本号
+   * Template version number
    */
   version?: number;
   static names(): { [key: string]: string } {

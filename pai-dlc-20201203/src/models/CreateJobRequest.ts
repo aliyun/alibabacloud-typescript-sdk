@@ -9,7 +9,7 @@ import { JobSettings } from "./JobSettings";
 export class CreateJobRequestCodeSource extends $dara.Model {
   /**
    * @remarks
-   * The branch of the referenced code repository. By default, the branch configured in the code source is used. This parameter is optional.
+   * The branch of the code repository referenced at runtime. This parameter is optional. By default, the branch configured in the code source is used.
    * 
    * @example
    * master
@@ -17,7 +17,7 @@ export class CreateJobRequestCodeSource extends $dara.Model {
   branch?: string;
   /**
    * @remarks
-   * The ID of the code source.
+   * The code source ID. <props="china">For information about how to obtain the code source ID, see [ListCodeSources](https://help.aliyun.com/document_detail/459922.html)..
    * 
    * @example
    * code-20210111103721-xxxxxxx
@@ -25,7 +25,7 @@ export class CreateJobRequestCodeSource extends $dara.Model {
   codeSourceId?: string;
   /**
    * @remarks
-   * The commit ID of the code to be downloaded. By default, the commit ID configured in the code source is used. This parameter is optional.
+   * The commit ID of the code to download for this job. This parameter is optional. By default, the commit ID configured in the code source is used.
    * 
    * @example
    * 44da109b5******
@@ -33,7 +33,7 @@ export class CreateJobRequestCodeSource extends $dara.Model {
   commit?: string;
   /**
    * @remarks
-   * The path to which the job is mounted. By default, the mount path configured in the data source is used. This parameter is optional.
+   * The mount path for this job. This parameter is optional. By default, the mount path configured in the code source is used.
    * 
    * @example
    * /root/data
@@ -99,7 +99,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source. <props="china">For information about how to obtain the data source ID, see [ListDatasets](https://help.aliyun.com/document_detail/457222.html)..
    * 
    * @example
    * d-cn9dl*******
@@ -110,7 +110,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
   mountAccess?: string;
   /**
    * @remarks
-   * The path to which the job is mounted. By default, the mount path in the data source configuration is used. This parameter is optional.
+   * The mount path for this job. This parameter is optional. By default, the mount path configured in the data source is used.
    * 
    * @example
    * /root/data
@@ -118,7 +118,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The mount attribute of the custom dataset. Set the value to OSS.
+   * The custom dataset mount properties. Only OSS is supported.
    * 
    * @example
    * {
@@ -177,10 +177,9 @@ export class CreateJobRequestDataSources extends $dara.Model {
 export class CreateJobRequestUserVpc extends $dara.Model {
   /**
    * @remarks
-   * The default route. Default value: false. Valid values:
-   * 
-   * *   eth0: The default network interface is used to access the Internet through the public gateway.
-   * *   eth1: The user\\"s elastic network interface (ENI) is used to access the Internet through the private gateway. For more information about the configuration method, see [Enable Internet access for a DSW instance by using a private Internet NAT gateway](https://help.aliyun.com/document_detail/2525343.html).
+   * The default routing. Valid values:
+   * - eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
+   * - eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway. For the specific configuration method, see [Configure a DSW instance to access the Internet through a dedicated public gateway](https://help.aliyun.com/document_detail/2525343.html).
    * 
    * @example
    * eth0
@@ -188,15 +187,14 @@ export class CreateJobRequestUserVpc extends $dara.Model {
   defaultRoute?: string;
   /**
    * @remarks
-   * The extended CIDR block.
-   * 
-   * *   If you leave the SwitchId and ExtendedCIDRs parameters empty, the system automatically obtains all CIDR blocks in a VPC.
-   * *   If you configure the SwitchId and ExtendedCIDRs parameters, we recommend that you specify all CIDR blocks in a VPC.
+   * The extended CIDR blocks.
+   * - If the vSwitch ID is empty, this parameter is not required. The system automatically obtains all CIDR blocks under the VPC.
+   * - If the vSwitch ID is specified, this parameter is required. Specify all CIDR blocks under the VPC.
    */
   extendedCIDRs?: string[];
   /**
    * @remarks
-   * The ID of the security group.
+   * The ID of the user security group.
    * 
    * @example
    * sg-abcdef****
@@ -204,10 +202,9 @@ export class CreateJobRequestUserVpc extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The vSwitch ID. This parameter is optional.
-   * 
-   * *   If you leave this parameter empty, the system automatically selects a vSwitch based on the inventory status.
-   * *   You can also specify a vSwitch ID.
+   * The ID of the user vSwitch. This parameter is optional.
+   * - If this parameter is left empty, the system automatically selects an appropriate vSwitch based on inventory.
+   * - You can also specify a vSwitch ID.
    * 
    * @example
    * vs-abcdef****
@@ -215,7 +212,7 @@ export class CreateJobRequestUserVpc extends $dara.Model {
   switchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the user VPC.
    * 
    * @example
    * vpc-abcdef****
@@ -256,10 +253,9 @@ export class CreateJobRequestUserVpc extends $dara.Model {
 export class CreateJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job visibility. Valid values:
-   * 
-   * *   PUBLIC: The job is visible to all members in the workspace.
-   * *   PRIVATE: The job is visible only to you and the administrator of the workspace.
+   * The visibility of the job. Valid values:
+   * - PUBLIC: visible to all members in the workspace.
+   * - PRIVATE: visible only to you and administrators in the workspace.
    * 
    * @example
    * PRIVATE
@@ -267,7 +263,7 @@ export class CreateJobRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The code source of the job. Before the node of the job runs, DLC automatically downloads the configured code from the code source and mounts the code to the local path of the container.
+   * The code source used by this job. Before the job nodes start, DLC automatically downloads the code configured in the code source and mounts it to a local directory of the container.
    */
   codeSource?: CreateJobRequestCodeSource;
   /**
@@ -278,12 +274,12 @@ export class CreateJobRequest extends $dara.Model {
   customEnvs?: CreateJobRequestCustomEnvs[];
   /**
    * @remarks
-   * The data sources for job running.
+   * The list of data sources used by the job.
    */
   dataSources?: CreateJobRequestDataSources[];
   /**
    * @remarks
-   * This parameter is not supported.
+   * This parameter is not supported. Ignore this parameter.
    * 
    * @example
    * “”
@@ -292,10 +288,9 @@ export class CreateJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The job name. The name must be in the following format:
-   * 
-   * *   The name must be 1 to 256 characters in length.
-   * *   The name can contain digits, letters, underscores (_), periods (.), and hyphens (-).
+   * The name of the job. The name must meet the following requirements:
+   * - The name cannot exceed 256 characters in length.
+   * - The name can contain digits, letters, underscores (_), periods (.), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -305,17 +300,17 @@ export class CreateJobRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * This parameter is not supported.
+   * This parameter is not supported. Ignore this parameter.
    */
   elasticSpec?: JobElasticSpec;
   /**
    * @remarks
-   * The environment variables.
+   * The environment variable configuration.
    */
   envs?: { [key: string]: string };
   /**
    * @remarks
-   * The maximum running duration of the job. Unit: minutes.
+   * The maximum running duration of the job, in minutes.
    * 
    * @example
    * 1024
@@ -323,36 +318,25 @@ export class CreateJobRequest extends $dara.Model {
   jobMaxRunningTimeMinutes?: number;
   /**
    * @remarks
-   * **JobSpecs** describes the configurations for job running, such as the image address, startup command, node resource declaration, and number of replicas.
+   * The various runtime configurations of the job, such as the image address, startup command, node resource declarations, and number of replicas.
    * 
-   * A DLC job consists of different types of nodes. If nodes of the same type have exactly the same configuration, the configuration is called JobSpec. **JobSpecs** specifies the configurations of all types of nodes. The value is of the array type.
+   * A DLC job consists of different types of nodes. Nodes of the same type share identical configurations, which is called a JobSpec. **JobSpecs** describes the configurations of all node types and is an array of JobSpec objects.
    * 
    * This parameter is required.
    */
   jobSpecs?: JobSpec[];
   /**
    * @remarks
-   * The job type. The value is case-sensitive. The following job types are supported:
-   * 
-   * *   TFJob
-   * *   PyTorchJob
-   * *   MPIJob
-   * *   XGBoostJob
-   * *   OneFlowJob
-   * *   ElasticBatchJob
-   * *   SlurmJob
-   * *   RayJob
-   * 
-   * Valid values and corresponding frameworks:
-   * 
-   * *   OneFlowJob: OneFlow.
-   * *   PyTorchJob: PyTorch.
-   * *   SlurmJob: Slurm.
-   * *   XGBoostJob: XGBoost.
-   * *   ElasticBatchJob: ElasticBatch.
-   * *   MPIJob: MPIJob.
-   * *   TFJob: Tensorflow.
-   * *   RayJob: Ray.
+   * The job type. This parameter is case-sensitive. Valid values:
+   * - TFJob
+   * - PyTorchJob
+   * - MPIJob
+   * - XGBoostJob
+   * - OneFlowJob
+   * - ElasticBatchJob
+   * - SlurmJob
+   * - RayJob
+   * - DataJuicerJob.
    * 
    * This parameter is required.
    * 
@@ -362,7 +346,7 @@ export class CreateJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The additional configuration of the job. You can use this parameter to adjust the behavior of the attached data source. For example, if the attached data source of the job is of the OSS type, you can use this parameter to add the following configurations to override the default parameters of JindoFS: `fs.oss.download.thread.concurrency=4,fs.oss.download.queue.size=16`.
+   * The additional configuration for this node. You can use this parameter to adjust the behavior of mounted data sources. For example, if the node has an OSS data source mounted, you can set this parameter to `fs.oss.download.thread.concurrency=4,fs.oss.download.queue.size=16` to overwrite the default JindoFS parameter settings.
    * 
    * @example
    * key1=value1,key2=value2
@@ -370,10 +354,10 @@ export class CreateJobRequest extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The priority of the job. Default value: 1. Valid values: 1 to 9.
+   * The priority of the job. This parameter is optional. Default value: 1. Valid values: 1 to 9.
    * 
-   * *   1 is the lowest priority.
-   * *   9: the highest priority.
+   * - 1: the lowest priority.
+   * - 9: the highest priority.
    * 
    * @example
    * 8
@@ -381,10 +365,9 @@ export class CreateJobRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the resource group. This parameter is optional.
-   * 
-   * *   If you leave this parameter empty, the job is submitted to a public resource group.
-   * *   If a resource quota is bound to the current workspace, you can specify the resource quota ID. For more information about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * The resource group ID. This parameter is optional.
+   * - If this parameter is left empty, the job is submitted to the public resource group.
+   * - If the current workspace has an attached resource quota, you can specify the corresponding resource quota ID. For details about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
    * 
    * @example
    * rs-xxx
@@ -397,15 +380,14 @@ export class CreateJobRequest extends $dara.Model {
   schedulingStrategy?: string;
   /**
    * @remarks
-   * The additional parameter configurations of the job.
+   * The additional parameter settings for the job.
    */
   settings?: JobSettings;
   /**
    * @remarks
-   * The policy that is used to check whether a distributed multi-node job is successful. Only TensorFlow distributed multi-node jobs are supported.
-   * 
-   * *   ChiefWorker: If you use this policy, the job is considered successful when the pod on the chief node completes operations.
-   * *   AllWorkers (default): If you use this policy, the job is considered successful when all worker nodes complete operations.
+   * The success policy for distributed multi-node jobs. Only TensorFlow multi-node jobs support this parameter. Valid values:
+   * - ChiefWorker: the entire job is considered successful when the Chief pod finishes successfully.
+   * - AllWorkers (default): the entire job is considered successful only when all Worker pods finish successfully.
    * 
    * @example
    * AllWorkers
@@ -413,15 +395,15 @@ export class CreateJobRequest extends $dara.Model {
   successPolicy?: string;
   /**
    * @remarks
-   * 任务模板的 ID。指定后将基于模板创建作业，作业参数需符合模板约束规则。
+   * The job template ID.
    * 
    * @example
-   * tplxxxxxxxxxxxxxxxx
+   * tplabc1234567
    */
   templateId?: string;
   /**
    * @remarks
-   * 指定使用的模板版本号，不传则使用模板默认版本。
+   * The job template version.
    * 
    * @example
    * 1
@@ -429,7 +411,7 @@ export class CreateJobRequest extends $dara.Model {
   templateVersion?: number;
   /**
    * @remarks
-   * The folder in which the third-party Python library file requirements.txt is stored. Before the startup command specified by the UserCommand parameter is run on each node, DLC fetches the requirements.txt file from the folder and runs `pip install -r` to install the required package and library.
+   * The name of the folder that contains the third-party Python library file (requirements.txt). Before running the specified UserCommand on each node, PAI-DLC retrieves the requirements.txt file from the specified folder and runs `pip install -r` to install the libraries.
    * 
    * @example
    * /root/code/
@@ -437,7 +419,7 @@ export class CreateJobRequest extends $dara.Model {
   thirdpartyLibDir?: string;
   /**
    * @remarks
-   * The third-party Python libraries to be installed.
+   * The list of third-party Python libraries to install.
    */
   thirdpartyLibs?: string[];
   /**
@@ -452,12 +434,12 @@ export class CreateJobRequest extends $dara.Model {
   userCommand?: string;
   /**
    * @remarks
-   * The VPC settings.
+   * The user VPC configuration.
    */
   userVpc?: CreateJobRequestUserVpc;
   /**
    * @remarks
-   * The workspace ID.
+   * The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html)..
    * 
    * @example
    * ws-20210126170216-xxxxxxx

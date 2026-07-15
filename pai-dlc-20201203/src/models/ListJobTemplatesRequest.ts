@@ -4,28 +4,40 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListJobTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The sort order. Valid values: `asc` for ascending and `desc` for descending. Default value: `desc`.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number to retrieve.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results to return per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The field to sort the results by. Default value: `GmtCreateTime`.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
    * @remarks
-   * 按模板 ID 精确筛选。
+   * The job template ID. Use this parameter to filter for an exact match.
    * 
    * @example
    * tpl1****6jcq2q
@@ -33,7 +45,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 按模板名称模糊筛选。
+   * The job template name. Use this parameter to filter for a partial match.
    * 
    * @example
    * job-template-example-1778047****
@@ -41,7 +53,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * 按创建者用户 ID 筛选。
+   * The ID of the creator. Use this parameter to filter results by a specific creator.
    * 
    * @example
    * 20**************02
@@ -49,7 +61,7 @@ export class ListJobTemplatesRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * 工作空间 ID。如何获取工作空间 ID，请参见 ListWorkspaces。
+   * The ID of the workspace.
    * 
    * This parameter is required.
    * 

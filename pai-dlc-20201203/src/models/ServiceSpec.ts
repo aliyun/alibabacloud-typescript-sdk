@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class ServiceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The default port for the service.
+   * 
    * @example
    * 8080
    */
   defaultPort?: number;
+  /**
+   * @remarks
+   * The list of extra ports for the service.
+   */
   extraPorts?: number[];
   /**
+   * @remarks
+   * The service pattern. Valid values are PerRole and PerPod. The default value is PerPod.
+   * 
    * @example
    * PerRole
    */

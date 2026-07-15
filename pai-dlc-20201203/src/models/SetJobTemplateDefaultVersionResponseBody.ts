@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetJobTemplateDefaultVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 设置后的默认版本号
+   * The current default version number.
    * 
    * @example
    * 2
@@ -13,6 +13,8 @@ export class SetJobTemplateDefaultVersionResponseBody extends $dara.Model {
   defaultVersion?: number;
   /**
    * @remarks
+   * The time the template was last modified.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -21,7 +23,7 @@ export class SetJobTemplateDefaultVersionResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * 本次请求的 ID，用于诊断和答疑。
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxx

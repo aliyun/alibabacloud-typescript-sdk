@@ -2,7 +2,9 @@
 import * as $dara from '@darabonba/typescript';
 import { AssignNodeSpec } from "./AssignNodeSpec";
 import { AutoScalingSpec } from "./AutoScalingSpec";
+import { ElasticSpotSpec } from "./ElasticSpotSpec";
 import { ExtraPodSpec } from "./ExtraPodSpec";
+import { HyperNodeSchedulingConfig } from "./HyperNodeSchedulingConfig";
 import { ImageConfig } from "./ImageConfig";
 import { LocalMountSpec } from "./LocalMountSpec";
 import { ResourceConfig } from "./ResourceConfig";
@@ -15,33 +17,37 @@ import { SystemDisk } from "./SystemDisk";
 export class JobSpec extends $dara.Model {
   /**
    * @remarks
-   * The scheduling node configurations.
+   * The scheduling node assignment configuration.
    */
   assignNodeSpec?: AssignNodeSpec;
   /**
    * @remarks
-   * The auto scaling configurations.
+   * The auto scaling configuration.
    */
   autoScalingSpec?: AutoScalingSpec;
+  /**
+   * @remarks
+   * Specifies whether to consider this role when determining job success. This parameter takes effect only when the success policy is set to Partial.
+   */
   considerInSuccessPolicy?: boolean;
   /**
    * @remarks
-   * The hardware specifications of the worker. For more information, see [Billing of DLC](https://help.aliyun.com/document_detail/171758.html) of PAI.
-   * 
-   * >  The price varies based on instance types.
+   * The hardware specifications of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed list of specifications.>Notice: Prices vary depending on the specifications.
    * 
    * @example
    * ecs.c6.large
    */
   ecsSpec?: string;
+  elasticSpotSpecs?: ElasticSpotSpec[];
   /**
    * @remarks
-   * The additional pod configurations.
+   * The additional pod configuration.
    */
   extraPodSpec?: ExtraPodSpec;
+  hyperNodeSchedulingConfig?: HyperNodeSchedulingConfig;
   /**
    * @remarks
-   * The address of the image that is run by the worker node. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image provided by PAI. You can also specify a third-party public image.
+   * The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain images provided by the PAI platform. You can also specify a third-party public image.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/cloud-dsw/tensorflow:1.12PAI-gpu-py36-cu101-ubuntu18.04
@@ -49,19 +55,19 @@ export class JobSpec extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The configuration of the private image.
+   * The private image configuration.
    */
   imageConfig?: ImageConfig;
   /**
    * @remarks
-   * Deprecated.
+   * Deprecated due to a spelling error.
    * 
    * @deprecated
    */
   isCheif?: boolean;
   /**
    * @remarks
-   * Whether the role is a Chief role. Chief role must be unique.
+   * Indicates whether this role is the Chief role. Only one Chief role is allowed.
    */
   isChief?: boolean;
   /**
@@ -69,6 +75,7 @@ export class JobSpec extends $dara.Model {
    * The list of local mount configurations.
    */
   localMountSpecs?: LocalMountSpec[];
+  oversoldType?: string;
   /**
    * @remarks
    * The number of replicas.
@@ -80,7 +87,7 @@ export class JobSpec extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The resource configurations.
+   * The resource configuration.
    */
   resourceConfig?: ResourceConfig;
   /**
@@ -93,27 +100,34 @@ export class JobSpec extends $dara.Model {
   restartPolicy?: string;
   /**
    * @remarks
-   * The service configurations.
+   * The service configuration.
    */
   serviceSpec?: ServiceSpec;
   /**
    * @remarks
-   * The configurations of the preemptible instance.
+   * The spot instance configuration.
    */
   spotSpec?: SpotSpec;
+  /**
+   * @remarks
+   * The dependencies required before this role starts.
+   */
   startupDependencies?: StartupDependency[];
   systemDisk?: SystemDisk;
   /**
    * @remarks
-   * The worker type, which is related to JobType. The valid values of this parameter vary based on the value of JobType.
+   * Type is closely related to Job Type. Different Job Types support different Worker Types.
    * 
-   * *   Valid values when JobType is set to **TFJob**: Chief, PS, Worker, Evaluator, and GraphLearn.
-   * *   Valid values when JobType is set to **PyTorchJob**: Worker and Master.
-   * *   Valid values when JobType is set to **XGBoostJob**: Worker and Master.
-   * *   Valid values when JobType is set to **OneFlowJob**: Worker and Master.
-   * *   Valid values when JobType is set to **ElasticBatch**: Worker and Master.
+   * - **TFJob**: Supports Chief, PS, Worker, Evaluator, and GraphLearn.
    * 
-   * The Master node in jobs of the PyTorchJob, XGBoostJob, OneFlowJob, or ElasticBatch type is optional. If you do not specify the Master node, the system automatically uses the first Worker node as the Master node.
+   * - **PyTorchJob**: Supports Worker and Master.
+   * 
+   * - **XGBoostJob**: Supports Worker and Master.
+   * - **OneFlowJob**: Supports Worker and Master.
+   * - **ElasticBatch**: Supports Worker and Master.
+   * - **RayJob**: Supports Head, Worker, and Worker[-xxx].
+   * 
+   * Master is optional in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch. If Master is not specified, the system automatically designates the first Worker node as Master.
    * 
    * @example
    * Worker
@@ -121,7 +135,7 @@ export class JobSpec extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Whether to use preemptible instances.
+   * Specifies whether to use spot instances.
    * 
    * @example
    * false
@@ -135,12 +149,15 @@ export class JobSpec extends $dara.Model {
       autoScalingSpec: 'AutoScalingSpec',
       considerInSuccessPolicy: 'ConsiderInSuccessPolicy',
       ecsSpec: 'EcsSpec',
+      elasticSpotSpecs: 'ElasticSpotSpecs',
       extraPodSpec: 'ExtraPodSpec',
+      hyperNodeSchedulingConfig: 'HyperNodeSchedulingConfig',
       image: 'Image',
       imageConfig: 'ImageConfig',
       isCheif: 'IsCheif',
       isChief: 'IsChief',
       localMountSpecs: 'LocalMountSpecs',
+      oversoldType: 'OversoldType',
       podCount: 'PodCount',
       quotaId: 'QuotaId',
       resourceConfig: 'ResourceConfig',
@@ -160,12 +177,15 @@ export class JobSpec extends $dara.Model {
       autoScalingSpec: AutoScalingSpec,
       considerInSuccessPolicy: 'boolean',
       ecsSpec: 'string',
+      elasticSpotSpecs: { 'type': 'array', 'itemType': ElasticSpotSpec },
       extraPodSpec: ExtraPodSpec,
+      hyperNodeSchedulingConfig: HyperNodeSchedulingConfig,
       image: 'string',
       imageConfig: ImageConfig,
       isCheif: 'boolean',
       isChief: 'boolean',
       localMountSpecs: { 'type': 'array', 'itemType': LocalMountSpec },
+      oversoldType: 'string',
       podCount: 'number',
       quotaId: 'string',
       resourceConfig: ResourceConfig,
@@ -186,8 +206,14 @@ export class JobSpec extends $dara.Model {
     if(this.autoScalingSpec && typeof (this.autoScalingSpec as any).validate === 'function') {
       (this.autoScalingSpec as any).validate();
     }
+    if(Array.isArray(this.elasticSpotSpecs)) {
+      $dara.Model.validateArray(this.elasticSpotSpecs);
+    }
     if(this.extraPodSpec && typeof (this.extraPodSpec as any).validate === 'function') {
       (this.extraPodSpec as any).validate();
+    }
+    if(this.hyperNodeSchedulingConfig && typeof (this.hyperNodeSchedulingConfig as any).validate === 'function') {
+      (this.hyperNodeSchedulingConfig as any).validate();
     }
     if(this.imageConfig && typeof (this.imageConfig as any).validate === 'function') {
       (this.imageConfig as any).validate();

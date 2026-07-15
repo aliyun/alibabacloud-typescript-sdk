@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ResourceRequirements extends $dara.Model {
   /**
    * @remarks
-   * The resource limit.
+   * Resource limits
    */
   limits?: { [key: string]: string };
   /**
    * @remarks
-   * The resource request.
+   * Resource requests
    */
   requests?: { [key: string]: string };
   static names(): { [key: string]: string } {

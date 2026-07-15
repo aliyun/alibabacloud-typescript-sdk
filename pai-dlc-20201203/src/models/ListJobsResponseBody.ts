@@ -6,12 +6,12 @@ import { JobItem } from "./JobItem";
 export class ListJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The jobs.
+   * The job list.
    */
   jobs?: JobItem[];
   /**
    * @remarks
-   * The request ID used to troubleshoot issues.
+   * The request ID, used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -19,10 +19,10 @@ export class ListJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of jobs that meet the filter conditions.
+   * The total number of jobs that match the filter conditions.
    * 
    * @example
-   * 2
+   * 1
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

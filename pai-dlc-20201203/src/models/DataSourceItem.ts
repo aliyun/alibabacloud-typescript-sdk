@@ -16,7 +16,7 @@ export class DataSourceItem extends $dara.Model {
    * The data source type. Only File Storage NAS (NAS) file systems are supported.
    * 
    * @example
-   * nas
+   * NAS
    */
   dataSourceType?: string;
   /**

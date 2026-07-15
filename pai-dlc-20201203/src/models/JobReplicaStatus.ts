@@ -5,24 +5,56 @@ import { ResourceConfig } from "./ResourceConfig";
 
 
 export class JobReplicaStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The number of active pods for this replica type.
+   */
   active?: number;
+  /**
+   * @remarks
+   * The type of spot instance in use, if any.
+   */
+  currentSpotInstanceType?: string;
+  /**
+   * @remarks
+   * The number of dequeued pods.
+   */
   dequeued?: number;
   /**
+   * @remarks
+   * The estimated auto scaling specification.
+   * 
    * **if can be null:**
    * true
    */
   estimatedAutoScalingSpec?: AutoScalingSpec;
+  /**
+   * @remarks
+   * The estimated number of pods for this replica type, used for auto scaling.
+   */
   estimatedPodCount?: number;
   /**
+   * @remarks
+   * The estimated resource configuration.
+   * 
    * **if can be null:**
    * true
    */
   estimatedResourceConfig?: ResourceConfig;
+  /**
+   * @remarks
+   * The number of queued pods.
+   */
   queuing?: number;
+  /**
+   * @remarks
+   * The type of the job replica.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
       active: 'Active',
+      currentSpotInstanceType: 'CurrentSpotInstanceType',
       dequeued: 'Dequeued',
       estimatedAutoScalingSpec: 'EstimatedAutoScalingSpec',
       estimatedPodCount: 'EstimatedPodCount',
@@ -35,6 +67,7 @@ export class JobReplicaStatus extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       active: 'number',
+      currentSpotInstanceType: 'string',
       dequeued: 'number',
       estimatedAutoScalingSpec: AutoScalingSpec,
       estimatedPodCount: 'number',
