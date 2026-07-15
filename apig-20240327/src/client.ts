@@ -221,6 +221,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量添加消费者组成员
+   * 
+   * @param request - BatchAddConsumerGroupConsumersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchAddConsumerGroupConsumersResponse
+   */
+  async batchAddConsumerGroupConsumersWithOptions(consumerGroupId: string, request: $_model.BatchAddConsumerGroupConsumersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchAddConsumerGroupConsumersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerIds)) {
+      body["consumerIds"] = request.consumerIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchAddConsumerGroupConsumers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-groups/${$dara.URL.percentEncode(consumerGroupId)}/consumers/batch-add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchAddConsumerGroupConsumersResponse>(await this.callApi(params, req, runtime), new $_model.BatchAddConsumerGroupConsumersResponse({}));
+  }
+
+  /**
+   * 批量添加消费者组成员
+   * 
+   * @param request - BatchAddConsumerGroupConsumersRequest
+   * @returns BatchAddConsumerGroupConsumersResponse
+   */
+  async batchAddConsumerGroupConsumers(consumerGroupId: string, request: $_model.BatchAddConsumerGroupConsumersRequest): Promise<$_model.BatchAddConsumerGroupConsumersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchAddConsumerGroupConsumersWithOptions(consumerGroupId, request, headers, runtime);
+  }
+
+  /**
    * Revokes consumer authorization rules in batches.
    * 
    * @param request - BatchDeleteConsumerAuthorizationRuleRequest
@@ -263,6 +308,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.batchDeleteConsumerAuthorizationRuleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量移除消费者组成员
+   * 
+   * @param request - BatchRemoveConsumerGroupConsumersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchRemoveConsumerGroupConsumersResponse
+   */
+  async batchRemoveConsumerGroupConsumersWithOptions(consumerGroupId: string, request: $_model.BatchRemoveConsumerGroupConsumersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchRemoveConsumerGroupConsumersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerIds)) {
+      body["consumerIds"] = request.consumerIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchRemoveConsumerGroupConsumers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-groups/${$dara.URL.percentEncode(consumerGroupId)}/consumers/batch-remove`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchRemoveConsumerGroupConsumersResponse>(await this.callApi(params, req, runtime), new $_model.BatchRemoveConsumerGroupConsumersResponse({}));
+  }
+
+  /**
+   * 批量移除消费者组成员
+   * 
+   * @param request - BatchRemoveConsumerGroupConsumersRequest
+   * @returns BatchRemoveConsumerGroupConsumersResponse
+   */
+  async batchRemoveConsumerGroupConsumers(consumerGroupId: string, request: $_model.BatchRemoveConsumerGroupConsumersRequest): Promise<$_model.BatchRemoveConsumerGroupConsumersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchRemoveConsumerGroupConsumersWithOptions(consumerGroupId, request, headers, runtime);
   }
 
   /**
@@ -320,6 +410,83 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.changeResourceGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建AI模型卡片
+   * 
+   * @remarks
+   * 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
+   * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+   * 
+   * @param request - CreateAiModelCardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAiModelCardResponse
+   */
+  async createAiModelCardWithOptions(request: $_model.CreateAiModelCardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAiModelCardResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.availablePaths)) {
+      body["availablePaths"] = request.availablePaths;
+    }
+
+    if (!$dara.isNull(request.credit)) {
+      body["credit"] = request.credit;
+    }
+
+    if (!$dara.isNull(request.features)) {
+      body["features"] = request.features;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.meta)) {
+      body["meta"] = request.meta;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["modelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelProvider)) {
+      body["modelProvider"] = request.modelProvider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAiModelCard",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-cards`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAiModelCardResponse>(await this.callApi(params, req, runtime), new $_model.CreateAiModelCardResponse({}));
+  }
+
+  /**
+   * 创建AI模型卡片
+   * 
+   * @remarks
+   * 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
+   * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+   * 
+   * @param request - CreateAiModelCardRequest
+   * @returns CreateAiModelCardResponse
+   */
+  async createAiModelCard(request: $_model.CreateAiModelCardRequest): Promise<$_model.CreateAiModelCardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAiModelCardWithOptions(request, headers, runtime);
   }
 
   /**
@@ -625,6 +792,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createConsumerAuthorizationRulesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建消费者组
+   * 
+   * @param request - CreateConsumerGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConsumerGroupResponse
+   */
+  async createConsumerGroupWithOptions(request: $_model.CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConsumerGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerGroupId)) {
+      body["consumerGroupId"] = request.consumerGroupId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.gatewayType)) {
+      body["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConsumerGroup",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-groups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConsumerGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateConsumerGroupResponse({}));
+  }
+
+  /**
+   * 创建消费者组
+   * 
+   * @param request - CreateConsumerGroupRequest
+   * @returns CreateConsumerGroupResponse
+   */
+  async createConsumerGroup(request: $_model.CreateConsumerGroupRequest): Promise<$_model.CreateConsumerGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConsumerGroupWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1724,6 +1948,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除AI模型卡片
+   * 
+   * @param request - DeleteAiModelCardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAiModelCardResponse
+   */
+  async deleteAiModelCardWithOptions(modelCardId: string, request: $_model.DeleteAiModelCardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAiModelCardResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAiModelCard",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-cards/${$dara.URL.percentEncode(modelCardId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAiModelCardResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAiModelCardResponse({}));
+  }
+
+  /**
+   * 删除AI模型卡片
+   * 
+   * @param request - DeleteAiModelCardRequest
+   * @returns DeleteAiModelCardResponse
+   */
+  async deleteAiModelCard(modelCardId: string, request: $_model.DeleteAiModelCardRequest): Promise<$_model.DeleteAiModelCardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAiModelCardWithOptions(modelCardId, request, headers, runtime);
+  }
+
+  /**
+   * 删除AI模型供应商
+   * 
+   * @param request - DeleteAiModelProviderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAiModelProviderResponse
+   */
+  async deleteAiModelProviderWithOptions(modelProviderId: string, request: $_model.DeleteAiModelProviderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAiModelProviderResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAiModelProvider",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-providers/${$dara.URL.percentEncode(modelProviderId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAiModelProviderResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAiModelProviderResponse({}));
+  }
+
+  /**
+   * 删除AI模型供应商
+   * 
+   * @param request - DeleteAiModelProviderRequest
+   * @returns DeleteAiModelProviderResponse
+   */
+  async deleteAiModelProvider(modelProviderId: string, request: $_model.DeleteAiModelProviderRequest): Promise<$_model.DeleteAiModelProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAiModelProviderWithOptions(modelProviderId, request, headers, runtime);
+  }
+
+  /**
    * Deletes an API consumer.
    * 
    * @param headers - map
@@ -1791,6 +2093,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, consumerId, headers, runtime);
+  }
+
+  /**
+   * 删除消费者组
+   * 
+   * @param request - DeleteConsumerGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConsumerGroupResponse
+   */
+  async deleteConsumerGroupWithOptions(consumerGroupId: string, request: $_model.DeleteConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConsumerGroupResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConsumerGroup",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-groups/${$dara.URL.percentEncode(consumerGroupId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConsumerGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConsumerGroupResponse({}));
+  }
+
+  /**
+   * 删除消费者组
+   * 
+   * @param request - DeleteConsumerGroupRequest
+   * @returns DeleteConsumerGroupResponse
+   */
+  async deleteConsumerGroup(consumerGroupId: string, request: $_model.DeleteConsumerGroupRequest): Promise<$_model.DeleteConsumerGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConsumerGroupWithOptions(consumerGroupId, request, headers, runtime);
   }
 
   /**
@@ -2610,6 +2951,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询AI模型卡片详情
+   * 
+   * @param request - GetAiModelCardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiModelCardResponse
+   */
+  async getAiModelCardWithOptions(modelCardId: string, request: $_model.GetAiModelCardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiModelCardResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiModelCard",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-cards/${$dara.URL.percentEncode(modelCardId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiModelCardResponse>(await this.callApi(params, req, runtime), new $_model.GetAiModelCardResponse({}));
+  }
+
+  /**
+   * 查询AI模型卡片详情
+   * 
+   * @param request - GetAiModelCardRequest
+   * @returns GetAiModelCardResponse
+   */
+  async getAiModelCard(modelCardId: string, request: $_model.GetAiModelCardRequest): Promise<$_model.GetAiModelCardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAiModelCardWithOptions(modelCardId, request, headers, runtime);
+  }
+
+  /**
+   * 查询AI模型供应商详情
+   * 
+   * @param request - GetAiModelProviderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiModelProviderResponse
+   */
+  async getAiModelProviderWithOptions(modelProviderId: string, request: $_model.GetAiModelProviderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiModelProviderResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiModelProvider",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-providers/${$dara.URL.percentEncode(modelProviderId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiModelProviderResponse>(await this.callApi(params, req, runtime), new $_model.GetAiModelProviderResponse({}));
+  }
+
+  /**
+   * 查询AI模型供应商详情
+   * 
+   * @param request - GetAiModelProviderRequest
+   * @returns GetAiModelProviderResponse
+   */
+  async getAiModelProvider(modelProviderId: string, request: $_model.GetAiModelProviderRequest): Promise<$_model.GetAiModelProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAiModelProviderWithOptions(modelProviderId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves an API consumer.
    * 
    * @param headers - map
@@ -2677,6 +3096,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, consumerId, headers, runtime);
+  }
+
+  /**
+   * 查询消费者组
+   * 
+   * @param request - GetConsumerGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConsumerGroupResponse
+   */
+  async getConsumerGroupWithOptions(consumerGroupId: string, request: $_model.GetConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConsumerGroupResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConsumerGroup",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-groups/${$dara.URL.percentEncode(consumerGroupId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConsumerGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetConsumerGroupResponse({}));
+  }
+
+  /**
+   * 查询消费者组
+   * 
+   * @param request - GetConsumerGroupRequest
+   * @returns GetConsumerGroupResponse
+   */
+  async getConsumerGroup(consumerGroupId: string, request: $_model.GetConsumerGroupRequest): Promise<$_model.GetConsumerGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConsumerGroupWithOptions(consumerGroupId, request, headers, runtime);
   }
 
   /**
@@ -3689,6 +4147,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询AI模型卡片列表
+   * 
+   * @param request - ListAiModelCardsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiModelCardsResponse
+   */
+  async listAiModelCardsWithOptions(request: $_model.ListAiModelCardsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAiModelCardsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAiModelCards",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-cards`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAiModelCardsResponse>(await this.callApi(params, req, runtime), new $_model.ListAiModelCardsResponse({}));
+  }
+
+  /**
+   * 查询AI模型卡片列表
+   * 
+   * @param request - ListAiModelCardsRequest
+   * @returns ListAiModelCardsResponse
+   */
+  async listAiModelCards(request: $_model.ListAiModelCardsRequest): Promise<$_model.ListAiModelCardsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAiModelCardsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询AI模型供应商列表
+   * 
+   * @param request - ListAiModelProvidersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiModelProvidersResponse
+   */
+  async listAiModelProvidersWithOptions(request: $_model.ListAiModelProvidersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAiModelProvidersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAiModelProviders",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-providers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAiModelProvidersResponse>(await this.callApi(params, req, runtime), new $_model.ListAiModelProvidersResponse({}));
+  }
+
+  /**
+   * 查询AI模型供应商列表
+   * 
+   * @param request - ListAiModelProvidersRequest
+   * @returns ListAiModelProvidersResponse
+   */
+  async listAiModelProviders(request: $_model.ListAiModelProvidersRequest): Promise<$_model.ListAiModelProvidersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAiModelProvidersWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves the list of consumer authorization rules.
    * 
    * @param request - ListConsumerAuthorizationRulesRequest
@@ -3739,6 +4311,116 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumerAuthorizationRulesWithOptions(consumerId, request, headers, runtime);
+  }
+
+  /**
+   * 查询消费者组成员列表
+   * 
+   * @param request - ListConsumerGroupConsumersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumerGroupConsumersResponse
+   */
+  async listConsumerGroupConsumersWithOptions(consumerGroupId: string, request: $_model.ListConsumerGroupConsumersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumerGroupConsumersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumerGroupConsumers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-groups/${$dara.URL.percentEncode(consumerGroupId)}/consumers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumerGroupConsumersResponse>(await this.callApi(params, req, runtime), new $_model.ListConsumerGroupConsumersResponse({}));
+  }
+
+  /**
+   * 查询消费者组成员列表
+   * 
+   * @param request - ListConsumerGroupConsumersRequest
+   * @returns ListConsumerGroupConsumersResponse
+   */
+  async listConsumerGroupConsumers(consumerGroupId: string, request: $_model.ListConsumerGroupConsumersRequest): Promise<$_model.ListConsumerGroupConsumersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumerGroupConsumersWithOptions(consumerGroupId, request, headers, runtime);
+  }
+
+  /**
+   * 查询消费者组列表
+   * 
+   * @param request - ListConsumerGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumerGroupsResponse
+   */
+  async listConsumerGroupsWithOptions(request: $_model.ListConsumerGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumerGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayType)) {
+      query["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumerGroups",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-groups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumerGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListConsumerGroupsResponse({}));
+  }
+
+  /**
+   * 查询消费者组列表
+   * 
+   * @param request - ListConsumerGroupsRequest
+   * @returns ListConsumerGroupsResponse
+   */
+  async listConsumerGroups(request: $_model.ListConsumerGroupsRequest): Promise<$_model.ListConsumerGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumerGroupsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5934,6 +6616,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新AI模型卡片
+   * 
+   * @param request - UpdateAiModelCardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAiModelCardResponse
+   */
+  async updateAiModelCardWithOptions(modelCardId: string, request: $_model.UpdateAiModelCardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAiModelCardResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.availablePaths)) {
+      body["availablePaths"] = request.availablePaths;
+    }
+
+    if (!$dara.isNull(request.credit)) {
+      body["credit"] = request.credit;
+    }
+
+    if (!$dara.isNull(request.features)) {
+      body["features"] = request.features;
+    }
+
+    if (!$dara.isNull(request.meta)) {
+      body["meta"] = request.meta;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["modelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelProvider)) {
+      body["modelProvider"] = request.modelProvider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAiModelCard",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-cards/${$dara.URL.percentEncode(modelCardId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAiModelCardResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAiModelCardResponse({}));
+  }
+
+  /**
+   * 更新AI模型卡片
+   * 
+   * @param request - UpdateAiModelCardRequest
+   * @returns UpdateAiModelCardResponse
+   */
+  async updateAiModelCard(modelCardId: string, request: $_model.UpdateAiModelCardRequest): Promise<$_model.UpdateAiModelCardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAiModelCardWithOptions(modelCardId, request, headers, runtime);
+  }
+
+  /**
+   * 更新AI模型供应商
+   * 
+   * @param request - UpdateAiModelProviderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAiModelProviderResponse
+   */
+  async updateAiModelProviderWithOptions(modelProviderId: string, request: $_model.UpdateAiModelProviderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAiModelProviderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.serviceIds)) {
+      body["serviceIds"] = request.serviceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAiModelProvider",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-providers/${$dara.URL.percentEncode(modelProviderId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAiModelProviderResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAiModelProviderResponse({}));
+  }
+
+  /**
+   * 更新AI模型供应商
+   * 
+   * @param request - UpdateAiModelProviderRequest
+   * @returns UpdateAiModelProviderResponse
+   */
+  async updateAiModelProvider(modelProviderId: string, request: $_model.UpdateAiModelProviderRequest): Promise<$_model.UpdateAiModelProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAiModelProviderWithOptions(modelProviderId, request, headers, runtime);
+  }
+
+  /**
    * Updates and mounts a policy.
    * 
    * @param request - UpdateAndAttachPolicyRequest
@@ -6114,6 +6910,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateConsumerAuthorizationRuleWithOptions(consumerId, consumerAuthorizationRuleId, request, headers, runtime);
+  }
+
+  /**
+   * 更新消费者组
+   * 
+   * @param request - UpdateConsumerGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConsumerGroupResponse
+   */
+  async updateConsumerGroupWithOptions(consumerGroupId: string, request: $_model.UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConsumerGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConsumerGroup",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-groups/${$dara.URL.percentEncode(consumerGroupId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConsumerGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConsumerGroupResponse({}));
+  }
+
+  /**
+   * 更新消费者组
+   * 
+   * @param request - UpdateConsumerGroupRequest
+   * @returns UpdateConsumerGroupResponse
+   */
+  async updateConsumerGroup(consumerGroupId: string, request: $_model.UpdateConsumerGroupRequest): Promise<$_model.UpdateConsumerGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConsumerGroupWithOptions(consumerGroupId, request, headers, runtime);
   }
 
   /**
