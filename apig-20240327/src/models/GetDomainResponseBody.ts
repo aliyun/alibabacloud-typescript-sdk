@@ -63,6 +63,30 @@ export class GetDomainResponseBodyData extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
+   * The certificate detail error code.
+   * 
+   * @example
+   * -
+   */
+  certDetailErrorCode?: string;
+  /**
+   * @remarks
+   * The certificate detail error message.
+   * 
+   * @example
+   * -
+   */
+  certDetailErrorMessage?: string;
+  /**
+   * @remarks
+   * The certificate detail status.
+   * 
+   * @example
+   * -
+   */
+  certDetailStatus?: string;
+  /**
+   * @remarks
    * The certificate identifier.
    * 
    * @example
@@ -125,13 +149,16 @@ export class GetDomainResponseBodyData extends $dara.Model {
    */
   domainId?: string;
   /**
+   * @remarks
+   * The domain name scope.
+   * 
    * @example
    * Serverless
    */
   domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
+   * Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS.
    * 
    * @example
    * false
@@ -147,7 +174,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * The certification authority.
+   * The certificate issue authority.
    * 
    * @example
    * Alibaba
@@ -187,10 +214,10 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The protocol type supported by the domain name.
+   * The protocol type supported by the domain name. Valid values:
    * 
-   * - HTTP: supports only the HTTP protocol.
-   * - HTTPS: supports only the HTTPS protocol.
+   * - HTTP: only HTTP is supported.
+   * - HTTPS: only HTTPS is supported.
    * 
    * @example
    * HTTP
@@ -250,6 +277,9 @@ export class GetDomainResponseBodyData extends $dara.Model {
     return {
       algorithm: 'algorithm',
       caCertIdentifier: 'caCertIdentifier',
+      certDetailErrorCode: 'certDetailErrorCode',
+      certDetailErrorMessage: 'certDetailErrorMessage',
+      certDetailStatus: 'certDetailStatus',
       certIdentifier: 'certIdentifier',
       certName: 'certName',
       clientCACert: 'clientCACert',
@@ -280,6 +310,9 @@ export class GetDomainResponseBodyData extends $dara.Model {
     return {
       algorithm: 'string',
       caCertIdentifier: 'string',
+      certDetailErrorCode: 'string',
+      certDetailErrorMessage: 'string',
+      certDetailStatus: 'string',
       certIdentifier: 'string',
       certName: 'string',
       clientCACert: 'string',

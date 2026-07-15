@@ -6,7 +6,7 @@ import { HiMarketModelFeature } from "./HiMarketModelFeature";
 export class HiMarketProductFeature extends $dara.Model {
   /**
    * @remarks
-   * Specifies the product\\"s model feature. For more information, see HiMarketModelFeature.
+   * The model feature.
    */
   modelFeature?: HiMarketModelFeature;
   static names(): { [key: string]: string } {

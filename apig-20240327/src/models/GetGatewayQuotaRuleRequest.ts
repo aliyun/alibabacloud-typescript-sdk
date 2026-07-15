@@ -15,7 +15,7 @@ export class GetGatewayQuotaRuleRequest extends $dara.Model {
   consumerPageNumber?: string;
   /**
    * @remarks
-   * The page size of the consumer list.
+   * The number of consumers per page.
    * 
    * @example
    * 10
@@ -25,7 +25,7 @@ export class GetGatewayQuotaRuleRequest extends $dara.Model {
   consumerPageSize?: string;
   /**
    * @remarks
-   * Specifies whether to return the consumer list.
+   * Specifies whether to include the consumer list in the response.
    */
   withConsumers?: boolean;
   static names(): { [key: string]: string } {

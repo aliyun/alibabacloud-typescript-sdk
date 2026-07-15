@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayQuotaRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The conflict snapshot hash used to prevent concurrent dirty overwrites during confirmation. Obtain this value from the response of a previous dryRun=true call.
+   * The conflict snapshot hash, used to prevent concurrent dirty overwrites during confirmation. Obtain this value from the response of a previous dry run (dryRun=true).
    * 
-   * You do not need to specify this parameter in the following cases: no conflict exists, the request is a dry run (dryRun=true), or overwrite=false.
+   * This parameter is not required in the following cases: no conflicts exist, the request is a dry run (dryRun=true), or overwrite is set to false.
    * 
-   * When dryRun=false and overwrite=true, if this parameter is not specified or the value has expired, the backend returns accepted=false with a new conflict preview. Perform a dry run again to confirm the new conflict.
+   * If dryRun is set to false and overwrite is set to true but this parameter is not specified or the value has expired, the system returns accepted=false with a new conflict preview. Perform a new dry run to confirm the updated conflicts.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -27,7 +27,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   consumerGroupIds?: string[];
   /**
    * @remarks
-   * The list of consumer IDs to bind to the rule.
+   * The list of consumer IDs to bind to the rule. You can specify up to 1,000 consumers in a single request.
    * 
    * @example
    * 1001,1002,1003
@@ -35,7 +35,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   consumerIds?: string[];
   /**
    * @remarks
-   * Specifies whether to perform only a dry run without persisting or applying the configuration. A dry run checks whether conflicting rules exist on the bound consumers. For example, a consumer that already has a daily calendar quota cannot have another daily calendar quota rule added.
+   * Specifies whether to perform only a dry run without applying the configuration. A dry run checks whether conflicting rules exist on the bound consumers. For example, a consumer that already has a calendar-day quota rule cannot have another calendar-day quota rule added.
    * 
    * @example
    * false
@@ -43,7 +43,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow overwriting on conflict. If overwriting is allowed, the conflicting principals (consumers) are unbound from the old rule and bound to the new rule.
+   * Specifies whether to allow overwriting when conflicts exist. If overwriting is allowed, the conflicting consumers are unbound from the old rule and bound to the new rule.
    * 
    * @example
    * false
@@ -51,7 +51,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * The period multiplier.
+   * The period multiplier, which specifies the number of periods after which the quota resets. This parameter is required for custom period rules. Minimum value: 1. Maximum value: 60.
    * 
    * @example
    * 10
@@ -59,7 +59,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   periodMultiplier?: number;
   /**
    * @remarks
-   * The period type. Valid values: day (calendar day), week (calendar week), and month (calendar month).
+   * The period unit. For calendar periods, the value can be day, week, or month. For custom periods, only day is supported.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   periodType?: string;
   /**
    * @remarks
-   * The quota dimension or throttling type. Currently, only token is supported.
+   * The quota dimension or throttling type. Valid values: token and credit. The credit quota applies only to dedicated instances of version 2.1.19 or later.
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   quotaDimension?: string;
   /**
    * @remarks
-   * The total available quota per period.
+   * The total available quota per period (the limit).
    * 
    * This parameter is required.
    * 
@@ -94,7 +94,7 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 团队规则
+   * team-rule
    */
   ruleName?: string;
   /**
@@ -107,7 +107,10 @@ export class AddGatewayQuotaRuleRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The reset period alignment type. Currently, only calendar alignment is supported, which means windowAlignment="calendar".
+   * The reset period type. Valid values:
+   * 
+   * - calendar: calendar period. The period starts from the beginning of a calendar day, week, or month.
+   * - epoch: custom period. The period starts from the time the rule is applied. The custom period applies only to dedicated instances of version 2.1.19 or later.
    * 
    * @example
    * calendar

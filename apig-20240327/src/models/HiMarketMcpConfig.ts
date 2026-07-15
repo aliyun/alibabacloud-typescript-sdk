@@ -6,12 +6,15 @@ import { HiMarketDomain } from "./HiMarketDomain";
 export class HiMarketMcpConfigMcpServerConfig extends $dara.Model {
   /**
    * @remarks
-   * The domains managed by the server.
+   * The list of associated domain names.
    */
   domains?: HiMarketDomain[];
   /**
    * @remarks
-   * The base path for the service endpoint.
+   * The path exposed by the MCP server.
+   * 
+   * @example
+   * /mcp
    */
   path?: string;
   static names(): { [key: string]: string } {
@@ -43,7 +46,10 @@ export class HiMarketMcpConfigMcpServerConfig extends $dara.Model {
 export class HiMarketMcpConfigMeta extends $dara.Model {
   /**
    * @remarks
-   * The communication protocol. Can be `http` or `https`.
+   * The MCP protocol type.
+   * 
+   * @example
+   * StreamableHTTP
    */
   protocol?: string;
   static names(): { [key: string]: string } {
@@ -70,22 +76,28 @@ export class HiMarketMcpConfigMeta extends $dara.Model {
 export class HiMarketMcpConfig extends $dara.Model {
   /**
    * @remarks
-   * Configuration for the MCP server.
+   * The MCP Server configuration.
    */
   mcpServerConfig?: HiMarketMcpConfigMcpServerConfig;
   /**
    * @remarks
-   * A unique name for the MCP server.
+   * The MCP Server name.
+   * 
+   * @example
+   * my-mcp-server
    */
   mcpServerName?: string;
   /**
    * @remarks
-   * Metadata for the configuration.
+   * The metadata.
    */
   meta?: HiMarketMcpConfigMeta;
   /**
    * @remarks
-   * The tools associated with this configuration, typically provided as a JSON-formatted string.
+   * The MCP tool definitions.
+   * 
+   * @example
+   * [{\\"name\\":\\"search\\",\\"description\\":\\"搜索工具\\"}]
    */
   tools?: string;
   static names(): { [key: string]: string } {

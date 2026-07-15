@@ -5,47 +5,74 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketOidcConfigAuthCodeConfig extends $dara.Model {
   /**
    * @remarks
-   * The URL of the identity provider\\"s authorization endpoint.
+   * The authorization endpoint URL.
+   * 
+   * @example
+   * https://idaas.example.com/oauth2/authorize
    */
   authorizationEndpoint?: string;
   /**
    * @remarks
-   * The client ID obtained from the identity provider after registering your application.
+   * The OAuth2 client ID.
+   * 
+   * @example
+   * my-client-id
    */
   clientId?: string;
   /**
    * @remarks
-   * The client secret obtained from the identity provider after registering your application.
+   * The OAuth2 client secret.
+   * 
+   * @example
+   * my-client-secret
    */
   clientSecret?: string;
   /**
    * @remarks
-   * The identity provider\\"s unique issuer URL, used to validate ID tokens.
+   * The OIDC issuer URL.
+   * 
+   * @example
+   * https://idaas.example.com
    */
   issuer?: string;
   /**
    * @remarks
-   * The provider\\"s JWK Set URI. This URI provides the public keys needed to verify ID token signatures.
+   * The JWKS public key set URI.
+   * 
+   * @example
+   * https://idaas.example.com/.well-known/jwks.json
    */
   jwkSetUri?: string;
   /**
    * @remarks
-   * The application\\"s redirect URI. The provider sends the authorization code to this URI after successful authentication. You must register this URI with the identity provider.
+   * The OAuth2 redirect URI.
+   * 
+   * @example
+   * https://gateway.example.com/callback
    */
   redirectUri?: string;
   /**
    * @remarks
-   * A space-separated list of scopes to request from the provider. The `openid` scope is required for OIDC authentication. For example: `openid profile email`.
+   * The OAuth2 authorization scopes.
+   * 
+   * @example
+   * openid profile email
    */
   scopes?: string;
   /**
    * @remarks
-   * The URL of the identity provider\\"s token endpoint.
+   * The token endpoint URL.
+   * 
+   * @example
+   * https://idaas.example.com/oauth2/token
    */
   tokenEndpoint?: string;
   /**
    * @remarks
-   * The URL of the identity provider\\"s user info endpoint.
+   * The UserInfo endpoint URL.
+   * 
+   * @example
+   * https://idaas.example.com/userinfo
    */
   userInfoEndpoint?: string;
   static names(): { [key: string]: string } {
@@ -88,22 +115,31 @@ export class HiMarketOidcConfigAuthCodeConfig extends $dara.Model {
 export class HiMarketOidcConfigIdentityMapping extends $dara.Model {
   /**
    * @remarks
-   * Maps additional claims from the ID token to custom user attributes. For each mapping, the key is the target attribute in your system, and the value is the name of the claim from the ID token.
+   * The custom field mappings.
    */
   customFields?: { [key: string]: string };
   /**
    * @remarks
-   * The ID token claim that maps to the user\\"s email address. The `email` claim is a common choice.
+   * The identity field name that corresponds to the email address.
+   * 
+   * @example
+   * email
    */
   emailField?: string;
   /**
    * @remarks
-   * The ID token claim that maps to the user\\"s unique ID. The `sub` claim is a common choice.
+   * The identity field name that corresponds to the user ID.
+   * 
+   * @example
+   * sub
    */
   userIdField?: string;
   /**
    * @remarks
-   * The ID token claim that maps to the user\\"s display name. Common choices include `name` and `preferred_username`.
+   * The identity field name that corresponds to the username.
+   * 
+   * @example
+   * name
    */
   userNameField?: string;
   static names(): { [key: string]: string } {
@@ -139,37 +175,52 @@ export class HiMarketOidcConfigIdentityMapping extends $dara.Model {
 export class HiMarketOidcConfig extends $dara.Model {
   /**
    * @remarks
-   * Configuration settings for the authorization code grant type.
+   * The OAuth2 Authorization Code configuration.
    */
   authCodeConfig?: HiMarketOidcConfigAuthCodeConfig;
   /**
    * @remarks
-   * Enables or disables this identity provider. If set to `false`, users cannot sign in with this provider.
+   * Indicates whether the OIDC configuration is enabled.
+   * 
+   * @example
+   * true
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The OAuth 2.0 grant type. For OIDC, this must be `authorization_code`.
+   * The authorization type.
+   * 
+   * @example
+   * authorization_code
    */
   grantType?: string;
   /**
    * @remarks
-   * Specifies how to map claims from an ID token to user attributes in your system.
+   * The identity field mapping configuration.
    */
   identityMapping?: HiMarketOidcConfigIdentityMapping;
   /**
    * @remarks
-   * The URL for the provider\\"s logo. This logo appears on the sign-in page.
+   * The provider logo URL.
+   * 
+   * @example
+   * https://example.com/logo.png
    */
   logoUrl?: string;
   /**
    * @remarks
-   * The provider\\"s display name. This name appears on the sign-in page.
+   * The OIDC configuration name.
+   * 
+   * @example
+   * my-oidc-config
    */
   name?: string;
   /**
    * @remarks
-   * The unique identifier for the identity provider.
+   * The OIDC provider name.
+   * 
+   * @example
+   * 阿里云IDaaS
    */
   provider?: string;
   static names(): { [key: string]: string } {

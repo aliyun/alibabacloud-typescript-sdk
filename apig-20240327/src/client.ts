@@ -60,15 +60,15 @@ export default class Client extends OpenApi {
    * Creates a gateway quota throttling rule.
    * 
    * @remarks
-   * This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+   * Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
    * > 
-   * >  Recommended call logic:
-   * > - 1. Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun=true.
-   * > - - The response contains a conflict preview with conflictHash.
-   * > - 2. Submit the request after confirmation.
-   * > - - No conflict: dryRun=false, overwrite=false.
-   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+   * >  Recommended call sequence:
+   * > - Step 1: Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun to true.
+   * > - - The response contains a conflict preview with a conflictHash value.
+   * > - Step 2: Submit the request after confirmation.
+   * > - - No conflicts: Set dryRun to false and overwrite to false.
+   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @param headers - map
@@ -148,15 +148,15 @@ export default class Client extends OpenApi {
    * Creates a gateway quota throttling rule.
    * 
    * @remarks
-   * This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+   * Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
    * > 
-   * >  Recommended call logic:
-   * > - 1. Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun=true.
-   * > - - The response contains a conflict preview with conflictHash.
-   * > - 2. Submit the request after confirmation.
-   * > - - No conflict: dryRun=false, overwrite=false.
-   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+   * >  Recommended call sequence:
+   * > - Step 1: Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun to true.
+   * > - - The response contains a conflict preview with a conflictHash value.
+   * > - Step 2: Submit the request after confirmation.
+   * > - - No conflicts: Set dryRun to false and overwrite to false.
+   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @returns AddGatewayQuotaRuleResponse
@@ -168,7 +168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes a security group to allow gateway access to services.
+   * Authorizes a security group that allows a gateway to access services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @param headers - map
@@ -209,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes a security group to allow gateway access to services.
+   * Authorizes a security group that allows a gateway to access services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @returns AddGatewaySecurityGroupRuleResponse
@@ -266,7 +266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers a resource to a different resource group.
+   * Moves a resource to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -311,7 +311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers a resource to a different resource group.
+   * Moves a resource to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -1419,7 +1419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy attachment.
+   * Creates a policy attachment to a resource.
    * 
    * @param request - CreatePolicyAttachmentRequest
    * @param headers - map
@@ -1468,7 +1468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy attachment.
+   * Creates a policy attachment to a resource.
    * 
    * @param request - CreatePolicyAttachmentRequest
    * @returns CreatePolicyAttachmentResponse
@@ -1907,7 +1907,7 @@ export default class Client extends OpenApi {
    * Deletes a quota throttling rule from a gateway.
    * 
    * @remarks
-   * Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
+   * Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @param headers - map
@@ -1937,7 +1937,7 @@ export default class Client extends OpenApi {
    * Deletes a quota throttling rule from a gateway.
    * 
    * @remarks
-   * Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
+   * Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @returns DeleteGatewayQuotaRuleResponse
@@ -1949,7 +1949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a gateway security group rule.
+   * Deletes a security group rule from a gateway.
    * 
    * @param request - DeleteGatewaySecurityGroupRuleRequest
    * @param headers - map
@@ -1982,7 +1982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a gateway security group rule.
+   * Deletes a security group rule from a gateway.
    * 
    * @param request - DeleteGatewaySecurityGroupRuleRequest
    * @returns DeleteGatewaySecurityGroupRuleResponse
@@ -2166,6 +2166,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deletePluginAttachmentWithOptions(pluginAttachmentId, headers, runtime);
+  }
+
+  /**
+   * DeletePluginClass
+   * 
+   * @param request - DeletePluginClassRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePluginClassResponse
+   */
+  async deletePluginClassWithOptions(pluginClassId: string, request: $_model.DeletePluginClassRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePluginClassResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePluginClass",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-classes/${$dara.URL.percentEncode(pluginClassId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePluginClassResponse>(await this.callApi(params, req, runtime), new $_model.DeletePluginClassResponse({}));
+  }
+
+  /**
+   * DeletePluginClass
+   * 
+   * @param request - DeletePluginClassRequest
+   * @returns DeletePluginClassResponse
+   */
+  async deletePluginClass(pluginClassId: string, request: $_model.DeletePluginClassRequest): Promise<$_model.DeletePluginClassResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePluginClassWithOptions(pluginClassId, request, headers, runtime);
   }
 
   /**
@@ -2823,7 +2862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
+   * Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2848,7 +2887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
+   * Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
    * @returns GetGatewayResponse
    */
   async getGateway(gatewayId: string): Promise<$_model.GetGatewayResponse> {
@@ -2861,7 +2900,7 @@ export default class Client extends OpenApi {
    * Queries the details of a gateway quota rate limiting rule.
    * 
    * @remarks
-   * This operation queries a specific consumer quota rule on an AI gateway.
+   * Queries the details of a consumer quota rule on an AI gateway.
    * 
    * @param request - GetGatewayQuotaRuleRequest
    * @param headers - map
@@ -2905,7 +2944,7 @@ export default class Client extends OpenApi {
    * Queries the details of a gateway quota rate limiting rule.
    * 
    * @remarks
-   * This operation queries a specific consumer quota rule on an AI gateway.
+   * Queries the details of a consumer quota rule on an AI gateway.
    * 
    * @param request - GetGatewayQuotaRuleRequest
    * @returns GetGatewayQuotaRuleResponse
@@ -2917,7 +2956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+   * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
    * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
@@ -2957,7 +2996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+   * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
    * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
@@ -3153,7 +3192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a custom plugin class.
+   * Retrieves a custom plug-in class.
    * 
    * @param request - GetPluginClassRequest
    * @param headers - map
@@ -3180,7 +3219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a custom plugin class.
+   * Retrieves a custom plug-in class.
    * 
    * @param request - GetPluginClassRequest
    * @returns GetPluginClassResponse
@@ -3504,7 +3543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+   * Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
    * 
    * @param request - ImportHttpApiRequest
    * @param headers - map
@@ -3589,7 +3628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+   * Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
    * 
    * @param request - ImportHttpApiRequest
    * @returns ImportHttpApiResponse
@@ -4066,10 +4105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of API consumer quota rules bound to a gateway.
+   * Queries the list of consumer quota rules bound to a gateway.
    * 
    * @remarks
-   * Queries the list of API consumer quota rules bound to a gateway.
+   * Queries the list of consumer quota rules bound to a gateway.
    * 
    * @param request - ListGatewayQuotaRulesRequest
    * @param headers - map
@@ -4118,10 +4157,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of API consumer quota rules bound to a gateway.
+   * Queries the list of consumer quota rules bound to a gateway.
    * 
    * @remarks
-   * Queries the list of API consumer quota rules bound to a gateway.
+   * Queries the list of consumer quota rules bound to a gateway.
    * 
    * @param request - ListGatewayQuotaRulesRequest
    * @returns ListGatewayQuotaRulesResponse
@@ -5284,15 +5323,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the zones available for a cloud-native API gateway in a specified region.
+   * Retrieves the zones available for a cloud-native API gateway in a specific region.
    * 
+   * @param request - ListZonesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListZonesResponse
    */
-  async listZonesWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListZonesResponse> {
+  async listZonesWithOptions(request: $_model.ListZonesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListZonesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayEdition)) {
+      query["gatewayEdition"] = request.gatewayEdition;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ListZones",
@@ -5309,17 +5356,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the zones available for a cloud-native API gateway in a specified region.
+   * Retrieves the zones available for a cloud-native API gateway in a specific region.
+   * 
+   * @param request - ListZonesRequest
    * @returns ListZonesResponse
    */
-  async listZones(): Promise<$_model.ListZonesResponse> {
+  async listZones(request: $_model.ListZonesRequest): Promise<$_model.ListZonesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listZonesWithOptions(headers, runtime);
+    return await this.listZonesWithOptions(request, headers, runtime);
   }
 
   /**
-   * Queries a list of consumer authorization rules.
+   * Queries the list of consumer authorization rules.
    * 
    * @param request - QueryConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -5400,7 +5449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of consumer authorization rules.
+   * Queries the list of consumer authorization rules.
    * 
    * @param request - QueryConsumerAuthorizationRulesRequest
    * @returns QueryConsumerAuthorizationRulesResponse
@@ -5447,18 +5496,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets a quota rate limiting rule on a gateway.
+   * Resets a quota throttling rule on a gateway.
    * 
    * @remarks
-   * Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
+   * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
    * > 
-   * >  Recommended call logic:
+   * >  Recommended call sequence:
    * > - 1. Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun=true.
+   * > - - Set dryRun to true.
    * > - - The response contains a conflict preview with conflictHash.
    * > - 2. Submit the request after confirmation.
-   * > - - No conflict: dryRun=false, overwrite=false.
-   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+   * > - - No conflicts: Set dryRun to false and overwrite to false.
+   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
    * @param request - ResetGatewayQuotaRuleRequest
    * @param headers - map
@@ -5519,18 +5568,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets a quota rate limiting rule on a gateway.
+   * Resets a quota throttling rule on a gateway.
    * 
    * @remarks
-   * Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
+   * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
    * > 
-   * >  Recommended call logic:
+   * >  Recommended call sequence:
    * > - 1. Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun=true.
+   * > - - Set dryRun to true.
    * > - - The response contains a conflict preview with conflictHash.
    * > - 2. Submit the request after confirmation.
-   * > - - No conflict: dryRun=false, overwrite=false.
-   * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+   * > - - No conflicts: Set dryRun to false and overwrite to false.
+   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
    * 
    * @param request - ResetGatewayQuotaRuleRequest
    * @returns ResetGatewayQuotaRuleResponse
@@ -6666,7 +6715,7 @@ export default class Client extends OpenApi {
    * Updates an MCP server.
    * 
    * @remarks
-   * Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
+   * Only sources of the **Container Service** type can update the Ingress listener configuration.
    * 
    * @param request - UpdateMcpServerRequest
    * @param headers - map
@@ -6746,7 +6795,7 @@ export default class Client extends OpenApi {
    * Updates an MCP server.
    * 
    * @remarks
-   * Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
+   * Only sources of the **Container Service** type can update the Ingress listener configuration.
    * 
    * @param request - UpdateMcpServerRequest
    * @returns UpdateMcpServerResponse

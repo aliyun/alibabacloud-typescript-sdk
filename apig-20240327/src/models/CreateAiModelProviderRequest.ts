@@ -6,16 +6,25 @@ export class CreateAiModelProviderRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * OpenAI
    */
   displayName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * gw-ucbx3s2m****
    */
   gatewayId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * openai
    */
   provider?: string;
   serviceIds?: string[];

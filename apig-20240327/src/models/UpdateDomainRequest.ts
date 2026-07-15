@@ -34,7 +34,7 @@ export class UpdateDomainRequest extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The domain name scope.
+   * The scope of the domain name.
    * 
    * @example
    * Dedicated
@@ -42,7 +42,7 @@ export class UpdateDomainRequest extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is set. When the protocol is HTTPS, forceHttps is required.
+   * Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS. This parameter is required when the protocol is HTTPS.
    * 
    * @example
    * false
@@ -58,15 +58,15 @@ export class UpdateDomainRequest extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Specifies whether to enable mTLS mutual authentication.
+   * Specifies whether to enable mutual TLS (mTLS) authentication.
    */
   mTLSEnabled?: boolean;
   /**
    * @remarks
    * The protocol type supported by the domain name.
    * 
-   * - HTTP: Only the HTTP protocol is supported.
-   * - HTTPS: Only the HTTPS protocol is supported.
+   * - HTTP: Only HTTP is supported.
+   * - HTTPS: Only HTTPS is supported.
    * 
    * @example
    * HTTP

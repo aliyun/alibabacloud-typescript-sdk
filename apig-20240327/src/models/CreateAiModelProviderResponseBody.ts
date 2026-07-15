@@ -4,7 +4,15 @@ import { ServiceInfo } from "./ServiceInfo";
 
 
 export class CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths extends $dara.Model {
+  /**
+   * @example
+   * /v1/chat/completions
+   */
   path?: string;
+  /**
+   * @example
+   * chat
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,9 +38,25 @@ export class CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths exten
 }
 
 export class CreateAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Model {
+  /**
+   * @example
+   * 0.015
+   */
   cacheCost?: number;
+  /**
+   * @example
+   * 0.03
+   */
   inputCost?: number;
+  /**
+   * @example
+   * 0.06
+   */
   outputCost?: number;
+  /**
+   * @example
+   * token
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,8 +86,20 @@ export class CreateAiModelProviderResponseBodyDataModelCardsCredit extends $dara
 }
 
 export class CreateAiModelProviderResponseBodyDataModelCardsMeta extends $dara.Model {
+  /**
+   * @example
+   * 128000
+   */
   maxInputTokens?: number;
+  /**
+   * @example
+   * 4096
+   */
   maxOutputTokens?: number;
+  /**
+   * @example
+   * 132096
+   */
   maxTokens?: number;
   supportedInputModalities?: string[];
   supportedOutputModalities?: string[];
@@ -105,13 +141,41 @@ export class CreateAiModelProviderResponseBodyDataModelCardsMeta extends $dara.M
 export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model {
   availablePaths?: CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths[];
   credit?: CreateAiModelProviderResponseBodyDataModelCardsCredit;
+  /**
+   * @example
+   * {"stream":true,"tools":true}
+   */
   features?: { [key: string]: any };
+  /**
+   * @example
+   * gw-ucbx3s2m****
+   */
   gatewayId?: string;
   meta?: CreateAiModelProviderResponseBodyDataModelCardsMeta;
+  /**
+   * @example
+   * mc-xxx****
+   */
   modelCardId?: string;
+  /**
+   * @example
+   * gpt-4
+   */
   modelName?: string;
+  /**
+   * @example
+   * openai
+   */
   modelProvider?: string;
+  /**
+   * @example
+   * custom
+   */
   source?: string;
+  /**
+   * @example
+   * 2024-07-03T10:48:00Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -166,13 +230,41 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
 
 export class CreateAiModelProviderResponseBodyData extends $dara.Model {
   boundServices?: ServiceInfo[];
+  /**
+   * @example
+   * OpenAI
+   */
   displayName?: string;
+  /**
+   * @example
+   * gw-ucbx3s2m****
+   */
   gatewayId?: string;
   modelCards?: CreateAiModelProviderResponseBodyDataModelCards[];
+  /**
+   * @example
+   * 3
+   */
   modelCount?: number;
+  /**
+   * @example
+   * mp-xxx****
+   */
   modelProviderId?: string;
+  /**
+   * @example
+   * openai
+   */
   provider?: string;
+  /**
+   * @example
+   * custom
+   */
   source?: string;
+  /**
+   * @example
+   * 2024-07-03T10:48:00Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -218,9 +310,21 @@ export class CreateAiModelProviderResponseBodyData extends $dara.Model {
 }
 
 export class CreateAiModelProviderResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: CreateAiModelProviderResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * 464F9EA0-1052-51BD-8187-D292AA2D8D24
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

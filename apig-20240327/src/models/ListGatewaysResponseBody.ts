@@ -15,8 +15,8 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.M
   /**
    * @remarks
    * The protocol. Valid values:
-   * - TCP
-   * - UDP
+   * - TCP.
+   * - UDP.
    * 
    * @example
    * TCP
@@ -103,7 +103,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   /**
    * @remarks
    * The load balancing provisioning pattern of the gateway. Valid values:
-   * - Managed: Managed by Cloud-native API Gateway.
+   * - Managed: managed by the cloud-native API gateway.
    * 
    * @example
    * Managed
@@ -117,8 +117,8 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   /**
    * @remarks
    * The load balancing status. Valid values:
-   * - Ready: Active.
-   * - NotCreate: No associated instance.
+   * - Ready: active.
+   * - NotCreate: no associated instance.
    * 
    * @example
    * Ready
@@ -127,8 +127,8 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   /**
    * @remarks
    * The load balancing type of the gateway. Valid values:
-   * - NLB: Network load balancing.
-   * - CLB: Classic load balancing.
+   * - NLB: Network Load Balancer (NLB).
+   * - CLB: Classic Load Balancer (CLB).
    * 
    * @example
    * NLB
@@ -389,8 +389,8 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
    * @remarks
    * The billing type. Valid values:
    * 
-   * - POSTPAY: Pay-as-you-go.
-   * - PREPAY: Subscription.
+   * - POSTPAY: pay-as-you-go.
+   * - PREPAY: subscription.
    * 
    * @example
    * POSTPAY
@@ -399,7 +399,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The source from which the gateway was created. Valid values:
-   * - Console: The gateway was created from the console.
+   * - Console: the console.
    * 
    * @example
    * Console
@@ -407,7 +407,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   createFrom?: string;
   /**
    * @remarks
-   * The creation timestamp, in milliseconds.
+   * The creation timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -415,7 +415,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The subscription expiration timestamp, in milliseconds.
+   * The subscription expiration timestamp. Unit: milliseconds.
    * 
    * @example
    * 172086834548
@@ -425,7 +425,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
    * @remarks
    * The gateway instance edition. Valid values:
    * 
-   * - Professional: Standard instance.
+   * - Professional: standard instance.
    * 
    * - Serverless: Serverless instance.
    * 
@@ -451,7 +451,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Indicates whether the gateway instance was created before the AI gateway feature was launched.
+   * Indicates whether the gateway instance was created before the AI gateway feature was released.
    * 
    * @example
    * true
@@ -537,7 +537,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   targetVersion?: string;
   /**
    * @remarks
-   * The update timestamp, in milliseconds.
+   * The update timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548

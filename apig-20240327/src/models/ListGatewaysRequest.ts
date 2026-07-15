@@ -93,7 +93,7 @@ export class ListGatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The resource group.
    * 
    * @example
    * rg-aekzq6bzz5uyg2q

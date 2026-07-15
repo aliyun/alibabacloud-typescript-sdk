@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyAttachmentRequest extends $dara.Model {
   /**
    * @remarks
-   * Attached resource ID
+   * The ID of the resource to which the policy is attached.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreatePolicyAttachmentRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * Attached resource type, such as HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, Domain
+   * The type of the resource to which the policy is attached. Valid values: HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, and Domain.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreatePolicyAttachmentRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * Environment ID
+   * The environment ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreatePolicyAttachmentRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Gateway instance ID
+   * The gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreatePolicyAttachmentRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Policy ID
+   * The policy ID.
    * 
    * This parameter is required.
    * 

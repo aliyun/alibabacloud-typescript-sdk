@@ -84,11 +84,17 @@ export class GetSourceResponseBodyDataNacosSourceInfo extends $dara.Model {
 
 export class GetSourceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The reason for the association status
+   * 
    * @example
    * Association completed
    */
   associationReason?: string;
   /**
+   * @remarks
+   * The association status of the source
+   * 
    * @example
    * ASSOCIATED
    */

@@ -5,22 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketDomain extends $dara.Model {
   /**
    * @remarks
-   * The custom domain name. This must be a valid DNS hostname.
+   * The domain name address.
+   * 
+   * @example
+   * api.example.com
    */
   domain?: string;
   /**
    * @remarks
-   * The network type of the endpoint. For example, `VPC` for an internal network or `INTERNET` for a public network.
+   * The network type.
+   * 
+   * @example
+   * Internet
    */
   networkType?: string;
   /**
    * @remarks
-   * The port number for the endpoint. For example, `80` for HTTP or `443` for HTTPS.
+   * The port.
+   * 
+   * @example
+   * 443
    */
   port?: number;
   /**
    * @remarks
-   * The communication protocol. Valid values include `HTTP` and `HTTPS`.
+   * The access protocol.
+   * 
+   * @example
+   * HTTPS
    */
   protocol?: string;
   static names(): { [key: string]: string } {

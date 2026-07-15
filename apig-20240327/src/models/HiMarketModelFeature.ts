@@ -5,37 +5,58 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketModelFeature extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable multi-modal capabilities. If set to `true`, the model can process requests that include multiple data types, such as text and images.
+   * Indicates whether multimodal input is supported.
+   * 
+   * @example
+   * false
    */
   enableMultiModal?: boolean;
   /**
    * @remarks
-   * Indicates whether to include the model\\"s reasoning process in the response. If set to `true`, the output may contain intermediate steps that show how the model arrived at a conclusion.
+   * Indicates whether chain-of-thought (Thinking) is supported.
+   * 
+   * @example
+   * false
    */
   enableThinking?: boolean;
   /**
    * @remarks
-   * The maximum number of tokens to generate in the response. A token is a unit of text processed by the model.
+   * The maximum number of tokens supported by the model.
+   * 
+   * @example
+   * 8192
    */
   maxTokens?: number;
   /**
    * @remarks
-   * The identifier of the model to use for inference.
+   * The model name.
+   * 
+   * @example
+   * qwen-max
    */
   model?: string;
   /**
    * @remarks
-   * Indicates whether to deliver the response as a continuous stream. If set to `true`, results are sent incrementally.
+   * Indicates whether streaming output is supported.
+   * 
+   * @example
+   * true
    */
   streaming?: boolean;
   /**
    * @remarks
-   * Controls the randomness of the output. Valid values range from 0 to 1. Higher values, such as 0.8, make the output more random. Lower values, such as 0.2, make the output more deterministic.
+   * The temperature parameter that controls the randomness of generation.
+   * 
+   * @example
+   * 0.7
    */
   temperature?: number;
   /**
    * @remarks
-   * Indicates whether the model can search the web to provide more up-to-date responses.
+   * Indicates whether web search is supported.
+   * 
+   * @example
+   * false
    */
   webSearch?: boolean;
   static names(): { [key: string]: string } {

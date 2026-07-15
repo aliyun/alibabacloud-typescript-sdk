@@ -5,26 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketPortalSettingConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically approve new developer registrations. If set to `false`, you must manually approve each new developer.\\
-   * \\
-   * **Default**: `false`.\\
-   * \\
+   * Specifies whether to automatically approve developer registration requests.
+   * 
+   * @example
+   * false
    */
   autoApproveDevelopers?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically approve new API subscriptions. If set to `false`, you must manually approve each new subscription.\\
-   * \\
-   * **Default**: `false`.\\
-   * \\
+   * Specifies whether to automatically approve API subscription requests.
+   * 
+   * @example
+   * false
    */
   autoApproveSubscriptions?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable built-in authentication. If set to `true`, users must sign in to access the portal.\\
-   * \\
-   * **Default**: `false`.\\
-   * \\
+   * Specifies whether to enable username-password authentication (built-in authentication).
+   * 
+   * @example
+   * true
    */
   builtinAuthEnabled?: boolean;
   static names(): { [key: string]: string } {

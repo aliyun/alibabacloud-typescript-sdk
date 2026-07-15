@@ -13,9 +13,10 @@ export class ListPoliciesRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The type of attachment point supported by the policy.
+   * The type of the attachment point supported by the policy.
    * 
    * Valid values:
+   * 
    * - HttpApi: HTTP API.
    * - Operation: Operation of an HTTP API.
    * - GatewayRoute: Gateway route.

@@ -12,7 +12,7 @@ import { HttpRoute } from "./HttpRoute";
 export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The operation information.
+   * The API operation information.
    */
   operationInfo?: HttpApiOperationInfo;
   /**
@@ -64,10 +64,17 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
    */
   consumerAuthorizationRuleId?: string;
   /**
+   * @remarks
+   * The consumer group ID. This field is returned for consumer group authorization rules.
+   * 
    * @example
    * csg-8c13d2b4f8a1
    */
   consumerGroupId?: string;
+  /**
+   * @remarks
+   * The consumer group information. This field is returned for consumer group authorization rules.
+   */
   consumerGroupInfo?: ConsumerGroupInfo;
   /**
    * @remarks
@@ -135,6 +142,9 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
    */
   gatewayInfo?: GatewayInfo;
   /**
+   * @remarks
+   * The principal type. Valid values: Consumer or ConsumerGroup.
+   * 
    * @example
    * ConsumerGroup
    */

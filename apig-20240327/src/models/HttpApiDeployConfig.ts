@@ -213,7 +213,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The observability metric routing configuration.
+   * The observability-based routing configuration.
    * 
    * **if can be null:**
    * true
@@ -373,7 +373,7 @@ export class HttpApiDeployConfigSubDomains extends $dara.Model {
 export class HttpApiDeployConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically deploy.
+   * Indicates whether auto-deploy is enabled.
    * 
    * @example
    * true
@@ -399,17 +399,17 @@ export class HttpApiDeployConfig extends $dara.Model {
   customDomainIds?: string[];
   /**
    * @remarks
-   * The list of custom domain name details.
+   * The list of custom domain name information.
    */
   customDomainInfos?: HttpApiDeployConfigCustomDomainInfos[];
   /**
    * @remarks
-   * The list of environment domain name IDs. If this parameter is not specified, all environment domain names are associated. An empty array indicates that no environment domain names are associated.
+   * The list of environment domain name IDs. If this parameter is not specified, all environment domain names are bound. An empty array indicates that no environment domain names are bound.
    */
   envDomainIds?: string[];
   /**
    * @remarks
-   * The list of environment domain name details.
+   * The list of environment domain name information.
    */
   envDomainInfos?: HttpApiDeployConfigEnvDomainInfos[];
   /**
@@ -472,7 +472,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   serviceConfigs?: HttpApiDeployConfigServiceConfigs[];
   /**
    * @remarks
-   * The list of subdomain details.
+   * The list of subdomain information.
    */
   subDomains?: HttpApiDeployConfigSubDomains[];
   static names(): { [key: string]: string } {

@@ -6,9 +6,8 @@ export class GetTraceConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The language type. Valid values:
-   * 
    * zh: Chinese
-   * en: English.
+   * en: English
    * 
    * @example
    * zh

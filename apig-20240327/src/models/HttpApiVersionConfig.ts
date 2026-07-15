@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HttpApiVersionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable versioning.
+   * Indicates whether versioning control is enabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class HttpApiVersionConfig extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The key in the specified header when the header versioning solution is used.
+   * The key in the specified header parameter when the header-based versioning scheme is used.
    * 
    * @example
    * my-version
@@ -21,7 +21,7 @@ export class HttpApiVersionConfig extends $dara.Model {
   headerName?: string;
   /**
    * @remarks
-   * The key in the specified query parameter when the query versioning solution is used.
+   * The key in the specified query parameter when the query parameter-based versioning scheme is used.
    * 
    * @example
    * myVersion
@@ -29,13 +29,7 @@ export class HttpApiVersionConfig extends $dara.Model {
   queryName?: string;
   /**
    * @remarks
-   * The versioning solution.
-   * 
-   * Valid values:
-   * 
-   * *   Path
-   * *   Query
-   * *   Header
+   * The versioning scheme.
    * 
    * @example
    * Query

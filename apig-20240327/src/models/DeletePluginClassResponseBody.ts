@@ -2,44 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class HiMarketPortalDomainConfig extends $dara.Model {
+export class DeletePluginClassResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
   /**
    * @remarks
-   * The domain name address.
+   * Id of the request
    * 
    * @example
-   * portal.example.com
+   * 3699C3E4-19D8-5475-A9B8-4524E6C3D855
    */
-  domain?: string;
-  /**
-   * @remarks
-   * The request protocol.
-   * 
-   * @example
-   * HTTPS
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The domain name type.
-   * 
-   * @example
-   * custom
-   */
-  type?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'domain',
-      protocol: 'protocol',
-      type: 'type',
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
-      protocol: 'string',
-      type: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
     };
   }
 

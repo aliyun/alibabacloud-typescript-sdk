@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   /**
    * @remarks
-   * The principal (consumer) ID.
+   * The ID of the principal (consumer).
    * 
    * @example
    * c-aaa
@@ -13,7 +13,7 @@ export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The principal (consumer) name.
+   * The name of the principal (consumer).
    * 
    * @example
    * consumer-a
@@ -114,7 +114,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The time zone corresponding to the calendar period, in UTC+x format.
+   * The time zone for the calendar period, in UTC+x format.
    * 
    * @example
    * GMT+8
@@ -122,7 +122,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The reset period type. Currently, only calendar period is supported, which means windowAlignment="calendar".
+   * The reset period type.
    * 
    * @example
    * calendar

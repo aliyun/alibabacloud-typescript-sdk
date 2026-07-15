@@ -5,32 +5,50 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketProductPublicationDetail extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the portal.
+   * The portal ID.
+   * 
+   * @example
+   * portal-xxx
    */
   portalId?: string;
   /**
    * @remarks
-   * The name of the portal.
+   * The portal name.
+   * 
+   * @example
+   * 开发者门户
    */
   portalName?: string;
   /**
    * @remarks
-   * The unique ID of the product.
+   * The product ID.
+   * 
+   * @example
+   * prod-xxx
    */
   productId?: string;
   /**
    * @remarks
-   * The name of the product.
+   * The product name.
+   * 
+   * @example
+   * AI网关API
    */
   productName?: string;
   /**
    * @remarks
-   * The type of the product.
+   * The product type.
+   * 
+   * @example
+   * ApiGateway
    */
   productType?: string;
   /**
    * @remarks
-   * The unique ID of the product publication.
+   * The product publish ID.
+   * 
+   * @example
+   * pub-xxx
    */
   publicationId?: string;
   static names(): { [key: string]: string } {

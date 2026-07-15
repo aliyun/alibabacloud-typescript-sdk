@@ -5,37 +5,58 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier for the agent API.
+   * The associated Agent API ID.
+   * 
+   * @example
+   * api-xxx
    */
   agentApiId?: string;
   /**
    * @remarks
-   * The name of the agent API.
+   * The Agent API name.
+   * 
+   * @example
+   * my-agent-api
    */
   agentApiName?: string;
   /**
    * @remarks
-   * Unique identifier for the MCP route.
+   * The associated MCP route ID.
+   * 
+   * @example
+   * route-xxx
    */
   mcpRouteId?: string;
   /**
    * @remarks
-   * Unique identifier for the MCP server.
+   * The associated MCP Server ID.
+   * 
+   * @example
+   * mcp-xxx
    */
   mcpServerId?: string;
   /**
    * @remarks
-   * The name of the MCP server.
+   * The MCP Server name.
+   * 
+   * @example
+   * my-mcp-server
    */
   mcpServerName?: string;
   /**
    * @remarks
-   * Unique identifier for the model API.
+   * The associated Model API ID.
+   * 
+   * @example
+   * api-yyy
    */
   modelApiId?: string;
   /**
    * @remarks
-   * The name of the model API.
+   * The Model API name.
+   * 
+   * @example
+   * qwen-model-api
    */
   modelApiName?: string;
   static names(): { [key: string]: string } {
@@ -74,12 +95,15 @@ export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
 export class HiMarketProductRefConfig extends $dara.Model {
   /**
    * @remarks
-   * Reference settings for the API gateway.
+   * The APIG resource reference configuration.
    */
   apigRefConfig?: HiMarketProductRefConfigApigRefConfig;
   /**
    * @remarks
-   * Unique identifier for the gateway.
+   * The ID of the associated gateway.
+   * 
+   * @example
+   * gw-xxx
    */
   gatewayId?: string;
   static names(): { [key: string]: string } {

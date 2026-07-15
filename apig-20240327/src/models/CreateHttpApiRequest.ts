@@ -24,7 +24,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The Ingress class to listen on.
+   * The Ingress Class to listen on.
    * 
    * @example
    * mse
@@ -32,7 +32,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the address in the Ingress status.
+   * Specifies whether to update the address in the Ingress Status.
    * 
    * @example
    * false
@@ -90,23 +90,22 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
 export class CreateHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of protocols supported by the agent.
+   * The list of protocols supported by the agent. This parameter is required when type is set to Agent. This parameter is not required for other types.
    */
   agentProtocols?: string[];
   /**
    * @remarks
-   * The AI API protocols. The following protocols are supported:
-   * - OpenAI/v1
+   * The AI API protocols. This parameter is required when type is set to LLM, and only one protocol can be specified. This parameter is required when type is set to Ai, and multiple protocols can be specified. This parameter is not required for other types.
    */
   aiProtocols?: string[];
   /**
    * @remarks
-   * The authentication configuration.
+   * The authentication configuration. This parameter is required when enableAuth is set to true.
    */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The base path of the API. The value must start with a forward slash (/).
+   * The API base path. The path must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. This parameter is required when type is set to Rest. When type is set to LLM, Ai, or Agent, this parameter is optional and defaults to /.
    * 
    * @example
    * /v1
@@ -122,20 +121,20 @@ export class CreateHttpApiRequest extends $dara.Model {
   belongGatewayId?: string;
   /**
    * @remarks
-   * The API deployment configurations. Currently, only AI APIs support deployment configurations, and only a single deployment configuration can be specified.
+   * The API deployment configurations. This parameter is required when type is set to LLM or Ai, and only one deployment configuration can be specified. This parameter is not validated at the request level for other types.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The description of the API.
+   * The API description.
    * 
    * @example
-   * 测试专用API。
+   * Test API for integration
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run without actually executing the operation.
+   * Specifies whether to perform a dry run without executing the operation.
    * 
    * @example
    * true
@@ -145,7 +144,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable authentication.
+   * Specifies whether to enable authentication. This parameter is validated when type is set to LLM, Ai, or Agent. This parameter is not validated at the request level when type is set to Rest.
    * 
    * @example
    * true
@@ -161,20 +160,20 @@ export class CreateHttpApiRequest extends $dara.Model {
   firstByteTimeout?: number;
   /**
    * @remarks
-   * The configuration of the HTTP Ingress API.
+   * The HTTP Ingress API configuration. This parameter is required and cannot be nil when type is set to HttpIngress. This parameter is not required for other types.
    */
   ingressConfig?: CreateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * The model category.
+   * The model category. This parameter is optional when type is set to LLM or Ai. This parameter is not required for other types.
    * 
    * @example
-   * llm/text-to-image
+   * Text
    */
   modelCategory?: string;
   /**
    * @remarks
-   * The name of the API.
+   * The API name.
    * 
    * This parameter is required.
    * 
@@ -205,7 +204,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The conflict merge strategy for the import.
+   * The conflict merge strategy for import.
    * 
    * @example
    * ExistFirst
@@ -221,13 +220,15 @@ export class CreateHttpApiRequest extends $dara.Model {
    * - LLM
    * - Agent
    * 
+   * This parameter is required.
+   * 
    * @example
    * Http
    */
   type?: string;
   /**
    * @remarks
-   * The versioning configuration of the API.
+   * The API versioning configuration.
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {

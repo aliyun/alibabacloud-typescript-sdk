@@ -45,7 +45,7 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource IDs. You can specify up to 50 subkeys.
+   * The resource IDs. A maximum of 50 subkeys are supported.
    */
   resourceId?: string[];
   /**

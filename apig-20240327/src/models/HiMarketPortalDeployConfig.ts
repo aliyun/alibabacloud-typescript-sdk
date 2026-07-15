@@ -5,42 +5,66 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketPortalDeployConfigSaeConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application in Serverless App Engine.
+   * The SAE application ID.
+   * 
+   * @example
+   * app-xxx
    */
   appId?: string;
   /**
    * @remarks
-   * The ID of the namespace that logically isolates the application.
+   * The SAE namespace ID.
+   * 
+   * @example
+   * cn-hangzhou:default
    */
   namespaceId?: string;
   /**
    * @remarks
-   * The name of the OIDC role that grants permissions to the application.
+   * The OIDC role name used for SAE to access other cloud resources.
+   * 
+   * @example
+   * apig-portal-oidc-role
    */
   oidcRoleName?: string;
   /**
    * @remarks
-   * The ID of the region in which to deploy the application.
+   * The region ID of SAE.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * The desired number of application replicas.
+   * The number of instance replicas.
+   * 
+   * @example
+   * 2
    */
   replicas?: string;
   /**
    * @remarks
-   * The ID of the security group to apply to the application instances. A security group acts as a virtual firewall.
+   * The security group ID.
+   * 
+   * @example
+   * sg-xxx
    */
   securityGroupId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch within the specified VPC. Serverless App Engine launches application instances in the vSwitch\\"s zone.
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-xxx
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to connect the application to.
+   * VPC ID
+   * 
+   * @example
+   * vpc-xxx
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -81,22 +105,31 @@ export class HiMarketPortalDeployConfigSaeConfig extends $dara.Model {
 export class HiMarketPortalDeployConfig extends $dara.Model {
   /**
    * @remarks
-   * Additional information about the deployment status, such as error details.
+   * The deployment status message.
+   * 
+   * @example
+   * message
    */
   message?: string;
   /**
    * @remarks
-   * The target deployment platform. For example, set this to `SAE` to deploy on Serverless App Engine.
+   * The deployment platform type.
+   * 
+   * @example
+   * SAE
    */
   platform?: string;
   /**
    * @remarks
-   * Configuration settings for deploying to Serverless App Engine (SAE). This object is required when the `platform` is `SAE`.
+   * The SAE (Serverless App Engine) deployment configuration.
    */
   saeConfig?: HiMarketPortalDeployConfigSaeConfig;
   /**
    * @remarks
-   * The current status of the deployment. Possible values include `succeeded`, `failed`, and `in_progress`.
+   * The deployment status.
+   * 
+   * @example
+   * Running
    */
   status?: string;
   static names(): { [key: string]: string } {

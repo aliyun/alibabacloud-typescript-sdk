@@ -35,7 +35,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource count of resources that reference the current key.
+   * The resource count that references the current key.
    * 
    * @example
    * 3

@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketIcon extends $dara.Model {
   /**
    * @remarks
-   * Specifies the icon type. Example: `URL`.
+   * The icon type.
+   * 
+   * @example
+   * url
    */
   type?: string;
   /**
    * @remarks
-   * The value of the icon, based on the specified `type`. For example, if `type` is `URL`, this is the URL of the icon.
+   * The icon value.
+   * 
+   * @example
+   * https://example.com/icon.png
    */
   value?: string;
   static names(): { [key: string]: string } {

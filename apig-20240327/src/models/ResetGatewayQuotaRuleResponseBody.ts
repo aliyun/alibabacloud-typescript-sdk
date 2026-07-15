@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumer. Valid values: day (daily period), week (weekly period), or month (monthly period).
+   * The period type of the existing conflicting rule on the consumer. Valid values:
+   * - day: daily period.
+   * - week: weekly period.
+   * - month: monthly period.
    * 
    * @example
    * week
@@ -13,7 +16,9 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumer. Valid values: calendar (the conflicting rule uses a calendar period) and epoch (the conflicting rule uses a custom period).
+   * The type of the existing conflicting rule on the consumer. Valid values:
+   * - calendar: The existing conflicting rule uses a calendar period.
+   * - epoch: The existing conflicting rule uses a custom period.
    * 
    * @example
    * calendar
@@ -65,7 +70,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $
 export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
    * @remarks
-   * The conflict hash.
+   * The hash of the conflict snapshot.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -115,7 +120,7 @@ export class ResetGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.
 export class ResetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the write request semantics are accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
+   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
    * 
    * @example
    * true
@@ -136,7 +141,7 @@ export class ResetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * qr-d8j7fpmm1hks65xxxx

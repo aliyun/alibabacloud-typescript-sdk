@@ -37,10 +37,10 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   outputAmount?: number;
   /**
    * @remarks
-   * The consumption (request) time.
+   * The consumption (request) time in the format of YYYY-MM-DD.
    * 
    * @example
-   * 2026-06-05 13:16:31
+   * 2026-06-05
    */
   startTime?: string;
   /**

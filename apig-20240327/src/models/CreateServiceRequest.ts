@@ -39,7 +39,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   addresses?: string[];
   /**
    * @remarks
-   * The Agent service configuration. This parameter is required when `sourceType` is set to `AGENT`.
+   * The Agent service configuration. This parameter is required when sourceType is set to AGENT.
    */
   agentServiceConfig?: AgentServiceConfig;
   /**
@@ -68,6 +68,13 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
    * DEFAULT_GROUP
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The model provider ID.
+   * 
+   * @example
+   * mp-xxx****
+   */
   modelProviderId?: string;
   /**
    * @remarks
@@ -79,7 +86,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace of the service:
+   * The namespace of the service.
    * 
    * - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
    * - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.

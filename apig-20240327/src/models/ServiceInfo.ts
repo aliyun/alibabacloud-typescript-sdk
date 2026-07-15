@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ServiceInfoPorts extends $dara.Model {
+  /**
+   * @remarks
+   * The port name.
+   * 
+   * @example
+   * http
+   */
   name?: string;
+  /**
+   * @remarks
+   * The port number.
+   * 
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @remarks
+   * The port protocol.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,7 +53,21 @@ export class ServiceInfoPorts extends $dara.Model {
 }
 
 export class ServiceInfoVersionsLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The label key.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The label value.
+   * 
+   * @example
+   * production
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +93,18 @@ export class ServiceInfoVersionsLabels extends $dara.Model {
 }
 
 export class ServiceInfoVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The list of version labels.
+   */
   labels?: ServiceInfoVersionsLabels[];
+  /**
+   * @remarks
+   * The version name.
+   * 
+   * @example
+   * v1.0.0
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,17 +133,95 @@ export class ServiceInfoVersions extends $dara.Model {
 }
 
 export class ServiceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The service routing type.
+   * 
+   * @example
+   * normal
+   */
   expressType?: string;
+  /**
+   * @remarks
+   * The service group name.
+   * 
+   * @example
+   * default-group
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * my-openai-service
+   */
   name?: string;
+  /**
+   * @remarks
+   * The service namespace.
+   * 
+   * @example
+   * default
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The PAI workspace ID.
+   * 
+   * @example
+   * ws-xxx****
+   */
   paiWorkspaceId?: string;
+  /**
+   * @remarks
+   * The PAI workspace name.
+   * 
+   * @example
+   * my-workspace
+   */
   paiWorkspaceName?: string;
+  /**
+   * @remarks
+   * The list of service ports.
+   */
   ports?: ServiceInfoPorts[];
+  /**
+   * @remarks
+   * The service version qualifier.
+   * 
+   * @example
+   * v1
+   */
   qualifier?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * svc-xxx****
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The service source type.
+   * 
+   * @example
+   * user
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * The service status.
+   * 
+   * @example
+   * running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The list of service versions.
+   */
   versions?: ServiceInfoVersions[];
   static names(): { [key: string]: string } {
     return {

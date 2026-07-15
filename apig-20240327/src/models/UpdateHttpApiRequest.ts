@@ -16,7 +16,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The Ingress Class to listen on.
+   * The Ingress class to listen on.
    * 
    * @example
    * mse
@@ -24,7 +24,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the address in the Ingress Status.
+   * Specifies whether to update the address in the Ingress status.
    * 
    * @example
    * false
@@ -78,7 +78,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
 export class UpdateHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of Agent protocols.
+   * The list of agent protocols.
    */
   agentProtocols?: string[];
   /**
@@ -88,7 +88,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   aiProtocols?: string[];
   /**
    * @remarks
-   * The permission authentication configuration.
+   * The authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
@@ -108,7 +108,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The API description.
+   * The description of the API.
    * 
    * @example
    * 更新API描述
@@ -116,7 +116,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable permission authentication.
+   * Specifies whether to enable authentication.
    * 
    * @example
    * true
@@ -124,10 +124,10 @@ export class UpdateHttpApiRequest extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The first byte timeout period.
+   * The first byte timeout period. Unit: seconds.
    * 
    * @example
-   * 30s
+   * 30
    */
   firstByteTimeout?: number;
   /**
@@ -137,7 +137,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * Specifies whether to only modify the configuration. A value of true indicates that only the configuration is modified without triggering redeployment.
+   * Specifies whether to only update the configuration without triggering a redeployment. Set this parameter to true to update the configuration only.
    * 
    * @example
    * true
@@ -150,7 +150,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   protocols?: string[];
   /**
    * @remarks
-   * Specifies whether to remove the base path during forwarding.
+   * Specifies whether to remove the base path when forwarding requests.
    * 
    * @example
    * true

@@ -94,7 +94,21 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureOperations extends $d
 }
 
 export class ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes extends $dara.Model {
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * conflict
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * admin-route
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,8 +137,9 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
   /**
    * @remarks
    * The action to be performed after the dry run. Valid values:
-   * - Create: create.
-   * - Update: update.
+   * 
+   * - Create: Create.
+   * - Update: Update.
    * 
    * @example
    * Create
@@ -165,8 +180,9 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   /**
    * @remarks
    * The action to be performed after the dry run. Valid values:
-   * - Create: create.
-   * - Update: update.
+   * 
+   * - Create: Create.
+   * - Update: Update.
    * 
    * @example
    * Create
@@ -224,7 +240,21 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
 }
 
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.Model {
+  /**
+   * @remarks
+   * The action type.
+   * 
+   * @example
+   * Create
+   */
   action?: string;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * user-route
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -252,12 +282,12 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   /**
    * @remarks
-   * The error messages. If error messages are not empty, the API cannot be imported successfully.
+   * The error messages. If error messages are not empty, the API cannot be successfully imported.
    */
   errorMessages?: string[];
   /**
    * @remarks
-   * The information about the existing API. If this field is not empty, the import updates this API.
+   * The information about the existing API. If this field is not empty, the import action updates this API.
    */
   existHttpApiInfo?: HttpApiApiInfo;
   /**
@@ -270,7 +300,18 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
    * The list of operations that failed the dry run.
    */
   failureOperations?: ImportHttpApiResponseBodyDataDryRunInfoFailureOperations[];
+  /**
+   * @remarks
+   * The list of routes that failed.
+   */
   failureRoutes?: ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes[];
+  /**
+   * @remarks
+   * The MCP tool definition information.
+   * 
+   * @example
+   * ...
+   */
   mcpToolsDefinition?: string;
   /**
    * @remarks
@@ -282,6 +323,10 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
    * The list of operations that passed the dry run.
    */
   successOperations?: ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations[];
+  /**
+   * @remarks
+   * The list of routes that were successfully imported.
+   */
   successRoutes?: ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes[];
   /**
    * @remarks

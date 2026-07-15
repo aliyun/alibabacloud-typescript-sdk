@@ -13,7 +13,7 @@ export class BackendServices extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The service port. If you want to use a dynamic port, do not pass this parameter.
+   * The service port. Do not specify this parameter for dynamic ports.
    * 
    * @example
    * port
@@ -21,7 +21,7 @@ export class BackendServices extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The service protocol. Valid values: HTTP, TCP, and DUBBO.
+   * The service protocol. Valid values: [HTTP, TCP, DUBBO].
    * 
    * @example
    * HTTP
@@ -45,7 +45,7 @@ export class BackendServices extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The percentage value of traffic.
+   * The traffic percentage value.
    * 
    * @example
    * 49
@@ -85,7 +85,7 @@ export class BackendServices extends $dara.Model {
 export class Backend extends $dara.Model {
   /**
    * @remarks
-   * The backend service scenario. Valid values: Single, MultiServiceByRatio, MultiServiceByTag, Mock, and Redirect.
+   * The backend service scenario. Valid values: Single, MultiServiceByRatio, MultiServiceByTag, Mock, Redirect.
    * 
    * @example
    * Single
@@ -93,7 +93,7 @@ export class Backend extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The backend services.
+   * The backend service.
    */
   services?: BackendServices[];
   static names(): { [key: string]: string } {

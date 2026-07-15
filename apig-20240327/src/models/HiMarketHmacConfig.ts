@@ -5,17 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketHmacConfigCredentials extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID.
+   * Access Key ID
+   * 
+   * @example
+   * my-access-key-123
    */
   ak?: string;
   /**
    * @remarks
-   * The HMAC mode.
+   * The generation mode.
+   * 
+   * @example
+   * Custom
    */
   mode?: string;
   /**
    * @remarks
-   * The AccessKey Secret.
+   * Access Key Secret
+   * 
+   * @example
+   * my-secret-key-456
    */
   sk?: string;
   static names(): { [key: string]: string } {
@@ -46,7 +55,7 @@ export class HiMarketHmacConfigCredentials extends $dara.Model {
 export class HiMarketHmacConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication credentials.
+   * The list of credentials.
    */
   credentials?: HiMarketHmacConfigCredentials[];
   static names(): { [key: string]: string } {

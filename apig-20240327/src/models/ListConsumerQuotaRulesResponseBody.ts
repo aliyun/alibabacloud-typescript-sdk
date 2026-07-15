@@ -77,7 +77,7 @@ export class ListConsumerQuotaRulesResponseBodyDataItems extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The time zone corresponding to the natural cycle, in UTC+x format.
+   * The time zone corresponding to the calendar cycle, in UTC+x format.
    * 
    * @example
    * UTC+8
@@ -86,8 +86,8 @@ export class ListConsumerQuotaRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The cycle type. Valid values:
-   * - calendar: Natural cycle.
-   * - epoch: Custom cycle.
+   * - calendar: calendar cycle.
+   * - epoch: custom cycle.
    * 
    * @example
    * calendar

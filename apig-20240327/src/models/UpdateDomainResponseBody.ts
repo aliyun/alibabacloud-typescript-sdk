@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The deployment revision ID.
+   * The publish version ID.
    * 
    * @example
    * apr-xxxxx

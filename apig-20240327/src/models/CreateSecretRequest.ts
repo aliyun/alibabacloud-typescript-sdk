@@ -22,12 +22,12 @@ export class CreateSecretRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The KMS key configuration information.
+   * The KMS key configuration.
    */
   kmsConfig?: KMSConfig;
   /**
    * @remarks
-   * The key name. The name can contain letters, digits, and underscores (_), and cannot exceed 64 characters in length.
+   * The key name. The name can contain letters, digits, and underscores (_) and can be up to 64 characters in length.
    * 
    * @example
    * my_secret
@@ -43,7 +43,7 @@ export class CreateSecretRequest extends $dara.Model {
   secretData?: string;
   /**
    * @remarks
-   * The key source.
+   * The source of the key.
    * 
    * @example
    * KMS

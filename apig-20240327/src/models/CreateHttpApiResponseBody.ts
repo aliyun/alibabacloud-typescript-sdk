@@ -13,7 +13,7 @@ export class CreateHttpApiResponseBodyData extends $dara.Model {
   httpApiId?: string;
   /**
    * @remarks
-   * The name of the API.
+   * The API name.
    * 
    * @example
    * test-api

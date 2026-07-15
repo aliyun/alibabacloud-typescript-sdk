@@ -440,7 +440,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
    * - HTTP: HTTP protocol.
    * - HTTPS: HTTPS protocol.
    * - SSE: Server-Sent Events protocol.
-   * - StreamableHTTP: Streamable HTTP protocol.
+   * - StreamableHTTP: streamable HTTP protocol.
    * 
    * This parameter is required.
    * 

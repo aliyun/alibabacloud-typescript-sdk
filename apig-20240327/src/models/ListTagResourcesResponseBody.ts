@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that determines the start point of the next query. An empty value of NextToken indicates that no more results exist.
+   * The token for the next query. An empty NextToken indicates that no more results exist.
    * 
    * @example
    * caeb235b-xxx

@@ -139,7 +139,7 @@ export class ServiceVersions extends $dara.Model {
 export class Service extends $dara.Model {
   /**
    * @remarks
-   * The address information, including IP addresses or domain name lists.
+   * The address information, including IP addresses or domain names.
    */
   addresses?: string[];
   /**
@@ -154,7 +154,7 @@ export class Service extends $dara.Model {
   aiServiceConfig?: AiServiceConfig;
   /**
    * @remarks
-   * The creation time.
+   * The time when the service was created.
    * 
    * @example
    * 1725617840096
@@ -191,7 +191,9 @@ export class Service extends $dara.Model {
   healthCheck?: ServiceHealthCheck;
   /**
    * @remarks
-   * The health check status. Valid values: Healthy and Unhealthy.
+   * The health check status. Valid values:
+   * - Healthy
+   * - Unhealthy
    * 
    * @example
    * Healthy
@@ -243,7 +245,7 @@ export class Service extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The function qualifier.
+   * The qualifier of the function.
    * 
    * @example
    * LATEST
@@ -251,12 +253,22 @@ export class Service extends $dara.Model {
   qualifier?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-xxx
    */
   resourceGroupId?: string;
+  /**
+   * @example
+   * RuntimeEndpointTimeout
+   */
+  runtimeDetailErrorCode?: string;
+  /**
+   * @example
+   * Available
+   */
+  runtimeDetailStatus?: string;
   /**
    * @remarks
    * The unique ID of the service.
@@ -280,7 +292,7 @@ export class Service extends $dara.Model {
   unhealthyEndpoints?: string[];
   /**
    * @remarks
-   * The update time.
+   * The time when the service was updated.
    * 
    * @example
    * 1725868548440
@@ -311,6 +323,8 @@ export class Service extends $dara.Model {
       protocol: 'protocol',
       qualifier: 'qualifier',
       resourceGroupId: 'resourceGroupId',
+      runtimeDetailErrorCode: 'runtimeDetailErrorCode',
+      runtimeDetailStatus: 'runtimeDetailStatus',
       serviceId: 'serviceId',
       sourceType: 'sourceType',
       unhealthyEndpoints: 'unhealthyEndpoints',
@@ -339,6 +353,8 @@ export class Service extends $dara.Model {
       protocol: 'string',
       qualifier: 'string',
       resourceGroupId: 'string',
+      runtimeDetailErrorCode: 'string',
+      runtimeDetailStatus: 'string',
       serviceId: 'string',
       sourceType: 'string',
       unhealthyEndpoints: { 'type': 'array', 'itemType': 'string' },

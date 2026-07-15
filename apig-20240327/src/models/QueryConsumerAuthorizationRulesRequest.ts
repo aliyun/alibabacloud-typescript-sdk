@@ -12,6 +12,9 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
    */
   apiNameLike?: string;
   /**
+   * @remarks
+   * The consumer group ID. If specified, the authorization rules of the consumer group are queried.
+   * 
    * @example
    * csg-8c13d2b4f8a1
    */
@@ -73,6 +76,9 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
    */
   parentResourceId?: string;
   /**
+   * @remarks
+   * The principal type. Valid values: Consumer or ConsumerGroup.
+   * 
    * @example
    * ConsumerGroup
    */

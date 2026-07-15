@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayQuotaRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule name keyword, used for fuzzy match.
+   * The rule name keyword for fuzzy match.
    * 
    * @example
    * daily
@@ -13,7 +13,7 @@ export class ListGatewayQuotaRulesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of records to retrieve in a single request. This parameter is not supported.
+   * The maximum number of records to retrieve at a time. This parameter is not supported.
    * 
    * @example
    * 20

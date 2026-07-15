@@ -15,7 +15,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The list of expected HTTP status codes that indicate a healthy response. This parameter is required when the protocol is HTTP.
+   * The list of expected normal status codes returned by requests. This parameter is required when the protocol is HTTP.
    */
   expectedStatuses?: string[];
   /**
@@ -117,7 +117,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
 export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The base ejection time, which is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation time is calculated by using the following formula: k × base_ejection_time (the initial value of k is 1). Each ejection increases the isolation time (k is incremented by 1). If consecutive checks are healthy, the isolation time is gradually reduced (k is decremented by 1).
+   * The initial ejection duration. This is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation duration is calculated by using the formula: k × base_ejection_time (k starts at 1). Each ejection increases the isolation duration (k is incremented by 1). If consecutive checks are normal, the isolation duration is gradually reduced (k is decremented by 1).
    * 
    * @example
    * 30
@@ -135,7 +135,7 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
    * @remarks
    * The panic threshold.
    * 
-   * When the proportion of healthy nodes in the service is greater than the panic threshold, health checks function normally. Requests are sent only to healthy nodes and not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled. Requests are sent to all nodes, including ejected nodes.
+   * When the proportion of healthy nodes in the service is greater than the panic threshold, health checks function normally and requests are sent only to healthy nodes, not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled and requests are sent to all nodes, including ejected nodes.
    * 
    * @example
    * 1
@@ -197,7 +197,7 @@ export class UpdateServiceRequestPorts extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 80
@@ -270,6 +270,13 @@ export class UpdateServiceRequest extends $dara.Model {
    * 80
    */
   healthyPanicThreshold?: number;
+  /**
+   * @remarks
+   * The model provider ID.
+   * 
+   * @example
+   * mp-xxx****
+   */
   modelProviderId?: string;
   /**
    * @remarks

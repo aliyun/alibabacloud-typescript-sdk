@@ -65,8 +65,8 @@ export class CreateMcpServerRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
    * The service protocol. Valid values:
-   * - HTTP.
-   * - HTTPS.
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTP
@@ -368,7 +368,7 @@ export class CreateMcpServerRequestMcpServerConfig extends $dara.Model {
 export class CreateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of assembled sources. This parameter is required when type is set to AssemblyMCP.
+   * The list of assembly sources. This parameter is required when type is set to AssemblyMCP.
    */
   assembledSources?: CreateMcpServerRequestAssembledSources[];
   /**
@@ -380,11 +380,11 @@ export class CreateMcpServerRequest extends $dara.Model {
    * @remarks
    * The creation source type. Valid values:
    * 
-   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion.
-   * - ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy.
-   * - ApiGatewayAssembly: gateway MCP assembly.
-   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion.
-   * - NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy.
+   * - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP conversion
+   * - ApiGatewayProxyMcpHosting: gateway-managed direct MCP proxy
+   * - ApiGatewayAssembly: gateway MCP assembly
+   * - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP conversion
+   * - NacosMcpHosting: gateway-managed Nacos-synced direct MCP proxy
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -466,7 +466,7 @@ export class CreateMcpServerRequest extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * - RealMCP: standard MCP service.
+   * - RealMCP: standard MCP service
    * 
    * This parameter is required.
    * 

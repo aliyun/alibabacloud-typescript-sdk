@@ -6,7 +6,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether Tracing Analysis is enabled. Valid values:
-   * - true: Enabled.
+   * - true: enabled.
    * - false: shutdown.
    * 
    * @example
@@ -43,7 +43,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
    * - XTRACE
    * - SKYWALKING
    * - OPENTELEMETRY
-   * - OTSKYWALKING.
+   * - OTSKYWALKING
    * 
    * @example
    * SKYWALKING

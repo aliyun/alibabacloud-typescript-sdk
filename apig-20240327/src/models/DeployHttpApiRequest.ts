@@ -88,7 +88,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   version?: string;
   /**
    * @remarks
-   * The weight. Valid values: 1 to 100. This parameter takes effect only in the ratio-based scenario.
+   * The weight. Valid values: 1 to 100. This parameter takes effect only in the by-ratio scenario.
    * 
    * @example
    * 49
@@ -156,7 +156,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The existing service configurations. In the single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed.
+   * The existing service configurations. In the single-service scenario, only one entry is allowed. In scenarios such as by-ratio or by-content, multiple entries are allowed.
    * 
    * **if can be null:**
    * true
@@ -200,7 +200,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
 export class DeployHttpApiRequestRestApiConfigOperationDeployments extends $dara.Model {
   /**
    * @remarks
-   * The operation type.
+   * The action type.
    * 
    * @example
    * Publish

@@ -6,17 +6,20 @@ import { HiMarketHttpRoute } from "./HiMarketHttpRoute";
 export class HiMarketModelConfigModelAPIConfig extends $dara.Model {
   /**
    * @remarks
-   * The AI protocols supported by the model.
+   * The list of AI protocols.
    */
   aiProtocols?: string[];
   /**
    * @remarks
-   * The model category.
+   * The model categorization.
+   * 
+   * @example
+   * Text
    */
   modelCategory?: string;
   /**
    * @remarks
-   * Route configurations for the model API.
+   * The list of routing configurations.
    */
   routes?: HiMarketHttpRoute[];
   static names(): { [key: string]: string } {
@@ -53,7 +56,7 @@ export class HiMarketModelConfigModelAPIConfig extends $dara.Model {
 export class HiMarketModelConfig extends $dara.Model {
   /**
    * @remarks
-   * Configuration for the model API.
+   * The Model API configuration wrapper.
    */
   modelAPIConfig?: HiMarketModelConfigModelAPIConfig;
   static names(): { [key: string]: string } {

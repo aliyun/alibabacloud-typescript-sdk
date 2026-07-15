@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The token that determines the start point of the next query.
+   * The token for the next query.
    * 
    * @example
    * caeb235b-xxx

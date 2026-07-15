@@ -25,7 +25,7 @@ export class DomainInfo extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The source from which the domain name is created.
+   * The source from which the domain name was created.
    * 
    * @example
    * Console
@@ -65,7 +65,7 @@ export class DomainInfo extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * Indicates whether MTLS mutual authentication is enabled.
+   * Specifies whether to enable mTLS mutual authentication.
    * 
    * @example
    * true
@@ -83,8 +83,8 @@ export class DomainInfo extends $dara.Model {
    * @remarks
    * The protocol type supported by the domain name.
    * 
-   * - HTTP: Only the HTTP protocol is supported.
-   * - HTTP: Only the HTTPS protocol is supported.
+   * - HTTP: Only HTTP is supported.
+   * - HTTPS: Only HTTPS is supported.
    * 
    * @example
    * HTTP
@@ -106,6 +106,8 @@ export class DomainInfo extends $dara.Model {
    * Published
    */
   status?: string;
+  tlsMax?: string;
+  tlsMin?: string;
   /**
    * @remarks
    * The update timestamp.
@@ -128,6 +130,8 @@ export class DomainInfo extends $dara.Model {
       protocol: 'protocol',
       resourceGroupId: 'resourceGroupId',
       status: 'status',
+      tlsMax: 'tlsMax',
+      tlsMin: 'tlsMin',
       updateTimestamp: 'updateTimestamp',
     };
   }
@@ -146,6 +150,8 @@ export class DomainInfo extends $dara.Model {
       protocol: 'string',
       resourceGroupId: 'string',
       status: 'string',
+      tlsMax: 'string',
+      tlsMin: 'string',
       updateTimestamp: 'number',
     };
   }

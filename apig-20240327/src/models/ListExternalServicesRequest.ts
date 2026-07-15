@@ -21,7 +21,7 @@ export class ListExternalServicesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The keyword used for fuzzy match by API name.
+   * The API name for fuzzy match.
    * 
    * @example
    * imah
@@ -38,11 +38,11 @@ export class ListExternalServicesRequest extends $dara.Model {
   /**
    * @remarks
    * The service source type used to filter results. Valid values:
-   * - MSE_NACOS: the service originates from MSE Nacos.
-   * - K8S: the service originates from a Kubernetes cluster in Container Service.
-   * - FC3: the service originates from Function Compute.
-   * - VIP: the service originates from a fixed address.
-   * - DNS: the service originates from a domain name.
+   * - MSE_NACOS: services from MSE Nacos.
+   * - K8S: services from a Kubernetes cluster in Container Service.
+   * - FC3: services from Function Compute.
+   * - VIP: services from a fixed address.
+   * - DNS: services from a domain name.
    * 
    * @example
    * FC3

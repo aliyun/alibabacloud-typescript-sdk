@@ -2,24 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class HiMarketProductPublicationConifg extends $dara.Model {
-  /**
-   * @remarks
-   * The publication ID.
-   * 
-   * @example
-   * pub-xxx
-   */
-  publicationId?: string;
+export class DeletePluginClassRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
-      publicationId: 'publicationId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      publicationId: 'string',
     };
   }
 

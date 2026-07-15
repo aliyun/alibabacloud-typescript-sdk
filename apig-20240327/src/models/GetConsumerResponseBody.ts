@@ -7,21 +7,33 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 
 export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
   /**
+   * @remarks
+   * The consumer group ID.
+   * 
    * @example
    * csg-8c13d2b4f8a1
    */
   consumerGroupId?: string;
   /**
+   * @remarks
+   * The consumer group description.
+   * 
    * @example
    * 用于线上 API 调用方分组
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the API consumer joined the consumer group. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1715769600000
    */
   joinTimestamp?: number;
   /**
+   * @remarks
+   * The consumer group name.
+   * 
    * @example
    * api-consumer-group
    */
@@ -56,14 +68,18 @@ export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
 export class GetConsumerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey pair authentication configuration.
+   * The AccessKey identity authentication configurations.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
    * @remarks
-   * The API key authentication configuration.
+   * The API key identity authentication configuration.
    */
   apiKeyIdentityConfig?: ApiKeyIdentityConfig;
+  /**
+   * @remarks
+   * The list of consumer groups to which the API consumer belongs.
+   */
   consumerGroups?: GetConsumerResponseBodyDataConsumerGroups[];
   /**
    * @remarks
@@ -83,7 +99,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The publish status of the API in the current environment.
+   * The deployment status of the API in the current environment.
    * 
    * @example
    * ""
@@ -107,7 +123,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The JWT authentication configuration.
+   * The JWT identity authentication configuration.
    */
   jwtIdentityConfig?: JwtIdentityConfig;
   /**

@@ -53,7 +53,7 @@ export class ListGatewayQuotaRulesResponseBodyDataItems extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The time zone for the calendar period, in UTC+x format.
+   * The time zone for the natural period, in UTC+x format.
    * 
    * @example
    * GMT+8
@@ -61,7 +61,7 @@ export class ListGatewayQuotaRulesResponseBodyDataItems extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The reset period type. Only calendar periods are supported, which means windowAlignment="calendar".
+   * The reset period type.
    * 
    * @example
    * calendar
@@ -184,7 +184,7 @@ export class ListGatewayQuotaRulesResponseBody extends $dara.Model {
   data?: ListGatewayQuotaRulesResponseBodyData;
   /**
    * @remarks
-   * The maximum number of records to retrieve in a single request. This parameter is not supported.
+   * The maximum number of records to retrieve at a time. This parameter is not supported.
    * 
    * @example
    * 100

@@ -6,7 +6,7 @@ import { TlsCipherSuitesConfig } from "./TlsCipherSuitesConfig";
 export class CreateDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The CA certificate identifier.
+   * The CA certificate identifier. This parameter is required for Dedicated+HTTPS.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -42,7 +42,7 @@ export class CreateDomainRequest extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS.
+   * Specifies whether to enable forced HTTPS redirect for the HTTPS protocol type. This parameter is required for Serverless and for Dedicated+HTTPS. This parameter is not validated for Dedicated+HTTP.
    * 
    * @example
    * false
@@ -81,10 +81,7 @@ export class CreateDomainRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol type supported by the domain name. Valid values:
-   * 
-   * - HTTP: Only HTTP is supported.
-   * - HTTPS: Only HTTPS is supported.
+   * The protocol type supported by the domain name. This parameter is required for Dedicated and only allows HTTP or HTTPS. This parameter is not allowed for Serverless.
    * 
    * @example
    * HTTP

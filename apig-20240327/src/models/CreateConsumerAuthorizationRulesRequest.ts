@@ -64,6 +64,9 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
 
 export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $dara.Model {
   /**
+   * @remarks
+   * The consumer group ID.
+   * 
    * @example
    * csg-8c13d2b4f8a1
    */
@@ -86,20 +89,23 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   expireMode?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration timestamp. Unit: milliseconds.
    * 
    * @example
-   * 174116222x
+   * 1741162221
    */
   expireTimestamp?: number;
   /**
+   * @remarks
+   * The type of the authorization principal.
+   * 
    * @example
    * ConsumerGroup
    */
   principalType?: string;
   /**
    * @remarks
-   * The resource identifier, which serves as a unique identifier for non-standard code sources for space reuse.
+   * The resource identifier, which serves as a unique identifier for space reuse by non-standard code sources.
    */
   resourceIdentifier?: CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier;
   /**

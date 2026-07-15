@@ -5,17 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class HiMarketIdentityMapping extends $dara.Model {
   /**
    * @remarks
-   * The identity provider attribute that maps to the user\\"s email address.
+   * The identity field name that corresponds to the mailbox.
+   * 
+   * @example
+   * email
    */
   emailField?: string;
   /**
    * @remarks
-   * The identity provider attribute that maps to the user\\"s unique ID.
+   * The identity field name that corresponds to the user ID.
+   * 
+   * @example
+   * sub
    */
   userIdField?: string;
   /**
    * @remarks
-   * The identity provider attribute that maps to the username.
+   * The identity field name that corresponds to the username.
+   * 
+   * @example
+   * name
    */
   userNameField?: string;
   static names(): { [key: string]: string } {
