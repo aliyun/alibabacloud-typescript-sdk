@@ -11,9 +11,9 @@ import { Taint } from "./Taint";
 export class NodepoolAutoScaling extends $dara.Model {
   /**
    * @remarks
-   * 【该字段已废弃】
+   * [This field is deprecated]
    * 
-   * EIP带宽峰值。单位：Mbps。
+   * The peak bandwidth of the EIP. Unit: Mbit/s.
    * 
    * @example
    * 5
@@ -23,14 +23,14 @@ export class NodepoolAutoScaling extends $dara.Model {
   eipBandwidth?: number;
   /**
    * @remarks
-   * 【该字段已废弃】
+   * [This field is deprecated]
    * 
-   * EIP计费类型，取值：
+   * The billing method of the EIP. Valid values:
    * 
-   * - `PayByBandwidth`：按固定带宽计费。
-   * - `PayByTraffic`：按使用流量计费。
+   * - `PayByBandwidth`: pay-by-fixed-bandwidth.
+   * - `PayByTraffic`: pay-by-data-transfer.
    * 
-   * 默认值：PayByBandwidth。
+   * Default value: PayByBandwidth.
    * 
    * @example
    * PayByBandwidth
@@ -40,12 +40,12 @@ export class NodepoolAutoScaling extends $dara.Model {
   eipInternetChargeType?: string;
   /**
    * @remarks
-   * 是否启用自动伸缩。
+   * Specifies whether to enable auto scaling.
    * 
-   * - `true`：开启节点池自动伸缩功能。
-   * - `false`：不开启自动伸缩，当取值为false时，`auto_scaling`内的其他配置参数将不生效。
+   * - `true`: Enables the auto scaling feature for the node pool.
+   * - `false`: Disables auto scaling. When set to false, other configuration parameters in `auto_scaling` do not take effect.
    * 
-   * 默认值：`false`。
+   * Default value: `false`.
    * 
    * This parameter is required.
    * 
@@ -55,14 +55,14 @@ export class NodepoolAutoScaling extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * 【该字段已废弃】
+   * [This field is deprecated]
    * 
-   * 是否绑定EIP，取值：
+   * Specifies whether to associate an EIP. Valid values:
    * 
-   * - `true`：绑定EIP。
-   * - `false`：不绑定EIP。
+   * - `true`: Associates an EIP.
+   * - `false`: Does not associate an EIP.
    * 
-   * 默认值：`false`。
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -72,7 +72,7 @@ export class NodepoolAutoScaling extends $dara.Model {
   isBondEip?: boolean;
   /**
    * @remarks
-   * 自动伸缩组最大实例数。
+   * The maximum number of instances in the auto scaling group.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class NodepoolAutoScaling extends $dara.Model {
   maxInstances?: number;
   /**
    * @remarks
-   * 自动伸缩组最小实例数。
+   * The minimum number of instances in the auto scaling group.
    * 
    * This parameter is required.
    * 
@@ -92,14 +92,14 @@ export class NodepoolAutoScaling extends $dara.Model {
   minInstances?: number;
   /**
    * @remarks
-   * 自动伸缩类型，按照自动伸缩实例类型划分。取值：
+   * The auto scaling type, classified by instance type. Valid values:
    * 
-   * - `cpu`：普通实例型。
-   * - `gpu`：GPU实例型。
-   * - `gpushare`：GPU共享型。
-   * - `spot`：抢占式实例型。
+   * - `cpu`: regular instance type.
+   * - `gpu`: GPU instance type.
+   * - `gpushare`: GPU shared type.
+   * - `spot`: spot instance type.
    * 
-   * 默认值：`cpu`。
+   * Default value: `cpu`.
    * 
    * @example
    * cpu
@@ -231,12 +231,12 @@ export class NodepoolInterconnectConfig extends $dara.Model {
 export class NodepoolKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * 是否在ECS节点上安装云监控，安装后可以在云监控控制台查看所创建ECS实例的监控信息，推荐开启。取值：
+   * Specifies whether to install the CloudMonitor agent on ECS nodes. After installation, you can view monitoring information of the created ECS instances in the CloudMonitor console. We recommend that you enable this feature. Valid values:
    * 
-   * - `true`：在ECS节点上安装云监控。
-   * - `false`：不在ECS节点上安装云监控。
+   * - `true`: Installs the CloudMonitor agent on ECS nodes.
+   * - `false`: Does not install the CloudMonitor agent on ECS nodes.
    * 
-   * 默认值：`false`。
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -244,12 +244,12 @@ export class NodepoolKubernetesConfig extends $dara.Model {
   cmsEnabled?: boolean;
   /**
    * @remarks
-   * 节点CPU管理策略。当集群版本在1.12.6及以上时支持以下两种策略：
+   * The CPU management policy for nodes. The following two policies are supported for clusters of version 1.12.6 or later:
    * 
-   * - `static`：允许为节点上具有某些资源特征Pod增强其CPU亲和性和独占性。
-   * - `none`：表示启用现有的默认CPU亲和性方案。
+   * - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+   * - `none`: Enables the existing default CPU affinity scheme.
    * 
-   * 默认值：`none`。
+   * Default value: `none`.
    * 
    * @example
    * none
@@ -257,17 +257,17 @@ export class NodepoolKubernetesConfig extends $dara.Model {
   cpuPolicy?: string;
   /**
    * @remarks
-   * 节点标签，为Kubernetes集群节点添加标签。
+   * The node labels. Adds labels to Kubernetes cluster nodes.
    */
   labels?: Tag[];
   /**
    * @remarks
-   * 节点名称由三部分组成：前缀 + 节点 IP + 后缀：
+   * The node name consists of three parts: prefix + node IP + suffix:
    * 
-   * - 前缀和后缀均可由“.”分隔的一个或多个部分构成，每个部分可以使用小写字母、数字和“-”，节点名称首尾必须为小写字母和数字；
-   * - 节点 IP为完整的节点私网 IP 地址；
+   * - Both the prefix and suffix can consist of one or more parts separated by ".". Each part can contain lowercase letters, digits, and hyphens (-). The node name must start and end with a lowercase letter or digit.
+   * - The node IP is the complete private IP address of the node.
    * 
-   * 传参包含四个部分，由逗号分隔，例如：参数传入"customized,aliyun,ip,com"字符串（其中“customized”和"ip"为固定的字符串，aliyun为前缀，com为后缀），则节点的名称为：aliyun.192.168.xxx.xxx.com。
+   * The parameter contains four parts separated by commas. For example, if you pass in the string "customized,aliyun,ip,com" (where "customized" and "ip" are fixed strings, "aliyun" is the prefix, and "com" is the suffix), the node name is: aliyun.192.168.xxx.xxx.com.
    * 
    * @example
    * customized,aliyun,ip,com
@@ -275,12 +275,12 @@ export class NodepoolKubernetesConfig extends $dara.Model {
   nodeNameMode?: string;
   /**
    * @remarks
-   * 容器运行时。取值：
-   * - `containerd`：推荐使用，支持所有集群版本。
-   * - `Sandboxed-Container.runv`：安全沙箱容器，提供更高的隔离性，支持1.24版本及以下集群。
-   * - `docker`：支持1.22版本及以下集群。
+   * The container runtime. Valid values:
+   * - `containerd`: Recommended. Supports all cluster versions.
+   * - `Sandboxed-Container.runv`: Sandboxed container that provides higher isolation. Supports clusters of version 1.24 or earlier.
+   * - `docker`: Supports clusters of version 1.22 or earlier.
    * 
-   * 默认值：`containerd`
+   * Default value: `containerd`
    * 
    * This parameter is required.
    * 
@@ -290,7 +290,7 @@ export class NodepoolKubernetesConfig extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * 容器运行时版本。
+   * The container runtime version.
    * 
    * This parameter is required.
    * 
@@ -300,12 +300,12 @@ export class NodepoolKubernetesConfig extends $dara.Model {
   runtimeVersion?: string;
   /**
    * @remarks
-   * 污点配置。
+   * The taint configuration.
    */
   taints?: Taint[];
   /**
    * @remarks
-   * 节点自定义数据。
+   * The node custom data.
    * 
    * @example
    * MXM=
@@ -355,7 +355,7 @@ export class NodepoolKubernetesConfig extends $dara.Model {
 export class NodepoolManagementAutoRepairPolicy extends $dara.Model {
   /**
    * @remarks
-   * 是否允许重启节点。
+   * Specifies whether to allow node restart.
    * 
    * @example
    * true
@@ -415,7 +415,7 @@ export class NodepoolManagementAutoUpgradePolicy extends $dara.Model {
 export class NodepoolManagementAutoVulFixPolicy extends $dara.Model {
   /**
    * @remarks
-   * 是否允许重启节点。
+   * Specifies whether to allow node restart.
    * 
    * @example
    * true
@@ -455,10 +455,10 @@ export class NodepoolManagementAutoVulFixPolicy extends $dara.Model {
 export class NodepoolManagementUpgradeConfig extends $dara.Model {
   /**
    * @remarks
-   * 是否启用自动升级，取值：
+   * Specifies whether to enable auto upgrade. Valid values:
    * 
-   * - `true`：启用自动升级。
-   * - `false`：不启用自动升级。
+   * - `true`: Enables auto upgrade.
+   * - `false`: Disables auto upgrade.
    * 
    * @example
    * false
@@ -466,9 +466,9 @@ export class NodepoolManagementUpgradeConfig extends $dara.Model {
   autoUpgrade?: boolean;
   /**
    * @remarks
-   * 最大不可用节点数量，取值范围：[1,1000\\]。
+   * The maximum number of unavailable nodes. Valid values: [1,1000\\].
    * 
-   * 默认值：1。
+   * Default value: 1.
    * 
    * @example
    * 0
@@ -476,7 +476,7 @@ export class NodepoolManagementUpgradeConfig extends $dara.Model {
   maxUnavailable?: number;
   /**
    * @remarks
-   * 额外节点数量。
+   * The number of extra nodes.
    * 
    * @example
    * 0
@@ -484,7 +484,7 @@ export class NodepoolManagementUpgradeConfig extends $dara.Model {
   surge?: number;
   /**
    * @remarks
-   * 额外节点比例，和`surge`二选一。
+   * The extra node percentage. Specify either this parameter or `surge`.
    * 
    * @example
    * 0
@@ -521,10 +521,10 @@ export class NodepoolManagement extends $dara.Model {
   autoFaultDiagnosis?: boolean;
   /**
    * @remarks
-   * 自动修复，仅当`enable=true`时生效。
+   * Specifies whether to enable auto repair. This parameter takes effect only when `enable=true`.
    * 
-   * - `true`：自动修复。
-   * - `false`：不自动修复。
+   * - `true`: Enables auto repair.
+   * - `false`: Disables auto repair.
    * 
    * @example
    * false
@@ -532,7 +532,7 @@ export class NodepoolManagement extends $dara.Model {
   autoRepair?: boolean;
   /**
    * @remarks
-   * 自动修复节点策略。
+   * The auto repair node policy.
    */
   autoRepairPolicy?: NodepoolManagementAutoRepairPolicy;
   /**
@@ -550,7 +550,8 @@ export class NodepoolManagement extends $dara.Model {
   autoUpgradePolicy?: NodepoolManagementAutoUpgradePolicy;
   /**
    * @remarks
-   * 是否自动修复CVE。
+   * Specifies whether to automatically fix CVEs.
+   * [properties.management.properties.auto_v
    * 
    * @example
    * true
@@ -561,12 +562,13 @@ export class NodepoolManagement extends $dara.Model {
    * 自动修复CVE策略。
    */
   autoVulFixPolicy?: NodepoolManagementAutoVulFixPolicy;
+  driftEnabled?: boolean;
   /**
    * @remarks
-   * 是否开启托管版节点池，取值：
+   * Specifies whether to enable the managed node pool. Valid values:
    * 
-   * - `true`：开启托管节点池。
-   * - `false`：不开启托管节点池，只有当`enable=true`时，其他相关配置才生效。
+   * - `true`: Enables the managed node pool.
+   * - `false`: Disables the managed node pool. Other related configurations take effect only when `enable=true`.
    * 
    * @example
    * false
@@ -574,7 +576,7 @@ export class NodepoolManagement extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * 自动升级配置，仅当`enable=true`时生效。
+   * The auto upgrade configuration. This parameter takes effect only when `enable=true`.
    * 
    * @deprecated
    */
@@ -588,6 +590,7 @@ export class NodepoolManagement extends $dara.Model {
       autoUpgradePolicy: 'auto_upgrade_policy',
       autoVulFix: 'auto_vul_fix',
       autoVulFixPolicy: 'auto_vul_fix_policy',
+      driftEnabled: 'drift_enabled',
       enable: 'enable',
       upgradeConfig: 'upgrade_config',
     };
@@ -602,6 +605,7 @@ export class NodepoolManagement extends $dara.Model {
       autoUpgradePolicy: NodepoolManagementAutoUpgradePolicy,
       autoVulFix: 'boolean',
       autoVulFixPolicy: NodepoolManagementAutoVulFixPolicy,
+      driftEnabled: 'boolean',
       enable: 'boolean',
       upgradeConfig: NodepoolManagementUpgradeConfig,
     };
@@ -744,7 +748,7 @@ export class NodepoolNodeConfig extends $dara.Model {
 export class NodepoolNodepoolInfo extends $dara.Model {
   /**
    * @remarks
-   * 节点池名称。
+   * The node pool name.
    * 
    * This parameter is required.
    * 
@@ -754,7 +758,7 @@ export class NodepoolNodepoolInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 节点池所在资源ID。
+   * The resource group ID of the node pool.
    * 
    * @example
    * rg-acfmyvw3wjm****
@@ -762,10 +766,10 @@ export class NodepoolNodepoolInfo extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 节点池类型，取值范围：
+   * The node pool type. Valid values:
    * 
-   * - `ess`：节点池。
-   * - `edge`：边缘节点池。
+   * - `ess`: node pool.
+   * - `edge`: edge node pool.
    * 
    * @example
    * ess
@@ -799,7 +803,7 @@ export class NodepoolNodepoolInfo extends $dara.Model {
 export class NodepoolScalingGroupPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * 私有节点池ID。
+   * The private pool ID.
    * 
    * @example
    * eap-bp67acfmxazb4****
@@ -807,13 +811,13 @@ export class NodepoolScalingGroupPrivatePoolOptions extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * 私有节点池类型，实例启动的私有池容量选项。弹性保障服务或容量预定服务在生效后会生成私有池容量，供实例启动时选择。取值：
+   * The private pool type. The private pool capacity option for instance launch. After an elasticity assurance or capacity reservation takes effect, a private pool is generated for instances to select during launch. Valid values:
    * 
-   * - `Open`：开放模式。将自动匹配开放类型的私有池容量。如果没有符合条件的私有池容量，则使用公共池资源启动。
+   * - `Open`: Open mode. Automatically matches open-type private pool capacity. If no matching private pool capacity is available, public pool resources are used for launch.
    * 
-   * - `Target`：指定模式。使用指定的私有池容量启动实例，如果该私有池容量不可用，则实例会启动失败。
+   * - `Target`: Targeted mode. Uses the specified private pool capacity to launch instances. If the specified private pool capacity is unavailable, the instance fails to launch.
    * 
-   * - `None`：不使用模式。实例启动将不使用私有池容量。
+   * - `None`: None mode. The instance launch does not use private pool capacity.
    * 
    * @example
    * Open
@@ -845,16 +849,16 @@ export class NodepoolScalingGroupPrivatePoolOptions extends $dara.Model {
 export class NodepoolScalingGroupResourcePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * 私有池 ID列表。即弹性保障服务 ID 或容量预定服务 ID。该参数只能传入 Target 模式私有池 ID。N 的取值范围：1~20。
+   * The list of private pool IDs, which are elasticity assurance IDs or capacity reservation IDs. Only Target mode private pool IDs can be passed in. Valid values of N: 1 to 20.
    */
   privatePoolIds?: string[];
   /**
    * @remarks
-   * 创建实例时使用的资源池策略。资源池包括弹性保障服务或容量预定服务生效后生成的私有池以及公共池，供实例启动时选择。取值范围：
-   * PrivatePoolFirst：私有池优先。选择此种策略时， 当指定了 resource_pool_options.private_pool_ids，优先使用指定的私有池。如果未指定私有池或指定的私有池容量不足，将自动匹配开放类型的私有池。如果没有符合条件的私有池，则使用公共池创建实例。
-   * PrivatePoolOnly：仅限私有池。选择此种策略时，必须指定 resource_pool_options.private_pool_ids。如果指定的私有池容量不足，则实例会启动失败。
-   * None：不使用资源池策略。
-   * 默认值：None。
+   * The resource pool policy used when creating instances. Resource pools include private pools generated after elasticity assurance or capacity reservation takes effect, and public pools, for instances to select during launch. Valid values:
+   * PrivatePoolFirst: Private pool first. When this policy is selected and resource_pool_options.private_pool_ids is specified, the specified private pools are used first. If no private pool is specified or the specified private pool capacity is insufficient, open-type private pools are automatically matched. If no matching private pool is available, public pool resources are used to create instances.
+   * PrivatePoolOnly: Private pool only. When this policy is selected, resource_pool_options.private_pool_ids must be specified. If the specified private pool capacity is insufficient, the instance fails to launch.
+   * None: No resource pool policy is used.
+   * Default value: None.
    * 
    * @example
    * PrivatePoolFirst
@@ -889,7 +893,7 @@ export class NodepoolScalingGroupResourcePoolOptions extends $dara.Model {
 export class NodepoolScalingGroupSpotPriceLimit extends $dara.Model {
   /**
    * @remarks
-   * 抢占式实例规格。
+   * The spot instance type.
    * 
    * @example
    * ecs.c6.large
@@ -897,7 +901,7 @@ export class NodepoolScalingGroupSpotPriceLimit extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * 单台实例上限价格。
+   * The maximum price for a single instance.
    * 
    * @example
    * 0.39
@@ -929,7 +933,7 @@ export class NodepoolScalingGroupSpotPriceLimit extends $dara.Model {
 export class NodepoolScalingGroupTags extends $dara.Model {
   /**
    * @remarks
-   * 标签的名称。
+   * The tag key.
    * 
    * @example
    * key
@@ -937,7 +941,7 @@ export class NodepoolScalingGroupTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * 标签值。
+   * The tag value.
    * 
    * @example
    * value
@@ -969,12 +973,12 @@ export class NodepoolScalingGroupTags extends $dara.Model {
 export class NodepoolScalingGroup extends $dara.Model {
   /**
    * @remarks
-   * 节点池是否开启自动续费，当`instance_charge_type`取值为`PrePaid`时才生效，取值：
+   * Specifies whether to enable auto-renewal for the node pool. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`. Valid values:
    * 
-   * - `true`：自动续费。
-   * - `false`：不自动续费。
+   * - `true`: Enables auto-renewal.
+   * - `false`: Disables auto-renewal.
    * 
-   * 默认值：`true`。
+   * Default value: `true`.
    * 
    * @example
    * false
@@ -982,11 +986,11 @@ export class NodepoolScalingGroup extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * 节点池自动续费周期。当`instance_charge_type`取值为`PrePaid`时才生效，且为必选值。
+   * The auto-renewal period of the node pool. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
    * 
-   * 当`PeriodUnit=Month`时，取值范围：{1, 2, 3, 6, 12}。
+   * When `PeriodUnit=Month`, valid values: {1, 2, 3, 6, 12}.
    * 
-   * 默认值：1。
+   * Default value: 1.
    * 
    * @example
    * 0
@@ -994,10 +998,10 @@ export class NodepoolScalingGroup extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * 当`multi_az_policy`取值为`COST_OPTIMIZED`时，如果因价格、库存等原因无法创建足够的抢占式实例，是否允许自动尝试创建按量实例满足ECS实例数量要求。取值：
+   * When `multi_az_policy` is set to `COST_OPTIMIZED`, specifies whether to allow automatic creation of pay-as-you-go instances to meet ECS instance quantity requirements when spot instances cannot be created due to price or inventory reasons. Valid values:
    * 
-   * - `true`：允许自动尝试创建按量实例满足ECS实例数量要求。
-   * - `false`：不允许自动尝试创建按量实例满足ECS实例数量要求。
+   * - `true`: Allows automatic creation of pay-as-you-go instances to meet ECS instance quantity requirements.
+   * - `false`: Does not allow automatic creation of pay-as-you-go instances to meet ECS instance quantity requirements.
    * 
    * @example
    * true
@@ -1005,12 +1009,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   compensateWithOnDemand?: boolean;
   /**
    * @remarks
-   * 节点池节点数据盘配置。
+   * The data cloud disk configuration for nodes in the node pool.
    */
   dataDisks?: DataDisk[];
   /**
    * @remarks
-   * 部署集ID。
+   * The deployment set ID.
    * 
    * @example
    * ds-bp1d19mmbsv3jf6xxxxx
@@ -1018,7 +1022,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   deploymentsetId?: string;
   /**
    * @remarks
-   * 节点池期望节点数量。
+   * The desired number of nodes in the node pool.
    * 
    * @example
    * 2
@@ -1026,12 +1030,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   desiredSize?: number;
   /**
    * @remarks
-   * 块设备初始化配置。
+   * The block device initialization configuration.
    */
   diskInit?: DiskInit[];
   /**
    * @remarks
-   * 自定义镜像ID，默认使用系统提供的镜像。
+   * The custom image ID. The system-provided image is used by default.
    * 
    * @example
    * aliyun_2_1903_x64_20G_alibase_20200904.vhd
@@ -1039,16 +1043,16 @@ export class NodepoolScalingGroup extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * 操作系统镜像类型，和platform参数二选一，取值范围：
+   * The operating system image type. Specify either this parameter or the platform parameter. Valid values:
    * 
-   * - `AliyunLinux`：Alinux2镜像。
-   * - `AliyunLinux3`：Alinux3镜像。
-   * - `AliyunLinux3Arm64`：Alinux3镜像ARM版。
-   * - `AliyunLinuxUEFI`：Alinux2镜像UEFI版。
-   * - `CentOS`：CentOS镜像。
-   * - `Windows`：Windows镜像。
-   * - `WindowsCore`：WindowsCore镜像。
-   * - `ContainerOS`：容器优化镜像。
+   * - `AliyunLinux`: Alinux2 image.
+   * - `AliyunLinux3`: Alinux3 image.
+   * - `AliyunLinux3Arm64`: Alinux3 image for ARM.
+   * - `AliyunLinuxUEFI`: Alinux2 UEFI image.
+   * - `CentOS`: CentOS image.
+   * - `Windows`: Windows image.
+   * - `WindowsCore`: WindowsCore image.
+   * - `ContainerOS`: container-optimized image.
    * 
    * @example
    * AliyunLinux
@@ -1056,12 +1060,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * 节点池节点付费类型，取值：
+   * The billing method for nodes in the node pool. Valid values:
    * 
-   * - `PrePaid`：预付费。
-   * - `PostPaid`：按量付费。
+   * - `PrePaid`: subscription.
+   * - `PostPaid`: pay-as-you-go.
    * 
-   * 默认值：`PostPaid`。
+   * Default value: `PostPaid`.
    * 
    * This parameter is required.
    * 
@@ -1071,23 +1075,23 @@ export class NodepoolScalingGroup extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * ECS 实例的元数据访问配置。
-   * 目前仅白名单开放，需提交工单申请。
+   * The ECS instance metadata access configuration.
+   * This parameter is currently available only to accounts on the whitelist. Submit a ticket to apply.
    */
   instanceMetadataOptions?: InstanceMetadataOptions;
   /**
    * @remarks
-   * 实例规格。
+   * The instance types.
    * 
    * This parameter is required.
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * 公网IP收费类型。取值：
+   * The billing method for public IP addresses. Valid values:
    * 
-   * - `PayByBandwidth`：按固定带宽计费。
-   * - `PayByTraffic`：按使用流量计费。
+   * - `PayByBandwidth`: pay-by-fixed-bandwidth.
+   * - `PayByTraffic`: pay-by-data-transfer.
    * 
    * @example
    * PayByBandwidth
@@ -1095,7 +1099,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * 节点公网IP出带宽最大值，单位为Mbps（Mega bit per second），取值范围：[1,100]
+   * The maximum outbound bandwidth for node public IP addresses. Unit: Mbit/s. Valid values: [1,100].
    * 
    * @example
    * 10
@@ -1103,9 +1107,9 @@ export class NodepoolScalingGroup extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * 密钥对名称，和`login_password`二选一。
+   * The key pair name. Specify either this parameter or `login_password`.
    * 
-   * > 如果创建托管节点池，则只支持`key_pair`。
+   * > If you create a managed node pool, only `key_pair` is supported.
    * 
    * @example
    * np-key
@@ -1113,12 +1117,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   keyPair?: string;
   /**
    * @remarks
-   * 弹出的ECS实例是否使用以非root用户登录。
+   * Specifies whether to use a non-root user to log on to scaled-out ECS instances.
    */
   loginAsNonRoot?: boolean;
   /**
    * @remarks
-   * SSH登录密码，和`key_pair`二选一。密码规则为8~30个字符，且至少同时包含三项（大小写字母、数字和特殊符号）。
+   * The SSH logon password. Specify either this parameter or `key_pair`. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * 
    * @example
    * Hello1234
@@ -1126,17 +1130,17 @@ export class NodepoolScalingGroup extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * 多可用区伸缩组ECS实例扩缩容策略。取值：
+   * The multi-zone scaling policy for ECS instances in the scaling group. Valid values:
    * 
-   * - `PRIORITY`：根据您定义的虚拟交换机（VSwitchIds.N）扩缩容。当优先级较高的虚拟交换机所在可用区无法创建ECS实例时，自动使用下一优先级的虚拟交换机创建ECS实例。
+   * - `PRIORITY`: Scales based on the vSwitches (VSwitchIds.N) that you define. When ECS instances cannot be created in the zone of a higher-priority vSwitch, the system automatically uses the next-priority vSwitch to create ECS instances.
    * 
-   * - `COST_OPTIMIZED`：按vCPU单价从低到高进行尝试创建。当伸缩配置设置了抢占式计费方式的多实例规格时，优先创建对应抢占式实例。您可以继续通过`CompensateWithOnDemand`参数指定当抢占式实例由于库存等原因无法创建时，是否自动尝试以按量付费的方式创建。
+   * - `COST_OPTIMIZED`: Attempts to create instances in order of vCPU unit price from lowest to highest. When the scaling configuration specifies multiple instance types with spot billing method, spot instances are created first. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically attempt to create pay-as-you-go instances when spot instances cannot be created due to insufficient inventory or other reasons.
    * 
-   *   >`COST_OPTIMIZED`仅在伸缩配置设置了多实例规格或者选用了抢占式实例的情况下生效。
+   *   >`COST_OPTIMIZED` takes effect only when the scaling configuration specifies multiple instance types or uses spot instances.
    * 
-   * - `BALANCE`：在伸缩组指定的多可用区之间均匀分配ECS实例。如果由于库存不足等原因可用区之间变得不平衡，您可以通过API RebalanceInstances平衡资源。更多信息，请参见[RebalanceInstances](https://help.aliyun.com/document_detail/71516.html)。
+   * - `BALANCE`: Evenly allocates ECS instances across the multiple zones specified in the scaling group. If zones become unbalanced due to insufficient inventory or other reasons, you can use the API RebalanceInstances to rebalance resources. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
    * 
-   * 默认值：`PRIORITY`。
+   * Default value: `PRIORITY`.
    * 
    * @example
    * COST_OPTIMIZED
@@ -1144,7 +1148,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   multiAzPolicy?: string;
   /**
    * @remarks
-   * 伸缩组所需要按量实例个数的最小值，取值范围：[0,1000]。当按量实例个数少于该值时，将优先创建按量实例。
+   * The minimum number of pay-as-you-go instances required in the scaling group. Valid values: [0,1000]. When the number of pay-as-you-go instances is less than this value, pay-as-you-go instances are created first.
    * 
    * @example
    * 0
@@ -1152,7 +1156,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   onDemandBaseCapacity?: number;
   /**
    * @remarks
-   * 伸缩组满足最小按量实例数（`on_demand_base_capacity`）要求后，超出的实例中按量实例应占的比例。取值范围：[0,100]。
+   * The percentage of pay-as-you-go instances among the instances that exceed the minimum number of pay-as-you-go instances (`on_demand_base_capacity`). Valid values: [0,100].
    * 
    * @example
    * 20
@@ -1160,9 +1164,9 @@ export class NodepoolScalingGroup extends $dara.Model {
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * 节点池节点包年包月时长，当`instance_charge_type`取值为`PrePaid`时才生效且为必选值，取值范围：`period_unit`取值为Month时，`period`取值范围：{ 1, 2, 3, 6, 12}。
+   * The subscription duration for nodes in the node pool. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`. When `period_unit` is set to Month, valid values for `period`: {1, 2, 3, 6, 12}.
    * 
-   * 默认值：1。
+   * Default value: 1.
    * 
    * @example
    * 0
@@ -1170,9 +1174,9 @@ export class NodepoolScalingGroup extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * 节点池节点付费周期，当`instance_charge_type`取值为`PrePaid`时需要指定周期。
+   * The subscription period unit for nodes in the node pool. This parameter must be specified when `instance_charge_type` is set to `PrePaid`.
    * 
-   * `Month`：目前只支持以月为单位。
+   * `Month`: Currently only month is supported as the unit.
    * 
    * @example
    * Month
@@ -1180,14 +1184,14 @@ export class NodepoolScalingGroup extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * 操作系统发行版。取值：
+   * The operating system distribution. Valid values:
    * 
    * - `CentOS`
    * - `AliyunLinux`
    * - `Windows`
    * - `WindowsCore`
    * 
-   * 默认值：`AliyunLinux`。
+   * Default value: `AliyunLinux`.
    * 
    * @example
    * AliyunLinux
@@ -1197,13 +1201,13 @@ export class NodepoolScalingGroup extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * 私有节点池配置。
+   * The private pool configuration.
    */
   privatePoolOptions?: NodepoolScalingGroupPrivatePoolOptions;
   /**
    * @remarks
-   * Worker RAM角色名称。
-   * >Notice: 仅1.22及以上版本的ACK托管集群支持在创建节点池时配置该参数
+   * The Worker RAM role name.
+   * >Notice: Only ACK managed clusters of version 1.22 or later support configuring this parameter when creating a node pool.</notice>
    * 
    * @example
    * example-role
@@ -1211,24 +1215,24 @@ export class NodepoolScalingGroup extends $dara.Model {
   ramRoleName?: string;
   /**
    * @remarks
-   * RDS实例列表。
+   * The list of RDS instances.
    */
   rdsInstances?: string[];
   /**
    * @remarks
-   * 创建实例时使用的资源池及资源池策略。当您设置该参数后，需要注意：
-   * 该参数只在创建按量付费实例时生效。
-   * 该参数不能与private_pool_options.match_criteria、private_pool_options.id同时设置。
+   * The resource pool and resource pool policy used when creating instances. Note the following when you set this parameter:
+   * This parameter takes effect only when creating pay-as-you-go instances.
+   * This parameter cannot be set together with private_pool_options.match_criteria or private_pool_options.id.
    */
   resourcePoolOptions?: NodepoolScalingGroupResourcePoolOptions;
   /**
    * @remarks
-   * 伸缩组模式，取值：
+   * The scaling group mode. Valid values:
    * 
-   * - `release`：标准模式，根据申请资源值的使用量，通过创建、释放ECS的方式进行伸缩。
-   * - `recycle`：极速模式，通过创建、停机、启动的方式进行伸缩，提高再次伸缩的速度（停机时计算资源不收费，只收取存储费用，本地盘机型除外）。
+   * - `release`: standard mode. Scales by creating and releasing ECS instances based on resource usage.
+   * - `recycle`: rapid mode. Scales by creating, stopping, and starting instances to improve the speed of subsequent scaling operations (compute resources are not charged during stop, only storage fees are charged, except for local disk instance types).
    * 
-   * 默认值：`release`。
+   * Default value: `release`.
    * 
    * @example
    * release
@@ -1236,7 +1240,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   scalingPolicy?: string;
   /**
    * @remarks
-   * 节点池安全组ID，与`security_group_ids`二选一，推荐使用`security_group_ids`。
+   * The security group ID of the node pool. Specify either this parameter or `security_group_ids`. We recommend that you use `security_group_ids`.
    * 
    * @example
    * sg-2zeihch86ooz9io4****
@@ -1244,12 +1248,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * 安全组ID列表，与`security_group_id`二选一，推荐使用`security_group_ids`，当同时指定`security_group_id`和`security_group_ids`将优先使用`security_group_ids`。
+   * The list of security group IDs. Specify either this parameter or `security_group_id`. We recommend that you use `security_group_ids`. When both `security_group_id` and `security_group_ids` are specified, `security_group_ids` takes precedence.
    */
   securityGroupIds?: string[];
   /**
    * @remarks
-   * 指定可用实例规格的个数，伸缩组将按成本最低的多个规格均衡创建抢占式实例。取值范围：[1,10]。
+   * The number of available instance types. The scaling group creates spot instances across the lowest-cost instance types in a balanced manner. Valid values: [1,10].
    * 
    * @example
    * 5
@@ -1257,10 +1261,10 @@ export class NodepoolScalingGroup extends $dara.Model {
   spotInstancePools?: number;
   /**
    * @remarks
-   * 是否开启补齐抢占式实例。开启后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。取值：
+   * Specifies whether to enable supplementing spot instances. When enabled, the scaling group attempts to create new instances to replace spot instances that are about to be reclaimed upon receiving a system notification. Valid values:
    * 
-   * - `true`：开启补齐抢占式实例。
-   * - `false`：不开启补齐抢占式实例。
+   * - `true`: Enables supplementing spot instances.
+   * - `false`: Disables supplementing spot instances.
    * 
    * @example
    * false
@@ -1268,17 +1272,17 @@ export class NodepoolScalingGroup extends $dara.Model {
   spotInstanceRemedy?: boolean;
   /**
    * @remarks
-   * 当前单台抢占式实例规格市场价格区间配置。
+   * The market price range configuration for a single spot instance type.
    */
   spotPriceLimit?: NodepoolScalingGroupSpotPriceLimit[];
   /**
    * @remarks
-   * 抢占式实例类型，取值：
-   * - NoSpot：非抢占式实例。
-   * - SpotWithPriceLimit：设置抢占实例价格上限。
-   * - SpotAsPriceGo：系统自动出价，跟随当前市场实际价格。
+   * The type of spot instance. Valid values:
+   * - NoSpot: non-spot instance.
+   * - SpotWithPriceLimit: spot instance with a price limit.
+   * - SpotAsPriceGo: system automatically bids at the current market price.
    * 
-   * 更多信息，请参见[抢占式实例](https://help.aliyun.com/document_detail/157759.html)。
+   * For more information, see [Spot instances](https://help.aliyun.com/document_detail/157759.html).
    * 
    * @example
    * NoSpot
@@ -1286,12 +1290,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * 节点系统盘是否开启Burst（性能突发）。 取值：
+   * Specifies whether to enable burst (performance burst) for the node system cloud disk. Valid values:
    * 
-   * - true：是。
-   * - false：否。
+   * - true: Enabled.
+   * - false: Disabled.
    * 
-   * 当`SystemDiskCategory`取值为`cloud_auto`时才支持设置该参数。更多信息，请参见[ESSD AutoPL云盘](https://help.aliyun.com/document_detail/368372.html)。
+   * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * true
@@ -1299,25 +1303,25 @@ export class NodepoolScalingGroup extends $dara.Model {
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * 系统盘的多磁盘类型。当无法使用高优先级的磁盘类型时，自动尝试下一优先级的磁盘类型创建系统盘。取值范围：
+   * Multiple cloud disk types for the system cloud disk. When a higher-priority cloud disk type is unavailable, the system automatically attempts the next-priority cloud disk type to create the system cloud disk. Valid values:
    * 
-   * - cloud：普通云盘。
-   * - cloud_efficiency：高效云盘。
-   * - cloud_ssd：SSD云盘。
-   * - cloud_essd：ESSD云盘。
+   * - cloud: basic cloud disk.
+   * - cloud_efficiency: ultra cloud disk.
+   * - cloud_ssd: standard SSD.
+   * - cloud_essd: ESSD.
    */
   systemDiskCategories?: string[];
   /**
    * @remarks
-   * 节点系统盘类型，取值：
+   * The system cloud disk type for nodes. Valid values:
    * 
-   * - `cloud_efficiency`：高效云盘。
-   * - `cloud_ssd`：SSD云盘。
-   * - `cloud_essd`：ESSD云盘。
-   * - `cloud_auto`：ESSD AutoPL云盘。
-   * - `cloud_essd_entry`：ESSD Entry云盘。
+   * - `cloud_efficiency`: ultra cloud disk.
+   * - `cloud_ssd`: standard SSD.
+   * - `cloud_essd`: ESSD.
+   * - `cloud_auto`: ESSD AutoPL cloud disk.
+   * - `cloud_essd_entry`: ESSD Entry disk.
    * 
-   * 默认值：`cloud_efficiency`。
+   * Default value: `cloud_efficiency`.
    * 
    * @example
    * cloud_efficiency
@@ -1325,7 +1329,7 @@ export class NodepoolScalingGroup extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * 节点系统盘采用的加密算法。取值范围：aes-256。
+   * The encryption algorithm for the node system cloud disk. Valid values: aes-256.
    * 
    * @example
    * aes-256
@@ -1333,12 +1337,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   systemDiskEncryptAlgorithm?: string;
   /**
    * @remarks
-   * 是否加密系统盘。取值范围：true：加密。false：不加密。
+   * Specifies whether to encrypt the system cloud disk. Valid values: true: encrypted. false: not encrypted.
    */
   systemDiskEncrypted?: boolean;
   /**
    * @remarks
-   * 节点系统盘使用的KMS密钥ID。
+   * The KMS key ID used for the node system cloud disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -1346,12 +1350,12 @@ export class NodepoolScalingGroup extends $dara.Model {
   systemDiskKmsKeyId?: string;
   /**
    * @remarks
-   * 节点系统盘磁盘性能，只对ESSD磁盘生效。
+   * The performance level of the node system cloud disk. This parameter takes effect only for ESSD cloud disks.
    * 
-   * - PL0：并发极限I/O性能中等，读写时延较为稳定。
-   * - PL1：并发极限I/O性能中等，读写时延较为稳定。
-   * - PL2：并发极限I/O性能较高，读写时延稳定。
-   * - PL3：并发极限I/O性能极高，读写时延极稳定。
+   * - PL0: moderate maximum concurrent I/O performance with relatively stable read/write latency.
+   * - PL1: moderate maximum concurrent I/O performance with relatively stable read/write latency.
+   * - PL2: high maximum concurrent I/O performance with stable read/write latency.
+   * - PL3: ultra-high maximum concurrent I/O performance with extremely stable read/write latency.
    * 
    * @example
    * PL1
@@ -1359,9 +1363,9 @@ export class NodepoolScalingGroup extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * 节点系统盘预配置的读写IOPS。可能值：0~min{50,000, 1000\\*容量-基准性能}。 基准性能=min{1,800+50\\*容量, 50000}。
+   * The provisioned read/write IOPS for the node system cloud disk. Valid values: 0~min{50,000, 1000\\*capacity-baseline performance}. Baseline performance=min{1,800+50\\*capacity, 50000}.
    * 
-   * 当`SystemDiskCategory`为`cloud_auto`时才支持设置该参数。更多信息，请参见[ESSD AutoPL云盘](https://help.aliyun.com/document_detail/368372.html)。
+   * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 1000
@@ -1369,9 +1373,9 @@ export class NodepoolScalingGroup extends $dara.Model {
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * 节点系统盘大小，单位：GiB。
+   * The node system cloud disk size. Unit: GiB.
    * 
-   * 取值范围：[40,500]。
+   * Valid values: [40,500].
    * 
    * @example
    * 120
@@ -1379,14 +1383,14 @@ export class NodepoolScalingGroup extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * 仅为ECS实例添加标签。
+   * Adds tags only to ECS instances.
    * 
-   * 标签键不可以重复，最大长度为128个字符；标签键和标签值都不能以“aliyun”、“acs:”开头，或包含“https://”、“http://”。
+   * Tag keys cannot be duplicated and can be up to 128 characters in length. Tag keys and tag values cannot start with "aliyun" or "acs:", or contain "https://" or "http://".
    */
   tags?: NodepoolScalingGroupTags[];
   /**
    * @remarks
-   * 虚拟交换机ID。
+   * The vSwitch IDs.
    * 
    * This parameter is required.
    */
@@ -1539,7 +1543,7 @@ export class NodepoolScalingGroup extends $dara.Model {
 export class NodepoolTeeConfig extends $dara.Model {
   /**
    * @remarks
-   * 是否为加密计算节点池。
+   * Specifies whether this is a confidential computing node pool.
    * 
    * This parameter is required.
    * 
@@ -1576,7 +1580,7 @@ export class Nodepool extends $dara.Model {
   autoScaling?: NodepoolAutoScaling;
   /**
    * @remarks
-   * This parameter is deprecated. Use desired_size instead.
+   * [This field is deprecated. Use desired_size instead.]
    * 
    * The number of nodes in the node pool.
    * 
@@ -1588,7 +1592,7 @@ export class Nodepool extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * [This field is deprecated.]
    * 
    * The edge node pool configuration.
    * 
@@ -1597,7 +1601,7 @@ export class Nodepool extends $dara.Model {
   interconnectConfig?: NodepoolInterconnectConfig;
   /**
    * @remarks
-   * The network type of the edge node pool. This parameter is valid only for node pools whose `type` is `edge`. Valid values:
+   * The network type of the edge node pool. This value is valid only for node pools whose `type` is `edge`. Valid values:
    * 
    * - `basic`: basic.
    * - `private`: dedicated. Supported in version 1.22 and later.
@@ -1618,7 +1622,7 @@ export class Nodepool extends $dara.Model {
   management?: NodepoolManagement;
   /**
    * @remarks
-   * The maximum number of nodes allowed in the edge node pool. This parameter must be greater than or equal to 0. A value of 0 indicates no additional limit. The node pool is limited only by the maximum number of nodes that the cluster can contain. Edge node pools typically have a value greater than 0. ESS-type node pools and default edge-type node pools have a value of 0.
+   * The maximum number of nodes allowed in the edge node pool. This parameter must be greater than or equal to 0. A value of 0 indicates no additional limit (the node pool is limited only by the maximum number of nodes that the cluster can accommodate). For edge node pools, this value is typically greater than 0. For ESS-type node pools and default edge-type node pools, this value is 0.
    * 
    * @example
    * 10
@@ -1646,7 +1650,7 @@ export class Nodepool extends $dara.Model {
   scalingGroup?: NodepoolScalingGroup;
   /**
    * @remarks
-   * The confidential computing configuration of the node pool.
+   * The confidential computing node pool configuration.
    */
   teeConfig?: NodepoolTeeConfig;
   static names(): { [key: string]: string } {
