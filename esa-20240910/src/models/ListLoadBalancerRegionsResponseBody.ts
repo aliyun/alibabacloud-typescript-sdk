@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListLoadBalancerRegionsResponseBodyRegionsSubRegions extends $dara.Model {
   /**
    * @remarks
-   * Secondary region Chinese full name
+   * The full name of the primary region in Chinese.
    * 
    * @example
-   * 印度尼西亚
+   * Indonesia
    */
   subRegionCnName?: string;
   /**
    * @remarks
-   * Secondary region code
+   * The secondary region code.
    * 
    * @example
    * ID
@@ -21,7 +21,7 @@ export class ListLoadBalancerRegionsResponseBodyRegionsSubRegions extends $dara.
   subRegionCode?: string;
   /**
    * @remarks
-   * Secondary region English full name
+   * The full name of the secondary region in English.
    * 
    * @example
    * Indonesia
@@ -55,15 +55,15 @@ export class ListLoadBalancerRegionsResponseBodyRegionsSubRegions extends $dara.
 export class ListLoadBalancerRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * Primary region Chinese full name
+   * The full name of the primary region in Chinese.
    * 
    * @example
-   * 东南亚
+   * South East Asia
    */
   regionCnName?: string;
   /**
    * @remarks
-   * Primary region code
+   * The primary region code.
    * 
    * @example
    * SEAS
@@ -71,7 +71,7 @@ export class ListLoadBalancerRegionsResponseBodyRegions extends $dara.Model {
   regionCode?: string;
   /**
    * @remarks
-   * Primary region English full name
+   * The full name of the primary region in English.
    * 
    * @example
    * South East Asia
@@ -79,7 +79,7 @@ export class ListLoadBalancerRegionsResponseBodyRegions extends $dara.Model {
   regionEnName?: string;
   /**
    * @remarks
-   * List of secondary region information
+   * The list of secondary region information.
    */
   subRegions?: ListLoadBalancerRegionsResponseBodyRegionsSubRegions[];
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class ListLoadBalancerRegionsResponseBodyRegions extends $dara.Model {
 export class ListLoadBalancerRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -123,7 +123,7 @@ export class ListLoadBalancerRegionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records per page
+   * The number of entries per page.
    * 
    * @example
    * 1024
@@ -131,12 +131,12 @@ export class ListLoadBalancerRegionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of region information
+   * The list of region information.
    */
   regions?: ListLoadBalancerRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 81A5E222-24BF-17EF-9E80-A68D9B8F363D
@@ -144,7 +144,7 @@ export class ListLoadBalancerRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 12
@@ -152,7 +152,7 @@ export class ListLoadBalancerRegionsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total number of pages
+   * The total number of pages.
    * 
    * @example
    * 1

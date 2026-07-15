@@ -78,7 +78,7 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * The name of the waiting room event.
    * 
    * @example
-   * 测试事件2
+   * test event
    */
   name?: string;
   /**
@@ -113,7 +113,7 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * The queuing method. Valid values:
    * 
    * - **random**: random.
-   * - **fifo**: first-in, first-out.
+   * - **fifo**: first-in-first-out.
    * - **passthrough**: passthrough.
    * - **reject-all**: reject all.
    * 

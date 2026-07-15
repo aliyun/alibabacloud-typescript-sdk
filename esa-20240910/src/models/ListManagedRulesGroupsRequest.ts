@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListManagedRulesGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * Page number, used to specify the page number for pagination queries.
+   * The page number for the paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListManagedRulesGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, used to specify the number of items per page for pagination queries.
+   * The number of entries per page for the paged query.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRoutineRelatedRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The routine name.
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DeleteRoutineRelatedRecordRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * This parameter is required.
    * 

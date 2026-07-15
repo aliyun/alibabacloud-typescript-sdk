@@ -24,7 +24,7 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * The description of the waiting room.
    * 
    * @example
-   * 特别活动排队页面
+   * Special event queue page
    */
   description?: string;
   /**
@@ -82,7 +82,7 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
    * The name of the waiting room.
    * 
    * @example
-   * 节假日促销等候室
+   * holiday-promotion-waiting-room
    */
   name?: string;
   /**
@@ -119,7 +119,7 @@ export class UpdateWaitingRoomShrinkRequest extends $dara.Model {
   queuingMethod?: string;
   /**
    * @remarks
-   * The HTTP status code returned by the waiting room. Valid values:
+   * The status code returned by the waiting room. Valid values:
    * 
    * - **200**
    * - **202**

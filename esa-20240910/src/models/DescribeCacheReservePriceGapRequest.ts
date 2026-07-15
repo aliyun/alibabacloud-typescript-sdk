@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCacheReservePriceGapRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * esa-cr-9tuv*********
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The requested cache size. Unit: GB.
+   * 
    * @example
    * 1000
    */

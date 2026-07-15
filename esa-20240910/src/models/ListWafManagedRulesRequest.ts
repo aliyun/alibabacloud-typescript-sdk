@@ -3,8 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWafManagedRulesRequestManagedRulesetManagedRules extends $dara.Model {
+  /**
+   * @remarks
+   * The action for a single rule. This parameter takes effect only in custom mode (ProtectionLevel = -1).
+   * 
+   * Common valid values: monitor, deny, js, captcha. The actual available values depend on the instance quota.
+   * 
+   * @example
+   * js
+   */
   action?: string;
+  /**
+   * @remarks
+   * The unique ID of a single managed rule.
+   * 
+   * @example
+   * 20611349
+   */
   id?: number;
+  /**
+   * @remarks
+   * The rule enabled status.
+   * 
+   * Valid values:
+   * - on: enabled.
+   * - off: disabled.
+   * 
+   * @example
+   * on
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,9 +59,44 @@ export class ListWafManagedRulesRequestManagedRulesetManagedRules extends $dara.
 }
 
 export class ListWafManagedRulesRequestManagedRuleset extends $dara.Model {
+  /**
+   * @remarks
+   * The unified action when ProtectionLevel is greater than 0. This parameter cannot be empty in this case.
+   * 
+   * Common valid values: monitor, deny, js, captcha. The actual available values depend on the instance quota.
+   * 
+   * @example
+   * monitor
+   */
   action?: string;
+  /**
+   * @remarks
+   * The attack type encoding. The value cannot be 0.
+   * 
+   * Example values: 11 (SQL injection), 12 (XSS), 13 (code execute), 14 (CRLF), 15 (local file inclusion (LFI)), 16 (remote file inclusion (RFI)), 17 (WebShell), 22 (command injection), 26 (SSRF), 27 (path traversal), 28 (protocol violation), 31 (scanner behavior).
+   * 
+   * @example
+   * 11
+   */
   attackType?: number;
+  /**
+   * @remarks
+   * The rule configuration list in custom mode. This parameter is used only when ProtectionLevel is set to -1.
+   * 
+   * Each element contains Id, Status, and Action, which are used to specify the enabled status and action for each managed rule.
+   */
   managedRules?: ListWafManagedRulesRequestManagedRulesetManagedRules[];
+  /**
+   * @remarks
+   * The protection level within the ruleset.
+   * 
+   * Valid values: -1 (custom mode, specify each rule through ManagedRules), 1 (loose), 2 (medium), 3 (strict), 4 (super strict).
+   * 
+   * When the value is -1, ManagedRules cannot be empty. When the value is greater than 0, Action cannot be empty.
+   * 
+   * @example
+   * -1
+   */
   protectionLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,7 +131,7 @@ export class ListWafManagedRulesRequestManagedRuleset extends $dara.Model {
 export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * The rule action to filter by.
+   * The action.
    * 
    * @example
    * deny
@@ -77,7 +139,7 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The keyword for a fuzzy search on the rule ID or rule name.
+   * Fuzzy match by rule ID or rule name.
    * 
    * @example
    * example
@@ -85,12 +147,12 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   idNameLike?: string;
   /**
    * @remarks
-   * The rule protection levels to filter the results by.
+   * The list of rule protection levels.
    */
   protectionLevels?: number[];
   /**
    * @remarks
-   * The rule status to filter by.
+   * The status.
    * 
    * @example
    * on
@@ -129,26 +191,16 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
 export class ListWafManagedRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The attack type to filter the results by. Valid values:
-   * 
+   * The attack type of the vulnerability prevention event. Valid values:
    * - SQL injection
-   * 
-   * - cross-site scripting
-   * 
-   * - code execution
-   * 
+   * - cross-site scripting (XSS)
+   * - code execute
    * - CRLF
-   * 
-   * - local file inclusion
-   * 
-   * - remote file inclusion
-   * 
+   * - local file inclusion (LFI)
+   * - remote file inclusion (RFI)
    * - webshell
-   * 
    * - cross-site request forgery
-   * 
-   * - Other
-   * 
+   * - Others
    * - SEMA
    * 
    * This parameter is required.
@@ -165,23 +217,35 @@ export class ListWafManagedRulesRequest extends $dara.Model {
    * 10000001
    */
   id?: number;
+  /**
+   * @remarks
+   * The WAF instance ID.
+   * 
+   * @example
+   * esa-site-awmmx25y2igw
+   */
   instanceId?: string;
   /**
    * @remarks
-   * The response language. Valid values:
+   * The language type. The response is returned in the specified language. Valid values:
    * 
    * - **en**: English.
-   * 
    * - **zh**: Chinese.
    * 
    * @example
    * zh
    */
   language?: string;
+  /**
+   * @remarks
+   * The managed ruleset configuration in JSON string format.
+   * 
+   * Contains the AttackType, ProtectionLevel, Action, and ManagedRules subfields. When ProtectionLevel is set to -1 (custom mode), specify the status and action for each rule through the ManagedRules array.
+   */
   managedRuleset?: ListWafManagedRulesRequestManagedRuleset;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -189,21 +253,35 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The currently saved protection level, which represents the existing configuration state in the database.
+   * 
+   * Valid values: -1 (custom mode), 1 (loose), 2 (medium), 3 (strict), 4 (super strict).
+   * 
+   * Difference from ManagedRuleset.ProtectionLevel: this parameter indicates the currently effective configuration, while ManagedRuleset.ProtectionLevel indicates the target value being passed in.
+   * 
+   * @example
+   * 1
+   */
   protectionLevel?: number;
   /**
    * @remarks
    * The query conditions.
+   * 
+   * @example
+   * {\\"Status\\":\\"\\",\\"ProtectionLevels\\":[2,1],\\"Action\\":\\"\\",\\"IdNameLike\\":\\"\\"}
    */
   queryArgs?: ListWafManagedRulesRequestQueryArgs;
   /**
    * @remarks
-   * The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 1

@@ -56,27 +56,45 @@ export class DescribeCacheReservePriceGapResponseBodyPriceModelRule extends $dar
 
 export class DescribeCacheReservePriceGapResponseBodyPriceModel extends $dara.Model {
   /**
+   * @remarks
+   * The currency. Valid values:
+   * - JPY: Japanese Yen.
+   * - USD: US Dollar.
+   * - CNY: Chinese Yuan.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discount amount of the order.
+   * 
    * @example
    * 1
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * esa-cr-9tuv*********
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The final order price, which is the actual transaction price.
+   * 
    * @example
    * 1
    */
   price?: number;
   rule?: DescribeCacheReservePriceGapResponseBodyPriceModelRule;
   /**
+   * @remarks
+   * The original order price. Original order price = actual transaction price + discount amount.
+   * 
    * @example
    * 2
    */
@@ -116,8 +134,15 @@ export class DescribeCacheReservePriceGapResponseBodyPriceModel extends $dara.Mo
 }
 
 export class DescribeCacheReservePriceGapResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pricing information.
+   */
   priceModel?: DescribeCacheReservePriceGapResponseBodyPriceModel;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40423A7F-A83D-1E24-B80E-86DD25790759
    */

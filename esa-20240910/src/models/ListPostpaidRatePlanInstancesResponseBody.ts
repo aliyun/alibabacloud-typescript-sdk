@@ -60,8 +60,8 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites extends 
 export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The billable methods. Valid values:
-   * - dps_month95: monthly 95th percentile billing.
+   * The billing method. Valid values:
+   * - dps_month95: Monthly 95th Percentile.
    * 
    * @example
    * SUBSCRIBE
@@ -79,7 +79,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   billingMode?: string;
   /**
    * @remarks
-   * The acceleration regions to which the instance can bindable sites. Multiple values are separated by commas (,). Valid values:
+   * The acceleration regions to which sites can be associated with this instance. Multiple values are separated by commas (,). Valid values:
    * 
    * - domestic: the Chinese mainland.
    * - overseas: global (excluding the Chinese mainland).
@@ -91,7 +91,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   coverages?: string;
   /**
    * @remarks
-   * The time when the instance was created. The value is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -99,7 +99,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   createTime?: string;
   /**
    * @remarks
-   * The scheduled specification change time. The value is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The scheduled specification change time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -126,14 +126,14 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
    * The plan name in Chinese.
    * 
    * @example
-   * 测试套餐
+   * test-plan
    */
   planNameCn?: string;
   /**
    * @remarks
    * The plan type of the instance. Valid values:
-   * - normal: Fixed plan.
-   * - enterprise: Enterprise plan.
+   * - normal: Fixed edition plan.
+   * - enterprise: Enterprise edition plan.
    * 
    * @example
    * normal

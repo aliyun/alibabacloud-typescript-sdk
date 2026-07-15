@@ -13,10 +13,10 @@ export class DeleteRoutineRelatedRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * The operation status. Valid values:
    * 
-   * *   OK
-   * *   Fail
+   * * **OK**: The operation was successful.
+   * * **Fail**: The operation failed.
    * 
    * @example
    * OK

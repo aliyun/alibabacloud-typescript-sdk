@@ -13,7 +13,7 @@ export class CreateRoutineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the operation. A value of `OK` indicates the request succeeded.
+   * The result of the operation. Indicates whether the operation was successful.
    * 
    * @example
    * OK

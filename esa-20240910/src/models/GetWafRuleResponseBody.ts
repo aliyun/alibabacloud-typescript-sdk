@@ -64,6 +64,9 @@ export class GetWafRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain the ID.
+   * 
+   * @example
+   * 10000001
    */
   rulesetId?: number;
   /**

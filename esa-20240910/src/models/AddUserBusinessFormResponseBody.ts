@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteRoutineResponseBody extends $dara.Model {
+export class AddUserBusinessFormResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The status of the operation, which indicates success or failure.
-   * 
-   * @example
-   * OK
-   */
-  status?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      status: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $dara.Model {
   /**
    * @remarks
-   * Name of the managed rule group.
+   * The name of the managed rule group.
    * 
    * @example
    * example
@@ -13,7 +13,7 @@ export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $dara.
   name?: string;
   /**
    * @remarks
-   * Number of rules within the managed rule group.
+   * The number of rules in the managed rule group.
    * 
    * @example
    * 1000
@@ -45,12 +45,12 @@ export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $dara.
 export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of managed rule group information.
+   * The list of managed rule groups.
    */
   managedRulesGroups?: ListManagedRulesGroupsResponseBodyManagedRulesGroups[];
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -66,7 +66,7 @@ export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -74,7 +74,7 @@ export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records after filtering.
+   * The total number of records after filtering.
    * 
    * @example
    * 5

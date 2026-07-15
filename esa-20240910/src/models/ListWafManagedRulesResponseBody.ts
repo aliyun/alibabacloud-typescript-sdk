@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The managed rule\\"s action.
+   * The protection action of the managed rule.
    * 
    * @example
    * deny
@@ -29,7 +29,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The managed rule\\"s protection level.
+   * The protection level of the managed rule.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   protectionLevel?: number;
   /**
    * @remarks
-   * The managed rule\\"s status.
+   * The protection status of the managed rule.
    * 
    * @example
    * on
@@ -75,7 +75,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
 export class ListWafManagedRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -99,7 +99,7 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of managed rules.
+   * The list of managed rules.
    */
   rules?: ListWafManagedRulesResponseBodyRules[];
   /**

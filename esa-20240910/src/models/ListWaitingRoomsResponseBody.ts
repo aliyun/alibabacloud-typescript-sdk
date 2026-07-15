@@ -55,7 +55,7 @@ export class ListWaitingRoomsResponseBodyWaitingRoomsHostNameAndPath extends $da
 export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   /**
    * @remarks
-   * The name of the custom cookie.
+   * The custom cookie name.
    * 
    * @example
    * __aliwaitingroom_example
@@ -63,7 +63,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   cookieName?: string;
   /**
    * @remarks
-   * The HTML content or identifier of the custom queuing page. This parameter is valid only when `WaitingRoomType` is set to `custom`. The content must be URL-encoded.
+   * The HTML content or identifier of the custom queuing page. This parameter is valid only when WaitingRoomType is set to custom. The content must be URL-encoded.
    * 
    * @example
    * Custom HTML content
@@ -71,7 +71,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   customPageHtml?: string;
   /**
    * @remarks
-   * The description of the waiting room.
+   * The waiting room description.
    * 
    * @example
    * Test waiting room
@@ -79,11 +79,9 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether session renewal is disabled. Valid values:
-   * 
-   * - on
-   * 
-   * - off
+   * Specifies whether to disable session renewal. Valid values:
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -91,11 +89,10 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
-   * Indicates whether the waiting room is enabled. Valid values:
+   * The enabled status. Valid values:
    * 
-   * - on
-   * 
-   * - off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -103,16 +100,15 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The hostname and path.
+   * The hostname and path configurations.
    */
   hostNameAndPath?: ListWaitingRoomsResponseBodyWaitingRoomsHostNameAndPath[];
   /**
    * @remarks
-   * Indicates whether JSON response is enabled. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * Specifies whether to enable JSON response. When enabled, requests with an Accept header containing "application/json" return JSON data. Valid values:
    * 
-   * - on
-   * 
-   * - off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -120,13 +116,11 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   jsonResponseEnable?: string;
   /**
    * @remarks
-   * The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
+   * The language of the waiting room page. This parameter is required when the waiting room type is default. Valid values:
    * 
-   * - enus: English.
-   * 
-   * - zhcn: Simplified Chinese.
-   * 
-   * - zhhk: Traditional Chinese.
+   * - **enus**: English.
+   * - **zhcn**: Simplified Chinese.
+   * - **zhhk**: Traditional Chinese.
    * 
    * @example
    * zhcn
@@ -134,7 +128,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The name of the waiting room.
+   * The waiting room name.
    * 
    * @example
    * Test waiting room
@@ -142,7 +136,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The maximum number of new users per minute.
+   * The number of new users per minute.
    * 
    * @example
    * 200
@@ -150,11 +144,10 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   newUsersPerMinute?: string;
   /**
    * @remarks
-   * Indicates whether all requests must be queued. Valid values:
+   * Specifies whether to queue all visitors. Valid values:
    * 
-   * - on
-   * 
-   * - off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -164,13 +157,10 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
    * @remarks
    * The queuing method. Valid values:
    * 
-   * - random: Users gain access to the origin randomly, regardless of the arrival time.
-   * 
-   * - fifo: Users gain access to the origin in order of arrival.
-   * 
-   * - passthrough: Users pass through the waiting room and go straight to the origin.
-   * 
-   * - reject-all: Users are blocked from reaching the origin.
+   * - **random**: Random.
+   * - **fifo**: First in, first out.
+   * - **passthrough**: Passthrough.
+   * - **reject-all**: Reject all.
    * 
    * @example
    * random
@@ -178,13 +168,11 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   queuingMethod?: string;
   /**
    * @remarks
-   * The HTTP status code to return while a user is in the queue. Valid values:
+   * The waiting room status code. Valid values:
    * 
-   * - 200
-   * 
-   * - 202
-   * 
-   * - 429
+   * - **200**
+   * - **202**
+   * - **429**
    * 
    * @example
    * 200
@@ -192,7 +180,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   queuingStatusCode?: string;
   /**
    * @remarks
-   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * The session duration, in minutes.
    * 
    * @example
    * 3600
@@ -200,7 +188,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   sessionDuration?: string;
   /**
    * @remarks
-   * The maximum number of active users.
+   * The total number of active users.
    * 
    * @example
    * 300
@@ -208,7 +196,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   totalActiveUsers?: string;
   /**
    * @remarks
-   * The unique ID of the waiting room.
+   * The waiting room ID, which uniquely identifies a waiting room.
    * 
    * @example
    * 6a51d5bc6460887abd1291dc7d4d****
@@ -216,11 +204,10 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   waitingRoomId?: string;
   /**
    * @remarks
-   * The type of the waiting room. Valid values:
+   * The waiting room type. Valid values:
    * 
-   * - default
-   * 
-   * - custom
+   * - **default**: Default type.
+   * - **custom**: Custom type.
    * 
    * @example
    * default
@@ -285,7 +272,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
 export class ListWaitingRoomsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to trace a call.
+   * The request ID, which is used to trace API calls.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
@@ -293,7 +280,7 @@ export class ListWaitingRoomsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The waiting rooms.
+   * The list of waiting rooms.
    */
   waitingRooms?: ListWaitingRoomsResponseBodyWaitingRooms[];
   static names(): { [key: string]: string } {

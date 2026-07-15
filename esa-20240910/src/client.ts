@@ -206,6 +206,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a user opportunity order.
+   * 
+   * @param request - AddUserBusinessFormRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUserBusinessFormResponse
+   */
+  async addUserBusinessFormWithOptions(request: $_model.AddUserBusinessFormRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddUserBusinessFormResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.company)) {
+      query["Company"] = request.company;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.position)) {
+      query["Position"] = request.position;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.website)) {
+      query["Website"] = request.website;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddUserBusinessForm",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddUserBusinessFormResponse>(await this.callApi(params, req, runtime), new $_model.AddUserBusinessFormResponse({}));
+  }
+
+  /**
+   * Creates a user opportunity order.
+   * 
+   * @param request - AddUserBusinessFormRequest
+   * @returns AddUserBusinessFormResponse
+   */
+  async addUserBusinessForm(request: $_model.AddUserBusinessFormRequest): Promise<$_model.AddUserBusinessFormResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addUserBusinessFormWithOptions(request, runtime);
+  }
+
+  /**
    * Applies for a free certificate.
    * 
    * @param request - ApplyCertificateRequest
@@ -698,7 +764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves match fields for a batch of expressions.
+   * Retrieves matching items for expressions in batches.
    * 
    * @param tmpReq - BatchGetExpressionFieldsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -757,7 +823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves match fields for a batch of expressions.
+   * Retrieves matching items for expressions in batches.
    * 
    * @param request - BatchGetExpressionFieldsRequest
    * @returns BatchGetExpressionFieldsResponse
@@ -1208,6 +1274,52 @@ export default class Client extends OpenApi {
   async checkAssumeSlrRole(): Promise<$_model.CheckAssumeSlrRoleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkAssumeSlrRoleWithOptions(runtime);
+  }
+
+  /**
+   * Validates whether a site is compatible with the target plan during site plan migration.
+   * 
+   * @param request - CheckSiteFeaturesMatchPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckSiteFeaturesMatchPlanResponse
+   */
+  async checkSiteFeaturesMatchPlanWithOptions(request: $_model.CheckSiteFeaturesMatchPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckSiteFeaturesMatchPlanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.newInstanceId)) {
+      query["NewInstanceId"] = request.newInstanceId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckSiteFeaturesMatchPlan",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckSiteFeaturesMatchPlanResponse>(await this.callApi(params, req, runtime), new $_model.CheckSiteFeaturesMatchPlanResponse({}));
+  }
+
+  /**
+   * Validates whether a site is compatible with the target plan during site plan migration.
+   * 
+   * @param request - CheckSiteFeaturesMatchPlanRequest
+   * @returns CheckSiteFeaturesMatchPlanResponse
+   */
+  async checkSiteFeaturesMatchPlan(request: $_model.CheckSiteFeaturesMatchPlanRequest): Promise<$_model.CheckSiteFeaturesMatchPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkSiteFeaturesMatchPlanWithOptions(request, runtime);
   }
 
   /**
@@ -2281,7 +2393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Configuration for modifying a Site\\"s HTTP Request Headers.
+   * Creates an HTTP request header modification configuration for a site.
    * 
    * @param tmpReq - CreateHttpRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2342,7 +2454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Configuration for modifying a Site\\"s HTTP Request Headers.
+   * Creates an HTTP request header modification configuration for a site.
    * 
    * @param request - CreateHttpRequestHeaderModificationRuleRequest
    * @returns CreateHttpRequestHeaderModificationRuleResponse
@@ -2353,7 +2465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a rule to modify HTTP response headers.
+   * Creates an HTTP response header modification configuration.
    * 
    * @param tmpReq - CreateHttpResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2414,7 +2526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a rule to modify HTTP response headers.
+   * Creates an HTTP response header modification configuration.
    * 
    * @param request - CreateHttpResponseHeaderModificationRuleRequest
    * @returns CreateHttpResponseHeaderModificationRuleResponse
@@ -3717,7 +3829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a new record to a site that triggers a specified edge function Routine.
+   * Adds an associated site record for an Edge Routine function. This creates a new record under the site to trigger the execution of the Edge Routine function code.
    * 
    * @param request - CreateRoutineRelatedRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3756,7 +3868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a new record to a site that triggers a specified edge function Routine.
+   * Adds an associated site record for an Edge Routine function. This creates a new record under the site to trigger the execution of the Edge Routine function code.
    * 
    * @param request - CreateRoutineRelatedRecordRequest
    * @returns CreateRoutineRelatedRecordResponse
@@ -6784,7 +6896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a routine in Edge Routine.
+   * Deletes an Edge Routine.
    * 
    * @param request - DeleteRoutineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6815,7 +6927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a routine in Edge Routine.
+   * Deletes an Edge Routine.
    * 
    * @param request - DeleteRoutineRequest
    * @returns DeleteRoutineResponse
@@ -6872,7 +6984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a record that is associated with a routine.
+   * Deletes an association record of an Edge Routine.
    * 
    * @param request - DeleteRoutineRelatedRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6917,7 +7029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a record that is associated with a routine.
+   * Deletes an association record of an Edge Routine.
    * 
    * @param request - DeleteRoutineRelatedRecordRequest
    * @returns DeleteRoutineRelatedRecordResponse
@@ -7770,7 +7882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price for a configuration change of a cache reserve instance.
+   * Queries the price for a cache-retained specification change.
    * 
    * @param request - DescribeCacheReservePriceGapRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7805,7 +7917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price for a configuration change of a cache reserve instance.
+   * Queries the price for a cache-retained specification change.
    * 
    * @param request - DescribeCacheReservePriceGapRequest
    * @returns DescribeCacheReservePriceGapResponse
@@ -10264,7 +10376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetEdgeImage
+   * Retrieves the details of an edge container plan instance.
    * 
    * @param request - GetEdgeContainerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10295,7 +10407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetEdgeImage
+   * Retrieves the details of an edge container plan instance.
    * 
    * @param request - GetEdgeContainerRequest
    * @returns GetEdgeContainerResponse
@@ -13244,7 +13356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
+   * Retrieves the details of a single rule in Web Application Firewall (WAF). You can use this operation to query the configuration and status of a specific rule.
    * 
    * @param request - GetWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13279,7 +13391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
+   * Retrieves the details of a single rule in Web Application Firewall (WAF). You can use this operation to query the configuration and status of a specific rule.
    * 
    * @param request - GetWafRuleRequest
    * @returns GetWafRuleResponse
@@ -13416,7 +13528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询证书列表，支持翻页
+   * Queries the list of China Shield certificates.
    * 
    * @param request - ListCasCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13459,7 +13571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询证书列表，支持翻页
+   * Queries the list of China Shield certificates.
    * 
    * @param request - ListCasCertificatesRequest
    * @returns ListCasCertificatesResponse
@@ -14807,10 +14919,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Load Balancer Region List
+   * Queries the primary and secondary region information of a load balancing instance to obtain geographic region codes, descriptions, and other basic information that are active and can be used to configure a country/region-based scheduling policy for the load balancing instance.
    * 
    * @remarks
-   * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
+   * When you create a country/region-based scheduling policy for a load balancing instance by calling an OpenAPI operation, use the primary or secondary region code from the lookup table to represent traffic originating from the corresponding geographic region.
    * 
    * @param request - ListLoadBalancerRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14837,10 +14949,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Load Balancer Region List
+   * Queries the primary and secondary region information of a load balancing instance to obtain geographic region codes, descriptions, and other basic information that are active and can be used to configure a country/region-based scheduling policy for the load balancing instance.
    * 
    * @remarks
-   * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
+   * When you create a country/region-based scheduling policy for a load balancing instance by calling an OpenAPI operation, use the primary or secondary region code from the lookup table to represent traffic originating from the corresponding geographic region.
    * 
    * @param request - ListLoadBalancerRegionsRequest
    * @returns ListLoadBalancerRegionsResponse
@@ -14889,7 +15001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Custom Managed Rule Groups
+   * Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14924,7 +15036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Custom Managed Rule Groups
+   * Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @returns ListManagedRulesGroupsResponse
@@ -16354,7 +16466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of WAF managed rules, optionally filtered by specific criteria. The response is paginated.
+   * Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
    * 
    * @param tmpReq - ListWafManagedRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16431,7 +16543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of WAF managed rules, optionally filtered by specific criteria. The response is paginated.
+   * Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
    * 
    * @param request - ListWafManagedRulesRequest
    * @returns ListWafManagedRulesResponse
@@ -16826,10 +16938,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all waiting rooms in a website.
+   * Queries the details of all configured waiting rooms for a specified site.
    * 
    * @remarks
-   * Use this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+   * This API allows you to query the configuration details of all waiting rooms for a specified site, including the enabled status, name, and queuing rules.
    * 
    * @param request - ListWaitingRoomsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16856,10 +16968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all waiting rooms in a website.
+   * Queries the details of all configured waiting rooms for a specified site.
    * 
    * @remarks
-   * Use this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+   * This API allows you to query the configuration details of all waiting rooms for a specified site, including the enabled status, name, and queuing rules.
    * 
    * @param request - ListWaitingRoomsRequest
    * @returns ListWaitingRoomsResponse
@@ -17096,7 +17208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
+   * Publishes a specific version of Edge Routine code to a staging or production environment. When publishing to the production environment, you can perform a canary release to specific regions.
    * 
    * @param request - PublishRoutineCodeVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17135,7 +17247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
+   * Publishes a specific version of Edge Routine code to a staging or production environment. When publishing to the production environment, you can perform a canary release to specific regions.
    * 
    * @param request - PublishRoutineCodeVersionRequest
    * @returns PublishRoutineCodeVersionResponse

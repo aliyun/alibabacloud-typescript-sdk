@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * The name of the response header.
+   * The response header name.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,11 @@ export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
   name?: string;
   /**
    * @remarks
-   * The modification to perform on the header. Valid values:
+   * The operation type. Valid values:
    * 
-   * - `add`: Adds a header.
-   * 
-   * - `del`: Deletes a header.
-   * 
-   * - `modify`: Modifies a header.
+   * - add: adds a response header.
+   * - del: deletes a response header.
+   * - modify: modifies a response header.
    * 
    * This parameter is required.
    * 
@@ -32,10 +30,8 @@ export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
   /**
    * @remarks
    * The value type. Valid values:
-   * 
-   * - `static`: Static value.
-   * 
-   * - `dynamic`: Dynamic value.
+   * - static: static pattern.
+   * - dynamic: dynamic schema.
    * 
    * @example
    * static
@@ -43,7 +39,7 @@ export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
   type?: string;
   /**
    * @remarks
-   * The value to assign to the header. This parameter is not required when the `Operation` is `del`.
+   * The response header value.
    * 
    * @example
    * headervalue
@@ -79,18 +75,16 @@ export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
 export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * An array of objects that specify modifications to the response header. The supported operations are `add`, `del`, and `modify`.
+   * The response header modifications. Three operation types are supported: add, delete, and modify.
    * 
    * This parameter is required.
    */
   responseHeaderModification?: CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModification[];
   /**
    * @remarks
-   * Specifies the conditional expression that an incoming request must match for the rule to apply. This parameter is not required when adding a Global Configuration. You can set the value in one of the following ways:
-   * 
-   * - To match all incoming requests, set the value to `true`.
-   * 
-   * - To match specific requests, set the value to a custom expression. For example: `(http.host eq "video.example.com")`
+   * The rule content, which uses conditional expressions to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -98,11 +92,9 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. This parameter is not required when adding a Global Configuration. Valid values:
-   * 
-   * - `on`: Enables the rule.
-   * 
-   * - `off`: Disables the rule.
+   * The rule switch. This parameter is not required when you add a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -110,7 +102,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required when adding a Global Configuration.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * rule_example
@@ -118,7 +110,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   ruleName?: string;
   /**
    * @remarks
-   * The rule\\"s execution order. A lower value indicates a higher priority.
+   * The rule execution order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -126,7 +118,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   sequence?: number;
   /**
    * @remarks
-   * The Site ID. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
    * 
    * This parameter is required.
    * 
@@ -136,7 +128,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   siteId?: number;
   /**
    * @remarks
-   * The version number of the Site configuration. For sites with Configuration Version Management enabled, this parameter specifies the configuration version that the Rule applies to. If omitted, this parameter defaults to version 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
    * 
    * @example
    * 0

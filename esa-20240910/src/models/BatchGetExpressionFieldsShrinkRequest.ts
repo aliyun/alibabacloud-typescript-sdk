@@ -5,13 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of expression objects to process.
+   * The list of expressions.
    * 
    * @example
    * http_bot
    */
   expressionsShrink?: string;
+  /**
+   * @remarks
+   * The plan instance ID.
+   * 
+   * @example
+   * esa-site-bitkull7uubk
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The type of the expression.
+   * 
+   * @example
+   * wireshark
+   */
   kind?: string;
   /**
    * @remarks
@@ -21,10 +35,17 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
    * http_bot
    */
   phase?: string;
+  /**
+   * @remarks
+   * The plan name (in English).
+   * 
+   * @example
+   * entranceplan
+   */
   planNameEn?: string;
   /**
    * @remarks
-   * The ID of the site.
+   * The site ID.
    * 
    * @example
    * 1

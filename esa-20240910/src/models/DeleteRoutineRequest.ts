@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRoutineRequest extends $dara.Model {
   /**
    * @remarks
-   * The routine name.
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 

@@ -82,7 +82,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * The custom event name.
    * 
    * @example
-   * Test event
+   * test event
    */
   name?: string;
   /**

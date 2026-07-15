@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLoadBalancerRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListLoadBalancerRegionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 1024

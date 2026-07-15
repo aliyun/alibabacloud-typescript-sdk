@@ -21,7 +21,7 @@ export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of WAF rules or rule sets used by the site.
+   * The number of WAF rules or WAF rule sets that have been used.
    * 
    * @example
    * 1
@@ -53,7 +53,21 @@ export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
 }
 
 export class ListWafUsageOfRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of rules or rule sets for the specified phase under instance-level batch configuration.
+   * 
+   * @example
+   * 1
+   */
   batchConfigUsage?: number;
+  /**
+   * @remarks
+   * The total number of rules or rule sets for the instance under the specified phase, including both site-level and instance-level rules.
+   * 
+   * @example
+   * 2
+   */
   instanceUsage?: number;
   /**
    * @remarks
@@ -65,7 +79,7 @@ export class ListWafUsageOfRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of sites and their respective WAF rule usage.
+   * The list of site usage.
    */
   sites?: ListWafUsageOfRulesResponseBodySites[];
   static names(): { [key: string]: string } {

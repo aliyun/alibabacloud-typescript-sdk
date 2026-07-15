@@ -13,7 +13,7 @@ export class BatchGetExpressionFieldsRequestExpressions extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The ID of the expression. This ID is used to associate an expression in the request with its corresponding result in the response.
+   * The sequence number of the expression.
    * 
    * @example
    * 1
@@ -45,13 +45,27 @@ export class BatchGetExpressionFieldsRequestExpressions extends $dara.Model {
 export class BatchGetExpressionFieldsRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of expression objects to process.
+   * The list of expressions.
    * 
    * @example
    * http_bot
    */
   expressions?: BatchGetExpressionFieldsRequestExpressions[];
+  /**
+   * @remarks
+   * The plan instance ID.
+   * 
+   * @example
+   * esa-site-bitkull7uubk
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The type of the expression.
+   * 
+   * @example
+   * wireshark
+   */
   kind?: string;
   /**
    * @remarks
@@ -61,10 +75,17 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
    * http_bot
    */
   phase?: string;
+  /**
+   * @remarks
+   * The plan name (in English).
+   * 
+   * @example
+   * entranceplan
+   */
   planNameEn?: string;
   /**
    * @remarks
-   * The ID of the site.
+   * The site ID.
    * 
    * @example
    * 1

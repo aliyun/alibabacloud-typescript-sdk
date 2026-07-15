@@ -21,7 +21,7 @@ export class CreateRoutineRelatedRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. A value of `OK` indicates that the operation was successful.
+   * The operation status, which indicates success or failure.
    * 
    * @example
    * OK

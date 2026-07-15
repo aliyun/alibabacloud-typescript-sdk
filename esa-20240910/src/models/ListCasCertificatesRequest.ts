@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCasCertificatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size. Valid values: any integer from 1 to 1000.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The certificate name for fuzzy match.
+   * 
    * @example
    * aliyun
    */

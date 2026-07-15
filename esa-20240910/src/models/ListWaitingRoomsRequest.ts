@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWaitingRoomsRequest extends $dara.Model {
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListWaitingRoomsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The ID of the waiting room. Specify this parameter to query the information about a specific waiting room.
+   * The waiting room ID. Specify this parameter to query the details of a specific waiting room.
    * 
    * @example
    * 6a51d5bc6460887abd1291dc7d4d****

@@ -48,6 +48,7 @@ export { BatchCreateRecordsResponseBodyRecordResultList } from './BatchCreateRec
 export { BatchGetExpressionFieldsRequestExpressions } from './BatchGetExpressionFieldsRequest';
 export { BatchGetExpressionFieldsResponseBodyFields } from './BatchGetExpressionFieldsResponseBody';
 export { BatchPutKvRequestKvList } from './BatchPutKvRequest';
+export { CheckSiteFeaturesMatchPlanResponseBodyUnPassedSiteQuotas } from './CheckSiteFeaturesMatchPlanResponseBody';
 export { CreateEdgeContainerAppVersionRequestContainersACRImageInfo } from './CreateEdgeContainerAppVersionRequest';
 export { CreateEdgeContainerAppVersionRequestContainersProbeContent } from './CreateEdgeContainerAppVersionRequest';
 export { CreateEdgeContainerAppVersionRequestContainers } from './CreateEdgeContainerAppVersionRequest';
@@ -375,6 +376,9 @@ export { ActivateClientCertificateResponse } from './ActivateClientCertificateRe
 export { ActivateVersionManagementRequest } from './ActivateVersionManagementRequest';
 export { ActivateVersionManagementResponseBody } from './ActivateVersionManagementResponseBody';
 export { ActivateVersionManagementResponse } from './ActivateVersionManagementResponse';
+export { AddUserBusinessFormRequest } from './AddUserBusinessFormRequest';
+export { AddUserBusinessFormResponseBody } from './AddUserBusinessFormResponseBody';
+export { AddUserBusinessFormResponse } from './AddUserBusinessFormResponse';
 export { ApplyCertificateRequest } from './ApplyCertificateRequest';
 export { ApplyCertificateResponseBody } from './ApplyCertificateResponseBody';
 export { ApplyCertificateResponse } from './ApplyCertificateResponse';
@@ -419,6 +423,9 @@ export { BlockObjectResponseBody } from './BlockObjectResponseBody';
 export { BlockObjectResponse } from './BlockObjectResponse';
 export { CheckAssumeSlrRoleResponseBody } from './CheckAssumeSlrRoleResponseBody';
 export { CheckAssumeSlrRoleResponse } from './CheckAssumeSlrRoleResponse';
+export { CheckSiteFeaturesMatchPlanRequest } from './CheckSiteFeaturesMatchPlanRequest';
+export { CheckSiteFeaturesMatchPlanResponseBody } from './CheckSiteFeaturesMatchPlanResponseBody';
+export { CheckSiteFeaturesMatchPlanResponse } from './CheckSiteFeaturesMatchPlanResponse';
 export { CheckSiteNameRequest } from './CheckSiteNameRequest';
 export { CheckSiteNameResponseBody } from './CheckSiteNameResponseBody';
 export { CheckSiteNameResponse } from './CheckSiteNameResponse';

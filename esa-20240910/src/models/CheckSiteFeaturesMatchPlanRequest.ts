@@ -2,49 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRoutineRelatedRecordRequest extends $dara.Model {
+export class CheckSiteFeaturesMatchPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the Edge Routine function.
+   * The target instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * test-routine1
+   * esa-site-b0bivjxucjk0
    */
-  name?: string;
+  newInstanceId?: string;
   /**
    * @remarks
-   * The record name.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * test-record-1.example.com
-   */
-  recordName?: string;
-  /**
-   * @remarks
-   * The site ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 54362329990032
+   * 861405331573200
    */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
-      recordName: 'RecordName',
+      newInstanceId: 'NewInstanceId',
       siteId: 'SiteId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      recordName: 'string',
+      newInstanceId: 'string',
       siteId: 'number',
     };
   }
