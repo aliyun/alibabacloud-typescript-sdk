@@ -7,8 +7,9 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * > Default value: **true**.
    * 
@@ -20,8 +21,9 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * > Default value: **false**.
    * 
@@ -41,8 +43,9 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **PrePaid:** subscription.
-   * *   **PostPaid:** pay-as-you-go.
+   * - **PrePaid:** subscription.
+   * 
+   * - **PostPaid:** pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -55,7 +58,7 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
    * The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
    * 
    * @example
-   * youhuiquan_promotion_option_id_for_blank
+   * default
    */
   couponNo?: string;
   /**
@@ -72,7 +75,7 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9******, **12**, **24**, and **36**.
+   * The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9**\\*\\*\\*\\*, **12**, **24**, and **36**.
    * 
    * @example
    * 1
@@ -80,12 +83,13 @@ export class TransformInstanceChargeTypeRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * 实例付费时长单位
-   * 取值说明：
-   * - **Month：** 月
-   * -  **Year：** 年
+   * The unit of the subscription duration. Valid values:
    * 
-   * 默认值：Month
+   * - **Month**: month.
+   * 
+   * - **Year**: year.
+   * 
+   * Default value: Month.
    * 
    * @example
    * Month

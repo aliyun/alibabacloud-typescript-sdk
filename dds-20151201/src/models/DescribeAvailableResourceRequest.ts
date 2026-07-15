@@ -15,8 +15,9 @@ export class DescribeAvailableResourceRequest extends $dara.Model {
    * @remarks
    * The architecture of the instance. Valid values:
    * 
-   * *   **normal**: replica set instance
-   * *   **sharding**: sharded cluster instance
+   * - **normal**: replica set instance
+   * 
+   * - **sharding**: sharded cluster instance
    * 
    * @example
    * sharding
@@ -34,8 +35,9 @@ export class DescribeAvailableResourceRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **PrePaid** (default): subscription
-   * *   **PostPaid**: pay-as-you-go
+   * - **PrePaid** (default): subscription
+   * 
+   * - **PostPaid**: pay-as-you-go
    * 
    * @example
    * PrePaid
@@ -75,11 +77,15 @@ export class DescribeAvailableResourceRequest extends $dara.Model {
    * @remarks
    * The storage type of the instance. Valid values:
    * 
-   * *   local_ssd: local SSD
-   * *   cloud_essd1: PL1 enhanced SSD (ESSD)
-   * *   cloud_essd2: PL2 ESSD
-   * *   cloud_essd3: PL3 ESSD
-   * *   cloud_auto: ESSD AutoPL disk
+   * - local_ssd: local SSD
+   * 
+   * - cloud_essd1: PL1 enhanced SSD (ESSD)
+   * 
+   * - cloud_essd2: PL2 ESSD
+   * 
+   * - cloud_essd3: PL3 ESSD
+   * 
+   * - cloud_auto: ESSD AutoPL disk
    * 
    * This parameter is empty by default, which indicates all types of storage resources are queried.
    * 

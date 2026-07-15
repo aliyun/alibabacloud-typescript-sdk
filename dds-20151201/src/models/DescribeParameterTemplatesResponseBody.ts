@@ -69,7 +69,7 @@ export class DescribeParameterTemplatesResponseBodyParameters extends $dara.Mode
 export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine.
    * 
    * @example
    * mongodb
@@ -77,7 +77,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * The database version number.
    * 
    * @example
    * 5.0
@@ -85,7 +85,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The number of parameters that are supported by the instance.
+   * The number of parameters.
    * 
    * @example
    * 10
@@ -94,7 +94,7 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BDA54203-9D61-54A3-A568-D281F785****

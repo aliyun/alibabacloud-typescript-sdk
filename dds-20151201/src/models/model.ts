@@ -48,6 +48,8 @@ export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceReplicaSets
 export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceReplicaSets } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardListShardAttribute } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardList } from './DescribeDbinstanceAttributeResponseBody';
+export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardSearchNodesShardSearchNodes } from './DescribeDbinstanceAttributeResponseBody';
+export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardSearchNodes } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTagsTag } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance } from './DescribeDbinstanceAttributeResponseBody';

@@ -7,8 +7,9 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * @remarks
    * The description of the account.
    * 
-   * *   The description must start with a letter and cannot start with http:// or https://.
-   * *   The description must be 2 to 256 characters in length, and can contain letters, digits, underscores (_), and hyphens (-).
+   * - The description must start with a letter and cannot start with http\\:// or https\\://.
+   * 
+   * - The description must be 2 to 256 characters in length, and can contain letters, digits, underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -30,11 +31,13 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * @remarks
    * The type of the account whose description you can modify. Valid values:
    * 
-   * *   **db**: shard account
-   * *   **cs**: ConfigServer account
-   * *   **normal** (default): replica set account (available)
+   * - **db**: shard account
    * 
-   * >  You can set this parameter only to **normal**.
+   * - **cs**: ConfigServer account
+   * 
+   * - **normal** (default): replica set account (available)
+   * 
+   * > You can set this parameter only to **normal**.
    * 
    * @example
    * normal

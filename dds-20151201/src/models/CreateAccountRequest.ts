@@ -27,11 +27,13 @@ export class CreateAccountRequest extends $dara.Model {
    * @remarks
    * The type of the account that you want to create. Valid values:
    * 
-   * *   **db** (default): shard account (available)
-   * *   **cs**: ConfigServer account
-   * *   **normal**: replica set account
+   * - **db** (default): shard account (available)
    * 
-   * >  You can set this parameter only to **db**.
+   * - **cs**: ConfigServer account
+   * 
+   * - **normal**: replica set account
+   * 
+   * > You can set this parameter only to **db**.
    * 
    * @example
    * db

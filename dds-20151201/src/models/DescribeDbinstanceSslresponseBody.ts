@@ -11,6 +11,17 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
    * dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com
    */
   certCommonName?: string;
+  /**
+   * @remarks
+   * Specifies whether connections must be encrypted using SSL. Valid values:
+   * 
+   * - **1**: Connections must be encrypted using SSL.
+   * 
+   * - **0**: Connections do not need to be encrypted using SSL.
+   * 
+   * @example
+   * 0
+   */
   forceEncryption?: string;
   /**
    * @remarks
@@ -22,7 +33,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the SSL certificate expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in Coordinated Universal Time (UTC).
+   * The expiration time of the SSL certificate. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
    * 
    * @example
    * 2020-03-11T02:28:25Z
@@ -30,10 +41,11 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   SSLExpiredTime?: string;
   /**
    * @remarks
-   * The status of the SSL feature. Valid values:
+   * The status of the SSL feature.
    * 
-   * *   **Open**: The SSL feature is enabled.
-   * *   **Closed**: The SSL feature is disabled.
+   * - **Open**: The SSL feature is enabled.
+   * 
+   * - **Closed**: The SSL feature is disabled.
    * 
    * @example
    * Open

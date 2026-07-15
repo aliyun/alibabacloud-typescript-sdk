@@ -7,8 +7,9 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid**: pay-as-you-go
+   * - **PrePaid**: subscription
+   * 
+   * - **PostPaid**: pay-as-you-go
    * 
    * @example
    * PostPaid
@@ -24,11 +25,17 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The instance type. The instance type varies based on the instance architecture. For more information about instance types supported by different instance architectures, see the following references:
+   * The instance type. For more information about the instance types available for different instance architectures, see:
    * 
-   * *   [Standalone instance types](https://help.aliyun.com/document_detail/311407.html)
-   * *   [Replica set instance types](https://help.aliyun.com/document_detail/311410.html)
-   * *   [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html)
+   * - [Standalone instance types](https://help.aliyun.com/document_detail/311407.html)
+   * 
+   * - [Replica set instance types](https://help.aliyun.com/document_detail/311410.html)
+   * 
+   * - [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html)
+   * 
+   * <props="china">
+   * 
+   * > This parameter is not required for Serverless instances.
    * 
    * @example
    * dds.mongo.2xlarge
@@ -36,13 +43,11 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The ID of the instance for which you want to query the overview information.
+   * The ID of the instance whose overview you want to query.
    * 
-   * > 
-   * 
-   * *   If you do not specify this parameter, the overview information of all instances within this account is queried.
-   * 
-   * *   Separate the instance IDs with commas (,).
+   * > - If you do not specify this parameter, an overview of all instances in your Alibaba Cloud account is returned.
+   * >
+   * > - You can specify multiple instance IDs. Separate the IDs with commas (,).
    * 
    * @example
    * dds-bp12c5b040dc****
@@ -50,7 +55,7 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The state of the instance. For more information about valid values, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
+   * The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
    * 
    * @example
    * Running
@@ -58,16 +63,22 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The architecture of the instance. Valid values:
+   * The instance architecture. Valid values:
    * 
-   * *   **sharding**: sharded cluster instance
-   * *   **replicate**: replica set or standalone instance
+   * - **sharding**: sharded cluster instance
    * 
-   * > 
+   * - **replicate**: replica set or standalone instance
    * 
-   * *   To query the overview information of a sharded cluster instance, you must set the parameter to **sharding**.
+   * <props="china">
    * 
-   * *   If you do not specify this parameter, the overview information of all instances within this account is queried.
+   * - **serverless**: Serverless instance
+   * 
+   * 
+   * 
+   * 
+   * > * Set this parameter as needed. For example, to query the overview of a sharded cluster instance, set this parameter to **sharding**.
+   * >
+   * > * If you do not specify this parameter, an overview of all instances is returned.
    * 
    * @example
    * replicate
@@ -77,8 +88,9 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * *   **Classic**: classic network
-   * *   **VPC**: Virtual Private Cloud (VPC)
+   * - **Classic**: classic network
+   * 
+   * - **VPC**: virtual private cloud (VPC)
    * 
    * @example
    * Classic
@@ -88,7 +100,7 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query the latest region list.
    * 
    * This parameter is required.
    * 
@@ -98,7 +110,7 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The ID of the resource group. For more information about resource groups, see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmyiu4ekp****
@@ -108,7 +120,7 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to display instance tags. Default value: False.
+   * Specifies whether to return instance tags. The default value is false.
    * 
    * @example
    * false
@@ -116,7 +128,7 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   showTags?: boolean;
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance is connected.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp1e7clcw529l773d****
@@ -124,7 +136,7 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the instance is deployed.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-bp1nme44gek34slfc****
@@ -132,7 +144,7 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The ID of the zone.
    * 
    * @example
    * cn-hangzhou-b

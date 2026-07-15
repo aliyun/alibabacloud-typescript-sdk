@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration item name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyDBInstanceConfigRequest extends $dara.Model {
   configName?: string;
   /**
    * @remarks
+   * The configuration item value
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifyDBInstanceConfigRequest extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

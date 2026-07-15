@@ -31,11 +31,11 @@ export class SwitchDBInstanceHARequest extends $dara.Model {
    * @remarks
    * The IDs of the roles who switch the primary and secondary nodes for the instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/123802.html) operation to view the IDs and information of roles of nodes.
    * 
-   * > 
+   * >
    * 
-   * *   Separate role IDs with commas (,). If this parameter is not specified, the primary and secondary nodes are switched.
+   * - Separate role IDs with commas (,). If this parameter is not specified, the primary and secondary nodes are switched.
    * 
-   * *   If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, the roles who switch the primary and secondary nodes for the instance must belong to one shard node.
+   * - If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, the roles who switch the primary and secondary nodes for the instance must belong to one shard node.
    * 
    * @example
    * 972xxxx,972xxxx
@@ -45,8 +45,9 @@ export class SwitchDBInstanceHARequest extends $dara.Model {
    * @remarks
    * The time when the primary and secondary nodes are switched. Valid values:
    * 
-   * *   0: The primary and secondary nodes are immediately switched.
-   * *   1: The primary and secondary nodes are switched during the O\\&M time period.
+   * - 0: The primary and secondary nodes are immediately switched.
+   * 
+   * - 1: The primary and secondary nodes are switched during the O\\&M time period.
    * 
    * @example
    * 0

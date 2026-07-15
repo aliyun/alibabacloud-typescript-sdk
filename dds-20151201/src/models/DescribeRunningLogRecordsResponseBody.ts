@@ -72,7 +72,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   items?: DescribeRunningLogRecordsResponseBodyItems;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -80,7 +80,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of records per page.
    * 
    * @example
    * 30
@@ -88,7 +88,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 45D2B592-DEBA-4347-BBF3-47FF6C97DBBC
@@ -96,7 +96,7 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 2

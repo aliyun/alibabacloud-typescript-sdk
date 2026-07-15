@@ -8,7 +8,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * The key of tag.
    * 
    * @example
-   * env
+   * Development group
    */
   key?: string;
   /**
@@ -16,7 +16,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * The value of tag.
    * 
    * @example
-   * dev
+   * 4.0 environment
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -47,7 +47,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The token used to start the next query to retrieve more results.
    * 
-   * >  This parameter is not required in the first query. If not all results are returned in one query, you can pass in the **NextToken** value returned in the previous query to perform the query again.
+   * > This parameter is not required in the first query. If not all results are returned in one query, you can pass in the **NextToken** value returned in the previous query to perform the query again.
    * 
    * @example
    * 212db86****
@@ -70,7 +70,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * The resource IDs. You must specify this parameter or the Tag parameter.
    * 
    * @example
-   * dds-bpxxxxxxxx
+   * Development group
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;

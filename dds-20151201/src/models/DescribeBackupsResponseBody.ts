@@ -103,7 +103,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   backups?: DescribeBackupsResponseBodyBackups;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -113,9 +113,11 @@ export class DescribeBackupsResponseBody extends $dara.Model {
    * @remarks
    * The number of entries returned per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (Default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -126,12 +128,12 @@ export class DescribeBackupsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 275D43C3-F12F-5224-B375-0C6BF453BD56
+   * 275D43C3-F12F-5224-B375-************
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of backup sets.
+   * The total number of backups.
    * 
    * @example
    * 1

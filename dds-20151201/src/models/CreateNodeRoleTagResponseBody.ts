@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNodeRoleTagResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B0B7DE3E-xxxx-xxxx-xxxx-0B16F8834E0B
    */

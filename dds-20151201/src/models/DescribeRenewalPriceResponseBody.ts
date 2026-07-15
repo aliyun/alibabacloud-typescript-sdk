@@ -96,13 +96,14 @@ export class DescribeRenewalPriceResponseBodyOrderRuleIds extends $dara.Model {
 }
 
 export class DescribeRenewalPriceResponseBodyOrder extends $dara.Model {
+  /**
+   * @remarks
+   * The coupon details.
+   */
   coupons?: DescribeRenewalPriceResponseBodyOrderCoupons;
   /**
    * @remarks
-   * The type of the currency. Valid values:
-   * 
-   * *   USD: United States dollar
-   * *   JPY: Japanese Yen
+   * The currency of the transaction.
    * 
    * @example
    * USD
@@ -110,7 +111,7 @@ export class DescribeRenewalPriceResponseBodyOrder extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount amount of the order.
+   * The total discount amount for the order.
    * 
    * @example
    * 1144.8
@@ -118,16 +119,20 @@ export class DescribeRenewalPriceResponseBodyOrder extends $dara.Model {
   discountAmount?: number;
   /**
    * @remarks
-   * The original price of the order.
+   * The original amount for the order.
    * 
    * @example
    * 1144.8
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The matched rule IDs.
+   */
   ruleIds?: DescribeRenewalPriceResponseBodyOrderRuleIds;
   /**
    * @remarks
-   * The actual price of the order.
+   * The final trade amount for the order.
    * 
    * @example
    * 0
@@ -318,18 +323,26 @@ export class DescribeRenewalPriceResponseBodySubOrders extends $dara.Model {
 export class DescribeRenewalPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of orders.
+   * The order details.
    */
   order?: DescribeRenewalPriceResponseBodyOrder;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EFD65226-08CC-4C4D-B6A4-CB3C382F67B0
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Details of the available promotion rules.
+   */
   rules?: DescribeRenewalPriceResponseBodyRules;
+  /**
+   * @remarks
+   * The sub-order details.
+   */
   subOrders?: DescribeRenewalPriceResponseBodySubOrders;
   static names(): { [key: string]: string } {
     return {

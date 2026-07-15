@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,21 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role. Format: `acs:ram::$accountID:role/$roleName`. The default value is `acs:ram::$accountID:role/aliyunrdsinstanceencryptiondefaultrole`.
+   * 
+   * > - `$accountID`: The ID of your Alibaba Cloud account. To view the ID, log on to the Alibaba Cloud Management Console, move the pointer over your profile picture in the upper-right corner, and then click Security Settings.
+   * >
+   * > - `$roleName`: The name of the RAM role. To view the role name, log on to the RAM console. In the navigation pane on the left, click RAM Role Management. Find the role name in the RAM Role Name list.
+   * 
+   * @example
+   * acs:ram::123456789012****:role/aliyunrdsinstanceencryptiondefaultrole
+   */
   roleARN?: string;
   /**
    * @remarks
-   * The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
+   * The ID of the destination region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query available regions.
    * 
    * @example
    * cn-shanghai

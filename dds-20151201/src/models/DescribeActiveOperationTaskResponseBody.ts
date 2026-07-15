@@ -88,10 +88,15 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The state of the task. Valid values:
    * 
    * - 2: The task is waiting for users to specify a switchover time.
+   * 
    * - 3: The task is waiting to be performed.
+   * 
    * - 4: The task is being performed. If the task is in this state, the ModifyActiveOperationTask operation cannot be called to modify the scheduled switchover time.
+   * 
    * - 5: The task is performed.
+   * 
    * - 6: The task fails.
+   * 
    * - 7: The task is canceled.
    * 
    * @example
@@ -119,8 +124,11 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The type of the task. Valid values:
    * 
    * - rds_apsaradb_ha: master-replica switchover
+   * 
    * - rds_apsaradb_transfer: instance migration
+   * 
    * - rds_apsaradb_upgrade: minor version update
+   * 
    * - all: all types
    * 
    * @example

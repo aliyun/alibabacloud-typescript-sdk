@@ -15,8 +15,9 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
    * @remarks
    * The category of the instance. Valid values:
    * 
-   * *   **replicate**: the standalone or replica set instance
-   * *   **sharding**: the sharded cluster instance
+   * - **replicate**: the standalone or replica set instance
+   * 
+   * - **sharding**: the sharded cluster instance
    * 
    * Default value: **replicate**.
    * 
@@ -38,7 +39,7 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
    * 
-   * >  Default value: **30**.
+   * > Default value: **30**.
    * 
    * @example
    * 30

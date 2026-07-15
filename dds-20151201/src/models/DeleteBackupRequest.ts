@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBackupRequest extends $dara.Model {
   /**
    * @remarks
+   * The backup ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteBackupRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

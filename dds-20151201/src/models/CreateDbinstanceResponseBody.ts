@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * dds-bp144a7f2db8****
@@ -13,7 +13,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 21077576248****
@@ -21,7 +21,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D8F1D721-6439-4257-A89C-F1E8E9C9****

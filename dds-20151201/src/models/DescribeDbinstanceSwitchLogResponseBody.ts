@@ -8,19 +8,24 @@ export class DescribeDBInstanceSwitchLogResponseBodyLogItems extends $dara.Model
    * The ID of the replica set instance or the ID of the node on which a primary/secondary switchover is performed.
    * 
    * @example
-   * dds-uf68f1b5a57exxxx
+   * NodeId-example-id-****
    */
   nodeId?: string;
   /**
    * @remarks
    * The code that indicates the reason of a primary/secondary switchover. Valid values:
    * 
-   * *   USER_CONSOLE_OPERATION: The switchover is manually performed.
-   * *   OPERATION_AND_MAINTENANCE: Potential risks exist.
-   * *   MACHINE_DOWNTIME: The host is offline.
-   * *   PRIMARY_UNHEALTHY: An exception occurs on the primary node of the instance.
-   * *   SECONDARY_UNHEALTHY: An exception occurs on the secondary node of the instance.
-   * *   MULTIPLE_NODE_FAILURES: An exception occurs on multiple nodes of the instance.
+   * - USER_CONSOLE_OPERATION: The switchover is manually performed.
+   * 
+   * - OPERATION_AND_MAINTENANCE: Potential risks exist.
+   * 
+   * - MACHINE_DOWNTIME: The host is offline.
+   * 
+   * - PRIMARY_UNHEALTHY: An exception occurs on the primary node of the instance.
+   * 
+   * - SECONDARY_UNHEALTHY: An exception occurs on the secondary node of the instance.
+   * 
+   * - MULTIPLE_NODE_FAILURES: An exception occurs on multiple nodes of the instance.
    * 
    * @example
    * USER_CONSOLE_OPERATION

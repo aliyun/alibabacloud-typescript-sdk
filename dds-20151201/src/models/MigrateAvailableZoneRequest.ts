@@ -19,8 +19,9 @@ export class MigrateAvailableZoneRequest extends $dara.Model {
    * @remarks
    * The time when the instance is migrated to the destination zone. Valid values:
    * 
-   * *   **Immediately**: The instance is immediately migrated to the destination zone.
-   * *   **MaintainTime**: The instance is migrated to the destination zone during the maintenance window of the instance.
+   * - **Immediately**: The instance is immediately migrated to the destination zone.
+   * 
+   * - **MaintainTime**: The instance is migrated to the destination zone during the maintenance window of the instance.
    * 
    * Default value: **Immediately**.
    * 
@@ -62,11 +63,11 @@ export class MigrateAvailableZoneRequest extends $dara.Model {
    * @remarks
    * The ID of the destination zone.
    * 
-   * > 
+   * >
    * 
-   * *   The source zone and the destination zone belong to the same region.
+   * - The source zone and the destination zone belong to the same region.
    * 
-   * *   You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the zone ID.
+   * - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the zone ID.
    * 
    * This parameter is required.
    * 

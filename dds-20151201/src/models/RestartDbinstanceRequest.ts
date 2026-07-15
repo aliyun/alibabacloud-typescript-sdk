@@ -15,23 +15,36 @@ export class RestartDBInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the shard or mongos node in the sharded cluster instance.
+   * The ID of a shard or Mongos node in a sharded cluster instance.
    * 
-   * > The sharded cluster instance is restarted if you do not specify this parameter.
+   * > If you do not specify this parameter for a sharded cluster instance, the entire instance is restarted.
    * 
    * @example
    * d-bpxxxxxxxx
    */
   nodeId?: string;
+  nodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The time to restart the instance. Valid values:
+   * 
+   * - 0: The instance is restarted immediately.
+   * 
+   * - 1: The instance is restarted within the maintenance window.
+   * 
+   * @example
+   * 0
+   */
   switchMode?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
       nodeId: 'NodeId',
+      nodeType: 'NodeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -44,6 +57,7 @@ export class RestartDBInstanceRequest extends $dara.Model {
     return {
       DBInstanceId: 'string',
       nodeId: 'string',
+      nodeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

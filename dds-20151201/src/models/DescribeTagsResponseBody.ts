@@ -8,12 +8,15 @@ export class DescribeTagsResponseBodyTags extends $dara.Model {
    * The key of the tag.
    * 
    * @example
-   * newKey
+   * Test group
    */
   tagKey?: string;
   /**
    * @remarks
    * The values of the tags.
+   * 
+   * @example
+   * 3.4 environment
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -47,7 +50,7 @@ export class DescribeTagsResponseBody extends $dara.Model {
    * @remarks
    * The token used to start the next query.
    * 
-   * >  If not all results are returned in the first query, this parameter is returned. You can pass in the value of this parameter in the next query.
+   * > If not all results are returned in the first query, this parameter is returned. You can pass in the value of this parameter in the next query.
    * 
    * @example
    * 212db86****

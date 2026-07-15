@@ -139,7 +139,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivityOptionI
 export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extends $dara.Model {
   /**
    * @remarks
-   * The activity ID.
+   * The promotion ID.
    * 
    * @example
    * 41120065996xxxxx
@@ -147,15 +147,15 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
   activityId?: number;
   /**
    * @remarks
-   * The activity name.
+   * The promotion name.
    * 
    * @example
-   * contract promotion_order_xxx discount
+   * 合同优惠_整单_xxx折
    */
   activityName?: string;
   /**
    * @remarks
-   * The price after the promotion.
+   * The price after the discount.
    * 
    * @example
    * 20522.4
@@ -225,7 +225,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
 export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   /**
    * @remarks
-   * The price reduction rate.
+   * The price reduction percentage.
    * 
    * @example
    * 30%
@@ -233,7 +233,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   cheapRate?: number;
   /**
    * @remarks
-   * The new total price displayed on the official website.
+   * The total price after the price reduction.
    * 
    * @example
    * 9*
@@ -246,7 +246,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   contractActivity?: DescribePriceResponseBodyOrderDepreciateInfoContractActivity;
   /**
    * @remarks
-   * The price difference displayed in the total order amount.
+   * The price difference discount. This is displayed in the total price of the order.
    * 
    * @example
    * **
@@ -254,7 +254,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   differential?: number;
   /**
    * @remarks
-   * The name of the price difference.
+   * The name of the price difference discount.
    * 
    * @example
    * XXXXX
@@ -262,7 +262,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   differentialName?: string;
   /**
    * @remarks
-   * Indicates whether the contract promotion is hit.
+   * Indicates whether a contract promotion is matched.
    * 
    * @example
    * false
@@ -270,7 +270,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   isContractActivity?: boolean;
   /**
    * @remarks
-   * Indicates whether the price reduction rate is displayed.
+   * Indicates whether to show the price reduction.
    * 
    * @example
    * true
@@ -294,7 +294,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   monthPrice?: number;
   /**
    * @remarks
-   * The original total price displayed on the official website.
+   * The original total price.
    * 
    * @example
    * 12*
@@ -379,7 +379,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the contract promotion is hit.
+   * Indicates whether a contract promotion is matched.
    * 
    * @example
    * false
@@ -396,7 +396,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The price reduction information.
+   * Information about the price reduction.
    */
   depreciateInfo?: DescribePriceResponseBodyOrderDepreciateInfo;
   /**
@@ -409,7 +409,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   discountAmount?: string;
   /**
    * @remarks
-   * Indicates whether the contract promotion is hit.
+   * Indicates whether a contract promotion is matched.
    * 
    * @example
    * false
@@ -425,10 +425,10 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The promotional activity information.
+   * The list of promotion information.
    * 
    * @example
-   * [{\\”activityCategory\\”:\\”discount\\”,\\”activityExtInfo\\”:{\\”noUseYouhuiquan\\”:\\”true\\”,\\”activityId\\”:\\”191156098xxxx\\”,\\”activityExtraAttr\\”:\\”{\\\\\\\\”forbiddenCpsProfit\\\\\\\\”:\\\\\\\\”true\\\\\\\\”,\\\\\\\\”forbiddenCouponsRestricted\\\\\\\\”:\\\\\\\\”true\\\\\\\\”,\\\\\\\\”forbiddenAmbassadorProfit\\\\\\\\”:\\\\\\\\”true\\\\\\\\”}\\”,\\”isActivityIdFromWanHuaTong\\”:\\”true\\”,\\”isContractActivity\\”:\\”false\\”},\\”canPromFee\\”:906130,\\”optionCode\\”:\\”wanhua_activity\\”,\\”promotionName\\”:\\”FY24--MongoDB replica set - first-time purchase - \\* discount for a one-year period - first-time purchase benefits\\”,\\”promotionOptionNo\\”:\\”19115609882xxxx\\”,\\”promotionRuleIdList\\”:[2091xxxx],\\”selected\\”:true,\\”targetArticleItemCodes\\”:[]},{\\”activityCategory\\”:\\”discount\\”,\\”activityExtInfo\\”:{\\”activityId\\”:\\”1018040010xxxxx\\”,\\”wanHuaOrderExpireSec\\”:\\”604800\\”,\\”isActivityIdFromWanHuaTong\\”:\\”true\\”,\\”isContractActivity\\”:\\”false\\”},\\”canPromFee\\”:339799,\\”optionCode\\”:\\”wanhua_activity\\”,\\”promotionName\\”:\\”FY24--MongoDB discount for a one-year period \\”,\\”promotionOptionNo\\”:\\”10180400107xxxxx\\”,\\”promotionRuleIdList\\”:[xxxxx],\\”selected\\”:false,\\”targetArticleItemCodes\\”:[]}]”
+   * "[{\\"activityCategory\\":\\"discount\\",\\"activityExtInfo\\":{\\"noUseYouhuiquan\\":\\"true\\",\\"activityId\\":\\"191156098xxxx\\",\\"activityExtraAttr\\":\\"{\\\\\\"forbiddenCpsProfit\\\\\\":\\\\\\"true\\\\\\",\\\\\\"forbiddenCouponsRestricted\\\\\\":\\\\\\"true\\\\\\",\\\\\\"forbiddenAmbassadorProfit\\\\\\":\\\\\\"true\\\\\\"}\\",\\"isActivityIdFromWanHuaTong\\":\\"true\\",\\"isContractActivity\\":\\"false\\"},\\"canPromFee\\":906130,\\"optionCode\\":\\"wanhua_activity\\",\\"promotionName\\":\\"FY24--MongoDB 副本集--首购--1年*折--ft首购权益\\",\\"promotionOptionNo\\":\\"19115609882xxxx\\",\\"promotionRuleIdList\\":[2091xxxx],\\"selected\\":true,\\"targetArticleItemCodes\\":[]},{\\"activityCategory\\":\\"discount\\",\\"activityExtInfo\\":{\\"activityId\\":\\"1018040010xxxxx\\",\\"wanHuaOrderExpireSec\\":\\"604800\\",\\"isActivityIdFromWanHuaTong\\":\\"true\\",\\"isContractActivity\\":\\"false\\"},\\"canPromFee\\":339799,\\"optionCode\\":\\"wanhua_activity\\",\\"promotionName\\":\\"FY24--MongoDB年付折扣\\",\\"promotionOptionNo\\":\\"10180400107xxxxx\\",\\"promotionRuleIdList\\":[xxxxx],\\"selected\\":false,\\"targetArticleItemCodes\\":[]}]"
    */
   optionalPromotions?: string;
   /**
@@ -441,16 +441,16 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   originalAmount?: string;
   /**
    * @remarks
-   * The promotional activity that is hit.
+   * The matched promotions.
    * 
    * @example
-   * [{\\”finalPromFee\\”:90xxx,\\”optionCode\\”:\\”wanhua_activity\\”,\\”promType\\”:\\”discount\\”,\\”promotionId\\”:2091xxxx,\\”promotionName\\”:\\”\\* discount is provided for new users who purchase ApsaraDB for MongoDB replica set instances for one year. A new user can purchase an ApsaraDB for MongoDB replica set instance only by using the discount.\\”}]”
+   * [{\\"finalPromFee\\":90xxx,\\"optionCode\\":\\"wanhua_activity\\",\\"promType\\":\\"discount\\",\\"promotionId\\":2091xxxx,\\"promotionName\\":\\"新用户购买云数据库 MongoDB 副本集1年享*折优惠，限1台\\"}]"
    */
   promDetailList?: string;
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
   /**
    * @remarks
-   * Indicates whether the discount information is displayed.
+   * Indicates whether to show the discount information.
    * 
    * @example
    * true
@@ -458,7 +458,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   showDiscountInfo?: boolean;
   /**
    * @remarks
-   * The discount.
+   * The discount price.
    * 
    * @example
    * 0
@@ -466,16 +466,23 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   standDiscountPrice?: number;
   /**
    * @remarks
-   * The discount.
+   * The discount price.
    * 
    * @example
    * 0
    */
   standPrice?: number;
+  /**
+   * @remarks
+   * The aggregate price of the order.
+   * 
+   * @example
+   * 483.14
+   */
   totalCostAmount?: number;
   /**
    * @remarks
-   * The final price of the order.
+   * The actual transaction price of the order.
    * 
    * @example
    * 0
@@ -1353,14 +1360,14 @@ export class DescribePriceResponseBodySubOrders extends $dara.Model {
 export class DescribePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order information.
+   * The list of order information.
    */
   order?: DescribePriceResponseBodyOrder;
   /**
    * @remarks
    * The order parameters.
    * 
-   * > This parameter is returned only when the **OrderParamOut** parameter is set to **true**.
+   * > This parameter is returned only when **OrderParamOut** is set to **true**.
    * 
    * @example
    * {\\"autoPay\\":false}"
@@ -1378,7 +1385,7 @@ export class DescribePriceResponseBody extends $dara.Model {
   subOrders?: DescribePriceResponseBodySubOrders;
   /**
    * @remarks
-   * The ID of the trace.
+   * The trace ID.
    * 
    * @example
    * 27227A3D-6B87-56F3-9E03-9E60F001****

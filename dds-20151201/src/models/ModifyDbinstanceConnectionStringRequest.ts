@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   /**
    * @remarks
-   * The current endpoint that is to be modified.
+   * The current connection address—the address to modify.
    * 
    * @example
    * s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
@@ -13,9 +13,9 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   currentConnectionString?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
-   * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+   * > If you specify the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,17 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The new endpoint. It must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter.
+   * The new connection address. It must meet these requirements:
    * 
-   * > You need only to specify the prefix of the endpoint. The content other than the prefix cannot be modified.
+   * - Start with a lowercase letter.
+   * 
+   * - End with a lowercase letter or digit.
+   * 
+   * - Contain only lowercase letters, digits, and hyphens (-).
+   * 
+   * - Be 8 to 63 characters long.
+   * 
+   * > Specify only the prefix of the connection address. You cannot change any part beyond the prefix.
    * 
    * @example
    * aliyuntest111
@@ -41,9 +49,9 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   newConnectionString?: string;
   /**
    * @remarks
-   * The new port number of the instance. The port number must be within the range from 1000 to 65535.
+   * The new port number. Valid values are from 1000 to 65535.
    * 
-   * >  This parameter is available only when you set the **DBInstanceId** parameter to the ID of an instance that uses cloud disks.
+   * > This parameter is valid only when **DBInstanceId** specifies the ID of a cloud disk instance.
    * 
    * @example
    * 3310
@@ -51,9 +59,9 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   newPort?: number;
   /**
    * @remarks
-   * The ID of the mongos in the specified sharded cluster instance. Only one mongos ID can be specified in each call.
+   * The ID of a Mongos node in a sharded cluster instance. You can specify only one Mongos node ID per call.
    * 
-   * > This parameter is valid only when you specify the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+   * > This parameter is valid only when **DBInstanceId** specifies the ID of a sharded cluster instance.
    * 
    * @example
    * s-bpxxxxxxxx

@@ -39,8 +39,9 @@ export class DescribeDBInstanceEncryptionKeyResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the key for the instance is enabled. Valid values:
    * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * - **Enabled**
+   * 
+   * - **Disabled**
    * 
    * @example
    * Enabled

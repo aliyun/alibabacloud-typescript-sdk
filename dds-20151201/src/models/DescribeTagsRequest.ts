@@ -7,7 +7,7 @@ export class DescribeTagsRequest extends $dara.Model {
    * @remarks
    * The token used to start the next query to retrieve more results.
    * 
-   * >  This parameter is not required in the first query. If not all results are returned in one query, you can pass in the NextToken value returned in the previous query to perform the query again.
+   * > This parameter is not required in the first query. If not all results are returned in one query, you can pass in the NextToken value returned in the previous query to perform the query again.
    * 
    * @example
    * 212db86****

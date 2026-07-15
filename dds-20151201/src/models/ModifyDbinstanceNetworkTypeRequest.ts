@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The retention period of the original classic network address when you change the network type to VPC. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
+   * The retention period of the original classic network address when you switch the network type to VPC. Settings. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
    * 
-   * > This parameter is required when the **NetworkType** parameter is set to **VPC** and the **RetainClassic** parameter is set to **True**.
+   * > This parameter is required when the **NetworkType** parameter settings is set to **VPC** and the **RetainClassic** parameter settings is set to **True**.
    * 
    * @example
    * 30
@@ -25,9 +25,8 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The network type to switch to. Valid value:
-   * 
-   * *   **VPC**
+   * The target network type to which you want to switch the instance. Valid values:
+   * - **VPC**: switches the network type to VPC.
    * 
    * This parameter is required.
    * 
@@ -41,16 +40,12 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to retain the original classic network address when you change the network type to VPC. Valid values:
+   * Specifies whether to retain the original classic network address when you switch the network type to VPC. Settings. Valid values:
+   * - **True**: retains the original classic network address.
+   * - **False**: does not retain the original classic network address.
    * 
-   * *   **True**: retains the original classic network address.
-   * *   **False**: does not retain the original classic network address.
-   * 
-   * > 
-   * 
-   * *   This parameter is required when the **NetworkType** parameter is set to **VPC**.
-   * 
-   * *   If you set this parameter to **True**, you must also specify the **ClassicExpiredDays** parameter.
+   * > - This parameter is required when the **NetworkType** parameter settings is set to **VPC**.
+   * > - If this parameter settings is set to **True**, you must also specify the **ClassicExpiredDays** parameter.
    * 
    * @example
    * False
@@ -58,9 +53,8 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   retainClassic?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the VPC.
-   * 
-   * > This parameter is required when the **NetworkType** parameter is set to **VPC**.
+   * The vSwitch ID in the VPC.
+   * > This parameter is required when the **NetworkType** parameter settings is set to **VPC**.
    * 
    * @example
    * vsw-bp1vj604nj5a9zz74****
@@ -68,9 +62,9 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
-   * > This parameter is required when the **NetworkType** parameter is set to **VPC**.
+   * > This parameter is required when the **NetworkType** parameter settings is set to **VPC**.
    * 
    * @example
    * vpc-bp1n3i15v90el48nx****
@@ -78,7 +72,7 @@ export class ModifyDBInstanceNetworkTypeRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * 可用区ID，您可以通过调用[DescribeRegions](https://help.aliyun.com/document_detail/61933.html)接口查询可用区ID。
+   * The zone ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the zone ID.
    * 
    * This parameter is required.
    * 

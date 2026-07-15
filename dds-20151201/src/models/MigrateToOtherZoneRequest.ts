@@ -7,8 +7,9 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
    * @remarks
    * The time when the instance is migrated to the destination zone. Valid values:
    * 
-   * *   **Immediately** (default): The instance is migrated immediately.
-   * *   **MaintainTime**: The instance is migrated during its maintenance window.
+   * - **Immediately** (default): The instance is migrated immediately.
+   * 
+   * - **MaintainTime**: The instance is migrated during its maintenance window.
    * 
    * @example
    * Immediately
@@ -18,7 +19,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
    * @remarks
    * The ID of the instance.
    * 
-   * >  If the network type of the instance is VPC, you must specify the **Vswitch** parameter .
+   * > If the network type of the instance is VPC, you must specify the **Vswitch** parameter .
    * 
    * This parameter is required.
    * 
@@ -34,7 +35,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
    * @remarks
    * The ID of the vSwitch in the destination zone.
    * 
-   * >  This parameter is valid and required only when the network type of the instance is VPC.
+   * > This parameter is valid and required only when the network type of the instance is VPC.
    * 
    * @example
    * vsw-bp67ac****
@@ -44,8 +45,9 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
    * @remarks
    * The ID of the destination zone to which you want to migrate the ApsaraDB for MongoDB instance.
    * 
-   * > * The destination and source zones must be in one region.
-   * > * You can call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query the zone IDs.
+   * > - The destination and source zones must be in one region.
+   * >
+   * > - You can call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query the zone IDs.
    * 
    * This parameter is required.
    * 

@@ -17,7 +17,7 @@ export class UpgradeDBInstanceEngineVersionRequest extends $dara.Model {
    * @remarks
    * The database version to which you want to upgrade. Valid values: **3.4**, **4.0**, and **4.2**.
    * 
-   * >  This database version must be later than the current database version of the instance.
+   * > This database version must be later than the current database version of the instance.
    * 
    * This parameter is required.
    * 
@@ -33,8 +33,9 @@ export class UpgradeDBInstanceEngineVersionRequest extends $dara.Model {
    * @remarks
    * The time when to perform the upgrade. Valid values:
    * 
-   * *   **0**: immediately performs the upgrade.
-   * *   **1**: performs the upgrade during the maintenance window.
+   * - **0**: immediately performs the upgrade.
+   * 
+   * - **1**: performs the upgrade during the maintenance window.
    * 
    * @example
    * 1

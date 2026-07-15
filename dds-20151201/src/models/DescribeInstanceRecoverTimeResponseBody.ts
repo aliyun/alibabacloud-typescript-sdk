@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRecoverTimeResponseBodyRestoreRanges extends $dara.Model {
   /**
    * @remarks
-   * The beginning of the time range to which data can be restored.
+   * The beginning of the restorable time range.
    * 
    * @example
    * 2023-10-16T19:33:20Z
@@ -13,7 +13,7 @@ export class DescribeInstanceRecoverTimeResponseBodyRestoreRanges extends $dara.
   restoreBeginTime?: string;
   /**
    * @remarks
-   * The end of the time range to which data can be restored.
+   * The end of the restorable time range.
    * 
    * @example
    * 2023-10-16T19:43:20Z
@@ -21,9 +21,8 @@ export class DescribeInstanceRecoverTimeResponseBodyRestoreRanges extends $dara.
   restoreEndTime?: string;
   /**
    * @remarks
-   * The method used to restore data. Valid value:
-   * 
-   * *   PointInTime (default): Data is restored to a point in time.
+   * The restoration method. Valid values:
+   * * PointInTime (default): point-in-time restoration.
    * 
    * @example
    * PointInTime
@@ -65,7 +64,7 @@ export class DescribeInstanceRecoverTimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time ranges to which data can be restored. The time ranges include those used for point-in-time data restoration.
+   * The list of restorable time ranges. This list contains all time ranges available for point-in-time restoration.
    */
   restoreRanges?: DescribeInstanceRecoverTimeResponseBodyRestoreRanges[];
   static names(): { [key: string]: string } {

@@ -7,7 +7,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
    * @remarks
    * The ID of the instance.
    * 
-   * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+   * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
    * 
    * This parameter is required.
    * 
@@ -37,8 +37,9 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
    * @remarks
    * The logical relationship between multiple keywords. Valid values:
    * 
-   * *   **or**
-   * *   **and** (default value)
+   * - **or**
+   * 
+   * - **and** (default value)
    * 
    * @example
    * and
@@ -48,7 +49,7 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
    * @remarks
    * The ID of the mongos node or shard node whose error logs you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
    * 
-   * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+   * > This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
    * 
    * @example
    * d-bp128a003436****
@@ -94,10 +95,11 @@ export class DescribeErrorLogRecordsRequest extends $dara.Model {
    * @remarks
    * The role of the node whose error logs you want to query in the instance. Valid values:
    * 
-   * *   **primary**
-   * *   **secondary**
+   * - **primary**
    * 
-   * >  If you set the **NodeId** parameter to the ID of a mongos node, the RoleType parameter must be set to **primary**.
+   * - **secondary**
+   * 
+   * > If you set the **NodeId** parameter to the ID of a mongos node, the RoleType parameter must be set to **primary**.
    * 
    * @example
    * primary

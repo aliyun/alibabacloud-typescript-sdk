@@ -70,6 +70,13 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSets extends $dara.Model {
 }
 
 export class DescribeReplicaSetRoleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name suffix for the connection string.
+   * 
+   * @example
+   * .mongodb.rds.aliyuncs.com
+   */
   connectionStringSuffix?: string;
   /**
    * @remarks
@@ -79,6 +86,10 @@ export class DescribeReplicaSetRoleResponseBody extends $dara.Model {
    * dds-bpxxxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * Details of the replica set.
+   */
   replicaSets?: DescribeReplicaSetRoleResponseBodyReplicaSets;
   /**
    * @remarks

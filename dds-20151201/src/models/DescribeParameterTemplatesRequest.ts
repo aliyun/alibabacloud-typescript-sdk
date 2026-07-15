@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The database engine of the instance. Set the value to **MongoDB**.
+   * The database engine. Set the value to **mongodb**.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,21 @@ export class DescribeParameterTemplatesRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance. Valid values:
+   * The database version number. Valid values:
    * 
-   * *   **5.0**
-   * *   **4.4**
-   * *   **4.2**
-   * *   **4.0**
-   * *   **3.4**
+   * - **7.0**
+   * 
+   * - **6.0**
+   * 
+   * - **5.0**
+   * 
+   * - **4.4**
+   * 
+   * - **4.2**
+   * 
+   * - **4.0**
+   * 
+   * - **3.4**
    * 
    * This parameter is required.
    * 
@@ -33,7 +41,7 @@ export class DescribeParameterTemplatesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -45,17 +53,17 @@ export class DescribeParameterTemplatesRequest extends $dara.Model {
    * @remarks
    * The role of the instance. Valid values:
    * 
-   * 1. db:  a shard node.
+   * - db: the shard role of a sharded cluster instance.
    * 
-   * 1. cs:  a Configserver node.
+   * - cs: the config server role of a sharded cluster instance.
    * 
-   * 1. mongos:  a mongos node.
+   * - mongos: the mongos role of a sharded cluster instance.
    * 
-   * 1. normal: a replica set node.
+   * - normal: the role of a replica set instance.
    * 
-   * 1. physical: a standalone node.
+   * - physical: the role of a single node instance.
    * 
-   * default: normal
+   * The default value is normal.
    * 
    * @example
    * normal

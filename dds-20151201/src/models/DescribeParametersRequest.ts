@@ -7,9 +7,11 @@ export class DescribeParametersRequest extends $dara.Model {
    * @remarks
    * The role of the instance. Valid values:
    * 
-   * *   db: a shard node.
-   * *   cs: a Configserver node.
-   * *   mongos: a mongos node.
+   * - db: a shard node.
+   * 
+   * - cs: a Configserver node.
+   * 
+   * - mongos: a mongos node.
    * 
    * @example
    * mongos
@@ -19,7 +21,7 @@ export class DescribeParametersRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+   * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
    * 
    * This parameter is required.
    * 
@@ -39,7 +41,7 @@ export class DescribeParametersRequest extends $dara.Model {
    * @remarks
    * The ID of the mongos or shard node in the specified sharded cluster instance.
    * 
-   * >  This parameter is valid when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
+   * > This parameter is valid when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
    * 
    * @example
    * d-bpxxxxxxxx

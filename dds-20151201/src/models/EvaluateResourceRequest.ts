@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EvaluateResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the instance.
+   * The instance type.
    * 
-   * > This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information about instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+   * > This parameter is required when you evaluate resources for a replica set instance. For details about instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
    * 
    * @example
    * dds.mongo.mid
@@ -15,7 +15,7 @@ export class EvaluateResourceRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The ID of the instance. This parameter is required when you check whether resources are sufficient for upgrading an instance.
+   * The instance ID. This parameter is required when you evaluate resources for an instance upgrade or downgrade.
    * 
    * @example
    * dds-bp14bf67a76d****
@@ -23,7 +23,7 @@ export class EvaluateResourceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database engine of the instance. Set the value to **MongoDB**.
+   * The database engine. Set the value to **MongoDB**.
    * 
    * @example
    * MongoDB
@@ -31,12 +31,12 @@ export class EvaluateResourceRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * This parameter is required.
    * 
    * @example
-   * 4.0
+   * 4.2
    */
   engineVersion?: string;
   ownerAccount?: string;
@@ -45,7 +45,7 @@ export class EvaluateResourceRequest extends $dara.Model {
    * @remarks
    * The number of read-only nodes in the instance. Valid values: **1** to **5**.
    * 
-   * > This parameter is not required for standalone or serverless instances.
+   * > This parameter is not required for standalone instances<props="china"> and Serverless instances.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class EvaluateResourceRequest extends $dara.Model {
   readonlyReplicas?: string;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the region ID.
+   * The ID of the region. For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/61933.html).
    * 
    * This parameter is required.
    * 
@@ -65,10 +65,15 @@ export class EvaluateResourceRequest extends $dara.Model {
    * @remarks
    * The number of nodes in the instance.
    * 
-   * *   Set the value to **1** for standalone instances.
-   * *   Valid values for replica set instances: **3**, **5**, and **7**
+   * - Set the value to **1** for a standalone instance.
    * 
-   * > This parameter is not required for serverless instances.
+   * - Set the value to **2** for an instance that uses shared storage.
+   * 
+   * - For a replica set instance, valid values are **3**, **5**, and **7**.
+   * 
+   * <props="china">
+   * 
+   * > This parameter is not required for Serverless instances.
    * 
    * @example
    * 3
@@ -78,37 +83,46 @@ export class EvaluateResourceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The node information about the sharded cluster instance. This parameter is required when you check whether resources are sufficient for creating or upgrading a sharded cluster instance.
+   * The shard information of the sharded cluster. This parameter is required when you evaluate resources for a sharded cluster instance.
    * 
-   * To check whether resources are sufficient for creating a sharded cluster instance, specify the specifications of each node in the instance. The value must be a JSON string. Example:
+   * To evaluate resources for a new sharded cluster instance, specify the instance type for each shard in a JSON string. Example:
    * 
-   *     {
-   *          "ConfigSvrs":
-   *              [{"Storage":20,"DBInstanceClass":"dds.cs.mid"}],
-   *          "Mongos":
-   *              [{"DBInstanceClass":"dds.mongos.standard"},{"DBInstanceClass":"dds.mongos.standard"}],
-   *          "Shards":
-   *              [{"Storage":50,"DBInstanceClass":"dds.shard.standard"},{"Storage":50,"DBInstanceClass":"dds.shard.standard"},   {"Storage":50,"DBInstanceClass":"dds.shard.standard"}]
-   *      }
+   * ```
+   * {
+   *      "ConfigSvrs":
+   *          [{"Storage":20,"DBInstanceClass":"dds.cs.mid"}],
+   *      "Mongos":
+   *          [{"DBInstanceClass":"dds.mongos.standard"},{"DBInstanceClass":"dds.mongos.standard"}],
+   *      "Shards":
+   *          [{"Storage":50,"DBInstanceClass":"dds.shard.standard"},{"Storage":50,"DBInstanceClass":"dds.shard.standard"},   {"Storage":50,"DBInstanceClass":"dds.shard.standard"}]
+   *  }
+   * ```
    * 
-   * Parameters in the example:
+   * The parameters in the example are described as follows:
    * 
-   * *   ConfigSvrs: the Configserver node.
-   * *   Mongos: the mongos node.
-   * *   Shards: the shard node.
-   * *   Storage: the storage space of the node.
-   * *   DBInstanceClass: the instance type of the node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * - ConfigSvrs: The ConfigServer nodes.
    * 
-   * To check whether resources are sufficient for upgrading a single node of a sharded cluster instance, specify only the information about the node to be upgraded. The value must be a JSON string. Example:
+   * - Mongos: The Mongos nodes.
    * 
-   *     {
-   *          "NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"
-   *     } 
+   * - Shards: The shard nodes.
    * 
-   * Parameters in the example:
+   * - Storage: The storage space of the target shard.
    * 
-   * *   NodeId: the ID of the node.
-   * *   NodeClass: the instance type of the node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * - DBInstanceClass: The instance type of the target shard. For details about instance types, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * 
+   * To evaluate resources for upgrading or downgrading a sharded cluster instance, specify only the node information in a JSON string. Example:
+   * 
+   * ```
+   * {
+   *      "NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"
+   * } 
+   * ```
+   * 
+   * The parameters in the example are described as follows:
+   * 
+   * - NodeId: The ID of the target node.
+   * 
+   * - NodeClass: The instance type of the target node. For details about instance types, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
    * 
    * @example
    * {"NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"}
@@ -116,9 +130,9 @@ export class EvaluateResourceRequest extends $dara.Model {
   shardsInfo?: string;
   /**
    * @remarks
-   * The storage capacity of the replica set instance. Unit: GB.
+   * The storage space of the replica set. Unit: GB.
    * 
-   * > This parameter is required for the instances that use cloud disks.
+   * > This parameter is required if the instance uses cloud disks.
    * 
    * @example
    * 10
@@ -126,7 +140,7 @@ export class EvaluateResourceRequest extends $dara.Model {
   storage?: string;
   /**
    * @remarks
-   * The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the zone ID.
+   * The ID of the zone. For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/61933.html).
    * 
    * This parameter is required.
    * 

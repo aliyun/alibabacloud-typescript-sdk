@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the O\\&M events to cancel. Separate multiple IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,9 @@ export class CancelActiveOperationTasksRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-xxxx
    */

@@ -6,21 +6,33 @@ export class DescribeVpcsForMongoDBRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number. The value must be an integer greater than 0. The default value is **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. The value must be an integer greater than 0. The default value is **50**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfmyiu4ekp****
    */
@@ -28,6 +40,9 @@ export class DescribeVpcsForMongoDBRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */

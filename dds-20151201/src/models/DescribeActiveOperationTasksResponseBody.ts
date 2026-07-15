@@ -5,66 +5,75 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * N/A
+   * Indicates whether the task can be canceled.
+   * 
+   * - **1**: The task can be canceled.
+   * 
+   * - **0**: The task cannot be canceled.
    * 
    * @example
-   * ***
+   * 1
    */
   allowCancel?: string;
   /**
    * @remarks
-   * Indicates whether the modification operation is allowed.
+   * Indicates whether the time can be changed.
    * 
-   * *   **0**: The modification operation is not allowed.
-   * *   **1**: The modification operation is allowed.
+   * - **1**: The time can be changed.
+   * 
+   * - **0**: The time cannot be changed.
    * 
    * @example
-   * 0
+   * 1
    */
   allowChange?: string;
   /**
    * @remarks
-   * The change level of the O\\&M task.
+   * The code of the event level.
+   * 
+   * - **S1**: system O\\&M.
+   * 
+   * - **S0**: threat fixing.
    * 
    * @example
-   * ***
+   * S1
    */
   changeLevel?: string;
   /**
    * @remarks
-   * N/A
+   * The event level in English.
    * 
    * @example
-   * ***
+   * System maintenance
    */
   changeLevelEn?: string;
   /**
    * @remarks
-   * The task type in English.
+   * The event level in Chinese.
    * 
    * @example
-   * ***
+   * 系统运维
    */
   changeLevelZh?: string;
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the task was created. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 2021-07-14 10:48:43
+   * 2023-05-30T14:30:00Z
    */
   createdTime?: string;
   /**
    * @remarks
-   * N/A
+   * The current zone.
    * 
    * @example
-   * ***
+   * cn-beijing-h
    */
   currentAVZ?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * The database engine type.
    * 
    * @example
    * mongoDb
@@ -72,7 +81,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version number.
    * 
    * @example
    * 5.6
@@ -80,10 +89,10 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   dbVersion?: string;
   /**
    * @remarks
-   * The end time of the O\\&M task.
+   * The latest time to which the task execution time can be postponed. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 1646014421633
+   * 2023-05-30T23:59:59Z
    */
   deadline?: string;
   /**
@@ -91,125 +100,152 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * ***
+   * 11111
    */
   id?: number;
   /**
    * @remarks
-   * N/A
+   * The impact of the event in English.
    * 
    * @example
-   * ***
+   * Transient instance disconnection
    */
   impactEn?: string;
   /**
    * @remarks
-   * N/A
+   * The impact of the event in Chinese.
    * 
    * @example
-   * ***
+   * 实例闪断
    */
   impactZh?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The alias or description of the instance.
    * 
    * @example
-   * ***
+   * test
    */
   insComment?: string;
   /**
    * @remarks
-   * The ID of the node.
+   * The instance name.
    * 
    * @example
-   * ***
+   * dds-bp16aaccfe10****
    */
   insName?: string;
   /**
    * @remarks
-   * The time when the task is modified. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the task was modified. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 2022-12-24T09:48:01Z
+   * 2023-05-30T14:30:00Z
    */
   modifiedTime?: string;
   /**
    * @remarks
-   * The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+   * The preparation time required between the start time of the O\\&M task and the switchover time. The time is in the *HH:mm:ss* format.
    * 
    * @example
-   * ***
+   * 04:00:00
    */
   prepareInterval?: string;
   /**
    * @remarks
-   * The region of the instance.
+   * The ID of the region where the pending event is located.
    * 
    * @example
-   * cn-hangzhou
+   * cn-beijing
    */
   region?: string;
   /**
    * @remarks
-   * The result information. The value of this parameter can be ignored.
+   * The information about the execution result.
    * 
    * @example
-   * ***
+   * userCancel
    */
   resultInfo?: string;
   /**
    * @remarks
-   * The start time of the task. The time follows the ISO 8601 standard in the *yyyy-mm-dd* T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the task was executed. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 2022-12-24T06:01:05Z
+   * 2023-05-30T00:00:00Z
    */
   startTime?: string;
   /**
    * @remarks
-   * N/A
+   * The task status.
+   * 
+   * - **3**: pending.
+   * 
+   * - **4**: running.
+   * 
+   * - **5**: successful.
+   * 
+   * - **6**: failed.
+   * 
+   * - **7**: canceled.
    * 
    * @example
-   * ***
+   * 3
    */
   status?: number;
   /**
    * @remarks
-   * The subinstances.
+   * The list of child instances.
    */
   subInsNames?: string[];
   /**
    * @remarks
-   * The switchover point in time in which disconnection may occur. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the switchover was initiated. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
-   * 2022-11-24T11:20:00Z
+   * 2023-05-30T14:30:00Z
    */
   switchTime?: string;
+  /**
+   * @remarks
+   * The task parameters.
+   * 
+   * @example
+   * ""
+   */
   taskParams?: string;
   /**
    * @remarks
-   * The task type.
+   * The task type. Valid values:
+   * 
+   * - **rds_apsaradb_ha**: primary-secondary node switchover.
+   * 
+   * - **rds_apsaradb_transfer**: instance migration.
+   * 
+   * - **rds_apsaradb_upgrade**: minor version upgrade.
+   * 
+   * - **rds_apsaradb_maxscale**: proxy minor version upgrade.
+   * 
+   * - **all**: all task types.
    * 
    * @example
-   * ***
+   * rds_apsaradb_upgrade
    */
   taskType?: string;
   /**
    * @remarks
-   * N/A
+   * The reason for the task in English.
    * 
    * @example
-   * ***
+   * Minor version update
    */
   taskTypeEn?: string;
   /**
    * @remarks
-   * The task type in Chinese.
+   * The reason for the task in Chinese.
    * 
    * @example
-   * ***
+   * 小版本升级
    */
   taskTypeZh?: string;
   static names(): { [key: string]: string } {
@@ -291,12 +327,12 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
 export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The O\\&M tasks.
+   * The list of O\\&M tasks.
    */
   items?: DescribeActiveOperationTasksResponseBodyItems[];
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -304,7 +340,7 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -315,15 +351,15 @@ export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 111E7B16-0A87-4CBA-B271-F34AD61E099F
+   * 111E7B16-0A87-4CBA-B271-F34AD61E****
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The number of returned task records.
    * 
    * @example
-   * 727
+   * 1
    */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {

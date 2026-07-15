@@ -7,9 +7,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
-   * > **N** specifies the serial number of the tag. For example, **Tag.1.Key** specifies the key of the first tag and **Tag.2.Key** specifies the key of the second tag.
+   * > - **N** specifies the Nth tag. For example, **Tag.1.Key** specifies the key of the first tag, and **Tag.2.Key** specifies the key of the second tag.
    * 
    * @example
    * testdatabase
@@ -17,9 +17,9 @@ export class CreateDBInstanceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
-   * > **N** specifies the serial number of the tag. For example, **Tag.1.Value** specifies the value of the first tag and **Tag.2.Value** specifies the value of the second tag.
+   * > **N** specifies the Nth tag. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
    * 
    * @example
    * apitest
@@ -51,11 +51,15 @@ export class CreateDBInstanceRequestTag extends $dara.Model {
 export class CreateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The password of the root account. The password must meet the following requirements:
+   * The password for the root account. The password must meet the following requirements:
    * 
-   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * *   Special characters include ! # $ % ^ & \\* ( ) _ + - =
-   * *   The password of the account must be 8 to 32 characters in length.
+   * - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * 
+   * - The special characters are !@#$%^&\\*()_+-=
+   * 
+   * - It must be 8 to 32 characters long.
+   * 
+   * > For more information about connection failures caused by special characters in passwords, see [How do I fix a connection failure that is caused by special characters in a password?]().
    * 
    * @example
    * 123456Aa
@@ -63,12 +67,13 @@ export class CreateDBInstanceRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the instance. Default value: false. Valid values:
+   * Specifies whether to enable auto-renewal for the instance. Valid values:
    * 
-   * *   **true**: The instance is automatically renewed.
-   * *   **false**: The instance is manually renewed.
+   * - **true**: Enables auto-renewal.
    * 
-   * > This parameter is valid and optional when the **ChargeType** parameter is set to **PrePaid**.
+   * - **false**: The default value. Disables auto-renewal. You must manually renew the instance.
+   * 
+   * > This parameter is optional and takes effect only when you set the **ChargeType** parameter to **PrePaid**.
    * 
    * @example
    * true
@@ -76,9 +81,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/62172.html) operation to query the backup set ID.
+   * The backup point ID. To query the backup point ID, call the [DescribeBackups]() operation.
    * 
-   * > When you call this operation to clone an instance based on the backup set, this parameter is required. The **SrcDBInstanceId** parameter is also required.
+   * > You must specify this parameter and the **SrcDBInstanceId** parameter only when you clone an instance based on a backup point.
    * 
    * @example
    * 32994****
@@ -86,7 +91,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The business information. This is an additional parameter.
+   * The business information. This is an optional parameter.
    * 
    * @example
    * {“ActivityId":"000000000"}
@@ -96,8 +101,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **PostPaid**: pay-as-you-go. This is the default value.
-   * *   **PrePaid**: subscription.
+   * - **PostPaid**: The default value. Pay-as-you-go.
+   * 
+   * - **PrePaid**: Subscription.
    * 
    * > If you set this parameter to **PrePaid**, you must also specify the **Period** parameter.
    * 
@@ -107,33 +113,28 @@ export class CreateDBInstanceRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot be more than 64 characters long.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated cluster to which the instance belongs.
-   * 
-   * @example
-   * dhg-2x78****
-   */
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to use coupons. Default value: null. Valid values:
-   * - **default** or **null**: uses coupons.
-   * - **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
+   * Specifies whether to use a coupon. Valid values:
+   * 
+   * - **default** or **null** (default): Uses a coupon.
+   * 
+   * - **youhuiquan_promotion_option_id_for_blank**: Does not use a coupon.
    * 
    * @example
-   * youhuiquan_promotion_option_id_for_blank
+   * default
    */
   couponNo?: string;
   /**
    * @remarks
-   * The instance type. You can also call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation to query the instance type.
+   * The instance type. To query instance types, call the [DescribeAvailableResource]() operation.
    * 
    * This parameter is required.
    * 
@@ -143,11 +144,13 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The name of the instance. The name of the instance must meet the following requirements:
+   * The instance name. The name must meet the following requirements:
    * 
-   * *   The name must start with a letter.
-   * *   The name can contain digits, letters, underscores (_), and hyphens (-).
-   * *   The name must be 2 to 256 characters in length.
+   * - It must start with a letter or a Chinese character.
+   * 
+   * - It can contain letters, Chinese characters, digits, underscores (_), periods (.), and hyphens (-).
+   * 
+   * - It must be 2 to 256 characters long.
    * 
    * @example
    * test
@@ -155,9 +158,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The storage capacity of the instance. Unit: GB.
+   * The storage space of the instance in GB.
    * 
-   * The values that can be specified for this parameter vary based on the instance types. For more information, see [Replica set instance types](https://help.aliyun.com/document_detail/311410.html).
+   * The value of this parameter varies based on the instance type. For more information, see [Replica set instance types]().
    * 
    * This parameter is required.
    * 
@@ -167,9 +170,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
-   * > When you call this operation to clone an instance, you can set this parameter to specify the database to clone. Otherwise, all databases of the instance are cloned.
+   * > When you clone an instance, you can specify this parameter to clone specific databases. If you do not specify this parameter, all databases of the instance are cloned.
    * 
    * @example
    * mongodbtest
@@ -185,7 +188,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The ID of the custom key.
+   * The custom key ID.
    * 
    * @example
    * 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -193,7 +196,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   encryptionKey?: string;
   /**
    * @remarks
-   * The database engine of the instance. Set the value to **MongoDB**.
+   * The database engine. The value is fixed as **MongoDB**.
    * 
    * @example
    * MongoDB
@@ -201,15 +204,27 @@ export class CreateDBInstanceRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine. Valid values:
+   * The database engine version. Valid values:
    * 
-   * *   **6.0**
-   * *   **5.0**
-   * *   **4.4**
-   * *   **4.2**
-   * *   **4.0**
+   * - **8.0**
    * 
-   * > When you call this operation to clone an instance or restore an instance from the recycle bin, set the value of this parameter to the engine version of the source instance.
+   * - **7.0**
+   * 
+   * - **6.0**
+   * 
+   * - **5.0**
+   * 
+   * - **4.4**
+   * 
+   * - **4.2**
+   * 
+   * - **4.0**
+   * 
+   * > When you clone an instance or restore an instance from the recycle bin, this parameter must be the same as the engine version of the source instance.
+   * 
+   * >Warning: 
+   * 
+   * Versions 3.4 and earlier are discontinued.
    * 
    * This parameter is required.
    * 
@@ -219,37 +234,55 @@ export class CreateDBInstanceRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The global IP address whitelist template name of the instance. Multiple IP address whitelist template names are separated by commas (,) and each template name must be unique. (The template feature is available only in canary release.)
+   * The global IP address whitelist templates for the instance. Separate multiple templates with commas (,). The templates cannot be repeated. This feature is in canary release.
    * 
    * @example
-   * g-qxieqf40xjst1ngp****
+   * g-qxieqf40xjst1ngpr3jz
    */
   globalSecurityGroupIds?: string;
   /**
    * @remarks
-   * The zone where the hidden node resides for multi-zone deployment. Valid values:
+   * The zone where the hidden node is deployed. This parameter is used for multi-zone deployment. Valid values:
    * 
-   * *   **cn-hangzhou-g**: Hangzhou Zone G.
-   * *   **cn-hangzhou-h**: Hangzhou Zone H.
-   * *   **cn-hangzhou-i**: Hangzhou Zone I.
-   * *   **cn-hongkong-b**: Hongkong Zone B.
-   * *   **cn-hongkong-c**: Hongkong Zone C.
-   * *   **cn-hongkong-d**: Hongkong Zone D.
-   * *   **cn-wulanchabu-a**: Ulanqab Zone A.
-   * *   **cn-wulanchabu-b**: Ulanqab Zone B.
-   * *   **cn-wulanchabu-c**: Ulanqab Zone C.
-   * *   **ap-southeast-1a**: Singapore Zone A.
-   * *   **ap-southeast-1b**: Singapore Zone B.
-   * *   **ap-southeast-1c**: Singapore Zone C.
-   * *   **ap-southeast-5a**: Jakarta Zone A.
-   * *   **ap-southeast-5b**: Jakarta Zone B.
-   * *   **ap-southeast-5c**: Jakarta Zone C.
-   * *   **eu-central-1a**: Frankfurt Zone A.
-   * *   **eu-central-1b**: Frankfurt Zone B.
-   * *   **eu-central-1c**: Frankfurt Zone C.
+   * - **cn-hangzhou-g**: Zone G in Hangzhou.
    * 
-   * >  *   This parameter is valid and required when the **EngineVersion** parameter is set to **4.4** or **5.0**.
-   * >  *   The value of this parameter cannot be the same as the value of the **ZoneId** or **SecondaryZoneId** parameter.
+   * - **cn-hangzhou-h**: Zone H in Hangzhou.
+   * 
+   * - **cn-hangzhou-i**: Zone I in Hangzhou.
+   * 
+   * - **cn-hongkong-b**: Zone B in Hong Kong (China).
+   * 
+   * - **cn-hongkong-c**: Zone C in Hong Kong (China).
+   * 
+   * - **cn-hongkong-d**: Zone D in Hong Kong (China).
+   * 
+   * - **cn-wulanchabu-a**: Zone A in Ulanqab.
+   * 
+   * - **cn-wulanchabu-b**: Zone B in Ulanqab.
+   * 
+   * - **cn-wulanchabu-c**: Zone C in Ulanqab.
+   * 
+   * - **ap-southeast-1a**: Zone A in Singapore.
+   * 
+   * - **ap-southeast-1b**: Zone B in Singapore.
+   * 
+   * - **ap-southeast-1c**: Zone C in Singapore.
+   * 
+   * - **ap-southeast-5a**: Zone A in Jakarta.
+   * 
+   * - **ap-southeast-5b**: Zone B in Jakarta.
+   * 
+   * - **ap-southeast-5c**: Zone C in Jakarta.
+   * 
+   * - **eu-central-1a**: Zone A in Frankfurt.
+   * 
+   * - **eu-central-1b**: Zone B in Frankfurt.
+   * 
+   * - **eu-central-1c**: Zone C in Frankfurt.
+   * 
+   * > * This parameter is available when the instance uses disks.
+   * >
+   * > * The value of this parameter cannot be the same as the value of the **ZoneId** or **SecondaryZoneId** parameter.
    * 
    * @example
    * cn-hangzhou-i
@@ -257,9 +290,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   hiddenZoneId?: string;
   /**
    * @remarks
-   * The network type of the instance. Valid value:
+   * The network type of the instance. Valid values:
    * 
-   * **VPC**: Virtual Private Cloud (VPC)
+   * **VPC**: virtual private cloud (VPC).
    * 
    * @example
    * VPC
@@ -269,11 +302,11 @@ export class CreateDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription period of the instance. Unit: months.
+   * The subscription duration of the instance in months.
    * 
-   * Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
+   * Valid values: **1** to **9** (integers), **12**, **24**, **36**, and **60**.
    * 
-   * > When you set the **ChargeType** parameter to **PrePaid**, this parameter is valid and required.
+   * > This parameter is required and takes effect only when you set the **ChargeType** parameter to **PrePaid**.
    * 
    * @example
    * 1
@@ -281,7 +314,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The provisioned IOPS. Valid values: 0 to 50000.
+   * The provisioned IOPS (input/output operations per second). Valid values: 0 to 50000.
    * 
    * @example
    * 1960
@@ -289,7 +322,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   provisionedIops?: number;
   /**
    * @remarks
-   * The number of **read-only nodes** in the replica set instance. Default value: **0**. Valid values: **0** to **5**.
+   * The number of **read-only nodes** in the replica set instance. Valid values are integers from **0** to **5**. The default value is **0**.
    * 
    * @example
    * 0
@@ -297,7 +330,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   readonlyReplicas?: string;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+   * The region ID. To query the region ID, call the [DescribeRegions]() operation.
+   * 
+   * > When you clone an instance or restore an instance from the recycle bin, this parameter must be the same as the region ID of the source instance.
    * 
    * This parameter is required.
    * 
@@ -307,31 +342,30 @@ export class CreateDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of **nodes** in the replica set instance. Default value: 3. Valid values:
+   * The number of **primary and secondary nodes** in the replica set instance. Valid values:
    * 
-   * *   **3**
-   * *   **5**
-   * *   **7**
+   * - **3** (default)
+   * 
+   * - **5**
+   * 
+   * - **7**
+   * 
+   * >Notice: 
+   * 
+   * You do not need to specify this parameter for standalone instances.
    * 
    * @example
    * 3
    */
   replicationFactor?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the instance belongs.
-   * 
-   * @example
-   * rg-acfmyiu4ekp****
-   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The point in time to which the instance is restored, which must be within seven days. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC time).
+   * The point in time to which you want to restore the instance. You can specify any point in time within the last seven days. The time must be in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
    * 
-   * > When you call this operation to restore an instance to the specified time, this parameter is required. The **SrcDBInstanceId** parameter is also required.
+   * > You must specify this parameter and the **SrcDBInstanceId** parameter only when you clone an instance based on a point in time.
    * 
    * @example
    * 2022-03-13T12:11:14Z
@@ -339,11 +373,15 @@ export class CreateDBInstanceRequest extends $dara.Model {
   restoreTime?: string;
   /**
    * @remarks
-   * The backup restore type of the instance.
-   * - 0: restore an instance to the specified backup set.
-   * - 1:  restore an instance to the specified time.
-   * - 2: restore an  released instance to the specified backup set.
-   * - 3：restore an instance to the specified cross-regional backup set.
+   * The method to restore an instance from a backup.
+   * 
+   * - 0: Restores the instance to a specified backup set.
+   * 
+   * - 1: Restores the instance to a specified point in time.
+   * 
+   * - 2: Restores a released instance to a specified backup set.
+   * 
+   * - 3: Restores the instance to a specified geo-redundant backup set.
    * 
    * @example
    * 0
@@ -351,29 +389,47 @@ export class CreateDBInstanceRequest extends $dara.Model {
   restoreType?: string;
   /**
    * @remarks
-   * The zone where the secondary node resides for multi-zone deployment. Valid values:
+   * The zone where the secondary node is deployed. This parameter is used for multi-zone deployment. Valid values:
    * 
-   * *   **cn-hangzhou-g**: Hangzhou Zone G.
-   * *   **cn-hangzhou-h**: Hangzhou Zone H.
-   * *   **cn-hangzhou-i**: Hangzhou Zone I.
-   * *   **cn-hongkong-b**: Hongkong Zone B.
-   * *   **cn-hongkong-c**: Hongkong Zone C.
-   * *   **cn-hongkong-d**: Hongkong Zone D.
-   * *   **cn-wulanchabu-a**: Ulanqab Zone A.
-   * *   **cn-wulanchabu-b**: Ulanqab Zone B.
-   * *   **cn-wulanchabu-c**: Ulanqab Zone C.
-   * *   **ap-southeast-1a**: Singapore Zone A.
-   * *   **ap-southeast-1b**: Singapore Zone B.
-   * *   **ap-southeast-1c**: Singapore Zone C.
-   * *   **ap-southeast-5a**: Jakarta Zone A.
-   * *   **ap-southeast-5b**: Jakarta Zone B.
-   * *   **ap-southeast-5c**: Jakarta Zone C.
-   * *   **eu-central-1a**: Frankfurt Zone A.
-   * *   **eu-central-1b**: Frankfurt Zone B.
-   * *   **eu-central-1c**: Frankfurt Zone C.
+   * - **cn-hangzhou-g**: Zone G in Hangzhou.
    * 
-   * >  *   This parameter is valid and required when the **EngineVersion** parameter is set to **4.4** or **5.0**.
-   * >  *   The value of this parameter cannot be the same as the value of the **ZoneId** or **HiddenZoneId** parameter.
+   * - **cn-hangzhou-h**: Zone H in Hangzhou.
+   * 
+   * - **cn-hangzhou-i**: Zone I in Hangzhou.
+   * 
+   * - **cn-hongkong-b**: Zone B in Hong Kong (China).
+   * 
+   * - **cn-hongkong-c**: Zone C in Hong Kong (China).
+   * 
+   * - **cn-hongkong-d**: Zone D in Hong Kong (China).
+   * 
+   * - **cn-wulanchabu-a**: Zone A in Ulanqab.
+   * 
+   * - **cn-wulanchabu-b**: Zone B in Ulanqab.
+   * 
+   * - **cn-wulanchabu-c**: Zone C in Ulanqab.
+   * 
+   * - **ap-southeast-1a**: Zone A in Singapore.
+   * 
+   * - **ap-southeast-1b**: Zone B in Singapore.
+   * 
+   * - **ap-southeast-1c**: Zone C in Singapore.
+   * 
+   * - **ap-southeast-5a**: Zone A in Jakarta.
+   * 
+   * - **ap-southeast-5b**: Zone B in Jakarta.
+   * 
+   * - **ap-southeast-5c**: Zone C in Jakarta.
+   * 
+   * - **eu-central-1a**: Zone A in Frankfurt.
+   * 
+   * - **eu-central-1b**: Zone B in Frankfurt.
+   * 
+   * - **eu-central-1c**: Zone C in Frankfurt.
+   * 
+   * > * This parameter is available when the instance uses disks.
+   * >
+   * > * The value of this parameter cannot be the same as the value of the **ZoneId** or **HiddenZoneId** parameter.
    * 
    * @example
    * cn-hangzhou-h
@@ -381,14 +437,17 @@ export class CreateDBInstanceRequest extends $dara.Model {
   secondaryZoneId?: string;
   /**
    * @remarks
-   * The IP addresses in an IP address whitelist. Multiple IP addresses are separated by commas (,), and each IP address in the IP address whitelist must be unique. The following types of values are supported:
+   * The IP address whitelist of the instance. Separate multiple IP addresses with commas (,). Each IP address in the whitelist must be unique. The whitelist can be in one of the following formats:
    * 
-   * *   0.0.0.0/0
-   * *   IP addresses, such as 10.23.12.24.
-   * *   Classless Inter-Domain Routing (CIDR) blocks, such as 10.23.12.0/24. In this case, /24 indicates that the prefix of each IP address is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
+   * - 0.0.0.0/0
    * 
-   * > *   A maximum of 1,000 IP addresses or CIDR blocks can be configured for each instance.
-   * > *   If you enter 0.0.0.0/0, all IP addresses can access the instance. This may introduce security risks to the instance. Proceed with caution.
+   * - An IP address, for example, 10.23.12.24.
+   * 
+   * - A CIDR block, for example, 10.23.12.0/24. The /24 indicates that the prefix of the CIDR block is 24 bits in length. You can set the prefix to a value from 1 to 32.
+   * 
+   * > * You can add a maximum of 1,000 IP addresses or CIDR blocks to all IP address whitelists.
+   * >
+   * > * If you set the whitelist to 0.0.0.0/0, all IP addresses can access the instance. This is a high-risk setting. Use this with caution.
    * 
    * @example
    * 192.168.xx.xx,192.168.xx.xx
@@ -396,9 +455,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The ID of the source instance.
+   * The source instance ID.
    * 
-   * > When you call this operation to clone an instance, this parameter is required. The **BackupId** or **RestoreTime** parameter is also required. When you call this operation to restore an instance from the recycle bin, this parameter is required. The **BackupId** or **RestoreTime** parameter is not required.
+   * > When you clone an instance, you must specify this parameter and the **BackupId** or **RestoreTime** parameter. When you restore an instance from the recycle bin, you only need to specify this parameter. You do not need to specify the **BackupId** or **RestoreTime** parameter.
    * 
    * @example
    * dds-bp1ee12ad351****
@@ -406,9 +465,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   srcDBInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region where the source instance is located.
    * 
-   * > -  This parameter is required when restore type is set to 2 or 3.
+   * > - This parameter is required when RestoreType is set to 2 or 3.
    * 
    * @example
    * 2
@@ -416,10 +475,11 @@ export class CreateDBInstanceRequest extends $dara.Model {
   srcRegion?: string;
   /**
    * @remarks
-   * The storage engine of the instance. Set the value to **WiredTiger**.
+   * The storage engine of the instance. The value is fixed as **WiredTiger**.
    * 
-   * > * If you call this operation to clone an instance or restore an instance from the recycle bin, set this parameter to the storage engine of the source instance.
-   * > * For more information about the limits on database versions and storage engines of an instance, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+   * > - When you clone an instance or restore an instance from the recycle bin, this parameter must be the same as the storage engine of the source instance.
+   * >
+   * > - For more information about the constraints on storage engines and database versions, see [Versions and storage engines]().
    * 
    * @example
    * WiredTiger
@@ -427,12 +487,25 @@ export class CreateDBInstanceRequest extends $dara.Model {
   storageEngine?: string;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
+   * The storage class. Valid values:
    * 
-   * *   **cloud_essd1** :ESSD PL1.
-   * *   **cloud_essd2**: ESSD PL2.
-   * *   **cloud_essd3**: ESSD PL3.
-   * *   **local_ssd**: local SSD.
+   * - **cloud_essd1**: ESSD PL1 disk.
+   * 
+   * - **cloud_essd2**: ESSD PL2 disk.
+   * 
+   * - **cloud_essd3**: ESSD PL3 disk.
+   * 
+   * - **cloud_auto**: ESSD AutoPL disk.
+   * 
+   * - **local_ssd**: Local SSD.
+   * 
+   * > * For standalone instances, if you pass the value cloud_essd1, an ESSD disk is used.
+   * >
+   * > * ESSD AutoPL disks are available only on the China site (aliyun.com).
+   * >
+   * > * For instances of version 4.4 or later, the default value is **cloud_essd1**.
+   * >
+   * > * For instances of version 4.2 or earlier, the default value is **local_ssd**.
    * 
    * @example
    * cloud_essd1
@@ -440,12 +513,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The custom tags added to the instance.
+   * The custom tags.
    */
   tag?: CreateDBInstanceRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance is connected.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1gzt31twhlo0sa5****
@@ -453,7 +526,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp175iuvg8nxqraf2****
@@ -461,7 +534,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
+   * The zone ID. To query the zone ID, call the [DescribeRegions]() operation.
    * 
    * @example
    * cn-hangzhou-g

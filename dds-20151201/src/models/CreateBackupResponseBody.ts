@@ -5,13 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup set.
+   * The backup ID.
+   * 
+   * > This parameter is deprecated. To obtain the backup ID, call the [DescribeBackups](https://help.aliyun.com/document_detail/468441.html) operation.
    * 
    * @example
    * 5664****
    */
   backupId?: string;
   /**
+   * @remarks
+   * The backup job ID.
+   * 
    * @example
    * 775051
    */

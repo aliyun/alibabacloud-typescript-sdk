@@ -6,6 +6,9 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfmyiu4ekp****
    */
@@ -13,6 +16,9 @@ export class DescribeRdsVpcsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-beijing-l
    */

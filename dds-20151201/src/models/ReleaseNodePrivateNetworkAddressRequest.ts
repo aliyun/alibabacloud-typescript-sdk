@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseNodePrivateNetworkAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The public endpoint type. Valid values:
+   * The type of the public endpoint. Valid values:
    * 
-   * *   **SRV**
-   * *   **Normal**
+   * - **SRV**
    * 
-   * >  This parameter is valid only when you want to release an SRV endpoint.
+   * - **Normal**
+   * 
+   * > This parameter is available only when the endpoint to be released is an SRV endpoint.
    * 
    * @example
    * SRV
@@ -28,12 +29,13 @@ export class ReleaseNodePrivateNetworkAddressRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The network type of the internal endpoint. Valid values:
+   * The network type of the internal endpoint for the node. Valid values:
    * 
-   * *   **VPC**: virtual private cloud (VPC).
-   * *   **Classic**: classic network.
+   * - **VPC**: virtual private cloud.
    * 
-   * >  You can call the [DescribeShardingNetworkAddress](https://help.aliyun.com/document_detail/62135.html) operation to query the network type of the internal endpoint.
+   * - **Classic**: classic network.
+   * 
+   * > Call the [DescribeShardingNetworkAddress](https://help.aliyun.com/document_detail/62135.html) API to query the network type of the internal endpoint for the node.
    * 
    * @example
    * VPC
@@ -43,7 +45,13 @@ export class ReleaseNodePrivateNetworkAddressRequest extends $dara.Model {
    * @remarks
    * The ID of the shard or Configserver node.
    * 
-   * >  You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the ID of the shard or Configserver node.
+   * > Call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) API to query the ID of the shard or Configserver node.
+   * >
+   * > >Notice: 
+   * >
+   * > When you release an SRV address, enter the instance ID for this parameter.
+   * >
+   * >
    * 
    * @example
    * d-bp128a003436****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTaskRegionResponseBodyRegionList extends $dara.Model {
   /**
    * @remarks
-   * The total number of tasks.
+   * The number of tasks.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeActiveOperationTaskRegionResponseBodyRegionList extends $da
   count?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -45,7 +45,7 @@ export class DescribeActiveOperationTaskRegionResponseBodyRegionList extends $da
 export class DescribeActiveOperationTaskRegionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * The list of regions.
    */
   regionList?: DescribeActiveOperationTaskRegionResponseBodyRegionList[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodeSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 21084641369****
@@ -13,7 +13,7 @@ export class ModifyNodeSpecResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 61B05CCF-EBAB-4BF3-BA67-D77256A721E2

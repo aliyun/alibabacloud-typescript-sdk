@@ -7,8 +7,9 @@ export class DescribeRegionsRequest extends $dara.Model {
    * @remarks
    * The language of the values of the returned **RegionName** and **ZoneName** parameters. Valid values:
    * 
-   * *   **zh** (default)
-   * *   **en**
+   * - **zh** (default)
+   * 
+   * - **en**
    * 
    * @example
    * zh
@@ -20,7 +21,7 @@ export class DescribeRegionsRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  If you do not specify this parameter, all supported regions are queried.
+   * > If you do not specify this parameter, all supported regions are queried.
    * 
    * @example
    * cn-hangzhou

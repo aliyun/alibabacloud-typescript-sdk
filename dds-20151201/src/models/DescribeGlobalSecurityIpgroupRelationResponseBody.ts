@@ -7,7 +7,7 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGr
    * @remarks
    * The IP addresses in the whitelist template.
    * 
-   * >  Separate multiple IP addresses with commas (,). You can create up to 1,000 IP addresses or CIDR blocks for all IP whitelists.
+   * > Separate multiple IP addresses with commas. A maximum of 1,000 IP addresses or CIDR blocks can be added across all IP address whitelists.
    * 
    * @example
    * 27.16.214.10,111.60.117.181
@@ -15,7 +15,7 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGr
   GIpList?: string;
   /**
    * @remarks
-   * The name of the IP whitelist template.
+   * The name of the IP address whitelist template.
    * 
    * @example
    * dev_baoxian_k8s_bj
@@ -23,7 +23,7 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGr
   globalIgName?: string;
   /**
    * @remarks
-   * The ID of the IP whitelist template.
+   * The ID of the IP address whitelist template.
    * 
    * @example
    * g-gfurfpsh4ycbrm2avst7
@@ -31,7 +31,7 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGr
   globalSecurityGroupId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hongkong
@@ -75,12 +75,12 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBody extends $dara.Mod
   DBClusterId?: string;
   /**
    * @remarks
-   * The global IP whitelist templates associated with the instance.
+   * The mapping of the global IP address whitelist template.
    */
   globalSecurityIPGroupRel?: DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel[];
   /**
    * @remarks
-   * The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+   * The ID of the request. If you encounter a problem, provide this ID to our support staff for troubleshooting.
    * 
    * @example
    * F8CA8312-530A-413A-9129-F2BB32A8D404

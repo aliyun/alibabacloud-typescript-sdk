@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   /**
    * @remarks
-   * The backup task status. Valid values:
+   * The status of the backup job.
    * 
-   * *   **Scheduled**: The backup task is in planning. Regular backup tasks that have not started are also in this state.
-   * *   **Checking**: The instance is being checked before the backup.
-   * *   **Backuping**: The backup task is in progress.
-   * *   **Finished**: The backup task is completed.
+   * - **Scheduled**: The backup job is scheduled. This includes regular backup jobs that have not started.
+   * 
+   * - **Checking**: The instance is being checked before the backup.
+   * 
+   * - **Backuping**: The backup is in progress.
+   * 
+   * - **Finished**: The backup is complete.
    * 
    * @example
    * Scheduled
@@ -18,7 +21,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   backupSetStatus?: string;
   /**
    * @remarks
-   * The start time of the backup task.
+   * The start time of the backup.
    * 
    * @example
    * 2024-01-16T11:04:56Z
@@ -26,7 +29,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   backupStartTime?: string;
   /**
    * @remarks
-   * The ID of the backup task.
+   * The backup job ID.
    * 
    * @example
    * 170034
@@ -36,8 +39,9 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
    * @remarks
    * The backup mode. Valid values:
    * 
-   * *   **Automated**: automatic backup
-   * *   **Manual**: manual backup
+   * - **Automated**: automatic backup.
+   * 
+   * - **Manual**: manual backup.
    * 
    * @example
    * Manual
@@ -45,7 +49,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
   jobMode?: string;
   /**
    * @remarks
-   * The progress of the backup task. Unit: %. The progress is returned only for running backup tasks.
+   * The backup progress in percentage. The progress is displayed only for running backup jobs.
    * 
    * @example
    * 18%
@@ -83,7 +87,7 @@ export class DescribeBackupTasksResponseBodyBackupJobs extends $dara.Model {
 export class DescribeBackupTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the backup task.
+   * The details of the backup jobs.
    */
   backupJobs?: DescribeBackupTasksResponseBodyBackupJobs[];
   /**

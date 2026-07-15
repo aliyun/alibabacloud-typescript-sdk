@@ -7,8 +7,9 @@ export class DescribeActiveOperationTaskTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return historical O\\&M tasks. Valid values:
    * 
-   * *   **0** (default): The system returns only pending O\\&M tasks.
-   * *   **1**: The system returns historical O\\&M tasks.
+   * - **0** (default): The system returns only pending O\\&M tasks.
+   * 
+   * - **1**: The system returns historical O\\&M tasks.
    * 
    * @example
    * 0

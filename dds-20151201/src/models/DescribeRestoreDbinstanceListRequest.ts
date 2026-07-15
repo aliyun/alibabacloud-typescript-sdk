@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRestoreDBInstanceListRequest extends $dara.Model {
   /**
    * @remarks
-   * Find instances created after the specified time, formatted as <i>yyyy-MM-dd</i>T<i>HH:00:00</i>Z (UTC time).
+   * Find instances created after the specified time, formatted as *yyyy-MM-dd*T*HH:00:00*Z (UTC time).
    * 
-   * > 
    * > - The time must be on the hour.
+   * >
    * > - The time cannot be earlier than 7 days before the current time.
    * 
    * This parameter is required.

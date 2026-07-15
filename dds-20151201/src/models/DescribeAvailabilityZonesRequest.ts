@@ -7,11 +7,12 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
    * @remarks
    * The language of the returned **RegionName** and **ZoneName** parameter values. Valid values:
    * 
-   * *   **zh** (default): Chinese
-   * *   **en**: English
+   * - **zh** (default): Chinese
+   * 
+   * - **en**: English
    * 
    * @example
-   * en
+   * zh
    */
   acceptLanguage?: string;
   /**
@@ -26,8 +27,9 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
    * @remarks
    * The architecture of the instance. Valid values:
    * 
-   * *   **normal**: replica set instance
-   * *   **sharding**: sharded cluster instance
+   * - **normal**: replica set instance
+   * 
+   * - **sharding**: sharded cluster instance
    * 
    * @example
    * normal
@@ -61,8 +63,9 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
    * @remarks
    * The billing method of the product. Valid values:
    * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid:** pay-as-you-go
+   * - **PrePaid**: subscription
+   * 
+   * - **PostPaid:** pay-as-you-go
    * 
    * @example
    * PrePaid
@@ -72,8 +75,9 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
    * @remarks
    * The architecture of the instance. Valid values:
    * 
-   * *   **sharding**: sharded cluster instance
-   * *   **replicate**: replica set or standalone instance
+   * - **sharding**: sharded cluster instance
+   * 
+   * - **replicate**: replica set or standalone instance
    * 
    * @example
    * replicate
@@ -103,14 +107,17 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
    * @remarks
    * The number of nodes in the instance.
    * 
-   * >  This parameter is available only for replica set instances.
+   * > This parameter is available only for replica set instances.
    * 
    * Valid values:
    * 
-   * *   1
-   * *   3
-   * *   5
-   * *   7
+   * - 1
+   * 
+   * - 3
+   * 
+   * - 5
+   * 
+   * - 7
    * 
    * @example
    * 3
@@ -130,9 +137,11 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
    * @remarks
    * The storage type. Valid values:
    * 
-   * *   **cloud**: displays only zones available for instances that use cloud disks.
-   * *   **local**: only displays zones available for instances that use local disks instances.
-   * *   **default** or unspecified: displays zones available for instances that use cloud disks and those that use local disks.
+   * - **cloud**: displays only zones available for instances that use cloud disks.
+   * 
+   * - **local**: only displays zones available for instances that use local disks instances.
+   * 
+   * - **default** or unspecified: displays zones available for instances that use cloud disks and those that use local disks.
    * 
    * @example
    * local
@@ -142,13 +151,17 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
    * @remarks
    * The storage type. Valid values:
    * 
-   * *   **cloud_essd1**: PL1 Enterprise SSDs (ESSDs)
-   * *   **cloud_essd2**: PL2 ESSDs
-   * *   **cloud_essd3**: PL3 ESSDs
-   * *   **local_ssd**: local SSDs
+   * - **cloud_essd1**: PL1 Enterprise SSDs (ESSDs)
    * 
-   * > *   Instances that run MongoDB 4.4 or later only use cloud disks to store data. If you do not specify this parameter, the value **cloud_essd1** is used by default.
-   * > *   Instances that run MongoDB 4.2 and earlier only use local disks to store data. If you do not specify this parameter, the value **local_ssd** is used by default.
+   * - **cloud_essd2**: PL2 ESSDs
+   * 
+   * - **cloud_essd3**: PL3 ESSDs
+   * 
+   * - **local_ssd**: local SSDs
+   * 
+   * > * Instances that run MongoDB 4.4 or later only use cloud disks to store data. If you do not specify this parameter, the value **cloud_essd1** is used by default.
+   * >
+   * > * Instances that run MongoDB 4.2 and earlier only use local disks to store data. If you do not specify this parameter, the value **local_ssd** is used by default.
    * 
    * @example
    * local_ssd

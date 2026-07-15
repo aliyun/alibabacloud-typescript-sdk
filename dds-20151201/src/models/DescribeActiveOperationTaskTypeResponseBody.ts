@@ -15,8 +15,9 @@ export class DescribeActiveOperationTaskTypeResponseBodyTypeList extends $dara.M
    * @remarks
    * The type of the task. Valid values:
    * 
-   * *   **rds_apsaradb_transfer**: data migration
-   * *   **rds_apsaradb_upgrade**: minor version update
+   * - **rds_apsaradb_transfer**: data migration
+   * 
+   * - **rds_apsaradb_upgrade**: minor version update
    * 
    * @example
    * rds_apsaradb_upgrade
@@ -35,7 +36,7 @@ export class DescribeActiveOperationTaskTypeResponseBodyTypeList extends $dara.M
    * The task type in Chinese.
    * 
    * @example
-   * rds_apsaradb_upgrade
+   * 小版本升级
    */
   taskTypeInfoZh?: string;
   static names(): { [key: string]: string } {

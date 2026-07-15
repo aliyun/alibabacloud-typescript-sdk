@@ -6,6 +6,9 @@ export class DescribeRdsVSwitchsRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfm4ojaksxxxxx
    */
@@ -13,11 +16,17 @@ export class DescribeRdsVSwitchsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The ID of VPC.
+   * 
    * @example
    * vpc-bp*******************
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-j
    */

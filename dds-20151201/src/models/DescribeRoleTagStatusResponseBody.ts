@@ -4,16 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRoleTagStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 69D55DEC-B219-569F-A686-AC2F67A1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The tag status of the ReplicaSet node. Valid values:
+   * 
+   * - **true**: The tag is created.
+   * 
+   * - **false**: The tag is not created.
+   * 
+   * > If the instance is a sharded cluster, this parameter returns false.
+   * 
    * @example
    * false
    */
   roleTagStatus?: string;
   /**
+   * @remarks
+   * The tag status of each node in the sharded cluster. Valid values:
+   * 
+   * - **true**: The tag is created.
+   * 
+   * - **false**: The tag is not created.
+   * 
    * @example
    * {
    *     "d-2ze204b4db58****": "false",

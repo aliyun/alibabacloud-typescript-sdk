@@ -17,7 +17,7 @@ export class ModifyInstanceVpcAuthModeRequest extends $dara.Model {
    * @remarks
    * The ID of the mongos node in the sharded cluster instance.
    * 
-   * >  This parameter can be used only when the instance type is sharded cluster.
+   * > This parameter can be used only when the instance type is sharded cluster.
    * 
    * @example
    * s-bpxxxxxxxx
@@ -32,7 +32,7 @@ export class ModifyInstanceVpcAuthModeRequest extends $dara.Model {
    * Specify whether to disable password-free access over VPC. Set the value to **Close**.
    * 
    * @example
-   * Open
+   * Close
    */
   vpcAuthMode?: string;
   static names(): { [key: string]: string } {

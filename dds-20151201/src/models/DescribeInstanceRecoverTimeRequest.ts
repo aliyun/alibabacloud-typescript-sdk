@@ -13,10 +13,23 @@ export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
    * dds-bpxxxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The region where the geo-redundancy backup set is stored.
+   * > 
+   * > - This parameter is required when you query geo-redundancy backups.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   destRegion?: string;
+  onlyDbTableRecovery?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-xxxx
    */
@@ -24,11 +37,21 @@ export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * The area where the source instance of the geo-redundancy backup resides.
+   * > 
+   * > - This parameter is required when you query geo-redundancy backups.
+   * 
+   * @example
+   * cn-beijing
+   */
   srcRegion?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
       destRegion: 'DestRegion',
+      onlyDbTableRecovery: 'OnlyDbTableRecovery',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
@@ -43,6 +66,7 @@ export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
     return {
       DBInstanceId: 'string',
       destRegion: 'string',
+      onlyDbTableRecovery: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceGroupId: 'string',

@@ -324,6 +324,67 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardLi
   }
 }
 
+export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardSearchNodesShardSearchNodes extends $dara.Model {
+  nodeId?: string;
+  searchNodeClass?: string;
+  searchNodeCount?: string;
+  searchNodeId?: string;
+  searchNodeStorage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      searchNodeClass: 'SearchNodeClass',
+      searchNodeCount: 'SearchNodeCount',
+      searchNodeId: 'SearchNodeId',
+      searchNodeStorage: 'SearchNodeStorage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      searchNodeClass: 'string',
+      searchNodeCount: 'string',
+      searchNodeId: 'string',
+      searchNodeStorage: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardSearchNodes extends $dara.Model {
+  shardSearchNodes?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardSearchNodesShardSearchNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      shardSearchNodes: 'ShardSearchNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shardSearchNodes: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardSearchNodesShardSearchNodes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.shardSearchNodes)) {
+      $dara.Model.validateArray(this.shardSearchNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTagsTag extends $dara.Model {
   key?: string;
   value?: string;
@@ -377,6 +438,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags ex
 }
 
 export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extends $dara.Model {
+  AIGatewayEnabled?: boolean;
   burstingEnabled?: boolean;
   capacityUnit?: string;
   chargeType?: string;
@@ -436,6 +498,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   searchNodeStorage?: number;
   secondaryZoneId?: string;
   shardList?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardList;
+  shardSearchNodes?: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardSearchNodes;
   storageEngine?: string;
   storageType?: string;
   syncPercent?: string;
@@ -448,6 +511,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      AIGatewayEnabled: 'AIGatewayEnabled',
       burstingEnabled: 'BurstingEnabled',
       capacityUnit: 'CapacityUnit',
       chargeType: 'ChargeType',
@@ -495,6 +559,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       searchNodeStorage: 'SearchNodeStorage',
       secondaryZoneId: 'SecondaryZoneId',
       shardList: 'ShardList',
+      shardSearchNodes: 'ShardSearchNodes',
       storageEngine: 'StorageEngine',
       storageType: 'StorageType',
       syncPercent: 'SyncPercent',
@@ -510,6 +575,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
 
   static types(): { [key: string]: any } {
     return {
+      AIGatewayEnabled: 'boolean',
       burstingEnabled: 'boolean',
       capacityUnit: 'string',
       chargeType: 'string',
@@ -557,6 +623,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       searchNodeStorage: 'number',
       secondaryZoneId: 'string',
       shardList: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardList,
+      shardSearchNodes: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardSearchNodes,
       storageEngine: 'string',
       storageType: 'string',
       syncPercent: 'string',
@@ -582,6 +649,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
     }
     if(this.shardList && typeof (this.shardList as any).validate === 'function') {
       (this.shardList as any).validate();
+    }
+    if(this.shardSearchNodes && typeof (this.shardSearchNodes as any).validate === 'function') {
+      (this.shardSearchNodes as any).validate();
     }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
@@ -624,7 +694,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   DBInstances?: DescribeDBInstanceAttributeResponseBodyDBInstances;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A935A8EE-A6CC-53DE-98BA-20ABAA7E632B

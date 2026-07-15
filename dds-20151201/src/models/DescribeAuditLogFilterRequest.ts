@@ -21,9 +21,11 @@ export class DescribeAuditLogFilterRequest extends $dara.Model {
    * @remarks
    * The role of the node in the instance. Valid values:
    * 
-   * * **mongos**: mongos node.
-   * * **db** : shard node.
-   * * **logic** : logical instance.
+   * - **mongos**: mongos node.
+   * 
+   * - **db** : shard node.
+   * 
+   * - **logic** : logical instance.
    * 
    * @example
    * logic

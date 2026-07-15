@@ -7,14 +7,15 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to remove all tags from the instances. Valid values:
    * 
-   * *   **true**: removes all tags from the instances.
-   * *   **false**: does not remove all tags from the instances.
+   * - **true**: removes all tags from the instances.
    * 
-   * > 
+   * - **false**: does not remove all tags from the instances.
    * 
-   * *   Default value: **false**.
+   * >
    * 
-   * *   If you specify the **TagKey** parameter together with this parameter, this parameter does not take effect.
+   * - Default value: **false**.
+   * 
+   * - If you specify the **TagKey** parameter together with this parameter, this parameter does not take effect.
    * 
    * @example
    * false
@@ -65,6 +66,9 @@ export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The tag keys of the resource.
+   * 
+   * @example
+   * Development group
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

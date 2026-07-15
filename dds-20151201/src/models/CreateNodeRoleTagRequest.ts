@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeRoleTagRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,6 +18,11 @@ export class CreateNodeRoleTagRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The ID of the shard node.
+   * 
+   * > - This parameter applies only to sharded cluster instances.
+   * 
    * @example
    * d-l5xf98b78b9fxxxx,d-l5xf98b7sf9fxxxx
    */

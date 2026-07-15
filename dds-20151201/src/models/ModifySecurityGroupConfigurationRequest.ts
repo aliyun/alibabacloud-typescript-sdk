@@ -21,8 +21,9 @@ export class ModifySecurityGroupConfigurationRequest extends $dara.Model {
    * @remarks
    * The ID of the ECS security group.
    * 
-   * > * You can bind up to 10 ECS security groups to an ApsaraDB for MongoDB instance.
-   * > * You can call the [DescribeSecurityGroup](https://help.aliyun.com/document_detail/25556.html) operation of ECS to query the security groups in the specified region.
+   * > - You can bind up to 10 ECS security groups to an ApsaraDB for MongoDB instance.
+   * >
+   * > - You can call the [DescribeSecurityGroup](https://help.aliyun.com/document_detail/25556.html) operation of ECS to query the security groups in the specified region.
    * 
    * This parameter is required.
    * 

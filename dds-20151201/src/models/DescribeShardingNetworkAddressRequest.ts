@@ -13,12 +13,25 @@ export class DescribeShardingNetworkAddressRequest extends $dara.Model {
    * dds-bpxxxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * - **VPC**: virtual private cloud.
+   * 
+   * - **Classic**: classic network.
+   * 
+   * - **Public**: public network.
+   * 
+   * @example
+   * VPC
+   */
   networkType?: string;
   /**
    * @remarks
-   * The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
+   * The ID of a mongos, shard, or ConfigServer node in the sharded cluster instance.
    * 
-   * >  You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
+   * > You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the IDs of mongos, shard, and ConfigServer nodes.
    * 
    * @example
    * d-bpxxxxxxxx

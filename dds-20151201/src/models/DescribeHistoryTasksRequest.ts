@@ -75,13 +75,19 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   Scheduled: The task is waiting to be executed.
-   * *   Running: The task is running.
-   * *   Succeed: The task is successful.
-   * *   Failed: The task failed.
-   * *   Cancelling: The task is being terminated.
-   * *   Canceled: The task has been terminated.
-   * *   Waiting: The task is waiting for scheduled time.
+   * - Scheduled: The task is waiting to be executed.
+   * 
+   * - Running: The task is running.
+   * 
+   * - Succeed: The task is successful.
+   * 
+   * - Failed: The task failed.
+   * 
+   * - Cancelling: The task is being terminated.
+   * 
+   * - Canceled: The task has been terminated.
+   * 
+   * - Waiting: The task is waiting for scheduled time.
    * 
    * Separate multiple states with commas (,). This parameter is empty by default, which indicates that tasks in all states are queried.
    * 
@@ -101,29 +107,51 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
    * @remarks
    * The task type. This parameter is left empty by default, which indicates that all types of tasks are queried. Valid values:
    * 
-   * *   CreateIns: Create an instance.
-   * *   DeleteIns: Delete an instance.
-   * *   ChangeVariable: Modify parameter settings for an instance.
-   * *   ModifyInsConfig: Change the configurations of an instance.
-   * *   RestartIns: Restart an instance.
-   * *   HaSwitch: Perform a primary/secondary switchover on an instance.
-   * *   CloneIns: Clone an instance.
-   * *   KernelVersionUpgrade: Update the minor version of an instance.
-   * *   ProxyVersionUpgrade: Upgrade the agent version of an instance.
-   * *   ModifyAccount: Change the account of an instance.
-   * *   ModifyInsSpec: Change the specifications of an instance or perform a data migration on the instance.
-   * *   CreateReadIns: Create a read-only instance.
-   * *   StartIns: Start an instance.
-   * *   StopIns: Stop an instance.
-   * *   ModifyNetwork: Modify the network type for an instance.
-   * *   LockIns: Lock an instance.
-   * *   UnlockIns: Unlock an instance.
-   * *   DiskOnlineExpansion: Scale out the disks of an instance online.
-   * *   StorageOnlineExpansion: Expend the storage capacity of an instance online.
-   * *   AddInsNode: Add a node to an instance.
-   * *   DeleteInsNode: Delete a node from an instance.
-   * *   ManualBackupIns: Manually back up an instance.
-   * *   ModifyInsStorageType: Modify the storage type for an instance.
+   * - CreateIns: Create an instance.
+   * 
+   * - DeleteIns: Delete an instance.
+   * 
+   * - ChangeVariable: Modify parameter settings for an instance.
+   * 
+   * - ModifyInsConfig: Change the configurations of an instance.
+   * 
+   * - RestartIns: Restart an instance.
+   * 
+   * - HaSwitch: Perform a primary/secondary switchover on an instance.
+   * 
+   * - CloneIns: Clone an instance.
+   * 
+   * - KernelVersionUpgrade: Update the minor version of an instance.
+   * 
+   * - ProxyVersionUpgrade: Upgrade the agent version of an instance.
+   * 
+   * - ModifyAccount: Change the account of an instance.
+   * 
+   * - ModifyInsSpec: Change the specifications of an instance or perform a data migration on the instance.
+   * 
+   * - CreateReadIns: Create a read-only instance.
+   * 
+   * - StartIns: Start an instance.
+   * 
+   * - StopIns: Stop an instance.
+   * 
+   * - ModifyNetwork: Modify the network type for an instance.
+   * 
+   * - LockIns: Lock an instance.
+   * 
+   * - UnlockIns: Unlock an instance.
+   * 
+   * - DiskOnlineExpansion: Scale out the disks of an instance online.
+   * 
+   * - StorageOnlineExpansion: Expend the storage capacity of an instance online.
+   * 
+   * - AddInsNode: Add a node to an instance.
+   * 
+   * - DeleteInsNode: Delete a node from an instance.
+   * 
+   * - ManualBackupIns: Manually back up an instance.
+   * 
+   * - ModifyInsStorageType: Modify the storage type for an instance.
    * 
    * @example
    * DeleteInsNode

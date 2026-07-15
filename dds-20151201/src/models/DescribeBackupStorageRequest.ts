@@ -17,7 +17,7 @@ export class DescribeBackupStorageRequest extends $dara.Model {
    * @remarks
    * The ID of the shard node in the sharded cluster instance.
    * 
-   * >  This parameter is required only when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
+   * > This parameter is required if the **DBInstanceId** parameter specifies the ID of a sharded cluster instance.
    * 
    * @example
    * d-2zee48956b4axxxx
@@ -27,7 +27,7 @@ export class DescribeBackupStorageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the most recent region list.
+   * The ID of the region where the instance is located. Call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the region ID.
    * 
    * @example
    * cn-bejing

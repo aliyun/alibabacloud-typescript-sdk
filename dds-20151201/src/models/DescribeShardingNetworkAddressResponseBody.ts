@@ -153,6 +153,13 @@ export class DescribeShardingNetworkAddressResponseBodyNetworkAddresses extends 
 
 export class DescribeShardingNetworkAddressResponseBody extends $dara.Model {
   compatibleConnections?: DescribeShardingNetworkAddressResponseBodyCompatibleConnections;
+  /**
+   * @remarks
+   * The suffix of the connection string.
+   * 
+   * @example
+   * .mongodb.rds.aliyuncs.com
+   */
   connectionStringSuffix?: string;
   networkAddresses?: DescribeShardingNetworkAddressResponseBodyNetworkAddresses;
   /**

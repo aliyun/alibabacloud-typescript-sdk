@@ -7,10 +7,11 @@ export class TransformToPrePaidRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * *   **true**: enables automatic payment.
-   * *   **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](https://help.aliyun.com/document_detail/85052.html).
+   * - **true**: enables automatic payment.
    * 
-   * >  Default value: **true**.
+   * - **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](https://help.aliyun.com/document_detail/85052.html).
+   * 
+   * > Default value: **true**.
    * 
    * @example
    * true
@@ -20,10 +21,11 @@ export class TransformToPrePaidRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal for the instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
    * 
-   * >  Default value: **false**.
+   * - **false**
+   * 
+   * > Default value: **false**.
    * 
    * @example
    * true
@@ -42,7 +44,7 @@ export class TransformToPrePaidRequest extends $dara.Model {
    * The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
    * 
    * @example
-   * youhuiquan_promotion_option_id_for_blank
+   * default
    */
   couponNo?: string;
   /**

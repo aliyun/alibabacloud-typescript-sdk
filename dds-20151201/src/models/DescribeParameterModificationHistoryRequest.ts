@@ -7,10 +7,13 @@ export class DescribeParameterModificationHistoryRequest extends $dara.Model {
    * @remarks
    * The role of the instance. Valid values:
    * 
-   * *   **db**: shard
-   * *   **cs**: Configserver
-   * *   **mongos**: mongos
-   * *   **logic**: sharded cluster instance
+   * - **db**: shard
+   * 
+   * - **cs**: Configserver
+   * 
+   * - **mongos**: mongos
+   * 
+   * - **logic**: sharded cluster instance
    * 
    * @example
    * mongos
@@ -20,7 +23,7 @@ export class DescribeParameterModificationHistoryRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+   * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
    * 
    * This parameter is required.
    * 
@@ -35,14 +38,14 @@ export class DescribeParameterModificationHistoryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2019-01-02T12:10:10Z
+   * 2019-01-02T12:10Z
    */
   endTime?: string;
   /**
    * @remarks
    * The ID of the mongos node or shard node whose parameter modification records you want to query in the instance.
    * 
-   * >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+   * > This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
    * 
    * @example
    * d-bp1158****
@@ -59,7 +62,7 @@ export class DescribeParameterModificationHistoryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2019-01-01T12:10:10Z
+   * 2019-01-01T12:10Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {

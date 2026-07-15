@@ -5,21 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the cancellation operation. Valid values:
+   * Specifies whether the task can be canceled. Valid values:
    * 
-   * *   **0**: The cancellation operation is not allowed.
-   * *   **1**: The cancellation operation is allowed.
+   * - **-1** (default): returns all tasks.
+   * 
+   * - **0**: returns only tasks that cannot be canceled.
+   * 
+   * - **1**: returns only tasks that can be canceled.
    * 
    * @example
-   * ***
+   * -1
    */
   allowCancel?: number;
   /**
    * @remarks
-   * Specifies whether to allow the modification operation. Valid values:
+   * Specifies whether the time can be changed. Valid values:
    * 
-   * *   **0**: The modification operation is not allowed.
-   * *   **1**: The modification operation is allowed.
+   * - **-1** (default): returns all tasks.
+   * 
+   * - **0**: returns only tasks whose time cannot be changed.
+   * 
+   * - **1**: returns only tasks whose time can be changed.
    * 
    * @example
    * -1
@@ -27,11 +33,13 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   allowChange?: number;
   /**
    * @remarks
-   * The type of task configuration change. Valid values:
+   * The level of the task. Valid values:
    * 
-   * *   **all** (default): The configurations of all O\\&M tasks are changed.
-   * *   **S0**: The configurations of tasks initiated to fix exceptions are changed.
-   * *   **S1**: The configurations of system O\\&M tasks are changed.
+   * - **all** (default): returns all tasks.
+   * 
+   * - **S0**: returns tasks for exception fixing.
+   * 
+   * - **S1**: returns tasks for system O\\&M.
    * 
    * @example
    * ***
@@ -39,25 +47,25 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   changeLevel?: string;
   /**
    * @remarks
-   * The type of the database engine.
+   * The database type. Default value: **all**.
    * 
    * @example
-   * ***
+   * mongoDb
    */
   dbType?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The name of the instance. This parameter is optional. You can specify only one instance name.
    * 
    * @example
-   * dds-bp16aaccfe10e3e4
+   * dds-bp16aaccfe10****
    */
   insName?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Specify the parameter to a positive integer that is greater than **0**. Default value: **1**.
+   * The page number. The value must be greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -65,7 +73,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -73,17 +81,17 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the service.
+   * The product name. For MongoDB instances, set this parameter to **MongoDB**.
    * 
    * @example
-   * ***
+   * MongoDB
    */
   productId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the pending event is located. Call the DescribeRegions operation to obtain the region ID.
    * 
-   * >  If you set the Region parameter to **all**, all tasks created within your Alibaba Cloud account are queried. In this case, you must set the **taskType** parameter to **all**.
+   * > A value of **all** indicates all region IDs.
    * 
    * @example
    * cn-beijing
@@ -91,7 +99,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmyiu4ekp****
@@ -101,23 +109,40 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. This parameter filters the returned tasks.
    * 
-   * *   **0**: waiting for execution
-   * *   **1**: being executed
-   * *   **2**: successful
-   * *   **3**: failed
+   * - **-1**: all tasks.
+   * 
+   * - **3**: pending tasks.
+   * 
+   * - **4**: running tasks.
+   * 
+   * - **5**: successfully completed tasks.
+   * 
+   * - **6**: failed tasks.
+   * 
+   * - **7**: canceled tasks.
    * 
    * @example
-   * 0
+   * -1
    */
   status?: number;
   /**
    * @remarks
-   * The task type.
+   * The task type. Valid values:
+   * 
+   * - **rds_apsaradb_ha**: primary-secondary node switchover.
+   * 
+   * - **rds_apsaradb_transfer**: instance migration.
+   * 
+   * - **rds_apsaradb_upgrade**: minor version upgrade.
+   * 
+   * - **rds_apsaradb_maxscale**: proxy minor version upgrade.
+   * 
+   * - **all**: all task types.
    * 
    * @example
-   * ***
+   * all
    */
   taskType?: string;
   static names(): { [key: string]: string } {

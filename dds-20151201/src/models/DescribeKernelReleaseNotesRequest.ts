@@ -7,7 +7,7 @@ export class DescribeKernelReleaseNotesRequest extends $dara.Model {
    * @remarks
    * The minor version number of the instance. Example: **mongodb_20180522_0.4.8**.
    * 
-   * *   This parameter is required. After you specify a version number for this parameter in a request, the release notes of the versions later than this version are returned.
+   * - This parameter is required. After you specify a version number for this parameter in a request, the release notes of the versions later than this version are returned.
    * 
    * @example
    * mongodb_20180522_0.4.8

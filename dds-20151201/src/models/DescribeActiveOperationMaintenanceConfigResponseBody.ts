@@ -5,39 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The time when the O\\&M task was created. The timefollows the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC.
+   * The time when the O\\&M task configuration was created. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format and is displayed in UTC.
    * 
    * @example
-   * 2022-01-20T00:05:54+08:00
+   * 2018-05-30T14:30:00Z
    */
   createdTime?: string;
   /**
    * @remarks
-   * The start time of the O\\&M period. The time follows the *hh:mm* z format. The time is displayed in UTC.
+   * The days of the cycle.
+   * 
+   * - If CycleType is set to Month, this parameter returns the days of the month. Valid values: 1 to 28. Multiple values are separated by commas (,).
+   * 
+   * - If CycleType is set to Week, this parameter returns the days of the week. Valid values: 1 to 7. Multiple values are separated by commas (,).
    * 
    * @example
-   * 6
+   * 1,2,3
    */
   cycleTime?: string;
   /**
    * @remarks
-   * The cyclical type of the O\\&M task.
+   * The cycle type.
+   * 
+   * - Month
+   * 
+   * - Week
    * 
    * @example
-   * ***
+   * Month
    */
   cycleType?: string;
   /**
    * @remarks
-   * The end time of the maintenance window. The time follows the *hh:mm*z format. The time is displayed in UTC.
+   * The end time of the O\\&M time window. The time is in the *hh:mm:ss*Z format and is displayed in UTC.
    * 
    * @example
-   * 04:00:00Z
+   * 20:00:00Z
    */
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window. The time follows the *hh:mm*z format.
+   * The start time of the O\\&M time window. The time is in the *hh:mm:ss*Z format and is displayed in UTC.
    * 
    * @example
    * 18:00:00Z
@@ -45,15 +53,19 @@ export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends 
   maintainStartTime?: string;
   /**
    * @remarks
-   * The time when the O\\&M task was modified. The time follows the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in Coordinated Universal Time (UTC).
+   * The time when the operations and maintenance (O\\&M) task configuration was modified. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format and is displayed in UTC.
    * 
    * @example
-   * 2021-07-26T05:50:34.000+00:00
+   * 2024-05-30T14:30:00Z
    */
   modifiedTime?: string;
   /**
    * @remarks
-   * The state of the O\\&M task. Valid values: **0**: The O\\&M task is in the starting state. **1**: The O\\&M task is in the running state. **2**: The O\\&M task is in the stopped state.
+   * Indicates whether the configuration is enabled.
+   * 
+   * - 1: Enabled
+   * 
+   * - 2: Disabled
    * 
    * @example
    * 1
@@ -95,15 +107,16 @@ export class DescribeActiveOperationMaintenanceConfigResponseBodyConfig extends 
 export class DescribeActiveOperationMaintenanceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the configuration.
+   * The details of the configuration.
    */
   config?: DescribeActiveOperationMaintenanceConfigResponseBodyConfig;
   /**
    * @remarks
-   * Indicates whether the O\\&M task is configured. Valid values:
+   * Indicates whether a configuration is set.
    * 
-   * *   1: The O\\&M task is configured.
-   * *   0: The O\\&M task is not configured.
+   * - 1: A configuration is set.
+   * 
+   * - 0: No configuration is set.
    * 
    * @example
    * 0
@@ -111,7 +124,7 @@ export class DescribeActiveOperationMaintenanceConfigResponseBody extends $dara.
   hasConfig?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 72651AF9-7897-41A7-8B67-6C15C7F26A0A

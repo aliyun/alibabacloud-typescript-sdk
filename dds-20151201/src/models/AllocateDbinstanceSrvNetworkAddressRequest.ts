@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateDBInstanceSrvNetworkAddressRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,11 @@ export class AllocateDBInstanceSrvNetworkAddressRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The ID of a mongos or shard node in a sharded cluster instance.
+   * 
+   * > This parameter is not currently required.
+   * 
    * @example
    * d-bp1b7bb3bbe****
    */
@@ -21,6 +28,15 @@ export class AllocateDBInstanceSrvNetworkAddressRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The type of SRV connection string to enable.
+   * 
+   * - `vpc`: SRV connection string for the VPC.
+   * 
+   * - `public`: Public SRV connection string.
+   * 
+   * > The default is the VPC connection string.
+   * 
    * @example
    * vpc
    */

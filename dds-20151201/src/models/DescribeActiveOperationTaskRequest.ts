@@ -5,11 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the historical tasks. 
+   * Specifies whether to return the historical tasks.
    * 
    * Default value: 0. Valid values:
    * 
    * - 0: returns the current task.
+   * 
    * - 1: returns the historical tasks.
    * 
    * @example
@@ -46,7 +47,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
    * @remarks
    * The region ID of the instance.
    * 
-   * >  If you set the Region parameter to **all**, all tasks created within your Alibaba Cloud account are queried. In this case, you must set the **taskType** parameter to **all**.
+   * > If you set the Region parameter to **all**, all tasks created within your Alibaba Cloud account are queried. In this case, you must set the **taskType** parameter to **all**.
    * 
    * This parameter is required.
    * 
@@ -61,7 +62,9 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
    * The type of the task. Valid values:
    * 
    * - rds_apsaradb_ha: master-replica switchover
+   * 
    * - rds_apsaradb_transfer: instance migration
+   * 
    * - rds_apsaradb_upgrade: minor version update
    * 
    * This parameter is required.

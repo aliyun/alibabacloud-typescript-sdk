@@ -90,21 +90,33 @@ export class DescribeBinlogFilesResponseBodyItems extends $dara.Model {
 export class DescribeBinlogFilesResponseBody extends $dara.Model {
   items?: DescribeBinlogFilesResponseBodyItems;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 30
    */
   maxRecordsPerPage?: number;
   /**
+   * @remarks
+   * The page number of the returned results.
+   * 
    * @example
    * 3
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F8CA8312-530A-413A-9129-F2BB32A8D404
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of binlog files found.
+   * 
    * @example
    * 240
    */
