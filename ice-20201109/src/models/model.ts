@@ -654,6 +654,7 @@ export { SubmitCopyrightExtractJobResponseBodyData } from './SubmitCopyrightExtr
 export { SubmitCopyrightJobRequestInput } from './SubmitCopyrightJobRequest';
 export { SubmitCopyrightJobRequestOutput } from './SubmitCopyrightJobRequest';
 export { SubmitCopyrightJobResponseBodyData } from './SubmitCopyrightJobResponseBody';
+export { SubmitCosyVoiceCustomizedVoiceJobResponseBodyData } from './SubmitCosyVoiceCustomizedVoiceJobResponseBody';
 export { SubmitCustomizedVoiceJobResponseBodyData } from './SubmitCustomizedVoiceJobResponseBody';
 export { SubmitDNAJobRequestInput } from './SubmitDnajobRequest';
 export { SubmitDynamicImageJobRequestInput } from './SubmitDynamicImageJobRequest';
@@ -1883,6 +1884,9 @@ export { SubmitCopyrightJobRequest } from './SubmitCopyrightJobRequest';
 export { SubmitCopyrightJobShrinkRequest } from './SubmitCopyrightJobShrinkRequest';
 export { SubmitCopyrightJobResponseBody } from './SubmitCopyrightJobResponseBody';
 export { SubmitCopyrightJobResponse } from './SubmitCopyrightJobResponse';
+export { SubmitCosyVoiceCustomizedVoiceJobRequest } from './SubmitCosyVoiceCustomizedVoiceJobRequest';
+export { SubmitCosyVoiceCustomizedVoiceJobResponseBody } from './SubmitCosyVoiceCustomizedVoiceJobResponseBody';
+export { SubmitCosyVoiceCustomizedVoiceJobResponse } from './SubmitCosyVoiceCustomizedVoiceJobResponse';
 export { SubmitCustomizedVoiceJobRequest } from './SubmitCustomizedVoiceJobRequest';
 export { SubmitCustomizedVoiceJobResponseBody } from './SubmitCustomizedVoiceJobResponseBody';
 export { SubmitCustomizedVoiceJobResponse } from './SubmitCustomizedVoiceJobResponse';

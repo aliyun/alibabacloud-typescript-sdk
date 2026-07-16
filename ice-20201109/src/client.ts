@@ -18508,6 +18508,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a CosyVoice voice cloning training task.
+   * 
+   * @remarks
+   * - During training, you can call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to check whether the current task is complete and to obtain the training status.
+   * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit the task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is sent through a callback notification. You can also call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to query the task status.
+   * 
+   * @param request - SubmitCosyVoiceCustomizedVoiceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCosyVoiceCustomizedVoiceJobResponse
+   */
+  async submitCosyVoiceCustomizedVoiceJobWithOptions(request: $_model.SubmitCosyVoiceCustomizedVoiceJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitCosyVoiceCustomizedVoiceJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.audios)) {
+      query["Audios"] = request.audios;
+    }
+
+    if (!$dara.isNull(request.demoAudioMediaURL)) {
+      query["DemoAudioMediaURL"] = request.demoAudioMediaURL;
+    }
+
+    if (!$dara.isNull(request.gender)) {
+      query["Gender"] = request.gender;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.voiceName)) {
+      query["VoiceName"] = request.voiceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitCosyVoiceCustomizedVoiceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitCosyVoiceCustomizedVoiceJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitCosyVoiceCustomizedVoiceJobResponse({}));
+  }
+
+  /**
+   * Submits a CosyVoice voice cloning training task.
+   * 
+   * @remarks
+   * - During training, you can call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to check whether the current task is complete and to obtain the training status.
+   * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit the task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is sent through a callback notification. You can also call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to query the task status.
+   * 
+   * @param request - SubmitCosyVoiceCustomizedVoiceJobRequest
+   * @returns SubmitCosyVoiceCustomizedVoiceJobResponse
+   */
+  async submitCosyVoiceCustomizedVoiceJob(request: $_model.SubmitCosyVoiceCustomizedVoiceJobRequest): Promise<$_model.SubmitCosyVoiceCustomizedVoiceJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitCosyVoiceCustomizedVoiceJobWithOptions(request, runtime);
+  }
+
+  /**
    * Submits a basic voice cloning job.
    * 
    * @remarks
