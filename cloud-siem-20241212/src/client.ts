@@ -1704,6 +1704,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a normalization schema.
+   * 
+   * @remarks
+   * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * 
+   * @param request - DeleteNormalizationSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNormalizationSchemaResponse
+   */
+  async deleteNormalizationSchemaWithOptions(request: $_model.DeleteNormalizationSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNormalizationSchemaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaId)) {
+      body["NormalizationSchemaId"] = request.normalizationSchemaId;
+    }
+
+    if (!$dara.isNull(request.normalizationSchemaType)) {
+      body["NormalizationSchemaType"] = request.normalizationSchemaType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNormalizationSchema",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNormalizationSchemaResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNormalizationSchemaResponse({}));
+  }
+
+  /**
+   * Deletes a normalization schema.
+   * 
+   * @remarks
+   * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * 
+   * @param request - DeleteNormalizationSchemaRequest
+   * @returns DeleteNormalizationSchemaResponse
+   */
+  async deleteNormalizationSchema(request: $_model.DeleteNormalizationSchemaRequest): Promise<$_model.DeleteNormalizationSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNormalizationSchemaWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a product.
    * 
    * @remarks
@@ -3985,7 +4049,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Notifications are subject to frequency and time restrictions.
-   * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+   * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
    * 
    * @param tmpReq - ListIncidentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4019,6 +4083,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.incidentStatus)) {
       body["IncidentStatus"] = request.incidentStatus;
+    }
+
+    if (!$dara.isNull(request.incidentStatusList)) {
+      body["IncidentStatusList"] = request.incidentStatusList;
     }
 
     if (!$dara.isNull(request.incidentTags)) {
@@ -4108,7 +4176,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Notifications are subject to frequency and time restrictions.
-   * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+   * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
    * 
    * @param request - ListIncidentsRequest
    * @returns ListIncidentsResponse
@@ -5968,6 +6036,88 @@ export default class Client extends OpenApi {
   async updateDataBatchIngestion(request: $_model.UpdateDataBatchIngestionRequest): Promise<$_model.UpdateDataBatchIngestionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataBatchIngestionWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a collector.
+   * 
+   * @remarks
+   * Notifications are subject to frequency and time restrictions.
+   * Each user can receive a maximum of two notifications per day between 08:00 and 20:00 (UTC+8). No notifications are sent outside this time range.
+   * 
+   * @param request - UpdateDataConnectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataConnectorResponse
+   */
+  async updateDataConnectorWithOptions(request: $_model.UpdateDataConnectorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataConnectorResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authConfigId)) {
+      body["AuthConfigId"] = request.authConfigId;
+    }
+
+    if (!$dara.isNull(request.authConfigProduct)) {
+      body["AuthConfigProduct"] = request.authConfigProduct;
+    }
+
+    if (!$dara.isNull(request.authConfigVendor)) {
+      body["AuthConfigVendor"] = request.authConfigVendor;
+    }
+
+    if (!$dara.isNull(request.dataConnectorConfig)) {
+      body["DataConnectorConfig"] = request.dataConnectorConfig;
+    }
+
+    if (!$dara.isNull(request.dataConnectorId)) {
+      body["DataConnectorId"] = request.dataConnectorId;
+    }
+
+    if (!$dara.isNull(request.dataConnectorStatus)) {
+      body["DataConnectorStatus"] = request.dataConnectorStatus;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataConnector",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataConnectorResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataConnectorResponse({}));
+  }
+
+  /**
+   * Updates a collector.
+   * 
+   * @remarks
+   * Notifications are subject to frequency and time restrictions.
+   * Each user can receive a maximum of two notifications per day between 08:00 and 20:00 (UTC+8). No notifications are sent outside this time range.
+   * 
+   * @param request - UpdateDataConnectorRequest
+   * @returns UpdateDataConnectorResponse
+   */
+  async updateDataConnector(request: $_model.UpdateDataConnectorRequest): Promise<$_model.UpdateDataConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataConnectorWithOptions(request, runtime);
   }
 
   /**

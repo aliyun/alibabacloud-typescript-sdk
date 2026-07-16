@@ -13,7 +13,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   alertUuid?: string;
   /**
    * @remarks
-   * The end time as a timestamp in milliseconds (ms).
+   * The end time as a UNIX timestamp in milliseconds (ms).
    * 
    * @example
    * 1749090526055
@@ -21,7 +21,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The name of the incident.
+   * The event name.
    * 
    * @example
    * ECS unusual log in
@@ -29,19 +29,24 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   incidentName?: string;
   /**
    * @remarks
-   * The status of the incident. Valid values:
-   * - 0: unhandled.
-   * - 1: handling.
-   * - 5: handling failed.
-   * - 10: handled.
+   * The event status. Valid values:
+   * - 0: Unhandled.
+   * - 1: Handling.
+   * - 5: Handling failed.
+   * - 10: Handled.
    * 
    * @example
    * 0
    */
   incidentStatus?: number;
   /**
+   * @example
+   * [0,1,5]
+   */
+  incidentStatusList?: string[];
+  /**
    * @remarks
-   * The tags of the incident.
+   * The event tags.
    * 
    * @example
    * [{\\"data_source\\":[\\"sas\\"]}]
@@ -49,12 +54,12 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   incidentTags?: string;
   /**
    * @remarks
-   * The list of incident UUIDs, separated by commas (,).
+   * The list of event UUIDs, separated by commas (,).
    */
   incidentUuidsShrink?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type of the response messages. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -64,7 +69,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return.
    * 
    * @example
    * 10
@@ -72,7 +77,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAASLVeIxed4466E0LVmGkzwS6hJKd9DGVGMDRM6Lu****
@@ -81,8 +86,8 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort direction. Valid values:
-   * - **desc** (default): descending order.
-   * - **asc**: ascending order.
+   * - **desc** (default): Descending order.
+   * - **asc**: Ascending order.
    * 
    * @example
    * desc
@@ -90,9 +95,9 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * The field name used to sort the list. Valid values:
-   * - GmtModified: sorts by incident update time (default).
-   * - ThreatScore: sorts by threat score.
+   * The name of the field used to sort the list.
+   * - GmtModified: Event update time (default).
+   * - ThreatScore: Threat score.
    * 
    * @example
    * GmtModified
@@ -100,7 +105,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   orderFieldName?: string;
   /**
    * @remarks
-   * The UID of the account that owns the incident.
+   * The UID of the account responsible for the event.
    */
   owners?: string[];
   /**
@@ -125,9 +130,9 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland.
-   * - ap-southeast-1: Your assets reside outside China.
+   * The region where the threat analysis data management center is located. Select the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets are located in the Chinese mainland.
+   * - ap-southeast-1: Your assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -135,7 +140,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the asset associated with the incident.
+   * The ID of the asset associated with the event.
    * 
    * @example
    * 6c740667-80b2-476d-8924-2e706feb****
@@ -143,7 +148,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   relateAssetId?: string;
   /**
    * @remarks
-   * The ID of the entity associated with the incident.
+   * The ID of the entity associated with the event.
    * 
    * @example
    * b920ed22259f5412099e97dfda96****
@@ -160,8 +165,8 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The view type. Valid values:
-   * - 0: the view of the current Alibaba Cloud account.
-   * - 1: the view of all accounts in the enterprise.
+   * - 0: The view of the current Alibaba Cloud account.
+   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -169,7 +174,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The start time as a timestamp in milliseconds (ms).
+   * The start time as a UNIX timestamp in milliseconds (ms).
    * 
    * @example
    * 1690102943000
@@ -178,11 +183,14 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * - 5: critical.
-   * - 4: high.
-   * - 3: medium.
-   * - 2: low.
-   * - 1: informational.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
+   * 
+   * @example
+   * 5
    */
   threatLevel?: string[];
   static names(): { [key: string]: string } {
@@ -191,6 +199,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
       endTime: 'EndTime',
       incidentName: 'IncidentName',
       incidentStatus: 'IncidentStatus',
+      incidentStatusList: 'IncidentStatusList',
       incidentTags: 'IncidentTags',
       incidentUuidsShrink: 'IncidentUuids',
       lang: 'Lang',
@@ -217,6 +226,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
       endTime: 'number',
       incidentName: 'string',
       incidentStatus: 'number',
+      incidentStatusList: { 'type': 'array', 'itemType': 'string' },
       incidentTags: 'string',
       incidentUuidsShrink: 'string',
       lang: 'string',
@@ -238,6 +248,9 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.incidentStatusList)) {
+      $dara.Model.validateArray(this.incidentStatusList);
+    }
     if(Array.isArray(this.owners)) {
       $dara.Model.validateArray(this.owners);
     }

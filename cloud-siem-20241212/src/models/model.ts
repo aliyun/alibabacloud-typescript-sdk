@@ -137,6 +137,9 @@ export { DeleteNormalizationRuleResponse } from './DeleteNormalizationRuleRespon
 export { DeleteNormalizationRuleVersionRequest } from './DeleteNormalizationRuleVersionRequest';
 export { DeleteNormalizationRuleVersionResponseBody } from './DeleteNormalizationRuleVersionResponseBody';
 export { DeleteNormalizationRuleVersionResponse } from './DeleteNormalizationRuleVersionResponse';
+export { DeleteNormalizationSchemaRequest } from './DeleteNormalizationSchemaRequest';
+export { DeleteNormalizationSchemaResponseBody } from './DeleteNormalizationSchemaResponseBody';
+export { DeleteNormalizationSchemaResponse } from './DeleteNormalizationSchemaResponse';
 export { DeleteProductRequest } from './DeleteProductRequest';
 export { DeleteProductResponseBody } from './DeleteProductResponseBody';
 export { DeleteProductResponse } from './DeleteProductResponse';
@@ -322,6 +325,9 @@ export { UpdateDataBatchIngestionRequest } from './UpdateDataBatchIngestionReque
 export { UpdateDataBatchIngestionShrinkRequest } from './UpdateDataBatchIngestionShrinkRequest';
 export { UpdateDataBatchIngestionResponseBody } from './UpdateDataBatchIngestionResponseBody';
 export { UpdateDataBatchIngestionResponse } from './UpdateDataBatchIngestionResponse';
+export { UpdateDataConnectorRequest } from './UpdateDataConnectorRequest';
+export { UpdateDataConnectorResponseBody } from './UpdateDataConnectorResponseBody';
+export { UpdateDataConnectorResponse } from './UpdateDataConnectorResponse';
 export { UpdateDataIngestionRequest } from './UpdateDataIngestionRequest';
 export { UpdateDataIngestionResponseBody } from './UpdateDataIngestionResponseBody';
 export { UpdateDataIngestionResponse } from './UpdateDataIngestionResponse';

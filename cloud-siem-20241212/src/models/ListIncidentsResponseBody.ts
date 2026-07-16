@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIncidentsResponseBodyIncidents extends $dara.Model {
+  alertInfos?: string;
+  attckTactics?: string;
   /**
    * @remarks
    * The creation time.
@@ -13,15 +15,17 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the detection rule.
+   * The detection rule ID.
    * 
    * @example
    * dr-qo5ww6ux0uc28*****
    */
   detectionRuleId?: string;
+  entityInfos?: string;
+  incidentDescription?: string;
   /**
    * @remarks
-   * The name of the incident.
+   * The event name.
    * 
    * @example
    * ECS unusual log in
@@ -29,7 +33,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentName?: string;
   /**
    * @remarks
-   * The remarks of the incident.
+   * The event remark.
    * 
    * @example
    * remark
@@ -37,11 +41,11 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentRemark?: string;
   /**
    * @remarks
-   * The status of the incident. Valid values:
-   * - 0: unhandled.
-   * - 1: handling.
-   * - 5: handling failed.
-   * - 10: handled.
+   * The event status. Valid values:
+   * - 0: Unhandled.
+   * - 1: Handling.
+   * - 5: Handling failed.
+   * - 10: Handled.
    * 
    * @example
    * 0
@@ -49,7 +53,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentStatus?: number;
   /**
    * @remarks
-   * The tags of the incident.
+   * The event tags.
    * 
    * @example
    * ["sys:data_source:siem","sys:trigger_type:auto"]
@@ -57,7 +61,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentTags?: string;
   /**
    * @remarks
-   * The UUID of the incident.
+   * The event UUID.
    * 
    * @example
    * dbb1d7211c9285c862aa89385098****
@@ -65,7 +69,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The UID of the account that owns the incident.
+   * The UID of the account responsible for the event.
    * 
    * @example
    * 1234567890xxxxxx
@@ -73,7 +77,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The number of alerts associated with the incident.
+   * The number of alerts associated with the event.
    * 
    * @example
    * 3
@@ -81,7 +85,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   relateAlertCount?: number;
   /**
    * @remarks
-   * The number of assets associated with the incident.
+   * The number of assets associated with the event.
    * 
    * @example
    * 4
@@ -98,11 +102,11 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * - 5: critical.
-   * - 4: high.
-   * - 3: medium.
-   * - 2: low.
-   * - 1: informational.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
    * 
    * @example
    * 2
@@ -118,8 +122,12 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      alertInfos: 'AlertInfos',
+      attckTactics: 'AttckTactics',
       createTime: 'CreateTime',
       detectionRuleId: 'DetectionRuleId',
+      entityInfos: 'EntityInfos',
+      incidentDescription: 'IncidentDescription',
       incidentName: 'IncidentName',
       incidentRemark: 'IncidentRemark',
       incidentStatus: 'IncidentStatus',
@@ -136,8 +144,12 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alertInfos: 'string',
+      attckTactics: 'string',
       createTime: 'number',
       detectionRuleId: 'string',
+      entityInfos: 'string',
+      incidentDescription: 'string',
       incidentName: 'string',
       incidentRemark: 'string',
       incidentStatus: 'number',
@@ -164,12 +176,12 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
 export class ListIncidentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of incidents.
+   * The list of events.
    */
   incidents?: ListIncidentsResponseBodyIncidents[];
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return.
    * 
    * @example
    * 50
@@ -177,7 +189,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
