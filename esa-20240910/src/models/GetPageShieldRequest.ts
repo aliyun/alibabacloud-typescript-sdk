@@ -2,48 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteEdgeContainerAppRecordRequest extends $dara.Model {
+export class GetPageShieldRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The site ID. You can obtain the ID by calling [ListSites](~~ListSites~~).
    * 
    * This parameter is required.
    * 
    * @example
-   * app-88068867578379****
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The associated domain name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a.example.com
-   */
-  recordName?: string;
-  /**
-   * @remarks
-   * The site ID.
-   * 
-   * @example
-   * 5407498413****
+   * 123456****
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      recordName: 'RecordName',
       siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      recordName: 'string',
       siteId: 'number',
+      siteVersion: 'number',
     };
   }
 

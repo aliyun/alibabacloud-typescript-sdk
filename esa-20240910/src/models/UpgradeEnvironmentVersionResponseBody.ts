@@ -2,33 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the created application.
-   * 
-   * @example
-   * app-880688675783794688
-   */
-  appId?: string;
+export class UpgradeEnvironmentVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   * B49E6DDA-F413-422B-B58E-2FA23F286726
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
       requestId: 'string',
     };
   }

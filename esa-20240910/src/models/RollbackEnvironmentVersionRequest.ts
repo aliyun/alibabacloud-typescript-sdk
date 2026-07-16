@@ -2,47 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteEdgeContainerAppRecordRequest extends $dara.Model {
+export class RollbackEnvironmentVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The environment name.
    * 
    * This parameter is required.
    * 
    * @example
-   * app-88068867578379****
+   * 默认环境
    */
-  appId?: string;
+  environmentName?: string;
   /**
    * @remarks
-   * The associated domain name.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * a.example.com
-   */
-  recordName?: string;
-  /**
-   * @remarks
-   * The site ID.
-   * 
-   * @example
-   * 5407498413****
+   * 33862229675****
    */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      recordName: 'RecordName',
+      environmentName: 'EnvironmentName',
       siteId: 'SiteId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      recordName: 'string',
+      environmentName: 'string',
       siteId: 'number',
     };
   }

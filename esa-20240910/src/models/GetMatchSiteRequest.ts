@@ -2,34 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
+export class GetMatchSiteRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created application.
+   * The record name.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * app-880688675783794688
+   * www.example.com
    */
-  appId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
-  requestId?: string;
+  recordName?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      requestId: 'RequestId',
+      recordName: 'RecordName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      requestId: 'string',
+      recordName: 'string',
     };
   }
 

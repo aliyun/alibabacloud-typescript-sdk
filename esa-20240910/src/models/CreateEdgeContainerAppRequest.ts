@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEdgeContainerAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of consecutive failed health checks required for an application to be considered as unhealthy. Valid values: 1 to 10. Default value: 5.
+   * The number of consecutive failed health checks required before a healthy application is considered unhealthy.
+   * - Valid values: **1 to 10**. 
+   * - Default value: **5**.
    * 
    * @example
    * 3
@@ -13,7 +15,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckFailTimes?: number;
   /**
    * @remarks
-   * The domain name that is used for health checks. This parameter is empty by default.
+   * The domain name used for health checks. If this parameter is not specified, the value is empty by default.
    * 
    * @example
    * www.aliyun.com
@@ -21,10 +23,10 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckHost?: string;
   /**
    * @remarks
-   * The HTTP status code returned for a successful health check. Valid values:
+   * The HTTP status code that indicates the health check is Normal. Valid values:
    * 
-   * *   **http_2xx** (default)
-   * *   **http_3xx**
+   * - **http_2xx** (default).
+   * - **http_3xx**.
    * 
    * @example
    * http_2xx
@@ -32,7 +34,10 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckHttpCode?: string;
   /**
    * @remarks
-   * The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**. Default value: **5**.
+   * The interval between health checks.
+   * - Valid values: **1** to **50**.
+   * - Default value: **5**.
+   * - Unit: **seconds**.
    * 
    * @example
    * 5
@@ -40,10 +45,10 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The HTTP request method for health checks. Valid values:
+   * The health check method for HTTP-type listeners. Valid values:
    * 
-   * *   **HEAD** (default): requests the headers of the resource.
-   * *   **GET**: requests the specified resource and returns both the headers and entity body.
+   * - **HEAD** (default): requests only the header of the page.
+   * - **GET**: requests the specified page information and returns the entity body.
    * 
    * @example
    * HEAD
@@ -51,7 +56,9 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckMethod?: string;
   /**
    * @remarks
-   * The port used for health checks. Valid values: 1 to 65535. Default value: 80.
+   * The port used for health checks.
+   * - Valid values: **1 to 65535**.
+   * - Default value: **80**.
    * 
    * @example
    * 80
@@ -59,7 +66,9 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckPort?: number;
   /**
    * @remarks
-   * The number of consecutive successful health checks required for an application to be considered as healthy. Valid values: 1 to 10. Default value: 2.
+   * The number of consecutive successful health checks required before an unhealthy application is considered healthy.
+   * - Valid values: **1 to 10**.
+   * - Default value: **2**.
    * 
    * @example
    * 2
@@ -67,9 +76,11 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckSuccTimes?: number;
   /**
    * @remarks
-   * The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. Unit: seconds.\\
-   * Valid values: **1** to **100**.\\
-   * Default value: **3**.
+   * The amount of time to wait for a response from the health check. If the backend ECS instance does not respond within the specified time, the health check is considered failed.    
+   * 
+   * - Valid values: **1** to **100**.   
+   * - Default value: **3**.
+   * - Unit: **seconds**.
    * 
    * @example
    * 5
@@ -77,12 +88,12 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckTimeout?: number;
   /**
    * @remarks
-   * The health check type. By default, this parameter is left empty.
+   * The health check type, which includes Layer 4 and Layer 7 probing. If this parameter is not specified, the value is empty by default.
    * 
    * Valid values:
    * 
-   * *   **l4**: Layer 4 health check.
-   * *   **l7**: Layer 7 health check.
+   * - **l4**: Layer 4 probing.
+   * - **l7**: Layer 7 probing.
    * 
    * @example
    * l7
@@ -90,7 +101,9 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckType?: string;
   /**
    * @remarks
-   * The URI used for health checks. The URI must be **1** to **80** characters in length. Default value: "/".
+   * The URI used for health checks.
+   * - Length limit: **1** to **80** characters.
+   * - Default value: **"/"**.
    * 
    * @example
    * /health_check
@@ -98,7 +111,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckURI?: string;
   /**
    * @remarks
-   * The name of the application. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-). The name must be 6 to 128 characters in length.
+   * The application name. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-). The name must be 6 to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -108,7 +121,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The remarks. This parameter is empty by default.
+   * The remarks. If this parameter is not specified, the value is empty by default.
    * 
    * @example
    * test app
@@ -116,7 +129,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   remarks?: string;
   /**
    * @remarks
-   * The server port. Valid values: 1 to 65535.
+   * The service port number. Valid values: 1 to 65535.
    * 
    * This parameter is required.
    * 

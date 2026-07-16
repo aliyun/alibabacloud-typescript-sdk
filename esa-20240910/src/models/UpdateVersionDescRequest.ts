@@ -2,48 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteEdgeContainerAppRecordRequest extends $dara.Model {
+export class UpdateVersionDescRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The description of the version.
    * 
    * This parameter is required.
    * 
    * @example
-   * app-88068867578379****
+   * 更新版本。
    */
-  appId?: string;
+  description?: string;
   /**
    * @remarks
-   * The associated domain name.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * a.example.com
-   */
-  recordName?: string;
-  /**
-   * @remarks
-   * The site ID.
-   * 
-   * @example
-   * 5407498413****
+   * 134567****
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version number to be updated.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      recordName: 'RecordName',
+      description: 'Description',
       siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      recordName: 'string',
+      description: 'string',
       siteId: 'number',
+      siteVersion: 'number',
     };
   }
 

@@ -2,33 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
+export class CloneVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created application.
+   * The version number of the cloned version.
    * 
    * @example
-   * app-880688675783794688
+   * 1
    */
-  appId?: string;
+  cloneVersion?: number;
+  /**
+   * @remarks
+   * The version number that was cloned.
+   * 
+   * @example
+   * 0
+   */
+  originVersion?: number;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
+      cloneVersion: 'CloneVersion',
+      originVersion: 'OriginVersion',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
+      cloneVersion: 'number',
+      originVersion: 'number',
       requestId: 'string',
     };
   }

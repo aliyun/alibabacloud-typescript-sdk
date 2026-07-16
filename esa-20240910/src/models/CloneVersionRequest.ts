@@ -2,48 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteEdgeContainerAppRecordRequest extends $dara.Model {
+export class CloneVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * app-88068867578379****
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The associated domain name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a.example.com
-   */
-  recordName?: string;
-  /**
-   * @remarks
-   * The site ID.
-   * 
-   * @example
-   * 5407498413****
+   * 15846237886****
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The site version number to be cloned.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      recordName: 'RecordName',
       siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      recordName: 'string',
       siteId: 'number',
+      siteVersion: 'number',
     };
   }
 

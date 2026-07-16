@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends $dara.Model {
   /**
    * @remarks
-   * The domain name of the Container Registry image.
+   * The ACR image domain name.
    * 
    * @example
    * 1500.***.net
@@ -13,7 +13,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   domain?: string;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The ACR instance ID.
    * 
    * @example
    * xcdn-9axbo****
@@ -21,7 +21,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the image is an enterprise-level Container Registry image.
+   * Specifies whether the image is an enterprise-level image.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   isEnterpriseRegistry?: boolean;
   /**
    * @remarks
-   * The regions in which the Container Registry instance resides.
+   * The list of regions for the ACR instance.
    * 
    * @example
    * cn-shanghai
@@ -37,7 +37,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   regionId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The repository ID of the image.
    * 
    * @example
    * crr-h1ghghu60ct****
@@ -45,7 +45,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   repoId?: string;
   /**
    * @remarks
-   * The name of the image repository.
+   * The image repository name.
    * 
    * @example
    * test_71
@@ -53,7 +53,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * safeline
@@ -61,7 +61,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   repoNamespace?: string;
   /**
    * @remarks
-   * The tag of the Container Registry image.
+   * The ACR image tag.
    * 
    * @example
    * 3.40.2
@@ -69,7 +69,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   tag?: string;
   /**
    * @remarks
-   * The URL of the Container Registry image tag.
+   * The ACR image tag URL.
    */
   tagUrl?: string;
   static names(): { [key: string]: string } {
@@ -112,7 +112,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
 export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends $dara.Model {
   /**
    * @remarks
-   * The command of the exec type probe.
+   * The probe command for the exec probe type.
    * 
    * @example
    * echo ok
@@ -120,7 +120,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   command?: string;
   /**
    * @remarks
-   * The number of consecutive failed health checks required for a container to be considered as unhealthy.
+   * The number of consecutive failed health checks required.
    * 
    * @example
    * 3
@@ -128,7 +128,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   failureThreshold?: number;
   /**
    * @remarks
-   * The domain name that is used for health checks.
+   * The domain name for the health check.
    * 
    * @example
    * www.rewrite.com
@@ -136,7 +136,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   host?: string;
   /**
    * @remarks
-   * The request headers that are included in the container health check request.
+   * The HTTP request headers.
    * 
    * @example
    * [{\\"Content-Type\\":\\"application/json\\"}]
@@ -144,7 +144,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   httpHeaders?: string;
   /**
    * @remarks
-   * The latency for container probe initialization.
+   * The initial delay before the container probe starts, in seconds.
    * 
    * @example
    * 1
@@ -152,7 +152,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   initialDelaySeconds?: number;
   /**
    * @remarks
-   * The health check path.
+   * The path for the container health check.
    * 
    * @example
    * /
@@ -160,7 +160,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   path?: string;
   /**
    * @remarks
-   * The interval between container health checks.
+   * The interval between container health checks, in seconds.
    * 
    * @example
    * 1
@@ -168,7 +168,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   periodSeconds?: number;
   /**
    * @remarks
-   * The health check port.
+   * The port for the container health check.
    * 
    * @example
    * 9991
@@ -176,7 +176,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   port?: number;
   /**
    * @remarks
-   * The protocol that the container health check request uses.
+   * The request protocol for the health check.
    * 
    * @example
    * http
@@ -184,7 +184,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   scheme?: string;
   /**
    * @remarks
-   * The number of consecutive successful health checks required for a container to be considered as healthy.
+   * The number of consecutive successful health checks required.
    * 
    * @example
    * 1
@@ -192,7 +192,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   successThreshold?: number;
   /**
    * @remarks
-   * The timeout period of the container health check.
+   * The timeout period for the container health check, in seconds.
    * 
    * @example
    * 1
@@ -242,12 +242,12 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
 export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model {
   /**
    * @remarks
-   * The information about the Container Registry image.
+   * The ACR image information.
    */
   ACRImageInfo?: CreateEdgeContainerAppVersionRequestContainersACRImageInfo;
   /**
    * @remarks
-   * The arguments that are passed to the container startup command. Separate the parameters with spaces.
+   * The startup parameters. Separate multiple parameters with spaces.
    * 
    * @example
    * -a
@@ -255,7 +255,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   args?: string;
   /**
    * @remarks
-   * The command that is used to start the container. Separate the arguments with spaces.
+   * The startup command. Separate multiple commands with spaces.
    * 
    * @example
    * nginx
@@ -263,7 +263,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   command?: string;
   /**
    * @remarks
-   * The environment variables. Separate the environment variables with commas (,).
+   * The environment variables, in the format of key1=val1,key2=val2.
    * 
    * @example
    * VITE_APP_TITLE=My App
@@ -271,7 +271,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   envVariables?: string;
   /**
    * @remarks
-   * The address of the image.
+   * The image address.
    * 
    * This parameter is required.
    * 
@@ -281,7 +281,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   image?: string;
   /**
    * @remarks
-   * Specifies whether the image is a Container Registry image.
+   * Specifies whether the image is an Alibaba Cloud Container Registry (ACR) image.
    * 
    * This parameter is required.
    * 
@@ -291,7 +291,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   isACRImage?: boolean;
   /**
    * @remarks
-   * The name of the container. The name must be unique in the same container group.
+   * The container name. The name must be unique within the same container group.
    * 
    * This parameter is required.
    * 
@@ -301,7 +301,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The command that is run before the container is started. Separate the arguments with spaces.
+   * The command to run before the container starts. Separate multiple commands with spaces. This command runs before the service starts and is typically used for initialization operations.
    * 
    * @example
    * sh poststart.sh "echo hello world"
@@ -309,7 +309,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   postStart?: string;
   /**
    * @remarks
-   * The command that is run before the container is stopped. Separate the arguments with spaces.
+   * The command to run before the container stops. Separate multiple commands with spaces. This command runs before the service exits and is typically used for cleanup operations.
    * 
    * @example
    * sh prestop.sh "echo hello world"
@@ -317,7 +317,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   preStop?: string;
   /**
    * @remarks
-   * The content of the container health probe.
+   * The container health probe content.
    * 
    * This parameter is required.
    * 
@@ -327,13 +327,10 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   probeContent?: CreateEdgeContainerAppVersionRequestContainersProbeContent;
   /**
    * @remarks
-   * The type of the probe. Valid values:
-   * 
-   * - exec: the command type.
-   * 
-   * - tcpSocket: the TCP probe type.
-   * 
-   * - httpGet: the HTTP access type.
+   * The probe type. Valid values:
+   * - **exec**: command-based.
+   * - **tcpSocket**: TCP-based.
+   * - **httpGet**: HTTP-based.
    * 
    * This parameter is required.
    * 
@@ -343,7 +340,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   probeType?: string;
   /**
    * @remarks
-   * The compute specification of the container. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
+   * The container specifications. This parameter specifies the computing specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
    * 
    * This parameter is required.
    * 
@@ -415,7 +412,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
 export class CreateEdgeContainerAppVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
    * 
    * This parameter is required.
    * 
@@ -425,7 +422,7 @@ export class CreateEdgeContainerAppVersionRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The container group to be deployed for this version, which contains information about images.<br> The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
+   * The container group to deploy for this version, including specific image information. The image information consists of the image address, startup commands, parameters, environment variables, and probe rules. Multiple images are supported. This parameter is a JSON array.
    * 
    * This parameter is required.
    * 
@@ -452,7 +449,7 @@ export class CreateEdgeContainerAppVersionRequest extends $dara.Model {
   containers?: CreateEdgeContainerAppVersionRequestContainers[];
   /**
    * @remarks
-   * The version name, which must be 6 to 128 characters in length.
+   * The version name. The name must be **6 to 128** characters in length.
    * 
    * This parameter is required.
    * 
@@ -462,7 +459,7 @@ export class CreateEdgeContainerAppVersionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The description of the version.
+   * The remarks.
    * 
    * @example
    * test app

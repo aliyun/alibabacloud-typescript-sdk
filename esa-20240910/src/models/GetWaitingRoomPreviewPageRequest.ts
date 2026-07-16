@@ -2,34 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
+export class GetWaitingRoomPreviewPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created application.
+   * The custom waiting room page content. This parameter is required when the waiting room type is custom. The content must be URL-encoded.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * app-880688675783794688
+   * Hello%20world!
    */
-  appId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
-  requestId?: string;
+  customPageHtml?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      requestId: 'RequestId',
+      customPageHtml: 'CustomPageHtml',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      requestId: 'string',
+      customPageHtml: 'string',
     };
   }
 

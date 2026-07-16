@@ -1441,6 +1441,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Clones a new site version based on a specified site version.
+   * 
+   * @param request - CloneVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneVersionResponse
+   */
+  async cloneVersionWithOptions(request: $_model.CloneVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloneVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloneVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloneVersionResponse>(await this.callApi(params, req, runtime), new $_model.CloneVersionResponse({}));
+  }
+
+  /**
+   * Clones a new site version based on a specified site version.
+   * 
+   * @param request - CloneVersionRequest
+   * @returns CloneVersionResponse
+   */
+  async cloneVersion(request: $_model.CloneVersionRequest): Promise<$_model.CloneVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloneVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Submits the staging (unstable) code of an Edge Routine and generates a production version.
    * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
    * 
@@ -1991,7 +2037,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+   * Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+   * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
    * 
    * @param request - CreateEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2074,7 +2121,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+   * Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+   * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
    * 
    * @param request - CreateEdgeContainerAppRequest
    * @returns CreateEdgeContainerAppResponse
@@ -2189,7 +2237,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a version for a containerized application. You can iterate the application based on the version.
+   * Creates an edge container application version. You can iteratively publish applications by version.
+   * Note:
+   * 1) Your account must have an ESA plan with the Edge Container feature enabled.
+   * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
+   * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
    * 
    * @param tmpReq - CreateEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2238,7 +2290,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a version for a containerized application. You can iterate the application based on the version.
+   * Creates an edge container application version. You can iteratively publish applications by version.
+   * Note:
+   * 1) Your account must have an ESA plan with the Edge Container feature enabled.
+   * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
+   * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
    * 
    * @param request - CreateEdgeContainerAppVersionRequest
    * @returns CreateEdgeContainerAppVersionResponse
@@ -2246,6 +2302,60 @@ export default class Client extends OpenApi {
   async createEdgeContainerAppVersion(request: $_model.CreateEdgeContainerAppVersionRequest): Promise<$_model.CreateEdgeContainerAppVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEdgeContainerAppVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a site environment.
+   * 
+   * @param request - CreateEnvironmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEnvironmentResponse
+   */
+  async createEnvironmentWithOptions(request: $_model.CreateEnvironmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEnvironmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.environmentName)) {
+      query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!$dara.isNull(request.nextEnvironmentName)) {
+      query["NextEnvironmentName"] = request.nextEnvironmentName;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEnvironment",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateEnvironmentResponse>(await this.callApi(params, req, runtime), new $_model.CreateEnvironmentResponse({}));
+  }
+
+  /**
+   * Creates a site environment.
+   * 
+   * @param request - CreateEnvironmentRequest
+   * @returns CreateEnvironmentResponse
+   */
+  async createEnvironment(request: $_model.CreateEnvironmentRequest): Promise<$_model.CreateEnvironmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createEnvironmentWithOptions(request, runtime);
   }
 
   /**
@@ -5772,7 +5882,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+   * Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
+   * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
+   * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
+   * 3) Provide a complete three-step call example: create → bindomain → delete.
    * 
    * @param request - DeleteEdgeContainerAppRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5811,7 +5924,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+   * Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
+   * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
+   * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
+   * 3) Provide a complete three-step call example: create → bindomain → delete.
    * 
    * @param request - DeleteEdgeContainerAppRecordRequest
    * @returns DeleteEdgeContainerAppRecordResponse
@@ -5865,6 +5981,52 @@ export default class Client extends OpenApi {
   async deleteEdgeContainerAppVersion(request: $_model.DeleteEdgeContainerAppVersionRequest): Promise<$_model.DeleteEdgeContainerAppVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEdgeContainerAppVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a site environment. The default environment cannot be deleted.
+   * 
+   * @param request - DeleteEnvironmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEnvironmentResponse
+   */
+  async deleteEnvironmentWithOptions(request: $_model.DeleteEnvironmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEnvironmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.environmentName)) {
+      query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEnvironment",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEnvironmentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEnvironmentResponse({}));
+  }
+
+  /**
+   * Deletes a site environment. The default environment cannot be deleted.
+   * 
+   * @param request - DeleteEnvironmentRequest
+   * @returns DeleteEnvironmentResponse
+   */
+  async deleteEnvironment(request: $_model.DeleteEnvironmentRequest): Promise<$_model.DeleteEnvironmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEnvironmentWithOptions(request, runtime);
   }
 
   /**
@@ -7502,6 +7664,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a version of a site. Version 0 cannot be deleted.
+   * 
+   * @param request - DeleteVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVersionResponse
+   */
+  async deleteVersionWithOptions(request: $_model.DeleteVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVersionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVersionResponse({}));
+  }
+
+  /**
+   * Deletes a version of a site. Version 0 cannot be deleted.
+   * 
+   * @param request - DeleteVersionRequest
+   * @returns DeleteVersionResponse
+   */
+  async deleteVersion(request: $_model.DeleteVersionRequest): Promise<$_model.DeleteVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a video processing configuration.
    * 
    * @param request - DeleteVideoProcessingRequest
@@ -7925,6 +8133,44 @@ export default class Client extends OpenApi {
   async describeCacheReservePriceGap(request: $_model.DescribeCacheReservePriceGapRequest): Promise<$_model.DescribeCacheReservePriceGapResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCacheReservePriceGapWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+   * 
+   * @param request - DescribeConditionIPBInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeConditionIPBInfoResponse
+   */
+  async describeConditionIPBInfoWithOptions(request: $_model.DescribeConditionIPBInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeConditionIPBInfoResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeConditionIPBInfo",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeConditionIPBInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeConditionIPBInfoResponse({}));
+  }
+
+  /**
+   * Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+   * 
+   * @param request - DescribeConditionIPBInfoRequest
+   * @returns DescribeConditionIPBInfoResponse
+   */
+  async describeConditionIPBInfo(request: $_model.DescribeConditionIPBInfoRequest): Promise<$_model.DescribeConditionIPBInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeConditionIPBInfoWithOptions(request, runtime);
   }
 
   /**
@@ -8851,6 +9097,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves metadata related to the rules engine.
+   * 
+   * @param request - DescribeRuleMetadataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRuleMetadataResponse
+   */
+  async describeRuleMetadataWithOptions(request: $_model.DescribeRuleMetadataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRuleMetadataResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRuleMetadata",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRuleMetadataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRuleMetadataResponse({}));
+  }
+
+  /**
+   * Retrieves metadata related to the rules engine.
+   * 
+   * @param request - DescribeRuleMetadataRequest
+   * @returns DescribeRuleMetadataResponse
+   */
+  async describeRuleMetadata(request: $_model.DescribeRuleMetadataRequest): Promise<$_model.DescribeRuleMetadataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRuleMetadataWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the URLs from which you can download the raw access logs of a website.
    * 
    * @remarks
@@ -9571,6 +9855,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+   * 
+   * @param request - ExportRecordCnamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportRecordCnamesResponse
+   */
+  async exportRecordCnamesWithOptions(request: $_model.ExportRecordCnamesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportRecordCnamesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportRecordCnames",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportRecordCnamesResponse>(await this.callApi(params, req, runtime), new $_model.ExportRecordCnamesResponse({}));
+  }
+
+  /**
+   * Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+   * 
+   * @param request - ExportRecordCnamesRequest
+   * @returns ExportRecordCnamesResponse
+   */
+  async exportRecordCnames(request: $_model.ExportRecordCnamesRequest): Promise<$_model.ExportRecordCnamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.exportRecordCnamesWithOptions(request, runtime);
+  }
+
+  /**
    * Exports all DNS records of a website domain as a TXT file.
    * 
    * @param request - ExportRecordsRequest
@@ -9744,6 +10066,44 @@ export default class Client extends OpenApi {
   async getAutomaticFrequencyControlConfig(request: $_model.GetAutomaticFrequencyControlConfigRequest): Promise<$_model.GetAutomaticFrequencyControlConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAutomaticFrequencyControlConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the cache reserve configuration of a site.
+   * 
+   * @param request - GetCacheReserveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCacheReserveResponse
+   */
+  async getCacheReserveWithOptions(request: $_model.GetCacheReserveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCacheReserveResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCacheReserve",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCacheReserveResponse>(await this.callApi(params, req, runtime), new $_model.GetCacheReserveResponse({}));
+  }
+
+  /**
+   * Queries the cache reserve configuration of a site.
+   * 
+   * @param request - GetCacheReserveRequest
+   * @returns GetCacheReserveResponse
+   */
+  async getCacheReserve(request: $_model.GetCacheReserveRequest): Promise<$_model.GetCacheReserveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCacheReserveWithOptions(request, runtime);
   }
 
   /**
@@ -11529,6 +11889,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the root domain name of a website.
+   * 
+   * @param request - GetMainDomainNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMainDomainNameResponse
+   */
+  async getMainDomainNameWithOptions(request: $_model.GetMainDomainNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMainDomainNameResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMainDomainName",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMainDomainNameResponse>(await this.callApi(params, req, runtime), new $_model.GetMainDomainNameResponse({}));
+  }
+
+  /**
+   * Queries the root domain name of a website.
+   * 
+   * @param request - GetMainDomainNameRequest
+   * @returns GetMainDomainNameResponse
+   */
+  async getMainDomainName(request: $_model.GetMainDomainNameRequest): Promise<$_model.GetMainDomainNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMainDomainNameWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the managed transform configuration for a site.
    * 
    * @param request - GetManagedTransformRequest
@@ -11564,6 +11962,50 @@ export default class Client extends OpenApi {
   async getManagedTransform(request: $_model.GetManagedTransformRequest): Promise<$_model.GetManagedTransformResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getManagedTransformWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+   * 
+   * @remarks
+   * Used with the Edge Routine (ER) feature to automatically match an active site.
+   * 
+   * @param request - GetMatchSiteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMatchSiteResponse
+   */
+  async getMatchSiteWithOptions(request: $_model.GetMatchSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMatchSiteResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMatchSite",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMatchSiteResponse>(await this.callApi(params, req, runtime), new $_model.GetMatchSiteResponse({}));
+  }
+
+  /**
+   * Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+   * 
+   * @remarks
+   * Used with the Edge Routine (ER) feature to automatically match an active site.
+   * 
+   * @param request - GetMatchSiteRequest
+   * @returns GetMatchSiteResponse
+   */
+  async getMatchSite(request: $_model.GetMatchSiteRequest): Promise<$_model.GetMatchSiteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMatchSiteWithOptions(request, runtime);
   }
 
   /**
@@ -11872,6 +12314,52 @@ export default class Client extends OpenApi {
   async getPage(request: $_model.GetPageRequest): Promise<$_model.GetPageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPageWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the page protection configuration of a site.
+   * 
+   * @param request - GetPageShieldRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPageShieldResponse
+   */
+  async getPageShieldWithOptions(request: $_model.GetPageShieldRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPageShieldResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPageShield",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPageShieldResponse>(await this.callApi(params, req, runtime), new $_model.GetPageShieldResponse({}));
+  }
+
+  /**
+   * Queries the page protection configuration of a site.
+   * 
+   * @param request - GetPageShieldRequest
+   * @returns GetPageShieldResponse
+   */
+  async getPageShield(request: $_model.GetPageShieldRequest): Promise<$_model.GetPageShieldResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPageShieldWithOptions(request, runtime);
   }
 
   /**
@@ -12875,6 +13363,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the traffic sequences and their details for the current site.
+   * 
+   * @param request - GetSiteTrafficSequenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSiteTrafficSequenceResponse
+   */
+  async getSiteTrafficSequenceWithOptions(request: $_model.GetSiteTrafficSequenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSiteTrafficSequenceResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSiteTrafficSequence",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSiteTrafficSequenceResponse>(await this.callApi(params, req, runtime), new $_model.GetSiteTrafficSequenceResponse({}));
+  }
+
+  /**
+   * Queries the traffic sequences and their details for the current site.
+   * 
+   * @param request - GetSiteTrafficSequenceRequest
+   * @returns GetSiteTrafficSequenceResponse
+   */
+  async getSiteTrafficSequence(request: $_model.GetSiteTrafficSequenceRequest): Promise<$_model.GetSiteTrafficSequenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSiteTrafficSequenceWithOptions(request, runtime);
+  }
+
+  /**
    * Get WAF Configuration for a Site
    * 
    * @param request - GetSiteWafSettingsRequest
@@ -13449,6 +13975,120 @@ export default class Client extends OpenApi {
   async getWafRuleset(request: $_model.GetWafRulesetRequest): Promise<$_model.GetWafRulesetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWafRulesetWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the preview page URL of a waiting room.
+   * 
+   * @param request - GetWaitingRoomPreviewPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWaitingRoomPreviewPageResponse
+   */
+  async getWaitingRoomPreviewPageWithOptions(request: $_model.GetWaitingRoomPreviewPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWaitingRoomPreviewPageResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWaitingRoomPreviewPage",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWaitingRoomPreviewPageResponse>(await this.callApi(params, req, runtime), new $_model.GetWaitingRoomPreviewPageResponse({}));
+  }
+
+  /**
+   * Queries the preview page URL of a waiting room.
+   * 
+   * @param request - GetWaitingRoomPreviewPageRequest
+   * @returns GetWaitingRoomPreviewPageResponse
+   */
+  async getWaitingRoomPreviewPage(request: $_model.GetWaitingRoomPreviewPageRequest): Promise<$_model.GetWaitingRoomPreviewPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWaitingRoomPreviewPageWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of regions supported by AWS S3.
+   * 
+   * @param request - ListAWSRegionInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAWSRegionInfosResponse
+   */
+  async listAWSRegionInfosWithOptions(request: $_model.ListAWSRegionInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAWSRegionInfosResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAWSRegionInfos",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAWSRegionInfosResponse>(await this.callApi(params, req, runtime), new $_model.ListAWSRegionInfosResponse({}));
+  }
+
+  /**
+   * Queries the list of regions supported by AWS S3.
+   * 
+   * @param request - ListAWSRegionInfosRequest
+   * @returns ListAWSRegionInfosResponse
+   */
+  async listAWSRegionInfos(request: $_model.ListAWSRegionInfosRequest): Promise<$_model.ListAWSRegionInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAWSRegionInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询异步任务列表
+   * 
+   * @param request - ListAsyncTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAsyncTasksResponse
+   */
+  async listAsyncTasksWithOptions(request: $_model.ListAsyncTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAsyncTasksResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAsyncTasks",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListAsyncTasksResponse({}));
+  }
+
+  /**
+   * 查询异步任务列表
+   * 
+   * @param request - ListAsyncTasksRequest
+   * @returns ListAsyncTasksResponse
+   */
+  async listAsyncTasks(request: $_model.ListAsyncTasksRequest): Promise<$_model.ListAsyncTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAsyncTasksWithOptions(request, runtime);
   }
 
   /**
@@ -14378,6 +15018,44 @@ export default class Client extends OpenApi {
   async listEdgeRoutineRecords(request: $_model.ListEdgeRoutineRecordsRequest): Promise<$_model.ListEdgeRoutineRecordsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listEdgeRoutineRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of environments for a site.
+   * 
+   * @param request - ListEnvironmentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnvironmentsResponse
+   */
+  async listEnvironmentsWithOptions(request: $_model.ListEnvironmentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEnvironmentsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEnvironments",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEnvironmentsResponse>(await this.callApi(params, req, runtime), new $_model.ListEnvironmentsResponse({}));
+  }
+
+  /**
+   * Queries the list of environments for a site.
+   * 
+   * @param request - ListEnvironmentsRequest
+   * @returns ListEnvironmentsResponse
+   */
+  async listEnvironments(request: $_model.ListEnvironmentsRequest): Promise<$_model.ListEnvironmentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEnvironmentsWithOptions(request, runtime);
   }
 
   /**
@@ -15337,6 +16015,47 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of pay-as-you-go site plans available for purchase by a user.
+   * 
+   * @remarks
+   * By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+   * 
+   * @param request - ListPostpaidSitePlansRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPostpaidSitePlansResponse
+   */
+  async listPostpaidSitePlansWithOptions(request: $_model.ListPostpaidSitePlansRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPostpaidSitePlansResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPostpaidSitePlans",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPostpaidSitePlansResponse>(await this.callApi(params, req, runtime), new $_model.ListPostpaidSitePlansResponse({}));
+  }
+
+  /**
+   * Queries the list of pay-as-you-go site plans available for purchase by a user.
+   * 
+   * @remarks
+   * By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+   * 
+   * @param request - ListPostpaidSitePlansRequest
+   * @returns ListPostpaidSitePlansResponse
+   */
+  async listPostpaidSitePlans(request: $_model.ListPostpaidSitePlansRequest): Promise<$_model.ListPostpaidSitePlansResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPostpaidSitePlansWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
    * 
    * @remarks
@@ -15771,6 +16490,44 @@ export default class Client extends OpenApi {
   async listSiteDeliveryTasks(request: $_model.ListSiteDeliveryTasksRequest): Promise<$_model.ListSiteDeliveryTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSiteDeliveryTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+   * 
+   * @param request - ListSiteFunctionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSiteFunctionsResponse
+   */
+  async listSiteFunctionsWithOptions(request: $_model.ListSiteFunctionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSiteFunctionsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSiteFunctions",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSiteFunctionsResponse>(await this.callApi(params, req, runtime), new $_model.ListSiteFunctionsResponse({}));
+  }
+
+  /**
+   * Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+   * 
+   * @param request - ListSiteFunctionsRequest
+   * @returns ListSiteFunctionsResponse
+   */
+  async listSiteFunctions(request: $_model.ListSiteFunctionsRequest): Promise<$_model.ListSiteFunctionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSiteFunctionsWithOptions(request, runtime);
   }
 
   /**
@@ -16397,6 +17154,44 @@ export default class Client extends OpenApi {
   async listUserWafRulesets(request: $_model.ListUserWafRulesetsRequest): Promise<$_model.ListUserWafRulesetsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserWafRulesetsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the version list of a site.
+   * 
+   * @param request - ListVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVersionsResponse
+   */
+  async listVersionsWithOptions(request: $_model.ListVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVersionsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVersions",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListVersionsResponse({}));
+  }
+
+  /**
+   * Queries the version list of a site.
+   * 
+   * @param request - ListVersionsRequest
+   * @returns ListVersionsResponse
+   */
+  async listVersions(request: $_model.ListVersionsRequest): Promise<$_model.ListVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVersionsWithOptions(request, runtime);
   }
 
   /**
@@ -17840,6 +18635,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Restores the status of a site that has been disabled.
+   * 
+   * @param request - RecoverSiteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecoverSiteResponse
+   */
+  async recoverSiteWithOptions(request: $_model.RecoverSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecoverSiteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RecoverSite",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RecoverSiteResponse>(await this.callApi(params, req, runtime), new $_model.RecoverSiteResponse({}));
+  }
+
+  /**
+   * Restores the status of a site that has been disabled.
+   * 
+   * @param request - RecoverSiteRequest
+   * @returns RecoverSiteResponse
+   */
+  async recoverSite(request: $_model.RecoverSiteRequest): Promise<$_model.RecoverSiteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.recoverSiteWithOptions(request, runtime);
+  }
+
+  /**
    * Schedules the release of a security instance.
    * 
    * @param request - ReleaseInstanceRequest
@@ -18021,6 +18858,52 @@ export default class Client extends OpenApi {
   async rollbackEdgeContainerAppVersion(request: $_model.RollbackEdgeContainerAppVersionRequest): Promise<$_model.RollbackEdgeContainerAppVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rollbackEdgeContainerAppVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Rolls back the deployment version of an environment.
+   * 
+   * @param request - RollbackEnvironmentVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackEnvironmentVersionResponse
+   */
+  async rollbackEnvironmentVersionWithOptions(request: $_model.RollbackEnvironmentVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RollbackEnvironmentVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.environmentName)) {
+      query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RollbackEnvironmentVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RollbackEnvironmentVersionResponse>(await this.callApi(params, req, runtime), new $_model.RollbackEnvironmentVersionResponse({}));
+  }
+
+  /**
+   * Rolls back the deployment version of an environment.
+   * 
+   * @param request - RollbackEnvironmentVersionRequest
+   * @returns RollbackEnvironmentVersionResponse
+   */
+  async rollbackEnvironmentVersion(request: $_model.RollbackEnvironmentVersionRequest): Promise<$_model.RollbackEnvironmentVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rollbackEnvironmentVersionWithOptions(request, runtime);
   }
 
   /**
@@ -18738,6 +19621,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Manually deactivates a site.
+   * 
+   * @param request - StopSiteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopSiteResponse
+   */
+  async stopSiteWithOptions(request: $_model.StopSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopSiteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopSite",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopSiteResponse>(await this.callApi(params, req, runtime), new $_model.StopSiteResponse({}));
+  }
+
+  /**
+   * Manually deactivates a site.
+   * 
+   * @param request - StopSiteRequest
+   * @returns StopSiteResponse
+   */
+  async stopSite(request: $_model.StopSiteRequest): Promise<$_model.StopSiteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopSiteWithOptions(request, runtime);
+  }
+
+  /**
    * Submits a purge or prefetch task after a file that contains resources to be purged or prefetched is uploaded.
    * 
    * @param request - SubmitUploadTaskRequest
@@ -18897,6 +19822,56 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the cache reserve configuration of a site.
+   * 
+   * @param request - UpdateCacheReserveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCacheReserveResponse
+   */
+  async updateCacheReserveWithOptions(request: $_model.UpdateCacheReserveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCacheReserveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cacheReserveInstanceId)) {
+      query["CacheReserveInstanceId"] = request.cacheReserveInstanceId;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCacheReserve",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCacheReserveResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCacheReserveResponse({}));
+  }
+
+  /**
+   * Modifies the cache reserve configuration of a site.
+   * 
+   * @param request - UpdateCacheReserveRequest
+   * @returns UpdateCacheReserveResponse
+   */
+  async updateCacheReserve(request: $_model.UpdateCacheReserveRequest): Promise<$_model.UpdateCacheReserveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCacheReserveWithOptions(request, runtime);
   }
 
   /**
@@ -19279,6 +20254,62 @@ export default class Client extends OpenApi {
   async updateCompressionRule(request: $_model.UpdateCompressionRuleRequest): Promise<$_model.UpdateCompressionRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCompressionRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the priority of a single rule configuration.
+   * 
+   * @remarks
+   * You can only modify the priority of a rule configuration. You cannot modify global configurations.
+   * 
+   * @param request - UpdateConfigSequenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigSequenceResponse
+   */
+  async updateConfigSequenceWithOptions(request: $_model.UpdateConfigSequenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConfigSequenceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConfigSequence",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConfigSequenceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConfigSequenceResponse({}));
+  }
+
+  /**
+   * Modifies the priority of a single rule configuration.
+   * 
+   * @remarks
+   * You can only modify the priority of a rule configuration. You cannot modify global configurations.
+   * 
+   * @param request - UpdateConfigSequenceRequest
+   * @returns UpdateConfigSequenceResponse
+   */
+  async updateConfigSequence(request: $_model.UpdateConfigSequenceRequest): Promise<$_model.UpdateConfigSequenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateConfigSequenceWithOptions(request, runtime);
   }
 
   /**
@@ -19697,6 +20728,118 @@ export default class Client extends OpenApi {
   async updateEdgeContainerAppResourceReserve(request: $_model.UpdateEdgeContainerAppResourceReserveRequest): Promise<$_model.UpdateEdgeContainerAppResourceReserveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateEdgeContainerAppResourceReserveWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates an environment.
+   * 
+   * @param request - UpdateEnvironmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEnvironmentResponse
+   */
+  async updateEnvironmentWithOptions(request: $_model.UpdateEnvironmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEnvironmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.environmentName)) {
+      query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!$dara.isNull(request.newName)) {
+      query["NewName"] = request.newName;
+    }
+
+    if (!$dara.isNull(request.readOnly)) {
+      query["ReadOnly"] = request.readOnly;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEnvironment",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateEnvironmentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateEnvironmentResponse({}));
+  }
+
+  /**
+   * Updates an environment.
+   * 
+   * @param request - UpdateEnvironmentRequest
+   * @returns UpdateEnvironmentResponse
+   */
+  async updateEnvironment(request: $_model.UpdateEnvironmentRequest): Promise<$_model.UpdateEnvironmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateEnvironmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the deployment version of an environment.
+   * 
+   * @param request - UpdateEnvironmentVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEnvironmentVersionResponse
+   */
+  async updateEnvironmentVersionWithOptions(request: $_model.UpdateEnvironmentVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEnvironmentVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.environmentName)) {
+      query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEnvironmentVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateEnvironmentVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateEnvironmentVersionResponse({}));
+  }
+
+  /**
+   * Modifies the deployment version of an environment.
+   * 
+   * @param request - UpdateEnvironmentVersionRequest
+   * @returns UpdateEnvironmentVersionResponse
+   */
+  async updateEnvironmentVersion(request: $_model.UpdateEnvironmentVersionRequest): Promise<$_model.UpdateEnvironmentVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateEnvironmentVersionWithOptions(request, runtime);
   }
 
   /**
@@ -22414,6 +23557,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the description of a version.
+   * 
+   * @param request - UpdateVersionDescRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVersionDescResponse
+   */
+  async updateVersionDescWithOptions(request: $_model.UpdateVersionDescRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVersionDescResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVersionDesc",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVersionDescResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVersionDescResponse({}));
+  }
+
+  /**
+   * Updates the description of a version.
+   * 
+   * @param request - UpdateVersionDescRequest
+   * @returns UpdateVersionDescResponse
+   */
+  async updateVersionDesc(request: $_model.UpdateVersionDescRequest): Promise<$_model.UpdateVersionDescResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVersionDescWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the video processing configuration of a website.
    * 
    * @param request - UpdateVideoProcessingRequest
@@ -22921,6 +24114,52 @@ export default class Client extends OpenApi {
   async updateWaitingRoomRule(request: $_model.UpdateWaitingRoomRuleRequest): Promise<$_model.UpdateWaitingRoomRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateWaitingRoomRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Upgrades the deployment version of an environment.
+   * 
+   * @param request - UpgradeEnvironmentVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeEnvironmentVersionResponse
+   */
+  async upgradeEnvironmentVersionWithOptions(request: $_model.UpgradeEnvironmentVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeEnvironmentVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.environmentName)) {
+      query["EnvironmentName"] = request.environmentName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeEnvironmentVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeEnvironmentVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeEnvironmentVersionResponse({}));
+  }
+
+  /**
+   * Upgrades the deployment version of an environment.
+   * 
+   * @param request - UpgradeEnvironmentVersionRequest
+   * @returns UpgradeEnvironmentVersionResponse
+   */
+  async upgradeEnvironmentVersion(request: $_model.UpgradeEnvironmentVersionRequest): Promise<$_model.UpgradeEnvironmentVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeEnvironmentVersionWithOptions(request, runtime);
   }
 
   /**

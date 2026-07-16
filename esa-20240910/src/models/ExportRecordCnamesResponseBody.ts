@@ -2,33 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
+export class ExportRecordCnamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created application.
+   * The exported CNAME content.
    * 
    * @example
-   * app-880688675783794688
+   * a.com a.com.cname.zone
    */
-  appId?: string;
+  content?: string;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   * 2430E05E-1340-5773-B5E1-B743929F46F2
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
+      content: 'Content',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
+      content: 'string',
       requestId: 'string',
     };
   }

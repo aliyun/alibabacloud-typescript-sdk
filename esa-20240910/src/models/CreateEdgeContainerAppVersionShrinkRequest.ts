@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The container group to be deployed for this version, which contains information about images.<br> The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
+   * The container group to deploy for this version, including specific image information. The image information consists of the image address, startup commands, parameters, environment variables, and probe rules. Multiple images are supported. This parameter is a JSON array.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class CreateEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   containersShrink?: string;
   /**
    * @remarks
-   * The version name, which must be 6 to 128 characters in length.
+   * The version name. The name must be **6 to 128** characters in length.
    * 
    * This parameter is required.
    * 
@@ -52,7 +52,7 @@ export class CreateEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The description of the version.
+   * The remarks.
    * 
    * @example
    * test app

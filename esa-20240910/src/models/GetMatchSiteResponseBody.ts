@@ -2,34 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the created application.
-   * 
-   * @example
-   * app-880688675783794688
-   */
-  appId?: string;
+export class GetMatchSiteResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The site ID.
+   * 
+   * @example
+   * 1234567890****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The site name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
       requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
       requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
     };
   }
 

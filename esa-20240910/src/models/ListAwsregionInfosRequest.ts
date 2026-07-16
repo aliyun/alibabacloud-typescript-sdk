@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
+export class ListAWSRegionInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created application.
+   * The name of the metadata to query.
    * 
    * @example
-   * app-880688675783794688
+   * example
    */
-  appId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
-  requestId?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      requestId: 'RequestId',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      requestId: 'string',
+      name: 'string',
     };
   }
 

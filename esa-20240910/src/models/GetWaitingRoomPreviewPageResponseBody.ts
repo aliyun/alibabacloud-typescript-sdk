@@ -2,33 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
+export class GetWaitingRoomPreviewPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created application.
+   * The waiting room preview page URL.
    * 
    * @example
-   * app-880688675783794688
+   * http://waitingroom.myalicdn.com/testxxxx
    */
-  appId?: string;
+  pageUrl?: string;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
+      pageUrl: 'PageUrl',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
+      pageUrl: 'string',
       requestId: 'string',
     };
   }

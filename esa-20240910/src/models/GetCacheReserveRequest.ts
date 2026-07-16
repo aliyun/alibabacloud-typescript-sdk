@@ -2,34 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeContainerAppResponseBody extends $dara.Model {
+export class GetCacheReserveRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created application.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * app-880688675783794688
+   * 123456****
    */
-  appId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
-  requestId?: string;
+  siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      requestId: 'RequestId',
+      siteId: 'SiteId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      requestId: 'string',
+      siteId: 'number',
     };
   }
 
