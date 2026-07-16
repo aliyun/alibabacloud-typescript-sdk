@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * Index.Document.ChunkError
@@ -39,10 +39,12 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
    * The file import status. Valid values:
-   * - INSERT_ERROR: The file import failed.
-   * - RUNNING: The file is being imported.
-   * - DELETED: The file has been deleted.
-   * - FINISH: The file was imported.
+   * - INSERT_ERROR: Failed to import into the index.
+   * - RUNNING: Index building in progress.
+   * - DELETED: Deleted.
+   * - FINISH: Index building succeeded.
+   * - PARSE_FAILED: Parsing failed.
+   * - DOC_PARSING: Parsing in progress.
    * 
    * @example
    * RUNNING
@@ -96,10 +98,10 @@ export class GetIndexJobStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The current status of the knowledge base job. Valid values:
-   * - COMPLETED: The job succeeded.
-   * - FAILED: The job failed.
-   * - RUNNING: The job is running.
-   * - PENDING: The job is pending execution.
+   * - COMPLETED: Execution succeeded.
+   * - FAILED: Execution failed.
+   * - RUNNING: Execution in progress.
+   * - PENDING: Waiting for execution.
    * 
    * @example
    * PENDING
@@ -136,7 +138,7 @@ export class GetIndexJobStatusResponseBodyData extends $dara.Model {
 export class GetIndexJobStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * Index.Forbidden
@@ -165,7 +167,7 @@ export class GetIndexJobStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code returned by the operation.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -174,8 +176,8 @@ export class GetIndexJobStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the operation was successful. Valid values:
-   * - true: The operation was successful.
-   * - false: The operation failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

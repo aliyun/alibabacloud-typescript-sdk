@@ -114,6 +114,10 @@ export { UpdateTableFromAuthorizedOssResponseBodyData } from './UpdateTableFromA
 export { AddCategoryRequest } from './AddCategoryRequest';
 export { AddCategoryResponseBody } from './AddCategoryResponseBody';
 export { AddCategoryResponse } from './AddCategoryResponse';
+export { AddChunkRequest } from './AddChunkRequest';
+export { AddChunkShrinkRequest } from './AddChunkShrinkRequest';
+export { AddChunkResponseBody } from './AddChunkResponseBody';
+export { AddChunkResponse } from './AddChunkResponse';
 export { AddConnectorRequest } from './AddConnectorRequest';
 export { AddConnectorShrinkRequest } from './AddConnectorShrinkRequest';
 export { AddConnectorResponseBody } from './AddConnectorResponseBody';

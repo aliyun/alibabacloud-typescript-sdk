@@ -20,6 +20,13 @@ export class AddTableShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   tableColumnsShrink?: string;
+  /**
+   * @remarks
+   * The table description.
+   * 
+   * @example
+   * table description
+   */
   tableDesc?: string;
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIndexDocumentsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the returned file list by file name (without the file extension). Default value: empty, which means the results are not filtered by file name.
+   * Filters the returned file list by file name (without the file extension). Default value: empty, which means no filtering by file name.
    * 
    * @example
    * product-overview
@@ -14,12 +14,14 @@ export class ListIndexDocumentsRequest extends $dara.Model {
   /**
    * @remarks
    * Filters the returned file list by file import status. Valid values:
-   * - INSERT_ERROR: The file failed to be imported.
-   * - RUNNING: The file is being imported.
-   * - DELETED: The file has been deleted.
-   * - FINISH: The file was imported.
+   * - INSERT_ERROR: failed to import to the index.
+   * - RUNNING: index building in progress.
+   * - DELETED: deleted.
+   * - FINISH: index building succeeded.
+   * - PARSE_FAILED: parsing failed.
+   * - DOC_PARSING: parsing in progress.
    * 
-   * Default value: empty, which means the results are not filtered by file import status.
+   * Default value: empty, which means no filtering by file import status.
    * 
    * @example
    * FINISH
@@ -28,8 +30,8 @@ export class ListIndexDocumentsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable fuzzy matching for file names. This parameter is used together with the `DocumentName` parameter. Valid values:
-   * - true: Fuzzy matching is used to filter the returned file list by file name.
-   * - false: Exact matching is used to filter the returned file list by file name.
+   * - true: Performs fuzzy matching on the returned file list based on the file name.
+   * - false: Performs exact matching on the returned file list based on the file name.
    * 
    * Default value: false.
    * 
@@ -57,7 +59,7 @@ export class ListIndexDocumentsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of files to display per page in a paging query. No maximum limit.
+   * The number of files to display per page in a paged query. No maximum limit.
    * Default value: 10.
    * 
    * @example

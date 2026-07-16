@@ -43,6 +43,13 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
    * docx
    */
   fileType?: string;
+  /**
+   * @remarks
+   * The reason for parsing failure.
+   * 
+   * @example
+   * Error Message
+   */
   parseErrorMessage?: string;
   /**
    * @remarks
@@ -64,7 +71,7 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
   /**
    * @remarks
    * The file parsing status. Valid values:
-   * - INIT: Initialization state, waiting to be scheduled.
+   * - INIT: Initialization state. Waiting to be scheduled.
    * - PARSING: Parsing in progress.
    * - PARSE_SUCCESS: Parsing completed.
    * - PARSE_FAILED: Parsing failed.

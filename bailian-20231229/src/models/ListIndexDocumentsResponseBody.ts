@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
-   * The error status code for the file import.
+   * The error status code for file import.
    * 
    * @example
    * 110002
@@ -37,7 +37,7 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The error message for the file import.
+   * The error message for file import.
    * 
    * @example
    * check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
@@ -63,22 +63,20 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
    * @remarks
    * <props="china">
    * 
-   * For document search or audio/video search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the category ID by clicking the ID icon next to the category name on the Files tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+   * For document search or audio/video search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain it by clicking the ID icon next to the category name on the Files tab of [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center).
    * 
    * 
-   * For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain the data table ID by clicking the ID icon next to the data table name on the Tables tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+   * For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain it by clicking the ID icon next to the data table name on the Tables tab of [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center).
    * 
    * 
    * 
    * 
    * <props="intl">
    * 
-   * For document search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the category ID by clicking the ID icon next to the category name on the Files tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+   * For document search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain it by clicking the ID icon next to the category name on the Files tab of [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center).
    * 
    * 
-   * For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain the data table ID by clicking the ID icon next to the data table name on the Tables tab of the [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page.
-   * 
-   * .
+   * For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain it by clicking the ID icon next to the data table name on the Tables tab of [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center).
    * 
    * @example
    * cate_21a407a3372c4ba7aedc649709143f0cxxxxxxxx
@@ -87,10 +85,10 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
    * The file import status. Valid values:
-   * - INSERT_ERROR: The file failed to be imported.
-   * - RUNNING: The file is being imported.
-   * - DELETED: The file has been deleted.
-   * - FINISH: The file was imported.
+   * - INSERT_ERROR: File import failed.
+   * - RUNNING: File import in progress.
+   * - DELETED: File deleted.
+   * - FINISH: File import succeeded.
    * 
    * @example
    * RUNNING
@@ -136,7 +134,7 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
 export class ListIndexDocumentsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of files in the knowledge base, sorted by file import time in descending order (consistent with the console).
+   * The list of files in the knowledge base, sorted by document import time in descending order (consistent with the console).
    */
   documents?: ListIndexDocumentsResponseBodyDataDocuments[];
   /**
@@ -244,8 +242,8 @@ export class ListIndexDocumentsResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the operation was successful. Valid values:
-   * - true: The operation was successful.
-   * - false: The operation failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

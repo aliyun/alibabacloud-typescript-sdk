@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddFilesFromAuthorizedOssRequestFileDetailsParserConfig extends $dara.Model {
   /**
    * @remarks
-   * Model name.
+   * The model name.
    * 
    * @example
    * qwen-vl-max
@@ -13,7 +13,7 @@ export class AddFilesFromAuthorizedOssRequestFileDetailsParserConfig extends $da
   modelName?: string;
   /**
    * @remarks
-   * The prompt used when invoking Qwen VL parsing.
+   * The prompt used when calling Qwen VL parsing.
    * 
    * @example
    * #角色
@@ -48,13 +48,13 @@ export class AddFilesFromAuthorizedOssRequestFileDetailsParserConfig extends $da
 export class AddFilesFromAuthorizedOssRequestFileDetails extends $dara.Model {
   /**
    * @remarks
-   * The name of the file to import. Note that the suffix must include the file format type.
-   * - Supported formats: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, gif.
-   * - The file name length is limited to 4-128 characters.
+   * The name of the file to import. The file name must include the file format extension.
+   * - Supported formats: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
+   * - The file name must be 4 to 128 characters in length.
    * - For file upload requirements and limits, see [Knowledge base quotas and limits](https://help.aliyun.com/document_detail/2880605.html).
    * 
-   * >Notice: When the imported file name duplicates an existing file name in the knowledge base, the operation still returns `Status` as `SUCCESS`, but the file will not actually be imported into the knowledge base, and the existing file with the same name remains unchanged. Please ensure that each imported file name is unique.
-   * > To add a new data table and upload data, please use the Alibaba Cloud Model Studio console; the API does not support this.
+   * >Notice: If the name of the imported file is the same as an existing file in the knowledge base, the operation still returns a `Status` of `SUCCESS`, but the file is not actually imported. The existing file with the same name remains unchanged. Make sure that each imported file name is unique.
+   * > To create a data table and upload data, use the Model Studio console. This is not supported through the API.
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class AddFilesFromAuthorizedOssRequestFileDetails extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The key name (Key) of the imported file in the OSS Bucket. For details, see [Object naming](https://help.aliyun.com/document_detail/273129.html).
+   * The key of the file in the OSS bucket. For more information, see [Object naming conventions](https://help.aliyun.com/document_detail/273129.html).
    * 
    * This parameter is required.
    * 
@@ -74,22 +74,22 @@ export class AddFilesFromAuthorizedOssRequestFileDetails extends $dara.Model {
   ossKey?: string;
   /**
    * @remarks
-   * Parser type. Possible values include:
+   * The parser type. Valid values:
    * 
-   * - DOCMIND (Intelligent document parsing)
-   * - DOCMIND_DIGITAL (Digital document parsing)
-   * - DOCMIND_LLM_VERSION (LLM-based document parsing)
-   * - DASH_QWEN_VL_PARSER (Qwen VL parsing)
-   * - DOCMIND_LLM_VERSION_MEDIA (Audio/video parsing)
-   * - AUTO_SELECT (Automatically select parser)
+   * - DOCMIND: intelligent document parsing.
+   * - DOCMIND_DIGITAL: electronic document parsing.
+   * - DOCMIND_LLM_VERSION: LLM-based document parsing.
+   * - DASH_QWEN_VL_PARSER: Qwen VL parsing.
+   * - DOCMIND_LLM_VERSION_MEDIA: audio and video parsing.
+   * - AUTO_SELECT: automatic parser selection.
    * 
    * <props="intl">
-   * <note>The currently configured parser will be used to parse your uploaded files. If AUTO_SELECT is entered, the parser configured for the corresponding category will be used.</note>
+   * <note>The uploaded file is parsed by using the specified parser. If you set this parameter to AUTO_SELECT, the parser configured for the category is used.</note>
    * 
    * 
    * <props="china">
-   * <note>When CategoryType is UNSTRUCTURED, the parser parses your uploaded files according to the data parsing settings of the current category.</note>
-   * <note>When CategoryType is SESSION_FILE, the system uses the default method (not changeable) to parse file content.</note>
+   * <note>When CategoryType is UNSTRUCTURED, the parser parses the uploaded file based on the data parsing settings of the current category.</note>
+   * <note>When CategoryType is SESSION_FILE, the system uses the default method (which cannot be changed) to parse the file content.</note>
    * 
    * @example
    * AUTO_SELECT
@@ -97,7 +97,7 @@ export class AddFilesFromAuthorizedOssRequestFileDetails extends $dara.Model {
   parser?: string;
   /**
    * @remarks
-   * Parser configuration. Required only when the parser type is set to Qwen VL parsing.
+   * The parser configuration. This parameter is required only when the parser type is set to Qwen VL parsing.
    */
   parserConfig?: AddFilesFromAuthorizedOssRequestFileDetailsParserConfig;
   static names(): { [key: string]: string } {
@@ -133,7 +133,7 @@ export class AddFilesFromAuthorizedOssRequestFileDetails extends $dara.Model {
 export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the target category for file import. This is the `CategoryId` returned by the AddCategory operation. You can also obtain the category ID from the <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) - Files tab<props="intl">[Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) - Files tab by clicking the ID icon next to the category name. You can also pass in default, which uses the system-created "Default Category".
+   * The ID of the category to which the files are imported. This is the `CategoryId` returned by the AddCategory operation. You can also obtain the category ID by clicking the ID icon next to the category name on the <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) - Files tab<props="intl">[Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) - Files tab. You can pass in `default` to use the system-created default category.
    * 
    * This parameter is required.
    * 
@@ -143,12 +143,12 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * Category type. Optional. The default value is UNSTRUCTURED. Valid values:
-   * - UNSTRUCTURED: Category used for building knowledge base scenarios.
+   * The category type. Optional. Default value: UNSTRUCTURED. Valid values:
+   * - UNSTRUCTURED: category for building knowledge base scenarios.
    * 
    * <props="china">
    * 
-   * > This operation does not support importing SESSION_FILE used for agent application [session interaction](https://help.aliyun.com/zh/model-studio/user-guide/file-interaction). Please use the **AddFile** operation to upload SESSION_FILE from local.
+   * > This operation does not support importing SESSION_FILE for agent application [conversation interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction). Use the **AddFile** operation to upload SESSION_FILE from a local source.
    * 
    * This parameter is required.
    * 
@@ -158,8 +158,8 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
   categoryType?: string;
   /**
    * @remarks
-   * The list of files to import. Up to 10 files can be uploaded at a time.
-   * > Up to 10 files can be uploaded at a time.
+   * The list of files to import. A maximum of 10 files can be uploaded at a time.
+   * > A maximum of 10 files can be uploaded at a time.
    * >
    * 
    * This parameter is required.
@@ -167,7 +167,7 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
   fileDetails?: AddFilesFromAuthorizedOssRequestFileDetails[];
   /**
    * @remarks
-   * The OSS Bucket name. For details, see [Buckets](https://help.aliyun.com/document_detail/177682.html).
+   * The name of the OSS bucket. For more information, see [Buckets](https://help.aliyun.com/document_detail/177682.html).
    * 
    * This parameter is required.
    * 
@@ -177,7 +177,7 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * The region ID of the OSS Bucket. For how to obtain it, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
+   * The region ID of the OSS bucket. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
    * 
    * This parameter is required.
    * 
@@ -187,7 +187,7 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
   ossRegionId?: string;
   /**
    * @remarks
-   * Whether to overwrite the same file in the category by OssKey. The default value is false, meaning no overwrite.
+   * Specifies whether to overwrite files with the same OssKey in the category. Default value: false, which means files are not overwritten.
    * 
    * @example
    * false
@@ -195,7 +195,7 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
   overWriteFileByOssKey?: boolean;
   /**
    * @remarks
-   * The list of tags associated with the file. The default is empty, meaning the file is not associated with any tags. Up to 10 tags can be passed in.
+   * The list of tags associated with the file. Default value: empty, which means the file is not associated with any tags. A maximum of 10 tags can be specified.
    */
   tags?: string[];
   static names(): { [key: string]: string } {

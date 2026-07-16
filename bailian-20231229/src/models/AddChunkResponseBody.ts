@@ -2,50 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddTableResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The table ID.
-   * 
-   * @example
-   * table_b6ddc67e7df14db38b74ef5e2e0fe24e_12792097
-   */
-  tableId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tableId: 'TableId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tableId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTableResponseBody extends $dara.Model {
+export class AddChunkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error status code.
    * 
    * @example
-   * Index.Forbidden
+   * Index.InvalidParameter
    */
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The business data returned upon a successful request.
+   * 
+   * @example
+   * true
    */
-  data?: AddTableResponseBodyData;
+  data?: boolean;
   /**
    * @remarks
    * The error message.
@@ -59,12 +32,12 @@ export class AddTableResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 778C0B3B-03C1-5FC1-A947-36EDD13606AB
+   * 35A267BF-xxxx-54DB-8394-AA3B0742D833
    */
   requestId?: string;
   /**
    * @remarks
-   * The status code returned by the interface.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -72,13 +45,10 @@ export class AddTableResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Valid values:
-   * 
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the operation was successful.
    * 
    * @example
-   * True
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -95,7 +65,7 @@ export class AddTableResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: AddTableResponseBodyData,
+      data: 'boolean',
       message: 'string',
       requestId: 'string',
       status: 'string',
@@ -104,9 +74,6 @@ export class AddTableResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
     super.validate();
   }
 

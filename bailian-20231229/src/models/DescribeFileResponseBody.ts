@@ -37,17 +37,24 @@ export class DescribeFileResponseBodyData extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file type (extension). Valid values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
+   * The file type (extension). Possible values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
    * 
    * @example
    * pdf
    */
   fileType?: string;
+  /**
+   * @remarks
+   * The reason for the parsing failure.
+   * 
+   * @example
+   * Error Message
+   */
   parseErrorMessage?: string;
   parseResultDownloadUrl?: string;
   /**
    * @remarks
-   * The parser type used to parse the file. Valid values:
+   * The parser type used to parse the file. Possible values:
    * - DASHSCOPE_DOCMIND: the default document parser.
    * 
    * @example
@@ -66,41 +73,41 @@ export class DescribeFileResponseBodyData extends $dara.Model {
    * @remarks
    * <props="china">
    * 
-   * For files used in document-based knowledge bases (type: UNSTRUCTURED), valid values:
+   * For files used in document-based knowledge bases (type: UNSTRUCTURED), possible values:
    * 
    * 
    * 
    * <props="intl">
    * 
-   * For files used in unstructured knowledge bases (type: UNSTRUCTURED), valid values:
+   * For files used in unstructured knowledge bases (type: UNSTRUCTURED), possible values:
    * 
    * 
    * 
    * 
-   * - INIT: pending parsing.
-   * - IN_PARSE_QUEUE: queued for parsing.
-   * - PARSING: being parsed.
-   * - PARSE_SUCCESS: parsing completed.
+   * - INIT: Pending parsing.
+   * - IN_PARSE_QUEUE: Queued for parsing.
+   * - PARSING: Being parsed.
+   * - PARSE_SUCCESS: Parsing completed.
    * <note>The document can be imported into a knowledge base only after the status changes to PARSE_SUCCESS.</note>
-   * - PARSE_FAILED: parsing failed.
+   * - PARSE_FAILED: Parsing failed.
    * 
    * <props="china">
-   * For files used in agent application [session interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction) (type: SESSION_FILE), valid values:
+   * For files used in agent application [session interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction) (type: SESSION_FILE), possible values:
    * 
-   * - INIT: pending parsing.
-   * - IN_PARSE_QUEUE: queued for parsing.
-   * - PARSING: being parsed.
-   * - PARSE_SUCCESS: parsing completed.
-   * - PARSE_FAILED: parsing failed.
-   * - SAFE_CHECKING: security check in progress.
-   * - SAFE_CHECK_FAILED: security check failed.
-   * - INDEX_BUILDING: index being built.
-   * - INDEX_BUILD_SUCCESS: index built.
-   * - INDEX_BUILDING_FAILED: index building failed.
-   * - INDEX_DELETED: file index deleted.
-   * - FILE_IS_READY: file is ready.
-   * <note>Q&A can proceed only after the status changes to FILE_IS_READY.</note>
-   * - FILE_EXPIRED: file expired.
+   * - INIT: Pending parsing.
+   * - IN_PARSE_QUEUE: Queued for parsing.
+   * - PARSING: Being parsed.
+   * - PARSE_SUCCESS: Parsing completed.
+   * - PARSE_FAILED: Parsing failed.
+   * - SAFE_CHECKING: Safety check in progress.
+   * - SAFE_CHECK_FAILED: Safety check failed.
+   * - INDEX_BUILDING: Index being built.
+   * - INDEX_BUILD_SUCCESS: Index built.
+   * - INDEX_BUILDING_FAILED: Index building failed.
+   * - INDEX_DELETED: File index deleted.
+   * - FILE_IS_READY: File is ready.
+   * <note>Q&A is available only after the status changes to FILE_IS_READY.</note>
+   * - FILE_EXPIRED: File expired.
    * <note>The file is valid only for the current user session. After the user closes the session, the file expires (maximum validity period: 7 days). Long-term retention is not supported.</note>
    * .
    * 
@@ -168,7 +175,7 @@ export class DescribeFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data field of the operation.
+   * The data field returned by the operation.
    */
   data?: DescribeFileResponseBodyData;
   /**

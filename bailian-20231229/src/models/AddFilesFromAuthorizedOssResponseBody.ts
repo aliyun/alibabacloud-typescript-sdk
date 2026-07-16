@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList extends $dara.Model {
   /**
    * @remarks
-   * The file ID. Please keep this value safe, as it will be used for all subsequent API operations related to this file.
+   * The file ID. Keep this value safe because it is required for all subsequent API operations related to this file.
    * 
    * @example
    * file_809f469a59ac449586ec692576xxxxx_102248XXX
@@ -13,7 +13,7 @@ export class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList extends 
   fileId?: string;
   /**
    * @remarks
-   * Error information returned when file import fails.
+   * The error message returned when the file import fails.
    * 
    * @example
    * size too large
@@ -21,7 +21,7 @@ export class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList extends 
   msg?: string;
   /**
    * @remarks
-   * The key name (Key) of the imported file in the OSS Bucket.
+   * The key of the imported file in the OSS bucket.
    * 
    * @example
    * root/path/this_is_temp_xxxx.pdf
@@ -29,12 +29,12 @@ export class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList extends 
   ossKey?: string;
   /**
    * @remarks
-   * File import status. Possible values:
+   * The file import status. Valid values:
    * 
-   * - SUCCESS: Import (application data) completed.
-   * - FAILED: Import (application data) failed.
+   * - SUCCESS: The import to application data is complete.
+   * - FAILED: The import to application data failed.
    * 
-   * > Only files with the SUCCESS status can be used to create or update knowledge bases.
+   * > Only files with a SUCCESS status can be used to create or update a knowledge base.
    * >
    * 
    * @example
@@ -101,7 +101,7 @@ export class AddFilesFromAuthorizedOssResponseBodyData extends $dara.Model {
 export class AddFilesFromAuthorizedOssResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error status code.
+   * The error code.
    * 
    * @example
    * success
@@ -109,12 +109,12 @@ export class AddFilesFromAuthorizedOssResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Business data field returned by the operation.
+   * The data field returned by the operation.
    */
   data?: AddFilesFromAuthorizedOssResponseBodyData;
   /**
    * @remarks
-   * Error information.
+   * The error message.
    * 
    * @example
    * Cant find out category for category_id param.
@@ -122,7 +122,7 @@ export class AddFilesFromAuthorizedOssResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 17204B98-xxxx-4F9A-8464-2446A84821CA
@@ -138,9 +138,9 @@ export class AddFilesFromAuthorizedOssResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Whether the operation call succeeded. Possible values:
-   * - true: Success.
-   * - false: Failure.
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

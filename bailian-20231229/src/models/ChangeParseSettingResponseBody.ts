@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeParseSettingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the configuration was successfully updated.
-   * 
+   * Indicates whether the configuration was changed. Valid values:
    * - true: The configuration was updated.
-   * 
-   * - false: The configuration failed to be updated.
+   * - false: The configuration was not changed. The modification failed.
    * 
    * @example
    * true
@@ -39,7 +37,7 @@ export class ChangeParseSettingResponseBodyData extends $dara.Model {
 export class ChangeParseSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * InvalidParameter
@@ -47,7 +45,7 @@ export class ChangeParseSettingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned for a successful request.
+   * The business data returned when the request is successful.
    */
   data?: ChangeParseSettingResponseBodyData;
   /**
@@ -68,7 +66,7 @@ export class ChangeParseSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code returned for the request.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -76,11 +74,9 @@ export class ChangeParseSettingResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

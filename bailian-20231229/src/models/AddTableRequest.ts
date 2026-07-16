@@ -74,6 +74,13 @@ export class AddTableRequest extends $dara.Model {
    * This parameter is required.
    */
   tableColumns?: AddTableRequestTableColumns[];
+  /**
+   * @remarks
+   * The table description.
+   * 
+   * @example
+   * table description
+   */
   tableDesc?: string;
   /**
    * @remarks

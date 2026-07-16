@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
-   * The custom chunking method.
+   * The custom chunking mode.
    * 
    * @example
    * DashSplitter
@@ -13,7 +13,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   chunkMode?: string;
   /**
    * @remarks
-   * The length of a chunk, in characters.
+   * The segment length, which is the number of characters in each text chunk.
    * 
    * @example
    * 600
@@ -21,7 +21,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   chunkSize?: string;
   /**
    * @remarks
-   * The error code that is returned if the document fails to be imported.
+   * The error status code for file import.
    * 
    * @example
    * 110002
@@ -29,7 +29,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The format of the document. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
+   * The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
    * 
    * @example
    * pdf
@@ -37,7 +37,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   documentType?: string;
   /**
    * @remarks
-   * Indicates whether the table headers of Excel files in an unstructured knowledge base are concatenated.
+   * Indicates whether Excel file headers support concatenation.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   enableHeaders?: string;
   /**
    * @remarks
-   * The time when the document was imported. This value is a Unix timestamp.
+   * The time when the file was imported to the knowledge base, in UNIX timestamp format.
    * 
    * @example
    * 1744856423000
@@ -53,7 +53,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The document ID.
+   * The file ID.
    * 
    * @example
    * doc_c134aa2073204a5d936d870bf960f56axxxxxxxx
@@ -61,7 +61,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The error message that is returned if the document fails to be imported.
+   * The error message for file import.
    * 
    * @example
    * check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
@@ -69,7 +69,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the document.
+   * The file name.
    * 
    * @example
    * 翻译平台运维文档
@@ -77,7 +77,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The overlap length of chunks.
+   * The overlap length between segments.
    * 
    * @example
    * 100
@@ -85,7 +85,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   overlapSize?: string;
   /**
    * @remarks
-   * The size of the document, in bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 996764
@@ -101,15 +101,12 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The import status of the document. Valid values:
+   * The file import status. Valid values:
    * 
-   * - INSERT_ERROR: The document failed to be imported.
-   * 
-   * - RUNNING: The document is being imported.
-   * 
-   * - DELETED: The document has been deleted.
-   * 
-   * - FINISH: The document was imported successfully.
+   * - INSERT_ERROR: File import failed.
+   * - RUNNING: File import in progress.
+   * - DELETED: File deleted.
+   * - FINISH: File import succeeded.
    * 
    * @example
    * RUNNING
@@ -173,7 +170,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
 export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of documents in the knowledge base. The documents are sorted by import time in descending order. This order is the same as the order in the console.
+   * The list of files in the knowledge base, sorted by file import time in descending order (consistent with the console).
    */
   documents?: ListIndexFileDetailsResponseBodyDataDocuments[];
   /**
@@ -194,7 +191,7 @@ export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The returned number of entries per page.
    * 
    * @example
    * 10
@@ -202,7 +199,7 @@ export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of returned results.
    * 
    * @example
    * 2437
@@ -243,7 +240,7 @@ export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
 export class ListIndexFileDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * InvalidParameter
@@ -251,7 +248,7 @@ export class ListIndexFileDetailsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data field returned by the operation.
    */
   data?: ListIndexFileDetailsResponseBodyData;
   /**
@@ -264,7 +261,7 @@ export class ListIndexFileDetailsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 35A267BF-xxxx-54DB-8394-AA3B0742D833
@@ -272,7 +269,7 @@ export class ListIndexFileDetailsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -280,11 +277,10 @@ export class ListIndexFileDetailsResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

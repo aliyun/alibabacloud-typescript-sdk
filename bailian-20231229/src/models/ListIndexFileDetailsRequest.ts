@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIndexFileDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the documents to return. If you do not specify this parameter, the results are not filtered by name.
+   * Filters the returned file details list by file name. Default value: empty, which means no filtering by file name.
    * 
    * @example
    * 翻译平台运维文档
@@ -13,17 +13,16 @@ export class ListIndexFileDetailsRequest extends $dara.Model {
   documentName?: string;
   /**
    * @remarks
-   * The import status of the documents to return. Valid values:
+   * Filters the returned file list by file import status. Valid values:
    * 
-   * - INSERT_ERROR: The document failed to be imported.
+   * - INSERT_ERROR: Failed to import to the index.
+   * - RUNNING: Index building in progress.
+   * - DELETED: Deleted.
+   * - FINISH: Index building succeeded.
+   * - PARSE_FAILED: Parsing failed.
+   * - DOC_PARSING: Parsing in progress.
    * 
-   * - RUNNING: The document is being imported.
-   * 
-   * - DELETED: The document has been deleted.
-   * 
-   * - FINISH: The document was imported successfully.
-   * 
-   * If you do not specify this parameter, the results are not filtered by import status.
+   * Default value: empty, which means no filtering by file import status.
    * 
    * @example
    * FINISH
@@ -31,11 +30,10 @@ export class ListIndexFileDetailsRequest extends $dara.Model {
   documentStatus?: string;
   /**
    * @remarks
-   * Specifies whether to perform a fuzzy search based on the document name. This parameter is used with the `DocumentName` parameter. Valid values:
+   * Specifies whether to enable fuzzy matching for file names. This parameter is used together with the `DocumentName` parameter. Valid values:
    * 
-   * - true: Performs a fuzzy search based on the document name.
-   * 
-   * - false: Performs an exact match based on the document name.
+   * - true: Performs fuzzy matching on the returned file list based on the file name.
+   * - false: Performs exact matching on the returned file list based on the file name.
    * 
    * Default value: false.
    * 
@@ -45,7 +43,7 @@ export class ListIndexFileDetailsRequest extends $dara.Model {
   enableNameLike?: string;
   /**
    * @remarks
-   * The ID of the knowledge base. This is the value of the `Data.Id` parameter returned by the **CreateIndex** operation.
+   * The knowledge base ID, which is the `Data.Id` returned by the **CreateIndex** operation.
    * 
    * @example
    * 79c0alxxxx
@@ -53,7 +51,7 @@ export class ListIndexFileDetailsRequest extends $dara.Model {
   indexId?: string;
   /**
    * @remarks
-   * The number of the page to return. The value starts from 1. Default value: 1.
+   * The page number to query. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -61,7 +59,7 @@ export class ListIndexFileDetailsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of documents to return on each page. Maximum value: 10.
+   * The number of files to display per page for paging. Maximum value: 10.
    * 
    * @example
    * 10
