@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUploadTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID.
+   * The AccessKey ID of the temporary credential for file upload.
    * 
    * @example
    * STS.NUEUjvDqMuvH6oQA1TXxxH4wVR
@@ -13,7 +13,7 @@ export class DescribeUploadTokenResponseBodyData extends $dara.Model {
   accessKeyId?: string;
   /**
    * @remarks
-   * The AccessKey secret.
+   * The temporary authorization secret.
    * 
    * @example
    * xxxx
@@ -29,7 +29,7 @@ export class DescribeUploadTokenResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The time when the file sharing link expires.
+   * The expiration time.
    * 
    * @example
    * 1720577200
@@ -45,7 +45,7 @@ export class DescribeUploadTokenResponseBodyData extends $dara.Model {
   fileNamePrefix?: string;
   /**
    * @remarks
-   * the oss intranet point.
+   * The internal endpoint of OSS.
    * 
    * @example
    * https://oss-cn-shanghai-internal.aliyuncs.com
@@ -53,7 +53,7 @@ export class DescribeUploadTokenResponseBodyData extends $dara.Model {
   ossInternalEndPoint?: string;
   /**
    * @remarks
-   * the oss internet point.
+   * The Internet endpoint of OSS.
    * 
    * @example
    * https://oss-cn-shanghai.aliyuncs.com
@@ -61,7 +61,7 @@ export class DescribeUploadTokenResponseBodyData extends $dara.Model {
   ossInternetEndPoint?: string;
   /**
    * @remarks
-   * The security token.
+   * The security token of the temporary credential for file upload.
    * 
    * @example
    * xxxx
@@ -105,7 +105,7 @@ export class DescribeUploadTokenResponseBodyData extends $dara.Model {
 export class DescribeUploadTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The return code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -113,12 +113,12 @@ export class DescribeUploadTokenResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeUploadTokenResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The response message for the request.
    * 
    * @example
    * OK

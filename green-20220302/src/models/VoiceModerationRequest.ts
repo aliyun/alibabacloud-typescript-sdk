@@ -5,15 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class VoiceModerationRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the moderation service.
+   * The ServiceCode for voice moderation.
    * 
    * @example
-   * nickname_detection
+   * audio_media_detection
    */
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
+   * The set of parameters that are required for the moderation service. The value must be a JSON string.
+   * 
+   * url: Required. The URL of the object to be detected. Make sure that the URL is accessible over the Internet. dataId: Optional. The data ID of the object to be detected. For more information, see ServiceParameter.
    * 
    * @example
    * {"url": "http://aliyundoc.com/test.flv", "dataId": "data1234"}

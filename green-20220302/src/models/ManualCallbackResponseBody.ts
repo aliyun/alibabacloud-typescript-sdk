@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ManualCallbackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ManualCallbackResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Message information
+   * The message.
    * 
    * @example
    * SUCCESS
@@ -21,7 +21,7 @@ export class ManualCallbackResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

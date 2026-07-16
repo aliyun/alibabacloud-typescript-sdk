@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UrlAsyncModerationRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the moderation service.
+   * Service name: URL threat detection
    * 
    * @example
-   * url_detection
+   * url_detection_pro
    */
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
+   * The parameter set for the content moderation object. This parameter is a JSON string. For more information, see the description of ServiceParameters.
    * 
    * @example
    * {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageBatchModerationResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * Confidence score, ranging from 0 to 100, retained to two decimal places. Some labels do not have a confidence score.
+   * The confidence score. The value ranges from 0 to 100, with two decimal places. Some labels do not have a confidence score.
    * 
    * @example
    * 81.22
@@ -13,15 +13,15 @@ export class ImageBatchModerationResponseBodyDataResult extends $dara.Model {
   confidence?: number;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
-   * No risk detected
+   * 未检测出风险
    */
   description?: string;
   /**
    * @remarks
-   * The labels returned after image content detection. A single image may be associated with multiple labels and corresponding scores.
+   * The label returned after the image content moderation. An image may have multiple labels and scores.
    * 
    * @example
    * violent_explosion
@@ -63,7 +63,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtCustomImage extends $
   imageId?: string;
   /**
    * @remarks
-   * Custom library ID
+   * The ID of the custom library.
    * 
    * @example
    * 1965304870002
@@ -71,10 +71,10 @@ export class ImageBatchModerationResponseBodyDataResultsExtCustomImage extends $
   libId?: string;
   /**
    * @remarks
-   * The name of the hit custom gallery.
+   * The name of the hit custom image library.
    * 
    * @example
-   * Whitelist
+   * 白名单
    */
   libName?: string;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtCustomImage extends $
 export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation extends $dara.Model {
   /**
    * @remarks
-   * The width of the text area, in pixels.
+   * The height of the logo area, in pixels.
    * 
    * @example
    * 440
@@ -113,7 +113,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation exte
   h?: number;
   /**
    * @remarks
-   * The height of the text area, in pixels.
+   * The width of the logo area, in pixels.
    * 
    * @example
    * 330
@@ -121,7 +121,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation exte
   w?: number;
   /**
    * @remarks
-   * The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin, in pixels.
+   * The x-coordinate of the upper-left corner of the area, in pixels. The origin (0,0) is the upper-left corner of the image.
    * 
    * @example
    * 11
@@ -129,7 +129,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation exte
   x?: number;
   /**
    * @remarks
-   * The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin, in pixels.
+   * The y-coordinate of the upper-left corner of the area, in pixels. The origin (0,0) is the upper-left corner of the image.
    * 
    * @example
    * 22
@@ -165,7 +165,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation exte
 export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo extends $dara.Model {
   /**
    * @remarks
-   * Confidence score, from 0 to 100, rounded to two decimal places.
+   * The confidence score. The value ranges from 0 to 100, with two decimal places.
    * 
    * @example
    * 99.1
@@ -173,7 +173,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo extends 
   confidence?: number;
   /**
    * @remarks
-   * Identify the category.
+   * The category of the logo.
    * 
    * @example
    * logo_sns
@@ -181,10 +181,10 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo extends 
   label?: string;
   /**
    * @remarks
-   * identifier  name.
+   * The name of the logo.
    * 
    * @example
-   * Alibaba Cloud
+   * 阿里云
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -215,12 +215,12 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo extends 
 export class ImageBatchModerationResponseBodyDataResultsExtLogoData extends $dara.Model {
   /**
    * @remarks
-   * The location information of the identifier.
+   * The location of the recognized object.
    */
   location?: ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation;
   /**
    * @remarks
-   * identification information
+   * Identity information.
    */
   logo?: ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo[];
   static names(): { [key: string]: string } {
@@ -255,7 +255,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoData extends $dar
 export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation extends $dara.Model {
   /**
    * @remarks
-   * The width of the text area, in pixels.
+   * The height of the area, in pixels.
    * 
    * @example
    * 440
@@ -263,7 +263,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation 
   h?: number;
   /**
    * @remarks
-   * The height of the text area, in pixels.
+   * The width of the area, in pixels.
    * 
    * @example
    * 330
@@ -271,7 +271,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation 
   w?: number;
   /**
    * @remarks
-   * The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin, in pixels.
+   * The x-coordinate of the upper-left corner of the area, in pixels. The origin (0,0) is the upper-left corner of the image.
    * 
    * @example
    * 11
@@ -279,7 +279,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation 
   x?: number;
   /**
    * @remarks
-   * The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin, in pixels.
+   * The y-coordinate of the upper-left corner of the area, in pixels. The origin (0,0) is the upper-left corner of the image.
    * 
    * @example
    * 22
@@ -315,7 +315,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation 
 export class ImageBatchModerationResponseBodyDataResultsExtPublicFigure extends $dara.Model {
   /**
    * @remarks
-   * Identify the encoded information of the person.
+   * The ID of the recognized public figure.
    * 
    * @example
    * 12324222
@@ -323,7 +323,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigure extends 
   figureId?: string;
   /**
    * @remarks
-   * The identified person\\"s name information.
+   * The name of the recognized public figure.
    * 
    * @example
    * xxxxx
@@ -331,7 +331,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigure extends 
   figureName?: string;
   /**
    * @remarks
-   * The location information of the identifier.
+   * The location of the recognized object.
    */
   location?: ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation[];
   static names(): { [key: string]: string } {
@@ -365,15 +365,15 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigure extends 
 export class ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText extends $dara.Model {
   /**
    * @remarks
-   * Custom words, separate multiple words with commas.
+   * The custom keywords. Separate multiple keywords with a comma.
    * 
    * @example
-   * Custom Word 1  and  Custom Word 2
+   * 自定义词1,自定义词2
    */
   keyWords?: string;
   /**
    * @remarks
-   * Custom library ID.
+   * The ID of the custom library.
    * 
    * @example
    * 123456
@@ -381,10 +381,10 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText
   libId?: string;
   /**
    * @remarks
-   * Custom library name.
+   * The name of the custom library.
    * 
    * @example
-   * Custom Library 1
+   * 自定义库1
    */
   libName?: string;
   static names(): { [key: string]: string } {
@@ -431,7 +431,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultL
   w?: number;
   /**
    * @remarks
-   * The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin, in pixels.
+   * The x-coordinate of the upper-left corner of the text area, in pixels. The origin (0,0) is the upper-left corner of the image.
    * 
    * @example
    * 11
@@ -439,7 +439,7 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultL
   x?: number;
   /**
    * @remarks
-   * The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin, in pixels.
+   * The y-coordinate of the upper-left corner of the text area, in pixels. The origin (0,0) is the upper-left corner of the image.
    * 
    * @example
    * 22
@@ -475,12 +475,12 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultL
 export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult extends $dara.Model {
   /**
    * @remarks
-   * Text line coordinate information.
+   * The coordinates of the text line.
    */
   location?: ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultLocation;
   /**
    * @remarks
-   * Text information.
+   * The text.
    * 
    * @example
    * abcd
@@ -515,17 +515,17 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult 
 export class ImageBatchModerationResponseBodyDataResultsExtTextInImage extends $dara.Model {
   /**
    * @remarks
-   * When a custom text library is matched, return the custom library ID, custom library name, and custom words.
+   * If a custom text library is hit, the ID and name of the library, and the hit keywords are returned.
    */
   customText?: ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText[];
   /**
    * @remarks
-   * Return the text information of each line recognized in the image.
+   * The information for each line of text recognized in the image.
    */
   ocrResult?: ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult[];
   /**
    * @remarks
-   * hit risk keywords
+   * The detected risk keywords.
    */
   riskWord?: string[];
   static names(): { [key: string]: string } {
@@ -565,22 +565,22 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImage extends $
 export class ImageBatchModerationResponseBodyDataResultsExt extends $dara.Model {
   /**
    * @remarks
-   * Custom image library hit information list.
+   * A list of hits in custom image libraries.
    */
   customImage?: ImageBatchModerationResponseBodyDataResultsExtCustomImage[];
   /**
    * @remarks
-   * Logo identification information.
+   * Logo information.
    */
   logoData?: ImageBatchModerationResponseBodyDataResultsExtLogoData;
   /**
    * @remarks
-   * List of character information.
+   * A list of public figures.
    */
   publicFigure?: ImageBatchModerationResponseBodyDataResultsExtPublicFigure[];
   /**
    * @remarks
-   * Return the text information from the recognized images.
+   * The text detected in the image.
    */
   textInImage?: ImageBatchModerationResponseBodyDataResultsExtTextInImage;
   static names(): { [key: string]: string } {
@@ -625,7 +625,7 @@ export class ImageBatchModerationResponseBodyDataResultsExt extends $dara.Model 
 export class ImageBatchModerationResponseBodyDataResultsResult extends $dara.Model {
   /**
    * @remarks
-   * Confidence score, ranging from 0 to 100, rounded to two decimal places. Some labels do not have a confidence score.
+   * The confidence score. The value ranges from 0 to 100, with two decimal places. Some labels do not have a confidence score.
    * 
    * @example
    * 81.22
@@ -633,15 +633,15 @@ export class ImageBatchModerationResponseBodyDataResultsResult extends $dara.Mod
   confidence?: number;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
-   * No risk detected
+   * 未检测出风险
    */
   description?: string;
   /**
    * @remarks
-   * The labels returned after image content detection. A single image may have multiple labels and corresponding scores detected.
+   * The label returned after the image content moderation. An image may have multiple labels and scores.
    * 
    * @example
    * violent_explosion
@@ -675,17 +675,17 @@ export class ImageBatchModerationResponseBodyDataResultsResult extends $dara.Mod
 export class ImageBatchModerationResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
-   * Image supplementary reference information.
+   * Additional reference information for the image.
    */
   ext?: ImageBatchModerationResponseBodyDataResultsExt;
   /**
    * @remarks
-   * The risk labels, confidence scores, and other parameters of image detection results, in an array structure.
+   * The results of the image detection, including threat labels and confidence scores. This is an array.
    */
   result?: ImageBatchModerationResponseBodyDataResultsResult[];
   /**
    * @remarks
-   * Risk level.
+   * The risk level.
    * 
    * @example
    * high
@@ -693,7 +693,7 @@ export class ImageBatchModerationResponseBodyDataResults extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The enhanced image detection service supports various detection services.
+   * The detection service supported by Image Moderation Pro.
    * 
    * @example
    * baselineCheck
@@ -735,26 +735,33 @@ export class ImageBatchModerationResponseBodyDataResults extends $dara.Model {
 export class ImageBatchModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * To detect the data ID corresponding to the object.
+   * The data ID of the moderated object.
    * 
    * @example
    * 26769ada6e264e7ba9aa048241e12be9
    */
   dataId?: string;
+  /**
+   * @remarks
+   * The ID of the manual review task.
+   * 
+   * @example
+   * xxxxx-xxxxx
+   */
   manualTaskId?: string;
   /**
    * @remarks
-   * The risk labels, confidence scores, and other parameters of image detection results, in an array structure.
+   * An array of results for the image moderation. The results contain parameters such as threat labels and confidence scores.
    */
   result?: ImageBatchModerationResponseBodyDataResult[];
   /**
    * @remarks
-   * The risk labels, confidence scores, and other parameters for each service\\"s image detection, in an array structure.
+   * The detailed moderation results for each detection service. This is an array.
    */
   results?: ImageBatchModerationResponseBodyDataResults[];
   /**
    * @remarks
-   * Risk level.
+   * The risk level.
    * 
    * @example
    * high
@@ -798,7 +805,7 @@ export class ImageBatchModerationResponseBodyData extends $dara.Model {
 export class ImageBatchModerationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code. A return of 200 represents success.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -806,12 +813,12 @@ export class ImageBatchModerationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The result of image content detection.
+   * The results of the image content moderation.
    */
   data?: ImageBatchModerationResponseBodyData;
   /**
    * @remarks
-   * The response message for this request.
+   * The response message for the request.
    * 
    * @example
    * success
@@ -819,7 +826,7 @@ export class ImageBatchModerationResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The ID of this invocation request, generated by Alibaba Cloud as a unique identifier for the request, can be used for troubleshooting and pinpointing issues.
+   * The unique ID of the request. Alibaba Cloud generates this ID for each request. Use this ID to troubleshoot issues.
    * 
    * @example
    * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492

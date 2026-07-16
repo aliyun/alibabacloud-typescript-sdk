@@ -2,24 +2,19 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ImageQueueModerationRequest extends $dara.Model {
-  /**
-   * @example
-   * baselineCheck
-   */
+export class ModelRequestMessageEvent extends $dara.Model {
   service?: string;
-  /**
-   * @example
-   * {
-   *         "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
-   *         "dataId": "img123****"
-   *     }
-   */
   serviceParameters?: string;
+  dataType?: string;
+  sync?: boolean;
+  data?: string;
   static names(): { [key: string]: string } {
     return {
       service: 'Service',
       serviceParameters: 'ServiceParameters',
+      dataType: 'DataType',
+      sync: 'Sync',
+      data: 'Data',
     };
   }
 
@@ -27,6 +22,9 @@ export class ImageQueueModerationRequest extends $dara.Model {
     return {
       service: 'string',
       serviceParameters: 'string',
+      dataType: 'string',
+      sync: 'boolean',
+      data: 'string',
     };
   }
 

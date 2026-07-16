@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageModerationResultResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+   * The confidence score. The value ranges from 0 to 100. The value is accurate to two decimal places.
    * 
    * @example
    * 81.22
@@ -13,15 +13,15 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $dara.M
   confidence?: number;
   /**
    * @remarks
-   * The description of the result.
+   * The description.
    * 
    * @example
-   * no risk
+   * 未检测出风险
    */
   description?: string;
   /**
    * @remarks
-   * The labels returned after the image moderation.
+   * The label returned after the image content is moderated.
    * 
    * @example
    * violent_explosion
@@ -29,7 +29,7 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $dara.M
   label?: string;
   /**
    * @remarks
-   * Risk Level
+   * The risk level.
    * 
    * @example
    * high
@@ -63,10 +63,17 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $dara.M
 }
 
 export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The AccountId specified in the request.
+   * 
+   * @example
+   * 123456789
+   */
   accountId?: string;
   /**
    * @remarks
-   * The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
+   * The value of the \\`dataId\\` parameter specified in the API request. This field is not returned if \\`dataId\\` was not specified.
    * 
    * @example
    * 2a5389eb-4ff8-4584-ac99-644e2a539aa1
@@ -74,7 +81,7 @@ export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The information about the captured frames.
+   * Information about the image frames.
    * 
    * @example
    * [{"result":[{"confidence":81.22,"label":"violent_explosion"}]}]
@@ -82,16 +89,23 @@ export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
   frame?: string;
   /**
    * @remarks
-   * The number of frames.
+   * The number of result frames.
    * 
    * @example
    * 1
    */
   frameNum?: number;
+  /**
+   * @remarks
+   * The ID of the manual review task.
+   * 
+   * @example
+   * xxxxx-xxxxx
+   */
   manualTaskId?: string;
   /**
    * @remarks
-   * The reqId field returned by the Image Async Moderation API.
+   * The \\`ReqId\\` returned by the asynchronous Image Moderation Pro API.
    * 
    * @example
    * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
@@ -99,12 +113,12 @@ export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
   reqId?: string;
   /**
    * @remarks
-   * The results of image moderation parameters such as the label parameter and the confidence parameter.
+   * The results of the image moderation, including risk labels and confidence scores.
    */
   result?: DescribeImageModerationResultResponseBodyDataResult[];
   /**
    * @remarks
-   * Risk Level.
+   * The risk level.
    * 
    * @example
    * high
@@ -151,7 +165,7 @@ export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
 export class DescribeImageModerationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The error code. This is the same as the HTTP status code.
    * 
    * @example
    * 200
@@ -159,12 +173,12 @@ export class DescribeImageModerationResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The image moderation results.
+   * The results of the image content moderation.
    */
   data?: DescribeImageModerationResultResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The response message.
    * 
    * @example
    * success
@@ -172,7 +186,7 @@ export class DescribeImageModerationResultResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The unique ID of the request. Alibaba Cloud generates this ID for each request. Use this ID to troubleshoot and locate issues.
    * 
    * @example
    * 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3

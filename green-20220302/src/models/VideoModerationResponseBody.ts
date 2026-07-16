@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VideoModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the moderated object.
+   * The value of the dataId parameter that you specified in the API request. This parameter is not returned if you did not specify the dataId parameter in the request.
    * 
    * @example
    * data1234
@@ -45,7 +45,7 @@ export class VideoModerationResponseBodyData extends $dara.Model {
 export class VideoModerationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The return code. A return code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class VideoModerationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: VideoModerationResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The response message.
    * 
    * @example
    * SUCCESS
@@ -66,7 +66,7 @@ export class VideoModerationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

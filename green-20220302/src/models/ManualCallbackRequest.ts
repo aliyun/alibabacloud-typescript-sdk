@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ManualCallbackRequest extends $dara.Model {
   /**
    * @remarks
-   * Channel field
+   * The channel field.
    * 
    * @example
    * ant
@@ -13,7 +13,7 @@ export class ManualCallbackRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Checksum.
+   * The checksum.
    * 
    * @example
    * abc
@@ -21,7 +21,7 @@ export class ManualCallbackRequest extends $dara.Model {
   checksum?: string;
   /**
    * @remarks
-   * Code value
+   * The code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class ManualCallbackRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    * 
    * @example
    * {\\"Result\\": [{\\"Confidence\\": 100.0, \\"CustomizedHit\\": [{\\"KeyWords\\": u\\"\\u4fdd\\u969c,\\u6700\\u5927,\\u9ad8\\u7ea7\\", \\"LibName\\": u\\"\\u4f18\\u8def\\u654f\\u611f\\u8bcd\\"}], \\"Label\\": \\"customized\\"}]}
@@ -37,7 +37,7 @@ export class ManualCallbackRequest extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Message information
+   * The message.
    * 
    * @example
    * OK
@@ -45,7 +45,7 @@ export class ManualCallbackRequest extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Platform request ID, used for troubleshooting assistance
+   * The ID of the platform request. This ID is used to troubleshoot issues.
    * 
    * @example
    * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C

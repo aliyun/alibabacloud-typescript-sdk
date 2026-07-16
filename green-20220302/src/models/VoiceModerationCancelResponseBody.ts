@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VoiceModerationCancelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The return code. A return code of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class VoiceModerationCancelResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The response message.
    * 
    * @example
    * SUCCESS
@@ -21,7 +21,7 @@ export class VoiceModerationCancelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 4A926AE2-4C96-573F-824F-0532960799F8

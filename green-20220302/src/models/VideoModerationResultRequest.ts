@@ -5,14 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VideoModerationResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the moderation service.
-   * 
-   * Valid values:
-   * 
-   * *   liveStreamDetection: live stream moderation
-   * *   videoDetection: video file moderation
-   * *   liveStreamDetection_cb: live stream moderation_For regions outside the Chinese mainland
-   * *   videoDetection_cb: video file moderation_For regions outside the Chinese mainland.
+   * The ServiceCode for video moderation.
    * 
    * @example
    * videoDetection
@@ -20,10 +13,10 @@ export class VideoModerationResultRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The ID of the task that you want to query. You can specify one task ID at a time.
+   * The parameter set required by the moderation service. taskId specifies the taskId of the moderation task to query. Only one taskId can be specified per request.
    * 
    * @example
-   * {\\"taskId\\":\\"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5\\"}
+   * {"taskId":"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5"}
    */
   serviceParameters?: string;
   static names(): { [key: string]: string } {

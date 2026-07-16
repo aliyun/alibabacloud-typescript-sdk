@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MultiModalGuardAsyncResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The custom data ID.
+   * 
    * @example
    * dataIdxxx
    */
   dataId?: string;
   /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
    * @example
    * au_f_xxxxx
    */
@@ -38,19 +44,29 @@ export class MultiModalGuardAsyncResponseBodyData extends $dara.Model {
 
 export class MultiModalGuardAsyncResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: MultiModalGuardAsyncResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

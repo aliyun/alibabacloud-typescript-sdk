@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VoiceModerationResultResponseBodyDataSliceDetailsResultCustomizedHit extends $dara.Model {
+  /**
+   * @remarks
+   * The custom keyword.
+   * 
+   * @example
+   * fxxk
+   */
   keyWords?: string;
+  /**
+   * @remarks
+   * The name of the custom library.
+   * 
+   * @example
+   * insultLib
+   */
   libName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +43,29 @@ export class VoiceModerationResultResponseBodyDataSliceDetailsResultCustomizedHi
 }
 
 export class VoiceModerationResultResponseBodyDataSliceDetailsResultRiskPositions extends $dara.Model {
+  /**
+   * @remarks
+   * The end position.
+   * 
+   * @example
+   * 4
+   */
   endPos?: number;
+  /**
+   * @remarks
+   * The detected sensitive word.
+   * 
+   * @example
+   * fxxk
+   */
   riskWord?: string;
+  /**
+   * @remarks
+   * The start position.
+   * 
+   * @example
+   * 1
+   */
   startPos?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,12 +93,55 @@ export class VoiceModerationResultResponseBodyDataSliceDetailsResultRiskPosition
 }
 
 export class VoiceModerationResultResponseBodyDataSliceDetailsResult extends $dara.Model {
+  /**
+   * @remarks
+   * The confidence score.
+   * 
+   * @example
+   * 100.00
+   */
   confidence?: number;
+  /**
+   * @remarks
+   * The matched custom libraries.
+   */
   customizedHit?: VoiceModerationResultResponseBodyDataSliceDetailsResultCustomizedHit[];
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * profanity
+   */
   description?: string;
+  /**
+   * @remarks
+   * The label.
+   * 
+   * @example
+   * ad
+   */
   label?: string;
+  /**
+   * @remarks
+   * The risk level.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
+  /**
+   * @remarks
+   * A list of risk positions.
+   */
   riskPositions?: VoiceModerationResultResponseBodyDataSliceDetailsResultRiskPositions[];
+  /**
+   * @remarks
+   * The matched risky content.
+   * 
+   * @example
+   * XX
+   */
   riskWords?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,15 +185,15 @@ export class VoiceModerationResultResponseBodyDataSliceDetailsResult extends $da
 export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Model {
   /**
    * @remarks
-   * The description of the labels.
+   * The description of the label.
    * 
    * @example
-   * no risk
+   * 疑似违禁内容
    */
   descriptions?: string;
   /**
    * @remarks
-   * The end time of the audio segment in seconds.
+   * The end time of the slice, in seconds.
    * 
    * @example
    * 10
@@ -123,7 +201,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
   endTime?: number;
   /**
    * @remarks
-   * The end timestamp of the segment. Unit: milliseconds.
+   * The end timestamp of the slice, in milliseconds.
    * 
    * @example
    * 1678854649720
@@ -131,15 +209,15 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
   endTimestamp?: number;
   /**
    * @remarks
-   * Extended fields.
+   * Extended information.
    * 
    * @example
-   * {\\"riskTips\\":\\"sexuality_Suggestive\\",\\"riskWords\\":\\"pxxxxy\\"}
+   * {\\"riskWords\\":\\"色情服务\\","adNums":"\\","riskTips":"涉政_人物，涉政_红歌"}
    */
   extend?: string;
   /**
    * @remarks
-   * The details of the labels.
+   * The matched violation labels.
    * 
    * @example
    * sexual_sounds
@@ -147,16 +225,25 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
   labels?: string;
   /**
    * @remarks
-   * Reserved parameter.
-   * 
-   * @example
-   * {}
+   * A reserved field.
    */
   originAlgoResult?: { [key: string]: any };
+  /**
+   * @remarks
+   * The text detection results.
+   */
   result?: VoiceModerationResultResponseBodyDataSliceDetailsResult[];
   /**
    * @remarks
-   * Risk Level.
+   * The risk level, which is determined based on the configured thresholds for high and low risk scores. Valid values:
+   * 
+   * - `high`: high risk
+   * 
+   * - `medium`: medium risk
+   * 
+   * - `low`: low risk
+   * 
+   * - `none`: no risk detected
    * 
    * @example
    * high
@@ -164,23 +251,23 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
   riskLevel?: string;
   /**
    * @remarks
-   * The details of the risky content.
+   * Details about the matched risk.
    * 
    * @example
-   * sexuality_Suggestive
+   * 涉政_人物
    */
   riskTips?: string;
   /**
    * @remarks
-   * The term hit by the risky content.
+   * The matched risk keywords.
    * 
    * @example
-   * AAA,BBB,CCC
+   * 色情服务
    */
   riskWords?: string;
   /**
    * @remarks
-   * The risk score. Default range: 0 to 99.
+   * The risk score. The value ranges from 0 to 99.
    * 
    * @example
    * 87.01
@@ -188,7 +275,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
   score?: number;
   /**
    * @remarks
-   * The start time of the audio segment in seconds.
+   * The start time of the slice, in seconds.
    * 
    * @example
    * 0
@@ -196,7 +283,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
   startTime?: number;
   /**
    * @remarks
-   * The start timestamp of the segment. Unit: milliseconds.
+   * The start timestamp of the slice, in milliseconds.
    * 
    * @example
    * 1678854649720
@@ -204,18 +291,18 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
   startTimestamp?: number;
   /**
    * @remarks
-   * The text converted from the audio segment.
+   * The transcribed text of the audio slice.
    * 
    * @example
-   * Disgusting
+   * 今天天气真不错
    */
   text?: string;
   /**
    * @remarks
-   * The temporary URL of the audio segment.
+   * The temporary URL of the audio slice.
    * 
    * @example
-   * https://aliyundoc.com
+   * 暂无
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -276,10 +363,10 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
 export class VoiceModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the moderated object.
+   * The value of the `dataId` parameter you specified in the request. This parameter is returned only if you specified it in the request.
    * 
    * @example
-   * 26769ada6e264e7ba9aa048241e12be9
+   * data1234
    */
   dataId?: string;
   /**
@@ -290,10 +377,25 @@ export class VoiceModerationResultResponseBodyData extends $dara.Model {
    * liveId
    */
   liveId?: string;
+  /**
+   * @remarks
+   * The ID of the manual review task.
+   * 
+   * @example
+   * xxxxx-xxxxx
+   */
   manualTaskId?: string;
   /**
    * @remarks
-   * Risk Level.
+   * The risk level, which is determined based on the configured thresholds for high and low risk scores. Valid values:
+   * 
+   * - `high`: high risk
+   * 
+   * - `medium`: medium risk
+   * 
+   * - `low`: low risk
+   * 
+   * - `none`: no risk detected
    * 
    * @example
    * high
@@ -301,7 +403,7 @@ export class VoiceModerationResultResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The moderation results of audio segments.
+   * The slice results.
    */
   sliceDetails?: VoiceModerationResultResponseBodyDataSliceDetails[];
   /**
@@ -314,10 +416,10 @@ export class VoiceModerationResultResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The URL of the moderated content.
+   * The task URL.
    * 
    * @example
-   * https://aliyundoc.com
+   * 暂无
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -359,7 +461,7 @@ export class VoiceModerationResultResponseBodyData extends $dara.Model {
 export class VoiceModerationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The error code.
    * 
    * @example
    * 200
@@ -372,7 +474,7 @@ export class VoiceModerationResultResponseBody extends $dara.Model {
   data?: VoiceModerationResultResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The response message.
    * 
    * @example
    * SUCCESS
@@ -380,7 +482,7 @@ export class VoiceModerationResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3

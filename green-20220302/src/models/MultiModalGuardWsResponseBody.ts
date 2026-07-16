@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeImageModerationResultRequest extends $dara.Model {
+export class MultiModalGuardWsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The \\`ReqId\\` returned by the asynchronous Image Moderation Pro API.
+   * Id of the request
    * 
    * @example
-   * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
+   * 552F83A7-80C9-17ED-B344-0E13F7D3BF00
    */
-  reqId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      reqId: 'ReqId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      reqId: 'string',
+      requestId: 'string',
     };
   }
 

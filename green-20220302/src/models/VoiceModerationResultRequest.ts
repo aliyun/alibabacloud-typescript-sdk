@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VoiceModerationResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the moderation service. Valid values: nickname_detection: user nickname
+   * The moderation service type. Supported values include `nickname_detection` for user nickname moderation. Support for more types is planned.
    * 
    * @example
    * nickname_detection
@@ -13,12 +13,12 @@ export class VoiceModerationResultRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The parameters of API requests that are sent from API Gateway to the backend service.
+   * Parameters that the gateway sends to the backend service.
    * 
    * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
    * 
    * @example
-   * {"taskId":"xxxxx-xxxx"}
+   * 暂无
    */
   serviceParameters?: string;
   static names(): { [key: string]: string } {

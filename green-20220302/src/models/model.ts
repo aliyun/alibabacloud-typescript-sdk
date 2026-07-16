@@ -80,6 +80,8 @@ export { ManualModerationResultResponseBodyData } from './ManualModerationResult
 export { MultiModalAgentResponseBodyDataResult } from './MultiModalAgentResponseBody';
 export { MultiModalAgentResponseBodyDataUsage } from './MultiModalAgentResponseBody';
 export { MultiModalAgentResponseBodyData } from './MultiModalAgentResponseBody';
+export { MultiModalAgentSSEResponseBodyDataUsage } from './MultiModalAgentSseresponseBody';
+export { MultiModalAgentSSEResponseBodyData } from './MultiModalAgentSseresponseBody';
 export { MultiModalGuardResponseBodyDataDetailResult } from './MultiModalGuardResponseBody';
 export { MultiModalGuardResponseBodyDataDetail } from './MultiModalGuardResponseBody';
 export { MultiModalGuardResponseBodyData } from './MultiModalGuardResponseBody';
@@ -112,6 +114,9 @@ export { TextModerationPlusResponseBodyData } from './TextModerationPlusResponse
 export { UrlAsyncModerationResponseBodyData } from './UrlAsyncModerationResponseBody';
 export { VideoModerationResponseBodyData } from './VideoModerationResponseBody';
 export { VideoModerationResultResponseBodyDataAudioResultAudioSummarys } from './VideoModerationResultResponseBody';
+export { VideoModerationResultResponseBodyDataAudioResultSliceDetailsResultCustomizedHit } from './VideoModerationResultResponseBody';
+export { VideoModerationResultResponseBodyDataAudioResultSliceDetailsResultRiskPositions } from './VideoModerationResultResponseBody';
+export { VideoModerationResultResponseBodyDataAudioResultSliceDetailsResult } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyDataAudioResultSliceDetails } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyDataAudioResult } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyDataExtAigcDataAIGC } from './VideoModerationResultResponseBody';
@@ -180,6 +185,9 @@ export { ManualModerationResultResponse } from './ManualModerationResultResponse
 export { MultiModalAgentRequest } from './MultiModalAgentRequest';
 export { MultiModalAgentResponseBody } from './MultiModalAgentResponseBody';
 export { MultiModalAgentResponse } from './MultiModalAgentResponse';
+export { MultiModalAgentSSERequest } from './MultiModalAgentSserequest';
+export { MultiModalAgentSSEResponseBody } from './MultiModalAgentSseresponseBody';
+export { MultiModalAgentSSEResponse } from './MultiModalAgentSseresponse';
 export { MultiModalGuardRequest } from './MultiModalGuardRequest';
 export { MultiModalGuardResponseBody } from './MultiModalGuardResponseBody';
 export { MultiModalGuardResponse } from './MultiModalGuardResponse';
@@ -192,6 +200,9 @@ export { MultiModalGuardAsyncResultResponse } from './MultiModalGuardAsyncResult
 export { MultiModalGuardForBase64Request } from './MultiModalGuardForBase64request';
 export { MultiModalGuardForBase64ResponseBody } from './MultiModalGuardForBase64responseBody';
 export { MultiModalGuardForBase64Response } from './MultiModalGuardForBase64response';
+export { MultiModalGuardWsRequest } from './MultiModalGuardWsRequest';
+export { MultiModalGuardWsResponseBody } from './MultiModalGuardWsResponseBody';
+export { MultiModalGuardWsResponse } from './MultiModalGuardWsResponse';
 export { MultimodalAsyncModerationRequest } from './MultimodalAsyncModerationRequest';
 export { MultimodalAsyncModerationResponseBody } from './MultimodalAsyncModerationResponseBody';
 export { MultimodalAsyncModerationResponse } from './MultimodalAsyncModerationResponse';

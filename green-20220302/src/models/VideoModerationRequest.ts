@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VideoModerationRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the moderation service.
+   * The service code for video moderation.
    * 
    * @example
    * videoDetection
@@ -13,10 +13,15 @@ export class VideoModerationRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
+   * The parameters that are required for the moderation service. The value must be a JSON string.
+   * 
+   * - url: Required. The URL of the object to be moderated. Make sure that the URL can be accessed over the Internet.
+   * - dataId: Optional. The data ID of the object to be moderated.
+   * 
+   * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/2505810.html).
    * 
    * @example
-   * {\\"url\\": \\"https://talesofai.oss-cn-shanghai.aliyuncs.com/xxx.mp4\\", \\"dataId\\": \\"94db0b88-f521-11ed-806e-fae21c1f239c\\"}
+   * {"url": "https://talesofai.oss-cn-shanghai.aliyuncs.com/xxx.mp4", "dataId": "data1234"}
    */
   serviceParameters?: string;
   static names(): { [key: string]: string } {

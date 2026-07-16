@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
+import { WebSocketUtils }from '@alicloud/openapi-core';
 
 
 import * as $_model from './models/model';
@@ -31,6 +32,11 @@ export default class Client extends OpenApi {
       'cn-shenzhen-finance-1': "green.aliyuncs.com",
       'cn-shanghai-finance-1': "green.aliyuncs.com",
       'cn-north-2-gov-1': "green.aliyuncs.com",
+      'cn-shenzhen': "green-cip.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "green-cip.cn-shanghai.aliyuncs.com",
+      'cn-hangzhou': "green-cip.cn-hangzhou.aliyuncs.com",
+      'cn-beijing': "green-cip.cn-beijing.aliyuncs.com",
+      'ap-southeast-1': "green-cip.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("green", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -50,7 +56,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档审核结果
+   * Document review results
    * 
    * @param request - DescribeFileModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -85,7 +91,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文档审核结果
+   * Document review results
    * 
    * @param request - DescribeFileModerationResultRequest
    * @returns DescribeFileModerationResultResponse
@@ -96,11 +102,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the moderation results of an Image Moderation 2.0 task.
+   * Retrieves the results of an Image Moderation Pro task.
    * 
    * @remarks
-   *   Billing: This operation is free of charge.
-   * *   QPS limit: You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * - Billing information: This operation is not billed.
+   * - QPS limit: This operation is limited to 100 queries per second (QPS) for each user. If you exceed this limit, your API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
    * 
    * @param request - DescribeImageModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -131,11 +137,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the moderation results of an Image Moderation 2.0 task.
+   * Retrieves the results of an Image Moderation Pro task.
    * 
    * @remarks
-   *   Billing: This operation is free of charge.
-   * *   QPS limit: You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * - Billing information: This operation is not billed.
+   * - QPS limit: This operation is limited to 100 queries per second (QPS) for each user. If you exceed this limit, your API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
    * 
    * @param request - DescribeImageModerationResultRequest
    * @returns DescribeImageModerationResultResponse
@@ -146,7 +152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
+   * The enhanced image moderation auxiliary information API operation retrieves additional auxiliary information detected by the enhanced image moderation API operation, including OCR results and custom image library hit information.
+   * 
+   * @remarks
+   * This API operation must be used with the enhanced image moderation API. After you call the enhanced image moderation API operation, you can call this API operation to obtain additional detection information. This API operation is free of charge.
    * 
    * @param request - DescribeImageResultExtRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -181,7 +190,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains more auxiliary information that is identified by calling the Image Moderation 2.0 API. The auxiliary information includes the moderation results of images and text and the hit information of custom image libraries.
+   * The enhanced image moderation auxiliary information API operation retrieves additional auxiliary information detected by the enhanced image moderation API operation, including OCR results and custom image library hit information.
+   * 
+   * @remarks
+   * This API operation must be used with the enhanced image moderation API. After you call the enhanced image moderation API operation, you can call this API operation to obtain additional detection information. This API operation is free of charge.
    * 
    * @param request - DescribeImageResultExtRequest
    * @returns DescribeImageResultExtResponse
@@ -192,7 +204,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异步多模态检测结果
+   * Query the results of an asynchronous multimodal moderation task.
+   * 
+   * @remarks
+   * - Billing information: This API call is free.
+   * - Query timeout: Wait 30 seconds after you submit an asynchronous moderation task before querying the result. Do not wait longer than 24 hours, or the result will be automatically deleted.
+   * - This API has a per-user rate limiting limit of 10 requests per second. Exceeding this limit triggers rate limiting, which may affect your service. Call the API responsibly.
    * 
    * @param request - DescribeMultimodalModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -223,7 +240,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异步多模态检测结果
+   * Query the results of an asynchronous multimodal moderation task.
+   * 
+   * @remarks
+   * - Billing information: This API call is free.
+   * - Query timeout: Wait 30 seconds after you submit an asynchronous moderation task before querying the result. Do not wait longer than 24 hours, or the result will be automatically deleted.
+   * - This API has a per-user rate limiting limit of 10 requests per second. Exceeding this limit triggers rate limiting, which may affect your service. Call the API responsibly.
    * 
    * @param request - DescribeMultimodalModerationResultRequest
    * @returns DescribeMultimodalModerationResultResponse
@@ -234,7 +256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the token for uploading files.
+   * Retrieves an upload token.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUploadTokenResponse
@@ -256,7 +278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the token for uploading files.
+   * Retrieves an upload token.
    * @returns DescribeUploadTokenResponse
    */
   async describeUploadToken(): Promise<$_model.DescribeUploadTokenResponse> {
@@ -265,12 +287,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
+   * Queries moderation results based on the ReqId returned by asynchronous URL moderation.
    * 
    * @remarks
-   *   Billing: This operation is free of charge.
-   * *   Query timeout: We recommend that you query moderation results at least 480 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for up to 3 days. After 3 days, the results are deleted.
-   * *   You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * - Billing information: This operation is free of charge.
+   * - Query timeout: We recommend that you set the query interval to 480 seconds (query the results 480 seconds after you submit the asynchronous moderation task). The maximum timeout period is 3 days. After this period, the results are automatically deleted.
+   * - The QPS limit for this operation is 100 queries per second (QPS) per user. If the limit is exceeded, your API calls will be throttled, which may affect your business. Make sure you call the operation at a reasonable rate.
    * 
    * @param request - DescribeUrlModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -301,12 +323,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the moderation results based on the ReqId returned by asynchronous URL moderation.
+   * Queries moderation results based on the ReqId returned by asynchronous URL moderation.
    * 
    * @remarks
-   *   Billing: This operation is free of charge.
-   * *   Query timeout: We recommend that you query moderation results at least 480 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for up to 3 days. After 3 days, the results are deleted.
-   * *   You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * - Billing information: This operation is free of charge.
+   * - Query timeout: We recommend that you set the query interval to 480 seconds (query the results 480 seconds after you submit the asynchronous moderation task). The maximum timeout period is 3 days. After this period, the results are automatically deleted.
+   * - The QPS limit for this operation is 100 queries per second (QPS) per user. If the limit is exceeded, your API calls will be throttled, which may affect your business. Make sure you call the operation at a reasonable rate.
    * 
    * @param request - DescribeUrlModerationResultRequest
    * @returns DescribeUrlModerationResultResponse
@@ -317,7 +339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moderates files.
+   * Moderates document content.
    * 
    * @param request - FileModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -352,7 +374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moderates files.
+   * Moderates document content.
    * 
    * @param request - FileModerationRequest
    * @returns FileModerationResponse
@@ -363,7 +385,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
+   * This API is used for asynchronous image moderation. Asynchronous moderation tasks do not return detection results in real time. You can obtain the detection results using a callback or by polling. The detection results are retained for up to three days.
+   * 
+   * @remarks
+   * - The following image formats are supported: PNG, JPG, JPEG, BMP, WEBP, TIFF, ICO, HEIC, and SVG.
+   * - The image size cannot exceed 10 MB. The recommended image resolution is greater than 200 × 200 pixels. A low resolution may compromise the accuracy of the Content Moderation algorithm.
+   * - The timeout period for image downloads is 3 seconds. If an image download exceeds this duration, a download timeout error is returned.
    * 
    * @param request - ImageAsyncModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -398,7 +425,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moderates images in asynchronous mode. An asynchronous image moderation task does not return the moderation results in real time. To obtain moderation results, you can poll the moderation results periodically or enable callback notification. The moderation results are retained for a maximum of 3 days.
+   * This API is used for asynchronous image moderation. Asynchronous moderation tasks do not return detection results in real time. You can obtain the detection results using a callback or by polling. The detection results are retained for up to three days.
+   * 
+   * @remarks
+   * - The following image formats are supported: PNG, JPG, JPEG, BMP, WEBP, TIFF, ICO, HEIC, and SVG.
+   * - The image size cannot exceed 10 MB. The recommended image resolution is greater than 200 × 200 pixels. A low resolution may compromise the accuracy of the Content Moderation algorithm.
+   * - The timeout period for image downloads is 3 seconds. If an image download exceeds this duration, a download timeout error is returned.
    * 
    * @param request - ImageAsyncModerationRequest
    * @returns ImageAsyncModerationResponse
@@ -409,7 +441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片批量调用
+   * Batch Invocation of Images
    * 
    * @param request - ImageBatchModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -444,7 +476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片批量调用
+   * Batch Invocation of Images
    * 
    * @param request - ImageBatchModerationRequest
    * @returns ImageBatchModerationResponse
@@ -455,10 +487,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
+   * Image moderation
    * 
    * @remarks
-   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
+   * Before you call this operation, complete the following steps:
+   * 1. [Activate AI Guardrails-Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+   * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of the enhanced image moderation feature.
+   * 3. For more information about API usage and parameters, see the [API reference](https://help.aliyun.com/document_detail/467829.html).
    * 
    * @param request - ImageModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -493,10 +528,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies whether an image contains content or elements that violate relevant regulations on network content dissemination, affect the content order of a specific platform, or affect user experience. Image Moderation 2.0 supports over 90 content risk labels and over 100 risk control items. Image Moderation 2.0 of Content Moderation allows you to develop further moderation or governance measures for specific image content based on business scenarios, platform-specific content governance rules, or rich risk labels and scores of confidence levels returned by API calls.
+   * Image moderation
    * 
    * @remarks
-   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/467826.html)[](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of Image Moderation 2.0.
+   * Before you call this operation, complete the following steps:
+   * 1. [Activate AI Guardrails-Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+   * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of the enhanced image moderation feature.
+   * 3. For more information about API usage and parameters, see the [API reference](https://help.aliyun.com/document_detail/467829.html).
    * 
    * @param request - ImageModerationRequest
    * @returns ImageModerationResponse
@@ -553,7 +591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Content Security Manual Review Result Callback Interface
+   * The channel callback API for manual review results in Content Moderation.
    * 
    * @param request - ManualCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -604,7 +642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Content Security Manual Review Result Callback Interface
+   * The channel callback API for manual review results in Content Moderation.
    * 
    * @param request - ManualCallbackRequest
    * @returns ManualCallbackResponse
@@ -615,7 +653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Content Security Manual Review Request Interface
+   * Interface for submitting Content Moderation manual review requests
    * 
    * @param request - ManualModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -650,7 +688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Content Security Manual Review Request Interface
+   * Interface for submitting Content Moderation manual review requests
    * 
    * @param request - ManualModerationRequest
    * @returns ManualModerationResponse
@@ -661,7 +699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve manual review results
+   * Retrieves the manual review result.
    * 
    * @param request - ManualModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -692,7 +730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve manual review results
+   * Retrieves the manual review result.
    * 
    * @param request - ManualModerationResultRequest
    * @returns ManualModerationResultResponse
@@ -703,7 +741,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多模态AgentAPI同步检测接口
+   * This is the synchronous detection API for the multi-modal agent.
+   * 
+   * @remarks
+   * This is the AI Guardrails agent.
    * 
    * @param request - MultiModalAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -738,7 +779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多模态AgentAPI同步检测接口
+   * This is the synchronous detection API for the multi-modal agent.
+   * 
+   * @remarks
+   * This is the AI Guardrails agent.
    * 
    * @param request - MultiModalAgentRequest
    * @returns MultiModalAgentResponse
@@ -749,7 +793,119 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步检测接口
+   * Synchronously detects multimodal content by using the Agent API.
+   * 
+   * @remarks
+   * The content moderation Agent.
+   * 
+   * @param request - MultiModalAgentSSERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultiModalAgentSSEResponse
+   */
+  async *multiModalAgentSSEWithSSE(request: $_model.MultiModalAgentSSERequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.MultiModalAgentSSEResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appID)) {
+      body["AppID"] = request.appID;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultiModalAgentSSE",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.MultiModalAgentSSEResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.MultiModalAgentSSEResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Synchronously detects multimodal content by using the Agent API.
+   * 
+   * @remarks
+   * The content moderation Agent.
+   * 
+   * @param request - MultiModalAgentSSERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultiModalAgentSSEResponse
+   */
+  async multiModalAgentSSEWithOptions(request: $_model.MultiModalAgentSSERequest, runtime: $dara.RuntimeOptions): Promise<$_model.MultiModalAgentSSEResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appID)) {
+      body["AppID"] = request.appID;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultiModalAgentSSE",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MultiModalAgentSSEResponse>(await this.callApi(params, req, runtime), new $_model.MultiModalAgentSSEResponse({}));
+  }
+
+  /**
+   * Synchronously detects multimodal content by using the Agent API.
+   * 
+   * @remarks
+   * The content moderation Agent.
+   * 
+   * @param request - MultiModalAgentSSERequest
+   * @returns MultiModalAgentSSEResponse
+   */
+  async multiModalAgentSSE(request: $_model.MultiModalAgentSSERequest): Promise<$_model.MultiModalAgentSSEResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.multiModalAgentSSEWithOptions(request, runtime);
+  }
+
+  /**
+   * API for synchronous detection
    * 
    * @param request - MultiModalGuardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -784,7 +940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同步检测接口
+   * API for synchronous detection
    * 
    * @param request - MultiModalGuardRequest
    * @returns MultiModalGuardResponse
@@ -795,7 +951,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 视频检测任务提交
+   * An asynchronous multimodal AI safety guardrail API for audio and video. It provides comprehensive detection of non-compliant content, sensitive content, prompt injection attacks, malicious files, and malicious URLs.
+   * 
+   * @remarks
+   * If an API is subject to billing, add the following sentence in bold: "Before using this API, ensure that you fully understand the billing methods and pricing of the XXX product." The word "pricing" must be a hyperlink to https\\://www\\.aliyun.com/price/product#/ecs/detail.
    * 
    * @param request - MultiModalGuardAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -830,7 +989,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 视频检测任务提交
+   * An asynchronous multimodal AI safety guardrail API for audio and video. It provides comprehensive detection of non-compliant content, sensitive content, prompt injection attacks, malicious files, and malicious URLs.
+   * 
+   * @remarks
+   * If an API is subject to billing, add the following sentence in bold: "Before using this API, ensure that you fully understand the billing methods and pricing of the XXX product." The word "pricing" must be a hyperlink to https\\://www\\.aliyun.com/price/product#/ecs/detail.
    * 
    * @param request - MultiModalGuardAsyncRequest
    * @returns MultiModalGuardAsyncResponse
@@ -841,7 +1003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取视频检测结果
+   * Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
+   * 
+   * @remarks
+   * If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
    * 
    * @param request - MultiModalGuardAsyncResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -876,7 +1041,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取视频检测结果
+   * Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
+   * 
+   * @remarks
+   * If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
    * 
    * @param request - MultiModalGuardAsyncResultRequest
    * @returns MultiModalGuardAsyncResultResponse
@@ -887,7 +1055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多模态同步检测接口，支持图片base64字符串
+   * Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
    * 
    * @param request - MultiModalGuardForBase64Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -928,7 +1096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多模态同步检测接口，支持图片base64字符串
+   * Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
    * 
    * @param request - MultiModalGuardForBase64Request
    * @returns MultiModalGuardForBase64Response
@@ -939,7 +1107,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多模态-异步检测
+   * Provides a WebSocket-based multimodal detection API for AI safety guardrails. This API supports content compliance detection, sensitive content detection, prompt attack detection, malicious file detection, malicious URL detection, and other comprehensive detection capabilities.
+   * 
+   * @param request - MultiModalGuardWsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultiModalGuardWsResponse
+   */
+  async multiModalGuardWsWithOptions(request: $_model.MultiModalGuardWsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MultiModalGuardWsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultiModalGuardWs",
+      version: "2022-03-02",
+      protocol: "wss",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+      websocketSubProtocol: "awap",
+    });
+    let res = new $_model.MultiModalGuardWsResponse({ });
+    let tmp = await this.callApi(params, req, runtime);
+    if (!$dara.isNull(tmp["webSocketClient"])) {
+      res.webSocketClient = WebSocketUtils.createWebSocketClient(tmp["webSocketClient"]);
+    }
+
+    return res;
+  }
+
+  /**
+   * Provides a WebSocket-based multimodal detection API for AI safety guardrails. This API supports content compliance detection, sensitive content detection, prompt attack detection, malicious file detection, malicious URL detection, and other comprehensive detection capabilities.
+   * 
+   * @param request - MultiModalGuardWsRequest
+   * @returns MultiModalGuardWsResponse
+   */
+  async multiModalGuardWs(request: $_model.MultiModalGuardWsRequest): Promise<$_model.MultiModalGuardWsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.multiModalGuardWsWithOptions(request, runtime);
+  }
+
+  /**
+   * Multimodal-Asynchronous Detection
+   * 
+   * @remarks
+   * The asynchronous URL moderation service supports two billing methods: pay-as-you-go and resource plan usage.
+   * - After you activate the enhanced text moderation service, the default billing method is pay-as-you-go. You are billed daily based on actual usage. No charges apply if you do not invoke the service.
+   * - If your moderation volume is large or your moderation needs are relatively stable, purchase a resource plan in advance. Larger resource plans offer greater discounts. You can stack multiple resource plans.
    * 
    * @param request - MultimodalAsyncModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -974,7 +1192,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多模态-异步检测
+   * Multimodal-Asynchronous Detection
+   * 
+   * @remarks
+   * The asynchronous URL moderation service supports two billing methods: pay-as-you-go and resource plan usage.
+   * - After you activate the enhanced text moderation service, the default billing method is pay-as-you-go. You are billed daily based on actual usage. No charges apply if you do not invoke the service.
+   * - If your moderation volume is large or your moderation needs are relatively stable, purchase a resource plan in advance. Larger resource plans offer greater discounts. You can stack multiple resource plans.
    * 
    * @param request - MultimodalAsyncModerationRequest
    * @returns MultimodalAsyncModerationResponse
@@ -985,10 +1208,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides moderation services for multiple business scenarios and identifies various violation risks.
+   * This service uses dynamic policies and models to defend against adversarial content. It provides moderation services for various business scenarios and detects different types of violations.
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) of Text Moderation 2.0.
+   * Before you use this operation, review the [billing methods and pricing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) for Text Moderation Plus.
    * 
    * @param request - TextModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1023,10 +1246,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides moderation services for multiple business scenarios and identifies various violation risks.
+   * This service uses dynamic policies and models to defend against adversarial content. It provides moderation services for various business scenarios and detects different types of violations.
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) of Text Moderation 2.0.
+   * Before you use this operation, review the [billing methods and pricing](https://help.aliyun.com/document_detail/464388.html?#section-itm-m2s-ugq) for Text Moderation Plus.
    * 
    * @param request - TextModerationRequest
    * @returns TextModerationResponse
@@ -1037,10 +1260,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moderates the input command and generated text of large language models (LLMs). Specific model input commands can be used to retrieve standard answers. The feature of enabling and disabling the moderation labels is also available.
+   * Text Moderation Plus is an upgraded service that moderates the input instructions and generated text of large language models (LLMs). This service can retrieve standard answers for specific input instructions and lets you enable or disable moderation labels.
    * 
    * @remarks
-   * Before you call this operation, make sure that you have [activated the Content Moderation 2.0 service](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and are familiar with the [billing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) of the Text Moderation 2.0 Plus service.
+   * Before you use this API, [activate AI Guardrails Pro](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) for Text Moderation Plus.
    * 
    * @param request - TextModerationPlusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1075,10 +1298,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moderates the input command and generated text of large language models (LLMs). Specific model input commands can be used to retrieve standard answers. The feature of enabling and disabling the moderation labels is also available.
+   * Text Moderation Plus is an upgraded service that moderates the input instructions and generated text of large language models (LLMs). This service can retrieve standard answers for specific input instructions and lets you enable or disable moderation labels.
    * 
    * @remarks
-   * Before you call this operation, make sure that you have [activated the Content Moderation 2.0 service](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and are familiar with the [billing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) of the Text Moderation 2.0 Plus service.
+   * Before you use this API, [activate AI Guardrails Pro](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) and make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/2671445.html?#section-6od-32j-99n) for Text Moderation Plus.
    * 
    * @param request - TextModerationPlusRequest
    * @returns TextModerationPlusResponse
@@ -1089,7 +1312,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
+   * The URL asynchronous moderation service detects threats such as fraud, pornography, and gambling in URLs to protect the content ecosystem of your platform.
+   * 
+   * @remarks
+   * The URL asynchronous moderation service supports the pay-as-you-go and resource plan billing methods.
+   * - After you activate the enhanced edition of Text Moderation, the default billing method is pay-as-you-go. You are charged CNY 30 per 10,000 calls based on your daily usage. No fees are incurred if you do not call the service.
+   * - If you have many moderation requests or relatively fixed moderation requirements, we recommend that you purchase resource plans in advance. The larger the resource plan you purchase, the greater the discount you receive. You can purchase and use multiple resource plans.
    * 
    * @param request - UrlAsyncModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1124,7 +1352,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies whether URL links contain risks such as fraud, pornographic, and gambling content, to protect the platform content ecosystem.
+   * The URL asynchronous moderation service detects threats such as fraud, pornography, and gambling in URLs to protect the content ecosystem of your platform.
+   * 
+   * @remarks
+   * The URL asynchronous moderation service supports the pay-as-you-go and resource plan billing methods.
+   * - After you activate the enhanced edition of Text Moderation, the default billing method is pay-as-you-go. You are charged CNY 30 per 10,000 calls based on your daily usage. No fees are incurred if you do not call the service.
+   * - If you have many moderation requests or relatively fixed moderation requirements, we recommend that you purchase resource plans in advance. The larger the resource plan you purchase, the greater the discount you receive. You can purchase and use multiple resource plans.
    * 
    * @param request - UrlAsyncModerationRequest
    * @returns UrlAsyncModerationResponse
@@ -1135,7 +1368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
+   * The enhanced video moderation feature of Content Moderation detects threats and non-compliant content in video files. Use this operation to submit a moderation task.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you have activated the [enhanced Content Moderation](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) service and understand the [billing methods](https://help.aliyun.com/document_detail/2505807.html) and [pricing](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of the enhanced video moderation feature.
    * 
    * @param request - VideoModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1170,7 +1406,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Identifies risky or illegal content in video files. You can call this operation to submit a moderation task.
+   * The enhanced video moderation feature of Content Moderation detects threats and non-compliant content in video files. Use this operation to submit a moderation task.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you have activated the [enhanced Content Moderation](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn) service and understand the [billing methods](https://help.aliyun.com/document_detail/2505807.html) and [pricing](https://www.aliyun.com/price/product?#/lvwang/detail/cdibag) of the enhanced video moderation feature.
    * 
    * @param request - VideoModerationRequest
    * @returns VideoModerationResponse
@@ -1181,7 +1420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a live stream moderation task.
+   * Cancels an ApsaraVideo Live moderation task.
    * 
    * @param request - VideoModerationCancelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1216,7 +1455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a live stream moderation task.
+   * Cancels an ApsaraVideo Live moderation task.
    * 
    * @param request - VideoModerationCancelRequest
    * @returns VideoModerationCancelResponse
@@ -1227,10 +1466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Video Detection Results
+   * Retrieves the task result of an enhanced video content moderation node.
    * 
    * @remarks
-   * This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
+   * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After that, results are automatically deleted.
    * 
    * @param request - VideoModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1265,10 +1504,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Video Detection Results
+   * Retrieves the task result of an enhanced video content moderation node.
    * 
    * @remarks
-   * This operation is free of charge. We recommend that you query moderation results at least 30 seconds after you send an asynchronous moderation request. Content Moderation retains moderation results for at most 24 hours. After 24 hours, the results are deleted.
+   * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After that, results are automatically deleted.
    * 
    * @param request - VideoModerationResultRequest
    * @returns VideoModerationResultResponse
@@ -1279,7 +1518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a Voice Moderation 2.0 task.
+   * Submits a task for enhanced voice moderation.
    * 
    * @param request - VoiceModerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1314,7 +1553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a Voice Moderation 2.0 task.
+   * Submits a task for enhanced voice moderation.
    * 
    * @param request - VoiceModerationRequest
    * @returns VoiceModerationResponse
@@ -1325,7 +1564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a Voice Moderation 2.0 task.
+   * This operation cancels an enhanced voice moderation task.
    * 
    * @param request - VoiceModerationCancelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1360,7 +1599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a Voice Moderation 2.0 task.
+   * This operation cancels an enhanced voice moderation task.
    * 
    * @param request - VoiceModerationCancelRequest
    * @returns VoiceModerationCancelResponse
@@ -1371,7 +1610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the moderation results of a Voice Moderation 2.0 task.
+   * Retrieve the detection results for enhanced voice moderation.
    * 
    * @param request - VoiceModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1406,7 +1645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the moderation results of a Voice Moderation 2.0 task.
+   * Retrieve the detection results for enhanced voice moderation.
    * 
    * @param request - VoiceModerationResultRequest
    * @returns VoiceModerationResultResponse

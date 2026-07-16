@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class MultiModalGuardForBase64Request extends $dara.Model {
   /**
+   * @remarks
+   * The base64-encoded string of the image.
+   * 
    * @example
    * {base64}
    */
@@ -17,6 +20,9 @@ export class MultiModalGuardForBase64Request extends $dara.Model {
    */
   service?: string;
   /**
+   * @remarks
+   * The service parameters.
+   * 
    * @example
    * {"content":"test"}
    */

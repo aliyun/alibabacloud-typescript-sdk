@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VoiceModerationCancelRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the moderation service.
+   * The type of moderation service. Valid values include \\`nickname_detection\\` for user nicknames. Other values are to be determined.
    * 
    * @example
    * nickname_detection
@@ -13,10 +13,12 @@ export class VoiceModerationCancelRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
+   * The ID of the task that you want to cancel.
    * 
    * @example
-   * {"taskId":"xxxxx-xxxx"}
+   * {
+   *         "taskId": "xxxxx-xxxx"
+   *     }
    */
   serviceParameters?: string;
   static names(): { [key: string]: string } {

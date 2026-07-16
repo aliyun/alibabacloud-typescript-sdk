@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class MultiModalGuardResponseBodyDataDetailResult extends $dara.Model {
   /**
+   * @remarks
+   * The confidence score. Valid values: 0 to 100. The value is accurate to two decimal places.
+   * 
    * @example
-   * 0
+   * 100
    */
   confidence?: number;
+  /**
+   * @remarks
+   * The description of the label.
+   * 
+   * @example
+   * 疑似违禁行为
+   */
   description?: string;
   /**
+   * @remarks
+   * The extended information about the detection results.
+   * 
    * @example
    * {}
    */
   ext?: any;
   /**
+   * @remarks
+   * The label.
+   * 
    * @example
    * contraband_act
    */
   label?: string;
   /**
+   * @remarks
+   * The risk level.
+   * 
    * @example
    * none
    */
@@ -55,17 +74,30 @@ export class MultiModalGuardResponseBodyDataDetailResult extends $dara.Model {
 
 export class MultiModalGuardResponseBodyDataDetail extends $dara.Model {
   /**
+   * @remarks
+   * The risk level.
+   * 
    * @example
    * none
    */
   level?: string;
+  /**
+   * @remarks
+   * The detection results.
+   */
   result?: MultiModalGuardResponseBodyDataDetailResult[];
   /**
+   * @remarks
+   * The moderation suggestion. Valid values: -**block**: The content is non-compliant. -**pass**: The content is compliant.
+   * 
    * @example
    * pass
    */
   suggestion?: string;
   /**
+   * @remarks
+   * The type.
+   * 
    * @example
    * contentModeration
    */
@@ -102,12 +134,22 @@ export class MultiModalGuardResponseBodyDataDetail extends $dara.Model {
 
 export class MultiModalGuardResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The data ID of the detection object.
+   * 
    * @example
    * data1234
    */
   dataId?: string;
+  /**
+   * @remarks
+   * The detection details.
+   */
   detail?: MultiModalGuardResponseBodyDataDetail[];
   /**
+   * @remarks
+   * The moderation suggestion. Valid values: -block: The content is non-compliant. -pass: The content is compliant.
+   * 
    * @example
    * pass
    */
@@ -142,17 +184,30 @@ export class MultiModalGuardResponseBodyData extends $dara.Model {
 
 export class MultiModalGuardResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: MultiModalGuardResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

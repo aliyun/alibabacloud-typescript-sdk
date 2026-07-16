@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult extends $dara.Model {
   /**
    * @remarks
-   * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+   * The confidence score.
    * 
    * @example
    * 25.0
@@ -18,12 +18,12 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLa
    * The description.
    * 
    * @example
-   * This is a title.
+   * 这个是标题
    */
   description?: string;
   /**
    * @remarks
-   * The details of the labels.
+   * The label.
    * 
    * @example
    * nonlabel
@@ -57,7 +57,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLa
 export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation extends $dara.Model {
   /**
    * @remarks
-   * The H value of the coordinate point.
+   * The height of the detected area.
    * 
    * @example
    * 44
@@ -65,7 +65,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
   h?: number;
   /**
    * @remarks
-   * The W value of the coordinate point.
+   * The width of the detected area.
    * 
    * @example
    * 33
@@ -73,7 +73,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
   w?: number;
   /**
    * @remarks
-   * The X value of the coordinate point.
+   * The X coordinate of the point.
    * 
    * @example
    * 11
@@ -81,7 +81,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
   x?: number;
   /**
    * @remarks
-   * The Y value of the coordinate point.
+   * The Y-coordinate of the point.
    * 
    * @example
    * 22
@@ -120,7 +120,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
    * The description.
    * 
    * @example
-   * This is a title.
+   * 这个是标题
    */
   description?: string;
   /**
@@ -130,12 +130,12 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
   labelResult?: DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult[];
   /**
    * @remarks
-   * The location information
+   * The location information.
    */
   location?: DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation;
   /**
    * @remarks
-   * Risk Level
+   * The risk level.
    * 
    * @example
    * high
@@ -143,7 +143,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
   riskLevel?: string;
   /**
    * @remarks
-   * The moderation service.
+   * The service that was called.
    * 
    * @example
    * baselineCheck
@@ -190,20 +190,20 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
    * The description.
    * 
    * @example
-   * This is a title.
+   * 这是一个标题
    */
   description?: string;
   /**
    * @remarks
-   * The description of the labels.
+   * The description of the label.
    * 
    * @example
-   * no risk
+   * 疑似广告内容
    */
   descriptions?: string;
   /**
    * @remarks
-   * The details of the labels.
+   * The value of the label.
    * 
    * @example
    * porn
@@ -211,7 +211,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   labels?: string;
   /**
    * @remarks
-   * Risk Level
+   * The risk level.
    * 
    * @example
    * high
@@ -219,7 +219,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   riskLevel?: string;
   /**
    * @remarks
-   * The risk details that are hit.
+   * Details about the hit risk.
    * 
    * @example
    * xxx
@@ -227,7 +227,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   riskTips?: string;
   /**
    * @remarks
-   * The risk words that are hit.
+   * The risk keywords that were hit.
    * 
    * @example
    * xxx
@@ -235,7 +235,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   riskWords?: string;
   /**
    * @remarks
-   * The moderation service.
+   * The service.
    * 
    * @example
    * chat_detection
@@ -246,12 +246,12 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
    * The text content.
    * 
    * @example
-   * This is a text.
+   * 吧啦吧啦
    */
   text?: string;
   /**
    * @remarks
-   * The text segmentation information.
+   * Information about the text segment.
    * 
    * @example
    * [0,999]
@@ -302,7 +302,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $dar
   imageResult?: DescribeFileModerationResultResponseBodyDataPageResultImageResult[];
   /**
    * @remarks
-   * The image URL.
+   * The URL of the image.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.jpg
@@ -323,7 +323,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $dar
   textResult?: DescribeFileModerationResultResponseBodyDataPageResultTextResult[];
   /**
    * @remarks
-   * The text URL.
+   * The URL where the text content is stored.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.txt
@@ -367,7 +367,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $dar
 export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels extends $dara.Model {
   /**
    * @remarks
-   * The description.
+   * The description of the label.
    * 
    * @example
    * test
@@ -375,7 +375,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
   description?: string;
   /**
    * @remarks
-   * The details of the labels.
+   * The label.
    * 
    * @example
    * contraband
@@ -383,7 +383,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
   label?: string;
   /**
    * @remarks
-   * The number of times that the label is matched.
+   * The number of times the label appears.
    * 
    * @example
    * 1
@@ -417,12 +417,12 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
 export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary extends $dara.Model {
   /**
    * @remarks
-   * Image Label
+   * The image labels.
    */
   imageLabels?: DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels[];
   /**
    * @remarks
-   * Risk Level
+   * The risk level.
    * 
    * @example
    * high
@@ -457,15 +457,15 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
 export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels extends $dara.Model {
   /**
    * @remarks
-   * The description of the labels.
+   * The description of the label.
    * 
    * @example
-   * no risk
+   * 未检测出风险
    */
   description?: string;
   /**
    * @remarks
-   * The details of the labels.
+   * The label.
    * 
    * @example
    * contraband
@@ -473,7 +473,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryT
   label?: string;
   /**
    * @remarks
-   * The number of times that the label is matched.
+   * The number of times the label appears.
    * 
    * @example
    * 1
@@ -507,7 +507,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryT
 export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary extends $dara.Model {
   /**
    * @remarks
-   * Risk Level
+   * The risk level.
    * 
    * @example
    * high
@@ -515,7 +515,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary 
   riskLevel?: string;
   /**
    * @remarks
-   * Text Label
+   * The text labels.
    */
   textLabels?: DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels[];
   static names(): { [key: string]: string } {
@@ -547,12 +547,12 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary 
 export class DescribeFileModerationResultResponseBodyDataPageSummary extends $dara.Model {
   /**
    * @remarks
-   * Image Results Summary
+   * The image summary information.
    */
   imageSummary?: DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary;
   /**
    * @remarks
-   * Number of pages
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -560,7 +560,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
   pageSum?: number;
   /**
    * @remarks
-   * Text Results Summary
+   * The text summary information.
    */
   textSummary?: DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary;
   static names(): { [key: string]: string } {
@@ -595,10 +595,17 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
 }
 
 export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The AccountId specified in the request.
+   * 
+   * @example
+   * accountIdtest123
+   */
   accountId?: string;
   /**
    * @remarks
-   * The ID of the moderated object.
+   * The ID of the data.
    * 
    * @example
    * 26769ada6e264e7ba9aa048241e12be9
@@ -606,7 +613,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * Optional. The document type.
+   * The document type. This parameter is optional.
    * 
    * @example
    * doc
@@ -614,17 +621,17 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * An array that consists of the moderation results.
+   * A list of moderation results.
    */
   pageResult?: DescribeFileModerationResultResponseBodyDataPageResult[];
   /**
    * @remarks
-   * Summary of results
+   * The summary information.
    */
   pageSummary?: DescribeFileModerationResultResponseBodyDataPageSummary;
   /**
    * @remarks
-   * Risk Level
+   * The risk level.
    * 
    * @example
    * high
@@ -632,7 +639,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The URL of the moderated object.
+   * The download URL for the file.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf
@@ -680,7 +687,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
 export class DescribeFileModerationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -688,12 +695,12 @@ export class DescribeFileModerationResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeFileModerationResultResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The error message.
    * 
    * @example
    * OK
@@ -701,7 +708,7 @@ export class DescribeFileModerationResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492

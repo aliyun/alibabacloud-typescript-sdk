@@ -3,13 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MultiModalAgentResponseBodyDataResult extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the label.
+   * 
+   * @example
+   * 未检测出风险
+   */
   description?: string;
   /**
+   * @remarks
+   * The risk label.
+   * 
    * @example
    * violent_explosion
    */
   label?: string;
   /**
+   * @remarks
+   * A description of the result when the session is terminated.
+   * 
+   * - **SESSION_KILLED**: The session was successfully terminated.
+   * 
+   * - **SESSION_EXPIRED**: The session has expired.
+   * 
+   * - **SESSION_NO_PERMISSION**: The account used to terminate the session does not have sufficient permissions.
+   * 
+   * - **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is incorrect.
+   * 
+   * - **SESSION_IGNORED_USER**: The session of an account that does not need to be terminated.
+   * 
+   * - **SESSION_INTERNAL_USER_OR_COMMAND**: The session or command of an Alibaba Cloud operations account.
+   * 
+   * - **SESSION_KILL_TASK_TIMEOUT**: A timeout occurred when terminating the session.
+   * 
+   * - **SESSION_OTHER_ERROR**: Other errors.
+   * 
    * @example
    * TRACER_SLB_ALL_DEST_WEIGHT_0
    */
@@ -40,13 +69,23 @@ export class MultiModalAgentResponseBodyDataResult extends $dara.Model {
 }
 
 export class MultiModalAgentResponseBodyDataUsage extends $dara.Model {
+  /**
+   * @remarks
+   * Agent details.
+   */
   agentDetail?: { [key: string]: any };
   /**
+   * @remarks
+   * The length of the content.
+   * 
    * @example
    * 10
    */
   contentLength?: number;
   /**
+   * @remarks
+   * The length of the prompt.
+   * 
    * @example
    * 100
    */
@@ -81,16 +120,38 @@ export class MultiModalAgentResponseBodyDataUsage extends $dara.Model {
 
 export class MultiModalAgentResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The data ID.
+   * 
    * @example
    * 26769ada6e264e7ba9aa048241e12be9
    */
   dataId?: string;
+  /**
+   * @remarks
+   * The structure of the label item.
+   */
   result?: MultiModalAgentResponseBodyDataResult[];
   /**
+   * @remarks
+   * The risk level. The value is returned based on the configured high and low risk scores. Valid values:
+   * 
+   * - high: High risk
+   * 
+   * - medium: Medium risk
+   * 
+   * - low: Low risk
+   * 
+   * - none: No risk detected
+   * 
    * @example
    * high
    */
   riskLevel?: string;
+  /**
+   * @remarks
+   * Token usage.
+   */
   usage?: MultiModalAgentResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
@@ -127,12 +188,22 @@ export class MultiModalAgentResponseBodyData extends $dara.Model {
 
 export class MultiModalAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code. A value of 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The result of the image content detection.
+   */
   data?: MultiModalAgentResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * SUCCESS
    */

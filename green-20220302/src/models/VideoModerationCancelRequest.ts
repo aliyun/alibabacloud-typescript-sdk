@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VideoModerationCancelRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the moderation service.
+   * The moderation service type.
    * 
    * @example
    * videoDetection
@@ -13,7 +13,7 @@ export class VideoModerationCancelRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
+   * The TaskId of the task to be canceled.
    * 
    * @example
    * {\\"taskId\\":\\"vi_s_4O9gp7GfNQdx9GOqdekFmk-1z2RJT\\"}

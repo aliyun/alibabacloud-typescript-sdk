@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class MultiModalGuardForBase64ResponseBodyDataDetailResult extends $dara.Model {
   /**
+   * @remarks
+   * The confidence level.
+   * 
    * @example
    * 100
    */
   confidence?: number;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * 未检测出风险
    */
   description?: string;
   /**
+   * @remarks
+   * The extension information.
+   * 
    * @example
    * json格式数据
    */
   ext?: any;
   /**
+   * @remarks
+   * The label.
+   * 
    * @example
    * nonLable
    */
   label?: string;
   /**
+   * @remarks
+   * The risk level.
+   * 
    * @example
    * low
    */
@@ -59,17 +74,30 @@ export class MultiModalGuardForBase64ResponseBodyDataDetailResult extends $dara.
 
 export class MultiModalGuardForBase64ResponseBodyDataDetail extends $dara.Model {
   /**
+   * @remarks
+   * The risk level.
+   * 
    * @example
    * low
    */
   level?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: MultiModalGuardForBase64ResponseBodyDataDetailResult[];
   /**
+   * @remarks
+   * The suggested action.
+   * 
    * @example
    * pass
    */
   suggestion?: string;
   /**
+   * @remarks
+   * The category.
+   * 
    * @example
    * contentModeration
    */
@@ -106,12 +134,22 @@ export class MultiModalGuardForBase64ResponseBodyDataDetail extends $dara.Model 
 
 export class MultiModalGuardForBase64ResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The data ID.
+   * 
    * @example
    * xxx
    */
   dataId?: string;
+  /**
+   * @remarks
+   * The details.
+   */
   detail?: MultiModalGuardForBase64ResponseBodyDataDetail[];
   /**
+   * @remarks
+   * The suggested action.
+   * 
    * @example
    * pass
    */
@@ -146,17 +184,30 @@ export class MultiModalGuardForBase64ResponseBodyData extends $dara.Model {
 
 export class MultiModalGuardForBase64ResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: MultiModalGuardForBase64ResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The unique identifier of the request.
+   * 
    * @example
    * XXXX
    */

@@ -55,7 +55,7 @@ export class DescribeImageResultExtResponseBodyDataCustomImage extends $dara.Mod
 export class DescribeImageResultExtResponseBodyDataPublicFigure extends $dara.Model {
   /**
    * @remarks
-   * Identified person coding information.
+   * The figure ID.
    * 
    * @example
    * yzazhzou
@@ -85,15 +85,15 @@ export class DescribeImageResultExtResponseBodyDataPublicFigure extends $dara.Mo
 export class DescribeImageResultExtResponseBodyDataTextInImageCustomTexts extends $dara.Model {
   /**
    * @remarks
-   * Custom words, multiple words separated by commas.
+   * The custom words, multiple words are separated by commas.
    * 
    * @example
-   * aaa,bbb
+   * 自定义词1,自定义词2
    */
   keyWords?: string;
   /**
    * @remarks
-   * Custom library ID.
+   * The custom library ID
    * 
    * @example
    * 123456
@@ -101,10 +101,10 @@ export class DescribeImageResultExtResponseBodyDataTextInImageCustomTexts extend
   libId?: string;
   /**
    * @remarks
-   * Custom library name.
+   * The custom library name.
    * 
    * @example
-   * test
+   * 自定义库1
    */
   libName?: string;
   static names(): { [key: string]: string } {
@@ -135,17 +135,17 @@ export class DescribeImageResultExtResponseBodyDataTextInImageCustomTexts extend
 export class DescribeImageResultExtResponseBodyDataTextInImage extends $dara.Model {
   /**
    * @remarks
-   * When a custom text library is hit, the custom library ID, custom library name, and custom word are returned.
+   * When a custom text library is hit, the custom library ID, custom library name, and custom words are returned.
    */
   customTexts?: DescribeImageResultExtResponseBodyDataTextInImageCustomTexts[];
   /**
    * @remarks
-   * Returns the text information in the recognized image.
+   * The text information detected in the image.
    */
   ocrDatas?: string[];
   /**
    * @remarks
-   * The risk words that are hit. Multiple words are separated by commas (,).
+   * The hit risk keywords
    */
   riskWords?: string[];
   static names(): { [key: string]: string } {
@@ -185,17 +185,17 @@ export class DescribeImageResultExtResponseBodyDataTextInImage extends $dara.Mod
 export class DescribeImageResultExtResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * If a custom image library is hit, information about the hit custom image library is returned.
+   * The list of custom image library hit information.
    */
   customImage?: DescribeImageResultExtResponseBodyDataCustomImage[];
   /**
    * @remarks
-   * Person information list.
+   * The list of figure information.
    */
   publicFigure?: DescribeImageResultExtResponseBodyDataPublicFigure[];
   /**
    * @remarks
-   * Returns the text information in the hit image.
+   * The text information in the hit image.
    */
   textInImage?: DescribeImageResultExtResponseBodyDataTextInImage;
   static names(): { [key: string]: string } {
@@ -235,7 +235,7 @@ export class DescribeImageResultExtResponseBodyData extends $dara.Model {
 export class DescribeImageResultExtResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -243,12 +243,12 @@ export class DescribeImageResultExtResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeImageResultExtResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The response message of the request.
    * 
    * @example
    * success

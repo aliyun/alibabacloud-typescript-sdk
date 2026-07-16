@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ManualModerationResultResponseBodyDataResult extends $dara.Model {
+export class MultiModalAgentSSEResponseBodyDataUsage extends $dara.Model {
   /**
    * @remarks
-   * The label description.
+   * The number of credits consumed.
    * 
    * @example
-   * 未检测出风险
+   * 1.23
    */
-  description?: string;
-  /**
-   * @remarks
-   * The risk label.
-   * 
-   * @example
-   * violent_explosion
-   */
-  label?: string;
+  credits?: number;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      label: 'Label',
+      credits: 'Credits',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      label: 'string',
+      credits: 'number',
     };
   }
 
@@ -42,73 +32,67 @@ export class ManualModerationResultResponseBodyDataResult extends $dara.Model {
   }
 }
 
-export class ManualModerationResultResponseBodyData extends $dara.Model {
+export class MultiModalAgentSSEResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The value of dataId passed in the API request. This field is not returned if dataId was not specified in the request.
+   * The timestamp when the session was created.
    * 
    * @example
-   * data1234
+   * 1783328536
+   */
+  created?: number;
+  /**
+   * @remarks
+   * The value of dataId passed in the API request. This field is not returned if dataId is not specified in the request.
+   * 
+   * @example
+   * dataId-XXX
    */
   dataId?: string;
   /**
    * @remarks
-   * The detailed label results.
-   */
-  result?: ManualModerationResultResponseBodyDataResult[];
-  /**
-   * @remarks
-   * The number of reviews.
+   * If streaming output is used, this field is null during generation. When generation ends, this field is set to stop if the generation stopped due to a stop token.
    * 
    * @example
-   * 1
+   * stop
    */
-  reviewCount?: string;
+  finishReason?: string;
   /**
    * @remarks
-   * The risk level, returned based on the configured high and low risk scores. Valid values:
-   * 
-   * - high: High risk.
-   *  
-   * - low: Low risk.
-   * 
-   * - none: No risk detected.
+   * The output result.
    * 
    * @example
-   * high
+   * "违规，原因XX"
    */
-  riskLevel?: string;
+  output?: string;
   /**
    * @remarks
-   * The task ID.
-   * 
-   * @example
-   * xxxxx-xxxxx
+   * The credits usage.
    */
-  taskId?: string;
+  usage?: MultiModalAgentSSEResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
+      created: 'Created',
       dataId: 'DataId',
-      result: 'Result',
-      reviewCount: 'ReviewCount',
-      riskLevel: 'RiskLevel',
-      taskId: 'TaskId',
+      finishReason: 'FinishReason',
+      output: 'Output',
+      usage: 'Usage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      created: 'number',
       dataId: 'string',
-      result: { 'type': 'array', 'itemType': ManualModerationResultResponseBodyDataResult },
-      reviewCount: 'string',
-      riskLevel: 'string',
-      taskId: 'string',
+      finishReason: 'string',
+      output: 'string',
+      usage: MultiModalAgentSSEResponseBodyDataUsage,
     };
   }
 
   validate() {
-    if(Array.isArray(this.result)) {
-      $dara.Model.validateArray(this.result);
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
     }
     super.validate();
   }
@@ -118,7 +102,7 @@ export class ManualModerationResultResponseBodyData extends $dara.Model {
   }
 }
 
-export class ManualModerationResultResponseBody extends $dara.Model {
+export class MultiModalAgentSSEResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code.
@@ -126,18 +110,18 @@ export class ManualModerationResultResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * The returned data.
    */
-  data?: ManualModerationResultResponseBodyData;
+  data?: MultiModalAgentSSEResponseBodyData;
   /**
    * @remarks
    * The error message.
    * 
    * @example
-   * SUCCESS
+   * OK
    */
   message?: string;
   /**
@@ -159,8 +143,8 @@ export class ManualModerationResultResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
-      data: ManualModerationResultResponseBodyData,
+      code: 'string',
+      data: MultiModalAgentSSEResponseBodyData,
       message: 'string',
       requestId: 'string',
     };

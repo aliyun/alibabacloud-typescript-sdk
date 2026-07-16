@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * The ICP number.
+   * The ICP filing number.
    * 
    * @example
-   * xx
+   * ICP备123456789
    */
   icpNo?: string;
   /**
    * @remarks
-   * The type of the ICP filing.
+   * The ICP filing type.
    * 
    * @example
-   * xx
+   * 企业
    */
   icpType?: string;
   /**
    * @remarks
-   * The type of site
+   * The website type
    * 
    * @example
    * game
@@ -55,7 +55,7 @@ export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $dara.
 export class DescribeUrlModerationResultResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+   * The confidence score, ranging from 0 to 100, with two decimal places.
    * 
    * @example
    * 81.22
@@ -63,7 +63,7 @@ export class DescribeUrlModerationResultResponseBodyDataResult extends $dara.Mod
   confidence?: number;
   /**
    * @remarks
-   * The labels returned after the asynchronous URL moderation.
+   * The label returned after URL moderation.
    * 
    * @example
    * sexual_url
@@ -95,7 +95,7 @@ export class DescribeUrlModerationResultResponseBodyDataResult extends $dara.Mod
 export class DescribeUrlModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
+   * The value of the dataId parameter passed in the API request. This field is not returned if the parameter is not passed in the request.
    * 
    * @example
    * 26769ada6e264e7ba9aa048241e12be9
@@ -103,12 +103,12 @@ export class DescribeUrlModerationResultResponseBodyData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The supplementary information.
+   * Additional information.
    */
   extraInfo?: DescribeUrlModerationResultResponseBodyDataExtraInfo;
   /**
    * @remarks
-   * The ReqId field returned by an asynchronous URL moderation operation.
+   * The ReqId field returned by the asynchronous URL moderation operation
    * 
    * @example
    * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
@@ -116,7 +116,7 @@ export class DescribeUrlModerationResultResponseBodyData extends $dara.Model {
   reqId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned collection.
    */
   result?: DescribeUrlModerationResultResponseBodyDataResult[];
   static names(): { [key: string]: string } {
@@ -155,7 +155,7 @@ export class DescribeUrlModerationResultResponseBodyData extends $dara.Model {
 export class DescribeUrlModerationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -163,12 +163,12 @@ export class DescribeUrlModerationResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeUrlModerationResultResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The response message of this request.
    * 
    * @example
    * success
@@ -176,7 +176,7 @@ export class DescribeUrlModerationResultResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of this request.
    * 
    * @example
    * 01F9144A-2088-5D87-935B-2DB865284B1A

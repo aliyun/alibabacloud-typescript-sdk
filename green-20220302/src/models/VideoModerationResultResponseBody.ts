@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys extends $dara.Model {
   /**
    * @remarks
-   * The description of the labels.
+   * The label descriptions.
    * 
    * @example
-   * no risk
+   * 疑似违禁内容
    */
   description?: string;
   /**
    * @remarks
-   * The voice label.
+   * The video audio label.
    * 
    * @example
    * profanity
@@ -21,7 +21,7 @@ export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys exten
   label?: string;
   /**
    * @remarks
-   * The number of times that the label is matched.
+   * The number of times the label was detected.
    * 
    * @example
    * 8
@@ -52,50 +52,129 @@ export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys exten
   }
 }
 
-export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extends $dara.Model {
+export class VideoModerationResultResponseBodyDataAudioResultSliceDetailsResultCustomizedHit extends $dara.Model {
   /**
    * @remarks
-   * The description of the labels.
+   * The custom keywords.
    * 
    * @example
-   * no risk
+   * fxxk
    */
-  descriptions?: string;
+  keyWords?: string;
   /**
    * @remarks
-   * The end time of the text after voice-to-text conversion. Unit: seconds.
+   * The name of the custom library.
    * 
    * @example
-   * 30
+   * 备用词库02
    */
-  endTime?: number;
+  libName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyWords: 'KeyWords',
+      libName: 'LibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyWords: 'string',
+      libName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataAudioResultSliceDetailsResultRiskPositions extends $dara.Model {
   /**
    * @remarks
-   * The end timestamp of the segment. Unit: milliseconds.
+   * The end position.
    * 
    * @example
-   * 1685245261939
+   * 3
    */
-  endTimestamp?: number;
+  endPos?: number;
   /**
    * @remarks
-   * A reserved parameter.
+   * The detected sensitive word.
    * 
    * @example
-   * {\\"consoleProduct\\":\\"slbnext\\"}
+   * fxxk
    */
-  extend?: string;
+  riskWord?: string;
   /**
    * @remarks
-   * The details of the labels.
+   * The start position.
    * 
    * @example
-   * porn
+   * 0
    */
-  labels?: string;
+  startPos?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endPos: 'EndPos',
+      riskWord: 'RiskWord',
+      startPos: 'StartPos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endPos: 'number',
+      riskWord: 'string',
+      startPos: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataAudioResultSliceDetailsResult extends $dara.Model {
   /**
    * @remarks
-   * Risk Level.
+   * The confidence level.
+   * 
+   * @example
+   * 99.9
+   */
+  confidence?: number;
+  /**
+   * @remarks
+   * The list of hit custom libraries.
+   */
+  customizedHit?: VideoModerationResultResponseBodyDataAudioResultSliceDetailsResultCustomizedHit[];
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 疑似违禁内容
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The label.
+   * 
+   * @example
+   * profanity
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The risk level.
    * 
    * @example
    * high
@@ -103,7 +182,121 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   riskLevel?: string;
   /**
    * @remarks
-   * Subcategory labels. Multiple labels are separated by commas (,).
+   * The list of risk positions.
+   */
+  riskPositions?: VideoModerationResultResponseBodyDataAudioResultSliceDetailsResultRiskPositions[];
+  /**
+   * @remarks
+   * The hit risk content.
+   * 
+   * @example
+   * fxxk
+   */
+  riskWords?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      customizedHit: 'CustomizedHit',
+      description: 'Description',
+      label: 'Label',
+      riskLevel: 'RiskLevel',
+      riskPositions: 'RiskPositions',
+      riskWords: 'RiskWords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      customizedHit: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataAudioResultSliceDetailsResultCustomizedHit },
+      description: 'string',
+      label: 'string',
+      riskLevel: 'string',
+      riskPositions: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataAudioResultSliceDetailsResultRiskPositions },
+      riskWords: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.customizedHit)) {
+      $dara.Model.validateArray(this.customizedHit);
+    }
+    if(Array.isArray(this.riskPositions)) {
+      $dara.Model.validateArray(this.riskPositions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The label descriptions.
+   * 
+   * @example
+   * 疑似违禁内容
+   */
+  descriptions?: string;
+  /**
+   * @remarks
+   * The end time of the segment, in seconds.
+   * 
+   * @example
+   * 30
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The end timestamp.
+   * 
+   * @example
+   * 1685245261939
+   */
+  endTimestamp?: number;
+  /**
+   * @remarks
+   * The extended field.
+   * 
+   * @example
+   * {\\"consoleProduct\\":\\"slbnext\\"}
+   */
+  extend?: string;
+  /**
+   * @remarks
+   * The violated labels that were hit.
+   * 
+   * @example
+   * porn
+   */
+  labels?: string;
+  /**
+   * @remarks
+   * The text detection result.
+   */
+  result?: VideoModerationResultResponseBodyDataAudioResultSliceDetailsResult[];
+  /**
+   * @remarks
+   * The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+   * 
+   * - high: High risk.
+   * 
+   * - medium: Medium risk.
+   *  
+   * - low: Low risk.
+   * 
+   * - none: No risk detected.
+   * 
+   * @example
+   * high
+   */
+  riskLevel?: string;
+  /**
+   * @remarks
+   * The details of the hit risk.
    * 
    * @example
    * ""
@@ -111,7 +304,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   riskTips?: string;
   /**
    * @remarks
-   * The risk words that are hit. Multiple words are separated by commas (,).
+   * The risk keywords that were hit.
    * 
    * @example
    * ""
@@ -127,7 +320,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   score?: number;
   /**
    * @remarks
-   * The start time of the text after voice-to-text conversion. Unit: seconds.
+   * The start time of the segment, in seconds.
    * 
    * @example
    * 0
@@ -135,7 +328,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   startTime?: number;
   /**
    * @remarks
-   * The start timestamp of the segment. Unit: milliseconds.
+   * The start timestamp, in milliseconds.
    * 
    * @example
    * 1659935002123
@@ -143,15 +336,15 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   startTimestamp?: number;
   /**
    * @remarks
-   * The text converted from voice.
+   * The transcribed text of the audio segment.
    * 
    * @example
-   * Disgusting
+   * 今天天气真不错
    */
   text?: string;
   /**
    * @remarks
-   * If the moderation object is a voice stream, this parameter indicates the temporary access URL of the voice stream to which the text entry corresponds. The validity period of the URL is 30 minutes. You must prepare another URL to store the voice stream at the earliest opportunity.
+   * The temporary URL of the audio segment file.
    * 
    * @example
    * http://xxxx.abc.img
@@ -164,6 +357,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
       endTimestamp: 'EndTimestamp',
       extend: 'Extend',
       labels: 'Labels',
+      result: 'Result',
       riskLevel: 'RiskLevel',
       riskTips: 'RiskTips',
       riskWords: 'RiskWords',
@@ -182,6 +376,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
       endTimestamp: 'number',
       extend: 'string',
       labels: 'string',
+      result: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataAudioResultSliceDetailsResult },
       riskLevel: 'string',
       riskTips: 'string',
       riskWords: 'string',
@@ -194,6 +389,9 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   }
 
   validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
     super.validate();
   }
 
@@ -205,12 +403,20 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
 export class VideoModerationResultResponseBodyDataAudioResult extends $dara.Model {
   /**
    * @remarks
-   * Summary of voice labels.
+   * The audio label summary.
    */
   audioSummarys?: VideoModerationResultResponseBodyDataAudioResultAudioSummarys[];
   /**
    * @remarks
-   * Risk Level.
+   * The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+   * 
+   * - high: High risk.
+   * 
+   * - medium: Medium risk.
+   *  
+   * - low: Low risk.
+   * 
+   * - none: No risk detected.
    * 
    * @example
    * high
@@ -218,7 +424,7 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $dara.Mode
   riskLevel?: string;
   /**
    * @remarks
-   * The details about the text in the moderated voice. The value is a JSON array that contains one or more elements. Each element corresponds to a text entry.
+   * The list of audio segments.
    */
   sliceDetails?: VideoModerationResultResponseBodyDataAudioResultSliceDetails[];
   static names(): { [key: string]: string } {
@@ -253,12 +459,71 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $dara.Mode
 }
 
 export class VideoModerationResultResponseBodyDataExtAigcDataAIGC extends $dara.Model {
+  /**
+   * @remarks
+   * The code or name of the service provider, used to identify the content producer.
+   * 
+   * @example
+   * 001191******M000100Y43
+   */
   contentProducer?: string;
+  /**
+   * @remarks
+   * The name, code, or identifier of the propagation platform. For services that provide artificial intelligence-generated content, this value can be the same as ContentProducer.
+   * 
+   * @example
+   * 001191******M000100Y43
+   */
   contentPropagator?: string;
+  /**
+   * @remarks
+   * Indicates whether the content is generated by artificial intelligence (AI). Valid values:
+   * 
+   * - 1: The content is AI-generated content (AIGC).
+   * 
+   * - 2: (Propagation platforms only) The content may be AI-generated content generation.
+   * 
+   * - 3: (Propagation platforms only) The content is suspected to be AI-generated content generation.
+   * 
+   * @example
+   * 1
+   */
   label?: string;
+  /**
+   * @remarks
+   * The content production ID, a unique identifier used by the production platform to trace synthesized content.
+   * 
+   * @example
+   * 123******456
+   */
   produceID?: string;
+  /**
+   * @remarks
+   * The content propagation ID, a unique identifier assigned by the propagation platform to the distributed AI-generated content.
+   * 
+   * @example
+   * 123******456
+   */
   propagateID?: string;
+  /**
+   * @remarks
+   * A reserved field.
+   * 
+   * This field can store information used by the content generation service provider for self-initiated security protection and content/identifier integrity assurance. A hashing mechanism based on ContentProducer and ProduceID can be used to securely store and verify critical information.
+   * 
+   * @example
+   * d41d**********427e
+   */
   reservedCode1?: string;
+  /**
+   * @remarks
+   * A reserved field.
+   * 
+   * This field can be used by the content propagation service provider for self-initiated security protection and content/identifier integrity assurance. A hashing mechanism based on ContentProducer and ProduceID can be used to securely store and verify critical information.
+   * 
+   * @example
+   * d41d**********427e
+   */
   reservedCode2?: string;
   static names(): { [key: string]: string } {
     return {
@@ -294,7 +559,18 @@ export class VideoModerationResultResponseBodyDataExtAigcDataAIGC extends $dara.
 }
 
 export class VideoModerationResultResponseBodyDataExtAigcData extends $dara.Model {
+  /**
+   * @remarks
+   * The AIGC metadata.
+   */
   AIGC?: VideoModerationResultResponseBodyDataExtAigcDataAIGC;
+  /**
+   * @remarks
+   * The detection result.
+   * 
+   * @example
+   * None
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {
@@ -323,6 +599,10 @@ export class VideoModerationResultResponseBodyDataExtAigcData extends $dara.Mode
 }
 
 export class VideoModerationResultResponseBodyDataExt extends $dara.Model {
+  /**
+   * @remarks
+   * The AIGC metadata detection result.
+   */
   aigcData?: VideoModerationResultResponseBodyDataExtAigcData;
   static names(): { [key: string]: string } {
     return {
@@ -351,15 +631,15 @@ export class VideoModerationResultResponseBodyDataExt extends $dara.Model {
 export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys extends $dara.Model {
   /**
    * @remarks
-   * The description of the result.
+   * The description of the Label field.
    * 
    * @example
-   * no risk
+   * 未检测出风险
    */
   description?: string;
   /**
    * @remarks
-   * The label against which a captured frame is matched.
+   * The video frame label.
    * 
    * @example
    * violent_armedForces
@@ -367,7 +647,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys exten
   label?: string;
   /**
    * @remarks
-   * The number of times that the label is matched.
+   * The number of times the label was detected.
    * 
    * @example
    * 8
@@ -401,7 +681,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys exten
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom image that is hit.
+   * The ID of the hit custom image.
    * 
    * @example
    * 1234
@@ -409,7 +689,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustom
   imageId?: string;
   /**
    * @remarks
-   * The ID of the custom image library that is hit.
+   * The ID of the hit custom image library.
    * 
    * @example
    * 12345678
@@ -457,7 +737,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDa
   w?: number;
   /**
    * @remarks
-   * The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin. Unit: pixels.
+   * The distance from the upper-left corner of the text area to the y-axis, with the upper-left corner of the image as the origin. Unit: pixels.
    * 
    * @example
    * 111
@@ -465,7 +745,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDa
   x?: number;
   /**
    * @remarks
-   * The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin. Unit: pixels.
+   * The distance from the upper-left corner of the text area to the x-axis, with the upper-left corner of the image as the origin. Unit: pixels.
    * 
    * @example
    * 222
@@ -501,15 +781,15 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDa
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLogo extends $dara.Model {
   /**
    * @remarks
-   * Confidence score, ranging from 0 to 100, with two decimal places.
+   * The confidence score, ranging from 0 to 100, rounded to two decimal places.
    * 
    * @example
-   * 99.10
+   * 99.1
    */
   confidence?: number;
   /**
    * @remarks
-   * label
+   * The hit label.
    * 
    * @example
    * pt_logotoSocialNetwork
@@ -517,10 +797,10 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDa
   label?: string;
   /**
    * @remarks
-   * Logo name.
+   * The logo name.
    * 
    * @example
-   * **logo
+   * **卫视
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -551,12 +831,12 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDa
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoData extends $dara.Model {
   /**
    * @remarks
-   * The location of the logo.
+   * The text line and coordinate information.
    */
   location?: VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLocation;
   /**
    * @remarks
-   * Logo information.
+   * The logo information.
    */
   logo?: VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLogo[];
   static names(): { [key: string]: string } {
@@ -589,9 +869,37 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDa
 }
 
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation extends $dara.Model {
+  /**
+   * @remarks
+   * The height.
+   * 
+   * @example
+   * 222
+   */
   h?: number;
+  /**
+   * @remarks
+   * The width.
+   * 
+   * @example
+   * 111
+   */
   w?: number;
+  /**
+   * @remarks
+   * The x-coordinate of the starting point.
+   * 
+   * @example
+   * 111
+   */
   x?: number;
+  /**
+   * @remarks
+   * The y-coordinate of the starting point.
+   * 
+   * @example
+   * 222
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -623,13 +931,24 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublic
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure extends $dara.Model {
   /**
    * @remarks
-   * The information about the code of the identified figure.
+   * The code of the identified public figure.
    * 
    * @example
    * xxx001
    */
   figureId?: string;
+  /**
+   * @remarks
+   * The name of the identified public figure.
+   * 
+   * @example
+   * 张三
+   */
   figureName?: string;
+  /**
+   * @remarks
+   * The location of the identified public figure.
+   */
   location?: VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation[];
   static names(): { [key: string]: string } {
     return {
@@ -662,7 +981,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublic
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult extends $dara.Model {
   /**
    * @remarks
-   * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+   * The confidence score, ranging from 0 to 100, rounded to two decimal places.
    * 
    * @example
    * 50
@@ -670,15 +989,15 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
   confidence?: number;
   /**
    * @remarks
-   * The description of the result.
+   * The description of the Label field.
    * 
    * @example
-   * no risk
+   * 未检测出风险
    */
   description?: string;
   /**
    * @remarks
-   * The label returned after a frame is moderated. Multiple risk labels and the corresponding scores of confidence levels may be returned for a frame.
+   * The classification of the detection result.
    * 
    * @example
    * bloody
@@ -710,6 +1029,13 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
 }
 
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsVlContent extends $dara.Model {
+  /**
+   * @remarks
+   * The output text from the large model.
+   * 
+   * @example
+   * in the picture XXX
+   */
   outputText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -735,27 +1061,27 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsVlCont
 export class VideoModerationResultResponseBodyDataFrameResultFramesResults extends $dara.Model {
   /**
    * @remarks
-   * If a custom image library is hit, information about the custom image library is returned.
+   * The custom image library information returned when a custom image library is hit.
    */
   customImage?: VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage[];
   /**
    * @remarks
-   * Returns logo information when the video contains a logo.
+   * The logo information returned when a logo is detected in the video.
    */
   logoData?: VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoData[];
   /**
    * @remarks
-   * If the video contains a specific figure, the code of the identified figure is returned.
+   * The identified public figure codes returned when the video contains specific public figures.
    */
   publicFigure?: VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure[];
   /**
    * @remarks
-   * The results of frame moderation parameters such as the label parameter and the confidence parameter.
+   * The hit result details.
    */
   result?: VideoModerationResultResponseBodyDataFrameResultFramesResultsResult[];
   /**
    * @remarks
-   * The moderation service that is called.
+   * The image moderation service type.
    * 
    * @example
    * tonalityImprove
@@ -763,9 +1089,13 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
   service?: string;
   /**
    * @remarks
-   * The information about the text hit in the image is returned.
+   * The text information detected in the hit image.
    */
   textInImage?: { [key: string]: any };
+  /**
+   * @remarks
+   * The large model result.
+   */
   vlContent?: VideoModerationResultResponseBodyDataFrameResultFramesResultsVlContent;
   static names(): { [key: string]: string } {
     return {
@@ -821,7 +1151,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
 export class VideoModerationResultResponseBodyDataFrameResultFrames extends $dara.Model {
   /**
    * @remarks
-   * The interval between the start of the video file and the captured frame. Unit: seconds.
+   * The offset of the captured frame.
    * 
    * @example
    * 338
@@ -829,12 +1159,20 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $dar
   offset?: number;
   /**
    * @remarks
-   * The results of frame moderation parameters such as the label parameter and the confidence parameter.
+   * The frame detection result details.
    */
   results?: VideoModerationResultResponseBodyDataFrameResultFramesResults[];
   /**
    * @remarks
-   * Risk Level.
+   * The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+   * 
+   * - high: High risk.
+   * 
+   * - medium: Medium risk.
+   *  
+   * - low: Low risk.
+   * 
+   * - none: No risk detected.
    * 
    * @example
    * high
@@ -842,7 +1180,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $dar
   riskLevel?: string;
   /**
    * @remarks
-   * The temporary URL of a captured frame.
+   * The temporary access URL of the captured frame image.
    * 
    * @example
    * http://xxxx.abc.jpg
@@ -891,7 +1229,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $dar
 export class VideoModerationResultResponseBodyDataFrameResult extends $dara.Model {
   /**
    * @remarks
-   * The number of captured frames that are returned for the video file.
+   * The number of result frames.
    * 
    * @example
    * 10
@@ -899,17 +1237,25 @@ export class VideoModerationResultResponseBodyDataFrameResult extends $dara.Mode
   frameNum?: number;
   /**
    * @remarks
-   * The summary of the labels against which captured frames are matched.
+   * The video frame label summary.
    */
   frameSummarys?: VideoModerationResultResponseBodyDataFrameResultFrameSummarys[];
   /**
    * @remarks
-   * The information about the frames that match the labels.
+   * The information about video frames that contain hit labels.
    */
   frames?: VideoModerationResultResponseBodyDataFrameResultFrames[];
   /**
    * @remarks
-   * Risk Level.
+   * The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+   * 
+   * - high: High risk.
+   * 
+   * - medium: Medium risk.
+   *  
+   * - low: Low risk.
+   * 
+   * - none: No risk detected.
    * 
    * @example
    * high
@@ -951,21 +1297,25 @@ export class VideoModerationResultResponseBodyDataFrameResult extends $dara.Mode
 export class VideoModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The voice moderation results. The moderation results contain a structure.
+   * The segmented results of video audio moderation.
    */
   audioResult?: VideoModerationResultResponseBodyDataAudioResult;
   /**
    * @remarks
-   * The value of dataId that is specified in the API request. If this parameter is not specified in the API request, the dataId field is not available in the response.
+   * The value of dataId passed in the API request. This field is not returned if dataId was not specified in the request.
    * 
    * @example
    * product_content-2055763
    */
   dataId?: string;
+  /**
+   * @remarks
+   * The extended information.
+   */
   ext?: VideoModerationResultResponseBodyDataExt;
   /**
    * @remarks
-   * The image moderation results. If the call is successful, the HTTP status code 200 and moderation results are returned. The moderation results contain a structure.
+   * The list of video frame capture results.
    */
   frameResult?: VideoModerationResultResponseBodyDataFrameResult;
   /**
@@ -976,10 +1326,25 @@ export class VideoModerationResultResponseBodyData extends $dara.Model {
    * liveId
    */
   liveId?: string;
+  /**
+   * @remarks
+   * The manual review task ID.
+   * 
+   * @example
+   * xxxxx-xxxxx
+   */
   manualTaskId?: string;
   /**
    * @remarks
-   * Risk Level.
+   * The risk level, returned based on the configured high and low risk score thresholds. Valid values:
+   * 
+   * - high: High risk.
+   * 
+   * - medium: Medium risk.
+   *  
+   * - low: Low risk.
+   * 
+   * - none: No risk detected.
    * 
    * @example
    * high
@@ -1040,7 +1405,7 @@ export class VideoModerationResultResponseBodyData extends $dara.Model {
 export class VideoModerationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -1048,12 +1413,12 @@ export class VideoModerationResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The moderation results.
+   * The moderation result data.
    */
   data?: VideoModerationResultResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The return message.
    * 
    * @example
    * success finished

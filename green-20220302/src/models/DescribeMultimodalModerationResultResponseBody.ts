@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults extends $dara.Model {
+  /**
+   * @remarks
+   * Description of the Label field.
+   * 
+   * @example
+   * 疑似含有烟火类内容元素
+   */
   description?: string;
   /**
+   * @remarks
+   * Risk label.
+   * 
    * @example
    * violent_explosion
    */
@@ -33,6 +43,10 @@ export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasComme
 }
 
 export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas extends $dara.Model {
+  /**
+   * @remarks
+   * Comment moderation results.
+   */
   results?: DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatasResults[];
   static names(): { [key: string]: string } {
     return {
@@ -59,8 +73,18 @@ export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasComme
 }
 
 export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults extends $dara.Model {
+  /**
+   * @remarks
+   * Description of the Label field.
+   * 
+   * @example
+   * 疑似含有烟火类内容元素
+   */
   description?: string;
   /**
+   * @remarks
+   * Risk label.
+   * 
    * @example
    * violent_explosion
    */
@@ -89,7 +113,15 @@ export class DescribeMultimodalModerationResultResponseBodyDataCommentDatasResul
 }
 
 export class DescribeMultimodalModerationResultResponseBodyDataCommentDatas extends $dara.Model {
+  /**
+   * @remarks
+   * Moderation results.
+   */
   commentDatas?: DescribeMultimodalModerationResultResponseBodyDataCommentDatasCommentDatas[];
+  /**
+   * @remarks
+   * Comment moderation results.
+   */
   results?: DescribeMultimodalModerationResultResponseBodyDataCommentDatasResults[];
   static names(): { [key: string]: string } {
     return {
@@ -121,8 +153,18 @@ export class DescribeMultimodalModerationResultResponseBodyDataCommentDatas exte
 }
 
 export class DescribeMultimodalModerationResultResponseBodyDataMainDataResults extends $dara.Model {
+  /**
+   * @remarks
+   * Description of the Label field.
+   * 
+   * @example
+   * 疑似含有烟火类内容元素
+   */
   description?: string;
   /**
+   * @remarks
+   * Risk label.
+   * 
    * @example
    * violent_explosion
    */
@@ -151,6 +193,10 @@ export class DescribeMultimodalModerationResultResponseBodyDataMainDataResults e
 }
 
 export class DescribeMultimodalModerationResultResponseBodyDataMainData extends $dara.Model {
+  /**
+   * @remarks
+   * Main post moderation results.
+   */
   results?: DescribeMultimodalModerationResultResponseBodyDataMainDataResults[];
   static names(): { [key: string]: string } {
     return {
@@ -177,19 +223,36 @@ export class DescribeMultimodalModerationResultResponseBodyDataMainData extends 
 }
 
 export class DescribeMultimodalModerationResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Comment moderation results.
+   */
   commentDatas?: DescribeMultimodalModerationResultResponseBodyDataCommentDatas[];
   /**
+   * @remarks
+   * The dataId value passed in the API request. This field is absent if no dataId was provided in the request.
+   * 
    * @example
    * data1234
    */
   dataId?: string;
+  /**
+   * @remarks
+   * Main post moderation results.
+   */
   mainData?: DescribeMultimodalModerationResultResponseBodyDataMainData;
   /**
+   * @remarks
+   * The ReqId field returned by the asynchronous moderation API.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   reqId?: string;
   /**
+   * @remarks
+   * Risk level.
+   * 
    * @example
    * high
    */
@@ -231,17 +294,30 @@ export class DescribeMultimodalModerationResultResponseBodyData extends $dara.Mo
 
 export class DescribeMultimodalModerationResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code, which matches the HTTP status code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeMultimodalModerationResultResponseBodyData;
   /**
+   * @remarks
+   * The response message for this request.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

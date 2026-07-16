@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ManualModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The value of dataId passed during the API request. This field will not be present if it was not provided during the request.
+   * The value of dataId passed in the API request. This field is not present if no dataId was passed in the request.
    * 
    * @example
    * 2a5389eb-4ff8-4584-ac99-644e2a539aa1
@@ -13,7 +13,7 @@ export class ManualModerationResponseBodyData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID
    * 
    * @example
    * xxxxx-xxxxx
@@ -53,7 +53,7 @@ export class ManualModerationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The response data.
    */
   data?: ManualModerationResponseBodyData;
   /**
@@ -66,7 +66,7 @@ export class ManualModerationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * The ID of the request
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

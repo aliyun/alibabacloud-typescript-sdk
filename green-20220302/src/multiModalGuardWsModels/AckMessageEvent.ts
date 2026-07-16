@@ -2,24 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class FileModerationResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * xxxxx-xxxxx
-   */
-  taskId?: string;
+export class AckMessageEventData extends $dara.Model {
+  triggered?: boolean;
+  msgId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
+      triggered: 'Triggered',
+      msgId: 'MsgId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
+      triggered: 'boolean',
+      msgId: 'string',
     };
   }
 
@@ -32,51 +28,23 @@ export class FileModerationResponseBodyData extends $dara.Model {
   }
 }
 
-export class FileModerationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The error code. This error code is the same as the HTTP status code.
-   * 
-   * @example
-   * 200
-   */
+export class AckMessageEvent extends $dara.Model {
   code?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: FileModerationResponseBodyData;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * SUCCESS
-   */
   message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
+  data?: AckMessageEventData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: FileModerationResponseBodyData,
       message: 'string',
-      requestId: 'string',
+      data: AckMessageEventData,
     };
   }
 

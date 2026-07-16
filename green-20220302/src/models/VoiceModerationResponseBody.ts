@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VoiceModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the moderated object.
+   * The value of the dataId parameter that you specify in the API request. If you do not specify this parameter in the request, this field is not returned.
    * 
    * @example
    * data1234
@@ -45,7 +45,7 @@ export class VoiceModerationResponseBodyData extends $dara.Model {
 export class VoiceModerationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code.
+   * The error code.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class VoiceModerationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The data structure of the returned task information.
    */
   data?: VoiceModerationResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The error message.
    * 
    * @example
    * SUCCESS
@@ -66,7 +66,7 @@ export class VoiceModerationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

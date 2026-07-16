@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageResultExtRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the information to be obtained. Multiple values are separated by commas.
+   * The type of information to obtain. Multiple values are separated by commas. Valid values:
+   * 
+   * - customImage: custom image library hit information
+   * 
+   * - textInImage: text information in the image
    * 
    * @example
    * customImage,textInImage
@@ -13,7 +17,7 @@ export class DescribeImageResultExtRequest extends $dara.Model {
   infoType?: string;
   /**
    * @remarks
-   * The reqId field returned by the Url Async Moderation API.
+   * The requestId field returned by the enhanced image moderation API
    * 
    * @example
    * 638EDDC65C82AB39319A9F60

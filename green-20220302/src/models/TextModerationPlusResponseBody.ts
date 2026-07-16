@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TextModerationPlusResponseBodyDataAdvice extends $dara.Model {
   /**
    * @remarks
-   * The answer.
+   * The suggested answer.
    * 
    * @example
    * XXX
@@ -13,18 +13,18 @@ export class TextModerationPlusResponseBodyDataAdvice extends $dara.Model {
   answer?: string;
   /**
    * @remarks
-   * Hit Label
+   * The label that was hit.
    * 
    * @example
-   * xxx
+   * XXX
    */
   hitLabel?: string;
   /**
    * @remarks
-   * Hit Library Name
+   * The name of the keyword library that was hit.
    * 
    * @example
-   * xxx
+   * XXX
    */
   hitLibName?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class TextModerationPlusResponseBodyDataAdvice extends $dara.Model {
 export class TextModerationPlusResponseBodyDataAttackResult extends $dara.Model {
   /**
    * @remarks
-   * The level of prompt attack
+   * The attack level.
    * 
    * @example
    * none
@@ -63,7 +63,7 @@ export class TextModerationPlusResponseBodyDataAttackResult extends $dara.Model 
   attackLevel?: string;
   /**
    * @remarks
-   * The confidence
+   * The confidence score.
    * 
    * @example
    * 0
@@ -71,7 +71,7 @@ export class TextModerationPlusResponseBodyDataAttackResult extends $dara.Model 
   confidence?: number;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * safe
@@ -79,7 +79,7 @@ export class TextModerationPlusResponseBodyDataAttackResult extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The label
+   * The label.
    * 
    * @example
    * safe
@@ -113,6 +113,13 @@ export class TextModerationPlusResponseBodyDataAttackResult extends $dara.Model 
 }
 
 export class TextModerationPlusResponseBodyDataExtLlmContent extends $dara.Model {
+  /**
+   * @remarks
+   * The output.
+   * 
+   * @example
+   * 正常。文本中无风险内容。
+   */
   outputText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -136,6 +143,10 @@ export class TextModerationPlusResponseBodyDataExtLlmContent extends $dara.Model
 }
 
 export class TextModerationPlusResponseBodyDataExt extends $dara.Model {
+  /**
+   * @remarks
+   * The LLM output.
+   */
   llmContent?: TextModerationPlusResponseBodyDataExtLlmContent;
   static names(): { [key: string]: string } {
     return {
@@ -164,7 +175,7 @@ export class TextModerationPlusResponseBodyDataExt extends $dara.Model {
 export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $dara.Model {
   /**
    * @remarks
-   * The terms that are hit. Multiple terms are separated by commas (,).
+   * The keywords that were hit, separated by commas.
    * 
    * @example
    * xxx
@@ -172,10 +183,10 @@ export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $dara
   keyWords?: string;
   /**
    * @remarks
-   * The library name.
+   * The name of the keyword library.
    * 
    * @example
-   * test
+   * 测试词库
    */
   libName?: string;
   static names(): { [key: string]: string } {
@@ -202,8 +213,29 @@ export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $dara
 }
 
 export class TextModerationPlusResponseBodyDataResultRiskPositions extends $dara.Model {
+  /**
+   * @remarks
+   * The end position of the non-compliant word.
+   * 
+   * @example
+   * 6
+   */
   endPos?: number;
+  /**
+   * @remarks
+   * The non-compliant word.
+   * 
+   * @example
+   * 词A
+   */
   riskWord?: string;
+  /**
+   * @remarks
+   * The start position of the non-compliant word.
+   * 
+   * @example
+   * 4
+   */
   startPos?: number;
   static names(): { [key: string]: string } {
     return {
@@ -233,7 +265,7 @@ export class TextModerationPlusResponseBodyDataResultRiskPositions extends $dara
 export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+   * The confidence score. The value ranges from 0 to 100. The value is accurate to two decimal places.
    * 
    * @example
    * 81.22
@@ -241,7 +273,7 @@ export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
   confidence?: number;
   /**
    * @remarks
-   * The custom term hit by the moderated content.
+   * The custom keywords that were hit.
    */
   customizedHit?: TextModerationPlusResponseBodyDataResultCustomizedHit[];
   /**
@@ -249,7 +281,7 @@ export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
    * The description of the label.
    * 
    * @example
-   * none
+   * 未检测出风险
    */
   description?: string;
   /**
@@ -260,10 +292,14 @@ export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
    * porn
    */
   label?: string;
+  /**
+   * @remarks
+   * The position information of the risk words.
+   */
   riskPositions?: TextModerationPlusResponseBodyDataResultRiskPositions[];
   /**
    * @remarks
-   * The term hit by the moderated content.
+   * The risk keywords that were hit.
    * 
    * @example
    * XXX
@@ -309,15 +345,15 @@ export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
 export class TextModerationPlusResponseBodyDataSensitiveResult extends $dara.Model {
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
-   * xxx
+   * 省份
    */
   description?: string;
   /**
    * @remarks
-   * The label
+   * The label.
    * 
    * @example
    * 1234
@@ -325,12 +361,12 @@ export class TextModerationPlusResponseBodyDataSensitiveResult extends $dara.Mod
   label?: string;
   /**
    * @remarks
-   * The sensitive data.
+   * The list of sensitive data.
    */
   sensitiveData?: string[];
   /**
    * @remarks
-   * The level of sensitivity data
+   * The sensitivity level.
    * 
    * @example
    * S1
@@ -367,15 +403,22 @@ export class TextModerationPlusResponseBodyDataSensitiveResult extends $dara.Mod
 }
 
 export class TextModerationPlusResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The AccountId from the request.
+   * 
+   * @example
+   * 123456789
+   */
   accountId?: string;
   /**
    * @remarks
-   * The suggestion.
+   * The suggested actions.
    */
   advice?: TextModerationPlusResponseBodyDataAdvice[];
   /**
    * @remarks
-   * The level of prompt attack
+   * The attack level.
    * 
    * @example
    * none
@@ -383,28 +426,48 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
   attackLevel?: string;
   /**
    * @remarks
-   * The result of prompt attack detect
+   * The prompt attack detection results.
    */
   attackResult?: TextModerationPlusResponseBodyDataAttackResult[];
   /**
    * @remarks
-   * The id of data
+   * The ID of the data that was moderated.
+   * 
+   * > If you specify the \\`dataId\\` parameter in the request, the value of this parameter is returned.
    * 
    * @example
    * text1234
    */
   dataId?: string;
+  /**
+   * @remarks
+   * The detected language.
+   * 
+   * @example
+   * en
+   */
   detectedLanguage?: string;
+  /**
+   * @remarks
+   * The auxiliary information.
+   */
   ext?: TextModerationPlusResponseBodyDataExt;
+  /**
+   * @remarks
+   * The ID of the manual review task.
+   * 
+   * @example
+   * xxxxx-xxxxx
+   */
   manualTaskId?: string;
   /**
    * @remarks
-   * The results.
+   * The moderation results.
    */
   result?: TextModerationPlusResponseBodyDataResult[];
   /**
    * @remarks
-   * Risk Level
+   * The risk level.
    * 
    * @example
    * high
@@ -420,7 +483,7 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * The level of sensitivity data
+   * The sensitivity level.
    * 
    * @example
    * S0
@@ -428,9 +491,16 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The result of sensitivity data detect
+   * The sensitive data detection results.
    */
   sensitiveResult?: TextModerationPlusResponseBodyDataSensitiveResult[];
+  /**
+   * @remarks
+   * The translated content.
+   * 
+   * @example
+   * hello
+   */
   translatedContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -497,7 +567,7 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
 export class TextModerationPlusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -505,12 +575,12 @@ export class TextModerationPlusResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The moderation results.
+   * The data that is returned.
    */
   data?: TextModerationPlusResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * A human-readable description of the error.
    * 
    * @example
    * OK
@@ -518,7 +588,7 @@ export class TextModerationPlusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

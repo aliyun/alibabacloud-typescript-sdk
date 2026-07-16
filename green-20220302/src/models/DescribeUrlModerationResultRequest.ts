@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUrlModerationResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ReqId field returned by an asynchronous URL moderation operation.
+   * The ReqId field returned by the asynchronous URL moderation operation
    * 
    * @example
    * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
