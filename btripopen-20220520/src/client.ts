@@ -2485,7 +2485,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询企业用车场景
+   * Queries enterprise car service scenario templates.
+   * 
+   * @remarks
+   * Queries enterprise car service scenario templates.
+   * 1. To use this operation, enable business management permissions in your application. For the permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+   * 2. To use this operation, include the enterprise access credential (x-acs-btrip-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
    * 
    * @param headers - CarSceneQueryHeaders
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2519,7 +2524,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询企业用车场景
+   * Queries enterprise car service scenario templates.
+   * 
+   * @remarks
+   * Queries enterprise car service scenario templates.
+   * 1. To use this operation, enable business management permissions in your application. For the permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+   * 2. To use this operation, include the enterprise access credential (x-acs-btrip-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
    * @returns CarSceneQueryResponse
    */
   async carSceneQuery(): Promise<$_model.CarSceneQueryResponse> {
@@ -4412,6 +4422,12 @@ export default class Client extends OpenApi {
   /**
    * 预估价格查询v2.0
    * 
+   * @remarks
+   * 使用该接口可以查询预估价格。
+   * 增值接口需特殊审批，提交权限前请先和商旅客户运营沟通确认。
+   * 使用该接口需要在应用中开通增值服务数据权限，具体的数据权限申请流程请查看接口权限申请流程接口权限申请流程。
+   * 使用该接口需要在请求头中放入企业调用凭证数据信息（x-acs-btrip-so-corp-token），企业调用凭证数据获取接口请查看企业访问凭证企业访问凭证。
+   * 
    * @param request - EstimatedPriceQueryV2Request
    * @param headers - EstimatedPriceQueryV2Headers
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4473,6 +4489,12 @@ export default class Client extends OpenApi {
 
   /**
    * 预估价格查询v2.0
+   * 
+   * @remarks
+   * 使用该接口可以查询预估价格。
+   * 增值接口需特殊审批，提交权限前请先和商旅客户运营沟通确认。
+   * 使用该接口需要在应用中开通增值服务数据权限，具体的数据权限申请流程请查看接口权限申请流程接口权限申请流程。
+   * 使用该接口需要在请求头中放入企业调用凭证数据信息（x-acs-btrip-so-corp-token），企业调用凭证数据获取接口请查看企业访问凭证企业访问凭证。
    * 
    * @param request - EstimatedPriceQueryV2Request
    * @returns EstimatedPriceQueryV2Response
@@ -11648,6 +11670,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 国际机票改签生单
+   * 
+   * @param tmpReq - IntlFlightReShopCreateRequest
+   * @param headers - IntlFlightReShopCreateHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightReShopCreateResponse
+   */
+  async intlFlightReShopCreateWithOptions(tmpReq: $_model.IntlFlightReShopCreateRequest, headers: $_model.IntlFlightReShopCreateHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightReShopCreateResponse> {
+    tmpReq.validate();
+    let request = new $_model.IntlFlightReShopCreateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.selectedPassengers)) {
+      request.selectedPassengersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedPassengers, "selected_passengers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.asyncApplyKey)) {
+      body["async_apply_key"] = request.asyncApplyKey;
+    }
+
+    if (!$dara.isNull(request.asyncApplyMode)) {
+      body["async_apply_mode"] = request.asyncApplyMode;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.otaItemId)) {
+      body["ota_item_id"] = request.otaItemId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outReShopApplyId)) {
+      body["out_re_shop_apply_id"] = request.outReShopApplyId;
+    }
+
+    if (!$dara.isNull(request.passengerJourneyGroupKey)) {
+      body["passenger_journey_group_key"] = request.passengerJourneyGroupKey;
+    }
+
+    if (!$dara.isNull(request.reShopReasonCode)) {
+      body["re_shop_reason_code"] = request.reShopReasonCode;
+    }
+
+    if (!$dara.isNull(request.selectedPassengersShrink)) {
+      body["selected_passengers"] = request.selectedPassengersShrink;
+    }
+
+    if (!$dara.isNull(request.totalReShopFee)) {
+      body["total_re_shop_fee"] = request.totalReShopFee;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightReShopCreate",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/reshop/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightReShopCreateResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightReShopCreateResponse({}));
+  }
+
+  /**
+   * 国际机票改签生单
+   * 
+   * @param request - IntlFlightReShopCreateRequest
+   * @returns IntlFlightReShopCreateResponse
+   */
+  async intlFlightReShopCreate(request: $_model.IntlFlightReShopCreateRequest): Promise<$_model.IntlFlightReShopCreateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightReShopCreateHeaders({ });
+    return await this.intlFlightReShopCreateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 国际机票改签详情
    * 
    * @param request - IntlFlightReShopDetailRequest
@@ -11711,6 +11829,190 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.IntlFlightReShopDetailHeaders({ });
     return await this.intlFlightReShopDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 国际机票改签航班列表查询
+   * 
+   * @param tmpReq - IntlFlightReShopListSearchRequest
+   * @param headers - IntlFlightReShopListSearchHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightReShopListSearchResponse
+   */
+  async intlFlightReShopListSearchWithOptions(tmpReq: $_model.IntlFlightReShopListSearchRequest, headers: $_model.IntlFlightReShopListSearchHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightReShopListSearchResponse> {
+    tmpReq.validate();
+    let request = new $_model.IntlFlightReShopListSearchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.searchJourneys)) {
+      request.searchJourneysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchJourneys, "search_journeys", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.selectedPassengers)) {
+      request.selectedPassengersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedPassengers, "selected_passengers", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      query["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outWheelSearch)) {
+      query["out_wheel_search"] = request.outWheelSearch;
+    }
+
+    if (!$dara.isNull(request.passengerJourneyGroupKey)) {
+      query["passenger_journey_group_key"] = request.passengerJourneyGroupKey;
+    }
+
+    if (!$dara.isNull(request.reShopReasonCode)) {
+      query["re_shop_reason_code"] = request.reShopReasonCode;
+    }
+
+    if (!$dara.isNull(request.searchJourneysShrink)) {
+      query["search_journeys"] = request.searchJourneysShrink;
+    }
+
+    if (!$dara.isNull(request.selectedPassengersShrink)) {
+      query["selected_passengers"] = request.selectedPassengersShrink;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["token"] = request.token;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightReShopListSearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/reshop/listSearch`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightReShopListSearchResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightReShopListSearchResponse({}));
+  }
+
+  /**
+   * 国际机票改签航班列表查询
+   * 
+   * @param request - IntlFlightReShopListSearchRequest
+   * @returns IntlFlightReShopListSearchResponse
+   */
+  async intlFlightReShopListSearch(request: $_model.IntlFlightReShopListSearchRequest): Promise<$_model.IntlFlightReShopListSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightReShopListSearchHeaders({ });
+    return await this.intlFlightReShopListSearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 国际机票改签航班报价
+   * 
+   * @param tmpReq - IntlFlightReShopOtaSearchRequest
+   * @param headers - IntlFlightReShopOtaSearchHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightReShopOtaSearchResponse
+   */
+  async intlFlightReShopOtaSearchWithOptions(tmpReq: $_model.IntlFlightReShopOtaSearchRequest, headers: $_model.IntlFlightReShopOtaSearchHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightReShopOtaSearchResponse> {
+    tmpReq.validate();
+    let request = new $_model.IntlFlightReShopOtaSearchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.searchJourneys)) {
+      request.searchJourneysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchJourneys, "search_journeys", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.selectedPassengers)) {
+      request.selectedPassengersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedPassengers, "selected_passengers", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      query["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outWheelSearch)) {
+      query["out_wheel_search"] = request.outWheelSearch;
+    }
+
+    if (!$dara.isNull(request.passengerJourneyGroupKey)) {
+      query["passenger_journey_group_key"] = request.passengerJourneyGroupKey;
+    }
+
+    if (!$dara.isNull(request.reShopReasonCode)) {
+      query["re_shop_reason_code"] = request.reShopReasonCode;
+    }
+
+    if (!$dara.isNull(request.searchJourneysShrink)) {
+      query["search_journeys"] = request.searchJourneysShrink;
+    }
+
+    if (!$dara.isNull(request.selectedPassengersShrink)) {
+      query["selected_passengers"] = request.selectedPassengersShrink;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["token"] = request.token;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightReShopOtaSearch",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/reshop/otaSerach`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightReShopOtaSearchResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightReShopOtaSearchResponse({}));
+  }
+
+  /**
+   * 国际机票改签航班报价
+   * 
+   * @param request - IntlFlightReShopOtaSearchRequest
+   * @returns IntlFlightReShopOtaSearchResponse
+   */
+  async intlFlightReShopOtaSearch(request: $_model.IntlFlightReShopOtaSearchRequest): Promise<$_model.IntlFlightReShopOtaSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightReShopOtaSearchHeaders({ });
+    return await this.intlFlightReShopOtaSearchWithOptions(request, headers, runtime);
   }
 
   /**

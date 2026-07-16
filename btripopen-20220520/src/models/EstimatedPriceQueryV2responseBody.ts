@@ -4,8 +4,16 @@ import { ModulePriceMapValue } from "./ModulePriceMapValue";
 
 
 export class EstimatedPriceQueryV2ResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * flight
+   */
   bizType?: string;
   priceMap?: { [key: string]: ModulePriceMapValue };
+  /**
+   * @example
+   * 经济舱
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,10 +44,26 @@ export class EstimatedPriceQueryV2ResponseBodyModule extends $dara.Model {
 }
 
 export class EstimatedPriceQueryV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
   module?: EstimatedPriceQueryV2ResponseBodyModule[];
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210bcc3a16583004579056128d33d7
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

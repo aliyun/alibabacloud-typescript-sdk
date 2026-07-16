@@ -2,14 +2,11 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CarSceneQueryHeaders extends $dara.Model {
+export class IntlFlightReShopOtaSearchHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
-   * @remarks
-   * The header parameter obtained from the "Enterprise access credential" operation (added in the header). In HTTP mode, you can use socorptoken=value or dtbcorptoken=value in the URL as an alternative.
-   * 
    * @example
-   * feth00jqwis
+   * feth00jqwls
    */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {

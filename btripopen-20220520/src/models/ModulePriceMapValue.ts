@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModulePriceMapValue extends $dara.Model {
+  /**
+   * @example
+   * 10000
+   */
   price?: number;
+  /**
+   * @example
+   * MU1234
+   */
   serviceNo?: string;
   static names(): { [key: string]: string } {
     return {
