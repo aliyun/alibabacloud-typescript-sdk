@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extends $dara.Model {
+export class ExecuteMetaQueryResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The authentication action.
+   * The description is the same as above.
    * 
    * @example
    * xxx
@@ -13,23 +13,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
-   * 
-   * @example
-   * xxx
-   */
-  authPrincipalDisplayName?: string;
-  /**
-   * @remarks
-   * The owner ID of the authentication principal.
-   * 
-   * @example
-   * 111
-   */
-  authPrincipalOwnerId?: string;
-  /**
-   * @remarks
-   * The authentication principal type.
+   * The description is the same as above.
    * 
    * @example
    * 222
@@ -37,7 +21,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -45,7 +29,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -53,7 +37,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   noPermissionType?: string;
   /**
    * @remarks
-   * The policy type.
+   * PolicyType
    * 
    * @example
    * PRIORITY
@@ -62,8 +46,6 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   static names(): { [key: string]: string } {
     return {
       authAction: 'AuthAction',
-      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
-      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
       authPrincipalType: 'AuthPrincipalType',
       encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
       noPermissionType: 'NoPermissionType',
@@ -74,8 +56,6 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   static types(): { [key: string]: any } {
     return {
       authAction: 'string',
-      authPrincipalDisplayName: 'string',
-      authPrincipalOwnerId: 'string',
       authPrincipalType: 'string',
       encodedDiagnosticMessage: 'string',
       noPermissionType: 'string',
@@ -92,58 +72,48 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   }
 }
 
-export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model {
+export class ExecuteMetaQueryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
-   * 
-   * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
+   * The column names.
    */
-  connectionString?: string;
+  columns?: string[];
   /**
    * @remarks
-   * The instance ID.
+   * The total number of data rows.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * 97901
    */
-  DBInstanceId?: string;
+  rowCount?: number;
   /**
    * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 265325896860727
+   * The number of affected or returned rows. This field is available only for compute nodes (CNs).
    */
-  orderId?: number;
-  /**
-   * @remarks
-   * The port.
-   * 
-   * @example
-   * 3300
-   */
-  port?: number;
+  rows?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      DBInstanceId: 'DBInstanceId',
-      orderId: 'OrderId',
-      port: 'Port',
+      columns: 'Columns',
+      rowCount: 'RowCount',
+      rows: 'Rows',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      DBInstanceId: 'string',
-      orderId: 'number',
-      port: 'number',
+      columns: { 'type': 'array', 'itemType': 'string' },
+      rowCount: 'number',
+      rows: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
   validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    if(Array.isArray(this.rows)) {
+      $dara.Model.validateArray(this.rows);
+    }
     super.validate();
   }
 
@@ -152,38 +122,58 @@ export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model 
   }
 }
 
-export class CreatePolardbxSupabaseInstanceResponseBody extends $dara.Model {
+export class ExecuteMetaQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details about the access denial.
    */
-  accessDeniedDetail?: CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: ExecuteMetaQueryResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The creation result.
+   * The instance details.
    */
-  data?: CreatePolardbxSupabaseInstanceResponseBodyData;
+  data?: ExecuteMetaQueryResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The additional information returned. If the request is successful, success is returned. If the request fails, the corresponding error code is returned.
    * 
    * @example
-   * C457B28E-9CAB-4B77-B5C6-5D71B7870B6E
+   * ""
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A501A191-BD70-5E50-98A9-C2A486A82****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail,
-      data: CreatePolardbxSupabaseInstanceResponseBodyData,
+      accessDeniedDetail: ExecuteMetaQueryResponseBodyAccessDeniedDetail,
+      data: ExecuteMetaQueryResponseBodyData,
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

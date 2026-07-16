@@ -1598,6 +1598,10 @@ export default class Client extends OpenApi {
       query["DbPassword"] = request.dbPassword;
     }
 
+    if (!$dara.isNull(request.nodeSpec)) {
+      query["NodeSpec"] = request.nodeSpec;
+    }
+
     if (!$dara.isNull(request.payType)) {
       query["PayType"] = request.payType;
     }
@@ -1829,6 +1833,62 @@ export default class Client extends OpenApi {
   async createSQLEvaluateTask(request: $_model.CreateSQLEvaluateTaskRequest): Promise<$_model.CreateSQLEvaluateTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSQLEvaluateTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a service account.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateServiceAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceAccountResponse
+   */
+  async createServiceAccountWithOptions(request: $_model.CreateServiceAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceAccountType)) {
+      query["ServiceAccountType"] = request.serviceAccountType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceAccount",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceAccountResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceAccountResponse({}));
+  }
+
+  /**
+   * Creates a service account.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - CreateServiceAccountRequest
+   * @returns CreateServiceAccountResponse
+   */
+  async createServiceAccount(request: $_model.CreateServiceAccountRequest): Promise<$_model.CreateServiceAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createServiceAccountWithOptions(request, runtime);
   }
 
   /**
@@ -2579,6 +2639,62 @@ export default class Client extends OpenApi {
   async deletePolardbxSupabaseInstance(request: $_model.DeletePolardbxSupabaseInstanceRequest): Promise<$_model.DeletePolardbxSupabaseInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolardbxSupabaseInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a service account.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DeleteServiceAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceAccountResponse
+   */
+  async deleteServiceAccountWithOptions(request: $_model.DeleteServiceAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceAccountType)) {
+      query["ServiceAccountType"] = request.serviceAccountType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteServiceAccount",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServiceAccountResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServiceAccountResponse({}));
+  }
+
+  /**
+   * Deletes a service account.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DeleteServiceAccountRequest
+   * @returns DeleteServiceAccountResponse
+   */
+  async deleteServiceAccount(request: $_model.DeleteServiceAccountRequest): Promise<$_model.DeleteServiceAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteServiceAccountWithOptions(request, runtime);
   }
 
   /**
@@ -5343,6 +5459,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of a service account.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DescribeServiceAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceAccountResponse
+   */
+  async describeServiceAccountWithOptions(request: $_model.DescribeServiceAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeServiceAccount",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeServiceAccountResponse>(await this.callApi(params, req, runtime), new $_model.DescribeServiceAccountResponse({}));
+  }
+
+  /**
+   * Queries the status of a service account.
+   * 
+   * @remarks
+   * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+   * 
+   * @param request - DescribeServiceAccountRequest
+   * @returns DescribeServiceAccountResponse
+   */
+  async describeServiceAccount(request: $_model.DescribeServiceAccountRequest): Promise<$_model.DescribeServiceAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeServiceAccountWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the storage usage details of an instance, including the total capacity, used space, remaining space, and other information.
    * 
    * @param request - DescribeShowStorageInfoRequest
@@ -6384,6 +6552,66 @@ export default class Client extends OpenApi {
   async enableSqlAudit(request: $_model.EnableSqlAuditRequest): Promise<$_model.EnableSqlAuditResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableSqlAuditWithOptions(request, runtime);
+  }
+
+  /**
+   * Executes a metadata query.
+   * 
+   * @remarks
+   * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+   * 
+   * @param request - ExecuteMetaQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteMetaQueryResponse
+   */
+  async executeMetaQueryWithOptions(request: $_model.ExecuteMetaQueryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteMetaQueryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sql)) {
+      query["Sql"] = request.sql;
+    }
+
+    if (!$dara.isNull(request.storageInstId)) {
+      query["StorageInstId"] = request.storageInstId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteMetaQuery",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteMetaQueryResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteMetaQueryResponse({}));
+  }
+
+  /**
+   * Executes a metadata query.
+   * 
+   * @remarks
+   * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+   * 
+   * @param request - ExecuteMetaQueryRequest
+   * @returns ExecuteMetaQueryResponse
+   */
+  async executeMetaQuery(request: $_model.ExecuteMetaQueryRequest): Promise<$_model.ExecuteMetaQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeMetaQueryWithOptions(request, runtime);
   }
 
   /**

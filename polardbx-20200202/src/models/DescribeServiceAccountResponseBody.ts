@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extends $dara.Model {
+export class DescribeServiceAccountResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
    * The authentication action.
@@ -13,22 +13,6 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
-   * 
-   * @example
-   * xxx
-   */
-  authPrincipalDisplayName?: string;
-  /**
-   * @remarks
-   * The owner ID of the authentication principal.
-   * 
-   * @example
-   * 111
-   */
-  authPrincipalOwnerId?: string;
-  /**
-   * @remarks
    * The authentication principal type.
    * 
    * @example
@@ -37,7 +21,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -62,8 +46,6 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   static names(): { [key: string]: string } {
     return {
       authAction: 'AuthAction',
-      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
-      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
       authPrincipalType: 'AuthPrincipalType',
       encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
       noPermissionType: 'NoPermissionType',
@@ -74,8 +56,6 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   static types(): { [key: string]: any } {
     return {
       authAction: 'string',
-      authPrincipalDisplayName: 'string',
-      authPrincipalOwnerId: 'string',
       authPrincipalType: 'string',
       encodedDiagnosticMessage: 'string',
       noPermissionType: 'string',
@@ -92,54 +72,58 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   }
 }
 
-export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model {
+export class DescribeServiceAccountResponseBodyDataServiceAccounts extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The account name.
    * 
    * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
+   * polardbx_meta_ro
    */
-  connectionString?: string;
+  accountName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The time when the account was created.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * 2023-07-21T14:17:25+08:00
    */
-  DBInstanceId?: string;
+  createdTime?: string;
   /**
    * @remarks
-   * The order ID.
+   * The service account type.
    * 
    * @example
-   * 265325896860727
+   * METADATA_READONLY
    */
-  orderId?: number;
+  serviceAccountType?: string;
   /**
    * @remarks
-   * The port.
+   * The status of the backup set. Valid values:
+   * 
+   * - **0**: Backing up.
+   * - **1**: Backup succeeded.
+   * - **2**: Backup failed.
    * 
    * @example
-   * 3300
+   * Active
    */
-  port?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      DBInstanceId: 'DBInstanceId',
-      orderId: 'OrderId',
-      port: 'Port',
+      accountName: 'AccountName',
+      createdTime: 'CreatedTime',
+      serviceAccountType: 'ServiceAccountType',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      DBInstanceId: 'string',
-      orderId: 'number',
-      port: 'number',
+      accountName: 'string',
+      createdTime: 'string',
+      serviceAccountType: 'string',
+      status: 'string',
     };
   }
 
@@ -152,38 +136,88 @@ export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model 
   }
 }
 
-export class CreatePolardbxSupabaseInstanceResponseBody extends $dara.Model {
+export class DescribeServiceAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The service account in the list.
    */
-  accessDeniedDetail?: CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail;
-  /**
-   * @remarks
-   * The creation result.
-   */
-  data?: CreatePolardbxSupabaseInstanceResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C457B28E-9CAB-4B77-B5C6-5D71B7870B6E
-   */
-  requestId?: string;
+  serviceAccounts?: DescribeServiceAccountResponseBodyDataServiceAccounts[];
   static names(): { [key: string]: string } {
     return {
-      accessDeniedDetail: 'AccessDeniedDetail',
-      data: 'Data',
-      requestId: 'RequestId',
+      serviceAccounts: 'ServiceAccounts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail,
-      data: CreatePolardbxSupabaseInstanceResponseBodyData,
+      serviceAccounts: { 'type': 'array', 'itemType': DescribeServiceAccountResponseBodyDataServiceAccounts },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceAccounts)) {
+      $dara.Model.validateArray(this.serviceAccounts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the access denial.
+   */
+  accessDeniedDetail?: DescribeServiceAccountResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The instance details.
+   */
+  data?: DescribeServiceAccountResponseBodyData;
+  /**
+   * @remarks
+   * The response message. "success" is returned if the request was successful. Otherwise, the corresponding error code is returned.
+   * 
+   * @example
+   * ****
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: DescribeServiceAccountResponseBodyAccessDeniedDetail,
+      data: DescribeServiceAccountResponseBodyData,
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

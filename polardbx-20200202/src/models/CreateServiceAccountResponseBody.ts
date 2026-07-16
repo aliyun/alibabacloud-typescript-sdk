@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extends $dara.Model {
+export class CreateServiceAccountResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
    * The authentication action.
@@ -11,22 +11,6 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
    * xxx
    */
   authAction?: string;
-  /**
-   * @remarks
-   * The display name of the authentication principal.
-   * 
-   * @example
-   * xxx
-   */
-  authPrincipalDisplayName?: string;
-  /**
-   * @remarks
-   * The owner ID of the authentication principal.
-   * 
-   * @example
-   * 111
-   */
-  authPrincipalOwnerId?: string;
   /**
    * @remarks
    * The authentication principal type.
@@ -45,7 +29,7 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * NoPermissionType
    * 
    * @example
    * ImplicitDeny
@@ -62,8 +46,6 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   static names(): { [key: string]: string } {
     return {
       authAction: 'AuthAction',
-      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
-      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
       authPrincipalType: 'AuthPrincipalType',
       encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
       noPermissionType: 'NoPermissionType',
@@ -74,8 +56,6 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   static types(): { [key: string]: any } {
     return {
       authAction: 'string',
-      authPrincipalDisplayName: 'string',
-      authPrincipalOwnerId: 'string',
       authPrincipalType: 'string',
       encodedDiagnosticMessage: 'string',
       noPermissionType: 'string',
@@ -92,54 +72,74 @@ export class CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail extend
   }
 }
 
-export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model {
+export class CreateServiceAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint.
+   * The account name.
    * 
    * @example
-   * test2.polarx.huhehaote.rds.aliyuncs.com
+   * polardbx_meta_ro
    */
-  connectionString?: string;
+  accountName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Indicates whether the account already exists.
    * 
    * @example
-   * pxsp-xxxxxxxxxx
+   * False
    */
-  DBInstanceId?: string;
+  alreadyExists?: boolean;
   /**
    * @remarks
-   * The order ID.
+   * The request ID.
    * 
    * @example
-   * 265325896860727
+   * 1E5DCFFC-A00D-****-836E-73318F8CA577
    */
-  orderId?: number;
+  requestId?: string;
   /**
    * @remarks
-   * The port.
+   * The type of the service account.
    * 
    * @example
-   * 3300
+   * 服务账号类型
    */
-  port?: number;
+  serviceAccountType?: string;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * Active
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 2209883
+   */
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      DBInstanceId: 'DBInstanceId',
-      orderId: 'OrderId',
-      port: 'Port',
+      accountName: 'AccountName',
+      alreadyExists: 'AlreadyExists',
+      requestId: 'RequestId',
+      serviceAccountType: 'ServiceAccountType',
+      status: 'Status',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      DBInstanceId: 'string',
-      orderId: 'number',
-      port: 'number',
+      accountName: 'string',
+      alreadyExists: 'boolean',
+      requestId: 'string',
+      serviceAccountType: 'string',
+      status: 'string',
+      taskId: 'number',
     };
   }
 
@@ -152,38 +152,58 @@ export class CreatePolardbxSupabaseInstanceResponseBodyData extends $dara.Model 
   }
 }
 
-export class CreatePolardbxSupabaseInstanceResponseBody extends $dara.Model {
+export class CreateServiceAccountResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the access denial.
    */
-  accessDeniedDetail?: CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail;
+  accessDeniedDetail?: CreateServiceAccountResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The creation result.
+   * The returned policy details.
    */
-  data?: CreatePolardbxSupabaseInstanceResponseBodyData;
+  data?: CreateServiceAccountResponseBodyData;
+  /**
+   * @remarks
+   * The additional information returned. If the request is successful, **success** is returned. If the request fails, the corresponding error code is returned.
+   * 
+   * @example
+   * *****
+   */
+  message?: string;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * C457B28E-9CAB-4B77-B5C6-5D71B7870B6E
+   * 6BA32080EEA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
+   * @example
+   * True
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: CreatePolardbxSupabaseInstanceResponseBodyAccessDeniedDetail,
-      data: CreatePolardbxSupabaseInstanceResponseBodyData,
+      accessDeniedDetail: CreateServiceAccountResponseBodyAccessDeniedDetail,
+      data: CreateServiceAccountResponseBodyData,
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

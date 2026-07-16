@@ -49,6 +49,14 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
   dbPassword?: string;
   /**
    * @remarks
+   * The node specifications.
+   * 
+   * @example
+   * polarx.supabase.x2.small
+   */
+  nodeSpec?: string;
+  /**
+   * @remarks
    * The billing type. Valid values:
    * - PREPAY: subscription.
    * - POSTPAY: pay-as-you-go.
@@ -141,6 +149,7 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
       dashboardPassword: 'DashboardPassword',
       dbInstanceDescription: 'DbInstanceDescription',
       dbPassword: 'DbPassword',
+      nodeSpec: 'NodeSpec',
       payType: 'PayType',
       period: 'Period',
       regionId: 'RegionId',
@@ -160,6 +169,7 @@ export class CreatePolardbxSupabaseInstanceRequest extends $dara.Model {
       dashboardPassword: 'string',
       dbInstanceDescription: 'string',
       dbPassword: 'string',
+      nodeSpec: 'string',
       payType: 'string',
       period: 'string',
       regionId: 'string',
