@@ -7096,6 +7096,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 场景群升级：向群主发送升级通知卡片
+   * 
+   * @param tmpReq - EnableSceneGroupTemplateRequest
+   * @param tmpHeader - EnableSceneGroupTemplateHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableSceneGroupTemplateResponse
+   */
+  async enableSceneGroupTemplateWithOptions(tmpReq: $_model.EnableSceneGroupTemplateRequest, tmpHeader: $_model.EnableSceneGroupTemplateHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.EnableSceneGroupTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnableSceneGroupTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.EnableSceneGroupTemplateShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableSceneGroupTemplate",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/enableSceneGroupTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableSceneGroupTemplateResponse>(await this.callApi(params, req, runtime), new $_model.EnableSceneGroupTemplateResponse({}));
+  }
+
+  /**
+   * 场景群升级：向群主发送升级通知卡片
+   * 
+   * @param request - EnableSceneGroupTemplateRequest
+   * @returns EnableSceneGroupTemplateResponse
+   */
+  async enableSceneGroupTemplate(request: $_model.EnableSceneGroupTemplateRequest): Promise<$_model.EnableSceneGroupTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.EnableSceneGroupTemplateHeaders({ });
+    return await this.enableSceneGroupTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 批量执行宜搭审批任务
    * 
    * @param request - ExecuteBatchTaskRequest
