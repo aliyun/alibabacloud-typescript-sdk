@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WorkflowParameter extends $dara.Model {
+  /**
+   * @remarks
+   * The invalid parameter.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The invalid parameter.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

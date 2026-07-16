@@ -6,8 +6,20 @@ import { VideoInsightsUserDefinedLabelConfig } from "./VideoInsightsUserDefinedL
 
 
 export class VideoInsightsLabelConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The highlight label configuration.
+   */
   highlight?: VideoInsightsHighlightLabelConfig;
+  /**
+   * @remarks
+   * The system label configuration.
+   */
   system?: VideoInsightsSystemLabelConfig;
+  /**
+   * @remarks
+   * The custom label configuration.
+   */
   userDefined?: VideoInsightsUserDefinedLabelConfig;
   static names(): { [key: string]: string } {
     return {

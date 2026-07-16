@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsightsLabel extends $dara.Model {
+  /**
+   * @remarks
+   * The label description.
+   * 
+   * @example
+   * 有人摔倒
+   */
   description?: string;
+  /**
+   * @remarks
+   * The label name.
+   * 
+   * @example
+   * 摔倒
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

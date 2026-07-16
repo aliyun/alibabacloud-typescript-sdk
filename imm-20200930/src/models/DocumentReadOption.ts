@@ -9,22 +9,22 @@ import { DocumentReadSummaryOption } from "./DocumentReadSummaryOption";
 export class DocumentReadOption extends $dara.Model {
   /**
    * @remarks
-   * Configuration for extracting keywords from the document.
+   * The document intensive reading keyword extraction options.
    */
   keyword?: DocumentReadKeywordOption;
   /**
    * @remarks
-   * Configuration for the text-to-speech (TTS) narrator.
+   * The document intensive reading guide options.
    */
   narrator?: DocumentReadNarratorOption;
   /**
    * @remarks
-   * Configuration for the question-answering (Q\\&A) feature, which answers questions based on the document\\"s content.
+   * The document intensive reading question guide options.
    */
   question?: DocumentReadQuestionOption;
   /**
    * @remarks
-   * Configuration for generating a document summary.
+   * The document intensive reading summary options.
    */
   summary?: DocumentReadSummaryOption;
   static names(): { [key: string]: string } {

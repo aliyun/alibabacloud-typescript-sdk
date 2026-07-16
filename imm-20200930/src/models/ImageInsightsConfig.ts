@@ -4,6 +4,10 @@ import { ImageInsightsCaptionConfig } from "./ImageInsightsCaptionConfig";
 
 
 export class ImageInsightsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The image content recognition Caption configuration.
+   */
   caption?: ImageInsightsCaptionConfig;
   static names(): { [key: string]: string } {
     return {

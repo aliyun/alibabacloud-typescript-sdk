@@ -51,7 +51,7 @@ export class CreateHighlightTaskRequestEditBackgroundMusics extends $dara.Model 
 export class CreateHighlightTaskRequestEditTransitions extends $dara.Model {
   /**
    * @remarks
-   * The transition duration. Unit: seconds. If the transition duration is greater than the clip duration minus 1, the transition effect on that clip does not take effect.
+   * The transition duration. Unit: seconds. If the transition duration is greater than the segment duration minus 1, the transition effect on that segment does not take effect.
    * Valid values: [0, 5].
    * 
    * @example
@@ -71,7 +71,7 @@ export class CreateHighlightTaskRequestEditTransitions extends $dara.Model {
   /**
    * @remarks
    * The transition weight. Valid values: [1, 100]. Default value: 50.
-   * This parameter takes effect when TransitionMode is set to Random.
+   * This parameter takes effect only when TransitionMode is set to Random.
    * 
    * @example
    * 50
@@ -116,7 +116,7 @@ export class CreateHighlightTaskRequestEditVfxEffects extends $dara.Model {
   /**
    * @remarks
    * The effect weight. Valid values: [1, 100]. Default value: 50.
-   * This parameter takes effect when VfxEffectMode is set to Random.
+   * This parameter takes effect only when VfxEffectMode is set to Random.
    * 
    * @example
    * 50
@@ -162,8 +162,8 @@ export class CreateHighlightTaskRequestEdit extends $dara.Model {
   backgroundMusicMode?: string;
   /**
    * @remarks
-   * The background music tracks. This parameter takes effect when BackgroundMusicMode is set to Random or Sequential.
-   * **The maximum number is 1.**.
+   * The background music list. This parameter takes effect only when BackgroundMusicMode is set to Random or Sequential.
+   * **The maximum number is 1.**
    */
   backgroundMusics?: CreateHighlightTaskRequestEditBackgroundMusics[];
   /**
@@ -197,7 +197,7 @@ export class CreateHighlightTaskRequestEdit extends $dara.Model {
   /**
    * @remarks
    * The transition effects.
-   * This parameter takes effect when TransitionMode is set to Random or Sequential.
+   * This parameter takes effect only when TransitionMode is set to Random or Sequential.
    * A maximum of 10 transitions are supported.
    */
   transitions?: CreateHighlightTaskRequestEditTransitions[];
@@ -219,7 +219,7 @@ export class CreateHighlightTaskRequestEdit extends $dara.Model {
   vfxEffectMode?: string;
   /**
    * @remarks
-   * The visual effects. This parameter takes effect when VfxEffectMode is set to Random or Sequential.
+   * The visual effects. This parameter takes effect only when VfxEffectMode is set to Random or Sequential.
    * A maximum of 10 effects are supported.
    */
   vfxEffects?: CreateHighlightTaskRequestEditVfxEffects[];
@@ -270,13 +270,13 @@ export class CreateHighlightTaskRequestHighlight extends $dara.Model {
    * @remarks
    * The highlight content. Valid values:
    * 
-   * - Pets
+   * - 宠物
    * 
-   * - People
+   * - 人物
    * 
-   * - Sports
+   * - 运动
    * 
-   * - Meetings
+   * - 会议
    * 
    * The value cannot exceed 100 characters.
    * 
@@ -310,7 +310,7 @@ export class CreateHighlightTaskRequestHighlight extends $dara.Model {
 export class CreateHighlightTaskRequestOutputSegment extends $dara.Model {
   /**
    * @remarks
-   * The segment duration. Unit: seconds.
+   * The segment length. Unit: seconds.
    * 
    * @example
    * 1
@@ -322,7 +322,7 @@ export class CreateHighlightTaskRequestOutputSegment extends $dara.Model {
    * 
    * - hls
    * 
-   * - dash.
+   * - dash
    * 
    * @example
    * hls
@@ -372,9 +372,9 @@ export class CreateHighlightTaskRequestOutput extends $dara.Model {
    * @remarks
    * The media container type. This parameter is required when Type is set to Concat or Compose. Valid values:
    * 
-   * - Audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, flv
+   * - Audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, flv.
    * 
-   * >Notice: Container and URI must be specified together..
+   * >Notice: Container and URI must be specified together.
    * 
    * @example
    * mp4
@@ -397,7 +397,7 @@ export class CreateHighlightTaskRequestOutput extends $dara.Model {
    * @remarks
    * The playback speed of the media. Valid values: [0.5, 1.0]. Default value: 1.0.
    * 
-   * > This value is the ratio of the default playback speed of the transcoded media file to that of the source media file. This is not speed-adjusted transcoding.
+   * > This value is the ratio of the playback speed of the transcoded media file to the default playback speed of the source media file. This is not speed-adjusted transcoding.
    * 
    * @example
    * 1.0
@@ -464,7 +464,7 @@ export class CreateHighlightTaskRequestOutput extends $dara.Model {
 export class CreateHighlightTaskRequestSources extends $dara.Model {
   /**
    * @remarks
-   * The duration of the media clip. Unit: seconds. Default value: 0, which indicates the end of the video.
+   * The duration of the media segment. Unit: seconds. Default value: 0, which indicates the end of the video.
    * This parameter takes effect only when Type is set to Concat.
    * 
    * @example
@@ -473,7 +473,7 @@ export class CreateHighlightTaskRequestSources extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The start time of the media resource. Valid values: [0, video duration].
+   * The start time of the media resource. Valid values: [0, video duration]. Unit: seconds.
    * This parameter takes effect only when Type is set to Concat.
    * 
    * @example
@@ -518,7 +518,7 @@ export class CreateHighlightTaskRequestSources extends $dara.Model {
 export class CreateHighlightTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**.
+   * The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**
    */
   credentialConfig?: CredentialConfig;
   /**
@@ -589,7 +589,7 @@ export class CreateHighlightTaskRequest extends $dara.Model {
    * 
    * - Concat: video composition.
    * 
-   * - Compose: one-click video creation.
+   * - Compose: one-click video production.
    * 
    * This parameter is required.
    * 
@@ -599,7 +599,7 @@ export class CreateHighlightTaskRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The custom user data, which is returned in asynchronous message notifications.
+   * The custom information, which is returned in asynchronous message notifications.
    * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}

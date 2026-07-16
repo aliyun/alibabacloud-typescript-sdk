@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VideoInsightsSystemLabelConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether system labels are supported.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {

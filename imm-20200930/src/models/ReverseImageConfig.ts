@@ -5,7 +5,15 @@ import { VideoReverseImageConfig } from "./VideoReverseImageConfig";
 
 
 export class ReverseImageConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The image-to-image search configuration.
+   */
   image?: ImageReverseImageConfig;
+  /**
+   * @remarks
+   * The image-to-video search configuration.
+   */
   video?: VideoReverseImageConfig;
   static names(): { [key: string]: string } {
     return {

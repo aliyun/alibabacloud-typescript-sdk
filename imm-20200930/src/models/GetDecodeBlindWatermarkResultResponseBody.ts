@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDecodeBlindWatermarkResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code of the task.
+   * The task error code.
    * 
    * @example
    * ResourceNotFound
@@ -16,12 +16,12 @@ export class GetDecodeBlindWatermarkResultResponseBody extends $dara.Model {
    * The watermark content.
    * 
    * @example
-   * Copyright Alibaba Cloud
+   * 阿里云版权所有
    */
   content?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The time when the task ended. The time is in the ISO 8601 UTC timestamp format with millisecond precision.
    * 
    * @example
    * 2024-03-03T09:45:56.87Z
@@ -37,7 +37,7 @@ export class GetDecodeBlindWatermarkResultResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The error message of the task.
+   * The task error message.
    * 
    * @example
    * The specified resource project is not found.
@@ -61,7 +61,7 @@ export class GetDecodeBlindWatermarkResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The time when the task started. The time is in the ISO 8601 UTC timestamp format with millisecond precision.
    * 
    * @example
    * 2024-03-03T09:44:31.029Z
@@ -93,7 +93,7 @@ export class GetDecodeBlindWatermarkResultResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The user data of the task.
+   * The custom information.
    * 
    * @example
    * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}

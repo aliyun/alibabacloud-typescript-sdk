@@ -13,7 +13,7 @@ export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $dara.Model 
   channels?: number;
   /**
    * @remarks
-   * The token generated for the audio Media Playlist. You can use this parameter to construct the URI of the generated TS file.
+   * The token generated for the audio Media Playlist. You can use this parameter to construct the addresses of the generated TS files.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******
@@ -55,7 +55,7 @@ export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $dara.Model 
 export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $dara.Model {
   /**
    * @remarks
-   * The sequence number of the subtitle stream, starting from 0.
+   * The subtitle stream number, starting from 0.
    * 
    * @example
    * 1
@@ -64,8 +64,7 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $dara.Mod
   /**
    * @remarks
    * The language of the subtitle stream.
-   * 
-   * > The language is obtained from the subtitle stream information of the source video specified by SourceURI. If the source video does not contain language information, this parameter is empty.
+   * > The language is obtained from the subtitle stream information of the source video specified by SourceURI. If the source video does not contain language information, an empty value is returned.
    * 
    * @example
    * eng
@@ -73,9 +72,8 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $dara.Mod
   language?: string;
   /**
    * @remarks
-   * The token generated for the subtitle Media Playlist. You can use this parameter to construct the URI of the generated subtitle file.
-   * 
-   * > You can use the returned token value to construct the URI of the transcoded subtitle file. The format is oss\\://${Bucket}/${Object}-${Token}_${Index}.ts. oss\\://${Bucket}/${Object} is the subtitle URI specified in the request parameters. ${Token} is the returned parameter. ${Index} is the sequence number of the subtitle.
+   * The token generated for the subtitle Media Playlist. You can use this parameter to construct the addresses of the generated subtitle files.
+   * > Based on the returned Token value, you can construct the addresses of the transcoded subtitle files. The format is: oss://${Bucket}/${Object}-${Token}_${Index}.ts, where oss://${Bucket}/${Object} is the Subtitle URI specified in the input parameters, ${Token} is the returned parameter, and ${Index} is the sequence number of the subtitle file.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******
@@ -135,9 +133,8 @@ export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $dara.Model 
   resolution?: string;
   /**
    * @remarks
-   * The token generated for the video Media Playlist. You can use this parameter to construct the URI of the generated TS file.
-   * 
-   * > You can use the returned token value to construct the URI of the transcoded TS file. The format is oss\\://${Bucket}/${Object}-${Token}-${Index}.ts. oss\\://${Bucket}/${Object} is the target URI specified in the request parameters. ${Token} is the returned parameter. ${Index} is the sequence number of the TS file.
+   * The token generated for the video Media Playlist. You can use this parameter to construct the addresses of the generated TS files.
+   * > Based on the returned Token value, you can construct the addresses of the transcoded TS files. The format is: oss://${Bucket}/${Object}-${Token}-${Index}.ts, where oss://${Bucket}/${Object} is the Target URI specified in the input parameters, ${Token} is the returned parameter, and ${Index} is the sequence number of the TS file.
    * 
    * @example
    * affe0c6042f09722fec95a21b8b******

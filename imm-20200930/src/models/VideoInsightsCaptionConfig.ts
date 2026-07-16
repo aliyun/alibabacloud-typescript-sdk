@@ -4,8 +4,23 @@ import { PersonReferenceConfig } from "./PersonReferenceConfig";
 
 
 export class VideoInsightsCaptionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable video captioning.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The person reference configuration.
+   */
   personReference?: PersonReferenceConfig;
+  /**
+   * @remarks
+   * The custom prompt for video captioning.
+   * 
+   * @example
+   * 请用一句话描述这个视频
+   */
   prompt?: string;
   static names(): { [key: string]: string } {
     return {

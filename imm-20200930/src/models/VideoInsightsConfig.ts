@@ -11,7 +11,15 @@ export class VideoInsightsConfig extends $dara.Model {
    * The video synopsis configuration.
    */
   caption?: VideoInsightsCaptionConfig;
+  /**
+   * @remarks
+   * The label configuration.
+   */
   label?: VideoInsightsLabelConfig;
+  /**
+   * @remarks
+   * The video multi-stream configuration.
+   */
   multiStream?: VideoInsightsMultiStreamConfig;
   static names(): { [key: string]: string } {
     return {

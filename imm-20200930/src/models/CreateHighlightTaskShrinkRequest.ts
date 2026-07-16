@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**.
+   * The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**
    */
   credentialConfigShrink?: string;
   /**
@@ -76,7 +76,7 @@ export class CreateHighlightTaskShrinkRequest extends $dara.Model {
    * 
    * - Concat: video composition.
    * 
-   * - Compose: one-click video creation.
+   * - Compose: one-click video production.
    * 
    * This parameter is required.
    * 
@@ -86,7 +86,7 @@ export class CreateHighlightTaskShrinkRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The custom user data, which is returned in asynchronous message notifications.
+   * The custom information, which is returned in asynchronous message notifications.
    * 
    * @example
    * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}

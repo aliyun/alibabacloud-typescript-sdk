@@ -4,8 +4,26 @@ import { InsightsLabel } from "./InsightsLabel";
 
 
 export class VideoInsightsUserDefinedLabelConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable custom labels.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The list of custom labels.
+   */
   labels?: InsightsLabel[];
+  /**
+   * @remarks
+   * The custom label matching mode. The SDK passes this as an optional string.
+   * 
+   * @example
+   * Enhanced
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,7 +4,18 @@ import { InsightsLabel } from "./InsightsLabel";
 
 
 export class VideoInsightsHighlightLabelConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether highlight labels are supported.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The list of labels.
+   */
   labels?: InsightsLabel[];
   static names(): { [key: string]: string } {
     return {

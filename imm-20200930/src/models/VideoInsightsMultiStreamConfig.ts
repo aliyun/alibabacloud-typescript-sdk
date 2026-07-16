@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VideoInsightsMultiStreamConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether video multi-stream is supported.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {

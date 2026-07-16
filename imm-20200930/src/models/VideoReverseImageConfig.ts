@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VideoReverseImageConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the feature.
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {

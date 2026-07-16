@@ -26,7 +26,7 @@ export class Illustration extends $dara.Model {
   normalizedBox?: number[];
   /**
    * @remarks
-   * The page number on which the image is located.
+   * The page number where the image is located.
    * 
    * @example
    * 1

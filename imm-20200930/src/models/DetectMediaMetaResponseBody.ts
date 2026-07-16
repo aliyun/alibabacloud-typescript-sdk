@@ -9,9 +9,9 @@ import { VideoStream } from "./VideoStream";
 export class DetectMediaMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The addresses.
+   * The geolocation detection results of the video.
    * 
-   * This parameter is returned only when address information is detected.
+   * This parameter has a value only when the video contains geolocation information.
    */
   addresses?: Address[];
   /**
@@ -40,12 +40,12 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   artist?: string;
   /**
    * @remarks
-   * The audio streams.
+   * The array of audio streams.
    */
   audioStreams?: AudioStream[];
   /**
    * @remarks
-   * The bitrate. Unit: bit/s.
+   * The bitrate of the media file, in bit/s.
    * 
    * @example
    * 13164131
@@ -61,7 +61,7 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   composer?: string;
   /**
    * @remarks
-   * The total duration of the video. Unit: seconds.
+   * The total duration of the video, in seconds.
    * 
    * @example
    * 15.263000
@@ -69,7 +69,7 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The full format name.
+   * The full name of the format.
    * 
    * @example
    * QuickTime / MOV
@@ -77,7 +77,7 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   formatLongName?: string;
   /**
    * @remarks
-   * The abbreviated format name.
+   * The format name.
    * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
@@ -85,7 +85,7 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   formatName?: string;
   /**
    * @remarks
-   * The language of the content. For more information, see the ISO 639-2 Alpha-3 codes for the representation of names of languages.
+   * The language used in the video. The value follows the ISO 639-2 standard.
    * 
    * @example
    * eng
@@ -93,7 +93,8 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The coordinate pair of the central point. The coordinate pair consists of latitude and longitude values. This parameter value must be in the "latitude,longitude" format. Valid values of the latitude: [-90,+90]. Valid values of the longitude: [-180,+180].
+   * The central geographic coordinate point, which is a latitude and longitude value.
+   * The format is latitude,longitude, with latitude first and longitude second. The latitude range is [-90,+90] and the longitude range is [-180,+180]. Example: 35.8,-45.91.
    * 
    * @example
    * +120.029003,+30.283095
@@ -109,7 +110,7 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   performer?: string;
   /**
    * @remarks
-   * The time of recording. For more information about the time formats, see the RFC3339 Nano standard.
+   * The time when the video was recorded. The value follows the RFC 3339 Nano standard.
    * 
    * @example
    * 2022-04-24T02:39:57Z
@@ -133,7 +134,7 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The size of the media object. Unit: bytes.
+   * The size of the media file, in bytes.
    * 
    * @example
    * 25115517
@@ -141,7 +142,7 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The initial playback time.
+   * The start playback time of the media, in seconds.
    * 
    * @example
    * 0.000000
@@ -157,12 +158,12 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   streamCount?: number;
   /**
    * @remarks
-   * The subtitle streams.
+   * The array of subtitle streams.
    */
   subtitles?: SubtitleStream[];
   /**
    * @remarks
-   * The title of the media object.
+   * The title of the media file.
    * 
    * @example
    * test
@@ -170,7 +171,7 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The video height in pixels.
+   * The height of the video frame in the media file, in pixels.
    * 
    * @example
    * 1920
@@ -178,12 +179,12 @@ export class DetectMediaMetaResponseBody extends $dara.Model {
   videoHeight?: number;
   /**
    * @remarks
-   * The video streams.
+   * The array of video streams.
    */
   videoStreams?: VideoStream[];
   /**
    * @remarks
-   * The video width in pixels.
+   * The width of the video frame in the media file, in pixels.
    * 
    * @example
    * 1080
