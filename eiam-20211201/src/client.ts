@@ -10212,7 +10212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve information about one or more EIAM applications with paging.
+   * Queries information about one or more EIAM applications by using paged query. Paging is supported.
    * 
    * @param request - ListApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10235,6 +10235,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.applicationName)) {
       query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!$dara.isNull(request.applicationTemplateId)) {
+      query["ApplicationTemplateId"] = request.applicationTemplateId;
     }
 
     if (!$dara.isNull(request.authorizationType)) {
@@ -10299,7 +10303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve information about one or more EIAM applications with paging.
+   * Queries information about one or more EIAM applications by using paged query. Paging is supported.
    * 
    * @param request - ListApplicationsRequest
    * @returns ListApplicationsResponse

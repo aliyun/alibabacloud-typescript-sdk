@@ -76,6 +76,7 @@ export class ListApplicationsRequest extends $dara.Model {
    * Ram Account SSO
    */
   applicationName?: string;
+  applicationTemplateId?: string;
   /**
    * @remarks
    * The application access authorization type. Valid values:
@@ -159,6 +160,7 @@ export class ListApplicationsRequest extends $dara.Model {
       applicationIdentityType: 'ApplicationIdentityType',
       applicationIds: 'ApplicationIds',
       applicationName: 'ApplicationName',
+      applicationTemplateId: 'ApplicationTemplateId',
       authorizationType: 'AuthorizationType',
       customFields: 'CustomFields',
       instanceId: 'InstanceId',
@@ -179,6 +181,7 @@ export class ListApplicationsRequest extends $dara.Model {
       applicationIdentityType: 'string',
       applicationIds: { 'type': 'array', 'itemType': 'string' },
       applicationName: 'string',
+      applicationTemplateId: 'string',
       authorizationType: 'string',
       customFields: { 'type': 'array', 'itemType': ListApplicationsRequestCustomFields },
       instanceId: 'string',

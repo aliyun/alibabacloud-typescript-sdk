@@ -63,7 +63,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The time when the application was created, in UNIX timestamp format. Unit: milliseconds.
+   * The application creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -150,7 +150,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The single sign-on (SSO) logon protocol. Valid values:
+   * The single sign-on protocol. Valid values:
    * - saml2: SAML 2.0 protocol.
    * - oidc: OpenID Connect protocol.
    * - oauth2/m2m: OAuth 2.0 protocol.
