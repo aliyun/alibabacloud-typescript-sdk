@@ -8,13 +8,10 @@ export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the auto snapshot policy to cancel.
-   * 
-   * - If you omit this parameter, the following rules apply:
-   * 
-   *   - If only one auto snapshot policy is applied to a disk, that policy is canceled.
-   * 
-   *   - If a disk has more than one auto snapshot policy, the request fails and returns the `OperationDenied.TooManyAutoSnapshotPolicies` error code. In this case, you must specify `autoSnapshotPolicyId` to identify the policy to cancel.
+   * The ID of the automatic snapshot policy that you want to cancel.
+   * - Default value: empty. If you use the default value, note the following items:
+   *   - If only one automatic snapshot policy is applied to the cloud disk, the automatic snapshot policy is canceled.
+   *   - If more than one automatic snapshot policy is applied to the cloud disk, the `OperationDenied.TooManyAutoSnapshotPolicies` error code is returned and the request fails. Specify the `autoSnapshotPolicyId` parameter to specify the ID of the automatic snapshot policy that you want to cancel.
    * 
    * @example
    * sp-bp14yziiuvu3s6jn****
@@ -22,7 +19,7 @@ export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The IDs of the target disks. The value is a JSON array of disk IDs.
+   * The IDs of the cloud disks. To cancel the automatic snapshot policy for multiple cloud disks, specify the cloud disk IDs in a JSON array in the format of "d-xxxxxxxxx", "d-yyyyyyyyy", … "d-zzzzzzzzz". Separate multiple cloud disk IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -32,7 +29,7 @@ export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
   diskIds?: string;
   /**
    * @remarks
-   * The region ID of the auto snapshot policy and disks. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
+   * The region ID of the automatic snapshot policy and cloud disks. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

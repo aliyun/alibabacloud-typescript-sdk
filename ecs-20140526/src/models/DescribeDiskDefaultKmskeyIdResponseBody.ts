@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiskDefaultKMSKeyIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the KMS key.
+   * The KMS key ID.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****

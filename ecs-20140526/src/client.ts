@@ -1231,24 +1231,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a pay-as-you-go data disk or a system disk to an Elastic Compute Service (ECS) instance.
+   * Attaches a data disk or system disk to an ECS instance.
    * 
    * @remarks
-   * Take note of the following items:
-   * - The ECS instance and the disk must reside in the same zone.
-   * - The disk must be in the **Unattached** (`Available`) state.
-   * - When you attach the disk as a data disk to an ECS instance, take note of the following items:
-   *   - The ECS instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
-   *   - If the disk was separately purchased, the billing method of the disk must be pay-as-you-go.
-   *   - If the disk is a system disk that was detached from an ECS instance, no limits apply to the billing method of the disk.
-   *   - If the disk is an elastic ephemeral disk that was detached from an ECS instance, the disk can be attached only to the instance.
-   * - When you attach the disk as the system disk to an ECS instance, take note of the following items:
-   *   - The ECS instance must be the original instance from which the system disk was detached.
-   *   - The ECS instance must be in the **Stopped** (`Stopped`) state.
-   *   - You must configure logon credentials for the ECS instance.
-   *   - The disk cannot be an elastic ephemeral disk.
-   *   - For more information about how to attach a system disk, see [Detach or attach a system disk](https://help.aliyun.com/document_detail/146752.html).
-   * - If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ECS instance, the instance is locked for security reasons. No operations are allowed on the instance.
+   * When you call this operation, take note of the following items:
+   * - The instance and the disk must be in the same zone.
+   * - The disk must be in the **Available** (`Available`) state. 
+   * - When you attach a data disk:
+   *     - The destination ECS instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state. 
+   *     - If the disk is separately purchased, the billing method must be pay-as-you-go.
+   *     - A system disk that was uninstalled from an ECS instance can be attached as a data disk without billable methods restrictions. 
+   *     - An elastic ephemeral disk that has been detached can only be re-attached to its original instance.
+   * - When you attach a system disk:
+   *     - The destination ECS instance must be the original instance from which the system disk was detached.
+   *     - The destination ECS instance must be in the **Stopped** (`Stopped`) state. 
+   *     - You must specify the logon credential for the instance.
+   *     - Elastic ephemeral disks cannot be attached as system disks.
+   *     - For more information about attaching system disks, see [Detach or attach a system disk](https://help.aliyun.com/document_detail/146752.html).
+   * - When you query ECS instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
+   * <props="china">
+   * - A disk with the multi-attach attribute enabled can only be attached to instances that support the NVMe protocol. 
+   *    For more information, see [Standard SSDs that support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
    * 
    * @param request - AttachDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1323,24 +1326,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a pay-as-you-go data disk or a system disk to an Elastic Compute Service (ECS) instance.
+   * Attaches a data disk or system disk to an ECS instance.
    * 
    * @remarks
-   * Take note of the following items:
-   * - The ECS instance and the disk must reside in the same zone.
-   * - The disk must be in the **Unattached** (`Available`) state.
-   * - When you attach the disk as a data disk to an ECS instance, take note of the following items:
-   *   - The ECS instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
-   *   - If the disk was separately purchased, the billing method of the disk must be pay-as-you-go.
-   *   - If the disk is a system disk that was detached from an ECS instance, no limits apply to the billing method of the disk.
-   *   - If the disk is an elastic ephemeral disk that was detached from an ECS instance, the disk can be attached only to the instance.
-   * - When you attach the disk as the system disk to an ECS instance, take note of the following items:
-   *   - The ECS instance must be the original instance from which the system disk was detached.
-   *   - The ECS instance must be in the **Stopped** (`Stopped`) state.
-   *   - You must configure logon credentials for the ECS instance.
-   *   - The disk cannot be an elastic ephemeral disk.
-   *   - For more information about how to attach a system disk, see [Detach or attach a system disk](https://help.aliyun.com/document_detail/146752.html).
-   * - If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ECS instance, the instance is locked for security reasons. No operations are allowed on the instance.
+   * When you call this operation, take note of the following items:
+   * - The instance and the disk must be in the same zone.
+   * - The disk must be in the **Available** (`Available`) state. 
+   * - When you attach a data disk:
+   *     - The destination ECS instance must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state. 
+   *     - If the disk is separately purchased, the billing method must be pay-as-you-go.
+   *     - A system disk that was uninstalled from an ECS instance can be attached as a data disk without billable methods restrictions. 
+   *     - An elastic ephemeral disk that has been detached can only be re-attached to its original instance.
+   * - When you attach a system disk:
+   *     - The destination ECS instance must be the original instance from which the system disk was detached.
+   *     - The destination ECS instance must be in the **Stopped** (`Stopped`) state. 
+   *     - You must specify the logon credential for the instance.
+   *     - Elastic ephemeral disks cannot be attached as system disks.
+   *     - For more information about attaching system disks, see [Detach or attach a system disk](https://help.aliyun.com/document_detail/146752.html).
+   * - When you query ECS instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
+   * <props="china">
+   * - A disk with the multi-attach attribute enabled can only be attached to instances that support the NVMe protocol. 
+   *    For more information, see [Standard SSDs that support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
    * 
    * @param request - AttachDiskRequest
    * @returns AttachDiskResponse
@@ -2095,7 +2101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an auto snapshot policy for one or more disks.
+   * Cancels the automatic snapshot policy for one or more cloud disks.
    * 
    * @param request - CancelAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2146,7 +2152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an auto snapshot policy for one or more disks.
+   * Cancels the automatic snapshot policy for one or more cloud disks.
    * 
    * @param request - CancelAutoSnapshotPolicyRequest
    * @returns CancelAutoSnapshotPolicyResponse
@@ -2229,10 +2235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an image build task.
+   * Cancels an image building task.
    * 
    * @remarks
-   * Before you call this operation, make sure that the image build task you want to cancel is in the PREPARING, REPAIRING, or BUILDING state.
+   * Before you call this operation, make sure that the image building task you want to cancel is in the PREPARING, REPAIRING, or BUILDING state.
    * 
    * @param request - CancelImagePipelineExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2291,10 +2297,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an image build task.
+   * Cancels an image building task.
    * 
    * @remarks
-   * Before you call this operation, make sure that the image build task you want to cancel is in the PREPARING, REPAIRING, or BUILDING state.
+   * Before you call this operation, make sure that the image building task you want to cancel is in the PREPARING, REPAIRING, or BUILDING state.
    * 
    * @param request - CancelImagePipelineExecutionRequest
    * @returns CancelImagePipelineExecutionResponse
@@ -2504,28 +2510,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disk cloning allows you to quickly create a new disk with the same data as the source disk in the same zone. The new disk supports custom capacity, type, and encryption attributes. After the new disk is attached to an instance, you can quickly replicate business data or horizontally scale your services.
+   * Disk cloning allows you to quickly replicate a disk with the same data as the source disk in the same zone. The cloned disk supports custom capacity, type, and encryption attributes. After you attach the cloned disk to an instance, you can quickly replicate business data or horizontally scale services.
    * 
    * @remarks
-   * > The disk cloning feature itself is free of charge, but the new disk generated by cloning is billed based on block storage billing rules. Billable items vary by disk type and include disk capacity fees, provisioned performance fees, and performance burst fees. Except for performance burst fees, which are billed after a burst occurs, all other fees start to accrue after the disk is created, regardless of whether the disk is attached to an instance.
-   * ### How to use
-   * - This is an asynchronous operation. After a successful call, use the taskGroupId and call the DescribeTasks operation to obtain the execution result.
+   * > The disk cloning feature itself is free of charge. However, the new disk generated by cloning is billed based on block storage billing rules. Billable items vary by disk type and include disk capacity fees, provisioned performance fees, and performance burst fees. Except for performance burst fees, which are billed after a burst occurs, other fees start to accrue after the disk is created, regardless of whether the disk is attached to an instance.
+   * ### Usage notes
+   * - This is an asynchronous operation. After a successful call, use the taskGroupId and call the DescribeTasks operation to query the execution result.
    * ### Features
-   * - Cloning supports only ESSD series disks (cloud_essd, cloud_auto, cloud_essd_entry, cloud_regional_disk_auto) as the source, and the `new disk` can only be an ESSD series disk type.
-   *   - Non-regional disks can only be cloned to non-regional disk types. Regional disks can only be cloned to regional disk types.
+   * - Cloning supports only ESSD series disks (cloud_essd, cloud_auto, cloud_essd_entry, cloud_regional_disk_auto) as the source, and the cloned `new disk` supports only ESSD series disk types.
+   *   - Non-regional disks can be cloned only to non-regional types. Regional disks can be cloned only to regional disk types.
    *   - Local disks and elastic ephemeral disks cannot be cloned or used as clone sources.
-   * - You can specify the `new disk` type and performance level (PL) during cloning.
-   * - You can specify the `new disk` capacity during cloning, but the new disk capacity must be greater than or equal to the `source disk` capacity.
-   * - You can configure provisioned performance and performance burst for the `new disk`, provided that the destination disk type supports provisioned performance and performance burst.
-   * - You can specify encryption for the `new disk` and change the encryption key. If the `source disk` is encrypted, you cannot clone it into an unencrypted disk, but you can change the encryption key.
-   * - You can use a subscription disk as the `source disk`. Even if the subscription disk has expired, it can still be used as the `source disk`.
-   * - The `new disk` created by cloning does not support reinitialization.
-   * - Cloning does not support storage sets or dedicated block storage clusters, but disks in them can be used as the `source disk`. The cloned disk will not be in the storage set or dedicated block storage cluster.
+   * - You can specify the `new disk` type and performance level during cloning.
+   * - You can specify the `new disk` capacity during cloning. The new disk capacity must be greater than or equal to the `source disk` capacity.
+   * - You can configure provisioned performance and performance burst for the `new disk` during cloning, provided that the destination disk type supports provisioned performance and performance burst.
+   * - You can specify encryption or change the encryption key for the `new disk` during cloning. If the `source disk` is encrypted, you cannot clone it into an unencrypted disk, but you can change the encryption key.
+   * - You can use a subscription disk as the `source disk` for cloning, even if the subscription disk has expired.
+   * - The cloned `new disk` does not support reinitialization.
+   * - Cloning does not support storage sets or dedicated block storage clusters. However, disks in these resources can be used as the `source disk`. The cloned disk will not be in the storage set or dedicated block storage cluster.
    * - `Source disk` status restrictions:
    *   - The `source disk` status is "In Use" and the corresponding instance status is "Running" or "Stopped".
    *   - The `source disk` status is "Available" and the disk has been previously attached.
-   *   - A disk undergoing a specification change cannot be used as the `source disk`.
-   *   - A disk undergoing expansion cannot be used as the `source disk`.
+   *   - Disks undergoing specification changes cannot be used as the `source disk`.
+   *   - Disks undergoing expansion cannot be used as the `source disk`.
    * - Disk cloning is not supported for instance hibernation scenarios. If a disk is on a hibernated instance, it cannot be used as the `source disk`.
    * 
    * @param request - CloneDisksRequest
@@ -2625,28 +2631,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disk cloning allows you to quickly create a new disk with the same data as the source disk in the same zone. The new disk supports custom capacity, type, and encryption attributes. After the new disk is attached to an instance, you can quickly replicate business data or horizontally scale your services.
+   * Disk cloning allows you to quickly replicate a disk with the same data as the source disk in the same zone. The cloned disk supports custom capacity, type, and encryption attributes. After you attach the cloned disk to an instance, you can quickly replicate business data or horizontally scale services.
    * 
    * @remarks
-   * > The disk cloning feature itself is free of charge, but the new disk generated by cloning is billed based on block storage billing rules. Billable items vary by disk type and include disk capacity fees, provisioned performance fees, and performance burst fees. Except for performance burst fees, which are billed after a burst occurs, all other fees start to accrue after the disk is created, regardless of whether the disk is attached to an instance.
-   * ### How to use
-   * - This is an asynchronous operation. After a successful call, use the taskGroupId and call the DescribeTasks operation to obtain the execution result.
+   * > The disk cloning feature itself is free of charge. However, the new disk generated by cloning is billed based on block storage billing rules. Billable items vary by disk type and include disk capacity fees, provisioned performance fees, and performance burst fees. Except for performance burst fees, which are billed after a burst occurs, other fees start to accrue after the disk is created, regardless of whether the disk is attached to an instance.
+   * ### Usage notes
+   * - This is an asynchronous operation. After a successful call, use the taskGroupId and call the DescribeTasks operation to query the execution result.
    * ### Features
-   * - Cloning supports only ESSD series disks (cloud_essd, cloud_auto, cloud_essd_entry, cloud_regional_disk_auto) as the source, and the `new disk` can only be an ESSD series disk type.
-   *   - Non-regional disks can only be cloned to non-regional disk types. Regional disks can only be cloned to regional disk types.
+   * - Cloning supports only ESSD series disks (cloud_essd, cloud_auto, cloud_essd_entry, cloud_regional_disk_auto) as the source, and the cloned `new disk` supports only ESSD series disk types.
+   *   - Non-regional disks can be cloned only to non-regional types. Regional disks can be cloned only to regional disk types.
    *   - Local disks and elastic ephemeral disks cannot be cloned or used as clone sources.
-   * - You can specify the `new disk` type and performance level (PL) during cloning.
-   * - You can specify the `new disk` capacity during cloning, but the new disk capacity must be greater than or equal to the `source disk` capacity.
-   * - You can configure provisioned performance and performance burst for the `new disk`, provided that the destination disk type supports provisioned performance and performance burst.
-   * - You can specify encryption for the `new disk` and change the encryption key. If the `source disk` is encrypted, you cannot clone it into an unencrypted disk, but you can change the encryption key.
-   * - You can use a subscription disk as the `source disk`. Even if the subscription disk has expired, it can still be used as the `source disk`.
-   * - The `new disk` created by cloning does not support reinitialization.
-   * - Cloning does not support storage sets or dedicated block storage clusters, but disks in them can be used as the `source disk`. The cloned disk will not be in the storage set or dedicated block storage cluster.
+   * - You can specify the `new disk` type and performance level during cloning.
+   * - You can specify the `new disk` capacity during cloning. The new disk capacity must be greater than or equal to the `source disk` capacity.
+   * - You can configure provisioned performance and performance burst for the `new disk` during cloning, provided that the destination disk type supports provisioned performance and performance burst.
+   * - You can specify encryption or change the encryption key for the `new disk` during cloning. If the `source disk` is encrypted, you cannot clone it into an unencrypted disk, but you can change the encryption key.
+   * - You can use a subscription disk as the `source disk` for cloning, even if the subscription disk has expired.
+   * - The cloned `new disk` does not support reinitialization.
+   * - Cloning does not support storage sets or dedicated block storage clusters. However, disks in these resources can be used as the `source disk`. The cloned disk will not be in the storage set or dedicated block storage cluster.
    * - `Source disk` status restrictions:
    *   - The `source disk` status is "In Use" and the corresponding instance status is "Running" or "Stopped".
    *   - The `source disk` status is "Available" and the disk has been previously attached.
-   *   - A disk undergoing a specification change cannot be used as the `source disk`.
-   *   - A disk undergoing expansion cannot be used as the `source disk`.
+   *   - Disks undergoing specification changes cannot be used as the `source disk`.
+   *   - Disks undergoing expansion cannot be used as the `source disk`.
    * - Disk cloning is not supported for instance hibernation scenarios. If a disk is on a hibernated instance, it cannot be used as the `source disk`.
    * 
    * @param request - CloneDisksRequest
@@ -2923,11 +2929,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies a standard or encrypted snapshot from one region to another.
+   * Copies a standard snapshot or encrypted snapshot from one region to another.
    * 
    * @remarks
-   * When you call this operation, take note of the following item:
-   * - New snapshots (snapshot copies) cannot be used to roll back the disks for which source snapshots (copied snapshots) were created.
+   * When you call this operation, take note of the following items:
+   * - The new snapshot cannot be used to roll back the cloud disk that is associated with the source snapshot.
    * - Local snapshots cannot be copied.
    * 
    * @param request - CopySnapshotRequest
@@ -3019,11 +3025,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies a standard or encrypted snapshot from one region to another.
+   * Copies a standard snapshot or encrypted snapshot from one region to another.
    * 
    * @remarks
-   * When you call this operation, take note of the following item:
-   * - New snapshots (snapshot copies) cannot be used to roll back the disks for which source snapshots (copied snapshots) were created.
+   * When you call this operation, take note of the following items:
+   * - The new snapshot cannot be used to roll back the cloud disk that is associated with the source snapshot.
    * - Local snapshots cannot be copied.
    * 
    * @param request - CopySnapshotRequest
@@ -3365,15 +3371,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an automatic snapshot policy in a specific region. You can specify the schedule on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the automatic snapshot policy. The automatic snapshot policy can be applied to create snapshots for system disks or data disks to back up disk data.
+   * Creates an automatic snapshot policy in a specified region. You can specify the repeat cycle, retention period, and cross-region backup settings for automatic snapshots to back up data on system disks or data disks.
    * 
    * @remarks
-   * Before you call this operation, learn about how to [create an automatic snapshot policy](https://help.aliyun.com/document_detail/127767.html).
+   * Before you call this operation, read [Create an automatic snapshot policy](https://help.aliyun.com/document_detail/127767.html).
    * Take note of the following items:
-   * - You can create up to 100 automatic snapshot policies per region for a single Alibaba Cloud account. If the maximum number of automatic snapshots for a disk is reached and a new snapshot creation task is created, the system deletes the oldest automatic snapshot of the disk.
-   * - If the instance to which a disk is attached is being stopped or restarted, the system cannot create snapshots for the disk based on the associated automatic snapshot policy.
-   * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region. For more information about the limits on cross-region snapshot replication, see [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
-   * After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
+   * - You can create a maximum of 100 automatic snapshot policies in a region for an Alibaba Cloud account. When the number of automatic snapshots for a disk reaches the quota limit, the system deletes the earliest automatic snapshot created by the automatic snapshot policy when a new snapshot task is initiated.
+   * - The system does not execute automatic snapshot policies when an ECS instance has a pending stop or restart task.
+   * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are replicated to the destination region by using the service key of the destination region by default. For more information about cross-region snapshot replication, see [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
+   * After you create an automatic snapshot policy, call [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) to apply the policy to disks. To modify an automatic snapshot policy, call [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html).
    * 
    * @param request - CreateAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3460,15 +3466,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an automatic snapshot policy in a specific region. You can specify the schedule on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the automatic snapshot policy. The automatic snapshot policy can be applied to create snapshots for system disks or data disks to back up disk data.
+   * Creates an automatic snapshot policy in a specified region. You can specify the repeat cycle, retention period, and cross-region backup settings for automatic snapshots to back up data on system disks or data disks.
    * 
    * @remarks
-   * Before you call this operation, learn about how to [create an automatic snapshot policy](https://help.aliyun.com/document_detail/127767.html).
+   * Before you call this operation, read [Create an automatic snapshot policy](https://help.aliyun.com/document_detail/127767.html).
    * Take note of the following items:
-   * - You can create up to 100 automatic snapshot policies per region for a single Alibaba Cloud account. If the maximum number of automatic snapshots for a disk is reached and a new snapshot creation task is created, the system deletes the oldest automatic snapshot of the disk.
-   * - If the instance to which a disk is attached is being stopped or restarted, the system cannot create snapshots for the disk based on the associated automatic snapshot policy.
-   * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region. For more information about the limits on cross-region snapshot replication, see [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
-   * After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
+   * - You can create a maximum of 100 automatic snapshot policies in a region for an Alibaba Cloud account. When the number of automatic snapshots for a disk reaches the quota limit, the system deletes the earliest automatic snapshot created by the automatic snapshot policy when a new snapshot task is initiated.
+   * - The system does not execute automatic snapshot policies when an ECS instance has a pending stop or restart task.
+   * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are replicated to the destination region by using the service key of the destination region by default. For more information about cross-region snapshot replication, see [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
+   * After you create an automatic snapshot policy, call [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) to apply the policy to disks. To modify an automatic snapshot policy, call [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html).
    * 
    * @param request - CreateAutoSnapshotPolicyRequest
    * @returns CreateAutoSnapshotPolicyResponse
@@ -4058,14 +4064,14 @@ export default class Client extends OpenApi {
    * Creates a pay-as-you-go or subscription data disk.
    * 
    * @remarks
-   * - When you create a disk, you can enable the multi-attach feature (`MultiAttach`). Learn about this attribute and its limits before you use it. For more information, see [ESSD cloud disks that support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
+   * - You can enable the multi-attach attribute (`MultiAttach`) when you create a disk. Learn about this attribute and its limits before you use it. For more information, see [ESSD cloud disks that support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
    * - The following disk types can be created: basic disks, ultra disks, standard SSDs, enterprise SSDs, ESSD Entry disks, regional Enterprise SSDs (ESSDs), ESSD AutoPL disks, elastic ephemeral disks - Standard Edition, and elastic ephemeral disks - Premium Edition.
-   * - To create a disk, complete [real-name registration](https://account.console.aliyun.com/#/auth/home).
-   * - Creating a disk incurs fees. Learn about the billing method of Elastic Compute Service (ECS) in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
+   * - Complete real-name registration before you create a disk. Go to [Real-name registration](https://account.console.aliyun.com/#/auth/home) in your account information.
+   * - Creating a disk incurs charges. Learn about the billing methods of Elastic Compute Service (ECS) in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
    * - Default settings when you create a disk:
-   *   - Automatic snapshots of the disk are deleted when the disk is deleted. That is, `DeleteAutoSnapshot` is set to `true`. You can call [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) to query the parameter settings, and call [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to modify the property.
-   *   - When you create an enterprise SSD, if you do not configure a performance level, the default level is PL1. You can call [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) to change the performance level.
-   *   - The billing method is pay-as-you-go, which means the `Portable` property defaults to `true`.
+   *   - Automatic snapshots of the disk are deleted when the disk is deleted. That is, `DeleteAutoSnapshot` is set to `true`. You can invoke [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) to query the parameter settings, and invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to modify the property.
+   *   - When you create an enterprise SSD, if you do not configure the performance level, the default level is PL1. You can invoke [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) to change the performance level.
+   *   - The billing method is pay-as-you-go. That is, the `Portable` property defaults to `true`.
    * 
    * @param request - CreateDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4203,14 +4209,14 @@ export default class Client extends OpenApi {
    * Creates a pay-as-you-go or subscription data disk.
    * 
    * @remarks
-   * - When you create a disk, you can enable the multi-attach feature (`MultiAttach`). Learn about this attribute and its limits before you use it. For more information, see [ESSD cloud disks that support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
+   * - You can enable the multi-attach attribute (`MultiAttach`) when you create a disk. Learn about this attribute and its limits before you use it. For more information, see [ESSD cloud disks that support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
    * - The following disk types can be created: basic disks, ultra disks, standard SSDs, enterprise SSDs, ESSD Entry disks, regional Enterprise SSDs (ESSDs), ESSD AutoPL disks, elastic ephemeral disks - Standard Edition, and elastic ephemeral disks - Premium Edition.
-   * - To create a disk, complete [real-name registration](https://account.console.aliyun.com/#/auth/home).
-   * - Creating a disk incurs fees. Learn about the billing method of Elastic Compute Service (ECS) in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
+   * - Complete real-name registration before you create a disk. Go to [Real-name registration](https://account.console.aliyun.com/#/auth/home) in your account information.
+   * - Creating a disk incurs charges. Learn about the billing methods of Elastic Compute Service (ECS) in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
    * - Default settings when you create a disk:
-   *   - Automatic snapshots of the disk are deleted when the disk is deleted. That is, `DeleteAutoSnapshot` is set to `true`. You can call [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) to query the parameter settings, and call [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to modify the property.
-   *   - When you create an enterprise SSD, if you do not configure a performance level, the default level is PL1. You can call [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) to change the performance level.
-   *   - The billing method is pay-as-you-go, which means the `Portable` property defaults to `true`.
+   *   - Automatic snapshots of the disk are deleted when the disk is deleted. That is, `DeleteAutoSnapshot` is set to `true`. You can invoke [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) to query the parameter settings, and invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to modify the property.
+   *   - When you create an enterprise SSD, if you do not configure the performance level, the default level is PL1. You can invoke [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) to change the performance level.
+   *   - The billing method is pay-as-you-go. That is, the `Portable` property defaults to `true`.
    * 
    * @param request - CreateDiskRequest
    * @returns CreateDiskResponse
@@ -7307,30 +7313,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a snapshot of a cloud disk.
+   * Creates a snapshot for a disk.
    * 
    * @remarks
-   * The instant access feature for snapshots replaces the legacy local snapshot feature. The parameters are described as follows:
-   * - If you used local snapshots before December 14, 2020, you can continue to use the `Category` parameter.
-   * - If you did not use local snapshots before December 14, 2020, no additional configuration is required. New snapshots that are created for ESSD cloud disks (ESSDs, ESSD AutoPL disks, ESSD Entry disks, and zone-redundant ESSDs) have the instant access feature enabled by default. This applies to both manual and automatic snapshots. The instant access-related parameters `InstantAccess`, `InstantAccessRetentionDays`, and `DisableInstantAccess` no longer take effect. The `DescribeSnapshots` and `DescribeSnapshotGroups` API operations return an `Available` parameter that indicates the snapshot\\"s status.
-   * Prerequisites:
-   * - The snapshot feature is enabled. For more information, see [Enable the snapshot feature](https://help.aliyun.com/document_detail/108381.html).
-   * - The cloud disk must be in the **in-use** or **available** state. Note the following points:
-   *   - If the cloud disk is in the **in-use** state, the instance to which the disk is attached must be in the **running** or **stopped** state.
-   *   - If the cloud disk is in the **available** state, you can create snapshots for it only if it has been previously attached to an ECS instance.
-   *   - When you use cloud disks to create dynamic scalable volumes or RAID arrays, we recommend that you use snapshot consistency groups and enable application-consistent snapshots to back up data. A snapshot consistency group ensures the crash consistency and write-order consistency of data written across multiple cloud disks. For more information, see [Create a snapshot consistency group](https://help.aliyun.com/document_detail/199625.html) and [Create an application-consistent snapshot](https://help.aliyun.com/document_detail/208589.html).
-   * Keep the following in mind when creating a snapshot:
-   * - Create snapshots during off-peak hours. During snapshot creation, the I/O performance of the cloud disk decreases by less than 10% and read and write operations may temporarily slow down.
-   * - You cannot use a snapshot that is being created to create a custom image ([CreateImage](https://help.aliyun.com/document_detail/25535.html)).
-   * - The snapshot does not back up incremental data generated on the cloud disk during the creation process.
-   * - If the cloud disk is attached to an ECS instance, do not change the state of the instance, such as stopping or restarting the instance, during snapshot creation. Otherwise, the snapshot creation will fail.
-   * - You cannot resize a cloud disk during snapshot creation. You can resize the cloud disk only after the snapshot is complete.
-   * - You can create a snapshot for a cloud disk that is in the **expired** (`Expired`) state. If the cloud disk is released due to expiration when the snapshot is being created, the snapshot in the **creating** (`Creating`) state is also deleted.
-   * - After a snapshot is created, you are charged for the snapshot based on its size. The fees are settled on a per-region basis. For more information, see [Snapshots](https://help.aliyun.com/document_detail/56159.html).
-   * - You cannot create a snapshot for a cloud disk in the following cases:
-   *   - The number of manual snapshots of the cloud disk has reached the upper limit. For more information, see [Limits](~~25412#SnapshotQuota1~~).
-   *   - The limit on the number of snapshots that can be created concurrently has been reached. For more information, see [Limits](~~25412#SnapshotQuota1~~).
-   *   - When you query the information of an ECS instance, if the returned data contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations on the instance are prohibited.
+   * The local snapshot feature has been replaced by the snapshot instant access feature. Metric description is as follows:
+   * - If you used local snapshots before December 14, 2020, you can use the `Category` parameter as Normal.
+   * - If you did not use local snapshots before December 14, 2020, no additional configuration is required. New snapshots created for ESSD series disks (ESSD, ESSD AutoPL, ESSD Entry, and regional ESSD) are instantly active by default, and both manual snapshots and automatic snapshots are supported. The three snapshot instant access-related parameters `InstantAccess`, `InstantAccessRetentionDays`, and `DisableInstantAccess` in API operations no longer take effect. The `DescribeSnapshots` and `DescribeSnapshotGroups` API operations will include a new response parameter named Available to describe the active status of snapshots.
+   * Before you begin:
+   * - Activate the snapshot feature. For more information, see [Activate snapshots](https://help.aliyun.com/document_detail/108381.html).
+   * - The disk must be in the **In Use** or **Unattached** state. Note the following items for different states:
+   *   - If the disk is in the **In Use** state, the instance must be in the **Running** or **Stopped** state.
+   *   - If the disk is in the **Unattached** state, the disk must have been previously attached to an ECS instance. Snapshots cannot be created for disks that have never been attached to an ECS instance.
+   *   - When a disk is used to create a dynamic extended volume or a RAID array, use a snapshot-consistent group and enable application-consistent snapshots to back up data. Snapshot-consistent groups ensure write order consistency and crash consistency for data written to multiple disks in a business system. For more information, see [Create a snapshot-consistent group](https://help.aliyun.com/document_detail/199625.html) and [Create an application-consistent snapshot](https://help.aliyun.com/document_detail/208589.html).
+   * When you create a snapshot, take note of the following items:
+   * - Avoid creating snapshots during peak business hours. When a snapshot is being created, the I/O performance of the disk decreases by up to 10%, and read and write performance may be briefly affected.
+   * - If the snapshot has not been created, it cannot be used to create a custom image ([CreateImage](https://help.aliyun.com/document_detail/25535.html)).
+   * - Incremental data generated by disk operations during snapshot creation is not backup to the snapshot.
+   * - If the disk is attached to an ECS instance, do not change the instance status during snapshot creation, such as stopping or restarting the ECS instance. Otherwise, the snapshot creation is failed.
+   * - A disk for which a snapshot is being created does not support scale-out. Wait until the snapshot is created before you execute the scale-out operation.
+   * - You can create snapshots for disks in the **Expired** (`Expired`) state. If the disk reaches its expiration release time during snapshot creation, the disk is released and the snapshot in the **Creating** (`Creating`) state is also deleted.
+   * - After a snapshot is created, the system calculates fees based on the snapshot size in each region separately. For more information, see [Snapshot billing](https://help.aliyun.com/document_detail/56159.html).
+   * - In the following scenarios, you cannot create a snapshot for the specified disk:
+   *   - The number of manual snapshots retained for the disk has reached the upper limit. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
+   *   - Snapshot creation has concurrency limits. Exceeding the limits causes creation failures. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
+   *   - When you query ECS instance information, if the returned data contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
    * 
    * @param request - CreateSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7417,30 +7423,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a snapshot of a cloud disk.
+   * Creates a snapshot for a disk.
    * 
    * @remarks
-   * The instant access feature for snapshots replaces the legacy local snapshot feature. The parameters are described as follows:
-   * - If you used local snapshots before December 14, 2020, you can continue to use the `Category` parameter.
-   * - If you did not use local snapshots before December 14, 2020, no additional configuration is required. New snapshots that are created for ESSD cloud disks (ESSDs, ESSD AutoPL disks, ESSD Entry disks, and zone-redundant ESSDs) have the instant access feature enabled by default. This applies to both manual and automatic snapshots. The instant access-related parameters `InstantAccess`, `InstantAccessRetentionDays`, and `DisableInstantAccess` no longer take effect. The `DescribeSnapshots` and `DescribeSnapshotGroups` API operations return an `Available` parameter that indicates the snapshot\\"s status.
-   * Prerequisites:
-   * - The snapshot feature is enabled. For more information, see [Enable the snapshot feature](https://help.aliyun.com/document_detail/108381.html).
-   * - The cloud disk must be in the **in-use** or **available** state. Note the following points:
-   *   - If the cloud disk is in the **in-use** state, the instance to which the disk is attached must be in the **running** or **stopped** state.
-   *   - If the cloud disk is in the **available** state, you can create snapshots for it only if it has been previously attached to an ECS instance.
-   *   - When you use cloud disks to create dynamic scalable volumes or RAID arrays, we recommend that you use snapshot consistency groups and enable application-consistent snapshots to back up data. A snapshot consistency group ensures the crash consistency and write-order consistency of data written across multiple cloud disks. For more information, see [Create a snapshot consistency group](https://help.aliyun.com/document_detail/199625.html) and [Create an application-consistent snapshot](https://help.aliyun.com/document_detail/208589.html).
-   * Keep the following in mind when creating a snapshot:
-   * - Create snapshots during off-peak hours. During snapshot creation, the I/O performance of the cloud disk decreases by less than 10% and read and write operations may temporarily slow down.
-   * - You cannot use a snapshot that is being created to create a custom image ([CreateImage](https://help.aliyun.com/document_detail/25535.html)).
-   * - The snapshot does not back up incremental data generated on the cloud disk during the creation process.
-   * - If the cloud disk is attached to an ECS instance, do not change the state of the instance, such as stopping or restarting the instance, during snapshot creation. Otherwise, the snapshot creation will fail.
-   * - You cannot resize a cloud disk during snapshot creation. You can resize the cloud disk only after the snapshot is complete.
-   * - You can create a snapshot for a cloud disk that is in the **expired** (`Expired`) state. If the cloud disk is released due to expiration when the snapshot is being created, the snapshot in the **creating** (`Creating`) state is also deleted.
-   * - After a snapshot is created, you are charged for the snapshot based on its size. The fees are settled on a per-region basis. For more information, see [Snapshots](https://help.aliyun.com/document_detail/56159.html).
-   * - You cannot create a snapshot for a cloud disk in the following cases:
-   *   - The number of manual snapshots of the cloud disk has reached the upper limit. For more information, see [Limits](~~25412#SnapshotQuota1~~).
-   *   - The limit on the number of snapshots that can be created concurrently has been reached. For more information, see [Limits](~~25412#SnapshotQuota1~~).
-   *   - When you query the information of an ECS instance, if the returned data contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations on the instance are prohibited.
+   * The local snapshot feature has been replaced by the snapshot instant access feature. Metric description is as follows:
+   * - If you used local snapshots before December 14, 2020, you can use the `Category` parameter as Normal.
+   * - If you did not use local snapshots before December 14, 2020, no additional configuration is required. New snapshots created for ESSD series disks (ESSD, ESSD AutoPL, ESSD Entry, and regional ESSD) are instantly active by default, and both manual snapshots and automatic snapshots are supported. The three snapshot instant access-related parameters `InstantAccess`, `InstantAccessRetentionDays`, and `DisableInstantAccess` in API operations no longer take effect. The `DescribeSnapshots` and `DescribeSnapshotGroups` API operations will include a new response parameter named Available to describe the active status of snapshots.
+   * Before you begin:
+   * - Activate the snapshot feature. For more information, see [Activate snapshots](https://help.aliyun.com/document_detail/108381.html).
+   * - The disk must be in the **In Use** or **Unattached** state. Note the following items for different states:
+   *   - If the disk is in the **In Use** state, the instance must be in the **Running** or **Stopped** state.
+   *   - If the disk is in the **Unattached** state, the disk must have been previously attached to an ECS instance. Snapshots cannot be created for disks that have never been attached to an ECS instance.
+   *   - When a disk is used to create a dynamic extended volume or a RAID array, use a snapshot-consistent group and enable application-consistent snapshots to back up data. Snapshot-consistent groups ensure write order consistency and crash consistency for data written to multiple disks in a business system. For more information, see [Create a snapshot-consistent group](https://help.aliyun.com/document_detail/199625.html) and [Create an application-consistent snapshot](https://help.aliyun.com/document_detail/208589.html).
+   * When you create a snapshot, take note of the following items:
+   * - Avoid creating snapshots during peak business hours. When a snapshot is being created, the I/O performance of the disk decreases by up to 10%, and read and write performance may be briefly affected.
+   * - If the snapshot has not been created, it cannot be used to create a custom image ([CreateImage](https://help.aliyun.com/document_detail/25535.html)).
+   * - Incremental data generated by disk operations during snapshot creation is not backup to the snapshot.
+   * - If the disk is attached to an ECS instance, do not change the instance status during snapshot creation, such as stopping or restarting the ECS instance. Otherwise, the snapshot creation is failed.
+   * - A disk for which a snapshot is being created does not support scale-out. Wait until the snapshot is created before you execute the scale-out operation.
+   * - You can create snapshots for disks in the **Expired** (`Expired`) state. If the disk reaches its expiration release time during snapshot creation, the disk is released and the snapshot in the **Creating** (`Creating`) state is also deleted.
+   * - After a snapshot is created, the system calculates fees based on the snapshot size in each region separately. For more information, see [Snapshot billing](https://help.aliyun.com/document_detail/56159.html).
+   * - In the following scenarios, you cannot create a snapshot for the specified disk:
+   *   - The number of manual snapshots retained for the disk has reached the upper limit. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
+   *   - Snapshot creation has concurrency limits. Exceeding the limits causes creation failures. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
+   *   - When you query ECS instance information, if the returned data contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
    * 
    * @param request - CreateSnapshotRequest
    * @returns CreateSnapshotResponse
@@ -7451,20 +7457,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a snapshot-consistent group for the disks of an Elastic Compute Service (ECS) instance. A snapshot-consistent group contains snapshots of one or more disks.
+   * Creates a snapshot-consistent group for disks attached to a specified ECS instance. A snapshot-consistent group contains snapshots of one or more disks.
    * 
    * @remarks
-   * 您可以设置`InstanceId`为实例内的指定云盘创建快照一致性组；也可以只使用`DiskId.N`为同可用区内多台 ECS 实例挂载的多块云盘创建快照一致性组。
-   * > `DiskId.N`不可与`ExcludeDiskId.N`同时设置。此外，如果设置了`InstanceId`，则`DiskId.N`只能设置指定实例内已挂载的云盘，不再支持设置多个跨实例的云盘 ID。
-   * 创建快照一致性组时，请注意：
-   * - 待创建快照的云盘必须处于**使用中**（`In_use`）或**待挂载**（`Available`）的状态。
-   *   - 如果云盘处于**使用中**（`In_use`）的状态，则 ECS 实例状态为**运行中**（`Running`）或者**已停止**（`Stopped`）。
-   *   - 如果云盘处于**待挂载**（`Available`）的状态，则需要保证云盘有过挂载到 ECS 实例的历史操作。从未挂载过 ECS 实例的云盘不支持创建快照。
-   * - 目前快照一致性组只支持 ESSD 系列云盘（ESSD、ESSD AutoPL、ESSD Entry）。
-   * - 单个快照一致性组最多包括 16 块云盘（包括系统盘和数据盘），且总容量不超过 32 TiB。
-   * - 您自行创建的快照会一直保留，请定期删除不再需要的快照，避免快照容量持续扣费。
-   * - 开启多重挂载特性的云盘不支持创建快照一致性组。如果实例挂载了开启多重挂载特性的云盘，您需要设置`ExcludeDiskId.N`参数排除该云盘。
-   * 关于快照一致性组的功能、计费等信息，请参见[快照一致性组](https://help.aliyun.com/document_detail/199625.html)。
+   * You can set `InstanceId` to create a snapshot-consistent group for specified disks within an instance. Alternatively, you can use only `DiskId.N` to create a snapshot-consistent group for multiple disks attached to multiple ECS instances in the same zone.
+   * > `DiskId.N` and `ExcludeDiskId.N` cannot be specified at the same time. If `InstanceId` is specified, `DiskId.N` can only be set to disks attached to the specified instance and no longer supports specifying disk IDs across multiple instances.
+   * When you create a snapshot-consistent group, take note of the following items:
+   * - The disks for which you want to create snapshots must be in the **In Use** (`In_use`) or **Available** (`Available`) state.
+   *     - If a disk is in the **In Use** (`In_use`) state, the ECS instance status must be **Running** (`Running`) or **Stopped** (`Stopped`).
+   *     - If a disk is in the **Available** (`Available`) state, the disk must have been previously attached to an ECS instance. Disks that have never been attached to an ECS instance do not support snapshot creation.
+   * - Snapshot-consistent groups support only ESSD series disks (ESSD, ESSD AutoPL, and ESSD Entry).
+   * - A single snapshot-consistent group can contain up to 16 disks (including system disks and data disks), and the total capacity cannot exceed 32 TiB.
+   * - Snapshots that you manually create are retained until you delete them. Delete unnecessary snapshots on a regular basis to avoid incurring ongoing snapshot size fees.
+   * - Disks with the multi-attach attribute enabled do not support snapshot-consistent groups. If an instance has a multi-attach disk attached, set the `ExcludeDiskId.N` parameter to exclude the disk.
+   * For more information about the features and billing of snapshot-consistent groups, see [Snapshot-consistent groups](https://help.aliyun.com/document_detail/199625.html).
    * 
    * @param request - CreateSnapshotGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7555,20 +7561,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a snapshot-consistent group for the disks of an Elastic Compute Service (ECS) instance. A snapshot-consistent group contains snapshots of one or more disks.
+   * Creates a snapshot-consistent group for disks attached to a specified ECS instance. A snapshot-consistent group contains snapshots of one or more disks.
    * 
    * @remarks
-   * 您可以设置`InstanceId`为实例内的指定云盘创建快照一致性组；也可以只使用`DiskId.N`为同可用区内多台 ECS 实例挂载的多块云盘创建快照一致性组。
-   * > `DiskId.N`不可与`ExcludeDiskId.N`同时设置。此外，如果设置了`InstanceId`，则`DiskId.N`只能设置指定实例内已挂载的云盘，不再支持设置多个跨实例的云盘 ID。
-   * 创建快照一致性组时，请注意：
-   * - 待创建快照的云盘必须处于**使用中**（`In_use`）或**待挂载**（`Available`）的状态。
-   *   - 如果云盘处于**使用中**（`In_use`）的状态，则 ECS 实例状态为**运行中**（`Running`）或者**已停止**（`Stopped`）。
-   *   - 如果云盘处于**待挂载**（`Available`）的状态，则需要保证云盘有过挂载到 ECS 实例的历史操作。从未挂载过 ECS 实例的云盘不支持创建快照。
-   * - 目前快照一致性组只支持 ESSD 系列云盘（ESSD、ESSD AutoPL、ESSD Entry）。
-   * - 单个快照一致性组最多包括 16 块云盘（包括系统盘和数据盘），且总容量不超过 32 TiB。
-   * - 您自行创建的快照会一直保留，请定期删除不再需要的快照，避免快照容量持续扣费。
-   * - 开启多重挂载特性的云盘不支持创建快照一致性组。如果实例挂载了开启多重挂载特性的云盘，您需要设置`ExcludeDiskId.N`参数排除该云盘。
-   * 关于快照一致性组的功能、计费等信息，请参见[快照一致性组](https://help.aliyun.com/document_detail/199625.html)。
+   * You can set `InstanceId` to create a snapshot-consistent group for specified disks within an instance. Alternatively, you can use only `DiskId.N` to create a snapshot-consistent group for multiple disks attached to multiple ECS instances in the same zone.
+   * > `DiskId.N` and `ExcludeDiskId.N` cannot be specified at the same time. If `InstanceId` is specified, `DiskId.N` can only be set to disks attached to the specified instance and no longer supports specifying disk IDs across multiple instances.
+   * When you create a snapshot-consistent group, take note of the following items:
+   * - The disks for which you want to create snapshots must be in the **In Use** (`In_use`) or **Available** (`Available`) state.
+   *     - If a disk is in the **In Use** (`In_use`) state, the ECS instance status must be **Running** (`Running`) or **Stopped** (`Stopped`).
+   *     - If a disk is in the **Available** (`Available`) state, the disk must have been previously attached to an ECS instance. Disks that have never been attached to an ECS instance do not support snapshot creation.
+   * - Snapshot-consistent groups support only ESSD series disks (ESSD, ESSD AutoPL, and ESSD Entry).
+   * - A single snapshot-consistent group can contain up to 16 disks (including system disks and data disks), and the total capacity cannot exceed 32 TiB.
+   * - Snapshots that you manually create are retained until you delete them. Delete unnecessary snapshots on a regular basis to avoid incurring ongoing snapshot size fees.
+   * - Disks with the multi-attach attribute enabled do not support snapshot-consistent groups. If an instance has a multi-attach disk attached, set the `ExcludeDiskId.N` parameter to exclude the disk.
+   * For more information about the features and billing of snapshot-consistent groups, see [Snapshot-consistent groups](https://help.aliyun.com/document_detail/199625.html).
    * 
    * @param request - CreateSnapshotGroupRequest
    * @returns CreateSnapshotGroupResponse
@@ -8661,13 +8667,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a pay-as-you-go data disk. Supported disk types include basic disks, ultra disks, standard SSDs, and enterprise SSDs (ESSDs).
+   * Releases a pay-as-you-go data disk. Disk types include basic disks, ultra disks, standard SSDs, and enterprise SSDs.
    * 
    * @remarks
    * When you invoke this operation, take note of the following items:
    * - Manual snapshots of the disk are retained.
-   * - You can invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to specify whether to retain or release automatic snapshots along with the disk. Delete unnecessary snapshots promptly to maintain sufficient snapshot quota for epoch-based automatic snapshot policy execution.
-   * - The disk must be in the **Unattached** (Available) state when you release it.
+   * - You can invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to configure the Settings for whether to retain or release automatic snapshots together with the disk. Delete unnecessary snapshots promptly to maintain sufficient snapshot quota for epoch-based automatic snapshot policy.
+   * - The disk must be in the Pending Attach (Available) state when you release it.
    * - If the disk with the specified ID does not exist, the request is ignored.
    * 
    * @param request - DeleteDiskRequest
@@ -8715,13 +8721,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a pay-as-you-go data disk. Supported disk types include basic disks, ultra disks, standard SSDs, and enterprise SSDs (ESSDs).
+   * Releases a pay-as-you-go data disk. Disk types include basic disks, ultra disks, standard SSDs, and enterprise SSDs.
    * 
    * @remarks
    * When you invoke this operation, take note of the following items:
    * - Manual snapshots of the disk are retained.
-   * - You can invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to specify whether to retain or release automatic snapshots along with the disk. Delete unnecessary snapshots promptly to maintain sufficient snapshot quota for epoch-based automatic snapshot policy execution.
-   * - The disk must be in the **Unattached** (Available) state when you release it.
+   * - You can invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to configure the Settings for whether to retain or release automatic snapshots together with the disk. Delete unnecessary snapshots promptly to maintain sufficient snapshot quota for epoch-based automatic snapshot policy.
+   * - The disk must be in the Pending Attach (Available) state when you release it.
    * - If the disk with the specified ID does not exist, the request is ignored.
    * 
    * @param request - DeleteDiskRequest
@@ -10312,13 +10318,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified snapshot. If you call this operation to delete a snapshot that is being created, the associated snapshot creation task is also canceled.
+   * Deletes a specified snapshot. You can also call this operation to cancel a snapshot that is being created.
    * 
    * @remarks
-   * Take note of the following items:
-   * - If the snapshot does not exist, the request is ignored.
-   * - If the snapshot has been used to create custom images, the snapshot cannot be deleted. You need to call the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation to delete the custom images before you can delete the snapshot.
-   * - If the snapshot has been used to create disks and `Force` is not specified or is set to `false`, the snapshot cannot be deleted directly. If you want to delete the snapshot, set `Force` to true to forcibly delete the snapshot. The disks created from the snapshot cannot be re-initialized after the snapshot is forcibly deleted.
+   * When you invoke this operation, note the following items:
+   * - If the specified snapshot ID does not exist, the request is ignored. 
+   * - If the snapshot has been used to create a custom image, the snapshot cannot be deleted. You must first delete the custom image ([DeleteImage](https://help.aliyun.com/document_detail/25537.html)) before you can delete the snapshot.
+   * - If the snapshot has been used to create a cloud disk and the `Force` parameter is not set or is set to `Force=false`, the snapshot cannot be directly deleted. To delete the snapshot, set `Force=true` to force delete it. After the snapshot is force deleted, the corresponding cloud disk cannot be reinitialized.
    * 
    * @param request - DeleteSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10369,13 +10375,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified snapshot. If you call this operation to delete a snapshot that is being created, the associated snapshot creation task is also canceled.
+   * Deletes a specified snapshot. You can also call this operation to cancel a snapshot that is being created.
    * 
    * @remarks
-   * Take note of the following items:
-   * - If the snapshot does not exist, the request is ignored.
-   * - If the snapshot has been used to create custom images, the snapshot cannot be deleted. You need to call the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation to delete the custom images before you can delete the snapshot.
-   * - If the snapshot has been used to create disks and `Force` is not specified or is set to `false`, the snapshot cannot be deleted directly. If you want to delete the snapshot, set `Force` to true to forcibly delete the snapshot. The disks created from the snapshot cannot be re-initialized after the snapshot is forcibly deleted.
+   * When you invoke this operation, note the following items:
+   * - If the specified snapshot ID does not exist, the request is ignored. 
+   * - If the snapshot has been used to create a custom image, the snapshot cannot be deleted. You must first delete the custom image ([DeleteImage](https://help.aliyun.com/document_detail/25537.html)) before you can delete the snapshot.
+   * - If the snapshot has been used to create a cloud disk and the `Force` parameter is not set or is set to `Force=false`, the snapshot cannot be directly deleted. To delete the snapshot, set `Force=true` to force delete it. After the snapshot is force deleted, the corresponding cloud disk cannot be reinitialized.
    * 
    * @param request - DeleteSnapshotRequest
    * @returns DeleteSnapshotResponse
@@ -10386,10 +10392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes snapshot-consistent groups.
+   * Deletes a snapshot-consistent group.
    * 
    * @remarks
-   * If a disk snapshot that is contained in a snapshot-consistent group has been used to create a custom image, the disk snapshot is retained after the snapshot-consistent group is deleted. Before you can delete the disk snapshot, you must call the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation to delete the custom image. Then, you can call the [DeleteSnapshot](https://help.aliyun.com/document_detail/25525.html) operation to delete the disk snapshot.
+   * If disk snapshots in a snapshot-consistent group have been used to create custom images, the related disk snapshots are not deleted when the snapshot-consistent group is deleted. To delete the related disk snapshots, first delete the custom images ([DeleteImage](https://help.aliyun.com/document_detail/25537.html)), and then delete the related disk snapshots ([DeleteSnapshot](https://help.aliyun.com/document_detail/25525.html)).
    * 
    * @param request - DeleteSnapshotGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10440,10 +10446,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes snapshot-consistent groups.
+   * Deletes a snapshot-consistent group.
    * 
    * @remarks
-   * If a disk snapshot that is contained in a snapshot-consistent group has been used to create a custom image, the disk snapshot is retained after the snapshot-consistent group is deleted. Before you can delete the disk snapshot, you must call the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation to delete the custom image. Then, you can call the [DeleteSnapshot](https://help.aliyun.com/document_detail/25525.html) operation to delete the disk snapshot.
+   * If disk snapshots in a snapshot-consistent group have been used to create custom images, the related disk snapshots are not deleted when the snapshot-consistent group is deleted. To delete the related disk snapshots, first delete the custom images ([DeleteImage](https://help.aliyun.com/document_detail/25537.html)), and then delete the related disk snapshots ([DeleteSnapshot](https://help.aliyun.com/document_detail/25525.html)).
    * 
    * @param request - DeleteSnapshotGroupRequest
    * @returns DeleteSnapshotGroupResponse
@@ -13243,7 +13249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Key Management Service (KMS) key used by the Account-level Elastic Block Storage (EBS) Default Encryption feature in a region.
+   * Queries the key used for account-level default encryption of block storage.
    * 
    * @param request - DescribeDiskDefaultKMSKeyIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13282,7 +13288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Key Management Service (KMS) key used by the Account-level Elastic Block Storage (EBS) Default Encryption feature in a region.
+   * Queries the key used for account-level default encryption of block storage.
    * 
    * @param request - DescribeDiskDefaultKMSKeyIdRequest
    * @returns DescribeDiskDefaultKMSKeyIdResponse
@@ -13293,7 +13299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether account-level default encryption of Elastic Block Storage (EBS) resources is enabled in a region.
+   * Queries the service status of account-level default encryption for block storage in a specified region.
    * 
    * @param request - DescribeDiskEncryptionByDefaultStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13332,7 +13338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether account-level default encryption of Elastic Block Storage (EBS) resources is enabled in a region.
+   * Queries the service status of account-level default encryption for block storage in a specified region.
    * 
    * @param request - DescribeDiskEncryptionByDefaultStatusRequest
    * @returns DescribeDiskEncryptionByDefaultStatusResponse
@@ -15003,7 +15009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of available image resources based on specified parameters such as ImageId, image usage scenarios, and filter conditions.
+   * Queries the list of image resources that you can use by specifying parameters such as ImageId, image usage scenarios, and Filter conditions.
    * 
    * @remarks
    * - Image resources that you can query include your custom images, public images provided by Alibaba Cloud, Alibaba Cloud Marketplace images, and shared images that other Alibaba Cloud users have shared with you.
@@ -15122,6 +15128,10 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
+    if (!$dara.isNull(request.usable)) {
+      query["Usable"] = request.usable;
+    }
+
     if (!$dara.isNull(request.usage)) {
       query["Usage"] = request.usage;
     }
@@ -15144,7 +15154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of available image resources based on specified parameters such as ImageId, image usage scenarios, and filter conditions.
+   * Queries the list of image resources that you can use by specifying parameters such as ImageId, image usage scenarios, and Filter conditions.
    * 
    * @remarks
    * - Image resources that you can query include your custom images, public images provided by Alibaba Cloud, Alibaba Cloud Marketplace images, and shared images that other Alibaba Cloud users have shared with you.
@@ -20214,13 +20224,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list and status of files sent by Cloud Assistant by calling DescribeSendFileResults.
+   * Queries the list and status of files sent by Cloud Assistant.
    * 
    * @remarks
    * ## Operation description:
-   * - After you send a file, the file is not necessarily sent. You must check the actual sending result based on the return value of this operation.
-   * - You can query execution information from the last 30 days. A maximum of 10,000 entries of execution information can be retained.
-   * - When paged query the first page, set only MaxResults to limit the number of entries to return. The NextToken value returned in the result serves as the token for querying subsequent pages. When paged query subsequent pages, set NextToken to the value obtained from the previous response and set MaxResults to limit the number of entries to return.
+   * - After you send a file, the file is not necessarily sent successfully. You must check the actual delivery result based on the return value of this operation. The actual output prevails.
+   * - You can query execution information from the last day. A maximum of 1,000 entries of execution information can be retained.
+   * - When you execute a paging query for the first page, set only `MaxResults` to limit the number of entries returned. The `NextToken` value in the response serves as the token for querying subsequent pages. When querying subsequent pages, set the `NextToken` parameter to the value obtained from the previous response and set `MaxResults` to limit the number of entries returned.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20311,13 +20321,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list and status of files sent by Cloud Assistant by calling DescribeSendFileResults.
+   * Queries the list and status of files sent by Cloud Assistant.
    * 
    * @remarks
    * ## Operation description:
-   * - After you send a file, the file is not necessarily sent. You must check the actual sending result based on the return value of this operation.
-   * - You can query execution information from the last 30 days. A maximum of 10,000 entries of execution information can be retained.
-   * - When paged query the first page, set only MaxResults to limit the number of entries to return. The NextToken value returned in the result serves as the token for querying subsequent pages. When paged query subsequent pages, set NextToken to the value obtained from the previous response and set MaxResults to limit the number of entries to return.
+   * - After you send a file, the file is not necessarily sent successfully. You must check the actual delivery result based on the return value of this operation. The actual output prevails.
+   * - You can query execution information from the last day. A maximum of 1,000 entries of execution information can be retained.
+   * - When you execute a paging query for the first page, set only `MaxResults` to limit the number of entries returned. The `NextToken` value in the response serves as the token for querying subsequent pages. When querying subsequent pages, set the `NextToken` parameter to the value obtained from the previous response and set `MaxResults` to limit the number of entries returned.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @returns DescribeSendFileResultsResponse
@@ -20328,10 +20338,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of one or more snapshot-consistent groups, such as the status of the groups, IDs of the instances associated with the groups, and snapshot creation progress.
+   * Queries information about one or more snapshot-consistent groups, such as the status, associated instance ID, and snapshot creation progress.
    * 
    * @remarks
-   * You can specify multiple request parameters to be queried, such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+   * `InstanceId`, `SnapshotGroupId.N`, and `Status.N` are not required request parameters, but they can be used to build filter logic. The parameters have a logical AND relationship.
    * 
    * @param request - DescribeSnapshotGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20414,10 +20424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of one or more snapshot-consistent groups, such as the status of the groups, IDs of the instances associated with the groups, and snapshot creation progress.
+   * Queries information about one or more snapshot-consistent groups, such as the status, associated instance ID, and snapshot creation progress.
    * 
    * @remarks
-   * You can specify multiple request parameters to be queried, such as `InstanceId`, `SnapshotGroupId.N`, and `Status.N`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+   * `InstanceId`, `SnapshotGroupId.N`, and `Status.N` are not required request parameters, but they can be used to build filter logic. The parameters have a logical AND relationship.
    * 
    * @param request - DescribeSnapshotGroupsRequest
    * @returns DescribeSnapshotGroupsResponse
@@ -22883,14 +22893,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables account-level default encryption of Elastic Block Storage (EBS) resources in a region. After you disable account-level default encryption of EBS resources in a region, the encryption status of existing disks in the region does not change. When you create a disk, you can still choose to encrypt the disk.
+   * Disables the account-level default encryption for block storage in a specified region.
    * 
    * @remarks
-   * - **Instructions**
-   *   - You must grant the RAM user the `AliyunECSFullAccess` permissions. For information about how to grant permissions to a RAM user, see [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/116146.html).
-   * - **Considerations**
-   *   - After Account-level EBS Default Encryption is disabled, the encryption status of existing cloud disks is not affected.
-   *   - After Account-level EBS Default Encryption is disabled, you can still choose to encrypt new cloud disks when you purchase the disks.
+   * - **Before you begin**
+   *   - Resource Access Management (RAM) users require the `AliyunECSFullAccess` permission. For more information about how to perform authorization, see [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/116146.html).
+   * - **Usage notes**
+   *   - After you shutdown account-level default encryption for block storage, the encryption status of existing cloud disks is not affected.
+   *   - After you shutdown account-level default encryption for block storage, you can still manually select encryption when you create cloud disks.
    * 
    * @param request - DisableDiskEncryptionByDefaultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22929,14 +22939,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables account-level default encryption of Elastic Block Storage (EBS) resources in a region. After you disable account-level default encryption of EBS resources in a region, the encryption status of existing disks in the region does not change. When you create a disk, you can still choose to encrypt the disk.
+   * Disables the account-level default encryption for block storage in a specified region.
    * 
    * @remarks
-   * - **Instructions**
-   *   - You must grant the RAM user the `AliyunECSFullAccess` permissions. For information about how to grant permissions to a RAM user, see [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/116146.html).
-   * - **Considerations**
-   *   - After Account-level EBS Default Encryption is disabled, the encryption status of existing cloud disks is not affected.
-   *   - After Account-level EBS Default Encryption is disabled, you can still choose to encrypt new cloud disks when you purchase the disks.
+   * - **Before you begin**
+   *   - Resource Access Management (RAM) users require the `AliyunECSFullAccess` permission. For more information about how to perform authorization, see [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/116146.html).
+   * - **Usage notes**
+   *   - After you shutdown account-level default encryption for block storage, the encryption status of existing cloud disks is not affected.
+   *   - After you shutdown account-level default encryption for block storage, you can still manually select encryption when you create cloud disks.
    * 
    * @param request - DisableDiskEncryptionByDefaultRequest
    * @returns DisableDiskEncryptionByDefaultResponse

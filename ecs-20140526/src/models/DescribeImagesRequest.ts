@@ -7,10 +7,10 @@ export class DescribeImagesRequestFilter extends $dara.Model {
    * @remarks
    * The filter key for querying resources. Valid values:
    * 
-   * - When this parameter is set to `CreationStartTime`, you can query resources created after the specified time point (`Filter.N.Value`).
-   * - When this parameter is set to `CreationEndTime`, you can query resources created before the specified time point (`Filter.N.Value`).
+   * - When this parameter is set to `CreationStartTime`, you can query resources created after the time specified by `Filter.N.Value`.
+   * - When this parameter is set to `CreationEndTime`, you can query resources created before the time specified by `Filter.N.Value`.
    * - When this parameter is set to `NetworkType`, you can query resources of the specified network type.
-   * - When this parameter is set to any of `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, you can query the CPU or memory hot-plugging support of the specified image.
+   * - When this parameter is set to `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, you can query the CPU or memory hot-plugging support of the specified image.
    * 
    * Default value: null.
    * 
@@ -21,10 +21,10 @@ export class DescribeImagesRequestFilter extends $dara.Model {
   /**
    * @remarks
    * The filter value for querying resources.
-   * - When `Filter.N.Key` is set to `CreationStartTime` or `CreationEndTime`, the format is `yyyy-MM-ddTHH:mmZ`, using the UTC+0 time zone.
-   * - When `Filter.N.Key` is set to `NetworkType`, valid network type values include `vpc` and `classic`.
+   * - When `Filter.N.Key` is `CreationStartTime` or `CreationEndTime`, the format is `yyyy-MM-ddTHH:mmZ` in UTC+0.
+   * - When `Filter.N.Key` is `NetworkType`, valid values for the network type include `vpc` and `classic`.
    * 
-   * - When `Filter.N.Key` is set to `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, the value can be `supported` or `unsupported`.
+   * - When `Filter.N.Key` is `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, valid values are `supported` and `unsupported`.
    * 
    * Default value: null.
    * 
@@ -60,7 +60,7 @@ export class DescribeImagesRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the image. Valid values of N: 1 to 20.
    * 
-   * When you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. When you use multiple tags to filter resources, the resource count of resources that are attached to all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * When you use a single tag to filter resources, the resource count with this tag cannot exceed 1000. When you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
    * 
    * @example
    * TestKey
@@ -125,7 +125,7 @@ export class DescribeImagesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run.
    *          
-   * - true: Sends a dry run request without querying resource status. The system checks whether your AccessKey pair is valid, whether Resource Access Management (RAM) user authorization is granted, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.  
+   * - true: Sends a check request without querying resource status. The check items include whether the AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.  
    * - false: Sends a normal request. After the check succeeds, a 2XX HTTP status code is returned and the resource status is queried. 
    * 
    * Default value: false.
@@ -155,9 +155,9 @@ export class DescribeImagesRequest extends $dara.Model {
    * The image ID.
    * 
    * <details>
-   * <summary>Naming conventions for image IDs</summary>
+   * <summary>Naming rules for image IDs</summary>
    * 
-   * - Public images: Named by operating system version, architecture, language, and release date. For example, the image ID for Windows Server 2008 R2 Enterprise Edition, 64-bit English system is win2008r2_64_ent_sp1_en-us_40G_alibase_20190318.vhd.
+   * - Public images: Named by operating system version, architecture, language, and release date. For example, the image ID of Windows Server 2008 R2 Enterprise Edition, 64-bit English system is win2008r2_64_ent_sp1_en-us_40G_alibase_20190318.vhd.
    * 
    * - Custom images, shared images, Alibaba Cloud Marketplace images, and community images: Start with m.
    * 
@@ -179,16 +179,16 @@ export class DescribeImagesRequest extends $dara.Model {
    * @remarks
    * The source of the image. Valid values:
    * 
-   * - system: Public images provided by Alibaba Cloud that are not published through Alibaba Cloud Marketplace. This is different from the concept of "public images" in the console.
+   * - system: Public images provided by Alibaba Cloud that are not published through Alibaba Cloud Marketplace. This is different from the concept of "Public Image" in the console.
    * - self: Custom images that you created.
-   * - others: Includes shared images (images directly shared by other Alibaba Cloud users) and community images (custom images that are fully shared by any Alibaba Cloud user). Note the following:
+   * - others: Includes shared images (images directly shared by other Alibaba Cloud users) and community images (custom images that are fully shared publicly by any Alibaba Cloud user). Note:
    *     - To query community images, IsPublic must be set to true.
    *     - To query shared images, IsPublic must be set to false or left empty.
-   * - marketplace: Images published by Alibaba Cloud or third-party independent software vendors (ISVs) in Alibaba Cloud Marketplace. These images must be purchased together with ECS. Check the billing details of Alibaba Cloud Marketplace images.
+   * - marketplace: Images published by Alibaba Cloud or third-party independent software vendors (ISVs) in Alibaba Cloud Marketplace. These images must be purchased together with ECS. Note the billing details of Alibaba Cloud Marketplace images.
    * 
    * Default value: empty.
    * 
-   * > An empty value indicates that images with the system, self, and others values are returned.
+   * > An empty value indicates that images with system, self, and others values are returned.
    * 
    * @example
    * self
@@ -204,7 +204,7 @@ export class DescribeImagesRequest extends $dara.Model {
   imageOwnerId?: number;
   /**
    * @remarks
-   * The instance type for which you want to query available images.
+   * The instance type for which available images are queried.
    * 
    * @example
    * ecs.g5.large
@@ -288,7 +288,7 @@ export class DescribeImagesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the custom image belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
+   * The ID of the resource group to which the custom image belongs. When you use this parameter to filter resources, the resource count cannot exceed 1000.
    * 
    * > Filtering by the default resource group is not supported.
    * 
@@ -316,7 +316,7 @@ export class DescribeImagesRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The status of the image. If you do not specify this parameter, only images in the Available state are returned by default. Valid values:
+   * The status of the image. If you do not specify this parameter, only images in the Available state are returned. Valid values:
    * 
    * - Creating: The image is being created.
    * - Waiting: The image is waiting in a multi-task queue.
@@ -325,7 +325,7 @@ export class DescribeImagesRequest extends $dara.Model {
    * - CreateFailed: The image failed to be created.
    * - Deprecated: The image is deprecated.
    * 
-   * Default value: Available. This parameter supports multiple values at the same time, separated by commas (,).
+   * Default value: Available. This parameter supports multiple values separated by commas (,).
    * 
    * @example
    * Available
@@ -336,12 +336,13 @@ export class DescribeImagesRequest extends $dara.Model {
    * The list of tags.
    */
   tag?: DescribeImagesRequestTag[];
+  usable?: boolean;
   /**
    * @remarks
    * Specifies whether the image is running on ECS instances. Valid values:
    * 
-   * - instance: The image is in use. ECS instances are created from this image.
-   * - none: The image is idle. No ECS instances are created from this image.
+   * - instance: The image is in use and associated with ECS instances.
+   * - none: The image is idle and not associated with any ECS instances.
    * 
    * @example
    * instance
@@ -375,6 +376,7 @@ export class DescribeImagesRequest extends $dara.Model {
       snapshotId: 'SnapshotId',
       status: 'Status',
       tag: 'Tag',
+      usable: 'Usable',
       usage: 'Usage',
     };
   }
@@ -407,6 +409,7 @@ export class DescribeImagesRequest extends $dara.Model {
       snapshotId: 'string',
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeImagesRequestTag },
+      usable: 'boolean',
       usage: 'string',
     };
   }

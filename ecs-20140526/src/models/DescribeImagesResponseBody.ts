@@ -288,6 +288,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
   status?: string;
   supplierName?: string;
   tags?: DescribeImagesResponseBodyImagesImageTags;
+  usable?: boolean;
   usage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -323,6 +324,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
       status: 'Status',
       supplierName: 'SupplierName',
       tags: 'Tags',
+      usable: 'Usable',
       usage: 'Usage',
     };
   }
@@ -361,6 +363,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
       status: 'string',
       supplierName: 'string',
       tags: DescribeImagesResponseBodyImagesImageTags,
+      usable: 'boolean',
       usage: 'string',
     };
   }

@@ -119,7 +119,7 @@ export class DeleteSnapshotGroupResponseBody extends $dara.Model {
   operationProgressSet?: DeleteSnapshotGroupResponseBodyOperationProgressSet;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6EDE885A-FDC1-4FAE-BC44-6EACAEA6CC6E

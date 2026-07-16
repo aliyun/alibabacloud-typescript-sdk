@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAutoSnapshotPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The automatic snapshot policy ID.
+   * The ID of the automatic snapshot policy.
    * 
    * @example
    * sp-bp12m37ccmxvbmi5****
