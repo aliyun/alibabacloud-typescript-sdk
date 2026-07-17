@@ -26,6 +26,11 @@ export { DescribeAtiAgentRegisterInfoResponseBodyEndpointsEndpointTransports } f
 export { DescribeAtiAgentRegisterInfoResponseBodyEndpointsEndpoint } from './DescribeAtiAgentRegisterInfoResponseBody';
 export { DescribeAtiAgentRegisterInfoResponseBodyEndpoints } from './DescribeAtiAgentRegisterInfoResponseBody';
 export { DescribeAtiAgentRegisterInfoResponseBodyRejectReason } from './DescribeAtiAgentRegisterInfoResponseBody';
+export { DescribeAtiAgentRegisterInfoMarketResponseBodyAccessDeniedDetail } from './DescribeAtiAgentRegisterInfoMarketResponseBody';
+export { DescribeAtiAgentRegisterInfoMarketResponseBodyCategories } from './DescribeAtiAgentRegisterInfoMarketResponseBody';
+export { DescribeAtiAgentRegisterInfoMarketResponseBodyEndpointsEndpointTransports } from './DescribeAtiAgentRegisterInfoMarketResponseBody';
+export { DescribeAtiAgentRegisterInfoMarketResponseBodyEndpointsEndpoint } from './DescribeAtiAgentRegisterInfoMarketResponseBody';
+export { DescribeAtiAgentRegisterInfoMarketResponseBodyEndpoints } from './DescribeAtiAgentRegisterInfoMarketResponseBody';
 export { DescribeAtiAlertSettingsResponseBodyAccessDeniedDetail } from './DescribeAtiAlertSettingsResponseBody';
 export { DescribeAtiAlertSettingsResponseBodyAlertConfigAlertConfig } from './DescribeAtiAlertSettingsResponseBody';
 export { DescribeAtiAlertSettingsResponseBodyAlertConfig } from './DescribeAtiAlertSettingsResponseBody';
@@ -521,6 +526,9 @@ export { DeleteSubDomainRecordsResponse } from './DeleteSubDomainRecordsResponse
 export { DescribeAtiAgentRegisterInfoRequest } from './DescribeAtiAgentRegisterInfoRequest';
 export { DescribeAtiAgentRegisterInfoResponseBody } from './DescribeAtiAgentRegisterInfoResponseBody';
 export { DescribeAtiAgentRegisterInfoResponse } from './DescribeAtiAgentRegisterInfoResponse';
+export { DescribeAtiAgentRegisterInfoMarketRequest } from './DescribeAtiAgentRegisterInfoMarketRequest';
+export { DescribeAtiAgentRegisterInfoMarketResponseBody } from './DescribeAtiAgentRegisterInfoMarketResponseBody';
+export { DescribeAtiAgentRegisterInfoMarketResponse } from './DescribeAtiAgentRegisterInfoMarketResponse';
 export { DescribeAtiAlertSettingsRequest } from './DescribeAtiAlertSettingsRequest';
 export { DescribeAtiAlertSettingsResponseBody } from './DescribeAtiAlertSettingsResponseBody';
 export { DescribeAtiAlertSettingsResponse } from './DescribeAtiAlertSettingsResponse';

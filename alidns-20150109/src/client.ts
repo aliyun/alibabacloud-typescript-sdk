@@ -3047,6 +3047,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为sdk查询agent信息功能
+   * 
+   * @param request - DescribeAtiAgentRegisterInfoMarketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAtiAgentRegisterInfoMarketResponse
+   */
+  async describeAtiAgentRegisterInfoMarketWithOptions(request: $_model.DescribeAtiAgentRegisterInfoMarketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAtiAgentRegisterInfoMarketResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentHost)) {
+      query["AgentHost"] = request.agentHost;
+    }
+
+    if (!$dara.isNull(request.agentVersion)) {
+      query["AgentVersion"] = request.agentVersion;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAtiAgentRegisterInfoMarket",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAtiAgentRegisterInfoMarketResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAtiAgentRegisterInfoMarketResponse({}));
+  }
+
+  /**
+   * 为sdk查询agent信息功能
+   * 
+   * @param request - DescribeAtiAgentRegisterInfoMarketRequest
+   * @returns DescribeAtiAgentRegisterInfoMarketResponse
+   */
+  async describeAtiAgentRegisterInfoMarket(request: $_model.DescribeAtiAgentRegisterInfoMarketRequest): Promise<$_model.DescribeAtiAgentRegisterInfoMarketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAtiAgentRegisterInfoMarketWithOptions(request, runtime);
+  }
+
+  /**
    * Queries alert settings.
    * 
    * @param request - DescribeAtiAlertSettingsRequest
