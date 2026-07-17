@@ -397,7 +397,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   subStatus?: string;
   /**
    * @remarks
-   * The node type, which corresponds to a JobSpec in the JobSpecs parameter of the CreateJob API.
+   * The node type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
    * 
    * @example
    * Worker
@@ -459,7 +459,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
 export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Model {
   /**
    * @remarks
-   * The job blacklist.
+   * The job-level blacklist.
    */
   addJobLevelBlacklist?: boolean;
   /**
@@ -479,7 +479,7 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The fault message.
    */
   errorMsg?: string;
   /**
@@ -542,7 +542,7 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
 export class GetJobResponseBodyRestartRecord extends $dara.Model {
   /**
    * @remarks
-   * The error message list.
+   * The list of fault information.
    */
   detailErrorInfoList?: GetJobResponseBodyRestartRecordDetailErrorInfoList[];
   /**
@@ -572,7 +572,7 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
   restartDurationInSec?: number;
   /**
    * @remarks
-   * The reason for the restart failure.
+   * The restart failure reason.
    */
   restartFailReason?: string;
   restartLevelType?: string;
@@ -757,7 +757,7 @@ export class GetJobResponseBody extends $dara.Model {
   elasticSpec?: JobElasticSpec;
   /**
    * @remarks
-   * Indicates whether the debugger job is enabled.
+   * Indicates whether the debugger is enabled for the job.
    * 
    * @example
    * false
@@ -770,7 +770,7 @@ export class GetJobResponseBody extends $dara.Model {
   envs?: { [key: string]: string };
   /**
    * @remarks
-   * The time when the job was created (UTC).
+   * The job creation time (UTC).
    * 
    * @example
    * 2021-01-12T14:35:01Z
@@ -786,7 +786,7 @@ export class GetJobResponseBody extends $dara.Model {
   gmtFailedTime?: string;
   /**
    * @remarks
-   * The time when the job finished (UTC).
+   * The job finish time (UTC).
    * 
    * @example
    * 2021-01-12T15:36:08Z

@@ -41,7 +41,7 @@ export class JobSpec extends $dara.Model {
   elasticSpotSpecs?: ElasticSpotSpec[];
   /**
    * @remarks
-   * The additional pod configuration.
+   * The extra pod configuration.
    */
   extraPodSpec?: ExtraPodSpec;
   hyperNodeSchedulingConfig?: HyperNodeSchedulingConfig;

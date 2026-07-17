@@ -388,6 +388,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建信号
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于向指定作业的一个或多个Pod发送特定信号。
+   * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
+   * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+   * 
+   * @param request - CreateSignalRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSignalResponse
+   */
+  async createSignalWithOptions(JobId: string, request: $_model.CreateSignalRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSignalResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.signal)) {
+      body["Signal"] = request.signal;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      body["Target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSignal",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/signals`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSignalResponse>(await this.callApi(params, req, runtime), new $_model.CreateSignalResponse({}));
+  }
+
+  /**
+   * 创建信号
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于向指定作业的一个或多个Pod发送特定信号。
+   * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
+   * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+   * 
+   * @param request - CreateSignalRequest
+   * @returns CreateSignalResponse
+   */
+  async createSignal(JobId: string, request: $_model.CreateSignalRequest): Promise<$_model.CreateSignalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSignalWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
    * Creates a TensorBoard by using a job or specifying a data source configuration.
    * 
    * @param request - CreateTensorboardRequest
@@ -1302,6 +1363,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取信号
+   * 
+   * @remarks
+   * ## 请求说明
+   * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+   * 
+   * @param request - GetSignalRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSignalResponse
+   */
+  async getSignalWithOptions(JobId: string, SignalId: string, request: $_model.GetSignalRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSignalResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSignal",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/signals/${$dara.URL.percentEncode(SignalId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSignalResponse>(await this.callApi(params, req, runtime), new $_model.GetSignalResponse({}));
+  }
+
+  /**
+   * 获取信号
+   * 
+   * @remarks
+   * ## 请求说明
+   * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+   * 
+   * @param request - GetSignalRequest
+   * @returns GetSignalResponse
+   */
+  async getSignal(JobId: string, SignalId: string, request: $_model.GetSignalRequest): Promise<$_model.GetSignalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSignalWithOptions(JobId, SignalId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the details of a Tensorboard instance.
    * 
    * @param request - GetTensorboardRequest
@@ -1994,6 +2108,79 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRayHistoryServersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取信号列表
+   * 
+   * @remarks
+   * ## 请求说明
+   * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+   * 
+   * @param request - ListSignalsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSignalsResponse
+   */
+  async listSignalsWithOptions(JobId: string, request: $_model.ListSignalsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSignalsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSignals",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/signals`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSignalsResponse>(await this.callApi(params, req, runtime), new $_model.ListSignalsResponse({}));
+  }
+
+  /**
+   * 获取信号列表
+   * 
+   * @remarks
+   * ## 请求说明
+   * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+   * 
+   * @param request - ListSignalsRequest
+   * @returns ListSignalsResponse
+   */
+  async listSignals(JobId: string, request: $_model.ListSignalsRequest): Promise<$_model.ListSignalsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSignalsWithOptions(JobId, request, headers, runtime);
   }
 
   /**
