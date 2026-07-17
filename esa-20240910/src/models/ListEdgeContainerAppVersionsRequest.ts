@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeContainerAppVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,10 @@ export class ListEdgeContainerAppVersionsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The sorting field. Valid values:
-   * 
-   * *   Name: the version name.
-   * *   CreateTime: the time when the version was created.
-   * *   UpdateTime: the time when the version was last modified.
+   * The sort field. Valid values:
+   * - **Name**: the version name.
+   * - **CreateTime**: the version creation time.
+   * - **ModifyTime**: the version modification time.
    * 
    * @example
    * Name
@@ -27,10 +26,11 @@ export class ListEdgeContainerAppVersionsRequest extends $dara.Model {
   orderKey?: string;
   /**
    * @remarks
-   * The order in which you want to sort the query results. Valid values:
+   * The sort direction. Valid values:
    * 
-   * *   ASC: in ascending order.
-   * *   DESC: in descending order.
+   * - **Asc**: ascending order.
+   * 
+   * - **Desc**: descending order.
    * 
    * @example
    * Desc
@@ -38,7 +38,7 @@ export class ListEdgeContainerAppVersionsRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The page number. Valid values: 1 to 65535.
+   * The page number. Valid values: any integer from **1** to **65535**.
    * 
    * @example
    * 1
@@ -46,7 +46,7 @@ export class ListEdgeContainerAppVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The page size. Valid values: any integer from **1** to **100**.
    * 
    * @example
    * 10
@@ -54,7 +54,7 @@ export class ListEdgeContainerAppVersionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keyword used for the search.
+   * The query parameter.
    * 
    * @example
    * ver-100568263967926****
@@ -62,7 +62,7 @@ export class ListEdgeContainerAppVersionsRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The parameter used for fuzzy search. Valid values: VersionId and Name.
+   * The type for fuzzy match. Supported values: VersionId and Name.
    * 
    * @example
    * VersionId

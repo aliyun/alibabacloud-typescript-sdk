@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListCacheReserveInstancesRequest extends $dara.Model {
+export class ListBotInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -13,7 +13,7 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number for the paged query. Settings this parameter for paging. Default value: 1. Valid values: 1 to 100000.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **500**. Default value: **500**.
+   * The number of entries per page for the paged query. This parameter is used for paging. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -29,17 +29,19 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort field. Valid values:
-   * - **ExpireTime**: sorts by expiration time.
-   * - **CreateTime**: sorts by creation time.
+   * The field by which to sort the results. By default, the results are sorted by purchase time. Valid values:
+   * 
+   * - **CreateTime**: purchase time.
+   * - **ExpireTime**: expiration time.
    * 
    * @example
-   * ExpireTime
+   * CreateTime
    */
   sortBy?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * The sort order. Default value: desc. Valid values:
+   * 
    * - **asc**: ascending order.
    * - **desc**: descending order.
    * 
@@ -49,18 +51,14 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * The instance status of the cache reserve instance. Valid values:
-   * 
-   * - **online**: Normal service status.
-   * - **offline**: The instance expires but has not exceeded the retention period and is unavailable.
+   * The instance status. Valid values:
+   * - **online**: The instance is running normally.
+   * - **offline**: The instance has expired but has not exceeded the retention period and is unavailable.
    * - **disable**: The instance has been released.
-   * - **overdue**: The instance is stopped due to an overdue payment.
+   * - **overdue**: The instance has an overdue payment.
    * 
    * @example
    * online
-   * 
-   * **if can be null:**
-   * false
    */
   status?: string;
   static names(): { [key: string]: string } {

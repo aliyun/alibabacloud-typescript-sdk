@@ -31,7 +31,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatusRegions extends $dara
 export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model {
   /**
    * @remarks
-   * The base version of the application.
+   * The baseline version of the application.
    * 
    * @example
    * ver-123123123123****
@@ -39,12 +39,11 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   baseLineVersion?: string;
   /**
    * @remarks
-   * The deployment status of the application.
-   * 
-   * *   **undeploy**: The application is not deployed.
-   * *   **deploying**: The application is being deployed.
-   * *   **deployed**: The application is deployed.
-   * *   **undeploying**: The deployment is being canceled.
+   * The deployment status of the application. Valid values:
+   * - **undeploy**: not deployed.
+   * - **deploying**: being deployed.
+   * - **deployed**: deployed.
+   * - **undeploying**: being undeployed.
    * 
    * @example
    * undeploy
@@ -52,7 +51,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   deployStatus?: string;
   /**
    * @remarks
-   * The time when the application was deployed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The deployment time of the application. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2024-07-25T05:58:05Z
@@ -60,7 +59,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   deployTime?: string;
   /**
    * @remarks
-   * The release version of the application.
+   * The deployed version of the application.
    * 
    * @example
    * ver-123123123123****
@@ -68,7 +67,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   deployedVersion?: string;
   /**
    * @remarks
-   * The expected release percentage of the application.
+   * The expected publishing percentage of the application.
    * 
    * @example
    * 50%
@@ -76,7 +75,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   expectPercentage?: number;
   /**
    * @remarks
-   * Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+   * Indicates whether a full release is performed. This field takes effect only when PublishType is set to region.
    * 
    * @example
    * true
@@ -84,10 +83,10 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   fullRelease?: boolean;
   /**
    * @remarks
-   * The environment to which the application was released. Valid values:
+   * The publishing environment. Valid values:
    * 
-   * *   **prod**: the production environment.
-   * *   **staging**: the staging environment.
+   * - **prod**: production environment.
+   * - **staging**: staging environment.
    * 
    * @example
    * prod
@@ -95,7 +94,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   publishEnv?: string;
   /**
    * @remarks
-   * The release percentage of the application.
+   * The publishing percentage of the application.
    * 
    * @example
    * 50%
@@ -103,12 +102,11 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   publishPercentage?: number;
   /**
    * @remarks
-   * The release status of the application. Valid values:
-   * 
-   * *   **publishing**
-   * *   **published**
-   * *   **rollbacking**
-   * *   **rollbacked**
+   * The publishing status of the application. Valid values:
+   * - **publishing**: being published.
+   * - **published**: published.
+   * - **rollbacking**: being rolled back.
+   * - **rollbacked**: rolled back.
    * 
    * @example
    * pubishing
@@ -116,7 +114,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   publishStatus?: string;
   /**
    * @remarks
-   * The time when the application was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The publishing time of the application. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2024-07-25T05:58:05Z
@@ -124,12 +122,13 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   publishTime?: string;
   /**
    * @remarks
-   * Specifies how the version is released. Valid values:
+   * The publishing type. Valid values:
    * 
-   * *   percentage: releases the version by percentage.
-   * *   region: releases the version by region.
+   * - **percentage**: publish by percentage.
    * 
-   * If you do not specify this parameter, the version is released by percentage by default.
+   * - **region**: publish by region.
+   * 
+   * If this parameter is not specified, the default value percentage is used.
    * 
    * @example
    * percentage
@@ -137,7 +136,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   publishType?: string;
   /**
    * @remarks
-   * The release version of the application.
+   * The publishing version of the application.
    * 
    * @example
    * ver-123123123123****
@@ -146,7 +145,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   regions?: GetEdgeContainerAppStatusResponseBodyAppStatusRegions;
   /**
    * @remarks
-   * The time when the last rollback was performed.
+   * The most recent rollback time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2024-07-25T05:58:05Z
@@ -154,7 +153,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   rollbackTime?: string;
   /**
    * @remarks
-   * The time when the application deployment was canceled. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The undeployment time of the application. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2024-07-25T05:58:05Z
@@ -215,7 +214,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
 export class GetEdgeContainerAppStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the application.
+   * The application status information.
    */
   appStatus?: GetEdgeContainerAppStatusResponseBodyAppStatus;
   /**

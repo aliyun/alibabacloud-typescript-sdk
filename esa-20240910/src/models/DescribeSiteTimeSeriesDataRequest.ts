@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteTimeSeriesDataRequestFields extends $dara.Model {
   /**
    * @remarks
-   * Query dimension.
+   * The query dimension.
    */
   dimension?: string[];
   /**
    * @remarks
-   * Query metric value.
+   * The metric name.
    * 
-   * > For specific dimensions, see [Data Analysis Field Description](https://help.aliyun.com/document_detail/2878520.html).
+   * > For specific dimensions, see [Data analytics field description](https://help.aliyun.com/document_detail/2878520.html).
    * 
    * @example
    * Traffic
@@ -47,9 +47,9 @@ export class DescribeSiteTimeSeriesDataRequestFields extends $dara.Model {
 export class DescribeSiteTimeSeriesDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for obtaining data.
+   * The end time for the data query.
    * 
-   * The date format follows ISO8601 notation and uses UTC+0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * > The end time must be later than the start time.
    * 
@@ -59,16 +59,16 @@ export class DescribeSiteTimeSeriesDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Query metrics.
+   * The query metrics.
    * 
    * This parameter is required.
    */
   fields?: DescribeSiteTimeSeriesDataRequestFields[];
   /**
    * @remarks
-   * The time granularity for querying data, in seconds.
+   * The time granularity for the query data, in seconds.
    * 
-   * Depending on the maximum time span of a single query, this parameter supports values of 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For details, see the **Supported Query Time Granularities**.
+   * Based on the maximum time span of a single query, this parameter supports the values 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the **Supported time granularity** section above.
    * 
    * @example
    * 300
@@ -76,9 +76,9 @@ export class DescribeSiteTimeSeriesDataRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * Site ID. Obtain the site ID by calling the [ListSites](~~ListSites~~) interface.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
-   * If this parameter is empty, user-level data will be queried.
+   * If this parameter is left empty, account-level data is queried.
    * 
    * @example
    * 1150376036*****
@@ -86,9 +86,9 @@ export class DescribeSiteTimeSeriesDataRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * The start time for obtaining data.
+   * The start time for the data query.
    * 
-   * The date format follows ISO8601 notation and uses UTC+0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * @example
    * 2023-04-08T16:00:00Z

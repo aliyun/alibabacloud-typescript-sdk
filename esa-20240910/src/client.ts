@@ -2037,7 +2037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+   * Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
    * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
    * 
    * @param request - CreateEdgeContainerAppRequest
@@ -2121,7 +2121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+   * Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
    * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
    * 
    * @param request - CreateEdgeContainerAppRequest
@@ -2187,7 +2187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+   * Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2226,7 +2226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+   * Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
    * @returns CreateEdgeContainerAppRecordResponse
@@ -2237,7 +2237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an edge container application version. You can iteratively publish applications by version.
+   * Creates an edge container application version. You can iteratively release applications by version.
    * Note:
    * 1) Your account must have an ESA plan with the Edge Container feature enabled.
    * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
@@ -2290,7 +2290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an edge container application version. You can iteratively publish applications by version.
+   * Creates an edge container application version. You can iteratively release applications by version.
    * Note:
    * 1) Your account must have an ESA plan with the Edge Container feature enabled.
    * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
@@ -5883,9 +5883,9 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
-   * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
-   * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
-   * 3) Provide a complete three-step call example: create → bindomain → delete.
+   * Note: 1) You must first call CreateEdgeContainerApp to create an edge container application and record the returned AppId.
+   * 2) You must first call CreateEdgeContainerAppRecord to bind a domain name record (RecordName) to the application.
+   * 3) A complete three-step call example of create, bind, and delete is provided.
    * 
    * @param request - DeleteEdgeContainerAppRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5925,9 +5925,9 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
-   * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
-   * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
-   * 3) Provide a complete three-step call example: create → bindomain → delete.
+   * Note: 1) You must first call CreateEdgeContainerApp to create an edge container application and record the returned AppId.
+   * 2) You must first call CreateEdgeContainerAppRecord to bind a domain name record (RecordName) to the application.
+   * 3) A complete three-step call example of create, bind, and delete is provided.
    * 
    * @param request - DeleteEdgeContainerAppRecordRequest
    * @returns DeleteEdgeContainerAppRecordResponse
@@ -9205,17 +9205,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query traffic analysis time series data
+   * Queries network traffic analysis timing data at the account dimension or site dimension.
    * 
    * @remarks
-   * - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
-   * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
-   *   * For a span of 3 hours or less, it returns 1-minute granularity data.
-   *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
-   *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
-   *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
-   *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
-   * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+   * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+   *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+   *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+   *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+   *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+   *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+   * - Due to the large number of access requests during the query time range, data analytics results may involve sampling.
    * 
    * @param tmpReq - DescribeSiteTimeSeriesDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9268,17 +9268,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query traffic analysis time series data
+   * Queries network traffic analysis timing data at the account dimension or site dimension.
    * 
    * @remarks
-   * - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
-   * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
-   *   * For a span of 3 hours or less, it returns 1-minute granularity data.
-   *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
-   *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
-   *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
-   *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
-   * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+   * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+   * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+   *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+   *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+   *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+   *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+   *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+   * - Due to the large number of access requests during the query time range, data analytics results may involve sampling.
    * 
    * @param request - DescribeSiteTimeSeriesDataRequest
    * @returns DescribeSiteTimeSeriesDataResponse
@@ -9577,7 +9577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the page monitoring data.
+   * Queries web page observation quality data.
+   * 
+   * @remarks
+   * If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
    * 
    * @param request - DescribeUrlObservationDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9628,7 +9631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the page monitoring data.
+   * Queries web page observation quality data.
+   * 
+   * @remarks
+   * If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
    * 
    * @param request - DescribeUrlObservationDataRequest
    * @returns DescribeUrlObservationDataResponse
@@ -10778,7 +10784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a containerized application, including basic application configurations and health check configurations.
+   * Retrieves application information for an edge container, including basic application configurations and health check settings.
    * 
    * @param request - GetEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10809,7 +10815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a containerized application, including basic application configurations and health check configurations.
+   * Retrieves application information for an edge container, including basic application configurations and health check settings.
    * 
    * @param request - GetEdgeContainerAppRequest
    * @returns GetEdgeContainerAppResponse
@@ -10984,7 +10990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+   * Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
    * 
    * @param request - GetEdgeContainerAppStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11019,7 +11025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+   * Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
    * 
    * @param request - GetEdgeContainerAppStatusRequest
    * @returns GetEdgeContainerAppStatusResponse
@@ -11030,7 +11036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+   * Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
    * 
    * @param request - GetEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11057,7 +11063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+   * Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
    * 
    * @param request - GetEdgeContainerAppVersionRequest
    * @returns GetEdgeContainerAppVersionResponse
@@ -13655,6 +13661,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the maximum value of a numeric quota across all plans under a user account.
+   * 
+   * @remarks
+   * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+   * 
+   * @param request - GetUserMaxPlanQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserMaxPlanQuotaResponse
+   */
+  async getUserMaxPlanQuotaWithOptions(request: $_model.GetUserMaxPlanQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserMaxPlanQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.quotaName)) {
+      query["QuotaName"] = request.quotaName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserMaxPlanQuota",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserMaxPlanQuotaResponse>(await this.callApi(params, req, runtime), new $_model.GetUserMaxPlanQuotaResponse({}));
+  }
+
+  /**
+   * Queries the maximum value of a numeric quota across all plans under a user account.
+   * 
+   * @remarks
+   * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+   * 
+   * @param request - GetUserMaxPlanQuotaRequest
+   * @returns GetUserMaxPlanQuotaResponse
+   */
+  async getUserMaxPlanQuota(request: $_model.GetUserMaxPlanQuotaRequest): Promise<$_model.GetUserMaxPlanQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserMaxPlanQuotaWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a WAF ruleset for a specified instance.
    * 
    * @remarks
@@ -14092,7 +14146,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the cache reserve instances for your account.
+   * Queries the list of Bot security instances.
+   * 
+   * @param request - ListBotInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBotInstancesResponse
+   */
+  async listBotInstancesWithOptions(request: $_model.ListBotInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBotInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBotInstances",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBotInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListBotInstancesResponse({}));
+  }
+
+  /**
+   * Queries the list of Bot security instances.
+   * 
+   * @param request - ListBotInstancesRequest
+   * @returns ListBotInstancesResponse
+   */
+  async listBotInstances(request: $_model.ListBotInstancesRequest): Promise<$_model.ListBotInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBotInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of cache reserve instances for the current user.
    * 
    * @param request - ListCacheReserveInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14119,7 +14235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the cache reserve instances for your account.
+   * Queries the list of cache reserve instances for the current user.
    * 
    * @param request - ListCacheReserveInstancesRequest
    * @returns ListCacheReserveInstancesResponse
@@ -14808,7 +14924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists versions of all containerized applications.
+   * Retrieves the version list of an edge container application, including information about all successfully created applications.
    * 
    * @param request - ListEdgeContainerAppVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14835,7 +14951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists versions of all containerized applications.
+   * Retrieves the version list of an edge container application, including information about all successfully created applications.
    * 
    * @param request - ListEdgeContainerAppVersionsRequest
    * @returns ListEdgeContainerAppVersionsResponse
@@ -14846,7 +14962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all containerized applications in your Alibaba Cloud account.
+   * Retrieves a list of edge container applications, including all edge applications created under the current account.
    * 
    * @param request - ListEdgeContainerAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14897,7 +15013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all containerized applications in your Alibaba Cloud account.
+   * Retrieves a list of edge container applications, including all edge applications created under the current account.
    * 
    * @param request - ListEdgeContainerAppsRequest
    * @returns ListEdgeContainerAppsResponse
@@ -15398,6 +15514,54 @@ export default class Client extends OpenApi {
   async listInstanceQuotasWithUsage(request: $_model.ListInstanceQuotasWithUsageRequest): Promise<$_model.ListInstanceQuotasWithUsageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstanceQuotasWithUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the quota information of multiple instances.
+   * 
+   * @param request - ListInstancesQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesQuotaResponse
+   */
+  async listInstancesQuotaWithOptions(request: $_model.ListInstancesQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstancesQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.quotaName)) {
+      query["QuotaName"] = request.quotaName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      body["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstancesQuota",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstancesQuotaResponse>(await this.callApi(params, req, runtime), new $_model.ListInstancesQuotaResponse({}));
+  }
+
+  /**
+   * Queries the quota information of multiple instances.
+   * 
+   * @param request - ListInstancesQuotaRequest
+   * @returns ListInstancesQuotaResponse
+   */
+  async listInstancesQuota(request: $_model.ListInstancesQuotaRequest): Promise<$_model.ListInstancesQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstancesQuotaWithOptions(request, runtime);
   }
 
   /**
@@ -16053,6 +16217,44 @@ export default class Client extends OpenApi {
   async listPostpaidSitePlans(request: $_model.ListPostpaidSitePlansRequest): Promise<$_model.ListPostpaidSitePlansResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPostpaidSitePlansWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+   * 
+   * @param request - ListQuotasMinEffectPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQuotasMinEffectPlanResponse
+   */
+  async listQuotasMinEffectPlanWithOptions(request: $_model.ListQuotasMinEffectPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQuotasMinEffectPlanResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListQuotasMinEffectPlan",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQuotasMinEffectPlanResponse>(await this.callApi(params, req, runtime), new $_model.ListQuotasMinEffectPlanResponse({}));
+  }
+
+  /**
+   * Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+   * 
+   * @param request - ListQuotasMinEffectPlanRequest
+   * @returns ListQuotasMinEffectPlanResponse
+   */
+  async listQuotasMinEffectPlan(request: $_model.ListQuotasMinEffectPlanRequest): Promise<$_model.ListQuotasMinEffectPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQuotasMinEffectPlanWithOptions(request, runtime);
   }
 
   /**
@@ -17777,6 +17979,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the feature configurations of a plan instance.
+   * 
+   * @param tmpReq - ModifyInstanceFeaturesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceFeaturesResponse
+   */
+  async modifyInstanceFeaturesWithOptions(tmpReq: $_model.ModifyInstanceFeaturesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceFeaturesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyInstanceFeaturesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.siteFeatures)) {
+      request.siteFeaturesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteFeatures, "SiteFeatures", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.siteFeaturesShrink)) {
+      query["SiteFeatures"] = request.siteFeaturesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceFeatures",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceFeaturesResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceFeaturesResponse({}));
+  }
+
+  /**
+   * Modifies the feature configurations of a plan instance.
+   * 
+   * @param request - ModifyInstanceFeaturesRequest
+   * @returns ModifyInstanceFeaturesResponse
+   */
+  async modifyInstanceFeatures(request: $_model.ModifyInstanceFeaturesRequest): Promise<$_model.ModifyInstanceFeaturesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceFeaturesWithOptions(request, runtime);
+  }
+
+  /**
+   * Disables plan-related configurations with one click when changing the plan for a site.
+   * 
+   * @param request - ModifySiteFeaturesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySiteFeaturesResponse
+   */
+  async modifySiteFeaturesWithOptions(request: $_model.ModifySiteFeaturesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySiteFeaturesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.newInstanceId)) {
+      query["NewInstanceId"] = request.newInstanceId;
+    }
+
+    if (!$dara.isNull(request.siteFeatures)) {
+      query["SiteFeatures"] = request.siteFeatures;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySiteFeatures",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySiteFeaturesResponse>(await this.callApi(params, req, runtime), new $_model.ModifySiteFeaturesResponse({}));
+  }
+
+  /**
+   * Disables plan-related configurations with one click when changing the plan for a site.
+   * 
+   * @param request - ModifySiteFeaturesRequest
+   * @returns ModifySiteFeaturesResponse
+   */
+  async modifySiteFeatures(request: $_model.ModifySiteFeaturesRequest): Promise<$_model.ModifySiteFeaturesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySiteFeaturesWithOptions(request, runtime);
+  }
+
+  /**
    * Activates the edge container service.
    * 
    * @param request - OpenEdgeContainerRequest
@@ -17921,7 +18225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a specific version of a containerized application.
+   * Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
    * 
    * @param tmpReq - PublishEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17992,7 +18296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a specific version of a containerized application.
+   * Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
    * 
    * @param request - PublishEdgeContainerAppVersionRequest
    * @returns PublishEdgeContainerAppVersionResponse

@@ -2,47 +2,49 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteEdgeContainerAppRecordRequest extends $dara.Model {
+export class ModifySiteFeaturesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * app-88068867578379****
+   * esa-site-bl39ryjtineo
    */
-  appId?: string;
+  newInstanceId?: string;
   /**
    * @remarks
-   * The associated domain name.
+   * The site feature information to be cleared.
    * 
    * This parameter is required.
    * 
    * @example
-   * a.example.com
+   * network_optimization|smart_routing,loadbalance
    */
-  recordName?: string;
+  siteFeatures?: string;
   /**
    * @remarks
-   * The site ID. This parameter is required. If it is not specified, the service returns InternalError(400). Call ListSites to obtain a valid SiteId before calling this operation.
+   * The site ID. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * 5407498413****
+   * 1067072706415168
    */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      recordName: 'RecordName',
+      newInstanceId: 'NewInstanceId',
+      siteFeatures: 'SiteFeatures',
       siteId: 'SiteId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      recordName: 'string',
+      newInstanceId: 'string',
+      siteFeatures: 'string',
       siteId: 'number',
     };
   }

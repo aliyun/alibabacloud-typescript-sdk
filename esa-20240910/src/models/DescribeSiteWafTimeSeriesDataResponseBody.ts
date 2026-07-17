@@ -7,6 +7,8 @@ export class DescribeSiteWafTimeSeriesDataResponseBodyDataDetailData extends $da
    * @remarks
    * The start time of the time slice.
    * 
+   * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
+   * 
    * @example
    * 2023-04-08T16:00:00Z
    */
@@ -180,7 +182,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBody extends $dara.Model {
   data?: DescribeSiteWafTimeSeriesDataResponseBodyData[];
   /**
    * @remarks
-   * The end of the time range for the returned data.
+   * The end time of the returned data.
    * 
    * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
    * 
@@ -214,7 +216,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBody extends $dara.Model {
   samplingRate?: number;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time for the data query.
    * 
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
@@ -224,7 +226,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The summarized data.
+   * The summarized query data.
    */
   summarizedData?: DescribeSiteWafTimeSeriesDataResponseBodySummarizedData[];
   static names(): { [key: string]: string } {

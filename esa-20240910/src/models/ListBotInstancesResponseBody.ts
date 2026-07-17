@@ -2,57 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Model {
+export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The capacity of the cache reserve instance. Unit: GB.
+   * The Bot protection instance level. If this parameter is empty, the plan does not include a Bot protection instance. If a value is returned, the plan includes a Bot protection instance. Valid values:
+   * 
+   * - enterprise_bot: web edition.
+   * 
+   * - enterprise_bot_with_app: app edition.
    * 
    * @example
-   * 512000
+   * enterprise_bot
    */
-  cacheReserveCapacity?: number;
+  botInstanceLevel?: string;
   /**
    * @remarks
-   * The region where the cache reserve instance is deployed.
-   * 
-   * @example
-   * HK
-   */
-  cacheReserveRegion?: string;
-  /**
-   * @remarks
-   * The billing type. Valid values:
-   * - PREPAY: subscription.
-   * - POSTPAY: pay-as-you-go.
-   * 
-   * @example
-   * PREPAY
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The creation time of the instance.
+   * The time when the instance was purchased. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2024-04-12T05:41:51Z
    */
   createTime?: string;
-  /**
-   * @remarks
-   * The subscription duration of the instance. Unit: months.
-   * 
-   * @example
-   * 3
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * The time when the instance expires.
-   * 
-   * @example
-   * 2024-10-05T16:00:00Z
-   */
-  expireTime?: string;
   /**
    * @remarks
    * The instance ID.
@@ -63,11 +33,27 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
+   * The scheduled release time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2026-03-25T16:00:00Z
+   */
+  reserveReleaseTime?: string;
+  /**
+   * @remarks
+   * The ID of the associated site plan instance.
+   * 
+   * @example
+   * esa-site-b0s6kmx0r0n4
+   */
+  siteInstanceId?: string;
+  /**
+   * @remarks
    * The instance status. Valid values:
    * - **online**: The instance is running normally.
    * - **offline**: The instance has expired but has not exceeded the retention period and is unavailable.
    * - **disable**: The instance has been released.
-   * - **overdue**: The instance is stopped due to an overdue payment.
+   * - **overdue**: The instance has been stopped due to an overdue payment.
    * 
    * @example
    * online
@@ -75,26 +61,22 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      cacheReserveCapacity: 'CacheReserveCapacity',
-      cacheReserveRegion: 'CacheReserveRegion',
-      chargeType: 'ChargeType',
+      botInstanceLevel: 'BotInstanceLevel',
       createTime: 'CreateTime',
-      duration: 'Duration',
-      expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
+      reserveReleaseTime: 'ReserveReleaseTime',
+      siteInstanceId: 'SiteInstanceId',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cacheReserveCapacity: 'number',
-      cacheReserveRegion: 'string',
-      chargeType: 'string',
+      botInstanceLevel: 'string',
       createTime: 'string',
-      duration: 'number',
-      expireTime: 'string',
       instanceId: 'string',
+      reserveReleaseTime: 'string',
+      siteInstanceId: 'string',
       status: 'string',
     };
   }
@@ -108,15 +90,15 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   }
 }
 
-export class ListCacheReserveInstancesResponseBody extends $dara.Model {
+export class ListBotInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cache reserve instances.
+   * The instances that match the specified conditions under the current account.
    */
-  instanceInfo?: ListCacheReserveInstancesResponseBodyInstanceInfo[];
+  instanceInfo?: ListBotInstancesResponseBodyInstanceInfo[];
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -124,10 +106,10 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **500**. Valid values: **1** to **500**.
+   * The number of entries per page.
    * 
    * @example
-   * 500
+   * 20
    */
   pageSize?: number;
   /**
@@ -135,7 +117,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 65C66B7B-671A-8297-9187-2R5477247B76
+   * 509FD5AF-AB5B-55A9-9568-38D98668E3AB
    */
   requestId?: string;
   /**
@@ -143,7 +125,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
    * The total number of entries.
    * 
    * @example
-   * 16
+   * 0
    */
   totalCount?: number;
   /**
@@ -151,7 +133,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
    * The total number of pages.
    * 
    * @example
-   * 1
+   * 0
    */
   totalPage?: number;
   static names(): { [key: string]: string } {
@@ -167,7 +149,7 @@ export class ListCacheReserveInstancesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      instanceInfo: { 'type': 'array', 'itemType': ListCacheReserveInstancesResponseBodyInstanceInfo },
+      instanceInfo: { 'type': 'array', 'itemType': ListBotInstancesResponseBodyInstanceInfo },
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',

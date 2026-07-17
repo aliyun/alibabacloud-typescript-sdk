@@ -12,7 +12,7 @@ export class DescribeSiteWafTimeSeriesDataRequestFields extends $dara.Model {
    * @remarks
    * The metric name.
    * 
-   * >For more information about the available dimensions, see [Data analytics field description](https://help.aliyun.com/document_detail/2878520.html).
+   * >For specific dimensions, see [Data analytics field description](https://help.aliyun.com/document_detail/2878520.html).
    * 
    * @example
    * Traffic
@@ -47,7 +47,7 @@ export class DescribeSiteWafTimeSeriesDataRequestFields extends $dara.Model {
 export class DescribeSiteWafTimeSeriesDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time for the data query.
    * 
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
@@ -66,9 +66,9 @@ export class DescribeSiteWafTimeSeriesDataRequest extends $dara.Model {
   fields?: DescribeSiteWafTimeSeriesDataRequestFields[];
   /**
    * @remarks
-   * The time granularity of the queried data. Unit: seconds.
+   * The time granularity of the queried data, in seconds.
    * 
-   * Based on the maximum time span of a single query, this parameter supports the values 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the **supported time granularity** section above.
+   * Based on the maximum time span of a single query, this parameter supports the following values: 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the **supported query time granularity** section above.
    * 
    * @example
    * 300
@@ -86,7 +86,7 @@ export class DescribeSiteWafTimeSeriesDataRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time for the data query.
    * 
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 

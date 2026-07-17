@@ -25,7 +25,8 @@ export class CreateEdgeContainerAppRecordRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
+   * >Notice: Although SiteId is marked as optional in the schema, it is required when you call this operation. If you omit this parameter, an InternalError (400) is returned. Call the ListSites operation to obtain a valid SiteId.</notice>
    * 
    * @example
    * 5407498413****

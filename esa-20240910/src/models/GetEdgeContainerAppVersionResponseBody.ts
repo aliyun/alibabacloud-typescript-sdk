@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo extends $dara.Model {
   /**
    * @remarks
-   * The domain name of the Container Registry image.
+   * The ACR image domain name.
    * 
    * @example
    * *.mooc.seewo.com
@@ -13,7 +13,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo
   domain?: string;
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The ACR site instance ID.
    * 
    * @example
    * xcdn-9ak2thl14z5s
@@ -37,7 +37,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo
   regionId?: string;
   /**
    * @remarks
-   * The ID of the image repository.
+   * The image repository ID.
    * 
    * @example
    * crr-zeu0xyk28alyxozh
@@ -53,7 +53,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo
   repoName?: string;
   /**
    * @remarks
-   * The namespace to which the image repository belongs.
+   * The namespace of the image repository.
    * 
    * @example
    * wpy1
@@ -69,7 +69,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo
   tag?: string;
   /**
    * @remarks
-   * The URL of the Container Registry image tag.
+   * The ACR image tag URL.
    * 
    * @example
    * registry-vpc.cn-shenzhen.aliyuncs.com/lihetech/easywits_server_exam:3.40.2
@@ -115,7 +115,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo
 export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent extends $dara.Model {
   /**
    * @remarks
-   * The probe command.
+   * The probe execution command.
    * 
    * @example
    * sh test.sh
@@ -123,7 +123,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   command?: string;
   /**
    * @remarks
-   * The number of consecutive failed health checks required for a container to be considered as unhealthy.
+   * The number of consecutive failed health checks for the container.
    * 
    * @example
    * 3
@@ -131,7 +131,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   failureThreshold?: number;
   /**
    * @remarks
-   * The domain name that is used for health checks.
+   * The domain name for the health check.
    * 
    * @example
    * test.com
@@ -139,7 +139,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   host?: string;
   /**
    * @remarks
-   * The request headers that are included in the container health check request.
+   * The HTTP request headers.
    * 
    * @example
    * [{\\"Content-Type\\":\\"application/json
@@ -147,7 +147,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   httpHeaders?: string;
   /**
    * @remarks
-   * The latency for container probe initialization.
+   * The initial delay time for the container probe. Unit: seconds. For example, 5 indicates an initial delay of 5 seconds.
    * 
    * @example
    * 20
@@ -155,7 +155,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   initialDelaySeconds?: number;
   /**
    * @remarks
-   * The path of the container health check.
+   * The path for the container health check.
    * 
    * @example
    * /health_check
@@ -163,7 +163,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   path?: string;
   /**
    * @remarks
-   * The interval between container health checks.
+   * The interval for the container health check. Unit: seconds. For example, 5 indicates a health check interval of 5 seconds.
    * 
    * @example
    * 5
@@ -171,7 +171,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   periodSeconds?: number;
   /**
    * @remarks
-   * The port of the container health check. Valid values: **1** to **65535**.
+   * The port used by the backend server. Valid values: **1** to **65535**.
    * 
    * @example
    * 80
@@ -179,7 +179,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   port?: number;
   /**
    * @remarks
-   * The protocol that the container health check request uses.
+   * The request protocol for the health check.
    * 
    * @example
    * http
@@ -187,7 +187,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   scheme?: string;
   /**
    * @remarks
-   * The number of consecutive successful health checks required for a container to be considered as healthy.
+   * The number of consecutive successful health checks.
    * 
    * @example
    * 1
@@ -195,7 +195,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
   successThreshold?: number;
   /**
    * @remarks
-   * The timeout period of the container health check.
+   * The timeout period for the container health check. Unit: seconds. For example, 5 indicates a timeout of 5 seconds.
    * 
    * @example
    * 5
@@ -245,12 +245,12 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
 export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $dara.Model {
   /**
    * @remarks
-   * The information about the Container Registry image.
+   * The ACR image information.
    */
   ACRImageInfo?: GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo;
   /**
    * @remarks
-   * The arguments that are passed to the container startup command.
+   * The startup arguments.
    * 
    * @example
    * -c /path/config.toml
@@ -258,7 +258,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $da
   args?: string;
   /**
    * @remarks
-   * The command that is used to start the container.
+   * The container startup command.
    * 
    * @example
    * sh abc.sh 1 2 3
@@ -282,7 +282,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $da
   image?: string;
   /**
    * @remarks
-   * Indicates whether the image is a Container Registry image.
+   * Indicates whether the image is an ACR image.
    * 
    * @example
    * false
@@ -298,7 +298,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $da
   name?: string;
   /**
    * @remarks
-   * The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`. If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
+   * The command to execute after the container starts.
    * 
    * @example
    * sh poststart.sh "echo hello world"
@@ -306,7 +306,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $da
   postStart?: string;
   /**
    * @remarks
-   * The command that is run before the container is stopped.
+   * The command to execute before the container stops.
    * 
    * @example
    * sh prestop.sh "echo hello world"
@@ -327,7 +327,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $da
   probeType?: string;
   /**
    * @remarks
-   * The compute specification.
+   * The specifications.
    * 
    * @example
    * 1C2G
@@ -335,7 +335,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $da
   spec?: string;
   /**
    * @remarks
-   * The storage capacity of the container. Valid values: 0.5G, 10G, 20G, and 30G.
+   * The container storage specifications.
    * 
    * @example
    * 0.5G, 标识存储空间，取值范围（0.5G | 10G | 20G | 30G）
@@ -403,12 +403,12 @@ export class GetEdgeContainerAppVersionResponseBodyVersion extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The container images deployed for this version.
+   * The list of images to be deployed for this version.
    */
   containers?: GetEdgeContainerAppVersionResponseBodyVersionContainers[];
   /**
    * @remarks
-   * The time when the version was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-07-01T09:32:33Z
@@ -416,7 +416,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersion extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the version was last released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The last publish time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-07-25T04:58:05Z
@@ -432,7 +432,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersion extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the version was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The publish time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-11-14T02:04:03Z
@@ -450,11 +450,9 @@ export class GetEdgeContainerAppVersionResponseBodyVersion extends $dara.Model {
    * @remarks
    * The status of the current version. Valid values:
    * 
-   * - created: The version is created.
-   * 
-   * - failed: The version failed to be created.
-   * 
-   * - creating: The version is being created.
+   * - **created**: Created.
+   * - **failed**: Creation failed.
+   * - **creating**: Being created.
    * 
    * @example
    * created
@@ -462,7 +460,7 @@ export class GetEdgeContainerAppVersionResponseBodyVersion extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the version was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The last modification time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-03T10:52:52Z
@@ -529,7 +527,7 @@ export class GetEdgeContainerAppVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the version.
+   * The version information.
    */
   version?: GetEdgeContainerAppVersionResponseBodyVersion;
   static names(): { [key: string]: string } {

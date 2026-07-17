@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent extends $dara.Model {
   /**
    * @remarks
-   * The probe command.
+   * The command executed by the probe.
    * 
    * @example
    * openresty -g  "daemon off;
@@ -13,7 +13,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   command?: string;
   /**
    * @remarks
-   * The number of consecutive failed health checks required for a container to be considered as unhealthy.
+   * The number of consecutive failed health checks for the container.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   failureThreshold?: number;
   /**
    * @remarks
-   * The domain name that is used for health checks.
+   * The domain name for the container health check.
    * 
    * @example
    * test.com
@@ -29,7 +29,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   host?: string;
   /**
    * @remarks
-   * The request headers that are included in the container health check request.
+   * The request headers carried in the container health check.
    * 
    * @example
    * {\\"Content-Type\\":\\"application/json\\"}
@@ -37,7 +37,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   httpHeaders?: string;
   /**
    * @remarks
-   * The latency for container probe initialization.
+   * The initial delay time of the container probe. Unit: seconds. For example, 5 indicates that this parameter is set to five seconds.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   initialDelaySeconds?: number;
   /**
    * @remarks
-   * The path of the container health check.
+   * The path for the container health check.
    * 
    * @example
    * /health_check
@@ -53,7 +53,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   path?: string;
   /**
    * @remarks
-   * The interval between container health checks.
+   * The interval of the container health check. Unit: seconds. For example, 5 indicates that this parameter is set to five seconds.
    * 
    * @example
    * 5
@@ -61,7 +61,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   periodSeconds?: number;
   /**
    * @remarks
-   * The port of the container health check.
+   * The port for the container health check.
    * 
    * @example
    * 80
@@ -69,7 +69,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   port?: number;
   /**
    * @remarks
-   * The protocol that the container health check request uses.
+   * The request protocol for the container health check.
    * 
    * @example
    * http
@@ -77,7 +77,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   scheme?: string;
   /**
    * @remarks
-   * The number of consecutive successful health checks required for a container to be considered as healthy.
+   * The number of consecutive successful health checks required for the container.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
   successThreshold?: number;
   /**
    * @remarks
-   * The timeout period of the container health check.
+   * The timeout period of the container health check. Unit: seconds. For example, 5 indicates that this parameter is set to five seconds.
    * 
    * @example
    * 30
@@ -135,7 +135,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
 export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends $dara.Model {
   /**
    * @remarks
-   * The arguments that are passed to the container startup command.
+   * The container startup arguments.
    * 
    * @example
    * -c a=1
@@ -143,7 +143,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
   args?: string;
   /**
    * @remarks
-   * The command that is used to start the container.
+   * The container startup command.
    * 
    * @example
    * openresty -g \\"daemon off;\\"
@@ -151,7 +151,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
   command?: string;
   /**
    * @remarks
-   * The environment variables of the container.
+   * The container environment variables.
    * 
    * @example
    * ENV=prod
@@ -159,7 +159,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
   envVariables?: string;
   /**
    * @remarks
-   * The address of the container image.
+   * The container image address.
    * 
    * @example
    * nginx
@@ -175,9 +175,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
   name?: string;
   /**
    * @remarks
-   * The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`.
-   * 
-   * If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
+   * The command executed after the container starts.
    * 
    * @example
    * sh poststart.sh "echo hello world"
@@ -185,7 +183,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
   postStart?: string;
   /**
    * @remarks
-   * The command that is run before the container is stopped.
+   * The command executed before the container stops.
    * 
    * @example
    * sh prestop.sh "echo hello world"
@@ -193,12 +191,12 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
   preStop?: string;
   /**
    * @remarks
-   * The container probe content.
+   * The container probe configuration object.
    */
   probeContent?: ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent;
   /**
    * @remarks
-   * The probe type of the container.
+   * The container probe type.
    * 
    * @example
    * httpGet
@@ -206,7 +204,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
   probeType?: string;
   /**
    * @remarks
-   * The compute specification of the container.
+   * The container specifications.
    * 
    * @example
    * 1C2G
@@ -257,7 +255,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
 export class ListEdgeContainerAppVersionsResponseBodyVersions extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The application ID to which the version belongs.
    * 
    * @example
    * app-88068867578379****
@@ -265,12 +263,12 @@ export class ListEdgeContainerAppVersionsResponseBodyVersions extends $dara.Mode
   appId?: string;
   /**
    * @remarks
-   * The containers in the version.
+   * The array of containers included in this version.
    */
   containers?: ListEdgeContainerAppVersionsResponseBodyVersionsContainers[];
   /**
    * @remarks
-   * The time when the version was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The version creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-11-10T02:53:16Z
@@ -278,7 +276,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersions extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * The time when the version was last released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The last publish time of this version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-02-10T02:48:36Z
@@ -294,7 +292,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersions extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The time when the version was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The current publish time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-02-10T02:48:36Z
@@ -312,9 +310,9 @@ export class ListEdgeContainerAppVersionsResponseBodyVersions extends $dara.Mode
    * @remarks
    * The status of the current version. Valid values:
    * 
-   * *   **created**
-   * *   **failed**
-   * *   **creating**
+   * - **created**: Created.
+   * - **failed**: Failed.
+   * - **creating**: Creating.
    * 
    * @example
    * created
@@ -322,7 +320,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersions extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The time when the version was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The last modification time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-04-16 10:51:00
@@ -381,7 +379,7 @@ export class ListEdgeContainerAppVersionsResponseBodyVersions extends $dara.Mode
 export class ListEdgeContainerAppVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -389,7 +387,7 @@ export class ListEdgeContainerAppVersionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -413,7 +411,7 @@ export class ListEdgeContainerAppVersionsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The versions.
+   * The version list.
    */
   versions?: ListEdgeContainerAppVersionsResponseBodyVersions[];
   static names(): { [key: string]: string } {

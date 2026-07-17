@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEdgeContainerAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of consecutive failed health checks required before a healthy application is considered unhealthy.
+   * The number of consecutive failed health checks required. If an application is healthy, it is considered unhealthy after the specified number of consecutive failed probes.
    * - Valid values: **1 to 10**. 
    * - Default value: **5**.
    * 
@@ -15,7 +15,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckFailTimes?: number;
   /**
    * @remarks
-   * The domain name used for health checks. If this parameter is not specified, the value is empty by default.
+   * The domain name used for health checks. If not specified, the value is empty by default.
    * 
    * @example
    * www.aliyun.com
@@ -23,7 +23,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckHost?: string;
   /**
    * @remarks
-   * The HTTP status code that indicates the health check is Normal. Valid values:
+   * The HTTP status code that indicates a Normal health check result. Valid values:
    * 
    * - **http_2xx** (default).
    * - **http_3xx**.
@@ -66,7 +66,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckPort?: number;
   /**
    * @remarks
-   * The number of consecutive successful health checks required before an unhealthy application is considered healthy.
+   * The number of consecutive successful health checks required. If an application is unhealthy, it is considered healthy again after the specified number of consecutive successful probes.
    * - Valid values: **1 to 10**.
    * - Default value: **2**.
    * 
@@ -76,7 +76,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckSuccTimes?: number;
   /**
    * @remarks
-   * The amount of time to wait for a response from the health check. If the backend ECS instance does not respond within the specified time, the health check is considered failed.    
+   * The amount of time to wait for a response from the health check. If the backend ECS instance does not respond correctly within the specified time, the health check is considered failed.    
    * 
    * - Valid values: **1** to **100**.   
    * - Default value: **3**.
@@ -88,7 +88,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   healthCheckTimeout?: number;
   /**
    * @remarks
-   * The health check type, which includes Layer 4 and Layer 7 probing. If this parameter is not specified, the value is empty by default.
+   * The health check type, which includes Layer 4 and Layer 7 probing. If not specified, the value is empty by default.
    * 
    * Valid values:
    * 
@@ -112,6 +112,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   /**
    * @remarks
    * The application name. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-). The name must be 6 to 128 characters in length.
+   * >Notice: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.</notice>
    * 
    * This parameter is required.
    * 
@@ -121,7 +122,7 @@ export class CreateEdgeContainerAppRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The remarks. If this parameter is not specified, the value is empty by default.
+   * The remarks. If not specified, the value is empty by default.
    * 
    * @example
    * test app

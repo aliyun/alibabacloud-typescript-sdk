@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Model {
   /**
    * @remarks
-   * The number of consecutive failed health checks for an application to be considered unhealthy.
+   * The number of consecutive failed health checks required.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Mode
   failTimes?: number;
   /**
    * @remarks
-   * The domain name that is used for health checks.
+   * The domain name used for the health check.
    * 
    * @example
    * test.com
@@ -21,7 +21,7 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Mode
   host?: string;
   /**
    * @remarks
-   * The range of health check status codes that indicate successful health checks.
+   * The range of HTTP status codes that indicate a successful health check.
    * 
    * @example
    * http_2XX
@@ -37,7 +37,7 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Mode
   interval?: number;
   /**
    * @remarks
-   * The HTTP method used for health checks.
+   * The method used for the health check.
    * 
    * @example
    * GET
@@ -45,7 +45,7 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Mode
   method?: string;
   /**
    * @remarks
-   * The health check port.
+   * The Health Check Port used for the health check.
    * 
    * @example
    * 8080
@@ -53,7 +53,7 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Mode
   port?: number;
   /**
    * @remarks
-   * The number of consecutive successful health checks for an application to be considered healthy.
+   * The number of consecutive successful health checks required.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Mode
   succTimes?: number;
   /**
    * @remarks
-   * The timeout period of health checks. Unit: seconds.
+   * The timeout period of the health check. Unit: seconds.
    * 
    * @example
    * 60
@@ -69,10 +69,9 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Mode
   timeout?: number;
   /**
    * @remarks
-   * The type of health checks. Valid values:
-   * 
-   * *   l7
-   * *   l4
+   * The health check type. Valid values:
+   * - **l7**: Layer 7 health check.
+   * - **l4**: Layer 4 health check.
    * 
    * @example
    * l7
@@ -80,7 +79,7 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The health check URL.
+   * The URI path used for the health check.
    * 
    * @example
    * /health_check
@@ -136,7 +135,7 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The time when the version was created.
+   * The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-12-01T16:16:27.418298794+08:00
@@ -144,7 +143,7 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The domain name associated with the application.
+   * The domain name bound to the application.
    * 
    * @example
    * test.com
@@ -152,10 +151,9 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The type of the gateway. Valid values:
-   * 
-   * *   l7: Layer 7 gateway.
-   * *   l4: Layer 4 gateway.
+   * The gateway type. Valid values:
+   * - **l7**: Layer 7 gateway.
+   * - **l4**: Layer 4 gateway.
    * 
    * @example
    * l7
@@ -163,7 +161,7 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The information about health checks.
+   * The health check information.
    */
   healthCheck?: ListEdgeContainerAppsResponseBodyAppsHealthCheck;
   /**
@@ -176,7 +174,7 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The progress of the application creation task in percentage.
+   * The creation progress percentage.
    * 
    * @example
    * 100
@@ -200,7 +198,7 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   remarks?: string;
   /**
    * @remarks
-   * The server port. Valid values: 1 to 65535.
+   * The server port number. Valid values: **1 to 65535**.
    * 
    * @example
    * 80
@@ -209,10 +207,9 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   /**
    * @remarks
    * The status of the application. Valid values:
-   * 
-   * *   creating: The application is being created.
-   * *   failed: The application failed to be created.
-   * *   created: The application is created.
+   * - **creating**: being created.
+   * - **failed**: creation failed.
+   * - **created**: created.
    * 
    * @example
    * created
@@ -220,7 +217,7 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The backend port, which is also the service port of the application. Valid values: 1 to 65535.
+   * The backend port, which is also the service port of the application. Valid values: **1 to 65535**.
    * 
    * @example
    * 80
@@ -228,7 +225,7 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   targetPort?: number;
   /**
    * @remarks
-   * The time when the application was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The last modification time of the application. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-11-15T12:11:02Z
@@ -236,7 +233,7 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The number of versions of the application.
+   * The number of application versions.
    * 
    * @example
    * 10
@@ -295,12 +292,12 @@ export class ListEdgeContainerAppsResponseBodyApps extends $dara.Model {
 export class ListEdgeContainerAppsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried applications.
+   * The list of applications.
    */
   apps?: ListEdgeContainerAppsResponseBodyApps[];
   /**
    * @remarks
-   * The page number. Default value: **1**. Valid values: 1 to 65535.
+   * The page number. Default value: **1**. Valid values: **1 to 65535**.
    * 
    * @example
    * 1
@@ -308,7 +305,7 @@ export class ListEdgeContainerAppsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 500.
+   * The number of entries per page. Valid values: **1 to 500**.
    * 
    * @example
    * 10

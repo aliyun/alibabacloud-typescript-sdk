@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerAppVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetEdgeContainerAppVersionRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The version ID, which can be obtained by calling the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation.
+   * The version ID. You can call the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation to obtain the version ID.
    * 
    * This parameter is required.
    * 

@@ -29,7 +29,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
   isEnterpriseRegistry?: boolean;
   /**
    * @remarks
-   * The list of regions for the ACR instance.
+   * The region list of the ACR instance.
    * 
    * @example
    * cn-shanghai
@@ -112,7 +112,7 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
 export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends $dara.Model {
   /**
    * @remarks
-   * The probe command for the exec probe type.
+   * The probe command for exec-type probes.
    * 
    * @example
    * echo ok
@@ -144,7 +144,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   httpHeaders?: string;
   /**
    * @remarks
-   * The initial delay before the container probe starts, in seconds.
+   * The initial delay time for the container probe, in seconds. For example, 5 indicates that the initial delay is set to 5 seconds.
    * 
    * @example
    * 1
@@ -160,7 +160,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   path?: string;
   /**
    * @remarks
-   * The interval between container health checks, in seconds.
+   * The interval between container health checks, in seconds. For example, 5 indicates that the health check interval is set to 5 seconds.
    * 
    * @example
    * 1
@@ -192,7 +192,7 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
   successThreshold?: number;
   /**
    * @remarks
-   * The timeout period for the container health check, in seconds.
+   * The timeout period for the container health check, in seconds. For example, 5 indicates that the timeout is set to 5 seconds.
    * 
    * @example
    * 1
@@ -263,7 +263,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   command?: string;
   /**
    * @remarks
-   * The environment variables, in the format of key1=val1,key2=val2.
+   * The environment variables. Format: key1=val1,key2=val2.
    * 
    * @example
    * VITE_APP_TITLE=My App
@@ -301,7 +301,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The command to run before the container starts. Separate multiple commands with spaces. This command runs before the service starts and is typically used for initialization operations.
+   * The command to execute before the container starts. Separate multiple commands with spaces. This command is executed before the service starts and is typically used for initialization operations.
    * 
    * @example
    * sh poststart.sh "echo hello world"
@@ -309,7 +309,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   postStart?: string;
   /**
    * @remarks
-   * The command to run before the container stops. Separate multiple commands with spaces. This command runs before the service exits and is typically used for cleanup operations.
+   * The command to execute before the container stops. Separate multiple commands with spaces. This command is executed before the service exits and is typically used for cleanup operations.
    * 
    * @example
    * sh prestop.sh "echo hello world"
@@ -322,13 +322,13 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
    * This parameter is required.
    * 
    * @example
-   * For details, see the definition of readiness probes in Kubernetes.
+   * 具体字段可参照k8s官方就绪探针的定义。
    */
   probeContent?: CreateEdgeContainerAppVersionRequestContainersProbeContent;
   /**
    * @remarks
    * The probe type. Valid values:
-   * - **exec**: command-based.
+   * - **exec**: Command-based.
    * - **tcpSocket**: TCP-based.
    * - **httpGet**: HTTP-based.
    * 
@@ -340,7 +340,7 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $dara.Model 
   probeType?: string;
   /**
    * @remarks
-   * The container specifications. This parameter specifies the computing specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
+   * The container specifications. Specifies the computing power specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
    * 
    * This parameter is required.
    * 
@@ -413,6 +413,7 @@ export class CreateEdgeContainerAppVersionRequest extends $dara.Model {
   /**
    * @remarks
    * The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
+   * >Notice: 1) Your account must have an ESA plan with the Edge Container feature enabled. 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId. 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.</notice>
    * 
    * This parameter is required.
    * 
@@ -422,7 +423,7 @@ export class CreateEdgeContainerAppVersionRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The container group to deploy for this version, including specific image information. The image information consists of the image address, startup commands, parameters, environment variables, and probe rules. Multiple images are supported. This parameter is a JSON array.
+   * The container group to be deployed for this version, including specific image information. The image information consists of the image address, startup command, parameters, environment variables, and probe rules. Multiple images are supported in a JSON array structure.
    * 
    * This parameter is required.
    * 

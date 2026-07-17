@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteTimeSeriesDataResponseBodyDataDetailData extends $dara.Model {
   /**
    * @remarks
-   * Start timestamp of the time slice.
+   * The start time of the time slice.
+   * 
+   * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
    * 
    * @example
    * 2023-04-08T16:00:00Z
@@ -13,7 +15,7 @@ export class DescribeSiteTimeSeriesDataResponseBodyDataDetailData extends $dara.
   timeStamp?: string;
   /**
    * @remarks
-   * Value.
+   * The value.
    * 
    * @example
    * 123
@@ -45,12 +47,12 @@ export class DescribeSiteTimeSeriesDataResponseBodyDataDetailData extends $dara.
 export class DescribeSiteTimeSeriesDataResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   detailData?: DescribeSiteTimeSeriesDataResponseBodyDataDetailData[];
   /**
    * @remarks
-   * Query dimension.
+   * The query dimension.
    * 
    * @example
    * ALL
@@ -58,7 +60,7 @@ export class DescribeSiteTimeSeriesDataResponseBodyData extends $dara.Model {
   dimensionName?: string;
   /**
    * @remarks
-   * Query dimension value.
+   * The dimension value.
    * 
    * @example
    * ALL
@@ -66,7 +68,7 @@ export class DescribeSiteTimeSeriesDataResponseBodyData extends $dara.Model {
   dimensionValue?: string;
   /**
    * @remarks
-   * Query metric value.
+   * The metric name.
    * 
    * @example
    * Traffic
@@ -105,7 +107,7 @@ export class DescribeSiteTimeSeriesDataResponseBodyData extends $dara.Model {
 export class DescribeSiteTimeSeriesDataResponseBodySummarizedData extends $dara.Model {
   /**
    * @remarks
-   * The aggregation method used.
+   * The aggregation method.
    * 
    * @example
    * sum
@@ -113,7 +115,7 @@ export class DescribeSiteTimeSeriesDataResponseBodySummarizedData extends $dara.
   aggMethod?: string;
   /**
    * @remarks
-   * The dimension of the aggregated data being queried.
+   * The summarized dimension name.
    * 
    * @example
    * ALL
@@ -121,7 +123,7 @@ export class DescribeSiteTimeSeriesDataResponseBodySummarizedData extends $dara.
   dimensionName?: string;
   /**
    * @remarks
-   * The value of the aggregated dimension being queried.
+   * The summarized dimension value.
    * 
    * @example
    * ALL
@@ -129,7 +131,7 @@ export class DescribeSiteTimeSeriesDataResponseBodySummarizedData extends $dara.
   dimensionValue?: string;
   /**
    * @remarks
-   * The value of the aggregated metric being queried.
+   * The summarized metric name.
    * 
    * @example
    * Traffic
@@ -175,14 +177,14 @@ export class DescribeSiteTimeSeriesDataResponseBodySummarizedData extends $dara.
 export class DescribeSiteTimeSeriesDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: DescribeSiteTimeSeriesDataResponseBodyData[];
   /**
    * @remarks
-   * The end time for fetching the data.
+   * The end time of the returned data.
    * 
-   * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
    * 
    * @example
    * 2023-04-09T16:00:00Z
@@ -190,7 +192,7 @@ export class DescribeSiteTimeSeriesDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The granularity of the data, in seconds.
+   * The data granularity. Unit: seconds.
    * 
    * @example
    * 300
@@ -206,7 +208,7 @@ export class DescribeSiteTimeSeriesDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sampling rate, in %.
+   * The sampling rate. Unit: %.
    * 
    * @example
    * 100
@@ -214,9 +216,9 @@ export class DescribeSiteTimeSeriesDataResponseBody extends $dara.Model {
   samplingRate?: number;
   /**
    * @remarks
-   * The start time for fetching the data.
+   * The start time for the data query.
    * 
-   * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
    * @example
    * 2023-04-08T16:00:00Z
@@ -224,7 +226,7 @@ export class DescribeSiteTimeSeriesDataResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Aggregated query data.
+   * The summarized data.
    */
   summarizedData?: DescribeSiteTimeSeriesDataResponseBodySummarizedData[];
   static names(): { [key: string]: string } {

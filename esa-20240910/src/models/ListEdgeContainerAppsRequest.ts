@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeContainerAppsRequest extends $dara.Model {
   /**
    * @remarks
-   * The sorting field. This parameter is left empty by default. Valid values:
-   * 
-   * *   Name: the version name.
-   * *   CreateTime: the time when the version was created.
-   * *   UpdateTime: the time when the version was last modified.
+   * The field used for sorting. If this parameter is not specified, no sorting is applied. Valid values:
+   * - **Name**: the version name.
+   * - **CreateTime**: the version creation time.
+   * - **ModifyTime**: the version modification time.
    * 
    * @example
    * CreateTime
@@ -17,10 +16,11 @@ export class ListEdgeContainerAppsRequest extends $dara.Model {
   orderKey?: string;
   /**
    * @remarks
-   * The order in which you want to sort the query results. This parameter is left empty by default. Valid values:
+   * The sort order. If this parameter is not specified, no sorting is applied. Valid values:
    * 
-   * *   ASC: in ascending order.
-   * *   DESC: in descending order.
+   * - **Asc**: ascending order.
+   * 
+   * - **Desc**: descending order.
    * 
    * @example
    * Asc
@@ -28,7 +28,7 @@ export class ListEdgeContainerAppsRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**. Valid values: 1 to 65535.
+   * The page number. Default value: **1**. Valid values: **1 to 65535**.
    * 
    * @example
    * 1
@@ -36,7 +36,7 @@ export class ListEdgeContainerAppsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **20**. Valid values: 1 to 500.
+   * The number of entries per page. Default value: **20**. Valid values: **1 to 500**.
    * 
    * @example
    * 20
@@ -52,10 +52,9 @@ export class ListEdgeContainerAppsRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The search criterion based on which you want to perform fuzzy search. Valid values:
-   * 
-   * *   Appid: the application ID.
-   * *   Name: the application name.
+   * The type of fuzzy match. Valid values:
+   * - **AppId**: the application ID.
+   * - **Name**: the application name.
    * 
    * @example
    * AppId

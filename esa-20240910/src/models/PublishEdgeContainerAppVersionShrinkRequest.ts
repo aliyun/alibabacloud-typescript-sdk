@@ -7,6 +7,8 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
    * @remarks
    * The application ID.
    * 
+   * > 1) AppId is obtained by calling CreateEdgeContainerApp. 2) VersionId is obtained by calling CreateEdgeContainerAppVersion (AppId is required). 3) The complete call chain is CreateEdgeContainerApp → CreateEdgeContainerAppVersion → PublishEdgeContainerAppVersion.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,7 +17,7 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+   * Specifies whether to perform a full release. This parameter takes effect only when PublishType is set to region.
    * 
    * @example
    * true
@@ -23,7 +25,7 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   fullRelease?: boolean;
   /**
    * @remarks
-   * The release percentage. Valid values: 1 to 100. Default value: 100.
+   * The publishing percentage. Valid values: **1 to 100**. Default value: **100**.
    * 
    * @example
    * 100
@@ -31,11 +33,10 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   percentage?: number;
   /**
    * @remarks
-   * The environment to which you want to release the version. Valid values:
+   * The publishing environment. Valid values:
    * 
-   * - prod: the production environment.
-   * 
-   * - staging: the staging environment.
+   * - **prod**: production environment.
+   * - **staging**: staging environment.
    * 
    * This parameter is required.
    * 
@@ -45,13 +46,12 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   publishEnv?: string;
   /**
    * @remarks
-   * Specifies how the version is released. Valid values:
+   * The publishing type. Valid values:
+   * - **percentage**: publishes by percentage.
    * 
-   * - percentage: releases the version by percentage.
+   * - **region**: publishes by region.
    * 
-   * - region: releases the version by region.
-   * 
-   * If you do not specify this parameter, the version is released by percentage by default.
+   * If this parameter is not specified, percentage-based publishing is used by default.
    * 
    * @example
    * percentage
@@ -59,12 +59,12 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   publishType?: string;
   /**
    * @remarks
-   * The regions to which the version is released.
+   * The list of publishing regions.
    */
   regionsShrink?: string;
   /**
    * @remarks
-   * The remarks. This parameter is empty by default.
+   * The remarks. Default value: empty.
    * 
    * @example
    * test publish app
@@ -72,7 +72,7 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $dara.Model {
   remarks?: string;
   /**
    * @remarks
-   * The time when the application version starts to be released. If you do not specify this parameter, the current time is used by default.
+   * The time when the publishing starts. If this parameter is not specified, the current time is used by default.
    * 
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
