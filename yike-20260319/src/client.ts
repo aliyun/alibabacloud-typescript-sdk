@@ -14,6 +14,7 @@ export default class Client extends OpenApi {
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-shanghai': "yike.cn-shanghai.aliyuncs.com",
+      'ap-southeast-1': "yike.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("yike", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -33,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a member to a Yike project.
+   * Adds members to a Yike project.
    * 
    * @param request - AddYikeProductionMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68,7 +69,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a member to a Yike project.
+   * Adds members to a Yike project.
    * 
    * @param request - AddYikeProductionMembersRequest
    * @returns AddYikeProductionMembersResponse
@@ -167,7 +168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about multiple media assets in a batch.
+   * Retrieves media asset information in batches.
    * 
    * @param request - BatchGetYikeAssetMediaInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -198,7 +199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about multiple media assets in a batch.
+   * Retrieves media asset information in batches.
    * 
    * @param request - BatchGetYikeAssetMediaInfosRequest
    * @returns BatchGetYikeAssetMediaInfosResponse
@@ -255,6 +256,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建一刻云剪辑工程
+   * 
+   * @param request - CreateYikeEditingProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateYikeEditingProjectResponse
+   */
+  async createYikeEditingProjectWithOptions(request: $_model.CreateYikeEditingProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateYikeEditingProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.coverURL)) {
+      query["CoverURL"] = request.coverURL;
+    }
+
+    if (!$dara.isNull(request.materialMaps)) {
+      query["MaterialMaps"] = request.materialMaps;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.timeline)) {
+      body["Timeline"] = request.timeline;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateYikeEditingProject",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateYikeEditingProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateYikeEditingProjectResponse({}));
+  }
+
+  /**
+   * 创建一刻云剪辑工程
+   * 
+   * @param request - CreateYikeEditingProjectRequest
+   * @returns CreateYikeEditingProjectResponse
+   */
+  async createYikeEditingProject(request: $_model.CreateYikeEditingProjectRequest): Promise<$_model.CreateYikeEditingProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createYikeEditingProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a project.
    * 
    * @param request - CreateYikeProductionRequest
@@ -301,7 +358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a sub-account user in WonderClip.
+   * Creates a sub-user.
    * 
    * @param request - CreateYikeUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -348,7 +405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a sub-account user in WonderClip.
+   * Creates a sub-user.
    * 
    * @param request - CreateYikeUserRequest
    * @returns CreateYikeUserResponse
@@ -455,7 +512,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - GetImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -490,7 +547,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - GetImageGenerationJobRequest
    * @returns GetImageGenerationJobResponse
@@ -501,7 +558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an AI video generation task.
+   * Queries a video generation task.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -510,10 +567,6 @@ export default class Client extends OpenApi {
   async getVideoGenerationJobWithOptions(request: $_model.GetVideoGenerationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoGenerationJobResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
     if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
@@ -536,7 +589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an AI video generation task.
+   * Queries a video generation task.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @returns GetVideoGenerationJobResponse
@@ -547,7 +600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an AI application task.
+   * Retrieves an AI application task from China International Communications Group (YIKE) AI.
    * 
    * @param request - GetYikeAIAppJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -578,7 +631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an AI application task.
+   * Retrieves an AI application task from China International Communications Group (YIKE) AI.
    * 
    * @param request - GetYikeAIAppJobRequest
    * @returns GetYikeAIAppJobResponse
@@ -589,7 +642,42 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an agent task.
+   * Retrieves the membership plan and credit information for a Yike primary account.
+   * 
+   * @param request - GetYikeAccountCreditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeAccountCreditResponse
+   */
+  async getYikeAccountCreditWithOptions(request: $_model.GetYikeAccountCreditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeAccountCreditResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeAccountCredit",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeAccountCreditResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeAccountCreditResponse({}));
+  }
+
+  /**
+   * Retrieves the membership plan and credit information for a Yike primary account.
+   * 
+   * @param request - GetYikeAccountCreditRequest
+   * @returns GetYikeAccountCreditResponse
+   */
+  async getYikeAccountCredit(request: $_model.GetYikeAccountCreditRequest): Promise<$_model.GetYikeAccountCreditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeAccountCreditWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries an intelligent agent task.
    * 
    * @param request - GetYikeAgentJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -620,7 +708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an agent task.
+   * Queries an intelligent agent task.
    * 
    * @param request - GetYikeAgentJobRequest
    * @returns GetYikeAgentJobResponse
@@ -799,7 +887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a WonderClip sub-account.
+   * Retrieves the information of a Yike RAM user.
    * 
    * @param request - GetYikeUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -830,7 +918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a WonderClip sub-account.
+   * Retrieves the information of a Yike RAM user.
    * 
    * @param request - GetYikeUserRequest
    * @returns GetYikeUserResponse
@@ -841,7 +929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the credit balance of a WonderClip user.
+   * Queries the credits of a Yike user.
    * 
    * @param request - GetYikeUserCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -872,7 +960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the credit balance of a WonderClip user.
+   * Queries the credits of a Yike user.
    * 
    * @param request - GetYikeUserCreditRequest
    * @returns GetYikeUserCreditResponse
@@ -883,7 +971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an intelligent video generation task for a narration-only video without a digital human.
+   * Queries the status of an intelligent video generation task for narration-only videos (without digital humans).
    * 
    * @param request - GetYikeVoiceNarratorJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -914,7 +1002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an intelligent video generation task for a narration-only video without a digital human.
+   * Queries the status of an intelligent video generation task for narration-only videos (without digital humans).
    * 
    * @param request - GetYikeVoiceNarratorJobRequest
    * @returns GetYikeVoiceNarratorJobResponse
@@ -975,7 +1063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Yike projects.
+   * Retrieves the list of Yike projects.
    * 
    * @param request - ListYikeProductionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1022,7 +1110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Yike projects.
+   * Retrieves the list of Yike projects.
    * 
    * @param request - ListYikeProductionsRequest
    * @returns ListYikeProductionsResponse
@@ -1033,7 +1121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Yike Workspace List
+   * Retrieves the list of Yike workspaces.
    * 
    * @param request - ListYikeWorkspacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1068,7 +1156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Yike Workspace List
+   * Retrieves the list of Yike workspaces.
    * 
    * @param request - ListYikeWorkspacesRequest
    * @returns ListYikeWorkspacesResponse
@@ -1125,7 +1213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a Yike media asset.
+   * Registers a media asset.
    * 
    * @param request - RegisterYikeAssetMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1168,7 +1256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a Yike media asset.
+   * Registers a media asset.
    * 
    * @param request - RegisterYikeAssetMediaInfoRequest
    * @returns RegisterYikeAssetMediaInfoResponse
@@ -1267,7 +1355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the user role.
+   * Sets the role of a user.
    * 
    * @param request - SetYikeUserRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1302,7 +1390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the user role.
+   * Sets the role of a user.
    * 
    * @param request - SetYikeUserRoleRequest
    * @returns SetYikeUserRoleResponse
@@ -1313,7 +1401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reclaims credits from a user.
+   * Deducts user credits.
    * 
    * @param request - SubYikeUserCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1348,7 +1436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reclaims credits from a user.
+   * Deducts user credits.
    * 
    * @param request - SubYikeUserCreditRequest
    * @returns SubYikeUserCreditResponse
@@ -1362,8 +1450,8 @@ export default class Client extends OpenApi {
    * Submits an image generation task.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
+   * ## Request description
+   * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,8 +1521,8 @@ export default class Client extends OpenApi {
    * Submits an image generation task.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
+   * ## Request description
+   * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @returns SubmitImageGenerationJobResponse
@@ -1449,7 +1537,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - SubmitVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1524,7 +1612,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - SubmitVideoGenerationJobRequest
    * @returns SubmitVideoGenerationJobResponse
@@ -1993,7 +2081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the permissions of a Yike project member.
+   * Modifies the permissions of a China Short Video (Yike) project member.
    * 
    * @param request - UpdateYikeProductionMemberAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2032,7 +2120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the permissions of a Yike project member.
+   * Modifies the permissions of a China Short Video (Yike) project member.
    * 
    * @param request - UpdateYikeProductionMemberAuthRequest
    * @returns UpdateYikeProductionMemberAuthResponse

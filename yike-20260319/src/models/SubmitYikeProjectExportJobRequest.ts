@@ -6,6 +6,7 @@ export class SubmitYikeProjectExportJobRequest extends $dara.Model {
   /**
    * @remarks
    * The export type of the editing project. Valid values:
+   * 
    * - PureAudio: pure audio (the export result returns a pure audio file and a subtitle file).
    * 
    * @example
@@ -23,7 +24,8 @@ export class SubmitYikeProjectExportJobRequest extends $dara.Model {
   /**
    * @remarks
    * The custom parameter in JSON string format. The callback result carries this parameter as-is (for example, newsKey).
-   * The system reserved field NotifyAddress specifies the callback URL. After the task is complete, a callback is sent to this URL. Example: {"NotifyAddress": "http://xxx.callback.url"}
+   * 
+   * The system reserved field NotifyAddress specifies the callback URL. After the task is completed, a callback is sent. Example: {"NotifyAddress": "http://xxx.callback.url"}
    * 
    * @example
    * {\\"newsKey\\":\\"NEWS_20260420_001\\",\\"key1\\":\\"value1\\", \\"NotifyAddress\\":\\"https://cms.example.com/callback/video-task\\"}

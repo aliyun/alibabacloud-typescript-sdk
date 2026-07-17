@@ -15,7 +15,7 @@ export class AddYikeUserCreditRequest extends $dara.Model {
   credit?: number;
   /**
    * @remarks
-   * The ID of the sub-account user.
+   * The sub-account user ID.
    * 
    * This parameter is required.
    * 

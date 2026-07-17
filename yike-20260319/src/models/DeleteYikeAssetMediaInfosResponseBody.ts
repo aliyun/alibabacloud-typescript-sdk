@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteYikeAssetMediaInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs or input URLs for which errors occurred during retrieval.
+   * The IDs or inputUrls for which retrieval errors occurred.
    */
   ignoredList?: string[];
   /**

@@ -65,7 +65,7 @@ export class GetYikeAgentJobResponseBodyJobResult extends $dara.Model {
 export class GetYikeAgentJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the task started. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
+   * The time when the task started, in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2026-02-06T18:53:34.001+08:00
@@ -81,7 +81,7 @@ export class GetYikeAgentJobResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The time when the task ended. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
+   * The time when the task ended, in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2026-02-06T18:53:34.001+08:00
@@ -97,7 +97,7 @@ export class GetYikeAgentJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The input parameters of the task. The value is a JSON string.
+   * The input parameters of the task, in JSON string format.
    * 
    * @example
    * {\\"TextType\\":2,\\"TextContent\\":\\"Today, Beijing held a press conference to announce plans to further optimize the city\\"s transportation network, including adding three new subway lines within the next three years....\\",\\"AspectRatio\\":\\"16:9\\", \\"Resolution\\":\\"720P\\", \\"OutputLanguages\\":[\\"CN\\",\\"YUE\\"]"}
@@ -114,7 +114,7 @@ export class GetYikeAgentJobResponseBody extends $dara.Model {
    * 
    * - Running
    * - Succeeded
-   * - Failed.
+   * - Failed
    * 
    * @example
    * Running

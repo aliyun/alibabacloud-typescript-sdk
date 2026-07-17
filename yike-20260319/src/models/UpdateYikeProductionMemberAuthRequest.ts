@@ -8,7 +8,7 @@ export class UpdateYikeProductionMemberAuthRequest extends $dara.Model {
    * The permission name. Valid values:
    * 
    * - Manage: manageable
-   * - Edit: editable.
+   * - Edit: editable
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   aspectRatio?: string;
   /**
    * @remarks
-   * The error message. This parameter is of the String type and is returned when the task is in the Failed state.
+   * The error message. This parameter is returned only when the task is in the Failed state.
    * 
    * @example
    * Input file not found.
@@ -88,7 +88,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   resolution?: string;
   /**
    * @remarks
-   * The scenario type. Currently only `general` is supported.
+   * The scenario type. Currently, only `general` is supported.
    * 
    * @example
    * general

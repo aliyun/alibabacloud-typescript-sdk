@@ -65,7 +65,7 @@ export class GetYikeVoiceNarratorJobResponseBodyJobResult extends $dara.Model {
 export class GetYikeVoiceNarratorJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is returned only when JobStatus is Failed.
+   * The error code. This parameter is returned only when JobStatus is `Failed`.
    * 
    * @example
    * WorkflowTaskFailed
@@ -89,15 +89,16 @@ export class GetYikeVoiceNarratorJobResponseBody extends $dara.Model {
   jobParams?: string;
   /**
    * @remarks
-   * The task results. This parameter is valid only when JobStatus is Succeeded.
+   * The task results. This parameter is valid only when JobStatus is `Succeeded`.
    */
   jobResult?: GetYikeVoiceNarratorJobResponseBodyJobResult[];
   /**
    * @remarks
    * The task status. Valid values:
+   * 
    * - Running
    * - Succeeded
-   * - Failed.
+   * - Failed
    * 
    * @example
    * Running

@@ -13,7 +13,7 @@ export class GetYikeProjectExportJobResponseBodyProjectExportJobExportResultSrtL
   srtUrl?: string;
   /**
    * @remarks
-   * The type enumeration. Currently, only VoiceOver is supported.
+   * The type enumeration. Currently only VoiceOver is supported.
    * 
    * @example
    * VoiceOver
@@ -53,7 +53,7 @@ export class GetYikeProjectExportJobResponseBodyProjectExportJobExportResult ext
   audioUrl?: string;
   /**
    * @remarks
-   * The download URL of the PR project file (not supported).
+   * The download URL of the PR project file (not supported currently).
    * 
    * @example
    * ....
@@ -66,7 +66,7 @@ export class GetYikeProjectExportJobResponseBodyProjectExportJobExportResult ext
   srtList?: GetYikeProjectExportJobResponseBodyProjectExportJobExportResultSrtList[];
   /**
    * @remarks
-   * The editing timeline (not supported).
+   * The editing timeline (not supported currently).
    * 
    * @example
    * ....

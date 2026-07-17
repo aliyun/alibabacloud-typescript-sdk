@@ -2,34 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddYikeProductionMembersResponseBody extends $dara.Model {
+export class CreateYikeEditingProjectResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * RequestId
-   * 
    * @example
-   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   * ***545bc38a94aa9840c89aff017b***
+   */
+  editingProjectId?: string;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the members were added successfully.
-   * 
-   * @example
-   * true
-   */
-  result?: boolean;
   static names(): { [key: string]: string } {
     return {
+      editingProjectId: 'EditingProjectId',
       requestId: 'RequestId',
-      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      editingProjectId: 'string',
       requestId: 'string',
-      result: 'boolean',
     };
   }
 

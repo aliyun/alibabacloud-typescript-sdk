@@ -15,7 +15,7 @@ export class AddYikeProductionMembersRequest extends $dara.Model {
   productionId?: string;
   /**
    * @remarks
-   * The IDs of the RAM users.
+   * The RAM user IDs.
    * 
    * This parameter is required.
    * 

@@ -5,14 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoGenerationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token.
-   * 
-   * @example
-   * xxxx
-   */
-  clientToken?: string;
-  /**
-   * @remarks
    * The task ID.
    * 
    * @example
@@ -21,14 +13,12 @@ export class GetVideoGenerationJobRequest extends $dara.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       jobId: 'string',
     };
   }

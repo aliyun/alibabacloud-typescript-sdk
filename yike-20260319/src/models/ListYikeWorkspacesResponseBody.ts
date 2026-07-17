@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListYikeWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   /**
    * @remarks
-   * Workspace code
+   * The workspace code.
    * 
    * @example
    * ABCD12
@@ -13,7 +13,7 @@ export class ListYikeWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2026-04-29T10:22:44Z
@@ -21,7 +21,7 @@ export class ListYikeWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Default project ID
+   * The default project ID.
    * 
    * @example
    * pd_1234***
@@ -29,7 +29,7 @@ export class ListYikeWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   defaultProductionId?: string;
   /**
    * @remarks
-   * Workspace status
+   * The workspace status.
    * 
    * @example
    * Online
@@ -37,7 +37,7 @@ export class ListYikeWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Title
+   * The title.
    * 
    * @example
    * workspace title
@@ -45,7 +45,7 @@ export class ListYikeWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Number of users in the workspace
+   * The number of users in the workspace.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListYikeWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   userCount?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * ws_1243****
@@ -103,7 +103,7 @@ export class ListYikeWorkspacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of workspaces
+   * The total number of workspaces.
    * 
    * @example
    * 54
@@ -111,7 +111,7 @@ export class ListYikeWorkspacesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Workspace list
+   * The list of workspaces.
    */
   workspaceList?: ListYikeWorkspacesResponseBodyWorkspaceList[];
   static names(): { [key: string]: string } {

@@ -2,24 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetYikeUserRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The username of the RAM user.
-   * 
-   * @example
-   * test.xxx@xxx.yikeai
-   */
-  userName?: string;
+export class GetYikeAccountCreditRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
-      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userName: 'string',
     };
   }
 

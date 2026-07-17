@@ -13,7 +13,7 @@ export class GetYikeUserCreditResponseBody extends $dara.Model {
   creditTotal?: string;
   /**
    * @remarks
-   * The remaining available credits.
+   * The current remaining available credits.
    * 
    * @example
    * 165.0

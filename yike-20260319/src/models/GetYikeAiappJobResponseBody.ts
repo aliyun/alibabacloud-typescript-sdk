@@ -183,7 +183,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The input parameters for the AI application run. The value is a string obtained after JSON serialize.
+   * The input parameters for the AI application execution, a string after JSON serialization.
    * 
    * @example
    * {\\"LoadImage.1.TargetImage\\":\\"MediaId1\\"}
@@ -245,11 +245,12 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - Created: The task is created.
+   * 
+   * - Created: The task is just created.
    * - Queuing: The task is queuing.
    * - Executing: The task is being executed.
-   * - Finished: The task is finished.
-   * - Failed: The task failed.
+   * - Finished: The task execution is complete.
+   * - Failed: The task execution failed.
    * 
    * @example
    * Created

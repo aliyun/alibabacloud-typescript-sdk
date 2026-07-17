@@ -15,6 +15,8 @@ export { GetYikeAIAppJobResponseBodyResultAudioResult } from './GetYikeAiappJobR
 export { GetYikeAIAppJobResponseBodyResultImageResult } from './GetYikeAiappJobResponseBody';
 export { GetYikeAIAppJobResponseBodyResultVideoResult } from './GetYikeAiappJobResponseBody';
 export { GetYikeAIAppJobResponseBodyResult } from './GetYikeAiappJobResponseBody';
+export { GetYikeAccountCreditResponseBodyCreditInfo } from './GetYikeAccountCreditResponseBody';
+export { GetYikeAccountCreditResponseBodyMembershipInfo } from './GetYikeAccountCreditResponseBody';
 export { GetYikeAgentJobResponseBodyJobResult } from './GetYikeAgentJobResponseBody';
 export { GetYikeAssetMediaInfoResponseBodyMediaInfoBizData } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList } from './GetYikeAssetMediaInfoResponseBody';
@@ -53,6 +55,9 @@ export { BatchGetYikeAssetMediaInfosResponse } from './BatchGetYikeAssetMediaInf
 export { CreateYikeAssetUploadRequest } from './CreateYikeAssetUploadRequest';
 export { CreateYikeAssetUploadResponseBody } from './CreateYikeAssetUploadResponseBody';
 export { CreateYikeAssetUploadResponse } from './CreateYikeAssetUploadResponse';
+export { CreateYikeEditingProjectRequest } from './CreateYikeEditingProjectRequest';
+export { CreateYikeEditingProjectResponseBody } from './CreateYikeEditingProjectResponseBody';
+export { CreateYikeEditingProjectResponse } from './CreateYikeEditingProjectResponse';
 export { CreateYikeProductionRequest } from './CreateYikeProductionRequest';
 export { CreateYikeProductionResponseBody } from './CreateYikeProductionResponseBody';
 export { CreateYikeProductionResponse } from './CreateYikeProductionResponse';
@@ -74,6 +79,9 @@ export { GetVideoGenerationJobResponse } from './GetVideoGenerationJobResponse';
 export { GetYikeAIAppJobRequest } from './GetYikeAiappJobRequest';
 export { GetYikeAIAppJobResponseBody } from './GetYikeAiappJobResponseBody';
 export { GetYikeAIAppJobResponse } from './GetYikeAiappJobResponse';
+export { GetYikeAccountCreditRequest } from './GetYikeAccountCreditRequest';
+export { GetYikeAccountCreditResponseBody } from './GetYikeAccountCreditResponseBody';
+export { GetYikeAccountCreditResponse } from './GetYikeAccountCreditResponse';
 export { GetYikeAgentJobRequest } from './GetYikeAgentJobRequest';
 export { GetYikeAgentJobResponseBody } from './GetYikeAgentJobResponseBody';
 export { GetYikeAgentJobResponse } from './GetYikeAgentJobResponse';

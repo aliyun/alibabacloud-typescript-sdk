@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateYikeUserResponseBodyUserInfo extends $dara.Model {
   /**
    * @remarks
-   * The nickname of the user.
+   * The user nickname.
    * 
    * @example
    * nick

@@ -155,7 +155,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
 export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList extends $dara.Model {
   /**
    * @remarks
-   * The bitrate.
+   * The bitrate of the file.
    * 
    * @example
    * 192.0
@@ -171,7 +171,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
   channelLayout?: string;
   /**
    * @remarks
-   * The number of channels.
+   * The number of audio channels.
    * 
    * @example
    * 2
@@ -219,7 +219,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
   codecTimeBase?: string;
   /**
    * @remarks
-   * The duration.
+   * The duration of the file.
    * 
    * @example
    * 16.2
@@ -243,7 +243,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
   index?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the audio stream.
    * 
    * @example
    * zh
@@ -355,7 +355,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
 export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The bitrate.
+   * The bitrate of the file.
    * 
    * @example
    * 20
@@ -371,7 +371,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   createTime?: string;
   /**
    * @remarks
-   * The duration.
+   * The duration of the file.
    * 
    * @example
    * 16.2
@@ -387,7 +387,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 27007
@@ -419,7 +419,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   fileUrl?: string;
   /**
    * @remarks
-   * The container format.
+   * The container format of the file.
    * 
    * @example
    * mp4
@@ -427,7 +427,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   formatName?: string;
   /**
    * @remarks
-   * The height.
+   * The height of the file.
    * 
    * @example
    * 540
@@ -451,7 +451,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   region?: string;
   /**
    * @remarks
-   * The width.
+   * The width of the file.
    * 
    * @example
    * 960
@@ -545,7 +545,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStrea
   codecTimeBase?: string;
   /**
    * @remarks
-   * The duration.
+   * The duration of the file.
    * 
    * @example
    * 1
@@ -561,7 +561,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStrea
   index?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the audio stream.
    * 
    * @example
    * zh
@@ -633,7 +633,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   avgFPS?: string;
   /**
    * @remarks
-   * The bitrate.
+   * The bitrate of the file.
    * 
    * @example
    * 20
@@ -689,7 +689,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   dar?: string;
   /**
    * @remarks
-   * The duration.
+   * The duration of the file.
    * 
    * @example
    * 216.206706
@@ -713,7 +713,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   hasBFrames?: string;
   /**
    * @remarks
-   * The height.
+   * The height of the file.
    * 
    * @example
    * 540
@@ -729,7 +729,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   index?: string;
   /**
    * @remarks
-   * The language.
+   * The language of the audio stream.
    * 
    * @example
    * zh
@@ -801,7 +801,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   timebase?: string;
   /**
    * @remarks
-   * The width.
+   * The width of the file.
    * 
    * @example
    * 960
@@ -875,7 +875,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
 export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The audio stream information. A media asset may contain multiple audio streams.
+   * The audio stream information. A media asset may have multiple audio streams.
    */
   audioStreamInfoList?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList[];
   /**
@@ -885,12 +885,12 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoList extends $dar
   fileBasicInfo?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo;
   /**
    * @remarks
-   * The subtitle stream information. A media asset may contain multiple subtitle streams.
+   * The subtitle stream information. A media asset may have multiple subtitle streams.
    */
   subtitleStreamInfoList?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList[];
   /**
    * @remarks
-   * The video stream information. A media asset may contain multiple video streams.
+   * The video stream information. A media asset may have multiple video streams.
    */
   videoStreamInfoList?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
@@ -967,7 +967,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   cateName?: string;
   /**
    * @remarks
-   * The category.
+   * The category of the media asset.
    * 
    * @example
    * category
@@ -975,7 +975,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   category?: string;
   /**
    * @remarks
-   * The cover URL.
+   * The URL of the cover image.
    * 
    * @example
    * https://dtlive-vip.oss-cn-shanghai.aliyuncs.com/cover/4e88a055-75fc-4ff5-8b8a-f32224917514_open_live_cover.jpg
@@ -999,7 +999,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   deletedTime?: string;
   /**
    * @remarks
-   * The content description.
+   * The description of the media asset content.
    * 
    * @example
    * description
@@ -1023,7 +1023,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   mediaId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tags of the media asset.
    * 
    * @example
    * tag1
@@ -1047,7 +1047,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   modifiedTime?: string;
   /**
    * @remarks
-   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The value must be 6 to 64 characters in length and is unique for each user.
+   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The value must be 6 to 64 characters in length and is unique within the user scope.
    * 
    * @example
    * 123-1234
@@ -1055,7 +1055,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   referenceId?: string;
   /**
    * @remarks
-   * The snapshots.
+   * The snapshots of the media asset.
    * 
    * @example
    * []
@@ -1063,7 +1063,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   snapshots?: string;
   /**
    * @remarks
-   * The source.
+   * The source of the media asset.
    * 
    * @example
    * oss
@@ -1071,7 +1071,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   source?: string;
   /**
    * @remarks
-   * The sprite images.
+   * The sprite images of the media asset.
    * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
@@ -1079,7 +1079,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   spriteImages?: string;
   /**
    * @remarks
-   * The resource status.
+   * The status of the resource.
    * 
    * @example
    * Normal
@@ -1103,7 +1103,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   thumbURLWebp?: string;
   /**
    * @remarks
-   * The title.
+   * The title of the media asset.
    * 
    * @example
    * v6l82k_176822379****.jpeg

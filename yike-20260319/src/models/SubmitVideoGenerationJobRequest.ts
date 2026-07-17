@@ -29,13 +29,13 @@ export class SubmitVideoGenerationJobRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The task input, in JSON string format. The following fields are included:
+   * The task input in JSON string format. The following fields are included:
    * - Prompt: String. Required. The prompt.
-   * - Medias: the media list.
-   *   - When JobType is set to image_to_video, this field is required. Only 1 Media item is needed.
-   *   - When JobType is set to first_last_frame, this field is required. Only 2 Media items are needed.
-   *   - When JobType is set to reference_to_video, this field is required. A maximum of 9 Media items are supported.
-   * > The Media struct contains: Type, the media type, String, valid values are `image`/`video`/`audio`; URL, the media download URL, String.
+   * - Medias: The media list.
+   *   - When JobType is image_to_video, this field is required. Only 1 Media item is needed.
+   *   - When JobType is first_last_frame, this field is required. Only 2 Media items are needed.
+   *   - When JobType is reference_to_video, this field is required. A maximum of 9 Media items are supported.
+   * > The Media structure contains: Type, the media type (String). Valid values: `image`, `video`, or `audio`. URL, the media download URL (String).
    * >
    * 
    * @example
@@ -44,7 +44,7 @@ export class SubmitVideoGenerationJobRequest extends $dara.Model {
   input?: string;
   /**
    * @remarks
-   * The task feature parameters. No configuration is required at this time.
+   * The task function parameters. No configuration is required at this time.
    * 
    * @example
    * {}
@@ -56,7 +56,7 @@ export class SubmitVideoGenerationJobRequest extends $dara.Model {
    * - text_to_video: text-to-video
    * - image_to_video: image-to-video
    * - first_last_frame: first and last frame to video
-   * - reference_to_video: reference-to-video
+   * - reference_to_video: reference to video
    * 
    * @example
    * text_to_video

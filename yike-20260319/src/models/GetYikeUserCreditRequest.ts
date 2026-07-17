@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetYikeUserCreditRequest extends $dara.Model {
   /**
    * @remarks
-   * The user ID of the sub-account.
+   * The sub-account user ID.
    * 
    * This parameter is required.
    * 
