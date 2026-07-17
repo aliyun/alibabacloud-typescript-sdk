@@ -12,6 +12,7 @@ export { NodepoolNodeComponentsConfig } from './Nodepool';
 export { NodepoolNodeComponents } from './Nodepool';
 export { NodepoolNodeConfig } from './Nodepool';
 export { NodepoolNodepoolInfo } from './Nodepool';
+export { NodepoolScalingGroupCpuOptions } from './Nodepool';
 export { NodepoolScalingGroupPrivatePoolOptions } from './Nodepool';
 export { NodepoolScalingGroupResourcePoolOptions } from './Nodepool';
 export { NodepoolScalingGroupSpotPriceLimit } from './Nodepool';
@@ -31,6 +32,7 @@ export { CreateClusterRequestAuditLogConfig } from './CreateClusterRequest';
 export { CreateClusterRequestAutoMode } from './CreateClusterRequest';
 export { CreateClusterRequestControlPlaneConfig } from './CreateClusterRequest';
 export { CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig } from './CreateClusterRequest';
+export { CreateClusterRequestControlPlaneEndpointsConfigLoadBalancersConfig } from './CreateClusterRequest';
 export { CreateClusterRequestControlPlaneEndpointsConfig } from './CreateClusterRequest';
 export { CreateClusterRequestOperationPolicyClusterAutoUpgrade } from './CreateClusterRequest';
 export { CreateClusterRequestOperationPolicy } from './CreateClusterRequest';
@@ -50,6 +52,7 @@ export { CreateClusterNodePoolRequestNodeComponentsConfig } from './CreateCluste
 export { CreateClusterNodePoolRequestNodeComponents } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodeConfig } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodepoolInfo } from './CreateClusterNodePoolRequest';
+export { CreateClusterNodePoolRequestScalingGroupCpuOptions } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestScalingGroupResourcePoolOptions } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestScalingGroupSpotPriceLimit } from './CreateClusterNodePoolRequest';
@@ -72,6 +75,7 @@ export { DescribeAutoRepairPolicyResponseBodyRules } from './DescribeAutoRepairP
 export { DescribeClusterDetailResponseBodyAutoMode } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyControlPlaneConfig } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigInternalDnsConfig } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyControlPlaneEndpointsConfigLoadBalancersConfig } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyControlPlaneEndpointsConfig } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyOperationPolicy } from './DescribeClusterDetailResponseBody';
@@ -95,6 +99,7 @@ export { DescribeClusterNodePoolDetailResponseBodyNodeComponents } from './Descr
 export { DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyNodeConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyNodepoolInfo } from './DescribeClusterNodePoolDetailResponseBody';
+export { DescribeClusterNodePoolDetailResponseBodyScalingGroupCpuOptions } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyScalingGroupResourcePoolOptions } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit } from './DescribeClusterNodePoolDetailResponseBody';
@@ -117,6 +122,7 @@ export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents } from './D
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfigNodeOsConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo } from './DescribeClusterNodePoolsResponseBody';
+export { DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupCpuOptions } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupPrivatePoolOptions } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupResourcePoolOptions } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupSpotPriceLimit } from './DescribeClusterNodePoolsResponseBody';
@@ -223,6 +229,7 @@ export { ModifyAutoRepairPolicyRequestRules } from './ModifyAutoRepairPolicyRequ
 export { ModifyClusterRequestApiServerCustomCertSans } from './ModifyClusterRequest';
 export { ModifyClusterRequestControlPlaneConfig } from './ModifyClusterRequest';
 export { ModifyClusterRequestControlPlaneEndpointsConfigInternalDnsConfig } from './ModifyClusterRequest';
+export { ModifyClusterRequestControlPlaneEndpointsConfigLoadBalancersConfig } from './ModifyClusterRequest';
 export { ModifyClusterRequestControlPlaneEndpointsConfig } from './ModifyClusterRequest';
 export { ModifyClusterRequestOperationPolicyClusterAutoUpgrade } from './ModifyClusterRequest';
 export { ModifyClusterRequestOperationPolicy } from './ModifyClusterRequest';
