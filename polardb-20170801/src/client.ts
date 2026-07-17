@@ -10468,10 +10468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific application in a PolarDB instance.
+   * Retrieves the detailed information of a specified PolarDB application.
    * 
    * @remarks
-   * Retrieves all information about a specific PolarDB application, such as component details and endpoints.
+   * This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
    * 
    * @param request - DescribeApplicationAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10502,10 +10502,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific application in a PolarDB instance.
+   * Retrieves the detailed information of a specified PolarDB application.
    * 
    * @remarks
-   * Retrieves all information about a specific PolarDB application, such as component details and endpoints.
+   * This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
    * 
    * @param request - DescribeApplicationAttributeRequest
    * @returns DescribeApplicationAttributeResponse
@@ -27893,6 +27893,52 @@ export default class Client extends OpenApi {
   async restartDBNodeZonal(request: $_model.RestartDBNodeZonalRequest): Promise<$_model.RestartDBNodeZonalResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restartDBNodeZonalWithOptions(request, runtime);
+  }
+
+  /**
+   * Restarts a PolarClaw gateway.
+   * 
+   * @param request - RestartPolarClawGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartPolarClawGatewayResponse
+   */
+  async restartPolarClawGatewayWithOptions(request: $_model.RestartPolarClawGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartPolarClawGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartPolarClawGateway",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartPolarClawGatewayResponse>(await this.callApi(params, req, runtime), new $_model.RestartPolarClawGatewayResponse({}));
+  }
+
+  /**
+   * Restarts a PolarClaw gateway.
+   * 
+   * @param request - RestartPolarClawGatewayRequest
+   * @returns RestartPolarClawGatewayResponse
+   */
+  async restartPolarClawGateway(request: $_model.RestartPolarClawGatewayRequest): Promise<$_model.RestartPolarClawGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartPolarClawGatewayWithOptions(request, runtime);
   }
 
   /**
