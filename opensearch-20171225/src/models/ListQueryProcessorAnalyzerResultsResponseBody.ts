@@ -13,7 +13,7 @@ export class ListQueryProcessorAnalyzerResultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data returned.
+   * The result of the request.
    * 
    * @example
    * {}

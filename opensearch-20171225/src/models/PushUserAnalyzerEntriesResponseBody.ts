@@ -16,7 +16,7 @@ export class PushUserAnalyzerEntriesResponseBody extends $dara.Model {
    * The result returned.
    * 
    * @example
-   * {}
+   * []
    */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {

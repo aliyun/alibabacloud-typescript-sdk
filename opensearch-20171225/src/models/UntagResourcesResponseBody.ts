@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * 1-A-0-B
+   * 1-B-2-V
    */
   tequestId?: string;
   static names(): { [key: string]: string } {

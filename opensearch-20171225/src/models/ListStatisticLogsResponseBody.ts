@@ -13,9 +13,9 @@ export class ListStatisticLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. For more information, see
+   * The returned data. For more information, see:
    * 
-   * *   [Parameters of hotwords rankings](https://help.aliyun.com/document_detail/421248.html).
+   * - [Hotword rankings](https://help.aliyun.com/document_detail/421248.html)
    * 
    * @example
    * []

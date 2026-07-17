@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataCollectionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListDataCollectionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page. The default value is 10.
    * 
    * @example
    * 10

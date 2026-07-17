@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFunctionResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If no error occurs, this parameter is left empty.
+   * The error code. This is empty if the request succeeds.
    * 
    * @example
    * ""
@@ -13,7 +13,7 @@ export class CreateFunctionResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class CreateFunctionResourceResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the request. Unit: milliseconds.
+   * The request processing time in milliseconds.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class CreateFunctionResourceResponseBody extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The returned message.
    * 
    * @example
    * ""
@@ -37,7 +37,7 @@ export class CreateFunctionResourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A4D487A9-A456-5AA5-A9C6-B7BF2889CF74
@@ -45,10 +45,11 @@ export class CreateFunctionResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code. Valid values:
+   * The status of the request.
    * 
-   * *   OK
-   * *   FAIL
+   * - OK: The request was successful.
+   * 
+   * - FAIL: The request failed.
    * 
    * @example
    * OK

@@ -29,7 +29,7 @@ export class ModifySecondRankResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The expression ID. This parameter is displayed only in the response.
+   * The ID of the expression. This parameter is returned only in the response.
    * 
    * @example
    * 890473
@@ -37,10 +37,11 @@ export class ModifySecondRankResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether the expression is the default one. This parameter is displayed only in the response. Valid values:
+   * Indicates whether the expression is the default expression. This parameter is returned only in the response.
    * 
-   * *   true: the expression is the default one.
-   * *   false: the expression is not the default one.
+   * - true: The expression is the default expression.
+   * 
+   * - false: The expression is not the default expression.
    * 
    * @example
    * true
@@ -48,10 +49,11 @@ export class ModifySecondRankResponseBodyResult extends $dara.Model {
   isDefault?: string;
   /**
    * @remarks
-   * Indicates whether the expression is a system expression. This parameter is displayed only in the response. Valid values:
+   * Indicates whether the expression is a system expression. This parameter is returned only in the response.
    * 
-   * *   true: The expression is a system expression.
-   * *   false:The expression is not a system expression
+   * - true: The expression is a system expression.
+   * 
+   * - false: The expression is not a system expression.
    * 
    * @example
    * false
@@ -59,7 +61,7 @@ export class ModifySecondRankResponseBodyResult extends $dara.Model {
   isSys?: string;
   /**
    * @remarks
-   * The content of the fine sort expression. You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
+   * The fine sort expression. You can create an expression that contains fields, scoring features, and mathematical functions to implement complex sorting logic.
    * 
    * @example
    * cate_id > 0 and cate_id < 1000
@@ -67,7 +69,7 @@ export class ModifySecondRankResponseBodyResult extends $dara.Model {
   meta?: string;
   /**
    * @remarks
-   * The expression name.
+   * The name of the expression.
    * 
    * @example
    * lsh_second_1

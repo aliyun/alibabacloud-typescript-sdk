@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindESUserAnalyzerRequest extends $dara.Model {
   /**
    * @remarks
-   * The request parameters.
+   * The request body.
    * 
    * @example
    * {

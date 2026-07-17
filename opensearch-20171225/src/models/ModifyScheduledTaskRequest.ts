@@ -8,7 +8,15 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
    * The request parameters.
    * 
    * @example
-   * The request parameters.
+   * {
+   *   "cron": "0 0 * * 1,2,3,4,5,6,7",
+   *   "enabled": true,
+   *   "filter": {
+   *     "field": "cat_id",
+   *     "days": 30,
+   *     "unit": "s"
+   *   }
+   * }
    */
   body?: any;
   static names(): { [key: string]: string } {

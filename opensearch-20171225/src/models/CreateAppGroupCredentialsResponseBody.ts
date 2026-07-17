@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppGroupCredentialsResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the application group.
+   * 
    * @example
    * app_group_123
    */
   appGroupId?: number;
+  /**
+   * @remarks
+   * Indicates whether the credential is enabled.
+   */
   enabled?: boolean;
   /**
+   * @remarks
+   * The generated credential token.
+   * 
    * @example
    * generated_token_string
    */
   token?: string;
   /**
+   * @remarks
+   * The credential type.
+   * 
    * @example
    * api-token
    */
@@ -48,10 +61,17 @@ export class CreateAppGroupCredentialsResponseBodyResult extends $dara.Model {
 
 export class CreateAppGroupCredentialsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1-2-3-4
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the operation result.
+   */
   result?: CreateAppGroupCredentialsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

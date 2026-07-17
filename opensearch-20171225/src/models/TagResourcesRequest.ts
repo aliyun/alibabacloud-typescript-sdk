@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * cloud_manage
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * 31261301
@@ -45,7 +45,7 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource IDs. You can specify a maximum number of 50 resource IDs.
+   * The IDs of the resources. You can specify up to 50 resource IDs.
    * 
    * This parameter is required.
    */
@@ -62,7 +62,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags. You can specify a maximum number of 20 tags.
+   * The tags to add to the resources. You can add up to 20 tags.
    * 
    * This parameter is required.
    */

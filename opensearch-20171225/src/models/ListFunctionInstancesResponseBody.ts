@@ -21,7 +21,7 @@ export class ListFunctionInstancesResponseBodyResultBelongs extends $dara.Model 
   domain?: string;
   /**
    * @remarks
-   * The abbreviation of the language that applies.
+   * The language code.
    * 
    * @example
    * "zh"
@@ -135,7 +135,7 @@ export class ListFunctionInstancesResponseBodyResultUsageParameters extends $dar
 export class ListFunctionInstancesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The information about the instance.
+   * The ownership information of the instance.
    * 
    * @example
    * {}
@@ -143,7 +143,7 @@ export class ListFunctionInstancesResponseBodyResult extends $dara.Model {
   belongs?: ListFunctionInstancesResponseBodyResultBelongs;
   /**
    * @remarks
-   * The parameters of the instance.
+   * The list of parameters for the instance.
    * 
    * @example
    * []
@@ -159,10 +159,10 @@ export class ListFunctionInstancesResponseBodyResult extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The cron expression used to schedule training, in the format of (Minutes Hours DayofMonth Month DayofWeek). If the value is empty, it indicates that no periodic training is performed.
+   * The training schedule. This is a cron expression in the format of Minutes Hours DayofMonth Month DayofWeek. If this parameter is empty, periodic training is not performed.
    * 
    * @example
-   * 0 3 ? \\* 0,1,3,5 (at 3 a.m. on Sunday, Monday, Wednesday, and Friday)
+   * 0 3 ? * 0,1,3,5 (周日，周一，周三，周五凌晨3点)
    */
   cron?: string;
   /**
@@ -175,7 +175,7 @@ export class ListFunctionInstancesResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The extended information, which is a JSON string. It includes model evaluation information and error information.
+   * The extended information. This is a JSON string that contains information such as model evaluation results and error messages.
    * 
    * @example
    * "{\\"dataReport\\":{},\\"errors\\":{}}"
@@ -215,10 +215,11 @@ export class ListFunctionInstancesResponseBodyResult extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * How the instance is created. Valid values:
+   * The source of the instance. Valid values:
    * 
-   * *   user: The instance is created by user.
-   * *   builtin: The instance is created by system.
+   * - user: The instance is created by the user.
+   * 
+   * - builtin: The instance is created by the system.
    * 
    * @example
    * "user"
@@ -226,10 +227,11 @@ export class ListFunctionInstancesResponseBodyResult extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The state of the instance. Valid values:
+   * The status of the instance. Valid values:
    * 
-   * 1.  unavailable: No model is available. Models must be trained before you can use them.
-   * 2.  available: Models can be used.
+   * 1. unavailable: No model is available. You must train a model before you can use the instance.
+   * 
+   * 2. available: The instance is available.
    * 
    * @example
    * available
@@ -237,12 +239,12 @@ export class ListFunctionInstancesResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The parameters that are used.
+   * The list of parameters in use.
    */
   usageParameters?: ListFunctionInstancesResponseBodyResultUsageParameters[];
   /**
    * @remarks
-   * The ID of the version.
+   * The version ID.
    * 
    * @example
    * 123
@@ -307,7 +309,7 @@ export class ListFunctionInstancesResponseBodyResult extends $dara.Model {
 export class ListFunctionInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If no error occurs, the parameter is left empty.
+   * The error code. This parameter is empty if the request is successful.
    * 
    * @example
    * Instance.NotExist
@@ -323,7 +325,7 @@ export class ListFunctionInstancesResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the request, in milliseconds.
+   * The request latency, in milliseconds.
    * 
    * @example
    * 123
@@ -331,7 +333,7 @@ export class ListFunctionInstancesResponseBody extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * The error message. If no error occurs, the parameter is left empty.
+   * The error message. This parameter is empty if the request is successful.
    * 
    * @example
    * instance not exist.
@@ -347,7 +349,7 @@ export class ListFunctionInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the instances.
+   * The list of instances.
    * 
    * @example
    * []
@@ -363,7 +365,7 @@ export class ListFunctionInstancesResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

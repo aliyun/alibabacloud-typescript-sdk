@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAppGroupDeleteProtectionResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ops-cn-m7r1ywo2h1b
    */
@@ -32,12 +35,16 @@ export class UpdateAppGroupDeleteProtectionResponseBodyResult extends $dara.Mode
 export class UpdateAppGroupDeleteProtectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 80326EFE-485F-46E7-B291-5A1DD08D2198
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: UpdateAppGroupDeleteProtectionResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

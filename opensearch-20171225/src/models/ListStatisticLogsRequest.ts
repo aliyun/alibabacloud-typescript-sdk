@@ -7,7 +7,7 @@ export class ListStatisticLogsRequest extends $dara.Model {
    * @remarks
    * The fields to query. Format: columns=wordsTopPv.
    * 
-   * For more information, see [Metrics in statistical reports](https://help.aliyun.com/document_detail/187665.html).
+   * For more information, see [Metrics for query analysis](https://help.aliyun.com/document_detail/187665.html).
    * 
    * @example
    * wordsTopPv
@@ -23,7 +23,7 @@ export class ListStatisticLogsRequest extends $dara.Model {
   distinct?: boolean;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListStatisticLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page. The default value is 10.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class ListStatisticLogsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The default value is the timestamp of 00:00:00 on the current day.
+   * The start of the time range to query. The value must be a UNIX timestamp. The default value is the UNIX timestamp for 00:00:00 on the current day.
    * 
    * @example
    * 1582214400
@@ -63,7 +63,7 @@ export class ListStatisticLogsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The end of the time range to query. The default value is the timestamp of 24:00:00 on the current day.
+   * The end of the time range to query. The value must be a UNIX timestamp. The default value is the UNIX timestamp for 24:00:00 on the current day.
    * 
    * @example
    * 1682222400

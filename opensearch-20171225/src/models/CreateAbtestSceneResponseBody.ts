@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateABTestSceneResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the test scenario was created.
+   * The time when the scene was created.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class CreateABTestSceneResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The ID of the test group.
+   * The ID of the group.
    * 
    * @example
    * 20405
@@ -21,7 +21,7 @@ export class CreateABTestSceneResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the A/B test group.
+   * The name of the group.
    * 
    * @example
    * kevintest_2020-5-7_15:21:48
@@ -29,10 +29,11 @@ export class CreateABTestSceneResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status. Valid values:
+   * The status of the scene. Valid values:
    * 
-   * *   0: not in effect
-   * *   1: in effect
+   * - 0: disabled
+   * 
+   * - 1: enabled
    * 
    * @example
    * 1
@@ -40,7 +41,7 @@ export class CreateABTestSceneResponseBodyResult extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The time when the test scenario was last updated.
+   * The time when the scene was last updated.
    * 
    * @example
    * 1589012351
@@ -48,7 +49,7 @@ export class CreateABTestSceneResponseBodyResult extends $dara.Model {
   updated?: number;
   /**
    * @remarks
-   * The ID of the test scenario
+   * The IDs of the scenes.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -96,7 +97,7 @@ export class CreateABTestSceneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned data.
+   * The result of the request.
    */
   result?: CreateABTestSceneResponseBodyResult;
   static names(): { [key: string]: string } {

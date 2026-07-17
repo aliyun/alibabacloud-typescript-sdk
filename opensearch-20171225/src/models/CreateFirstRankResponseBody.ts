@@ -21,7 +21,8 @@ export class CreateFirstRankResponseBodyResultMeta extends $dara.Model {
   attribute?: string;
   /**
    * @remarks
-   * The weight. Valid values: [-100000,100000]. The value cannot be 0.
+   * The weight.
+   * Valid values: [-100000, 100000]. The value cannot be 0.
    * 
    * @example
    * 10

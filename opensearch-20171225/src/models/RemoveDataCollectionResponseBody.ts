@@ -13,7 +13,7 @@ export class RemoveDataCollectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * -
+   * —
    * 
    * @example
    * {}

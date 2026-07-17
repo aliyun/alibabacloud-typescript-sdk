@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateABTestSceneResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the test scenario was created.
+   * The time when the scenario was created.
    * 
    * @example
    * 1596527691
@@ -13,7 +13,7 @@ export class UpdateABTestSceneResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The ID of the test scenario.
+   * The ID of the scenario.
    * 
    * @example
    * 20614
@@ -21,7 +21,7 @@ export class UpdateABTestSceneResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the test scenario.
+   * The alias of the scenario.
    * 
    * @example
    * kevintest22
@@ -29,10 +29,11 @@ export class UpdateABTestSceneResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the test. Valid values:
+   * The status of the test.
    * 
-   * *   true: The test is started.
-   * *   false: The test is stopped.
+   * - true: The test is started.
+   * 
+   * - false: The test is stopped.
    * 
    * @example
    * true
@@ -40,7 +41,7 @@ export class UpdateABTestSceneResponseBodyResult extends $dara.Model {
   online?: boolean;
   /**
    * @remarks
-   * The parameters of the A/B test.
+   * The parameters of the experiment.
    * 
    * @example
    * {}
@@ -56,7 +57,7 @@ export class UpdateABTestSceneResponseBodyResult extends $dara.Model {
   traffic?: number;
   /**
    * @remarks
-   * The time when the test scenario was last modified.
+   * The time when the scenario was last modified.
    * 
    * @example
    * 1596527691
@@ -109,7 +110,8 @@ export class UpdateABTestSceneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the test scenario. For more information, see [ABTestScene](https://help.aliyun.com/document_detail/173618.html).
+   * The details of the A/B test scenario.
+   * For more information, see [ABTestScene](https://help.aliyun.com/document_detail/173618.html).
    * 
    * @example
    * {}

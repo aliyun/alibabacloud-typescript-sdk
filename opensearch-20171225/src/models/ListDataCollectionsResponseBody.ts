@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the data collection was created.
    * 
    * @example
    * 1581065837
@@ -13,11 +13,13 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The type of data collected. Valid values:
+   * The type of data collection.
    * 
-   * *   behavior: behavioral data.
-   * *   item_info: project information.
-   * *   industry_specific: industry-specific data.
+   * - behavior: User behavior data.
+   * 
+   * - item_info: Item information.
+   * 
+   * - industry_specific: Industry-specific attributes.
    * 
    * @example
    * BEHAVIOR
@@ -25,7 +27,7 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   dataCollectionType?: string;
   /**
    * @remarks
-   * The data collection ID.
+   * The ID of the data collection.
    * 
    * @example
    * 286
@@ -33,10 +35,11 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The industry name. Valid values:
+   * The name of the industry.
    * 
-   * *   general
-   * *   ecommerce
+   * - general: General.
+   * 
+   * - ecommerce: E-commerce.
    * 
    * @example
    * GENERAL
@@ -44,7 +47,7 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   industryName?: string;
   /**
    * @remarks
-   * The name of the data collection task.
+   * The name of the data collection.
    * 
    * @example
    * os_function_test_v1
@@ -52,12 +55,15 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the data collection feature. Valid values:
+   * The status.
    * 
-   * *   0: The feature is disabled.
-   * *   1: The feature is being enabled.
-   * *   2: The feature is enabled.
-   * *   3: The feature failed to be enabled.
+   * - 0: Disabled.
+   * 
+   * - 1: Enabling.
+   * 
+   * - 2: Enabled.
+   * 
+   * - 3: Failed.
    * 
    * @example
    * 2
@@ -65,7 +71,7 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The sundial ID.
+   * The ID of the sundial.
    * 
    * @example
    * 1755
@@ -73,13 +79,15 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   sundialId?: string;
   /**
    * @remarks
-   * The type of the source from which data was collected. Valid values:
+   * The type of the data collection client.
    * 
-   * *   server
-   * *   web
-   * *   app
+   * - server
    * 
-   * Only server is supported.
+   * - web
+   * 
+   * - app
+   * 
+   * Note: Only server is supported.
    * 
    * @example
    * server
@@ -87,7 +95,7 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the data collection task was updated.
+   * The time when the data collection was last updated.
    * 
    * @example
    * 1581065904
@@ -133,7 +141,7 @@ export class ListDataCollectionsResponseBodyResult extends $dara.Model {
 export class ListDataCollectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 959D8782-B130-95EB-86CC-1F6ED447981F
@@ -141,14 +149,14 @@ export class ListDataCollectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the data collection task.
+   * The data collection information.
    * 
    * For more information, see [DataCollection](https://help.aliyun.com/document_detail/173605.html).
    */
   result?: ListDataCollectionsResponseBodyResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

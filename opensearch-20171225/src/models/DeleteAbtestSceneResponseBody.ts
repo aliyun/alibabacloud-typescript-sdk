@@ -8,7 +8,7 @@ export class DeleteABTestSceneResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * ABCDEFGH
+   * 5C1C1C45-C64A-AD30-565F-140871D57E5E
    */
   requestId?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteABTestSceneResponseBody extends $dara.Model {
    * The returned results.
    * 
    * @example
-   * {}
+   * []
    */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {

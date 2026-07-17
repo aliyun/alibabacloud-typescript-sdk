@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateABTestExperimentResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the test was created.
+   * The time when the experiment was created.
    * 
    * @example
    * 1588842080
@@ -13,7 +13,7 @@ export class UpdateABTestExperimentResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The test ID.
+   * The ID of the experiment.
    * 
    * @example
    * 12888
@@ -21,7 +21,7 @@ export class UpdateABTestExperimentResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The alias of the test.
+   * The name of the experiment.
    * 
    * @example
    * test1
@@ -29,10 +29,11 @@ export class UpdateABTestExperimentResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the test is in effect. Valid values:
+   * The status of the experiment.
    * 
-   * *   true
-   * *   false
+   * - true: The experiment is online.
+   * 
+   * - false: The experiment is offline.
    * 
    * @example
    * true
@@ -40,7 +41,7 @@ export class UpdateABTestExperimentResponseBodyResult extends $dara.Model {
   online?: boolean;
   /**
    * @remarks
-   * The test parameters.
+   * The parameters of the experiment.
    * 
    * @example
    * {}
@@ -48,7 +49,7 @@ export class UpdateABTestExperimentResponseBodyResult extends $dara.Model {
   params?: { [key: string]: any };
   /**
    * @remarks
-   * The percentage of traffic that is routed to the test. Valid values: [0,100]
+   * The percentage of traffic allocated to the experiment. Valid values: 0 to 100.
    * 
    * @example
    * 30
@@ -56,7 +57,7 @@ export class UpdateABTestExperimentResponseBodyResult extends $dara.Model {
   traffic?: number;
   /**
    * @remarks
-   * The time when the test was last modified.
+   * The time when the experiment was last modified.
    * 
    * @example
    * 1588842080
@@ -101,7 +102,7 @@ export class UpdateABTestExperimentResponseBodyResult extends $dara.Model {
 export class UpdateABTestExperimentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D77D0DAF-790D-F5F5-A9C0-133738165014
@@ -109,7 +110,7 @@ export class UpdateABTestExperimentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the test.
+   * The details of the experiment.
    */
   result?: UpdateABTestExperimentResponseBodyResult;
   static names(): { [key: string]: string } {

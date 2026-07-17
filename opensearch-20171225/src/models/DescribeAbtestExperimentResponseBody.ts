@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeABTestExperimentResponseBodyResultParams extends $dara.Model {
   /**
    * @remarks
-   * The name of the rough sort policy.
+   * The name of the coarse-grained ranking policy.
    * 
    * @example
    * default
@@ -35,7 +35,7 @@ export class DescribeABTestExperimentResponseBodyResultParams extends $dara.Mode
 export class DescribeABTestExperimentResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the test was created.
+   * The time when the experiment was created.
    * 
    * @example
    * 1588842080
@@ -43,7 +43,7 @@ export class DescribeABTestExperimentResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The ID of the test.
+   * The experiment ID.
    * 
    * @example
    * 12888
@@ -51,7 +51,7 @@ export class DescribeABTestExperimentResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the test.
+   * The alias of the experiment.
    * 
    * @example
    * test1
@@ -59,10 +59,11 @@ export class DescribeABTestExperimentResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the test. Valid values:
+   * The status of the experiment.
    * 
-   * *   true: in effect
-   * *   false: not in effect
+   * - true: The experiment is online.
+   * 
+   * - false: The experiment is offline.
    * 
    * @example
    * true
@@ -70,12 +71,12 @@ export class DescribeABTestExperimentResponseBodyResult extends $dara.Model {
   online?: boolean;
   /**
    * @remarks
-   * The parameters of the test.
+   * The experiment parameters.
    */
   params?: DescribeABTestExperimentResponseBodyResultParams;
   /**
    * @remarks
-   * The percentage of traffic that is routed to the test.
+   * The percentage of traffic for the experiment bucketing.
    * 
    * @example
    * 30
@@ -83,7 +84,7 @@ export class DescribeABTestExperimentResponseBodyResult extends $dara.Model {
   traffic?: number;
   /**
    * @remarks
-   * The time when the test was last modified.
+   * The time when the experiment was last modified.
    * 
    * @example
    * 1588842080
@@ -128,7 +129,7 @@ export class DescribeABTestExperimentResponseBodyResult extends $dara.Model {
 export class DescribeABTestExperimentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D77D0DAF-790D-F5F5-A9C0-133738165014
@@ -136,7 +137,7 @@ export class DescribeABTestExperimentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the test.
+   * The details of the experiment.
    */
   result?: DescribeABTestExperimentResponseBodyResult;
   static names(): { [key: string]: string } {

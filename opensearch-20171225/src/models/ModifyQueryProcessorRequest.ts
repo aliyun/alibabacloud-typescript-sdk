@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyQueryProcessorRequest extends $dara.Model {
   /**
    * @remarks
-   * The request parameters.
+   * The request body.
    * 
    * @example
    * {
@@ -26,7 +26,7 @@ export class ModifyQueryProcessorRequest extends $dara.Model {
   body?: any;
   /**
    * @remarks
-   * Specifies whether the request is a dry run.
+   * Specifies whether to perform a dry run.
    * 
    * @example
    * true

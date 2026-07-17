@@ -11,10 +11,11 @@ export class UpdateABTestGroupRequest extends $dara.Model {
   body?: ABTestGroup;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   true: performs only a dry run. No endpoint is created. The system checks whether your AccessKey is valid, whether Resource Access Management (RAM) users are authorized, and whether the required parameters are set.
-   * *   false (default): creates an endpoint immediately.
+   * - true: Performs a dry run. The system checks if the AccessKey is valid, if the RAM user is authorized, and if all required parameters are specified. The test group is not updated.
+   * 
+   * - false (default): Sends the request to update the test group.
    * 
    * @example
    * true

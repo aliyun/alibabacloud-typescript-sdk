@@ -85,7 +85,7 @@ export class UpdateFunctionInstanceRequestUsageParameters extends $dara.Model {
 export class UpdateFunctionInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are used to create the instance.
+   * The list of creation parameters.
    * 
    * @example
    * {             "name": "title_field",             "value": "title"         }
@@ -93,7 +93,7 @@ export class UpdateFunctionInstanceRequest extends $dara.Model {
   createParameters?: UpdateFunctionInstanceRequestCreateParameters[];
   /**
    * @remarks
-   * The cron expression used to schedule periodic training, in the format of (Minutes Hours DayofMonth Month DayofWeek). The default value is empty, which indicates that no periodic training is performed. DayofWeek 0 indicates Sunday.
+   * The schedule for periodic training. The value must be a cron expression in the format of Minutes Hours DayofMonth Month DayofWeek. If you leave this parameter empty, periodic training is disabled by default. For DayofWeek, 0 indicates Sunday.
    * 
    * @example
    * "0 3 ? * 0,1,3,5"
@@ -104,12 +104,12 @@ export class UpdateFunctionInstanceRequest extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * test instance
+   * Test instance
    */
   description?: string;
   /**
    * @remarks
-   * The parameters that are used.
+   * The list of usage parameters.
    */
   usageParameters?: UpdateFunctionInstanceRequestUsageParameters[];
   static names(): { [key: string]: string } {

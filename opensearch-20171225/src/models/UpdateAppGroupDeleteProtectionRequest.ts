@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAppGroupDeleteProtectionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The request body.
+   * 
    * @example
    * {
    *   "deleteProtection": "on"

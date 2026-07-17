@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateDataSourcesResponseBodyResultDataSource extends $dara.Model {
   /**
    * @remarks
-   * The parameters of the data source.
+   * The parameter body.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class ValidateDataSourcesResponseBodyResultDataSource extends $dara.Model
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * user_activity_decision
@@ -21,7 +21,7 @@ export class ValidateDataSourcesResponseBodyResultDataSource extends $dara.Model
   tableName?: string;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * @example
    * rds
@@ -58,7 +58,7 @@ export class ValidateDataSourcesResponseBodyResultDataSource extends $dara.Model
 export class ValidateDataSourcesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The code returned for the request.
+   * The status code.
    * 
    * @example
    * SUCCEED
@@ -74,10 +74,10 @@ export class ValidateDataSourcesResponseBodyResult extends $dara.Model {
   dataSource?: ValidateDataSourcesResponseBodyResultDataSource;
   /**
    * @remarks
-   * The status of the execution.
+   * The response message.
    * 
    * @example
-   * successful
+   * Validate succeeded
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -119,7 +119,7 @@ export class ValidateDataSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result returned.
+   * The request results.
    * 
    * @example
    * []

@@ -13,21 +13,25 @@ export class ModifyAppGroupRequest extends $dara.Model {
   currentVersion?: string;
   /**
    * @remarks
-   * The description of the application.
+   * The description of the application group.
    * 
    * @example
-   * "test"
+   * " instance description"
    */
   description?: string;
   /**
    * @remarks
-   * The type of the industry. Valid values:
+   * The industry. Valid values:
    * 
-   * *   general: general.
-   * *   ecommerce: e-commerce.
-   * *   education: education.
-   * *   esports: electronic sports.
-   * *   community: content community.
+   * - general: general.
+   * 
+   * - ecommerce: e-commerce.
+   * 
+   * - education: education.
+   * 
+   * - esports: gaming.
+   * 
+   * - community: content community.
    * 
    * @example
    * "ecommerce"
@@ -43,7 +47,7 @@ export class ModifyAppGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to verify the application before modification. Valid values: true and false.
+   * Specifies whether to perform a dry run. Valid values: true and false.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserAnalyzerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 98724351-D6B2-5D8A-B089-7FFD1821A7E9
@@ -13,7 +13,7 @@ export class CreateUserAnalyzerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The custom analyzer.
+   * The returned result.
    * 
    * @example
    * {}

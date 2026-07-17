@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * 54041
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyResult extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * GENIE_FUNCTION
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyResult extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * ALLOW
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyResult extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that is used to retrieve the next page.
+   * The token to start the next query.
    * 
    * @example
    * 20
@@ -73,7 +73,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D77D0DAF-790D-F5F5-A9C0-133738165014
@@ -81,7 +81,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    */
   result?: ListTagResourcesResponseBodyResult[];
   static names(): { [key: string]: string } {

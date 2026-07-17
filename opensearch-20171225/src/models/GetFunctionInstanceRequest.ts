@@ -7,9 +7,11 @@ export class GetFunctionInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies the richness of returned information. Valid values:
    * 
-   * *   simple: displays only the basic information.
-   * *   normal: displays information such as createParameters and cron. This is the default value.
-   * *   detail: returns the details of the training task.
+   * - simple: displays only the basic information.
+   * 
+   * - normal: displays information such as createParameters and cron. This is the default value.
+   * 
+   * - detail: returns the details of the training task.
    * 
    * @example
    * detail

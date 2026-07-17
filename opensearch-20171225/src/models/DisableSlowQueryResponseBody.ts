@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableSlowQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 728E89C6-8673-D39B-39A1-5BA2B56D448F
@@ -13,7 +13,7 @@ export class DisableSlowQueryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return result.
+   * The returned data.
    * 
    * @example
    * {}

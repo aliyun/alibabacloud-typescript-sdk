@@ -21,7 +21,7 @@ export class ListSortScriptsResponseBodyResult extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The sort phase to which the script applies.
+   * The applicable scope of the script.
    * 
    * @example
    * second_rank
@@ -37,13 +37,17 @@ export class ListSortScriptsResponseBodyResult extends $dara.Model {
   scriptName?: string;
   /**
    * @remarks
-   * The status of the script. Valid values:
+   * The status of the script:
    * 
-   * *   configurable: The script is created, but no script files are uploaded.
-   * *   not compiled: The script is not compiled.
-   * *   compile failed: The compilation of the script failed.
-   * *   compile successful: The script is compiled.
-   * *   released: The script is published.
+   * - configurable: The script is created, but no file has been uploaded.
+   * 
+   * - not compiled: The script has not been compiled.
+   * 
+   * - compile failed: The script failed to be compiled.
+   * 
+   * - compile successful: The script is compiled.
+   * 
+   * - released: The script is published.
    * 
    * @example
    * released
@@ -91,7 +95,7 @@ export class ListSortScriptsResponseBodyResult extends $dara.Model {
 export class ListSortScriptsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * ABCDEFGH
@@ -99,7 +103,7 @@ export class ListSortScriptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scripts.
+   * The list of scripts.
    */
   result?: ListSortScriptsResponseBodyResult[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourceTableFieldsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0A6EB64B-B4C8-CF02-810F-E660812972FF
@@ -13,7 +13,7 @@ export class ListDataSourceTableFieldsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The collection of fields from the data table.
    * 
    * @example
    * {}

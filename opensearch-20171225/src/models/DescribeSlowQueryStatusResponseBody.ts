@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowQueryStatusResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 100298370
@@ -13,10 +13,11 @@ export class DescribeSlowQueryStatusResponseBodyResult extends $dara.Model {
   appGroupId?: string;
   /**
    * @remarks
-   * The network type of the slow query optimization service. Valid values:
+   * The region.
    * 
-   * *   outer: the Internet
-   * *   internal: the internal network
+   * - outer: Public network
+   * 
+   * - internal: Internal network
    * 
    * @example
    * internal
@@ -24,11 +25,13 @@ export class DescribeSlowQueryStatusResponseBodyResult extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The status of the slow query optimization service. Valid values:
+   * The activation status.
    * 
-   * *   enabled
-   * *   disabled
-   * *   n/a
+   * - enabled: Enabled
+   * 
+   * - disabled: Disabled
+   * 
+   * - n/a: Unknown
    * 
    * @example
    * disabled
@@ -62,7 +65,7 @@ export class DescribeSlowQueryStatusResponseBodyResult extends $dara.Model {
 export class DescribeSlowQueryStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5C1C1C45-C64A-AD30-565F-140871D57E5E
@@ -70,7 +73,7 @@ export class DescribeSlowQueryStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return result.
+   * The result.
    */
   result?: DescribeSlowQueryStatusResponseBodyResult;
   static names(): { [key: string]: string } {

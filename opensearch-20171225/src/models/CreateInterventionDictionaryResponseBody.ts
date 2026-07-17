@@ -13,7 +13,7 @@ export class CreateInterventionDictionaryResponseBodyResult extends $dara.Model 
   analyzer?: string;
   /**
    * @remarks
-   * The time when the test scenario was created.
+   * The time when the dictionary was created.
    * 
    * @example
    * 1591086323
@@ -21,7 +21,7 @@ export class CreateInterventionDictionaryResponseBodyResult extends $dara.Model 
   created?: string;
   /**
    * @remarks
-   * The name of the test group.
+   * The name of the dictionary.
    * 
    * @example
    * testb
@@ -31,12 +31,29 @@ export class CreateInterventionDictionaryResponseBodyResult extends $dara.Model 
    * @remarks
    * The type of the intervention dictionary. Valid values:
    * 
-   * *   stopword: an intervention dictionary for stop word filtering
-   * *   synonym: an intervention dictionary for synonym configuration
-   * *   correction: an intervention dictionary for spelling correction
-   * *   category_prediction: an intervention dictionary for category prediction
-   * *   ner: an intervention dictionary for named entity recognition (NER)
-   * *   term_weighting: an intervention dictionary for term weight analysis
+   * - stopword: an intervention dictionary for stop word filtering.
+   * 
+   * - synonym: an intervention dictionary for synonym configuration.
+   * 
+   * - correction: an intervention dictionary for spelling correction.
+   * 
+   * - category_prediction: an intervention dictionary for category prediction.
+   * 
+   * - ner: an intervention dictionary for Named Entity Recognition (NER).
+   * 
+   * - term_weighting: an intervention dictionary for term weight analysis.
+   * 
+   * - suggest_allowlist: a drop-down suggestion whitelist.
+   * 
+   * - suggest_denylist: a drop-down suggestion blacklist.
+   * 
+   * - hot_allowlist: a top search whitelist.
+   * 
+   * - hot_denylist: a top search blacklist.
+   * 
+   * - hint_allowlist: a hint whitelist.
+   * 
+   * - hint_denylist: a hint blacklist.
    * 
    * @example
    * ner
@@ -82,7 +99,7 @@ export class CreateInterventionDictionaryResponseBodyResult extends $dara.Model 
 export class CreateInterventionDictionaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 80326EFE-485F-46E7-B291-5A1DD08D2198
@@ -90,7 +107,7 @@ export class CreateInterventionDictionaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The details of the intervention dictionary.
    */
   result?: CreateInterventionDictionaryResponseBodyResult;
   static names(): { [key: string]: string } {

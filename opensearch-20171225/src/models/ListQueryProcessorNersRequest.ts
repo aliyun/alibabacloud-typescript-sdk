@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListQueryProcessorNersRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the industry.
+   * The industry type.
    * 
-   * *   ECOMMERCE
+   * - ECOMMERCE: The e-commerce industry.
    * 
    * @example
    * ECOMMERCE

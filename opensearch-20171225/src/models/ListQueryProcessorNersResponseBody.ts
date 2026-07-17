@@ -13,7 +13,7 @@ export class ListQueryProcessorNersResponseBodyResult extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The priority of an entity type among entity types that have the same priority level. A smaller value indicates a higher priority. Default value: 0.
+   * The sort order within the same priority level. A smaller value indicates a higher priority. The default value is 0.
    * 
    * @example
    * 1
@@ -23,9 +23,11 @@ export class ListQueryProcessorNersResponseBodyResult extends $dara.Model {
    * @remarks
    * The priority level of the entity type. Valid values:
    * 
-   * *   HIGH
-   * *   MIDDLE
-   * *   LOW
+   * - HIGH
+   * 
+   * - MIDDLE
+   * 
+   * - LOW
    * 
    * @example
    * HIGH

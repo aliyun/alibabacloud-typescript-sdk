@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFunctionResourcesResponseBodyResultDataGeneratorsInputFeatures extends $dara.Model {
   /**
    * @remarks
-   * The name of the feature.
+   * The feature name.
    * 
    * @example
    * system_item_id
@@ -13,25 +13,7 @@ export class ListFunctionResourcesResponseBodyResultDataGeneratorsInputFeatures 
   name?: string;
   /**
    * @remarks
-   * The type of the feature.
-   * 
-   * Valid values:
-   * 
-   * *   item
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   user
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The feature type.
    * 
    * @example
    * item
@@ -63,7 +45,7 @@ export class ListFunctionResourcesResponseBodyResultDataGeneratorsInputFeatures 
 export class ListFunctionResourcesResponseBodyResultDataGeneratorsInput extends $dara.Model {
   /**
    * @remarks
-   * The input features.
+   * The list of input features.
    */
   features?: ListFunctionResourcesResponseBodyResultDataGeneratorsInputFeatures[];
   static names(): { [key: string]: string } {
@@ -143,7 +125,7 @@ export class ListFunctionResourcesResponseBodyResultDataGenerators extends $dara
 export class ListFunctionResourcesResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * The content of the file that corresponds to a resource of the raw_file type.
+   * The content of the file that corresponds to the raw_file resource.
    * 
    * @example
    * "abc"
@@ -151,7 +133,7 @@ export class ListFunctionResourcesResponseBodyResultData extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The feature generators that correspond to resources of the feature_generator type.
+   * The list of feature generators that correspond to the feature_generator resource.
    */
   generators?: ListFunctionResourcesResponseBodyResultDataGenerators[];
   static names(): { [key: string]: string } {
@@ -191,7 +173,7 @@ export class ListFunctionResourcesResponseBodyResult extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The resource data. The data structure varies with the resource type.
+   * The resource data. The structure of the data varies based on the resourceType.
    */
   data?: ListFunctionResourcesResponseBodyResultData;
   /**
@@ -204,7 +186,7 @@ export class ListFunctionResourcesResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the feature.
+   * The function name.
    * 
    * @example
    * rank
@@ -212,7 +194,7 @@ export class ListFunctionResourcesResponseBodyResult extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The time when the resource was modified. Unit: milliseconds.
+   * The time when the resource was last modified. Unit: milliseconds.
    * 
    * @example
    * 1234
@@ -220,12 +202,12 @@ export class ListFunctionResourcesResponseBodyResult extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The algorithm instances that are referenced.
+   * The names of the referenced algorithm instances.
    */
   referencedInstances?: string[];
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * @example
    * fg_json
@@ -233,7 +215,7 @@ export class ListFunctionResourcesResponseBodyResult extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
    * feature_generator
@@ -283,7 +265,7 @@ export class ListFunctionResourcesResponseBodyResult extends $dara.Model {
 export class ListFunctionResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned. If no error occurs, this value is empty.
+   * The returned error code. This parameter is empty if no error occurs.
    * 
    * @example
    * Resource.InvalidResourceName
@@ -291,7 +273,7 @@ export class ListFunctionResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -299,7 +281,7 @@ export class ListFunctionResourcesResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The amount of time consumed for the request. Unit: milliseconds.
+   * The request latency. Unit: milliseconds.
    * 
    * @example
    * 123
@@ -307,7 +289,7 @@ export class ListFunctionResourcesResponseBody extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The returned error message.
    * 
    * @example
    * Invalid resource name.
@@ -323,12 +305,12 @@ export class ListFunctionResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results returned.
+   * The result.
    */
   result?: ListFunctionResourcesResponseBodyResult[];
   /**
    * @remarks
-   * The status of the request. Valid values: OK and FAIL.
+   * The request status. Valid values: OK and FAIL.
    * 
    * @example
    * OK

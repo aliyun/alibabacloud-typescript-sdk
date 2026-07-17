@@ -24,7 +24,7 @@ export class ListInterventionDictionaryEntriesRequest extends $dara.Model {
    * The intervention entry.
    * 
    * @example
-   * test
+   * Test
    */
   word?: string;
   static names(): { [key: string]: string } {

@@ -6,7 +6,7 @@ import { SearchStrategy } from "./SearchStrategy";
 export class UpdateSearchStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body.
+   * The search policy. For more information, see [SearchStrategy](https://help.aliyun.com/document_detail/2400242.html).
    */
   body?: SearchStrategy;
   static names(): { [key: string]: string } {

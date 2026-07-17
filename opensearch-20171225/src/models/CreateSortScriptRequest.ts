@@ -6,7 +6,7 @@ export class CreateSortScriptRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The sort phase to which the script applies.
+   * The applicable scope of the script.
    * 
    * @example
    * second_rank
@@ -14,7 +14,7 @@ export class CreateSortScriptRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The script name.
+   * The name of the script.
    * 
    * @example
    * rank_cava_20230606_v7
@@ -22,7 +22,7 @@ export class CreateSortScriptRequest extends $dara.Model {
   scriptName?: string;
   /**
    * @remarks
-   * The script type. Set the value to cava_script.
+   * The type of the script. Only cava_script is supported.
    * 
    * @example
    * cava_script

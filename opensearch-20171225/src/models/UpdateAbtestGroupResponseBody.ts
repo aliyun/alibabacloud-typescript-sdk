@@ -21,7 +21,7 @@ export class UpdateABTestGroupResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The alias of the test group.
+   * The name of the test group.
    * 
    * @example
    * Group_2020-5-7_15:23:3
@@ -31,8 +31,9 @@ export class UpdateABTestGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the test group. Valid values:
    * 
-   * *   0: not in effect
-   * *   1: in effect
+   * - 0: inactive
+   * 
+   * - 1: active
    * 
    * @example
    * 1

@@ -13,10 +13,10 @@ export class BindEsInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result
+   * The result.
    * 
    * @example
-   * []
+   * {}
    */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {

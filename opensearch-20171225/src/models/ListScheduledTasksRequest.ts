@@ -21,12 +21,15 @@ export class ListScheduledTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scheduled task type. Valid values:
+   * The type of the scheduled task. Valid values:
    * 
-   * *   wipe: data cleaning.
-   * *   fork: reindexing.
-   * *   check-status: application status check.
-   * *   index: reindexing.
+   * - wipe: data cleaning
+   * 
+   * - fork: reindexing
+   * 
+   * - check-status: application status check
+   * 
+   * - index: reindexing
    * 
    * @example
    * wipe

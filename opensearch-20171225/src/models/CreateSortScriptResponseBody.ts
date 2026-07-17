@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSortScriptResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The sort phase to which the script applies.
+   * The applicable scope of the script.
    * 
    * @example
    * second_rank
@@ -13,7 +13,7 @@ export class CreateSortScriptResponseBodyResult extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The script name.
+   * The name of the script.
    * 
    * @example
    * rank_cava_20230606_v7
@@ -21,7 +21,7 @@ export class CreateSortScriptResponseBodyResult extends $dara.Model {
   scriptName?: string;
   /**
    * @remarks
-   * The script type.
+   * The type of the script.
    * 
    * @example
    * cava_script
@@ -55,7 +55,7 @@ export class CreateSortScriptResponseBodyResult extends $dara.Model {
 export class CreateSortScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * ABCDEFGH
@@ -63,7 +63,7 @@ export class CreateSortScriptResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The returned result.
    */
   result?: CreateSortScriptResponseBodyResult;
   static names(): { [key: string]: string } {

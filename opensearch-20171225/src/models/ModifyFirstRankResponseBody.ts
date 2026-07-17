@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFirstRankResponseBodyResultMeta extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are used by a function in the expression.
+   * The parameters for a function in the expression.
    * 
    * @example
    * “1 ”
@@ -13,7 +13,7 @@ export class ModifyFirstRankResponseBodyResultMeta extends $dara.Model {
   arg?: string;
   /**
    * @remarks
-   * The attribute, feature function, or field to be searched for.
+   * The attribute, feature function, or search field.
    * 
    * @example
    * static_bm25()
@@ -63,7 +63,7 @@ export class ModifyFirstRankResponseBodyResult extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * The description of the rough sort expression.
+   * The description.
    * 
    * @example
    * 1
@@ -71,12 +71,12 @@ export class ModifyFirstRankResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The information about the expression.
+   * Details about the expression.
    */
   meta?: ModifyFirstRankResponseBodyResultMeta[];
   /**
    * @remarks
-   * The name of the expression.
+   * The name of the resource.
    * 
    * @example
    * default
@@ -123,7 +123,7 @@ export class ModifyFirstRankResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the rough sort expression.
+   * Details about the rough sort expression.
    */
   result?: ModifyFirstRankResponseBodyResult;
   static names(): { [key: string]: string } {

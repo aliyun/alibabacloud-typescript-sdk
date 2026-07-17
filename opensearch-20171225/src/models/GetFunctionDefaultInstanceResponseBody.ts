@@ -67,7 +67,7 @@ export class GetFunctionDefaultInstanceResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The default running time.
+   * The default runtime.
    * 
    * @example
    * 123
@@ -91,7 +91,7 @@ export class GetFunctionDefaultInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the request.
+   * The result.
    * 
    * @example
    * {\\"Pagination\\": {\\"TotalCount\\": 0, \\"PageNumber\\": 1, \\"PageSize\\": 10}, \\"AntConsortiums\\": []}
@@ -99,7 +99,7 @@ export class GetFunctionDefaultInstanceResponseBody extends $dara.Model {
   result?: GetFunctionDefaultInstanceResponseBodyResult;
   /**
    * @remarks
-   * The status of the request.
+   * The request status.
    * 
    * @example
    * OK

@@ -13,10 +13,20 @@ export class ListUserAnalyzerEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The entries of the custom analyzer. For more information, see [UserAnalyzerEntry](https://www.alibabacloud.com/help/en/open-search/industry-algorithm-edition/useranalyzerentry).
+   * The entries of the custom analyzer. For more information, see UserAnalyzerEntry.
    * 
    * @example
-   * []
+   * [
+   * {
+   * 	"cmd": "add",
+   * 	"key": "kevintest",
+   * 	"value": "kevin test",
+   * 	"created": 1536690285,
+   * 	"updated": 1537348987,
+   * 	"status": "ACTIVE",
+   * 	"splitEnabled": true
+   * }
+   * ]
    */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {

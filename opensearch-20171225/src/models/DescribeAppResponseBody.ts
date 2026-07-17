@@ -78,19 +78,27 @@ export class DescribeAppResponseBodyResultDataSources extends $dara.Model {
    * 
    * name:
    * 
-   * *   JsonKeyValueExtractor
-   * *   MultiValueSpliter
-   * *   KeyValueExtractor
-   * *   StringCatenateExtractor
-   * *   HTMLTagRemover
+   * - JsonKeyValueExtractor
+   * 
+   * - MultiValueSpliter
+   * 
+   * - KeyValueExtractor
+   * 
+   * - StringCatenateExtractor
+   * 
+   * - HTMLTagRemover
    * 
    * parameters:
    * 
-   * *   JsonKeyValueExtractor
-   * *   MultiValueSpliter
-   * *   KeyValueExtractor
-   * *   StringCatenateExtractor
-   * *   HTMLTagRemover
+   * - JsonKeyValueExtractor
+   * 
+   * - MultiValueSpliter
+   * 
+   * - KeyValueExtractor
+   * 
+   * - StringCatenateExtractor
+   * 
+   * - HTMLTagRemover
    * 
    * @example
    * {
@@ -121,10 +129,13 @@ export class DescribeAppResponseBodyResultDataSources extends $dara.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   rds
-   * *   odps
-   * *   opensearch
-   * *   polardb
+   * - rds
+   * 
+   * - odps
+   * 
+   * - opensearch
+   * 
+   * - polardb
    * 
    * @example
    * rds
@@ -298,7 +309,7 @@ export class DescribeAppResponseBodyResultFirstRanks extends $dara.Model {
    * The description.
    * 
    * @example
-   * abc
+   * Description
    */
   description?: string;
   /**
@@ -306,7 +317,7 @@ export class DescribeAppResponseBodyResultFirstRanks extends $dara.Model {
    * The information about the expression. The information can be of the array or string type.
    * 
    * @example
-   * String :"random()*100+now()";
+   * String :"random()*100+now()"；
    * Array: [
    *     {
    *       "attribute": "static_bm25()",
@@ -384,9 +395,11 @@ export class DescribeAppResponseBodyResultQueryProcessors extends $dara.Model {
    * @remarks
    * The industry type. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL
+   * 
+   * - ECOMMERCE
+   * 
+   * - IT_CONTENT
    * 
    * @example
    * GENERAL
@@ -476,13 +489,19 @@ export class DescribeAppResponseBodyResultQuota extends $dara.Model {
    * @remarks
    * The specifications. Valid values:
    * 
-   * *   opensearch.share.junior: basic
-   * *   opensearch.share.common: shared general-purpose
-   * *   opensearch.share.compute: shared computing
-   * *   opensearch.share.storage: shared storage
-   * *   opensearch.private.common: exclusive general-purpose
-   * *   opensearch.private.compute: exclusive computing
-   * *   opensearch.private.storage: exclusive storage
+   * - opensearch.share.junior: basic
+   * 
+   * - opensearch.share.common: shared general-purpose
+   * 
+   * - opensearch.share.compute: shared computing
+   * 
+   * - opensearch.share.storage: shared storage
+   * 
+   * - opensearch.private.common: exclusive general-purpose
+   * 
+   * - opensearch.private.compute: exclusive computing
+   * 
+   * - opensearch.private.storage: exclusive storage
    * 
    * @example
    * opensearch.share.common
@@ -520,8 +539,9 @@ export class DescribeAppResponseBodyResultSchemaIndexSortConfig extends $dara.Mo
    * @remarks
    * The sort method. Valid values:
    * 
-   * *   ASC
-   * *   DESC
+   * - ASC
+   * 
+   * - DESC
    * 
    * @example
    * DESC
@@ -782,8 +802,9 @@ export class DescribeAppResponseBodyResultSchemasIndexSortConfig extends $dara.M
    * @remarks
    * The sort method. Valid values:
    * 
-   * *   ASC
-   * *   DESC
+   * - ASC
+   * 
+   * - DESC
    * 
    * @example
    * DESC
@@ -1053,7 +1074,7 @@ export class DescribeAppResponseBodyResultSecondRanks extends $dara.Model {
    * The description.
    * 
    * @example
-   * Description
+   * 描述
    */
   description?: string;
   /**
@@ -1248,9 +1269,11 @@ export class DescribeAppResponseBodyResult extends $dara.Model {
    * @remarks
    * The industry type. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL
+   * 
+   * - ECOMMERCE
+   * 
+   * - IT_CONTENT
    * 
    * @example
    * GENERAL
@@ -1282,7 +1305,21 @@ export class DescribeAppResponseBodyResult extends $dara.Model {
    * The industry model module.
    * 
    * @example
-   * [ { "table": "table1", "fields": [ { "name": "field1", "interpretation": "Title" }, { "name": "field2", "interpretation": "Number" } ] } ]
+   * [
+   *     {
+   *         "table": "table1",
+   *         "fields": [
+   *             {
+   *                 "name": "field1",
+   *                 "interpretation": " title"
+   *             },
+   *             {
+   *                 "name": "field2",
+   *                 "interpretation": " ID"
+   *             }
+   *         ]
+   *     }
+   * ]
    */
   interpretations?: { [key: string]: any };
   /**
@@ -1304,6 +1341,22 @@ export class DescribeAppResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The prompt configurations.
+   * 
+   * @example
+   * {
+   *         "parameters" : [
+   *           {
+   *             "name" : "docs",
+   *             "value" : "The concatenation method for doc content. For example, the current qwen format: \\"<article>\\n${doc}\\n</article>\\n"
+   *           }
+   *         ],
+   *         "messages":[
+   *           {
+   *             "role" : "role_name. Whether this should be limited to system, user, or assistant, or allow custom values",
+   *             "content" : "User-defined prompt content. Use ${parameter_key} to indicate dynamically replaced content. See the rules below for details"
+   *           }
+   *         ]
+   *       }
    */
   prompts?: { [key: string]: any }[];
   /**
@@ -1319,6 +1372,7 @@ export class DescribeAppResponseBodyResult extends $dara.Model {
    * {}
    */
   quota?: DescribeAppResponseBodyResultQuota;
+  realtimeShared?: boolean;
   /**
    * @remarks
    * The schema of the application.
@@ -1341,13 +1395,19 @@ export class DescribeAppResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the version. Valid values:
    * 
-   * *   ok: The version is normal.
-   * *   stopped: The version is suspended.
-   * *   frozen: The version is frozen.
-   * *   initializing: The version is being initialized.
-   * *   unavailable: The version is invalid.
-   * *   data_waiting: Data is to be initialized.
-   * *   data_preparing: Data is being initialized.
+   * - ok: The version is normal.
+   * 
+   * - stopped: The version is suspended.
+   * 
+   * - frozen: The version is frozen.
+   * 
+   * - initializing: The version is being initialized.
+   * 
+   * - unavailable: The version is invalid.
+   * 
+   * - data_waiting: Data is to be initialized.
+   * 
+   * - data_preparing: Data is being initialized.
    * 
    * @example
    * ok
@@ -1362,9 +1422,11 @@ export class DescribeAppResponseBodyResult extends $dara.Model {
    * @remarks
    * The edition type. Valid values:
    * 
-   * *   standard: a standard edition application.
-   * *   advance: an advanced edition application of an old version. New versions are not supported for this edition.
-   * *   enhanced: an advanced edition application of a new version.
+   * - standard: a standard edition application.
+   * 
+   * - advance: an advanced edition application of an old version. New versions are not supported for this edition.
+   * 
+   * - enhanced: an advanced edition application of a new version.
    * 
    * @example
    * enhanced
@@ -1387,6 +1449,7 @@ export class DescribeAppResponseBodyResult extends $dara.Model {
       prompts: 'prompts',
       queryProcessors: 'queryProcessors',
       quota: 'quota',
+      realtimeShared: 'realtimeShared',
       schema: 'schema',
       schemas: 'schemas',
       secondRanks: 'secondRanks',
@@ -1413,6 +1476,7 @@ export class DescribeAppResponseBodyResult extends $dara.Model {
       prompts: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       queryProcessors: { 'type': 'array', 'itemType': DescribeAppResponseBodyResultQueryProcessors },
       quota: DescribeAppResponseBodyResultQuota,
+      realtimeShared: 'boolean',
       schema: DescribeAppResponseBodyResultSchema,
       schemas: { 'type': 'array', 'itemType': DescribeAppResponseBodyResultSchemas },
       secondRanks: { 'type': 'array', 'itemType': DescribeAppResponseBodyResultSecondRanks },

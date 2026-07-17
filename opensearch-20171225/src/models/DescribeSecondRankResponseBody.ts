@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecondRankResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to set the fine sort expression as the default sort expression.
+   * Indicates whether the expression is active.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class DescribeSecondRankResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * -
@@ -29,7 +29,7 @@ export class DescribeSecondRankResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the expression. This parameter appears only in the response.
+   * The ID of the expression. This parameter is returned only in the response.
    * 
    * @example
    * 89047
@@ -37,10 +37,11 @@ export class DescribeSecondRankResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether the expression is the default one. This parameter appears only in the response. Valid values:
+   * Indicates whether the expression is the default one. This parameter is returned only in the response.
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -48,10 +49,11 @@ export class DescribeSecondRankResponseBodyResult extends $dara.Model {
   isDefault?: string;
   /**
    * @remarks
-   * Indicates whether the expression is a system expression. This parameter appears only in the response. Valid values:
+   * Indicates whether the expression is a system expression. This parameter is returned only in the response.
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -59,7 +61,7 @@ export class DescribeSecondRankResponseBodyResult extends $dara.Model {
   isSys?: string;
   /**
    * @remarks
-   * The content of the fine sort expression. You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
+   * The second-rank expression. You can write an expression that contains fields, feature functions, and mathematical functions to implement complex sort logic.
    * 
    * @example
    * random()+now()
@@ -67,7 +69,7 @@ export class DescribeSecondRankResponseBodyResult extends $dara.Model {
   meta?: string;
   /**
    * @remarks
-   * The name.
+   * The name of the expression.
    * 
    * @example
    * tests
@@ -129,7 +131,7 @@ export class DescribeSecondRankResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the fine sort expression.
+   * The details of the second-rank expression.
    */
   result?: DescribeSecondRankResponseBodyResult;
   static names(): { [key: string]: string } {

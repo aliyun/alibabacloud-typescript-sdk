@@ -23,13 +23,19 @@ export class DescribeAppGroupResponseBodyResultQuota extends $dara.Model {
    * @remarks
    * The specifications. Valid values:
    * 
-   * *   opensearch.share.junior: basic.
-   * *   opensearch.share.common: shared general-purpose.
-   * *   opensearch.share.compute: shared computing.
-   * *   opensearch.share.storage: shared storage.
-   * *   opensearch.private.common: exclusive general-purpose.
-   * *   opensearch.private.compute: exclusive computing.
-   * *   opensearch.private.storage: exclusive storage.
+   * - opensearch.share.junior: basic.
+   * 
+   * - opensearch.share.common: shared general-purpose.
+   * 
+   * - opensearch.share.compute: shared computing.
+   * 
+   * - opensearch.share.storage: shared storage.
+   * 
+   * - opensearch.private.common: exclusive general-purpose.
+   * 
+   * - opensearch.private.compute: exclusive computing.
+   * 
+   * - opensearch.private.storage: exclusive storage.
    * 
    * @example
    * opensearch.share.common
@@ -105,8 +111,9 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   POSTPAY: pay-as-you-go.
-   * *   PREPAY: subscription.
+   * - POSTPAY: pay-as-you-go.
+   * 
+   * - PREPAY: subscription.
    * 
    * @example
    * POSTPAY
@@ -116,8 +123,9 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The billable item. Valid values:
    * 
-   * *   1: computing resources.
-   * *   2: queries per second (QPS).
+   * - 1: computing resources.
+   * 
+   * - 2: queries per second (QPS).
    * 
    * @example
    * 1
@@ -163,6 +171,7 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
    * ecommerce
    */
   domain?: string;
+  elasticLcu?: number;
   /**
    * @remarks
    * The engine type.
@@ -191,8 +200,9 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The approval state of the quotas. Valid values:
    * 
-   * *   0: The application is in service.
-   * *   1: The quotas are being reviewed.
+   * - 0: The application is in service.
+   * 
+   * - 1: The quotas are being reviewed.
    * 
    * @example
    * 0
@@ -218,9 +228,11 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The lock state. Valid values:
    * 
-   * *   Unlock: The instance is unlocked.
-   * *   LockByExpiration: The instance is automatically locked after it expires.
-   * *   ManualLock: The instance is manually locked.
+   * - Unlock: The instance is unlocked.
+   * 
+   * - LockByExpiration: The instance is automatically locked after it expires.
+   * 
+   * - ManualLock: The instance is manually locked.
    * 
    * @example
    * Unlock
@@ -262,8 +274,9 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the application is created. Valid values:
    * 
-   * *   0: The application is being created.
-   * *   1: The application is created.
+   * - 0: The application is being created.
+   * 
+   * - 1: The application is created.
    * 
    * @example
    * 1
@@ -302,11 +315,15 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The state of the application. Valid values:
    * 
-   * *   producing: The application is being created.
-   * *   review_pending: The application is being reviewed.
-   * *   config_pending: The application is to be configured.
-   * *   normal: The application is in service.
-   * *   frozen: The application is frozen.
+   * - producing: The application is being created.
+   * 
+   * - review_pending: The application is being reviewed.
+   * 
+   * - config_pending: The application is to be configured.
+   * 
+   * - normal: The application is in service.
+   * 
+   * - frozen: The application is frozen.
    * 
    * @example
    * normal
@@ -329,8 +346,9 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The type of the application. Valid values:
    * 
-   * *   standard: a High-performance Search Edition application.
-   * *   enhanced: an Industry Algorithm Edition application.
+   * - standard: a High-performance Search Edition application.
+   * 
+   * - enhanced: an Industry Algorithm Edition application.
    * 
    * @example
    * enhanced
@@ -353,6 +371,7 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
       currentVersion: 'currentVersion',
       description: 'description',
       domain: 'domain',
+      elasticLcu: 'elasticLcu',
       engineType: 'engineType',
       expireOn: 'expireOn',
       firstRankAlgoDeploymentId: 'firstRankAlgoDeploymentId',
@@ -386,6 +405,7 @@ export class DescribeAppGroupResponseBodyResult extends $dara.Model {
       currentVersion: 'string',
       description: 'string',
       domain: 'string',
+      elasticLcu: 'number',
       engineType: 'string',
       expireOn: 'string',
       firstRankAlgoDeploymentId: 'number',

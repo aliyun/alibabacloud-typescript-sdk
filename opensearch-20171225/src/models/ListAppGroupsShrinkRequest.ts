@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppGroupsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. Exact match is used.
+   * The ID of the instance. An exact match is performed.
    * 
    * @example
    * ops-cn-xxxx
@@ -13,7 +13,7 @@ export class ListAppGroupsShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * my_name
@@ -29,7 +29,7 @@ export class ListAppGroupsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page. Default value: 10.
    * 
    * @example
    * 10
@@ -45,10 +45,11 @@ export class ListAppGroupsShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The method based on which applications are sorted. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   0: sorts applications in descending order by creation time.
-   * *   1: sorts applications in descending order by modification time.
+   * - 0: Sorts applications by creation time in descending order.
+   * 
+   * - 1: Sorts applications by modification time in descending order.
    * 
    * Default value: 0.
    * 
@@ -58,15 +59,16 @@ export class ListAppGroupsShrinkRequest extends $dara.Model {
   sortBy?: number;
   /**
    * @remarks
-   * The tags.
+   * A list of tags.
    */
   tagsShrink?: string;
   /**
    * @remarks
    * The type of the application. Valid values:
    * 
-   * *   standard: a High-performance Search Edition application.
-   * *   enhanced: an Industry Algorithm Edition application.
+   * - standard: a Standard Edition application.
+   * 
+   * - enhanced: a Premium Edition application.
    * 
    * @example
    * standard

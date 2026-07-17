@@ -13,7 +13,7 @@ export class RemoveSecondRankResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * —
    * 
    * @example
    * {}

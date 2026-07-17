@@ -6,12 +6,12 @@ import { SecondRank } from "./SecondRank";
 export class ModifySecondRankRequest extends $dara.Model {
   /**
    * @remarks
-   * The request parameters.
+   * The request body, which contains the fine sort information.
    */
   body?: SecondRank;
   /**
    * @remarks
-   * Specifies whether the request is a dry run.
+   * Specifies whether to perform a dry run.
    * 
    * @example
    * true

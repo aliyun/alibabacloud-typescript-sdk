@@ -16,7 +16,7 @@ export class CreateAppResponseBodyResultCluster extends $dara.Model {
   maxQueryClauseLength?: number;
   /**
    * @remarks
-   * The timeout period. Unit: milliseconds.
+   * The timeout period for the cluster, in milliseconds.
    * 
    * @example
    * 750
@@ -104,23 +104,31 @@ export class CreateAppResponseBodyResultDataSources extends $dara.Model {
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The plug-ins that are used for data processing.
+   * The data processing plugins for fields.
    * 
-   * name:
+   * Plugin name (name):
    * 
-   * *   JsonKeyValueExtractor
-   * *   MultiValueSpliter
-   * *   KeyValueExtractor
-   * *   StringCatenateExtractor
-   * *   HTMLTagRemover
+   * - JsonKeyValueExtractor
    * 
-   * parameters:
+   * - MultiValueSpliter
    * 
-   * *   JsonKeyValueExtractor
-   * *   MultiValueSpliter
-   * *   KeyValueExtractor
-   * *   StringCatenateExtractor
-   * *   HTMLTagRemover
+   * - KeyValueExtractor
+   * 
+   * - StringCatenateExtractor
+   * 
+   * - HTMLTagRemover
+   * 
+   * Plugin parameters (parameters):
+   * 
+   * - JsonKeyValueExtractor
+   * 
+   * - MultiValueSpliter
+   * 
+   * - KeyValueExtractor
+   * 
+   * - StringCatenateExtractor
+   * 
+   * - HTMLTagRemover
    * 
    * @example
    * {
@@ -141,7 +149,7 @@ export class CreateAppResponseBodyResultDataSources extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The name of the table in the application.
+   * The name of the application table.
    * 
    * @example
    * main
@@ -149,12 +157,15 @@ export class CreateAppResponseBodyResultDataSources extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values:
+   * The type of the data source.
    * 
-   * *   rds
-   * *   odps
-   * *   opensearch
-   * *   polardb
+   * - rds
+   * 
+   * - odps
+   * 
+   * - opensearch
+   * 
+   * - polardb
    * 
    * @example
    * rds
@@ -205,17 +216,17 @@ export class CreateAppResponseBodyResultDataSources extends $dara.Model {
 export class CreateAppResponseBodyResultDomainFunctions extends $dara.Model {
   /**
    * @remarks
-   * The features of the sort policy category.
+   * The sort policy features.
    */
   algo?: string[];
   /**
    * @remarks
-   * The features of the query analysis category.
+   * The query analysis features.
    */
   qp?: string[];
   /**
    * @remarks
-   * The features of the service category.
+   * The ancillary service features.
    */
   service?: string[];
   static names(): { [key: string]: string } {
@@ -268,11 +279,13 @@ export class CreateAppResponseBodyResultDomain extends $dara.Model {
   functions?: CreateAppResponseBodyResultDomainFunctions;
   /**
    * @remarks
-   * The industry type. Valid values:
+   * The industry. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL
+   * 
+   * - ECOMMERCE
+   * 
+   * - IT_CONTENT
    * 
    * @example
    * GENERAL
@@ -309,7 +322,7 @@ export class CreateAppResponseBodyResultDomain extends $dara.Model {
 export class CreateAppResponseBodyResultFirstRanks extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the expression is the default one.
+   * Specifies whether the expression is the default one.
    * 
    * @example
    * False
@@ -320,15 +333,15 @@ export class CreateAppResponseBodyResultFirstRanks extends $dara.Model {
    * The description.
    * 
    * @example
-   * Description
+   * 描述
    */
   description?: string;
   /**
    * @remarks
-   * The information about the expression. The information can be of the array or string type.
+   * The details of the expression. The value can be an array or a string.
    * 
    * @example
-   * String :"random()*100+now()";
+   * String :"random()*100+now()"；
    * Array: [
    *     {
    *       "attribute": "static_bm25()",
@@ -348,9 +361,9 @@ export class CreateAppResponseBodyResultFirstRanks extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The expression type. Valid values:
+   * The type of the expression. Valid values: \\`STRUCT\\`: a structured expression. \\`STRING\\`: a custom formula. Default value: \\`STRING\\`.
    * 
-   * STRUCT: The content of the expression is a structure. STRING (default): You can configure a custom formula.
+   * STRUCT: The content of the expression is a structure. STRING (default): custom formula.
    * 
    * @example
    * STRING
@@ -388,7 +401,7 @@ export class CreateAppResponseBodyResultFirstRanks extends $dara.Model {
 export class CreateAppResponseBodyResultQueryProcessors extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the rule is the default one.
+   * Specifies whether the rule is the default one.
    * 
    * @example
    * False
@@ -404,11 +417,13 @@ export class CreateAppResponseBodyResultQueryProcessors extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The industry type. Valid values:
+   * The industry. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL: general
+   * 
+   * - ECOMMERCE: e-commerce
+   * 
+   * - IT_CONTENT: IT content
    * 
    * @example
    * GENERAL
@@ -416,7 +431,7 @@ export class CreateAppResponseBodyResultQueryProcessors extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The index range.
+   * The indexes of the application.
    */
   indexes?: string[];
   /**
@@ -429,7 +444,7 @@ export class CreateAppResponseBodyResultQueryProcessors extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The features.
+   * The features that are included.
    */
   processors?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -472,7 +487,7 @@ export class CreateAppResponseBodyResultQueryProcessors extends $dara.Model {
 export class CreateAppResponseBodyResultQuota extends $dara.Model {
   /**
    * @remarks
-   * The computing resources.
+   * The compute resources.
    * 
    * @example
    * 20
@@ -488,7 +503,7 @@ export class CreateAppResponseBodyResultQuota extends $dara.Model {
   docSize?: number;
   /**
    * @remarks
-   * The search request.
+   * The queries per second (QPS).
    * 
    * @example
    * 5
@@ -496,15 +511,21 @@ export class CreateAppResponseBodyResultQuota extends $dara.Model {
   qps?: number;
   /**
    * @remarks
-   * The specifications. Valid values:
+   * The instance specifications. Valid values:
    * 
-   * *   opensearch.share.junior: basic
-   * *   opensearch.share.common: shared general-purpose
-   * *   opensearch.share.compute: shared computing
-   * *   opensearch.share.storage: shared storage
-   * *   opensearch.private.common: exclusive general-purpose
-   * *   opensearch.private.compute: exclusive computing
-   * *   opensearch.private.storage: exclusive storage
+   * - opensearch.share.junior: Starter Edition
+   * 
+   * - opensearch.share.common: Shared General-purpose
+   * 
+   * - opensearch.share.compute: Shared Compute-optimized
+   * 
+   * - opensearch.share.storage: Shared Storage-optimized
+   * 
+   * - opensearch.private.common: Exclusive General-purpose
+   * 
+   * - opensearch.private.compute: Exclusive Compute-optimized
+   * 
+   * - opensearch.private.storage: Exclusive Storage-optimized
    * 
    * @example
    * opensearch.share.common
@@ -561,10 +582,11 @@ export class CreateAppResponseBodyResultQuota extends $dara.Model {
 export class CreateAppResponseBodyResultSchemaIndexSortConfig extends $dara.Model {
   /**
    * @remarks
-   * The sort method. Valid values:
+   * The sort order.
    * 
-   * *   ASC
-   * *   DESC
+   * - ASC
+   * 
+   * - DESC
    * 
    * @example
    * DESC
@@ -650,7 +672,7 @@ export class CreateAppResponseBodyResultSchemaIndexes extends $dara.Model {
 export class CreateAppResponseBodyResultSchemaTtlField extends $dara.Model {
   /**
    * @remarks
-   * The name of the document time field.
+   * The document time field.
    * 
    * @example
    * text1
@@ -658,7 +680,7 @@ export class CreateAppResponseBodyResultSchemaTtlField extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The TTL. Unit: milliseconds.
+   * The time to live (TTL), in milliseconds.
    * 
    * @example
    * 1000
@@ -690,7 +712,7 @@ export class CreateAppResponseBodyResultSchemaTtlField extends $dara.Model {
 export class CreateAppResponseBodyResultSchema extends $dara.Model {
   /**
    * @remarks
-   * The sort configurations.
+   * The inverted index configurations.
    */
   indexSortConfig?: CreateAppResponseBodyResultSchemaIndexSortConfig[];
   /**
@@ -716,12 +738,12 @@ export class CreateAppResponseBodyResultSchema extends $dara.Model {
   routeField?: string;
   /**
    * @remarks
-   * The name of the level-2 routing field. This parameter takes effect only when the routeFieldValues parameter is configured. By default, the wide-table primary key field is used as the level-2 routing field.
+   * The name of the level-2 routing field. This parameter takes effect only when routeFieldValues is configured. By default, the primary key of the wide table is used.
    */
   routeFieldValues?: string[];
   /**
    * @remarks
-   * The name of the level-2 routing field. This parameter takes effect only when the routeFieldValues parameter is configured. By default, the wide-table primary key field is used as the level-2 routing field.
+   * The name of the level-2 routing field. This parameter takes effect only when routeFieldValues is configured. By default, the primary key of the wide table is used.
    * 
    * @example
    * field2
@@ -767,7 +789,7 @@ export class CreateAppResponseBodyResultSchema extends $dara.Model {
   tables?: { [key: string]: any };
   /**
    * @remarks
-   * The document clearing configurations.
+   * The document expiration configuration.
    */
   ttlField?: CreateAppResponseBodyResultSchemaTtlField;
   static names(): { [key: string]: string } {
@@ -823,10 +845,11 @@ export class CreateAppResponseBodyResultSchema extends $dara.Model {
 export class CreateAppResponseBodyResultSchemasIndexSortConfig extends $dara.Model {
   /**
    * @remarks
-   * The sort method. Valid values:
+   * The sort order.
    * 
-   * *   ASC
-   * *   DESC
+   * - ASC
+   * 
+   * - DESC
    * 
    * @example
    * DESC
@@ -912,7 +935,7 @@ export class CreateAppResponseBodyResultSchemasIndexes extends $dara.Model {
 export class CreateAppResponseBodyResultSchemasTtlField extends $dara.Model {
   /**
    * @remarks
-   * The name of the document time field.
+   * The document time field.
    * 
    * @example
    * fIeld1
@@ -920,7 +943,7 @@ export class CreateAppResponseBodyResultSchemasTtlField extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The TTL. Unit: milliseconds.
+   * The time to live (TTL), in milliseconds.
    * 
    * @example
    * 1000
@@ -952,7 +975,7 @@ export class CreateAppResponseBodyResultSchemasTtlField extends $dara.Model {
 export class CreateAppResponseBodyResultSchemas extends $dara.Model {
   /**
    * @remarks
-   * The sort configurations.
+   * The inverted index configuration.
    */
   indexSortConfig?: CreateAppResponseBodyResultSchemasIndexSortConfig[];
   /**
@@ -978,12 +1001,12 @@ export class CreateAppResponseBodyResultSchemas extends $dara.Model {
   routeField?: string;
   /**
    * @remarks
-   * The hot values of the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
+   * The list of hotspot values for the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
    */
   routeFieldValues?: string[];
   /**
    * @remarks
-   * The name of the level-2 routing field. This parameter takes effect only when the routeFieldValues parameter is configured. By default, the wide-table primary key field is used as the level-2 routing field.
+   * The name of the level-2 routing field. This parameter takes effect only when routeFieldValues is configured. By default, the primary key of the wide table is used.
    * 
    * @example
    * field2
@@ -1029,7 +1052,7 @@ export class CreateAppResponseBodyResultSchemas extends $dara.Model {
   tables?: { [key: string]: any };
   /**
    * @remarks
-   * The document clearing configurations.
+   * The document expiration configuration.
    */
   ttlField?: CreateAppResponseBodyResultSchemasTtlField;
   static names(): { [key: string]: string } {
@@ -1085,7 +1108,7 @@ export class CreateAppResponseBodyResultSchemas extends $dara.Model {
 export class CreateAppResponseBodyResultSecondRanks extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the expression is the default one.
+   * Specifies whether the expression is the default one.
    * 
    * @example
    * False
@@ -1101,7 +1124,7 @@ export class CreateAppResponseBodyResultSecondRanks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The fine sort expression. You can define an expression that contains fields, feature functions, and mathematical functions to implement complex sort logic.
+   * The fine sort expression. You can write an expression that contains fields, feature functions, and mathematical functions to implement complex sort logic.
    * 
    * @example
    * "cate_id > 0 and cate_id < 1000"
@@ -1145,7 +1168,7 @@ export class CreateAppResponseBodyResultSecondRanks extends $dara.Model {
 export class CreateAppResponseBodyResultSummariesMeta extends $dara.Model {
   /**
    * @remarks
-   * The element that is used for highlighting.
+   * The HTML tag for highlight.
    * 
    * @example
    * em
@@ -1153,7 +1176,7 @@ export class CreateAppResponseBodyResultSummariesMeta extends $dara.Model {
   element?: string;
   /**
    * @remarks
-   * The connector that is used to connect segments.
+   * The string used to connect snippets.
    * 
    * @example
    * ...
@@ -1169,7 +1192,7 @@ export class CreateAppResponseBodyResultSummariesMeta extends $dara.Model {
   field?: string;
   /**
    * @remarks
-   * The length of the segment. Valid values: 1 to 300.
+   * The length of the snippet. The value must be in the range of [1, 300].
    * 
    * @example
    * 50
@@ -1177,7 +1200,7 @@ export class CreateAppResponseBodyResultSummariesMeta extends $dara.Model {
   len?: number;
   /**
    * @remarks
-   * The number of segments. Valid values: 1 to 5.
+   * The number of snippets. The value must be in the range of [1, 5].
    * 
    * @example
    * 5
@@ -1215,7 +1238,7 @@ export class CreateAppResponseBodyResultSummariesMeta extends $dara.Model {
 export class CreateAppResponseBodyResultSummaries extends $dara.Model {
   /**
    * @remarks
-   * The collection of summary configurations.
+   * The summary configurations.
    */
   meta?: CreateAppResponseBodyResultSummariesMeta[];
   /**
@@ -1255,7 +1278,7 @@ export class CreateAppResponseBodyResultSummaries extends $dara.Model {
 export class CreateAppResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The capability opening configurations.
+   * The feature configurations.
    */
   cluster?: CreateAppResponseBodyResultCluster;
   /**
@@ -1272,12 +1295,12 @@ export class CreateAppResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The configurations of the data sources.
+   * The data source configurations.
    */
   dataSources?: CreateAppResponseBodyResultDataSources[];
   /**
    * @remarks
-   * The description of the application.
+   * The application description.
    * 
    * @example
    * My application
@@ -1285,7 +1308,7 @@ export class CreateAppResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The industry model module.
+   * The industry model.
    */
   domain?: CreateAppResponseBodyResultDomain;
   /**
@@ -1295,7 +1318,7 @@ export class CreateAppResponseBodyResult extends $dara.Model {
   fetchFields?: string[];
   /**
    * @remarks
-   * The configurations of rough sort.
+   * The rough sort configurations.
    */
   firstRanks?: CreateAppResponseBodyResultFirstRanks[];
   /**
@@ -1308,15 +1331,33 @@ export class CreateAppResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The descriptions of the LLM table fields.
+   * The descriptions of the large language model (LLM) table fields.
    * 
    * @example
-   * { "name": "longyu_llm_1", "schemas": [], "interpretations": [ { "table": "table1", "fields": [ { "name": "field1", "interpretation": "Title" }, { "name": "field2", "interpretation": "Number" } ] } ] }
+   * {
+   *     "name": "longyu_llm_1",
+   *     "schemas": [],
+   *     "interpretations": [
+   *         {
+   *             "table": "table1",
+   *             "fields": [
+   *                 {
+   *                     "name": "field1",
+   *                     "interpretation": " title"
+   *                 },
+   *                 {
+   *                     "name": "field2",
+   *                     "interpretation": " ID"
+   *                 }
+   *             ]
+   *         }
+   *     ]
+   * }
    */
   interpretations?: { [key: string]: any }[];
   /**
    * @remarks
-   * Indicates whether the version is an online version.
+   * Indicates whether the version is the online version.
    * 
    * @example
    * 12333
@@ -1324,7 +1365,7 @@ export class CreateAppResponseBodyResult extends $dara.Model {
   isCurrent?: boolean;
   /**
    * @remarks
-   * The percentage for the data import progress.
+   * The data import progress, in percentage.
    * 
    * @example
    * 100
@@ -1332,45 +1373,51 @@ export class CreateAppResponseBodyResult extends $dara.Model {
   progressPercent?: number;
   /**
    * @remarks
-   * The prompt configurations
+   * The prompt configurations.
    */
   prompts?: { [key: string]: any }[];
   /**
    * @remarks
-   * The query intent understanding configurations.
+   * The intention recognition configurations.
    */
   queryProcessors?: CreateAppResponseBodyResultQueryProcessors[];
   /**
    * @remarks
-   * The quota.
+   * The quota of the version.
    */
   quota?: CreateAppResponseBodyResultQuota;
   /**
    * @remarks
-   * The single-table schema.
+   * The schema of the single-table application.
    */
   schema?: CreateAppResponseBodyResultSchema;
   /**
    * @remarks
-   * The multi-table schema.
+   * The schema of the multi-table application.
    */
   schemas?: CreateAppResponseBodyResultSchemas[];
   /**
    * @remarks
-   * The configurations of fine sort.
+   * The fine sort configurations.
    */
   secondRanks?: CreateAppResponseBodyResultSecondRanks[];
   /**
    * @remarks
-   * The status of the application. Valid values:
+   * The application status.
    * 
-   * *   OK
-   * *   STOPPED
-   * *   FROZEN
-   * *   INITIALIZING
-   * *   UNAVAILABLE
-   * *   DATA_WAITING
-   * *   DATA_PREPARING
+   * - OK
+   * 
+   * - STOPPED: The application is paused.
+   * 
+   * - FROZEN: The application is frozen.
+   * 
+   * - INITIALIZING: The version is being initialized.
+   * 
+   * - UNAVAILABLE: The version is invalid.
+   * 
+   * - DATA_WAITING: The system is waiting for data initialization.
+   * 
+   * - DATA_PREPARING: Data is being initialized.
    * 
    * @example
    * OK
@@ -1378,16 +1425,17 @@ export class CreateAppResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The summary configurations of search results.
+   * The search result summary settings.
    */
   summaries?: CreateAppResponseBodyResultSummaries[];
   switchTime?: number;
   /**
    * @remarks
-   * The type of the application. Valid values:
+   * The application type.
    * 
-   * *   standard
-   * *   enhanced
+   * - standard: Standard Edition
+   * 
+   * - enhanced: Premium Edition
    * 
    * @example
    * standard
@@ -1514,7 +1562,7 @@ export class CreateAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The response data.
    * 
    * @example
    * {}

@@ -22,7 +22,7 @@ export class GetSortScriptResponseBodyResult extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The sort phase to which the script applies.
+   * The applicable scope of the script.
    * 
    * @example
    * second_rank
@@ -38,7 +38,7 @@ export class GetSortScriptResponseBodyResult extends $dara.Model {
   scriptName?: string;
   /**
    * @remarks
-   * The status of the script. For more information, see the description of the status response parameter in the ListSortScripts topic.
+   * The status of the script. For more information, see the list of script statuses.
    * 
    * @example
    * released
@@ -88,7 +88,7 @@ export class GetSortScriptResponseBodyResult extends $dara.Model {
 export class GetSortScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * ABCDEFGH

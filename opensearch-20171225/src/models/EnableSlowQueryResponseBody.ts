@@ -13,7 +13,7 @@ export class EnableSlowQueryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    * 
    * @example
    * {}

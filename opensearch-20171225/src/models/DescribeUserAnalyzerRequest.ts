@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserAnalyzerRequest extends $dara.Model {
   /**
    * @remarks
-   * The Associated information,output properties based on hierarchy.
-   * * **all**: Outputs associated app information
+   * Specifies related information to return. The properties are returned based on the specified level.
+   * 
+   * - all: Returns information about the associated application.
    * 
    * @example
    * all

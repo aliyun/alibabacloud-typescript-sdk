@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFunctionResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned. If no error occurs, this value is empty.
+   * The error code. This parameter is empty if no error occurred.
    * 
    * @example
    * ""
@@ -13,7 +13,7 @@ export class DeleteFunctionResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeleteFunctionResourceResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the request. Unit: milliseconds.
+   * The request latency. Unit: milliseconds.
    * 
    * @example
    * 123
@@ -45,10 +45,11 @@ export class DeleteFunctionResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status code. Valid values:
+   * The status of the request.
    * 
-   * *   OK
-   * *   FAIL
+   * - OK: The request is successful.
+   * 
+   * - FAIL: The request failed.
    * 
    * @example
    * OK

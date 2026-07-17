@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFunctionInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If no error occurs, this parameter is left empty.
+   * The error code. This parameter is empty if the request is successful.
    * 
    * @example
    * "Instance.NotExist"
@@ -21,7 +21,7 @@ export class DeleteFunctionInstanceResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the request, in milliseconds.
+   * The request latency, in milliseconds.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DeleteFunctionInstanceResponseBody extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * The error message. If no error occurs, this parameter is left empty.
+   * The error message. This parameter is empty if the request is successful.
    * 
    * @example
    * "instance not exist."
@@ -45,10 +45,11 @@ export class DeleteFunctionInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the request. Valid values:
+   * The status of the request.
    * 
-   * *   OK: The request is successful.
-   * *   FAIL: The request fails.
+   * - OK: The request is successful.
+   * 
+   * - FAIL: The request fails.
    * 
    * @example
    * "OK"

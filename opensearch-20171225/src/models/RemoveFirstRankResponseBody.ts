@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveFirstRankResponseBodyResultMeta extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are used by a function in the expression. For more information, see Rough sort functions.[](~~170007~~)
+   * The parameters of the function in the expression. For more information, see [Rough sort](https://help.aliyun.com/document_detail/170007.html).
    * 
    * @example
    * ""
@@ -13,7 +13,7 @@ export class RemoveFirstRankResponseBodyResultMeta extends $dara.Model {
   arg?: string;
   /**
    * @remarks
-   * The attribute, which refers to the scoring feature or search field, For more information about supported feature functions, see Rough sort functions.[](~~170007~~)
+   * The attribute. This can be a scoring feature or a search field. For information about available scoring features, see [Rough sort](https://help.aliyun.com/document_detail/170007.html).
    * 
    * @example
    * static_bm25()
@@ -55,7 +55,7 @@ export class RemoveFirstRankResponseBodyResultMeta extends $dara.Model {
 export class RemoveFirstRankResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to set the fine sort expression as the default sort expression.
+   * Indicates whether this is the default expression.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class RemoveFirstRankResponseBodyResult extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * ""
@@ -71,12 +71,12 @@ export class RemoveFirstRankResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The information about the expression.
+   * The details of the expression.
    */
   meta?: RemoveFirstRankResponseBodyResultMeta[];
   /**
    * @remarks
-   * Parameter
+   * The name of the resource.
    * 
    * @example
    * default
@@ -123,7 +123,7 @@ export class RemoveFirstRankResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the rough sort expression.
+   * The details of the rough sort expression.
    */
   result?: RemoveFirstRankResponseBodyResult;
   static names(): { [key: string]: string } {

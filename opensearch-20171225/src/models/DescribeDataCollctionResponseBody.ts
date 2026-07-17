@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the data collection was created.
    * 
    * @example
    * 1581065837
@@ -13,11 +13,13 @@ export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The type of data collected. Valid values:
+   * The type of the data collection.
    * 
-   * *   behavior: behavioral data.
-   * *   item_info: project information.
-   * *   industry_specific: industry-specific data.
+   * - behavior: User behavior data.
+   * 
+   * - item_info: Item information.
+   * 
+   * - industry_specific: Industry-specific attributes.
    * 
    * @example
    * BEHAVIOR
@@ -25,7 +27,7 @@ export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   dataCollectionType?: string;
   /**
    * @remarks
-   * The ID of the data collection task.
+   * The ID of the data collection.
    * 
    * @example
    * 286
@@ -33,10 +35,11 @@ export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The industry name. Valid values:
+   * The name of the industry.
    * 
-   * *   general
-   * *   ecommerce
+   * - general: General
+   * 
+   * - ecommerce: E-commerce
    * 
    * @example
    * GENERAL
@@ -44,7 +47,7 @@ export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   industryName?: string;
   /**
    * @remarks
-   * The name of the data collection task.
+   * The name of the data collection.
    * 
    * @example
    * os_function_test_v1
@@ -52,12 +55,15 @@ export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the data collection feature. Valid values:
+   * The status.
    * 
-   * *   0: The feature is disabled.
-   * *   1: The feature is being enabled.
-   * *   2: The feature is enabled.
-   * *   3: The feature failed to be enabled.
+   * - 0: The data collection is not enabled.
+   * 
+   * - 1: The data collection is being enabled.
+   * 
+   * - 2: The data collection is enabled.
+   * 
+   * - 3: The data collection failed to be enabled.
    * 
    * @example
    * 2
@@ -65,7 +71,7 @@ export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The sundial ID.
+   * The ID of the sundial.
    * 
    * @example
    * 1755
@@ -73,11 +79,14 @@ export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   sundialId?: string;
   /**
    * @remarks
-   * The type of the source from which data was collected. Valid values:
+   * The type of the data collection client.
    * 
-   * *   server
-   * *   web
-   * *   app Note: Only server is supported.
+   * - server
+   * 
+   * - web
+   * 
+   * - app
+   *   Only server is supported.
    * 
    * @example
    * server
@@ -85,7 +94,7 @@ export class DescribeDataCollctionResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the data collection task was updated.
+   * The time when the data collection was last updated.
    * 
    * @example
    * 1581065904
@@ -139,7 +148,7 @@ export class DescribeDataCollctionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the data collection task.
+   * The data collection information.
    */
   result?: DescribeDataCollctionResponseBodyResult;
   static names(): { [key: string]: string } {

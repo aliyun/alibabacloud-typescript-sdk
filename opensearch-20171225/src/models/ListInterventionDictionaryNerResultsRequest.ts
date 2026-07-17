@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListInterventionDictionaryNerResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * Query keywords.
+   * The keyword to search for.
    * 
    * This parameter is required.
    * 
    * @example
-   * "hello world"
+   * soy milk
    */
   query?: string;
   static names(): { [key: string]: string } {

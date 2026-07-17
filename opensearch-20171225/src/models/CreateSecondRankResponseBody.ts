@@ -13,7 +13,7 @@ export class CreateSecondRankResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the fine sort expression.
+   * The information about the fine-sort expression.
    * 
    * @example
    * {}

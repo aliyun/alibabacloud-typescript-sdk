@@ -23,13 +23,19 @@ export class CreateAppGroupRequestQuota extends $dara.Model {
    * @remarks
    * The specifications. Valid values:
    * 
-   * *   opensearch.share.junior: basic
-   * *   opensearch.share.common: shared general-purpose
-   * *   opensearch.share.compute: shared computing
-   * *   opensearch.share.storage: shared storage
-   * *   opensearch.private.common: exclusive general-purpose
-   * *   opensearch.private.compute: exclusive computing
-   * *   opensearch.private.storage: exclusive storage
+   * - opensearch.share.junior: basic
+   * 
+   * - opensearch.share.common: shared general-purpose
+   * 
+   * - opensearch.share.compute: shared compute-optimized
+   * 
+   * - opensearch.share.storage: shared storage-optimized
+   * 
+   * - opensearch.private.common: exclusive general-purpose
+   * 
+   * - opensearch.private.compute: exclusive compute-optimized
+   * 
+   * - opensearch.private.storage: exclusive storage-optimized
    * 
    * @example
    * opensearch.share.common
@@ -105,8 +111,9 @@ export class CreateAppGroupRequest extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   POSTPAY: pay-as-you-go
-   * *   PREPAY: subscription
+   * - POSTPAY: pay-as-you-go
+   * 
+   * - PREPAY: subscription
    * 
    * @example
    * POSTPAY
@@ -140,10 +147,11 @@ export class CreateAppGroupRequest extends $dara.Model {
   tags?: CreateAppGroupRequestTags[];
   /**
    * @remarks
-   * The type of the application. Valid values:
+   * The application type. Valid values:
    * 
-   * *   standard
-   * *   enhanced
+   * - standard: Standard Edition
+   * 
+   * - enhanced: Premium Edition
    * 
    * @example
    * enhanced

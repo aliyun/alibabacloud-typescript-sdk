@@ -7,12 +7,6 @@ export class GetFunctionResourceRequest extends $dara.Model {
    * @remarks
    * The output level.
    * 
-   * Valid values:
-   * 
-   * *   simple
-   * *   normal
-   * *   detail
-   * 
    * @example
    * detail
    */

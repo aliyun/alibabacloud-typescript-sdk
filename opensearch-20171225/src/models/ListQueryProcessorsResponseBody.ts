@@ -21,11 +21,13 @@ export class ListQueryProcessorsResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The type of the industry to which the query analysis rule is applied. Valid values:
+   * The industry to which the query analysis rule applies. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL: General
+   * 
+   * - ECOMMERCE: E-commerce
+   * 
+   * - IT_CONTENT: IT content
    * 
    * @example
    * GENERAL
@@ -107,7 +109,7 @@ export class ListQueryProcessorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the query analysis rule.
+   * The information about the query analysis rules.
    * 
    * For more information, see [QueryProcessor](https://help.aliyun.com/document_detail/170014.html).
    */

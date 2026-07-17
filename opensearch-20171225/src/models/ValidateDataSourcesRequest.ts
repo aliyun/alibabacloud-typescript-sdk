@@ -6,7 +6,7 @@ import { DataSource } from "./DataSource";
 export class ValidateDataSourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The request parameter. For more information, see [DataSource](https://help.aliyun.com/document_detail/170005.html).
+   * The request parameters. For more information, see [DataSource](https://help.aliyun.com/document_detail/170005.html).
    */
   body?: DataSource;
   static names(): { [key: string]: string } {

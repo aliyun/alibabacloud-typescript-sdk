@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class PushUserAnalyzerEntriesRequestEntries extends $dara.Model {
   /**
    * @remarks
-   * The operation to be performed on the entries.
+   * The operation to perform on the entries.
    * 
    * Valid values:
    * 
-   * *   add
-   * *   delete
+   * - add
+   * 
+   * - delete
    * 
    * @example
    * "add"
@@ -26,9 +27,9 @@ export class PushUserAnalyzerEntriesRequestEntries extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Specifies whether to further analyze the terms that are generated after the search query is analyzed.
+   * Specifies whether to enable fine-grained splitting.
    * 
-   * Default value: true.
+   * Default: true
    * 
    * @example
    * true

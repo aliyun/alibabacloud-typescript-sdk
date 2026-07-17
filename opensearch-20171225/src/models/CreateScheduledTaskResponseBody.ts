@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ABCDEFGH
@@ -13,7 +13,7 @@ export class CreateScheduledTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * For more information about a scheduled task, see [ScheduledTask](https://help.aliyun.com/document_detail/173610.html).
+   * The information about the scheduled task. For more information, see [ScheduledTask](https://help.aliyun.com/document_detail/173610.html).
    * 
    * @example
    * {}

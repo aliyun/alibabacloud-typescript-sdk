@@ -7,12 +7,6 @@ export class ListFunctionResourcesRequest extends $dara.Model {
    * @remarks
    * The output level.
    * 
-   * Valid values:
-   * 
-   * *   simple
-   * *   normal
-   * *   detail
-   * 
    * @example
    * detail
    */
@@ -27,7 +21,7 @@ export class ListFunctionResourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -35,25 +29,7 @@ export class ListFunctionResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the resource.
-   * 
-   * Valid values:
-   * 
-   * *   feature_generator
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   raw_file
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The resource type.
    * 
    * @example
    * feature_generator

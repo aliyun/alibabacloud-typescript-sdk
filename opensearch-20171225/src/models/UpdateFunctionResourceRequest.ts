@@ -45,7 +45,7 @@ export class UpdateFunctionResourceRequestDataGeneratorsInputFeatures extends $d
 export class UpdateFunctionResourceRequestDataGeneratorsInput extends $dara.Model {
   /**
    * @remarks
-   * The input features.
+   * A list of input features.
    */
   features?: UpdateFunctionResourceRequestDataGeneratorsInputFeatures[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class UpdateFunctionResourceRequestDataGenerators extends $dara.Model {
 export class UpdateFunctionResourceRequestData extends $dara.Model {
   /**
    * @remarks
-   * The content of the file that corresponds to a resource of the raw_file type.
+   * The content of the file. This parameter is used for resources of the raw_file type.
    * 
    * @example
    * abc
@@ -133,7 +133,7 @@ export class UpdateFunctionResourceRequestData extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The feature generators that correspond to resources of the feature_generator type.
+   * The list of feature generators. This parameter is used for resources of the feature_generator type.
    */
   generators?: UpdateFunctionResourceRequestDataGenerators[];
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class UpdateFunctionResourceRequestData extends $dara.Model {
 export class UpdateFunctionResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource data. The data structure varies with the resource type.
+   * The data of the resource. The structure of this parameter varies based on the value of resourceType.
    */
   data?: UpdateFunctionResourceRequestData;
   /**

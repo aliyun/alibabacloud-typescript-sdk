@@ -63,9 +63,11 @@ export class GetFunctionTaskResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the task. Valid values:
    * 
-   * *   success
-   * *   failed
-   * *   running
+   * - success
+   * 
+   * - failed
+   * 
+   * - running
    * 
    * @example
    * success
@@ -154,7 +156,7 @@ export class GetFunctionTaskResponseBody extends $dara.Model {
   result?: GetFunctionTaskResponseBodyResult;
   /**
    * @remarks
-   * The status of the request.
+   * The request status.
    * 
    * @example
    * OK

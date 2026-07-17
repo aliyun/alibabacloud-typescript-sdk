@@ -45,7 +45,7 @@ export class CreateFunctionTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the request.
+   * The request status.
    * 
    * @example
    * OK

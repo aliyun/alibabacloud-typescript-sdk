@@ -5,13 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListSlowQueryCategoriesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The status of the analysis. Valid values:
+   * The analysis status.
    * 
-   * *   PENDING: preparing
-   * *   SUCCESS: succeeded
-   * *   RUNNING: running
-   * *   FAILED: failed
-   * *   N/A: unknown
+   * - PENDING: The analysis is being prepared.
+   * 
+   * - SUCCESS: The analysis is successful.
+   * 
+   * - RUNNING: The analysis is in progress.
+   * 
+   * - FAILED: The analysis failed.
+   * 
+   * - N/A: The analysis status is unknown.
    * 
    * @example
    * "PENDING"
@@ -19,7 +23,7 @@ export class ListSlowQueryCategoriesResponseBodyResult extends $dara.Model {
   analyzeStatus?: string;
   /**
    * @remarks
-   * The timestamp that indicates the end of the time range to query.
+   * The end timestamp.
    * 
    * @example
    * 1589990340
@@ -27,7 +31,7 @@ export class ListSlowQueryCategoriesResponseBodyResult extends $dara.Model {
   end?: number;
   /**
    * @remarks
-   * The timestamp that indicates the beginning of the time range to query.
+   * The start timestamp.
    * 
    * @example
    * 1589986800
@@ -61,7 +65,7 @@ export class ListSlowQueryCategoriesResponseBodyResult extends $dara.Model {
 export class ListSlowQueryCategoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4406F40B-A0A2-9D5D-531F-3B6936567584
@@ -69,7 +73,7 @@ export class ListSlowQueryCategoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   result?: ListSlowQueryCategoriesResponseBodyResult;
   static names(): { [key: string]: string } {

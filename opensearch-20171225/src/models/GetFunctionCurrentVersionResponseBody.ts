@@ -13,7 +13,7 @@ export class GetFunctionCurrentVersionResponseBodyResultVersionConfigCreateParam
   name?: string;
   /**
    * @remarks
-   * Indicates whether the parameter is required.
+   * Specifies whether the parameter is required.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class GetFunctionCurrentVersionResponseBodyResultVersionConfigUsageParame
   name?: string;
   /**
    * @remarks
-   * Indicates whether the parameter is required.
+   * Specifies whether the parameter is required.
    * 
    * @example
    * ""
@@ -135,7 +135,7 @@ export class GetFunctionCurrentVersionResponseBodyResultVersionConfigUsageParame
 export class GetFunctionCurrentVersionResponseBodyResultVersionConfig extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are used to create the instance.
+   * The parameters used to create an instance.
    * 
    * @example
    * [                 {                     "name": "params1",                     "required": "true",                     "formItemProps": "{\\"required\\": true, \\"pattern?\\": \\"/^[a-zA-Z][a-zA-Z0-9_]{0,29}$/\\"}",                     "componentProps": "{\\"component\\": \\"Input\\", \\"attributes\\": {\\"defaultValue\\": \\"value1\\"}}"                 }             ]
@@ -143,12 +143,15 @@ export class GetFunctionCurrentVersionResponseBodyResultVersionConfig extends $d
   createParameters?: GetFunctionCurrentVersionResponseBodyResultVersionConfigCreateParameters[];
   /**
    * @remarks
-   * The dependencies of the instance.
+   * A list of instance dependencies.
+   * 
+   * @example
+   * [                 {                     "dependency": "依赖项",                     "condition": "条件",                     "description": ""                 }             ]
    */
   depends?: GetFunctionCurrentVersionResponseBodyResultVersionConfigDepends[];
   /**
    * @remarks
-   * The parameters that are used to use the instance online.
+   * The parameters for using the instance online.
    * 
    * @example
    * []
@@ -201,8 +204,9 @@ export class GetFunctionCurrentVersionResponseBodyResult extends $dara.Model {
    * @remarks
    * The type of the feature. Valid values:
    * 
-   * *   PAAS
-   * *   SAAS
+   * - PAAS
+   * 
+   * - SAAS
    * 
    * @example
    * PAAS
@@ -210,7 +214,7 @@ export class GetFunctionCurrentVersionResponseBodyResult extends $dara.Model {
   functionType?: string;
   /**
    * @remarks
-   * The type of the model.
+   * The model type.
    * 
    * @example
    * tf_checkpoint
@@ -218,12 +222,15 @@ export class GetFunctionCurrentVersionResponseBodyResult extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * The configuration information about the instance.
+   * The configuration.
+   * 
+   * @example
+   * {             "createParameters": [                 {                     "name": "params1",                     "required": "true",                     "formItemProps": "{\\"required\\": true, \\"pattern?\\": \\"/^[a-zA-Z][a-zA-Z0-9_]{0,29}$/\\"}",                     "componentProps": "{\\"component\\": \\"Input\\", \\"attributes\\": {\\"defaultValue\\": \\"value1\\"}}"                 }             ],             "depends": [                 {                     "dependency": "依赖项",                     "condition": "条件",                     "description": ""                 }             ],             "usageParameters": []         }
    */
   versionConfig?: GetFunctionCurrentVersionResponseBodyResultVersionConfig;
   /**
    * @remarks
-   * The ID of the version.
+   * The version ID.
    * 
    * @example
    * 101
@@ -231,7 +238,7 @@ export class GetFunctionCurrentVersionResponseBodyResult extends $dara.Model {
   versionId?: number;
   /**
    * @remarks
-   * The name of the version.
+   * The version name.
    * 
    * @example
    * v1
@@ -290,7 +297,7 @@ export class GetFunctionCurrentVersionResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the request, in milliseconds.
+   * The request latency in milliseconds (ms).
    * 
    * @example
    * 123
@@ -306,7 +313,7 @@ export class GetFunctionCurrentVersionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1638157479281
@@ -314,7 +321,10 @@ export class GetFunctionCurrentVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the request.
+   * The returned result.
+   * 
+   * @example
+   * {         "versionName": "v1",         "versionId": 101,         "functionName": "ctr",         "modelType": "tf_checkpoint",         "functionType": "PAAS",         "versionConfig": {             "createParameters": [                 {                     "name": "params1",                     "required": "true",                     "formItemProps": "{\\"required\\": true, \\"pattern?\\": \\"/^[a-zA-Z][a-zA-Z0-9_]{0,29}$/\\"}",                     "componentProps": "{\\"component\\": \\"Input\\", \\"attributes\\": {\\"defaultValue\\": \\"value1\\"}}"                 }             ],             "depends": [                 {                     "dependency": "依赖项",                     "condition": "条件",                     "description": ""                 }             ],             "usageParameters": []         }     }
    */
   result?: GetFunctionCurrentVersionResponseBodyResult;
   /**

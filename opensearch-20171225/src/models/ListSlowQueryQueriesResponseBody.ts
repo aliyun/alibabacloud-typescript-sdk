@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSlowQueryQueriesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The content of the optimization suggestion for the query.
+   * The information about the optimization suggestion.
    * 
    * @example
    * no data
@@ -13,7 +13,7 @@ export class ListSlowQueryQueriesResponseBodyResult extends $dara.Model {
   appQuery?: string;
   /**
    * @remarks
-   * The end of the time range that was queried.
+   * The end timestamp.
    * 
    * @example
    * 1589990340
@@ -29,7 +29,7 @@ export class ListSlowQueryQueriesResponseBodyResult extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The beginning of the time range that was queried.
+   * The start timestamp.
    * 
    * @example
    * 1589986800
@@ -65,7 +65,7 @@ export class ListSlowQueryQueriesResponseBodyResult extends $dara.Model {
 export class ListSlowQueryQueriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EB250CA0-ACFD-C5DE-17CD-01445BFE8AE5
@@ -73,7 +73,7 @@ export class ListSlowQueryQueriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return result.
+   * The result of the request.
    */
   result?: ListSlowQueryQueriesResponseBodyResult;
   static names(): { [key: string]: string } {

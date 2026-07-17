@@ -21,7 +21,7 @@ export class RemoveInterventionDictionaryResponseBodyResult extends $dara.Model 
   created?: string;
   /**
    * @remarks
-   * Parameter
+   * The name of the dictionary.
    * 
    * @example
    * tongyici
@@ -29,14 +29,19 @@ export class RemoveInterventionDictionaryResponseBodyResult extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * Type
+   * The type of the dictionary. Valid values:
    * 
-   * *   stopword: an intervention dictionary for stop word filtering.
-   * *   synonym: an intervention dictionary for synonym configuration.
-   * *   correction: an intervention dictionary for spelling correction.
-   * *   category_prediction: an intervention dictionary for category prediction.
-   * *   ner: an intervention dictionary for named entity recognition.
-   * *   term_weighting: an intervention dictionary for term weight analysis.
+   * - stopword: An intervention dictionary for stop words.
+   * 
+   * - synonym: An intervention dictionary for synonyms.
+   * 
+   * - correction: An intervention dictionary for spelling correction.
+   * 
+   * - category_prediction: An intervention dictionary for category prediction.
+   * 
+   * - ner: An intervention dictionary for Named Entity Recognition (NER).
+   * 
+   * - term_weighting: An intervention dictionary for term weights.
    * 
    * @example
    * synonym
@@ -44,7 +49,7 @@ export class RemoveInterventionDictionaryResponseBodyResult extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The time when the the intervention dictionary was modified.
+   * The time when the intervention dictionary was updated.
    * 
    * @example
    * 1539158313
@@ -90,7 +95,7 @@ export class RemoveInterventionDictionaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the intervention dictionary.
+   * The details of the intervention dictionary.
    */
   result?: RemoveInterventionDictionaryResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CompileSortScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * ABCDEFGH

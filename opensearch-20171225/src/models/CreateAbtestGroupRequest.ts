@@ -11,12 +11,13 @@ export class CreateABTestGroupRequest extends $dara.Model {
   body?: ABTestGroup;
   /**
    * @remarks
-   * Specifies whether to check the validity of input parameters. Default value: false.
+   * Specifies whether to check the validity of the input parameters. The default value is false.
    * 
    * Valid values:
    * 
-   * *   **true**: checks only the validity of input parameters.
-   * *   **false**: checks the validity of input parameters and creates an attribution configuration.
+   * - **true**: checks only the validity of the input parameters.
+   * 
+   * - **false**: checks the validity of the input parameters and creates an attribution configuration.
    * 
    * @example
    * true

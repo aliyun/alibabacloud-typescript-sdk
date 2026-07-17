@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyQueryProcessorResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the query analysis rule is a default rule.
+   * Indicates whether the rule is a default rule.
    * 
    * @example
    * true
@@ -21,11 +21,13 @@ export class ModifyQueryProcessorResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The type of the industry to which the query analysis rule is applied. Valid values:
+   * The industry to which the query analysis rule applies. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL: General
+   * 
+   * - ECOMMERCE: E-commerce
+   * 
+   * - IT_CONTENT: IT content
    * 
    * @example
    * GENERAL
@@ -33,7 +35,7 @@ export class ModifyQueryProcessorResponseBodyResult extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The indexes to which the query analysis rule is applied.
+   * The indexes to which the query analysis rule applies.
    * 
    * @example
    * ["default"]
@@ -41,7 +43,7 @@ export class ModifyQueryProcessorResponseBodyResult extends $dara.Model {
   indexes?: string[];
   /**
    * @remarks
-   * The name of the query analysis rule.
+   * The name of the rule.
    * 
    * @example
    * synonym
@@ -113,7 +115,7 @@ export class ModifyQueryProcessorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the query analysis rule.
+   * The information about the rule.
    * 
    * @example
    * {}

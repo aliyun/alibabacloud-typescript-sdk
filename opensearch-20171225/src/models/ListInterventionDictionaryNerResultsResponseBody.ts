@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInterventionDictionaryNerResultsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The sequence number.
+   * The ordinal number.
    * 
    * @example
    * 1
@@ -13,44 +13,79 @@ export class ListInterventionDictionaryNerResultsResponseBodyResult extends $dar
   order?: number;
   /**
    * @remarks
-   * The internal name of the identified entity type. Valid values:
+   * The tag of the detected entity.
    * 
-   * *   brand
-   * *   category
-   * *   material
-   * *   element
-   * *   style
-   * *   color
-   * *   function
-   * *   scenario
-   * *   people
-   * *   season
-   * *   model
-   * *   region
-   * *   name
-   * *   adjective
-   * *   category-modifier
-   * *   size
-   * *   quality
-   * *   suit
-   * *   new-release
-   * *   series
-   * *   marketing
-   * *   entertainment
-   * *   organization
-   * *   movie
-   * *   game
-   * *   number
-   * *   unit
-   * *   common
-   * *   new-word
-   * *   proper-noun
-   * *   symbol
-   * *   prefix
-   * *   suffix
-   * *   gift
-   * *   negative
-   * *   agent
+   * - brand: Brand
+   * 
+   * - category: Category
+   * 
+   * - material: Material
+   * 
+   * - element: Element
+   * 
+   * - style: Style
+   * 
+   * - color: Color
+   * 
+   * - function: Function
+   * 
+   * - scenario: Scenario
+   * 
+   * - people: People
+   * 
+   * - season: Season
+   * 
+   * - model: Model
+   * 
+   * - region: Region
+   * 
+   * - name: Name
+   * 
+   * - adjective: Adjective
+   * 
+   * - category-modifier: Category modifier
+   * 
+   * - size: Size
+   * 
+   * - quality: Quality
+   * 
+   * - suit: Suit
+   * 
+   * - new-release: New release
+   * 
+   * - series: Series
+   * 
+   * - marketing: Marketing
+   * 
+   * - entertainment: Entertainment
+   * 
+   * - organization: Organization
+   * 
+   * - movie: Movie
+   * 
+   * - game: Game
+   * 
+   * - number: Number
+   * 
+   * - unit: Unit
+   * 
+   * - common: Common word
+   * 
+   * - new-word: New word
+   * 
+   * - proper-noun: Proper noun
+   * 
+   * - symbol: Symbol
+   * 
+   * - prefix: Prefix
+   * 
+   * - suffix: Suffix
+   * 
+   * - gift: Gift
+   * 
+   * - negative: Negative
+   * 
+   * - agent: Agent
    * 
    * @example
    * category
@@ -58,18 +93,18 @@ export class ListInterventionDictionaryNerResultsResponseBodyResult extends $dar
   tag?: string;
   /**
    * @remarks
-   * The description of the internal name of the identified entity type.
+   * The label of the tag.
    * 
    * @example
-   * category
+   * 品类
    */
   tagLabel?: string;
   /**
    * @remarks
-   * The entity.
+   * The detected entity.
    * 
    * @example
-   * eaa73f35-007a-4be7-88c7-37dca4a04ab7
+   * milk
    */
   token?: string;
   static names(): { [key: string]: string } {
@@ -102,7 +137,7 @@ export class ListInterventionDictionaryNerResultsResponseBodyResult extends $dar
 export class ListInterventionDictionaryNerResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8F780CA8-D4D4-2FFE-B8AC-42040822C554
@@ -110,9 +145,9 @@ export class ListInterventionDictionaryNerResultsResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The NER result.
+   * The NER results.
    * 
-   * For more information, see [InterventionDictionaryEntry](https://help.aliyun.com/document_detail/173606.html).
+   * For more information, see [Named Entity Recognition (NER)](https://help.aliyun.com/document_detail/173606.html).
    */
   result?: ListInterventionDictionaryNerResultsResponseBodyResult[];
   static names(): { [key: string]: string } {

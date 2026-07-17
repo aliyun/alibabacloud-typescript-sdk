@@ -15,24 +15,6 @@ export class CreateFunctionResourceRequestDataGeneratorsInputFeatures extends $d
    * @remarks
    * The type of the feature.
    * 
-   * Valid values:
-   * 
-   * *   item
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   user
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * item
    */
@@ -63,7 +45,7 @@ export class CreateFunctionResourceRequestDataGeneratorsInputFeatures extends $d
 export class CreateFunctionResourceRequestDataGeneratorsInput extends $dara.Model {
   /**
    * @remarks
-   * The input features.
+   * The list of input features.
    */
   features?: CreateFunctionResourceRequestDataGeneratorsInputFeatures[];
   static names(): { [key: string]: string } {
@@ -94,56 +76,6 @@ export class CreateFunctionResourceRequestDataGenerators extends $dara.Model {
   /**
    * @remarks
    * The type of the feature generator.
-   * 
-   * Valid values:
-   * 
-   * *   lookup
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   sequence
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   overlap
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   raw
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   combo
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   id
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * id
@@ -193,7 +125,7 @@ export class CreateFunctionResourceRequestDataGenerators extends $dara.Model {
 export class CreateFunctionResourceRequestData extends $dara.Model {
   /**
    * @remarks
-   * The content of the file that corresponds to a resource of the raw_file type.
+   * The file content. Use this for \\`raw_file\\` resources.
    * 
    * @example
    * "abc"
@@ -201,7 +133,7 @@ export class CreateFunctionResourceRequestData extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The feature generators that correspond to resources of the feature_generator type.
+   * A list of feature generators. Use this for \\`feature_generator\\` resources.
    */
   generators?: CreateFunctionResourceRequestDataGenerators[];
   static names(): { [key: string]: string } {
@@ -233,7 +165,7 @@ export class CreateFunctionResourceRequestData extends $dara.Model {
 export class CreateFunctionResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource data. The data structure varies with the resource type.
+   * The resource data. Its structure depends on the \\`ResourceType\\` value.
    */
   data?: CreateFunctionResourceRequestData;
   /**
@@ -254,25 +186,7 @@ export class CreateFunctionResourceRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The resource type.
-   * 
-   * Valid values:
-   * 
-   * *   feature_generator
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   raw_file
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The type of the resource.
    * 
    * @example
    * feature_generator

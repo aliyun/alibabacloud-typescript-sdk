@@ -21,7 +21,7 @@ export class UpdateFunctionInstanceResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the request, in milliseconds.
+   * The time consumed by the request. Unit: milliseconds (ms).
    * 
    * @example
    * 10
@@ -45,10 +45,14 @@ export class UpdateFunctionInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the request. Valid values:
+   * The request status.
    * 
-   * *       OK: The request was successful.
-   * *       FAIL: The request failed.
+   * - ```
+   *   OK: The request is successful.
+   *   ```
+   * - ```
+   *   FAIL: The request failed.
+   *   ```
    * 
    * @example
    * OK

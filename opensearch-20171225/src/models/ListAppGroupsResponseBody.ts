@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppGroupsResponseBodyResultQuota extends $dara.Model {
   /**
    * @remarks
-   * The computing resources. Unit: logical computing unit (LCU).
+   * The computing resources in logical compute units (LCUs).
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListAppGroupsResponseBodyResultQuota extends $dara.Model {
   computeResource?: number;
   /**
    * @remarks
-   * The storage capacity. Unit: GB.
+   * The storage capacity in GB.
    * 
    * @example
    * 1
@@ -23,13 +23,19 @@ export class ListAppGroupsResponseBodyResultQuota extends $dara.Model {
    * @remarks
    * The specifications. Valid values:
    * 
-   * *   opensearch.share.junior: basic.
-   * *   opensearch.share.common: shared general-purpose.
-   * *   opensearch.share.compute: shared computing.
-   * *   opensearch.share.storage: shared storage.
-   * *   opensearch.private.common: exclusive general-purpose.
-   * *   opensearch.private.compute: exclusive computing.
-   * *   opensearch.private.storage: exclusive storage.
+   * - opensearch.share.junior: Basic
+   * 
+   * - opensearch.share.common: Shared General-purpose
+   * 
+   * - opensearch.share.compute: Shared Compute-optimized
+   * 
+   * - opensearch.share.storage: Shared Storage-optimized
+   * 
+   * - opensearch.private.common: Exclusive General-purpose
+   * 
+   * - opensearch.private.compute: Exclusive Compute-optimized
+   * 
+   * - opensearch.private.storage: Exclusive Storage-optimized
    * 
    * @example
    * opensearch.share.common
@@ -105,8 +111,9 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   POSTPAY: pay-as-you-go.
-   * *   PREPAY: subscription.
+   * - POSTPAY: pay-as-you-go.
+   * 
+   * - PREPAY: subscription.
    * 
    * @example
    * POSTPAY
@@ -114,10 +121,11 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The billable item. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   1: computing resources.
-   * *   2: queries per second (QPS).
+   * - 1: computing resources
+   * 
+   * - 2: queries per second (QPS)
    * 
    * @example
    * 1
@@ -133,7 +141,7 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The timestamp when the application was created.
+   * The timestamp that indicates when the application was created.
    * 
    * @example
    * 1575442875
@@ -157,7 +165,7 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The industry of the application.
+   * The domain of the application group.
    * 
    * @example
    * ""
@@ -173,7 +181,7 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The time when the application expired.
+   * The time when the application expires.
    * 
    * @example
    * "xxx"
@@ -181,10 +189,11 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   expireOn?: string;
   /**
    * @remarks
-   * The approval state of the quotas. Valid values:
+   * The quota approval status. Valid values:
    * 
-   * *   0: The application is in service.
-   * *   1: The quotas are being reviewed.
+   * - 0: Normal
+   * 
+   * - 1: Pending approval
    * 
    * @example
    * 0
@@ -208,11 +217,13 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The lock state. Valid values:
+   * The lock status. Valid values:
    * 
-   * *   Unlock: The instance is unlocked.
-   * *   LockByExpiration: The instance is automatically locked after it expires.
-   * *   ManualLock: The instance is manually locked.
+   * - Unlock: The instance is not locked.
+   * 
+   * - LockByExpiration: The instance is automatically locked after it expires.
+   * 
+   * - ManualLock: The instance is manually locked.
    * 
    * @example
    * Unlock
@@ -238,8 +249,9 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the application is created. Valid values:
    * 
-   * *   0: The application is being created.
-   * *   1: The application is created.
+   * - 0: The application is being created.
+   * 
+   * - 1: The application is created.
    * 
    * @example
    * 1
@@ -247,7 +259,7 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   produced?: number;
   /**
    * @remarks
-   * The name of the A/B test group.
+   * The name of the A/B test project.
    * 
    * @example
    * "xxx"
@@ -255,7 +267,8 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The information about the quotas of the application. For more information, see [Quota](https://help.aliyun.com/document_detail/170001.html).
+   * The quota information of the application.
+   * For more information, see [Quota](https://help.aliyun.com/document_detail/170001.html).
    * 
    * @example
    * {}
@@ -263,13 +276,17 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   quota?: ListAppGroupsResponseBodyResultQuota;
   /**
    * @remarks
-   * The state of the application. Valid values:
+   * The status of the application. Valid values:
    * 
-   * *   producing: The application is being created.
-   * *   review_pending: The application is being reviewed.
-   * *   config_pending: The application is to be configured.
-   * *   normal: The application is in service.
-   * *   frozen: The application is frozen.
+   * - producing: The application is being created.
+   * 
+   * - review_pending: The application is pending approval.
+   * 
+   * - config_pending: The application is pending configuration.
+   * 
+   * - normal: The application is running as normal.
+   * 
+   * - frozen: The application is frozen.
    * 
    * @example
    * normal
@@ -277,7 +294,7 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The timestamp when the current online version was published.
+   * The timestamp that indicates when the current online version was published.
    * 
    * @example
    * 0
@@ -285,15 +302,16 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   switchedTime?: number;
   /**
    * @remarks
-   * The application tags.
+   * The tags of the application.
    */
   tags?: ListAppGroupsResponseBodyResultTags[];
   /**
    * @remarks
    * The type of the application. Valid values:
    * 
-   * *   standard: a High-performance Search Edition application.
-   * *   enhanced: an Industry Algorithm Edition application.
+   * - standard: a Standard Edition application.
+   * 
+   * - enhanced: a Premium Edition application.
    * 
    * @example
    * enhanced
@@ -301,7 +319,7 @@ export class ListAppGroupsResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The timestamp when the application was last updated.
+   * The timestamp that indicates when the application was last updated.
    * 
    * @example
    * 1578916076
@@ -389,7 +407,7 @@ export class ListAppGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the application.
+   * The applications.
    * 
    * For more information, see [AppGroup](https://help.aliyun.com/document_detail/170000.html).
    * 

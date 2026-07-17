@@ -13,7 +13,7 @@ export class DescribeAppsResponseBodyResultCluster extends $dara.Model {
   maxQueryClauseLength?: number;
   /**
    * @remarks
-   * The timeout period. Unit: milliseconds.
+   * The timeout period for the cluster. Unit: ms.
    * 
    * @example
    * 750
@@ -45,7 +45,7 @@ export class DescribeAppsResponseBodyResultCluster extends $dara.Model {
 export class DescribeAppsResponseBodyResultDataSources extends $dara.Model {
   /**
    * @remarks
-   * The information about field mappings.
+   * The field mappings.
    */
   fields?: { [key: string]: any }[];
   /**
@@ -58,28 +58,36 @@ export class DescribeAppsResponseBodyResultDataSources extends $dara.Model {
   keyField?: string;
   /**
    * @remarks
-   * The information about the data source.
+   * The data source parameters.
    */
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The plug-ins that are used for data processing.
+   * The data processing plug-ins for fields.
    * 
-   * name:
+   * Plug-in name (name)
    * 
-   * *   JsonKeyValueExtractor
-   * *   MultiValueSpliter
-   * *   KeyValueExtractor
-   * *   StringCatenateExtractor
-   * *   HTMLTagRemover
+   * - JsonKeyValueExtractor
    * 
-   * parameters:
+   * - MultiValueSpliter
    * 
-   * *   JsonKeyValueExtractor
-   * *   MultiValueSpliter
-   * *   KeyValueExtractor
-   * *   StringCatenateExtractor
-   * *   HTMLTagRemover
+   * - KeyValueExtractor
+   * 
+   * - StringCatenateExtractor
+   * 
+   * - HTMLTagRemover
+   * 
+   * Plug-in parameters (parameters):
+   * 
+   * - JsonKeyValueExtractor
+   * 
+   * - MultiValueSpliter
+   * 
+   * - KeyValueExtractor
+   * 
+   * - StringCatenateExtractor
+   * 
+   * - HTMLTagRemover
    */
   plugins?: { [key: string]: any };
   /**
@@ -102,10 +110,13 @@ export class DescribeAppsResponseBodyResultDataSources extends $dara.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   rds
-   * *   odps
-   * *   opensearch
-   * *   polardb
+   * - rds
+   * 
+   * - odps
+   * 
+   * - opensearch
+   * 
+   * - polardb
    * 
    * @example
    * rds
@@ -156,17 +167,17 @@ export class DescribeAppsResponseBodyResultDataSources extends $dara.Model {
 export class DescribeAppsResponseBodyResultDomainFunctions extends $dara.Model {
   /**
    * @remarks
-   * Structure 1.
+   * Structure 1
    */
   algo?: string[];
   /**
    * @remarks
-   * Information 1.
+   * The query processing features.
    */
   qp?: string[];
   /**
    * @remarks
-   * Feature 1.
+   * The service features.
    */
   service?: string[];
   static names(): { [key: string]: string } {
@@ -206,7 +217,7 @@ export class DescribeAppsResponseBodyResultDomainFunctions extends $dara.Model {
 export class DescribeAppsResponseBodyResultDomain extends $dara.Model {
   /**
    * @remarks
-   * The type of the edition. Valid values: standard, advance, and enhanced. A value of standard indicates a standard edition. A value of advance indicates an advanced edition which is of an old version. New version is not supported for this edition. A value of enhanced indicates an advanced edition which is of a new version.
+   * The edition of the application. Valid values: standard (Standard Edition), advance (the legacy Premium Edition, which is not available for new applications), and enhanced (the new Premium Edition).
    * 
    * @example
    * -
@@ -214,12 +225,12 @@ export class DescribeAppsResponseBodyResultDomain extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The search results.
+   * The search features.
    */
   functions?: DescribeAppsResponseBodyResultDomainFunctions;
   /**
    * @remarks
-   * The name (in English).
+   * The name in English.
    * 
    * @example
    * test
@@ -256,7 +267,7 @@ export class DescribeAppsResponseBodyResultDomain extends $dara.Model {
 export class DescribeAppsResponseBodyResultFirstRanks extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the expression is the default one.
+   * Indicates whether this is the default expression.
    * 
    * @example
    * False
@@ -272,10 +283,10 @@ export class DescribeAppsResponseBodyResultFirstRanks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The information about the expression. The information is displayed in the array or string format.
+   * The expression, which can be an array or a string.
    * 
    * @example
-   * String :"random()*100+now()";
+   * String :"random()*100+now()"；
    * Array: [
    *     {
    *       "attribute": "static_bm25()",
@@ -287,7 +298,7 @@ export class DescribeAppsResponseBodyResultFirstRanks extends $dara.Model {
   meta?: any;
   /**
    * @remarks
-   * The name of the rough sort expression.
+   * The name of the coarse-grained sorting expression.
    * 
    * @example
    * test
@@ -295,9 +306,9 @@ export class DescribeAppsResponseBodyResultFirstRanks extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The expression type. Valid values:
+   * The expression type. Valid values: STRUCT: a structured expression. STRING (default): a custom formula.
    * 
-   * STRUCT: The content of the expression is a structure. STRING (default): a custom formula.
+   * STRUCT: The content of the expression is a structure. STRING (default): You can configure a custom formula.
    * 
    * @example
    * STRING
@@ -335,7 +346,7 @@ export class DescribeAppsResponseBodyResultFirstRanks extends $dara.Model {
 export class DescribeAppsResponseBodyResultQueryProcessors extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the rule is the default one.
+   * Indicates whether this is the default rule.
    * 
    * @example
    * False
@@ -351,11 +362,13 @@ export class DescribeAppsResponseBodyResultQueryProcessors extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The type of the industry. Valid values:
+   * The industry. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL
+   * 
+   * - ECOMMERCE
+   * 
+   * - IT_CONTENT
    * 
    * @example
    * GENERAL
@@ -368,7 +381,7 @@ export class DescribeAppsResponseBodyResultQueryProcessors extends $dara.Model {
   indexes?: string[];
   /**
    * @remarks
-   * The rule name.
+   * The name of the query analysis rule.
    * 
    * @example
    * test
@@ -419,7 +432,7 @@ export class DescribeAppsResponseBodyResultQueryProcessors extends $dara.Model {
 export class DescribeAppsResponseBodyResultQuota extends $dara.Model {
   /**
    * @remarks
-   * The computing resources. Unit: logical computing unit (LCU).
+   * The computing resources. Unit: logical compute unit (LCU).
    * 
    * @example
    * 20
@@ -435,7 +448,7 @@ export class DescribeAppsResponseBodyResultQuota extends $dara.Model {
   docSize?: number;
   /**
    * @remarks
-   * The number of search requests per second. You are charged based on the number of search requests per second in the earlier billing model.
+   * The number of queries per second (QPS). This parameter is used in an earlier billing model.
    * 
    * @example
    * 5
@@ -445,13 +458,19 @@ export class DescribeAppsResponseBodyResultQuota extends $dara.Model {
    * @remarks
    * The specifications. Valid values:
    * 
-   * *   opensearch.share.junior: basic
-   * *   opensearch.share.common: shared general-purpose
-   * *   opensearch.share.compute: shared computing
-   * *   opensearch.share.storage: shared storage
-   * *   opensearch.private.common: exclusive general-purpose
-   * *   opensearch.private.compute: exclusive computing
-   * *   opensearch.private.storage: exclusive storage
+   * - opensearch.share.junior: Basic
+   * 
+   * - opensearch.share.common: Shared general-purpose
+   * 
+   * - opensearch.share.compute: Shared compute-optimized
+   * 
+   * - opensearch.share.storage: Shared storage-optimized
+   * 
+   * - opensearch.private.common: Dedicated general-purpose
+   * 
+   * - opensearch.private.compute: Dedicated compute-optimized
+   * 
+   * - opensearch.private.storage: Dedicated storage-optimized
    * 
    * @example
    * opensearch.share.common
@@ -487,10 +506,11 @@ export class DescribeAppsResponseBodyResultQuota extends $dara.Model {
 export class DescribeAppsResponseBodyResultSchemaIndexSortConfig extends $dara.Model {
   /**
    * @remarks
-   * The sort method. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   ASC
-   * *   DESC
+   * - ASC
+   * 
+   * - DESC
    * 
    * @example
    * DESC
@@ -570,7 +590,7 @@ export class DescribeAppsResponseBodyResultSchemaIndexes extends $dara.Model {
 export class DescribeAppsResponseBodyResultSchemaTtlField extends $dara.Model {
   /**
    * @remarks
-   * The document clearing field.
+   * The document TTL field.
    * 
    * @example
    * text1
@@ -578,7 +598,7 @@ export class DescribeAppsResponseBodyResultSchemaTtlField extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The TTL. Unit: milliseconds.
+   * The time to live (TTL). Unit: milliseconds.
    * 
    * @example
    * 1000
@@ -610,7 +630,7 @@ export class DescribeAppsResponseBodyResultSchemaTtlField extends $dara.Model {
 export class DescribeAppsResponseBodyResultSchema extends $dara.Model {
   /**
    * @remarks
-   * The sort configurations.
+   * The index sorting settings.
    */
   indexSortConfig?: DescribeAppsResponseBodyResultSchemaIndexSortConfig[];
   /**
@@ -636,12 +656,12 @@ export class DescribeAppsResponseBodyResultSchema extends $dara.Model {
   routeField?: string;
   /**
    * @remarks
-   * The hot values of the level-1 routing field.
+   * The hot data values of the level-1 routing field.
    */
   routeFieldValues?: string[];
   /**
    * @remarks
-   * The level-2 routing field. This parameter is returned if the routeFieldValues parameter is returned. By default, the wide-table primary key field is used as the level-2 routing field.
+   * The level-2 routing field. This parameter takes effect only if the routeFieldValues parameter is configured. By default, the primary key of the wide table is used as the level-2 routing field.
    * 
    * @example
    * field2
@@ -654,7 +674,7 @@ export class DescribeAppsResponseBodyResultSchema extends $dara.Model {
   tables?: { [key: string]: any };
   /**
    * @remarks
-   * The document clearing configurations.
+   * The document time-to-live (TTL) settings.
    */
   ttlField?: DescribeAppsResponseBodyResultSchemaTtlField;
   static names(): { [key: string]: string } {
@@ -710,10 +730,11 @@ export class DescribeAppsResponseBodyResultSchema extends $dara.Model {
 export class DescribeAppsResponseBodyResultSchemasIndexSortConfig extends $dara.Model {
   /**
    * @remarks
-   * The sort method. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   ASC
-   * *   DESC
+   * - ASC
+   * 
+   * - DESC
    * 
    * @example
    * DESC
@@ -793,7 +814,7 @@ export class DescribeAppsResponseBodyResultSchemasIndexes extends $dara.Model {
 export class DescribeAppsResponseBodyResultSchemasTtlField extends $dara.Model {
   /**
    * @remarks
-   * The document time field.
+   * The document TTL field.
    * 
    * @example
    * fIeld1
@@ -801,7 +822,7 @@ export class DescribeAppsResponseBodyResultSchemasTtlField extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The TTL. Unit: milliseconds.
+   * The time to live (TTL). Unit: milliseconds.
    * 
    * @example
    * 1000
@@ -833,7 +854,7 @@ export class DescribeAppsResponseBodyResultSchemasTtlField extends $dara.Model {
 export class DescribeAppsResponseBodyResultSchemas extends $dara.Model {
   /**
    * @remarks
-   * The sort configurations.
+   * The index sorting settings.
    */
   indexSortConfig?: DescribeAppsResponseBodyResultSchemasIndexSortConfig[];
   /**
@@ -859,12 +880,12 @@ export class DescribeAppsResponseBodyResultSchemas extends $dara.Model {
   routeField?: string;
   /**
    * @remarks
-   * The hot values of the level-1 routing field.
+   * The hot data values of the level-1 routing field.
    */
   routeFieldValues?: string[];
   /**
    * @remarks
-   * The level-2 routing field. This parameter is returned if the routeFieldValues parameter is returned. By default, the wide-table primary key field is used as the level-2 routing field.
+   * The level-2 routing field. This parameter takes effect only if the routeFieldValues parameter is configured. By default, the primary key of the wide table is used as the level-2 routing field.
    * 
    * @example
    * field2
@@ -877,7 +898,7 @@ export class DescribeAppsResponseBodyResultSchemas extends $dara.Model {
   tables?: { [key: string]: any };
   /**
    * @remarks
-   * The document clearing configurations.
+   * The document TTL settings.
    */
   ttlField?: DescribeAppsResponseBodyResultSchemasTtlField;
   static names(): { [key: string]: string } {
@@ -933,7 +954,7 @@ export class DescribeAppsResponseBodyResultSchemas extends $dara.Model {
 export class DescribeAppsResponseBodyResultSecondRanks extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the expression is the default one.
+   * Indicates whether this is the default expression.
    * 
    * @example
    * False
@@ -944,12 +965,12 @@ export class DescribeAppsResponseBodyResultSecondRanks extends $dara.Model {
    * The description.
    * 
    * @example
-   * Description
+   * 描述
    */
   description?: string;
   /**
    * @remarks
-   * The fine sort expression. You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
+   * The fine-grained sorting expression. You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sorting logic.
    * 
    * @example
    * "cate_id > 0 and cate_id < 1000"
@@ -957,7 +978,7 @@ export class DescribeAppsResponseBodyResultSecondRanks extends $dara.Model {
   meta?: any;
   /**
    * @remarks
-   * The name of the fine sort expression.
+   * The name of the fine-grained sorting expression.
    * 
    * @example
    * default
@@ -993,7 +1014,7 @@ export class DescribeAppsResponseBodyResultSecondRanks extends $dara.Model {
 export class DescribeAppsResponseBodyResultSummariesMeta extends $dara.Model {
   /**
    * @remarks
-   * The element that is used for highlighting.
+   * The HTML tag for highlighting.
    * 
    * @example
    * em
@@ -1063,12 +1084,12 @@ export class DescribeAppsResponseBodyResultSummariesMeta extends $dara.Model {
 export class DescribeAppsResponseBodyResultSummaries extends $dara.Model {
   /**
    * @remarks
-   * The summary configurations.
+   * The summary settings.
    */
   meta?: DescribeAppsResponseBodyResultSummariesMeta[];
   /**
    * @remarks
-   * The group name.
+   * The name of the summary group.
    * 
    * @example
    * fefault
@@ -1103,7 +1124,7 @@ export class DescribeAppsResponseBodyResultSummaries extends $dara.Model {
 export class DescribeAppsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the version is automatically switched to an online version.
+   * Indicates whether automatic switchover is enabled.
    * 
    * @example
    * true
@@ -1111,12 +1132,12 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   autoSwitch?: boolean;
   /**
    * @remarks
-   * The capability opening configurations.
+   * The cluster settings.
    */
   cluster?: DescribeAppsResponseBodyResultCluster;
   /**
    * @remarks
-   * The cluster name.
+   * The name of the cluster.
    * 
    * @example
    * vpc_sh_domain_1
@@ -1124,7 +1145,7 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The configurations of data sources.
+   * The data source settings.
    */
   dataSources?: DescribeAppsResponseBodyResultDataSources[];
   /**
@@ -1137,11 +1158,13 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the industry. Valid values:
+   * The industry. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL
+   * 
+   * - ECOMMERCE
+   * 
+   * - IT_CONTENT
    */
   domain?: DescribeAppsResponseBodyResultDomain;
   /**
@@ -1151,12 +1174,12 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   fetchFields?: string[];
   /**
    * @remarks
-   * The configurations of rough sort.
+   * The coarse-grained sorting settings.
    */
   firstRanks?: DescribeAppsResponseBodyResultFirstRanks[];
   /**
    * @remarks
-   * The group ID.
+   * The ID of the application.
    * 
    * @example
    * 100302881
@@ -1164,7 +1187,7 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The field model.
+   * The Large Language Model (LLM) settings for fields.
    */
   interpretations?: { [key: string]: any };
   /**
@@ -1177,7 +1200,7 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   isCurrent?: boolean;
   /**
    * @remarks
-   * The progress of data import, in percentage. For example, a value of 83 indicates 83%.
+   * The progress of data import in percentage. For example, a value of 83 indicates 83%.
    * 
    * @example
    * 100
@@ -1185,12 +1208,12 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   progressPercent?: number;
   /**
    * @remarks
-   * The prompt configurations.
+   * The prompt settings.
    */
   prompts?: { [key: string]: any }[];
   /**
    * @remarks
-   * The query intent understanding configurations.
+   * The query analysis settings.
    */
   queryProcessors?: DescribeAppsResponseBodyResultQueryProcessors[];
   /**
@@ -1198,6 +1221,7 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
    * The quota information.
    */
   quota?: DescribeAppsResponseBodyResultQuota;
+  realtimeShared?: boolean;
   /**
    * @remarks
    * The application schema.
@@ -1205,25 +1229,31 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   schema?: DescribeAppsResponseBodyResultSchema;
   /**
    * @remarks
-   * The single-table schema.
+   * The schema of a non-partitioned table.
    */
   schemas?: DescribeAppsResponseBodyResultSchemas[];
   /**
    * @remarks
-   * The configurations of fine sort.
+   * The fine-grained sorting settings.
    */
   secondRanks?: DescribeAppsResponseBodyResultSecondRanks[];
   /**
    * @remarks
    * The status of the version. Valid values:
    * 
-   * *   ok: The version is normal.
-   * *   stopped: The version is suspended.
-   * *   frozen: The version is frozen.
-   * *   initializing: The version is being initialized.
-   * *   unavailable: The version is invalid.
-   * *   data_waiting: Data is to be initialized.
-   * *   data_preparing: Data is being initialized.
+   * - ok: The version is normal.
+   * 
+   * - stopped: The version is paused.
+   * 
+   * - frozen: The version is frozen.
+   * 
+   * - initializing: The version is being initialized.
+   * 
+   * - unavailable: The version is invalid.
+   * 
+   * - data_waiting: Data is pending initialization.
+   * 
+   * - data_preparing: Data is being initialized.
    * 
    * @example
    * normal
@@ -1231,16 +1261,18 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The search result summary configurations.
+   * The search result summary settings.
    */
   summaries?: DescribeAppsResponseBodyResultSummaries[];
   /**
    * @remarks
    * The type of the application. Valid values:
    * 
-   * *   standard: a standard edition application.
-   * *   advance: an advanced edition application of an old version. New versions are not supported for this edition.
-   * *   enhanced: an advanced edition application of a new version.
+   * - standard: a Standard Edition application.
+   * 
+   * - advance: an Advanced Edition application of an old version. This edition is not supported for new applications.
+   * 
+   * - enhanced: a new version of Advanced Edition.
    * 
    * @example
    * enhanced
@@ -1263,6 +1295,7 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
       prompts: 'prompts',
       queryProcessors: 'queryProcessors',
       quota: 'quota',
+      realtimeShared: 'realtimeShared',
       schema: 'schema',
       schemas: 'schemas',
       secondRanks: 'secondRanks',
@@ -1289,6 +1322,7 @@ export class DescribeAppsResponseBodyResult extends $dara.Model {
       prompts: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       queryProcessors: { 'type': 'array', 'itemType': DescribeAppsResponseBodyResultQueryProcessors },
       quota: DescribeAppsResponseBodyResultQuota,
+      realtimeShared: 'boolean',
       schema: DescribeAppsResponseBodyResultSchema,
       schemas: { 'type': 'array', 'itemType': DescribeAppsResponseBodyResultSchemas },
       secondRanks: { 'type': 'array', 'itemType': DescribeAppsResponseBodyResultSecondRanks },

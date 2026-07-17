@@ -39,12 +39,17 @@ export class ListInterventionDictionariesResponseBodyResult extends $dara.Model 
    * @remarks
    * The type of the intervention dictionary. Valid values:
    * 
-   * *   stopword: an intervention dictionary for stop word filtering
-   * *   synonym: an intervention dictionary for synonym configuration
-   * *   correction: an intervention dictionary for spelling correction
-   * *   category_prediction: an intervention dictionary for category prediction
-   * *   ner: an intervention dictionary for named entity recognition (NER)
-   * *   term_weighting: an intervention dictionary for term weight analysis
+   * - stopword: an intervention dictionary for stop word filtering
+   * 
+   * - synonym: an intervention dictionary for synonym configuration
+   * 
+   * - correction: an intervention dictionary for spelling correction
+   * 
+   * - category_prediction: an intervention dictionary for category prediction
+   * 
+   * - ner: an intervention dictionary for Named Entity Recognition (NER)
+   * 
+   * - term_weighting: an intervention dictionary for term weight analysis
    * 
    * @example
    * synonym

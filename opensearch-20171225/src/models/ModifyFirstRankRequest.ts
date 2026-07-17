@@ -11,7 +11,7 @@ export class ModifyFirstRankRequest extends $dara.Model {
   body?: FirstRank;
   /**
    * @remarks
-   * Specifies whether the request is a dry run.
+   * Specifies whether to perform a dry run.
    * 
    * @example
    * true

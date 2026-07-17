@@ -6,7 +6,7 @@ import { SearchStrategy } from "./SearchStrategy";
 export class CreateSearchStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The query policy.
+   * The search strategy.
    */
   body?: SearchStrategy;
   static names(): { [key: string]: string } {

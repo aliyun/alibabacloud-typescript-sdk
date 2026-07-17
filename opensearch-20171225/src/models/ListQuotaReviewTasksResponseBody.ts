@@ -29,7 +29,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   appGroupType?: string;
   /**
    * @remarks
-   * Indicates whether the ticket is approved.
+   * Indicates whether the task is approved.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   approved?: boolean;
   /**
    * @remarks
-   * Indicates whether the application is available.
+   * Indicates whether the resource is active.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   available?: boolean;
   /**
    * @remarks
-   * The time when the ticket was created.
+   * The time when the task was created.
    * 
    * @example
    * "2020-04-08T08:29:45+0000"
@@ -53,7 +53,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the ticket was last updated.
+   * The time of the last modification.
    * 
    * @example
    * "2020-04-08T08:36:36+0000"
@@ -77,7 +77,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   memo?: string;
   /**
    * @remarks
-   * The computing resource quota that is applied for.
+   * The target computing resource.
    * 
    * @example
    * 6000
@@ -85,7 +85,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   newComputeResource?: number;
   /**
    * @remarks
-   * The storage capacity quota that is applied for.
+   * The target storage capacity.
    * 
    * @example
    * 1100
@@ -93,7 +93,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   newSocSize?: number;
   /**
    * @remarks
-   * The application specifications that are applied for.
+   * The new application specifications.
    * 
    * @example
    * "opensearch.private.common"
@@ -101,7 +101,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   newSpec?: string;
   /**
    * @remarks
-   * The original quota of computing resources.
+   * The original computing resource.
    * 
    * @example
    * 500
@@ -109,7 +109,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   oldComputeResource?: number;
   /**
    * @remarks
-   * The original quota of storage capacity.
+   * The original storage capacity.
    * 
    * @example
    * 900
@@ -125,7 +125,7 @@ export class ListQuotaReviewTasksResponseBodyResult extends $dara.Model {
   oldSpec?: string;
   /**
    * @remarks
-   * Indicates whether the ticket is pending.
+   * Indicates whether the task is pending.
    * 
    * @example
    * false
@@ -193,7 +193,7 @@ export class ListQuotaReviewTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the tickets. For more information, see [QuotaReviewTask](https://help.aliyun.com/document_detail/173609.html).
+   * The information about the approval tickets. For more information, see [QuotaReviewTask](https://help.aliyun.com/document_detail/173609.html).
    * 
    * @example
    * []
@@ -201,7 +201,7 @@ export class ListQuotaReviewTasksResponseBody extends $dara.Model {
   result?: ListQuotaReviewTasksResponseBodyResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 500

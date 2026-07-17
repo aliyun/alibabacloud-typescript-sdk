@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFunctionResourceResponseBodyResultDataGeneratorsInputFeatures extends $dara.Model {
   /**
    * @remarks
-   * The name of the feature.
+   * The feature name.
    * 
    * @example
    * system_item_id
@@ -13,7 +13,7 @@ export class GetFunctionResourceResponseBodyResultDataGeneratorsInputFeatures ex
   name?: string;
   /**
    * @remarks
-   * The type of the feature.
+   * The feature type.
    * 
    * @example
    * item
@@ -45,7 +45,7 @@ export class GetFunctionResourceResponseBodyResultDataGeneratorsInputFeatures ex
 export class GetFunctionResourceResponseBodyResultDataGeneratorsInput extends $dara.Model {
   /**
    * @remarks
-   * The input features.
+   * The list of input features.
    */
   features?: GetFunctionResourceResponseBodyResultDataGeneratorsInputFeatures[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class GetFunctionResourceResponseBodyResultDataGenerators extends $dara.M
 export class GetFunctionResourceResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * The content of the file that corresponds to a resource of the raw_file type.
+   * The content of the file for a resource of the raw_file type.
    * 
    * @example
    * abc
@@ -133,7 +133,7 @@ export class GetFunctionResourceResponseBodyResultData extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The feature generators that correspond to resources of the feature_generator type.
+   * The list of feature generators for a resource of the feature_generator type.
    */
   generators?: GetFunctionResourceResponseBodyResultDataGenerators[];
   static names(): { [key: string]: string } {
@@ -173,7 +173,7 @@ export class GetFunctionResourceResponseBodyResult extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The resource data. The data structure varies with the resource type.
+   * The resource data. The structure of the data varies based on the resourceType.
    */
   data?: GetFunctionResourceResponseBodyResultData;
   /**
@@ -186,7 +186,7 @@ export class GetFunctionResourceResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the feature.
+   * The feature name.
    * 
    * @example
    * rank
@@ -194,7 +194,7 @@ export class GetFunctionResourceResponseBodyResult extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The time when the resource was modified. Unit: milliseconds.
+   * The time when the resource was last modified. Unit: milliseconds.
    * 
    * @example
    * 1234
@@ -202,12 +202,12 @@ export class GetFunctionResourceResponseBodyResult extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The algorithm instances that are referenced.
+   * The list of referenced algorithm instance names.
    */
   referencedInstances?: string[];
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * @example
    * fg_json
@@ -215,7 +215,7 @@ export class GetFunctionResourceResponseBodyResult extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The resource type.
    * 
    * @example
    * raw_file
@@ -265,7 +265,7 @@ export class GetFunctionResourceResponseBodyResult extends $dara.Model {
 export class GetFunctionResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned. If no error occurs, this value is empty.
+   * The returned error code. This is empty if no error occurred.
    * 
    * @example
    * Resource.NotExist
@@ -273,7 +273,7 @@ export class GetFunctionResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -281,7 +281,7 @@ export class GetFunctionResourceResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the API request. Unit: milliseconds.
+   * The time consumed by the API request. Unit: milliseconds.
    * 
    * @example
    * 123
@@ -289,7 +289,7 @@ export class GetFunctionResourceResponseBody extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The returned error message.
    * 
    * @example
    * Resource not exist.
@@ -305,15 +305,16 @@ export class GetFunctionResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    */
   result?: GetFunctionResourceResponseBodyResult;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The status code.
    * 
-   * *   OK
-   * *   FAIL
+   * - OK: The request was successful.
+   * 
+   * - FAIL: The request failed.
    * 
    * @example
    * OK

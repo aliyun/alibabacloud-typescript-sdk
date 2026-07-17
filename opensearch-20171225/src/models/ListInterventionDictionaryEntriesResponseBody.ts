@@ -15,42 +15,77 @@ export class ListInterventionDictionaryEntriesResponseBodyResultTokens extends $
    * @remarks
    * The internal name of the identified entity type. Valid values:
    * 
-   * *   brand
-   * *   category
-   * *   material
-   * *   element
-   * *   style
-   * *   color
-   * *   function
-   * *   scenario
-   * *   people
-   * *   season
-   * *   model
-   * *   region
-   * *   name
-   * *   adjective
-   * *   category-modifier
-   * *   size
-   * *   quality
-   * *   suit
-   * *   new-release
-   * *   series
-   * *   marketing
-   * *   entertainment
-   * *   organization
-   * *   movie
-   * *   game
-   * *   number
-   * *   unit
-   * *   common
-   * *   new-word
-   * *   proper-noun
-   * *   symbol
-   * *   prefix
-   * *   suffix
-   * *   gift
-   * *   negative
-   * *   agent
+   * - brand
+   * 
+   * - category
+   * 
+   * - material
+   * 
+   * - element
+   * 
+   * - style
+   * 
+   * - color
+   * 
+   * - function
+   * 
+   * - scenario
+   * 
+   * - people
+   * 
+   * - season
+   * 
+   * - model
+   * 
+   * - region
+   * 
+   * - name
+   * 
+   * - adjective
+   * 
+   * - category-modifier
+   * 
+   * - size
+   * 
+   * - quality
+   * 
+   * - suit
+   * 
+   * - new-release
+   * 
+   * - series
+   * 
+   * - marketing
+   * 
+   * - entertainment
+   * 
+   * - organization
+   * 
+   * - movie
+   * 
+   * - game
+   * 
+   * - number
+   * 
+   * - unit
+   * 
+   * - common
+   * 
+   * - new-word
+   * 
+   * - proper-noun
+   * 
+   * - symbol
+   * 
+   * - prefix
+   * 
+   * - suffix
+   * 
+   * - gift
+   * 
+   * - negative
+   * 
+   * - agent
    * 
    * @example
    * category
@@ -61,7 +96,7 @@ export class ListInterventionDictionaryEntriesResponseBodyResultTokens extends $
    * The description of the internal name of the identified entity type.
    * 
    * @example
-   * category
+   * 品类
    */
   tagLabel?: string;
   /**
@@ -69,7 +104,7 @@ export class ListInterventionDictionaryEntriesResponseBodyResultTokens extends $
    * The entity.
    * 
    * @example
-   * category
+   * 本
    */
   token?: string;
   static names(): { [key: string]: string } {
@@ -104,8 +139,9 @@ export class ListInterventionDictionaryEntriesResponseBodyResult extends $dara.M
    * @remarks
    * The command. Valid values:
    * 
-   * *   add
-   * *   delete
+   * - add
+   * 
+   * - delete
    * 
    * @example
    * add
@@ -131,7 +167,7 @@ export class ListInterventionDictionaryEntriesResponseBodyResult extends $dara.M
    * @remarks
    * The status of the intervention entry. Valid value:
    * 
-   * *   ACTIVE: The intervention entry takes effect.
+   * - ACTIVE: The intervention entry takes effect.
    * 
    * @example
    * ACTIVE

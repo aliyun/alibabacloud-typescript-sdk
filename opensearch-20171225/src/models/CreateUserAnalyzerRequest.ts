@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserAnalyzerRequest extends $dara.Model {
   /**
    * @remarks
-   * The basic analyzer.
+   * The name of the basic analyzer.
    * 
    * @example
-   * chn_standard
+   * Chinese - general analysis
    */
   business?: string;
   /**
    * @remarks
-   * The application ID of the custom analyzer.
+   * The application ID for the custom model-based analyzer.
    * 
    * @example
    * 110123123
@@ -21,7 +21,7 @@ export class CreateUserAnalyzerRequest extends $dara.Model {
   businessAppGroupId?: string;
   /**
    * @remarks
-   * The basic analyzer type. Valid values: AUTO, MODEL, SYSTEM, and USER.
+   * The type of the basic analyzer. Valid values: AUTO, MODEL, SYSTEM, and USER.
    * 
    * @example
    * AUTO
@@ -29,7 +29,7 @@ export class CreateUserAnalyzerRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The analyzer name.
+   * The name of the analyzer.
    * 
    * @example
    * jmbon_analyzer
@@ -45,10 +45,11 @@ export class CreateUserAnalyzerRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Default value: false.
-   * Valid values:
-   * *   **true**
-   * *   **false**
+   * Specifies whether to perform a dry run. Valid values:
+   * 
+   * - true: sends a check request without creating the analyzer. The system checks the AccessKey, RAM user authorization, and required parameters.
+   * 
+   * - false (default): sends a regular request to create the analyzer.
    * 
    * @example
    * false

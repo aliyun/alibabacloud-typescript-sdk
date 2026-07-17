@@ -8,7 +8,7 @@ export class GetDomainResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * ABCDEFGH
+   * 271D5762-32B7-5F0D-B97D-463EB67F1F3B
    */
   requestId?: string;
   /**

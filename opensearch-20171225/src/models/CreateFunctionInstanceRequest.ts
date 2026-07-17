@@ -104,14 +104,14 @@ export class CreateFunctionInstanceRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * test instance
+   * Test instance
    */
   description?: string;
   /**
    * @remarks
    * The feature type.
    * 
-   * *   Default value: PAAS. Training is required before you can use the feature.
+   * - Default value: PAAS. Training is required before you can use the feature.
    * 
    * @example
    * PAAS
@@ -131,17 +131,27 @@ export class CreateFunctionInstanceRequest extends $dara.Model {
    * @remarks
    * The model type. The value varies based on the model.
    * 
-   * *   Click-through rate (CTR) model: tf_checkpoint
-   * *   Popularity model: pop
-   * *   Category model: offline_inference
-   * *   Hotword model: offline_inference
-   * *   Hint model: offline_inference
-   * *   Hotword model for real-time top searches: near_realtime
-   * *   Personalized hint model: near_realtime
-   * *   Drop-down suggestion model: offline_inference
-   * *   Tokenization model: text
-   * *   Term weight model: tf_checkpoint
-   * *   Synonym model: offline_inference
+   * - Click-through rate (CTR) model: tf_checkpoint
+   * 
+   * - Popularity model: pop
+   * 
+   * - Category model: offline_inference
+   * 
+   * - Hotword model: offline_inference
+   * 
+   * - Hint model: offline_inference
+   * 
+   * - Hotword model for real-time top searches: near_realtime
+   * 
+   * - Personalized hint model: near_realtime
+   * 
+   * - Drop-down suggestion model: offline_inference
+   * 
+   * - Tokenization model: text
+   * 
+   * - Term weight model: tf_checkpoint
+   * 
+   * - Synonym model: offline_inference
    * 
    * This parameter is required.
    * 

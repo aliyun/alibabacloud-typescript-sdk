@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScriptFileNamesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the script file was created.
+   * The time when the script was created.
    * 
    * @example
    * 2020-04-02 20:21:14
@@ -21,7 +21,7 @@ export class GetScriptFileNamesResponseBodyResult extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The time when the script file was last modified.
+   * The time when the script was last modified.
    * 
    * @example
    * 2020-04-02 21:21:14
@@ -29,7 +29,7 @@ export class GetScriptFileNamesResponseBodyResult extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The path name of the script file.
+   * The path of the script.
    * 
    * @example
    * src
@@ -65,7 +65,7 @@ export class GetScriptFileNamesResponseBodyResult extends $dara.Model {
 export class GetScriptFileNamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique identifier of the request.
    * 
    * @example
    * ABCDEFGH
@@ -73,7 +73,7 @@ export class GetScriptFileNamesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The files of the script.
+   * The list of scripts.
    */
   result?: GetScriptFileNamesResponseBodyResult[];
   static names(): { [key: string]: string } {

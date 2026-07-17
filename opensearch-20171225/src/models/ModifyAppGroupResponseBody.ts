@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppGroupResponseBodyResultQuota extends $dara.Model {
   /**
    * @remarks
-   * The computing resources. Unit: logical computing unit (LCU).
+   * The computing resources in logical compute units (LCUs).
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ModifyAppGroupResponseBodyResultQuota extends $dara.Model {
   computeResource?: number;
   /**
    * @remarks
-   * The storage capacity. Unit: GB.
+   * The storage capacity in GB.
    * 
    * @example
    * 1
@@ -23,13 +23,19 @@ export class ModifyAppGroupResponseBodyResultQuota extends $dara.Model {
    * @remarks
    * The specifications. Valid values:
    * 
-   * *   opensearch.share.junior: basic.
-   * *   opensearch.share.common: shared general-purpose.
-   * *   opensearch.share.compute: shared computing.
-   * *   opensearch.share.storage: shared storage.
-   * *   opensearch.private.common: exclusive general-purpose.
-   * *   opensearch.private.compute: exclusive computing.
-   * *   opensearch.private.storage: exclusive storage.
+   * - opensearch.share.junior: Basic
+   * 
+   * - opensearch.share.common: Shared General-purpose
+   * 
+   * - opensearch.share.compute: Shared Compute-optimized
+   * 
+   * - opensearch.share.storage: Shared Storage-optimized
+   * 
+   * - opensearch.private.common: Exclusive General-purpose
+   * 
+   * - opensearch.private.compute: Exclusive Compute-optimized
+   * 
+   * - opensearch.private.storage: Exclusive Storage-optimized
    * 
    * @example
    * opensearch.share.common
@@ -65,8 +71,9 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   POSTPAY: pay-as-you-go.
-   * *   PREPAY: subscription.
+   * - POSTPAY: pay-as-you-go.
+   * 
+   * - PREPAY: subscription.
    * 
    * @example
    * POSTPAY
@@ -76,8 +83,9 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The billable item. Valid values:
    * 
-   * *   1: computing resources.
-   * *   2: QPS.
+   * - 1: computing resources.
+   * 
+   * - 2: QPS.
    * 
    * @example
    * 1
@@ -85,7 +93,7 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   chargingWay?: number;
   /**
    * @remarks
-   * The code of the commodity.
+   * The commodity code.
    * 
    * @example
    * opensearch
@@ -93,10 +101,10 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The timestamp when the application was created.
+   * The UNIX timestamp when the application was created.
    * 
    * @example
-   * 1590139524
+   * 159013954
    */
   created?: number;
   /**
@@ -117,11 +125,13 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the industry. Valid values:
+   * The industry. Valid values:
    * 
-   * *   GENERAL: general.
-   * *   ECOMMERCE: e-commerce.
-   * *   IT_CONTENT: IT content.
+   * - GENERAL: general.
+   * 
+   * - ECOMMERCE: e-commerce.
+   * 
+   * - IT_CONTENT: IT content.
    * 
    * @example
    * GENERAL
@@ -137,7 +147,7 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The time when the application expired.
+   * The expiration time.
    * 
    * @example
    * 1
@@ -145,10 +155,11 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   expireOn?: string;
   /**
    * @remarks
-   * The approval status of the quotas. Valid values:
+   * The approval status of the quota. Valid values:
    * 
-   * *   0: normal.
-   * *   1: being approved.
+   * - 0: normal.
+   * 
+   * - 1: being approved.
    * 
    * @example
    * 0
@@ -172,11 +183,13 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The lock status. Valid values:
+   * The lock mode of the instance. Valid values:
    * 
-   * *   Unlock: The instance is unlocked.
-   * *   LockByExpiration: The instance is automatically locked after it expires.
-   * *   ManualLock: The instance is manually locked.
+   * - Unlock: The instance is not locked.
+   * 
+   * - LockByExpiration: The instance is automatically locked after it expires.
+   * 
+   * - ManualLock: The instance is manually locked.
    * 
    * @example
    * Unlock
@@ -192,10 +205,11 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the order is complete. Valid values:
+   * Indicates whether the application is created. Valid values:
    * 
-   * *   0: The order is in progress.
-   * *   1: The order is complete.
+   * - 0: The application is being created.
+   * 
+   * - 1: The application is created.
    * 
    * @example
    * 1
@@ -203,7 +217,7 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   produced?: number;
   /**
    * @remarks
-   * The name of the A/B test group.
+   * The name of the A/B test project.
    * 
    * @example
    * 1
@@ -211,7 +225,7 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The information about the quotas of the application.
+   * The quota information of the application.
    * 
    * @example
    * {}
@@ -227,13 +241,17 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The state of the application. Valid values:
+   * The status of the application. Valid values:
    * 
-   * *   producing: being produced.
-   * *   review_pending: being approved.
-   * *   config_pending: to be configured.
-   * *   normal: normal.
-   * *   frozen: frozen.
+   * - producing: The application is being created.
+   * 
+   * - review_pending: The application is under review.
+   * 
+   * - config_pending: The application requires configuration.
+   * 
+   * - normal: The application is running.
+   * 
+   * - frozen: The application is frozen.
    * 
    * @example
    * normal
@@ -241,7 +259,7 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The timestamp when the current online version was published.
+   * The UNIX timestamp when the current online version was published.
    * 
    * @example
    * 1590486386
@@ -251,9 +269,11 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
    * @remarks
    * The type of the application. Valid values:
    * 
-   * *   standard: a standard edition application.
-   * *   advance: an advanced edition application of an old version. New versions are not supported for this edition.
-   * *   enhanced: an advanced edition application of a new version.
+   * - standard: a Standard Edition application.
+   * 
+   * - advance: an Advanced Edition application of an old version. New applications do not support this type.
+   * 
+   * - enhanced: an Enhanced Edition application.
    * 
    * @example
    * enhanced
@@ -261,7 +281,7 @@ export class ModifyAppGroupResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The timestamp when the application was last modified.
+   * The UNIX timestamp when the application was last modified.
    * 
    * @example
    * 1590978265
@@ -344,7 +364,7 @@ export class ModifyAppGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Response parameters
+   * The returned data.
    * 
    * @example
    * {}

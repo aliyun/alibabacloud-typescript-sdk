@@ -21,18 +21,19 @@ export class DescribeABTestSceneResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the test scenario.
+   * The alias of the test scenario.
    * 
    * @example
-   * test
+   * "test"
    */
   name?: string;
   /**
    * @remarks
    * The status of the test scenario. Valid values:
    * 
-   * *   0: The test is stopped.
-   * *   1: The test is started.
+   * - 0: The test is stopped.
+   * 
+   * - 1: The test is running.
    * 
    * @example
    * 0
@@ -48,7 +49,7 @@ export class DescribeABTestSceneResponseBodyResult extends $dara.Model {
   updated?: number;
   /**
    * @remarks
-   * The indicators of the test scenarios.
+   * The identifiers of the test scenario.
    */
   values?: string[];
   static names(): { [key: string]: string } {

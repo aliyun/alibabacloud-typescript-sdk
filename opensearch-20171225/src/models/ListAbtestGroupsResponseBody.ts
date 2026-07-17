@@ -31,8 +31,9 @@ export class ListABTestGroupsResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the test group. Valid values:
    * 
-   * *   0: not in effect
-   * *   1: in effect
+   * - 0: Not in effect
+   * 
+   * - 1: In effect
    * 
    * @example
    * 1
@@ -78,7 +79,7 @@ export class ListABTestGroupsResponseBodyResult extends $dara.Model {
 export class ListABTestGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D77D0DAF-790D-F5F5-A9C0-133738165014

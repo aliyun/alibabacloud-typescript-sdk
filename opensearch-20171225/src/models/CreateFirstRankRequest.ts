@@ -6,7 +6,7 @@ import { FirstRank } from "./FirstRank";
 export class CreateFirstRankRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body that contains the parameters of the rough sort expression.
+   * The request body, which contains the information about the rough sort expression.
    */
   body?: FirstRank;
   /**

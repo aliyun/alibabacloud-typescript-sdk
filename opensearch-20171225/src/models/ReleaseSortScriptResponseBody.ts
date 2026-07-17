@@ -28,7 +28,7 @@ export class ReleaseSortScriptResponseBodyResult extends $dara.Model {
 export class ReleaseSortScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique ID of the request.
    * 
    * @example
    * ABCDEFGH

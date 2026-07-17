@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProceedingsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the filtering is complete.
+   * Specifies whether to return only completed proceedings.
    * 
    * @example
    * true

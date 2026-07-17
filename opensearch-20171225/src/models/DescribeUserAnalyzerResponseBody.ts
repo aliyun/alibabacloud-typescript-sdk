@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserAnalyzerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FFAEF396-10EF-53C7-1F51-518853880729
@@ -13,7 +13,7 @@ export class DescribeUserAnalyzerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the custom analyzer.
+   * The details of the custom analyzer. For more information, see [UserAnalyzer](https://help.aliyun.com/document_detail/178934.html).
    * 
    * @example
    * {}

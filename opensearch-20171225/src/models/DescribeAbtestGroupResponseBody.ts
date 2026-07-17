@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeABTestGroupResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the test group was created.
+   * The time when the group was created.
    * 
    * @example
    * 1588839490
@@ -13,7 +13,7 @@ export class DescribeABTestGroupResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The ID of the test group.
+   * The ID of the group.
    * 
    * @example
    * 13466
@@ -21,7 +21,7 @@ export class DescribeABTestGroupResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The alias of the test group.
+   * The alias of the group.
    * 
    * @example
    * Group_2020-5-7_15:23:3
@@ -29,10 +29,11 @@ export class DescribeABTestGroupResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the test group. Valid values:
+   * The status of the group.
    * 
-   * *   0: not in effect
-   * *   1: in effect
+   * - 0: Inactive
+   * 
+   * - 1: Active
    * 
    * @example
    * 1
@@ -40,7 +41,7 @@ export class DescribeABTestGroupResponseBodyResult extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The time when the test group was last updated.
+   * The time when the group was last modified.
    * 
    * @example
    * 1588839490
@@ -78,7 +79,7 @@ export class DescribeABTestGroupResponseBodyResult extends $dara.Model {
 export class DescribeABTestGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D77D0DAF-790D-F5F5-A9C0-133738165014
@@ -86,7 +87,7 @@ export class DescribeABTestGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the test group.
+   * The A/B test group.
    */
   result?: DescribeABTestGroupResponseBodyResult;
   static names(): { [key: string]: string } {

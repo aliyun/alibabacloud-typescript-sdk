@@ -13,7 +13,7 @@ export class DescribeFirstRankResponseBodyResultMeta extends $dara.Model {
   arg?: string;
   /**
    * @remarks
-   * The attribute, feature function, or field to be searched for.
+   * The attribute, scoring feature, or search field.
    * 
    * @example
    * timeliness_ms()
@@ -63,7 +63,7 @@ export class DescribeFirstRankResponseBodyResult extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * Description
+   * The description of the expression.
    * 
    * @example
    * -
@@ -76,7 +76,7 @@ export class DescribeFirstRankResponseBodyResult extends $dara.Model {
   meta?: DescribeFirstRankResponseBodyResultMeta[];
   /**
    * @remarks
-   * Parameter
+   * The name of the expression.
    * 
    * @example
    * ar_wear_edit_time

@@ -13,7 +13,7 @@ export class RemoveAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return result.
+   * —
    */
   result?: number[];
   static names(): { [key: string]: string } {

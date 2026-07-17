@@ -97,11 +97,15 @@ export class GetFunctionInstanceResponseBodyResultTask extends $dara.Model {
    * @remarks
    * The status of the task. Valid values:
    * 
-   * *   success: succeeded
-   * *   failed: failed
-   * *   untrained: to be trained
-   * *   pending: being scheduled
-   * *   running: being trained
+   * - success: succeeded
+   * 
+   * - failed: failed
+   * 
+   * - untrained: to be trained
+   * 
+   * - pending: being scheduled
+   * 
+   * - running: being trained
    * 
    * @example
    * success
@@ -202,7 +206,7 @@ export class GetFunctionInstanceResponseBodyResult extends $dara.Model {
    * The cron expression used to schedule training, in the format of (Minutes Hours DayofMonth Month DayofWeek). If the value is empty, it indicates that no periodic training is performed.
    * 
    * @example
-   * 0 3 ? \\* 0,1,3,5 (at 3 a.m. on Sunday, Monday, Wednesday, and Friday)
+   * 0 3 ? * 0,1,3,5 (at 3 a.m. on Sunday, Monday, Wednesday, and Friday)
    */
   cron?: string;
   /**
@@ -257,8 +261,9 @@ export class GetFunctionInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * How the instance is created. Valid values:
    * 
-   * *   user: The instance is created by user.
-   * *   builtin: The instance is created by the system.
+   * - user: The instance is created by user.
+   * 
+   * - builtin: The instance is created by the system.
    * 
    * @example
    * user
@@ -268,8 +273,9 @@ export class GetFunctionInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * 1.  unavailable: No model is available. Models must be trained before you can use them.
-   * 2.  available: Models can be used.
+   * 1. unavailable: No model is available. Models must be trained before you can use them.
+   * 
+   * 2. available: Models can be used.
    * 
    * @example
    * available

@@ -16,7 +16,7 @@ export class CreateAppRequestCluster extends $dara.Model {
   maxQueryClauseLength?: number;
   /**
    * @remarks
-   * The timeout period. Unit: milliseconds.
+   * The timeout period for the cluster, in milliseconds.
    * 
    * @example
    * 750
@@ -112,23 +112,31 @@ export class CreateAppRequestDataSources extends $dara.Model {
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The plug-ins that are used for data processing.
+   * The data processing plugins for fields.
    * 
-   * name:
+   * Plugin name (name):
    * 
-   * *   JsonKeyValueExtractor
-   * *   MultiValueSpliter
-   * *   KeyValueExtractor
-   * *   StringCatenateExtractor
-   * *   HTMLTagRemover
+   * - JsonKeyValueExtractor
    * 
-   * parameters:
+   * - MultiValueSpliter
    * 
-   * *   JsonKeyValueExtractor
-   * *   MultiValueSpliter
-   * *   KeyValueExtractor
-   * *   StringCatenateExtractor
-   * *   HTMLTagRemover
+   * - KeyValueExtractor
+   * 
+   * - StringCatenateExtractor
+   * 
+   * - HTMLTagRemover
+   * 
+   * Plugin parameters (parameters):
+   * 
+   * - JsonKeyValueExtractor
+   * 
+   * - MultiValueSpliter
+   * 
+   * - KeyValueExtractor
+   * 
+   * - StringCatenateExtractor
+   * 
+   * - HTMLTagRemover
    * 
    * @example
    * {
@@ -149,7 +157,7 @@ export class CreateAppRequestDataSources extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The name of the table in the application.
+   * The name of the application table.
    * 
    * @example
    * main
@@ -157,12 +165,15 @@ export class CreateAppRequestDataSources extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values:
+   * The type of the data source.
    * 
-   * *   rds
-   * *   odps
-   * *   opensearch
-   * *   polardb
+   * - rds
+   * 
+   * - odps
+   * 
+   * - opensearch
+   * 
+   * - polardb
    * 
    * @example
    * rds
@@ -221,11 +232,13 @@ export class CreateAppRequestDomain extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The selected feature category. Valid values:
+   * The selected features.
    * 
-   * *   qp: query analysis
-   * *   algo: sort policy
-   * *   service: service
+   * - qp: query analysis
+   * 
+   * - algo: sort policy
+   * 
+   * - service: ancillary service
    * 
    * @example
    * {"qp":["spellcheck"],"algo":["pop"],"service":["suggest"]}
@@ -233,7 +246,7 @@ export class CreateAppRequestDomain extends $dara.Model {
   functions?: { [key: string]: any };
   /**
    * @remarks
-   * The industry type.
+   * The industry.
    * 
    * @example
    * ecommerce
@@ -286,10 +299,10 @@ export class CreateAppRequestFirstRanks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The information about the expression. The information can be of the array or string type.
+   * The details of the expression. The value can be an array or a string.
    * 
    * @example
-   * String :"random()*100+now()";
+   * String :"random()*100+now()"；
    * Array: [
    *     {
    *       "attribute": "static_bm25()",
@@ -309,10 +322,11 @@ export class CreateAppRequestFirstRanks extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The expression type. Valid values:
+   * The type of the expression.
    * 
-   * *   STRUCT: The content of the expression is a structure.
-   * *   STRING (default): You can configure a custom formula.
+   * - STRUCT: structured expression.
+   * 
+   * - STRING: custom formula. This is the default value.
    * 
    * @example
    * STRING
@@ -366,11 +380,13 @@ export class CreateAppRequestQueryProcessors extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The industry type. Valid values:
+   * The industry. Valid values:
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL: general
+   * 
+   * - ECOMMERCE: e-commerce
+   * 
+   * - IT_CONTENT: IT content
    * 
    * @example
    * ECOMMERCE
@@ -378,7 +394,7 @@ export class CreateAppRequestQueryProcessors extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The index range.
+   * The indexes of the application.
    */
   indexes?: string[];
   /**
@@ -391,7 +407,7 @@ export class CreateAppRequestQueryProcessors extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The features.
+   * The features that are included.
    */
   processors?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
@@ -434,7 +450,7 @@ export class CreateAppRequestQueryProcessors extends $dara.Model {
 export class CreateAppRequestSchemaIndexSortConfig extends $dara.Model {
   /**
    * @remarks
-   * The sort method.
+   * The sort order.
    * 
    * @example
    * ASC;
@@ -521,7 +537,7 @@ export class CreateAppRequestSchemaIndexes extends $dara.Model {
 export class CreateAppRequestSchemaTtlField extends $dara.Model {
   /**
    * @remarks
-   * The name of the document time field.
+   * The document time field.
    * 
    * @example
    * text1
@@ -529,7 +545,7 @@ export class CreateAppRequestSchemaTtlField extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The TTL. Unit: milliseconds.
+   * The time to live (TTL), in milliseconds.
    * 
    * @example
    * 1000
@@ -561,7 +577,7 @@ export class CreateAppRequestSchemaTtlField extends $dara.Model {
 export class CreateAppRequestSchema extends $dara.Model {
   /**
    * @remarks
-   * The sort configurations.
+   * The inverted index configurations.
    */
   indexSortConfig?: CreateAppRequestSchemaIndexSortConfig[];
   /**
@@ -587,12 +603,12 @@ export class CreateAppRequestSchema extends $dara.Model {
   routeField?: string;
   /**
    * @remarks
-   * The hot values of the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
+   * The list of hotspot values for the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
    */
   routeFieldValues?: string[];
   /**
    * @remarks
-   * The name of the level-2 routing field. This parameter takes effect only when the `routeFieldValues` parameter is configured. By default, the wide-table primary key field is used as the level-2 routing field.
+   * The name of the level-2 routing field. This parameter takes effect only when `routeFieldValues` is configured. By default, the primary key of the wide table is used.
    * 
    * @example
    * field2
@@ -638,7 +654,7 @@ export class CreateAppRequestSchema extends $dara.Model {
   tables?: { [key: string]: any };
   /**
    * @remarks
-   * The document clearing configurations.
+   * The document expiration configuration.
    */
   ttlField?: CreateAppRequestSchemaTtlField;
   static names(): { [key: string]: string } {
@@ -694,10 +710,11 @@ export class CreateAppRequestSchema extends $dara.Model {
 export class CreateAppRequestSchemasIndexSortConfig extends $dara.Model {
   /**
    * @remarks
-   * The sort method.
+   * The sort order.
    * 
-   * *   ASC
-   * *   DESC
+   * - ASC
+   * 
+   * - DESC
    * 
    * @example
    * DESC
@@ -783,7 +800,7 @@ export class CreateAppRequestSchemasIndexes extends $dara.Model {
 export class CreateAppRequestSchemasTtlField extends $dara.Model {
   /**
    * @remarks
-   * The name of the document time field.
+   * The document time field.
    * 
    * @example
    * text1
@@ -791,7 +808,7 @@ export class CreateAppRequestSchemasTtlField extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The TTL. Unit: milliseconds.
+   * The time to live (TTL), in milliseconds.
    * 
    * @example
    * 1000
@@ -823,7 +840,7 @@ export class CreateAppRequestSchemasTtlField extends $dara.Model {
 export class CreateAppRequestSchemas extends $dara.Model {
   /**
    * @remarks
-   * The sort configurations.
+   * The inverted index configurations.
    */
   indexSortConfig?: CreateAppRequestSchemasIndexSortConfig[];
   /**
@@ -849,12 +866,12 @@ export class CreateAppRequestSchemas extends $dara.Model {
   routeField?: string;
   /**
    * @remarks
-   * The hot values of the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
+   * The list of hotspot values for the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
    */
   routeFieldValues?: string[];
   /**
    * @remarks
-   * The name of the level-2 routing field. This parameter takes effect only when the routeFieldValues parameter is configured. By default, the wide-table primary key field is used as the level-2 routing field.
+   * The name of the level-2 routing field. This parameter takes effect only when routeFieldValues is configured. By default, the primary key of the wide table is used.
    * 
    * @example
    * field2
@@ -900,7 +917,7 @@ export class CreateAppRequestSchemas extends $dara.Model {
   tables?: { [key: string]: any };
   /**
    * @remarks
-   * The document clearing configurations.
+   * The document expiration configuration.
    */
   ttlField?: CreateAppRequestSchemasTtlField;
   static names(): { [key: string]: string } {
@@ -967,12 +984,12 @@ export class CreateAppRequestSecondRanks extends $dara.Model {
    * The description.
    * 
    * @example
-   * Description
+   * 描述
    */
   description?: string;
   /**
    * @remarks
-   * The fine sort expression. You can define an expression that contains fields, feature functions, and mathematical functions to implement complex sort logic.
+   * The fine sort expression. You can write an expression that contains fields, feature functions, and mathematical functions to implement complex sort logic.
    * 
    * @example
    * "cate_id > 0 and cate_id < 1000"
@@ -1016,7 +1033,7 @@ export class CreateAppRequestSecondRanks extends $dara.Model {
 export class CreateAppRequestSummariesMeta extends $dara.Model {
   /**
    * @remarks
-   * The element that is used for highlighting.
+   * The HTML tag for highlight.
    * 
    * @example
    * em
@@ -1024,7 +1041,7 @@ export class CreateAppRequestSummariesMeta extends $dara.Model {
   element?: string;
   /**
    * @remarks
-   * The connector that is used to connect segments.
+   * The string used to connect snippets.
    * 
    * @example
    * ...
@@ -1040,7 +1057,7 @@ export class CreateAppRequestSummariesMeta extends $dara.Model {
   field?: string;
   /**
    * @remarks
-   * The length of the segment. Valid values: 1 to 300.
+   * The length of the snippet. The value must be in the range of [1, 300].
    * 
    * @example
    * 50
@@ -1048,7 +1065,7 @@ export class CreateAppRequestSummariesMeta extends $dara.Model {
   len?: number;
   /**
    * @remarks
-   * The number of segments. Valid values: 1 to 5.
+   * The number of snippets. The value must be in the range of [1, 5].
    * 
    * @example
    * 1
@@ -1086,7 +1103,7 @@ export class CreateAppRequestSummariesMeta extends $dara.Model {
 export class CreateAppRequestSummaries extends $dara.Model {
   /**
    * @remarks
-   * The collection of summary configurations.
+   * The summary configurations.
    */
   meta?: CreateAppRequestSummariesMeta[];
   /**
@@ -1126,10 +1143,11 @@ export class CreateAppRequestSummaries extends $dara.Model {
 export class CreateAppRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically switch the created version to an online version. Valid values:
+   * Specifies whether to automatically set the new version as the online version after it is created.
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -1137,26 +1155,26 @@ export class CreateAppRequest extends $dara.Model {
   autoSwitch?: boolean;
   /**
    * @remarks
-   * The capability opening configurations.
+   * The feature configurations.
    */
   cluster?: CreateAppRequestCluster;
   configItems?: { [key: string]: any }[];
   /**
    * @remarks
-   * The configurations of data sources.
+   * The data source configurations.
    */
   dataSources?: CreateAppRequestDataSources[];
   /**
    * @remarks
-   * The version description.
+   * The description of the version.
    * 
    * @example
-   * "Version description"
+   * "version description"
    */
   description?: string;
   /**
    * @remarks
-   * The industry model module.
+   * The industry model.
    */
   domain?: CreateAppRequestDomain;
   /**
@@ -1166,16 +1184,17 @@ export class CreateAppRequest extends $dara.Model {
   fetchFields?: string[];
   /**
    * @remarks
-   * The configurations of rough sort.
+   * The rough sort configurations.
    */
   firstRanks?: CreateAppRequestFirstRanks[];
   interpretations?: { [key: string]: any }[];
   /**
    * @remarks
-   * The zone identifier. Valid values:
+   * The network type. Valid values:
    * 
-   * *   vpc
-   * *   oxs
+   * - vpc
+   * 
+   * - oxs
    * 
    * @example
    * vpc
@@ -1184,33 +1203,33 @@ export class CreateAppRequest extends $dara.Model {
   prompts?: { [key: string]: any }[];
   /**
    * @remarks
-   * The query intent understanding configurations.
+   * The intention recognition configurations.
    */
   queryProcessors?: CreateAppRequestQueryProcessors[];
   realtimeShared?: boolean;
   /**
    * @remarks
-   * The single-table schema.
+   * The schema of the single-table application.
    */
   schema?: CreateAppRequestSchema;
   /**
    * @remarks
-   * The multi-table schema.
+   * The schema of the multi-table application.
    */
   schemas?: CreateAppRequestSchemas[];
   /**
    * @remarks
-   * The configurations of fine sort.
+   * The fine sort configurations.
    */
   secondRanks?: CreateAppRequestSecondRanks[];
   /**
    * @remarks
-   * The summary configurations of search results.
+   * The search result summary settings.
    */
   summaries?: CreateAppRequestSummaries[];
   /**
    * @remarks
-   * Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
+   * Specifies whether to perform a dry run. A dry run checks the validity of the data source but does not create the application. Valid values: true and false.
    * 
    * @example
    * true

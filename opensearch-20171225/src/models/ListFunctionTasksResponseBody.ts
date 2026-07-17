@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFunctionTasksResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The timestamp that indicates the end time. Unit: milliseconds. 0 indicates that the task has not ended.
+   * The time when the task ended. This is a UNIX timestamp in milliseconds. A value of 0 indicates that the task has not ended.
    * 
    * @example
    * 100010
@@ -13,7 +13,7 @@ export class ListFunctionTasksResponseBodyResult extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The value is a JSON string. It includes model evaluation information and training error information.
+   * A JSON string that contains information such as model evaluation results and training errors.
    * 
    * @example
    * {\\"recall\\":91,\\"errors\\":[]}
@@ -29,7 +29,7 @@ export class ListFunctionTasksResponseBodyResult extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The number of iterations.
+   * The iteration number.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class ListFunctionTasksResponseBodyResult extends $dara.Model {
   generation?: string;
   /**
    * @remarks
-   * The progress. 90 indicates 90%.
+   * The progress of the task. For example, a value of 90 indicates that the task is 90% complete.
    * 
    * @example
    * 90
@@ -53,7 +53,7 @@ export class ListFunctionTasksResponseBodyResult extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The timestamp that indicates the start time. Unit: milliseconds.
+   * The time when the task started. This is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 100010
@@ -61,11 +61,13 @@ export class ListFunctionTasksResponseBodyResult extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The status of the task.
    * 
-   * *   success
-   * *   failed
-   * *   running
+   * - success
+   * 
+   * - failed
+   * 
+   * - running
    * 
    * @example
    * success
@@ -125,7 +127,7 @@ export class ListFunctionTasksResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the request, in milliseconds.
+   * The time consumed by the request, in milliseconds.
    * 
    * @example
    * 123
@@ -133,7 +135,7 @@ export class ListFunctionTasksResponseBody extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * The error message.
+   * The returned message.
    * 
    * @example
    * fail

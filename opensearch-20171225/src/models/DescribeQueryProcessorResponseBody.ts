@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQueryProcessorResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the query analysis rule is the default one.
+   * Indicates whether the rule is the default rule.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeQueryProcessorResponseBodyResult extends $dara.Model {
   active?: boolean;
   /**
    * @remarks
-   * The time when the query analysis rule was created.
+   * The time when the rule was created.
    * 
    * @example
    * 1587398402
@@ -21,11 +21,13 @@ export class DescribeQueryProcessorResponseBodyResult extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The type of the industry. Valid values:
+   * The industry type.
    * 
-   * *   GENERAL
-   * *   ECOMMERCE
-   * *   IT_CONTENT
+   * - GENERAL: General
+   * 
+   * - ECOMMERCE: E-commerce
+   * 
+   * - IT_CONTENT: IT content
    * 
    * @example
    * GENERAL
@@ -38,7 +40,7 @@ export class DescribeQueryProcessorResponseBodyResult extends $dara.Model {
   indexes?: string[];
   /**
    * @remarks
-   * The name of the query analysis rule.
+   * The name of the rule.
    * 
    * @example
    * test
@@ -51,7 +53,7 @@ export class DescribeQueryProcessorResponseBodyResult extends $dara.Model {
   processors?: { [key: string]: any }[];
   /**
    * @remarks
-   * The time when the query analysis rule was last updated.
+   * The time when the rule was last updated.
    * 
    * @example
    * 1587398402

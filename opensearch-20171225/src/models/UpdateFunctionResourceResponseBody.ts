@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFunctionResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. If no error occurs, this parameter is left empty.
+   * The error code. This parameter is empty if the request is successful.
    * 
    * @example
    * InvalidRequest
@@ -13,7 +13,7 @@ export class UpdateFunctionResourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class UpdateFunctionResourceResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The time consumed for the request. Unit: milliseconds.
+   * The request latency. Unit: milliseconds.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class UpdateFunctionResourceResponseBody extends $dara.Model {
   latency?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Invalid request.
@@ -37,7 +37,7 @@ export class UpdateFunctionResourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7E375703-5B12-5466-8B48-C4D01AE1291A

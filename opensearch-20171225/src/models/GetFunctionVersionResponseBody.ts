@@ -95,7 +95,7 @@ export class GetFunctionVersionResponseBodyResultVersionConfigDepends extends $d
 export class GetFunctionVersionResponseBodyResultVersionConfigUsageParameters extends $dara.Model {
   /**
    * @remarks
-   * The name of the instance.
+   * The name of the parameter.
    * 
    * @example
    * ""
@@ -144,6 +144,9 @@ export class GetFunctionVersionResponseBodyResultVersionConfig extends $dara.Mod
   /**
    * @remarks
    * The dependencies of the instance.
+   * 
+   * @example
+   * [                 {                     "dependency": "依赖项",                     "condition": "条件",                     "description": ""                 }             ]
    */
   depends?: GetFunctionVersionResponseBodyResultVersionConfigDepends[];
   /**
@@ -201,8 +204,9 @@ export class GetFunctionVersionResponseBodyResult extends $dara.Model {
    * @remarks
    * The type of the feature. Valid values:
    * 
-   * *   PAAS
-   * *   SAAS
+   * - PAAS
+   * 
+   * - SAAS
    * 
    * @example
    * PAAS
@@ -218,7 +222,10 @@ export class GetFunctionVersionResponseBodyResult extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * The configuration information.
+   * The version configuration.
+   * 
+   * @example
+   * {             "createParameters": [                 {                     "name": "params1",                     "required": "true",                     "formItemProps": "{\\"required\\": true, \\"pattern?\\": \\"/^[a-zA-Z][a-zA-Z0-9_]{0,29}$/\\"}",                     "componentProps": "{\\"component\\": \\"Input\\", \\"attributes\\": {\\"defaultValue\\": \\"value1\\"}}"                 }             ],             "depends": [                 {                     "dependency": "依赖项",                     "condition": "条件",                     "description": ""                 }             ],             "usageParameters": []         }
    */
   versionConfig?: GetFunctionVersionResponseBodyResultVersionConfig;
   /**
@@ -290,7 +297,7 @@ export class GetFunctionVersionResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The maximum duration for which a task can be executed.
+   * The request latency.
    * 
    * @example
    * 123
@@ -306,7 +313,7 @@ export class GetFunctionVersionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1638157479281
@@ -322,7 +329,7 @@ export class GetFunctionVersionResponseBody extends $dara.Model {
   result?: GetFunctionVersionResponseBodyResult;
   /**
    * @remarks
-   * The status of the request.
+   * The request status.
    * 
    * @example
    * OK

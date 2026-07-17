@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQueryProcessorAnalyzerResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The text to be tested.
+   * The text to test.
    * 
    * This parameter is required.
    * 

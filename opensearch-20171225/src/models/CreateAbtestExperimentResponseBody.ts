@@ -29,10 +29,11 @@ export class CreateABTestExperimentResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the experiment is in effect. Valid values:
+   * The status of the experiment.
    * 
-   * *   true
-   * *   false
+   * - true: The experiment is in effect.
+   * 
+   * - false: The experiment is not in effect.
    * 
    * @example
    * true

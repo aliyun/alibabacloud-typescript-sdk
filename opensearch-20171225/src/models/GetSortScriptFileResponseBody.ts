@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSortScriptFileResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The script content that is encoded in the Base64 format.
+   * The content of the script, Base64-encoded.
    * 
    * @example
    * YWJjZGVmZw==
@@ -13,7 +13,7 @@ export class GetSortScriptFileResponseBodyResult extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The time when the script was created.
+   * The time when the script file was created.
    * 
    * @example
    * 2020-04-02 20:21:14
@@ -21,7 +21,7 @@ export class GetSortScriptFileResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the script was last modified.
+   * The time when the script file was last modified.
    * 
    * @example
    * 2020-04-02 21:21:14
@@ -65,7 +65,7 @@ export class GetSortScriptFileResponseBodyResult extends $dara.Model {
 export class GetSortScriptFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * ABCDEFGH

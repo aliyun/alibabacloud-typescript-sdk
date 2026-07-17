@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindEsInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The body of the request.
+   * The request body.
    * 
    * @example
    * {
