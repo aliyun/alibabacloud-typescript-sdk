@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag that you want to associate with the resource.
+   * The tag key.
    * 
-   * > You can specify the keys of multiple tags. For example, you can specify the key of the first tag in the first key-value pair contained in the value of this parameter and specify the key of the second tag in the second key-value pair.
+   * > You can specify the keys for multiple tags. For example, the Key in the first pair is the key for the first tag, and the Key in the second pair is the key for the second tag.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag that you want to associate with the resource.
+   * The tag value.
    * 
-   * > You can specify the values of multiple tags. For example, you can specify the value of the first tag in the first key-value pair contained in the value of this parameter and specify the value of the second tag in the second key-value pair.
+   * > You can specify the values for multiple tags. For example, the Value in the first pair is the value for the first tag, and the Value in the second pair is the value for the second tag.
    * 
    * @example
    * 2.2.8
@@ -53,7 +53,7 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which the instances you want to associate tags with are located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
+   * The region ID of the instance. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of resource IDs.
+   * A list of resource IDs.
    * 
    * This parameter is required.
    */
@@ -72,7 +72,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The resource type. Set the value to **INSTANCE**.
+   * The type of the resource. Set the value to **INSTANCE**.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class TagResourcesRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The tags that you want to associate with the resource.
+   * A list of tags.
    * 
    * This parameter is required.
    */

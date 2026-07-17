@@ -4,12 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLindormV2StorageUsageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why the access was denied.
+   * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The capacity information for each storage medium.
+   */
   capacityByDiskCategory?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The capacity information for the multi-zone instance.
+   * 
+   * {"ZoneId":{"CapacityByDiskCategory":{...},"UsageByDiskCategory":{...}}}
+   * 
    * @example
    * {
    *     "cn-hangzhou-i": {
@@ -43,10 +55,17 @@ export class GetLindormV2StorageUsageResponseBody extends $dara.Model {
    */
   instanceStorageZoneMap?: { [key: string]: any };
   /**
+   * @remarks
+   * The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
+   * 
    * @example
    * BDDB1954-002B-4249-B2DF-2CDDA0259668
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The usage information for each storage medium.
+   */
   usageByDiskCategory?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {

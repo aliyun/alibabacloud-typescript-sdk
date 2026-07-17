@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeLindormInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The storage capacity of the instance after it is upgraded. Unit: GB. Valid values: **480** to **1017600**.
+   * The new storage capacity of the instance. Unit: GB. Valid values: **480** to **1017600**.
    * 
    * @example
    * 480
@@ -13,7 +13,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   clusterStorage?: number;
   /**
    * @remarks
-   * The cold storage capacity of the instance after it is upgraded. Unit: GB. Valid values: **800** to **1000000**.
+   * The new cold storage capacity of the instance. Unit: GB. Valid values: **800** to **1000000**.
    * 
    * @example
    * 800
@@ -21,15 +21,15 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   coldStorage?: number;
   /**
    * @remarks
-   * The storage capacity of a single core node in the instance after the instance upgraded. This parameter is available only if the instance you want to upgrade is a multi-zone instance. Unit: GB. Valid values: 400 to 64000. **This parameter is optional**.
+   * The new storage capacity of a single core node in a multi-zone instance. Unit: GB. Valid values: 400 to 64000. **This parameter is optional.**
    * 
    * @example
-   * 400
+   * 400GB
    */
   coreSingleStorage?: number;
   /**
    * @remarks
-   * The number of LindormDFS nodes in the instance after the instance is upgraded. Valid values: integers from **0** to **60**.
+   * The new number of file engine nodes. Valid values: **0** to **60**.
    * 
    * @example
    * 2
@@ -37,20 +37,17 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   filestoreNum?: number;
   /**
    * @remarks
-   * The specification of LindormDFS nodes in the instance after the instance is upgraded. Valid values:
+   * The new specification of the file engine nodes. Valid value:
    * 
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+   * **lindorm.c.xlarge**: 4 CPU cores, 8 GB of memory (standard specification).
    * 
    * @example
-   * lindorm.g.xlarge
+   * lindorm.c.xlarge
    */
   filestoreSpec?: string;
   /**
    * @remarks
-   * The ID of the instance that you want to upgrade, scale up, or enable cold storage. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to query the instance ID.
+   * The ID of the instance. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to obtain this ID.
    * 
    * This parameter is required.
    * 
@@ -60,9 +57,9 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of LindormTable nodes in the instance after the instance is upgraded. Valid values: integers from **0** to **90**.
+   * The new number of wide table engine nodes. Valid values: **0** to **90**.
    * 
-   * > This parameter must be specified together with the LindormSpec parameter.
+   * > If you specify this parameter, the LindormSpec parameter is also required.
    * 
    * @example
    * 2
@@ -70,12 +67,15 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   lindormNum?: number;
   /**
    * @remarks
-   * The specification of LindormTable nodes in the instance after the instance is upgraded. Valid values:
+   * The new specification of the wide table engine nodes. Valid values:
    * 
-   * *   **lindorm.c.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
-   * *   **lindorm.c.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.c.4xlarge**: Each node has 16 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.c.8xlarge**: Each node has 32 dedicated CPU cores and 64 GB of dedicated memory.
+   * - **lindorm.c.xlarge**: 4 CPU cores, 8 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.c.2xlarge**: 8 CPU cores, 16 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.c.4xlarge**: 16 CPU cores, 32 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.c.8xlarge**: 32 CPU cores, 64 GB of memory (dedicated specification).
    * 
    * @example
    * lindorm.c.xlarge
@@ -83,7 +83,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   lindormSpec?: string;
   /**
    * @remarks
-   * The number of log nodes in the instance after the instance is upgraded. This parameter is available only if the instance you want to upgrade is a multi-zone instance. **This parameter is optional**.
+   * The new number of log nodes for a multi-zone instance. Valid values: 4 to 400. **This parameter is optional.**
    * 
    * @example
    * 4
@@ -91,20 +91,21 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   logNum?: number;
   /**
    * @remarks
-   * The storage capacity of a single log node in the instance after the instance upgraded. This parameter is available only if the instance you want to upgrade is a multi-zone instance. **This parameter is optional**.
+   * The new disk capacity of a single log node for a multi-zone instance. Unit: GB. Valid values: 400 to 64000. **This parameter is optional.**
    * 
    * @example
-   * 400
+   * 400GB
    */
   logSingleStorage?: number;
   /**
    * @remarks
-   * The specification of log nodes in the instance after the instance is upgraded. This parameter is available only if the instance you want to upgrade is a multi-zone instance. Valid values:
+   * The new specification of the log nodes for a multi-zone instance. Valid values:
    * 
-   * *   **lindorm.sn1.large**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
-   * *   **lindorm.sn1.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
+   * - **lindorm.sn1.large**: 4 CPU cores, 8 GB of memory (dedicated specification).
    * 
-   * **This parameter is optional**.
+   * - **lindorm.sn1.2xlarge**: 8 CPU cores, 16 GB of memory (dedicated specification).
+   * 
+   * **This parameter is optional.**
    * 
    * @example
    * lindorm.sn1.large
@@ -112,7 +113,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   logSpec?: string;
   /**
    * @remarks
-   * The number of LTS nodes in the instance after the instance is upgraded. Valid values: integers from **0** to **50**.
+   * The new number of LTS nodes. Valid values: **0** to **50**.
    * 
    * @example
    * 2
@@ -120,10 +121,11 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   ltsCoreNum?: number;
   /**
    * @remarks
-   * The specification of Lindorm Tunnel Service (LTS) nodes in the instance after the instance is upgraded. Valid values:
+   * The new specification of the LTS nodes. Valid values:
    * 
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
+   * - **lindorm.g.xlarge**: 4 CPU cores, 16 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.g.2xlarge**: 8 CPU cores, 32 GB of memory (dedicated specification).
    * 
    * @example
    * lindorm.g.xlarge
@@ -133,7 +135,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which the instance that you want to upgrade, scale up, or enable cold storage is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
+   * The ID of the region where the instance is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to obtain the latest region list.
    * 
    * This parameter is required.
    * 
@@ -146,7 +148,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The number of LindormSearch nodes in the instance after the instance is upgraded. Valid values: integers from **0** to **60**.
+   * The new number of search engine nodes. Valid values: **0** to **60**.
    * 
    * @example
    * 2
@@ -154,12 +156,15 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   solrNum?: number;
   /**
    * @remarks
-   * The specification of LindormSearch nodes in the instance after the instance is upgraded. Valid values:
+   * The new specification of the search engine nodes. Valid values:
    * 
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+   * - **lindorm.g.xlarge**: 4 CPU cores, 16 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.g.2xlarge**: 8 CPU cores, 32 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.g.4xlarge**: 16 CPU cores, 64 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.g.8xlarg**e: 32 CPU cores, 128 GB of memory (dedicated specification).
    * 
    * @example
    * lindorm.g.xlarge
@@ -167,7 +172,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   solrSpec?: string;
   /**
    * @remarks
-   * The number of LindormStream nodes in the instance after the instance is upgraded. Valid values: integers from **0** to **60**.
+   * The new number of stream engine nodes. Valid values: **0** to **90**.
    * 
    * @example
    * 2
@@ -175,12 +180,13 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   streamNum?: number;
   /**
    * @remarks
-   * The specification of LindormStream nodes in the instance after the instance is upgraded. Valid values:
+   * The new specification of the stream engine nodes. Valid values:
    * 
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+   * - **lindorm.c.2xlarge**: 8 CPU cores, 16 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.c.4xlarge**: 16 CPU cores, 32 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.c.8xlarge**: 32 CPU cores, 64 GB of memory (dedicated specification).
    * 
    * @example
    * lindorm.g.xlarge
@@ -188,7 +194,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   streamSpec?: string;
   /**
    * @remarks
-   * The number of LindormTSDB nodes in the instance after the instance is upgraded. Valid values: integers from **0** to **24**.
+   * The new number of time series engine nodes. Valid values: **0** to **24**.
    * 
    * @example
    * 2
@@ -196,12 +202,15 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   tsdbNum?: number;
   /**
    * @remarks
-   * The specification of LindormTSDB nodes in the instance after the instance is upgraded. Valid values:
+   * The new specification of the time series engine nodes. Valid values:
    * 
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+   * - **lindorm.g.xlarge**: 4 CPU cores, 16 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.g.2xlarge**: 8 CPU cores, 32 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.g.4xlarge**: 16 CPU cores, 64 GB of memory (dedicated specification).
+   * 
+   * - **lindorm.g.8xlarge**: 32 CPU cores, 128 GB of memory (dedicated specification).
    * 
    * @example
    * lindorm.g.xlarge
@@ -209,7 +218,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   tsdbSpec?: string;
   /**
    * @remarks
-   * The upgrade type of the operation. For more information about upgrade types, see the UpgradeType parameters section.
+   * The type of the upgrade. For details about the supported types, see the description of the UpgradeType parameter in the "Additional information about request parameters" section.
    * 
    * This parameter is required.
    * 
@@ -219,7 +228,7 @@ export class UpgradeLindormInstanceRequest extends $dara.Model {
   upgradeType?: string;
   /**
    * @remarks
-   * The ID of the zone in which the instance that you want to upgrade, scale up, or enable cold storage is located. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/426067.html) operation to query the zone ID.
+   * The ID of the availability zone. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/426067.html) operation to obtain this ID.
    * 
    * This parameter is required.
    * 

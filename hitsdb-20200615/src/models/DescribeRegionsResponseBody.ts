@@ -6,14 +6,17 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
    * The name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
    */
   localName?: string;
   /**
    * @remarks
-   * The endpoint for the region.
+   * The endpoint of the region.
    * 
    * @example
-   * hitsdb.aliyuncs.com
+   * hitsdb.cn-hangzhou.aliyuncs.com
    */
   regionEndpoint?: string;
   /**
@@ -52,7 +55,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The regions supported by Lindorm.
+   * The list of regions.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**

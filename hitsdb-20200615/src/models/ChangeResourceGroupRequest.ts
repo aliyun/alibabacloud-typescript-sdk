@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource group into which you want to change.
+   * The ID of the destination resource group.
    * 
    * This parameter is required.
    * 

@@ -2,41 +2,63 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetInstanceIpWhiteListRequest extends $dara.Model {
+export class ListComputeEngineJobRequest extends $dara.Model {
+  computeGroup?: string;
+  endTime?: number;
   /**
    * @remarks
-   * The ID of the instance. To obtain the ID, call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426068.html) operation.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * ld-bp1z3506imz2g****
    */
   instanceId?: string;
+  jobId?: string;
+  jobName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  startTime?: number;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
+      computeGroup: 'ComputeGroup',
+      endTime: 'EndTime',
       instanceId: 'InstanceId',
+      jobId: 'JobId',
+      jobName: 'JobName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      computeGroup: 'string',
+      endTime: 'number',
       instanceId: 'string',
+      jobId: 'string',
+      jobName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      startTime: 'number',
+      state: 'string',
     };
   }
 

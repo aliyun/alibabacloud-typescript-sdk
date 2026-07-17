@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLindormInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The disk type of the log nodes. This parameter is returned only for multi-zone instances. Valid values:
-   * 
-   * *   **cloud_efficiency**: The nodes use the Standard type of storage.
-   * *   **cloud_ssd**: The nodes use the Performance type of storage.
+   * The instance ID. Call [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) to obtain the ID.
    * 
    * This parameter is required.
    * 

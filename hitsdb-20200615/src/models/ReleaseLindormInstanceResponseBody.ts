@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseLindormInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * F67BFFF3-F5C2-45B5-9C28-6E4A1E51****

@@ -2,17 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetInstanceIpWhiteListRequest extends $dara.Model {
+export class GetComputeEngineJobDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. To obtain the ID, call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426068.html) operation.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * ld-bp1z3506imz2g****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  jobId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -21,6 +21,7 @@ export class GetInstanceIpWhiteListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      jobId: 'JobId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -32,6 +33,7 @@ export class GetInstanceIpWhiteListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      jobId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

@@ -4,17 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateLindormInstanceAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable deletion protection. Valid values:
+   * 
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
+   * 
    * @example
    * true
    */
   deletionProtection?: boolean;
   /**
+   * @remarks
+   * The name of the instance.
+   * 
    * @example
    * lindorm-test
    */
   instanceAlias?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

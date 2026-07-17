@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource, which is the ID of the instance.
+   * The resource ID, which is the instance ID.
    * 
    * @example
    * ld-bp17j28j2y7pm****
@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resources. The returned value is fixed to **ALIYUN::HITSDB::INSTANCE**.
+   * The resource type. The value is fixed to **ALIYUN::HITSDB::INSTANCE**.
    * 
    * @example
    * ALIYUN::HITSDB::INSTANCE
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The key of the tag associated with the instance.
+   * The key of the tag.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag associated with the instance.
+   * The value of the tag.
    * 
    * @example
    * 2.2.8
@@ -65,9 +65,9 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token used to start the next query.
+   * The token that is used to start the next query.
    * 
-   * > If not all results are returned in the first query, this parameter is returned. You can pass in the returned value of this parameter for the next query.
+   * > If not all results are returned in a query, the response includes this parameter. You can use the value of this parameter to start the next query.
    * 
    * @example
    * 212db86****
@@ -75,7 +75,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 05CB115C-91CB-529F-9098-50C1F6CB3BD3

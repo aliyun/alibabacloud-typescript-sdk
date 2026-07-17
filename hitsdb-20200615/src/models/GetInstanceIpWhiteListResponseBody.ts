@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceIpWhiteListResponseBodyGroupList extends $dara.Model {
   /**
    * @remarks
-   * The name of the IP address whitelist.
+   * The name of the whitelist group.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class GetInstanceIpWhiteListResponseBodyGroupList extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist.
+   * The IP address whitelist.
    * 
    * @example
    * 192.168.1.0/24
@@ -45,7 +45,7 @@ export class GetInstanceIpWhiteListResponseBodyGroupList extends $dara.Model {
 export class GetInstanceIpWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details about why the access was denied.
    * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}
@@ -53,12 +53,12 @@ export class GetInstanceIpWhiteListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The details about the IP address whitelists.
+   * A list of whitelist groups.
    */
   groupList?: GetInstanceIpWhiteListResponseBodyGroupList[];
   /**
    * @remarks
-   * The ID of the Lindorm instance.
+   * The instance ID.
    * 
    * @example
    * ld-bp1z3506imz2f****
@@ -66,12 +66,12 @@ export class GetInstanceIpWhiteListResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of IP addresses in the whitelist of the instance.
+   * A list of IP addresses in the whitelist.
    */
   ipList?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1D1F6F4D-9203-53E7-84E9-5376B4657E63

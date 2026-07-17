@@ -5,15 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class GetLindormInstanceEngineListResponseBodyEngineListNetInfoList extends $dara.Model {
   /**
    * @remarks
-   * The method by which the connection information can be used to access LindormTable. Valid values:
+   * The connection method for LindormTable. Valid values:
    * 
-   * *   **0**: The default value. This value can be ignored.
-   * *   **1**: The connection information can be used to access LindormTable by using ApsaraDB for HBase API for Java.
-   * *   **2**: The connection information can be used to access LindormTable by using ApsaraDB for HBase API for a non-Java language.
-   * *   **3**: The connection information can be used to access LindormTable by using the LindormTable endpoint for CQL.
-   * *   **4**: The connection information can be used to access LindormTable by using the LindormTable endpoint for SQL.
-   * *   **5**: The connection information can be used to access Lindorm by using the LindormTable endpoint for Amazon S3.
-   * *   **6**: The connection information can be used to access Lindorm by using the LindormTable endpoint for MySQL.
+   * - **0**: This is the default value and can be ignored.
+   * 
+   * - **1**: Use the HBase Java API to access LindormTable.
+   * 
+   * - **2**: Use a non-Java HBase API to access LindormTable.
+   * 
+   * - **3**: Use CQL to access LindormTable.
+   * 
+   * - **4**: Use the LindormTable SQL endpoint.
+   * 
+   * - **5**: Use the S3-compatible endpoint for LindormTable.
+   * 
+   * - **6**: Use the MySQL-compatible endpoint for LindormTable.
    * 
    * @example
    * 1
@@ -21,7 +27,7 @@ export class GetLindormInstanceEngineListResponseBodyEngineListNetInfoList exten
   accessType?: number;
   /**
    * @remarks
-   * The endpoint that is used to connect to the engine.
+   * The database endpoint.
    * 
    * @example
    * ld-bp1nq34mv3smk****-proxy-lindorm.lindorm.rds.aliyuncs.com
@@ -29,10 +35,11 @@ export class GetLindormInstanceEngineListResponseBodyEngineListNetInfoList exten
   connectionString?: string;
   /**
    * @remarks
-   * The network type of the endpoint. Valid values:
+   * The network type of the database endpoint. Valid values:
    * 
-   * *   **0**: Internet
-   * *   **2**: virtual private cloud (VPC)
+   * - **0**: Internet.
+   * 
+   * - **2**: Virtual private cloud (VPC).
    * 
    * @example
    * 2
@@ -40,7 +47,7 @@ export class GetLindormInstanceEngineListResponseBodyEngineListNetInfoList exten
   netType?: string;
   /**
    * @remarks
-   * The port number used to connect to the engine.
+   * The port number of the database endpoint.
    * 
    * @example
    * 30020
@@ -76,12 +83,15 @@ export class GetLindormInstanceEngineListResponseBodyEngineListNetInfoList exten
 export class GetLindormInstanceEngineListResponseBodyEngineList extends $dara.Model {
   /**
    * @remarks
-   * The type of engine that can run on the instance. Valid values:
+   * The engine type. Valid values:
    * 
-   * *   **lindorm**: LindormTable.
-   * *   **tsdb**: LindormTSDB.
-   * *   **solr**: LindormSearch.
-   * *   **store**: LindormDFS.
+   * - **lindorm**: LindormTable.
+   * 
+   * - **tsdb**: LindormTSDB.
+   * 
+   * - **solr**: Search engine.
+   * 
+   * - **store**: File engine.
    * 
    * @example
    * lindorm
@@ -89,7 +99,7 @@ export class GetLindormInstanceEngineListResponseBodyEngineList extends $dara.Mo
   engineType?: string;
   /**
    * @remarks
-   * The list of connection information about the engine.
+   * The list of database connection information for the engine.
    */
   netInfoList?: GetLindormInstanceEngineListResponseBodyEngineListNetInfoList[];
   static names(): { [key: string]: string } {
@@ -121,7 +131,7 @@ export class GetLindormInstanceEngineListResponseBodyEngineList extends $dara.Mo
 export class GetLindormInstanceEngineListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason why the access was denied.
    * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}
@@ -129,12 +139,12 @@ export class GetLindormInstanceEngineListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The list of engines that can run on the specified instance.
+   * The list of engine types.
    */
   engineList?: GetLindormInstanceEngineListResponseBodyEngineList[];
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * ld-bp1nq34mv3smk****
@@ -142,7 +152,7 @@ export class GetLindormInstanceEngineListResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * B496BA0E-520C-59FC-BA04-196D8F3B07EF

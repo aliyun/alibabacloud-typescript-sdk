@@ -2,26 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateLindormV2WhiteIpListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about a failed permission check.
-   * 
-   * @example
-   * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}
-   */
+export class GetComputeEngineJobLogResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0A7153E4-8354-497E-87E5-5D0EBEF5AEB1
-   */
+  jobId?: string;
+  logs?: string[];
+  pageNumber?: number;
+  pageSize?: number;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
+      jobId: 'JobId',
+      logs: 'Logs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
     };
   }
@@ -29,11 +23,18 @@ export class UpdateLindormV2WhiteIpListResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: 'string',
+      jobId: 'string',
+      logs: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.logs)) {
+      $dara.Model.validateArray(this.logs);
+    }
     super.validate();
   }
 

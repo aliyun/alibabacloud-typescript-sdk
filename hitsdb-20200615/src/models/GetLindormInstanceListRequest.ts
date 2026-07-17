@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetLindormInstanceListRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the instances you want to query. You can specify 1 to 20 tag keys.
+   * The key of the tag.
    * 
-   * > You can specify the keys of multiple tags. For example, you can specify the key of the first tag in the first key-value pair contained in the value of this parameter and specify the key of the second tag in the second key-value pair.
+   * > You can pass in keys for multiple tags. For example, the Key in the first pair represents the key for the first tag. The Key in the second pair represents the key for the second tag.
    * 
    * @example
    * test
@@ -15,9 +15,9 @@ export class GetLindormInstanceListRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the instances you want to query. You can specify 1 to 20 tag values.
+   * The value of the tag.
    * 
-   * > You can specify the values of multiple tags. For example, you can specify the value of the first tag in the first key-value pair contained in the value of this parameter and specify the value of the second tag in the second key-value pair.
+   * > You can provide values for multiple tags. For example, the Value in the first pair is the value for the first tag. The Value in the second pair is the value for the second tag.
    * 
    * @example
    * 2.2.18
@@ -51,7 +51,7 @@ export class GetLindormInstanceListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number to return.
    * 
    * @example
    * 1
@@ -59,7 +59,7 @@ export class GetLindormInstanceListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of instances to return on each page.
+   * The number of entries to return on each page for a paged query.
    * 
    * @example
    * 20
@@ -67,7 +67,7 @@ export class GetLindormInstanceListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keyword contained in the names of Lindorm instances you want to query. Fuzzy queries based on the keyword is supported.
+   * A keyword for a fuzzy search on instance names.
    * 
    * @example
    * test
@@ -75,7 +75,7 @@ export class GetLindormInstanceListRequest extends $dara.Model {
   queryStr?: string;
   /**
    * @remarks
-   * The ID of the region in which the instances that you want to query is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the most recent region list.
+   * The ID of the region where the instance is located. Call [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) to obtain the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -83,7 +83,7 @@ export class GetLindormInstanceListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek3b63arvg27vi
@@ -94,13 +94,17 @@ export class GetLindormInstanceListRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The series of instances that you want to query. Valid values:
+   * The type of the instance. Valid values:
    * 
-   * *   **lindorm**: The instance is a single-zone Lindorm instance.
-   * *   **lindorm_multizone**: The instance is a multi-zone Lindorm instance.
-   * *   **serverless_lindorm**: The instance is a Lindorm Serverless instance.
-   * *   **lindorm_standalone**: The instance is a single-node Lindorm instance.
-   * *   **lts**: The instance is an LTS instance.
+   * - **lindorm**: a single-zone Lindorm instance.
+   * 
+   * - **lindorm_multizone**: a multi-zone Lindorm instance.
+   * 
+   * - **serverless_lindorm**: a Lindorm Serverless instance.
+   * 
+   * - **lindorm_standalone**: a Lindorm standalone instance.
+   * 
+   * - **lts**: the Lindorm Tunnel Service (LTS) type.
    * 
    * @example
    * lindorm
@@ -108,14 +112,17 @@ export class GetLindormInstanceListRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The engine supported by the instances that you want to query. The engines are indicated by different numbers:
+   * The type of the engine supported by the instance that you want to query. Valid values:
    * 
-   * *   **1**: LindormSearch.
-   * *   **2**: LindormTSDB
-   * *   **4**: LindormTable
-   * *   **8**: LindormDFS
+   * - **1**: search engine.
    * 
-   * >  The value of this parameter is the sum of all numbers that indicate the engines supported by the instance. For example, if you set the value of this parameter to 15, which is the sum of 1, 2, 4, and 8, this operation queries instances that support all four engines. If you set the value of this parameter to 6, which is the sum of 2 and 4, this operation queries instances that support LindormTSDB and LindormTable.
+   * - **2**: LindormTSDB.
+   * 
+   * - **4**: LindormTable.
+   * 
+   * - **8**: file engine.
+   * 
+   * > For example, a value of 15 (8 + 4 + 2 + 1) indicates that the instance supports the file engine, LindormTable, LindormTSDB, and the search engine. A value of 6 (4 + 2) indicates that the instance supports LindormTSDB and LindormTable.
    * 
    * @example
    * 15
@@ -123,7 +130,7 @@ export class GetLindormInstanceListRequest extends $dara.Model {
   supportEngine?: number;
   /**
    * @remarks
-   * The list of tags associated with the specified instances.
+   * A list of tags. You can specify up to 20 tags.
    */
   tag?: GetLindormInstanceListRequestTag[];
   static names(): { [key: string]: string } {

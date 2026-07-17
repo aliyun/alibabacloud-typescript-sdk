@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeLindormInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 111111111111111
@@ -13,7 +13,7 @@ export class UpgradeLindormInstanceResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2A7D4F9D-AA26-4E15-A2B1-3E4792C6****

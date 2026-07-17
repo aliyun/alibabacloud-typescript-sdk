@@ -21,7 +21,7 @@ export class RenewLindormInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the order. You can obtain the order ID on the Orders page of the Expenses and Costs console.
+   * The ID of the order. You can find the order ID in the Order Management section of Expenses and Costs.
    * 
    * @example
    * 213465921640411

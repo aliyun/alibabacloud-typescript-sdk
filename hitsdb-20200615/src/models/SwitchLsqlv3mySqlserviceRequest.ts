@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchLSQLV3MySQLServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the operation. Valid value:
+   * The type of the operation. Valid values:
    * 
-   * *   1: enables the MySQL compatibility feature.
-   * *   0: disables the MySQL compatibility feature.
+   * - 1: Enable
+   * 
+   * - 0: Disable
    * 
    * This parameter is required.
    * 
@@ -18,7 +19,7 @@ export class SwitchLSQLV3MySQLServiceRequest extends $dara.Model {
   actionType?: number;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 

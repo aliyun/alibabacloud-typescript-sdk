@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.Model {
   /**
    * @remarks
-   * The total storage capacity. Unit: bytes.
+   * The total storage capacity for this storage medium, in bytes.
    * 
    * @example
    * 85899345920
@@ -15,12 +15,17 @@ export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.M
    * @remarks
    * The storage type of the cluster. Valid values:
    * 
-   * *   StandardCloudStorage
-   * *   PerformanceCloudStorage
-   * *   CapacityCloudStorage
-   * *   LocalSsdStorage
-   * *   LocalHddStorage
-   * *   LocalEbsStorage
+   * - `StandardCloudStorage`: standard cloud storage.
+   * 
+   * - `PerformanceCloudStorage`: performance cloud storage.
+   * 
+   * - `CapacityCloudStorage`: capacity cloud storage.
+   * 
+   * - `LocalSsdStorage`: local SSD.
+   * 
+   * - `LocalHddStorage`: local HDD.
+   * 
+   * - `LocalEbsStorage`: local block storage.
    * 
    * @example
    * StandardCloudStorage
@@ -28,7 +33,7 @@ export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.M
   diskType?: string;
   /**
    * @remarks
-   * The storage usage. Unit: bytes.
+   * The storage used on this storage medium, in bytes.
    * 
    * @example
    * 33269
@@ -38,7 +43,7 @@ export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.M
   usedLindormMessage3?: string;
   /**
    * @remarks
-   * The storage usage of the search engine. Unit: bytes.
+   * The storage used by the search engine on this storage medium, in bytes.
    * 
    * @example
    * 33269
@@ -46,7 +51,7 @@ export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.M
   usedLindormSearch?: string;
   /**
    * @remarks
-   * The storage usage of the compute engine. Unit: bytes.
+   * The storage used by the compute engine on this storage medium, in bytes.
    * 
    * @example
    * 33269
@@ -54,7 +59,7 @@ export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.M
   usedLindormSpark?: string;
   /**
    * @remarks
-   * The storage usage of the wide table engine. Unit: bytes.
+   * The storage used by the wide-column engine on this storage medium, in bytes.
    * 
    * @example
    * 33269
@@ -62,7 +67,7 @@ export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.M
   usedLindormTable?: string;
   /**
    * @remarks
-   * The storage usage of the time series engine. Unit: bytes.
+   * The storage used by the time series engine on this storage medium, in bytes.
    * 
    * @example
    * 33269
@@ -71,7 +76,7 @@ export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.M
   usedLindormVector3?: string;
   /**
    * @remarks
-   * The storage usage of other resources, such as logs and recycle bins. Unit: bytes.
+   * The storage used by other components, such as logs and trash, on this storage medium, in bytes.
    * 
    * @example
    * 33269
@@ -121,7 +126,7 @@ export class GetLindormFsUsedDetailResponseBodyLStorageUsageList extends $dara.M
 export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why the access was denied.
+   * Details on why access was denied.
    * 
    * @example
    * {}
@@ -129,7 +134,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The total storage space of the cluster. Unit: bytes.
+   * The total storage capacity of the cluster, in bytes.
    * 
    * @example
    * 85899345920
@@ -137,7 +142,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsCapacity?: string;
   /**
    * @remarks
-   * The cold storage space of the cluster. Unit: bytes.
+   * The cold storage capacity of the cluster, in bytes.
    * 
    * @example
    * 85899345920
@@ -145,7 +150,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsCapacityCold?: string;
   /**
    * @remarks
-   * The hot storage space of the cluster. Unit: bytes.
+   * The hot storage capacity of the cluster, in bytes.
    * 
    * @example
    * 85899345920
@@ -153,7 +158,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsCapacityHot?: string;
   /**
    * @remarks
-   * The cold storage usage of the cluster. Unit: bytes.
+   * The cold storage used by the cluster, in bytes.
    * 
    * @example
    * 33269
@@ -161,7 +166,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedCold?: string;
   /**
    * @remarks
-   * The cold storage usage of the table data of the search engine. Unit: bytes.
+   * The cold storage space used by table data of the search engine, in bytes.
    * 
    * @example
    * 33269
@@ -169,7 +174,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedColdOnLindormSearch?: string;
   /**
    * @remarks
-   * The cold storage usage of the table data of the time series engine. Unit: bytes.
+   * The cold storage space used by table data of the time series engine, in bytes.
    * 
    * @example
    * 33269
@@ -177,7 +182,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedColdOnLindormTSDB?: string;
   /**
    * @remarks
-   * The cold storage usage of the table data of the wide table engine. Unit: bytes.
+   * The cold storage space used by table data of the wide-column engine, in bytes.
    * 
    * @example
    * 33269
@@ -185,7 +190,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedColdOnLindormTable?: string;
   /**
    * @remarks
-   * The hot storage usage of the cluster. Unit: bytes.
+   * The hot storage used by the cluster, in bytes.
    * 
    * @example
    * 33269
@@ -193,7 +198,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedHot?: string;
   /**
    * @remarks
-   * The hot storage usage of the table data of the search engine. Unit: bytes.
+   * The hot storage space used by table data of the search engine, in bytes.
    * 
    * @example
    * 33269
@@ -201,7 +206,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedHotOnLindormSearch?: string;
   /**
    * @remarks
-   * The hot storage usage of the table data of the time series engine. Unit: bytes.
+   * The hot storage space used by table data of the time series engine, in bytes.
    * 
    * @example
    * 33269
@@ -209,7 +214,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedHotOnLindormTSDB?: string;
   /**
    * @remarks
-   * The hot storage usage of the table data of the wide table engine. Unit: bytes.
+   * The hot storage space used by table data of the wide-column engine, in bytes.
    * 
    * @example
    * 33269
@@ -217,7 +222,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedHotOnLindormTable?: string;
   /**
    * @remarks
-   * The storage usage of the search engine. Unit: bytes.
+   * The storage space used by the search engine in the cluster, in bytes.
    * 
    * @example
    * 33269
@@ -225,7 +230,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedOnLindormSearch?: string;
   /**
    * @remarks
-   * The storage usage of the time series engine. Unit: bytes.
+   * The storage space used by the time series engine in the cluster, in bytes.
    * 
    * @example
    * 33269
@@ -233,7 +238,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedOnLindormTSDB?: string;
   /**
    * @remarks
-   * The space usage of the wide table engine. Unit: bytes.
+   * The storage space used by the wide-column engine in the cluster, in bytes.
    * 
    * @example
    * 33269
@@ -241,7 +246,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedOnLindormTable?: string;
   /**
    * @remarks
-   * The storage usage of the table data of the wide table engine. Unit: bytes.
+   * The storage space used by table data of the wide-column engine, in bytes.
    * 
    * @example
    * 33269
@@ -249,7 +254,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedOnLindormTableData?: string;
   /**
    * @remarks
-   * The storage usage of the log data of the wide table engine. Unit: bytes.
+   * The storage space used by log data of the wide-column engine, in bytes.
    * 
    * @example
    * 33269
@@ -257,12 +262,12 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   fsUsedOnLindormTableWAL?: string;
   /**
    * @remarks
-   * If the version of the underlying storage engine is 4.1.9 or later, the storage usage values returned for the LStorageUsageList parameter prevail. Storage details are returned based on the storage type.
+   * For clusters that run storage engine v4.1.9 or later, this parameter provides authoritative storage details categorized by storage medium.
    */
   LStorageUsageList?: GetLindormFsUsedDetailResponseBodyLStorageUsageList[];
   /**
    * @remarks
-   * The request ID. Each request has a unique ID. You can use the request ID to locate and troubleshoot issues.
+   * The ID of the request. This unique identifier is generated by Alibaba Cloud for each request and is used for troubleshooting.
    * 
    * @example
    * 4F23D50C-400C-592C-9486-9D1E10179065
@@ -270,7 +275,7 @@ export class GetLindormFsUsedDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the return value is valid. Valid values: true and false. If a value of false is returned, you must provide the request ID for troubleshooting.
+   * Indicates whether the response is valid. A value of `false` indicates that an error occurred, and you must provide the request ID for troubleshooting.
    * 
    * @example
    * true

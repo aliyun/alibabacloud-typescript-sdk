@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLindormInstanceEngineListRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID, which can be obtained by calling the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) interface.
+   * The ID of the instance. To obtain the instance ID, call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class GetLindormInstanceEngineListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

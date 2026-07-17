@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateLindormV2InstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why the access was denied.
+   * 
    * @example
    * {"AuthAction":"xxx","AuthPrincipalDisplayName":"222","AuthPrincipalOwnerId":"111","AuthPrincipalType":"SubUser",,"NoPermissionType":"ImplicitDeny","PolicyType":"AccountLevelIdentityBasedPolicy","EncodedDiagnosticMessage":"xxxxxx"}
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ld-bp1mq0tdzbx1m****
+   */
   instanceId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 211110656240000
    */
   orderId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1556DCB0-043A-4444-8BD9-CF4A68E7EE64
    */

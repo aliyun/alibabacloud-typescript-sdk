@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLindormInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Valid values of N: 1 to 20.
+   * The key of a tag.
    * 
-   * >  You can specify the keys of multiple tags. For example, you can specify the key of the first tag in the first key-value pair contained in the value of this parameter and specify the key of the second tag in the second key-value pair.
+   * > You can specify the keys of multiple tags. For example, `Tag.1.Key` specifies the key of the first tag and `Tag.2.Key` specifies the key of the second tag.
    * 
    * @example
    * test
@@ -15,9 +15,9 @@ export class CreateLindormInstanceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. Valid values of N: 1 to 20.
+   * The value of a tag.
    * 
-   * >  You can specify the values of multiple tags. For example, you can specify the value of the first tag in the first key-value pair contained in the value of this parameter and specify the value of the second tag in the second key-value pair.
+   * > You can specify the values of multiple tags. For example, `Tag.1.Value` specifies the value of the first tag and `Tag.2.Value` specifies the value of the second tag.
    * 
    * @example
    * value
@@ -49,7 +49,7 @@ export class CreateLindormInstanceRequestTag extends $dara.Model {
 export class CreateLindormInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch that is specified for the zone for the coordinate node of the instance. The vSwitch must be deployed in the zone specified by the ArbiterZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
+   * The ID of the VSwitch for the arbiter zone of the multi-zone instance. The VSwitch must be in the zone specified by `ArbiterZoneId`. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * vsw-uf6664pqjawb87k36****
@@ -57,7 +57,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   arbiterVSwitchId?: string;
   /**
    * @remarks
-   * The ID of the zone for the coordinate node of the instance. **This parameter is required if you want to create a multi-zone instance**.
+   * The ID of the arbiter zone for the multi-zone instance. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * cn-shanghai-g
@@ -65,12 +65,13 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   arbiterZoneId?: string;
   /**
    * @remarks
-   * The architecture of the instance. Valid values:
+   * The deployment architecture of the instance. Valid values:
    * 
-   * *   **1.0**: The instance that you want to create is a single-zone instance.
-   * *   **2.0**: The instance that you want to create is a multi-zone instance.
+   * - **1.0**: Single-zone deployment.
    * 
-   * By default, the value of this parameter is 1.0. To create a multi-zone instance, set this parameter to 2.0. **This parameter is required if you want to create a multi-zone instance**.
+   * - **2.0**: Multi-zone deployment.
+   * 
+   * The default value is 1.0. To create a multi-zone instance, set this parameter to 2.0. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * 2.0
@@ -78,11 +79,11 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   archVersion?: string;
   /**
    * @remarks
-   * The auto-renewal duration. Unit: month.
+   * The auto-renewal duration, in months.
    * 
-   * Valid values: **1** to **12**.
+   * The value of this parameter ranges from **1** to **12**.
    * 
-   * >  This parameter is available only when the **AutoRenewal** parameter is set to **true**.
+   * > This parameter takes effect only when **AutoRenewal** is set to **true**.
    * 
    * @example
    * 1
@@ -90,14 +91,15 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   autoRenewDuration?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * Specifies whether to enable auto-renewal for the Subscription instance. Valid values:
    * 
-   * *   **true**: enables auto-renewal.
-   * *   **false**: disables auto-renewal.
+   * - **true**: Auto-renewal is enabled.
+   * 
+   * - **false**: Auto-renewal is disabled.
    * 
    * Default value: false.
    * 
-   * >  This parameter is available only when the **PayType** parameter is set to **PREPAY**.
+   * > This parameter takes effect only when the **PayType** parameter is set to **PREPAY**.
    * 
    * @example
    * false
@@ -105,7 +107,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   autoRenewal?: boolean;
   /**
    * @remarks
-   * The cold storage capacity of the instance. By default, if you leave this parameter unspecified, cold storage is not enabled for the instance. Unit: GB. Valid values: **800** to **1000000**.
+   * The cold storage capacity of the instance, in GB. The value of this parameter ranges from **800** to **1,000,000**. If you do not specify this parameter, cold storage is not enabled.
    * 
    * @example
    * 800
@@ -113,7 +115,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   coldStorage?: number;
   /**
    * @remarks
-   * The storage capacity of the disk of a single core node. Valid values: 400 to 64000. Unit: GB. **This parameter is required if you want to create a multi-zone instance**.
+   * The storage capacity of a single core node in the multi-zone instance. Unit: GB. The value of this parameter ranges from 400 to 64,000. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * 400
@@ -121,36 +123,57 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   coreSingleStorage?: number;
   /**
    * @remarks
-   * The specification of the nodes in the instance if you set DiskCategory to local_ssd_pro or local_hdd_pro.
+   * The node specification for an instance that uses local disks.
    * 
-   * Valid values when DiskCategory is set to local_ssd_pro (i3 instance types support only subscription instances):
+   * If the storage type is **local_ssd_pro**, valid values include the following: Note that I3-family specifications are available only for Subscription instances.
    * 
-   * *   **lindorm.i4.xlarge**: Each node has 4 CPU cores and 32 GB of memory.
-   * *   **lindorm.i4.2xlarge**: Each node has 8 CPU cores and 64 GB of memory.
-   * *   **lindorm.i4.4xlarge**: Each node has 16 CPU cores and 128 GB of memory.
-   * *   **lindorm.i4.8xlarge**: Each node has 32 CPU cores and 256 GB of memory.
-   * *   **lindorm.i3.xlarge**: Each node has 4 CPU cores and 32 GB of memory.
-   * *   **lindorm.i3.2xlarge**: Each node has 8 CPU cores and 64 GB of memory.
-   * *   **lindorm.i3.4xlarge**: Each node has 16 CPU cores and 128 GB of memory.
-   * *   **lindorm.i3.8xlarge**: Each node has 32 CPU cores and 256 GB of memory.
-   * *   **lindorm.i2.xlarge**: Each node has 4 CPU cores and 32 GB of memory.
-   * *   **lindorm.i2.2xlarge**: Each node has 8 CPU cores and 64 GB of memory.
-   * *   **lindorm.i2.4xlarge**: Each node has 16 CPU cores and 128 GB of memory.
-   * *   **lindorm.i2.8xlarge**: Each node has 32 CPU cores and 256 GB of memory.
+   * - **lindorm.i4.xlarge**: 4 cores, 32 GB memory (I4).
    * 
-   * Valid values when DiskCategory is set to local_hhd_pro:
+   * - **lindorm.i4.2xlarge**: 8 cores, 64 GB memory (I4).
    * 
-   * *   **lindorm.sd3c.3xlarge**: Each node has 14 CPU cores and 56 GB of memory.
-   * *   **lindorm.sd3c.7xlarge**: Each node has 28 CPU cores and 112 GB of memory.
-   * *   **lindorm.sd3c.14xlarge**: Each node has 56 CPU cores and 224 GB of memory.
-   * *   **lindorm.d2c.6xlarge**: Each node has 24 CPU cores and 88 GB of memory.
-   * *   **lindorm.d2c.12xlarge**: Each node has 48 CPU cores and 176 GB of memory.
-   * *   **lindorm.d2c.24xlarge**: Each node has 96 CPU cores and 352 GB of memory.
-   * *   **lindorm.d2s.5xlarge**: Each node has 20 CPU cores and 88 GB of memory.
-   * *   **lindorm.d2s.10xlarge**: Each node has 40 CPU cores and 176 GB of memory.
-   * *   **lindorm.d1.2xlarge**: Each node has 8 CPU cores and 32 GB of memory.
-   * *   **lindorm.d1.4xlarge**: Each node has 16 CPU cores and 64 GB of memory.
-   * *   **lindorm.d1.6xlarge**: Each node has 24 CPU cores and 96 GB of memory.
+   * - **lindorm.i4.4xlarge**: 16 cores, 128 GB memory (I4).
+   * 
+   * - **lindorm.i4.8xlarge**: 32 cores, 256 GB memory (I4).
+   * 
+   * - **lindorm.i3.xlarge**: 4 cores, 32 GB memory (I3).
+   * 
+   * - **lindorm.i3.2xlarge**: 8 cores, 64 GB memory (I3).
+   * 
+   * - **lindorm.i3.4xlarge**: 16 cores, 128 GB memory (I3).
+   * 
+   * - **lindorm.i3.8xlarge**: 32 cores, 256 GB memory (I3).
+   * 
+   * - **lindorm.i2.xlarge**: 4 cores, 32 GB memory (I2).
+   * 
+   * - **lindorm.i2.2xlarge**: 8 cores, 64 GB memory (I2).
+   * 
+   * - **lindorm.i2.4xlarge**: 16 cores, 128 GB memory (I2).
+   * 
+   * - **lindorm.i2.8xlarge**: 32 cores, 256 GB memory (I2).
+   * 
+   * If the storage type is **local_hdd_pro**, valid values include:
+   * 
+   * - **lindorm.sd3c.3xlarge**: 14 cores, 56 GB memory (D3C PRO).
+   * 
+   * - **lindorm.sd3c.7xlarge**: 28 cores, 112 GB memory (D3C PRO).
+   * 
+   * - **lindorm.sd3c.14xlarge**: 56 cores, 224 GB memory (D3C PRO).
+   * 
+   * - **lindorm.d2c.6xlarge**: 24 cores, 88 GB memory (D2C).
+   * 
+   * - **lindorm.d2c.12xlarge**: 48 cores, 176 GB memory (D2C).
+   * 
+   * - **lindorm.d2c.24xlarge**: 96 cores, 352 GB memory (D2C).
+   * 
+   * - **lindorm.d2s.5xlarge**: 20 cores, 88 GB memory (D2S).
+   * 
+   * - **lindorm.d2s.10xlarge**: 40 cores, 176 GB memory (D2S).
+   * 
+   * - **lindorm.d1.2xlarge**: 8 cores, 32 GB memory (D1NE).
+   * 
+   * - **lindorm.d1.4xlarge**: 16 cores, 64 GB memory (D1NE).
+   * 
+   * - **lindorm.d1.6xlarge**: 24 cores, 96 GB memory (D1NE).
    * 
    * @example
    * lindorm.i2.xlarge
@@ -160,11 +183,19 @@ export class CreateLindormInstanceRequest extends $dara.Model {
    * @remarks
    * The storage type of the instance. Valid values:
    * 
-   * *   **cloud_efficiency**: This instance uses the Standard type of storage.
-   * *   **cloud_ssd**: This instance uses the Performance type of storage.
-   * *   **capacity_cloud_storage**: This instance uses the Capacity type of storage.
-   * *   **local_ssd_pro**: This instance uses local SSDs.
-   * *   **local_hdd_pro**: This instance uses local HDDs.
+   * - **cloud_efficiency**: Efficiency cloud disk.
+   * 
+   * - **cloud_ssd**: Performance cloud disk.
+   * 
+   * - **cloud_essd**: Enhanced SSD (ESSD).
+   * 
+   * - **cloud_essd_pl0**: ESSD PL0.
+   * 
+   * - **capacity_cloud_storage**: Capacity-optimized cloud storage. (Not available for multi-zone instances.)
+   * 
+   * - **local_ssd_pro**: Local SSD. (Not available for multi-zone instances.)
+   * 
+   * - **local_hdd_pro**: Local HDD. (Not available for multi-zone instances.)
    * 
    * This parameter is required.
    * 
@@ -174,12 +205,13 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * The subscription period of the instance. The valid values of this parameter depend on the value of the PricingCycle parameter.
+   * The subscription duration for the instance. Valid values:
    * 
-   * *   If PricingCycle is set to **Month**, set this parameter to an integer that ranges from **1** to **9**.
-   * *   If PricingCycle is set to **Year**, set this parameter to an integer that ranges from **1** to **3**.
+   * - If **PricingCycle** is set to **Month**, the value can range from **1** to **9**.
    * 
-   * > This parameter is available and required when the PayType parameter is set to **PREPAY**.
+   * - If **PricingCycle** is set to **Year**, the value can range from **1** to **3**.
+   * 
+   * > This parameter is required if you set **PayType** to **PREPAY**.
    * 
    * @example
    * 1
@@ -187,10 +219,11 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The number of LindormDFS nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
+   * The number of nodes in the file engine. Valid values:
    * 
-   * *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **60**.
-   * *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **8**.
+   * - For a Subscription instance, the value of this parameter ranges from **0** to **60**.
+   * 
+   * - For a Pay-As-You-Go instance, the value of this parameter ranges from **0** to **8**.
    * 
    * @example
    * 2
@@ -198,7 +231,9 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   filestoreNum?: number;
   /**
    * @remarks
-   * The specification of LindormDFS nodes in the instance. Set the value of this parameter to **lindorm.c.xlarge**, which indicates that each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
+   * The specification of the file engine nodes. Valid values:
+   * 
+   * - **lindorm.c.xlarge**: 4 cores, 8 GB memory (standard).
    * 
    * @example
    * lindorm.c.xlarge
@@ -206,7 +241,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   filestoreSpec?: string;
   /**
    * @remarks
-   * The name of the instance that you want to create.
+   * The name of the instance.
    * 
    * @example
    * lindorm_test
@@ -214,7 +249,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   instanceAlias?: string;
   /**
    * @remarks
-   * The storage capacity of the instance you want to create. Unit: GB.
+   * The storage capacity of the instance, in GB.
    * 
    * @example
    * 480
@@ -222,12 +257,11 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   instanceStorage?: string;
   /**
    * @remarks
-   * The number of LindormTable nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
+   * The number of nodes in the wide table engine.
    * 
-   * *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **90**.
-   * *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **400**.
+   * For a single-zone instance, the value of this parameter ranges from **0** to **90**.
    * 
-   * **This parameter is required if you want to create a multi-zone instance**.  The valid values of this parameter range from 4 to 400 if you want to create a multi-zone instance.
+   * **This parameter is required for multi-zone instances.** For an instance that uses cloud disks, the value ranges from **4** to **400**. For an instance that uses local disks, the value ranges from **6** to **400**.
    * 
    * @example
    * 2
@@ -235,12 +269,21 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   lindormNum?: number;
   /**
    * @remarks
-   * The specification of LindormTable nodes in the instance. Valid values:
+   * The specification of the wide table engine nodes. Valid values:
    * 
-   * *   **lindorm.c.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
-   * *   **lindorm.c.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.c.4xlarge**: Each node has 16 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.c.8xlarge**: Each node has 32 dedicated CPU cores and 64 GB of dedicated memory.
+   * - **lindorm.g.xlarge**: 4 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.c.2xlarge**: 8 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.g.2xlarge**: 8 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.c.4xlarge**: 16 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.g.4xlarge**: 16 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.c.8xlarge**: 32 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.g.8xlarge**: 32 cores, 128 GB memory (dedicated).
    * 
    * @example
    * lindorm.c.xlarge
@@ -248,12 +291,13 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   lindormSpec?: string;
   /**
    * @remarks
-   * The disk type of the log nodes. Valid values:
+   * The storage type of the log nodes for the multi-zone instance. Valid values:
    * 
-   * *   **cloud_efficiency**: This instance uses the Standard type of storage.
-   * *   **cloud_ssd**: This instance uses the Performance type of storage.
+   * - **cloud_efficiency**: Efficiency cloud disk.
    * 
-   * **This parameter is required if you want to create a multi-zone instance**.
+   * - **cloud_ssd**: Performance cloud disk.
+   * 
+   * **This parameter is required for multi-zone instances.**
    * 
    * @example
    * cloud_ssd
@@ -261,7 +305,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   logDiskCategory?: string;
   /**
    * @remarks
-   * The number of the log nodes. Valid values: 4 to 400. **This parameter is required if you want to create a multi-zone instance**.
+   * The number of log nodes for the multi-zone instance. The value of this parameter ranges from 4 to 400. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * 4
@@ -269,7 +313,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   logNum?: number;
   /**
    * @remarks
-   * The storage capacity of the disk of a single log node. Valid values: 400 to 64000. Unit: GB. **This parameter is required if you want to create a multi-zone instance**.
+   * The storage capacity of a single log node in the multi-zone instance. Unit: GB. The value of this parameter ranges from 400 to 64,000. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * 400
@@ -277,12 +321,13 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   logSingleStorage?: number;
   /**
    * @remarks
-   * The type of the log nodes. Valid values:
+   * The specification of the log nodes for the multi-zone instance. Valid values:
    * 
-   * *   **lindorm.sn1.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
-   * *   **lindorm.sn1.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
+   * - **lindorm.sn1.large**: 4 cores, 8 GB memory (dedicated).
    * 
-   * **This parameter is required if you want to create a multi-zone instance**.
+   * - **lindorm.sn1.2xlarge**: 8 cores, 16 GB memory (dedicated).
+   * 
+   * **This parameter is required for multi-zone instances.**
    * 
    * @example
    * lindorm.sn1.large
@@ -290,7 +335,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   logSpec?: string;
   /**
    * @remarks
-   * The number of LTS nodes in the instance. Valid values: **0** to **60**.
+   * The number of nodes in the LTS engine. The value of this parameter ranges from **0** to **60**.
    * 
    * @example
    * 2
@@ -298,16 +343,23 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   ltsNum?: string;
   /**
    * @remarks
-   * The specification of LTS nodes in the instance. Valid values:
+   * The specification of the LTS engine nodes. Valid values:
    * 
-   * *   **lindorm.c.xlarge**: Each node has 4 dedicated CPU cores and 8 GB of dedicated memory.
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.c.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.c.4xlarge**: Each node has 16 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.c.8xlarge**: Each node has 32 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+   * - **lindorm.c.xlarge**: 4 cores, 8 GB memory (dedicated).
+   * 
+   * - **lindorm.g.xlarge**: 4 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.c.2xlarge**: 8 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.g.2xlarge**: 8 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.c.4xlarge**: 16 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.g.4xlarge**: 16 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.c.8xlarge**: 32 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.g.8xlarge**: 32 cores, 128 GB memory (dedicated).
    * 
    * @example
    * lindorm.g.xlarge
@@ -315,21 +367,31 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   ltsSpec?: string;
   /**
    * @remarks
-   * The combinations of zones that are available for the multi-zone instance. You can go to the purchase page of Lindorm to view the supported zone combinations.
+   * The combination of zones for the multi-zone instance. For a list of supported combinations, refer to the instance purchase page.
    * 
-   * *   **ap-southeast-5abc-aliyun**: Zone A+B+C in the Indonesia (Jakarta) region.
-   * *   **cn-hangzhou-ehi-aliyun**: Zone E+H+I in the China (Hangzhou) region.
-   * *   **cn-beijing-acd-aliyun**: Zone A+C+D in the China (Beijing) region.
-   * *   **ap-southeast-1-abc-aliyun**: Zone A+B+C in the Singapore region.
-   * *   **cn-zhangjiakou-abc-aliyun**: Zone A+B+C in the China (Zhangjiakou) region.
-   * *   **cn-shanghai-efg-aliyun**: Zone E+F+G in the China (Shanghai) region.
-   * *   **cn-shanghai-abd-aliyun**: Zone A+B+D in the China (Shanghai) region.
-   * *   **cn-hangzhou-bef-aliyun**: Zone B+E+F in the China (Hangzhou) region.
-   * *   **cn-hangzhou-bce-aliyun**: Zone B+C+E in the China (Hangzhou) region.
-   * *   **cn-beijing-fgh-aliyun**: Zone F+G+H in the China (Beijing) region.
-   * *   **cn-shenzhen-abc-aliyun**: Zone A+B+C in the China (Shenzhen) region.
+   * - **ap-southeast-5abc-aliyun**: Indonesia (Jakarta) A+B+C.
    * 
-   * **This parameter is required if you want to create a multi-zone instance**.
+   * - **cn-hangzhou-ehi-aliyun**: China (Hangzhou) E+H+I.
+   * 
+   * - **cn-beijing-acd-aliyun**: China (Beijing) A+C+D.
+   * 
+   * - **ap-southeast-1-abc-aliyun**: Singapore A+B+C.
+   * 
+   * - **cn-zhangjiakou-abc-aliyun**: China (Zhangjiakou) A+B+C.
+   * 
+   * - **cn-shanghai-efg-aliyun**: China (Shanghai) E+F+G.
+   * 
+   * - **cn-shanghai-abd-aliyun**: China (Shanghai) A+B+D.
+   * 
+   * - **cn-hangzhou-bef-aliyun**: China (Hangzhou) B+E+F.
+   * 
+   * - **cn-hangzhou-bce-aliyun**: China (Hangzhou) B+C+E.
+   * 
+   * - **cn-beijing-fgh-aliyun**: China (Beijing) F+G+H.
+   * 
+   * - **cn-shenzhen-abc-aliyun**: China (Shenzhen) A+B+C.
+   * 
+   * **This parameter is required for multi-zone instances.**
    * 
    * @example
    * cn-shanghai-efg-aliyun
@@ -339,10 +401,11 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The billing method of the instance you want to create. Valid values:
+   * The billing method of the instance. Valid values:
    * 
-   * *   **PREPAY**: subscription.
-   * *   **POSTPAY**: pay-as-you-go.
+   * - **PREPAY**: Subscription.
+   * 
+   * - **POSTPAY**: Pay-As-You-Go.
    * 
    * This parameter is required.
    * 
@@ -352,12 +415,13 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The period based on which you are charged for the instance. Valid values:
+   * The billing cycle for the Subscription instance. Valid values:
    * 
-   * *   **Month**: You are charged for the instance on a monthly basis.
-   * *   **Year**: You are charged for the instance on a yearly basis.
+   * - **Month**
    * 
-   * > This parameter is available and required when the PayType parameter is set to **PREPAY**.
+   * - **Year**
+   * 
+   * > This parameter is required if you set **PayType** to **PREPAY**.
    * 
    * @example
    * Month
@@ -365,7 +429,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * The ID of the vSwitch that is specified for the secondary zone of the instance. The vSwitch must be deployed in the zone specified by the StandbyZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
+   * The ID of the VSwitch for the primary zone of the multi-zone instance. The VSwitch must be in the zone specified by `PrimaryZoneId`. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * vsw-uf6fdqa7c0pipnqzq****
@@ -373,7 +437,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   primaryVSwitchId?: string;
   /**
    * @remarks
-   * Multi-zone instance, availability zone ID of the primary zone. **This parameter is required if you need to create a multi-zone instance.**
+   * The ID of the primary zone for the multi-zone instance. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * cn-shanghai-e
@@ -381,7 +445,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   primaryZoneId?: string;
   /**
    * @remarks
-   * The ID of the region in which you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region in which you can create the instance.
+   * The ID of the region in which to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the latest region list.
    * 
    * This parameter is required.
    * 
@@ -391,7 +455,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Lindorm instance belongs.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek2i6weeb4nfii
@@ -402,7 +466,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The number of LindormSearch nodes in the instance. Valid values: integers from **0** to **60**.
+   * The number of search engine nodes. The value of this parameter ranges from **0** to **60**.
    * 
    * @example
    * 2
@@ -410,15 +474,21 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   solrNum?: number;
   /**
    * @remarks
-   * The specification of the LindormSearch nodes in the instance. Valid values:
+   * The specification of the search engine nodes. Valid values:
    * 
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.c.2xlarge**: Each node has 8 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.c.4xlarge**: Each node has 16 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.c.8xlarge**: Each node has 32 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+   * - **lindorm.g.xlarge**: 4 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.c.2xlarge**: 8 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.g.2xlarge**: 8 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.c.4xlarge**: 16 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.g.4xlarge**: 16 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.c.8xlarge**: 32 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.g.8xlarge**: 32 cores, 128 GB memory (dedicated).
    * 
    * @example
    * lindorm.g.xlarge
@@ -426,7 +496,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   solrSpec?: string;
   /**
    * @remarks
-   * The ID of the vSwitch that is specified for the secondary zone of the instance. The vSwitch must be deployed in the zone specified by the StandbyZoneId parameter. **This parameter is required if you want to create a multi-zone instance**.
+   * The ID of the VSwitch for the standby zone of the multi-zone instance. The VSwitch must be in the zone specified by `StandbyZoneId`. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * vsw-2zec0kcn08cgdtr6****
@@ -434,7 +504,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   standbyVSwitchId?: string;
   /**
    * @remarks
-   * The ID of the secondary zone of the instance. **This parameter is required if you want to create a multi-zone instance**.
+   * The ID of the standby zone for the multi-zone instance. **This parameter is required for multi-zone instances.**
    * 
    * @example
    * cn-shanghai-f
@@ -442,7 +512,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   standbyZoneId?: string;
   /**
    * @remarks
-   * The number of LindormStream nodes in the instance. Valid values: integers from **0** to **60**.
+   * The number of nodes in the stream engine. The value of this parameter ranges from **0** to **60**.
    * 
    * @example
    * 2
@@ -450,12 +520,21 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   streamNum?: number;
   /**
    * @remarks
-   * The specification of the LindormStream nodes in the instance. Valid values:
+   * The specification of the stream engine nodes. Valid values:
    * 
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+   * - **lindorm.g.xlarge**: 4 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.c.2xlarge**: 8 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.g.2xlarge**: 8 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.c.4xlarge**: 16 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.g.4xlarge**: 16 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.c.8xlarge**: 32 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.g.8xlarge**: 32 cores, 128 GB memory (dedicated).
    * 
    * @example
    * lindorm.g.xlarge
@@ -463,15 +542,16 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   streamSpec?: string;
   /**
    * @remarks
-   * The tags that are added to instances.
+   * The tags to add to the instance. You can add up to 20 tags.
    */
   tag?: CreateLindormInstanceRequestTag[];
   /**
    * @remarks
-   * The number of the LindormTSDB nodes in the instance. The valid values of this parameter depend on the value of the PayType parameter.
+   * The number of nodes in the time series engine. Valid values:
    * 
-   * *   If the PayType parameter is set to **PREPAY**, set this parameter to an integer that ranges from **0** to **24**.
-   * *   If the PayType parameter is set to **POSTPAY**, set this parameter to an integer that ranges from **0** to **32**.
+   * - For a Subscription instance, the value of this parameter ranges from **0** to **24**.
+   * 
+   * - For a Pay-As-You-Go instance, the value of this parameter ranges from **0** to **32**.
    * 
    * @example
    * 2
@@ -479,12 +559,15 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   tsdbNum?: number;
   /**
    * @remarks
-   * The specification of the LindormTSDB nodes in the instance. Valid values:
+   * The specification of the time series engine nodes. Valid values:
    * 
-   * *   **lindorm.g.xlarge**: Each node has 4 dedicated CPU cores and 16 GB of dedicated memory.
-   * *   **lindorm.g.2xlarge**: Each node has 8 dedicated CPU cores and 32 GB of dedicated memory.
-   * *   **lindorm.g.4xlarge**: Each node has 16 dedicated CPU cores and 64 GB of dedicated memory.
-   * *   **lindorm.g.8xlarge**: Each node has 32 dedicated CPU cores and 128 GB of dedicated memory.
+   * - **lindorm.g.xlarge**: 4 cores, 16 GB memory (dedicated).
+   * 
+   * - **lindorm.g.2xlarge**: 8 cores, 32 GB memory (dedicated).
+   * 
+   * - **lindorm.g.4xlarge**: 16 cores, 64 GB memory (dedicated).
+   * 
+   * - **lindorm.g.8xlarge**: 32 cores, 128 GB memory (dedicated).
    * 
    * @example
    * lindorm.g.xlarge
@@ -492,7 +575,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   tsdbSpec?: string;
   /**
    * @remarks
-   * The ID of the VPC in which you want to create the instance.
+   * The ID of the VPC where you want to create the instance.
    * 
    * This parameter is required.
    * 
@@ -502,7 +585,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which you want the instance to connect.
+   * The ID of the VSwitch.
    * 
    * This parameter is required.
    * 
@@ -512,7 +595,7 @@ export class CreateLindormInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the zone in which you want to create the instance.
+   * The ID of the zone where you want to create the instance.
    * 
    * This parameter is required.
    * 

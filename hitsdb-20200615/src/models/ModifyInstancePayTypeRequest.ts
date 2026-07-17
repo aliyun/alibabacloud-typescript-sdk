@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstancePayTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The subscription duration of the instance. The parameter is required if the instance is an subscription instance.
+   * The subscription duration. This parameter is required when you change the billing method to subscription.
    * 
-   * *   If PricingCycle is set to Month, set this parameter to an integer that ranges from 1 to 9.
-   * *   If PricingCycle is set to Year, set this parameter to an integer that ranges from 1 to 3.
+   * - If \\`PricingCycle\\` is \\`Month\\`, the valid values are 1 to 9.
+   * 
+   * - If \\`PricingCycle\\` is \\`Year\\`, the valid values are 1 to 3.
    * 
    * @example
    * 1
@@ -30,8 +31,9 @@ export class ModifyInstancePayTypeRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **PREPAY**: subscription.
-   * *   **POSTPAY**: pay-as-you-go.
+   * - **PREPAY**: subscription.
+   * 
+   * - **POSTPAY**: pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -41,10 +43,11 @@ export class ModifyInstancePayTypeRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration for the instance. Valid values:
+   * The unit of the subscription duration. This parameter is required when you change the billing method to subscription.
    * 
-   * *   Month
-   * *   Year
+   * - Month: The unit is month.
+   * 
+   * - Year: The unit is year.
    * 
    * @example
    * Month

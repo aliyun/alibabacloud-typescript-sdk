@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLindormV2WhiteIpListRequestWhiteIpGroupList extends $dara.Model {
   /**
    * @remarks
+   * The name of the IP whitelist group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class UpdateLindormV2WhiteIpListRequestWhiteIpGroupList extends $dara.Mod
   groupName?: string;
   /**
    * @remarks
+   * The IP addresses to add to the IP whitelist.
+   * 
+   * > The value 127.0.0.1 denies access from all IP addresses. For example, 192.168.0.0/24 allows all IP addresses in that range to access the Lindorm instance. Use a comma (,) to separate multiple IP addresses or CIDR blocks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +51,8 @@ export class UpdateLindormV2WhiteIpListRequestWhiteIpGroupList extends $dara.Mod
 export class UpdateLindormV2WhiteIpListRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance. You can call the GetLindormV2InstanceList operation to obtain the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +62,9 @@ export class UpdateLindormV2WhiteIpListRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the region where the instance is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to obtain this ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -63,6 +74,8 @@ export class UpdateLindormV2WhiteIpListRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
+   * The list of IP whitelist groups.
+   * 
    * This parameter is required.
    */
   whiteIpGroupList?: UpdateLindormV2WhiteIpListRequestWhiteIpGroupList[];

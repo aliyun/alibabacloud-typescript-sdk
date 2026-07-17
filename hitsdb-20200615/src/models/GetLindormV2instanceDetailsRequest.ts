@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetLindormV2InstanceDetailsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
-   * ts-xxxxxxxxxxxxxxxxx
+   * ld-bp1mq0tdzbx1m****
    */
   instanceId?: string;
   ownerAccount?: string;

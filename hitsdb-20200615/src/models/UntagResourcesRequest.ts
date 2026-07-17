@@ -5,16 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the instances. Valid values:
+   * Specifies whether to detach all tags from the instances. Valid values:
    * 
-   * *   **true**: Remove all tags from the instances.
-   * *   **false**: Do not remove all tags from the instances.
+   * - **true**: Detach all tags from the instances.
    * 
-   * >  The default value of this parameter is false.
+   * - **false**: Do not detach all tags from the instances.
    * 
+   * > * The default value is false.
    * 
-   * 
-   * *   If you specify this parameter together with the TagKey parameter, this parameter does not take effect.
+   * - If TagKey is specified, this parameter is ignored.
    * 
    * @example
    * false
@@ -24,7 +23,7 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The IDs of instances.
+   * A list of instance IDs.
    * 
    * This parameter is required.
    */
@@ -33,7 +32,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The resource type. Set the value to **INSTANCE**.
+   * The resource type. The value is fixed to **INSTANCE**.
    * 
    * This parameter is required.
    * 
@@ -44,7 +43,7 @@ export class UntagResourcesRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The list of keys of the tags that you want to remove.
+   * A list of tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

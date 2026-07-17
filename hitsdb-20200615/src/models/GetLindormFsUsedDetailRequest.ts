@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLindormFsUsedDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to query the instance ID.
+   * The ID of the instance. Call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) API to obtain it.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class GetLindormFsUsedDetailRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
+   * The ID of the region where the instance is located. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) API to obtain it.
    * 
    * @example
    * cn-hangzhou

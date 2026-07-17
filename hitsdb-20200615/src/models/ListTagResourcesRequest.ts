@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The keys of the tags associated with the instances you want to query.
+   * The key of the tag.
    * 
-   * > You can specify the keys of multiple tags. For example, you can specify the key of the first tag in the first key-value pair contained in the value of this parameter and specify the key of the second tag in the second key-value pair.
+   * > Each tag is a key-value pair. This parameter specifies the key.
    * 
    * @example
    * test
@@ -15,9 +15,9 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The values of the tags associated with the instances you want to query.
+   * The value of the tag.
    * 
-   * > You can specify the values of multiple tags. For example, you can specify the value of the first tag in the first key-value pair contained in the value of this parameter and specify the value of the second tag in the second key-value pair.
+   * > Each tag is a key-value pair. This parameter specifies the value.
    * 
    * @example
    * 2.2.8
@@ -49,9 +49,9 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token used to start the next query to retrieve more results.
+   * The token to retrieve the next page of results.
    * 
-   * > This parameter is not required in the first query. If not all results are returned in one query, you can pass in the **NextToken** value returned for the query to perform the next query.
+   * > Do not specify this parameter for your first request. If the response returns a **NextToken**, more results are available. To retrieve the next page, include the returned **NextToken** value in your next request.
    * 
    * @example
    * 212db86****
@@ -61,7 +61,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which the instances whose tags you want to query are located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
+   * The ID of the region where the instance is located. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to get a list of available regions.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of resource IDs.
+   * A list of resource IDs.
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;
@@ -89,7 +89,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The list of tags associated with the instances you want to query.
+   * A list of tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
