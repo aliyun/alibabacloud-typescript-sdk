@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAIStaffPreviewUrlResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * preview URL information (including fields such as previewUrl and sessionId)
+   * The preview URL information, including fields such as previewUrl and sessionId.
    */
   urlMap?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class GetAIStaffPreviewUrlResponseBodyModule extends $dara.Model {
 export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed reason for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -43,7 +43,7 @@ export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * is retry allowed
+   * Indicates whether retry is allowed.
    * 
    * @example
    * False
@@ -51,7 +51,7 @@ export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * AppName.
+   * The application name.
    * 
    * @example
    * dewuApp
@@ -59,7 +59,7 @@ export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * dynamic error code.
+   * The dynamic error code.
    * 
    * @example
    * ERROR-oo1
@@ -67,8 +67,8 @@ export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** field of the response.  
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** return parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * xxx
@@ -76,12 +76,12 @@ export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * returned error parameters
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * response data
+   * The response data.
    */
   module?: GetAIStaffPreviewUrlResponseBodyModule;
   /**
@@ -94,7 +94,7 @@ export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * error code
+   * The error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -102,7 +102,7 @@ export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * abnormal message
+   * The exception message.
    * 
    * @example
    * 系统异常
@@ -110,7 +110,7 @@ export class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Backup parameter.
+   * A reserved parameter.
    * 
    * @example
    * True
