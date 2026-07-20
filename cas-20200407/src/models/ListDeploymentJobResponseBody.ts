@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeploymentJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The domain names bound to the certificate of the deployment task.
+   * The domain names included in the certificate of the deployment task.
    * 
    * @example
    * aliyundoc1.com,aliyundoc2.com,aliyundoc3.com
@@ -13,13 +13,11 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   certDomain?: string;
   /**
    * @remarks
-   * The type of the certificate. Valid values:
+   * The certificate type. Valid values:
    * 
    * - **upload**: uploaded certificate
-   * 
    * - **buy**: purchased certificate
-   * 
-   * - **free**: free certificate, available only on the China site (aliyun.com)
+   * - **free**: personal test certificate (supported only on the China site)
    * 
    * @example
    * upload
@@ -27,11 +25,10 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * Indicates whether the deployment task is deleted. Valid values:
+   * The deletion flag. This parameter has no practical significance. Valid values:
    * 
-   * - **0**: not deleted
-   * 
-   * - **1**: deleted
+   * - **0**: not deleted.
+   * - **1**: deleted.
    * 
    * @example
    * 1
@@ -39,7 +36,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   del?: number;
   /**
    * @remarks
-   * The end time of the deployment task.
+   * The end time of the deployment task execution, in UNIX timestamp format (seconds).
    * 
    * @example
    * 1606482979000
@@ -47,7 +44,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time when the deployment task was created.
+   * The time when the deployment task was created, in UNIX timestamp format (seconds).
    * 
    * @example
    * 1624343180000
@@ -55,7 +52,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the deployment task was last modified.
+   * The time when the deployment task was last modified, in UNIX timestamp format (seconds).
    * 
    * @example
    * 1606482979000
@@ -63,7 +60,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the deployment task. You can use the ID to query the details and status of the deployment task.
+   * The deployment task ID. You can use this ID to query the deployment task details and status.
    * 
    * @example
    * 19975
@@ -79,11 +76,10 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the deployment task.
+   * The task type. Valid values:
    * 
    * - **cloud**: multi-cloud deployment task.
-   * 
-   * - **user**: cloud service deployment task. This type of task does not support ECS instances.
+   * - **user**: cloud service deployment task (excluding ECS instances).
    * 
    * @example
    * user
@@ -99,7 +95,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The cloud service included in the resources of the deployment task.
+   * The cloud services included in the deployment task resources.
    * 
    * @example
    * NLB
@@ -107,11 +103,10 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * Indicates whether the rollback worker is included. For example, if a cloud service involved in a deployment task has been rolled back, **1** is returned. Valid values:
+   * Indicates whether the task contains a rollback worker. For example, if a cloud service in the task has been rolled back, the value **1** is returned. Valid values:
    * 
-   * - **0**: The rollback worker is not included.
-   * 
-   * - **1**: The rollback worker is included.
+   * - **0**: does not contain a rollback worker.
+   * - **1**: contains a rollback worker.
    * 
    * @example
    * 1
@@ -119,7 +114,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   rollback?: number;
   /**
    * @remarks
-   * The time when the deployment task was scheduled.
+   * The scheduled time of the task, in UNIX timestamp format (seconds).
    * 
    * @example
    * 1606482979000
@@ -127,7 +122,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   scheduleTime?: string;
   /**
    * @remarks
-   * The start time of the deployment task.
+   * The start time of the deployment task execution, in UNIX timestamp format (seconds).
    * 
    * @example
    * 1606482979000
@@ -135,19 +130,14 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the deployment task. Valid values:
+   * The deployment task status. Valid values:
    * 
-   * - **pending**
-   * 
-   * - **editing**
-   * 
-   * - **scheduling**
-   * 
-   * - **processing**
-   * 
-   * - **error**
-   * 
-   * - **success**
+   * - **pending**: pending execution.
+   * - **editing**: being edited.
+   * - **scheduling**: being scheduled.
+   * - **processing**: being deployed.
+   * - **error**: deployment failed.
+   * - **success**: deployment succeeded.
    * 
    * @example
    * scheduling
@@ -155,7 +145,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user account ID (UID).
    * 
    * @example
    * 166688437*****
@@ -215,7 +205,7 @@ export class ListDeploymentJobResponseBodyData extends $dara.Model {
 export class ListDeploymentJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -223,12 +213,12 @@ export class ListDeploymentJobResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The data returned for the request.
+   * The data returned by the API.
    */
   data?: ListDeploymentJobResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 12345678-1234-1234-1234-123456789ABC

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactResponseBodyContactList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the contact.
+   * The contact ID.
    * 
    * @example
    * 519580
@@ -21,7 +21,7 @@ export class ListContactResponseBodyContactList extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Indicates whether the email address passed the verification.
+   * Indicates whether the email address is verified.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListContactResponseBodyContactList extends $dara.Model {
   emailStatus?: number;
   /**
    * @remarks
-   * The phone number.
+   * The mobile phone number.
    * 
    * @example
    * 139****8888
@@ -37,7 +37,7 @@ export class ListContactResponseBodyContactList extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Indicates whether the phone number was verified.
+   * Indicates whether the mobile phone number is verified.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListContactResponseBodyContactList extends $dara.Model {
   mobileStatus?: number;
   /**
    * @remarks
-   * The name of the contact.
+   * The contact name.
    * 
    * @example
    * John
@@ -53,7 +53,7 @@ export class ListContactResponseBodyContactList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The webhook URL of the chatbot.
+   * The webhook URL.
    * 
    * @example
    * [\\"https://open.feishu.cn/open-apis/bot/v2/hook/XXX\\",\\"https://oapi.dingtalk.com/robot/send?access_token=XXX\\",\\"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=XXX\\"]
@@ -95,12 +95,12 @@ export class ListContactResponseBodyContactList extends $dara.Model {
 export class ListContactResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The contacts.
+   * The contact list.
    */
   contactList?: ListContactResponseBodyContactList[];
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The current page number in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class ListContactResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The keyword used in the fuzzy search.
+   * The fuzzy match keyword.
    * 
    * @example
    * 186
@@ -116,7 +116,7 @@ export class ListContactResponseBody extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 31C66C7B-671A-4297-9187-2C4477247A74
@@ -124,7 +124,7 @@ export class ListContactResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of certificates per page. Default value: **20**.
+   * The number of certificates displayed per page in a paged query. Default value: **20**.
    * 
    * @example
    * 20
@@ -132,7 +132,7 @@ export class ListContactResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of search results.
    * 
    * @example
    * 12

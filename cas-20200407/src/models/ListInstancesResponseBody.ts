@@ -23,11 +23,11 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   brand?: string;
   /**
    * @remarks
-   * The global certificate ID in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+   * The global certificate ID, in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
    * - For the China site: certificate ID + "-cn-hangzhou"
    * - For the China site: certificate ID + "-ap-southeast-1"
    * 
-   * For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site is "123-ap-southeast-1".
+   * For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the International site is "123-ap-southeast-1".
    * 
    * @example
    * 21795675-cn-hangzhou
@@ -59,16 +59,23 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The end time of the latest certificate, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+   * The end time of the latest certificate, in timestamp format. If no certificate has been issued, this field is empty.
    * 
    * @example
    * 1801324800000
    */
   certificateNotAfter?: number;
+  /**
+   * @remarks
+   * The start time of the latest certificate, in timestamp format. If no certificate has been issued, this field is empty.
+   * 
+   * @example
+   * 1776988800000
+   */
   certificateNotBefore?: number;
   /**
    * @remarks
-   * The revocation time of the latest certificate, in UNIX timestamp format.
+   * The revocation time of the latest certificate, in timestamp format.
    * 
    * @example
    * 1801324800000
@@ -77,10 +84,10 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   /**
    * @remarks
    * The status of the certificate. Valid values:
-   * - **issued**: issued.
-   * - **revoked**: revoked.
-   * - **willExpire**: about to expire.
-   * - **expired**: expired.
+   * - **issued**: Issued.
+   * - **revoked**: Revoked.
+   * - **willExpire**: About to expire.
+   * - **expired**: Expired.
    * 
    * @example
    * issued
@@ -112,7 +119,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   fullDomainCount?: number;
   /**
    * @remarks
-   * The expiration time of the instance, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+   * The expiration time of the instance, in timestamp format. If no certificate has been issued, this field is empty.
    * 
    * @example
    * 1801324800000
@@ -128,7 +135,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The start time of the instance, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+   * The start time of the instance, in timestamp format. If no certificate has been issued, this field is empty.
    * 
    * @example
    * 1801324800000
@@ -136,7 +143,9 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   instanceStartTime?: number;
   /**
    * @remarks
-   * The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
+   * The instance type. Valid values:
+   * - BUY: official certificate.
+   * - TEST: test certificate.
    * 
    * @example
    * BUY
@@ -149,7 +158,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
    * - **RSA_3072**
    * - **RSA_4096**
    * - **ECC_256**
-   * - **SM2**.
+   * - **SM2**
    * 
    * @example
    * RSA_2048
@@ -157,7 +166,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   keyAlgorithm?: string;
   /**
    * @remarks
-   * The end time of the instance purchase, in UNIX timestamp format. This value is used to determine the purchase duration of the instance.
+   * The end time of the instance purchase, in timestamp format. Used to determine the purchase duration of the instance.
    * 
    * @example
    * 1801324800000
@@ -165,7 +174,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   orderEndTime?: number;
   /**
    * @remarks
-   * The start time of the instance purchase, in UNIX timestamp format. This value is used to determine the refund time limit.
+   * The start time of the instance purchase, in timestamp format. Used to determine the refund time limit.
    * 
    * @example
    * 1801324800000

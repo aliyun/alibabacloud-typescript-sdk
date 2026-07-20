@@ -21,7 +21,7 @@ export class ListAssetCountResponseBodyAssetCountList extends $dara.Model {
   certificateCount?: number;
   /**
    * @remarks
-   * The date when the statistics were collected.
+   * The statistics date. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1767680115423
@@ -85,12 +85,12 @@ export class ListAssetCountResponseBodyAssetCountList extends $dara.Model {
 export class ListAssetCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of resource statistics.
+   * The resource statistics list.
    */
   assetCountList?: ListAssetCountResponseBodyAssetCountList[];
   /**
    * @remarks
-   * The current page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class ListAssetCountResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -106,7 +106,7 @@ export class ListAssetCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned on each page. This parameter is not returned if you do not specify \\`ShowSize\\` in the request.
+   * The number of entries displayed on each page for paging. This parameter is not returned if ShowSize is not specified in the request.
    * 
    * @example
    * 20
@@ -114,7 +114,7 @@ export class ListAssetCountResponseBody extends $dara.Model {
   showSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 12

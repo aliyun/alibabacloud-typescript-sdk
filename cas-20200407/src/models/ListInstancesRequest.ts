@@ -14,10 +14,10 @@ export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the certificate. Valid values:
-   * - **issued**: issued.
-   * - **revoked**: revoked.
-   * - **willExpire**: about to expire.
-   * - **expired**: expired.
+   * - **issued**: Issued.
+   * - **revoked**: Revoked.
+   * - **willExpire**: About to expire.
+   * - **expired**: Expired.
    * 
    * @example
    * issued
@@ -41,7 +41,9 @@ export class ListInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
+   * The instance type. Valid values:
+   * - BUY: official certificate.
+   * - TEST: test certificate.
    * 
    * @example
    * BUY

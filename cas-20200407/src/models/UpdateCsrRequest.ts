@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCsrRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the CSR. This ID is generated when you upload a CSR. To obtain the ID, call the [ListCsr](https://help.aliyun.com/document_detail/2709717.html) operation.
+   * The unique ID of the CSR. The CsrId is generated when the CSR is uploaded. You can obtain this value by querying the CSR list. For more information, see [ListCsr](https://help.aliyun.com/document_detail/2709717.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateCsrRequest extends $dara.Model {
   csrId?: number;
   /**
    * @remarks
-   * The content of the certificate private key in PEM format.
+   * The private key content in PEM format.
    * 
    * This parameter is required.
    * 

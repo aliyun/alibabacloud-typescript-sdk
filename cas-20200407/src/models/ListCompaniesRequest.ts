@@ -2,10 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAssetCountRequest extends $dara.Model {
+export class ListCompaniesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The company ID.
+   * 
+   * @example
+   * 51001
+   */
+  companyId?: number;
+  /**
+   * @remarks
+   * The page number of the current page. Default value: 1.
    * 
    * @example
    * 1
@@ -13,43 +21,35 @@ export class ListAssetCountRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The certificate expiration date, in seconds. The value is a UNIX timestamp.
+   * The search keyword. For example, a keyword for the company name, province, country code, or city.
    * 
    * @example
-   * 1767807000000
+   * test
    */
-  endDate?: number;
+  keyword?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of contacts to display per page in a paged query.
    * 
    * @example
-   * 1
+   * 20
    */
   showSize?: number;
-  /**
-   * @remarks
-   * The certificate issuance date, in seconds. The value is a UNIX timestamp.
-   * 
-   * @example
-   * 1767202200000
-   */
-  startDate?: number;
   static names(): { [key: string]: string } {
     return {
+      companyId: 'CompanyId',
       currentPage: 'CurrentPage',
-      endDate: 'EndDate',
+      keyword: 'Keyword',
       showSize: 'ShowSize',
-      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      companyId: 'number',
       currentPage: 'number',
-      endDate: 'number',
+      keyword: 'string',
       showSize: 'number',
-      startDate: 'number',
     };
   }
 

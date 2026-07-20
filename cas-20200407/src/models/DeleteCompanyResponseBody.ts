@@ -2,26 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RefundInstanceRequest extends $dara.Model {
+export class DeleteCompanyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
-   * 
-   * This parameter is required.
+   * The request ID.
    * 
    * @example
-   * cas-ivauto-hqito6
+   * 28627F67-2F87-55E6-B9C6-CE32FEC91315
    */
-  instanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
+      requestId: 'string',
     };
   }
 

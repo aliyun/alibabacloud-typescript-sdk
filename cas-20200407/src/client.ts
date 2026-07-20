@@ -145,7 +145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a certificate application for a Certificate Management Service instance.
+   * Applies for a certificate.
    * 
    * @param request - ApplyCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -176,7 +176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a certificate application for a Certificate Management Service instance.
+   * Applies for a certificate.
    * 
    * @param request - ApplyCertificateRequest
    * @returns ApplyCertificateResponse
@@ -353,7 +353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a pending certificate application that has not been issued.
+   * Revokes a certificate application.
    * 
    * @param request - CancelPendingCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -384,7 +384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a pending certificate application that has not been issued.
+   * Revokes a certificate application.
    * 
    * @param request - CancelPendingCertificateRequest
    * @returns CancelPendingCertificateResponse
@@ -632,6 +632,150 @@ export default class Client extends OpenApi {
   async createCertificateWithCsrRequest(request: $_model.CreateCertificateWithCsrRequestRequest): Promise<$_model.CreateCertificateWithCsrRequestResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCertificateWithCsrRequestWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a company.
+   * 
+   * @param request - CreateCompanyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCompanyResponse
+   */
+  async createCompanyWithOptions(request: $_model.CreateCompanyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCompanyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.companyAddress)) {
+      query["CompanyAddress"] = request.companyAddress;
+    }
+
+    if (!$dara.isNull(request.companyCode)) {
+      query["CompanyCode"] = request.companyCode;
+    }
+
+    if (!$dara.isNull(request.companyEmail)) {
+      query["CompanyEmail"] = request.companyEmail;
+    }
+
+    if (!$dara.isNull(request.companyName)) {
+      query["CompanyName"] = request.companyName;
+    }
+
+    if (!$dara.isNull(request.companyPhone)) {
+      query["CompanyPhone"] = request.companyPhone;
+    }
+
+    if (!$dara.isNull(request.companyType)) {
+      query["CompanyType"] = request.companyType;
+    }
+
+    if (!$dara.isNull(request.countryCode)) {
+      query["CountryCode"] = request.countryCode;
+    }
+
+    if (!$dara.isNull(request.department)) {
+      query["Department"] = request.department;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.postCode)) {
+      query["PostCode"] = request.postCode;
+    }
+
+    if (!$dara.isNull(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCompany",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCompanyResponse>(await this.callApi(params, req, runtime), new $_model.CreateCompanyResponse({}));
+  }
+
+  /**
+   * Creates a company.
+   * 
+   * @param request - CreateCompanyRequest
+   * @returns CreateCompanyResponse
+   */
+  async createCompany(request: $_model.CreateCompanyRequest): Promise<$_model.CreateCompanyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCompanyWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a certificate application contact.
+   * 
+   * @param request - CreateContactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContactResponse
+   */
+  async createContactWithOptions(request: $_model.CreateContactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContactResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.idcard)) {
+      query["Idcard"] = request.idcard;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.webhooks)) {
+      query["Webhooks"] = request.webhooks;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContact",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContactResponse>(await this.callApi(params, req, runtime), new $_model.CreateContactResponse({}));
+  }
+
+  /**
+   * Creates a certificate application contact.
+   * 
+   * @param request - CreateContactRequest
+   * @returns CreateContactResponse
+   */
+  async createContact(request: $_model.CreateContactRequest): Promise<$_model.CreateContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContactWithOptions(request, runtime);
   }
 
   /**
@@ -1108,6 +1252,90 @@ export default class Client extends OpenApi {
   async deleteCloudAccess(request: $_model.DeleteCloudAccessRequest): Promise<$_model.DeleteCloudAccessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCloudAccessWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a company.
+   * 
+   * @param request - DeleteCompanyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCompanyResponse
+   */
+  async deleteCompanyWithOptions(request: $_model.DeleteCompanyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCompanyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.companyId)) {
+      query["CompanyId"] = request.companyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCompany",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCompanyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCompanyResponse({}));
+  }
+
+  /**
+   * Deletes a company.
+   * 
+   * @param request - DeleteCompanyRequest
+   * @returns DeleteCompanyResponse
+   */
+  async deleteCompany(request: $_model.DeleteCompanyRequest): Promise<$_model.DeleteCompanyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCompanyWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a contact.
+   * 
+   * @param request - DeleteContactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContactResponse
+   */
+  async deleteContactWithOptions(request: $_model.DeleteContactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContactResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContact",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContactResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContactResponse({}));
+  }
+
+  /**
+   * Deletes a contact.
+   * 
+   * @param request - DeleteContactRequest
+   * @returns DeleteContactResponse
+   */
+  async deleteContact(request: $_model.DeleteContactRequest): Promise<$_model.DeleteContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContactWithOptions(request, runtime);
   }
 
   /**
@@ -1767,12 +1995,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the total number of certificate-related assets, such as websites and cloud resources.
+   * Queries the number of assets.
    * 
    * @remarks
-   * This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
-   * ## QPS Limit
-   * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
+   * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+   * ## QPS limit
+   * The China single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAssetCountResponse
@@ -1794,12 +2022,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the total number of certificate-related assets, such as websites and cloud resources.
+   * Queries the number of assets.
    * 
    * @remarks
-   * This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
-   * ## QPS Limit
-   * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
+   * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+   * ## QPS limit
+   * The China single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
    * @returns GetAssetCountResponse
    */
   async getAssetCount(): Promise<$_model.GetAssetCountResponse> {
@@ -1884,6 +2112,90 @@ export default class Client extends OpenApi {
   async getCertificateDetail(request: $_model.GetCertificateDetailRequest): Promise<$_model.GetCertificateDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCertificateDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a company.
+   * 
+   * @param request - GetCompanyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCompanyResponse
+   */
+  async getCompanyWithOptions(request: $_model.GetCompanyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCompanyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.companyId)) {
+      query["CompanyId"] = request.companyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCompany",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCompanyResponse>(await this.callApi(params, req, runtime), new $_model.GetCompanyResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a company.
+   * 
+   * @param request - GetCompanyRequest
+   * @returns GetCompanyResponse
+   */
+  async getCompany(request: $_model.GetCompanyRequest): Promise<$_model.GetCompanyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCompanyWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a contact.
+   * 
+   * @param request - GetContactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContactResponse
+   */
+  async getContactWithOptions(request: $_model.GetContactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContactResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContact",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContactResponse>(await this.callApi(params, req, runtime), new $_model.GetContactResponse({}));
+  }
+
+  /**
+   * Retrieves a contact.
+   * 
+   * @param request - GetContactRequest
+   * @returns GetContactResponse
+   */
+  async getContact(request: $_model.GetContactRequest): Promise<$_model.GetContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContactWithOptions(request, runtime);
   }
 
   /**
@@ -2166,10 +2478,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
+   * Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
    * 
    * @remarks
-   * The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
+   * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - GetUserCertificateDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2204,10 +2516,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
+   * Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
    * 
    * @remarks
-   * The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
+   * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - GetUserCertificateDetailRequest
    * @returns GetUserCertificateDetailResponse
@@ -2218,12 +2530,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificate deployment statistics by cloud service type.
+   * Queries the resource statistics list of cloud services.
    * 
    * @remarks
-   * Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+   * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
    * ## QPS limit
-   * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
+   * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - ListAssetCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2266,12 +2578,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificate deployment statistics by cloud service type.
+   * Queries the resource statistics list of cloud services.
    * 
    * @remarks
-   * Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+   * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
    * ## QPS limit
-   * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
+   * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - ListAssetCountRequest
    * @returns ListAssetCountResponse
@@ -2618,7 +2930,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the contacts that receive certificate deployment notifications.
+   * Retrieves a list of companies.
+   * 
+   * @param request - ListCompaniesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCompaniesResponse
+   */
+  async listCompaniesWithOptions(request: $_model.ListCompaniesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCompaniesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.companyId)) {
+      query["CompanyId"] = request.companyId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCompanies",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCompaniesResponse>(await this.callApi(params, req, runtime), new $_model.ListCompaniesResponse({}));
+  }
+
+  /**
+   * Retrieves a list of companies.
+   * 
+   * @param request - ListCompaniesRequest
+   * @returns ListCompaniesResponse
+   */
+  async listCompanies(request: $_model.ListCompaniesRequest): Promise<$_model.ListCompaniesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCompaniesWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a list of contacts.
    * 
    * @param request - ListContactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2657,7 +3023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the contacts that receive certificate deployment notifications.
+   * Retrieves a list of contacts.
    * 
    * @param request - ListContactRequest
    * @returns ListContactResponse
@@ -2722,7 +3088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificate deployment tasks that are created in your account.
+   * Retrieves a list of deployment tasks after you create a deployment task.
    * 
    * @param request - ListDeploymentJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2765,7 +3131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificate deployment tasks that are created in your account.
+   * Retrieves a list of deployment tasks after you create a deployment task.
    * 
    * @param request - ListDeploymentJobRequest
    * @returns ListDeploymentJobResponse
@@ -2934,12 +3300,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SSL certificates and certificate orders in your account.
+   * Queries the list of user certificates or orders.
    * 
    * @remarks
-   * This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+   * This operation is used to query the list of user certificates or orders. If OrderType is set to CERT or UPLOAD, the certificate list is queried. If OrderType is set to CPACK or BUY, the order list is queried.
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - ListUserCertificateOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2990,12 +3356,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SSL certificates and certificate orders in your account.
+   * Queries the list of user certificates or orders.
    * 
    * @remarks
-   * This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+   * This operation is used to query the list of user certificates or orders. If OrderType is set to CERT or UPLOAD, the certificate list is queried. If OrderType is set to CPACK or BUY, the order list is queried.
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - ListUserCertificateOrderRequest
    * @returns ListUserCertificateOrderResponse
@@ -3192,7 +3558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
+   * Refunds an instance within 7 days.
    * 
    * @param request - RefundInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3223,7 +3589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
+   * Refunds an instance within 7 days.
    * 
    * @param request - RefundInstanceRequest
    * @returns RefundInstanceResponse
@@ -3458,7 +3824,159 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the private key associated with a certificate signing request (CSR).
+   * Updates company information.
+   * 
+   * @param request - UpdateCompanyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCompanyResponse
+   */
+  async updateCompanyWithOptions(request: $_model.UpdateCompanyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCompanyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.companyAddress)) {
+      query["CompanyAddress"] = request.companyAddress;
+    }
+
+    if (!$dara.isNull(request.companyCode)) {
+      query["CompanyCode"] = request.companyCode;
+    }
+
+    if (!$dara.isNull(request.companyEmail)) {
+      query["CompanyEmail"] = request.companyEmail;
+    }
+
+    if (!$dara.isNull(request.companyId)) {
+      query["CompanyId"] = request.companyId;
+    }
+
+    if (!$dara.isNull(request.companyName)) {
+      query["CompanyName"] = request.companyName;
+    }
+
+    if (!$dara.isNull(request.companyPhone)) {
+      query["CompanyPhone"] = request.companyPhone;
+    }
+
+    if (!$dara.isNull(request.companyType)) {
+      query["CompanyType"] = request.companyType;
+    }
+
+    if (!$dara.isNull(request.countryCode)) {
+      query["CountryCode"] = request.countryCode;
+    }
+
+    if (!$dara.isNull(request.department)) {
+      query["Department"] = request.department;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.postCode)) {
+      query["PostCode"] = request.postCode;
+    }
+
+    if (!$dara.isNull(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCompany",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCompanyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCompanyResponse({}));
+  }
+
+  /**
+   * Updates company information.
+   * 
+   * @param request - UpdateCompanyRequest
+   * @returns UpdateCompanyResponse
+   */
+  async updateCompany(request: $_model.UpdateCompanyRequest): Promise<$_model.UpdateCompanyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCompanyWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a contact.
+   * 
+   * @param request - UpdateContactRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContactResponse
+   */
+  async updateContactWithOptions(request: $_model.UpdateContactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContactResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.idcard)) {
+      query["Idcard"] = request.idcard;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.webhooks)) {
+      query["Webhooks"] = request.webhooks;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContact",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContactResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContactResponse({}));
+  }
+
+  /**
+   * Updates a contact.
+   * 
+   * @param request - UpdateContactRequest
+   * @returns UpdateContactResponse
+   */
+  async updateContact(request: $_model.UpdateContactRequest): Promise<$_model.UpdateContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContactWithOptions(request, runtime);
+  }
+
+  /**
+   * Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
    * 
    * @param request - UpdateCsrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3493,7 +4011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the private key associated with a certificate signing request (CSR).
+   * Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
    * 
    * @param request - UpdateCsrRequest
    * @returns UpdateCsrResponse
