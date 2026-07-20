@@ -5,107 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class PartitionSummary extends $dara.Model {
   /**
    * @remarks
-   * The creation timestamp for the partition.
-   * 
-   * @example
-   * 1744970111419
+   * Partition creation timestamp in milliseconds
    */
   createdAt?: number;
   /**
    * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * default
+   * Database name
    */
   databaseName?: string;
   /**
    * @remarks
-   * The last access timestamp for the partition\\"s data.
-   * 
-   * @example
-   * 1744970111419
+   * Total files in partition
    */
   lastAccessTime?: number;
-  /**
-   * @remarks
-   * The last requester.
-   */
   lastRequester?: string;
   /**
    * @remarks
-   * The name of the partition.
-   * 
-   * @example
-   * hh=18
+   * Partition identifier
    */
   partitionName?: string;
-  /**
-   * @remarks
-   * The storage action parameters.
-   */
   storageActionParams?: { [key: string]: string };
-  /**
-   * @remarks
-   * The storage action timestamp.
-   */
   storageActionTimestamp?: number;
-  /**
-   * @remarks
-   * The storage class.
-   */
   storageClass?: string;
   /**
    * @remarks
-   * The name of the table.
-   * 
-   * @example
-   * table1
+   * Table name
    */
   tableName?: string;
-  /**
-   * @remarks
-   * The top requester.
-   */
   topRequester?: string;
-  /**
-   * @remarks
-   * Total file access count.
-   */
   totalFileAccessNum?: number;
-  /**
-   * @remarks
-   * Total file access count over the last 30 days.
-   */
   totalFileAccessNum30d?: number;
-  /**
-   * @remarks
-   * Total file access count over the last 7 days.
-   */
   totalFileAccessNum7d?: number;
   /**
    * @remarks
-   * The total number of files in the partition.
-   * 
-   * @example
-   * 2
+   * 24h access count
    */
   totalFileCount?: number;
   /**
    * @remarks
-   * The total size, in bytes, of all files in the partition.
-   * 
-   * @example
-   * 2048
+   * Last data access timestamp in milliseconds
    */
   totalFileSizeInBytes?: number;
-  /**
-   * @remarks
-   * The last update timestamp for the partition.
-   * 
-   * @example
-   * 1744970111419
-   */
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {

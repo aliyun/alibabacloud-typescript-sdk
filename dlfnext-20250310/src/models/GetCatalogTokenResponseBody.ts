@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCatalogTokenResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The token expiration time.
-   * 
-   * @example
-   * 1749160909000
-   */
   expiresAtMillis?: number;
-  /**
-   * @remarks
-   * The token for the catalog.
-   */
   token?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlterShareReceiversRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The receivers to add.
-   */
   addedReceivers?: string[];
-  /**
-   * @remarks
-   * The receivers to remove.
-   */
   removedReceivers?: string[];
   static names(): { [key: string]: string } {
     return {

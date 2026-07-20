@@ -6,32 +6,32 @@ import { DateSummary } from "./DateSummary";
 export class CatalogSummaryTrend extends $dara.Model {
   /**
    * @remarks
-   * The trend of total metadata requests.
+   * API visit count trends
    */
   apiVisitCount?: DateSummary[];
   /**
    * @remarks
-   * The trend of file access count.
+   * file access count trends
    */
   fileAccessCount?: DateSummary[];
   /**
    * @remarks
-   * The data access traffic trend.
+   * Table count trends
    */
   throughput?: DateSummary[];
   /**
    * @remarks
-   * The trend of total file count.
+   * Historical total file count
    */
   totalFileCount?: DateSummary[];
   /**
    * @remarks
-   * The trend of total storage capacity.
+   * Database count trends
    */
   totalFileSizeInBytes?: DateSummary[];
   /**
    * @remarks
-   * The trend of total metadata object count.
+   * Latest snapshot file count
    */
   totalMetaCount?: DateSummary[];
   static names(): { [key: string]: string } {

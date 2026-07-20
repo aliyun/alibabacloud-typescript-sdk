@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteRoleRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The resource descriptor of the role to delete.
-   * 
-   * @example
-   * acs:dlf::[accountId]:role/role_name
-   */
   rolePrincipal?: string;
   static names(): { [key: string]: string } {
     return {

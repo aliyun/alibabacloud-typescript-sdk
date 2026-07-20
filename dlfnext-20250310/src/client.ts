@@ -44,7 +44,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a catalog.
+   * 更新数据目录
    * 
    * @param request - AlterCatalogRequest
    * @param headers - map
@@ -81,7 +81,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a catalog.
+   * 更新数据目录
    * 
    * @param request - AlterCatalogRequest
    * @returns AlterCatalogResponse
@@ -93,7 +93,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a database.
+   * 更新数据库
    * 
    * @param request - AlterDatabaseRequest
    * @param headers - map
@@ -130,7 +130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a database.
+   * 更新数据库
    * 
    * @param request - AlterDatabaseRequest
    * @returns AlterDatabaseResponse
@@ -142,7 +142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a sink.
+   * 更新接收者
    * 
    * @param request - AlterReceiverRequest
    * @param headers - map
@@ -179,7 +179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a sink.
+   * 更新接收者
    * 
    * @param request - AlterReceiverRequest
    * @returns AlterReceiverResponse
@@ -191,7 +191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a share.
+   * 更新共享
    * 
    * @param request - AlterShareRequest
    * @param headers - map
@@ -232,7 +232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a share.
+   * 更新共享
    * 
    * @param request - AlterShareRequest
    * @returns AlterShareResponse
@@ -244,7 +244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the receivers of a share.
+   * 更新共享中的接收者
    * 
    * @param request - AlterShareReceiversRequest
    * @param headers - map
@@ -281,7 +281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the receivers of a share.
+   * 更新共享中的接收者
    * 
    * @param request - AlterShareReceiversRequest
    * @returns AlterShareReceiversResponse
@@ -293,7 +293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies shared resources.
+   * 更改共享资源
    * 
    * @param request - AlterShareResourcesRequest
    * @param headers - map
@@ -330,7 +330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies shared resources.
+   * 更改共享资源
    * 
    * @param request - AlterShareResourcesRequest
    * @returns AlterShareResourcesResponse
@@ -342,7 +342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a table.
+   * 更改Table
    * 
    * @param request - AlterTableRequest
    * @param headers - map
@@ -375,7 +375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a table.
+   * 更改Table
    * 
    * @param request - AlterTableRequest
    * @returns AlterTableResponse
@@ -387,7 +387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the table schema.
+   * 更改Table Schema
    * 
    * @param request - AlterTableSchemaRequest
    * @param headers - map
@@ -420,7 +420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the table schema.
+   * 更改Table Schema
    * 
    * @param request - AlterTableSchemaRequest
    * @returns AlterTableSchemaResponse
@@ -432,7 +432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants permissions to one or more DLF users or roles.
+   * 批量授权
    * 
    * @param request - BatchGrantPermissionsRequest
    * @param headers - map
@@ -465,7 +465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants permissions to one or more DLF users or roles.
+   * 批量授权
    * 
    * @param request - BatchGrantPermissionsRequest
    * @returns BatchGrantPermissionsResponse
@@ -477,7 +477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes permissions in a batch.
+   * 批量取消授权
    * 
    * @param request - BatchRevokePermissionsRequest
    * @param headers - map
@@ -510,7 +510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes permissions in a batch.
+   * 批量取消授权
    * 
    * @param request - BatchRevokePermissionsRequest
    * @returns BatchRevokePermissionsResponse
@@ -522,7 +522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a catalog.
+   * 创建数据目录
    * 
    * @param request - CreateCatalogRequest
    * @param headers - map
@@ -571,7 +571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a catalog.
+   * 创建数据目录
    * 
    * @param request - CreateCatalogRequest
    * @returns CreateCatalogResponse
@@ -583,7 +583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database.
+   * 创建数据库
    * 
    * @param request - CreateDatabaseRequest
    * @param headers - map
@@ -620,7 +620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database.
+   * 创建数据库
    * 
    * @param request - CreateDatabaseRequest
    * @returns CreateDatabaseResponse
@@ -632,7 +632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a receiver.
+   * 创建接收者
    * 
    * @param request - CreateReceiverRequest
    * @param headers - map
@@ -673,7 +673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a receiver.
+   * 创建接收者
    * 
    * @param request - CreateReceiverRequest
    * @returns CreateReceiverResponse
@@ -685,7 +685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DLF role.
+   * 创建角色
    * 
    * @param request - CreateRoleRequest
    * @param headers - map
@@ -726,7 +726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DLF role.
+   * 创建角色
    * 
    * @param request - CreateRoleRequest
    * @returns CreateRoleResponse
@@ -738,7 +738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a share.
+   * 创建共享
    * 
    * @param request - CreateShareRequest
    * @param headers - map
@@ -779,7 +779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a share.
+   * 创建共享
    * 
    * @param request - CreateShareRequest
    * @returns CreateShareResponse
@@ -791,7 +791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a table.
+   * 创建表
    * 
    * @param request - CreateTableRequest
    * @param headers - map
@@ -828,7 +828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a table.
+   * 创建表
    * 
    * @param request - CreateTableRequest
    * @returns CreateTableResponse
@@ -840,7 +840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a DLF role.
+   * 删除角色
    * 
    * @param request - DeleteRoleRequest
    * @param headers - map
@@ -873,7 +873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a DLF role.
+   * 删除角色
    * 
    * @param request - DeleteRoleRequest
    * @returns DeleteRoleResponse
@@ -885,7 +885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the regions where DLF is activated.
+   * 查询 DLF 开通地域
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -910,7 +910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the regions where DLF is activated.
+   * 查询 DLF 开通地域
    * @returns DescribeRegionsResponse
    */
   async describeRegions(): Promise<$_model.DescribeRegionsResponse> {
@@ -920,7 +920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+   * 删除数据湖Catalog
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -945,7 +945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+   * 删除数据湖Catalog
    * @returns DropCatalogResponse
    */
   async dropCatalog(catalog: string): Promise<$_model.DropCatalogResponse> {
@@ -955,7 +955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Drops a database.
+   * 删除数据库
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -980,7 +980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Drops a database.
+   * 删除数据库
    * @returns DropDatabaseResponse
    */
   async dropDatabase(catalogId: string, database: string): Promise<$_model.DropDatabaseResponse> {
@@ -990,7 +990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a receiver.
+   * 删除接收者
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1015,7 +1015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a receiver.
+   * 删除接收者
    * @returns DropReceiverResponse
    */
   async dropReceiver(receiver: string): Promise<$_model.DropReceiverResponse> {
@@ -1025,7 +1025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a share.
+   * 删除共享
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1050,7 +1050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a share.
+   * 删除共享
    * @returns DropShareResponse
    */
   async dropShare(share: string): Promise<$_model.DropShareResponse> {
@@ -1060,7 +1060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Drops a table.
+   * 删除表
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1085,7 +1085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Drops a table.
+   * 删除表
    * @returns DropTableResponse
    */
   async dropTable(catalogId: string, database: string, table: string): Promise<$_model.DropTableResponse> {
@@ -1095,7 +1095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a catalog.
+   * 查看数据湖Catalog
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1120,7 +1120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a catalog.
+   * 查看数据湖Catalog
    * @returns GetCatalogResponse
    */
   async getCatalog(catalog: string): Promise<$_model.GetCatalogResponse> {
@@ -1130,7 +1130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a catalog.
+   * 查看数据湖Catalog
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1155,7 +1155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a catalog.
+   * 查看数据湖Catalog
    * @returns GetCatalogByIdResponse
    */
   async getCatalogById(id: string): Promise<$_model.GetCatalogByIdResponse> {
@@ -1165,7 +1165,46 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage overview of a data catalog.
+   * 获取为 Catalog 配置 BYOK SSE-KMS 所需的 DLF 授权信息(data-access 角色 ARN 与 KMS Key Policy 片段)
+   * 
+   * @param request - GetCatalogKmsGrantsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogKmsGrantsResponse
+   */
+  async getCatalogKmsGrantsWithOptions(catalog: string, request: $_model.GetCatalogKmsGrantsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogKmsGrantsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCatalogKmsGrants",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/catalogs/${$dara.URL.percentEncode(catalog)}/kms/grants`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCatalogKmsGrantsResponse>(await this.callApi(params, req, runtime), new $_model.GetCatalogKmsGrantsResponse({}));
+  }
+
+  /**
+   * 获取为 Catalog 配置 BYOK SSE-KMS 所需的 DLF 授权信息(data-access 角色 ARN 与 KMS Key Policy 片段)
+   * 
+   * @param request - GetCatalogKmsGrantsRequest
+   * @returns GetCatalogKmsGrantsResponse
+   */
+  async getCatalogKmsGrants(catalog: string, request: $_model.GetCatalogKmsGrantsRequest): Promise<$_model.GetCatalogKmsGrantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCatalogKmsGrantsWithOptions(catalog, request, headers, runtime);
+  }
+
+  /**
+   * 查看表
    * 
    * @param request - GetCatalogSummaryRequest
    * @param headers - map
@@ -1198,7 +1237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage overview of a data catalog.
+   * 查看表
    * 
    * @param request - GetCatalogSummaryRequest
    * @returns GetCatalogSummaryResponse
@@ -1210,7 +1249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage overview trend for a catalog.
+   * 查看表
    * 
    * @param request - GetCatalogSummaryTrendRequest
    * @param headers - map
@@ -1247,7 +1286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage overview trend for a catalog.
+   * 查看表
    * 
    * @param request - GetCatalogSummaryTrendRequest
    * @returns GetCatalogSummaryTrendResponse
@@ -1259,7 +1298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a temporary access credential (token) for a catalog.
+   * 获取数据湖Catalog的临时访问凭证
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1284,7 +1323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a temporary access credential (token) for a catalog.
+   * 获取数据湖Catalog的临时访问凭证
    * @returns GetCatalogTokenResponse
    */
   async getCatalogToken(catalog: string): Promise<$_model.GetCatalogTokenResponse> {
@@ -1294,7 +1333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a database.
+   * 查看数据库
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1319,7 +1358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a database.
+   * 查看数据库
    * @returns GetDatabaseResponse
    */
   async getDatabase(catalogId: string, database: string): Promise<$_model.GetDatabaseResponse> {
@@ -1329,7 +1368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can view an inventory overview.
+   * 查看表
    * 
    * @param request - GetDatabaseSummaryRequest
    * @param headers - map
@@ -1362,7 +1401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can view an inventory overview.
+   * 查看表
    * 
    * @param request - GetDatabaseSummaryRequest
    * @returns GetDatabaseSummaryResponse
@@ -1374,7 +1413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about an Iceberg namespace.
+   * 查看iceberg数据库
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1399,7 +1438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about an Iceberg namespace.
+   * 查看iceberg数据库
    * @returns GetIcebergNamespaceResponse
    */
   async getIcebergNamespace(catalogId: string, namespace: string): Promise<$_model.GetIcebergNamespaceResponse> {
@@ -1409,7 +1448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a table.
+   * 查看表
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1434,7 +1473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a table.
+   * 查看表
    * @returns GetIcebergTableResponse
    */
   async getIcebergTable(catalogId: string, namespace: string, table: string): Promise<$_model.GetIcebergTableResponse> {
@@ -1444,7 +1483,46 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a receiver.
+   * 获取查询
+   * 
+   * @param request - GetQueryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQueryResponse
+   */
+  async getQueryWithOptions(queryId: string, request: $_model.GetQueryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetQueryResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQuery",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/query/${$dara.URL.percentEncode(queryId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQueryResponse>(await this.callApi(params, req, runtime), new $_model.GetQueryResponse({}));
+  }
+
+  /**
+   * 获取查询
+   * 
+   * @param request - GetQueryRequest
+   * @returns GetQueryResponse
+   */
+  async getQuery(queryId: string, request: $_model.GetQueryRequest): Promise<$_model.GetQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getQueryWithOptions(queryId, request, headers, runtime);
+  }
+
+  /**
+   * 获取接收者
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1469,7 +1547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a receiver.
+   * 获取接收者
    * @returns GetReceiverResponse
    */
   async getReceiver(receiver: string): Promise<$_model.GetReceiverResponse> {
@@ -1479,7 +1557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the DLF activation status of in a region.
+   * 查询 DLF 当前地域开通状态
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1504,7 +1582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the DLF activation status of in a region.
+   * 查询 DLF 当前地域开通状态
    * @returns GetRegionStatusResponse
    */
   async getRegionStatus(): Promise<$_model.GetRegionStatusResponse> {
@@ -1514,7 +1592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a role.
+   * 获取角色
    * 
    * @param request - GetRoleRequest
    * @param headers - map
@@ -1547,7 +1625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a role.
+   * 获取角色
    * 
    * @param request - GetRoleRequest
    * @returns GetRoleResponse
@@ -1559,7 +1637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a share.
+   * 获取共享
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1584,7 +1662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a share.
+   * 获取共享
    * @returns GetShareResponse
    */
   async getShare(share: string): Promise<$_model.GetShareResponse> {
@@ -1594,7 +1672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a table in a data lake.
+   * 查看表
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1619,7 +1697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a table in a data lake.
+   * 查看表
    * @returns GetTableResponse
    */
   async getTable(catalogId: string, database: string, table: string): Promise<$_model.GetTableResponse> {
@@ -1629,7 +1707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the compaction details of a table.
+   * 查看表Compaction详情
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1654,7 +1732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the compaction details of a table.
+   * 查看表Compaction详情
    * @returns GetTableCompactionResponse
    */
   async getTableCompaction(catalogId: string, database: string, table: string): Promise<$_model.GetTableCompactionResponse> {
@@ -1664,7 +1742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a table snapshot.
+   * 查看表快照
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1689,7 +1767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a table snapshot.
+   * 查看表快照
    * @returns GetTableSnapshotResponse
    */
   async getTableSnapshot(catalogId: string, database: string, table: string): Promise<$_model.GetTableSnapshotResponse> {
@@ -1699,7 +1777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage summary for a table.
+   * 查看表
    * 
    * @param request - GetTableSummaryRequest
    * @param headers - map
@@ -1732,7 +1810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the storage summary for a table.
+   * 查看表
    * 
    * @param request - GetTableSummaryRequest
    * @returns GetTableSummaryResponse
@@ -1744,7 +1822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a temporary access credential for a data lake table.
+   * 获取数据湖表的临时访问凭证
    * 
    * @param request - GetTableTokenRequest
    * @param headers - map
@@ -1777,7 +1855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a temporary access credential for a data lake table.
+   * 获取数据湖表的临时访问凭证
    * 
    * @param request - GetTableTokenRequest
    * @returns GetTableTokenResponse
@@ -1789,7 +1867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a user.
+   * 获取用户
    * 
    * @param request - GetUserRequest
    * @param headers - map
@@ -1822,7 +1900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a user.
+   * 获取用户
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -1834,7 +1912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the VPC configuration.
+   * 获取可信 VPC 配置
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1859,7 +1937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the VPC configuration.
+   * 获取可信 VPC 配置
    * @returns GetVpcConfigResponse
    */
   async getVpcConfig(): Promise<$_model.GetVpcConfigResponse> {
@@ -1869,7 +1947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants a role to one or more users.
+   * 批量授予角色权限给用户
    * 
    * @param request - GrantRoleToUsersRequest
    * @param headers - map
@@ -1906,7 +1984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants a role to one or more users.
+   * 批量授予角色权限给用户
    * 
    * @param request - GrantRoleToUsersRequest
    * @returns GrantRoleToUsersResponse
@@ -1918,7 +1996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists catalogs.
+   * 查看数据目录列表
    * 
    * @param request - ListCatalogsRequest
    * @param headers - map
@@ -1959,7 +2037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists catalogs.
+   * 查看数据目录列表
    * 
    * @param request - ListCatalogsRequest
    * @returns ListCatalogsResponse
@@ -1971,7 +2049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves database details.
+   * 查看数据库列表
    * 
    * @param request - ListDatabaseDetailsRequest
    * @param headers - map
@@ -1993,6 +2071,10 @@ export default class Client extends OpenApi {
       query["pageToken"] = request.pageToken;
     }
 
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2012,7 +2094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves database details.
+   * 查看数据库列表
    * 
    * @param request - ListDatabaseDetailsRequest
    * @returns ListDatabaseDetailsResponse
@@ -2024,7 +2106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves databases.
+   * 查看数据库列表
    * 
    * @param request - ListDatabasesRequest
    * @param headers - map
@@ -2065,7 +2147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves databases.
+   * 查看数据库列表
    * 
    * @param request - ListDatabasesRequest
    * @returns ListDatabasesResponse
@@ -2077,7 +2159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists functions.
+   * 查看函数列表
    * 
    * @param request - ListFunctionsRequest
    * @param headers - map
@@ -2118,7 +2200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists functions.
+   * 查看函数列表
    * 
    * @param request - ListFunctionsRequest
    * @returns ListFunctionsResponse
@@ -2130,7 +2212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Iceberg namespaces.
+   * 查看iceberg数据库列表
    * 
    * @param request - ListIcebergNamespaceDetailsRequest
    * @param headers - map
@@ -2171,7 +2253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Iceberg namespaces.
+   * 查看iceberg数据库列表
    * 
    * @param request - ListIcebergNamespaceDetailsRequest
    * @returns ListIcebergNamespaceDetailsResponse
@@ -2183,7 +2265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the snapshots of an Iceberg table.
+   * 查看iceberg表快照列表
    * 
    * @param request - ListIcebergSnapshotsRequest
    * @param headers - map
@@ -2220,7 +2302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the snapshots of an Iceberg table.
+   * 查看iceberg表快照列表
    * 
    * @param request - ListIcebergSnapshotsRequest
    * @returns ListIcebergSnapshotsResponse
@@ -2232,7 +2314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the details of Iceberg tables.
+   * 查看iceberg表详情列表
    * 
    * @param request - ListIcebergTableDetailsRequest
    * @param headers - map
@@ -2273,7 +2355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the details of Iceberg tables.
+   * 查看iceberg表详情列表
    * 
    * @param request - ListIcebergTableDetailsRequest
    * @returns ListIcebergTableDetailsResponse
@@ -2285,7 +2367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves storage overview for partitions.
+   * 查看表
    * 
    * @param request - ListPartitionSummariesRequest
    * @param headers - map
@@ -2326,7 +2408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves storage overview for partitions.
+   * 查看表
    * 
    * @param request - ListPartitionSummariesRequest
    * @returns ListPartitionSummariesResponse
@@ -2338,7 +2420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists partitions.
+   * listPartitions
    * 
    * @param request - ListPartitionsRequest
    * @param headers - map
@@ -2379,7 +2461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists partitions.
+   * listPartitions
    * 
    * @param request - ListPartitionsRequest
    * @returns ListPartitionsResponse
@@ -2391,7 +2473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of partitions by their names.
+   * listPartitionsByNames
    * 
    * @param request - ListPartitionsByNamesRequest
    * @param headers - map
@@ -2424,7 +2506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of partitions by their names.
+   * listPartitionsByNames
    * 
    * @param request - ListPartitionsByNamesRequest
    * @returns ListPartitionsByNamesResponse
@@ -2436,7 +2518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the permissions for a resource or principal.
+   * 获取指定资源或指定Principal的权限信息
    * 
    * @param request - ListPermissionsRequest
    * @param headers - map
@@ -2497,7 +2579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the permissions for a resource or principal.
+   * 获取指定资源或指定Principal的权限信息
    * 
    * @param request - ListPermissionsRequest
    * @returns ListPermissionsResponse
@@ -2509,7 +2591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves shares.
+   * 获取提供的共享列表
    * 
    * @param request - ListProvidedSharesRequest
    * @param headers - map
@@ -2546,7 +2628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves shares.
+   * 获取提供的共享列表
    * 
    * @param request - ListProvidedSharesRequest
    * @returns ListProvidedSharesResponse
@@ -2558,7 +2640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves received shares.
+   * 获取接收的共享列表
    * 
    * @param request - ListReceivedSharesRequest
    * @param headers - map
@@ -2595,7 +2677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves received shares.
+   * 获取接收的共享列表
    * 
    * @param request - ListReceivedSharesRequest
    * @returns ListReceivedSharesResponse
@@ -2607,7 +2689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of receivers.
+   * 获取接收者列表
    * 
    * @param request - ListReceiversRequest
    * @param headers - map
@@ -2648,7 +2730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of receivers.
+   * 获取接收者列表
    * 
    * @param request - ListReceiversRequest
    * @returns ListReceiversResponse
@@ -2660,7 +2742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the users for a role.
+   * 获取角色用户列表
    * 
    * @param request - ListRoleUsersRequest
    * @param headers - map
@@ -2701,7 +2783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the users for a role.
+   * 获取角色用户列表
    * 
    * @param request - ListRoleUsersRequest
    * @returns ListRoleUsersResponse
@@ -2713,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves roles.
+   * 获取角色列表
    * 
    * @param request - ListRolesRequest
    * @param headers - map
@@ -2754,7 +2836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves roles.
+   * 获取角色列表
    * 
    * @param request - ListRolesRequest
    * @returns ListRolesResponse
@@ -2766,7 +2848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the receivers of a share.
+   * 获取共享中的接收者列表
    * 
    * @param request - ListShareReceiversRequest
    * @param headers - map
@@ -2803,7 +2885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the receivers of a share.
+   * 获取共享中的接收者列表
    * 
    * @param request - ListShareReceiversRequest
    * @returns ListShareReceiversResponse
@@ -2815,7 +2897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves shared resources.
+   * 获取共享资源列表
    * 
    * @param request - ListShareResourcesRequest
    * @param headers - map
@@ -2852,7 +2934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves shared resources.
+   * 获取共享资源列表
    * 
    * @param request - ListShareResourcesRequest
    * @returns ListShareResourcesResponse
@@ -2864,7 +2946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of table snapshots.
+   * 查看表快照列表
    * 
    * @param request - ListSnapshotsRequest
    * @param headers - map
@@ -2901,7 +2983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of table snapshots.
+   * 查看表快照列表
    * 
    * @param request - ListSnapshotsRequest
    * @returns ListSnapshotsResponse
@@ -2913,7 +2995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the details of one or more tables.
+   * 查看表详情列表
    * 
    * @param request - ListTableDetailsRequest
    * @param headers - map
@@ -2929,6 +3011,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageToken)) {
       query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
     }
 
     if (!$dara.isNull(request.tableNamePattern)) {
@@ -2958,7 +3044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the details of one or more tables.
+   * 查看表详情列表
    * 
    * @param request - ListTableDetailsRequest
    * @returns ListTableDetailsResponse
@@ -2970,7 +3056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of tables.
+   * 查看表详情列表
    * 
    * @param request - ListTablesRequest
    * @param headers - map
@@ -3011,7 +3097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of tables.
+   * 查看表详情列表
    * 
    * @param request - ListTablesRequest
    * @returns ListTablesResponse
@@ -3023,7 +3109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the roles assigned to a user.
+   * 获取用户角色列表
    * 
    * @param request - ListUserRolesRequest
    * @param headers - map
@@ -3064,7 +3150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the roles assigned to a user.
+   * 获取用户角色列表
    * 
    * @param request - ListUserRolesRequest
    * @returns ListUserRolesResponse
@@ -3076,7 +3162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of users.
+   * 获取用户列表
    * 
    * @param request - ListUsersRequest
    * @param headers - map
@@ -3121,7 +3207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of users.
+   * 获取用户列表
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -3133,7 +3219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the details of one or more views.
+   * 查看视图详情列表
    * 
    * @param request - ListViewDetailsRequest
    * @param headers - map
@@ -3174,7 +3260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the details of one or more views.
+   * 查看视图详情列表
    * 
    * @param request - ListViewDetailsRequest
    * @returns ListViewDetailsResponse
@@ -3186,7 +3272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the names of views.
+   * 查看视图详情列表
    * 
    * @param request - ListViewsRequest
    * @param headers - map
@@ -3227,7 +3313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the names of views.
+   * 查看视图详情列表
    * 
    * @param request - ListViewsRequest
    * @returns ListViewsResponse
@@ -3239,7 +3325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Syncs users.
+   * 刷新用户同步
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3264,7 +3350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Syncs users.
+   * 刷新用户同步
    * @returns RefreshUserSyncResponse
    */
   async refreshUserSync(): Promise<$_model.RefreshUserSyncResponse> {
@@ -3274,7 +3360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes a role from one or more users.
+   * 批量取消授予角色权限给用户
    * 
    * @param request - RevokeRoleFromUsersRequest
    * @param headers - map
@@ -3311,7 +3397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes a role from one or more users.
+   * 批量取消授予角色权限给用户
    * 
    * @param request - RevokeRoleFromUsersRequest
    * @returns RevokeRoleFromUsersResponse
@@ -3323,7 +3409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back a table.
+   * 回滚表
    * 
    * @param request - RollbackTableRequest
    * @param headers - map
@@ -3356,7 +3442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back a table.
+   * 回滚表
    * 
    * @param request - RollbackTableRequest
    * @returns RollbackTableResponse
@@ -3368,7 +3454,68 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Subscribes to DLF in the current region.
+   * 提交查询
+   * 
+   * @param request - SubmitQueryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitQueryResponse
+   */
+  async submitQueryWithOptions(request: $_model.SubmitQueryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitQueryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.defaultCatalog)) {
+      body["defaultCatalog"] = request.defaultCatalog;
+    }
+
+    if (!$dara.isNull(request.defaultDatabase)) {
+      body["defaultDatabase"] = request.defaultDatabase;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.sql)) {
+      body["sql"] = request.sql;
+    }
+
+    if (!$dara.isNull(request.tier)) {
+      body["tier"] = request.tier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitQuery",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitQueryResponse>(await this.callApi(params, req, runtime), new $_model.SubmitQueryResponse({}));
+  }
+
+  /**
+   * 提交查询
+   * 
+   * @param request - SubmitQueryRequest
+   * @returns SubmitQueryResponse
+   */
+  async submitQuery(request: $_model.SubmitQueryRequest): Promise<$_model.SubmitQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 订阅当前地域的 DLF
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3393,7 +3540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Subscribes to DLF in the current region.
+   * 订阅当前地域的 DLF
    * @returns SubscribeResponse
    */
   async subscribe(): Promise<$_model.SubscribeResponse> {
@@ -3403,7 +3550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a DLF role.
+   * 更新角色
    * 
    * @param request - UpdateRoleRequest
    * @param headers - map
@@ -3444,7 +3591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a DLF role.
+   * 更新角色
    * 
    * @param request - UpdateRoleRequest
    * @returns UpdateRoleResponse
@@ -3456,7 +3603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the users for a role.
+   * 更新角色用户
    * 
    * @param request - UpdateRoleUsersRequest
    * @param headers - map
@@ -3493,7 +3640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the users for a role.
+   * 更新角色用户
    * 
    * @param request - UpdateRoleUsersRequest
    * @returns UpdateRoleUsersResponse
@@ -3502,6 +3649,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateRoleUsersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 校验 Catalog 的 BYOK SSE-KMS 配置:用下发的临时凭证对存储桶做一次 SSE-KMS 写探针并校验
+   * 
+   * @param request - VerifyCatalogKmsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyCatalogKmsResponse
+   */
+  async verifyCatalogKmsWithOptions(catalog: string, request: $_model.VerifyCatalogKmsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyCatalogKmsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.kmsKeyId)) {
+      body["kmsKeyId"] = request.kmsKeyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyCatalogKms",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/catalogs/${$dara.URL.percentEncode(catalog)}/kms/verify`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyCatalogKmsResponse>(await this.callApi(params, req, runtime), new $_model.VerifyCatalogKmsResponse({}));
+  }
+
+  /**
+   * 校验 Catalog 的 BYOK SSE-KMS 配置:用下发的临时凭证对存储桶做一次 SSE-KMS 写探针并校验
+   * 
+   * @param request - VerifyCatalogKmsRequest
+   * @returns VerifyCatalogKmsResponse
+   */
+  async verifyCatalogKms(catalog: string, request: $_model.VerifyCatalogKmsRequest): Promise<$_model.VerifyCatalogKmsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.verifyCatalogKmsWithOptions(catalog, request, headers, runtime);
   }
 
 }

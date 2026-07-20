@@ -3,26 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetVpcConfigResponseBodyTrustedVpcs extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the VPC was created, in UNIX timestamp milliseconds.
-   * 
-   * @example
-   * 1744970111419
-   */
   createdAt?: number;
-  /**
-   * @remarks
-   * List of configuration items.
-   */
   extendedOptions?: { [key: string]: string };
-  /**
-   * @remarks
-   * The ID of the VPC.
-   * 
-   * @example
-   * vpc-uf67xxxx
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,10 +35,6 @@ export class GetVpcConfigResponseBodyTrustedVpcs extends $dara.Model {
 }
 
 export class GetVpcConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * List of trusted VPCs.
-   */
   trustedVpcs?: GetVpcConfigResponseBodyTrustedVpcs[];
   static names(): { [key: string]: string } {
     return {

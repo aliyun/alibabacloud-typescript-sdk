@@ -4,17 +4,10 @@ import { PartitionSummary } from "./PartitionSummary";
 
 
 export class PartitionSummaries extends $dara.Model {
-  /**
-   * @remarks
-   * The token to retrieve the next page of results. A null value indicates that the last page of results has been returned.
-   * 
-   * @example
-   * hh=10
-   */
   nextPageToken?: string;
   /**
    * @remarks
-   * The partitions.
+   * Current page of partition profiles
    */
   partitions?: PartitionSummary[];
   static names(): { [key: string]: string } {

@@ -4,10 +4,6 @@ import { FullSchemaChange } from "./FullSchemaChange";
 
 
 export class AlterTableRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The changes made to the table.
-   */
   changes?: FullSchemaChange[];
   static names(): { [key: string]: string } {
     return {

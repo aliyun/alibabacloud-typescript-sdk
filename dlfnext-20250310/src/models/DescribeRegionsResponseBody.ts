@@ -5,34 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The description.
-   * 
-   * @example
-   * 华东 1
+   * The region description
    */
   description?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
+   * The region name
    */
   name?: string;
   /**
    * @remarks
-   * The display name.
-   * 
-   * @example
-   * 华东1（杭州）
+   * The region show name
    */
   showName?: string;
   /**
    * @remarks
-   * The type.
-   * 
-   * @example
-   * region
+   * The region type
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -63,10 +51,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The regions.
-   */
   regions?: DescribeRegionsResponseBodyRegions[];
   static names(): { [key: string]: string } {
     return {

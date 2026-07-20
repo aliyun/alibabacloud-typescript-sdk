@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSnapshotsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum number of records to return on a single page.
-   * 
-   * @example
-   * 1000
-   */
   maxResults?: number;
-  /**
-   * @remarks
-   * The token that is used to retrieve the next page of results. If the response does not provide this token, pass an empty string ("").
-   * 
-   * @example
-   * ""
-   */
   pageToken?: string;
   static names(): { [key: string]: string } {
     return {

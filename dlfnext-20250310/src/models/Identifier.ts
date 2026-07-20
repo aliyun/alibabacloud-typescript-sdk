@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Identifier extends $dara.Model {
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database_name
-   */
   database?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * table_name
-   */
   object?: string;
   static names(): { [key: string]: string } {
     return {

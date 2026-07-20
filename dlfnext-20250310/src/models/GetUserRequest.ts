@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The resource descriptor of the user.
-   * 
-   * @example
-   * acs:ram::[accountId]:user/user_name
-   */
   userPrincipal?: string;
   static names(): { [key: string]: string } {
     return {

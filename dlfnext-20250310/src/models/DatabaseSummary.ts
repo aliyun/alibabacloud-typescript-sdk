@@ -5,115 +5,41 @@ import * as $dara from '@darabonba/typescript';
 export class DatabaseSummary extends $dara.Model {
   /**
    * @remarks
-   * The database creation time.
-   * 
-   * @example
-   * 1744970111419
+   * Creation timestamp in milliseconds
    */
   createdAt?: number;
   /**
    * @remarks
-   * The database name.
-   * 
-   * @example
-   * default
+   * 库名 - Database name
    */
   databaseName?: string;
   /**
    * @remarks
-   * The date when the storage overview data was updated.
-   * 
-   * @example
-   * 2025-06-01
+   * Last profile update date in format yyyyMMdd
    */
   generatedDate?: string;
   /**
    * @remarks
-   * The storage location.
-   * 
-   * @example
-   * oss://clg-paimon-xxx/db-xxx
+   * Storage location URI
    */
   location?: string;
-  /**
-   * @remarks
-   * The storage size of Archive data files.
-   * 
-   * @example
-   * 10240
-   */
   objTypeArchiveSize?: number;
-  /**
-   * @remarks
-   * The storage size of Cold Archive data files.
-   * 
-   * @example
-   * 10240
-   */
   objTypeColdArchiveSize?: number;
-  /**
-   * @remarks
-   * The storage size of Infrequent Access data files.
-   * 
-   * @example
-   * 10240
-   */
   objTypeIaSize?: number;
-  /**
-   * @remarks
-   * The storage size of Standard data files.
-   * 
-   * @example
-   * 10240
-   */
   objTypeStandardSize?: number;
-  /**
-   * @remarks
-   * The total number of partitions.
-   * 
-   * @example
-   * 1000
-   */
   partitionCount?: number;
   /**
    * @remarks
-   * The total number of tables.
-   * 
-   * @example
-   * 50
+   * Total storage in bytes
    */
   tableCount?: number;
-  /**
-   * @remarks
-   * The total number of files.
-   * 
-   * @example
-   * 2000
-   */
   totalFileCount?: number;
   /**
    * @remarks
-   * The storage capacity.
-   * 
-   * @example
-   * 1048576
+   * Total file count
    */
   totalFileSizeInBytes?: number;
-  /**
-   * @remarks
-   * The total number of metadata files.
-   * 
-   * @example
-   * 1500
-   */
   totalMetaFileCount?: number;
-  /**
-   * @remarks
-   * The storage size of metadata files, in bytes.
-   * 
-   * @example
-   * 10240
-   */
   totalMetaSizeInBytes?: number;
   static names(): { [key: string]: string } {
     return {

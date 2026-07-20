@@ -4,26 +4,8 @@ import { Permission } from "./Permission";
 
 
 export class FailurePermission extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * 空
-   */
   errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * 空
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The permission information.
-   */
   permission?: Permission;
   static names(): { [key: string]: string } {
     return {

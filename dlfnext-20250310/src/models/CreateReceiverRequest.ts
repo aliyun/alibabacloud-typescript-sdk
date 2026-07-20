@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateReceiverRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The comment.
-   * 
-   * @example
-   * Customer A.
-   */
   comment?: string;
-  /**
-   * @remarks
-   * The name of the receiver.
-   * 
-   * @example
-   * receiver_name
-   */
   receiverName?: string;
-  /**
-   * @remarks
-   * The ID of the receiver\\"s account.
-   * 
-   * @example
-   * 1111
-   */
   receiverTenantId?: number;
   static names(): { [key: string]: string } {
     return {

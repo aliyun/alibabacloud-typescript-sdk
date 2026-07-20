@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPartitionsByNamesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * 分区规格列表。
-   */
   specs?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {

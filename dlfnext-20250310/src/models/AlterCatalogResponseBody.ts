@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlterCatalogResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The unchanged items.
-   */
   missing?: string[];
-  /**
-   * @remarks
-   * The deleted items.
-   */
   removed?: string[];
-  /**
-   * @remarks
-   * The updated items.
-   */
   updated?: string[];
   static names(): { [key: string]: string } {
     return {

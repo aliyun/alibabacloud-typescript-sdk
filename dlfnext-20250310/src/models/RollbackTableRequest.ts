@@ -4,10 +4,6 @@ import { FullInstant } from "./FullInstant";
 
 
 export class RollbackTableRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the instance.
-   */
   instant?: FullInstant;
   static names(): { [key: string]: string } {
     return {

@@ -5,26 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class MoMValues extends $dara.Model {
   /**
    * @remarks
-   * The current value.
-   * 
-   * @example
-   * 1000
+   * total
    */
   currentValue?: number;
   /**
    * @remarks
-   * The value of the previous day.
-   * 
-   * @example
-   * 800
+   * daily addition
    */
   lastDayValue?: number;
   /**
    * @remarks
-   * The value of the previous month.
-   * 
-   * @example
-   * 100
+   * monthly addition
    */
   lastMonthValue?: number;
   static names(): { [key: string]: string } {

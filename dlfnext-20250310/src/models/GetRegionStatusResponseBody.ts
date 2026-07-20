@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRegionStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether DLF\\"s service-linked role has been created.
-   * 
-   * @example
-   * true
-   */
   serviceRoleExists?: boolean;
-  /**
-   * @remarks
-   * The status.
-   * 
-   * @example
-   * READY
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
