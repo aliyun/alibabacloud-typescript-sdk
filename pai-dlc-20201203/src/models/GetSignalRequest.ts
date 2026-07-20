@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSignalRequest extends $dara.Model {
   /**
+   * @remarks
+   * The temporary token used for authentication.
+   * 
    * @example
    * eyXXXX-XXXX.XXXXX
    */

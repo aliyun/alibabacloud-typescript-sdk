@@ -5,10 +5,17 @@ import { SignalTarget } from "./SignalTarget";
 
 export class CreateSignalRequest extends $dara.Model {
   /**
+   * @remarks
+   * The signal code.
+   * 
    * @example
    * SIGUSR1
    */
   signal?: string;
+  /**
+   * @remarks
+   * The signal delivery scope.
+   */
   target?: SignalTarget;
   static names(): { [key: string]: string } {
     return {

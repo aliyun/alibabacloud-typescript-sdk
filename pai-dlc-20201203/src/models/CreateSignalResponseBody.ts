@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSignalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc********
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 019F6385-7481-57A7-BEC9-***********
    */
   requestId?: string;
   /**
+   * @remarks
+   * The signal code.
+   * 
    * @example
    * SIGUSR1
    */
   signal?: string;
   /**
+   * @remarks
+   * The signal ID.
+   * 
    * @example
    * oper************
    */
   signalId?: string;
   /**
+   * @remarks
+   * The signal status.
+   * 
    * @example
    * Succeeded
    */

@@ -388,13 +388,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建信号
+   * Sends a signal to the Pods of a specified job and retrieves the signal ID.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该API用于向指定作业的一个或多个Pod发送特定信号。
-   * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
-   * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+   * ## Operation description
+   * - This API operation sends a specific signal to one or more Pods of a specified job.
+   * - After the signal is sent, the API immediately returns a `SignalId`. The actual signal delivery is processed by a background worker.
+   * - Query the signal status by calling the `GetSignal` or `ListSignals` operation.
    * 
    * @param request - CreateSignalRequest
    * @param headers - map
@@ -431,13 +431,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建信号
+   * Sends a signal to the Pods of a specified job and retrieves the signal ID.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该API用于向指定作业的一个或多个Pod发送特定信号。
-   * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
-   * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+   * ## Operation description
+   * - This API operation sends a specific signal to one or more Pods of a specified job.
+   * - After the signal is sent, the API immediately returns a `SignalId`. The actual signal delivery is processed by a background worker.
+   * - Query the signal status by calling the `GetSignal` or `ListSignals` operation.
    * 
    * @param request - CreateSignalRequest
    * @returns CreateSignalResponse
@@ -1363,11 +1363,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取信号
+   * Queries the details of a specific signal in a specified job.
    * 
    * @remarks
-   * ## 请求说明
-   * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+   * ## Operation description
+   * This API allows you to retrieve the signal details for the specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing status.
    * 
    * @param request - GetSignalRequest
    * @param headers - map
@@ -1400,11 +1400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取信号
+   * Queries the details of a specific signal in a specified job.
    * 
    * @remarks
-   * ## 请求说明
-   * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+   * ## Operation description
+   * This API allows you to retrieve the signal details for the specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing status.
    * 
    * @param request - GetSignalRequest
    * @returns GetSignalResponse
@@ -2111,11 +2111,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取信号列表
+   * Queries all signal records of a specified job.
    * 
    * @remarks
-   * ## 请求说明
-   * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+   * ## Operation description
+   * You can call this API operation to retrieve the details of all signal records for a specific job, including signal IDs, statuses, and creation times. You can use query parameters to further filter or sort the results.
    * 
    * @param request - ListSignalsRequest
    * @param headers - map
@@ -2168,11 +2168,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取信号列表
+   * Queries all signal records of a specified job.
    * 
    * @remarks
-   * ## 请求说明
-   * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+   * ## Operation description
+   * You can call this API operation to retrieve the details of all signal records for a specific job, including signal IDs, statuses, and creation times. You can use query parameters to further filter or sort the results.
    * 
    * @param request - ListSignalsRequest
    * @returns ListSignalsResponse
