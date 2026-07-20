@@ -16,7 +16,7 @@ export class CustomContainerConfig extends $dara.Model {
    * Specifies whether to enable image acceleration. Valid values: Default: enables image acceleration. None: disables image acceleration.
    * 
    * @example
-   * default
+   * Default
    */
   accelerationType?: string;
   /**

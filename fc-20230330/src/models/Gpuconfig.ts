@@ -16,7 +16,7 @@ export class GPUConfig extends $dara.Model {
    * The type of GPU cards. Valid values: fc.gpu.tesla.1: Tesla T4 fc.gpu.ampere.1: Ampere A10
    * 
    * @example
-   * fc.gpu.ampere.1
+   * fc.gpu.tesla.1
    */
   gpuType?: string;
   static names(): { [key: string]: string } {

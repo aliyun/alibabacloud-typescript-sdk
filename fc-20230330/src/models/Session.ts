@@ -2,14 +2,16 @@
 import * as $dara from '@darabonba/typescript';
 import { JuiceFsConfig } from "./JuiceFsConfig";
 import { NASConfig } from "./Nasconfig";
+import { CreateSessionNetworkConfig } from "./CreateSessionNetworkConfig";
 import { OSSMountConfig } from "./OssmountConfig";
 import { PolarFsConfig } from "./PolarFsConfig";
 
 
 export class Session extends $dara.Model {
+  allowInternetAccess?: boolean;
   /**
    * @remarks
-   * The instance ID of the function instance associated with the session.
+   * The instance ID of the function associated with the session.
    * 
    * @example
    * c-68999e02-16a1955c-d2a03d1ccs
@@ -25,7 +27,11 @@ export class Session extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * Specifies whether to disable session ID reuse. Default value: False, which indicates that after the session expires, you can use the same session ID to initiate requests. The system treats the request as a new session and binds it to a new instance. If you set this parameter to True, the session ID cannot be reused after the session expires.
+   * Specifies whether to disable session ID reuse after the session expires. Valid values:
+   * - False: After the session expires, you can use the same session ID to initiate requests. The system treats it as a new session and binds it to a new instance.
+   * - True: After the session expires, the session ID cannot be reused.
+   * 
+   * Default value: False.
    * 
    * @example
    * false
@@ -55,11 +61,12 @@ export class Session extends $dara.Model {
    * The NAS configuration. After configuration, the instance associated with the session can access the specified NAS resource.
    */
   nasConfig?: NASConfig;
+  network?: CreateSessionNetworkConfig;
   ossMountConfig?: OSSMountConfig;
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
-   * The qualifier passed in when the customer created the session. If not specified, the default value is LATEST.
+   * The qualifier passed when the customer created the session. If not specified, the default value is LATEST.
    * 
    * @example
    * AliasName1
@@ -83,7 +90,7 @@ export class Session extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The idle timeout period of the session.
+   * The session idle timeout.
    * 
    * @example
    * 1800
@@ -101,14 +108,16 @@ export class Session extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The maximum lifetime of the session.
+   * The maximum session lifetime.
    * 
    * @example
    * 21600
    */
   sessionTTLInSeconds?: number;
+  trafficAccessToken?: string;
   static names(): { [key: string]: string } {
     return {
+      allowInternetAccess: 'allowInternetAccess',
       containerId: 'containerId',
       createdTime: 'createdTime',
       disableSessionIdReuse: 'disableSessionIdReuse',
@@ -118,6 +127,7 @@ export class Session extends $dara.Model {
       juiceFsConfig: 'juiceFsConfig',
       lastModifiedTime: 'lastModifiedTime',
       nasConfig: 'nasConfig',
+      network: 'network',
       ossMountConfig: 'ossMountConfig',
       polarFsConfig: 'polarFsConfig',
       qualifier: 'qualifier',
@@ -126,11 +136,13 @@ export class Session extends $dara.Model {
       sessionIdleTimeoutInSeconds: 'sessionIdleTimeoutInSeconds',
       sessionStatus: 'sessionStatus',
       sessionTTLInSeconds: 'sessionTTLInSeconds',
+      trafficAccessToken: 'trafficAccessToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allowInternetAccess: 'boolean',
       containerId: 'string',
       createdTime: 'string',
       disableSessionIdReuse: 'boolean',
@@ -140,6 +152,7 @@ export class Session extends $dara.Model {
       juiceFsConfig: JuiceFsConfig,
       lastModifiedTime: 'string',
       nasConfig: NASConfig,
+      network: CreateSessionNetworkConfig,
       ossMountConfig: OSSMountConfig,
       polarFsConfig: PolarFsConfig,
       qualifier: 'string',
@@ -148,6 +161,7 @@ export class Session extends $dara.Model {
       sessionIdleTimeoutInSeconds: 'number',
       sessionStatus: 'string',
       sessionTTLInSeconds: 'number',
+      trafficAccessToken: 'string',
     };
   }
 
@@ -157,6 +171,9 @@ export class Session extends $dara.Model {
     }
     if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
       (this.nasConfig as any).validate();
+    }
+    if(this.network && typeof (this.network as any).validate === 'function') {
+      (this.network as any).validate();
     }
     if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
       (this.ossMountConfig as any).validate();

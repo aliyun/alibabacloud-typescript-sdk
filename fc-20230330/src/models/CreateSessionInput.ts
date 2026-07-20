@@ -2,14 +2,16 @@
 import * as $dara from '@darabonba/typescript';
 import { JuiceFsConfig } from "./JuiceFsConfig";
 import { NASConfig } from "./Nasconfig";
+import { CreateSessionNetworkConfig } from "./CreateSessionNetworkConfig";
 import { OSSMountConfig } from "./OssmountConfig";
 import { PolarFsConfig } from "./PolarFsConfig";
 
 
 export class CreateSessionInput extends $dara.Model {
+  allowInternetAccess?: boolean;
   /**
    * @remarks
-   * Specifies whether to disable session ID reuse. Default value: False, which indicates that after a session with a specific SessionID expires, you can send requests with the same SessionID, and the system treats it as a new session bound to a new instance. If this parameter is set to True, the SessionID cannot be reused after the session expires.
+   * Default value: False. This indicates that after a session with a specific SessionID expires, you can send requests with the same SessionID. The system treats it as a new session and binds it to a new instance. If set to True, the SessionID cannot be reused after the session expires.
    * 
    * @example
    * false
@@ -23,9 +25,10 @@ export class CreateSessionInput extends $dara.Model {
    * The NAS configuration. After this parameter is configured, instances associated with the session can access the specified NAS resources.
    */
   nasConfig?: NASConfig;
+  network?: CreateSessionNetworkConfig;
   /**
    * @remarks
-   * The OSS configuration. After this parameter is configured, instances associated with the session can access the specified OSS resources.
+   * The OSS mount configuration. After this parameter is configured, instances associated with the session can access the specified OSS resources.
    */
   ossMountConfig?: OSSMountConfig;
   /**
@@ -35,7 +38,7 @@ export class CreateSessionInput extends $dara.Model {
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
-   * The custom session ID. If this parameter is not specified, the server generates a session ID. If specified, the value is used as the session ID. This parameter applies only to the HEADER_FIELD affinity mode. Format: the length is limited to [0,64]. The first character must be from **a-zA-Z0-9_**, and subsequent characters can be from **a-zA-Z0-9_-**.
+   * The custom session ID. If not specified, the server generates one. If specified, this value is used as the session ID. This parameter applies only to the HEADER_FIELD affinity mode. Format: the length is limited to [0,64]. The first character must be from **a-zA-Z0-9_**. Subsequent characters can be from **a-zA-Z0-9_-**.
    * 
    * @example
    * custom-test-session-id
@@ -43,7 +46,7 @@ export class CreateSessionInput extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The session idle timeout period.
+   * The session idle timeout.
    * 
    * @example
    * 1800
@@ -59,11 +62,13 @@ export class CreateSessionInput extends $dara.Model {
   sessionTTLInSeconds?: number;
   static names(): { [key: string]: string } {
     return {
+      allowInternetAccess: 'allowInternetAccess',
       disableSessionIdReuse: 'disableSessionIdReuse',
       enableAutoPause: 'enableAutoPause',
       enableAutoResume: 'enableAutoResume',
       juiceFsConfig: 'juiceFsConfig',
       nasConfig: 'nasConfig',
+      network: 'network',
       ossMountConfig: 'ossMountConfig',
       polarFsConfig: 'polarFsConfig',
       sessionId: 'sessionId',
@@ -74,11 +79,13 @@ export class CreateSessionInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowInternetAccess: 'boolean',
       disableSessionIdReuse: 'boolean',
       enableAutoPause: 'boolean',
       enableAutoResume: 'boolean',
       juiceFsConfig: JuiceFsConfig,
       nasConfig: NASConfig,
+      network: CreateSessionNetworkConfig,
       ossMountConfig: OSSMountConfig,
       polarFsConfig: PolarFsConfig,
       sessionId: 'string',
@@ -93,6 +100,9 @@ export class CreateSessionInput extends $dara.Model {
     }
     if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
       (this.nasConfig as any).validate();
+    }
+    if(this.network && typeof (this.network as any).validate === 'function') {
+      (this.network as any).validate();
     }
     if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
       (this.ossMountConfig as any).validate();
