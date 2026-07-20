@@ -40,10 +40,10 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   /**
    * @remarks
    * The deployment status of the application. Valid values:
-   * - **undeploy**: not deployed.
-   * - **deploying**: being deployed.
-   * - **deployed**: deployed.
-   * - **undeploying**: being undeployed.
+   * - **undeploy**: Not deployed.
+   * - **deploying**: Being deployed.
+   * - **deployed**: Deployed.
+   * - **undeploying**: Being undeployed.
    * 
    * @example
    * undeploy
@@ -75,7 +75,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   expectPercentage?: number;
   /**
    * @remarks
-   * Indicates whether a full release is performed. This field takes effect only when PublishType is set to region.
+   * Indicates whether the application is fully released. This field takes effect only when PublishType is set to region.
    * 
    * @example
    * true
@@ -85,8 +85,8 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
    * @remarks
    * The publishing environment. Valid values:
    * 
-   * - **prod**: production environment.
-   * - **staging**: staging environment.
+   * - **prod**: Production environment.
+   * - **staging**: Staging environment.
    * 
    * @example
    * prod
@@ -103,10 +103,10 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
   /**
    * @remarks
    * The publishing status of the application. Valid values:
-   * - **publishing**: being published.
-   * - **published**: published.
-   * - **rollbacking**: being rolled back.
-   * - **rollbacked**: rolled back.
+   * - **publishing**: Being published.
+   * - **published**: Published.
+   * - **rollbacking**: Being rolled back.
+   * - **rollbacked**: Rolled back.
    * 
    * @example
    * pubishing
@@ -124,9 +124,9 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
    * @remarks
    * The publishing type. Valid values:
    * 
-   * - **percentage**: publish by percentage.
+   * - **percentage**: Publish by percentage.
    * 
-   * - **region**: publish by region.
+   * - **region**: Publish by region.
    * 
    * If this parameter is not specified, the default value percentage is used.
    * 
@@ -214,7 +214,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
 export class GetEdgeContainerAppStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The application status information.
+   * The object that describes the application status information.
    */
   appStatus?: GetEdgeContainerAppStatusResponseBodyAppStatus;
   /**

@@ -2037,8 +2037,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
-   * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
+   * Creates an edge container application. You can deploy and release the application by version to containerize edge services.
+   * Note: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
    * 
    * @param request - CreateEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2121,8 +2121,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
-   * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
+   * Creates an edge container application. You can deploy and release the application by version to containerize edge services.
+   * Note: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
    * 
    * @param request - CreateEdgeContainerAppRequest
    * @returns CreateEdgeContainerAppResponse
@@ -2187,7 +2187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
+   * Creates an associated domain name for an edge container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2226,7 +2226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
+   * Creates an associated domain name for an edge container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
    * @returns CreateEdgeContainerAppRecordResponse
@@ -10992,6 +10992,9 @@ export default class Client extends OpenApi {
   /**
    * Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
    * 
+   * @remarks
+   * You must first activate the edge container service by calling OpenEdgeContainer, and then confirm that an available application exists by calling ListEdgeContainerApps or create an application by calling CreateEdgeContainerApp.
+   * 
    * @param request - GetEdgeContainerAppStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEdgeContainerAppStatusResponse
@@ -11026,6 +11029,9 @@ export default class Client extends OpenApi {
 
   /**
    * Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
+   * 
+   * @remarks
+   * You must first activate the edge container service by calling OpenEdgeContainer, and then confirm that an available application exists by calling ListEdgeContainerApps or create an application by calling CreateEdgeContainerApp.
    * 
    * @param request - GetEdgeContainerAppStatusRequest
    * @returns GetEdgeContainerAppStatusResponse
@@ -18225,7 +18231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
+   * Publishes a specified version of an edge container application, allowing users to iterate application versions through this operation.
+   * 
+   * @remarks
+   * Prerequisites: 1) Activate the edge container service (by calling the OpenEdgeContainer operation or using the console). 2) Create an application (by calling CreateEdgeContainerApp to obtain the AppId). 3) Create an application version (by calling CreateEdgeContainerAppVersion to obtain the VersionId).
    * 
    * @param tmpReq - PublishEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18296,7 +18305,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
+   * Publishes a specified version of an edge container application, allowing users to iterate application versions through this operation.
+   * 
+   * @remarks
+   * Prerequisites: 1) Activate the edge container service (by calling the OpenEdgeContainer operation or using the console). 2) Create an application (by calling CreateEdgeContainerApp to obtain the AppId). 3) Create an application version (by calling CreateEdgeContainerAppVersion to obtain the VersionId).
    * 
    * @param request - PublishEdgeContainerAppVersionRequest
    * @returns PublishEdgeContainerAppVersionResponse
@@ -22822,6 +22834,102 @@ export default class Client extends OpenApi {
   async updateRewriteUrlRule(request: $_model.UpdateRewriteUrlRuleRequest): Promise<$_model.UpdateRewriteUrlRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRewriteUrlRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the build configuration of an EdgeRoutine (ER).
+   * 
+   * @param tmpReq - UpdateRoutineBuildConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRoutineBuildConfigurationResponse
+   */
+  async updateRoutineBuildConfigurationWithOptions(tmpReq: $_model.UpdateRoutineBuildConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRoutineBuildConfigurationResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateRoutineBuildConfigurationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.environmentVariables)) {
+      request.environmentVariablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.environmentVariables, "EnvironmentVariables", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.assetsDirectory)) {
+      query["AssetsDirectory"] = request.assetsDirectory;
+    }
+
+    if (!$dara.isNull(request.buildBranches)) {
+      query["BuildBranches"] = request.buildBranches;
+    }
+
+    if (!$dara.isNull(request.buildCommand)) {
+      query["BuildCommand"] = request.buildCommand;
+    }
+
+    if (!$dara.isNull(request.environmentVariablesShrink)) {
+      query["EnvironmentVariables"] = request.environmentVariablesShrink;
+    }
+
+    if (!$dara.isNull(request.gitAccountId)) {
+      query["GitAccountId"] = request.gitAccountId;
+    }
+
+    if (!$dara.isNull(request.installCommand)) {
+      query["InstallCommand"] = request.installCommand;
+    }
+
+    if (!$dara.isNull(request.isPrivate)) {
+      query["IsPrivate"] = request.isPrivate;
+    }
+
+    if (!$dara.isNull(request.nodeVersion)) {
+      query["NodeVersion"] = request.nodeVersion;
+    }
+
+    if (!$dara.isNull(request.productionBranch)) {
+      query["ProductionBranch"] = request.productionBranch;
+    }
+
+    if (!$dara.isNull(request.repository)) {
+      query["Repository"] = request.repository;
+    }
+
+    if (!$dara.isNull(request.rootDirectory)) {
+      query["RootDirectory"] = request.rootDirectory;
+    }
+
+    if (!$dara.isNull(request.routineEntry)) {
+      query["RoutineEntry"] = request.routineEntry;
+    }
+
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRoutineBuildConfiguration",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRoutineBuildConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRoutineBuildConfigurationResponse({}));
+  }
+
+  /**
+   * Modifies the build configuration of an EdgeRoutine (ER).
+   * 
+   * @param request - UpdateRoutineBuildConfigurationRequest
+   * @returns UpdateRoutineBuildConfigurationResponse
+   */
+  async updateRoutineBuildConfiguration(request: $_model.UpdateRoutineBuildConfigurationRequest): Promise<$_model.UpdateRoutineBuildConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRoutineBuildConfigurationWithOptions(request, runtime);
   }
 
   /**
