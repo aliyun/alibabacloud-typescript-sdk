@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeServiceLinkedRoleStatusRequestSdkRequest extends $dara.Model {
+  /**
+   * @example
+   * AliyunServiceRoleForSas
+   */
   serviceLinkedRole?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +30,10 @@ export class DescribeServiceLinkedRoleStatusRequestSdkRequest extends $dara.Mode
 }
 
 export class DescribeServiceLinkedRoleStatusRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   sdkRequest?: DescribeServiceLinkedRoleStatusRequestSdkRequest;
   static names(): { [key: string]: string } {

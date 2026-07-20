@@ -5,14 +5,46 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class BindAuthToMachineRequestSdkRequest extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
   authVersion?: number;
+  /**
+   * @example
+   * 1
+   */
   autoBind?: number;
   bind?: string[];
+  /**
+   * @example
+   * true
+   */
   bindAll?: boolean;
+  /**
+   * @example
+   * [{\\"name\\":\\"clientStatus\\",\\"value\\":\\"online\\"},{\\"name\\":\\"authVersion\\",\\"value\\":\\"1\\"}]
+   */
   criteria?: string;
+  /**
+   * @example
+   * 1
+   */
   isPreBind?: number;
+  /**
+   * @example
+   * AND
+   */
   logicalExp?: string;
+  /**
+   * @example
+   * level2
+   */
   ntmVersion?: number;
+  /**
+   * @example
+   * 263076506250432
+   */
   preBindOrderId?: number;
   unBind?: string[];
   static names(): { [key: string]: string } {
@@ -61,6 +93,10 @@ export class BindAuthToMachineRequestSdkRequest extends $dara.Model {
 }
 
 export class BindAuthToMachineRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   sdkRequest?: BindAuthToMachineRequestSdkRequest;
   static names(): { [key: string]: string } {

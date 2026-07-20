@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BindAuthToMachineResponseBodyDataBody extends $dara.Model {
+  /**
+   * @example
+   * 5
+   */
   bindCount?: number;
+  /**
+   * @example
+   * 2
+   */
   insufficientCoreCount?: number;
+  /**
+   * @example
+   * 1
+   */
   insufficientEcsCount?: number;
+  /**
+   * @example
+   * F799C1E4-D4C6-5964-A6D1-4BA9CCF105F2
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2
+   */
   resultCode?: number;
+  /**
+   * @example
+   * 4
+   */
   unBindCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -67,10 +91,26 @@ export class BindAuthToMachineResponseBodyData extends $dara.Model {
 }
 
 export class BindAuthToMachineResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: BindAuthToMachineResponseBodyData;
+  /**
+   * @example
+   * Successful
+   */
   message?: string;
+  /**
+   * @example
+   * BEE90F8C-EDC2-5394-953B-D07A121612B5
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

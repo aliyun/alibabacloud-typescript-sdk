@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePostPaidBindRelShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-huhehaote
+   */
   regionId?: string;
   sdkRequestShrink?: string;
   static names(): { [key: string]: string } {

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDisposalToolStatusResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26,10 +30,26 @@ export class GetDisposalToolStatusResponseBodyData extends $dara.Model {
 }
 
 export class GetDisposalToolStatusResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetDisposalToolStatusResponseBodyData;
+  /**
+   * @example
+   * successful‌
+   */
   message?: string;
+  /**
+   * @example
+   * 6D462855-7835-5F91-835E-A62E44EC01CC
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

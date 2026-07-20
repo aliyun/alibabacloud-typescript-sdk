@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePostPaidBindRelResponseBodyDataBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   bindCount?: number;
+  /**
+   * @example
+   * 62A7DCE2-7D9C-511B-919E-0F46A9D19AE6
+   */
   requestId?: string;
+  /**
+   * @example
+   * OK
+   */
   resultCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,10 +70,26 @@ export class UpdatePostPaidBindRelResponseBodyData extends $dara.Model {
 }
 
 export class UpdatePostPaidBindRelResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: UpdatePostPaidBindRelResponseBodyData;
+  /**
+   * @example
+   * operation success.
+   */
   message?: string;
+  /**
+   * @example
+   * 6E20BFD0-AA91-594F-B5A7-32CED4777DA0
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

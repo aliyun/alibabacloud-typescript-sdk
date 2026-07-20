@@ -3,17 +3,65 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudCenterInstancesRequestSdkRequest extends $dara.Model {
+  /**
+   * @example
+   * {\\"contactIds\\":[\\"job-658854766790086656\\",\\"job-658854801112113152\\"]}
+   */
   criteria?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 0,10,13
+   */
   flags?: string;
+  /**
+   * @example
+   * 2
+   */
   importance?: number;
+  /**
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @example
+   * AND
+   */
   logicalExp?: string;
+  /**
+   * @example
+   * ecs
+   */
   machineTypes?: string;
+  /**
+   * @example
+   * AAAAAZak7VOTMl2OSt/xmc4J6gbg4Z5eXuWnrvKgOsGARL76TVbKERXHXKNFurqjtfDdRw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * true
+   */
   noGroupTrace?: boolean;
+  /**
+   * @example
+   * 99
+   */
   pageSize?: string;
+  /**
+   * @example
+   * 1587359978118481
+   */
   resourceDirectoryAccountId?: string;
+  /**
+   * @example
+   * true
+   */
   useNextToken?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -59,6 +107,10 @@ export class DescribeCloudCenterInstancesRequestSdkRequest extends $dara.Model {
 }
 
 export class DescribeCloudCenterInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   sdkRequest?: DescribeCloudCenterInstancesRequestSdkRequest;
   static names(): { [key: string]: string } {

@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("riskmanagement", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -392,6 +392,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * sas-查看已购买的云安全中心实例的版本详情
+   * 
+   * @param tmpReq - DescribeVersionConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVersionConfigResponse
+   */
+  async describeVersionConfigWithOptions(tmpReq: $_model.DescribeVersionConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVersionConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeVersionConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sdkRequest)) {
+      request.sdkRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sdkRequest, "SdkRequest", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sdkRequestShrink)) {
+      query["SdkRequest"] = request.sdkRequestShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVersionConfig",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVersionConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVersionConfigResponse({}));
+  }
+
+  /**
+   * sas-查看已购买的云安全中心实例的版本详情
+   * 
+   * @param request - DescribeVersionConfigRequest
+   * @returns DescribeVersionConfigResponse
+   */
+  async describeVersionConfig(request: $_model.DescribeVersionConfigRequest): Promise<$_model.DescribeVersionConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVersionConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 获取告警记录分析结果
    * 
    * @param tmpReq - GetAlertRecordAnalysisResultRequest
@@ -620,6 +672,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取安全合规包id
+   * 
+   * @param request - GetCompliancePackIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCompliancePackIdResponse
+   */
+  async getCompliancePackIdWithOptions(request: $_model.GetCompliancePackIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCompliancePackIdResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCompliancePackId",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCompliancePackIdResponse>(await this.callApi(params, req, runtime), new $_model.GetCompliancePackIdResponse({}));
+  }
+
+  /**
+   * 获取安全合规包id
+   * 
+   * @param request - GetCompliancePackIdRequest
+   * @returns GetCompliancePackIdResponse
+   */
+  async getCompliancePackId(request: $_model.GetCompliancePackIdRequest): Promise<$_model.GetCompliancePackIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCompliancePackIdWithOptions(request, runtime);
+  }
+
+  /**
    * 获取一键处置赋权状态
    * 
    * @param request - GetDisposalToolStatusRequest
@@ -659,6 +746,362 @@ export default class Client extends OpenApi {
   async getDisposalToolStatus(request: $_model.GetDisposalToolStatusRequest): Promise<$_model.GetDisposalToolStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDisposalToolStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户确认安全联系人记录
+   * 
+   * @param request - GetNotificationClickRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNotificationClickRecordResponse
+   */
+  async getNotificationClickRecordWithOptions(request: $_model.GetNotificationClickRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNotificationClickRecordResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNotificationClickRecord",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNotificationClickRecordResponse>(await this.callApi(params, req, runtime), new $_model.GetNotificationClickRecordResponse({}));
+  }
+
+  /**
+   * 获取用户确认安全联系人记录
+   * 
+   * @param request - GetNotificationClickRecordRequest
+   * @returns GetNotificationClickRecordResponse
+   */
+  async getNotificationClickRecord(request: $_model.GetNotificationClickRecordRequest): Promise<$_model.GetNotificationClickRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNotificationClickRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取安全联系人全部信息
+   * 
+   * @param request - GetNotificationContactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNotificationContactsResponse
+   */
+  async getNotificationContactsWithOptions(request: $_model.GetNotificationContactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNotificationContactsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNotificationContacts",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNotificationContactsResponse>(await this.callApi(params, req, runtime), new $_model.GetNotificationContactsResponse({}));
+  }
+
+  /**
+   * 获取安全联系人全部信息
+   * 
+   * @param request - GetNotificationContactsRequest
+   * @returns GetNotificationContactsResponse
+   */
+  async getNotificationContacts(request: $_model.GetNotificationContactsRequest): Promise<$_model.GetNotificationContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNotificationContactsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取安全联系人待处理数
+   * 
+   * @param request - GetNotificationPendNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNotificationPendNumberResponse
+   */
+  async getNotificationPendNumberWithOptions(request: $_model.GetNotificationPendNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNotificationPendNumberResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNotificationPendNumber",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNotificationPendNumberResponse>(await this.callApi(params, req, runtime), new $_model.GetNotificationPendNumberResponse({}));
+  }
+
+  /**
+   * 获取安全联系人待处理数
+   * 
+   * @param request - GetNotificationPendNumberRequest
+   * @returns GetNotificationPendNumberResponse
+   */
+  async getNotificationPendNumber(request: $_model.GetNotificationPendNumberRequest): Promise<$_model.GetNotificationPendNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNotificationPendNumberWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云资源管控事件详情
+   * 
+   * @param tmpReq - GetResourceControlEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceControlEventResponse
+   */
+  async getResourceControlEventWithOptions(tmpReq: $_model.GetResourceControlEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceControlEventResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetResourceControlEventShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventIdList)) {
+      request.eventIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventIdList, "EventIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventIdListShrink)) {
+      query["EventIdList"] = request.eventIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceControlEvent",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceControlEventResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceControlEventResponse({}));
+  }
+
+  /**
+   * 查询云资源管控事件详情
+   * 
+   * @param request - GetResourceControlEventRequest
+   * @returns GetResourceControlEventResponse
+   */
+  async getResourceControlEvent(request: $_model.GetResourceControlEventRequest): Promise<$_model.GetResourceControlEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getResourceControlEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取安全体检基础信息
+   * 
+   * @param request - GetSecurityCheckBaseInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecurityCheckBaseInfoResponse
+   */
+  async getSecurityCheckBaseInfoWithOptions(request: $_model.GetSecurityCheckBaseInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecurityCheckBaseInfoResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecurityCheckBaseInfo",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecurityCheckBaseInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetSecurityCheckBaseInfoResponse({}));
+  }
+
+  /**
+   * 获取安全体检基础信息
+   * 
+   * @param request - GetSecurityCheckBaseInfoRequest
+   * @returns GetSecurityCheckBaseInfoResponse
+   */
+  async getSecurityCheckBaseInfo(request: $_model.GetSecurityCheckBaseInfoRequest): Promise<$_model.GetSecurityCheckBaseInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecurityCheckBaseInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取安全检查结果基础信息
+   * 
+   * @param request - GetSecurityCheckResultBaseInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecurityCheckResultBaseInfoResponse
+   */
+  async getSecurityCheckResultBaseInfoWithOptions(request: $_model.GetSecurityCheckResultBaseInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecurityCheckResultBaseInfoResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecurityCheckResultBaseInfo",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecurityCheckResultBaseInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetSecurityCheckResultBaseInfoResponse({}));
+  }
+
+  /**
+   * 获取安全检查结果基础信息
+   * 
+   * @param request - GetSecurityCheckResultBaseInfoRequest
+   * @returns GetSecurityCheckResultBaseInfoResponse
+   */
+  async getSecurityCheckResultBaseInfo(request: $_model.GetSecurityCheckResultBaseInfoRequest): Promise<$_model.GetSecurityCheckResultBaseInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecurityCheckResultBaseInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取安全优化建议列表
+   * 
+   * @param tmpReq - GetSecuritySuggestionListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecuritySuggestionListResponse
+   */
+  async getSecuritySuggestionListWithOptions(tmpReq: $_model.GetSecuritySuggestionListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecuritySuggestionListResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetSecuritySuggestionListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listConfigRulesRequest)) {
+      request.listConfigRulesRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listConfigRulesRequest, "ListConfigRulesRequest", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.listConfigRulesRequestShrink)) {
+      query["ListConfigRulesRequest"] = request.listConfigRulesRequestShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecuritySuggestionList",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecuritySuggestionListResponse>(await this.callApi(params, req, runtime), new $_model.GetSecuritySuggestionListResponse({}));
+  }
+
+  /**
+   * 获取安全优化建议列表
+   * 
+   * @param request - GetSecuritySuggestionListRequest
+   * @returns GetSecuritySuggestionListResponse
+   */
+  async getSecuritySuggestionList(request: $_model.GetSecuritySuggestionListRequest): Promise<$_model.GetSecuritySuggestionListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecuritySuggestionListWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取安全优化建议条数
+   * 
+   * @param request - GetSecuritySuggestionNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecuritySuggestionNumberResponse
+   */
+  async getSecuritySuggestionNumberWithOptions(request: $_model.GetSecuritySuggestionNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecuritySuggestionNumberResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecuritySuggestionNumber",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecuritySuggestionNumberResponse>(await this.callApi(params, req, runtime), new $_model.GetSecuritySuggestionNumberResponse({}));
+  }
+
+  /**
+   * 获取安全优化建议条数
+   * 
+   * @param request - GetSecuritySuggestionNumberRequest
+   * @returns GetSecuritySuggestionNumberResponse
+   */
+  async getSecuritySuggestionNumber(request: $_model.GetSecuritySuggestionNumberRequest): Promise<$_model.GetSecuritySuggestionNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecuritySuggestionNumberWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取服务关联角色状态
+   * 
+   * @param request - GetServiceLinkedRoleStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceLinkedRoleStatusResponse
+   */
+  async getServiceLinkedRoleStatusWithOptions(request: $_model.GetServiceLinkedRoleStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceLinkedRoleStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceLinkedRoleStatus",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceLinkedRoleStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceLinkedRoleStatusResponse({}));
+  }
+
+  /**
+   * 获取服务关联角色状态
+   * 
+   * @param request - GetServiceLinkedRoleStatusRequest
+   * @returns GetServiceLinkedRoleStatusResponse
+   */
+  async getServiceLinkedRoleStatus(request: $_model.GetServiceLinkedRoleStatusRequest): Promise<$_model.GetServiceLinkedRoleStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceLinkedRoleStatusWithOptions(request, runtime);
   }
 
   /**
@@ -882,6 +1325,295 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询账号安全事件
+   * 
+   * @param request - QueryAccountSafetyIncidentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAccountSafetyIncidentResponse
+   */
+  async queryAccountSafetyIncidentWithOptions(request: $_model.QueryAccountSafetyIncidentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAccountSafetyIncidentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.caseCode)) {
+      query["CaseCode"] = request.caseCode;
+    }
+
+    if (!$dara.isNull(request.current)) {
+      query["Current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.punishEndTime)) {
+      query["PunishEndTime"] = request.punishEndTime;
+    }
+
+    if (!$dara.isNull(request.punishStartTime)) {
+      query["PunishStartTime"] = request.punishStartTime;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAccountSafetyIncident",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAccountSafetyIncidentResponse>(await this.callApi(params, req, runtime), new $_model.QueryAccountSafetyIncidentResponse({}));
+  }
+
+  /**
+   * 查询账号安全事件
+   * 
+   * @param request - QueryAccountSafetyIncidentRequest
+   * @returns QueryAccountSafetyIncidentResponse
+   */
+  async queryAccountSafetyIncident(request: $_model.QueryAccountSafetyIncidentRequest): Promise<$_model.QueryAccountSafetyIncidentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAccountSafetyIncidentWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云上安全指南的订阅状态
+   * 
+   * @param request - QueryGuideSubStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryGuideSubStatusResponse
+   */
+  async queryGuideSubStatusWithOptions(request: $_model.QueryGuideSubStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryGuideSubStatusResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryGuideSubStatus",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryGuideSubStatusResponse>(await this.callApi(params, req, runtime), new $_model.QueryGuideSubStatusResponse({}));
+  }
+
+  /**
+   * 查询云上安全指南的订阅状态
+   * 
+   * @param request - QueryGuideSubStatusRequest
+   * @returns QueryGuideSubStatusResponse
+   */
+  async queryGuideSubStatus(request: $_model.QueryGuideSubStatusRequest): Promise<$_model.QueryGuideSubStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryGuideSubStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云资源管控事件
+   * 
+   * @param tmpReq - QueryResourceControlEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryResourceControlEventsResponse
+   */
+  async queryResourceControlEventsWithOptions(tmpReq: $_model.QueryResourceControlEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryResourceControlEventsResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryResourceControlEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.actionCodes)) {
+      request.actionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionCodes, "ActionCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.caseCodesPrefix)) {
+      request.caseCodesPrefixShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.caseCodesPrefix, "CaseCodesPrefix", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.eventCodes)) {
+      request.eventCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventCodes, "EventCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.eventIdList)) {
+      request.eventIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventIdList, "EventIdList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.excludeActionCodes)) {
+      request.excludeActionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeActionCodes, "ExcludeActionCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.excludeEventCodes)) {
+      request.excludeEventCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeEventCodes, "ExcludeEventCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.excludeReasons)) {
+      request.excludeReasonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeReasons, "ExcludeReasons", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.includeReasons)) {
+      request.includeReasonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.includeReasons, "IncludeReasons", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sourceCodes)) {
+      request.sourceCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceCodes, "SourceCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "StatusList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.actionCode)) {
+      query["ActionCode"] = request.actionCode;
+    }
+
+    if (!$dara.isNull(request.actionCodesShrink)) {
+      query["ActionCodes"] = request.actionCodesShrink;
+    }
+
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.businessCode)) {
+      query["BusinessCode"] = request.businessCode;
+    }
+
+    if (!$dara.isNull(request.caseCodesPrefixShrink)) {
+      query["CaseCodesPrefix"] = request.caseCodesPrefixShrink;
+    }
+
+    if (!$dara.isNull(request.current)) {
+      query["Current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.eventCode)) {
+      query["EventCode"] = request.eventCode;
+    }
+
+    if (!$dara.isNull(request.eventCodesShrink)) {
+      query["EventCodes"] = request.eventCodesShrink;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventIdListShrink)) {
+      query["EventIdList"] = request.eventIdListShrink;
+    }
+
+    if (!$dara.isNull(request.excludeActionCodesShrink)) {
+      query["ExcludeActionCodes"] = request.excludeActionCodesShrink;
+    }
+
+    if (!$dara.isNull(request.excludeEventCodesShrink)) {
+      query["ExcludeEventCodes"] = request.excludeEventCodesShrink;
+    }
+
+    if (!$dara.isNull(request.excludeReasonsShrink)) {
+      query["ExcludeReasons"] = request.excludeReasonsShrink;
+    }
+
+    if (!$dara.isNull(request.includeReasonsShrink)) {
+      query["IncludeReasons"] = request.includeReasonsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.punishEndTime)) {
+      query["PunishEndTime"] = request.punishEndTime;
+    }
+
+    if (!$dara.isNull(request.punishStartTime)) {
+      query["PunishStartTime"] = request.punishStartTime;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!$dara.isNull(request.sourceCodesShrink)) {
+      query["SourceCodes"] = request.sourceCodesShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.statusListShrink)) {
+      query["StatusList"] = request.statusListShrink;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryResourceControlEvents",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryResourceControlEventsResponse>(await this.callApi(params, req, runtime), new $_model.QueryResourceControlEventsResponse({}));
+  }
+
+  /**
+   * 查询云资源管控事件
+   * 
+   * @param request - QueryResourceControlEventsRequest
+   * @returns QueryResourceControlEventsResponse
+   */
+  async queryResourceControlEvents(request: $_model.QueryResourceControlEventsRequest): Promise<$_model.QueryResourceControlEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryResourceControlEventsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询安全体检简报
    * 
    * @param request - QuerySecurityCheckReportRequest
@@ -959,6 +1691,109 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启安全体检
+   * 
+   * @param request - StartSecurityCheckServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartSecurityCheckServiceResponse
+   */
+  async startSecurityCheckServiceWithOptions(request: $_model.StartSecurityCheckServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartSecurityCheckServiceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "StartSecurityCheckService",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartSecurityCheckServiceResponse>(await this.callApi(params, req, runtime), new $_model.StartSecurityCheckServiceResponse({}));
+  }
+
+  /**
+   * 开启安全体检
+   * 
+   * @param request - StartSecurityCheckServiceRequest
+   * @returns StartSecurityCheckServiceResponse
+   */
+  async startSecurityCheckService(request: $_model.StartSecurityCheckServiceRequest): Promise<$_model.StartSecurityCheckServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startSecurityCheckServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 申请解封
+   * 
+   * @param tmpReq - SubmitApplyRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitApplyRecordResponse
+   */
+  async submitApplyRecordWithOptions(tmpReq: $_model.SubmitApplyRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitApplyRecordResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitApplyRecordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventIdList)) {
+      request.eventIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventIdList, "EventIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applyRequest)) {
+      query["ApplyRequest"] = request.applyRequest;
+    }
+
+    if (!$dara.isNull(request.commitmentLetter)) {
+      query["CommitmentLetter"] = request.commitmentLetter;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.eventIdListShrink)) {
+      query["EventIdList"] = request.eventIdListShrink;
+    }
+
+    if (!$dara.isNull(request.qualificationProof)) {
+      query["QualificationProof"] = request.qualificationProof;
+    }
+
+    if (!$dara.isNull(request.trial)) {
+      query["Trial"] = request.trial;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitApplyRecord",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitApplyRecordResponse>(await this.callApi(params, req, runtime), new $_model.SubmitApplyRecordResponse({}));
+  }
+
+  /**
+   * 申请解封
+   * 
+   * @param request - SubmitApplyRecordRequest
+   * @returns SubmitApplyRecordResponse
+   */
+  async submitApplyRecord(request: $_model.SubmitApplyRecordRequest): Promise<$_model.SubmitApplyRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitApplyRecordWithOptions(request, runtime);
+  }
+
+  /**
    * sas-更新后付费绑定关系
    * 
    * @param tmpReq - UpdatePostPaidBindRelRequest
@@ -1008,6 +1843,41 @@ export default class Client extends OpenApi {
   async updatePostPaidBindRel(request: $_model.UpdatePostPaidBindRelRequest): Promise<$_model.UpdatePostPaidBindRelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePostPaidBindRelWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新体检结果
+   * 
+   * @param request - UpdateSecurityCheckResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecurityCheckResultResponse
+   */
+  async updateSecurityCheckResultWithOptions(request: $_model.UpdateSecurityCheckResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSecurityCheckResultResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSecurityCheckResult",
+      version: "2026-04-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSecurityCheckResultResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSecurityCheckResultResponse({}));
+  }
+
+  /**
+   * 更新体检结果
+   * 
+   * @param request - UpdateSecurityCheckResultRequest
+   * @returns UpdateSecurityCheckResultResponse
+   */
+  async updateSecurityCheckResult(request: $_model.UpdateSecurityCheckResultRequest): Promise<$_model.UpdateSecurityCheckResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSecurityCheckResultWithOptions(request, runtime);
   }
 
 }

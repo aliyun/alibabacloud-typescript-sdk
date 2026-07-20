@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetValidDeductInstancesRequestSdkRequest extends $dara.Model {
+  /**
+   * @example
+   * sas_cspm_dp_cn-***80001
+   */
   instanceId?: string;
+  /**
+   * @example
+   * sas_vul_dp_cn
+   */
   modules?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +44,10 @@ export class GetValidDeductInstancesRequestSdkRequest extends $dara.Model {
 }
 
 export class GetValidDeductInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-fuzhou
+   */
   regionId?: string;
   sdkRequest?: GetValidDeductInstancesRequestSdkRequest;
   static names(): { [key: string]: string } {

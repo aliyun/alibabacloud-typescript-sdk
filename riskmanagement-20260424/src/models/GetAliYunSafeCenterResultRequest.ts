@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAliYunSafeCenterResultRequestCreateSimilarSecurityEventsQueryTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-zhangjiakou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 629755508
+   */
   securityEventId?: number;
+  /**
+   * @example
+   * default
+   */
   similarEventScenarioCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,6 +45,10 @@ export class GetAliYunSafeCenterResultRequestCreateSimilarSecurityEventsQueryTas
 
 export class GetAliYunSafeCenterResultRequestDescribeInstancesFullStatusRequest extends $dara.Model {
   instanceId?: string[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,8 +77,16 @@ export class GetAliYunSafeCenterResultRequestDescribeInstancesFullStatusRequest 
 }
 
 export class GetAliYunSafeCenterResultRequestDescribeSecurityEventOperationStatusRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-zhangjiakou
+   */
   regionId?: string;
   securityEventIds?: string[];
+  /**
+   * @example
+   * 0BC3B4E600002A9F000048BCDCE7E710
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -93,7 +117,15 @@ export class GetAliYunSafeCenterResultRequestDescribeSecurityEventOperationStatu
 }
 
 export class GetAliYunSafeCenterResultRequestDescribeSimilarSecurityEventsRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-zhangjiakou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 1689135
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -119,7 +151,15 @@ export class GetAliYunSafeCenterResultRequestDescribeSimilarSecurityEventsReques
 }
 
 export class GetAliYunSafeCenterResultRequestGetAssetDetailByUuidRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @example
+   * 9A75F21D3993C0A2B094A4AB132890B2
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,16 +185,60 @@ export class GetAliYunSafeCenterResultRequestGetAssetDetailByUuidRequest extends
 }
 
 export class GetAliYunSafeCenterResultRequestHandleSecurityEventsRequest extends $dara.Model {
+  /**
+   * @example
+   * default
+   */
   alertType?: string;
+  /**
+   * @example
+   * fbbb90731fbb6df57c933173182d01a5
+   */
   fileMd5?: string;
+  /**
+   * @example
+   * flyfish-lfp-wy.release
+   */
   filePath?: string;
+  /**
+   * @example
+   * api-shared-vpc-002
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 123.56.127.180
+   */
   ip?: string;
+  /**
+   * @example
+   * true
+   */
   markBatch?: string;
+  /**
+   * @example
+   * [{"uuid":"part","field":"gmtModified","operate":"contains","fieldValue":"asd"},{"uuid":"part","field":"loginUser","operate":"contains","fieldValue":"vff"}]
+   */
   markMissParam?: string;
+  /**
+   * @example
+   * block_ip
+   */
   operationCode?: string;
+  /**
+   * @example
+   * {\\"expireTime\\":1719588943551,\\"subOperation\\":\\"killAndQuaraFileByMd5andPath\\"}
+   */
   operationParams?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 11
+   */
   remark?: string;
   securityEventIds?: string[];
   static names(): { [key: string]: string } {
@@ -204,13 +288,45 @@ export class GetAliYunSafeCenterResultRequestHandleSecurityEventsRequest extends
 }
 
 export class GetAliYunSafeCenterResultRequestHandleSimilarSecurityEventsRequest extends $dara.Model {
+  /**
+   * @example
+   * default
+   */
   alertType?: string;
+  /**
+   * @example
+   * cfw_elasticity_public_cn-g4t3nkh3i00b
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 203.10*.44.71
+   */
   ip?: string;
+  /**
+   * @example
+   * offline_handled
+   */
   operationCode?: string;
+  /**
+   * @example
+   * {\\"expireTime\\":1767687685917}
+   */
   operationParams?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * 220.2*3.155.93
+   */
   sourceIp?: string;
+  /**
+   * @example
+   * 12221
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -248,7 +364,15 @@ export class GetAliYunSafeCenterResultRequestHandleSimilarSecurityEventsRequest 
 }
 
 export class GetAliYunSafeCenterResultRequestListInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * ["2ad1ae67295445f598017499dc****", "2ad1ae67295445f598017123dc****"]
+   */
   instanceIds?: string;
+  /**
+   * @example
+   * cn-wulanchabu
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -284,9 +408,16 @@ export class GetAliYunSafeCenterResultRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * ListInstanceStatus
    */
   interfaceCode?: string;
   listInstancesRequest?: GetAliYunSafeCenterResultRequestListInstancesRequest;
+  /**
+   * @example
+   * cn-guangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

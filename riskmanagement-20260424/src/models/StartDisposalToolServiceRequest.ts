@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartDisposalToolServiceRequest extends $dara.Model {
+  /**
+   * @example
+   * DisposalTool
+   */
   authType?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCanTrySasResponseBodyDataBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   canTry?: number;
   canTryVersions?: number[];
+  /**
+   * @example
+   * 1
+   */
   tryType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -36,6 +44,10 @@ export class GetCanTrySasResponseBodyDataBodyData extends $dara.Model {
 
 export class GetCanTrySasResponseBodyDataBody extends $dara.Model {
   data?: GetCanTrySasResponseBodyDataBodyData;
+  /**
+   * @example
+   * 0EBD97B8-65AD-52C8-94D5-A0F81E7D70D0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,10 +102,26 @@ export class GetCanTrySasResponseBodyData extends $dara.Model {
 }
 
 export class GetCanTrySasResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetCanTrySasResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 6B48613E-86DE-5411-BDBE-429C80B45F3F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

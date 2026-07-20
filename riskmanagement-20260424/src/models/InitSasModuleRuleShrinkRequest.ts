@@ -3,9 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InitSasModuleRuleShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   autoBind?: number;
   instancesShrink?: string;
+  /**
+   * @example
+   * false
+   */
   isTrial?: boolean;
+  /**
+   * @example
+   * cn-guangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

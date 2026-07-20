@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InitSasModuleRuleResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 14492571-0707-5130-85B4-4DDABB6BDF76
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,10 +30,26 @@ export class InitSasModuleRuleResponseBodyData extends $dara.Model {
 }
 
 export class InitSasModuleRuleResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: InitSasModuleRuleResponseBodyData;
+  /**
+   * @example
+   * Successful
+   */
   message?: string;
+  /**
+   * @example
+   * 2E130B0F-9E69-52FA-84FC-187FE1BA9489
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

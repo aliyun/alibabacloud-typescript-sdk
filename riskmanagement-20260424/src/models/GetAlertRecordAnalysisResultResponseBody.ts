@@ -3,15 +3,55 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAlertRecordAnalysisResultResponseBodyDataUniqueTagList extends $dara.Model {
+  /**
+   * @example
+   * 179deb12f25baac9b1e2909c419bcb1f
+   */
   alarmUniqueInfo?: string;
+  /**
+   * @example
+   * 1248751055158884
+   */
   aliUid?: string;
+  /**
+   * @example
+   * test_code
+   */
   analysisCode?: string;
+  /**
+   * @example
+   * exception_alert
+   */
   analysisResult?: string;
+  /**
+   * @example
+   * true
+   */
   chooseLike?: boolean;
+  /**
+   * @example
+   * 110.22.*8.111
+   */
   ip?: string;
+  /**
+   * @example
+   * i-adadasd-a**
+   */
   machineInstanceId?: string;
+  /**
+   * @example
+   * auto_breaking
+   */
   type?: string;
+  /**
+   * @example
+   * 390317ce81d28bbbd83c05a90b39cd6c
+   */
   uniqueInfo?: string;
+  /**
+   * @example
+   * bb3051ca-c0dd-4da2-91be-ea5c80926132
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,6 +93,10 @@ export class GetAlertRecordAnalysisResultResponseBodyDataUniqueTagList extends $
 }
 
 export class GetAlertRecordAnalysisResultResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * -
+   */
   analysisCode?: string;
   uniqueTagList?: GetAlertRecordAnalysisResultResponseBodyDataUniqueTagList[];
   static names(): { [key: string]: string } {
@@ -82,10 +126,26 @@ export class GetAlertRecordAnalysisResultResponseBodyData extends $dara.Model {
 }
 
 export class GetAlertRecordAnalysisResultResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAlertRecordAnalysisResultResponseBodyData;
+  /**
+   * @example
+   * successful‌
+   */
   message?: string;
+  /**
+   * @example
+   * 99D93ED4-D462-5FC5-8518-9BC1C49C7B6C
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

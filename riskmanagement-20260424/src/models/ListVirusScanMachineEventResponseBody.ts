@@ -3,19 +3,71 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVirusScanMachineEventResponseBodyDataVirusScanLatestTaskStatistic extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
   completeMachine?: number;
+  /**
+   * @example
+   * testMahine1
+   */
   machineName?: string;
+  /**
+   * @example
+   * 92
+   */
   progress?: string;
+  /**
+   * @example
+   * medium
+   */
   riskLevel?: string;
+  /**
+   * @example
+   * 1
+   */
   safeMachine?: number;
+  /**
+   * @example
+   * 1
+   */
   scanMachine?: number;
   scanPath?: string[];
+  /**
+   * @example
+   * 1681145862000
+   */
   scanTime?: number;
+  /**
+   * @example
+   * system
+   */
   scanType?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 0
+   */
   suspiciousCount?: number;
+  /**
+   * @example
+   * 1
+   */
   suspiciousMachine?: number;
+  /**
+   * @example
+   * t-0mqu9dhpi365dp5iyf
+   */
   taskId?: string;
+  /**
+   * @example
+   * 1
+   */
   unCompleteMachine?: number;
   static names(): { [key: string]: string } {
     return {
@@ -68,9 +120,25 @@ export class ListVirusScanMachineEventResponseBodyDataVirusScanLatestTaskStatist
 }
 
 export class ListVirusScanMachineEventResponseBodyDataVirusScanMachineEventListDataDetails extends $dara.Model {
+  /**
+   * @example
+   * download_url
+   */
   infoType?: string;
+  /**
+   * @example
+   * Trojan Path
+   */
   nameDisplay?: string;
+  /**
+   * @example
+   * text
+   */
   type?: string;
+  /**
+   * @example
+   * getopt
+   */
   valueDisplay?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101,12 +169,40 @@ export class ListVirusScanMachineEventResponseBodyDataVirusScanMachineEventListD
 
 export class ListVirusScanMachineEventResponseBodyDataVirusScanMachineEventListData extends $dara.Model {
   details?: ListVirusScanMachineEventResponseBodyDataVirusScanMachineEventListDataDetails[];
+  /**
+   * @example
+   * 123-2CcoavZnCXrJKqk2KQKxp9WGwup
+   */
   eventId?: number;
+  /**
+   * @example
+   * 恶意脚本代码执行
+   */
   eventName?: string;
+  /**
+   * @example
+   * i-wz92q7m5hsbgfhdss***
+   */
   instanceName?: string;
+  /**
+   * @example
+   * 47.57.*1.65
+   */
   internetIp?: string;
+  /**
+   * @example
+   * 47.57.*1.65
+   */
   intranetIp?: string;
+  /**
+   * @example
+   * 1682046733628
+   */
   lastTimeStamp?: number;
+  /**
+   * @example
+   * remind
+   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -147,8 +243,20 @@ export class ListVirusScanMachineEventResponseBodyDataVirusScanMachineEventListD
 }
 
 export class ListVirusScanMachineEventResponseBodyDataVirusScanMachineEventListPageInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -208,6 +316,10 @@ export class ListVirusScanMachineEventResponseBodyDataVirusScanMachineEventList 
 }
 
 export class ListVirusScanMachineEventResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1E222AB5-5C2B-50AD-8A96-E704AF80F2A0
+   */
   requestId?: string;
   virusScanLatestTaskStatistic?: ListVirusScanMachineEventResponseBodyDataVirusScanLatestTaskStatistic;
   virusScanMachineEventList?: ListVirusScanMachineEventResponseBodyDataVirusScanMachineEventList;
@@ -243,10 +355,26 @@ export class ListVirusScanMachineEventResponseBodyData extends $dara.Model {
 }
 
 export class ListVirusScanMachineEventResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: ListVirusScanMachineEventResponseBodyData;
+  /**
+   * @example
+   * successful‌
+   */
   message?: string;
+  /**
+   * @example
+   * F0AD8096-E7A2-573D-ACF0-7CE9050CDE38
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSasTrialResponseBodyDataBody extends $dara.Model {
+  /**
+   * @example
+   * F7C74264-DF12-56D5-869B-C4B11DD88BA2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,10 +56,26 @@ export class CreateSasTrialResponseBodyData extends $dara.Model {
 }
 
 export class CreateSasTrialResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
   data?: CreateSasTrialResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * 6B57D35D-9DAC-5393-AE39-07697E37C2E7
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

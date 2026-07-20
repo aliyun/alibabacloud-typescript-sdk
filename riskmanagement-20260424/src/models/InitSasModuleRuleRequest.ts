@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InitSasModuleRuleRequestInstances extends $dara.Model {
+  /**
+   * @example
+   * 4
+   */
   cores?: string;
+  /**
+   * @example
+   * i-gw85zjrhsg2sgex7ovfx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 168d374e-f449-4d0b-9556-14f233fa7171
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +51,21 @@ export class InitSasModuleRuleRequestInstances extends $dara.Model {
 }
 
 export class InitSasModuleRuleRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   autoBind?: number;
   instances?: InitSasModuleRuleRequestInstances[];
+  /**
+   * @example
+   * false
+   */
   isTrial?: boolean;
+  /**
+   * @example
+   * cn-guangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

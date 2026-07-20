@@ -3,13 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetValidDeductInstancesResponseBodyDataBodyDataDeductPackageList extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
   currentPeriodUsed?: number;
+  /**
+   * @example
+   * 1737734400000
+   */
   endTime?: number;
+  /**
+   * @example
+   * 1000
+   */
   initCapacity?: number;
+  /**
+   * @example
+   * apigateway-hz-96f6659a1490
+   */
   instanceId?: string;
+  /**
+   * @example
+   * POST_HOST
+   */
   module?: string;
+  /**
+   * @example
+   * 1
+   */
   periodCapacity?: number;
+  /**
+   * @example
+   * 1737734400000
+   */
   startTime?: number;
+  /**
+   * @example
+   * CREATE_FAILED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,6 +79,10 @@ export class GetValidDeductInstancesResponseBodyDataBodyDataDeductPackageList ex
 }
 
 export class GetValidDeductInstancesResponseBodyDataBodyData extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   canTry?: boolean;
   deductPackageList?: GetValidDeductInstancesResponseBodyDataBodyDataDeductPackageList[];
   static names(): { [key: string]: string } {
@@ -77,6 +113,10 @@ export class GetValidDeductInstancesResponseBodyDataBodyData extends $dara.Model
 
 export class GetValidDeductInstancesResponseBodyDataBody extends $dara.Model {
   data?: GetValidDeductInstancesResponseBodyDataBodyData;
+  /**
+   * @example
+   * A6FB9AC3-4431-538F-BA8A-2A13AEA208A4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,10 +171,26 @@ export class GetValidDeductInstancesResponseBodyData extends $dara.Model {
 }
 
 export class GetValidDeductInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetValidDeductInstancesResponseBodyData;
+  /**
+   * @example
+   * Successful
+   */
   message?: string;
+  /**
+   * @example
+   * 2FBDD713-00A5-5C98-B661-3FD31A349B6E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

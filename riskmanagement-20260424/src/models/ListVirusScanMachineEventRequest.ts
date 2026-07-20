@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVirusScanMachineEventRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @example
+   * 28486737
+   */
   operateTaskId?: string;
+  /**
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * hdm_5349d5323c649e91a41784e9e1733e1e
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {

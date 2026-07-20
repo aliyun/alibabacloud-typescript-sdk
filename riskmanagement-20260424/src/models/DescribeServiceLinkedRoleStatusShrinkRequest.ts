@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeServiceLinkedRoleStatusShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   sdkRequestShrink?: string;
   static names(): { [key: string]: string } {

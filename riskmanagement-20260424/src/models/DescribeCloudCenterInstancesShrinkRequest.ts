@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudCenterInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   sdkRequestShrink?: string;
   static names(): { [key: string]: string } {

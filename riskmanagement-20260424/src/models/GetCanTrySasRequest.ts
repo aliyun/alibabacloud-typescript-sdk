@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCanTrySasRequestSdkRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   fromEcs?: boolean;
+  /**
+   * @example
+   * zh
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +37,10 @@ export class GetCanTrySasRequestSdkRequest extends $dara.Model {
 }
 
 export class GetCanTrySasRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-guangzhou
+   */
   regionId?: string;
   sdkRequest?: GetCanTrySasRequestSdkRequest;
   static names(): { [key: string]: string } {

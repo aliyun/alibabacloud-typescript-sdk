@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSasTrialShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   sdkRequestShrink?: string;
   static names(): { [key: string]: string } {

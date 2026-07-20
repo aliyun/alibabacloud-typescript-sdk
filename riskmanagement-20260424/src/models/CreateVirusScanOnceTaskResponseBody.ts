@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVirusScanOnceTaskResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * VIRUS_SCAN_CYCLE_CONFIG
+   */
   businessType?: string;
+  /**
+   * @example
+   * windows
+   */
   platform?: string;
+  /**
+   * @example
+   * 1D345A09-5ABD-593C-9C26-5C2B28632CD6
+   */
   requestId?: string;
+  /**
+   * @example
+   * 87af4d19-38fc-408d-9549-2bf7b6c2a4b9
+   */
   selectionKey?: number;
+  /**
+   * @example
+   * all_instance
+   */
   targetType?: string;
+  /**
+   * @example
+   * 9ef1a02e1de695cb7f9fea2c6c145853eklEsP2JP0Z
+   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,10 +65,26 @@ export class CreateVirusScanOnceTaskResponseBodyData extends $dara.Model {
 }
 
 export class CreateVirusScanOnceTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: CreateVirusScanOnceTaskResponseBodyData;
+  /**
+   * @example
+   * successful‌
+   */
   message?: string;
+  /**
+   * @example
+   * 739705BB-B0EF-554B-B3A8-383F4F93E067
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

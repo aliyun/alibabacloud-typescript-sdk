@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeServiceLinkedRoleStatusResponseBodyDataBodyRoleStatus extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +30,10 @@ export class DescribeServiceLinkedRoleStatusResponseBodyDataBodyRoleStatus exten
 }
 
 export class DescribeServiceLinkedRoleStatusResponseBodyDataBody extends $dara.Model {
+  /**
+   * @example
+   * 7F14E3C8-A6AA-5D3C-B7E0-ABA2AC171EFC
+   */
   requestId?: string;
   roleStatus?: DescribeServiceLinkedRoleStatusResponseBodyDataBodyRoleStatus;
   static names(): { [key: string]: string } {
@@ -81,10 +89,26 @@ export class DescribeServiceLinkedRoleStatusResponseBodyData extends $dara.Model
 }
 
 export class DescribeServiceLinkedRoleStatusResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: DescribeServiceLinkedRoleStatusResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EF972A16-95FB-5EF2-9CED-208A74DEF040
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

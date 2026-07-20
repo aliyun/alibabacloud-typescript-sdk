@@ -3,41 +3,169 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSuspEventsRequestSdkRequest extends $dara.Model {
+  /**
+   * @example
+   * 6838133766c37077d0515b0b557e6510
+   */
   alarmUniqueInfo?: string;
   assetsTypeList?: string[];
+  /**
+   * @example
+   * xxljob-02f023138826b
+   */
   clusterId?: string;
+  /**
+   * @example
+   * instanceId
+   */
   containerFieldName?: string;
+  /**
+   * @example
+   * ca9b91db58356b41af2932e8048310ab7daa415701fa62d823cf4f0406d5ce02
+   */
   containerFieldValue?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: string;
+  /**
+   * @example
+   * Y
+   */
   dealed?: string;
+  /**
+   * @example
+   * -
+   */
   detectSource?: string;
+  /**
+   * @example
+   * WEBSHELL
+   */
   eventNames?: string;
+  /**
+   * @example
+   * sas
+   */
   from?: string;
+  /**
+   * @example
+   * 18768
+   */
   groupId?: number;
+  /**
+   * @example
+   * 3165
+   */
   id?: number;
+  /**
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @example
+   * serious
+   */
   levels?: string;
+  /**
+   * @example
+   * 0
+   */
   multiAccountActionType?: number;
+  /**
+   * @example
+   * ecs-xxx
+   */
   name?: string;
   operateErrorCodeList?: string[];
+  /**
+   * @example
+   * 2022-07-06 13:50:38
+   */
   operateTimeEnd?: string;
+  /**
+   * @example
+   * 2022-07-06 13:50:38
+   */
   operateTimeStart?: string;
+  /**
+   * @example
+   * 1
+   */
   pageSize?: string;
+  /**
+   * @example
+   * 恶意脚本
+   */
   parentEventTypes?: string;
+  /**
+   * @example
+   * 192.168.XX.XX
+   */
   remark?: string;
+  /**
+   * @example
+   * 5815612291408486
+   */
   resourceDirectoryAccountId?: number;
+  /**
+   * @example
+   * lastTime
+   */
   sortColumn?: string;
+  /**
+   * @example
+   * asc
+   */
   sortType?: string;
+  /**
+   * @example
+   * default
+   */
   source?: string;
   sourceAliUids?: number[];
+  /**
+   * @example
+   * 2409:8a55:3827:cb50:5ad9:d5ff:fe87:f48c
+   */
   sourceIp?: string;
+  /**
+   * @example
+   * N
+   */
   strictMode?: string;
   supportOperateCodeList?: string[];
+  /**
+   * @example
+   * TA0003
+   */
   tacticId?: string;
+  /**
+   * @example
+   * containerId
+   */
   targetType?: string;
+  /**
+   * @example
+   * 2022-07-06 13:50:38
+   */
   timeEnd?: string;
+  /**
+   * @example
+   * 2022-07-06 13:50:38
+   */
   timeStart?: string;
+  /**
+   * @example
+   * f82680d9fdcb74a520fa385b7e9105b7
+   */
   uniqueInfo?: string;
+  /**
+   * @example
+   * inet-eae09bb8-32b1-413b-a8ff-23932e043209
+   */
   uuids?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,6 +271,10 @@ export class DescribeSuspEventsRequestSdkRequest extends $dara.Model {
 }
 
 export class DescribeSuspEventsRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-guangzhou
+   */
   regionId?: string;
   sdkRequest?: DescribeSuspEventsRequestSdkRequest;
   static names(): { [key: string]: string } {

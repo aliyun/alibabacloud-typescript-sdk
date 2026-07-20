@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSasTrialRequestSdkRequestRequestForm extends $dara.Model {
+  /**
+   * @example
+   * for poc
+   */
   tryReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,10 +30,26 @@ export class CreateSasTrialRequestSdkRequestRequestForm extends $dara.Model {
 }
 
 export class CreateSasTrialRequestSdkRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   fromEcs?: boolean;
+  /**
+   * @example
+   * en
+   */
   lang?: string;
   requestForm?: CreateSasTrialRequestSdkRequestRequestForm;
+  /**
+   * @example
+   * 1
+   */
   tryType?: number;
+  /**
+   * @example
+   * 3
+   */
   tryVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -64,6 +84,10 @@ export class CreateSasTrialRequestSdkRequest extends $dara.Model {
 }
 
 export class CreateSasTrialRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   sdkRequest?: CreateSasTrialRequestSdkRequest;
   static names(): { [key: string]: string } {

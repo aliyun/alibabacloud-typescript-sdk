@@ -13,9 +13,16 @@ export class GetAliYunSafeCenterResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * ListInstanceStatus
    */
   interfaceCode?: string;
   listInstancesRequestShrink?: string;
+  /**
+   * @example
+   * cn-guangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

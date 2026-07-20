@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePostPaidBindRelRequestSdkRequestBindAction extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   bindAll?: boolean;
   uuidList?: string[];
+  /**
+   * @example
+   * 1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +43,21 @@ export class UpdatePostPaidBindRelRequestSdkRequestBindAction extends $dara.Mode
 }
 
 export class UpdatePostPaidBindRelRequestSdkRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   autoBind?: number;
+  /**
+   * @example
+   * 3
+   */
   autoBindVersion?: number;
   bindAction?: UpdatePostPaidBindRelRequestSdkRequestBindAction[];
+  /**
+   * @example
+   * false
+   */
   updateIfNecessary?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -70,6 +90,10 @@ export class UpdatePostPaidBindRelRequestSdkRequest extends $dara.Model {
 }
 
 export class UpdatePostPaidBindRelRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-huhehaote
+   */
   regionId?: string;
   sdkRequest?: UpdatePostPaidBindRelRequestSdkRequest;
   static names(): { [key: string]: string } {

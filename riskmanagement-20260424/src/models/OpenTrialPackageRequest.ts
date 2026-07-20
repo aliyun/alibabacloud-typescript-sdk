@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OpenTrialPackageRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   autoCloseSwitch?: number;
+  /**
+   * @example
+   * cn-guangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
