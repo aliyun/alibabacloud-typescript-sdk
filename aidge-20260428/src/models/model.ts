@@ -32,6 +32,7 @@ export { SizeChartExtractResponseBodyData } from './SizeChartExtractResponseBody
 export { TextCorrectResponseBodyData } from './TextCorrectResponseBody';
 export { TextTranslateResponseBodyDataTranslations } from './TextTranslateResponseBody';
 export { TextTranslateResponseBodyData } from './TextTranslateResponseBody';
+export { VideoTranslationResponseBodyData } from './VideoTranslationResponseBody';
 export { VisionFlowResponseBodyData } from './VisionFlowResponseBody';
 export { AssetOptimizeLiteRequest } from './AssetOptimizeLiteRequest';
 export { AssetOptimizeLiteResponseBody } from './AssetOptimizeLiteResponseBody';
@@ -99,6 +100,10 @@ export { TextTranslateRequest } from './TextTranslateRequest';
 export { TextTranslateShrinkRequest } from './TextTranslateShrinkRequest';
 export { TextTranslateResponseBody } from './TextTranslateResponseBody';
 export { TextTranslateResponse } from './TextTranslateResponse';
+export { VideoTranslationRequest } from './VideoTranslationRequest';
+export { VideoTranslationShrinkRequest } from './VideoTranslationShrinkRequest';
+export { VideoTranslationResponseBody } from './VideoTranslationResponseBody';
+export { VideoTranslationResponse } from './VideoTranslationResponse';
 export { VisionFlowRequest } from './VisionFlowRequest';
 export { VisionFlowShrinkRequest } from './VisionFlowShrinkRequest';
 export { VisionFlowResponseBody } from './VisionFlowResponseBody';
