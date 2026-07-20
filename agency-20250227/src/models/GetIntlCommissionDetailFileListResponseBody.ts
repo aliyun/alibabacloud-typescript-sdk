@@ -5,14 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetIntlCommissionDetailFileListResponseBodyDataFileList extends $dara.Model {
   /**
    * @remarks
-   * The push status of the OSS file. Valid values:
-   * - 初始化状态: initialization status
-   * - 处理中: processing
-   * - 处理成功: processing succeeded
-   * - 处理失败: processing failed.
+   * The OSS file push status. Valid values: init, processing, succeeded, or failed.
    * 
    * @example
-   * 处理中
+   * PROCESSING
    */
   bucketSyncStatus?: string;
   /**
@@ -20,7 +16,7 @@ export class GetIntlCommissionDetailFileListResponseBodyDataFileList extends $da
    * The commission policy name.
    * 
    * @example
-   * 参考【APS佣金查询下载功能】的政策名称
+   * 202606_FY27_TEST
    */
   commissionPolicyName?: string;
   /**
@@ -59,7 +55,7 @@ export class GetIntlCommissionDetailFileListResponseBodyDataFileList extends $da
 export class GetIntlCommissionDetailFileListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The billing month.
+   * The bill month.
    * 
    * @example
    * 202502
@@ -125,7 +121,7 @@ export class GetIntlCommissionDetailFileListResponseBody extends $dara.Model {
    * The message information.
    * 
    * @example
-   * 成功
+   * SUCCESS
    */
   message?: string;
   /**
@@ -138,7 +134,7 @@ export class GetIntlCommissionDetailFileListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

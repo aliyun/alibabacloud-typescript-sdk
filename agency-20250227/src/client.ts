@@ -340,8 +340,8 @@ export default class Client extends OpenApi {
    * Downloads the commission details of an international partner.
    * 
    * @remarks
-   * Make sure that the current caller identity is a T1 distribution partner. 
-   * <notice>Available only for international sites.</notice>.
+   * Ensure that the current caller identity is a T1 distribution partner. 
+   * <notice>Available only for international site.</notice>.
    * 
    * @param request - GetIntlCommissionDetailFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -399,8 +399,8 @@ export default class Client extends OpenApi {
    * Downloads the commission details of an international partner.
    * 
    * @remarks
-   * Make sure that the current caller identity is a T1 distribution partner. 
-   * <notice>Available only for international sites.</notice>.
+   * Ensure that the current caller identity is a T1 distribution partner. 
+   * <notice>Available only for international site.</notice>.
    * 
    * @param request - GetIntlCommissionDetailFileListRequest
    * @returns GetIntlCommissionDetailFileListResponse
