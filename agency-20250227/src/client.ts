@@ -89,6 +89,218 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建客户小记
+   * 
+   * @param request - CustomerNoteCreateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CustomerNoteCreateResponse
+   */
+  async customerNoteCreateWithOptions(request: $_model.CustomerNoteCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CustomerNoteCreateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactInformation)) {
+      body["ContactInformation"] = request.contactInformation;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.customerName)) {
+      body["CustomerName"] = request.customerName;
+    }
+
+    if (!$dara.isNull(request.customerUid)) {
+      body["CustomerUid"] = request.customerUid;
+    }
+
+    if (!$dara.isNull(request.noteContent)) {
+      body["NoteContent"] = request.noteContent;
+    }
+
+    if (!$dara.isNull(request.touchDate)) {
+      body["TouchDate"] = request.touchDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CustomerNoteCreate",
+      version: "2025-02-27",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CustomerNoteCreateResponse>(await this.callApi(params, req, runtime), new $_model.CustomerNoteCreateResponse({}));
+  }
+
+  /**
+   * 创建客户小记
+   * 
+   * @param request - CustomerNoteCreateRequest
+   * @returns CustomerNoteCreateResponse
+   */
+  async customerNoteCreate(request: $_model.CustomerNoteCreateRequest): Promise<$_model.CustomerNoteCreateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.customerNoteCreateWithOptions(request, runtime);
+  }
+
+  /**
+   * 编辑客户小记
+   * 
+   * @param request - CustomerNoteEditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CustomerNoteEditResponse
+   */
+  async customerNoteEditWithOptions(request: $_model.CustomerNoteEditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CustomerNoteEditResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactInformation)) {
+      body["ContactInformation"] = request.contactInformation;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      body["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.noteContent)) {
+      body["NoteContent"] = request.noteContent;
+    }
+
+    if (!$dara.isNull(request.noteId)) {
+      body["NoteId"] = request.noteId;
+    }
+
+    if (!$dara.isNull(request.touchDate)) {
+      body["TouchDate"] = request.touchDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CustomerNoteEdit",
+      version: "2025-02-27",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CustomerNoteEditResponse>(await this.callApi(params, req, runtime), new $_model.CustomerNoteEditResponse({}));
+  }
+
+  /**
+   * 编辑客户小记
+   * 
+   * @param request - CustomerNoteEditRequest
+   * @returns CustomerNoteEditResponse
+   */
+  async customerNoteEdit(request: $_model.CustomerNoteEditRequest): Promise<$_model.CustomerNoteEditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.customerNoteEditWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询客户小记列表
+   * 
+   * @param request - CustomerNoteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CustomerNoteListResponse
+   */
+  async customerNoteListWithOptions(request: $_model.CustomerNoteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CustomerNoteListResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customerUid)) {
+      body["CustomerUid"] = request.customerUid;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CustomerNoteList",
+      version: "2025-02-27",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CustomerNoteListResponse>(await this.callApi(params, req, runtime), new $_model.CustomerNoteListResponse({}));
+  }
+
+  /**
+   * 分页查询客户小记列表
+   * 
+   * @param request - CustomerNoteListRequest
+   * @returns CustomerNoteListResponse
+   */
+  async customerNoteList(request: $_model.CustomerNoteListRequest): Promise<$_model.CustomerNoteListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.customerNoteListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询客户小记详情
+   * 
+   * @param request - CustomerNoteListDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CustomerNoteListDetailResponse
+   */
+  async customerNoteListDetailWithOptions(request: $_model.CustomerNoteListDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CustomerNoteListDetailResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.noteId)) {
+      body["NoteId"] = request.noteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CustomerNoteListDetail",
+      version: "2025-02-27",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CustomerNoteListDetailResponse>(await this.callApi(params, req, runtime), new $_model.CustomerNoteListDetailResponse({}));
+  }
+
+  /**
+   * 查询客户小记详情
+   * 
+   * @param request - CustomerNoteListDetailRequest
+   * @returns CustomerNoteListDetailResponse
+   */
+  async customerNoteListDetail(request: $_model.CustomerNoteListDetailRequest): Promise<$_model.CustomerNoteListDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.customerNoteListDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries exported bill files.
    * 
    * @param request - GetBillDetailFileListRequest

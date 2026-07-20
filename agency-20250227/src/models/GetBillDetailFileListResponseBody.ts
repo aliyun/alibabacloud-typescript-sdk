@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class GetBillDetailFileListResponseBodyData extends $dara.Model {
   /**
    * @remarks
