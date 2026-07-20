@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CarApplyQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * 2021-03-18 20:26:56
+   */
   createdEndAt?: string;
+  /**
+   * @example
+   * 2021-03-18 20:26:56
+   */
   createdStartAt?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * apply1
+   */
   thirdPartApplyId?: string;
+  /**
+   * @example
+   * userid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

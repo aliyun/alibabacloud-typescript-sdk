@@ -3,13 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CommonApplyQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * 1003366164
+   */
   applyId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 3
    */
   bizCategory?: number;
+  /**
+   * @example
+   * 2024060510000003300006205
+   */
   businessInstanceId?: string;
+  /**
+   * @example
+   * 第三方用户id
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModulePriceMapValue extends $dara.Model {
   /**
+   * @remarks
+   * The price, in cents.
+   * 
    * @example
    * 10000
    */
   price?: number;
   /**
+   * @remarks
+   * The service number, such as a flight number or train number.
+   * 
    * @example
    * MU1234
    */

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightModifyListingSearchV2RequestPassengerSegmentRelations extends $dara.Model {
+  /**
+   * @example
+   * 3243028
+   */
   passengerId?: string;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -32,12 +36,40 @@ export class FlightModifyListingSearchV2RequestPassengerSegmentRelations extends
 }
 
 export class FlightModifyListingSearchV2RequestSelectedSegments extends $dara.Model {
+  /**
+   * @example
+   * XIL
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 2023-09-17 18:15:00
+   */
   depDateTime?: string;
+  /**
+   * @example
+   * 0
+   */
   journeySeq?: number;
+  /**
+   * @example
+   * CA8625
+   */
   marketingFlightNo?: string;
+  /**
+   * @example
+   * MU8625
+   */
   operatingFlightNo?: string;
+  /**
+   * @example
+   * 0
+   */
   segmentSeq?: number;
   static names(): { [key: string]: string } {
     return {
@@ -75,15 +107,47 @@ export class FlightModifyListingSearchV2RequestSelectedSegments extends $dara.Mo
 export class FlightModifyListingSearchV2Request extends $dara.Model {
   cabinClass?: number[];
   depDate?: string[];
+  /**
+   * @example
+   * true
+   */
   interfaceCallerIsSupportRetry?: boolean;
+  /**
+   * @example
+   * name
+   */
   isvName?: string;
+  /**
+   * @example
+   * 1017002195370467138
+   */
   orderId?: number;
+  /**
+   * @example
+   * 1017002195370467137
+   */
   outOrderId?: string;
   passengerSegmentRelations?: FlightModifyListingSearchV2RequestPassengerSegmentRelations[];
+  /**
+   * @example
+   * 2
+   */
   searchMode?: number;
+  /**
+   * @example
+   * a2c230080358295f99e03aa4e3ccf1bd
+   */
   searchRetryToken?: string;
   selectedSegments?: FlightModifyListingSearchV2RequestSelectedSegments[];
+  /**
+   * @example
+   * a2ffebfe733742aab5c491d960ba3d59
+   */
   sessionId?: string;
+  /**
+   * @example
+   * true
+   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {

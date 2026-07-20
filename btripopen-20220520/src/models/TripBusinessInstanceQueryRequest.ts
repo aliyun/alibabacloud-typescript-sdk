@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TripBusinessInstanceQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * 12345
+   */
   businessInstanceId?: string;
+  /**
+   * @example
+   * 12345
+   */
   thirdBusinessId?: string;
+  /**
+   * @example
+   * thirdpart12138
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {

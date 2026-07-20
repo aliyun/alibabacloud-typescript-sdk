@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightOtaSearchResponseBodyModuleFlightListAirlineInfo extends $dara.Model {
+  /**
+   * @example
+   * CA
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * 中国国航
+   */
   airlineName?: string;
+  /**
+   * @example
+   * 国航
+   */
   airlineSimpleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,10 +44,30 @@ export class FlightOtaSearchResponseBodyModuleFlightListAirlineInfo extends $dar
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListArrAirportInfo extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * HGH
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * T3
+   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,9 +99,25 @@ export class FlightOtaSearchResponseBodyModuleFlightListArrAirportInfo extends $
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription extends $dara.Model {
+  /**
+   * @example
+   * 您可以随身携带上飞机客舱内的行李物品，由旅客自行负责保管。具体尺寸、重量、类型等以各航空公司规定为准
+   */
   desc?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i4/O1CN01UynXG31pjsEtA3tMF_!!6000000005397-2-tps-36-36.png
+   */
   icon?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i1/O1CN01qe7wL21gJ0SmEXXL7_!!6000000004120-2-tps-1206-768.png
+   */
   image?: string;
+  /**
+   * @example
+   * 手提行李说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,9 +147,25 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   image?: string;
+  /**
+   * @example
+   * 50
+   */
   largest?: string;
+  /**
+   * @example
+   * 40
+   */
   middle?: string;
+  /**
+   * @example
+   * 20
+   */
   smallest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -132,10 +196,22 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes extends $dara.Model {
   baggageDesc?: string[];
+  /**
+   * @example
+   * 0
+   */
   baggageSubContentType?: number;
   description?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription;
   imageDO?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO;
+  /**
+   * @example
+   * true
+   */
   isHighlight?: boolean;
+  /**
+   * @example
+   * 免费手提行李
+   */
   subTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -180,8 +256,23 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItems extends $dara.Model {
   baggageSubContentVisualizes?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes[];
   extraContentVisualizes?: any[];
+  /**
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @remarks
+   * PTC
+   * 
+   * @example
+   * ADT
+   */
   ptc?: string;
+  /**
+   * @example
+   * 成人
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -219,8 +310,20 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemTips extends $dara.Model {
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
+   */
   logo?: string;
+  /**
+   * @example
+   * 各个尺寸的行李箱有多大
+   */
   tipsDesc?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
+   */
   tipsImage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -249,10 +352,26 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItem extends $dara.Model {
   baggageSubItems?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemBaggageSubItems[];
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * 北京-上海)
+   */
   tableHead?: string;
   tips?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItemTips;
+  /**
+   * @example
+   * 退票规则/同舱改期规则
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -292,11 +411,35 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleInfo extends $dara.Model {
+  /**
+   * @example
+   * 同改签规则里的说明
+   */
   content?: string;
+  /**
+   * @example
+   * 100
+   */
   cost?: number;
+  /**
+   * @example
+   * 10
+   */
   costPercent?: number;
+  /**
+   * @example
+   * 1675036500000
+   */
   timeStamp?: number;
+  /**
+   * @example
+   * demo
+   */
   timeType?: string;
+  /**
+   * @example
+   * 改签规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -330,6 +473,10 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRule extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   able?: boolean;
   info?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -359,7 +506,15 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemExtraContents extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   content?: string;
+  /**
+   * @example
+   * demo
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -385,8 +540,20 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
+  /**
+   * @example
+   * ￥161/人
+   */
   feeDesc?: string;
+  /**
+   * @example
+   * 1月23日 09:30 前
+   */
   feeRange?: string;
+  /**
+   * @example
+   * 1
+   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -414,9 +581,24 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemRefundSubItems extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @remarks
+   * PTC
+   * 
+   * @example
+   * ADT
+   */
   ptc?: string;
   refundSubContents?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents[];
+  /**
+   * @example
+   * 成人
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -450,11 +632,27 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItem extends $dara.Model {
   extraContents?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemExtraContents[];
+  /**
+   * @example
+   * 0
+   */
   index?: number;
   refundSubItems?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItemRefundSubItems[];
   subTableHead?: string[];
+  /**
+   * @example
+   * 北京-上海
+   */
   tableHead?: string;
+  /**
+   * @example
+   * 退票规则/同舱改期规则
+   */
   title?: string;
+  /**
+   * @example
+   * 0
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -499,11 +697,35 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleInfo extends $dara.Model {
+  /**
+   * @example
+   * 同改签规则里的说明
+   */
   content?: string;
+  /**
+   * @example
+   * 100
+   */
   cost?: number;
+  /**
+   * @example
+   * 10
+   */
   costPercent?: number;
+  /**
+   * @example
+   * 1675036500000
+   */
   timeStamp?: number;
+  /**
+   * @example
+   * demo
+   */
   timeType?: string;
+  /**
+   * @example
+   * 退票规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -537,6 +759,10 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRule extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   able?: boolean;
   info?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleInfo[];
   static names(): { [key: string]: string } {
@@ -566,7 +792,15 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemExtraContents extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   content?: string;
+  /**
+   * @example
+   * demo
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -592,8 +826,20 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
+  /**
+   * @example
+   * ￥161/人
+   */
   feeDesc?: string;
+  /**
+   * @example
+   * 1月23日 09:30 前
+   */
   feeRange?: string;
+  /**
+   * @example
+   * 1
+   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -621,9 +867,24 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemRefundSubItems extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @remarks
+   * PTC
+   * 
+   * @example
+   * ADT
+   */
   ptc?: string;
   refundSubContents?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents[];
+  /**
+   * @example
+   * 规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -657,11 +918,27 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItem extends $dara.Model {
   extraContents?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemExtraContents[];
+  /**
+   * @example
+   * 1
+   */
   index?: number;
   refundSubItems?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItemRefundSubItems[];
   subTableHead?: string[];
+  /**
+   * @example
+   * 北京-上海)
+   */
   tableHead?: string;
+  /**
+   * @example
+   * demo
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -706,11 +983,35 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListSignRuleInfo extends $dara.Model {
+  /**
+   * @example
+   * 同改签规则里的说明
+   */
   content?: string;
+  /**
+   * @example
+   * 100
+   */
   cost?: number;
+  /**
+   * @example
+   * 10
+   */
   costPercent?: number;
+  /**
+   * @example
+   * 1675036500000
+   */
   timeStamp?: number;
+  /**
+   * @example
+   * demo
+   */
   timeType?: string;
+  /**
+   * @example
+   * 签转规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -744,6 +1045,10 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListSignRule extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   able?: boolean;
   info?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListSignRuleInfo[];
   static names(): { [key: string]: string } {
@@ -773,11 +1078,35 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListUpgradeRuleInfo extends $dara.Model {
+  /**
+   * @example
+   * 同上面规则里的说明
+   */
   content?: string;
+  /**
+   * @example
+   * 100
+   */
   cost?: number;
+  /**
+   * @example
+   * 10
+   */
   costPercent?: number;
+  /**
+   * @example
+   * 1675036500000
+   */
   timeStamp?: number;
+  /**
+   * @example
+   * demo
+   */
   timeType?: string;
+  /**
+   * @example
+   * 升舱规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -811,6 +1140,10 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListUpgradeRule extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   able?: boolean;
   info?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListUpgradeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -840,14 +1173,26 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleList extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   baggageInfo?: string;
   baggageItem?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListBaggageItem;
   changeRule?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRule;
   changeRuleItem?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListChangeRuleItem;
+  /**
+   * @example
+   * {}
+   */
   extra?: string;
   refundRule?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRule;
   refundRuleItem?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListRefundRuleItem;
   signRule?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListSignRule;
+  /**
+   * @example
+   * 文案
+   */
   tuigaiqianInfo?: string;
   upgradeRule?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleListUpgradeRule;
   static names(): { [key: string]: string } {
@@ -911,29 +1256,121 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleL
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoList extends $dara.Model {
+  /**
+   * @example
+   * 无
+   */
   agentId?: number;
+  /**
+   * @example
+   * 12456
+   */
   basicCabinPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   buildPrice?: number;
+  /**
+   * @example
+   * G
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 经济舱
+   */
   cabinClassName?: string;
+  /**
+   * @example
+   * G
+   */
   childCabin?: string;
+  /**
+   * @example
+   * 经济舱
+   */
   className?: string;
+  /**
+   * @example
+   * demo
+   */
   classRule?: string;
+  /**
+   * @example
+   * 10
+   */
   discount?: string;
   flightRuleList?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoListFlightRuleList[];
+  /**
+   * @example
+   * demo
+   */
   flightRuleListStr?: string;
+  /**
+   * @example
+   * 1
+   */
   invoiceType?: number;
+  /**
+   * @example
+   * true
+   */
   isProtocol?: boolean;
+  /**
+   * @example
+   * 100
+   */
   oilPrice?: number;
+  /**
+   * @example
+   * 1000_1_0
+   */
   orderParams?: string;
+  /**
+   * @example
+   * 97f64e2d6f61408a827dd523817fefd6_0
+   */
   otaItemId?: string;
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * 1
+   */
   productType?: number;
+  /**
+   * @example
+   * demo
+   */
   productTypeDesc?: string;
+  /**
+   * @example
+   * 100
+   */
   promotionPrice?: string;
+  /**
+   * @example
+   * 1
+   */
   remainedSeatCount?: string;
+  /**
+   * @example
+   * 100
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1006,10 +1443,30 @@ export class FlightOtaSearchResponseBodyModuleFlightListCabinInfoList extends $d
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListDepAirportInfo extends $dara.Model {
+  /**
+   * @example
+   * PEK
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 北京首都国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * BJS
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   cityName?: string;
+  /**
+   * @example
+   * T3
+   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1041,9 +1498,25 @@ export class FlightOtaSearchResponseBodyModuleFlightListDepAirportInfo extends $
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription extends $dara.Model {
+  /**
+   * @example
+   * 您可以随身携带上飞机客舱内的行李物品，由旅客自行负责保管。具体尺寸、重量、类型等以各航空公司规定为准
+   */
   desc?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i4/O1CN01UynXG31pjsEtA3tMF_!!6000000005397-2-tps-36-36.png
+   */
   icon?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i1/O1CN01qe7wL21gJ0SmEXXL7_!!6000000004120-2-tps-1206-768.png
+   */
   image?: string;
+  /**
+   * @example
+   * 手提行李说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1073,9 +1546,25 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageIte
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   image?: string;
+  /**
+   * @example
+   * 50
+   */
   largest?: string;
+  /**
+   * @example
+   * 40
+   */
   middle?: string;
+  /**
+   * @example
+   * 20
+   */
   smallest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1106,10 +1595,22 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageIte
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes extends $dara.Model {
   baggageDesc?: string[];
+  /**
+   * @example
+   * 1
+   */
   baggageSubContentType?: number;
   description?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesDescription;
   imageDO?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizesImageDO;
+  /**
+   * @example
+   * true
+   */
   isHighlight?: boolean;
+  /**
+   * @example
+   * 免费手提行李
+   */
   subTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1154,8 +1655,23 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageIte
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItems extends $dara.Model {
   baggageSubContentVisualizes?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItemsBaggageSubContentVisualizes[];
   extraContentVisualizes?: any[];
+  /**
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @remarks
+   * PTC
+   * 
+   * @example
+   * ADT
+   */
   ptc?: string;
+  /**
+   * @example
+   * 成人
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1193,8 +1709,20 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageIte
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemTips extends $dara.Model {
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
+   */
   logo?: string;
+  /**
+   * @example
+   * 各个尺寸的行李箱有多大
+   */
   tipsDesc?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
+   */
   tipsImage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1223,10 +1751,26 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageIte
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItem extends $dara.Model {
   baggageSubItems?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemBaggageSubItems[];
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * 北京-上海
+   */
   tableHead?: string;
   tips?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItemTips;
+  /**
+   * @example
+   * 退票规则/同舱改期规则
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1266,11 +1810,35 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageIte
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleInfo extends $dara.Model {
+  /**
+   * @example
+   * 改期如存在票面差价，需同时收取差价和改期费。除另有规定外，客票有效期自旅行之日起，一年内承运有效；如果客票全部未使用，则从填开客票之日起，一年内承运有效。变更后客票的有效期以旧客票有效期为
+   */
   content?: string;
+  /**
+   * @example
+   * 100
+   */
   cost?: number;
+  /**
+   * @example
+   * 10
+   */
   costPercent?: number;
+  /**
+   * @example
+   * 1675036500000
+   */
   timeStamp?: number;
+  /**
+   * @example
+   * demo
+   */
   timeType?: string;
+  /**
+   * @example
+   * 行李规定
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1304,6 +1872,10 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRule extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   able?: boolean;
   info?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -1333,7 +1905,15 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleItemExtraContents extends $dara.Model {
+  /**
+   * @example
+   * 如允许改期的客票在变更时产生票价差价，需加收差价费用，换开后客票提交退票，已收取的变更手续费不退。改期后提交退票，客票自填开之日起，一年内必须开始旅行，自首次旅行开始之日起，一年内运输有效；客票全部未使用的，则从填开客票之日起，一年内有效
+   */
   content?: string;
+  /**
+   * @example
+   * 特殊说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1359,8 +1939,20 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
+  /**
+   * @example
+   * ￥161/人
+   */
   feeDesc?: string;
+  /**
+   * @example
+   * 1月23日 09:30 前
+   */
   feeRange?: string;
+  /**
+   * @example
+   * 1
+   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1388,9 +1980,27 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleItemRefundSubItems extends $dara.Model {
+  /**
+   * @remarks
+   * isStruct : true
+   * 
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @remarks
+   * PTC
+   * 
+   * @example
+   * ADT
+   */
   ptc?: string;
   refundSubContents?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleItemRefundSubItemsRefundSubContents[];
+  /**
+   * @example
+   * 退票规则/同舱改期规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1424,11 +2034,27 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRule
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleItem extends $dara.Model {
   extraContents?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleItemExtraContents[];
+  /**
+   * @example
+   * 0
+   */
   index?: number;
   refundSubItems?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleItemRefundSubItems[];
   subTableHead?: string[];
+  /**
+   * @example
+   * 北京-上海
+   */
   tableHead?: string;
+  /**
+   * @example
+   * 退票规则/同舱改期规则
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1473,11 +2099,35 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleInfo extends $dara.Model {
+  /**
+   * @example
+   * 同上
+   */
   content?: string;
+  /**
+   * @example
+   * 100
+   */
   cost?: number;
+  /**
+   * @example
+   * 10
+   */
   costPercent?: number;
+  /**
+   * @example
+   * 1675036500000
+   */
   timeStamp?: number;
+  /**
+   * @example
+   * demo
+   */
   timeType?: string;
+  /**
+   * @example
+   * 行李规定
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1511,6 +2161,10 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRule extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   able?: boolean;
   info?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleInfo[];
   static names(): { [key: string]: string } {
@@ -1540,7 +2194,15 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleItemExtraContents extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   content?: string;
+  /**
+   * @example
+   * demo
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1566,8 +2228,20 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents extends $dara.Model {
+  /**
+   * @example
+   * ￥161/人
+   */
   feeDesc?: string;
+  /**
+   * @example
+   * 1月23日 09:30 前
+   */
   feeRange?: string;
+  /**
+   * @example
+   * 1
+   */
   style?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1595,9 +2269,24 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleItemRefundSubItems extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @remarks
+   * PTC
+   * 
+   * @example
+   * ADT
+   */
   ptc?: string;
   refundSubContents?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleItemRefundSubItemsRefundSubContents[];
+  /**
+   * @example
+   * 规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1631,11 +2320,27 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRule
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleItem extends $dara.Model {
   extraContents?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleItemExtraContents[];
+  /**
+   * @example
+   * 1
+   */
   index?: number;
   refundSubItems?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleItemRefundSubItems[];
   subTableHead?: string[];
+  /**
+   * @example
+   * 北京-上海
+   */
   tableHead?: string;
+  /**
+   * @example
+   * 退票规则/同舱改期规则
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1680,11 +2385,35 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRule
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListSignRuleInfo extends $dara.Model {
+  /**
+   * @example
+   * 同上
+   */
   content?: string;
+  /**
+   * @example
+   * 100
+   */
   cost?: number;
+  /**
+   * @example
+   * 10
+   */
   costPercent?: number;
+  /**
+   * @example
+   * 1675036500000
+   */
   timeStamp?: number;
+  /**
+   * @example
+   * demo
+   */
   timeType?: string;
+  /**
+   * @example
+   * 签转规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1718,6 +2447,10 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListSignRuleIn
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListSignRule extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   able?: boolean;
   info?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListSignRuleInfo[];
   static names(): { [key: string]: string } {
@@ -1747,11 +2480,35 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListSignRule e
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListUpgradeRuleInfo extends $dara.Model {
+  /**
+   * @example
+   * 同上
+   */
   content?: string;
+  /**
+   * @example
+   * 100
+   */
   cost?: number;
+  /**
+   * @example
+   * 10
+   */
   costPercent?: number;
+  /**
+   * @example
+   * 1675036500000
+   */
   timeStamp?: number;
+  /**
+   * @example
+   * demo
+   */
   timeType?: string;
+  /**
+   * @example
+   * 升舱规则
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1785,6 +2542,10 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListUpgradeRul
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListUpgradeRule extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   able?: boolean;
   info?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListUpgradeRuleInfo[];
   static names(): { [key: string]: string } {
@@ -1814,14 +2575,26 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleListUpgradeRul
 }
 
 export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleList extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   baggageInfo?: string;
   baggageItem?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListBaggageItem;
   changeRule?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRule;
   changeRuleItem?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListChangeRuleItem;
+  /**
+   * @example
+   * {}
+   */
   extra?: string;
   refundRule?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRule;
   refundRuleItem?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListRefundRuleItem;
   signRule?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListSignRule;
+  /**
+   * @example
+   * 文案
+   */
   tuigaiqianInfo?: string;
   upgradeRule?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleListUpgradeRule;
   static names(): { [key: string]: string } {
@@ -1887,42 +2660,178 @@ export class FlightOtaSearchResponseBodyModuleFlightListFlightRuleList extends $
 export class FlightOtaSearchResponseBodyModuleFlightList extends $dara.Model {
   airlineInfo?: FlightOtaSearchResponseBodyModuleFlightListAirlineInfo;
   arrAirportInfo?: FlightOtaSearchResponseBodyModuleFlightListArrAirportInfo;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   arrDate?: string;
+  /**
+   * @example
+   * 100
+   */
   buildPrice?: number;
+  /**
+   * @example
+   * Y
+   */
   cabin?: string;
+  /**
+   * @example
+   * 2
+   */
   cabinClass?: string;
   cabinInfoList?: FlightOtaSearchResponseBodyModuleFlightListCabinInfoList[];
+  /**
+   * @example
+   * FM
+   */
   carrierAirline?: string;
+  /**
+   * @example
+   * FM9152
+   */
   carrierNo?: string;
   depAirportInfo?: FlightOtaSearchResponseBodyModuleFlightListDepAirportInfo;
+  /**
+   * @example
+   * BJS
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   depDate?: string;
+  /**
+   * @example
+   * 1
+   */
   discount?: number;
+  /**
+   * @example
+   * CA1234
+   */
   flightNo?: string;
   flightRuleList?: FlightOtaSearchResponseBodyModuleFlightListFlightRuleList[];
+  /**
+   * @example
+   * demo
+   */
   flightRuleListStr?: string;
+  /**
+   * @example
+   * 中型机
+   */
   flightSize?: string;
+  /**
+   * @example
+   * demo
+   */
   flightType?: string;
+  /**
+   * @example
+   * 1
+   */
   invoiceType?: number;
+  /**
+   * @example
+   * true
+   */
   isProtocol?: boolean;
+  /**
+   * @example
+   * false
+   */
   isShare?: boolean;
+  /**
+   * @example
+   * false
+   */
   isStop?: boolean;
+  /**
+   * @example
+   * false
+   */
   isTransfer?: boolean;
+  /**
+   * @example
+   * 无餐食
+   */
   mealDesc?: string;
+  /**
+   * @example
+   * 100
+   */
   oilPrice?: number;
+  /**
+   * @example
+   * 6669c8e53b684105b8687bad0331988a_41
+   */
   otaItemId?: string;
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * 1
+   */
   productType?: number;
+  /**
+   * @example
+   * 标准产品
+   */
   productTypeDesc?: string;
+  /**
+   * @example
+   * 100
+   */
   promotionPrice?: string;
+  /**
+   * @example
+   * 1
+   */
   remainedSeatCount?: string;
+  /**
+   * @example
+   * 1000_1_0
+   */
   secretParams?: string;
+  /**
+   * @example
+   * 1
+   */
   segmentNumber?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   stopArrTime?: string;
+  /**
+   * @example
+   * HGH
+   */
   stopCity?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   stopDepTime?: string;
+  /**
+   * @example
+   * 100
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   totalPrice?: string;
+  /**
+   * @example
+   * 1
+   */
   tripType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2063,11 +2972,31 @@ export class FlightOtaSearchResponseBodyModule extends $dara.Model {
 }
 
 export class FlightOtaSearchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightOtaSearchResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

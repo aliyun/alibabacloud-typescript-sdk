@@ -4,24 +4,66 @@ import * as $dara from '@darabonba/typescript';
 
 export class CooperatorHotelBillSettlementQueryRequest extends $dara.Model {
   applyId?: string;
+  /**
+   * @example
+   * 20250101
+   */
   billBatch?: string;
+  /**
+   * @example
+   * 2025-01-02
+   */
   billRecordTimeEnd?: string;
+  /**
+   * @example
+   * 2025-01-01
+   */
   billRecordTimeStart?: string;
+  /**
+   * @example
+   * cooperator_alibtrip
+   */
   cooperatorId?: string;
+  /**
+   * @example
+   * 12345
+   */
   orderId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   pageNo?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100
    */
   pageSize?: number;
+  /**
+   * @example
+   * 2021-10-02
+   */
   periodEnd?: string;
+  /**
+   * @example
+   * 2021-10-01
+   */
   periodStart?: string;
+  /**
+   * @example
+   * 1qwea
+   */
   scrollId?: string;
+  /**
+   * @example
+   * true
+   */
   scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {

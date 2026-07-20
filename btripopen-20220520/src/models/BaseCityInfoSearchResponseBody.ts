@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BaseCityInfoSearchResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 330100
+   */
   code?: string;
+  /**
+   * @example
+   * 杭州
+   */
   name?: string;
+  /**
+   * @example
+   * 中国，浙江省，杭州
+   */
   nameTree?: string;
+  /**
+   * @example
+   * 0
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,11 +51,34 @@ export class BaseCityInfoSearchResponseBodyModule extends $dara.Model {
 }
 
 export class BaseCityInfoSearchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 参数异常
+   */
   message?: string;
   module?: BaseCityInfoSearchResponseBodyModule[];
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210f079e16603757182131635d866a
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

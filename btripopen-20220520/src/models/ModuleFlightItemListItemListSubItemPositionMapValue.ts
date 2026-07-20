@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleFlightItemListItemListSubItemPositionMapValue extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {

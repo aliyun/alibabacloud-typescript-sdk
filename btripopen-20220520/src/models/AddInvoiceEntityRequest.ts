@@ -5,17 +5,36 @@ import * as $dara from '@darabonba/typescript';
 export class AddInvoiceEntityRequestEntities extends $dara.Model {
   /**
    * @remarks
+   * The entity ID, which can be an employee ID, department ID, role ID, or third-party department ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 12345
    */
   entityId?: string;
   /**
    * @remarks
+   * The entity name, which can be an employee name, department name, role name, or third-party department name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   entityName?: string;
   /**
    * @remarks
+   * The entity type. Valid values:
+   * - 1: employee
+   * - 2: department
+   * - 3: role
+   * - 4: third-party department
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   entityType?: string;
   static names(): { [key: string]: string } {
@@ -46,12 +65,19 @@ export class AddInvoiceEntityRequestEntities extends $dara.Model {
 export class AddInvoiceEntityRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of entities.
+   * 
    * This parameter is required.
    */
   entities?: AddInvoiceEntityRequestEntities[];
   /**
    * @remarks
+   * The third-party invoice ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 4854821
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

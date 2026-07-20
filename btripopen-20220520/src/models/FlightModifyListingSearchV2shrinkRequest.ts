@@ -5,15 +5,47 @@ import * as $dara from '@darabonba/typescript';
 export class FlightModifyListingSearchV2ShrinkRequest extends $dara.Model {
   cabinClassShrink?: string;
   depDateShrink?: string;
+  /**
+   * @example
+   * true
+   */
   interfaceCallerIsSupportRetry?: boolean;
+  /**
+   * @example
+   * name
+   */
   isvName?: string;
+  /**
+   * @example
+   * 1017002195370467138
+   */
   orderId?: number;
+  /**
+   * @example
+   * 1017002195370467137
+   */
   outOrderId?: string;
   passengerSegmentRelationsShrink?: string;
+  /**
+   * @example
+   * 2
+   */
   searchMode?: number;
+  /**
+   * @example
+   * a2c230080358295f99e03aa4e3ccf1bd
+   */
   searchRetryToken?: string;
   selectedSegmentsShrink?: string;
+  /**
+   * @example
+   * a2ffebfe733742aab5c491d960ba3d59
+   */
   sessionId?: string;
+  /**
+   * @example
+   * true
+   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {

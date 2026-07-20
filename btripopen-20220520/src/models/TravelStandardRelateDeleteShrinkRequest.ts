@@ -3,11 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TravelStandardRelateDeleteShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   fromGroup?: boolean;
   removeListShrink?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 6523763
    */
   ruleId?: number;
   static names(): { [key: string]: string } {

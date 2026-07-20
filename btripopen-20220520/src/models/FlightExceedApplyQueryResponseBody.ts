@@ -3,20 +3,80 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo extends $dara.Model {
+  /**
+   * @example
+   * 萧山国际机场
+   */
   arrAirportName?: string;
+  /**
+   * @example
+   * SHA
+   */
   arrCity?: string;
+  /**
+   * @example
+   * 北京
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 2022-01-12T16:47Z
+   */
   arrTime?: string;
+  /**
+   * @example
+   * F
+   */
   cabin?: string;
+  /**
+   * @example
+   * 1
+   */
   cabinClass?: number;
+  /**
+   * @example
+   * 经济舱
+   */
   cabinClassStr?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   depAirportName?: string;
+  /**
+   * @example
+   * SHA
+   */
   depCity?: string;
+  /**
+   * @example
+   * 杭州
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 2022-01-12T16:47Z
+   */
   depTime?: string;
+  /**
+   * @example
+   * 4
+   */
   discount?: string;
+  /**
+   * @example
+   * MU2759
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 300
+   */
   price?: number;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -68,20 +128,80 @@ export class FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo extend
 }
 
 export class FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDoList extends $dara.Model {
+  /**
+   * @example
+   * 萧山国际机场
+   */
   arrAirportName?: string;
+  /**
+   * @example
+   * JJN
+   */
   arrCity?: string;
+  /**
+   * @example
+   * 杭州
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 2024-05-13 09:12:22
+   */
   arrTime?: string;
+  /**
+   * @example
+   * F
+   */
   cabin?: string;
+  /**
+   * @example
+   * YS
+   */
   cabinClass?: number;
+  /**
+   * @example
+   * 经济舱
+   */
   cabinClassStr?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   depAirportName?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCity?: string;
+  /**
+   * @example
+   * 北京
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 2024-05-12 09:12:22
+   */
   depTime?: string;
+  /**
+   * @example
+   * 4折
+   */
   discount?: string;
+  /**
+   * @example
+   * CA1371
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 61000
+   */
   price?: number;
+  /**
+   * @example
+   * 2
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -133,18 +253,70 @@ export class FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDoList ex
 }
 
 export class FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights extends $dara.Model {
+  /**
+   * @example
+   * 萧山国际机场
+   */
   arrAirportName?: string;
+  /**
+   * @example
+   * 上海
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 2022-01-12T16:47Z
+   */
   arrTime?: string;
+  /**
+   * @example
+   * F
+   */
   cabin?: string;
+  /**
+   * @example
+   * 1
+   */
   cabinClass?: number;
+  /**
+   * @example
+   * 头等舱
+   */
   cabinClassStr?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   depAirportName?: string;
+  /**
+   * @example
+   * 北京
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 2022-01-12T16:47Z
+   */
   depTime?: string;
+  /**
+   * @example
+   * 4折
+   */
   discount?: string;
+  /**
+   * @example
+   * MU6390
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 300
+   */
   price?: number;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   transferAirportName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -192,20 +364,68 @@ export class FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights exten
 }
 
 export class FlightExceedApplyQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 1231
+   */
   applyId?: number;
   applyIntentionInfoDo?: FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDo;
   applyIntentionInfoDoList?: FlightExceedApplyQueryResponseBodyModuleApplyIntentionInfoDoList[];
   applyRecommendFlights?: FlightExceedApplyQueryResponseBodyModuleApplyRecommendFlights;
+  /**
+   * @example
+   * 出差
+   */
   btripCause?: string;
+  /**
+   * @example
+   * 123
+   */
   corpId?: string;
+  /**
+   * @example
+   * 原因
+   */
   exceedReason?: string;
+  /**
+   * @example
+   * 1
+   */
   exceedType?: number;
+  /**
+   * @example
+   * 经济舱（2折及以下）
+   */
   originStandard?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 2022-01-12T16:47Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * 0001A1100000007EX08O
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * test_corp
+   */
   thirdpartCorpId?: string;
+  /**
+   * @example
+   * user1
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -266,11 +486,31 @@ export class FlightExceedApplyQueryResponseBodyModule extends $dara.Model {
 }
 
 export class FlightExceedApplyQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightExceedApplyQueryResponseBodyModule;
+  /**
+   * @example
+   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

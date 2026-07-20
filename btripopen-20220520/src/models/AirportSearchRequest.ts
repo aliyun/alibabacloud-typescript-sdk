@@ -6,6 +6,9 @@ export class AirportSearchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 杭州
    */
   keyword?: string;
   /**

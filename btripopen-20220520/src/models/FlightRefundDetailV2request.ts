@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundDetailV2Request extends $dara.Model {
+  /**
+   * @example
+   * name
+   */
   isvName?: string;
+  /**
+   * @example
+   * 1002039195025156784
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1017002195371212121
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 1002039195025156800
+   */
   outRefundApplyId?: string;
+  /**
+   * @example
+   * 1002039195025156700
+   */
   refundApplyId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ElectronicItineraryBatchApplyResponseBodyModuleApplyFailedTicketList extends $dara.Model {
+  /**
+   * @example
+   * 5001
+   */
   failedCode?: number;
+  /**
+   * @example
+   * 票号不存在
+   */
   failedReason?: string;
+  /**
+   * @example
+   * 018-6605785754
+   */
   ticketNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,6 +45,10 @@ export class ElectronicItineraryBatchApplyResponseBodyModuleApplyFailedTicketLis
 
 export class ElectronicItineraryBatchApplyResponseBodyModule extends $dara.Model {
   applyFailedTicketList?: ElectronicItineraryBatchApplyResponseBodyModuleApplyFailedTicketList[];
+  /**
+   * @example
+   * 0c7b5944608953479a9a4d40c1eec618
+   */
   batchNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,11 +77,37 @@ export class ElectronicItineraryBatchApplyResponseBodyModule extends $dara.Model
 }
 
 export class ElectronicItineraryBatchApplyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: ElectronicItineraryBatchApplyResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,16 +3,60 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CarOrderListQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   allApply?: boolean;
+  /**
+   * @example
+   * 117429516
+   */
   applyId?: number;
+  /**
+   * @example
+   * departId
+   */
   departId?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * cs2NH_n1QTC3R6hB9m-BAQ08221658314273
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   updateEndTime?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   updateStartTime?: string;
+  /**
+   * @example
+   * userId
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

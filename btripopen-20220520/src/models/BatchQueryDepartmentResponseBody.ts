@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchQueryDepartmentResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @example
+   * 电磁继电器装配SL10线
+   */
   deptName?: string;
   managerEmployeeIdList?: string[];
+  /**
+   * @example
+   * 1335
+   */
   outDeptId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +43,21 @@ export class BatchQueryDepartmentResponseBodyModuleItems extends $dara.Model {
 }
 
 export class BatchQueryDepartmentResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   hasMore?: boolean;
   items?: BatchQueryDepartmentResponseBodyModuleItems[];
+  /**
+   * @example
+   * NjE1OTgwOTY
+   */
   nextCursorToken?: string;
+  /**
+   * @example
+   * 0
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -70,12 +90,36 @@ export class BatchQueryDepartmentResponseBodyModule extends $dara.Model {
 }
 
 export class BatchQueryDepartmentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: BatchQueryDepartmentResponseBodyModule;
+  /**
+   * @example
+   * B72B39C8-****-****-****-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210f079e16603757182131635d866a
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

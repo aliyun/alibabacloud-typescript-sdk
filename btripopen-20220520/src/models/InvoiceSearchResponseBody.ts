@@ -3,8 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvoiceSearchResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * ID
+   * 
+   * @example
+   * 1478652
+   */
   id?: number;
+  /**
+   * @example
+   * 405009
+   */
   thirdPartInvoiceId?: string;
+  /**
+   * @example
+   * 测试抬头
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,11 +47,34 @@ export class InvoiceSearchResponseBodyModule extends $dara.Model {
 }
 
 export class InvoiceSearchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: InvoiceSearchResponseBodyModule[];
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * EB68C364-F9A0-5046-910A-2DD92C277E71
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

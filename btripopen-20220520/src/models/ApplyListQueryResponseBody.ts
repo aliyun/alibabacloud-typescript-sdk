@@ -3,12 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApplyListQueryResponseBodyModuleListApproverList extends $dara.Model {
+  /**
+   * @example
+   * 同意
+   */
   note?: string;
+  /**
+   * @example
+   * 2018-09-19T14:03Z
+   */
   operateTime?: string;
+  /**
+   * @example
+   * 1
+   */
   order?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 同意
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * user1
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,7 +72,15 @@ export class ApplyListQueryResponseBodyModuleListApproverList extends $dara.Mode
 }
 
 export class ApplyListQueryResponseBodyModuleListCarRule extends $dara.Model {
+  /**
+   * @example
+   * 12345
+   */
   scenarioTemplateId?: string;
+  /**
+   * @example
+   * 测试场景模板
+   */
   scenarioTemplateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,15 +106,55 @@ export class ApplyListQueryResponseBodyModuleListCarRule extends $dara.Model {
 }
 
 export class ApplyListQueryResponseBodyModuleListExternalTravelerList extends $dara.Model {
+  /**
+   * @example
+   * “{"name":"张三"}”
+   */
   attribute?: string;
+  /**
+   * @example
+   * 商旅成本中心
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * 010000009
+   */
   departId?: string;
+  /**
+   * @example
+   * 371164
+   */
   externalUserId?: string;
+  /**
+   * @example
+   * HD10002411
+   */
   invoiceName?: string;
+  /**
+   * @example
+   * 一级事业部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * acs
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 项目xxx
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * DHDI2212201N1DGZDD
+   */
   thirdpartDepartId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -120,19 +196,75 @@ export class ApplyListQueryResponseBodyModuleListExternalTravelerList extends $d
 }
 
 export class ApplyListQueryResponseBodyModuleListItineraryList extends $dara.Model {
+  /**
+   * @example
+   * 北京
+   */
   arrCity?: string;
+  /**
+   * @example
+   * 2018-09-19T14:03Z
+   */
   arrDate?: string;
+  /**
+   * @example
+   * 阿里巴巴
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * 杭州
+   */
   depCity?: string;
+  /**
+   * @example
+   * 2018-09-19T14:03Z
+   */
   depDate?: string;
+  /**
+   * @example
+   * 阿里巴巴
+   */
   invoiceName?: string;
+  /**
+   * @example
+   * abcd
+   */
   itineraryId?: string;
+  /**
+   * @example
+   * xm1
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 项目1
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * 12345
+   */
   thirdpartCostCenterId?: string;
+  /**
+   * @example
+   * 12345
+   */
   thirdpartInvoiceId?: string;
+  /**
+   * @example
+   * thirdpart1234
+   */
   thirdpartItineraryId?: string;
+  /**
+   * @example
+   * 0
+   */
   trafficType?: number;
+  /**
+   * @example
+   * 1
+   */
   tripWay?: number;
   static names(): { [key: string]: string } {
     return {
@@ -182,18 +314,70 @@ export class ApplyListQueryResponseBodyModuleListItineraryList extends $dara.Mod
 }
 
 export class ApplyListQueryResponseBodyModuleListItinerarySetList extends $dara.Model {
+  /**
+   * @example
+   * 2018-09-19T14:03Z
+   */
   arrDate?: string;
+  /**
+   * @example
+   * BJS，HGH
+   */
   cityCodeSet?: string;
+  /**
+   * @example
+   * 北京，杭州
+   */
   citySet?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * 2018-09-19T14:03Z
+   */
   depDate?: string;
+  /**
+   * @example
+   * 测试发票抬头
+   */
   invoiceName?: string;
+  /**
+   * @example
+   * abcd
+   */
   itineraryId?: string;
+  /**
+   * @example
+   * 12345
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 项目名称
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * 12345
+   */
   thirdpartCostCenterId?: string;
+  /**
+   * @example
+   * 12345
+   */
   thirdpartInvoiceId?: string;
+  /**
+   * @example
+   * thirdpart1234
+   */
   thirdpartItineraryId?: string;
+  /**
+   * @example
+   * 0
+   */
   trafficType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -241,7 +425,15 @@ export class ApplyListQueryResponseBodyModuleListItinerarySetList extends $dara.
 }
 
 export class ApplyListQueryResponseBodyModuleListTravelerListCarCitySet extends $dara.Model {
+  /**
+   * @example
+   * 110100,330100
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 北京，杭州
+   */
   cityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -267,17 +459,61 @@ export class ApplyListQueryResponseBodyModuleListTravelerListCarCitySet extends 
 }
 
 export class ApplyListQueryResponseBodyModuleListTravelerList extends $dara.Model {
+  /**
+   * @example
+   * “{"name":"张三"}”
+   */
   attribute?: string;
   carCitySet?: ApplyListQueryResponseBodyModuleListTravelerListCarCitySet[];
+  /**
+   * @example
+   * “成本中心”
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * 330920003106
+   */
   departId?: string;
+  /**
+   * @example
+   * HD55226
+   */
   invoiceName?: string;
+  /**
+   * @example
+   * 12345
+   */
   jobNo?: string;
+  /**
+   * @example
+   * “一级事业部”
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * acs
+   */
   projectCode?: string;
+  /**
+   * @example
+   * “成本项目”
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * 10225
+   */
   thirdpartDepartId?: string;
+  /**
+   * @example
+   * user1
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -326,35 +562,131 @@ export class ApplyListQueryResponseBodyModuleListTravelerList extends $dara.Mode
 }
 
 export class ApplyListQueryResponseBodyModuleList extends $dara.Model {
+  /**
+   * @example
+   * 201710111505000464651
+   */
   applyShowId?: string;
   approverList?: ApplyListQueryResponseBodyModuleListApproverList[];
   carRule?: ApplyListQueryResponseBodyModuleListCarRule;
+  /**
+   * @example
+   * corp1
+   */
   corpId?: string;
+  /**
+   * @example
+   * abc
+   */
   corpName?: string;
+  /**
+   * @example
+   * depart1
+   */
   departId?: string;
+  /**
+   * @example
+   * 淘宝
+   */
   departName?: string;
   externalTravelerList?: ApplyListQueryResponseBodyModuleListExternalTravelerList[];
+  /**
+   * @example
+   * abc1234
+   */
   flowCode?: string;
+  /**
+   * @example
+   * 2018-09-19T14:03Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2018-09-19T14:03Z
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 1476
+   */
   id?: number;
   itineraryList?: ApplyListQueryResponseBodyModuleListItineraryList[];
+  /**
+   * @example
+   * 0
+   */
   itineraryRule?: number;
   itinerarySetList?: ApplyListQueryResponseBodyModuleListItinerarySetList[];
+  /**
+   * @example
+   * 1234567
+   */
   jobNo?: string;
+  /**
+   * @example
+   * 1142256
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * 一级事业部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 同意
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * abc
+   */
   thirdpartBusinessId?: string;
+  /**
+   * @example
+   * abc
+   */
   thirdpartId?: string;
   travelerList?: ApplyListQueryResponseBodyModuleListTravelerList[];
+  /**
+   * @example
+   * 北京出差
+   */
   tripCause?: string;
+  /**
+   * @example
+   * 1
+   */
   tripDay?: number;
+  /**
+   * @example
+   * 北京出差
+   */
   tripTitle?: string;
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * abc
+   */
   unionNo?: string;
+  /**
+   * @example
+   * user1
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -454,11 +786,31 @@ export class ApplyListQueryResponseBodyModuleList extends $dara.Model {
 }
 
 export class ApplyListQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   moduleList?: ApplyListQueryResponseBodyModuleList[];
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

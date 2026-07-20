@@ -6,11 +6,17 @@ export class TravelStandardRelateDeleteRequestRemoveList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 667104628
    */
   entityId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 3
    */
   entityType?: string;
   static names(): { [key: string]: string } {
@@ -37,11 +43,18 @@ export class TravelStandardRelateDeleteRequestRemoveList extends $dara.Model {
 }
 
 export class TravelStandardRelateDeleteRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   fromGroup?: boolean;
   removeList?: TravelStandardRelateDeleteRequestRemoveList[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 6523763
    */
   ruleId?: number;
   static names(): { [key: string]: string } {

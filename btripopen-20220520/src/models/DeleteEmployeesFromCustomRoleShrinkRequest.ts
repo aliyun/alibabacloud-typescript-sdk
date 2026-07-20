@@ -6,6 +6,9 @@ export class DeleteEmployeesFromCustomRoleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12345
    */
   roleId?: string;
   /**

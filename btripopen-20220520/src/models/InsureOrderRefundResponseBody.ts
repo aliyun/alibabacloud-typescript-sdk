@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureOrderRefundResponseBodyModuleInsRefundList extends $dara.Model {
+  /**
+   * @example
+   * po102000399221
+   */
   policyRefundNo?: string;
+  /**
+   * @example
+   * REFUND_SUCCESS
+   */
   refundStatus?: string;
+  /**
+   * @example
+   * 1230012499921
+   */
   subInsOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,9 +44,21 @@ export class InsureOrderRefundResponseBodyModuleInsRefundList extends $dara.Mode
 }
 
 export class InsureOrderRefundResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 118526587
+   */
   applyId?: string;
+  /**
+   * @example
+   * 1423041410342678003
+   */
   insOrderId?: string;
   insRefundList?: InsureOrderRefundResponseBodyModuleInsRefundList[];
+  /**
+   * @example
+   * 1423041410342678022
+   */
   outApplyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,11 +91,31 @@ export class InsureOrderRefundResponseBodyModule extends $dara.Model {
 }
 
 export class InsureOrderRefundResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: InsureOrderRefundResponseBodyModule;
+  /**
+   * @example
+   * 2103ad3116824902540648188de7ac
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210e846c16726306481681232d441f
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

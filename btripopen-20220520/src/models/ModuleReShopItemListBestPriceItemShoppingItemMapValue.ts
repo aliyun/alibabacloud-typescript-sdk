@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityListSegmentPosition extends $dara.Model {
   /**
+   * @remarks
+   * The journey ordinal number (starting from 0).
+   * 
    * @example
    * 0
    */
   journeyIndex?: number;
   /**
+   * @remarks
+   * The segment ordinal number (starting from 0 within the same journey).
+   * 
    * @example
    * 0
    */
@@ -38,31 +44,53 @@ export class ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityL
 
 export class ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityListCabinInfo extends $dara.Model {
   /**
+   * @remarks
+   * The cabin code.
+   * 
    * @example
    * Y
    */
   cabin?: string;
   /**
+   * @remarks
+   * The cabin class. Valid values:
+   * - F: first class.
+   * - C: business class.
+   * - Y: economy class.
+   * - P: premium economy class.
+   * 
    * @example
    * Y
    */
   cabinClass?: string;
   /**
+   * @remarks
+   * The cabin class name. Displays the custom name if available. Otherwise, displays the standard name.
+   * 
    * @example
    * 经济舱
    */
   cabinClassName?: string;
   /**
+   * @remarks
+   * The number of remaining seats in the cabin. Valid values: 0-9 indicates 0 to 9 remaining seats. A indicates more than 9 seats.
+   * 
    * @example
    * 8
    */
   quantity?: string;
   /**
+   * @remarks
+   * The cabin class description.
+   * 
    * @example
    * 经济舱
    */
   cabinClassMemo?: string;
   /**
+   * @remarks
+   * The domestic special notes.
+   * 
    * @example
    * 无
    */
@@ -99,7 +127,15 @@ export class ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityL
 }
 
 export class ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityList extends $dara.Model {
+  /**
+   * @remarks
+   * The segment position information, indicating the journey index and segment index within the overall itinerary.
+   */
   segmentPosition?: ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityListSegmentPosition;
+  /**
+   * @remarks
+   * The cabin details.
+   */
   cabinInfo?: ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityListCabinInfo;
   static names(): { [key: string]: string } {
     return {
@@ -132,31 +168,49 @@ export class ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityL
 
 export class ModuleReShopItemListBestPriceItemShoppingItemMapValueSearchPrice extends $dara.Model {
   /**
+   * @remarks
+   * The total amount in cents.
+   * 
    * @example
    * 1000
    */
   totalAmount?: number;
   /**
+   * @remarks
+   * The service fee amount, in cents.
+   * 
    * @example
    * 1000
    */
   handlingAmount?: number;
   /**
+   * @remarks
+   * The cabin upgrade fee amount in cents.
+   * 
    * @example
    * 1000
    */
   upgradeAmount?: number;
   /**
+   * @remarks
+   * The tax difference amount in cents.
+   * 
    * @example
    * 1000
    */
   taxDiffAmount?: number;
   /**
+   * @remarks
+   * Indicates whether a direct price is available. Default value: true.
+   * 
    * @example
    * 1000
    */
   hasPrice?: boolean;
   /**
+   * @remarks
+   * The text prompt displayed when no direct price is available.
+   * 
    * @example
    * 待服务商确认
    */
@@ -194,11 +248,17 @@ export class ModuleReShopItemListBestPriceItemShoppingItemMapValueSearchPrice ex
 
 export class ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceListSegmentPosition extends $dara.Model {
   /**
+   * @remarks
+   * The journey ordinal number (starting from 0).
+   * 
    * @example
    * 0
    */
   journeyIndex?: number;
   /**
+   * @remarks
+   * The segment ordinal number (starting from 0 within the same journey).
+   * 
    * @example
    * 0
    */
@@ -228,31 +288,49 @@ export class ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceLi
 
 export class ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceListSearchPrice extends $dara.Model {
   /**
+   * @remarks
+   * The total amount in cents.
+   * 
    * @example
    * 1000
    */
   totalAmount?: number;
   /**
+   * @remarks
+   * The service fee amount, in cents.
+   * 
    * @example
    * 1000
    */
   handlingAmount?: number;
   /**
+   * @remarks
+   * The cabin upgrade fee amount in cents.
+   * 
    * @example
    * 1000
    */
   upgradeAmount?: number;
   /**
+   * @remarks
+   * The tax difference amount in cents.
+   * 
    * @example
    * 1000
    */
   taxDiffAmount?: number;
   /**
+   * @remarks
+   * Indicates whether a direct price is available. Default value: true.
+   * 
    * @example
    * 1000
    */
   hasPrice?: boolean;
   /**
+   * @remarks
+   * The text prompt displayed when no direct price is available.
+   * 
    * @example
    * 待服务商确认
    */
@@ -289,7 +367,15 @@ export class ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceLi
 }
 
 export class ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceList extends $dara.Model {
+  /**
+   * @remarks
+   * The segment position information, indicating the journey index and segment index within the overall itinerary.
+   */
   segmentPosition?: ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceListSegmentPosition;
+  /**
+   * @remarks
+   * The rebooking price.
+   */
   searchPrice?: ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceListSearchPrice;
   static names(): { [key: string]: string } {
     return {
@@ -321,8 +407,20 @@ export class ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceLi
 }
 
 export class ModuleReShopItemListBestPriceItemShoppingItemMapValue extends $dara.Model {
+  /**
+   * @remarks
+   * The remaining cabin inventory for each segment.
+   */
   cabinQuantityList?: ModuleReShopItemListBestPriceItemShoppingItemMapValueCabinQuantityList[];
+  /**
+   * @remarks
+   * The rebooking search price.
+   */
   searchPrice?: ModuleReShopItemListBestPriceItemShoppingItemMapValueSearchPrice;
+  /**
+   * @remarks
+   * The price for each segment. This value may not be available because airline bundled products may not have prices broken down by segment.
+   */
   segmentPriceList?: ModuleReShopItemListBestPriceItemShoppingItemMapValueSegmentPriceList[];
   static names(): { [key: string]: string } {
     return {

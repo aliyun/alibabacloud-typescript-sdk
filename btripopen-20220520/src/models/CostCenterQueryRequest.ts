@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CostCenterQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   disable?: number;
+  /**
+   * @example
+   * false
+   */
   needOrgEntity?: boolean;
+  /**
+   * @example
+   * cost1
+   */
   thirdpartId?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   title?: string;
+  /**
+   * @example
+   * user1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

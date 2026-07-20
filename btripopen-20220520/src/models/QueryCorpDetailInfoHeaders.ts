@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryCorpDetailInfoHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * aqfr****21
+   */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {
     return {

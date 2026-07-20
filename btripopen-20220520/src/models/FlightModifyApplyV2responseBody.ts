@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightModifyApplyV2ResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 1017002195370467138
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1017002195370467137
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 1019195786853020
+   */
   outSubOrderId?: string;
+  /**
+   * @example
+   * 1019195786853020
+   */
   subOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,11 +51,41 @@ export class FlightModifyApplyV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightModifyApplyV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module
+   */
   module?: FlightModifyApplyV2ResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 212a8b8216915622178333839e665d
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvoiceSearchRequest extends $dara.Model {
+  /**
+   * @example
+   * 12345
+   */
   thirdPartId?: string;
+  /**
+   * @example
+   * 测试抬头
+   */
   title?: string;
+  /**
+   * @example
+   * 12345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

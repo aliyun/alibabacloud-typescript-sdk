@@ -6,18 +6,35 @@ export class TicketChangingFlightListRequestTravelerInfoList extends $dara.Model
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * BJS
    */
   arrCity?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HGH
    */
   depCity?: string;
+  /**
+   * @example
+   * 张三
+   */
   name?: string;
+  /**
+   * @example
+   * ADULT
+   */
   type?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 23231
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -50,18 +67,36 @@ export class TicketChangingFlightListRequestTravelerInfoList extends $dara.Model
 }
 
 export class TicketChangingFlightListRequest extends $dara.Model {
+  /**
+   * @example
+   * BJS
+   */
   arrCity?: string;
+  /**
+   * @example
+   * HGH
+   */
   depCity?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2000-00-00 00:00:00
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis123
    */
   disOrderId?: string;
+  /**
+   * @example
+   * 0
+   */
   isVoluntary?: number;
   travelerInfoList?: TicketChangingFlightListRequestTravelerInfoList[];
   static names(): { [key: string]: string } {

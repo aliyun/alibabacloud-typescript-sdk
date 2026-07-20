@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightReShopCancelResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2023-08-10 17:45:32
+   */
   cancelTime?: string;
   static names(): { [key: string]: string } {
     return {

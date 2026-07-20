@@ -4,23 +4,61 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightBillSettlementQueryRequest extends $dara.Model {
   applyId?: string;
+  /**
+   * @example
+   * 20240101
+   */
   billBatch?: string;
+  /**
+   * @example
+   * 2025-01-02
+   */
   billRecordTimeEnd?: string;
+  /**
+   * @example
+   * 2025-01-01
+   */
   billRecordTimeStart?: string;
+  /**
+   * @example
+   * 1017035200275347200
+   */
   orderId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   pageNo?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
+  /**
+   * @example
+   * 2000-01-02
+   */
   periodEnd?: string;
+  /**
+   * @example
+   * 2000-01-01
+   */
   periodStart?: string;
+  /**
+   * @example
+   * 1adsw
+   */
   scrollId?: string;
+  /**
+   * @example
+   * true
+   */
   scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {

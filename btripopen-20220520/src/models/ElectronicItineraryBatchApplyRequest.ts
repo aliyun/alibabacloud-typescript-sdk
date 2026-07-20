@@ -3,16 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ElectronicItineraryBatchApplyRequestApplyItineraryList extends $dara.Model {
+  /**
+   * @example
+   * 测试购方名称
+   */
   purchaserName?: string;
+  /**
+   * @example
+   * tax3213132131
+   */
   purchaserTaxNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   purchaserType?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 781-2205431917
    */
   ticketNo?: string;
   static names(): { [key: string]: string } {
@@ -48,6 +62,10 @@ export class ElectronicItineraryBatchApplyRequest extends $dara.Model {
    * This parameter is required.
    */
   applyItineraryList?: ElectronicItineraryBatchApplyRequestApplyItineraryList[];
+  /**
+   * @example
+   * true
+   */
   canReprint?: boolean;
   static names(): { [key: string]: string } {
     return {

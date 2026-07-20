@@ -3,18 +3,70 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainExceedApplyQueryResponseBodyModuleApplyIntentionInfoDO extends $dara.Model {
+  /**
+   * @example
+   * BJS
+   */
   arrCity?: string;
+  /**
+   * @example
+   * 北京
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 北京南
+   */
   arrStation?: string;
+  /**
+   * @example
+   * 2022-02-24T09:55Z
+   */
   arrTime?: string;
+  /**
+   * @example
+   * SHA
+   */
   depCity?: string;
+  /**
+   * @example
+   * 上海
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 上海南
+   */
   depStation?: string;
+  /**
+   * @example
+   * 2022-02-24T09:55Z
+   */
   depTime?: string;
+  /**
+   * @example
+   * 1000
+   */
   price?: number;
+  /**
+   * @example
+   * 一等座
+   */
   seatName?: string;
+  /**
+   * @example
+   * G39
+   */
   trainNo?: string;
+  /**
+   * @example
+   * 高铁
+   */
   trainTypeDesc?: string;
+  /**
+   * @example
+   * 32
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -62,18 +114,66 @@ export class TrainExceedApplyQueryResponseBodyModuleApplyIntentionInfoDO extends
 }
 
 export class TrainExceedApplyQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * apply1
+   */
   applyId?: number;
   applyIntentionInfoDO?: TrainExceedApplyQueryResponseBodyModuleApplyIntentionInfoDO;
+  /**
+   * @example
+   * 北京出差
+   */
   btripCause?: string;
+  /**
+   * @example
+   * corp1
+   */
   corpId?: string;
+  /**
+   * @example
+   * 费用超标
+   */
   exceedReason?: string;
+  /**
+   * @example
+   * 32
+   */
   exceedType?: number;
+  /**
+   * @example
+   * 10000
+   */
   originStandard?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 2022-02-24T09:55Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * 0001A1100000007EX08O
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * testcorp1
+   */
   thirdpartCorpId?: string;
+  /**
+   * @example
+   * user1
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -124,11 +224,31 @@ export class TrainExceedApplyQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TrainExceedApplyQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: TrainExceedApplyQueryResponseBodyModule;
+  /**
+   * @example
+   * BE3FBA15-C5E1-5B99-8120-9FB84A04FB81
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainNoListSearchRequestOption extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   needTransfer?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -29,16 +33,25 @@ export class TrainNoListSearchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 包头东
    */
   arrLocation?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2024-05-16
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 包头
    */
   depLocation?: string;
   /**
@@ -46,6 +59,10 @@ export class TrainNoListSearchRequest extends $dara.Model {
    * This parameter is required.
    */
   option?: TrainNoListSearchRequestOption;
+  /**
+   * @example
+   * null
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {

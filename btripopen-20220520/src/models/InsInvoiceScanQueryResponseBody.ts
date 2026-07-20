@@ -3,14 +3,77 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails extends $dara.Model {
+  /**
+   * @remarks
+   * 金额
+   * 
+   * @example
+   * 75.21
+   */
   amount?: string;
+  /**
+   * @remarks
+   * 行号
+   * 
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @remarks
+   * 货物或应税劳务、服务名称
+   * 
+   * @example
+   * 铂金首饰
+   */
   itemName?: string;
+  /**
+   * @remarks
+   * 数量
+   * 
+   * @example
+   * 1
+   */
   quantity?: string;
+  /**
+   * @remarks
+   * 规格型号
+   * 
+   * @example
+   * 66PT11230069
+   */
   specification?: string;
+  /**
+   * @remarks
+   * 税额
+   * 
+   * @example
+   * 12.79
+   */
   tax?: string;
+  /**
+   * @remarks
+   * 税率
+   * 
+   * @example
+   * 17%
+   */
   taxRate?: string;
+  /**
+   * @remarks
+   * 单位
+   * 
+   * @example
+   * 件
+   */
   unit?: string;
+  /**
+   * @remarks
+   * 单价
+   * 
+   * @example
+   * 75.21
+   */
   unitPrice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,47 +113,263 @@ export class InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails extends $d
 }
 
 export class InsInvoiceScanQueryResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
   amountWithTax?: string;
+  /**
+   * @example
+   * 18.87
+   */
   amountWithoutTax?: string;
+  /**
+   * @example
+   * 2022-12-01
+   */
   billDate?: string;
+  /**
+   * @example
+   * 2
+   */
   category?: number;
+  /**
+   * @remarks
+   * 校验码
+   * 
+   * @example
+   * 07122942791187744475
+   */
   checkCode?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenter?: string;
+  /**
+   * @example
+   * 测试公司-测试部门
+   */
   department?: string;
+  /**
+   * @remarks
+   * 开票人
+   * 
+   * @example
+   * 敏
+   */
   drawer?: string;
+  /**
+   * @remarks
+   * 应用ID
+   * 
+   * @example
+   * 566
+   */
   id?: string;
+  /**
+   * @example
+   * 泰康
+   */
   insuranceCompany?: string;
+  /**
+   * @example
+   * T123343234242323232
+   */
   insuranceOrderId?: string;
+  /**
+   * @example
+   * 航空意外险
+   */
   insuranceType?: string;
+  /**
+   * @example
+   * 3300111303
+   */
   invoiceCode?: string;
+  /**
+   * @example
+   * 2022-12-01
+   */
   invoiceDay?: string;
+  /**
+   * @remarks
+   * 发票明细
+   */
   invoiceDetails?: InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails[];
+  /**
+   * @remarks
+   * 发票地区
+   * 
+   * @example
+   * 上海
+   */
   invoiceLocation?: string;
+  /**
+   * @example
+   * 24021111
+   */
   invoiceNo?: string;
+  /**
+   * @remarks
+   * 发票抬头
+   * 
+   * @example
+   * 测试发票抬头
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * 3
+   */
   invoiceType?: number;
+  /**
+   * @remarks
+   * 机器码
+   * 
+   * @example
+   * 661619906841
+   */
   machineCode?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   ofdOssUrl?: string;
+  /**
+   * @example
+   * 3137168772101111000
+   */
   orderId?: number;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   ossUrl?: string;
+  /**
+   * @example
+   * 张三
+   */
   passenger?: string;
+  /**
+   * @remarks
+   * 密码区
+   * 
+   * @example
+   * <87*>>53>5023>-446>/4+83/5* *>5/81<75/1931>4>>
+   */
   passwordArea?: string;
+  /**
+   * @example
+   * 测试项目
+   */
   project?: string;
+  /**
+   * @remarks
+   * 购方银行信息
+   * 
+   * @example
+   * 中国农业银行深圳
+   */
   purchaserBankAccountInfo?: string;
+  /**
+   * @remarks
+   * 购方联系方式
+   * 
+   * @example
+   * 杭州余杭区五常街道五常大道168
+   */
   purchaserContactInfo?: string;
+  /**
+   * @example
+   * 测试购方抬头
+   */
   purchaserName?: string;
+  /**
+   * @example
+   * 91441111111111111S
+   */
   purchaserTaxNo?: string;
+  /**
+   * @remarks
+   * 收款人
+   * 
+   * @example
+   * 琳
+   */
   recipient?: string;
+  /**
+   * @remarks
+   * 备注
+   * 
+   * @example
+   * 舰店OMS
+   */
   remarks?: string;
+  /**
+   * @remarks
+   * 复核人
+   * 
+   * @example
+   * 敏
+   */
   reviewer?: string;
+  /**
+   * @remarks
+   * 销售方银行信息
+   * 
+   * @example
+   * 中国农业银行深圳东
+   */
   sellerBankAccountInfo?: string;
+  /**
+   * @remarks
+   * 销售方联系方式
+   * 
+   * @example
+   * 深圳市盐田区深盐路黄
+   */
   sellerContactInfo?: string;
+  /**
+   * @example
+   * 测试销方名称
+   */
   sellerName?: string;
+  /**
+   * @example
+   * 91441111111111111N
+   */
   sellerTaxNo?: string;
+  /**
+   * @remarks
+   * 校验码
+   * 
+   * @example
+   * 4475
+   */
   smartCheckCode?: string;
+  /**
+   * @example
+   * 1.13
+   */
   taxAmount?: string;
+  /**
+   * @example
+   * 6%
+   */
   taxRate?: string;
+  /**
+   * @remarks
+   * 大写金额
+   * 
+   * @example
+   * 叁佰叁拾贰圆整
+   */
   totalAmountInWords?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   xmlOssUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -200,9 +479,25 @@ export class InsInvoiceScanQueryResponseBodyModuleItems extends $dara.Model {
 
 export class InsInvoiceScanQueryResponseBodyModule extends $dara.Model {
   items?: InsInvoiceScanQueryResponseBodyModuleItems[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2
+   */
   totalPage?: number;
+  /**
+   * @example
+   * 30
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -237,11 +532,37 @@ export class InsInvoiceScanQueryResponseBodyModule extends $dara.Model {
 }
 
 export class InsInvoiceScanQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: InsInvoiceScanQueryResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210e847f16611516748613869de4f6
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundPreCalResponseBodyModuleMultiRefundCalList extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   canApplyRefund?: boolean;
+  /**
+   * @example
+   * 张三
+   */
   name?: string;
+  /**
+   * @example
+   * 1000
+   */
   preRefundMoney?: number;
+  /**
+   * @example
+   * 1000
+   */
   refundFee?: number;
+  /**
+   * @example
+   * 124
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,11 +58,35 @@ export class FlightRefundPreCalResponseBodyModuleMultiRefundCalList extends $dar
 }
 
 export class FlightRefundPreCalResponseBodyModuleReturnReason extends $dara.Model {
+  /**
+   * @example
+   * 个人原因提退退票,按照标准退改规则收取手续费
+   */
   extendDesc?: string;
+  /**
+   * @example
+   * 0
+   */
   person?: number;
+  /**
+   * @example
+   * 0
+   */
   reasonCode?: number;
+  /**
+   * @example
+   * 个人原因提退退票,按照标准退改规则收取手续费
+   */
   reasonShow?: string;
+  /**
+   * @example
+   * 1
+   */
   reasonType?: number;
+  /**
+   * @example
+   * 0
+   */
   volunteer?: number;
   static names(): { [key: string]: string } {
     return {
@@ -76,13 +120,37 @@ export class FlightRefundPreCalResponseBodyModuleReturnReason extends $dara.Mode
 }
 
 export class FlightRefundPreCalResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   flightChange?: boolean;
+  /**
+   * @example
+   * FlightItem_996677504
+   */
   itemUnitId?: string;
   multiRefundCalList?: FlightRefundPreCalResponseBodyModuleMultiRefundCalList[];
+  /**
+   * @example
+   * 1000
+   */
   preRefundMoney?: number;
+  /**
+   * @example
+   * 1000
+   */
   refundFee?: number;
   returnReason?: FlightRefundPreCalResponseBodyModuleReturnReason[];
+  /**
+   * @example
+   * 882sudu23s923j9d2
+   */
   sessionId?: string;
+  /**
+   * @example
+   * 无
+   */
   tips?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,11 +194,31 @@ export class FlightRefundPreCalResponseBodyModule extends $dara.Model {
 }
 
 export class FlightRefundPreCalResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightRefundPreCalResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

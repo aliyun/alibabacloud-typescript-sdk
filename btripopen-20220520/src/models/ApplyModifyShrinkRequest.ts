@@ -3,59 +3,181 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApplyModifyShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 4000
+   */
   budget?: number;
+  /**
+   * @example
+   * 1
+   */
   budgetMerge?: number;
   carRuleShrink?: string;
+  /**
+   * @example
+   * 阿里巴巴
+   */
   corpName?: string;
   defaultStandardShrink?: string;
+  /**
+   * @example
+   * 001
+   */
   departId?: string;
+  /**
+   * @example
+   * 采购部
+   */
   departName?: string;
+  /**
+   * @remarks
+   * 可将补充描述传入此字段，账单中将会体现此字段的值。可以用于企业的统计和对账
+   * 
+   * @example
+   * {"cost_center":"成本中心"}
+   */
   extendField?: string;
   externalTravelerListShrink?: string;
   externalTravelerStandardShrink?: string;
+  /**
+   * @example
+   * 1000
+   */
   flightBudget?: number;
+  /**
+   * @example
+   * 1000
+   */
   hotelBudget?: number;
   hotelShareShrink?: string;
+  /**
+   * @example
+   * 1000
+   */
   intlFlightBudget?: number;
+  /**
+   * @example
+   * 1000
+   */
   intlHotelBudget?: number;
+  /**
+   * @example
+   * 0
+   */
   itineraryListShrink?: string;
+  /**
+   * @example
+   * 0
+   */
   itineraryRule?: number;
   itinerarySetListShrink?: string;
+  /**
+   * @example
+   * 0
+   */
   limitTraveler?: number;
+  /**
+   * @example
+   * 1000
+   */
   mealBudget?: number;
+  /**
+   * @example
+   * 141125
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * 产品部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * 子企业Id
+   * 
+   * @example
+   * btrip123
+   */
   subCorpId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0001A1100000007EX08O
    */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 202201413141
+   */
   thirdpartBusinessId?: string;
+  /**
+   * @example
+   * 三方部门id
+   */
   thirdpartDepartId?: string;
+  /**
+   * @example
+   * 1
+   */
   togetherBookRule?: number;
+  /**
+   * @example
+   * 1000
+   */
   trainBudget?: number;
   travelerListShrink?: string;
   travelerStandardShrink?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 访问客户
    */
   tripCause?: string;
+  /**
+   * @example
+   * 1
+   */
   tripDay?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 访问客户
    */
   tripTitle?: string;
+  /**
+   * @example
+   * union51415
+   */
   unionNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * thirdpart12138
    */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
+  /**
+   * @example
+   * 1000
+   */
   vehicleBudget?: number;
   static names(): { [key: string]: string } {
     return {

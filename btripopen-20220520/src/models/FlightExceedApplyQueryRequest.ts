@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightExceedApplyQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * 175634
+   */
   applyId?: number;
+  /**
+   * @example
+   * 2024060710160003300008684
+   */
   businessInstanceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,14 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions extends $dara.Model {
+  /**
+   * @example
+   * 账单id
+   */
   billSettlementId?: number;
+  /**
+   * @example
+   * 1:支出
+   * 2:收入
+   */
   capitalDirection?: string;
+  /**
+   * @example
+   * 6001
+   */
   feeType?: string;
+  /**
+   * @example
+   * 1002039194090156153
+   */
   orderId?: string;
+  /**
+   * @example
+   * 2023-06-11-2023-06-12
+   */
   remark?: string;
   remindTagList?: string[];
+  /**
+   * @example
+   * 350
+   */
   settlementAmount?: string;
+  /**
+   * @example
+   * 2021-10-08T22:27Z
+   */
   settlementTime?: string;
+  /**
+   * @example
+   * 11
+   */
   voucherType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -91,16 +124,55 @@ export class QueryReimbursementOrderResponseBodyModuleExpensesInvoiceInfos exten
 }
 
 export class QueryReimbursementOrderResponseBodyModuleExpenses extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
   amount?: string;
+  /**
+   * @example
+   * CNY(人民币)
+   */
   currency?: string;
+  /**
+   * @example
+   * 杭州
+   */
   expenseCity?: string;
   expenseCompositions?: QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions[];
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   expenseTime?: string;
+  /**
+   * @example
+   * 火车
+   */
   expenseType?: string;
+  /**
+   * @example
+   * code
+   */
   expenseTypeCode?: string;
   invoiceInfos?: QueryReimbursementOrderResponseBodyModuleExpensesInvoiceInfos[];
+  /**
+   * @example
+   * 费用明细id
+   */
   reimbExpenseId?: number;
+  /**
+   * @example
+   * 测试
+   */
   remark?: string;
+  /**
+   * @example
+   * 结算方式；支付类型
+   * 枚举值：
+   * personal：个人支付
+   * enterprise：企业支付
+   */
   settlementType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -150,11 +222,35 @@ export class QueryReimbursementOrderResponseBodyModuleExpenses extends $dara.Mod
 }
 
 export class QueryReimbursementOrderResponseBodyModuleItineraries extends $dara.Model {
+  /**
+   * @example
+   * 北京
+   */
   arrCity?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   arrDate?: string;
+  /**
+   * @example
+   * CTU
+   */
   depCity?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   depDate?: string;
+  /**
+   * @example
+   * 飞机
+   */
   trafficWay?: string;
+  /**
+   * @example
+   * 单程/往返
+   */
   tripWay?: string;
   static names(): { [key: string]: string } {
     return {
@@ -188,9 +284,17 @@ export class QueryReimbursementOrderResponseBodyModuleItineraries extends $dara.
 }
 
 export class QueryReimbursementOrderResponseBodyModulePaymentInfos extends $dara.Model {
+  /**
+   * @example
+   * 20.00
+   */
   amount?: string;
   cnapsCode?: string;
   payeeAccountNumber?: string;
+  /**
+   * @example
+   * userId
+   */
   payeeUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -220,31 +324,133 @@ export class QueryReimbursementOrderResponseBodyModulePaymentInfos extends $dara
 }
 
 export class QueryReimbursementOrderResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 10.00
+   */
   companyAmount?: string;
+  /**
+   * @example
+   * 20.00
+   */
   companyPayAmount?: string;
+  /**
+   * @example
+   * dinga809ed71b9201f35
+   */
   corpId?: string;
+  /**
+   * @example
+   * costCenterCode123
+   */
   costCenterCode?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenterName?: string;
   expenses?: QueryReimbursementOrderResponseBodyModuleExpenses[];
+  /**
+   * @example
+   * 123
+   */
   expensesCoverDeptId?: string;
+  /**
+   * @example
+   * 部门1
+   */
   expensesCoverDeptName?: string;
+  /**
+   * @example
+   * XXX公司
+   */
   expensesCoverInvoiceTitle?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * y/n，是/否
+   */
   isDeleted?: string;
   itineraries?: QueryReimbursementOrderResponseBodyModuleItineraries[];
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   paymentFinishTime?: string;
   paymentInfos?: QueryReimbursementOrderResponseBodyModulePaymentInfos[];
+  /**
+   * @example
+   * 10.00
+   */
   personalAmount?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   processEndTime?: string;
+  /**
+   * @example
+   * projectCode123
+   */
   projectCode?: string;
+  /**
+   * @example
+   * XXX项目
+   */
   projectName?: string;
+  /**
+   * @example
+   * 自愿申请
+   */
   reason?: string;
+  /**
+   * @example
+   * RT203956
+   */
   reimbursementNo?: string;
+  /**
+   * @example
+   * 测试
+   */
   remark?: string;
+  /**
+   * @example
+   * 状态枚举值：
+   * wait_commit：待提交发票
+   * partial_payment：部分打款
+   * wait_payment：待打款
+   * reject：已驳回
+   * financing_recheck：财务复审
+   * commit：已提交
+   * wait_commit：待提交
+   * awaiting_approval：审批中
+   * complete_payment：已打款
+   * withdraw：已撤回
+   */
   status?: string;
+  /**
+   * @example
+   * 关联的出差审批单单号
+   */
   travelThirdApplyId?: string;
+  /**
+   * @example
+   * userId
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -327,11 +533,37 @@ export class QueryReimbursementOrderResponseBodyModule extends $dara.Model {
 }
 
 export class QueryReimbursementOrderResponseBody extends $dara.Model {
+  /**
+   * @example
+   * PARAM_ERROR
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: QueryReimbursementOrderResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,12 +6,22 @@ export class QueryCompenInfosForOpRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   category?: number;
+  /**
+   * @example
+   * 82508250249123456
+   */
   compenId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1002086203277812345
    */
   orderId?: string;
   static names(): { [key: string]: string } {

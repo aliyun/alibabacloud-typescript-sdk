@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GroupUserSaveRequestCertList extends $dara.Model {
+  /**
+   * @example
+   * 2099-03-12
+   */
   certExpiredTime?: string;
+  /**
+   * @example
+   * CN
+   */
   certNation?: string;
+  /**
+   * @example
+   * 123456
+   */
   certNo?: string;
+  /**
+   * @example
+   * 0
+   */
   certType?: number;
+  /**
+   * @example
+   * CN
+   */
   nationality?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,17 +59,35 @@ export class GroupUserSaveRequestCertList extends $dara.Model {
 
 export class GroupUserSaveRequestSubCorpIdList extends $dara.Model {
   departIds?: string[];
+  /**
+   * @example
+   * btrip@alibaba-inc.com
+   */
   email?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   leaveStatus?: number;
+  /**
+   * @example
+   * 123
+   */
   managerUserId?: string;
+  /**
+   * @example
+   * 10
+   */
   positionLevel?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * btrip123
    */
   subCorpId?: string;
   static names(): { [key: string]: string } {
@@ -87,12 +125,36 @@ export class GroupUserSaveRequestSubCorpIdList extends $dara.Model {
 }
 
 export class GroupUserSaveRequest extends $dara.Model {
+  /**
+   * @example
+   * 123456,654321
+   */
   baseCityCode?: string;
+  /**
+   * @example
+   * 1999-03-12
+   */
   birthday?: string;
   certList?: GroupUserSaveRequestCertList[];
+  /**
+   * @example
+   * M
+   */
   gender?: string;
+  /**
+   * @example
+   * 1001
+   */
   jobNo?: string;
+  /**
+   * @example
+   * 18000000000
+   */
   phone?: string;
+  /**
+   * @example
+   * ce/shi
+   */
   realNameEn?: string;
   /**
    * @remarks
@@ -102,11 +164,17 @@ export class GroupUserSaveRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   userId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 测试
    */
   userName?: string;
   static names(): { [key: string]: string } {

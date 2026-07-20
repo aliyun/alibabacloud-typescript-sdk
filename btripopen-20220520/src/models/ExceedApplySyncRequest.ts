@@ -6,19 +6,40 @@ export class ExceedApplySyncRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 823744
    */
   applyId?: number;
+  /**
+   * @example
+   * 3
+   */
   bizCategory?: number;
+  /**
+   * @example
+   * 同意
+   */
   remark?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   status?: number;
+  /**
+   * @example
+   * 123421
+   */
   thirdpartyFlowId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * open5145141
    */
   userId?: string;
   static names(): { [key: string]: string } {

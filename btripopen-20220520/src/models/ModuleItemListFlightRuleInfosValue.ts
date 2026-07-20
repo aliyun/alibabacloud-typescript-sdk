@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleItemListFlightRuleInfosValue extends $dara.Model {
+  /**
+   * @example
+   * 退改规则简述
+   */
   refundChangeRuleDesc?: string;
+  /**
+   * @example
+   * 行李额规则简述
+   */
   baggageDesc?: string;
   static names(): { [key: string]: string } {
     return {

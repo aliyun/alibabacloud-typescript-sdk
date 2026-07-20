@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class GroupCorpTokenHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * feth00jqwls
+   */
   xAcsBtripAccessToken?: string;
   static names(): { [key: string]: string } {
     return {

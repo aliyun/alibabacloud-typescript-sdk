@@ -5,9 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class TripBusinessInstanceQueryResponseBodyModule extends $dara.Model {
   businessData?: string;
   businessFormData?: string;
+  /**
+   * @example
+   * 张三
+   */
   creator?: string;
+  /**
+   * @example
+   * 1525104000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1525104000
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,11 +57,38 @@ export class TripBusinessInstanceQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TripBusinessInstanceQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module。
+   */
   module?: TripBusinessInstanceQueryResponseBodyModule;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210bc44416869853114684533da3c2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

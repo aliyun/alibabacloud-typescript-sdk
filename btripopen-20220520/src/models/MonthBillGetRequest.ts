@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MonthBillGetRequest extends $dara.Model {
+  /**
+   * @example
+   * 20250101
+   */
   billBatch?: string;
+  /**
+   * @example
+   * 202207
+   */
   billMonth?: string;
   static names(): { [key: string]: string } {
     return {

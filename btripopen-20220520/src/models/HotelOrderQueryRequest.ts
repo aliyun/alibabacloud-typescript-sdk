@@ -6,6 +6,9 @@ export class HotelOrderQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1002145190081005400
    */
   orderId?: number;
   static names(): { [key: string]: string } {

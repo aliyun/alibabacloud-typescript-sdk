@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo extends $dara.Model {
+  /**
+   * @example
+   * 0.8折
+   */
   discountInfo?: string;
+  /**
+   * @example
+   * 0.8
+   */
   discountNum?: number;
+  /**
+   * @example
+   * false
+   */
   showTicketPrice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32,28 +44,123 @@ export class ModuleItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo ex
 }
 
 export class ModuleItemListShoppingItemMapValueSegmentPriceValue extends $dara.Model {
+  /**
+   * @example
+   * 17400
+   */
   floorPrice?: number;
+  /**
+   * @example
+   * 121000
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 17400
+   */
   sellPrice?: number;
+  /**
+   * @example
+   * 17400
+   */
   originalSellPrice?: number;
+  /**
+   * @example
+   * 管控总价格（单位：分）
+   */
   baseTotalPrice?: number;
+  /**
+   * @example
+   * 17400
+   */
   beforeControlPrice?: number;
+  /**
+   * @example
+   * 11000
+   */
   tax?: number;
+  /**
+   * @example
+   * 采购产品，服务商的销售价
+   */
   supplyPrice?: number;
+  /**
+   * @example
+   * 242000
+   */
   basicCabinPrice?: number;
+  /**
+   * @example
+   * 5000
+   */
   buildPrice?: number;
+  /**
+   * @example
+   * 6000
+   */
   oilPrice?: number;
+  /**
+   * @example
+   * 头等舱基准价格
+   */
   firstStandardPrice?: number;
+  /**
+   * @example
+   * 商务舱基准价格
+   */
   businessStandardPrice?: number;
+  /**
+   * @example
+   * 242000
+   */
   commonStandardPrice?: number;
+  /**
+   * @remarks
+   * fdPrice
+   * 
+   * @example
+   * fdPrice
+   */
   interTicketPrice?: number;
+  /**
+   * @example
+   * 直减往返，航段上减去的钱
+   */
   subtractedPrice?: number;
+  /**
+   * @example
+   * 优惠前价格（一舱多价）[动态优惠专用]
+   */
   originCommonPrice?: number;
+  /**
+   * @example
+   * 动态优惠后的价格 [动态优惠专用]
+   */
   dynamicPromotionPrice?: number;
+  /**
+   * @example
+   * 分期数
+   */
   installmentNum?: number;
+  /**
+   * @example
+   * 分期每期价格
+   */
   installmentPrice?: number;
+  /**
+   * @example
+   * 竞品动态补贴后的目标价格
+   */
   competitionDynamicPrice?: number;
+  /**
+   * @example
+   * 竞品动态补贴，可减的优惠
+   */
   competitionPromotionPrice?: number;
+  /**
+   * @example
+   * 当前航班组合普通报价限价前最低价格
+   */
   minBeforeControlPriceOfNormal?: number;
   priceShowInfo?: ModuleItemListShoppingItemMapValueSegmentPriceValuePriceShowInfo;
   static names(): { [key: string]: string } {

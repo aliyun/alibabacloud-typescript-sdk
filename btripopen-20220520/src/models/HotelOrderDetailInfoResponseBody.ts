@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderDetailInfoResponseBodyModuleBtripHotelCancelPolicyDTOBtripHotelCancelPolicyInfoDTOList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   hour?: number;
+  /**
+   * @example
+   * 1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,6 +38,10 @@ export class HotelOrderDetailInfoResponseBodyModuleBtripHotelCancelPolicyDTOBtri
 
 export class HotelOrderDetailInfoResponseBodyModuleBtripHotelCancelPolicyDTO extends $dara.Model {
   btripHotelCancelPolicyInfoDTOList?: HotelOrderDetailInfoResponseBodyModuleBtripHotelCancelPolicyDTOBtripHotelCancelPolicyInfoDTOList[];
+  /**
+   * @example
+   * 1（取消类型见报价详情）
+   */
   cancelPolicyType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +70,15 @@ export class HotelOrderDetailInfoResponseBodyModuleBtripHotelCancelPolicyDTO ext
 }
 
 export class HotelOrderDetailInfoResponseBodyModuleCancelInfo extends $dara.Model {
+  /**
+   * @example
+   * 2022-01-29
+   */
   cancelEndTime?: string;
+  /**
+   * @example
+   * 2022-01-29
+   */
   cancelStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,10 +104,30 @@ export class HotelOrderDetailInfoResponseBodyModuleCancelInfo extends $dara.Mode
 }
 
 export class HotelOrderDetailInfoResponseBodyModuleHotelDetailInfo extends $dara.Model {
+  /**
+   * @example
+   * 杭州市余杭区文一西路聚橙路阿里未来酒店菲住布渴
+   */
   address?: string;
+  /**
+   * @example
+   * 杭州市
+   */
   cityName?: string;
+  /**
+   * @example
+   * 菲住布渴酒店（阿里未来酒店）
+   */
   hotelName?: string;
+  /**
+   * @example
+   * 0571-87217
+   */
   hotelTel?: string;
+  /**
+   * @example
+   * 2198781
+   */
   shid?: number;
   static names(): { [key: string]: string } {
     return {
@@ -177,15 +217,55 @@ export class HotelOrderDetailInfoResponseBodyModuleHotelOnSitePriceDetail extend
 }
 
 export class HotelOrderDetailInfoResponseBodyModuleHotelSaleOrderRoomInfos extends $dara.Model {
+  /**
+   * @example
+   * 1715702400000
+   */
   checkinDate?: string;
+  /**
+   * @example
+   * 1715702400000
+   */
   checkoutDate?: string;
+  /**
+   * @example
+   * 0
+   */
   penalSum?: number;
+  /**
+   * @example
+   * 1715702400000
+   */
   realCheckoutDate?: string;
+  /**
+   * @example
+   * 3
+   */
   refundStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   roomNo?: number;
+  /**
+   * @example
+   * 1200
+   */
   roomPrice?: number;
+  /**
+   * @example
+   * 300
+   */
   roomRefundPrice?: number;
+  /**
+   * @example
+   * 1_occupant_default_userId
+   */
   travelerId?: string;
+  /**
+   * @example
+   * xxx
+   */
   travelerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -227,24 +307,100 @@ export class HotelOrderDetailInfoResponseBodyModuleHotelSaleOrderRoomInfos exten
 }
 
 export class HotelOrderDetailInfoResponseBodyModuleInvoiceInfo extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
   billingMoney?: number;
+  /**
+   * @example
+   * demo
+   */
   buyerAdd?: string;
+  /**
+   * @example
+   * demo
+   */
   buyerBankAcc?: string;
+  /**
+   * @example
+   * demo
+   */
   buyerBankAdd?: string;
+  /**
+   * @example
+   * 0571-82321777
+   */
   buyerPhone?: string;
+  /**
+   * @example
+   * 1
+   */
   buyerTaxNum?: string;
+  /**
+   * @example
+   * **小区
+   */
   deliveryAddress?: string;
+  /**
+   * @example
+   * 拱墅
+   */
   deliveryArea?: string;
+  /**
+   * @example
+   * 杭州
+   */
   deliveryCity?: string;
+  /**
+   * @example
+   * 浙江
+   */
   deliveryProvince?: string;
+  /**
+   * @example
+   * ***街道
+   */
   deliveryStreet?: string;
+  /**
+   * @example
+   * demo
+   */
   email?: string;
+  /**
+   * @example
+   * 1
+   */
   invoiceMaterial?: number;
+  /**
+   * @example
+   * demo
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * 1
+   */
   invoiceType?: number;
+  /**
+   * @example
+   * 100
+   */
   postage?: number;
+  /**
+   * @example
+   * 张三
+   */
   receiverName?: string;
+  /**
+   * @example
+   * 0571-82321777
+   */
   receiverPhone?: string;
+  /**
+   * @example
+   * tmf closeCloneTask
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -304,15 +460,55 @@ export class HotelOrderDetailInfoResponseBodyModuleInvoiceInfo extends $dara.Mod
 }
 
 export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoListCostCenterInfoList extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   costCenterId?: string;
+  /**
+   * @example
+   * demo
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * demo
+   */
   costCenterNo?: string;
+  /**
+   * @example
+   * demo
+   */
   costCenterPrices?: number;
+  /**
+   * @example
+   * demo
+   */
   costCenterRatios?: number;
+  /**
+   * @example
+   * demo
+   */
   costCenterSubjectCode?: string;
+  /**
+   * @example
+   * demo
+   */
   costCenterSubjectName?: string;
+  /**
+   * @example
+   * demo
+   */
   settleSubjectId?: string;
+  /**
+   * @example
+   * demo
+   */
   settleSubjectName?: string;
+  /**
+   * @example
+   * demo
+   */
   settleSubjectNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -354,22 +550,86 @@ export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoListCostCenterInf
 }
 
 export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoList extends $dara.Model {
+  /**
+   * @example
+   * 1235615612424222
+   */
   cardNo?: string;
+  /**
+   * @example
+   * 1
+   */
   cardType?: number;
   costCenterInfoList?: HotelOrderDetailInfoResponseBodyModuleOccupantInfoListCostCenterInfoList[];
+  /**
+   * @example
+   * 1
+   */
   customerType?: number;
+  /**
+   * @example
+   * 123112
+   */
   departmentId?: string;
+  /**
+   * @example
+   * demo
+   */
   departmentName?: string;
+  /**
+   * @example
+   * demo
+   */
   email?: string;
+  /**
+   * @example
+   * 1
+   */
   employeeType?: number;
+  /**
+   * @example
+   * zhangsan
+   */
   firstName?: string;
+  /**
+   * @example
+   * true
+   */
   isBooker?: boolean;
+  /**
+   * @example
+   * zhang
+   */
   lastName?: string;
+  /**
+   * @example
+   * 张三
+   */
   name?: string;
+  /**
+   * @example
+   * 0571-872237
+   */
   phone?: string;
+  /**
+   * @example
+   * 从1开始,根据诉求依次向下排序(如果多间预定该字段表示哪些人住哪些房间)
+   */
   roomNo?: number;
+  /**
+   * @example
+   * true
+   */
   selected?: boolean;
+  /**
+   * @example
+   * 12817218
+   */
   staffNo?: string;
+  /**
+   * @example
+   * 1
+   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -428,13 +688,45 @@ export class HotelOrderDetailInfoResponseBodyModuleOccupantInfoList extends $dar
 }
 
 export class HotelOrderDetailInfoResponseBodyModuleRoomNightPriceInfoList extends $dara.Model {
+  /**
+   * @example
+   * 含双早
+   */
   board?: string;
+  /**
+   * @example
+   * 2
+   */
   boardNum?: number;
+  /**
+   * @example
+   * 1677600000000
+   */
   checkIn?: string;
+  /**
+   * @example
+   * 1399417428510
+   */
   ratePlanId?: string;
+  /**
+   * @example
+   * 阿里员工价-含双早
+   */
   ratePlanName?: string;
+  /**
+   * @example
+   * 545993154510
+   */
   roomId?: string;
+  /**
+   * @example
+   * 高级房(HDS)-阿里员工价含双早
+   */
   roomName?: string;
+  /**
+   * @example
+   * 50000
+   */
   roomPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -472,45 +764,173 @@ export class HotelOrderDetailInfoResponseBodyModuleRoomNightPriceInfoList extend
 }
 
 export class HotelOrderDetailInfoResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2022-01-29
+   */
   actualCheckInTime?: string;
+  /**
+   * @example
+   * 2022-01-29
+   */
   actualCheckOutTime?: string;
   btripHotelCancelPolicyDTO?: HotelOrderDetailInfoResponseBodyModuleBtripHotelCancelPolicyDTO;
+  /**
+   * @example
+   * 123
+   */
   btripOrderId?: string;
+  /**
+   * @example
+   * 100
+   */
   cancelFine?: number;
   cancelInfo?: HotelOrderDetailInfoResponseBodyModuleCancelInfo;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   checkIn?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   checkOut?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   confirmOrderTime?: string;
+  /**
+   * @example
+   * 张三
+   */
   contractName?: string;
+  /**
+   * @example
+   * 12316261873
+   */
   contractTel?: string;
+  /**
+   * @example
+   * 2020-01-21
+   */
   createOrderTime?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   earlyArrivalTime?: string;
+  /**
+   * @example
+   * true
+   */
   earlyDeparture?: boolean;
+  /**
+   * @example
+   * 2
+   */
   guestCount?: number;
   hotelDetailInfo?: HotelOrderDetailInfoResponseBodyModuleHotelDetailInfo;
   hotelOnSitePriceDetail?: HotelOrderDetailInfoResponseBodyModuleHotelOnSitePriceDetail;
   hotelSaleOrderRoomInfos?: HotelOrderDetailInfoResponseBodyModuleHotelSaleOrderRoomInfos[];
   invoiceInfo?: HotelOrderDetailInfoResponseBodyModuleInvoiceInfo;
+  /**
+   * @example
+   * 1289918
+   */
   itemId?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   lastArrivalTime?: string;
   occupantInfoList?: HotelOrderDetailInfoResponseBodyModuleOccupantInfoList[];
+  /**
+   * @example
+   * 1
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 预订成功
+   */
   orderStatusDesc?: string;
+  /**
+   * @example
+   * A3NAW9
+   */
   outConfirmCode?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   payTime?: string;
+  /**
+   * @example
+   * 1
+   */
   productType?: number;
+  /**
+   * @example
+   * 100328718728171
+   */
   purchaseOrderId?: string;
+  /**
+   * @example
+   * 100
+   */
   refundPrice?: number;
+  /**
+   * @example
+   * demo
+   */
   refundReason?: string;
+  /**
+   * @example
+   * 100
+   */
   refundServiceFee?: number;
   roomNightPriceInfoList?: HotelOrderDetailInfoResponseBodyModuleRoomNightPriceInfoList[];
+  /**
+   * @example
+   * 1
+   */
   roomNumber?: number;
+  /**
+   * @example
+   * 大床房
+   */
   roomTypeName?: string;
+  /**
+   * @example
+   * 2088441675613762
+   */
   sellerId?: string;
+  /**
+   * @example
+   * taobao
+   */
   sellerName?: string;
+  /**
+   * @example
+   * 1.02
+   */
   serviceFee?: number;
+  /**
+   * @example
+   * 0
+   */
   settleType?: string;
+  /**
+   * @example
+   * dis123
+   */
   supplierOrderId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -636,11 +1056,31 @@ export class HotelOrderDetailInfoResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderDetailInfoResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * succeed in handling request
+   */
   message?: string;
   module?: HotelOrderDetailInfoResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

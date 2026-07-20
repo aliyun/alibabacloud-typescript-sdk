@@ -3,38 +3,170 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightOrderDetailInfoResponseBodyModuleFlightInfoList extends $dara.Model {
+  /**
+   * @example
+   * CA
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * 暂无
+   */
   airlineName?: string;
+  /**
+   * @example
+   * 暂无
+   */
   airlineSimpleName?: string;
+  /**
+   * @example
+   * 白云国际机场
+   */
   arrAirport?: string;
+  /**
+   * @example
+   * LHW
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * 北京首都国际机场
+   */
   arrAirportCodeName?: string;
+  /**
+   * @example
+   * HGH
+   */
   arrCity?: string;
+  /**
+   * @example
+   * LHW
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 暂无
+   */
   arrTerminal?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   arrTime?: string;
+  /**
+   * @example
+   * “”
+   */
   baggage?: string;
+  /**
+   * @example
+   * 100
+   */
   buildPrice?: number;
+  /**
+   * @example
+   * Y无枚举值
+   */
   cabin?: string;
+  /**
+   * @example
+   * 全价经济舱
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * "CA1351_PEK_CAN_2000-00-00 08:00
+   */
   carrier?: string;
+  /**
+   * @example
+   * 北京首都国际机
+   */
   depAirport?: string;
+  /**
+   * @example
+   * NGB
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * 白云国际机场
+   */
   depAirportCodeName?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCity?: string;
+  /**
+   * @example
+   * NGB
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 暂无
+   */
   depTerminal?: string;
+  /**
+   * @example
+   * 2000-01-01 00:00:00
+   */
   depTime?: string;
+  /**
+   * @example
+   * CA1351
+   */
   flightNo?: string;
+  /**
+   * @example
+   * Y
+   */
   lastCabin?: string;
+  /**
+   * @example
+   * CA1351
+   */
   lastFlightNo?: string;
+  /**
+   * @example
+   * 早餐
+   */
   meal?: string;
+  /**
+   * @example
+   * 100
+   */
   oilPrice?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentType?: number;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   stopArrTime?: string;
+  /**
+   * @example
+   * CAN
+   */
   stopCity?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   stopDepTime?: string;
+  /**
+   * @example
+   * 100
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * “”
+   */
   tuigaiqianInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -122,9 +254,25 @@ export class FlightOrderDetailInfoResponseBodyModuleFlightInfoList extends $dara
 }
 
 export class FlightOrderDetailInfoResponseBodyModuleTicketInfoList extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   openTicketStatus?: string;
+  /**
+   * @example
+   * KF0528
+   */
   pnrCode?: string;
+  /**
+   * @example
+   * 444-000000000
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * 1
+   */
   ticketStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -154,14 +302,50 @@ export class FlightOrderDetailInfoResponseBodyModuleTicketInfoList extends $dara
 }
 
 export class FlightOrderDetailInfoResponseBodyModuleTravelerInfoList extends $dara.Model {
+  /**
+   * @example
+   * 2000-01-01
+   */
   birthDate?: string;
+  /**
+   * @example
+   * 1234
+   */
   certNo?: string;
+  /**
+   * @example
+   * 0
+   */
   certType?: string;
+  /**
+   * @example
+   * 0
+   */
   openTicketStatus?: number;
+  /**
+   * @example
+   * 张三
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 0
+   */
   passengerType?: string;
+  /**
+   * @example
+   * 12345678909
+   */
   phone?: string;
+  /**
+   * @example
+   * 444-000000000
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * 123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -201,24 +385,92 @@ export class FlightOrderDetailInfoResponseBodyModuleTravelerInfoList extends $da
 }
 
 export class FlightOrderDetailInfoResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2389927372772
+   */
   alipayTradeNo?: string;
+  /**
+   * @example
+   * 1223
+   */
   bookUserId?: string;
+  /**
+   * @example
+   * 123
+   */
   btripOrderId?: number;
+  /**
+   * @example
+   * 张三
+   */
   contactName?: string;
+  /**
+   * @example
+   * 12345678909
+   */
   contactPhone?: string;
+  /**
+   * @example
+   * dis123
+   */
   disOrderId?: string;
+  /**
+   * @example
+   * {}
+   */
   extra?: string;
   flightInfoList?: FlightOrderDetailInfoResponseBodyModuleFlightInfoList[];
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   lastPayTime?: string;
+  /**
+   * @example
+   * 0
+   */
   payStatus?: number;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   payTime?: string;
+  /**
+   * @example
+   * 1000
+   */
   promotionPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   settleAmount?: number;
+  /**
+   * @example
+   * 0
+   */
   settleType?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   ticketInfoList?: FlightOrderDetailInfoResponseBodyModuleTicketInfoList[];
+  /**
+   * @example
+   * 1000
+   */
   totalBuildPrice?: number;
+  /**
+   * @example
+   * 1000
+   */
   totalOilPrice?: number;
+  /**
+   * @example
+   * 1000
+   */
   totalOrderPrice?: number;
   travelerInfoList?: FlightOrderDetailInfoResponseBodyModuleTravelerInfoList[];
   static names(): { [key: string]: string } {
@@ -290,11 +542,31 @@ export class FlightOrderDetailInfoResponseBodyModule extends $dara.Model {
 }
 
 export class FlightOrderDetailInfoResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightOrderDetailInfoResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

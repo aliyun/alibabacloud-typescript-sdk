@@ -3,15 +3,55 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExternalUserQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2000-01-02
+   */
   birthday?: string;
+  /**
+   * @example
+   * btrip123456
+   */
   corpId?: string;
+  /**
+   * @example
+   * zhangsan@alibaba-inc.com
+   */
   email?: string;
+  /**
+   * @example
+   * 000001
+   */
   externalUserId?: string;
+  /**
+   * @example
+   * 13438009765
+   */
   phone?: string;
+  /**
+   * @example
+   * 张三
+   */
   realName?: string;
+  /**
+   * @example
+   * zhang/san
+   */
   realNameEn?: string;
+  /**
+   * @example
+   * e1$12345678
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userNick?: string;
+  /**
+   * @example
+   * 1
+   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,12 +93,39 @@ export class ExternalUserQueryResponseBodyModule extends $dara.Model {
 }
 
 export class ExternalUserQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 查询失败
+   */
   message?: string;
   module?: ExternalUserQueryResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210e847f16611516748613869de4f6
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

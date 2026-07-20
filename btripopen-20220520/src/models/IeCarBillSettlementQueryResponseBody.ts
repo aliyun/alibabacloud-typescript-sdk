@@ -3,130 +3,630 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IeCarBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @example
+   * 20251201
+   */
   accountMonth?: string;
+  /**
+   * @example
+   * 2025-01-01 00:00:00
+   */
   adjustTime?: string;
+  /**
+   * @example
+   * 123aaa
+   */
   alipayId?: string;
+  /**
+   * @example
+   * 124
+   */
   alipayTradeNo?: string;
+  /**
+   * @example
+   * 123
+   */
   applyArrCityCode?: string;
+  /**
+   * @example
+   * 新加坡
+   */
   applyArrCityName?: string;
+  /**
+   * @example
+   * 123
+   */
   applyDepCityCode?: string;
+  /**
+   * @example
+   * 新加坡
+   */
   applyDepCityName?: string;
+  /**
+   * @example
+   * 无
+   */
   applyExtendField?: string;
+  /**
+   * @example
+   * 265741695
+   */
   applyId?: string;
+  /**
+   * @example
+   * 123@qq.com
+   */
   approverEmail?: string;
+  /**
+   * @example
+   * 11
+   */
   approverId?: string;
+  /**
+   * @example
+   * 张三
+   */
   approverName?: string;
+  /**
+   * @example
+   * 新加坡
+   */
   arrCity?: string;
+  /**
+   * @example
+   * 131000
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 新加坡
+   */
   arrCountry?: string;
+  /**
+   * @example
+   * 2025-12-02 10:00:00
+   */
   arrDate?: string;
+  /**
+   * @example
+   * 2025-12-02 10:00:00
+   */
   arrDateLocal?: string;
+  /**
+   * @example
+   * 新加坡XX酒店
+   */
   arrLocation?: string;
+  /**
+   * @example
+   * 杭州
+   */
   baseLocation?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   billRecordTime?: string;
+  /**
+   * @example
+   * 2025-11-01 00:00:00
+   */
   billRecordTimeStr?: string;
+  /**
+   * @example
+   * 测试
+   */
   billingEntity?: string;
+  /**
+   * @example
+   * 移动端
+   */
   bookChannel?: string;
+  /**
+   * @example
+   * 线上预订
+   */
   bookMode?: string;
+  /**
+   * @example
+   * 自用订单
+   */
   bookModel?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   bookTime?: string;
+  /**
+   * @example
+   * 2025-12-01 10:00:00
+   */
   bookTimeLocal?: string;
+  /**
+   * @example
+   * 1234
+   */
   bookerId?: string;
+  /**
+   * @example
+   * A1234
+   */
   bookerJobNo?: string;
+  /**
+   * @example
+   * 张三
+   */
   bookerName?: string;
+  /**
+   * @example
+   * 123
+   */
   bookerUseId?: string;
+  /**
+   * @example
+   * 出差
+   */
   businessCategory?: string;
+  /**
+   * @example
+   * 支出
+   */
   capitalDirection?: string;
+  /**
+   * @example
+   * 经济型
+   */
   carLevel?: string;
+  /**
+   * @example
+   * 技术部-开发部
+   */
   cascadeDepartment?: string;
+  /**
+   * @example
+   * 国际用车
+   */
   categoryDesc?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenter?: string;
+  /**
+   * @example
+   * cs1
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * code1
+   */
   costDepartment?: string;
+  /**
+   * @example
+   * 0.0
+   */
   coupon?: number;
+  /**
+   * @example
+   * 3.0
+   */
   couponPrice?: number;
+  /**
+   * @example
+   * "{\\"key1\\":\\"value1\\",\\"key2\\":\\"value2\\",\\"key3\\":\\"value3\\"}"
+   */
   customContent?: string;
+  /**
+   * @example
+   * 0.11
+   */
   deductibleTax?: number;
+  /**
+   * @example
+   * 131000
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 新加坡
+   */
   depCountry?: string;
+  /**
+   * @example
+   * 2025-12-01 10:00:00
+   */
   depDateLocal?: string;
+  /**
+   * @example
+   * 开发部
+   */
   department?: string;
+  /**
+   * @example
+   * 1112
+   */
   departmentId?: string;
+  /**
+   * @example
+   * 新加坡
+   */
   deptCity?: string;
+  /**
+   * @example
+   * 2025-12-01 10:00:00
+   */
   deptDate?: string;
+  /**
+   * @example
+   * 新加坡XX酒店
+   */
   deptLocation?: string;
+  /**
+   * @example
+   * 2.0
+   */
   driverAddDetail?: string;
+  /**
+   * @example
+   * 1.0
+   */
   driverAddFee?: number;
+  /**
+   * @example
+   * 100
+   */
   estimateDriveDistance?: string;
+  /**
+   * @example
+   * 110.0
+   */
   estimatePrice?: number;
+  /**
+   * @example
+   * 140101
+   */
   feeType?: string;
+  /**
+   * @example
+   * 赔付
+   */
   feeTypeDesc?: string;
+  /**
+   * @example
+   * 记账
+   */
   financialSubject?: string;
+  /**
+   * @example
+   * 否
+   */
   foreignersTag?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * 测试发票抬头
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * 技术部
+   */
   lastDepartment?: string;
+  /**
+   * @example
+   * 经济型
+   */
   levelName?: string;
+  /**
+   * @example
+   * 新加坡
+   */
   location?: string;
+  /**
+   * @example
+   * 112
+   */
   mainApplyId?: string;
+  /**
+   * @example
+   * q1
+   */
   mappingCompanyCode?: string;
+  /**
+   * @example
+   * 出差
+   */
   memo?: string;
+  /**
+   * @example
+   * 1017034204020120044
+   */
   orderId?: string;
+  /**
+   * @example
+   * 100.0
+   */
   orderPrice?: number;
+  /**
+   * @example
+   * 预订成功
+   */
   orderStatusDesc?: string;
+  /**
+   * @example
+   * 112
+   */
   originApplyId?: string;
+  /**
+   * @example
+   * 123
+   */
   overApplyId?: string;
+  /**
+   * @example
+   * EN01002423
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * 国网大客户事业部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * 10.0
+   */
   personSettleFee?: number;
+  /**
+   * @example
+   * 副主管
+   */
   position?: string;
+  /**
+   * @example
+   * 初级
+   */
   positionLevel?: string;
+  /**
+   * @example
+   * 72328485
+   */
   primaryId?: number;
+  /**
+   * @example
+   * www123
+   */
   processorOaCode?: string;
+  /**
+   * @example
+   * acs
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 集团考勤-外出用车
+   */
   projectName?: string;
+  /**
+   * @example
+   * 10.0
+   */
   protocolDiscountFee?: number;
+  /**
+   * @example
+   * 首汽约车
+   */
   providerName?: string;
+  /**
+   * @example
+   * 111224324
+   */
   purchaseOrderId?: string;
+  /**
+   * @example
+   * 120
+   */
   realDriveDistance?: string;
+  /**
+   * @example
+   * 新加坡XX酒店
+   */
   realFromAddr?: string;
+  /**
+   * @example
+   * 新加坡XX酒店
+   */
   realToAddr?: string;
+  /**
+   * @example
+   * 已出账
+   */
   recordStatus?: string;
+  /**
+   * @example
+   * 同意
+   */
   remark?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 测试
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 5.0
+   */
   serviceFee?: number;
+  /**
+   * @example
+   * 企业月结
+   */
   settleTypeDesc?: string;
+  /**
+   * @example
+   * 110.0
+   */
   settlementFee?: number;
+  /**
+   * @example
+   * 0.0
+   */
   settlementGrantFee?: number;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   settlementTime?: string;
+  /**
+   * @example
+   * 企业月结
+   */
   settlementType?: string;
+  /**
+   * @example
+   * 188385292
+   */
   showSubOrderId?: string;
+  /**
+   * @example
+   * SIO
+   */
   sio?: string;
+  /**
+   * @example
+   * 是
+   */
   specialOrder?: string;
+  /**
+   * @example
+   * 关注
+   */
   specialReason?: string;
+  /**
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @example
+   * 入账成功
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * 188385292
+   */
   subOrderId?: string;
+  /**
+   * @example
+   * 123456789
+   */
   supplementApplyId?: string;
+  /**
+   * @example
+   * 9%
+   */
   taxRate?: string;
+  /**
+   * @example
+   * cs2
+   */
   thirdInvoiceId?: string;
+  /**
+   * @example
+   * 11
+   */
   thirdItineraryId?: string;
+  /**
+   * @example
+   * 123
+   */
   thirdPartBusinessId?: string;
+  /**
+   * @example
+   * 7244-1968
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 实时
+   */
   timeType?: string;
+  /**
+   * @example
+   * 支出
+   */
   tradeActionDesc?: string;
+  /**
+   * @example
+   * 123@qq.com
+   */
   travelerEmail?: string;
+  /**
+   * @example
+   * 1234
+   */
   travelerId?: string;
+  /**
+   * @example
+   * A1234
+   */
   travelerJobNo?: string;
+  /**
+   * @example
+   * 内部员工
+   */
   travelerMemberType?: string;
+  /**
+   * @example
+   * 内部员工
+   */
   travelerMemberTypeName?: string;
+  /**
+   * @example
+   * 张三
+   */
   travelerName?: string;
+  /**
+   * @example
+   * 123
+   */
   travelerUseId?: string;
+  /**
+   * @example
+   * 是
+   */
   userConfirmDesc?: string;
+  /**
+   * @example
+   * 12
+   */
   vehicleSceneId?: string;
+  /**
+   * @example
+   * 国际用车
+   */
   vehicleSceneName?: string;
+  /**
+   * @example
+   * 1
+   */
   voucherType?: number;
+  /**
+   * @example
+   * 增值税发票
+   */
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -398,12 +898,36 @@ export class IeCarBillSettlementQueryResponseBodyModuleItems extends $dara.Model
 }
 
 export class IeCarBillSettlementQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 14
+   */
   category?: number;
+  /**
+   * @example
+   * 商旅企业id
+   */
   corpId?: string;
   items?: IeCarBillSettlementQueryResponseBodyModuleItems[];
+  /**
+   * @example
+   * 2021-10-14
+   */
   periodEnd?: string;
+  /**
+   * @example
+   * 2021-10-13
+   */
   periodStart?: string;
+  /**
+   * @example
+   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4MDAwMDAwMDA4YTU2NDMy
+   */
   scrollId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -442,11 +966,31 @@ export class IeCarBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class IeCarBillSettlementQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: IeCarBillSettlementQueryResponseBodyModule;
+  /**
+   * @example
+   * A1984987-9C0D-5EEB-A2AC-0D5D76D41705
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 3b5287ed17606676287351344d0095
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

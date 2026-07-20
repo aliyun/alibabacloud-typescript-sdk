@@ -6,11 +6,17 @@ import { ModuleReShopItemListBestPriceItemSubItemsShoppingItemMapValue } from ".
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPriceItemSubItemsSegmentPositionList extends $dara.Model {
   /**
+   * @remarks
+   * The journey ordinal number (starting from 0).
+   * 
    * @example
    * 0
    */
   journeyIndex?: number;
   /**
+   * @remarks
+   * The segment ordinal number (starting from 0 within the same journey).
+   * 
    * @example
    * 0
    */
@@ -40,14 +46,32 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPrice
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPriceItemSubItems extends $dara.Model {
   /**
+   * @remarks
+   * The discount value.
+   * 
    * @example
    * 5.1
    */
   discountNum?: number;
+  /**
+   * @remarks
+   * The list of segment keys contained in the sub-item.
+   */
   segmentKeys?: string[];
+  /**
+   * @remarks
+   * The list of segment position information contained in the sub-item.
+   */
   segmentPositionList?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPriceItemSubItemsSegmentPositionList[];
+  /**
+   * @remarks
+   * Key: ADT (adult), CHD (child), or INFANT (infant).
+   */
   shoppingItemMap?: { [key: string]: ModuleReShopItemListBestPriceItemSubItemsShoppingItemMapValue };
   /**
+   * @remarks
+   * The unique item ID.
+   * 
    * @example
    * 07df0bd9-f803-4a50-8449-f4bd675d9939
    */
@@ -92,16 +116,30 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPrice
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPriceItem extends $dara.Model {
   /**
+   * @remarks
+   * The item ID.
+   * 
    * @example
    * b83e3d6ebb8b44dfb94c763abc66c966_2
    */
   itemId?: string;
   /**
+   * @remarks
+   * The item type. Valid values: normal: standard item. combination: combined special offer.
+   * 
    * @example
    * normal
    */
   itemType?: string;
+  /**
+   * @remarks
+   * The pricing information mapped by passenger type.
+   */
   shoppingItemMap?: { [key: string]: ModuleReShopItemListBestPriceItemShoppingItemMapValue };
+  /**
+   * @remarks
+   * The sub-items. Combined products may have multiple sub-items.
+   */
   subItems?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPriceItemSubItems[];
   static names(): { [key: string]: string } {
     return {
@@ -138,26 +176,41 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPrice
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $dara.Model {
   /**
+   * @remarks
+   * The airline code.
+   * 
    * @example
    * CA
    */
   airlineCode?: string;
   /**
+   * @remarks
+   * The airline name.
+   * 
    * @example
    * 中国国航
    */
   airlineName?: string;
   /**
+   * @remarks
+   * Indicates whether the airline is a low-cost airline.
+   * 
    * @example
    * false
    */
   cheapAirline?: boolean;
   /**
+   * @remarks
+   * The URL of the airline icon.
+   * 
    * @example
    * https://
    */
   iconUrl?: string;
   /**
+   * @remarks
+   * The short name of the airline.
+   * 
    * @example
    * 国航
    */
@@ -193,21 +246,33 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo extends $dara.Model {
   /**
+   * @remarks
+   * The airport code.
+   * 
    * @example
    * HGH
    */
   airportCode?: string;
   /**
+   * @remarks
+   * The airport name.
+   * 
    * @example
    * 萧山国际机场
    */
   airportName?: string;
   /**
+   * @remarks
+   * The short name of the airport.
+   * 
    * @example
    * 萧山
    */
   airportShortName?: string;
   /**
+   * @remarks
+   * The terminal.
+   * 
    * @example
    * T3
    */
@@ -241,21 +306,33 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo extends $dara.Model {
   /**
+   * @remarks
+   * The airport code.
+   * 
    * @example
    * PKX
    */
   airportCode?: string;
   /**
+   * @remarks
+   * The airport name.
+   * 
    * @example
    * 大兴国际机场
    */
   airportName?: string;
   /**
+   * @remarks
+   * The short name of the airport.
+   * 
    * @example
    * 大兴
    */
   airportShortName?: string;
   /**
+   * @remarks
+   * The terminal.
+   * 
    * @example
    * T3
    */
@@ -289,26 +366,41 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $dara.Model {
   /**
+   * @remarks
+   * The airline code.
+   * 
    * @example
    * CA
    */
   airlineCode?: string;
   /**
+   * @remarks
+   * The airline name.
+   * 
    * @example
    * 中国国航
    */
   airlineName?: string;
   /**
+   * @remarks
+   * Indicates whether the airline is a low-cost airline.
+   * 
    * @example
    * false
    */
   cheapAirline?: boolean;
   /**
+   * @remarks
+   * The URL of the airline icon.
+   * 
    * @example
    * https://
    */
   iconUrl?: string;
   /**
+   * @remarks
+   * The short name of the airline.
+   * 
    * @example
    * 国航
    */
@@ -343,8 +435,15 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 }
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The operating airline information.
+   */
   operatingAirlineInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
   /**
+   * @remarks
+   * The operating carrier flight number. This field has a value only for codeshare flights.
+   * 
    * @example
    * CX601
    */
@@ -377,51 +476,84 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoListStopAirportCountyInfo extends $dara.Model {
   /**
+   * @remarks
+   * The administrative division code.
+   * 
    * @example
    * 330182
    */
   adcode?: string;
   /**
+   * @remarks
+   * The airport city code.
+   * 
    * @example
    * HGH
    */
   airportCityCode?: string;
   /**
+   * @remarks
+   * The city name of the airport.
+   * [_single.resp.200.props.module.re_shop_item_list.items.flight_journey_infos.items.flight_segment_infos.items.flight_stop_info
+   * 
    * @example
    * 杭州
    */
   airportCityName?: string;
   /**
+   * @remarks
+   * The airport code.
+   * 
    * @example
    * HGH
    */
   airportCode?: string;
   /**
+   * @remarks
+   * The airport name.
+   * 
    * @example
    * 萧山国际机场
    */
   airportName?: string;
   /**
+   * @remarks
+   * The parent city name of the airport.
+   * 
    * @example
    * 杭州
    */
   airportParentCityName?: string;
   /**
+   * @remarks
+   * The administrative division code of the county-level city where the airport is located.
+   * >Notice: This value is null if the airport is not at the county level.</notice>
+   * 
    * @example
    * 杭州
    */
   countyCityAdcode?: string;
   /**
+   * @remarks
+   * The name of the county-level city where the airport is located.
+   * >Notice: This value is null if the airport is not at the county level.</notice>
+   * 
    * @example
    * 330182
    */
   countyCityName?: string;
   /**
+   * @remarks
+   * The administrative division code of the prefecture-level city where the airport is located.
+   * 
    * @example
    * 330182
    */
   prefectureCityAdcode?: string;
   /**
+   * @remarks
+   * The name of the prefecture-level city where the airport is located.
+   * 
    * @example
    * 杭州
    */
@@ -467,47 +599,78 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoList extends $dara.Model {
   /**
+   * @remarks
+   * The stopover airport.
+   * 
    * @example
    * HGH
    */
   stopAirport?: string;
+  /**
+   * @remarks
+   * The county information of the stopover airport.
+   */
   stopAirportCountyInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoListStopAirportCountyInfo;
   /**
+   * @remarks
+   * The name of the stopover airport.
+   * 
    * @example
    * 萧山国际机场
    */
   stopAirportName?: string;
   /**
+   * @remarks
+   * The arrival terminal at the stopover.
+   * 
    * @example
    * T1
    */
   stopArrTerm?: string;
   /**
+   * @remarks
+   * The arrival time at the stopover. Format: yyyy-MM-dd HH:mm.
+   * 
    * @example
    * 2023-08-13 07:25
    */
   stopArrTime?: string;
   /**
+   * @remarks
+   * The three-letter code of the stopover city.
+   * 
    * @example
    * BJS
    */
   stopCityCode?: string;
   /**
+   * @remarks
+   * The name of the stopover city.
+   * 
    * @example
    * 北京
    */
   stopCityName?: string;
   /**
+   * @remarks
+   * The departure terminal at the stopover.
+   * 
    * @example
    * T1
    */
   stopDepTerm?: string;
   /**
+   * @remarks
+   * The departure time from the stopover. Format: yyyy-MM-dd HH:mm.
+   * 
    * @example
    * 2023-08-13 09:25
    */
   stopDepTime?: string;
   /**
+   * @remarks
+   * The stopover duration, in minutes.
+   * 
    * @example
    * 60
    */
@@ -556,11 +719,23 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo extends $dara.Model {
   /**
+   * @remarks
+   * The luggage through-check status for the departure city. Valid values:
+   * - 0: re-check required.
+   * - 1: through-checked.
+   * - null: unknown.
+   * 
    * @example
    * 1
    */
   depCityLuggageDirect?: number;
   /**
+   * @remarks
+   * The luggage through-check status for the departure city. Valid values:
+   * - 0: re-check required.
+   * - 1: through-checked.
+   * - null: unknown.
+   * 
    * @example
    * 1
    */
@@ -590,31 +765,49 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosOtherInfo extends $dara.Model {
   /**
+   * @remarks
+   * The aircraft age.
+   * 
    * @example
    * 2.5年
    */
   aircraftAge?: string;
   /**
+   * @remarks
+   * The average delay time.
+   * 
    * @example
    * 平均延误58分钟
    */
   avgDelayTime?: string;
   /**
+   * @remarks
+   * The flight cancellation rate.
+   * 
    * @example
    * 10%
    */
   flightCancelRate?: string;
   /**
+   * @remarks
+   * The jet bridge rate.
+   * 
    * @example
    * 10%
    */
   jetBridgeRate?: string;
   /**
+   * @remarks
+   * The on-time rate information.
+   * 
    * @example
    * 到达准点率90%
    */
   onTimeRate?: string;
   /**
+   * @remarks
+   * Indicates whether Wi-Fi is available.
+   * 
    * @example
    * true
    */
@@ -652,16 +845,32 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosSegmentVisaRemark extends $dara.Model {
   /**
+   * @remarks
+   * The transit visa information for the departure city.
+   * 
    * @example
    * 前往菲律宾的旅客，请确保持有往返纸质行程单以及纸质签证办理登记手续，否则可能会被当地政府拒绝入境
    */
   depCityVisaRemark?: string;
   /**
+   * @remarks
+   * The transit visa type for the departure city. Valid values:
+   * - 0: no transit visa required.
+   * - 1: transit visa required.
+   * 
    * @example
    * 0
    */
   depCityVisaType?: number;
+  /**
+   * @remarks
+   * The transit visa information for stopover cities, one entry per stopover city.
+   */
   stopCityVisaRemarks?: string[];
+  /**
+   * @remarks
+   * The transit visa types for stopover cities, one entry per stopover city.
+   */
   stopCityVisaTypes?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -698,26 +907,41 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosTicketingAirlineInfo extends $dara.Model {
   /**
+   * @remarks
+   * The airline code.
+   * 
    * @example
    * CA
    */
   airlineCode?: string;
   /**
+   * @remarks
+   * The airline name.
+   * 
    * @example
    * 中国国航
    */
   airlineName?: string;
   /**
+   * @remarks
+   * Indicates whether the airline is a low-cost airline.
+   * 
    * @example
    * false
    */
   cheapAirline?: boolean;
   /**
+   * @remarks
+   * The URL of the airline icon.
+   * 
    * @example
    * https://
    */
   iconUrl?: string;
   /**
+   * @remarks
+   * The short name of the airline.
+   * 
    * @example
    * 国航
    */
@@ -752,141 +976,257 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 }
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The marketing airline information.
+   */
   airlineInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo;
+  /**
+   * @remarks
+   * The arrival airport information.
+   */
   arrAirportInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo;
   /**
+   * @remarks
+   * The three-letter code of the arrival city.
+   * 
    * @example
    * HGH
    */
   arrCityCode?: string;
   /**
+   * @remarks
+   * The name of the arrival city.
+   * 
    * @example
    * 杭州
    */
   arrCityName?: string;
   /**
+   * @remarks
+   * The arrival time. Format: yyyy-MM-dd HH:mm.
+   * 
    * @example
    * 2023-08-13 09:25
    */
   arrTime?: string;
   /**
+   * @remarks
+   * The arrival time with time zone.
+   * 
    * @example
    * 2022-06-06T12:56:34Z
    */
   arrTimeUTC?: string;
+  /**
+   * @remarks
+   * The departure airport information.
+   */
   depAirportInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
   /**
+   * @remarks
+   * The three-letter code of the departure city.
+   * 
    * @example
    * BJS
    */
   depCityCode?: string;
   /**
+   * @remarks
+   * The name of the departure city.
+   * 
    * @example
    * 北京
    */
   depCityName?: string;
   /**
+   * @remarks
+   * The departure time. Format: yyyy-MM-dd HH:mm.
+   * 
    * @example
    * 2023-08-13 07:25
    */
   depTime?: string;
   /**
+   * @remarks
+   * The departure time with time zone.
+   * 
    * @example
    * 2022-06-06T12:56:34Z
    */
   depTimeUTC?: string;
   /**
+   * @remarks
+   * The total duration of the flight segment in minutes.
+   * 
    * @example
    * 320
    */
   duration?: number;
   /**
+   * @remarks
+   * The flight number.
+   * 
    * @example
    * CA2013
    */
   flightNo?: string;
+  /**
+   * @remarks
+   * The codeshare flight information.
+   */
   flightShareInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
   /**
+   * @remarks
+   * The aircraft type name.
+   * 
    * @example
    * 中型机
    */
   flightSize?: string;
+  /**
+   * @remarks
+   * The flight stopover list.
+   */
   flightStopInfoList?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoList[];
   /**
+   * @remarks
+   * The aircraft type code.
+   * 
    * @example
    * 320
    */
   flightType?: string;
   /**
+   * @remarks
+   * The journey index.
+   * 
    * @example
    * 0
    */
   journeyIndex?: number;
+  /**
+   * @remarks
+   * Indicates whether luggage is through-checked for the current segment.
+   */
   luggageDirectInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo;
   /**
+   * @remarks
+   * The manufacturer.
+   * 
    * @example
    * 空客
    */
   manufacturer?: string;
   /**
+   * @remarks
+   * Indicates whether a meal is provided. Valid values:
+   * - 0: no meal.
+   * - 1: meal provided.
+   * 
    * @example
    * 1
    */
   meal?: number;
   /**
+   * @remarks
+   * The meal description.
+   * 
    * @example
    * 小食
    */
   mealDesc?: string;
   /**
+   * @remarks
+   * The flight mileage.
+   * 
    * @example
    * 12
    */
   miles?: number;
   /**
+   * @remarks
+   * The on-time rate information.
+   * 
    * @example
    * 90%
    */
   onTimeRate?: string;
   /**
+   * @remarks
+   * The number of extra days. For example, 1 indicates that the flight crosses 1 day.
+   * 
    * @example
    * 0
    */
   oneMore?: number;
   /**
+   * @remarks
+   * The cross-day display text.
+   * 
    * @example
    * +1天
    */
   oneMoreShow?: string;
+  /**
+   * @remarks
+   * The other information about the flight segment.
+   */
   otherInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosOtherInfo;
   /**
+   * @remarks
+   * The segment index, starting from 0 within the same journey.
+   * 
    * @example
    * 0
    */
   segmentIndex?: number;
   /**
+   * @remarks
+   * The unique key of the segment.
+   * 
    * @example
    * KN6728HGHPKX0725
    */
   segmentKey?: string;
+  /**
+   * @remarks
+   * The transit visa information for the current segment.
+   */
   segmentVisaRemark?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosSegmentVisaRemark;
   /**
+   * @remarks
+   * Indicates whether the flight is a codeshare flight.
+   * 
    * @example
    * true
    */
   share?: boolean;
   /**
+   * @remarks
+   * The short name of the aircraft type.
+   * 
    * @example
    * 中
    */
   shortFlightSize?: string;
   /**
+   * @remarks
+   * Indicates whether the flight has a stopover.
+   * 
    * @example
    * true
    */
   stop?: boolean;
+  /**
+   * @remarks
+   * The ticketing airline information.
+   */
   ticketingAirlineInfo?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfosTicketingAirlineInfo;
   /**
+   * @remarks
+   * The total duration of the flight segment.
+   * 
    * @example
    * 5小时20分
    */
@@ -1009,47 +1349,78 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfos extends $dara.Model {
   /**
+   * @remarks
+   * The three-letter code of the arrival city.
+   * 
    * @example
    * HGH
    */
   arrCityCode?: string;
   /**
+   * @remarks
+   * The name of the arrival city.
+   * 
    * @example
    * 杭州
    */
   arrCityName?: string;
   /**
+   * @remarks
+   * The arrival time. Format: yyyy-MM-dd HH:mm.
+   * 
    * @example
    * 2023-08-13 09:25
    */
   arrTime?: string;
   /**
+   * @remarks
+   * The three-letter code of the departure city.
+   * 
    * @example
    * BJS
    */
   depCityCode?: string;
   /**
+   * @remarks
+   * The name of the departure city.
+   * 
    * @example
    * 北京
    */
   depCityName?: string;
   /**
+   * @remarks
+   * The departure time. Format: yyyy-MM-dd HH:mm.
+   * 
    * @example
    * 2023-08-13 07:25
    */
   depTime?: string;
   /**
+   * @remarks
+   * The total duration, in minutes.
+   * 
    * @example
    * 120
    */
   duration?: number;
+  /**
+   * @remarks
+   * The flight segment information.
+   */
   flightSegmentInfos?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfosFlightSegmentInfos[];
   /**
+   * @remarks
+   * The journey index, starting from 0.
+   * 
    * @example
    * 0
    */
   journeyIndex?: number;
   /**
+   * @remarks
+   * The transfer duration.
+   * 
    * @example
    * 0
    */
@@ -1097,7 +1468,15 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJou
 }
 
 export class IntlFlightReShopListSearchResponseBodyModuleReShopItemList extends $dara.Model {
+  /**
+   * @remarks
+   * The lowest price item.
+   */
   bestPriceItem?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListBestPriceItem;
+  /**
+   * @remarks
+   * The flight journey information.
+   */
   flightJourneyInfos?: IntlFlightReShopListSearchResponseBodyModuleReShopItemListFlightJourneyInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -1130,17 +1509,30 @@ export class IntlFlightReShopListSearchResponseBodyModuleReShopItemList extends 
 
 export class IntlFlightReShopListSearchResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether polling needs to continue.
+   * 
    * @example
    * false
    */
   needContinue?: boolean;
   /**
+   * @remarks
+   * The wait time before the next search request, in milliseconds.
+   * 
    * @example
    * 2000
    */
   nextReqWaitTime?: number;
+  /**
+   * @remarks
+   * The flight list.
+   */
   reShopItemList?: IntlFlightReShopListSearchResponseBodyModuleReShopItemList[];
   /**
+   * @remarks
+   * The query record token for external polling.
+   * 
    * @example
    * 284e692fffdf71e8a49aebbe0657a625
    */
@@ -1177,27 +1569,46 @@ export class IntlFlightReShopListSearchResponseBodyModule extends $dara.Model {
 
 export class IntlFlightReShopListSearchResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * 成功
    */
   message?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   module?: IntlFlightReShopListSearchResponseBodyModule;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 407543AF-2BD9-5890-BD92-9D1AB7218B27
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The global trace ID of the request, typically used for troubleshooting.
+   * 
    * @example
    * 210bc4b116835992457938931db4de
    */

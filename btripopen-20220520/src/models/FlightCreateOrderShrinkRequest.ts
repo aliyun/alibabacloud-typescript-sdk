@@ -3,17 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightCreateOrderShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   arrAirportCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HGH
    */
   arrCityCode?: string;
+  /**
+   * @example
+   * 0
+   */
   autoPay?: number;
+  /**
+   * @example
+   * 张三
+   */
   buyerName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   buyerUniqueKey?: string;
   /**
@@ -21,40 +39,74 @@ export class FlightCreateOrderShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   contactInfoShrink?: string;
+  /**
+   * @example
+   * PEK
+   */
   depAirportCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * BJS
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2000-00-00 00:00:00
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis123
    */
   disOrderId?: string;
   orderAttrShrink?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1000_1_0
    */
   orderParams?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 7fb731deeb4510b86c17e8c8c25740_11
    */
   otaItemId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1000
    */
   price?: number;
+  /**
+   * @example
+   * 无
+   */
   receiptAddress?: string;
+  /**
+   * @example
+   * 1
+   */
   receiptTarget?: number;
+  /**
+   * @example
+   * 无
+   */
   receiptTitle?: string;
   /**
    * @remarks
@@ -64,6 +116,9 @@ export class FlightCreateOrderShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   tripType?: number;
   static names(): { [key: string]: string } {

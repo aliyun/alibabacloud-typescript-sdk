@@ -6,13 +6,27 @@ export class IntlFlightReShopDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1017035200254689390
    */
   orderId?: string;
+  /**
+   * @example
+   * F11494210548838170624
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * M132492719472
+   */
   outReShopApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 10002612002
    */
   reShopApplyId?: string;
   static names(): { [key: string]: string } {

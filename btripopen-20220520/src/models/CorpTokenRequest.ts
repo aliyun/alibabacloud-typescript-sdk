@@ -3,15 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CorpTokenRequest extends $dara.Model {
+  /**
+   * @example
+   * Z2FyYmE1YTZjMDAwTixJU1M5LnZlLXtMO3FKbiYqJSM
+   */
   appSecret?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * open324dfsdafsgcxvxv
    */
   corpId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   type?: number;
   static names(): { [key: string]: string } {

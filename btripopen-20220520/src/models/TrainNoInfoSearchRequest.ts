@@ -6,22 +6,51 @@ export class TrainNoInfoSearchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 包头东
    */
   arrLocation?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2023-08-15
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 包头
    */
   depLocation?: string;
+  /**
+   * @example
+   * qwwweqswxxa
+   */
   lineKey?: string;
+  /**
+   * @example
+   * 2023-08-15
+   */
   middleDate?: string;
+  /**
+   * @example
+   * 兰州西
+   */
   middleStation?: string;
+  /**
+   * @example
+   * 12342123212
+   */
   orderId?: string;
+  /**
+   * @example
+   * K2345
+   */
   trainNo?: string;
   static names(): { [key: string]: string } {
     return {

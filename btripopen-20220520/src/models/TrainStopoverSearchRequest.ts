@@ -6,21 +6,33 @@ export class TrainStopoverSearchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 重庆西
    */
   arrStation?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 巫山站
    */
   depStation?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2024-05-08
    */
   trainDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * k2345
    */
   trainNo?: string;
   static names(): { [key: string]: string } {

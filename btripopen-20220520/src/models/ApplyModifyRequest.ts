@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApplyModifyRequestCarRule extends $dara.Model {
+  /**
+   * @example
+   * 1234567
+   */
   scenarioTemplateId?: string;
+  /**
+   * @example
+   * 测试场景模板
+   */
   scenarioTemplateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +37,20 @@ export class ApplyModifyRequestCarRule extends $dara.Model {
 }
 
 export class ApplyModifyRequestDefaultStandardHotelCitys extends $dara.Model {
+  /**
+   * @example
+   * 500100
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * 10000
+   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,8 +78,20 @@ export class ApplyModifyRequestDefaultStandardHotelCitys extends $dara.Model {
 }
 
 export class ApplyModifyRequestDefaultStandardHotelIntlCitys extends $dara.Model {
+  /**
+   * @example
+   * 510100
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 城市名称
+   */
   cityName?: string;
+  /**
+   * @example
+   * 10000
+   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -87,20 +119,72 @@ export class ApplyModifyRequestDefaultStandardHotelIntlCitys extends $dara.Model
 }
 
 export class ApplyModifyRequestDefaultStandard extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
   businessDiscount?: number;
+  /**
+   * @example
+   * 2
+   */
   economyDiscount?: number;
+  /**
+   * @example
+   * 9
+   */
   firstDiscount?: number;
+  /**
+   * @example
+   * Y
+   */
   flightCabins?: string;
+  /**
+   * @example
+   * 10032
+   */
   flightIntlRuleCode?: number;
+  /**
+   * @example
+   * 10032
+   */
   flightRuleCode?: number;
   hotelCitys?: ApplyModifyRequestDefaultStandardHotelCitys[];
   hotelIntlCitys?: ApplyModifyRequestDefaultStandardHotelIntlCitys[];
+  /**
+   * @example
+   * 10032
+   */
   hotelIntlRuleCode?: number;
+  /**
+   * @example
+   * 10032
+   */
   hotelRuleCode?: number;
+  /**
+   * @example
+   * F
+   */
   internationalFlightCabins?: string;
+  /**
+   * @example
+   * 2
+   */
   premiumEconomyDiscount?: number;
+  /**
+   * @example
+   * 1
+   */
   reserveType?: number;
+  /**
+   * @example
+   * 10032
+   */
   trainRuleCode?: number;
+  /**
+   * @example
+   * 1000
+   */
   trainSeats?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,18 +242,70 @@ export class ApplyModifyRequestDefaultStandard extends $dara.Model {
 }
 
 export class ApplyModifyRequestExternalTravelerList extends $dara.Model {
+  /**
+   * @example
+   * “{"name":"张三"}”
+   */
   attribute?: string;
+  /**
+   * @example
+   * 144224
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * 371164
+   */
   externalUserId?: string;
+  /**
+   * @example
+   * 11411
+   */
   invoiceId?: number;
+  /**
+   * @example
+   * 11422
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * “一级事业部”
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * acs
+   */
   projectCode?: string;
+  /**
+   * @example
+   * “成本项目”
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * 91140100688069283J
+   */
   thirdPartInvoiceId?: string;
+  /**
+   * @example
+   * HD4451224
+   */
   thirdpartCostCenterId?: string;
+  /**
+   * @example
+   * 6281
+   */
   thirdpartDepartId?: string;
+  /**
+   * @example
+   * 王武
+   */
   userName?: string;
+  /**
+   * @example
+   * wu/wang
+   */
   userNameEn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -217,8 +353,20 @@ export class ApplyModifyRequestExternalTravelerList extends $dara.Model {
 }
 
 export class ApplyModifyRequestExternalTravelerStandardHotelCitys extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   cityName?: string;
+  /**
+   * @example
+   * 1001
+   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -246,8 +394,20 @@ export class ApplyModifyRequestExternalTravelerStandardHotelCitys extends $dara.
 }
 
 export class ApplyModifyRequestExternalTravelerStandardHotelIntlCitys extends $dara.Model {
+  /**
+   * @example
+   * 330100
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * 1009
+   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -275,20 +435,75 @@ export class ApplyModifyRequestExternalTravelerStandardHotelIntlCitys extends $d
 }
 
 export class ApplyModifyRequestExternalTravelerStandard extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   businessDiscount?: number;
+  /**
+   * @example
+   * 1
+   */
   economyDiscount?: number;
+  /**
+   * @example
+   * 1
+   */
   firstDiscount?: number;
+  /**
+   * @example
+   * Y
+   */
   flightCabins?: string;
+  /**
+   * @example
+   * 10032
+   */
   flightIntlRuleCode?: number;
+  /**
+   * @example
+   * 10032
+   */
   flightRuleCode?: number;
   hotelCitys?: ApplyModifyRequestExternalTravelerStandardHotelCitys[];
   hotelIntlCitys?: ApplyModifyRequestExternalTravelerStandardHotelIntlCitys[];
+  /**
+   * @example
+   * 10032
+   */
   hotelIntlRuleCode?: number;
+  /**
+   * @example
+   * 10032
+   */
   hotelRuleCode?: number;
+  /**
+   * @example
+   * F
+   */
   internationalFlightCabins?: string;
+  /**
+   * @remarks
+   * 超级经济舱折扣。1到10的整数
+   * 
+   * @example
+   * 1
+   */
   premiumEconomyDiscount?: number;
+  /**
+   * @example
+   * 0
+   */
   reserveType?: number;
+  /**
+   * @example
+   * 10032
+   */
   trainRuleCode?: number;
+  /**
+   * @example
+   * 1
+   */
   trainSeats?: string;
   static names(): { [key: string]: string } {
     return {
@@ -346,7 +561,15 @@ export class ApplyModifyRequestExternalTravelerStandard extends $dara.Model {
 }
 
 export class ApplyModifyRequestHotelShare extends $dara.Model {
+  /**
+   * @example
+   * 70
+   */
   param?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -372,6 +595,10 @@ export class ApplyModifyRequestHotelShare extends $dara.Model {
 }
 
 export class ApplyModifyRequestItineraryListItineraryTravelStandard extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
   hotelAvailableNightsPerDay?: number;
   static names(): { [key: string]: string } {
     return {
@@ -398,49 +625,114 @@ export class ApplyModifyRequestItineraryList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 杭州
    */
   arrCity?: string;
+  /**
+   * @example
+   * HGH
+   */
   arrCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2022-07-12 00:00:00
    */
   arrDate?: string;
+  /**
+   * @example
+   * “{"name":"张三"}”
+   */
   attribute?: string;
+  /**
+   * @example
+   * 2021413
+   */
   costCenterId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 北京
    */
   depCity?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2022-07-12 00:00:00
    */
   depDate?: string;
+  /**
+   * @example
+   * 614141
+   */
   invoiceId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2000131
    */
   itineraryId?: string;
   itineraryTravelStandard?: ApplyModifyRequestItineraryListItineraryTravelStandard;
+  /**
+   * @example
+   * true
+   */
   needHotel?: boolean;
+  /**
+   * @example
+   * true
+   */
   needTraffic?: boolean;
+  /**
+   * @example
+   * projectone
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 项目1
+   */
   projectTitle?: string;
   provinceTravelCityAdcodes?: string[];
+  /**
+   * @example
+   * ZG14131
+   */
   thirdPartInvoiceId?: string;
+  /**
+   * @example
+   * thirdpart5151
+   */
   thirdpartCostCenterId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   trafficType?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   tripWay?: number;
   static names(): { [key: string]: string } {
@@ -509,6 +801,10 @@ export class ApplyModifyRequestItineraryList extends $dara.Model {
 }
 
 export class ApplyModifyRequestItinerarySetListItineraryTravelStandard extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
   hotelAvailableNightsPerDay?: number;
   static names(): { [key: string]: string } {
     return {
@@ -537,23 +833,67 @@ export class ApplyModifyRequestItinerarySetList extends $dara.Model {
    * 2017-01-01 00:00:00
    */
   arrDate?: string;
+  /**
+   * @example
+   * “{"name":"张三"}”
+   */
   attribute?: string;
+  /**
+   * @example
+   * BJS,SHA
+   */
   cityCodeSet?: string;
+  /**
+   * @example
+   * 北京，上海
+   */
   citySet?: string;
+  /**
+   * @example
+   * 123455
+   */
   costCenterId?: number;
   /**
    * @example
    * 2017-01-01 00:00:00
    */
   depDate?: string;
+  /**
+   * @example
+   * 12344
+   */
   invoiceId?: number;
+  /**
+   * @example
+   * 20220722001
+   */
   itineraryId?: string;
   itineraryTravelStandard?: ApplyModifyRequestItinerarySetListItineraryTravelStandard;
+  /**
+   * @example
+   * projecttow
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 项目1
+   */
   projectTitle?: string;
   provinceTravelCityAdcodes?: string[];
+  /**
+   * @example
+   * thridpart12138
+   */
   thirdPartInvoiceId?: string;
+  /**
+   * @example
+   * thridpart12138
+   */
   thirdpartCostCenterId?: string;
+  /**
+   * @example
+   * 0
+   */
   trafficType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -611,17 +951,65 @@ export class ApplyModifyRequestItinerarySetList extends $dara.Model {
 }
 
 export class ApplyModifyRequestTravelerList extends $dara.Model {
+  /**
+   * @example
+   * “{"name":"张三"}”
+   */
   attribute?: string;
+  /**
+   * @example
+   * 12211
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * 11412
+   */
   invoiceId?: number;
+  /**
+   * @example
+   * 11633
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * “一级事业部”
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * acs
+   */
   projectCode?: string;
+  /**
+   * @example
+   * “成本项目”
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * 517492
+   */
   thirdPartInvoiceId?: string;
+  /**
+   * @example
+   * HD424333
+   */
   thirdpartCostCenterId?: string;
+  /**
+   * @example
+   * 1001A11000000000O7YC
+   */
   thirdpartDepartId?: string;
+  /**
+   * @example
+   * GS641312
+   */
   userId?: string;
+  /**
+   * @example
+   * 李四
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -670,11 +1058,17 @@ export class ApplyModifyRequestTravelerStandardCarCitySet extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 110100，330100
    */
   cityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 北京，杭州
    */
   cityName?: string;
   static names(): { [key: string]: string } {
@@ -1240,8 +1634,20 @@ export class ApplyModifyRequestTravelerStandardCarStandard extends $dara.Model {
 }
 
 export class ApplyModifyRequestTravelerStandardHotelCitys extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   cityName?: string;
+  /**
+   * @example
+   * 1014
+   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1269,8 +1675,20 @@ export class ApplyModifyRequestTravelerStandardHotelCitys extends $dara.Model {
 }
 
 export class ApplyModifyRequestTravelerStandardHotelIntlCitys extends $dara.Model {
+  /**
+   * @example
+   * 110100
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * 1009
+   */
   fee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1298,23 +1716,82 @@ export class ApplyModifyRequestTravelerStandardHotelIntlCitys extends $dara.Mode
 }
 
 export class ApplyModifyRequestTravelerStandard extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   businessDiscount?: number;
   carCitySet?: ApplyModifyRequestTravelerStandardCarCitySet[];
   carStandard?: ApplyModifyRequestTravelerStandardCarStandard;
+  /**
+   * @example
+   * 1
+   */
   economyDiscount?: number;
+  /**
+   * @example
+   * 1
+   */
   firstDiscount?: number;
+  /**
+   * @example
+   * Y
+   */
   flightCabins?: string;
+  /**
+   * @example
+   * 10032
+   */
   flightIntlRuleCode?: number;
+  /**
+   * @example
+   * 10032
+   */
   flightRuleCode?: number;
   hotelCitys?: ApplyModifyRequestTravelerStandardHotelCitys[];
   hotelIntlCitys?: ApplyModifyRequestTravelerStandardHotelIntlCitys[];
+  /**
+   * @example
+   * 10032
+   */
   hotelIntlRuleCode?: number;
+  /**
+   * @example
+   * 10032
+   */
   hotelRuleCode?: number;
+  /**
+   * @example
+   * F
+   */
   internationalFlightCabins?: string;
+  /**
+   * @remarks
+   * 超级经济舱折扣。1到10的整数
+   * 
+   * @example
+   * 1
+   */
   premiumEconomyDiscount?: number;
+  /**
+   * @example
+   * 0
+   */
   reserveType?: number;
+  /**
+   * @example
+   * 10032
+   */
   trainRuleCode?: number;
+  /**
+   * @example
+   * 1
+   */
   trainSeats?: string;
+  /**
+   * @example
+   * thirdpart12138
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1384,59 +1861,181 @@ export class ApplyModifyRequestTravelerStandard extends $dara.Model {
 }
 
 export class ApplyModifyRequest extends $dara.Model {
+  /**
+   * @example
+   * 4000
+   */
   budget?: number;
+  /**
+   * @example
+   * 1
+   */
   budgetMerge?: number;
   carRule?: ApplyModifyRequestCarRule;
+  /**
+   * @example
+   * 阿里巴巴
+   */
   corpName?: string;
   defaultStandard?: ApplyModifyRequestDefaultStandard;
+  /**
+   * @example
+   * 001
+   */
   departId?: string;
+  /**
+   * @example
+   * 采购部
+   */
   departName?: string;
+  /**
+   * @remarks
+   * 可将补充描述传入此字段，账单中将会体现此字段的值。可以用于企业的统计和对账
+   * 
+   * @example
+   * {"cost_center":"成本中心"}
+   */
   extendField?: string;
   externalTravelerList?: ApplyModifyRequestExternalTravelerList[];
   externalTravelerStandard?: ApplyModifyRequestExternalTravelerStandard;
+  /**
+   * @example
+   * 1000
+   */
   flightBudget?: number;
+  /**
+   * @example
+   * 1000
+   */
   hotelBudget?: number;
   hotelShare?: ApplyModifyRequestHotelShare;
+  /**
+   * @example
+   * 1000
+   */
   intlFlightBudget?: number;
+  /**
+   * @example
+   * 1000
+   */
   intlHotelBudget?: number;
+  /**
+   * @example
+   * 0
+   */
   itineraryList?: ApplyModifyRequestItineraryList[];
+  /**
+   * @example
+   * 0
+   */
   itineraryRule?: number;
   itinerarySetList?: ApplyModifyRequestItinerarySetList[];
+  /**
+   * @example
+   * 0
+   */
   limitTraveler?: number;
+  /**
+   * @example
+   * 1000
+   */
   mealBudget?: number;
+  /**
+   * @example
+   * 141125
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * 产品部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * 子企业Id
+   * 
+   * @example
+   * btrip123
+   */
   subCorpId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0001A1100000007EX08O
    */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 202201413141
+   */
   thirdpartBusinessId?: string;
+  /**
+   * @example
+   * 三方部门id
+   */
   thirdpartDepartId?: string;
+  /**
+   * @example
+   * 1
+   */
   togetherBookRule?: number;
+  /**
+   * @example
+   * 1000
+   */
   trainBudget?: number;
   travelerList?: ApplyModifyRequestTravelerList[];
   travelerStandard?: ApplyModifyRequestTravelerStandard[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 访问客户
    */
   tripCause?: string;
+  /**
+   * @example
+   * 1
+   */
   tripDay?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 访问客户
    */
   tripTitle?: string;
+  /**
+   * @example
+   * union51415
+   */
   unionNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * thirdpart12138
    */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
+  /**
+   * @example
+   * 1000
+   */
   vehicleBudget?: number;
   static names(): { [key: string]: string } {
     return {

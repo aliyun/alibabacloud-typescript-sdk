@@ -3,11 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DepartmentSaveResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @example
+   * -
+   */
   module?: string;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210e847516614936690356047dde07
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

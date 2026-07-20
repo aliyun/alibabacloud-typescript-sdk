@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChannelCorpCreateHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * aqfrefd2321
+   */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,14 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelIndexInfoRequest extends $dara.Model {
+  /**
+   * @example
+   * 330000
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 0
+   */
   hotelStatus?: number;
+  /**
+   * @example
+   * true/false
+   */
   internation?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 20
    */
   pageSize?: number;
+  /**
+   * @example
+   * 1038882
+   */
   pageToken?: string;
   static names(): { [key: string]: string } {
     return {

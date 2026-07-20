@@ -3,22 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IsvRuleSaveShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   applyNeed?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * authorizedPerson
    */
   bookType?: string;
   bookuserListShrink?: string;
+  /**
+   * @example
+   * false
+   */
   ruleNeed?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   status?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   userId?: string;
   static names(): { [key: string]: string } {

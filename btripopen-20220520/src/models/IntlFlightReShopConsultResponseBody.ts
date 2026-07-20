@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoListPassengerList extends $dara.Model {
+  /**
+   * @example
+   * ZHANG/SAN
+   */
   fullName?: string;
+  /**
+   * @example
+   * 1000001
+   */
   passengerId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29,10 +37,30 @@ export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoL
 }
 
 export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoListPassengerSegmentStatusInfoList extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   canReShop?: boolean;
+  /**
+   * @example
+   * 1000001
+   */
   passengerId?: number;
+  /**
+   * @example
+   * CZ5009PKXHKG0616
+   */
   segmentKey?: string;
+  /**
+   * @example
+   * 客票已使用，不可改签
+   */
   unReShopReason?: string;
+  /**
+   * @example
+   * 3
+   */
   unReShopReasonCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,8 +92,20 @@ export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoL
 }
 
 export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoListReShopReasonInfoList extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * 因乘客自身原因需变更航班
+   */
   reasonDesc?: string;
+  /**
+   * @example
+   * true
+   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -93,12 +133,40 @@ export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoL
 }
 
 export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoListSegmentList extends $dara.Model {
+  /**
+   * @example
+   * HKG
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 2025-06-16 19:20
+   */
   depTime?: string;
+  /**
+   * @example
+   * CZ5009
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
+  /**
+   * @example
+   * CZ5009PKXHKG0616
+   */
   segmentKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,6 +202,10 @@ export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoL
 }
 
 export class IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoList extends $dara.Model {
+  /**
+   * @example
+   * edcac4f4c79d40ccb141ddb6da567e65
+   */
   passengerJourneyGroupKey?: string;
   passengerList?: IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoListPassengerList[];
   passengerSegmentStatusInfoList?: IntlFlightReShopConsultResponseBodyModulePassengerJourneyGroupInfoListPassengerSegmentStatusInfoList[];
@@ -217,8 +289,20 @@ export class IntlFlightReShopConsultResponseBody extends $dara.Model {
    * 成功
    */
   message?: string;
+  /**
+   * @example
+   * true
+   */
   module?: IntlFlightReShopConsultResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   /**
    * @example

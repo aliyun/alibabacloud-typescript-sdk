@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightModifyApplyV2RequestPassengerSegmentRelations extends $dara.Model {
+  /**
+   * @example
+   * 3243028
+   */
   passengerId?: string;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -32,16 +36,59 @@ export class FlightModifyApplyV2RequestPassengerSegmentRelations extends $dara.M
 }
 
 export class FlightModifyApplyV2Request extends $dara.Model {
+  /**
+   * @example
+   * 72e961f8-930b-43c1-a4ca-18a6f28349c6distributionModifyCacheInfo
+   */
   cacheKey?: string;
+  /**
+   * @example
+   * 17816963077
+   */
   contactPhone?: string;
+  /**
+   * @example
+   * name
+   */
   isvName?: string;
+  /**
+   * @example
+   * fa2fb23a859a4e78b5ddb87a6a23094b_0
+   */
   itemId?: string;
+  /**
+   * @example
+   * 1017002195370467138
+   */
   orderId?: number;
+  /**
+   * @example
+   * 1017002195370467137
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 1019195786853020
+   */
   outSubOrderId?: string;
   passengerSegmentRelations?: FlightModifyApplyV2RequestPassengerSegmentRelations[];
+  /**
+   * @example
+   * 测试原因
+   */
   reason?: string;
+  /**
+   * @remarks
+   * sessionId
+   * 
+   * @example
+   * a2ffebfe733742aab5c491d960ba3d59
+   */
   sessionId?: string;
+  /**
+   * @example
+   * true
+   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {

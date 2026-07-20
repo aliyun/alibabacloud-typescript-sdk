@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail extends $dara.Model {
   labelName?: string[];
+  /**
+   * @example
+   * -¥3
+   */
   moneyDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,10 +36,26 @@ export class HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail extend
 }
 
 export class HotelSearchResponseBodyModuleItemsDiscountDesc extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
   cashReduceTotal?: string;
+  /**
+   * @example
+   * F3会员价
+   */
   dinamicLabel?: string;
   discountDetail?: HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail[];
+  /**
+   * @example
+   * 最终优惠以下单页为准
+   */
   subTitle?: string;
+  /**
+   * @example
+   * 每晚优惠说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,24 +90,96 @@ export class HotelSearchResponseBodyModuleItemsDiscountDesc extends $dara.Model 
 }
 
 export class HotelSearchResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @example
+   * 万豪
+   */
   brandName?: string;
+  /**
+   * @example
+   * 1902
+   */
   btandCode?: string;
+  /**
+   * @example
+   * 330100
+   */
   cityCode?: string;
   discountDesc?: HotelSearchResponseBodyModuleItemsDiscountDesc;
+  /**
+   * @example
+   * 100
+   */
   distance?: number;
+  /**
+   * @example
+   * 330100
+   */
   districtCode?: string;
+  /**
+   * @example
+   * 文一西路998号海创大厦5号楼
+   */
   hotelAddress?: string;
+  /**
+   * @example
+   * 55335212
+   */
   hotelCode?: string;
+  /**
+   * @example
+   * Business travel hotel
+   */
   hotelEnName?: string;
+  /**
+   * @example
+   * 商旅酒店
+   */
   hotelName?: string;
+  /**
+   * @example
+   * 3
+   */
   hotelStar?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i3/6000000000003/O1CN01xkZQR41BtPxK1PQCb_!!6000000000003-0-hotel.jpg
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * true
+   */
   isProtocol?: boolean;
+  /**
+   * @example
+   * 119.844005,30.054384
+   */
   location?: string;
+  /**
+   * @example
+   * 100
+   */
   minPrice?: number;
+  /**
+   * @example
+   * 200
+   */
   originalMinPrice?: number;
+  /**
+   * @example
+   * 3.2
+   */
   score?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 0571-88886784-8888
+   */
   tel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -150,6 +242,10 @@ export class HotelSearchResponseBodyModuleItems extends $dara.Model {
 }
 
 export class HotelSearchResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 173
+   */
   count?: number;
   items?: HotelSearchResponseBodyModuleItems[];
   static names(): { [key: string]: string } {
@@ -179,11 +275,31 @@ export class HotelSearchResponseBodyModule extends $dara.Model {
 }
 
 export class HotelSearchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * None
+   */
   message?: string;
   module?: HotelSearchResponseBodyModule;
+  /**
+   * @example
+   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,21 +3,85 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderQueryResponseBodyModuleHotelInfo extends $dara.Model {
+  /**
+   * @example
+   * 12345
+   */
   brandCode?: string;
+  /**
+   * @example
+   * 华住集团
+   */
   brandGroup?: string;
+  /**
+   * @example
+   * 汉庭
+   */
   brandName?: string;
+  /**
+   * @example
+   * 1669344020
+   */
   checkIn?: number;
+  /**
+   * @example
+   * 1669344020
+   */
   checkOut?: number;
+  /**
+   * @example
+   * 杭州市
+   */
   city?: string;
+  /**
+   * @example
+   * 330100
+   */
   cityAdCode?: string;
+  /**
+   * @example
+   * 1
+   */
   countryCode?: string;
+  /**
+   * @example
+   * 中国
+   */
   countryName?: string;
+  /**
+   * @example
+   * 红丰路***号
+   */
   hotelAddress?: string;
+  /**
+   * @example
+   * 阿里商旅专营店
+   */
   hotelName?: string;
+  /**
+   * @example
+   * 0571-88888888
+   */
   hotelPhone?: string;
+  /**
+   * @example
+   * 11
+   */
   hotelSupportVatInvoiceType?: number;
+  /**
+   * @example
+   * 1
+   */
   night?: number;
+  /**
+   * @example
+   * 1
+   */
   roomNum?: number;
+  /**
+   * @example
+   * 标准间
+   */
   roomType?: string;
   star?: string;
   static names(): { [key: string]: string } {
@@ -74,7 +138,15 @@ export class HotelOrderQueryResponseBodyModuleHotelInfo extends $dara.Model {
 }
 
 export class HotelOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
+  /**
+   * @example
+   * 12345678
+   */
   id?: number;
+  /**
+   * @example
+   * xxxx有限公司
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,27 +172,111 @@ export class HotelOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
 }
 
 export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
+  /**
+   * @example
+   * 12345678
+   */
   applyId?: string;
+  /**
+   * @example
+   * 拜访客户
+   */
   btripTitle?: string;
+  /**
+   * @example
+   * 2
+   */
   category?: number;
+  /**
+   * @example
+   * iscorpId
+   */
   corpId?: string;
+  /**
+   * @example
+   * 阿里商旅
+   */
   corpName?: string;
+  /**
+   * @example
+   * 12345678
+   */
   departId?: string;
+  /**
+   * @example
+   * 阿里商旅客户服务
+   */
   departName?: string;
   exceedApplyNos?: string[];
+  /**
+   * @example
+   * 扩展字段
+   */
   extendField?: string;
+  /**
+   * @example
+   * 1669344020
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1669344020
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * 1002145190081005400
+   */
   id?: number;
+  /**
+   * @example
+   * 12345678
+   */
   itineraryId?: string;
+  /**
+   * @example
+   * 1
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   orderType?: number;
+  /**
+   * @example
+   * 阿里商旅
+   */
   supplier?: string;
+  /**
+   * @example
+   * 12345678
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 00021230711000001Test-2
+   */
   thirdpartBusinessId?: string;
+  /**
+   * @example
+   * 12345678
+   */
   thirdpartDepartId?: string;
+  /**
+   * @example
+   * 12345678
+   */
   thirdpartItineraryId?: string;
+  /**
+   * @example
+   * 12345678
+   */
   userId?: string;
+  /**
+   * @example
+   * 阿里小蜜
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -189,20 +345,80 @@ export class HotelOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model 
 }
 
 export class HotelOrderQueryResponseBodyModulePassengerList extends $dara.Model {
+  /**
+   * @example
+   * 1004313100
+   */
   applyId?: string;
+  /**
+   * @example
+   * 12345678
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * 成本中心
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * 12345678
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * f7c05571-d1f1-46fa-96c9-d5c29c986c07
+   */
   itineraryId?: string;
+  /**
+   * @example
+   * 1
+   */
   occupantType?: number;
+  /**
+   * @example
+   * 项目编码
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 12345678
+   */
   projectId?: number;
+  /**
+   * @example
+   * xxx项目
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * 01-2023-04156
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 12345678
+   */
   thirdpartCostCenterId?: string;
+  /**
+   * @example
+   * 12345678
+   */
   thirdpartProjectId?: string;
+  /**
+   * @example
+   * 12345678
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
+  /**
+   * @example
+   * 0
+   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -254,11 +470,35 @@ export class HotelOrderQueryResponseBodyModulePassengerList extends $dara.Model 
 }
 
 export class HotelOrderQueryResponseBodyModulePriceInfoList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   categoryCode?: number;
+  /**
+   * @example
+   * 1669344020
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1
+   */
   payType?: number;
+  /**
+   * @example
+   * 200
+   */
   price?: number;
+  /**
+   * @example
+   * 12345678910987654321
+   */
   tradeId?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -342,11 +582,41 @@ export class HotelOrderQueryResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module。
+   */
   module?: HotelOrderQueryResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,23 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SyncSingleUserRequest extends $dara.Model {
+  /**
+   * @example
+   * 按照人员实际邮箱填写
+   */
   email?: string;
+  /**
+   * @example
+   * 1001
+   */
   jobNo?: string;
+  /**
+   * @example
+   * 0
+   */
   leaveStatus?: number;
+  /**
+   * @example
+   * 72369
+   */
   managerUserId?: string;
+  /**
+   * @example
+   * 16392740204
+   */
   phone?: string;
+  /**
+   * @example
+   * 开发
+   */
   position?: string;
+  /**
+   * @example
+   * 1
+   */
   positionLevel?: string;
+  /**
+   * @example
+   * ce/shi
+   */
   realNameEn?: string;
   thirdDepartIdList?: string[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 573263
    */
   userId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 天天
    */
   userName?: string;
   static names(): { [key: string]: string } {

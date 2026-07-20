@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainOrderChangeConfirmResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 123445443444
+   */
   changeOrderId?: string;
+  /**
+   * @example
+   * 116019444
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1234232
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -35,11 +51,38 @@ export class TrainOrderChangeConfirmResponseBodyModule extends $dara.Model {
 }
 
 export class TrainOrderChangeConfirmResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module
+   */
   module?: TrainOrderChangeConfirmResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

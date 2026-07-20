@@ -3,109 +3,531 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Model {
+  /**
+   * @example
+   * 2025-01-01 00:00:00
+   */
   adjustTime?: string;
+  /**
+   * @example
+   * 34534543545345
+   */
   alipayTradeNo?: string;
+  /**
+   * @example
+   * MDG
+   */
   applyArrCityCode?: string;
+  /**
+   * @example
+   * 牡丹江
+   */
   applyArrCityName?: string;
+  /**
+   * @example
+   * HRB
+   */
   applyDepCityCode?: string;
+  /**
+   * @example
+   * 哈尔滨
+   */
   applyDepCityName?: string;
+  /**
+   * @remarks
+   * 审批扩展自定义字段
+   * 
+   * @example
+   * {"memo":"备注"}
+   */
   applyExtendField?: string;
+  /**
+   * @example
+   * 审批单号
+   */
   applyId?: string;
+  /**
+   * @example
+   * 123@gmail.com
+   */
   approverEmail?: string;
+  /**
+   * @example
+   * 11
+   */
   approverId?: string;
+  /**
+   * @example
+   * zhangsan
+   */
   approverName?: string;
+  /**
+   * @example
+   * 长沙市
+   */
   arrCity?: string;
+  /**
+   * @example
+   * 110100
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 2022-07-02
+   */
   arrDate?: string;
+  /**
+   * @example
+   * 天街
+   */
   arrLocation?: string;
+  /**
+   * @example
+   * 13:51:43
+   */
   arrTime?: string;
+  /**
+   * @example
+   * 杭州
+   */
   baseLocation?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   billRecordTime?: string;
+  /**
+   * @example
+   * 浙江阿里商旅旅行社有限公司余杭分公司
+   */
   billingEntity?: string;
+  /**
+   * @example
+   * 自用订单
+   */
   bookModel?: string;
+  /**
+   * @example
+   * 2022-05-15 22:27:00
+   */
   bookTime?: string;
+  /**
+   * @example
+   * 预定人第三方用户id
+   */
   bookerId?: string;
+  /**
+   * @example
+   * 70022164
+   */
   bookerJobNo?: string;
+  /**
+   * @example
+   * 张三三
+   */
   bookerName?: string;
+  /**
+   * @example
+   * 市内交通
+   */
   businessCategory?: string;
+  /**
+   * @example
+   * 1
+   */
   capitalDirection?: string;
+  /**
+   * @example
+   * 经济型
+   */
   carLevel?: string;
+  /**
+   * @example
+   * 中国东南分公司-业务部
+   */
   cascadeDepartment?: string;
+  /**
+   * @example
+   * 用车
+   */
   categoryDesc?: string;
+  /**
+   * @example
+   * 张三成本中心
+   */
   costCenter?: string;
+  /**
+   * @example
+   * 2391-CN90.150
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * code1
+   */
   costDepartment?: string;
+  /**
+   * @example
+   * 1
+   */
   coupon?: number;
+  /**
+   * @example
+   * 12.7
+   */
   couponPrice?: number;
+  /**
+   * @example
+   * "{\\"key1\\":\\"value1\\",\\"key2\\":\\"value2\\",\\"key3\\":\\"value3\\"}"
+   */
   customContent?: string;
+  /**
+   * @example
+   * 1.2
+   */
   deductibleTax?: number;
+  /**
+   * @example
+   * 110100
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 业务部
+   */
   department?: string;
+  /**
+   * @example
+   * 部门id
+   */
   departmentId?: string;
+  /**
+   * @example
+   * 长沙市
+   */
   deptCity?: string;
+  /**
+   * @example
+   * 2021-10-13
+   */
   deptDate?: string;
+  /**
+   * @example
+   * 长沙南站
+   */
   deptLocation?: string;
+  /**
+   * @example
+   * 13:46:05
+   */
   deptTime?: string;
+  /**
+   * @example
+   * 高速费:5;路桥费:5
+   */
   driverAddDetail?: string;
+  /**
+   * @example
+   * 10
+   */
   driverAddFee?: number;
+  /**
+   * @example
+   * 29.07
+   */
   estimateDriveDistance?: string;
+  /**
+   * @example
+   * 69
+   */
   estimatePrice?: number;
+  /**
+   * @example
+   * 40107
+   */
   feeType?: string;
+  /**
+   * @example
+   * 赔付
+   */
   feeTypeDesc?: string;
+  /**
+   * @example
+   * Y
+   */
   foreignersTag?: string;
+  /**
+   * @example
+   * 4988580
+   */
   index?: string;
+  /**
+   * @example
+   * 张三投资有限公司
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * 高德
+   */
   levelName?: string;
+  /**
+   * @example
+   * 上海
+   */
   location?: string;
+  /**
+   * @example
+   * q1
+   */
   mappingCompanyCode?: string;
+  /**
+   * @example
+   * 家
+   */
   memo?: string;
+  /**
+   * @example
+   * 110285961234324
+   */
   orderId?: string;
+  /**
+   * @example
+   * 12.7
+   */
   orderPrice?: number;
+  /**
+   * @example
+   * 34535465346
+   */
   overApplyId?: string;
+  /**
+   * @example
+   * 202300000
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * 测试二部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * 0
+   */
   personSettleFee?: number;
+  /**
+   * @example
+   * 开发
+   */
   position?: string;
+  /**
+   * @example
+   * 初级
+   */
   positionLevel?: string;
+  /**
+   * @example
+   * 4988580
+   */
   primaryId?: number;
+  /**
+   * @example
+   * www123
+   */
   processorOaCode?: string;
+  /**
+   * @example
+   * 23423432423
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 生产-音卓自制线-公共
+   */
   projectName?: string;
+  /**
+   * @example
+   * 12.01
+   */
   protocolDiscountFee?: number;
+  /**
+   * @example
+   * 首汽约车
+   */
   providerName?: string;
+  /**
+   * @example
+   * 0.00
+   */
   realDriveDistance?: string;
+  /**
+   * @example
+   * 长沙南站
+   */
   realFromAddr?: string;
+  /**
+   * @example
+   * 梅溪湖中心15
+   */
   realToAddr?: string;
+  /**
+   * @example
+   * 线下改签
+   */
   remark?: string;
+  /**
+   * @example
+   * 123
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 福利
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 12.7
+   */
   serviceFee?: number;
+  /**
+   * @example
+   * 企业月结
+   */
   settleTypeDesc?: string;
+  /**
+   * @example
+   * 5
+   */
   settlementFee?: number;
+  /**
+   * @example
+   * 6.11
+   */
   settlementGrantFee?: number;
+  /**
+   * @example
+   * 2022-05-15 22:27:00
+   */
   settlementTime?: string;
+  /**
+   * @example
+   * 4
+   */
   settlementType?: string;
+  /**
+   * @example
+   * sio
+   */
   sio?: string;
+  /**
+   * @example
+   * 是
+   */
   specialOrder?: string;
+  /**
+   * @example
+   * 关注
+   */
   specialReason?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 入账成功
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * 123123232
+   */
   subOrderId?: string;
+  /**
+   * @example
+   * 123456789
+   */
   supplementApplyId?: string;
+  /**
+   * @remarks
+   * 税率
+   * 
+   * @example
+   * 6%
+   */
   taxRate?: string;
+  /**
+   * @example
+   * AB0-CDE-1-F-1234567891011
+   */
   thirdItineraryId?: string;
+  /**
+   * @example
+   * 实时订单
+   */
   timeType?: string;
+  /**
+   * @example
+   * 支出
+   */
   tradeActionDesc?: string;
+  /**
+   * @example
+   * 123@gmail.com
+   */
   travelerEmail?: string;
+  /**
+   * @example
+   * 出行人第三方用户id
+   */
   travelerId?: string;
+  /**
+   * @example
+   * 70022164
+   */
   travelerJobNo?: string;
+  /**
+   * @example
+   * 内部员工
+   */
   travelerMemberType?: string;
+  /**
+   * @example
+   * 内部/外部员工
+   */
   travelerMemberTypeName?: string;
+  /**
+   * @example
+   * 张三
+   */
   travelerName?: string;
+  /**
+   * @example
+   * 是
+   */
   userConfirmDesc?: string;
+  /**
+   * @example
+   * TRAVEL
+   */
   vehicleSceneId?: string;
+  /**
+   * @example
+   * 差旅用车
+   */
   vehicleSceneName?: string;
+  /**
+   * @example
+   * 11
+   */
   voucherType?: number;
+  /**
+   * @example
+   * 增值税发票
+   */
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -335,12 +757,36 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
 }
 
 export class CarBillSettlementQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 4
+   */
   category?: number;
+  /**
+   * @example
+   * 第三方企业id
+   */
   corpId?: string;
   dataList?: CarBillSettlementQueryResponseBodyModuleDataList[];
+  /**
+   * @example
+   * 2021-10-14
+   */
   periodEnd?: string;
+  /**
+   * @example
+   * 2021-10-13
+   */
   periodStart?: string;
+  /**
+   * @example
+   * 1qwe
+   */
   scrollId?: string;
+  /**
+   * @example
+   * 2695
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -379,11 +825,31 @@ export class CarBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class CarBillSettlementQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: CarBillSettlementQueryResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,11 +6,17 @@ export class FlightRefundDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis123
    */
   disOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * refun123
    */
   disSubOrderId?: string;
   static names(): { [key: string]: string } {

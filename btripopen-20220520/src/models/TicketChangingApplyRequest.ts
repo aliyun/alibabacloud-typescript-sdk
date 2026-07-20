@@ -6,16 +6,25 @@ export class TicketChangingApplyRequestModifyFlightInfoListPassengerInfoList ext
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * CA1703
    */
   originFlightNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1234
    */
   outUserId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   passengerName?: string;
   static names(): { [key: string]: string } {
@@ -47,22 +56,38 @@ export class TicketChangingApplyRequestModifyFlightInfoList extends $dara.Model 
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * BJS
    */
   arrCity?: string;
+  /**
+   * @example
+   * Y
+   */
   cabin?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HGH
    */
   depCity?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0000-00-00 00:00:00
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * CA1704
    */
   flightNo?: string;
   /**
@@ -108,13 +133,23 @@ export class TicketChangingApplyRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis1234
    */
   disOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * mid1243
    */
   disSubOrderId?: string;
+  /**
+   * @example
+   * 0
+   */
   isVoluntary?: number;
   /**
    * @remarks
@@ -124,14 +159,28 @@ export class TicketChangingApplyRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1s8837sh991hsj92h
    */
   otaItemId?: string;
+  /**
+   * @example
+   * 自愿改签测试
+   */
   reason?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * us88s2bsbin22hjusd8i
    */
   sessionId?: string;
+  /**
+   * @example
+   * true
+   */
   whetherRetry?: boolean;
   static names(): { [key: string]: string } {
     return {

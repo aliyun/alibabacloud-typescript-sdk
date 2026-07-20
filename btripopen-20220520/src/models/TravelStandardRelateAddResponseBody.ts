@@ -3,10 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TravelStandardRelateAddResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 系统异常
+   */
   message?: string;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0
+   */
   resultCode?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210bcc3a16583004579056128d33d7
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

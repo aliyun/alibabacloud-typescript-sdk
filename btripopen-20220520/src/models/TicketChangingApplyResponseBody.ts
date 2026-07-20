@@ -3,21 +3,85 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingApplyResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
   bookingChangedTotalFee?: number;
+  /**
+   * @example
+   * 1000
+   */
   bookingOriginTotalFee?: number;
+  /**
+   * @example
+   * true
+   */
   bookingPriceChanged?: boolean;
+  /**
+   * @example
+   * 1234
+   */
   btripOrderId?: number;
+  /**
+   * @example
+   * 1234
+   */
   btripSubOrderId?: number;
+  /**
+   * @example
+   * true
+   */
   canPay?: boolean;
+  /**
+   * @example
+   * 1000
+   */
   changeFee?: number;
+  /**
+   * @example
+   * 0000-00-00 00:00:00
+   */
   deadlineTime?: string;
+  /**
+   * @example
+   * dis123
+   */
   disOrderId?: string;
+  /**
+   * @example
+   * mid112
+   */
   disSubOrderId?: string;
+  /**
+   * @example
+   * 1
+   */
   maxRetryTimes?: number;
+  /**
+   * @example
+   * 1000
+   */
   nextRetryInterval?: number;
+  /**
+   * @example
+   * true
+   */
   retry?: boolean;
+  /**
+   * @example
+   * 正在申请
+   */
   retryClientTips?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 1000
+   */
   upgradeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -71,11 +135,31 @@ export class TicketChangingApplyResponseBodyModule extends $dara.Model {
 }
 
 export class TicketChangingApplyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 错误提示
+   */
   message?: string;
   module?: TicketChangingApplyResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

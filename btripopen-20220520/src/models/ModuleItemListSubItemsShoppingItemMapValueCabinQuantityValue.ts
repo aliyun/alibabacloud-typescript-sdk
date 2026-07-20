@@ -3,16 +3,56 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleItemListSubItemsShoppingItemMapValueCabinQuantityValue extends $dara.Model {
+  /**
+   * @example
+   * R
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 经济舱
+   */
   cabinClassName?: string;
+  /**
+   * @example
+   * 舱位等级描述
+   */
   cabinClassMemo?: string;
+  /**
+   * @example
+   * 国内特殊说明
+   */
   specification?: string;
+  /**
+   * @example
+   * A
+   */
   quantity?: string;
   linkCabins?: string[];
+  /**
+   * @example
+   * false
+   */
   reshopChangeCabin?: boolean;
+  /**
+   * @example
+   * 儿童舱位类型
+   */
   childCabinType?: number;
+  /**
+   * @example
+   * 婴儿基准舱位
+   */
   infantBasicCabin?: string;
+  /**
+   * @example
+   * 2
+   */
   innerCabinClass?: number;
   static names(): { [key: string]: string } {
     return {

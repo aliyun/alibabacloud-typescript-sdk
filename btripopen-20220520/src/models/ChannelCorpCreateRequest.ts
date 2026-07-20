@@ -7,26 +7,55 @@ export class ChannelCorpCreateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   administratorName?: string;
+  /**
+   * @example
+   * 18378889782
+   */
   administratorPhone?: string;
   baseCurrency?: string;
   btripRegion?: string;
+  /**
+   * @example
+   * 杭州市
+   */
   city?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 阿里巴巴有限公司
    */
   corpName?: string;
   corpNameEn?: string;
   extendField?: string;
+  /**
+   * @example
+   * 浙江省
+   */
   province?: string;
+  /**
+   * @example
+   * 1
+   */
   scope?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 00001
    */
   thirdCorpId?: string;
+  /**
+   * @example
+   * user_1234
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class IntlFlightReShopListSearchShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The business travel order ID. Required.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class IntlFlightReShopListSearchShrinkRequest extends $dara.Model {
    */
   orderId?: string;
   /**
+   * @remarks
+   * The external order ID.
+   * 
    * @example
    * 3985893777358602240
    */
   outOrderId?: string;
   /**
+   * @remarks
+   * Specifies whether external polling is enabled. When enabled, the external frontend controls polling to reduce the response time of a single search. Default value: false.
+   * 
    * @example
    * false
    */
   outWheelSearch?: boolean;
   /**
    * @remarks
+   * The rebooking group key returned by the consultation API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,21 +40,31 @@ export class IntlFlightReShopListSearchShrinkRequest extends $dara.Model {
    */
   passengerJourneyGroupKey?: string;
   /**
+   * @remarks
+   * The rebooking reason code.
+   * 
    * @example
    * 0
    */
   reShopReasonCode?: string;
   /**
    * @remarks
+   * The list of journeys selected for rebooking.
+   * 
    * This parameter is required.
    */
   searchJourneysShrink?: string;
   /**
    * @remarks
+   * The list of passengers selected for rebooking.
+   * 
    * This parameter is required.
    */
   selectedPassengersShrink?: string;
   /**
+   * @remarks
+   * The query record token for external polling.
+   * 
    * @example
    * 0305b8203a7767626f911d97a91a9473
    */

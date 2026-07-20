@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class AddEmployeesToCustomRoleRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the custom enterprise role.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 12345
    */
   roleId?: string;
   /**
    * @remarks
+   * The list of member IDs. The maximum number of members per request is 500.
+   * 
    * This parameter is required.
    * 
    * **if can be null:**

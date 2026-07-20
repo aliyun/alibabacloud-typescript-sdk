@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GroupCorpTokenResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 70000
+   */
   expire?: number;
+  /**
+   * @example
+   * 1652410740914
+   */
   start?: number;
+  /**
+   * @example
+   * *0*37j76df
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,11 +44,37 @@ export class GroupCorpTokenResponseBodyModule extends $dara.Model {
 }
 
 export class GroupCorpTokenResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: GroupCorpTokenResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210f079e16603757182131635d866a
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

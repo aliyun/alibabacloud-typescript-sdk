@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryCorpDetailInfoRequest extends $dara.Model {
+  /**
+   * @example
+   * 2210********668
+   */
   accountId?: string;
+  /**
+   * @example
+   * btripxxxxxx
+   */
   targetCorpId?: string;
+  /**
+   * @example
+   * alibabaxxxxxxx
+   */
   targetThirdCorpId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightCreateOrderV2RequestContactInfo extends $dara.Model {
+  /**
+   * @example
+   * btrip@example.com
+   */
   contactEmail?: string;
+  /**
+   * @example
+   * 云妹
+   */
   contactName?: string;
+  /**
+   * @example
+   * 131****8888
+   */
   contactPhone?: string;
+  /**
+   * @example
+   * true
+   */
   sendMsgToPassenger?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38,55 +54,131 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1991-01-22
    */
   birthday?: string;
+  /**
+   * @example
+   * CN
+   */
   certNation?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 110101********1234
    */
   certNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   certType?: number;
+  /**
+   * @example
+   * 2099-03-12
+   */
   certValidDate?: string;
+  /**
+   * @example
+   * 华北成本中心
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * cost_00001
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * dept_00001
+   */
   deptId?: string;
+  /**
+   * @example
+   * 产品部
+   */
   deptName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   gender?: number;
+  /**
+   * @example
+   * 杭州大河发展有限公司
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * 中国
+   */
   nationality?: string;
+  /**
+   * @example
+   * CN
+   */
   nationalityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 销售部测试
    */
   passengerName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   passengerType?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 131****8888
    */
   phone?: string;
+  /**
+   * @example
+   * pro_0001
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 华北项目一
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * R19235929348590
+   */
   taxNumber?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 18155711459129970552412
    */
   userId?: string;
+  /**
+   * @example
+   * 0
+   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -150,9 +242,25 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
 }
 
 export class FlightCreateOrderV2Request extends $dara.Model {
+  /**
+   * @example
+   * 异步下单key
+   */
   asyncCreateOrderKey?: string;
+  /**
+   * @example
+   * false
+   */
   asyncCreateOrderMode?: boolean;
+  /**
+   * @example
+   * ali_00001
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 云妹
+   */
   buyerName?: string;
   /**
    * @remarks
@@ -162,18 +270,31 @@ export class FlightCreateOrderV2Request extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cheshiapi
    */
   isvName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 7fb731deeb4510b86c17e8c8c25740_11
    */
   otaItemId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 外部订单号
    */
   outOrderId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalPriceCent?: number;
   /**
    * @remarks

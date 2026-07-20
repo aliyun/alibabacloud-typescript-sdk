@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TBAccountInfoQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 下****天
+   */
   tbAccount?: string;
+  /**
+   * @example
+   * true
+   */
   tbBond?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -29,11 +37,31 @@ export class TBAccountInfoQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TBAccountInfoQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: TBAccountInfoQueryResponseBodyModule;
+  /**
+   * @example
+   * 456456575656757
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210f07f316603757445272547d959f
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,21 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightListingSearchRequest extends $dara.Model {
+  /**
+   * @example
+   * MU
+   */
   airlineCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HGH
    */
   arrCityCode?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * BJS
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2023-02-26
    */
   depDate?: string;
   static names(): { [key: string]: string } {

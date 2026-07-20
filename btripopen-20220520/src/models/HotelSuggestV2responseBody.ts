@@ -3,16 +3,60 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelSuggestV2ResponseBodyModuleGuessSuggestInfos extends $dara.Model {
+  /**
+   * @example
+   * 杭州湖墅南路XX号
+   */
   address?: string;
+  /**
+   * @example
+   * 300100
+   */
   cityCode?: number;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * 杭州JW万豪酒店
+   */
   displayName?: string;
+  /**
+   * @example
+   * 53853318
+   */
   hotelId?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
+   */
   icon?: string;
+  /**
+   * @example
+   * 4.8分
+   */
   point?: string;
+  /**
+   * @example
+   * 524
+   */
   price?: string;
+  /**
+   * @example
+   * 0
+   */
   region?: number;
+  /**
+   * @example
+   * 10
+   */
   type?: number;
+  /**
+   * @example
+   * 酒店
+   */
   typeDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,16 +100,60 @@ export class HotelSuggestV2ResponseBodyModuleGuessSuggestInfos extends $dara.Mod
 }
 
 export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWithCity extends $dara.Model {
+  /**
+   * @example
+   * 成都市高新区天府大道北段1700号1栋2单元18层1801号
+   */
   address?: string;
+  /**
+   * @example
+   * 300100
+   */
   cityCode?: number;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * 阿里巴巴/未来科技城
+   */
   displayName?: string;
+  /**
+   * @example
+   * 57140953
+   */
   hotelId?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
+   */
   icon?: string;
+  /**
+   * @example
+   * 4.8分
+   */
   point?: string;
+  /**
+   * @example
+   * 524
+   */
   price?: string;
+  /**
+   * @example
+   * 0
+   */
   region?: number;
+  /**
+   * @example
+   * 5
+   */
   type?: number;
+  /**
+   * @example
+   * 商圈
+   */
   typeDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,17 +197,61 @@ export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWith
 }
 
 export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfos extends $dara.Model {
+  /**
+   * @example
+   * 杭州湖墅南路XX号
+   */
   address?: string;
   businessAreaWithCity?: HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWithCity[];
+  /**
+   * @example
+   * 300100
+   */
   cityCode?: number;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * 杭州JW万豪酒店
+   */
   displayName?: string;
+  /**
+   * @example
+   * 53853318
+   */
   hotelId?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
+   */
   icon?: string;
+  /**
+   * @example
+   * 4.8分
+   */
   point?: string;
+  /**
+   * @example
+   * 524
+   */
   price?: string;
+  /**
+   * @example
+   * 0
+   */
   region?: number;
+  /**
+   * @example
+   * 10
+   */
   type?: number;
+  /**
+   * @example
+   * 酒店
+   */
   typeDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -168,6 +300,10 @@ export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfos extends $dara.M
 }
 
 export class HotelSuggestV2ResponseBodyModulePopularSuggestInfosPopularInfos extends $dara.Model {
+  /**
+   * @example
+   * 杭州东站
+   */
   displayName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -191,8 +327,16 @@ export class HotelSuggestV2ResponseBodyModulePopularSuggestInfosPopularInfos ext
 }
 
 export class HotelSuggestV2ResponseBodyModulePopularSuggestInfos extends $dara.Model {
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i1/O1CN01x0q19E1QZSqLHVVNh_!!6000000001990-2-tps-54-54.png
+   */
   icon?: string;
   popularInfos?: HotelSuggestV2ResponseBodyModulePopularSuggestInfosPopularInfos[];
+  /**
+   * @example
+   * 热门搜索
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -226,6 +370,10 @@ export class HotelSuggestV2ResponseBodyModule extends $dara.Model {
   guessSuggestInfos?: HotelSuggestV2ResponseBodyModuleGuessSuggestInfos[];
   keywordSuggestInfos?: HotelSuggestV2ResponseBodyModuleKeywordSuggestInfos[];
   popularSuggestInfos?: HotelSuggestV2ResponseBodyModulePopularSuggestInfos[];
+  /**
+   * @example
+   * 以下是当前城市和周边的查询结果 (酒店起价为参考)
+   */
   tips?: string;
   static names(): { [key: string]: string } {
     return {
@@ -264,11 +412,31 @@ export class HotelSuggestV2ResponseBodyModule extends $dara.Model {
 }
 
 export class HotelSuggestV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * None
+   */
   message?: string;
   module?: HotelSuggestV2ResponseBodyModule;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

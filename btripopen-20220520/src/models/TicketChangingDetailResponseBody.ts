@@ -3,38 +3,170 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingDetailResponseBodyModuleFlightInfoList extends $dara.Model {
+  /**
+   * @example
+   * MU
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * 东航
+   */
   airlineName?: string;
+  /**
+   * @example
+   * 国航
+   */
   airlineSimpleName?: string;
+  /**
+   * @example
+   * 无
+   */
   arrAirport?: string;
+  /**
+   * @example
+   * HGH
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * ****机场
+   */
   arrAirportCodeName?: string;
+  /**
+   * @example
+   * HGH
+   */
   arrCity?: string;
+  /**
+   * @example
+   * LHW
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * T3
+   */
   arrTerminal?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   arrTime?: string;
+  /**
+   * @example
+   * “描述”
+   */
   baggage?: string;
+  /**
+   * @example
+   * 100
+   */
   buildPrice?: number;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * 无
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * MU3849
+   */
   carrier?: string;
+  /**
+   * @example
+   * 无
+   */
   depAirport?: string;
+  /**
+   * @example
+   * NGB
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * ***机场。
+   */
   depAirportCodeName?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCity?: string;
+  /**
+   * @example
+   * NGB
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * T4
+   */
   depTerminal?: string;
+  /**
+   * @example
+   * 2000-01-01 00:00:00
+   */
   depTime?: string;
+  /**
+   * @example
+   * MU3849
+   */
   flightNo?: string;
+  /**
+   * @example
+   * Y
+   */
   lastCabin?: string;
+  /**
+   * @example
+   * CA1982
+   */
   lastFlightNo?: string;
+  /**
+   * @example
+   * 3
+   */
   meal?: string;
+  /**
+   * @example
+   * 100
+   */
   oilPrice?: number;
+  /**
+   * @example
+   * 无
+   */
   segmentType?: number;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   stopArrTime?: string;
+  /**
+   * @example
+   * NGB
+   */
   stopCity?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   stopDepTime?: string;
+  /**
+   * @example
+   * 100
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * "退改文案"
+   */
   tuigaiqianInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -122,14 +254,50 @@ export class TicketChangingDetailResponseBodyModuleFlightInfoList extends $dara.
 }
 
 export class TicketChangingDetailResponseBodyModuleTravelerInfoList extends $dara.Model {
+  /**
+   * @example
+   * 2000-01-01
+   */
   birthDate?: string;
+  /**
+   * @example
+   * 12345
+   */
   certNo?: string;
+  /**
+   * @example
+   * 0
+   */
   certType?: string;
+  /**
+   * @example
+   * 0
+   */
   openTicketStatus?: number;
+  /**
+   * @example
+   * 张三
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 0
+   */
   passengerType?: string;
+  /**
+   * @example
+   * 12345678909
+   */
   phone?: string;
+  /**
+   * @example
+   * 444-000000000
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * 012992
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -169,21 +337,81 @@ export class TicketChangingDetailResponseBodyModuleTravelerInfoList extends $dar
 }
 
 export class TicketChangingDetailResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 暂无
+   */
   alipayTradeNo?: string;
+  /**
+   * @example
+   * 1002
+   */
   btripOrderId?: number;
+  /**
+   * @example
+   * 37772
+   */
   btripSubOrderId?: number;
+  /**
+   * @example
+   * dis123
+   */
   disOrderId?: string;
+  /**
+   * @example
+   * chang123
+   */
   disSubOrderId?: string;
+  /**
+   * @example
+   * {}
+   */
   extra?: string;
   flightInfoList?: TicketChangingDetailResponseBodyModuleFlightInfoList[];
+  /**
+   * @example
+   * 2022-12-30 11:30:00
+   */
   lastPayTime?: string;
+  /**
+   * @example
+   * 0
+   */
   payStatus?: number;
+  /**
+   * @example
+   * 2022-12-30 11:30:00
+   */
   payTime?: string;
+  /**
+   * @example
+   * 100
+   */
   settlePrice?: number;
+  /**
+   * @example
+   * 无
+   */
   settleType?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 100
+   */
   totalChangePrice?: number;
+  /**
+   * @example
+   * 100
+   */
   totalPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   totalUpgradePrice?: number;
   travelerInfoList?: TicketChangingDetailResponseBodyModuleTravelerInfoList[];
   static names(): { [key: string]: string } {
@@ -246,11 +474,31 @@ export class TicketChangingDetailResponseBodyModule extends $dara.Model {
 }
 
 export class TicketChangingDetailResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 错误提示
+   */
   message?: string;
   module?: TicketChangingDetailResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210f079e16603757182131635d866a
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

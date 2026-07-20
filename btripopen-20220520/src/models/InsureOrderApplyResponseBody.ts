@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureOrderApplyResponseBodyModuleInsOrderPolicyList extends $dara.Model {
+  /**
+   * @example
+   * 1022196500378006
+   */
   outSubInsOrderId?: string;
+  /**
+   * @example
+   * po10002300201
+   */
   policyNo?: string;
+  /**
+   * @example
+   * INIT
+   */
   status?: string;
+  /**
+   * @example
+   * 1022196500378003
+   */
   subInsOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,6 +51,10 @@ export class InsureOrderApplyResponseBodyModuleInsOrderPolicyList extends $dara.
 }
 
 export class InsureOrderApplyResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 1021000196500370003
+   */
   insOrderId?: string;
   insOrderPolicyList?: InsureOrderApplyResponseBodyModuleInsOrderPolicyList[];
   static names(): { [key: string]: string } {
@@ -64,11 +84,31 @@ export class InsureOrderApplyResponseBodyModule extends $dara.Model {
 }
 
 export class InsureOrderApplyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: InsureOrderApplyResponseBodyModule;
+  /**
+   * @example
+   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210e800316781571635951548d1e9d
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

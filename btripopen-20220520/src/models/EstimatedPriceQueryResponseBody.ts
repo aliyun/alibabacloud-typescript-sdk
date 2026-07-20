@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EstimatedPriceQueryResponseBodyModuleHotelFeeDetail extends $dara.Model {
+  /**
+   * @example
+   * 杭州
+   */
   city?: string;
+  /**
+   * @example
+   * 6
+   */
   criterion?: number;
+  /**
+   * @example
+   * 1245
+   */
   itineraryId?: string;
+  /**
+   * @example
+   * 6
+   */
   total?: number;
+  /**
+   * @example
+   * 1
+   */
   tripDays?: number;
   static names(): { [key: string]: string } {
     return {
@@ -38,10 +58,30 @@ export class EstimatedPriceQueryResponseBodyModuleHotelFeeDetail extends $dara.M
 }
 
 export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest extends $dara.Model {
+  /**
+   * @example
+   * 00:40
+   */
   arrTime?: string;
+  /**
+   * @example
+   * 22:20
+   */
   depTime?: string;
+  /**
+   * @example
+   * 30100
+   */
   fee?: number;
+  /**
+   * @example
+   * 硬座
+   */
   seatGrade?: string;
+  /**
+   * @example
+   * MU9668
+   */
   vehicleNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,10 +113,30 @@ export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest 
 }
 
 export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive extends $dara.Model {
+  /**
+   * @example
+   * 19:20
+   */
   arrTime?: string;
+  /**
+   * @example
+   * 17:00
+   */
   depTime?: string;
+  /**
+   * @example
+   * 265000
+   */
   fee?: number;
+  /**
+   * @example
+   * 商务座
+   */
   seatGrade?: string;
+  /**
+   * @example
+   * CA1721
+   */
   vehicleNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,14 +168,42 @@ export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpen
 }
 
 export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes extends $dara.Model {
+  /**
+   * @example
+   * 北京
+   */
   arrCity?: string;
+  /**
+   * @example
+   * 1670528800000
+   */
   arrDate?: number;
   cheapest?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest;
+  /**
+   * @example
+   * 杭州
+   */
   depCity?: string;
+  /**
+   * @example
+   * 1670528700000
+   */
   depDate?: number;
+  /**
+   * @example
+   * demo
+   */
   errMsg?: string;
+  /**
+   * @example
+   * 1245
+   */
   itineraryId?: string;
   mostExpensive?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -162,9 +250,25 @@ export class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes extends 
 
 export class EstimatedPriceQueryResponseBodyModuleTrafficFee extends $dara.Model {
   btripRoutes?: EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes[];
+  /**
+   * @example
+   * demo
+   */
   errMsg?: string;
+  /**
+   * @example
+   * 265000
+   */
   maxFee?: number;
+  /**
+   * @example
+   * 30100
+   */
   minFee?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -200,6 +304,13 @@ export class EstimatedPriceQueryResponseBodyModuleTrafficFee extends $dara.Model
 
 export class EstimatedPriceQueryResponseBodyModule extends $dara.Model {
   hotelFeeDetail?: EstimatedPriceQueryResponseBodyModuleHotelFeeDetail[];
+  /**
+   * @remarks
+   * 酒店费用总额，单位为元
+   * 
+   * @example
+   * 500
+   */
   totalHotelFee?: number;
   trafficFee?: EstimatedPriceQueryResponseBodyModuleTrafficFee;
   static names(): { [key: string]: string } {
@@ -234,11 +345,34 @@ export class EstimatedPriceQueryResponseBodyModule extends $dara.Model {
 }
 
 export class EstimatedPriceQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * demo
+   */
   message?: string;
   module?: EstimatedPriceQueryResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

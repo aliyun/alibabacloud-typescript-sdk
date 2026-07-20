@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MonthBillSplitGetResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * invoice_third_part_id123
+   */
   billSplitKey?: string;
+  /**
+   * @example
+   * 2023-12-31
+   */
   endDate?: string;
+  /**
+   * @example
+   * 2023-12-01
+   */
   startDate?: string;
+  /**
+   * @example
+   * https://alibtrip-oss.oss-cn-hangzhou.aliyuncs.com/********
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,11 +51,31 @@ export class MonthBillSplitGetResponseBodyModule extends $dara.Model {
 }
 
 export class MonthBillSplitGetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: MonthBillSplitGetResponseBodyModule[];
+  /**
+   * @example
+   * 407543AF-****-****-****-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce********056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

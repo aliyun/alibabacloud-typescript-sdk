@@ -8,6 +8,10 @@ export class ElectronicItineraryBatchApplyShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   applyItineraryListShrink?: string;
+  /**
+   * @example
+   * true
+   */
   canReprint?: boolean;
   static names(): { [key: string]: string } {
     return {

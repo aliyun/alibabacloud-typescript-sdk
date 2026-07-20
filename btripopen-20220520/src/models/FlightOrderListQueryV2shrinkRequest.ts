@@ -6,13 +6,37 @@ export class FlightOrderListQueryV2ShrinkRequest extends $dara.Model {
   approveIdShrink?: string;
   bookerIdShrink?: string;
   departIdShrink?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4ZGViODFlYmM3MYzM4
+   */
   scrollId?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   startDate?: string;
   supplierShrink?: string;
   thirdpartApproveIdShrink?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   updateEndDate?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   updateStartDate?: string;
   static names(): { [key: string]: string } {
     return {

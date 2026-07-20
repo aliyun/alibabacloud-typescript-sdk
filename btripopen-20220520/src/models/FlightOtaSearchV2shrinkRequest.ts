@@ -4,12 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightOtaSearchV2ShrinkRequest extends $dara.Model {
   cabinTypeListShrink?: string;
+  /**
+   * @example
+   * true
+   */
   directOnly?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cheshi
    */
   isvName?: string;
+  /**
+   * @example
+   * true
+   */
   needShareFlight?: boolean;
   /**
    * @remarks
@@ -19,11 +30,17 @@ export class FlightOtaSearchV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   searchMode?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   tripType?: number;
   static names(): { [key: string]: string } {

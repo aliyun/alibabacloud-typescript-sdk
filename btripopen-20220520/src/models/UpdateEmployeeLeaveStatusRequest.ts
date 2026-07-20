@@ -6,11 +6,17 @@ export class UpdateEmployeeLeaveStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * true
    */
   isLeave?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * user123
    */
   userId?: string;
   static names(): { [key: string]: string } {

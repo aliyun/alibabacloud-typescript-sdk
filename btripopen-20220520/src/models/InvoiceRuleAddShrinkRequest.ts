@@ -11,6 +11,9 @@ export class InvoiceRuleAddShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 4854821
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

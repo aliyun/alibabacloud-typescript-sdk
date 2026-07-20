@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IsvUserSaveRequestUserListCertList extends $dara.Model {
+  /**
+   * @example
+   * 2050-01-01
+   */
   certExpiredTime?: string;
+  /**
+   * @example
+   * CN
+   */
   certNation?: string;
+  /**
+   * @example
+   * 110101********1234
+   */
   certNo?: string;
+  /**
+   * @example
+   * 0
+   */
   certType?: number;
+  /**
+   * @example
+   * CN
+   */
   nationality?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,33 +58,99 @@ export class IsvUserSaveRequestUserListCertList extends $dara.Model {
 }
 
 export class IsvUserSaveRequestUserList extends $dara.Model {
+  /**
+   * @example
+   * 330100,310100
+   */
   baseCityCode?: string;
+  /**
+   * @example
+   * 2000-01-01
+   */
   birthday?: string;
   certList?: IsvUserSaveRequestUserListCertList[];
+  /**
+   * @example
+   * 10
+   */
   departId?: number;
+  /**
+   * @example
+   * 123@163.com
+   */
   email?: string;
+  /**
+   * @example
+   * M
+   */
   gender?: string;
+  /**
+   * @example
+   * true
+   */
   isAdmin?: boolean;
+  /**
+   * @example
+   * 8797
+   */
   jobNo?: string;
+  /**
+   * @example
+   * 0
+   */
   leaveStatus?: number;
+  /**
+   * @example
+   * 123456
+   */
   managerUserId?: string;
+  /**
+   * @example
+   * 15364762829
+   */
   phone?: string;
+  /**
+   * @example
+   * 产品经理
+   */
   position?: string;
+  /**
+   * @example
+   * 20
+   */
   positionLevel?: string;
+  /**
+   * @example
+   * ceshi
+   */
   realNameEn?: string;
   roleIdList?: string[];
+  /**
+   * @example
+   * 123
+   */
   thirdDepartId?: string;
   thirdDepartIdList?: string[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   userId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   userName?: string;
+  /**
+   * @example
+   * 三儿
+   */
   userNick?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SyncThirdUserMappingResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 8465F68D-BC97-5C0F-9161-3E65919D9135
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

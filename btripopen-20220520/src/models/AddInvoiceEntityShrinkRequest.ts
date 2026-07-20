@@ -5,12 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class AddInvoiceEntityShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of entities.
+   * 
    * This parameter is required.
    */
   entitiesShrink?: string;
   /**
    * @remarks
+   * The third-party invoice ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 4854821
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

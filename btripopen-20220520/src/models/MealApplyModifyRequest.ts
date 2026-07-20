@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MealApplyModifyRequestApplyUser extends $dara.Model {
+  /**
+   * @example
+   * userId1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,7 +30,15 @@ export class MealApplyModifyRequestApplyUser extends $dara.Model {
 }
 
 export class MealApplyModifyRequestItineraryListCities extends $dara.Model {
+  /**
+   * @example
+   * 330702
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,13 +68,23 @@ export class MealApplyModifyRequestItineraryList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2025-02-05 00:00:00
    */
   endDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2025-02-05 00:00:00
    */
   startDate?: string;
+  /**
+   * @example
+   * 2134
+   */
   thirdpartItineraryId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,21 +122,64 @@ export class MealApplyModifyRequest extends $dara.Model {
    * This parameter is required.
    */
   applyUser?: MealApplyModifyRequestApplyUser;
+  /**
+   * @example
+   * 23
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * {"extend_key":"extend_value"}
+   */
   extendField?: string;
+  /**
+   * @example
+   * 123
+   */
   invoiceId?: number;
   itineraryList?: MealApplyModifyRequestItineraryList[];
+  /**
+   * @example
+   * 1
+   */
   mealAmount?: number;
+  /**
+   * @example
+   * 测试
+   */
   mealCause?: string;
+  /**
+   * @example
+   * project123
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 项目1
+   */
   projectTitle?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   status?: number;
+  /**
+   * @example
+   * 1234
+   */
   thirdPartApplyId?: string;
+  /**
+   * @example
+   * 1200F00010
+   */
   thirdPartCostCenterId?: string;
+  /**
+   * @example
+   * GA15131
+   */
   thirdPartInvoiceId?: string;
   static names(): { [key: string]: string } {
     return {

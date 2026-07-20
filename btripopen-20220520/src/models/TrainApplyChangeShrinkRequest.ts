@@ -3,27 +3,48 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainApplyChangeShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   acceptNoSeat?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   changeTrainInfoSShrink?: string;
+  /**
+   * @example
+   * 0
+   */
   forceMatch?: string;
+  /**
+   * @example
+   * false
+   */
   isPayNow?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1017028198411054446
    */
   orderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12345
    */
   outChangeApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123456
    */
   outOrderId?: string;
   static names(): { [key: string]: string } {

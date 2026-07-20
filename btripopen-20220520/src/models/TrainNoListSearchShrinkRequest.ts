@@ -6,16 +6,25 @@ export class TrainNoListSearchShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 包头东
    */
   arrLocation?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2024-05-16
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 包头
    */
   depLocation?: string;
   /**
@@ -23,6 +32,10 @@ export class TrainNoListSearchShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   optionShrink?: string;
+  /**
+   * @example
+   * null
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {

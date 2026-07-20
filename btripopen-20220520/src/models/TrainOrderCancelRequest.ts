@@ -3,16 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainOrderCancelRequest extends $dara.Model {
+  /**
+   * @example
+   * 1234223
+   */
   changeOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1002145190081005400
    */
   orderId?: string;
+  /**
+   * @example
+   * 123321245534
+   */
   outChangeOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123456
    */
   outOrderId?: string;
   static names(): { [key: string]: string } {

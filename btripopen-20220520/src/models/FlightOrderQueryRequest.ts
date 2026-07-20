@@ -6,8 +6,15 @@ export class FlightOrderQueryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 246584390
    */
   orderId?: number;
+  /**
+   * @example
+   * 第三方用户id
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

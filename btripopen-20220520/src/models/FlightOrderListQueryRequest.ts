@@ -3,16 +3,60 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightOrderListQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   allApply?: boolean;
+  /**
+   * @example
+   * 175634
+   */
   applyId?: number;
+  /**
+   * @example
+   * 部门id
+   */
   departId?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * CS-FLIGHT
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   updateEndTime?: string;
+  /**
+   * @example
+   * 2022-07-01 00:00:00
+   */
   updateStartTime?: string;
+  /**
+   * @example
+   * 三方用户ID
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

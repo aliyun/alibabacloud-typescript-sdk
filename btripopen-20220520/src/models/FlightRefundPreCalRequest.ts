@@ -6,16 +6,25 @@ export class FlightRefundPreCalRequestPassengerSegmentInfoList extends $dara.Mod
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * CA1982
    */
   flightNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   passengerName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 23112
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -47,8 +56,15 @@ export class FlightRefundPreCalRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis123
    */
   disOrderId?: string;
+  /**
+   * @example
+   * 1
+   */
   isVoluntary?: string;
   /**
    * @remarks

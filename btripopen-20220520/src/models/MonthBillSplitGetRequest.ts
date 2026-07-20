@@ -3,12 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MonthBillSplitGetRequest extends $dara.Model {
+  /**
+   * @example
+   * 20240101
+   */
   billBatch?: string;
+  /**
+   * @example
+   * 202401
+   */
   billMonth?: string;
   billSplitKeyList?: string[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * by_invoice_third_part_id
    */
   billSplitMode?: string;
   static names(): { [key: string]: string } {

@@ -4,8 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveProjectManagerShrinkRequest extends $dara.Model {
   orgEntitiesShrink?: string;
+  /**
+   * @example
+   * projectabc
+   */
   outProjectId?: string;
+  /**
+   * @example
+   * 123
+   */
   projectId?: number;
+  /**
+   * @example
+   * false
+   */
   removeAll?: boolean;
   static names(): { [key: string]: string } {
     return {

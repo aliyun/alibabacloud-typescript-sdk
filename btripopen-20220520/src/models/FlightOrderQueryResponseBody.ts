@@ -3,35 +3,155 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extends $dara.Model {
+  /**
+   * @example
+   * 165485404
+   */
   applyId?: string;
+  /**
+   * @example
+   * 大兴国际机场
+   */
   arrAirport?: string;
+  /**
+   * @example
+   * PKX
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   arrCity?: string;
+  /**
+   * @example
+   * BJS
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   arrTime?: string;
+  /**
+   * @example
+   * V
+   */
   changeCabin?: string;
+  /**
+   * @example
+   * Y
+   */
   changeCabinLevel?: string;
+  /**
+   * @example
+   * 100
+   */
   changeFee?: number;
+  /**
+   * @example
+   * MU7767
+   */
   changeFlightNo?: string;
+  /**
+   * @example
+   * 33576
+   */
   changeOrderId?: number;
+  /**
+   * @example
+   * 个人原因
+   */
   changeReason?: string;
+  /**
+   * @example
+   * 0
+   */
   changeType?: number;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   depAirport?: string;
+  /**
+   * @example
+   * HGH
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   depCity?: string;
+  /**
+   * @example
+   * HGH
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   depTime?: string;
+  /**
+   * @example
+   * 无
+   */
   discount?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 00-123123
+   */
   originTicketNo?: string;
+  /**
+   * @example
+   * a165485404
+   */
   outApplyId?: string;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
+  /**
+   * @example
+   * 西安
+   */
   stopCity?: string;
+  /**
+   * @example
+   * 000-123123
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * OPEN
+   */
   ticketStatus?: string;
+  /**
+   * @example
+   * 0
+   */
   ticketStatusCode?: number;
+  /**
+   * @example
+   * 100
+   */
   upgradeFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -113,15 +233,55 @@ export class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList extend
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightInfoListArrAirportCityCounty extends $dara.Model {
+  /**
+   * @example
+   * 330100
+   */
   adcode?: string;
+  /**
+   * @example
+   * HGH
+   */
   airportCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   airportCityName?: string;
+  /**
+   * @example
+   * HGH
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * null
+   */
   airportParentCityName?: string;
+  /**
+   * @example
+   * null
+   */
   countyCityAdcode?: string;
+  /**
+   * @example
+   * null
+   */
   countyCityName?: string;
+  /**
+   * @example
+   * 330100
+   */
   prefectureCityAdcode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   prefectureCityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -163,15 +323,55 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoListArrAirportCityCount
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightInfoListDepAirportCityCounty extends $dara.Model {
+  /**
+   * @example
+   * 110100
+   */
   adcode?: string;
+  /**
+   * @example
+   * BJS
+   */
   airportCityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   airportCityName?: string;
+  /**
+   * @example
+   * PKX
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 北京大兴国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * 北京
+   */
   airportParentCityName?: string;
+  /**
+   * @example
+   * null
+   */
   countyCityAdcode?: string;
+  /**
+   * @example
+   * null
+   */
   countyCityName?: string;
+  /**
+   * @example
+   * 110100
+   */
   prefectureCityAdcode?: string;
+  /**
+   * @example
+   * 北京
+   */
   prefectureCityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,15 +413,55 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoListDepAirportCityCount
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightInfoListStopCityInfoListStopAirportCityCounty extends $dara.Model {
+  /**
+   * @example
+   * 330100
+   */
   adcode?: string;
+  /**
+   * @example
+   * HGH
+   */
   airportCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   airportCityName?: string;
+  /**
+   * @example
+   * HGH
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * null
+   */
   airportParentCityName?: string;
+  /**
+   * @example
+   * null
+   */
   countyCityAdcode?: string;
+  /**
+   * @example
+   * null
+   */
   countyCityName?: string;
+  /**
+   * @example
+   * 330100
+   */
   prefectureCityAdcode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   prefectureCityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -264,6 +504,10 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoListStopCityInfoListSto
 
 export class FlightOrderQueryResponseBodyModuleFlightInfoListStopCityInfoList extends $dara.Model {
   stopAirportCityCounty?: FlightOrderQueryResponseBodyModuleFlightInfoListStopCityInfoListStopAirportCityCounty;
+  /**
+   * @example
+   * HGH
+   */
   stopAirportCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -292,29 +536,117 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoListStopCityInfoList ex
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $dara.Model {
+  /**
+   * @example
+   * MU
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * 东航
+   */
   airlineName?: string;
   arrAirportCityCounty?: FlightOrderQueryResponseBodyModuleFlightInfoListArrAirportCityCounty;
+  /**
+   * @example
+   * LHW
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * 兰州中川机场
+   */
   arrAirportName?: string;
+  /**
+   * @example
+   * 330100
+   */
   arrCityAdCode?: string;
+  /**
+   * @example
+   * LHW
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 兰州
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * T3
+   */
   arrTerminal?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   arrTime?: string;
+  /**
+   * @example
+   * V
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinLevel?: string;
   depAirportCityCounty?: FlightOrderQueryResponseBodyModuleFlightInfoListDepAirportCityCounty;
+  /**
+   * @example
+   * NGB
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * 栎社国际机场
+   */
   depAirportName?: string;
+  /**
+   * @example
+   * 330100
+   */
   depCityAdCode?: string;
+  /**
+   * @example
+   * NGB
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 宁波
+   */
   depCityName?: string;
+  /**
+   * @example
+   * T4
+   */
   depTerminal?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   depTime?: string;
+  /**
+   * @example
+   * 900
+   */
   flightMile?: number;
+  /**
+   * @example
+   * MU3849
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
   stopCity?: string[];
   stopCityInfoList?: FlightOrderQueryResponseBodyModuleFlightInfoListStopCityInfoList[];
@@ -402,27 +734,115 @@ export class FlightOrderQueryResponseBodyModuleFlightInfoList extends $dara.Mode
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extends $dara.Model {
+  /**
+   * @example
+   * 131241241
+   */
   applyId?: string;
+  /**
+   * @example
+   * 大兴国际机场
+   */
   arrAirport?: string;
+  /**
+   * @example
+   * PKX
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   arrCity?: string;
+  /**
+   * @example
+   * BJS
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 100
+   */
   companyRefundTicketFee?: number;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   depAirport?: string;
+  /**
+   * @example
+   * HGH
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   depCity?: string;
+  /**
+   * @example
+   * HGH
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * MU9688
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * a131241241
+   */
   outApplyId?: string;
+  /**
+   * @example
+   * 100
+   */
   personalRefundTicketFee?: number;
+  /**
+   * @example
+   * 43667
+   */
   refundOrderId?: number;
+  /**
+   * @example
+   * 临时不出差
+   */
   refundReason?: string;
+  /**
+   * @example
+   * 100
+   */
   refundTicketFee?: number;
+  /**
+   * @example
+   * 0
+   */
   refundType?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
+  /**
+   * @example
+   * 000-13232
+   */
   ticketNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -488,30 +908,130 @@ export class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList extend
 }
 
 export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $dara.Model {
+  /**
+   * @example
+   * 大兴国际机场
+   */
   arrAirport?: string;
+  /**
+   * @example
+   * PKX
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   arrCity?: string;
+  /**
+   * @example
+   * BJS
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 100
+   */
   buildPrice?: number;
+  /**
+   * @example
+   * false
+   */
   changed?: boolean;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   depAirport?: string;
+  /**
+   * @example
+   * HGH
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   depCity?: string;
+  /**
+   * @example
+   * HGH
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 10
+   */
   discount?: number;
+  /**
+   * @example
+   * HO1739
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * 1
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 100
+   */
   oilPrice?: number;
+  /**
+   * @example
+   * 1
+   */
   payType?: number;
+  /**
+   * @example
+   * 100 票价个人支付部分，如果是真中转/往返，体现在第一个航段上，第二个航段为0
+   */
   personalPrice?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
+  /**
+   * @example
+   * 100
+   */
   settlePrice?: number;
+  /**
+   * @example
+   * 000-123
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * 100
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * OPEN
+   */
   ticketStatus?: string;
+  /**
+   * @example
+   * 1
+   */
   ticketStatusCode?: number;
+  /**
+   * @example
+   * 机票对应乘客用户id
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -583,10 +1103,30 @@ export class FlightOrderQueryResponseBodyModuleFlightTicketInfoList extends $dar
 }
 
 export class FlightOrderQueryResponseBodyModuleInsuranceInfoList extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
   amount?: number;
+  /**
+   * @example
+   * 345-987-098
+   */
   insuranceNo?: string;
+  /**
+   * @example
+   * 张三
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 航空意外险
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -618,7 +1158,15 @@ export class FlightOrderQueryResponseBodyModuleInsuranceInfoList extends $dara.M
 }
 
 export class FlightOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
+  /**
+   * @example
+   * 43316
+   */
   id?: number;
+  /**
+   * @example
+   * 测试发票
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -644,26 +1192,110 @@ export class FlightOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
 }
 
 export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
+  /**
+   * @example
+   * 175634
+   */
   applyId?: string;
+  /**
+   * @example
+   * 出差
+   */
   btripTitle?: string;
+  /**
+   * @example
+   * 张三
+   */
   contactName?: string;
+  /**
+   * @example
+   * 商旅企业id
+   */
   corpId?: string;
+  /**
+   * @example
+   * 阿里巴巴
+   */
   corpName?: string;
+  /**
+   * @example
+   * 部门id
+   */
   departId?: string;
+  /**
+   * @example
+   * 测试部门
+   */
   departName?: string;
+  /**
+   * @example
+   * 12345,34556
+   */
   exceedApplyId?: string;
+  /**
+   * @example
+   * a12345,a34556
+   */
   exceedThirdPartApplyId?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * 13628
+   */
   itineraryId?: string;
+  /**
+   * @example
+   * 146178
+   */
   orderId?: number;
+  /**
+   * @example
+   * 5
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 阿里商旅
+   */
   supplier?: string;
+  /**
+   * @example
+   * CS-FLIGHT
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 00021230711000001Test-2
+   */
   thirdpartBusinessId?: string;
+  /**
+   * @example
+   * 三方企业id
+   */
   thirdpartCorpId?: string;
+  /**
+   * @example
+   * CS-FLIGHT
+   */
   thirdpartItineraryId?: string;
+  /**
+   * @example
+   * 0
+   */
   tripType?: number;
+  /**
+   * @example
+   * 用户id
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -727,15 +1359,55 @@ export class FlightOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model
 }
 
 export class FlightOrderQueryResponseBodyModulePassengerInfoList extends $dara.Model {
+  /**
+   * @example
+   * 13446
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * CS-3345
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * CS-PROJECT
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 133576
+   */
   projectId?: number;
+  /**
+   * @example
+   * 测试项目
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * CS-THIRDPROJECT
+   */
   thirdpartProjectId?: string;
+  /**
+   * @example
+   * 出行人用户id
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
+  /**
+   * @example
+   * 0
+   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -777,12 +1449,40 @@ export class FlightOrderQueryResponseBodyModulePassengerInfoList extends $dara.M
 }
 
 export class FlightOrderQueryResponseBodyModulePriceInfoList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   categoryCode?: number;
+  /**
+   * @example
+   * 2022-07-20T10:40Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 张三,李四
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 4
+   */
   payType?: number;
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * CS73290
+   */
   tradeId?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -892,11 +1592,31 @@ export class FlightOrderQueryResponseBodyModule extends $dara.Model {
 }
 
 export class FlightOrderQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightOrderQueryResponseBodyModule;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

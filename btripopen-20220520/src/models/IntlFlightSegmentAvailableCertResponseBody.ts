@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightSegmentAvailableCertResponseBodyModuleSegmentAvailableCertListSegmentPosition extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -88,10 +96,30 @@ export class IntlFlightSegmentAvailableCertResponseBodyModule extends $dara.Mode
 
 export class IntlFlightSegmentAvailableCertResponseBody extends $dara.Model {
   module?: IntlFlightSegmentAvailableCertResponseBodyModule;
+  /**
+   * @example
+   * 210bc81a17090871660176894d008c
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0
+   */
   resultCode?: string;
+  /**
+   * @example
+   * 成功
+   */
   resultMsg?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 213e1ea516895592036143147e5864
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

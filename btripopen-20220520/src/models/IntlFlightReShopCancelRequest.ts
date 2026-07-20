@@ -6,13 +6,27 @@ export class IntlFlightReShopCancelRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1017035199763856322
    */
   orderId?: string;
+  /**
+   * @example
+   * JPT2025032400000001
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * JPM20241024354
+   */
   outReShopApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1019202345889633
    */
   reShopApplyId?: string;
   static names(): { [key: string]: string } {

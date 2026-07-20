@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderPreValidateRequestDailyList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   board?: string;
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * 2022-05-15
+   */
   rateStartTime?: string;
+  /**
+   * @example
+   * 10
+   */
   roomCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -35,11 +51,35 @@ export class HotelOrderPreValidateRequestDailyList extends $dara.Model {
 }
 
 export class HotelOrderPreValidateRequestOccupantInfoList extends $dara.Model {
+  /**
+   * @example
+   * 232871871822
+   */
   cardNo?: string;
+  /**
+   * @example
+   * 1
+   */
   cardType?: number;
+  /**
+   * @example
+   * 张三
+   */
   name?: string;
+  /**
+   * @example
+   * 12392827121
+   */
   phone?: string;
+  /**
+   * @example
+   * 128918
+   */
   staffNo?: string;
+  /**
+   * @example
+   * 1
+   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -76,16 +116,25 @@ export class HotelOrderPreValidateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 23141
    */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2022-05-15
    */
   checkIn?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2022-05-15
    */
   checkOut?: string;
   /**
@@ -96,40 +145,69 @@ export class HotelOrderPreValidateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 612673015638
    */
   itemId?: number;
+  /**
+   * @example
+   * 1
+   */
   numberOfAdultsPerRoom?: number;
   occupantInfoList?: HotelOrderPreValidateRequestOccupantInfoList[];
   rateKey?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 239872781
    */
   ratePlanId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 71652158
    */
   roomId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   roomNum?: number;
+  /**
+   * @example
+   * 0
+   */
   rpType?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1000
    */
   searchRoomPrice?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2088441675613762
    */
   sellerId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 52302073
    */
   shid?: number;
   static names(): { [key: string]: string } {

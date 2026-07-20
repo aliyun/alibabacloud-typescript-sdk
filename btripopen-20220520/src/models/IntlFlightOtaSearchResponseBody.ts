@@ -7,8 +7,20 @@ import { ModuleItemListSubItemsBaggageRuleOfferBaggageInfoMapValue } from "./Mod
 
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $dara.Model {
+  /**
+   * @example
+   * MU
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * 中国东方航空
+   */
   airlineName?: string;
+  /**
+   * @example
+   * 东方航空
+   */
   shortName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,9 +48,25 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo extends $dara.Model {
+  /**
+   * @example
+   * PKX
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 大兴国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * 大兴
+   */
   airportShortName?: string;
+  /**
+   * @example
+   * --
+   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -68,9 +96,25 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * 萧山
+   */
   airportShortName?: string;
+  /**
+   * @example
+   * T3
+   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,8 +144,20 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $dara.Model {
+  /**
+   * @example
+   * DR
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * 苏南瑞丽航空
+   */
   airlineName?: string;
+  /**
+   * @example
+   * 瑞丽航空
+   */
   shortName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -130,6 +186,10 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo extends $dara.Model {
   operatingAirlineInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
+  /**
+   * @example
+   * CX601
+   */
   operatingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,14 +218,50 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfoList extends $dara.Model {
+  /**
+   * @example
+   * 大兴机场
+   */
   stopAirport?: string;
+  /**
+   * @example
+   * PKX
+   */
   stopAirportName?: string;
+  /**
+   * @example
+   * T1
+   */
   stopArrTerm?: string;
+  /**
+   * @example
+   * 2025-10-01 02:00
+   */
   stopArrTime?: string;
+  /**
+   * @example
+   * BJS
+   */
   stopCityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   stopCityName?: string;
+  /**
+   * @example
+   * T1
+   */
   stopDepTerm?: string;
+  /**
+   * @example
+   * 2025-10-01 03:00
+   */
   stopDepTime?: string;
+  /**
+   * @example
+   * 60
+   */
   stopTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -205,7 +301,15 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   depCityLuggageDirect?: number;
+  /**
+   * @example
+   * 0
+   */
   stopCityLuggageDirect?: number;
   static names(): { [key: string]: string } {
     return {
@@ -231,7 +335,15 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosSegmentVisaRemark extends $dara.Model {
+  /**
+   * @example
+   * 前往菲律宾的旅客，请确保持有往返纸质行程单以及纸质签证办理登记手续，否则可能会被当地政府拒绝入境
+   */
   depCityVisaRemark?: string;
+  /**
+   * @example
+   * 1
+   */
   depCityVisaType?: number;
   stopCityVisaRemarks?: string[];
   stopCityVisaTypes?: number[];
@@ -271,30 +383,110 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfos extends $dara.Model {
   airlineInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosAirlineInfo;
   arrAirportInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo;
+  /**
+   * @example
+   * BJS
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 2023-08-13 09:45
+   */
   arrTime?: string;
   depAirportInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
+  /**
+   * @example
+   * HGH
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 2023-08-13 07:25
+   */
   depTime?: string;
+  /**
+   * @example
+   * 140
+   */
   duration?: number;
+  /**
+   * @example
+   * MU5131
+   */
   flightNo?: string;
   flightShareInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
+  /**
+   * @example
+   * 中型机
+   */
   flightSize?: string;
   flightStopInfoList?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfoList[];
+  /**
+   * @example
+   * 320
+   */
   flightType?: string;
   luggageDirectInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo;
+  /**
+   * @example
+   * 空客
+   */
   manufacturer?: string;
+  /**
+   * @example
+   * 小食
+   */
   mealDesc?: string;
+  /**
+   * @example
+   * 0
+   */
   oneMore?: number;
+  /**
+   * @example
+   * +1天
+   */
   oneMoreShow?: string;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
+  /**
+   * @example
+   * KN6728HGHPKX0725
+   */
   segmentKey?: string;
   segmentVisaRemark?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosSegmentVisaRemark;
+  /**
+   * @example
+   * false
+   */
   share?: boolean;
+  /**
+   * @example
+   * 中
+   */
   shortFlightSize?: string;
+  /**
+   * @example
+   * false
+   */
   stop?: boolean;
+  /**
+   * @example
+   * 2小时20分
+   */
   totalTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -391,15 +583,51 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfos extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 2023-08-13 09:45
+   */
   arrTime?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 2023-08-13 07:25
+   */
   depTime?: string;
+  /**
+   * @example
+   * 140
+   */
   duration?: number;
   flightSegmentInfos?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfos[];
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   transferTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -444,7 +672,15 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfos extends $da
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleItemListAgreementPriceCodes extends $dara.Model {
+  /**
+   * @example
+   * V5400000
+   */
   code?: string;
+  /**
+   * @example
+   * 2
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -470,7 +706,15 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListAgreementPriceCodes ex
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleItemListLabelList extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   labelCode?: number;
+  /**
+   * @example
+   * 测试商品
+   */
   labelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -496,8 +740,16 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListLabelList extends $dar
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsBaggageRule extends $dara.Model {
+  /**
+   * @example
+   * 20KG免费托运行李
+   */
   baggageDigest?: string;
   offerBaggageInfoMap?: { [key: string]: ModuleItemListSubItemsBaggageRuleOfferBaggageInfoMapValue[] };
+  /**
+   * @example
+   * true
+   */
   structuredBaggage?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -528,12 +780,36 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsBaggageRule ex
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRule extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   cancelFeeInd?: boolean;
+  /**
+   * @example
+   * true
+   */
   changeFeeInd?: boolean;
+  /**
+   * @example
+   * 部分情况不可改签
+   */
   changeRuleDesc?: string;
   offerPenaltyInfoMap?: { [key: string]: ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue[] };
+  /**
+   * @example
+   * 免费退改
+   */
   refundChangeDigest?: string;
+  /**
+   * @example
+   * 部分情况不可退票
+   */
   refundRuleDesc?: string;
+  /**
+   * @example
+   * false
+   */
   structuredRefund?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -572,7 +848,15 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRu
 }
 
 export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsSegmentPositionList extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -603,6 +887,10 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItems extends $dara
   segmentKeys?: string[];
   segmentPositionList?: IntlFlightOtaSearchResponseBodyModuleItemListSubItemsSegmentPositionList[];
   shoppingItemMap?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValue };
+  /**
+   * @example
+   * 07df0bd9-f803-4a50-8449-f4bd675d9939
+   */
   uniqKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -652,7 +940,15 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItems extends $dara
 
 export class IntlFlightOtaSearchResponseBodyModuleItemList extends $dara.Model {
   agreementPriceCodes?: IntlFlightOtaSearchResponseBodyModuleItemListAgreementPriceCodes[];
+  /**
+   * @example
+   * e50d380fc05942cc8ac57af8ae02f448_0
+   */
   itemId?: string;
+  /**
+   * @example
+   * normal
+   */
   itemType?: string;
   labelList?: IntlFlightOtaSearchResponseBodyModuleItemListLabelList[];
   shoppingItemMap?: { [key: string]: ModuleItemListShoppingItemMapValue };
@@ -733,11 +1029,35 @@ export class IntlFlightOtaSearchResponseBodyModule extends $dara.Model {
 }
 
 export class IntlFlightOtaSearchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module。
+   */
   module?: IntlFlightOtaSearchResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 2150435016896473589786246e03e9
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

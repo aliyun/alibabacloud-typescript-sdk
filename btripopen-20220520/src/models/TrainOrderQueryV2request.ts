@@ -6,8 +6,15 @@ export class TrainOrderQueryV2Request extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12342123212
    */
   orderId?: number;
+  /**
+   * @example
+   * 123121112
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

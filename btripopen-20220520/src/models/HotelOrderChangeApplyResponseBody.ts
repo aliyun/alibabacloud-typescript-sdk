@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderChangeApplyResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 123445443444
+   */
   changeOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,11 +30,35 @@ export class HotelOrderChangeApplyResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderChangeApplyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module
+   */
   module?: HotelOrderChangeApplyResponseBodyModule;
+  /**
+   * @example
+   * 6E9ABA14-5135-58FB-9DFC-C751B5855605
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 215045ec17018285034106091e8ba9
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

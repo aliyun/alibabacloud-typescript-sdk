@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHotelCancelPolicyDTOBtripHotelCancelPolicyInfoDTOList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   hour?: number;
+  /**
+   * @example
+   * 20
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,6 +38,10 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHote
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHotelCancelPolicyDTO extends $dara.Model {
   btripHotelCancelPolicyInfoDTOList?: HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHotelCancelPolicyDTOBtripHotelCancelPolicyInfoDTOList[];
+  /**
+   * @example
+   * 1
+   */
   cancelPolicyType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -59,7 +71,15 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHote
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRule extends $dara.Model {
   btripHotelCancelPolicyDTO?: HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRuleBtripHotelCancelPolicyDTO;
+  /**
+   * @example
+   * 不可取消
+   */
   cancelPolicyTitle?: string;
+  /**
+   * @example
+   * 2023-02-27
+   */
   checkIn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,7 +110,15 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRule extends 
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripHotelCancelDesc extends $dara.Model {
+  /**
+   * @example
+   * 2023年3月25日18:00前可免费取消订单。
+   */
   desc?: string;
+  /**
+   * @example
+   * 2023年3月25日18点00分前可免费取消
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -117,6 +145,10 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesBtripHotelCancelDesc ext
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail extends $dara.Model {
   labelName?: string[];
+  /**
+   * @example
+   * -¥3
+   */
   moneyDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,10 +177,26 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDeta
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
   cashReduceTotal?: string;
+  /**
+   * @example
+   * F3会员价
+   */
   dinamicLabel?: string;
   discountDetail?: HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail[];
+  /**
+   * @example
+   * 最终优惠以下单页为准
+   */
   subTitle?: string;
+  /**
+   * @example
+   * 每晚优惠说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -183,13 +231,45 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc extends $da
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
   beforeDiscountPrice?: number;
+  /**
+   * @example
+   * demo
+   */
   breakfast?: string;
+  /**
+   * @example
+   * 1000
+   */
   discountPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   lastDiscountsPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   lastDiscountsRoundingPrice?: number;
+  /**
+   * @example
+   * 1
+   */
   lastNum?: number;
+  /**
+   * @example
+   * 2023-03-25
+   */
   rateStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -227,9 +307,25 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO 
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailAvgOnsitePrice extends $dara.Model {
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * USD
+   */
   foreignCurrency?: string;
+  /**
+   * @example
+   * 3
+   */
   foreignPriceCent?: number;
+  /**
+   * @example
+   * 24
+   */
   priceCent?: number;
   static names(): { [key: string]: string } {
     return {
@@ -259,10 +355,30 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailAv
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetailDailyOnsitePrice extends $dara.Model {
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * 2026-04-22
+   */
   day?: string;
+  /**
+   * @example
+   * USD
+   */
   foreignCurrency?: string;
+  /**
+   * @example
+   * 3
+   */
   foreignPriceCent?: number;
+  /**
+   * @example
+   * 24
+   */
   priceCent?: number;
   static names(): { [key: string]: string } {
     return {
@@ -326,54 +442,206 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetail e
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
+  /**
+   * @example
+   * 2张单人床(1.2M)
+   */
   bedDesc?: string;
+  /**
+   * @example
+   * 2张1.2米单人床
+   */
   bedType?: string;
+  /**
+   * @example
+   * 双早
+   */
   breakfast?: string;
   btripCancelRule?: HotelGoodsQueryResponseBodyModuleRoomsRatesBtripCancelRule;
   btripHotelCancelDesc?: HotelGoodsQueryResponseBodyModuleRoomsRatesBtripHotelCancelDesc[];
+  /**
+   * @example
+   * true
+   */
   canSmoking?: boolean;
+  /**
+   * @example
+   * 2023年3月25日18点00分前可免费取消
+   */
   cancelPolicyDesc?: string;
+  /**
+   * @example
+   * 1
+   */
   cancelPolicyType?: number;
+  /**
+   * @example
+   * 0
+   */
   companyAassist?: string;
   companyAssistType?: string;
+  /**
+   * @example
+   * 0
+   */
   confirmType?: number;
+  /**
+   * @example
+   * cny
+   */
   currencyCode?: string;
+  /**
+   * @example
+   * demo
+   */
   dailyPriceFormatYuan?: string;
+  /**
+   * @example
+   * 400
+   */
   dailyPriceView?: string;
   discountDesc?: HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc;
+  /**
+   * @example
+   * demo
+   */
   endTimeDaily?: string;
   hotelDetailRatePriceDTO?: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO[];
   hotelMemberBenefit?: { [key: string]: string };
   hotelOnsitePriceDetail?: HotelGoodsQueryResponseBodyModuleRoomsRatesHotelOnsitePriceDetail;
+  /**
+   * @example
+   * true
+   */
   instantConfirm?: boolean;
   inventoryDesc?: string;
+  /**
+   * @example
+   * 100
+   */
   inventoryPrice?: string;
+  /**
+   * @example
+   * true
+   */
   isBusinessPay4Goods?: boolean;
+  /**
+   * @example
+   * 1（暂无·）
+   */
   isGuarantee?: number;
+  /**
+   * @example
+   * true
+   */
   isNeedEmail?: boolean;
+  /**
+   * @example
+   * 612673015638
+   */
   itemId?: number;
+  /**
+   * @example
+   * demo
+   */
   lastCancelTime?: string;
+  /**
+   * @example
+   * 2
+   */
   maxOccupancy?: number;
+  /**
+   * @example
+   * 2
+   */
   minAdvHours?: number;
+  /**
+   * @example
+   * 3
+   */
   minDays?: number;
   needCertificate?: boolean;
+  /**
+   * @example
+   * 1
+   */
   nod?: number;
+  /**
+   * @example
+   * 2
+   */
   nop?: number;
+  /**
+   * @example
+   * 0
+   */
   orderShipTime?: number;
+  /**
+   * @example
+   * 1
+   */
   paymentType?: number;
+  /**
+   * @example
+   * 0
+   */
   priceType?: number;
+  /**
+   * @example
+   * demo
+   */
   promotionInfo?: string;
+  /**
+   * @example
+   * 4509447432148
+   */
   rateId?: number;
   rateKey?: string;
+  /**
+   * @example
+   * 高级双床房
+   */
   ratePlanName?: string;
+  /**
+   * @example
+   * 4509447432148
+   */
   rpId?: number;
+  /**
+   * @example
+   * 4011822148
+   */
   sellerId?: number;
+  /**
+   * @example
+   * demo
+   */
   startTimeDaily?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 2321
+   */
   supplierCode?: string;
+  /**
+   * @example
+   * demo
+   */
   supplierName?: string;
+  /**
+   * @example
+   * true
+   */
   supportSpecialInvoice?: boolean;
   taxFeeDesc?: string;
+  /**
+   * @example
+   * 40000
+   */
   unroundingDailyPriceFormatYuan?: string;
   static names(): { [key: string]: string } {
     return {
@@ -511,9 +779,25 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRates extends $dara.Model {
 }
 
 export class HotelGoodsQueryResponseBodyModuleRoomsRoomService extends $dara.Model {
+  /**
+   * @example
+   * #000000
+   */
   color?: string;
+  /**
+   * @example
+   * <span>免费</span>有线上网 <span>免费</span>wifi
+   */
   desc?: string;
+  /**
+   * @example
+   * #4AA900
+   */
   highlightColorColor?: string;
+  /**
+   * @example
+   * 网络
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -543,21 +827,73 @@ export class HotelGoodsQueryResponseBodyModuleRoomsRoomService extends $dara.Mod
 }
 
 export class HotelGoodsQueryResponseBodyModuleRooms extends $dara.Model {
+  /**
+   * @example
+   * 27
+   */
   area?: string;
+  /**
+   * @example
+   * 2张1.2米单人床
+   */
   bedTypeString?: string;
+  /**
+   * @example
+   * true
+   */
   extraBed?: boolean;
+  /**
+   * @example
+   * [{\\"facilityList\\":[{\\"fee\\":false,\\"logoUrl\\":\\"https://gw.alicdn.com/imgextra/i4/O1CN017s2RbJ1JFaKKSdv1c_!!6000000000999-2-tps-96-96.png\\",\\"name\\":\\"瓶装水\\",\\"yesNo\\":true}}]
+   */
   facility?: string;
+  /**
+   * @example
+   * 1,2,3,4,5,6
+   */
   floor?: string;
+  /**
+   * @example
+   * 1
+   */
   maxOccupancy?: number;
+  /**
+   * @example
+   * 高级双床房
+   */
   name?: string;
+  /**
+   * @example
+   * 0
+   */
   networkService?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i4/6000000007171/O1CN01NHHdOw22qMoYHweI9_!!6000000007171-0-hotel.jpg
+   */
   pics?: string;
   rates?: HotelGoodsQueryResponseBodyModuleRoomsRates[];
+  /**
+   * @example
+   * demo
+   */
   roomDasc?: string;
   roomFacility?: string[];
   roomService?: HotelGoodsQueryResponseBodyModuleRoomsRoomService[];
+  /**
+   * @example
+   * 100929
+   */
   srid?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 有窗
+   */
   windowType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -620,19 +956,55 @@ export class HotelGoodsQueryResponseBodyModuleRooms extends $dara.Model {
 }
 
 export class HotelGoodsQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 贵州省贵阳市贵阳国家高新技术产业开发区沙文园区科学城智谷13-2栋三、四层
+   */
   address?: string;
   bookingInstructions?: { [key: string]: string };
+  /**
+   * @example
+   * true
+   */
   canForeigner?: boolean;
+  /**
+   * @example
+   * 2022-05-15
+   */
   checkIn?: string;
+  /**
+   * @example
+   * 2022-05-15
+   */
   checkOut?: string;
   descriptions?: string[];
   dinamicBannerPicUrls?: string[];
+  /**
+   * @example
+   * 17:00
+   */
   earlyArrivalTime?: string;
   hotelGroupDesc?: string;
+  /**
+   * @example
+   * 29382
+   */
   hotelId?: number;
+  /**
+   * @example
+   * 未来酒店
+   */
   hotelName?: string;
+  /**
+   * @example
+   * 12:00
+   */
   lateArrivalTime?: string;
   rooms?: HotelGoodsQueryResponseBodyModuleRooms[];
+  /**
+   * @example
+   * demo
+   */
   searchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -694,11 +1066,31 @@ export class HotelGoodsQueryResponseBodyModule extends $dara.Model {
 }
 
 export class HotelGoodsQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * None
+   */
   message?: string;
   module?: HotelGoodsQueryResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210e847f16611516748613869de4f6
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

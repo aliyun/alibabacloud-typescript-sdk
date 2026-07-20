@@ -4,24 +4,66 @@ import * as $dara from '@darabonba/typescript';
 
 export class VasBillSettlementQueryRequest extends $dara.Model {
   applyId?: string;
+  /**
+   * @example
+   * 20250501
+   */
   billBatch?: string;
+  /**
+   * @example
+   * 2025-01-02
+   */
   billRecordTimeEnd?: string;
+  /**
+   * @example
+   * 2025-01-01
+   */
   billRecordTimeStart?: string;
+  /**
+   * @example
+   * cooperator_alibtrip
+   */
   cooperatorId?: string;
+  /**
+   * @example
+   * 12345
+   */
   orderId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   pageNo?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 30
    */
   pageSize?: number;
+  /**
+   * @example
+   * 2022-07-01
+   */
   periodEnd?: string;
+  /**
+   * @example
+   * 2021-10-01
+   */
   periodStart?: string;
+  /**
+   * @example
+   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4MDAwMDAwMDA3MjdkMzgw
+   */
   scrollId?: string;
+  /**
+   * @example
+   * true
+   */
   scrollMod?: boolean;
   static names(): { [key: string]: string } {
     return {

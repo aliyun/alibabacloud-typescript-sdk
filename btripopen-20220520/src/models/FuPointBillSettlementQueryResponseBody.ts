@@ -3,84 +3,406 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @example
+   * 2025-01-01 00:00:00
+   */
   adjustTime?: string;
+  /**
+   * @example
+   * 123aaa
+   */
   alipayId?: string;
+  /**
+   * @example
+   * 124
+   */
   alipayTradeNo?: string;
+  /**
+   * @example
+   * CD
+   */
   applyArrCityCode?: string;
+  /**
+   * @example
+   * 成都
+   */
   applyArrCityName?: string;
+  /**
+   * @example
+   * 123
+   */
   applyDepCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   applyDepCityName?: string;
+  /**
+   * @example
+   * 无
+   */
   applyExtendField?: string;
+  /**
+   * @example
+   * 1424041616244499302
+   */
   applyId?: string;
+  /**
+   * @example
+   * 123@qq.com
+   */
   approverEmail?: string;
+  /**
+   * @example
+   * 11
+   */
   approverId?: string;
+  /**
+   * @example
+   * 张三
+   */
   approverName?: string;
+  /**
+   * @example
+   * 10.5
+   */
   awardNum?: number;
+  /**
+   * @example
+   * 100.12
+   */
   basisAmount?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   billRecordTime?: string;
+  /**
+   * @example
+   * 测试
+   */
   billingEntity?: string;
+  /**
+   * @example
+   * 线上预定
+   */
   bookMode?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   bookTime?: string;
+  /**
+   * @example
+   * 1234
+   */
   bookerId?: string;
+  /**
+   * @example
+   * zs123
+   */
   bookerJobNo?: string;
+  /**
+   * @example
+   * 张三
+   */
   bookerName?: string;
+  /**
+   * @example
+   * 支出
+   */
   capitalDirection?: string;
+  /**
+   * @example
+   * 技术部-开发部
+   */
   cascadeDepartment?: string;
+  /**
+   * @example
+   * 福豆
+   */
   categoryDesc?: string;
+  /**
+   * @example
+   * 100.32
+   */
   categoryOrderSettlePrice?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenter?: string;
+  /**
+   * @example
+   * cs1
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * code1
+   */
   costDepartment?: string;
+  /**
+   * @example
+   * 0.11
+   */
   deductibleTax?: number;
+  /**
+   * @example
+   * 测试部
+   */
   department?: string;
+  /**
+   * @example
+   * 1112
+   */
   departmentId?: string;
+  /**
+   * @example
+   * 机票预订
+   */
   feeType?: string;
+  /**
+   * @example
+   * 赔付
+   */
   feeTypeDesc?: string;
+  /**
+   * @example
+   * 否
+   */
   foreignersTag?: string;
+  /**
+   * @example
+   * 10
+   */
   grantNum?: number;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * 测试发票抬头
+   */
   invoiceTitle?: string;
+  /**
+   * @remarks
+   * Location
+   * 
+   * @example
+   * 新加坡
+   */
   location?: string;
+  /**
+   * @example
+   * 否
+   */
   makeInvoice?: string;
+  /**
+   * @example
+   * q1
+   */
   mappingCompanyCode?: string;
+  /**
+   * @example
+   * 4801105714092
+   */
   orderId?: string;
+  /**
+   * @example
+   * 预订成功
+   */
   orderStatusDesc?: string;
+  /**
+   * @example
+   * 机票
+   */
   originCategory?: string;
+  /**
+   * @example
+   * 111234
+   */
   originOrderId?: string;
+  /**
+   * @example
+   * 123
+   */
   overApplyId?: string;
+  /**
+   * @example
+   * 123
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * 开发部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * 93746933
+   */
   primaryId?: number;
+  /**
+   * @example
+   * www123
+   */
   processorOaCode?: string;
+  /**
+   * @example
+   * acs
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 测试项目
+   */
   projectName?: string;
+  /**
+   * @example
+   * 111224324
+   */
   purchaseOrderId?: string;
+  /**
+   * @example
+   * 同意
+   */
   remark?: string;
+  /**
+   * @example
+   * 10.45
+   */
   saveAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 测试
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 企业月结
+   */
   settleTypeDesc?: string;
+  /**
+   * @example
+   * 110.0
+   */
   settlementFee?: number;
+  /**
+   * @example
+   * 0.0
+   */
   settlementGrantFee?: number;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   settlementTime?: string;
+  /**
+   * @example
+   * 企业月结
+   */
   settlementType?: string;
+  /**
+   * @example
+   * 166564408
+   */
   showSubOrderId?: string;
+  /**
+   * @remarks
+   * SIO
+   * 
+   * @example
+   * SIO
+   */
   sio?: string;
+  /**
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @example
+   * 入账成功
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * 1019199938284381
+   */
   subOrderId?: string;
+  /**
+   * @example
+   * 9%
+   */
   taxRate?: string;
+  /**
+   * @example
+   * cs2
+   */
   thirdInvoiceId?: string;
+  /**
+   * @example
+   * 11
+   */
   thirdItineraryId?: string;
+  /**
+   * @example
+   * 支出
+   */
   tradeActionDesc?: string;
+  /**
+   * @example
+   * 选择低价航班
+   */
   tradeReason?: string;
+  /**
+   * @example
+   * 123@qq.com
+   */
   travelerEmail?: string;
+  /**
+   * @example
+   * 1234
+   */
   travelerId?: string;
+  /**
+   * @example
+   * A1234
+   */
   travelerJobNo?: string;
+  /**
+   * @example
+   * 外部员工
+   */
   travelerMemberType?: string;
+  /**
+   * @example
+   * 外部员工
+   */
   travelerMemberTypeName?: string;
+  /**
+   * @example
+   * 张三
+   */
   travelerName?: string;
+  /**
+   * @example
+   * 11
+   */
   voucherType?: number;
+  /**
+   * @example
+   * 增值税发票
+   */
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -260,12 +582,36 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
 }
 
 export class FuPointBillSettlementQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
   category?: number;
+  /**
+   * @example
+   * corpid
+   */
   corpId?: string;
   items?: FuPointBillSettlementQueryResponseBodyModuleItems[];
+  /**
+   * @example
+   * 2022-07-02
+   */
   periodEnd?: string;
+  /**
+   * @example
+   * 2021-10-13
+   */
   periodStart?: string;
+  /**
+   * @example
+   * 1qwe
+   */
   scrollId?: string;
+  /**
+   * @example
+   * 30
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -304,12 +650,43 @@ export class FuPointBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class FuPointBillSettlementQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: number;
+  /**
+   * @remarks
+   * module。
+   */
   module?: FuPointBillSettlementQueryResponseBodyModule;
+  /**
+   * @example
+   * true
+   */
   morePage?: boolean;
+  /**
+   * @example
+   * 210bc22017109867047728291dd406
+   */
   requestId?: string;
+  /**
+   * @example
+   * 成功
+   */
   resultMsg?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * trace_id
+   * 
+   * @example
+   * 213e382517240341253056547e41fc
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

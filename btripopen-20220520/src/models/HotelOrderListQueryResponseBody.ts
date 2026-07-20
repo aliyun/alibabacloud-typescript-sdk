@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderListQueryResponseBodyModuleCostCenter extends $dara.Model {
+  /**
+   * @example
+   * 商旅企业id
+   */
   corpId?: string;
+  /**
+   * @example
+   * 14668
+   */
   id?: number;
+  /**
+   * @example
+   * 测试成本中心
+   */
   name?: string;
+  /**
+   * @example
+   * CS-PNUY
+   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,8 +51,20 @@ export class HotelOrderListQueryResponseBodyModuleCostCenter extends $dara.Model
 }
 
 export class HotelOrderListQueryResponseBodyModuleInvoice extends $dara.Model {
+  /**
+   * @example
+   * 133568
+   */
   id?: number;
+  /**
+   * @example
+   * 1
+   */
   invoiceType?: number;
+  /**
+   * @example
+   * 阿里巴巴
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65,13 +93,45 @@ export class HotelOrderListQueryResponseBodyModuleInvoice extends $dara.Model {
 
 export class HotelOrderListQueryResponseBodyModulePriceInfoList extends $dara.Model {
   category?: string;
+  /**
+   * @example
+   * 1
+   */
   categoryCode?: number;
+  /**
+   * @example
+   * 1
+   */
   categoryType?: number;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 张三,李四
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 1
+   */
   payType?: number;
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * cs1546728
+   */
   tradeId?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -111,7 +171,15 @@ export class HotelOrderListQueryResponseBodyModulePriceInfoList extends $dara.Mo
 }
 
 export class HotelOrderListQueryResponseBodyModuleUserAffiliateList extends $dara.Model {
+  /**
+   * @example
+   * 入住人ID（第三方用户Id）
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -137,47 +205,199 @@ export class HotelOrderListQueryResponseBodyModuleUserAffiliateList extends $dar
 }
 
 export class HotelOrderListQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 22678
+   */
   applyId?: number;
+  /**
+   * @example
+   * 出差
+   */
   btripTitle?: string;
+  /**
+   * @example
+   * 2
+   */
   category?: number;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   checkIn?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   checkOut?: string;
+  /**
+   * @example
+   * 北京
+   */
   city?: string;
+  /**
+   * @example
+   * 330100
+   */
   cityAdCode?: string;
+  /**
+   * @example
+   * 张三
+   */
   contactName?: string;
+  /**
+   * @example
+   * 商旅企业id
+   */
   corpId?: string;
+  /**
+   * @example
+   * 阿里巴巴
+   */
   corpName?: string;
   costCenter?: HotelOrderListQueryResponseBodyModuleCostCenter;
+  /**
+   * @example
+   * 1
+   */
   countryCode?: string;
+  /**
+   * @example
+   * 中国
+   */
   countryName?: string;
+  /**
+   * @example
+   * 用户所在部门id
+   */
   departId?: string;
+  /**
+   * @example
+   * 淘宝
+   */
   departName?: string;
+  /**
+   * @example
+   * 扩展字段
+   */
   extendField?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 张三,李四
+   */
   guest?: string;
+  /**
+   * @example
+   * 未来酒店
+   */
   hotelName?: string;
+  /**
+   * @example
+   * 11
+   */
   hotelSupportVatInvoiceType?: number;
+  /**
+   * @example
+   * 13764
+   */
   id?: number;
   invoice?: HotelOrderListQueryResponseBodyModuleInvoice;
+  /**
+   * @example
+   * 4
+   */
   night?: number;
+  /**
+   * @example
+   * 1
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 预订成功
+   */
   orderStatusDesc?: string;
+  /**
+   * @example
+   * 1
+   */
   orderType?: number;
+  /**
+   * @example
+   * 信用住
+   */
   orderTypeDesc?: string;
   priceInfoList?: HotelOrderListQueryResponseBodyModulePriceInfoList[];
+  /**
+   * @example
+   * CS-PROJECTCODE
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 13631
+   */
   projectId?: number;
+  /**
+   * @example
+   * 测试项目名称
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * 4
+   */
   roomNum?: number;
+  /**
+   * @example
+   * 标间
+   */
   roomType?: string;
+  /**
+   * @example
+   * 阿里商旅
+   */
   supplier?: string;
+  /**
+   * @example
+   * CS-THIRDAPPLY
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 00021230711000001Test-2
+   */
   thirdpartBusinessId?: string;
+  /**
+   * @example
+   * CS-ITINEARY
+   */
   thirdpartItineraryId?: string;
+  /**
+   * @example
+   * CS-THIRDPROJECT
+   */
   thirdpartProjectId?: string;
   userAffiliateList?: HotelOrderListQueryResponseBodyModuleUserAffiliateList[];
+  /**
+   * @example
+   * 第三方用户id
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -295,8 +515,20 @@ export class HotelOrderListQueryResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderListQueryResponseBodyPageInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 50
+   */
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -324,12 +556,32 @@ export class HotelOrderListQueryResponseBodyPageInfo extends $dara.Model {
 }
 
 export class HotelOrderListQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: HotelOrderListQueryResponseBodyModule[];
   pageInfo?: HotelOrderListQueryResponseBodyPageInfo;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

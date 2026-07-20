@@ -6,11 +6,17 @@ export class IsvRuleSaveRequestBookuserList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   entityId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   entityType?: number;
   static names(): { [key: string]: string } {
@@ -37,22 +43,39 @@ export class IsvRuleSaveRequestBookuserList extends $dara.Model {
 }
 
 export class IsvRuleSaveRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   applyNeed?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * authorizedPerson
    */
   bookType?: string;
   bookuserList?: IsvRuleSaveRequestBookuserList[];
+  /**
+   * @example
+   * false
+   */
   ruleNeed?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   status?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   userId?: string;
   static names(): { [key: string]: string } {

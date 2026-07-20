@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CitySearchResponseBodyModuleCities extends $dara.Model {
+  /**
+   * @example
+   * 330100
+   */
   code?: string;
+  /**
+   * @example
+   * 杭州
+   */
   name?: string;
+  /**
+   * @example
+   * 0
+   */
   region?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,11 +70,35 @@ export class CitySearchResponseBodyModule extends $dara.Model {
 }
 
 export class CitySearchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module
+   */
   module?: CitySearchResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210f079e16603757182131635d866a
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

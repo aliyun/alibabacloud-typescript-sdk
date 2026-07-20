@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundDetailV2ResponseBodyModuleContactInfoDTO extends $dara.Model {
+  /**
+   * @example
+   * j*********@example.com
+   */
   contactEmail?: string;
+  /**
+   * @example
+   * 张四
+   */
   contactName?: string;
+  /**
+   * @example
+   * 131****8888
+   */
   contactPhone?: string;
+  /**
+   * @example
+   * true
+   */
   sendMsgToPassenger?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +51,15 @@ export class FlightRefundDetailV2ResponseBodyModuleContactInfoDTO extends $dara.
 }
 
 export class FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOSSegmentPosition extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -61,36 +85,156 @@ export class FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOSSegmentPosition
 }
 
 export class FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOS extends $dara.Model {
+  /**
+   * @example
+   * MU
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * 航司 icon
+   */
   airlineIconUrl?: string;
+  /**
+   * @example
+   * 中国东方航空
+   */
   airlineName?: string;
+  /**
+   * @example
+   * HGH
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   arrAirportName?: string;
+  /**
+   * @example
+   * HGH
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 到达航站楼
+   */
   arrTerminal?: string;
+  /**
+   * @example
+   * 2023-10-03 09:30:00
+   */
   arrTime?: string;
+  /**
+   * @example
+   * Y
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 舱等名称
+   */
   cabinClassName?: string;
+  /**
+   * @example
+   * 10
+   */
   cabinDiscount?: number;
+  /**
+   * @example
+   * 承运方航司二字码
+   */
   carrierAirlineCode?: string;
+  /**
+   * @example
+   * 承运方航司 icon
+   */
   carrierAirlineIconUrl?: string;
+  /**
+   * @example
+   * 承运方航司名称
+   */
   carrierAirlineName?: string;
+  /**
+   * @example
+   * 承运航班号
+   */
   carrierFlightNo?: string;
+  /**
+   * @example
+   * PKX
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * 大兴国际机场
+   */
   depAirportName?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 出发航站楼
+   */
   depTerminal?: string;
+  /**
+   * @example
+   * 2023-10-03 07:30:00
+   */
   depTime?: string;
+  /**
+   * @example
+   * MU5193
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 机型，例"738"
+   */
   flightType?: string;
+  /**
+   * @example
+   * 餐食描述
+   */
   mealDesc?: string;
+  /**
+   * @example
+   * 1194012
+   */
   segmentId?: string;
   segmentPosition?: FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOSSegmentPosition;
+  /**
+   * @example
+   * 经停到达时间
+   */
   stopArrTime?: string;
+  /**
+   * @example
+   * 经停城市
+   */
   stopCity?: string;
+  /**
+   * @example
+   * 经停出发时间
+   */
   stopDepTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -177,15 +321,51 @@ export class FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOS extends $dara.
 }
 
 export class FlightRefundDetailV2ResponseBodyModuleTravelerInfoDTOS extends $dara.Model {
+  /**
+   * @example
+   * 2000-08-19
+   */
   birthDate?: string;
+  /**
+   * @example
+   * 430131413423435353
+   */
   certNo?: string;
+  /**
+   * @example
+   * 0
+   */
   certType?: number;
+  /**
+   * @example
+   * 1
+   */
   gender?: number;
   originTicketNos?: string[];
+  /**
+   * @example
+   * 12172819047252004460056
+   */
   passengerId?: string;
+  /**
+   * @example
+   * 张三
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 0
+   */
   passengerType?: number;
+  /**
+   * @example
+   * 131****8888
+   */
   phone?: string;
+  /**
+   * @example
+   * 3243028
+   */
   pid?: number;
   ticketNos?: string[];
   static names(): { [key: string]: string } {
@@ -236,20 +416,72 @@ export class FlightRefundDetailV2ResponseBodyModuleTravelerInfoDTOS extends $dar
 }
 
 export class FlightRefundDetailV2ResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2023-08-19 17:18:19
+   */
   applyTime?: string;
   contactInfoDTO?: FlightRefundDetailV2ResponseBodyModuleContactInfoDTO;
   flightInfoDTOS?: FlightRefundDetailV2ResponseBodyModuleFlightInfoDTOS[];
+  /**
+   * @example
+   * 100
+   */
   nonRefundableChangeServicePrice?: number;
+  /**
+   * @example
+   * 100
+   */
   nonRefundableChangeUpgradePrice?: number;
+  /**
+   * @example
+   * 1002039195025156700
+   */
   orderId?: number;
+  /**
+   * @example
+   * 1002039195025156700
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 1019195836916039
+   */
   outSubOrderId?: string;
+  /**
+   * @example
+   * 我要改变行程计划、我不想飞
+   */
   reason?: string;
+  /**
+   * @example
+   * 1
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * 退票失败原因
+   */
   refundFailReason?: string;
+  /**
+   * @example
+   * 100
+   */
   refundHandlingFee?: number;
+  /**
+   * @example
+   * 10000
+   */
   refundMoney?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 1000000000297003
+   */
   subOrderId?: number;
   travelerInfoDTOS?: FlightRefundDetailV2ResponseBodyModuleTravelerInfoDTOS[];
   static names(): { [key: string]: string } {
@@ -313,11 +545,31 @@ export class FlightRefundDetailV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightRefundDetailV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightRefundDetailV2ResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210e845f16785007404904300ddc92
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

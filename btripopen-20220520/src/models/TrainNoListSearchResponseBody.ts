@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainNoListSearchResponseBodyModuleTrainStationSearchVOSSeatInfos extends $dara.Model {
+  /**
+   * @example
+   * 40900
+   */
   price?: number;
+  /**
+   * @example
+   * 二等座
+   */
   seatName?: string;
+  /**
+   * @example
+   * 14
+   */
   seatType?: string;
+  /**
+   * @example
+   * 有
+   */
   stock?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,22 +51,86 @@ export class TrainNoListSearchResponseBodyModuleTrainStationSearchVOSSeatInfos e
 }
 
 export class TrainNoListSearchResponseBodyModuleTrainStationSearchVOS extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   arrDayTag?: string;
+  /**
+   * @example
+   * BDC
+   */
   arrStationCode?: string;
+  /**
+   * @example
+   * 包头东
+   */
   arrStationName?: string;
+  /**
+   * @example
+   * 2024-05-07 14:46:06
+   */
   arrTime?: string;
+  /**
+   * @example
+   * 30
+   */
   costTime?: string;
+  /**
+   * @example
+   * BTC
+   */
   depStationCode?: string;
+  /**
+   * @example
+   * 包头
+   */
   depStationName?: string;
+  /**
+   * @example
+   * 2024-05-06 14:46:06
+   */
   depTime?: string;
+  /**
+   * @example
+   * 1
+   */
   isEndStation?: number;
+  /**
+   * @example
+   * 1
+   */
   isStartStation?: number;
+  /**
+   * @example
+   * 54000
+   */
   price?: string;
+  /**
+   * @example
+   * 1
+   */
   saleFlag?: string;
+  /**
+   * @example
+   * 没有原因
+   */
   saleFlagMsg?: string;
+  /**
+   * @example
+   * 0
+   */
   seagmentIndex?: string;
   seatInfos?: TrainNoListSearchResponseBodyModuleTrainStationSearchVOSSeatInfos[];
+  /**
+   * @example
+   * D2345
+   */
   trainNo?: string;
+  /**
+   * @example
+   * 1
+   */
   trainType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,9 +189,25 @@ export class TrainNoListSearchResponseBodyModuleTrainStationSearchVOS extends $d
 }
 
 export class TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailListSeatInfos extends $dara.Model {
+  /**
+   * @example
+   * 40900
+   */
   price?: number;
+  /**
+   * @example
+   * 二等座
+   */
   seatName?: string;
+  /**
+   * @example
+   * 14
+   */
   seatType?: string;
+  /**
+   * @example
+   * 33
+   */
   stock?: string;
   static names(): { [key: string]: string } {
     return {
@@ -141,22 +237,86 @@ export class TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTra
 }
 
 export class TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   arrDayTag?: string;
+  /**
+   * @example
+   * 123344
+   */
   arrStationCode?: string;
+  /**
+   * @example
+   * 巫山站
+   */
   arrStationName?: string;
+  /**
+   * @example
+   * 2024-05-07 14:46:06
+   */
   arrTime?: string;
+  /**
+   * @example
+   * 234567
+   */
   costTime?: string;
+  /**
+   * @example
+   * 12334
+   */
   depStationCode?: string;
+  /**
+   * @example
+   * 重庆西
+   */
   depStationName?: string;
+  /**
+   * @example
+   * 2024-05-06 14:46:06
+   */
   depTime?: string;
+  /**
+   * @example
+   * 1
+   */
   isEndStation?: number;
+  /**
+   * @example
+   * 0
+   */
   isStartStation?: number;
+  /**
+   * @example
+   * 105000
+   */
   price?: string;
+  /**
+   * @example
+   * 1
+   */
   saleFlag?: string;
+  /**
+   * @example
+   * 没有原因
+   */
   saleFlagMsg?: string;
   seatInfos?: TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailListSeatInfos[];
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: string;
+  /**
+   * @example
+   * K2345
+   */
   trainNo?: string;
+  /**
+   * @example
+   * 1
+   */
   trainType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -215,11 +375,31 @@ export class TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTra
 }
 
 export class TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOs extends $dara.Model {
+  /**
+   * @example
+   * 重庆西
+   */
   arrStation?: string;
+  /**
+   * @example
+   * 巫山站
+   */
   depStation?: string;
+  /**
+   * @example
+   * 中转唯一标识
+   */
   lineKey?: string;
+  /**
+   * @example
+   * 万州北
+   */
   middleStation?: string;
   transferDetailList?: TrainNoListSearchResponseBodyModuleTrainTransferStationSearchVOsTransferDetailList[];
+  /**
+   * @example
+   * 1
+   */
   transferType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -288,11 +468,38 @@ export class TrainNoListSearchResponseBodyModule extends $dara.Model {
 }
 
 export class TrainNoListSearchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module
+   */
   module?: TrainNoListSearchResponseBodyModule;
+  /**
+   * @example
+   * 210bc81a17090871660176894d008c
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

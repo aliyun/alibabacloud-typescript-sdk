@@ -11,6 +11,10 @@ export class MonthBillConfirmRequest extends $dara.Model {
    * 20221001
    */
   mailBillDate?: number;
+  /**
+   * @example
+   * 12345
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

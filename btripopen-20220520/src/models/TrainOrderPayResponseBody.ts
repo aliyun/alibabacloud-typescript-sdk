@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainOrderPayResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 1017124195788186048
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1017002195370467137
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * true
+   */
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32,11 +44,38 @@ export class TrainOrderPayResponseBodyModule extends $dara.Model {
 }
 
 export class TrainOrderPayResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module
+   */
   module?: TrainOrderPayResponseBodyModule;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,6 +6,9 @@ export class ProjectDeleteRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12345
    */
   thirdPartId?: string;
   static names(): { [key: string]: string } {

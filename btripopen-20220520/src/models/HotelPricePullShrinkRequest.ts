@@ -3,11 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelPricePullShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 2022-05-15
+   */
   checkIn?: string;
+  /**
+   * @example
+   * 2022-05-15
+   */
   checkOut?: string;
+  /**
+   * @example
+   * 330100
+   */
   cityCode?: number;
   hotelIdsShrink?: string;
+  /**
+   * @example
+   * 0
+   */
   paymentType?: number;
   static names(): { [key: string]: string } {
     return {

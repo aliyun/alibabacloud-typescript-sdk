@@ -6,12 +6,18 @@ export class ApplyExternalNodeStatusUpdateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   nodeId?: string;
   operationRecordsShrink?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * PROCESS_AGREE
    */
   processActionResult?: string;
   static names(): { [key: string]: string } {

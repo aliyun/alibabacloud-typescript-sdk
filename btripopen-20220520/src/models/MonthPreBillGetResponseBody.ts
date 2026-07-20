@@ -3,18 +3,70 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MonthPreBillGetResponseBodyModuleMonthAccountBillDetail extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   billConfirmed?: number;
+  /**
+   * @example
+   * 56.70
+   */
   carAmount?: number;
+  /**
+   * @example
+   * 0
+   */
   damageAmount?: number;
+  /**
+   * @example
+   * 1234.00
+   */
   flightAmount?: number;
+  /**
+   * @example
+   * 1.50
+   */
   fuPoint?: number;
+  /**
+   * @example
+   * 500.00
+   */
   hotelAmount?: number;
+  /**
+   * @example
+   * 3456.00
+   */
   ieFlightAmount?: number;
+  /**
+   * @example
+   * 3000.00
+   */
   ieHotelAmount?: number;
+  /**
+   * @example
+   * 20200601
+   */
   mailBillDate?: number;
+  /**
+   * @example
+   * 22.40
+   */
   mealAmount?: number;
+  /**
+   * @example
+   * 45.00
+   */
   serviceAmount?: number;
+  /**
+   * @example
+   * 648.00
+   */
   trainAmount?: number;
+  /**
+   * @example
+   * 19.22
+   */
   vasAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -62,9 +114,21 @@ export class MonthPreBillGetResponseBodyModuleMonthAccountBillDetail extends $da
 }
 
 export class MonthPreBillGetResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2020-04-30
+   */
   endDate?: string;
   monthAccountBillDetail?: MonthPreBillGetResponseBodyModuleMonthAccountBillDetail;
+  /**
+   * @example
+   * 2020-04-01
+   */
   startDate?: string;
+  /**
+   * @example
+   * https://cdn.ewt360.com/resources/tiku_h5/uploads/2026/5/3/6fc104f3-561e-4960-b962-a112db1e9d00.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,11 +161,31 @@ export class MonthPreBillGetResponseBodyModule extends $dara.Model {
 }
 
 export class MonthPreBillGetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: MonthPreBillGetResponseBodyModule[];
+  /**
+   * @example
+   * 3D082D37-160A-53BE-9CF1-7AB8E100045B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 3b52151317702574069534727d0099
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

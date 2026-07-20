@@ -3,23 +3,48 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightReShopApplyShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * asyncKey_2390u230slgw023
+   */
   asyncApplyKey?: string;
+  /**
+   * @example
+   * true
+   */
   asyncApplyMode?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1017035199907040165
    */
   orderId?: string;
+  /**
+   * @example
+   * D1736316966048SC4877
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * JPM20241024354
+   */
   outReShopApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * edcac4f4c79d40ccb141ddb6da567e65
    */
   passengerJourneyGroupKey?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   reShopReasonCode?: string;
   /**
@@ -32,6 +57,10 @@ export class IntlFlightReShopApplyShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   selectedPassengersShrink?: string;
+  /**
+   * @example
+   * 少中转优先,落地当地时间为白天优先
+   */
   userIntentionMemo?: string;
   static names(): { [key: string]: string } {
     return {

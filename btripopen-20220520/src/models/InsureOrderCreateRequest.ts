@@ -3,12 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureOrderCreateRequestApplicant extends $dara.Model {
+  /**
+   * @example
+   * 2000-11-01
+   */
   birthday?: string;
+  /**
+   * @example
+   * 20202109390122
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 测试乘机人
+   */
   certName?: string;
+  /**
+   * @example
+   * 110102200011018872
+   */
   certNo?: string;
+  /**
+   * @example
+   * 100
+   */
   certType?: string;
+  /**
+   * @example
+   * F
+   */
   gender?: string;
+  /**
+   * @example
+   * 1000000
+   */
   phone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,14 +72,50 @@ export class InsureOrderCreateRequestApplicant extends $dara.Model {
 }
 
 export class InsureOrderCreateRequestInsPersonAndSegmentListInsureSegment extends $dara.Model {
+  /**
+   * @example
+   * YNT
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * CKG
+   */
   arrCity?: string;
+  /**
+   * @example
+   * HGH
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 2023-10-31 13:10:00
+   */
   arrTime?: string;
+  /**
+   * @example
+   * HGH
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * HGH
+   */
   depCity?: string;
+  /**
+   * @example
+   * CAN
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 2023-10-31 10:55:00
+   */
   depTime?: string;
+  /**
+   * @example
+   * ZH9891
+   */
   flightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,12 +155,40 @@ export class InsureOrderCreateRequestInsPersonAndSegmentListInsureSegment extend
 }
 
 export class InsureOrderCreateRequestInsPersonAndSegmentListInsured extends $dara.Model {
+  /**
+   * @example
+   * 2000-11-01
+   */
   birthday?: string;
+  /**
+   * @example
+   * 20202109390122
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 测试乘机人
+   */
   certName?: string;
+  /**
+   * @example
+   * 110102200011018872
+   */
   certNo?: string;
+  /**
+   * @example
+   * 100
+   */
   certType?: string;
+  /**
+   * @example
+   * F
+   */
   gender?: string;
+  /**
+   * @example
+   * 1000000
+   */
   phone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,6 +226,10 @@ export class InsureOrderCreateRequestInsPersonAndSegmentListInsured extends $dar
 export class InsureOrderCreateRequestInsPersonAndSegmentList extends $dara.Model {
   insureSegment?: InsureOrderCreateRequestInsPersonAndSegmentListInsureSegment;
   insured?: InsureOrderCreateRequestInsPersonAndSegmentListInsured;
+  /**
+   * @example
+   * 12399992002002010
+   */
   outSubInsOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -172,7 +268,15 @@ export class InsureOrderCreateRequest extends $dara.Model {
    * This parameter is required.
    */
   applicant?: InsureOrderCreateRequestApplicant;
+  /**
+   * @example
+   * 20202109390122
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 测试乘机人
+   */
   buyerName?: string;
   /**
    * @remarks
@@ -182,15 +286,33 @@ export class InsureOrderCreateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * PostalSavingsBank
    */
   isvName?: string;
+  /**
+   * @example
+   * 100000320302020
+   */
   outInsOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 202310101026030
    */
   outOrderId?: string;
+  /**
+   * @example
+   * 1020030003332000
+   */
   outSubOrderId?: string;
+  /**
+   * @example
+   * fliggy
+   */
   supplierCode?: string;
   static names(): { [key: string]: string } {
     return {

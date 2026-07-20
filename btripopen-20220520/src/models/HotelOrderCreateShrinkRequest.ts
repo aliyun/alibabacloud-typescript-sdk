@@ -7,45 +7,84 @@ export class HotelOrderCreateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123122
    */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2020-10-20
    */
   checkIn?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2020-10-20
    */
   checkOut?: string;
+  /**
+   * @example
+   * demo
+   */
   contractEmail?: string;
+  /**
+   * @example
+   * 张三
+   */
   contractName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 19281772123
    */
   contractPhone?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100
    */
   corpPayPrice?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis123
    */
   disOrderId?: string;
+  /**
+   * @example
+   * （特定企业需要传递）
+   * 1.企业支付金额：DisCorpPayPrice
+   * 2.个人支付金额：
+   * DisPersonPayPrice
+   */
   extra?: string;
   invoiceInfoShrink?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 671570615157
    */
   itemId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * fb5e1abf33924b6c912bd6d80deec0eb-1
    */
   itineraryNo?: string;
   leaveTime?: string;
@@ -58,43 +97,67 @@ export class HotelOrderCreateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1000
    */
   personPayPrice?: number;
   promotionInfoShrink?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1399417428510
    */
   ratePlanId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 187211
    */
   roomId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   roomNum?: number;
   rpType?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2088441675613762
    */
   sellerId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2198781
    */
   shid?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100
    */
   totalOrderPrice?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * nonUltron_1673575241156_d91ea8ad16735752359161037bf6cf_c54d3768312a4b249b719f126377bf82
    */
   validateResKey?: string;
   static names(): { [key: string]: string } {

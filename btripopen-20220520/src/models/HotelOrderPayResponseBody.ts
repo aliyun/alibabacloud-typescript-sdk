@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderPayResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * true
+   */
   module?: boolean;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210e842b16611337974412836dae27
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,8 +6,15 @@ export class FlightRefundPreCalShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis123
    */
   disOrderId?: string;
+  /**
+   * @example
+   * 1
+   */
   isVoluntary?: string;
   /**
    * @remarks

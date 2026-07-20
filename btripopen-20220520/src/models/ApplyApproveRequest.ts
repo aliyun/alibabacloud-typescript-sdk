@@ -6,25 +6,49 @@ export class ApplyApproveRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * sdfg
    */
   applyId?: string;
+  /**
+   * @example
+   * 同意
+   */
   note?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2022-07-12 16:12:53
    */
   operateTime?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   status?: number;
+  /**
+   * @example
+   * btrip123
+   */
   subCorpId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * thirdpart12138
    */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {

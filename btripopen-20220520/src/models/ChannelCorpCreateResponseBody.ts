@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChannelCorpCreateResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 张三
+   */
   administratorName?: string;
+  /**
+   * @example
+   * 18378889782
+   */
   administratorPhone?: string;
+  /**
+   * @example
+   * dingaa15ca45cba9ee744a5
+   */
   corpId?: string;
+  /**
+   * @example
+   * 阿里巴巴有限公司
+   */
   corpName?: string;
+  /**
+   * @example
+   * open12mplkebufu8701012jq
+   */
   openAgentId?: string;
+  /**
+   * @example
+   * user_1234
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,11 +65,31 @@ export class ChannelCorpCreateResponseBodyModule extends $dara.Model {
 }
 
 export class ChannelCorpCreateResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: ChannelCorpCreateResponseBodyModule;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TravelStandardRelateQueryResponseBodyModuleReserveBindEntityList extends $dara.Model {
+  /**
+   * @example
+   * 667104628
+   */
   entityId?: string;
+  /**
+   * @example
+   * 主管
+   */
   entityName?: string;
+  /**
+   * @example
+   * 3
+   */
   entityType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,6 +45,10 @@ export class TravelStandardRelateQueryResponseBodyModuleReserveBindEntityList ex
 
 export class TravelStandardRelateQueryResponseBodyModule extends $dara.Model {
   reserveBindEntityList?: TravelStandardRelateQueryResponseBodyModuleReserveBindEntityList[];
+  /**
+   * @example
+   * 10
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -61,11 +77,34 @@ export class TravelStandardRelateQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TravelStandardRelateQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 系统异常
+   */
   message?: string;
   module?: TravelStandardRelateQueryResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0
+   */
   resultCode?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210bcc3a16583004579056128d33d7
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

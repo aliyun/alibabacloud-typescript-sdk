@@ -3,10 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteDepartmentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210e847f16611516748613869de4f6
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

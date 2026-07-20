@@ -3,33 +3,145 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleOrderItemListBaggageRuleOfferBaggageInfoMapValue extends $dara.Model {
+  /**
+   * @example
+   * NNG
+   */
   startCityCode?: string;
+  /**
+   * @example
+   * SHA
+   */
   endCityCode?: string;
+  /**
+   * @example
+   * 1
+   */
   carryFreePc?: number;
+  /**
+   * @example
+   * 20
+   */
   carryBagWeight?: number;
+  /**
+   * @example
+   * 20*40*55CM、三边之和不超过115CM
+   */
   carryBagSize?: string;
+  /**
+   * @example
+   * true
+   */
   isAllCarryBagWeight?: boolean;
+  /**
+   * @example
+   * 1
+   */
   totalPcs?: number;
+  /**
+   * @example
+   * 20
+   */
   totalWeight?: number;
+  /**
+   * @example
+   * true
+   */
   carryUnknown?: boolean;
+  /**
+   * @example
+   * 20
+   */
   carryLength?: number;
+  /**
+   * @example
+   * 30
+   */
   carryWidth?: number;
+  /**
+   * @example
+   * 55
+   */
   carryHeight?: number;
+  /**
+   * @example
+   * 115
+   */
   carrySumOfLengthWidthHeight?: number;
+  /**
+   * @example
+   * 1
+   */
   freePcs?: number;
+  /**
+   * @example
+   * 20
+   */
   baggageWeight?: number;
+  /**
+   * @example
+   * KG
+   */
   baggageUnit?: string;
+  /**
+   * @example
+   * 长宽高之和≤158CM
+   */
   baggageSize?: string;
+  /**
+   * @example
+   * true
+   */
   allWeight?: boolean;
+  /**
+   * @example
+   * 30
+   */
   length?: number;
+  /**
+   * @example
+   * 20
+   */
   width?: number;
+  /**
+   * @example
+   * 55
+   */
   height?: number;
+  /**
+   * @example
+   * 115
+   */
   sumOfLengthWidthHeight?: number;
+  /**
+   * @example
+   * false
+   */
   unknown?: boolean;
+  /**
+   * @example
+   * -
+   */
   cnDesc?: string;
+  /**
+   * @example
+   * -
+   */
   enDesc?: string;
+  /**
+   * @example
+   * {}
+   */
   attribute?: string;
+  /**
+   * @example
+   * 20
+   */
   baggagePrice?: number;
+  /**
+   * @example
+   * -
+   */
   carryOnBaggageTips?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,7 +6,12 @@ export class TravelStandardListQueryHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * A header parameter obtained from the enterprise access credential operation. Add this parameter to the request header. In HTTP mode, you can use corp_token=value in the URL as an alternative.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * feth00jqwls
    */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {

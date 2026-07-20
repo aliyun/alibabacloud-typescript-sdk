@@ -3,12 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AirportSearchResponseBodyModuleCities extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   code?: string;
   /**
    * @example
    * 100
    */
   distance?: number;
+  /**
+   * @example
+   * 杭州
+   */
   name?: string;
   /**
    * @example
@@ -44,6 +52,10 @@ export class AirportSearchResponseBodyModuleCities extends $dara.Model {
 
 export class AirportSearchResponseBodyModule extends $dara.Model {
   cities?: AirportSearchResponseBodyModuleCities[];
+  /**
+   * @example
+   * false
+   */
   nearby?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -72,11 +84,35 @@ export class AirportSearchResponseBodyModule extends $dara.Model {
 }
 
 export class AirportSearchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module。
+   */
   module?: AirportSearchResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 210f07f316603757445272547d959f
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

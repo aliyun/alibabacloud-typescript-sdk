@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundApplyRequestPassengerSegmentInfoList extends $dara.Model {
+  /**
+   * @example
+   * CA1703
+   */
   flightNo?: string;
+  /**
+   * @example
+   * 张三
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 1245
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,47 +44,84 @@ export class FlightRefundApplyRequestPassengerSegmentInfoList extends $dara.Mode
 }
 
 export class FlightRefundApplyRequest extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
   corpRefundPrice?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis123
    */
   disOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * refu123
    */
   disSubOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100
    */
   displayRefundMoney?: string;
   extra?: { [key: string]: string };
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   isVoluntary?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * FlightItem_9966772382
    */
   itemUnitIds?: string;
   passengerSegmentInfoList?: FlightRefundApplyRequestPassengerSegmentInfoList[];
+  /**
+   * @example
+   * 100
+   */
   personalRefundPrice?: number;
+  /**
+   * @example
+   * 分销商自定义
+   */
   reasonDetail?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   reasonType?: number;
   refundVoucherInfo?: string[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0f9418cd2ce34af49ab0de16fea166d1
    */
   sessionId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalRefundPrice?: number;
   static names(): { [key: string]: string } {
     return {

@@ -3,27 +3,51 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightOtaSearchRequest extends $dara.Model {
+  /**
+   * @example
+   * CA
+   */
   airlineCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * BJS
    */
   arrCityCode?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * CA2324
+   */
   carrierFlightNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HGH
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2023-08-15 19:30:00
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * CA2323
    */
   flightNo?: string;
   static names(): { [key: string]: string } {

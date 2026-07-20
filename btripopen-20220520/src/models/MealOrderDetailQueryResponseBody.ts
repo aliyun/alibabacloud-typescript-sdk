@@ -3,27 +3,115 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MealOrderDetailQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 118526587
+   */
   applyId?: number;
+  /**
+   * @example
+   * 2024032522001423601409393178
+   */
   corpCodeOrderId?: string;
+  /**
+   * @example
+   * dingaa15ca45cba9ee744a5
+   */
   corpId?: string;
+  /**
+   * @example
+   * 100
+   */
   corpPayAmount?: number;
+  /**
+   * @example
+   * 100
+   */
   corpRefundAmount?: number;
+  /**
+   * @example
+   * 团建用餐
+   */
   mealReason?: string;
+  /**
+   * @example
+   * 商旅火锅店（杭州店）
+   */
   merchantName?: string;
+  /**
+   * @example
+   * 1034088398073015303
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   orderSubStatus?: number;
+  /**
+   * @example
+   * 到店餐饮
+   */
   orderType?: string;
+  /**
+   * @example
+   * 100
+   */
   payAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   payType?: number;
+  /**
+   * @example
+   * 100
+   */
   personPayAmount?: number;
+  /**
+   * @example
+   * 100
+   */
   personRefundAmount?: number;
+  /**
+   * @example
+   * http://url1,http://url1
+   */
   receiptImageUrls?: string;
+  /**
+   * @example
+   * 100
+   */
   refundAmount?: number;
+  /**
+   * @example
+   * 差旅用餐
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 1711702782
+   */
   settleTime?: string;
+  /**
+   * @example
+   * 2024073128454753
+   */
   thirdPartApplyId?: string;
+  /**
+   * @example
+   * 17509140000
+   */
   userAlipayId?: string;
+  /**
+   * @example
+   * 014134681304653773
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,11 +177,34 @@ export class MealOrderDetailQueryResponseBodyModule extends $dara.Model {
 }
 
 export class MealOrderDetailQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * None
+   */
   message?: string;
   module?: MealOrderDetailQueryResponseBodyModule;
+  /**
+   * @example
+   * 9BCDD5DE-E6CB-5C25-93B9-9BE178A0AA56
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210f079e16603757182131635d866a
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

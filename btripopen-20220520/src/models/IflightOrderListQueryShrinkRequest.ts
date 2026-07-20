@@ -6,9 +6,25 @@ export class IFlightOrderListQueryShrinkRequest extends $dara.Model {
   applyIdListShrink?: string;
   bookTypeListShrink?: string;
   bookerIdShrink?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   endDate?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4ZGViODFlYmM3MYzM4
+   */
   scrollId?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   startDate?: string;
   thirdPartApplyIdListShrink?: string;
   static names(): { [key: string]: string } {

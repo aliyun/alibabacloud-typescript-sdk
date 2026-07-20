@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleAgentInfosAttributeShowInfoMapValue extends $dara.Model {
+  /**
+   * @example
+   * FIRST_BAGGAGE
+   */
   code?: string;
+  /**
+   * @example
+   * 行李1
+   */
   name?: string;
+  /**
+   * @example
+   * 行李详情
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {

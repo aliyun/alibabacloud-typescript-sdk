@@ -3,22 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CostCenterSaveRequest extends $dara.Model {
+  /**
+   * @example
+   * a@alipay.com
+   */
   alipayNo?: string;
+  /**
+   * @example
+   * 0
+   */
   disable?: number;
+  /**
+   * @example
+   * 12345
+   */
   number?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   scope?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 340049
    */
   thirdpartId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 华北项目成本中心
    */
   title?: string;
   static names(): { [key: string]: string } {

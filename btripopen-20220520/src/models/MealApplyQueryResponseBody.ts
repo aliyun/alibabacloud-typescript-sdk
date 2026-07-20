@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MealApplyQueryResponseBodyModuleApplyUser extends $dara.Model {
+  /**
+   * @example
+   * 2123
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +37,15 @@ export class MealApplyQueryResponseBodyModuleApplyUser extends $dara.Model {
 }
 
 export class MealApplyQueryResponseBodyModuleItineraryListCities extends $dara.Model {
+  /**
+   * @example
+   * 320200
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   cityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,8 +72,20 @@ export class MealApplyQueryResponseBodyModuleItineraryListCities extends $dara.M
 
 export class MealApplyQueryResponseBodyModuleItineraryList extends $dara.Model {
   cities?: MealApplyQueryResponseBodyModuleItineraryListCities[];
+  /**
+   * @example
+   * 2024-05-25 00:00:00
+   */
   endDate?: string;
+  /**
+   * @example
+   * 2025-02-05 00:00:00
+   */
   startDate?: string;
+  /**
+   * @example
+   * thirdpart1234
+   */
   thirdpartItineraryId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,18 +119,66 @@ export class MealApplyQueryResponseBodyModuleItineraryList extends $dara.Model {
 
 export class MealApplyQueryResponseBodyModule extends $dara.Model {
   applyUser?: MealApplyQueryResponseBodyModuleApplyUser;
+  /**
+   * @example
+   * 11376
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * {"extend_key":"extend_value"}
+   */
   extendField?: string;
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 11876
+   */
   invoiceId?: number;
   itineraryList?: MealApplyQueryResponseBodyModuleItineraryList[];
+  /**
+   * @example
+   * 10
+   */
   mealAmount?: number;
+  /**
+   * @example
+   * 测试
+   */
   mealCause?: string;
+  /**
+   * @example
+   * 11546
+   */
   projectId?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 2024073128454753
+   */
   thirdPartApplyId?: string;
+  /**
+   * @example
+   * 330000303010292572
+   */
   thirdPartCostCenterId?: string;
+  /**
+   * @example
+   * 405009
+   */
   thirdPartInvoiceId?: string;
+  /**
+   * @example
+   * CS-PROJECT
+   */
   thirdPartProjectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,11 +234,34 @@ export class MealApplyQueryResponseBodyModule extends $dara.Model {
 }
 
 export class MealApplyQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: MealApplyQueryResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210f07f316603757445272547d959f
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

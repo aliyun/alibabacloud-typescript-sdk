@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EstimatedPriceQueryV2Request extends $dara.Model {
   /**
    * @remarks
+   * The category.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EstimatedPriceQueryV2Request extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
+   * The departure date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class EstimatedPriceQueryV2Request extends $dara.Model {
   departDate?: string;
   /**
    * @remarks
+   * The departure or check-in city.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class EstimatedPriceQueryV2Request extends $dara.Model {
   fromCity?: string;
   /**
    * @remarks
+   * The arrival date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class EstimatedPriceQueryV2Request extends $dara.Model {
   leaveDate?: string;
   /**
    * @remarks
+   * The arrival or check-out city.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +54,9 @@ export class EstimatedPriceQueryV2Request extends $dara.Model {
    */
   toCity?: string;
   /**
+   * @remarks
+   * The user ID. This parameter is required for the hotel category.
+   * 
    * @example
    * Fei123
    */

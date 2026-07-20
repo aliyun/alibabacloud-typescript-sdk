@@ -3,72 +3,340 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VasBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @example
+   * 2025-01-01 00:00:00
+   */
   adjustTime?: string;
+  /**
+   * @example
+   * 123aaa
+   */
   alipayId?: string;
+  /**
+   * @example
+   * 124
+   */
   alipayTradeNo?: string;
+  /**
+   * @example
+   * 123
+   */
   applyArrCityCode?: string;
+  /**
+   * @example
+   * 成都
+   */
   applyArrCityName?: string;
+  /**
+   * @example
+   * 123
+   */
   applyDepCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   applyDepCityName?: string;
+  /**
+   * @example
+   * 无
+   */
   applyExtendField?: string;
+  /**
+   * @example
+   * 1424070910031252025
+   */
   applyId?: string;
+  /**
+   * @example
+   * 账单
+   */
   belongBusiness?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   billRecordTime?: string;
+  /**
+   * @example
+   * 测试
+   */
   billingEntity?: string;
+  /**
+   * @example
+   * 线上预订
+   */
   bookMode?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   bookTime?: string;
+  /**
+   * @example
+   * 123
+   */
   bookerId?: string;
+  /**
+   * @example
+   * zs123
+   */
   bookerJobNo?: string;
+  /**
+   * @example
+   * 张三
+   */
   bookerName?: string;
+  /**
+   * @example
+   * 支出
+   */
   capitalDirection?: string;
+  /**
+   * @example
+   * 技术部-测试部
+   */
   cascadeDepartment?: string;
+  /**
+   * @example
+   * 服务大厅增值服务
+   */
   categoryDesc?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenter?: string;
+  /**
+   * @example
+   * cs1
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * code1
+   */
   costDepartment?: string;
+  /**
+   * @example
+   * 测试部
+   */
   department?: string;
+  /**
+   * @example
+   * 1112
+   */
   departmentId?: string;
+  /**
+   * @example
+   * 机票预订
+   */
   feeType?: string;
+  /**
+   * @example
+   * 赔付
+   */
   feeTypeDesc?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * 测试发票抬头
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * q1
+   */
   mappingCompanyCode?: string;
+  /**
+   * @example
+   * 1007025201876066223
+   */
   orderId?: string;
+  /**
+   * @example
+   * 100.0
+   */
   orderPrice?: number;
+  /**
+   * @example
+   * 预订成功
+   */
   orderStatusDesc?: string;
+  /**
+   * @example
+   * 123
+   */
   overApplyId?: string;
+  /**
+   * @example
+   * 123
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * 测试部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * 87687788
+   */
   primaryId?: number;
+  /**
+   * @example
+   * www123
+   */
   processorOaCode?: string;
+  /**
+   * @example
+   * 1
+   */
   productCount?: number;
+  /**
+   * @example
+   * 111
+   */
   productId?: string;
+  /**
+   * @example
+   * 账单分发
+   */
   productName?: string;
+  /**
+   * @example
+   * acs
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 测试项目名称
+   */
   projectName?: string;
+  /**
+   * @example
+   * 0.0
+   */
   promotionFee?: number;
+  /**
+   * @example
+   * 111224324
+   */
   purchaseOrderId?: string;
+  /**
+   * @example
+   * 同意
+   */
   remark?: string;
+  /**
+   * @example
+   * 企业月结
+   */
   settleTypeDesc?: string;
+  /**
+   * @example
+   * 110.0
+   */
   settlementFee?: number;
+  /**
+   * @example
+   * 0.0
+   */
   settlementGrantFee?: number;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   settlementTime?: string;
+  /**
+   * @example
+   * 企业月结
+   */
   settlementType?: string;
+  /**
+   * @example
+   * 1年
+   */
   specification?: string;
+  /**
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @example
+   * 入账成功
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * 185025497
+   */
   subOrderId?: string;
+  /**
+   * @example
+   * 9%
+   */
   taxRate?: string;
+  /**
+   * @example
+   * cs2
+   */
   thirdInvoiceId?: string;
+  /**
+   * @example
+   * 11
+   */
   thirdItineraryId?: string;
+  /**
+   * @example
+   * 支出
+   */
   tradeActionDesc?: string;
+  /**
+   * @example
+   * 备注
+   */
   tradeRemark?: string;
+  /**
+   * @example
+   * 254
+   */
   travelerId?: string;
+  /**
+   * @example
+   * A1234
+   */
   travelerJobNo?: string;
+  /**
+   * @example
+   * 外部员工
+   */
   travelerMemberType?: string;
+  /**
+   * @example
+   * 外部员工
+   */
   travelerMemberTypeName?: string;
+  /**
+   * @example
+   * 张三
+   */
   travelerName?: string;
+  /**
+   * @example
+   * 1
+   */
   voucherType?: number;
+  /**
+   * @example
+   * 增值税发票
+   */
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -224,12 +492,36 @@ export class VasBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
 }
 
 export class VasBillSettlementQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 21
+   */
   category?: number;
+  /**
+   * @example
+   * 第三方企业id
+   */
   corpId?: string;
   items?: VasBillSettlementQueryResponseBodyModuleItems[];
+  /**
+   * @example
+   * 2022-07-02
+   */
   periodEnd?: string;
+  /**
+   * @example
+   * 2022-07-01
+   */
   periodStart?: string;
+  /**
+   * @example
+   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4MDAwMDAwMDA2ZTFjZTNi
+   */
   scrollId?: string;
+  /**
+   * @example
+   * 30
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -268,11 +560,34 @@ export class VasBillSettlementQueryResponseBodyModule extends $dara.Model {
 }
 
 export class VasBillSettlementQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
   module?: VasBillSettlementQueryResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * trace_id
+   * 
+   * @example
+   * 3b52152017470153218107062d0096
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightReShopApplyResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * asyncKey_2390u230slgw023
+   */
   asyncApplyKey?: string;
+  /**
+   * @example
+   * JPM20241024354
+   */
   outReShopApplyId?: string;
+  /**
+   * @example
+   * 1009035199432
+   */
   reShopApplyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,6 +55,10 @@ export class IntlFlightReShopApplyResponseBody extends $dara.Model {
    */
   message?: string;
   module?: IntlFlightReShopApplyResponseBodyModule;
+  /**
+   * @example
+   * 88BA5020-561C-51F5-8E73-6659729913F0
+   */
   requestId?: string;
   /**
    * @example

@@ -3,14 +3,50 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CarOrderListQueryResponseBodyModulePriceInfoList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   categoryCode?: number;
+  /**
+   * @example
+   * 1
+   */
   categoryType?: number;
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 张三,李四
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 1
+   */
   payType?: number;
+  /**
+   * @example
+   * 100
+   */
   personPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * 8908076767
+   */
   tradeId?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -50,7 +86,15 @@ export class CarOrderListQueryResponseBodyModulePriceInfoList extends $dara.Mode
 }
 
 export class CarOrderListQueryResponseBodyModuleUserAffiliateList extends $dara.Model {
+  /**
+   * @example
+   * 11342
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76,61 +120,273 @@ export class CarOrderListQueryResponseBodyModuleUserAffiliateList extends $dara.
 }
 
 export class CarOrderListQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 117429516
+   */
   applyId?: number;
+  /**
+   * @example
+   * 201802031353000525653
+   */
   applyShowId?: string;
+  /**
+   * @example
+   * 出差
+   */
   btripTitle?: string;
+  /**
+   * @example
+   * TRAVEL
+   */
   businessCategory?: string;
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   cancelTime?: string;
+  /**
+   * @example
+   * 白色本田
+   */
   carInfo?: string;
+  /**
+   * @example
+   * 601
+   */
   carLevel?: number;
+  /**
+   * @example
+   * 企业id
+   */
   corpId?: string;
+  /**
+   * @example
+   * 测试公司
+   */
   corpName?: string;
+  /**
+   * @example
+   * 11376
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * CT-134JHK
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * 部门ID
+   */
   deptId?: number;
+  /**
+   * @example
+   * 部门名称
+   */
   deptName?: string;
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   driverConfirmTime?: string;
+  /**
+   * @example
+   * 100
+   */
   estimatePrice?: number;
+  /**
+   * @example
+   * 阿里巴巴西溪园区
+   */
   fromAddress?: string;
+  /**
+   * @example
+   * 330100
+   */
   fromCityAdCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   fromCityName?: string;
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 3615085
+   */
   id?: number;
+  /**
+   * @example
+   * 11876
+   */
   invoiceId?: number;
+  /**
+   * @example
+   * 阿里巴巴-飞猪
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * true
+   */
   isSpecial?: boolean;
+  /**
+   * @example
+   * 加班
+   */
   memo?: string;
+  /**
+   * @example
+   * 1012051200419312345
+   */
   orderId?: string;
+  /**
+   * @example
+   * 订单状态
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 乘客姓名
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   payTime?: string;
   priceInfoList?: CarOrderListQueryResponseBodyModulePriceInfoList[];
+  /**
+   * @example
+   * P- JI87KK
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 11546
+   */
   projectId?: number;
+  /**
+   * @example
+   * 北京项目
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * 2
+   */
   provider?: number;
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   publishTime?: string;
+  /**
+   * @example
+   * 高新文教区东部软件园创新大厦(马塍路)
+   */
   realFromAddress?: string;
+  /**
+   * @example
+   * 330100
+   */
   realFromCityAdCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   realFromCityName?: string;
+  /**
+   * @example
+   * 联创街
+   */
   realToAddress?: string;
+  /**
+   * @example
+   * 330100
+   */
   realToCityAdCode?: string;
+  /**
+   * @example
+   * 上海
+   */
   realToCityName?: string;
+  /**
+   * @example
+   * 3
+   */
   serviceType?: number;
   specialTypes?: string[];
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   takenTime?: string;
+  /**
+   * @example
+   * CS-OIPK34H
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 00021230711000001Test-2
+   */
   thirdpartBusinessId?: string;
+  /**
+   * @example
+   * CS-112JKDF
+   */
   thirdpartItineraryId?: string;
+  /**
+   * @example
+   * 乐佳国际
+   */
   toAddress?: string;
+  /**
+   * @example
+   * 330100
+   */
   toCityAdCode?: string;
+  /**
+   * @example
+   * 上海
+   */
   toCityName?: string;
+  /**
+   * @example
+   * 1.2
+   */
   travelDistance?: number;
   userAffiliateList?: CarOrderListQueryResponseBodyModuleUserAffiliateList[];
+  /**
+   * @example
+   * 1
+   */
   userConfirm?: number;
+  /**
+   * @example
+   * 预定人用户ID
+   */
   userId?: string;
+  /**
+   * @example
+   * 预定人姓名
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -273,8 +529,20 @@ export class CarOrderListQueryResponseBodyModule extends $dara.Model {
 }
 
 export class CarOrderListQueryResponseBodyPageInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1000
+   */
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -302,12 +570,32 @@ export class CarOrderListQueryResponseBodyPageInfo extends $dara.Model {
 }
 
 export class CarOrderListQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: CarOrderListQueryResponseBodyModule[];
   pageInfo?: CarOrderListQueryResponseBodyPageInfo;
+  /**
+   * @example
+   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

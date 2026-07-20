@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RemoveProjectManagerRequestOrgEntities extends $dara.Model {
+  /**
+   * @example
+   * user1
+   */
   entityId?: string;
+  /**
+   * @example
+   * 1
+   */
   entityType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,8 +38,20 @@ export class RemoveProjectManagerRequestOrgEntities extends $dara.Model {
 
 export class RemoveProjectManagerRequest extends $dara.Model {
   orgEntities?: RemoveProjectManagerRequestOrgEntities[];
+  /**
+   * @example
+   * projectabc
+   */
   outProjectId?: string;
+  /**
+   * @example
+   * 123
+   */
   projectId?: number;
+  /**
+   * @example
+   * false
+   */
   removeAll?: boolean;
   static names(): { [key: string]: string } {
     return {

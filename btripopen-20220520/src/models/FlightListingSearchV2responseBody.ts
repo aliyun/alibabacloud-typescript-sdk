@@ -12,6 +12,10 @@ import { ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValue } from ".
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItemSubItems extends $dara.Model {
   shoppingItemMap?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemsShoppingItemMapValue };
+  /**
+   * @example
+   * 07df0bd9-f803-4a50-8449-f4bd675d9939
+   */
   uniqKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,8 +44,16 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItemS
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItem extends $dara.Model {
+  /**
+   * @example
+   * 协议价
+   */
   codeType?: string;
   flightRuleInfos?: { [key: string]: ModuleFlightItemListBestPriceItemFlightRuleInfosValue };
+  /**
+   * @example
+   * e50d380fc05942cc8ac57af8ae02f448_0
+   */
   itemId?: string;
   shoppingItemMap?: { [key: string]: ModuleFlightItemListBestPriceItemShoppingItemMapValue };
   subItemPositionMap?: { [key: string]: ModuleFlightItemListBestPriceItemSubItemPositionMapValue[] };
@@ -90,10 +102,30 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListBestPriceItem 
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $dara.Model {
+  /**
+   * @example
+   * 中国东方航空
+   */
   airlineChineseName?: string;
+  /**
+   * @example
+   * 东航
+   */
   airlineChineseShortName?: string;
+  /**
+   * @example
+   * MU
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/tfs/TB15EXDFHY1gK0jSZTEXXXDQVXa-450-450.png_80x80.jpg
+   */
   airlineIcon?: string;
+  /**
+   * @example
+   * false
+   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -125,10 +157,30 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo extends $dara.Model {
+  /**
+   * @example
+   * PKX
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 大兴国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * #FF7300
+   */
   airportNameColor?: string;
+  /**
+   * @example
+   * 大兴
+   */
   airportShortName?: string;
+  /**
+   * @example
+   * --
+   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -160,10 +212,30 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   airportName?: string;
+  /**
+   * @example
+   * #FF7300
+   */
   airportNameColor?: string;
+  /**
+   * @example
+   * 萧山
+   */
   airportShortName?: string;
+  /**
+   * @example
+   * T3
+   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -195,10 +267,30 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo extends $dara.Model {
+  /**
+   * @example
+   * 中国国航
+   */
   airlineChineseName?: string;
+  /**
+   * @example
+   * 国航
+   */
   airlineChineseShortName?: string;
+  /**
+   * @example
+   * DR
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/tfs/TB1gSXBFUT1gK0jSZFhXXaAtVXa-450-450.png_80x80.jpg
+   */
   airlineIcon?: string;
+  /**
+   * @example
+   * false
+   */
   cheapFlight?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -231,6 +323,10 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo extends $dara.Model {
   operatingAirlineInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfoOperatingAirlineInfo;
+  /**
+   * @example
+   * CX601
+   */
   operatingFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -259,15 +355,51 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   stopAirport?: string;
+  /**
+   * @example
+   * 萧山国际机场
+   */
   stopAirportName?: string;
+  /**
+   * @example
+   * T3
+   */
   stopArrTerm?: string;
+  /**
+   * @example
+   * BJS
+   */
   stopArrTime?: string;
+  /**
+   * @example
+   * HGH
+   */
   stopCityCode?: string;
+  /**
+   * @example
+   * HGH
+   */
   stopCityName?: string;
   stopCityNames?: string[];
+  /**
+   * @example
+   * T4
+   */
   stopDepTerm?: string;
+  /**
+   * @example
+   * 2023-08-13 07:25
+   */
   stopDepTime?: string;
+  /**
+   * @example
+   * 经停时间
+   */
   stopTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -314,33 +446,132 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos extends $dara.Model {
   airlineInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosAirlineInfo;
   arrAirportInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo;
+  /**
+   * @example
+   * BJS
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 2023-08-13 09:45
+   */
   arrTime?: string;
+  /**
+   * @example
+   * 行李额描述
+   */
   baggageDesc?: string;
   depAirportInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
+  /**
+   * @example
+   * HGH
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 2023-08-13 07:25
+   */
   depTime?: string;
+  /**
+   * @remarks
+   * duration
+   * 
+   * @example
+   * 140
+   */
   duration?: number;
   extraInfo?: { [key: string]: any };
+  /**
+   * @example
+   * MU5131
+   */
   flightNo?: string;
   flightShareInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
+  /**
+   * @example
+   * 中型机
+   */
   flightSize?: string;
   flightStopInfo?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo;
+  /**
+   * @example
+   * 320
+   */
   flightType?: string;
+  /**
+   * @example
+   * 空客
+   */
   manufacturer?: string;
+  /**
+   * @example
+   * 小食
+   */
   mealDesc?: string;
+  /**
+   * @example
+   * 里程
+   */
   miles?: number;
+  /**
+   * @example
+   * 准点率
+   */
   onTimeRate?: string;
+  /**
+   * @example
+   * 0
+   */
   oneMore?: number;
+  /**
+   * @example
+   * +1天
+   */
   oneMoreShow?: string;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
+  /**
+   * @example
+   * false
+   */
   share?: boolean;
+  /**
+   * @example
+   * 中
+   */
   shortFlightSize?: string;
+  /**
+   * @example
+   * false
+   */
   stop?: boolean;
+  /**
+   * @example
+   * 2小时20分
+   */
   totalTime?: string;
+  /**
+   * @example
+   * 中转时间
+   */
   transferTime?: string;
+  /**
+   * @example
+   * 中转时间数字
+   */
   transferTimeNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -440,16 +671,52 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfos extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   arrCityName?: string;
+  /**
+   * @example
+   * 2023-08-13 09:45
+   */
   arrTime?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   depCityName?: string;
+  /**
+   * @example
+   * 2023-08-13 07:25
+   */
   depTime?: string;
+  /**
+   * @example
+   * 140
+   */
   duration?: number;
   extensions?: { [key: string]: string };
   flightSegmentInfos?: FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos[];
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   transferTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -500,7 +767,15 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListFlightJourneyI
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubItems extends $dara.Model {
   shoppingItemMap?: { [key: string]: ModuleFlightItemListItemListSubItemsShoppingItemMapValue };
+  /**
+   * @example
+   * 测试商品tag
+   */
   tag?: string;
+  /**
+   * @example
+   * 07df0bd9-f803-4a50-8449-f4bd675d9939
+   */
   uniqKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -531,8 +806,16 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemListSubIte
 }
 
 export class FlightListingSearchV2ResponseBodyModuleFlightItemListItemList extends $dara.Model {
+  /**
+   * @example
+   * 协议价
+   */
   codeType?: string;
   flightRuleInfos?: { [key: string]: ModuleFlightItemListItemListFlightRuleInfosValue };
+  /**
+   * @example
+   * e50d380fc05942cc8ac57af8ae02f448_0
+   */
   itemId?: string;
   shoppingItemMap?: { [key: string]: ModuleFlightItemListItemListShoppingItemMapValue };
   subItemPositionMap?: { [key: string]: ModuleFlightItemListItemListSubItemPositionMapValue[] };
@@ -620,7 +903,15 @@ export class FlightListingSearchV2ResponseBodyModuleFlightItemList extends $dara
 
 export class FlightListingSearchV2ResponseBodyModule extends $dara.Model {
   flightItemList?: FlightListingSearchV2ResponseBodyModuleFlightItemList[];
+  /**
+   * @example
+   * 0
+   */
   searchMode?: number;
+  /**
+   * @example
+   * 1
+   */
   tripType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -651,11 +942,41 @@ export class FlightListingSearchV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightListingSearchV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * module
+   */
   module?: FlightListingSearchV2ResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 210e842b16611337974412836dae27
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

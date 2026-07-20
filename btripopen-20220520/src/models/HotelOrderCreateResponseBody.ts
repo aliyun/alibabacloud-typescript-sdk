@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderCreateResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 123
+   */
   btripOrderId?: number;
+  /**
+   * @example
+   * 1222222
+   */
   paymentNo?: string;
+  /**
+   * @example
+   * 100
+   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32,11 +44,31 @@ export class HotelOrderCreateResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderCreateResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * operation success.
+   */
   message?: string;
   module?: HotelOrderCreateResponseBodyModule;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

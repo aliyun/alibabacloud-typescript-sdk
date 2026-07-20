@@ -6,20 +6,41 @@ export class ProjectAddRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * pro_code
    */
   code?: string;
+  /**
+   * @example
+   * false
+   */
   hasManager?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 商旅出差项目
    */
   projectName?: string;
+  /**
+   * @example
+   * 234
+   */
   thirdPartCostCenterId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   thirdPartId?: string;
+  /**
+   * @example
+   * 123
+   */
   thirdPartInvoiceId?: string;
   static names(): { [key: string]: string } {
     return {

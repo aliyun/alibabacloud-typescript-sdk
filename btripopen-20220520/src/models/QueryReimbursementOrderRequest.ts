@@ -6,8 +6,15 @@ export class QueryReimbursementOrderRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * RT204396
    */
   reimbOrderNo?: string;
+  /**
+   * @example
+   * ding123
+   */
   subCorpId?: string;
   static names(): { [key: string]: string } {
     return {

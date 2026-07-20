@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModuleGroupItemSubItemsShoppingItemMapValueSearchPrice extends $dara.Model {
+  /**
+   * @example
+   * 120000
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 120000
+   */
   sellPrice?: number;
+  /**
+   * @example
+   * 6000
+   */
   tax?: number;
   static names(): { [key: string]: string } {
     return {

@@ -6,6 +6,9 @@ export class DeleteDepartmentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dept123
    */
   outDeptId?: string;
   static names(): { [key: string]: string } {

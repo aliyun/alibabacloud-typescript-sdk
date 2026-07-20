@@ -3,12 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureRefundDetailRequest extends $dara.Model {
+  /**
+   * @example
+   * 1423052318072952023
+   */
   applyId?: string;
+  /**
+   * @example
+   * 1000000001
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 张三
+   */
   buyerName?: string;
+  /**
+   * @example
+   * 1000003000000490
+   */
   insOrderId?: string;
+  /**
+   * @example
+   * PostalSavingsBank
+   */
   isvName?: string;
+  /**
+   * @example
+   * 1021000196440356908
+   */
   outApplyId?: string;
+  /**
+   * @example
+   * fliggy
+   */
   supplierCode?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,12 +5,22 @@ import { ModulePriceMapValue } from "./ModulePriceMapValue";
 
 export class EstimatedPriceQueryV2ResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * The category, such as flight, hotel, or train.
+   * 
    * @example
    * flight
    */
   bizType?: string;
+  /**
+   * @remarks
+   * The price map. Key: min and max.
+   */
   priceMap?: { [key: string]: ModulePriceMapValue };
   /**
+   * @remarks
+   * The type, such as economy class, business class, first class, G/D train, other, or travel standard.
+   * 
    * @example
    * 经济舱
    */
@@ -45,22 +55,38 @@ export class EstimatedPriceQueryV2ResponseBodyModule extends $dara.Model {
 
 export class EstimatedPriceQueryV2ResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 0
    */
   code?: number;
+  /**
+   * @remarks
+   * The response data.
+   */
   module?: EstimatedPriceQueryV2ResponseBodyModule[];
   /**
+   * @remarks
+   * The unique identifier of the request.
+   * 
    * @example
    * A5009956-1077-52FB-B520-EA8C7E91D722
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * traceId
+   * 
    * @example
    * 210bcc3a16583004579056128d33d7
    */

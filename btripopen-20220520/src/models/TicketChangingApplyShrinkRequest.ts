@@ -6,13 +6,23 @@ export class TicketChangingApplyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis1234
    */
   disOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * mid1243
    */
   disSubOrderId?: string;
+  /**
+   * @example
+   * 0
+   */
   isVoluntary?: number;
   /**
    * @remarks
@@ -22,14 +32,28 @@ export class TicketChangingApplyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1s8837sh991hsj92h
    */
   otaItemId?: string;
+  /**
+   * @example
+   * 自愿改签测试
+   */
   reason?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * us88s2bsbin22hjusd8i
    */
   sessionId?: string;
+  /**
+   * @example
+   * true
+   */
   whetherRetry?: boolean;
   static names(): { [key: string]: string } {
     return {

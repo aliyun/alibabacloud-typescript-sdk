@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundDetailResponseBodyModuleRefundFeeList extends $dara.Model {
+  /**
+   * @example
+   * 293982882881999
+   */
   alipayTradeNo?: string;
+  /**
+   * @example
+   * 100
+   */
   refundFee?: number;
+  /**
+   * @example
+   * 100
+   */
   refundPrice?: number;
+  /**
+   * @example
+   * 0枚举取外层状态
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,15 +51,51 @@ export class FlightRefundDetailResponseBodyModuleRefundFeeList extends $dara.Mod
 }
 
 export class FlightRefundDetailResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 123
+   */
   btripOrderId?: number;
+  /**
+   * @example
+   * 123
+   */
   btripSubOrderId?: number;
+  /**
+   * @example
+   * dis1234
+   */
   disOrderId?: string;
+  /**
+   * @example
+   * refun123
+   */
   disSubOrderId?: string;
+  /**
+   * @example
+   * 1
+   */
   isVoluntary?: number;
+  /**
+   * @example
+   * 自愿申请
+   */
   reason?: string;
+  /**
+   * @example
+   * 100
+   */
   refundFee?: number;
   refundFeeList?: FlightRefundDetailResponseBodyModuleRefundFeeList[];
+  /**
+   * @example
+   * 100
+   */
   refundPrice?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,11 +140,31 @@ export class FlightRefundDetailResponseBodyModule extends $dara.Model {
 }
 
 export class FlightRefundDetailResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightRefundDetailResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

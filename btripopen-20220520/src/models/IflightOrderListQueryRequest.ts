@@ -6,9 +6,25 @@ export class IFlightOrderListQueryRequest extends $dara.Model {
   applyIdList?: string[];
   bookTypeList?: number[];
   bookerId?: string[];
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   endDate?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * CAESBgoEIgIIABgAIhkKFwMSAAAAMUw4ZGViODFlYmM3MYzM4
+   */
   scrollId?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
   startDate?: string;
   thirdPartApplyIdList?: string[];
   static names(): { [key: string]: string } {

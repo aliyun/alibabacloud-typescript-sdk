@@ -6,11 +6,17 @@ export class CreateCustomRoleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123abc
    */
   roleId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 华东地区日常出差
    */
   roleName?: string;
   static names(): { [key: string]: string } {

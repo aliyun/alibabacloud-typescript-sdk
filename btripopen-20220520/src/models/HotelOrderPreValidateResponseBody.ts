@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderPreValidateResponseBodyModuleItemInvoice extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   supportSpecial?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26,12 +30,40 @@ export class HotelOrderPreValidateResponseBodyModuleItemInvoice extends $dara.Mo
 }
 
 export class HotelOrderPreValidateResponseBodyModulePromotionInfoPromotionDetailInfoList extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   checkStatus?: boolean;
+  /**
+   * @example
+   * true
+   */
   needCheck?: boolean;
+  /**
+   * @example
+   * wjdj11
+   */
   promotionCode?: string;
+  /**
+   * @example
+   * 12893
+   */
   promotionId?: string;
+  /**
+   * @example
+   * demo
+   */
   promotionName?: string;
+  /**
+   * @example
+   * 100
+   */
   promotionPrice?: number;
+  /**
+   * @example
+   * 1
+   */
   promotionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,6 +101,10 @@ export class HotelOrderPreValidateResponseBodyModulePromotionInfoPromotionDetail
 export class HotelOrderPreValidateResponseBodyModulePromotionInfo extends $dara.Model {
   extAttrMap?: { [key: string]: string };
   promotionDetailInfoList?: HotelOrderPreValidateResponseBodyModulePromotionInfoPromotionDetailInfoList[];
+  /**
+   * @example
+   * 100
+   */
   promotionTotalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -102,14 +138,50 @@ export class HotelOrderPreValidateResponseBodyModulePromotionInfo extends $dara.
 }
 
 export class HotelOrderPreValidateResponseBodyModuleRatePlanDaily extends $dara.Model {
+  /**
+   * @example
+   * 2份早餐
+   */
   board?: string;
+  /**
+   * @example
+   * 100
+   */
   discountPrice?: string;
+  /**
+   * @example
+   * 1
+   */
   maxBookingNum?: number;
+  /**
+   * @example
+   * 100
+   */
   price?: number;
+  /**
+   * @example
+   * 2023-01-19
+   */
   rateStartTime?: string;
+  /**
+   * @example
+   * 1
+   */
   roomCount?: number;
+  /**
+   * @example
+   * 100
+   */
   roundingDiscountPrice?: string;
+  /**
+   * @example
+   * 100
+   */
   roundingPrice?: string;
+  /**
+   * @example
+   * 100
+   */
   serviceFee?: number;
   static names(): { [key: string]: string } {
     return {
@@ -149,7 +221,15 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanDaily extends $dara.
 }
 
 export class HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTOBtripHotelCancelPolicyInfoDTOList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   hour?: number;
+  /**
+   * @example
+   * 1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -176,8 +256,20 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancel
 
 export class HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTO extends $dara.Model {
   btripHotelCancelPolicyInfoDTOList?: HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTOBtripHotelCancelPolicyInfoDTOList[];
+  /**
+   * @example
+   * 1（类型查看报价详情）
+   */
   cancelPolicyType?: number;
+  /**
+   * @example
+   * 预订成功后，不可变更/取消，未入住将收取全额费用。
+   */
   content?: string;
+  /**
+   * @example
+   * 免费取消
+   */
   shortDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -211,9 +303,17 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancel
 
 export class HotelOrderPreValidateResponseBodyModuleRatePlanInfoHourItemArrivalTimeInfo extends $dara.Model {
   actualLiveHour?: string;
+  /**
+   * @example
+   * 2026-05-07 12:00:00
+   */
   earliestCheckInTime?: string;
   latestCheckInTime?: string;
   latestCheckOutTime?: string;
+  /**
+   * @example
+   * 2
+   */
   liveHour?: string;
   static names(): { [key: string]: string } {
     return {
@@ -245,19 +345,63 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfoHourItemArrivalT
 }
 
 export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $dara.Model {
+  /**
+   * @example
+   * 1张大床
+   */
   bedDesc?: string;
   btripHotelCancelPolicyDTO?: HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTO;
   certTypeList?: string[];
+  /**
+   * @example
+   * 12:00
+   */
   earliestCheckInTime?: string;
   hourItemArrivalTimeInfo?: HotelOrderPreValidateResponseBodyModuleRatePlanInfoHourItemArrivalTimeInfo;
+  /**
+   * @example
+   * 17:00
+   */
   latestCheckOutTime?: string;
+  /**
+   * @example
+   * 1
+   */
   maxBookingNum?: number;
+  /**
+   * @example
+   * 1
+   */
   maxOccupancyNum?: number;
+  /**
+   * @example
+   * false
+   */
   needCertificate?: boolean;
+  /**
+   * @example
+   * false
+   */
   needEmail?: boolean;
+  /**
+   * @example
+   * false
+   */
   needEnglishName?: boolean;
+  /**
+   * @example
+   * 1
+   */
   rpType?: number;
+  /**
+   * @example
+   * 100
+   */
   totalOrderPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   totalRoomPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -316,13 +460,29 @@ export class HotelOrderPreValidateResponseBodyModuleRatePlanInfo extends $dara.M
 }
 
 export class HotelOrderPreValidateResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   extendInfo?: string;
   itemInvoice?: HotelOrderPreValidateResponseBodyModuleItemInvoice;
+  /**
+   * @example
+   * fb5e1abf33924b6c912bd6d80deec0eb-4
+   */
   itineraryNo?: string;
   promotionInfo?: HotelOrderPreValidateResponseBodyModulePromotionInfo;
   ratePlanDaily?: HotelOrderPreValidateResponseBodyModuleRatePlanDaily[];
+  /**
+   * @example
+   * 5314280514218
+   */
   ratePlanId?: number;
   ratePlanInfo?: HotelOrderPreValidateResponseBodyModuleRatePlanInfo;
+  /**
+   * @example
+   * nonUltron_1673575241156_d91ea8ad16735752359161037bf6cf_c54d3768312a4b249b719f126377bf82
+   */
   validateResKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -372,11 +532,34 @@ export class HotelOrderPreValidateResponseBodyModule extends $dara.Model {
 }
 
 export class HotelOrderPreValidateResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: HotelOrderPreValidateResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

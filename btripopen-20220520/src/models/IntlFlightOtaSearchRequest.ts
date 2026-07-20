@@ -3,28 +3,52 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightOtaSearchRequestSearchJourneysSelectedFlights extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   arrAirportCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * NNG
    */
   arrCityCode?: string;
+  /**
+   * @example
+   * KOW
+   */
   depAirportCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * CTU
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2023-08-15 12:00:00
    */
   flightTime?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * KA5809
    */
   marketFlightNo?: string;
+  /**
+   * @example
+   * CX601
+   */
   operateFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,16 +87,25 @@ export class IntlFlightOtaSearchRequestSearchJourneys extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * ZQZ
    */
   arrCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HGH
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2023-08-15
    */
   depDate?: string;
   /**
@@ -114,21 +147,33 @@ export class IntlFlightOtaSearchRequestSearchPassengerList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 13412341234
    */
   certNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   certType?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * ZHANGSAN
    */
   fullName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   type?: number;
   static names(): { [key: string]: string } {
@@ -159,9 +204,25 @@ export class IntlFlightOtaSearchRequestSearchPassengerList extends $dara.Model {
 }
 
 export class IntlFlightOtaSearchRequest extends $dara.Model {
+  /**
+   * @example
+   * 10023
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 张三
+   */
   buyerName?: string;
+  /**
+   * @example
+   * 0
+   */
   cabinType?: number;
+  /**
+   * @example
+   * open12igetbis4o07v10B1TlOWcM00
+   */
   isvName?: string;
   /**
    * @remarks
@@ -172,6 +233,9 @@ export class IntlFlightOtaSearchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   tripType?: number;
   static names(): { [key: string]: string } {

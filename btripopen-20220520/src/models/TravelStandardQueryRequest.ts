@@ -5,16 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class TravelStandardQueryRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to use the group travel standard.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * false
    */
   fromGroup?: boolean;
   /**
    * @remarks
+   * The personnel rule code.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 2006523763
    */
   ruleCode?: number;
   /**
    * @remarks
+   * The service categories to query.
+   * 
    * This parameter is required.
    */
   serviceTypeList?: string[];

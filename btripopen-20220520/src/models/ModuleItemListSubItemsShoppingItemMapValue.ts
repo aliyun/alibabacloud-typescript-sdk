@@ -5,7 +5,15 @@ import { ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValue } from "./M
 
 
 export class ModuleItemListSubItemsShoppingItemMapValueCabinQuantityListSegmentPosition extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31,9 +39,25 @@ export class ModuleItemListSubItemsShoppingItemMapValueCabinQuantityListSegmentP
 }
 
 export class ModuleItemListSubItemsShoppingItemMapValueCabinQuantityListCabinInfo extends $dara.Model {
+  /**
+   * @example
+   * S
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 经济舱
+   */
   cabinClassName?: string;
+  /**
+   * @example
+   * A
+   */
   quantity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,8 +119,20 @@ export class ModuleItemListSubItemsShoppingItemMapValueCabinQuantityList extends
 }
 
 export class ModuleItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo extends $dara.Model {
+  /**
+   * @example
+   * 0.8折
+   */
   discountInfo?: string;
+  /**
+   * @example
+   * 0.8
+   */
   discountNum?: number;
+  /**
+   * @example
+   * false
+   */
   showTicketPrice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -124,28 +160,123 @@ export class ModuleItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo 
 }
 
 export class ModuleItemListSubItemsShoppingItemMapValueSearchPrice extends $dara.Model {
+  /**
+   * @example
+   * 17400
+   */
   floorPrice?: number;
+  /**
+   * @example
+   * 121000
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 17400
+   */
   sellPrice?: number;
+  /**
+   * @example
+   * 17400
+   */
   originalSellPrice?: number;
+  /**
+   * @example
+   * 管控总价格（单位：分）
+   */
   baseTotalPrice?: number;
+  /**
+   * @example
+   * 17400
+   */
   beforeControlPrice?: number;
+  /**
+   * @example
+   * 11000
+   */
   tax?: number;
+  /**
+   * @example
+   * 采购产品，服务商的销售价
+   */
   supplyPrice?: number;
+  /**
+   * @example
+   * 242000
+   */
   basicCabinPrice?: number;
+  /**
+   * @example
+   * 5000
+   */
   buildPrice?: number;
+  /**
+   * @example
+   * 6000
+   */
   oilPrice?: number;
+  /**
+   * @example
+   * 头等舱基准价格
+   */
   firstStandardPrice?: number;
+  /**
+   * @example
+   * 商务舱基准价格
+   */
   businessStandardPrice?: number;
+  /**
+   * @example
+   * 242000
+   */
   commonStandardPrice?: number;
+  /**
+   * @remarks
+   * fdPrice
+   * 
+   * @example
+   * fdPrice
+   */
   interTicketPrice?: number;
+  /**
+   * @example
+   * 直减往返，航段上减去的钱
+   */
   subtractedPrice?: number;
+  /**
+   * @example
+   * 优惠前价格（一舱多价）[动态优惠专用]
+   */
   originCommonPrice?: number;
+  /**
+   * @example
+   * 动态优惠后的价格 [动态优惠专用]
+   */
   dynamicPromotionPrice?: number;
+  /**
+   * @example
+   * 分期数
+   */
   installmentNum?: number;
+  /**
+   * @example
+   * 分期每期价格
+   */
   installmentPrice?: number;
+  /**
+   * @example
+   * 竞品动态补贴后的目标价格
+   */
   competitionDynamicPrice?: number;
+  /**
+   * @example
+   * 竞品动态补贴，可减的优惠
+   */
   competitionPromotionPrice?: number;
+  /**
+   * @example
+   * 17400
+   */
   minBeforeControlPriceOfNormal?: number;
   priceShowInfo?: ModuleItemListSubItemsShoppingItemMapValueSearchPricePriceShowInfo;
   static names(): { [key: string]: string } {
@@ -219,7 +350,15 @@ export class ModuleItemListSubItemsShoppingItemMapValueSearchPrice extends $dara
 }
 
 export class ModuleItemListSubItemsShoppingItemMapValueSegmentPriceListSegmentPosition extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   journeyIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -245,8 +384,20 @@ export class ModuleItemListSubItemsShoppingItemMapValueSegmentPriceListSegmentPo
 }
 
 export class ModuleItemListSubItemsShoppingItemMapValueSegmentPriceListSearchPrice extends $dara.Model {
+  /**
+   * @example
+   * 120000
+   */
   sellPrice?: number;
+  /**
+   * @example
+   * 120000
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 6000
+   */
   tax?: number;
   static names(): { [key: string]: string } {
     return {
@@ -309,6 +460,13 @@ export class ModuleItemListSubItemsShoppingItemMapValue extends $dara.Model {
   cabinQuantityList?: ModuleItemListSubItemsShoppingItemMapValueCabinQuantityList[];
   searchPrice?: ModuleItemListSubItemsShoppingItemMapValueSearchPrice;
   segmentPriceList?: ModuleItemListSubItemsShoppingItemMapValueSegmentPriceList[];
+  /**
+   * @remarks
+   * id
+   * 
+   * @example
+   * ADT07df0bd9-f803-4a50-8449-f4bd675d9939
+   */
   id?: string;
   cabinQuantity?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValueCabinQuantityValue };
   segmentPrice?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValueSegmentPriceValue };

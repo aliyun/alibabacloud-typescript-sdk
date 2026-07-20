@@ -3,17 +3,101 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightItineraryScanQueryResponseBodyModuleItemsFlights extends $dara.Model {
+  /**
+   * @remarks
+   * 航班至
+   * 
+   * @example
+   * 西安咸阳
+   */
   arrivalStation?: string;
+  /**
+   * @remarks
+   * 座位等级
+   * 
+   * @example
+   * M
+   */
   cabinClass?: string;
+  /**
+   * @remarks
+   * 承运人
+   * 
+   * @example
+   * 东航
+   */
   carrier?: string;
+  /**
+   * @remarks
+   * 航班从
+   * 
+   * @example
+   * 长春
+   */
   departureStation?: string;
+  /**
+   * @remarks
+   * 日期
+   * 
+   * @example
+   * 2018-11-18
+   */
   flightDate?: string;
+  /**
+   * @remarks
+   * 航班号
+   * 
+   * @example
+   * MU2271
+   */
   flightNumber?: string;
+  /**
+   * @remarks
+   * 时间
+   * 
+   * @example
+   * 18:25
+   */
   flightTime?: string;
+  /**
+   * @remarks
+   * 免费行李
+   * 
+   * @example
+   * 20K
+   */
   freeBaggageAllowance?: string;
+  /**
+   * @remarks
+   * 行号
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * 客票级别
+   * 
+   * @example
+   * M
+   */
   seatClass?: string;
+  /**
+   * @remarks
+   * 客票生效日期
+   * 
+   * @example
+   * 2023-01-01
+   */
   validFromDate?: string;
+  /**
+   * @remarks
+   * 有效截止日期
+   * 
+   * @example
+   * 2023-01-01
+   */
   validToDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,39 +143,193 @@ export class FlightItineraryScanQueryResponseBodyModuleItemsFlights extends $dar
 }
 
 export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @remarks
+   * 销售单位代号
+   * 
+   * @example
+   * SIA25608336893
+   */
   agentCode?: string;
+  /**
+   * @example
+   * BH-507119434047594496
+   */
   applyId?: string;
+  /**
+   * @example
+   * 2022-12-01
+   */
   billDate?: string;
+  /**
+   * @example
+   * 1
+   */
   blueOrRed?: number;
+  /**
+   * @example
+   * 50
+   */
   build?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenter?: string;
+  /**
+   * @example
+   * 测试公司-测试部门
+   */
   department?: string;
+  /**
+   * @remarks
+   * 机票行程明细
+   */
   flights?: FlightItineraryScanQueryResponseBodyModuleItemsFlights[];
+  /**
+   * @example
+   * 120
+   */
   fuelSurcharge?: string;
+  /**
+   * @remarks
+   * UK
+   * 
+   * @example
+   * 30
+   */
   id?: string;
+  /**
+   * @example
+   * 0
+   */
   insurance?: string;
+  /**
+   * @example
+   * 测试发票抬头
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * 1
+   */
   invoiceType?: number;
+  /**
+   * @remarks
+   * 填开单位
+   * 
+   * @example
+   * 有限公司
+   */
   issueCompany?: string;
+  /**
+   * @remarks
+   * 填开日期
+   * 
+   * @example
+   * 2019-02-28
+   */
   issueDate?: string;
+  /**
+   * @example
+   * 6666666666
+   */
   itineraryNum?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   ofdOssUrl?: string;
+  /**
+   * @example
+   * 4801105714092
+   */
   orderId?: number;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   ossUrl?: string;
+  /**
+   * @example
+   * 0
+   */
   otherTaxes?: string;
+  /**
+   * @example
+   * 张三
+   */
   passengerName?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   pdfOssUrl?: string;
+  /**
+   * @example
+   * 测试项目
+   */
   project?: string;
+  /**
+   * @remarks
+   * 提示信息
+   * 
+   * @example
+   * 西安始发国际在T3国内在13
+   */
   promptMessage?: string;
+  /**
+   * @example
+   * 测试购方名称
+   */
   purchaserName?: string;
+  /**
+   * @example
+   * 91441111111111111S
+   */
   purchaserTaxNo?: string;
+  /**
+   * @example
+   * 1
+   */
   purchaserType?: number;
+  /**
+   * @example
+   * 108.17
+   */
   taxAmount?: string;
+  /**
+   * @example
+   * 9%
+   */
   taxRate?: string;
+  /**
+   * @example
+   * 784-1111111111
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * 1190
+   */
   ticketPrice?: string;
+  /**
+   * @example
+   * 1360
+   */
   totalPrice?: string;
+  /**
+   * @remarks
+   * 验证码
+   * 
+   * @example
+   * 9817
+   */
   validationCode?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   xmlOssUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,9 +423,25 @@ export class FlightItineraryScanQueryResponseBodyModuleItems extends $dara.Model
 
 export class FlightItineraryScanQueryResponseBodyModule extends $dara.Model {
   items?: FlightItineraryScanQueryResponseBodyModuleItems[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2
+   */
   totalPage?: number;
+  /**
+   * @example
+   * 30
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -222,11 +476,37 @@ export class FlightItineraryScanQueryResponseBodyModule extends $dara.Model {
 }
 
 export class FlightItineraryScanQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightItineraryScanQueryResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

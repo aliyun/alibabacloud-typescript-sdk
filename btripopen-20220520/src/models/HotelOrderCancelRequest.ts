@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderCancelRequest extends $dara.Model {
+  /**
+   * @example
+   * 1002202194207077022
+   */
   btripOrderId?: string;
+  /**
+   * @example
+   * dis123
+   */
   disOrderId?: string;
   static names(): { [key: string]: string } {
     return {

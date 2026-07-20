@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteInvoiceEntityResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * The number of removed personnel, departments, or roles.
+   * 
+   * @example
+   * 1
+   */
   removeNum?: number;
+  /**
+   * @remarks
+   * The number of entities under the invoice header.
+   * 
+   * @example
+   * 2
+   */
   selectedUserNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29,11 +43,50 @@ export class DeleteInvoiceEntityResponseBodyModule extends $dara.Model {
 }
 
 export class DeleteInvoiceEntityResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The remarks on the result, such as a description of the result.
+   * 
+   * @example
+   * 成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * The return value from the server. An empty value is returned if no result is available or an exception occurs.
+   */
   module?: DeleteInvoiceEntityResponseBodyModule;
+  /**
+   * @remarks
+   * The unique ID of the request.
+   * 
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

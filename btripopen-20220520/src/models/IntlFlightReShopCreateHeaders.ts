@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class IntlFlightReShopCreateHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
+   * @remarks
+   * The enterprise access token.
+   * 
+   * - When calling this operation over HTTP, this parameter is required and must be appended to the request URL. For more information about how to obtain the token, see [Enterprise access token](https://openapi.alibtrip.com/doc/toDocDetail?spm=openapi-amp.newDocPublishment.0.0.5e2a281frQyDQ8&docId=3769985).
+   * - When appending the token, use crop_token=value instead.
+   * 
    * @example
    * feth00jqwls
    */

@@ -3,27 +3,60 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvoiceModifyRequest extends $dara.Model {
+  /**
+   * @example
+   * 注册地址
+   */
   address?: string;
+  /**
+   * @example
+   * 12345678
+   */
   bankName?: string;
+  /**
+   * @example
+   * 2222
+   */
   bankNo?: string;
   mailThirdPartId?: string;
+  /**
+   * @example
+   * 122333121
+   */
   taxNo?: string;
+  /**
+   * @example
+   * 12345678
+   */
   tel?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 340049
    */
   thirdPartId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 测试发票
    */
   title?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   type?: number;
+  /**
+   * @example
+   * 1
+   */
   unitType?: number;
   static names(): { [key: string]: string } {
     return {

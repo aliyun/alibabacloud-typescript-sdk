@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InvoiceRuleAddResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   addNum?: number;
+  /**
+   * @example
+   * 1
+   */
   selectedUserNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29,11 +37,34 @@ export class InvoiceRuleAddResponseBodyModule extends $dara.Model {
 }
 
 export class InvoiceRuleAddResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: InvoiceRuleAddResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,15 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TravelStandardScopeSaveRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   fromGroup?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 6516571
    */
   ruleId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   scope?: number;
   static names(): { [key: string]: string } {

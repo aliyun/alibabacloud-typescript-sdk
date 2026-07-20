@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo extends $dara.Model {
+  /**
+   * @example
+   * CA
+   */
   airlineCode?: string;
+  /**
+   * @example
+   * 无
+   */
   airlineName?: string;
+  /**
+   * @example
+   * 无
+   */
   airlineSimpleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,10 +44,30 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo ex
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 萧山
+   */
   airportName?: string;
+  /**
+   * @example
+   * HGH
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   cityName?: string;
+  /**
+   * @example
+   * T4
+   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,9 +99,25 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription extends $dara.Model {
+  /**
+   * @example
+   * 您可以随身携带上飞机客舱内的行李物品，由旅客自行负责保管。具体尺寸、重量、类型等以各航空公司规定为准
+   */
   desc?: string;
+  /**
+   * @example
+   * demo
+   */
   icon?: string;
+  /**
+   * @example
+   * demo
+   */
   image?: string;
+  /**
+   * @example
+   * 手提行李说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,9 +147,25 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO extends $dara.Model {
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01kLt3m923XsUs6WVif_!!6000000007266-2-tps-280-300.png
+   */
   image?: string;
+  /**
+   * @example
+   * 50
+   */
   largest?: string;
+  /**
+   * @example
+   * 40
+   */
   middle?: string;
+  /**
+   * @example
+   * 20
+   */
   smallest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -132,10 +196,22 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes extends $dara.Model {
   baggageDesc?: string[];
+  /**
+   * @example
+   * 1
+   */
   baggageSubContentType?: number;
   description?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription;
   imageDO?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO;
+  /**
+   * @example
+   * true
+   */
   isHighlight?: boolean;
+  /**
+   * @example
+   * 儿童 免费手提行李
+   */
   subTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,9 +254,25 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents extends $dara.Model {
+  /**
+   * @example
+   * 每人2件，每件20公斤，体积不可超过20*30*40厘米
+   */
   baggageDesc?: string;
+  /**
+   * @example
+   * 链接
+   */
   icon?: string;
+  /**
+   * @example
+   * 0
+   */
   style?: number;
+  /**
+   * @example
+   * 托运/手提
+   */
   subTitle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -210,12 +302,32 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems extends $dara.Model {
+  /**
+   * @remarks
+   * attributes
+   */
   attributes?: { [key: string]: any };
   baggageSubContentVisualizes?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes[];
   baggageSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents[];
+  /**
+   * @example
+   * demo
+   */
   content?: string;
+  /**
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @example
+   * ADT
+   */
   ptc?: string;
+  /**
+   * @example
+   * 成人/儿童/备注/说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -260,8 +372,20 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips extends $dara.Model {
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i1/O1CN019zl3WZ22fNLxzx2cR_!!6000000007147-2-tps-125-45.png
+   */
   logo?: string;
+  /**
+   * @example
+   * 各个尺寸的行李箱有多大
+   */
   tipsDesc?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01rJxjw61f3bXNHAmlk_!!6000000003951-2-tps-1050-675.png
+   */
   tipsImage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -290,10 +414,26 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails extends $dara.Model {
   baggageSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems[];
+  /**
+   * @example
+   * 0
+   */
   index?: number;
+  /**
+   * @example
+   * 去程 北京-上海
+   */
   tableHead?: string;
   tips?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips;
+  /**
+   * @example
+   * 退票规则/同舱改期规则/行李规则
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -333,8 +473,20 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
   content?: string;
+  /**
+   * @example
+   * 链接
+   */
   icon?: string;
+  /**
+   * @example
+   * 特殊说明/转签说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -362,8 +514,20 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents extends $dara.Model {
+  /**
+   * @example
+   * 256元/人
+   */
   feeDesc?: string;
+  /**
+   * @example
+   * 2020-06-02 20:20 前/起飞前/起飞后
+   */
   feeRange?: string;
+  /**
+   * @example
+   * 0
+   */
   style?: string;
   static names(): { [key: string]: string } {
     return {
@@ -391,10 +555,26 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   content?: string;
+  /**
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @example
+   * ADT
+   */
   ptc?: string;
   refundSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents[];
+  /**
+   * @example
+   * 成人
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -430,10 +610,26 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails extends $dara.Model {
   extraContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents[];
+  /**
+   * @example
+   * 0
+   */
   index?: number;
   refundSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems[];
+  /**
+   * @example
+   * 去程 北京-上海
+   */
   tableHead?: string;
+  /**
+   * @example
+   * 退票规则/同舱改期规则/行李规则"
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -473,8 +669,20 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
   content?: string;
+  /**
+   * @example
+   * 链接
+   */
   icon?: string;
+  /**
+   * @example
+   * 特殊说明/转签说明
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -502,8 +710,20 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents extends $dara.Model {
+  /**
+   * @example
+   * 256元/人
+   */
   feeDesc?: string;
+  /**
+   * @example
+   * 2020-06-02 20:20 前/起飞前/起飞后
+   */
   feeRange?: string;
+  /**
+   * @example
+   * 0
+   */
   style?: string;
   static names(): { [key: string]: string } {
     return {
@@ -531,10 +751,26 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   content?: string;
+  /**
+   * @example
+   * true
+   */
   isStruct?: boolean;
+  /**
+   * @example
+   * ADT
+   */
   ptc?: string;
   refundSubContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents[];
+  /**
+   * @example
+   * 成人
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -570,10 +806,26 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails extends $dara.Model {
   extraContents?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents[];
+  /**
+   * @example
+   * 0
+   */
   index?: number;
   refundSubItems?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems[];
+  /**
+   * @example
+   * 去程 北京-上海
+   */
   tableHead?: string;
+  /**
+   * @example
+   * 退票规则/同舱改期规则/行李规则"
+   */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -651,9 +903,25 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChang
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   passengerType?: number;
+  /**
+   * @example
+   * 100
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   upgradeFee?: number;
+  /**
+   * @example
+   * 100
+   */
   upgradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -683,14 +951,42 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModif
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList extends $dara.Model {
+  /**
+   * @example
+   * G
+   */
   cabin?: string;
+  /**
+   * @example
+   * Y
+   */
   cabinClass?: string;
+  /**
+   * @example
+   * 超级经济舱
+   */
   cabinDesc?: string;
+  /**
+   * @example
+   * 80
+   */
   cabinDiscount?: number;
   changeOtaItemRuleRq?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq;
+  /**
+   * @example
+   * G
+   */
   childCabin?: string;
+  /**
+   * @example
+   * 0
+   */
   leftNum?: string;
   modifyPriceList?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList[];
+  /**
+   * @example
+   * 360379a11ee84e9aa011baa41b758fe6
+   */
   otaItemid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -736,10 +1032,30 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList exte
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo extends $dara.Model {
+  /**
+   * @example
+   * PEK
+   */
   airportCode?: string;
+  /**
+   * @example
+   * 首都
+   */
   airportName?: string;
+  /**
+   * @example
+   * BJS
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   cityName?: string;
+  /**
+   * @example
+   * T3
+   */
   terminal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -771,9 +1087,25 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo
 }
 
 export class TicketChangingEnquiryResponseBodyModuleFlightInfoListLowestCabinPrice extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   passengerType?: number;
+  /**
+   * @example
+   * 100
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 100
+   */
   upgradeFee?: number;
+  /**
+   * @example
+   * 100
+   */
   upgradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -806,20 +1138,72 @@ export class TicketChangingEnquiryResponseBodyModuleFlightInfoList extends $dara
   airlineInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListAirlineInfo;
   arrAirportInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo;
   cabinList?: TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinList[];
+  /**
+   * @example
+   * CA1704
+   */
   carrierAirline?: string;
+  /**
+   * @example
+   * CA1704
+   */
   carrierNo?: string;
   depAirportInfo?: TicketChangingEnquiryResponseBodyModuleFlightInfoListDepAirportInfo;
+  /**
+   * @example
+   * HGH
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * CA1351
+   */
   flightNo?: string;
+  /**
+   * @example
+   * false
+   */
   isShare?: boolean;
+  /**
+   * @example
+   * Y
+   */
   lowestCabin?: string;
+  /**
+   * @example
+   * Y
+   */
   lowestCabinClass?: string;
+  /**
+   * @example
+   * 经济舱
+   */
   lowestCabinDesc?: string;
+  /**
+   * @example
+   * 0
+   */
   lowestCabinNum?: string;
   lowestCabinPrice?: TicketChangingEnquiryResponseBodyModuleFlightInfoListLowestCabinPrice[];
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   modifyFlightArrTime?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   modifyFlightDepDate?: string;
+  /**
+   * @example
+   * 2000-00-00 00:00:00
+   */
   modifyFlightDepTime?: string;
+  /**
+   * @example
+   * d1fb9e0a794f45e1b762d36ff1d17zz
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -918,11 +1302,31 @@ export class TicketChangingEnquiryResponseBodyModule extends $dara.Model {
 }
 
 export class TicketChangingEnquiryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: TicketChangingEnquiryResponseBodyModule;
+  /**
+   * @example
+   * B72B39C8-32DE-558D-AD1C-D53F11F6ADFE
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

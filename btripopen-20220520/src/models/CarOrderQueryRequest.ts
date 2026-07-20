@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CarOrderQueryRequest extends $dara.Model {
+  /**
+   * @example
+   * 1012000000000000
+   */
   orderId?: number;
+  /**
+   * @example
+   * 1000000
+   */
   subOrderId?: number;
   static names(): { [key: string]: string } {
     return {

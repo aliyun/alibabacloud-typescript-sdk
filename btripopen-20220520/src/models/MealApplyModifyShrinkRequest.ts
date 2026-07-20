@@ -8,21 +8,64 @@ export class MealApplyModifyShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   applyUserShrink?: string;
+  /**
+   * @example
+   * 23
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * {"extend_key":"extend_value"}
+   */
   extendField?: string;
+  /**
+   * @example
+   * 123
+   */
   invoiceId?: number;
   itineraryListShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   mealAmount?: number;
+  /**
+   * @example
+   * 测试
+   */
   mealCause?: string;
+  /**
+   * @example
+   * project123
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 项目1
+   */
   projectTitle?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   status?: number;
+  /**
+   * @example
+   * 1234
+   */
   thirdPartApplyId?: string;
+  /**
+   * @example
+   * 1200F00010
+   */
   thirdPartCostCenterId?: string;
+  /**
+   * @example
+   * GA15131
+   */
   thirdPartInvoiceId?: string;
   static names(): { [key: string]: string } {
     return {

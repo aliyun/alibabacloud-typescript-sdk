@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightCancelOrderResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2022-07-04T16:13Z
+   */
   cancelTime?: string;
+  /**
+   * @example
+   * 无·
+   */
   failCode?: string;
+  /**
+   * @example
+   * 无
+   */
   failReason?: string;
+  /**
+   * @example
+   * 0
+   */
   orderStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,11 +51,31 @@ export class FlightCancelOrderResponseBodyModule extends $dara.Model {
 }
 
 export class FlightCancelOrderResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightCancelOrderResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,15 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HotelOrderChangeApplyShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 123122
+   */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 3685792244476194816
    */
   disOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 因个人原因导致的行程变更
    */
   reason?: string;
   /**
@@ -22,6 +32,9 @@ export class HotelOrderChangeApplyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1402002197440511306
    */
   saleOrderId?: string;
   static names(): { [key: string]: string } {

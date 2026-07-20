@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CarOrderQueryResponseBodyModuleCarInfoWayPoints extends $dara.Model {
+  /**
+   * @example
+   * 南宁市总部路3号中国-东盟科技企业孵化基地二期7号厂房第四、五层
+   */
   address?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * 34.26900287757989
+   */
   latitude?: string;
+  /**
+   * @example
+   * 114.058959
+   */
   longitude?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,33 +51,145 @@ export class CarOrderQueryResponseBodyModuleCarInfoWayPoints extends $dara.Model
 }
 
 export class CarOrderQueryResponseBodyModuleCarInfo extends $dara.Model {
+  /**
+   * @example
+   * TRAVEL
+   */
   businessCategory?: string;
+  /**
+   * @example
+   * 1669274251000
+   */
   cancelTime?: number;
+  /**
+   * @example
+   * 长安 白色
+   */
   carInfo?: string;
+  /**
+   * @example
+   * 601
+   */
   carLevel?: number;
+  /**
+   * @example
+   * 浙AB8888
+   */
   driverCard?: string;
+  /**
+   * @example
+   * 1669274251000
+   */
   driverConfirmTime?: number;
+  /**
+   * @example
+   * 林师傅
+   */
   driverName?: string;
+  /**
+   * @example
+   * 2900
+   */
   estimatePrice?: number;
+  /**
+   * @example
+   * 海宁西站
+   */
   fromAddress?: string;
+  /**
+   * @example
+   * 330100
+   */
   fromCityAdCode?: string;
+  /**
+   * @example
+   * 嘉兴市
+   */
   fromCityName?: string;
+  /**
+   * @example
+   * true
+   */
   isSpecial?: boolean;
+  /**
+   * @example
+   * 拜访客户
+   */
   memo?: string;
+  /**
+   * @example
+   * 1669274251000
+   */
   payTime?: number;
+  /**
+   * @example
+   * 1669274251000
+   */
   publishTime?: number;
+  /**
+   * @example
+   * 海宁西站
+   */
   realFromAddress?: string;
+  /**
+   * @example
+   * 330100
+   */
   realFromCityAdCode?: string;
+  /**
+   * @example
+   * 嘉兴市
+   */
   realFromCityName?: string;
+  /**
+   * @example
+   * 杭州东站
+   */
   realToAddress?: string;
+  /**
+   * @example
+   * 330100
+   */
   realToCityAdCode?: string;
+  /**
+   * @example
+   * 杭州市
+   */
   realToCityName?: string;
+  /**
+   * @example
+   * 3
+   */
   serviceType?: number;
+  /**
+   * @example
+   * v_sp_t_1,v_sp_t_2,v_sp_t_3,v_sp_t_4,v_sp_t_5
+   */
   specialTypes?: string;
+  /**
+   * @example
+   * 1669274251000
+   */
   takenTime?: number;
+  /**
+   * @example
+   * 杭州东站
+   */
   toAddress?: string;
+  /**
+   * @example
+   * 330100
+   */
   toCityAdCode?: string;
+  /**
+   * @example
+   * 杭州市
+   */
   toCityName?: string;
+  /**
+   * @example
+   * 12
+   */
   travelDistance?: string;
   wayPoints?: CarOrderQueryResponseBodyModuleCarInfoWayPoints[];
   static names(): { [key: string]: string } {
@@ -145,7 +273,15 @@ export class CarOrderQueryResponseBodyModuleCarInfo extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * xxxx
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -171,25 +307,105 @@ export class CarOrderQueryResponseBodyModuleInvoiceInfo extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
+  /**
+   * @example
+   * xxxxx
+   */
   applyId?: string;
+  /**
+   * @example
+   * 拜访客户
+   */
   btripCause?: string;
+  /**
+   * @example
+   * 杭州出差
+   */
   btripTitle?: string;
+  /**
+   * @example
+   * 0
+   */
   carOrderSourceType?: number;
+  /**
+   * @example
+   * xxxxxxxx
+   */
   corpId?: string;
+  /**
+   * @example
+   * XX公司
+   */
   corpName?: string;
+  /**
+   * @example
+   * 10101010
+   */
   departId?: string;
+  /**
+   * @example
+   * 部门A
+   */
   departName?: string;
+  /**
+   * @example
+   * 1669274251000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1669274251000
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * xxxxx
+   */
   itineraryId?: string;
+  /**
+   * @example
+   * 1012000000000000
+   */
   orderId?: number;
+  /**
+   * @example
+   * 5
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 100000
+   */
   subOrderId?: number;
+  /**
+   * @example
+   * thirdpart_1010101010
+   */
   thirdDepartId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * 00021230711000001Test-2
+   */
   thirdpartBusinessId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
   thirdpartItineraryId?: string;
+  /**
+   * @example
+   * xxxxxxxx
+   */
   userId?: string;
+  /**
+   * @example
+   * 李四
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -251,16 +467,60 @@ export class CarOrderQueryResponseBodyModuleOrderBaseInfo extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBodyModulePassengerList extends $dara.Model {
+  /**
+   * @example
+   * costId
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * costName
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * costNumber
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * projectCode1
+   */
   projectCode?: string;
+  /**
+   * @example
+   * projectId
+   */
   projectId?: number;
+  /**
+   * @example
+   * 项目A
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * thirdpartCostId
+   */
   thirdpartCostCenterId?: string;
+  /**
+   * @example
+   * thirdpartProjectId
+   */
   thirdpartProjectId?: string;
+  /**
+   * @example
+   * userId
+   */
   userId?: string;
+  /**
+   * @example
+   * 李四
+   */
   userName?: string;
+  /**
+   * @example
+   * 1
+   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -304,12 +564,40 @@ export class CarOrderQueryResponseBodyModulePassengerList extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBodyModulePriceInfoList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   categoryCode?: number;
+  /**
+   * @example
+   * 1669274251000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 4
+   */
   payType?: number;
+  /**
+   * @example
+   * 1000
+   */
   personPrice?: number;
+  /**
+   * @example
+   * 2000
+   */
   price?: number;
+  /**
+   * @example
+   * 1012000000001
+   */
   tradeId?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -395,11 +683,37 @@ export class CarOrderQueryResponseBodyModule extends $dara.Model {
 }
 
 export class CarOrderQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: CarOrderQueryResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

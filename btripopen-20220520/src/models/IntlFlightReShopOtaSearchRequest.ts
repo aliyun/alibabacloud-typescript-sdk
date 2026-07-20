@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightReShopOtaSearchRequestSearchJourneysSelectedFlights extends $dara.Model {
+  /**
+   * @remarks
+   * The three-letter code of the arrival city.
+   * 
+   * @example
+   * MEL
+   */
   arrCityCode?: string;
+  /**
+   * @remarks
+   * The three-letter code of the departure city.
+   * 
+   * @example
+   * HKG
+   */
   depCityCode?: string;
+  /**
+   * @remarks
+   * The departure time. Format: yyyy-MM-dd HH:mm.
+   * 
+   * @example
+   * 2025-12-28 12:00
+   */
   flightTime?: string;
+  /**
+   * @remarks
+   * The marketing flight number.
+   * 
+   * @example
+   * HO3925
+   */
   marketFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +63,34 @@ export class IntlFlightReShopOtaSearchRequestSearchJourneysSelectedFlights exten
 }
 
 export class IntlFlightReShopOtaSearchRequestSearchJourneys extends $dara.Model {
+  /**
+   * @remarks
+   * The three-letter code of the arrival city.
+   * 
+   * @example
+   * MEL
+   */
   arrCityCode?: string;
+  /**
+   * @remarks
+   * The three-letter code of the departure city.
+   * 
+   * @example
+   * HKG
+   */
   depCityCode?: string;
+  /**
+   * @remarks
+   * The departure date. Format: yyyy-MM-dd.
+   * 
+   * @example
+   * 2025-12-28
+   */
   depDate?: string;
+  /**
+   * @remarks
+   * The selected flight information for rebooking.
+   */
   selectedFlights?: IntlFlightReShopOtaSearchRequestSearchJourneysSelectedFlights[];
   static names(): { [key: string]: string } {
     return {
@@ -70,7 +123,21 @@ export class IntlFlightReShopOtaSearchRequestSearchJourneys extends $dara.Model 
 }
 
 export class IntlFlightReShopOtaSearchRequestSelectedPassengers extends $dara.Model {
+  /**
+   * @remarks
+   * The full name of the passenger.
+   * 
+   * @example
+   * ZHANG/SAN
+   */
   fullName?: string;
+  /**
+   * @remarks
+   * The passenger ID.
+   * 
+   * @example
+   * 1000001
+   */
   passengerId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -98,27 +165,69 @@ export class IntlFlightReShopOtaSearchRequestSelectedPassengers extends $dara.Mo
 export class IntlFlightReShopOtaSearchRequest extends $dara.Model {
   /**
    * @remarks
+   * The business travel order ID. This parameter is required.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1017089206331988332
    */
   orderId?: string;
+  /**
+   * @remarks
+   * The external order ID.
+   * 
+   * @example
+   * JP2024071800000002
+   */
   outOrderId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable external polling. When enabled, the external frontend controls polling, which reduces the response time (RT) of a single search. Default value: false.
+   * 
+   * @example
+   * true
+   */
   outWheelSearch?: boolean;
   /**
    * @remarks
+   * The rebooking group key returned by the consultation operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * edcac4f4c79d40ccb141ddb6da567e65
    */
   passengerJourneyGroupKey?: string;
+  /**
+   * @remarks
+   * The rebooking reason code.
+   * 
+   * @example
+   * 0
+   */
   reShopReasonCode?: string;
   /**
    * @remarks
+   * The search journeys. Only pass the journeys to be rebooked.
+   * 
    * This parameter is required.
    */
   searchJourneys?: IntlFlightReShopOtaSearchRequestSearchJourneys[];
   /**
    * @remarks
+   * The list of selected passengers for rebooking.
+   * 
    * This parameter is required.
    */
   selectedPassengers?: IntlFlightReShopOtaSearchRequestSelectedPassengers[];
+  /**
+   * @remarks
+   * The query record token used for external polling.
+   * 
+   * @example
+   * 9960b412-cc05-4d10-b570-93372d816807
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {

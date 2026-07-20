@@ -3,10 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TravelStandardListQueryResponseBodyModuleItemsMainReserveRule extends $dara.Model {
+  /**
+   * @remarks
+   * The list of enabled service categories.
+   */
   openServiceTypeList?: string[];
+  /**
+   * @remarks
+   * The personnel rule code.
+   * 
+   * @example
+   * 2006516571
+   */
   ruleCode?: number;
+  /**
+   * @remarks
+   * The description of the travel standard.
+   * 
+   * @example
+   * 普通员工规则的描述
+   */
   ruleDesc?: string;
+  /**
+   * @remarks
+   * The ID of the primary travel standard.
+   * 
+   * @example
+   * 6516571
+   */
   ruleId?: number;
+  /**
+   * @remarks
+   * The name of the travel standard.
+   * 
+   * @example
+   * 普通员工规则
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,7 +73,21 @@ export class TravelStandardListQueryResponseBodyModuleItemsMainReserveRule exten
 }
 
 export class TravelStandardListQueryResponseBodyModuleItemsReserveRuleDescDataList extends $dara.Model {
+  /**
+   * @remarks
+   * The travel standard description item.
+   * 
+   * @example
+   * 舱等
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the travel standard description item.
+   * 
+   * @example
+   * 经济舱,超级经济舱,公务舱,头等舱
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,8 +113,26 @@ export class TravelStandardListQueryResponseBodyModuleItemsReserveRuleDescDataLi
 }
 
 export class TravelStandardListQueryResponseBodyModuleItemsReserveRuleDesc extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the travel standard.
+   */
   dataList?: TravelStandardListQueryResponseBodyModuleItemsReserveRuleDescDataList[];
+  /**
+   * @remarks
+   * The title of the travel standard detail.
+   * 
+   * @example
+   * 普通员工规则
+   */
   title?: string;
+  /**
+   * @remarks
+   * The category of the travel standard detail.
+   * 
+   * @example
+   * flight
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,8 +163,23 @@ export class TravelStandardListQueryResponseBodyModuleItemsReserveRuleDesc exten
 }
 
 export class TravelStandardListQueryResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @remarks
+   * The primary travel standard information.
+   */
   mainReserveRule?: TravelStandardListQueryResponseBodyModuleItemsMainReserveRule;
+  /**
+   * @remarks
+   * The description of the travel standard.
+   */
   reserveRuleDesc?: TravelStandardListQueryResponseBodyModuleItemsReserveRuleDesc[];
+  /**
+   * @remarks
+   * The applicable personnel scope of the travel standard.
+   * 
+   * @example
+   * 1
+   */
   scope?: number;
   static names(): { [key: string]: string } {
     return {
@@ -134,7 +213,18 @@ export class TravelStandardListQueryResponseBodyModuleItems extends $dara.Model 
 }
 
 export class TravelStandardListQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * The list of travel standards.
+   */
   items?: TravelStandardListQueryResponseBodyModuleItems[];
+  /**
+   * @remarks
+   * The total number of travel standards.
+   * 
+   * @example
+   * 30
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -163,11 +253,50 @@ export class TravelStandardListQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TravelStandardListQueryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * 系统异常
+   */
   message?: string;
+  /**
+   * @remarks
+   * The response data. Returned by the server. An empty value is returned if no results are found or an exception occurs.
+   */
   module?: TravelStandardListQueryResponseBodyModule;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 05F9C201-1B53-5905-94AB-0D7444D8466A
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041aa317070996148671005d0a0b
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

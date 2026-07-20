@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TicketChangingCancelRequest extends $dara.Model {
+  /**
+   * @example
+   * dis123
+   */
   disOrderId?: string;
+  /**
+   * @example
+   * refun123
+   */
   disSubOrderId?: string;
   static names(): { [key: string]: string } {
     return {

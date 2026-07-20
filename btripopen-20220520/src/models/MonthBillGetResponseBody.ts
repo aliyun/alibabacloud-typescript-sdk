@@ -3,19 +3,98 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   billConfirmed?: number;
+  /**
+   * @remarks
+   * 用车金额（单位：元）
+   * 
+   * @example
+   * xx.xx
+   */
   carAmount?: number;
+  /**
+   * @remarks
+   * 违约金金额（单位：元）
+   * 
+   * @example
+   * xx.xx
+   */
   damageAmount?: number;
+  /**
+   * @remarks
+   * 机票金额（单位：元）
+   * 
+   * @example
+   * xx.xx
+   */
   flightAmount?: number;
+  /**
+   * @remarks
+   * 福豆金额（单位：元）
+   * 
+   * @example
+   * xx.xx
+   */
   fuPoint?: number;
+  /**
+   * @remarks
+   * 酒店金额（单位：元）
+   * 
+   * @example
+   * xx.xx
+   */
   hotelAmount?: number;
+  /**
+   * @remarks
+   * 国际机票金额（单位：元）
+   * 
+   * @example
+   * xx.xx
+   */
   ieFlightAmount?: number;
+  /**
+   * @example
+   * 3000.00
+   */
   ieHotelAmount?: number;
+  /**
+   * @remarks
+   * 账期日：YYYYMMDD
+   * 
+   * @example
+   * 20200501
+   */
   mailBillDate?: number;
+  /**
+   * @example
+   * 22.40
+   */
   mealAmount?: number;
   metroAmount?: number;
+  /**
+   * @remarks
+   * 服务费金额（单位：元）
+   * 
+   * @example
+   * xx.xx
+   */
   serviceAmount?: number;
+  /**
+   * @remarks
+   * 火车票金额（单位：元）
+   * 
+   * @example
+   * xx.xx
+   */
   trainAmount?: number;
+  /**
+   * @example
+   * 19.22
+   */
   vasAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -65,9 +144,25 @@ export class MonthBillGetResponseBodyModuleMonthAccountBillDetail extends $dara.
 }
 
 export class MonthBillGetResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2020-04-30
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * CorpMonthAccountBillFeeDetail
+   */
   monthAccountBillDetail?: MonthBillGetResponseBodyModuleMonthAccountBillDetail;
+  /**
+   * @example
+   * 2020-04-01
+   */
   startDate?: string;
+  /**
+   * @example
+   * https://xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,11 +195,31 @@ export class MonthBillGetResponseBodyModule extends $dara.Model {
 }
 
 export class MonthBillGetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: MonthBillGetResponseBodyModule[];
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

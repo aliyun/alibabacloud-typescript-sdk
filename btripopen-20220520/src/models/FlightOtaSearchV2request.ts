@@ -3,16 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightOtaSearchV2RequestSearchJourneysSelectedFlights extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * HGH
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * PKX
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * BJS
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 2023-09-01 07:10:00
+   */
   flightTime?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HO3925
    */
   marketFlightNo?: string;
+  /**
+   * @example
+   * CX601
+   */
   operateFlightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,16 +78,25 @@ export class FlightOtaSearchV2RequestSearchJourneys extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HGH
    */
   arrCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * BJS
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2023-09-01
    */
   depDate?: string;
   /**
@@ -100,12 +136,23 @@ export class FlightOtaSearchV2RequestSearchJourneys extends $dara.Model {
 
 export class FlightOtaSearchV2Request extends $dara.Model {
   cabinTypeList?: number[];
+  /**
+   * @example
+   * true
+   */
   directOnly?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cheshi
    */
   isvName?: string;
+  /**
+   * @example
+   * true
+   */
   needShareFlight?: boolean;
   /**
    * @remarks
@@ -115,11 +162,17 @@ export class FlightOtaSearchV2Request extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   searchMode?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   tripType?: number;
   static names(): { [key: string]: string } {

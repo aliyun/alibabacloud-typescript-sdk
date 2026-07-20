@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddEmployeesToCustomRoleHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * A header parameter obtained from the "Enterprise access token" operation. Add it to the header. In HTTP mode, you can use corp_token=value in the URL as an alternative.
+   * 
+   * @example
+   * feth00jqwls
+   */
   xAcsBtripCorpToken?: string;
   static names(): { [key: string]: string } {
     return {

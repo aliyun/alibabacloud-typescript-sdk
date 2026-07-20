@@ -6,11 +6,17 @@ export class UpdateCustomRoleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12345
    */
   roleId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * XX角色
    */
   roleName?: string;
   static names(): { [key: string]: string } {

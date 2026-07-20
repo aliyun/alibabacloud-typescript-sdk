@@ -3,15 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightCreateOrderRequestContactInfo extends $dara.Model {
+  /**
+   * @example
+   * ******@alibaba-inc.com
+   */
   contactEmail?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   contactName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12312345211
    */
   contactPhone?: string;
   static names(): { [key: string]: string } {
@@ -40,40 +50,88 @@ export class FlightCreateOrderRequestContactInfo extends $dara.Model {
 }
 
 export class FlightCreateOrderRequestTravelerInfoList extends $dara.Model {
+  /**
+   * @example
+   * 2000-00-00
+   */
   birthday?: string;
+  /**
+   * @example
+   * 无
+   */
   certNation?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1262651555151
    */
   certNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   certType?: string;
+  /**
+   * @example
+   * 2000-00-00
+   */
   certValidDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   name?: string;
+  /**
+   * @remarks
+   * 国籍
+   * 
+   * @example
+   * 中国大陆
+   */
   nationality?: string;
+  /**
+   * @remarks
+   * 国籍二字码
+   * 
+   * @example
+   * CN
+   */
   nationalityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1234
    */
   outUserId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12341231232
    */
   phone?: string;
+  /**
+   * @example
+   * 0
+   */
   sex?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -120,17 +178,35 @@ export class FlightCreateOrderRequestTravelerInfoList extends $dara.Model {
 }
 
 export class FlightCreateOrderRequest extends $dara.Model {
+  /**
+   * @example
+   * HGH
+   */
   arrAirportCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * HGH
    */
   arrCityCode?: string;
+  /**
+   * @example
+   * 0
+   */
   autoPay?: number;
+  /**
+   * @example
+   * 张三
+   */
   buyerName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   buyerUniqueKey?: string;
   /**
@@ -138,40 +214,74 @@ export class FlightCreateOrderRequest extends $dara.Model {
    * This parameter is required.
    */
   contactInfo?: FlightCreateOrderRequestContactInfo;
+  /**
+   * @example
+   * PEK
+   */
   depAirportCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * BJS
    */
   depCityCode?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2000-00-00 00:00:00
    */
   depDate?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dis123
    */
   disOrderId?: string;
   orderAttr?: { [key: string]: any };
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1000_1_0
    */
   orderParams?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 7fb731deeb4510b86c17e8c8c25740_11
    */
   otaItemId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1000
    */
   price?: number;
+  /**
+   * @example
+   * 无
+   */
   receiptAddress?: string;
+  /**
+   * @example
+   * 1
+   */
   receiptTarget?: number;
+  /**
+   * @example
+   * 无
+   */
   receiptTitle?: string;
   /**
    * @remarks
@@ -181,6 +291,9 @@ export class FlightCreateOrderRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   tripType?: number;
   static names(): { [key: string]: string } {

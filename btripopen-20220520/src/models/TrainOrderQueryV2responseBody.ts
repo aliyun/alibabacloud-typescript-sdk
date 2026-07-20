@@ -3,33 +3,145 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $dara.Model {
+  /**
+   * @example
+   * 03
+   */
   changeCoachNo?: string;
+  /**
+   * @example
+   * 100
+   */
   changeGapFee?: number;
+  /**
+   * @example
+   * 100
+   */
   changeHandlingFee?: number;
+  /**
+   * @example
+   * 2849819724653209258
+   */
   changeOrderId?: string;
+  /**
+   * @example
+   * 004C
+   */
   changeSeatNo?: string;
+  /**
+   * @example
+   * 二等座
+   */
   changeSeatTypeName?: string;
+  /**
+   * @example
+   * 100
+   */
   changeServiceFee?: number;
+  /**
+   * @example
+   * D103
+   */
   changeTrainNo?: string;
+  /**
+   * @example
+   * 高铁
+   */
   changeTrainTypeName?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   checkInTime?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   checkOutTime?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 北京
+   */
   fromCityName?: string;
+  /**
+   * @example
+   * 北京
+   */
   fromStationName?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * CS987JKDF
+   */
   originTicketNo?: string;
+  /**
+   * @example
+   * m
+   */
   outTicketStatus?: string;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
+  /**
+   * @example
+   * ECW0603604
+   */
   shortTicketNo?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 2B
+   */
   ticketEntrance?: string;
+  /**
+   * @example
+   * CS987JKDF
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * 1
+   */
   ticketStatus?: number;
+  /**
+   * @example
+   * 上海
+   */
   toCityName?: string;
+  /**
+   * @example
+   * 上海
+   */
   toStationName?: string;
+  /**
+   * @example
+   * 0
+   */
   useTicket?: string;
+  /**
+   * @example
+   * 12312
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,7 +219,15 @@ export class TrainOrderQueryV2ResponseBodyModuleChangeTicketInfoList extends $da
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleInvoiceInfo extends $dara.Model {
+  /**
+   * @example
+   * 3815504
+   */
   id?: number;
+  /**
+   * @example
+   * 抬头发票
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -133,29 +253,125 @@ export class TrainOrderQueryV2ResponseBodyModuleInvoiceInfo extends $dara.Model 
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $dara.Model {
+  /**
+   * @example
+   * 1003784135
+   */
   applyId?: string;
+  /**
+   * @example
+   * 杭州出差
+   */
   btripTitle?: string;
+  /**
+   * @example
+   * 张三
+   */
   contactName?: string;
+  /**
+   * @example
+   * 12110002222
+   */
   contactPhone?: string;
+  /**
+   * @example
+   * btripsy4yd7v0gdpdntpp
+   */
   corpId?: string;
+  /**
+   * @example
+   * 阿里商旅
+   */
   corpName?: string;
+  /**
+   * @example
+   * 部门id
+   */
   departId?: string;
+  /**
+   * @example
+   * 行政部
+   */
   departName?: string;
+  /**
+   * @example
+   * 1422113021033961000
+   */
   exceedApplyId?: string;
+  /**
+   * @example
+   * 1422113021033961000
+   */
   exceedThirdpartApplyId?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * 42942924
+   */
   itineraryId?: string;
+  /**
+   * @example
+   * 2849819724653209258
+   */
   orderId?: number;
+  /**
+   * @example
+   * 4
+   */
   orderStatus?: number;
+  /**
+   * @example
+   * 2849819724653209258
+   */
   replenishOrderIds?: string;
+  /**
+   * @example
+   * 2849819724653209258
+   */
   replenishOriginalOrderId?: string;
+  /**
+   * @example
+   * 00021230721000002Test-2
+   */
   thirdPartBusinessId?: string;
+  /**
+   * @example
+   * 01-2023-01214
+   */
   thirdpartApplyId?: string;
+  /**
+   * @example
+   * DHDI2209141OEGHWRN
+   */
   thirdpartDepartId?: string;
+  /**
+   * @example
+   * CS-FLIGHT
+   */
   thirdpartItineraryId?: string;
+  /**
+   * @example
+   * 0
+   */
   tripType?: number;
+  /**
+   * @example
+   * 1231212
+   */
   userId?: string;
+  /**
+   * @example
+   * 昵称
+   */
   userNick?: string;
   static names(): { [key: string]: string } {
     return {
@@ -225,16 +441,60 @@ export class TrainOrderQueryV2ResponseBodyModuleOrderBaseInfo extends $dara.Mode
 }
 
 export class TrainOrderQueryV2ResponseBodyModulePassengerInfoList extends $dara.Model {
+  /**
+   * @example
+   * 11564
+   */
   costCenterId?: number;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenterName?: string;
+  /**
+   * @example
+   * CS-3345
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * CS-PROJECT
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 133576
+   */
   projectId?: number;
+  /**
+   * @example
+   * 测试项目
+   */
   projectTitle?: string;
+  /**
+   * @example
+   * CS-KDISL
+   */
   thirdpartCostCenterId?: string;
+  /**
+   * @example
+   * CS-22562
+   */
   thirdpartProjectId?: string;
+  /**
+   * @example
+   * 1231231
+   */
   userId?: string;
+  /**
+   * @example
+   * 张三
+   */
   userName?: string;
+  /**
+   * @example
+   * 0
+   */
   userType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -278,12 +538,40 @@ export class TrainOrderQueryV2ResponseBodyModulePassengerInfoList extends $dara.
 }
 
 export class TrainOrderQueryV2ResponseBodyModulePriceInfoList extends $dara.Model {
+  /**
+   * @example
+   * 6
+   */
   categoryCode?: number;
+  /**
+   * @example
+   * 1669344020
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 张三/李四
+   */
   passengerName?: string;
+  /**
+   * @example
+   * 4
+   */
   payType?: number;
+  /**
+   * @example
+   * 176000
+   */
   price?: number;
+  /**
+   * @example
+   * 12345678910987654321
+   */
   tradeId?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -319,12 +607,40 @@ export class TrainOrderQueryV2ResponseBodyModulePriceInfoList extends $dara.Mode
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleRefundTicketInfoList extends $dara.Model {
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * 284981
+   */
   refundApplyId?: string;
+  /**
+   * @example
+   * 10
+   */
   refundFee?: number;
+  /**
+   * @example
+   * 10
+   */
   refundServiceFee?: number;
+  /**
+   * @example
+   * CS987JKDF
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * 1231231
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -360,27 +676,115 @@ export class TrainOrderQueryV2ResponseBodyModuleRefundTicketInfoList extends $da
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrainTicketInfos extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   changed?: boolean;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   checkInTime?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   checkOutTime?: string;
+  /**
+   * @example
+   * 01
+   */
   coachNo?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   gmtModify?: string;
+  /**
+   * @example
+   * 1
+   */
   outTicketStatus?: string;
+  /**
+   * @example
+   * 2
+   */
   payType?: number;
+  /**
+   * @example
+   * 02A
+   */
   seatNo?: string;
+  /**
+   * @example
+   * 硬座
+   */
   seatTypeName?: string;
+  /**
+   * @example
+   * 0
+   */
   segmentIndex?: number;
+  /**
+   * @example
+   * 100
+   */
   serviceFee?: number;
+  /**
+   * @example
+   * ECW0603604
+   */
   shortTicketNo?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 2B
+   */
   ticketEntrance?: string;
+  /**
+   * @example
+   * ew123121
+   */
   ticketNo?: string;
+  /**
+   * @example
+   * 400
+   */
   ticketPrice?: number;
+  /**
+   * @example
+   * 1
+   */
   ticketStatus?: number;
+  /**
+   * @example
+   * 高铁
+   */
   trainTypeName?: string;
+  /**
+   * @example
+   * 0
+   */
   useTicket?: string;
+  /**
+   * @example
+   * 231212
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -446,20 +850,83 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrain
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList extends $dara.Model {
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   arrTime?: string;
+  /**
+   * @example
+   * 2022-05-15T22:27Z
+   */
   depTime?: string;
+  /**
+   * @example
+   * 330100
+   */
   fromCityAdCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   fromCityName?: string;
+  /**
+   * @example
+   * 北京
+   */
   fromStationName?: string;
+  /**
+   * @remarks
+   * itemId
+   * 
+   * @example
+   * 12312
+   */
   itemId?: number;
+  /**
+   * @example
+   * 120
+   */
   runTime?: number;
+  /**
+   * @example
+   * 330127
+   */
   subFromCityAdCode?: string;
+  /**
+   * @example
+   * 淳安
+   */
   subFromCityAdName?: string;
+  /**
+   * @example
+   * 330483
+   */
   subToCityCode?: string;
+  /**
+   * @example
+   * 桐乡
+   */
   subToCityName?: string;
+  /**
+   * @example
+   * 330100
+   */
   toCityAdCode?: string;
+  /**
+   * @example
+   * 上海
+   */
   toCityName?: string;
+  /**
+   * @example
+   * 上海
+   */
   toStationName?: string;
+  /**
+   * @example
+   * D11
+   */
   trainNo?: string;
   trainTicketInfos?: TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoListTrainTicketInfos[];
   static names(): { [key: string]: string } {
@@ -517,26 +984,110 @@ export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList exte
 }
 
 export class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   costTime?: string;
+  /**
+   * @example
+   * 2022-11-15 00:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 330100
+   */
   fromCityAdCode?: string;
+  /**
+   * @example
+   * 北京
+   */
   fromCityName?: string;
+  /**
+   * @example
+   * 北京
+   */
   fromStationName?: string;
+  /**
+   * @example
+   * 杭州
+   */
   middleCity?: string;
+  /**
+   * @example
+   * 330100
+   */
   middleCityAdCode?: string;
+  /**
+   * @example
+   * 2023-01-29 18:10:00
+   */
   middleDate?: string;
+  /**
+   * @example
+   * 杭州南
+   */
   middleStation?: string;
+  /**
+   * @example
+   * 同站
+   */
   middleType?: string;
+  /**
+   * @example
+   * 2022-11-01 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * 330127
+   */
   subFromCityAdCode?: string;
+  /**
+   * @example
+   * 淳安
+   */
   subFromCityAdName?: string;
+  /**
+   * @example
+   * 330127
+   */
   subMiddleCityCode?: string;
+  /**
+   * @example
+   * 淳安
+   */
   subMiddleCityName?: string;
+  /**
+   * @example
+   * 330483
+   */
   subToCityCode?: string;
+  /**
+   * @example
+   * 桐乡
+   */
   subToCityName?: string;
+  /**
+   * @example
+   * 330100
+   */
   toCityAdCode?: string;
+  /**
+   * @example
+   * 上海
+   */
   toCityName?: string;
+  /**
+   * @example
+   * 上海
+   */
   toStationName?: string;
+  /**
+   * @example
+   * 60
+   */
   waitTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -694,11 +1245,37 @@ export class TrainOrderQueryV2ResponseBodyModule extends $dara.Model {
 }
 
 export class TrainOrderQueryV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: TrainOrderQueryV2ResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 1213ds1d
+   */
   requestId?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 123412dcdsac sd
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

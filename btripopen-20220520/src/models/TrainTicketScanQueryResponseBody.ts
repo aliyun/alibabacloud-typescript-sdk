@@ -3,38 +3,176 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @example
+   * sdasdas123324
+   */
   applyId?: string;
+  /**
+   * @example
+   * 杭州东
+   */
   arrStation?: string;
+  /**
+   * @example
+   * 2022-12-01
+   */
   billDate?: string;
+  /**
+   * @example
+   * 04车
+   */
   coachName?: string;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenter?: string;
+  /**
+   * @example
+   * 上海虹桥
+   */
   depStation?: string;
+  /**
+   * @example
+   * 2023-01-12 10:00:00
+   */
   depTime?: string;
+  /**
+   * @example
+   * 测试公司-测试部门
+   */
   department?: string;
+  /**
+   * @example
+   * 7647889000001X1
+   */
   electronicTicketNo?: string;
+  /**
+   * @example
+   * 1
+   */
   feeTypeShowCode?: number;
+  /**
+   * @example
+   * true
+   */
   hasChanged?: boolean;
+  /**
+   * @example
+   * 71
+   */
   id?: string;
+  /**
+   * @example
+   * 2025-04-07 00:00:00
+   */
   invoiceDate?: string;
+  /**
+   * @example
+   * 1
+   */
   invoiceMaterial?: number;
+  /**
+   * @example
+   * 测试发票抬头
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   ofdUrl?: string;
+  /**
+   * @example
+   * 3137168772101111000
+   */
   orderId?: number;
+  /**
+   * @example
+   * 112435451313
+   */
   originTicketNo?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   ossUrl?: string;
+  /**
+   * @example
+   * 张三
+   */
   passenger?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   pdfUrl?: string;
+  /**
+   * @example
+   * 100
+   */
   price?: string;
+  /**
+   * @example
+   * 测试项目名称
+   */
   project?: string;
+  /**
+   * @example
+   * 测试购方抬头
+   */
   purchaserName?: string;
+  /**
+   * @example
+   * 91441111111111111S
+   */
   purchaserTaxNo?: string;
+  /**
+   * @example
+   * 二等座
+   */
   seat?: string;
+  /**
+   * @example
+   * 10C号
+   */
   seatNo?: string;
+  /**
+   * @example
+   * 30671211200127U123456
+   */
   serialNumber?: string;
+  /**
+   * @example
+   * 8.26
+   */
   taxAmount?: string;
+  /**
+   * @example
+   * 9%
+   */
   taxRate?: string;
+  /**
+   * @remarks
+   * 取票号
+   * 
+   * @example
+   * 784-1111111111
+   */
   ticketNo?: string;
+  /**
+   * @remarks
+   * 车次
+   * 
+   * @example
+   * G99
+   */
   trainNo?: string;
+  /**
+   * @example
+   * https://www.testurl.com
+   */
   xmlUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,9 +261,25 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
 
 export class TrainTicketScanQueryResponseBodyModule extends $dara.Model {
   items?: TrainTicketScanQueryResponseBodyModuleItems[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2
+   */
   totalPage?: number;
+  /**
+   * @example
+   * 30
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -160,11 +314,37 @@ export class TrainTicketScanQueryResponseBodyModule extends $dara.Model {
 }
 
 export class TrainTicketScanQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: TrainTicketScanQueryResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

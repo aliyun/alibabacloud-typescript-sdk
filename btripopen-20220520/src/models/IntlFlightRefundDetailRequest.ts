@@ -6,13 +6,27 @@ export class IntlFlightRefundDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1002145190081005400
    */
   orderId?: string;
+  /**
+   * @example
+   * 40820102379649052
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 202503251022170001
+   */
   outRefundApplyId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1000000004605026
    */
   refundApplyId?: string;
   static names(): { [key: string]: string } {

@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightCreateOrderV2ShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 异步下单key
+   */
   asyncCreateOrderKey?: string;
+  /**
+   * @example
+   * false
+   */
   asyncCreateOrderMode?: boolean;
+  /**
+   * @example
+   * ali_00001
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 云妹
+   */
   buyerName?: string;
   /**
    * @remarks
@@ -15,18 +31,31 @@ export class FlightCreateOrderV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cheshiapi
    */
   isvName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 7fb731deeb4510b86c17e8c8c25740_11
    */
   otaItemId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 外部订单号
    */
   outOrderId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalPriceCent?: number;
   /**
    * @remarks

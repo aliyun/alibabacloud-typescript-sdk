@@ -6,19 +6,40 @@ export class CommonApplySyncRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1003366164
    */
   applyId?: number;
+  /**
+   * @example
+   * 3
+   */
   bizCategory?: number;
+  /**
+   * @example
+   * 同意
+   */
   remark?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   status?: number;
+  /**
+   * @example
+   * asfa
+   */
   thirdpartyFlowId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   userId?: string;
   static names(): { [key: string]: string } {

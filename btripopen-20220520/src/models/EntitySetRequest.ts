@@ -6,11 +6,17 @@ export class EntitySetRequestEntityDOList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   entityId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   entityType?: string;
   static names(): { [key: string]: string } {
@@ -41,6 +47,9 @@ export class EntitySetRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 340049
    */
   thirdpartId?: string;
   static names(): { [key: string]: string } {

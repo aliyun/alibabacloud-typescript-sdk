@@ -3,32 +3,99 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEmployeeShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * j*********@example.com
+   */
   accountEmail?: string;
+  /**
+   * @example
+   * +86-18812345678
+   */
   accountPhone?: string;
   attribute?: string;
+  /**
+   * @example
+   * https://static-legacy.dingtalk.com/media/lADPF8XMoxJeUkbNA2LNA5s_923_866.jpg
+   */
   avatar?: string;
   baseCityCodeListShrink?: string;
   baseLocationListShrink?: string;
+  /**
+   * @example
+   * 2000-01-02
+   */
   birthday?: string;
   certListShrink?: string;
   customRoleCodeListShrink?: string;
+  /**
+   * @example
+   * 123@163.com
+   */
   email?: string;
+  /**
+   * @example
+   * F
+   */
   gender?: string;
+  /**
+   * @example
+   * false
+   */
   isAdmin?: boolean;
+  /**
+   * @example
+   * false
+   */
   isBoss?: boolean;
+  /**
+   * @example
+   * false
+   */
   isDeptLeader?: boolean;
+  /**
+   * @example
+   * 1001
+   */
   jobNo?: string;
+  /**
+   * @example
+   * user456
+   */
   managerUserId?: string;
   outDeptIdListShrink?: string;
+  /**
+   * @example
+   * 13111111111
+   */
   phone?: string;
+  /**
+   * @example
+   * M4
+   */
   positionLevel?: string;
+  /**
+   * @example
+   * 张三
+   */
   realName?: string;
+  /**
+   * @example
+   * John/Wilson
+   */
   realNameEn?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * user123
    */
   userId?: string;
+  /**
+   * @example
+   * 小明
+   */
   userNick?: string;
   static names(): { [key: string]: string } {
     return {

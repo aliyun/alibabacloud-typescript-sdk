@@ -6,6 +6,9 @@ export class DeleteCustomRoleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12345
    */
   roleId?: string;
   static names(): { [key: string]: string } {

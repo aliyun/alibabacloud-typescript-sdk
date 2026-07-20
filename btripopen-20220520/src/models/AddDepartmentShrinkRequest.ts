@@ -6,14 +6,24 @@ export class AddDepartmentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 系统研发部
    */
   deptName?: string;
   managerEmployeeIdListShrink?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * dept123
    */
   outDeptId?: string;
+  /**
+   * @example
+   * dept456
+   */
   outDeptPid?: string;
   static names(): { [key: string]: string } {
     return {

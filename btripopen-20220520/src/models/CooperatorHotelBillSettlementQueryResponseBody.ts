@@ -3,111 +3,535 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @example
+   * 2025-01-01 00:00:00
+   */
   adjustTime?: string;
+  /**
+   * @example
+   * 124
+   */
   alipayTradeNo?: string;
+  /**
+   * @example
+   * 123
+   */
   applyArrCityCode?: string;
+  /**
+   * @example
+   * 西安
+   */
   applyArrCityName?: string;
+  /**
+   * @example
+   * 123
+   */
   applyDepCityCode?: string;
+  /**
+   * @example
+   * 杭州
+   */
   applyDepCityName?: string;
+  /**
+   * @example
+   * 无
+   */
   applyExtendField?: string;
+  /**
+   * @example
+   * sdasdas123324
+   */
   applyId?: string;
+  /**
+   * @example
+   * 123@gmail.com
+   */
   approverEmail?: string;
+  /**
+   * @example
+   * 11
+   */
   approverId?: string;
+  /**
+   * @example
+   * 张三
+   */
   approverName?: string;
+  /**
+   * @example
+   * 1.0
+   */
   averageNights?: number;
+  /**
+   * @example
+   * 杭州
+   */
   baseLocation?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   billRecordTime?: string;
+  /**
+   * @example
+   * PC端
+   */
   bookChannel?: string;
+  /**
+   * @example
+   * 线上预定
+   */
   bookMode?: string;
+  /**
+   * @example
+   * 无
+   */
   bookReason?: string;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   bookTime?: string;
+  /**
+   * @example
+   * 123
+   */
   bookerId?: string;
+  /**
+   * @example
+   * zs123
+   */
   bookerJobNo?: string;
+  /**
+   * @example
+   * 张三
+   */
   bookerName?: string;
+  /**
+   * @example
+   * 万豪
+   */
   brandGroup?: string;
+  /**
+   * @example
+   * 万豪
+   */
   brandName?: string;
+  /**
+   * @example
+   * 采购
+   */
   businessTripResult?: string;
+  /**
+   * @example
+   * 支出
+   */
   capitalDirection?: string;
+  /**
+   * @example
+   * 技术部-开发部
+   */
   cascadeDepartment?: string;
+  /**
+   * @example
+   * 国内酒店
+   */
   categoryDesc?: string;
+  /**
+   * @example
+   * 2024-02-13
+   */
   checkInDate?: string;
+  /**
+   * @example
+   * 2024-02-15
+   */
   checkoutDate?: string;
+  /**
+   * @example
+   * 西安
+   */
   city?: string;
+  /**
+   * @example
+   * 330100
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 西安
+   */
   cityCounty?: string;
+  /**
+   * @example
+   * 330100
+   */
   cityCountyCode?: number;
+  /**
+   * @example
+   * IN240102113438277278
+   */
   cooperatorBillCode?: string;
+  /**
+   * @example
+   * 阿里商旅
+   */
   cooperatorName?: string;
+  /**
+   * @example
+   * HO20240125162800280928
+   */
   cooperatorOrderId?: string;
+  /**
+   * @example
+   * 0.1
+   */
   corpRefundFee?: number;
+  /**
+   * @example
+   * 100.0
+   */
   corpTotalFee?: number;
+  /**
+   * @example
+   * 测试成本中心
+   */
   costCenter?: string;
+  /**
+   * @example
+   * 123
+   */
   costCenterNumber?: string;
+  /**
+   * @example
+   * code1
+   */
   costDepartment?: string;
+  /**
+   * @example
+   * "{\\"key1\\":\\"value1\\",\\"key2\\":\\"value2\\",\\"key3\\":\\"value3\\"}"
+   */
   customContent?: string;
+  /**
+   * @example
+   * 开发部
+   */
   department?: string;
+  /**
+   * @example
+   * 123
+   */
   departmentId?: string;
+  /**
+   * @example
+   * 无
+   */
   exceedReason?: string;
+  /**
+   * @example
+   * 酒店预订
+   */
   feeType?: string;
+  /**
+   * @example
+   * 赔付
+   */
   feeTypeDesc?: string;
+  /**
+   * @example
+   * 10.0
+   */
   fees?: number;
+  /**
+   * @example
+   * 1.0
+   */
   fines?: number;
+  /**
+   * @example
+   * 否
+   */
   foreignersTag?: string;
+  /**
+   * @example
+   * 10.0
+   */
   fuPointFee?: number;
+  /**
+   * @example
+   * 商旅酒店
+   */
   hotelName?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * 测试发票抬头
+   */
   invoiceTitle?: string;
+  /**
+   * @example
+   * 否
+   */
   isEarlyDeparture?: string;
+  /**
+   * @example
+   * 否
+   */
   isNegotiation?: string;
+  /**
+   * @example
+   * 否
+   */
   isShareStr?: string;
+  /**
+   * @example
+   * 新加坡
+   */
   location?: string;
+  /**
+   * @example
+   * q1
+   */
   mappingCompanyCode?: string;
+  /**
+   * @example
+   * 2
+   */
   nights?: number;
+  /**
+   * @example
+   * 3137168772101111000
+   */
   orderId?: string;
+  /**
+   * @example
+   * 100.0
+   */
   orderPrice?: number;
+  /**
+   * @example
+   * 预订成功
+   */
   orderStatusDesc?: string;
+  /**
+   * @example
+   * 面付
+   */
   orderType?: string;
+  /**
+   * @example
+   * 123
+   */
   overApplyId?: string;
+  /**
+   * @example
+   * 123
+   */
   paymentDepartmentId?: string;
+  /**
+   * @example
+   * 开发部
+   */
   paymentDepartmentName?: string;
+  /**
+   * @example
+   * 0.1
+   */
   personRefundFee?: number;
+  /**
+   * @example
+   * 10.0
+   */
   personSettlePrice?: number;
+  /**
+   * @example
+   * 开发
+   */
   position?: string;
+  /**
+   * @example
+   * 初级
+   */
   positionLevel?: string;
+  /**
+   * @example
+   * 72328485
+   */
   primaryId?: number;
+  /**
+   * @example
+   * www123
+   */
   processorOaCode?: string;
+  /**
+   * @example
+   * acs
+   */
   projectCode?: string;
+  /**
+   * @example
+   * 测试项目名称
+   */
   projectName?: string;
+  /**
+   * @example
+   * 0.0
+   */
   promotionFee?: number;
+  /**
+   * @example
+   * 测试单
+   */
   remark?: string;
+  /**
+   * @example
+   * 10
+   */
   reserveRule?: number;
+  /**
+   * @example
+   * 房间1
+   */
   roomNo?: string;
+  /**
+   * @example
+   * 1
+   */
   roomNumber?: number;
+  /**
+   * @example
+   * 105.0
+   */
   roomPrice?: number;
+  /**
+   * @example
+   * 大床房
+   */
   roomType?: string;
+  /**
+   * @example
+   * 5.0
+   */
   serviceFee?: number;
+  /**
+   * @example
+   * 企业月结
+   */
   settleTypeDesc?: string;
+  /**
+   * @example
+   * 110.0
+   */
   settlementFee?: number;
+  /**
+   * @example
+   * 0.0
+   */
   settlementGrantFee?: number;
+  /**
+   * @example
+   * 2023-01-01 00:00:00
+   */
   settlementTime?: string;
+  /**
+   * @example
+   * 企业月结
+   */
   settlementType?: string;
+  /**
+   * @example
+   * SIO
+   */
   sio?: string;
+  /**
+   * @example
+   * 一星级
+   */
   star?: string;
+  /**
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @example
+   * 入账成功
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * 166564408
+   */
   subOrderId?: string;
+  /**
+   * @example
+   * 9%
+   */
   taxRate?: string;
+  /**
+   * @example
+   * 1
+   */
   thirdInvoiceId?: string;
+  /**
+   * @example
+   * 123
+   */
   thirdItineraryId?: string;
+  /**
+   * @example
+   * 2
+   */
   totalNights?: number;
+  /**
+   * @example
+   * 支出
+   */
   tradeActionDesc?: string;
+  /**
+   * @example
+   * 123@gmail.com
+   */
   travelerEmail?: string;
+  /**
+   * @example
+   * 123
+   */
   travelerId?: string;
+  /**
+   * @example
+   * zs123
+   */
   travelerJobNo?: string;
+  /**
+   * @example
+   * 内部员工
+   */
   travelerMemberType?: string;
+  /**
+   * @example
+   * 内部员工
+   */
   travelerMemberTypeName?: string;
+  /**
+   * @example
+   * 张三
+   */
   travelerName?: string;
+  /**
+   * @example
+   * 1
+   */
   voucherType?: number;
+  /**
+   * @example
+   * 增值税发票
+   */
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -341,12 +765,36 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
 }
 
 export class CooperatorHotelBillSettlementQueryResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
   category?: number;
+  /**
+   * @example
+   * open12ilgngll7us7v10Bm5UlMg700
+   */
   corpId?: string;
   items?: CooperatorHotelBillSettlementQueryResponseBodyModuleItems[];
+  /**
+   * @example
+   * 2021-10-14
+   */
   periodEnd?: string;
+  /**
+   * @example
+   * 2021-10-13
+   */
   periodStart?: string;
+  /**
+   * @example
+   * 1qwe
+   */
   scrollId?: string;
+  /**
+   * @example
+   * 30
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -385,11 +833,37 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModule extends $dara.
 }
 
 export class CooperatorHotelBillSettlementQueryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: CooperatorHotelBillSettlementQueryResponseBodyModule;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * traceId
+   * 
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

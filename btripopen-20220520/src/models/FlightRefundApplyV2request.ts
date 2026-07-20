@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundApplyV2RequestPassengerSegmentRelations extends $dara.Model {
+  /**
+   * @example
+   * 1075004
+   */
   passengerId?: string;
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -32,17 +36,57 @@ export class FlightRefundApplyV2RequestPassengerSegmentRelations extends $dara.M
 }
 
 export class FlightRefundApplyV2Request extends $dara.Model {
+  /**
+   * @example
+   * name
+   */
   isvName?: string;
+  /**
+   * @example
+   * 1683901850297448082
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1017002195370467137
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 1019195836916039
+   */
   outSubOrderId?: string;
   passengerSegmentRelations?: FlightRefundApplyV2RequestPassengerSegmentRelations[];
+  /**
+   * @example
+   * 2
+   */
   preCalType?: number;
+  /**
+   * @example
+   * 我要改变行程计划、我不想飞
+   */
   refundReason?: string;
+  /**
+   * @example
+   * 2
+   */
   refundReasonType?: number;
   ticketNos?: string[];
+  /**
+   * @example
+   * 10000
+   */
   totalRefundPrice?: number;
+  /**
+   * @example
+   * 退票附件地址
+   */
   uploadPictUrls?: string;
+  /**
+   * @example
+   * true
+   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {

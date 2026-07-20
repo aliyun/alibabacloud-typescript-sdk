@@ -6,11 +6,17 @@ export class EntityDeleteRequestEntityDOList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   entityId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   entityType?: string;
   static names(): { [key: string]: string } {
@@ -40,12 +46,18 @@ export class EntityDeleteRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * true
    */
   delAll?: boolean;
   entityDOList?: EntityDeleteRequestEntityDOList[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 12345
    */
   thirdpartId?: string;
   static names(): { [key: string]: string } {

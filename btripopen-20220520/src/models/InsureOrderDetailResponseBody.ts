@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsureOrderDetailResponseBodyModuleApplicant extends $dara.Model {
+  /**
+   * @example
+   * 张三
+   */
   certName?: string;
+  /**
+   * @example
+   * 3300000000000
+   */
   certNo?: string;
+  /**
+   * @example
+   * 100
+   */
   certType?: string;
+  /**
+   * @example
+   * 13000000000
+   */
   phone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,14 +51,50 @@ export class InsureOrderDetailResponseBodyModuleApplicant extends $dara.Model {
 }
 
 export class InsureOrderDetailResponseBodyModuleInsureOrderDetailListInsureSegment extends $dara.Model {
+  /**
+   * @example
+   * TYN
+   */
   arrAirportCode?: string;
+  /**
+   * @example
+   * HYN
+   */
   arrCity?: string;
+  /**
+   * @example
+   * SYX
+   */
   arrCityCode?: string;
+  /**
+   * @example
+   * 2023-10-11 11:30:00
+   */
   arrTime?: string;
+  /**
+   * @example
+   * TYN
+   */
   depAirportCode?: string;
+  /**
+   * @example
+   * CTU
+   */
   depCity?: string;
+  /**
+   * @example
+   * LXA
+   */
   depCityCode?: string;
+  /**
+   * @example
+   * 2023-10-11 11:30:00
+   */
   depTime?: string;
+  /**
+   * @example
+   * CZ3501
+   */
   flightNo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,12 +134,40 @@ export class InsureOrderDetailResponseBodyModuleInsureOrderDetailListInsureSegme
 }
 
 export class InsureOrderDetailResponseBodyModuleInsureOrderDetailListInsured extends $dara.Model {
+  /**
+   * @example
+   * 1983-11-25
+   */
   birthday?: string;
+  /**
+   * @example
+   * 100001
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 张三
+   */
   certName?: string;
+  /**
+   * @example
+   * 30000000000
+   */
   certNo?: string;
+  /**
+   * @example
+   * 100
+   */
   certType?: string;
+  /**
+   * @example
+   * F
+   */
   gender?: string;
+  /**
+   * @example
+   * 130000000
+   */
   phone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,17 +203,57 @@ export class InsureOrderDetailResponseBodyModuleInsureOrderDetailListInsured ext
 }
 
 export class InsureOrderDetailResponseBodyModuleInsureOrderDetailList extends $dara.Model {
+  /**
+   * @example
+   * 2023-10-12 10:00:00
+   */
   effectiveEndTime?: string;
+  /**
+   * @example
+   * 2023-10-11 10:00:00
+   */
   effectiveStartTime?: string;
   insureSegment?: InsureOrderDetailResponseBodyModuleInsureOrderDetailListInsureSegment;
+  /**
+   * @example
+   * 2023-10-11 11:30:00
+   */
   insureTime?: string;
   insured?: InsureOrderDetailResponseBodyModuleInsureOrderDetailListInsured;
+  /**
+   * @example
+   * 1021000196440356922
+   */
   outSubInsOrderId?: string;
+  /**
+   * @example
+   * 22222222222
+   */
   policyNo?: string;
+  /**
+   * @example
+   * 30
+   */
   price?: number;
+  /**
+   * @example
+   * 国内航空意外险
+   */
   productName?: string;
+  /**
+   * @example
+   * 008801.accident.flight.104000
+   */
   productNo?: string;
+  /**
+   * @example
+   * CLOSED
+   */
   status?: string;
+  /**
+   * @example
+   * 1021000196440356901
+   */
   subInsOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -186,8 +306,16 @@ export class InsureOrderDetailResponseBodyModuleInsureOrderDetailList extends $d
 
 export class InsureOrderDetailResponseBodyModule extends $dara.Model {
   applicant?: InsureOrderDetailResponseBodyModuleApplicant;
+  /**
+   * @example
+   * 1021000196440356901
+   */
   insOrderId?: string;
   insureOrderDetailList?: InsureOrderDetailResponseBodyModuleInsureOrderDetailList[];
+  /**
+   * @example
+   * CLOSED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -223,11 +351,31 @@ export class InsureOrderDetailResponseBodyModule extends $dara.Model {
 }
 
 export class InsureOrderDetailResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: InsureOrderDetailResponseBodyModule;
+  /**
+   * @example
+   * 4498BDAB-2AAF-5B6F-942A-3C1C935345C9
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

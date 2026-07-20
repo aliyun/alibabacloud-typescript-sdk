@@ -6,6 +6,9 @@ export class ElectronicItineraryGetApplyResultRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0c7d5944608943479a9a4d40c1eec618
    */
   batchApplyNo?: string;
   static names(): { [key: string]: string } {

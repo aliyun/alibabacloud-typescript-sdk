@@ -6,11 +6,17 @@ export class TravelStandardRelateAddRequestAddList extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 667104628
    */
   entityId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 3
    */
   entityType?: string;
   static names(): { [key: string]: string } {
@@ -38,10 +44,17 @@ export class TravelStandardRelateAddRequestAddList extends $dara.Model {
 
 export class TravelStandardRelateAddRequest extends $dara.Model {
   addList?: TravelStandardRelateAddRequestAddList[];
+  /**
+   * @example
+   * false
+   */
   fromGroup?: boolean;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 6516571
    */
   ruleId?: number;
   static names(): { [key: string]: string } {

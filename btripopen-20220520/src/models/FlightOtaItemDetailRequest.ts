@@ -6,14 +6,28 @@ export class FlightOtaItemDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cheshi
    */
   isvName?: string;
+  /**
+   * @example
+   * 1017060204732105050
+   */
   orderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 68cdc6b37c87484c98b479b49306ffbb_0
    */
   otaItemId?: string;
+  /**
+   * @example
+   * 3814233628483219456
+   */
   outOrderId?: string;
   static names(): { [key: string]: string } {
     return {

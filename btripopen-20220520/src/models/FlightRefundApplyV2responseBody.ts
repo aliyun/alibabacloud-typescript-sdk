@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundApplyV2ResponseBodyModule extends $dara.Model {
+  /**
+   * @example
+   * 1683901850297448200
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1017002195370467200
+   */
   outOrderId?: string;
+  /**
+   * @example
+   * 1019195836916039
+   */
   outSubOrderId?: string;
+  /**
+   * @example
+   * 1000000000297003
+   */
   subOrderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,11 +51,31 @@ export class FlightRefundApplyV2ResponseBodyModule extends $dara.Model {
 }
 
 export class FlightRefundApplyV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 成功
+   */
   message?: string;
   module?: FlightRefundApplyV2ResponseBodyModule;
+  /**
+   * @example
+   * 407543AF-2BD9-5890-BD92-9D1AB7218B27
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {

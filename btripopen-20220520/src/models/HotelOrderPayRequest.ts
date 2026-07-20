@@ -6,28 +6,51 @@ export class HotelOrderPayRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1002202194207077022
    */
   btripOrderId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 23918781
    */
   btripUserId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100
    */
   companyPayFee?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100
    */
   personPayFee?: number;
+  /**
+   * @example
+   * demo
+   */
   thirdPayAccount?: string;
+  /**
+   * @example
+   * demo
+   */
   thirdTradeNo?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100
    */
   totalPrice?: number;
   static names(): { [key: string]: string } {

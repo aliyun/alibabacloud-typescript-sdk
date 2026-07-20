@@ -3,12 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GroupUserSaveShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 123456,654321
+   */
   baseCityCode?: string;
+  /**
+   * @example
+   * 1999-03-12
+   */
   birthday?: string;
   certListShrink?: string;
+  /**
+   * @example
+   * M
+   */
   gender?: string;
+  /**
+   * @example
+   * 1001
+   */
   jobNo?: string;
+  /**
+   * @example
+   * 18000000000
+   */
   phone?: string;
+  /**
+   * @example
+   * ce/shi
+   */
   realNameEn?: string;
   /**
    * @remarks
@@ -18,11 +42,17 @@ export class GroupUserSaveShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123
    */
   userId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 测试
    */
   userName?: string;
   static names(): { [key: string]: string } {

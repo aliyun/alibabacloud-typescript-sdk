@@ -6,21 +6,42 @@ export class GroupDepartSaveRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 测试部门
    */
   deptName?: string;
+  /**
+   * @example
+   * 001|002|003
+   */
   managerIds?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 001
    */
   outerDeptId?: string;
+  /**
+   * @example
+   * 002
+   */
   outerDeptPid?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   status?: number;
   subCorpIdList?: string[];
+  /**
+   * @example
+   * -
+   */
   syncGroup?: boolean;
   static names(): { [key: string]: string } {
     return {

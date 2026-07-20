@@ -8,7 +8,15 @@ export class InsureOrderCreateShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   applicantShrink?: string;
+  /**
+   * @example
+   * 20202109390122
+   */
   btripUserId?: string;
+  /**
+   * @example
+   * 测试乘机人
+   */
   buyerName?: string;
   /**
    * @remarks
@@ -18,15 +26,33 @@ export class InsureOrderCreateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * PostalSavingsBank
    */
   isvName?: string;
+  /**
+   * @example
+   * 100000320302020
+   */
   outInsOrderId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 202310101026030
    */
   outOrderId?: string;
+  /**
+   * @example
+   * 1020030003332000
+   */
   outSubOrderId?: string;
+  /**
+   * @example
+   * fliggy
+   */
   supplierCode?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,12 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightRefundPreCalV2ShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * cheshiapi
+   */
   isvName?: string;
+  /**
+   * @example
+   * 3454043907950204159
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1017002195370467137
+   */
   outOrderId?: string;
   passengerSegmentRelationsShrink?: string;
+  /**
+   * @example
+   * 2
+   */
   preCalType?: number;
   ticketNosShrink?: string;
+  /**
+   * @example
+   * true
+   */
   voluntary?: boolean;
   static names(): { [key: string]: string } {
     return {
