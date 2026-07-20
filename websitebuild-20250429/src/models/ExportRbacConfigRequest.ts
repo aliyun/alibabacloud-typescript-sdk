@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportRbacConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business ID.
+   * 
    * @example
    * WS20250814102215000001
    */

@@ -2,36 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateRbacRoleRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The application instance ID.
-   * 
-   * @example
-   * WD20250814102215000001
-   */
+export class QueryRbacRolePermissionsRequest extends $dara.Model {
   bizId?: string;
-  /**
-   * @remarks
-   * The role data.
-   * 
-   * @example
-   * {"name":"customer","label":"xx1
-   * ","is_default":true,"is_system":false}
-   */
-  roleData?: string;
-  /**
-   * @remarks
-   * The role ID.
-   * 
-   * @example
-   * agent@ly-online
-   */
+  orderColumn?: string;
+  orderType?: string;
+  pageNum?: number;
+  pageSize?: number;
   roleId?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
-      roleData: 'RoleData',
+      orderColumn: 'OrderColumn',
+      orderType: 'OrderType',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       roleId: 'RoleId',
     };
   }
@@ -39,7 +23,10 @@ export class UpdateRbacRoleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
-      roleData: 'string',
+      orderColumn: 'string',
+      orderType: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
       roleId: 'string',
     };
   }

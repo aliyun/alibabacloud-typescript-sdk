@@ -106,6 +106,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 授予用户角色
+   * 
+   * @param request - AssignRbacUserRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssignRbacUserRoleResponse
+   */
+  async assignRbacUserRoleWithOptions(request: $_model.AssignRbacUserRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssignRbacUserRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.userRoleData)) {
+      query["UserRoleData"] = request.userRoleData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssignRbacUserRole",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssignRbacUserRoleResponse>(await this.callApi(params, req, runtime), new $_model.AssignRbacUserRoleResponse({}));
+  }
+
+  /**
+   * 授予用户角色
+   * 
+   * @param request - AssignRbacUserRoleRequest
+   * @returns AssignRbacUserRoleResponse
+   */
+  async assignRbacUserRole(request: $_model.AssignRbacUserRoleRequest): Promise<$_model.AssignRbacUserRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.assignRbacUserRoleWithOptions(request, runtime);
+  }
+
+  /**
    * Grants proxy-based O&M permissions for an application instance.
    * 
    * @param request - AuthorizeAppProxyOpsRequest
@@ -1496,10 +1542,102 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RBAC角色
+   * 创建组织单元
+   * 
+   * @param request - CreateRbacOrgUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRbacOrgUnitResponse
+   */
+  async createRbacOrgUnitWithOptions(request: $_model.CreateRbacOrgUnitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRbacOrgUnitResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.orgUnitData)) {
+      query["OrgUnitData"] = request.orgUnitData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRbacOrgUnit",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRbacOrgUnitResponse>(await this.callApi(params, req, runtime), new $_model.CreateRbacOrgUnitResponse({}));
+  }
+
+  /**
+   * 创建组织单元
+   * 
+   * @param request - CreateRbacOrgUnitRequest
+   * @returns CreateRbacOrgUnitResponse
+   */
+  async createRbacOrgUnit(request: $_model.CreateRbacOrgUnitRequest): Promise<$_model.CreateRbacOrgUnitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRbacOrgUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建RBAC权限
+   * 
+   * @param request - CreateRbacPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRbacPermissionResponse
+   */
+  async createRbacPermissionWithOptions(request: $_model.CreateRbacPermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRbacPermissionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.permissionData)) {
+      query["PermissionData"] = request.permissionData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRbacPermission",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRbacPermissionResponse>(await this.callApi(params, req, runtime), new $_model.CreateRbacPermissionResponse({}));
+  }
+
+  /**
+   * 创建RBAC权限
+   * 
+   * @param request - CreateRbacPermissionRequest
+   * @returns CreateRbacPermissionResponse
+   */
+  async createRbacPermission(request: $_model.CreateRbacPermissionRequest): Promise<$_model.CreateRbacPermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRbacPermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an RBAC role.
    * 
    * @remarks
-   * 万小智2.0AI对话
+   * Wanxiaozhi 2.0 AI conversation.
    * 
    * @param request - CreateRbacRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1534,10 +1672,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RBAC角色
+   * Creates an RBAC role.
    * 
    * @remarks
-   * 万小智2.0AI对话
+   * Wanxiaozhi 2.0 AI conversation.
    * 
    * @param request - CreateRbacRoleRequest
    * @returns CreateRbacRoleResponse
@@ -1942,10 +2080,102 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RBAC角色
+   * 删除组织单元
+   * 
+   * @param request - DeleteRbacOrgUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRbacOrgUnitResponse
+   */
+  async deleteRbacOrgUnitWithOptions(request: $_model.DeleteRbacOrgUnitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRbacOrgUnitResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.orgUnitId)) {
+      query["OrgUnitId"] = request.orgUnitId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRbacOrgUnit",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRbacOrgUnitResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRbacOrgUnitResponse({}));
+  }
+
+  /**
+   * 删除组织单元
+   * 
+   * @param request - DeleteRbacOrgUnitRequest
+   * @returns DeleteRbacOrgUnitResponse
+   */
+  async deleteRbacOrgUnit(request: $_model.DeleteRbacOrgUnitRequest): Promise<$_model.DeleteRbacOrgUnitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRbacOrgUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除RBAC权限
+   * 
+   * @param request - DeleteRbacPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRbacPermissionResponse
+   */
+  async deleteRbacPermissionWithOptions(request: $_model.DeleteRbacPermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRbacPermissionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.permissionId)) {
+      query["PermissionId"] = request.permissionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRbacPermission",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRbacPermissionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRbacPermissionResponse({}));
+  }
+
+  /**
+   * 删除RBAC权限
+   * 
+   * @param request - DeleteRbacPermissionRequest
+   * @returns DeleteRbacPermissionResponse
+   */
+  async deleteRbacPermission(request: $_model.DeleteRbacPermissionRequest): Promise<$_model.DeleteRbacPermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRbacPermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an RBAC role.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - DeleteRbacRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1980,10 +2210,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RBAC角色
+   * Deletes an RBAC role.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - DeleteRbacRoleRequest
    * @returns DeleteRbacRoleResponse
@@ -2212,10 +2442,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出RBAC配置
+   * Exports the RBAC configuration.
    * 
    * @remarks
-   * 查询资源对应的supabase实例配置信息
+   * Queries the Supabase instance configuration information corresponding to a resource.
    * 
    * @param request - ExportRbacConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2246,10 +2476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出RBAC配置
+   * Exports the RBAC configuration.
    * 
    * @remarks
-   * 查询资源对应的supabase实例配置信息
+   * Queries the Supabase instance configuration information corresponding to a resource.
    * 
    * @param request - ExportRbacConfigRequest
    * @returns ExportRbacConfigResponse
@@ -5440,10 +5670,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RBAC组织树
+   * Queries the RBAC organization tree.
    * 
    * @remarks
-   * 获取生码插件配置信息
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - ListRbacOrgTreeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5498,10 +5728,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RBAC组织树
+   * Queries the RBAC organization tree.
    * 
    * @remarks
-   * 获取生码插件配置信息
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - ListRbacOrgTreeRequest
    * @returns ListRbacOrgTreeResponse
@@ -5512,10 +5742,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RBAC权限列表
+   * Queries the RBAC permission list.
    * 
    * @remarks
-   * 万小智2.0创建AI会话接口
+   * Creates an AI conversation session through WanXiaoZhi 2.0.
    * 
    * @param request - ListRbacPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5570,10 +5800,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RBAC权限列表
+   * Queries the RBAC permission list.
    * 
    * @remarks
-   * 万小智2.0创建AI会话接口
+   * Creates an AI conversation session through WanXiaoZhi 2.0.
    * 
    * @param request - ListRbacPermissionsRequest
    * @returns ListRbacPermissionsResponse
@@ -5584,10 +5814,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RBAC角色层级
+   * Queries the RBAC role hierarchy.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - ListRbacRoleHierarchyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5642,10 +5872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RBAC角色层级
+   * Queries the RBAC role hierarchy.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - ListRbacRoleHierarchyRequest
    * @returns ListRbacRoleHierarchyResponse
@@ -5656,10 +5886,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RBAC角色列表
+   * Queries the list of RBAC roles.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - ListRbacRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5714,10 +5944,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RBAC角色列表
+   * Queries the list of RBAC roles.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - ListRbacRolesRequest
    * @returns ListRbacRolesResponse
@@ -7187,6 +7417,176 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询单个RBAC角色
+   * 
+   * @param request - QueryRbacRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRbacRoleResponse
+   */
+  async queryRbacRoleWithOptions(request: $_model.QueryRbacRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRbacRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRbacRole",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryRbacRoleResponse>(await this.callApi(params, req, runtime), new $_model.QueryRbacRoleResponse({}));
+  }
+
+  /**
+   * 查询单个RBAC角色
+   * 
+   * @param request - QueryRbacRoleRequest
+   * @returns QueryRbacRoleResponse
+   */
+  async queryRbacRole(request: $_model.QueryRbacRoleRequest): Promise<$_model.QueryRbacRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryRbacRoleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询角色权限列表
+   * 
+   * @param request - QueryRbacRolePermissionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRbacRolePermissionsResponse
+   */
+  async queryRbacRolePermissionsWithOptions(request: $_model.QueryRbacRolePermissionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRbacRolePermissionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRbacRolePermissions",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryRbacRolePermissionsResponse>(await this.callApi(params, req, runtime), new $_model.QueryRbacRolePermissionsResponse({}));
+  }
+
+  /**
+   * 查询角色权限列表
+   * 
+   * @param request - QueryRbacRolePermissionsRequest
+   * @returns QueryRbacRolePermissionsResponse
+   */
+  async queryRbacRolePermissions(request: $_model.QueryRbacRolePermissionsRequest): Promise<$_model.QueryRbacRolePermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryRbacRolePermissionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户角色绑定
+   * 
+   * @param request - QueryRbacUserRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRbacUserRolesResponse
+   */
+  async queryRbacUserRolesWithOptions(request: $_model.QueryRbacUserRolesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRbacUserRolesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationUserId)) {
+      query["ApplicationUserId"] = request.applicationUserId;
+    }
+
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["OrderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRbacUserRoles",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryRbacUserRolesResponse>(await this.callApi(params, req, runtime), new $_model.QueryRbacUserRolesResponse({}));
+  }
+
+  /**
+   * 查询用户角色绑定
+   * 
+   * @param request - QueryRbacUserRolesRequest
+   * @returns QueryRbacUserRolesResponse
+   */
+  async queryRbacUserRoles(request: $_model.QueryRbacUserRolesRequest): Promise<$_model.QueryRbacUserRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryRbacUserRolesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the auth configuration of a Supabase instance associated with a resource.
    * 
    * @remarks
@@ -7623,10 +8023,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除RBAC角色层级
+   * Removes an RBAC role hierarchy.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - RemoveRbacRoleHierarchyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7665,10 +8065,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除RBAC角色层级
+   * Removes an RBAC role hierarchy.
    * 
    * @remarks
-   * 查询应用实例信息
+   * Queries application instance information.
    * 
    * @param request - RemoveRbacRoleHierarchyRequest
    * @returns RemoveRbacRoleHierarchyResponse
@@ -7786,6 +8186,52 @@ export default class Client extends OpenApi {
   async renewAppSandbox(request: $_model.RenewAppSandboxRequest): Promise<$_model.RenewAppSandboxResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.renewAppSandboxWithOptions(request, runtime);
+  }
+
+  /**
+   * 撤销用户角色
+   * 
+   * @param request - RevokeRbacUserRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeRbacUserRoleResponse
+   */
+  async revokeRbacUserRoleWithOptions(request: $_model.RevokeRbacUserRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeRbacUserRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.userRoleData)) {
+      query["UserRoleData"] = request.userRoleData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeRbacUserRole",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeRbacUserRoleResponse>(await this.callApi(params, req, runtime), new $_model.RevokeRbacUserRoleResponse({}));
+  }
+
+  /**
+   * 撤销用户角色
+   * 
+   * @param request - RevokeRbacUserRoleRequest
+   * @returns RevokeRbacUserRoleResponse
+   */
+  async revokeRbacUserRole(request: $_model.RevokeRbacUserRoleRequest): Promise<$_model.RevokeRbacUserRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeRbacUserRoleWithOptions(request, runtime);
   }
 
   /**
@@ -8173,10 +8619,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置RBAC角色层级
+   * Sets the RBAC role hierarchy.
    * 
    * @remarks
-   * 获取生码插件配置信息
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - SetRbacRoleHierarchyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8215,10 +8661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置RBAC角色层级
+   * Sets the RBAC role hierarchy.
    * 
    * @remarks
-   * 获取生码插件配置信息
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - SetRbacRoleHierarchyRequest
    * @returns SetRbacRoleHierarchyResponse
@@ -9007,10 +9453,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新RBAC角色
+   * 更新组织单元
+   * 
+   * @param request - UpdateRbacOrgUnitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRbacOrgUnitResponse
+   */
+  async updateRbacOrgUnitWithOptions(request: $_model.UpdateRbacOrgUnitRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRbacOrgUnitResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.orgUnitData)) {
+      query["OrgUnitData"] = request.orgUnitData;
+    }
+
+    if (!$dara.isNull(request.orgUnitId)) {
+      query["OrgUnitId"] = request.orgUnitId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRbacOrgUnit",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRbacOrgUnitResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRbacOrgUnitResponse({}));
+  }
+
+  /**
+   * 更新组织单元
+   * 
+   * @param request - UpdateRbacOrgUnitRequest
+   * @returns UpdateRbacOrgUnitResponse
+   */
+  async updateRbacOrgUnit(request: $_model.UpdateRbacOrgUnitRequest): Promise<$_model.UpdateRbacOrgUnitResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRbacOrgUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates an RBAC role.
    * 
    * @remarks
-   * 获取生码插件配置信息
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - UpdateRbacRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9049,10 +9545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新RBAC角色
+   * Updates an RBAC role.
    * 
    * @remarks
-   * 获取生码插件配置信息
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - UpdateRbacRoleRequest
    * @returns UpdateRbacRoleResponse

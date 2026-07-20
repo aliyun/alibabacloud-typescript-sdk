@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteRbacRoleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The business ID of the application instance.
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * The role ID.
+   * 
    * @example
    * 75b2f16f-35a5-4e90-949f-295ea14a4dc8
    */

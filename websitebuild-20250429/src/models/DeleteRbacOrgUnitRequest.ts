@@ -2,35 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRbacRoleRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The business ID of the customer.
-   * 
-   * @example
-   * WS20250731233102000001
-   */
+export class DeleteRbacOrgUnitRequest extends $dara.Model {
   bizId?: string;
-  /**
-   * @remarks
-   * The role data.
-   * 
-   * @example
-   * {"name":"customer","label":"xx
-   * ","is_default":true,"is_system":false}
-   */
-  roleData?: string;
+  orgUnitId?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
-      roleData: 'RoleData',
+      orgUnitId: 'OrgUnitId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
-      roleData: 'string',
+      orgUnitId: 'string',
     };
   }
 
