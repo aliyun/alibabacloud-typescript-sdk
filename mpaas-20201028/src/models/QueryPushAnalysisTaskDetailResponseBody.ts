@@ -70,12 +70,14 @@ export class QueryPushAnalysisTaskDetailResponseBodyResultContent extends $dara.
 }
 
 export class QueryPushAnalysisTaskDetailResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   requestId?: string;
   resultCode?: string;
   resultContent?: QueryPushAnalysisTaskDetailResponseBodyResultContent;
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
       resultContent: 'ResultContent',
@@ -85,6 +87,7 @@ export class QueryPushAnalysisTaskDetailResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       requestId: 'string',
       resultCode: 'string',
       resultContent: QueryPushAnalysisTaskDetailResponseBodyResultContent,

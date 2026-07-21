@@ -65,6 +65,7 @@ export class GetTemplateResponseBodyData extends $dara.Model {
 }
 
 export class GetTemplateResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: GetTemplateResponseBodyData;
   msg?: string;
@@ -72,6 +73,7 @@ export class GetTemplateResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       msg: 'Msg',
@@ -82,6 +84,7 @@ export class GetTemplateResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: GetTemplateResponseBodyData,
       msg: 'string',

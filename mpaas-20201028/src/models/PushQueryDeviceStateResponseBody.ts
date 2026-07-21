@@ -44,6 +44,7 @@ export class PushQueryDeviceStateResponseBodyData extends $dara.Model {
 }
 
 export class PushQueryDeviceStateResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: PushQueryDeviceStateResponseBodyData;
   message?: string;
@@ -51,6 +52,7 @@ export class PushQueryDeviceStateResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -61,6 +63,7 @@ export class PushQueryDeviceStateResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: PushQueryDeviceStateResponseBodyData,
       message: 'string',

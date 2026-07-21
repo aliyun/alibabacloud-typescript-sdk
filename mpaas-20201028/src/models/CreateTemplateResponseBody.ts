@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTemplateResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: string;
   msg?: string;
@@ -10,6 +11,7 @@ export class CreateTemplateResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       msg: 'Msg',
@@ -20,6 +22,7 @@ export class CreateTemplateResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: 'string',
       msg: 'string',

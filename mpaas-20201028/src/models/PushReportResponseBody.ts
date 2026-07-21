@@ -32,12 +32,14 @@ export class PushReportResponseBodyPushResult extends $dara.Model {
 }
 
 export class PushReportResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   pushResult?: PushReportResponseBodyPushResult;
   requestId?: string;
   resultCode?: string;
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       pushResult: 'PushResult',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
@@ -47,6 +49,7 @@ export class PushReportResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       pushResult: PushReportResponseBodyPushResult,
       requestId: 'string',
       resultCode: 'string',

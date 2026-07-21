@@ -32,12 +32,14 @@ export class PushUnBindResponseBodyPushResult extends $dara.Model {
 }
 
 export class PushUnBindResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   pushResult?: PushUnBindResponseBodyPushResult;
   requestId?: string;
   resultCode?: string;
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       pushResult: 'PushResult',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
@@ -47,6 +49,7 @@ export class PushUnBindResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       pushResult: PushUnBindResponseBodyPushResult,
       requestId: 'string',
       resultCode: 'string',

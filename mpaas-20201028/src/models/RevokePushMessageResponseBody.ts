@@ -32,12 +32,14 @@ export class RevokePushMessageResponseBodyPushResult extends $dara.Model {
 }
 
 export class RevokePushMessageResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   pushResult?: RevokePushMessageResponseBodyPushResult;
   requestId?: string;
   resultCode?: string;
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       pushResult: 'PushResult',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
@@ -47,6 +49,7 @@ export class RevokePushMessageResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       pushResult: RevokePushMessageResponseBodyPushResult,
       requestId: 'string',
       resultCode: 'string',

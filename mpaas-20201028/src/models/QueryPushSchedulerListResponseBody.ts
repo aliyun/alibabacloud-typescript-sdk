@@ -111,12 +111,14 @@ export class QueryPushSchedulerListResponseBodyResultContent extends $dara.Model
 }
 
 export class QueryPushSchedulerListResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   requestId?: string;
   resultCode?: string;
   resultContent?: QueryPushSchedulerListResponseBodyResultContent;
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
       resultContent: 'ResultContent',
@@ -126,6 +128,7 @@ export class QueryPushSchedulerListResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       requestId: 'string',
       resultCode: 'string',
       resultContent: QueryPushSchedulerListResponseBodyResultContent,

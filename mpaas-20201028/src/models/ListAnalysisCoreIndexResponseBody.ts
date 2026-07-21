@@ -79,6 +79,7 @@ export class ListAnalysisCoreIndexResponseBodyResultContent extends $dara.Model 
 }
 
 export class ListAnalysisCoreIndexResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   requestId?: string;
   resultCode?: string;
   resultContent?: ListAnalysisCoreIndexResponseBodyResultContent;
@@ -86,6 +87,7 @@ export class ListAnalysisCoreIndexResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
       resultContent: 'ResultContent',
@@ -96,6 +98,7 @@ export class ListAnalysisCoreIndexResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       requestId: 'string',
       resultCode: 'string',
       resultContent: ListAnalysisCoreIndexResponseBodyResultContent,

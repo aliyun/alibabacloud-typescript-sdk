@@ -65,6 +65,7 @@ export class ListTemplatePageResponseBodyData extends $dara.Model {
 }
 
 export class ListTemplatePageResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   code?: string;
   currentPage?: number;
   data?: ListTemplatePageResponseBodyData[];
@@ -75,6 +76,7 @@ export class ListTemplatePageResponseBody extends $dara.Model {
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       currentPage: 'CurrentPage',
       data: 'Data',
@@ -88,6 +90,7 @@ export class ListTemplatePageResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       currentPage: 'number',
       data: { 'type': 'array', 'itemType': ListTemplatePageResponseBodyData },

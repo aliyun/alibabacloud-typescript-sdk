@@ -3,12 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CancelPushSchedulerResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   requestId?: string;
   resultCode?: string;
   resultContent?: string;
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
       resultContent: 'ResultContent',
@@ -18,6 +20,7 @@ export class CancelPushSchedulerResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       requestId: 'string',
       resultCode: 'string',
       resultContent: 'string',

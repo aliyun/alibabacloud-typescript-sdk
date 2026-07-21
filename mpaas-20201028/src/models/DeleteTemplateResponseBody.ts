@@ -3,12 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTemplateResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   code?: string;
   msg?: string;
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       msg: 'Msg',
       requestId: 'RequestId',
@@ -18,6 +20,7 @@ export class DeleteTemplateResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       msg: 'string',
       requestId: 'string',
