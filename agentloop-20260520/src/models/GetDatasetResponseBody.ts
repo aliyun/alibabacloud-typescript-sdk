@@ -38,6 +38,7 @@ export class GetDatasetResponseBody extends $dara.Model {
    * Product FAQ dataset for semantic search
    */
   description?: string;
+  isFavorite?: boolean;
   /**
    * @remarks
    * The region ID.
@@ -75,6 +76,7 @@ export class GetDatasetResponseBody extends $dara.Model {
       createTime: 'createTime',
       datasetName: 'datasetName',
       description: 'description',
+      isFavorite: 'isFavorite',
       regionId: 'regionId',
       requestId: 'requestId',
       schema: 'schema',
@@ -88,6 +90,7 @@ export class GetDatasetResponseBody extends $dara.Model {
       createTime: 'string',
       datasetName: 'string',
       description: 'string',
+      isFavorite: 'boolean',
       regionId: 'string',
       requestId: 'string',
       schema: { 'type': 'map', 'keyType': 'string', 'valueType': IndexKey },

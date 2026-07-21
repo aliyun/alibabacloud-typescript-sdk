@@ -35,12 +35,14 @@ export class DataFilter extends $dara.Model {
    * 100
    */
   samplingRate?: number;
+  serviceNames?: string[];
   static names(): { [key: string]: string } {
     return {
       maxRecords: 'maxRecords',
       provided: 'provided',
       query: 'query',
       samplingRate: 'samplingRate',
+      serviceNames: 'serviceNames',
     };
   }
 
@@ -50,12 +52,16 @@ export class DataFilter extends $dara.Model {
       provided: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       query: 'string',
       samplingRate: 'number',
+      serviceNames: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(this.provided) {
       $dara.Model.validateMap(this.provided);
+    }
+    if(Array.isArray(this.serviceNames)) {
+      $dara.Model.validateArray(this.serviceNames);
     }
     super.validate();
   }

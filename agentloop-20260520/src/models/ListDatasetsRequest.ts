@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * product_faq_dataset

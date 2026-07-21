@@ -2645,6 +2645,10 @@ export default class Client extends OpenApi {
       body["description"] = request.description;
     }
 
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),

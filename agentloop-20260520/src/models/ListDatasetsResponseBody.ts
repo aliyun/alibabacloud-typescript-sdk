@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   /**
    * @remarks
-   * The name of the agent space.
+   * The agent space name.
    * 
    * @example
    * sop-agent
@@ -13,7 +13,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The time when the dataset was created.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -23,7 +23,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * product_faq_dataset
@@ -31,12 +31,13 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The description of the dataset.
+   * The dataset description.
    * 
    * @example
    * Product FAQ dataset for semantic search
    */
   description?: string;
+  isFavorite?: boolean;
   /**
    * @remarks
    * The region ID.
@@ -47,7 +48,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The time when the dataset was last updated.
+   * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -61,6 +62,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
       createTime: 'createTime',
       datasetName: 'datasetName',
       description: 'description',
+      isFavorite: 'isFavorite',
       regionId: 'regionId',
       updateTime: 'updateTime',
     };
@@ -72,6 +74,7 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
       createTime: 'string',
       datasetName: 'string',
       description: 'string',
+      isFavorite: 'boolean',
       regionId: 'string',
       updateTime: 'string',
     };
@@ -102,9 +105,9 @@ export class ListDatasetsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page of results.
+   * The token for the next page of results.
    * 
-   * If the total number of results exceeds the maxResults limit, the results are truncated. You can use this token to query the next page of results.
+   * If the total number of results exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
    * 
    * @example
    * umaQfI7x758Ns4TgWrj8yA3fYlnk7dJgsfhMrSViRY8=
