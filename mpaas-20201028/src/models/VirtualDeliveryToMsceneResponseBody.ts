@@ -26,6 +26,7 @@ export class VirtualDeliveryToMsceneResponseBodyMpaasUserGamecenterPaymentVirtua
 }
 
 export class VirtualDeliveryToMsceneResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   mpaasUserGamecenterPaymentVirtualdeliveryResponse?: VirtualDeliveryToMsceneResponseBodyMpaasUserGamecenterPaymentVirtualdeliveryResponse;
   requestId?: string;
   resultCode?: string;
@@ -33,6 +34,7 @@ export class VirtualDeliveryToMsceneResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       mpaasUserGamecenterPaymentVirtualdeliveryResponse: 'MpaasUserGamecenterPaymentVirtualdeliveryResponse',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
@@ -43,6 +45,7 @@ export class VirtualDeliveryToMsceneResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       mpaasUserGamecenterPaymentVirtualdeliveryResponse: VirtualDeliveryToMsceneResponseBodyMpaasUserGamecenterPaymentVirtualdeliveryResponse,
       requestId: 'string',
       resultCode: 'string',

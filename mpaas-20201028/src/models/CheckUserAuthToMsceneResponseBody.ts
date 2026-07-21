@@ -26,6 +26,7 @@ export class CheckUserAuthToMsceneResponseBodyMpaasUserAuthCheckResponse extends
 }
 
 export class CheckUserAuthToMsceneResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   mpaasUserAuthCheckResponse?: CheckUserAuthToMsceneResponseBodyMpaasUserAuthCheckResponse;
   requestId?: string;
   resultCode?: string;
@@ -33,6 +34,7 @@ export class CheckUserAuthToMsceneResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       mpaasUserAuthCheckResponse: 'MpaasUserAuthCheckResponse',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
@@ -43,6 +45,7 @@ export class CheckUserAuthToMsceneResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       mpaasUserAuthCheckResponse: CheckUserAuthToMsceneResponseBodyMpaasUserAuthCheckResponse,
       requestId: 'string',
       resultCode: 'string',

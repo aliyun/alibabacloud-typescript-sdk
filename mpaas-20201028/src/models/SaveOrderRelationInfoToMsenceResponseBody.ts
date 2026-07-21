@@ -26,6 +26,7 @@ export class SaveOrderRelationInfoToMsenceResponseBodyMpaasSaveOrderRelationResp
 }
 
 export class SaveOrderRelationInfoToMsenceResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   mpaasSaveOrderRelationResponse?: SaveOrderRelationInfoToMsenceResponseBodyMpaasSaveOrderRelationResponse;
   requestId?: string;
   resultCode?: string;
@@ -33,6 +34,7 @@ export class SaveOrderRelationInfoToMsenceResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       mpaasSaveOrderRelationResponse: 'MpaasSaveOrderRelationResponse',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
@@ -43,6 +45,7 @@ export class SaveOrderRelationInfoToMsenceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       mpaasSaveOrderRelationResponse: SaveOrderRelationInfoToMsenceResponseBodyMpaasSaveOrderRelationResponse,
       requestId: 'string',
       resultCode: 'string',

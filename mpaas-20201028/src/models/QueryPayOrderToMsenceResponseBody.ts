@@ -29,6 +29,7 @@ export class QueryPayOrderToMsenceResponseBodyMpaasUserGamecenterPaymentQuerysta
 }
 
 export class QueryPayOrderToMsenceResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   mpaasUserGamecenterPaymentQuerystatusResponse?: QueryPayOrderToMsenceResponseBodyMpaasUserGamecenterPaymentQuerystatusResponse;
   requestId?: string;
   resultCode?: string;
@@ -36,6 +37,7 @@ export class QueryPayOrderToMsenceResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       mpaasUserGamecenterPaymentQuerystatusResponse: 'MpaasUserGamecenterPaymentQuerystatusResponse',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
@@ -46,6 +48,7 @@ export class QueryPayOrderToMsenceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       mpaasUserGamecenterPaymentQuerystatusResponse: QueryPayOrderToMsenceResponseBodyMpaasUserGamecenterPaymentQuerystatusResponse,
       requestId: 'string',
       resultCode: 'string',
