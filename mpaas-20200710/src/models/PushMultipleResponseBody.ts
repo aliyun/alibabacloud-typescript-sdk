@@ -32,12 +32,14 @@ export class PushMultipleResponseBodyPushResult extends $dara.Model {
 }
 
 export class PushMultipleResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   pushResult?: PushMultipleResponseBodyPushResult;
   requestId?: string;
   resultCode?: string;
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       pushResult: 'PushResult',
       requestId: 'RequestId',
       resultCode: 'ResultCode',
@@ -47,6 +49,7 @@ export class PushMultipleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       pushResult: PushMultipleResponseBodyPushResult,
       requestId: 'string',
       resultCode: 'string',
