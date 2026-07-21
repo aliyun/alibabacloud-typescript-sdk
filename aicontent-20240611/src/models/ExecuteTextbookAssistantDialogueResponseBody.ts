@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecuteTextbookAssistantDialogueResponseBodyDataResult extends $dara.Model {
+  /**
+   * @remarks
+   * The Textbook Assistant\\"s reply in Chinese.
+   * 
+   * @example
+   * 让我们再看一遍课文。迈克说: “我是迈克·布莱克。”你能试着像迈克那样说吗？
+   */
   chineseResult?: string;
+  /**
+   * @remarks
+   * The Textbook Assistant\\"s reply in English.
+   * 
+   * @example
+   * Let\\"s look at the text again. Mike says, \\"I\\"m Mike Black.\\" Can you try saying it like Mike?
+   */
   englishResult?: string;
+  /**
+   * @remarks
+   * Indicates whether the dialogue is finished.
+   * 
+   * @example
+   * true
+   */
   isFinish?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the task is completed.
+   * 
+   * @example
+   * true
+   */
   isTaskCompleted?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -35,9 +63,34 @@ export class ExecuteTextbookAssistantDialogueResponseBodyDataResult extends $dar
 }
 
 export class ExecuteTextbookAssistantDialogueResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Textbook Assistant\\"s message.
+   * 
+   * @example
+   * 6788f4935bdfc807f077a984
+   */
   assistant?: string;
+  /**
+   * @remarks
+   * The chat ID for this turn.
+   * 
+   * @example
+   * 6788e0b475a4631ffc626722
+   */
   chatId?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   result?: ExecuteTextbookAssistantDialogueResponseBodyDataResult;
+  /**
+   * @remarks
+   * The ID of the user\\"s reply.
+   * 
+   * @example
+   * 6788f4905bdfc807f077a982
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,15 +123,50 @@ export class ExecuteTextbookAssistantDialogueResponseBodyData extends $dara.Mode
 }
 
 export class ExecuteTextbookAssistantDialogueResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ExecuteTextbookAssistantDialogueResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * null
+   */
   errCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * null
+   */
   errMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * DBFA232A-1176-50E6-95AE-50F7A62A28AD
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {

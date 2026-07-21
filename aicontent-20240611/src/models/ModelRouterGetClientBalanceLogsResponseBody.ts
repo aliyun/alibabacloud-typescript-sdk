@@ -4,18 +4,31 @@ import { ClientBalanceLogDTO } from "./ClientBalanceLogDto";
 
 
 export class ModelRouterGetClientBalanceLogsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of balance change log entries.
+   */
   list?: ClientBalanceLogDTO[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of matching entries.
+   * 
    * @example
    * 100
    */
@@ -51,41 +64,63 @@ export class ModelRouterGetClientBalanceLogsResponseBodyData extends $dara.Model
 }
 
 export class ModelRouterGetClientBalanceLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ModelRouterGetClientBalanceLogsResponseBodyData;
   /**
+   * @remarks
+   * The error code returned on failure.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned on failure.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * nextToken
+   * The pagination token for the next page of results. An empty value indicates that no more results are available.
    * 
    * @example
    * None
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

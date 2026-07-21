@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteTextbookAssistantSseDialogueRequest extends $dara.Model {
   /**
    * @remarks
+   * The authorization token for the API call. Obtain this token from the authorization API for the AI teacher feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExecuteTextbookAssistantSseDialogueRequest extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
+   * The ID of the current conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ExecuteTextbookAssistantSseDialogueRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
+   * The scenario. Set the value to SYNC for Synchronous Practice or EXPAND for Expansion Practice.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ExecuteTextbookAssistantSseDialogueRequest extends $dara.Model {
   scenario?: string;
   /**
    * @remarks
+   * The content of the user\\"s message.
+   * 
    * This parameter is required.
    * 
    * @example

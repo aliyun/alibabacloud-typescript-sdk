@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecuteTextbookAssistantGrammarCheckResponseBodyDataResult extends $dara.Model {
+  /**
+   * @remarks
+   * The error analysis.
+   * 
+   * @example
+   * 主语 \\"I\\" 后应跟动词 \\"am\\" 而不是 \\"are\\"。
+   */
   analysis?: string;
   /**
+   * @remarks
+   * The corrected sentence.
+   * 
    * @example
    * I am you.
    */
   correction?: string;
   /**
+   * @remarks
+   * The grammar check result. Valid values: `Has_Error` (an error was found), `No_Error` (no errors were found), and `Invalid_Sentence` (the sentence could not be parsed).
+   * 
    * @example
    * Has_Error
    */
@@ -40,6 +53,10 @@ export class ExecuteTextbookAssistantGrammarCheckResponseBodyDataResult extends 
 }
 
 export class ExecuteTextbookAssistantGrammarCheckResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The result data.
+   */
   result?: ExecuteTextbookAssistantGrammarCheckResponseBodyDataResult;
   static names(): { [key: string]: string } {
     return {
@@ -66,31 +83,47 @@ export class ExecuteTextbookAssistantGrammarCheckResponseBodyData extends $dara.
 }
 
 export class ExecuteTextbookAssistantGrammarCheckResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data object.
+   */
   data?: ExecuteTextbookAssistantGrammarCheckResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0bc1e96d17091734639835114e12c8
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

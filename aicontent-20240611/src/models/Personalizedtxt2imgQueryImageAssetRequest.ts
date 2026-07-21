@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Personalizedtxt2imgQueryImageAssetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The encoding format of the image. If this parameter is set to `base64`, the image is returned as a Base64-encoded string. If this parameter is omitted, the raw binary data of the image is returned.
+   * 
    * @example
    * base64
    */
   encodeFormat?: string;
   /**
    * @remarks
+   * The ID of the image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class Personalizedtxt2imgQueryImageAssetRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
+   * The ID of the model.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class Personalizedtxt2imgQueryImageAssetRequest extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
+   * The ID of the prompt.
+   * 
    * This parameter is required.
    * 
    * @example

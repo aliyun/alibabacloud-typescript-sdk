@@ -5,31 +5,49 @@ import { AliyunConsoleServiceInfoDTO } from "./AliyunConsoleServiceInfoDto";
 
 export class AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * An array of service objects.
+   * 
    * @example
    * []
    */
   data?: AliyunConsoleServiceInfoDTO[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class Personalizedtxt2imgAddModelTrainJobRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of one or more image URLs for training. For example: ["url_1", "url_2", ...]
+   * 
    * This parameter is required.
    */
   imageUrl?: string[];
   /**
    * @remarks
+   * The name of the model training job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +22,8 @@ export class Personalizedtxt2imgAddModelTrainJobRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * A single word that defines the object type in the training images, such as "girl", "person", "man", "boy", or "dog".
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +31,9 @@ export class Personalizedtxt2imgAddModelTrainJobRequest extends $dara.Model {
    */
   objectType?: string;
   /**
+   * @remarks
+   * The number of training steps for the model training job.
+   * 
    * @example
    * 800
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteTextbookAssistantRetryConversationRequest extends $dara.Model {
   /**
    * @remarks
+   * The AI assistant\\"s message ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExecuteTextbookAssistantRetryConversationRequest extends $dara.Mode
   assistant?: string;
   /**
    * @remarks
+   * The authorization token. You can obtain this token from the API that provides authorization for the textbook AI assistant feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ExecuteTextbookAssistantRetryConversationRequest extends $dara.Mode
   authToken?: string;
   /**
    * @remarks
+   * The conversation ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ExecuteTextbookAssistantRetryConversationRequest extends $dara.Mode
   chatId?: string;
   /**
    * @remarks
+   * Specifies the scenario. Valid values: `SYNC` for synchronized practice and `EXPAND` for expansion practice.
+   * 
    * This parameter is required.
    * 
    * @example

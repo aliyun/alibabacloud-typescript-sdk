@@ -5,44 +5,65 @@ import { MetricValueDTO } from "./MetricValueDto";
 
 export class ModelRouterQueryCostOverviewMetricsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data object that contains the returned metrics.
+   * 
    * @example
    * []
    */
   data?: MetricValueDTO[];
   /**
+   * @remarks
+   * The error code that is returned if the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request fails.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
    * @remarks
-   * nextToken
+   * The token to retrieve the next page of results.
    * 
    * @example
    * xxxx-xxx-xxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

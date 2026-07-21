@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTextbookAssistantTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The device ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,6 +18,8 @@ export class GetTextbookAssistantTokenRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
+   * The device model.
+   * 
    * This parameter is required.
    * 
    * @example

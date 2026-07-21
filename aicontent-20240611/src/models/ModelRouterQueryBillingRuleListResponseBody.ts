@@ -4,71 +4,113 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryBillingRuleListResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Billing type
+   * 
    * @example
    * token_tiered
    */
   billingType?: string;
   /**
+   * @remarks
+   * Delete marker
+   * 
    * @example
    * 0
    */
   deleteTag?: number;
   /**
+   * @remarks
+   * Effective time
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   effectiveTime?: string;
   /**
+   * @remarks
+   * Expiration time
+   * 
    * @example
    * 2025-01-01T00:00:00Z
    */
   expireTime?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Modification time
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Rule ID
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * Model identifier
+   * 
    * @example
    * qwen-plus
    */
   modelCode?: string;
   /**
+   * @remarks
+   * Model ID
+   * 
    * @example
    * 1
    */
   modelId?: number;
   /**
+   * @remarks
+   * Model name
+   * 
    * @example
    * 通义千问Plus
    */
   modelName?: string;
   /**
+   * @remarks
+   * Model type
+   * 
    * @example
    * chat
    */
   modelType?: string;
   /**
+   * @remarks
+   * Billing configuration
+   * 
    * @example
    * {}
    */
   pricingConfig?: any;
   /**
+   * @remarks
+   * Vendor identifier
+   * 
    * @example
    * alibaba
    */
   symbol?: string;
   /**
+   * @remarks
+   * Version number
+   * 
    * @example
    * 1
    */
@@ -121,18 +163,31 @@ export class ModelRouterQueryBillingRuleListResponseBodyDataList extends $dara.M
 }
 
 export class ModelRouterQueryBillingRuleListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of billing rules
+   */
   list?: ModelRouterQueryBillingRuleListResponseBodyDataList[];
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Number of items per page
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of records
+   * 
    * @example
    * 5
    */
@@ -168,18 +223,31 @@ export class ModelRouterQueryBillingRuleListResponseBodyData extends $dara.Model
 }
 
 export class ModelRouterQueryBillingRuleListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response data
+   */
   data?: ModelRouterQueryBillingRuleListResponseBodyData;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
@@ -201,11 +269,17 @@ export class ModelRouterQueryBillingRuleListResponseBody extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

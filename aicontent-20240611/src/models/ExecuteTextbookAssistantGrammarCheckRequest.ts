@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteTextbookAssistantGrammarCheckRequest extends $dara.Model {
   /**
    * @remarks
+   * The authorization token for the API call. Obtain this token by calling the "Authorization token for the Textbook-style AI English Teacher" API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExecuteTextbookAssistantGrammarCheckRequest extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
+   * The ID of the current conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ExecuteTextbookAssistantGrammarCheckRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
+   * The use case. Valid values: `SYNC` for synchronous practice and `EXPAND` for expansion practice.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ExecuteTextbookAssistantGrammarCheckRequest extends $dara.Model {
   scenario?: string;
   /**
    * @remarks
+   * The message ID of the user\\"s reply.
+   * 
    * This parameter is required.
    * 
    * @example

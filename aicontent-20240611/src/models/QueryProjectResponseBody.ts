@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryProjectResponseBodyDataProjectAppsApplicationAccessIds extends $dara.Model {
   /**
+   * @remarks
+   * The application ID, also known as the AppKey.
+   * 
    * @example
    * 1234567890
    */
   applicationAccessId?: string;
   /**
+   * @remarks
+   * The application secret. This parameter is returned only for requests from the console.
+   * 
    * @example
    * MyAppSecret
    */
@@ -37,13 +43,23 @@ export class QueryProjectResponseBodyDataProjectAppsApplicationAccessIds extends
 }
 
 export class QueryProjectResponseBodyDataProjectApps extends $dara.Model {
+  /**
+   * @remarks
+   * The application access credentials.
+   */
   applicationAccessIds?: QueryProjectResponseBodyDataProjectAppsApplicationAccessIds[];
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 2144
    */
   id?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 159
    */
@@ -78,37 +94,65 @@ export class QueryProjectResponseBodyDataProjectApps extends $dara.Model {
 
 export class QueryProjectResponseBodyDataProjectSDK extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-11-01T13:40:53Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The demo URL.
+   * 
    * @example
    * http://demo.com/demo
    */
   demoUrl?: string;
+  /**
+   * @remarks
+   * The deployment mode. Valid values: `client` or `server`.
+   * 
+   * @example
+   * 服务端
+   */
   deployMode?: string;
   /**
+   * @remarks
+   * The development language. For example: JAVA.
+   * 
    * @example
    * JAVA
    */
   developLanguage?: string;
   /**
+   * @remarks
+   * The document URL.
+   * 
    * @example
    * http://demo.com/doc
    */
   docUrl?: string;
   /**
+   * @remarks
+   * The SDK name.
+   * 
    * @example
    * JSSDK
    */
   sdkName?: string;
   /**
+   * @remarks
+   * The SDK URL.
+   * 
    * @example
    * http://demo.com/sdk.zip
    */
   sdkUrl?: string;
   /**
+   * @remarks
+   * The SDK version.
+   * 
    * @example
    * 5.1.0
    */
@@ -150,23 +194,43 @@ export class QueryProjectResponseBodyDataProjectSDK extends $dara.Model {
 
 export class QueryProjectResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-11-01T13:40:53Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The list of applications in the project.
+   */
   projectApps?: QueryProjectResponseBodyDataProjectApps[];
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 67055
    */
   projectId?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * MyProject
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The list of SDKs associated with the project.
+   */
   projectSDK?: QueryProjectResponseBodyDataProjectSDK[];
   /**
+   * @remarks
+   * The project type.
+   * 
    * @example
    * WebApplication
    */
@@ -210,31 +274,49 @@ export class QueryProjectResponseBodyData extends $dara.Model {
 
 export class QueryProjectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data, which contains the details of the project.
+   * 
    * @example
    * []
    */
   data?: QueryProjectResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the request was successful.
+   * 
    * @example
    * true
    */

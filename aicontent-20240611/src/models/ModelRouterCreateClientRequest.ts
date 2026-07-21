@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterCreateClientRequest extends $dara.Model {
   /**
+   * @remarks
+   * The company address.
+   * 
    * @example
    * 杭州市
    */
   address?: string;
   /**
+   * @remarks
+   * A comma-separated list of model IDs that the client can use. If this parameter is empty, the client can use all available models.
+   * 
    * @example
    * 1,2,3
    */
   allowedModels?: string;
   /**
+   * @remarks
+   * The contact information.
+   * 
    * @example
    * 13800138000
    */
@@ -24,6 +33,9 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
    */
   discount?: number;
   /**
+   * @remarks
+   * The client name.
+   * 
    * @example
    * 我的客户
    */
@@ -34,6 +46,9 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
    */
   parentId?: number;
   /**
+   * @remarks
+   * Additional remarks.
+   * 
    * @example
    * 备注
    */

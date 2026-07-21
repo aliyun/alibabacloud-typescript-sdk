@@ -12,22 +12,38 @@ export class OralEvaluationStatisticsErrorCountRequest extends $dara.Model {
    */
   applicationAccessId?: string;
   /**
+   * @remarks
+   * End time
+   * 
    * @example
    * 2024-08-22 06:24:53
    */
   endTime?: string;
+  /**
+   * @remarks
+   * List of error codes
+   */
   errorCode?: string[];
   /**
+   * @remarks
+   * Query granularity (Hour, Day, Month)
+   * 
    * @example
    * DAY
    */
   granularity?: string;
   /**
+   * @remarks
+   * Project ID
+   * 
    * @example
    * 123
    */
   projectId?: string;
   /**
+   * @remarks
+   * Start time
+   * 
    * @example
    * 2024-09-27 09:32:00
    */

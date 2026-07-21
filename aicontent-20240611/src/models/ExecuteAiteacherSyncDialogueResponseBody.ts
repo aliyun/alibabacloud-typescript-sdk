@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAITeacherSyncDialogueResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The English response from the AI teacher.
+   * 
    * @example
    * Thanks, Lily. Do you like meat, Lily?
    */
   englishResult?: string;
   /**
+   * @remarks
+   * Indicates whether the dialogue is finished.
+   * 
    * @example
    * true
    */
   isFinish?: boolean;
   /**
+   * @remarks
+   * Indicates whether the user\\"s response is on topic.
+   * 
    * @example
    * true
    */
   isOnTopic?: boolean;
   /**
+   * @remarks
+   * The index of the current question.
+   * 
    * @example
    * 2
    */
@@ -52,31 +64,49 @@ export class ExecuteAITeacherSyncDialogueResponseBodyData extends $dara.Model {
 
 export class ExecuteAITeacherSyncDialogueResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data object.
+   * 
    * @example
    * []
    */
   data?: ExecuteAITeacherSyncDialogueResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */

@@ -4,6 +4,10 @@ import { OralEvaluationStatisticsCallsCountRequest } from "./OralEvaluationStati
 
 
 export class CountOralEvaluationStatisticsCallsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: OralEvaluationStatisticsCallsCountRequest;
   static names(): { [key: string]: string } {
     return {

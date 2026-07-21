@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class Personalizedtxt2imgQueryInferenceJobInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the inference job.
+   * 
    * This parameter is required.
    * 
    * @example

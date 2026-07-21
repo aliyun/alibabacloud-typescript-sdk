@@ -6,16 +6,30 @@ import { TrendPointDTO } from "./TrendPointDto";
 
 export class CostQueryTrendDTO extends $dara.Model {
   /**
+   * @remarks
+   * The default metric.
+   * 
    * @example
    * total_amount
    */
   defaultMetric?: string;
   /**
+   * @remarks
+   * The granularity of the data. Valid values are `hourly` and `daily`.
+   * 
    * @example
    * hourly
    */
   granularity?: string;
+  /**
+   * @remarks
+   * A list of metric definitions.
+   */
   metrics?: MetricDefRespDTO[];
+  /**
+   * @remarks
+   * A list of data points for the trend.
+   */
   points?: TrendPointDTO[];
   static names(): { [key: string]: string } {
     return {

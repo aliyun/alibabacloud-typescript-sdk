@@ -5,31 +5,49 @@ import { OralEvaluationStatisticsErrorCountResponse } from "./OralEvaluationStat
 
 export class CountOralEvaluationStatisticsErrorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * An array containing the error statistics.
+   * 
    * @example
    * []
    */
   data?: OralEvaluationStatisticsErrorCountResponse[];
   /**
+   * @remarks
+   * The error code returned if the request fails. This parameter is returned only when `success` is `false`.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails. This parameter is returned only when `success` is `false`.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * `true` if the request succeeded; `false` otherwise.
+   * 
    * @example
    * true
    */

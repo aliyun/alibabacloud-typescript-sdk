@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent extends $dara.Model {
   /**
+   * @remarks
+   * The AI assistant\\"s question.
+   * 
    * @example
    * Why might some people think dog walking is a great job?
    */
   assistant?: string;
   /**
+   * @remarks
+   * The expected user answer to the assistant\\"s question.
+   * 
    * @example
    * They think it\\"s great because they won\\"t be stuck in an office.
    */
@@ -37,8 +43,15 @@ export class AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent extend
 }
 
 export class AITeacherSyncPracticeTaskGenerateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * An array of Q\\&A pairs representing the dialogue task.
+   */
   taskContent?: AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent[];
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * textbook_question_answering
    */
@@ -70,24 +83,47 @@ export class AITeacherSyncPracticeTaskGenerateResponseBodyData extends $dara.Mod
 }
 
 export class AITeacherSyncPracticeTaskGenerateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data object that contains the generated content.
+   */
   data?: AITeacherSyncPracticeTaskGenerateResponseBodyData;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
+   * @example
+   * 未知错误
+   */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The unique request ID, used for troubleshooting.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

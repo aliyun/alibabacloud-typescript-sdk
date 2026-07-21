@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTextbookAssistantGradeVolumesResponseBodyDataGradeVolumes extends $dara.Model {
   /**
+   * @remarks
+   * The grade level. Valid values: 1 to 9.
+   * 
    * @example
    * 3
    */
   grade?: string;
   /**
+   * @remarks
+   * The volume. Valid values: `0` (single volume), `1` (Volume 1), and `2` (Volume 2).
+   * 
    * @example
    * 1
    */
@@ -37,8 +43,15 @@ export class ListTextbookAssistantGradeVolumesResponseBodyDataGradeVolumes exten
 }
 
 export class ListTextbookAssistantGradeVolumesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The grade and volume information.
+   */
   gradeVolumes?: ListTextbookAssistantGradeVolumesResponseBodyDataGradeVolumes[];
   /**
+   * @remarks
+   * The version of the textbook.
+   * 
    * @example
    * 人教版
    */
@@ -70,27 +83,47 @@ export class ListTextbookAssistantGradeVolumesResponseBodyData extends $dara.Mod
 }
 
 export class ListTextbookAssistantGradeVolumesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListTextbookAssistantGradeVolumesResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * 未知错误
+   */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F3B1AAF2-3041-5AA7-A352-BD5F998FA465
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

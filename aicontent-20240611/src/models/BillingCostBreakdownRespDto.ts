@@ -11,26 +11,41 @@ export class BillingCostBreakdownRespDTO extends $dara.Model {
    */
   columns?: MetricDefRespDTO[];
   /**
+   * @remarks
+   * Aggregation granularity: hourly or daily
+   * 
    * @example
    * hourly
    */
   granularity?: string;
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Number of entries per page
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * List of billing details data
+   * 
    * @example
    * []
    */
   rows?: BillingCostBreakdownRowDTO[];
   /**
+   * @remarks
+   * Total number of entries
+   * 
    * @example
    * 100
    */

@@ -27,13 +27,34 @@ export class ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions exte
 
 export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.Model {
   extensions?: ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions;
+  /**
+   * @remarks
+   * The model identifier.
+   * 
+   * @example
+   * ca90f359956e94367470c38676
+   */
   identifier?: string;
   /**
    * @example
    * text
    */
   inOut?: string;
+  /**
+   * @remarks
+   * The input token limit.
+   * 
+   * @example
+   * 32K
+   */
   inputToken?: string;
+  /**
+   * @remarks
+   * The output token limit.
+   * 
+   * @example
+   * 8K
+   */
   outputToken?: string;
   /**
    * @example
@@ -75,9 +96,34 @@ export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.
 }
 
 export class ModelRouterQueryNacosProvidersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The base URL.
+   * 
+   * @example
+   * https://dashscope.aliyuncs.com
+   */
   baseUrl?: string;
+  /**
+   * @remarks
+   * The list of models.
+   */
   models?: ModelRouterQueryNacosProvidersResponseBodyDataModels[];
+  /**
+   * @remarks
+   * The provider name.
+   * 
+   * @example
+   * 通义千问
+   */
   name?: string;
+  /**
+   * @remarks
+   * The provider identifier.
+   * 
+   * @example
+   * qwen
+   */
   symbol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -111,31 +157,49 @@ export class ModelRouterQueryNacosProvidersResponseBodyData extends $dara.Model 
 
 export class ModelRouterQueryNacosProvidersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data object.
+   * 
    * @example
    * []
    */
   data?: ModelRouterQueryNacosProvidersResponseBodyData[];
   /**
+   * @remarks
+   * The error message code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

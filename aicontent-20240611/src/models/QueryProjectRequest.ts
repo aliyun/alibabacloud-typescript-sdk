@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryProjectRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the project.
+   * 
    * @example
    * 123
    */

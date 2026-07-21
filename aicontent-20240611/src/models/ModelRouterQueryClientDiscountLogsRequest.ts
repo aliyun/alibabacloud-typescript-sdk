@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryClientDiscountLogsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of results to return per page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
    * @remarks
-   * nextToken
+   * The token to retrieve the next page of results. Omit this parameter to get the first page.
    * 
    * @example
    * xxxx-xxx-xxxxx

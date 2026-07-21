@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAITeacherExpansionDialogueResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The AI teacher\\"s response in Chinese.
+   * 
    * @example
    * 1
    */
   chineseResult?: string;
   /**
+   * @remarks
+   * The AI teacher\\"s response in English.
+   * 
    * @example
    * 1
    */
   englishResult?: string;
   /**
+   * @remarks
+   * Indicates whether the dialogue is finished.
+   * 
    * @example
    * true
    */
   isFinish?: boolean;
   /**
+   * @remarks
+   * Indicates whether the response is off-topic.
+   * 
    * @example
    * true
    */
   isOffTopicControl?: boolean;
   /**
+   * @remarks
+   * Indicates whether the response is on-topic.
+   * 
    * @example
    * true
    */
   isOnTopic?: boolean;
   /**
+   * @remarks
+   * The index of the current question.
+   * 
    * @example
    * 2
    */
@@ -66,31 +84,49 @@ export class ExecuteAITeacherExpansionDialogueResponseBodyData extends $dara.Mod
 
 export class ExecuteAITeacherExpansionDialogueResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * []
    */
   data?: ExecuteAITeacherExpansionDialogueResponseBodyData;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * A unique identifier for the request.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

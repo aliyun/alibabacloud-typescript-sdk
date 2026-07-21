@@ -4,38 +4,56 @@ import * as $dara from '@darabonba/typescript';
 
 export class ClientBalanceDTO extends $dara.Model {
   /**
+   * @remarks
+   * The current balance.
+   * 
    * @example
    * 100.00
    */
   balance?: number;
   /**
+   * @remarks
+   * The balance type. Valid values are `amount` or `tokens`.
+   * 
    * @example
    * amount
    */
   balanceType?: string;
   /**
+   * @remarks
+   * The ID of the client.
+   * 
    * @example
    * 1
    */
   clientId?: number;
   /**
+   * @remarks
+   * Indicates whether balance-based rate limiting is enabled.
+   * 
    * @example
    * true
    */
   enableBalance?: boolean;
   /**
+   * @remarks
+   * The creation timestamp.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The last modification timestamp.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   gmtModified?: string;
   /**
    * @remarks
-   * ID
+   * The unique ID of the balance record.
    * 
    * @example
    * 1

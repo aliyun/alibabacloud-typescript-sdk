@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData extends $dara.Model {
   /**
    * @remarks
+   * The count for the statistical item.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDat
   count?: number;
   /**
    * @remarks
+   * The name of the statistical item, which defines the display granularity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,13 +47,23 @@ export class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDat
 }
 
 export class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of statistical items.
+   */
   data?: OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataDataData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 51000
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * start the core unsuccessfull.
    */
@@ -83,10 +97,14 @@ export class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDat
 }
 
 export class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of datasets.
+   */
   data?: OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDataData[];
   /**
    * @remarks
-   * appId,appkey
+   * The App ID or App Key.
    * 
    * This parameter is required.
    * 
@@ -121,9 +139,15 @@ export class OralEvaluationStatisticsErrorCountResponseProjectDataApplicationDat
 }
 
 export class OralEvaluationStatisticsErrorCountResponseProjectData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of statistical data objects for the application.
+   */
   applicationData?: OralEvaluationStatisticsErrorCountResponseProjectDataApplicationData[];
   /**
    * @remarks
+   * The internal ID of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -157,9 +181,15 @@ export class OralEvaluationStatisticsErrorCountResponseProjectData extends $dara
 }
 
 export class OralEvaluationStatisticsErrorCountResponse extends $dara.Model {
+  /**
+   * @remarks
+   * Contains the statistical data aggregated by project.
+   */
   projectData?: OralEvaluationStatisticsErrorCountResponseProjectData;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

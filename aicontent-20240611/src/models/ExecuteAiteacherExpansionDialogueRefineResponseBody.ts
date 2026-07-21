@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAITeacherExpansionDialogueRefineResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The refinement result.
+   * 
    * @example
    * Yes, I\\"ll be right there.
    */
@@ -31,31 +34,49 @@ export class ExecuteAITeacherExpansionDialogueRefineResponseBodyData extends $da
 
 export class ExecuteAITeacherExpansionDialogueRefineResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The object that contains the refinement result.
+   * 
    * @example
    * []
    */
   data?: ExecuteAITeacherExpansionDialogueRefineResponseBodyData;
   /**
+   * @remarks
+   * The error code. Returned only when the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message. Returned only when the request fails.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

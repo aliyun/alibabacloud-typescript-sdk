@@ -5,31 +5,49 @@ import { ConversationDTO } from "./ConversationDto";
 
 export class ModelRouterUpdateConversationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data object.
+   * 
    * @example
    * []
    */
   data?: ConversationDTO;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * A detailed message that explains the error.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code of the response.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList extends $dara.Model {
   /**
+   * @remarks
+   * The answer.
+   * 
    * @example
    * I\\"m Mike Black
    */
   answer?: string;
   /**
+   * @remarks
+   * The question.
+   * 
    * @example
    * From the book, how does Mike Black introduce himself?
    */
   question?: string;
+  /**
+   * @remarks
+   * The translated question.
+   * 
+   * @example
+   * 根据文章，迈克·布莱克是如何介绍自己的？
+   */
   questionTranslate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,16 +54,30 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList ext
 
 export class ListTextbookAssistantArticleDetailsResponseBodyDataSceneList extends $dara.Model {
   /**
+   * @remarks
+   * The scene description.
+   * 
    * @example
    * In the park, you introduce yourself to John and ask his name.
    */
   scene?: string;
   /**
+   * @remarks
+   * The scene ID.
+   * 
    * @example
    * 38cddd70509911efbe6e0c42a106bb02
    */
   sceneId?: string;
+  /**
+   * @remarks
+   * A list of image URLs for the scene.
+   */
   sceneImageList?: string[];
+  /**
+   * @remarks
+   * The translated scene description.
+   */
   sceneTranslate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,13 +110,26 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataSceneList extend
 }
 
 export class ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList extends $dara.Model {
+  /**
+   * @remarks
+   * The sentence analysis.
+   * 
+   * @example
+   * 主语 + be动词（am/is/are） + 姓名.
+   */
   sentenceAnalysis?: string;
   /**
+   * @remarks
+   * The sentence ID.
+   * 
    * @example
    * 4de677d2509811efbe6e0c42a106bb02
    */
   sentenceId?: string;
   /**
+   * @remarks
+   * The sentence text.
+   * 
    * @example
    * I\\"m Mike Black
    */
@@ -120,9 +160,23 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList ext
 }
 
 export class ListTextbookAssistantArticleDetailsResponseBodyDataTheme extends $dara.Model {
+  /**
+   * @remarks
+   * A list of image URLs for the theme.
+   */
   themeImageList?: string[];
+  /**
+   * @remarks
+   * The theme name.
+   * 
+   * @example
+   * 自我认知与提升
+   */
   themeName?: string;
   /**
+   * @remarks
+   * The translated theme name.
+   * 
    * @example
    * Self-awareness, self-management, self-improvement
    */
@@ -156,9 +210,23 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataTheme extends $d
 }
 
 export class ListTextbookAssistantArticleDetailsResponseBodyDataTopic extends $dara.Model {
+  /**
+   * @remarks
+   * A list of image URLs for the topic.
+   */
   topicImageList?: string[];
+  /**
+   * @remarks
+   * The topic name.
+   * 
+   * @example
+   * 打招呼与自我介绍
+   */
   topicName?: string;
   /**
+   * @remarks
+   * The translated topic name.
+   * 
    * @example
    * Greetings and self-introduction
    */
@@ -192,13 +260,26 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataTopic extends $d
 }
 
 export class ListTextbookAssistantArticleDetailsResponseBodyDataWordList extends $dara.Model {
+  /**
+   * @remarks
+   * The word analysis.
+   * 
+   * @example
+   * 令人愉快的；友好的
+   */
   wordAnalysis?: string;
   /**
+   * @remarks
+   * The word ID.
+   * 
    * @example
    * a94df134ed8c11eebe6e0c42a106bb02
    */
   wordId?: string;
   /**
+   * @remarks
+   * The word text.
+   * 
    * @example
    * nice
    */
@@ -230,16 +311,50 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataWordList extends
 
 export class ListTextbookAssistantArticleDetailsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The article ID.
+   * 
    * @example
    * 0c05700d4d9411efbe6e0c42a106bb02
    */
   articleId?: string;
+  /**
+   * @remarks
+   * A list of Q\\&A objects.
+   */
   questionList?: ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList[];
+  /**
+   * @remarks
+   * A list of scene objects.
+   */
   sceneList?: ListTextbookAssistantArticleDetailsResponseBodyDataSceneList[];
+  /**
+   * @remarks
+   * A list of sentence objects.
+   */
   sentenceList?: ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList[];
+  /**
+   * @remarks
+   * The learning objectives.
+   * 
+   * @example
+   * 1.能够在自我介绍时运用句型“What\\"s your name? My name is/I‘m...”进行询问及回答。\\n2.能够和新朋友运用句型“Nice to meet you(too).”进行问候。
+   */
   target?: string;
+  /**
+   * @remarks
+   * The theme object.
+   */
   theme?: ListTextbookAssistantArticleDetailsResponseBodyDataTheme;
+  /**
+   * @remarks
+   * The topic object.
+   */
   topic?: ListTextbookAssistantArticleDetailsResponseBodyDataTopic;
+  /**
+   * @remarks
+   * A list of word objects.
+   */
   wordList?: ListTextbookAssistantArticleDetailsResponseBodyDataWordList[];
   static names(): { [key: string]: string } {
     return {
@@ -295,27 +410,51 @@ export class ListTextbookAssistantArticleDetailsResponseBodyData extends $dara.M
 }
 
 export class ListTextbookAssistantArticleDetailsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of article detail objects.
+   */
   data?: ListTextbookAssistantArticleDetailsResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * 未知错误
+   */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the API call succeeded.
+   * 
+   * - **true**: Success
+   * 
+   * - **false**: Failure
+   * 
    * @example
    * true
    */

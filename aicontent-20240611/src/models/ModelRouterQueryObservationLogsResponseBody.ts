@@ -66,28 +66,40 @@ export class ModelRouterQueryObservationLogsResponseBodyData extends $dara.Model
 
 export class ModelRouterQueryObservationLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response payload.
+   * 
    * @example
    * []
    */
   data?: ModelRouterQueryObservationLogsResponseBodyData;
   /**
+   * @remarks
+   * The error code for a failed request.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message for a failed request.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * maxResults
+   * The maximum number of results per page.
    * 
    * @example
    * 10
@@ -95,18 +107,24 @@ export class ModelRouterQueryObservationLogsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * nextToken
+   * The token to retrieve the next page of results.
    * 
    * @example
    * xxxx-xxx-xxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

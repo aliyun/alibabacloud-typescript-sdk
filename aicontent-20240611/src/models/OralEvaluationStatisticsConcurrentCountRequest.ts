@@ -12,21 +12,33 @@ export class OralEvaluationStatisticsConcurrentCountRequest extends $dara.Model 
    */
   applicationAccessId?: string;
   /**
+   * @remarks
+   * End Time
+   * 
    * @example
    * 2024-09-29 14:22:48
    */
   endTime?: string;
   /**
+   * @remarks
+   * Query granularity (hour, Day, month)
+   * 
    * @example
    * DAY
    */
   granularity?: string;
   /**
+   * @remarks
+   * project ID
+   * 
    * @example
    * 123
    */
   projectId?: string;
   /**
+   * @remarks
+   * Start Time
+   * 
    * @example
    * 2024-09-29 05:00:01
    */

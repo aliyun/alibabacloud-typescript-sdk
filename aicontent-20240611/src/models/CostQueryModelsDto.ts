@@ -5,17 +5,31 @@ import { ModelRowDTO } from "./ModelRowDto";
 
 
 export class CostQueryModelsDTO extends $dara.Model {
+  /**
+   * @remarks
+   * List of column definitions
+   */
   columns?: MetricDefRespDTO[];
   /**
+   * @remarks
+   * Field Name of ID
+   * 
    * @example
    * model_id
    */
   idField?: string;
   /**
+   * @remarks
+   * Field Name of Name
+   * 
    * @example
    * model_name
    */
   nameField?: string;
+  /**
+   * @remarks
+   * List of model data rows
+   */
   rows?: ModelRowDTO[];
   static names(): { [key: string]: string } {
     return {

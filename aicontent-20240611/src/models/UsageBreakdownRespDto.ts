@@ -5,26 +5,41 @@ import { UsageBreakdownRowDTO } from "./UsageBreakdownRowDto";
 
 export class UsageBreakdownRespDTO extends $dara.Model {
   /**
+   * @remarks
+   * Aggregation granularity: hourly or daily
+   * 
    * @example
    * hourly
    */
   granularity?: string;
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Number of entries per page
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * List of detailed data entries
+   * 
    * @example
    * []
    */
   rows?: UsageBreakdownRowDTO[];
   /**
+   * @remarks
+   * Total number of entries
+   * 
    * @example
    * 100
    */

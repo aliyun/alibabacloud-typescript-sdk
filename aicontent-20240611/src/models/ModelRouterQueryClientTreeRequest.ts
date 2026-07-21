@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryClientTreeRequest extends $dara.Model {
   /**
    * @remarks
-   * maxResults
+   * The maximum number of items to return per page.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ModelRouterQueryClientTreeRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * nextToken
+   * The token to retrieve the next page of results.
    * 
    * @example
    * xxxx-xxx-xxxxx

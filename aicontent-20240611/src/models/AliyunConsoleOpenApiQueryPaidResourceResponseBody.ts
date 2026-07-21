@@ -5,21 +5,33 @@ import { PaidResourceDTO } from "./PaidResourceDto";
 
 export class AliyunConsoleOpenApiQueryPaidResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Data object
+   * 
    * @example
    * []
    */
   data?: PaidResourceDTO[];
   /**
+   * @remarks
+   * Error message encoding
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
@@ -41,16 +53,25 @@ export class AliyunConsoleOpenApiQueryPaidResourceResponseBody extends $dara.Mod
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Page index
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * Number of items per page
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
@@ -64,11 +85,17 @@ export class AliyunConsoleOpenApiQueryPaidResourceResponseBody extends $dara.Mod
    */
   skip?: number;
   /**
+   * @remarks
+   * Indicates whether the request succeeded
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total quantity
+   * 
    * @example
    * 100
    */

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAccessWarrantResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The access token.
+   * 
    * @example
    * 1234567890
    */
   accessToken?: string;
   /**
+   * @remarks
+   * The access warrant ID.
+   * 
    * @example
    * ex2xxxxxxxx
    */
   accessWarrantId?: string;
   /**
+   * @remarks
+   * The merchant\\"s application ID.
+   * 
    * @example
    * 1234567890
    */
   applicationAccessId?: string;
   /**
+   * @remarks
+   * The creation time of the access warrant.
+   * 
    * @example
    * 1672531200
    */
   createTime?: string;
   /**
+   * @remarks
+   * The expiration time of the access warrant.
+   * 
    * @example
    * 1672531200
    */
   expireTime?: string;
   /**
+   * @remarks
+   * The merchant\\"s user ID.
+   * 
    * @example
    * 1234567890
    */
@@ -66,31 +84,49 @@ export class CreateAccessWarrantResponseBodyData extends $dara.Model {
 
 export class CreateAccessWarrantResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data object.
+   * 
    * @example
    * []
    */
   data?: CreateAccessWarrantResponseBodyData;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

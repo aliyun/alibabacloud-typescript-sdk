@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterUpdateModelRequest extends $dara.Model {
   /**
    * @remarks
-   * API Key
+   * The API key.
    * 
    * @example
    * sk-xxxx
@@ -13,53 +13,80 @@ export class ModelRouterUpdateModelRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * Base URL
+   * The base URL.
    * 
    * @example
    * https://dashscope.aliyuncs.com
    */
   baseUrl?: string;
   /**
+   * @remarks
+   * The model description.
+   * 
    * @example
    * 通义千问大模型
    */
   description?: string;
   /**
+   * @remarks
+   * The maximum input length.
+   * 
    * @example
    * 8192
    */
   maxInputLength?: string;
   /**
+   * @remarks
+   * The maximum output length.
+   * 
    * @example
    * 2048
    */
   maxOutputLength?: string;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * qwen-turbo
    */
   modelId?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * Chat
    */
   modelType?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * 通义千问
    */
   name?: string;
   /**
+   * @remarks
+   * The model status.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The provider symbol.
+   * 
    * @example
    * alibaba
    */
   symbol?: string;
   /**
+   * @remarks
+   * Comma-separated tags.
+   * 
    * @example
    * chat,NLP
    */

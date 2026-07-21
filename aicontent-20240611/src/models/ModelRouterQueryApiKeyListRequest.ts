@@ -4,56 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Filters the results by the specified client ID.
+   * 
    * @example
    * 1
    */
   clientId?: number;
   /**
+   * @remarks
+   * The grouping field.
+   * 
    * @example
    * resourceId
    */
   groupBy?: string;
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Specifies whether to return the total count of results.
+   * 
    * @example
    * true
    */
   needTotalCount?: boolean;
   /**
+   * @remarks
+   * The token for retrieving the next page of results. An empty value indicates that all results have been returned.
+   * 
    * @example
    * 1
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort field.
+   * 
    * @example
    * resourceId
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * DESC
    */
   orderDirection?: string;
   /**
+   * @remarks
+   * The page number to retrieve.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of results per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Filters the results by the specified status.
+   * 
    * @example
    * 1
    */

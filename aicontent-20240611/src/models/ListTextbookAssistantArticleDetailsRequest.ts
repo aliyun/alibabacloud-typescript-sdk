@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTextbookAssistantArticleDetailsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of article IDs to retrieve.
+   */
   articleIdList?: string[];
   /**
    * @remarks
+   * The authorization token obtained from the "Get Authorization Token for the English Textbook-Style AI Teacher" API.
+   * 
    * This parameter is required.
    * 
    * @example

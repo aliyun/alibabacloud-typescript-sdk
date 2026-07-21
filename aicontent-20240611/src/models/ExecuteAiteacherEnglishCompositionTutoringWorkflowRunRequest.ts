@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest extends $dara.Model {
   /**
+   * @remarks
+   * The essay outline.
+   * 
    * @example
    * Title: The Importance of Reading
    * I. Introduction
@@ -13,6 +16,8 @@ export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest extend
   essayOutline?: string;
   /**
    * @remarks
+   * The essay requirements.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +26,8 @@ export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest extend
   essayRequirements?: string;
   /**
    * @remarks
+   * The essay topic.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +36,12 @@ export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest extend
   essayTopic?: string;
   /**
    * @remarks
+   * The essay type. Valid values:
+   * 
+   * `outline`: an outline
+   * 
+   * essay: essay
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,12 +49,17 @@ export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest extend
    */
   essayType?: string;
   /**
+   * @remarks
+   * The required word count.
+   * 
    * @example
    * 100
    */
   essayWordCount?: number;
   /**
    * @remarks
+   * The student\\"s grade level.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +68,8 @@ export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest extend
   grade?: number;
   /**
    * @remarks
+   * The response mode. For example, set this value to `streaming` to receive server-sent events.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +78,8 @@ export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest extend
   responseMode?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The field by which to group the results.
+   * 
    * @example
    * resourceId
    */
   groupBy?: string;
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Specifies whether to return the total count.
+   * 
    * @example
    * true
    */
   needTotalCount?: boolean;
   /**
+   * @remarks
+   * The pagination token for the next page.
+   * 
    * @example
    * 1
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The field by which to sort the results.
+   * 
    * @example
    * resourceId
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The sort direction.
+   * 
    * @example
    * DESC
    */
   orderDirection?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

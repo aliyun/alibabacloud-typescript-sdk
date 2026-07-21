@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterChatCompletionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The request body, which must be a JSON object.
+   * 
    * @example
    * {
    *     "stream": true,

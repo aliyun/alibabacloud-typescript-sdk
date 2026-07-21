@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class Personalizedtxt2imgAddInferenceJobResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The inference job\\"s creation time.
+   * 
    * @example
    * 2023-12-25T12:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The model inference job ID.
+   * 
    * @example
    * 3220
    */
   id?: string;
   /**
+   * @remarks
+   * The job status.
+   * 
    * @example
    * FINISHED
    */
   jobStatus?: string;
   /**
+   * @remarks
+   * The inference job progress.
+   * 
    * @example
    * 0.5
    */
   jobTrainProgress?: number;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * modelId-xxxx-xxxx-xxxx
    */
   modelId?: string;
   /**
+   * @remarks
+   * The prompt ID.
+   * 
    * @example
    * promptId-xxxx-xxxx-xxxx
    */
   promptId?: string;
   /**
+   * @remarks
+   * A list of URLs for the generated images.
+   * 
    * @example
    * 0000.png
    */
@@ -76,31 +97,49 @@ export class Personalizedtxt2imgAddInferenceJobResponseBodyData extends $dara.Mo
 
 export class Personalizedtxt2imgAddInferenceJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data object.
+   * 
    * @example
    * []
    */
   data?: Personalizedtxt2imgAddInferenceJobResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

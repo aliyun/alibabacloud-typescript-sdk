@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAITeacherEnglishParaphraseChatMessageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The content associated with the event.
+   * 
    * @example
    * how
    */
   content?: string;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * message
    */
   event?: string;
   /**
+   * @remarks
+   * The request ID. This ID is returned with every response and is useful for troubleshooting.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */

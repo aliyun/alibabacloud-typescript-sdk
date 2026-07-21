@@ -4,6 +4,10 @@ import { OralEvaluationStatisticsConcurrentCountRequest } from "./OralEvaluation
 
 
 export class CountOralEvaluationStatisticsConcurrentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: OralEvaluationStatisticsConcurrentCountRequest;
   static names(): { [key: string]: string } {
     return {

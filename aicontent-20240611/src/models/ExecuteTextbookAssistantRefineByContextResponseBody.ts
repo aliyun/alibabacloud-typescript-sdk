@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteTextbookAssistantRefineByContextResponseBodyDataResult extends $dara.Model {
   /**
+   * @remarks
+   * The refined sentence.
+   * 
    * @example
    * Good evening! From the book, how does Mike Black introduce himself?
    */
@@ -30,6 +33,10 @@ export class ExecuteTextbookAssistantRefineByContextResponseBodyDataResult exten
 }
 
 export class ExecuteTextbookAssistantRefineByContextResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The result data.
+   */
   result?: ExecuteTextbookAssistantRefineByContextResponseBodyDataResult;
   static names(): { [key: string]: string } {
     return {
@@ -56,31 +63,47 @@ export class ExecuteTextbookAssistantRefineByContextResponseBodyData extends $da
 }
 
 export class ExecuteTextbookAssistantRefineByContextResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: ExecuteTextbookAssistantRefineByContextResponseBodyData;
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned when the request fails.
+   * 
    * @example
    * null
    */
   errMessage?: number;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique request ID.
    * 
    * @example
    * 6F73C114-A76E-51AD-99E3-BC7B941B69E0
    */
   requestId?: string;
   /**
+   * @remarks
+   * A value of `true` indicates that the request succeeded.
+   * 
    * @example
    * true
    */

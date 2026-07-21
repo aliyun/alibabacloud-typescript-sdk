@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecuteTextbookAssistantTranslateResponseBodyDataResult extends $dara.Model {
+  /**
+   * @remarks
+   * The translated text.
+   * 
+   * @example
+   * 根据文章，迈克·布莱克是如何介绍自己的？
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +33,10 @@ export class ExecuteTextbookAssistantTranslateResponseBodyDataResult extends $da
 }
 
 export class ExecuteTextbookAssistantTranslateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The result object.
+   */
   result?: ExecuteTextbookAssistantTranslateResponseBodyDataResult;
   static names(): { [key: string]: string } {
     return {
@@ -52,31 +63,47 @@ export class ExecuteTextbookAssistantTranslateResponseBodyData extends $dara.Mod
 }
 
 export class ExecuteTextbookAssistantTranslateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned by the API.
+   */
   data?: ExecuteTextbookAssistantTranslateResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ""
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9EB79C1E-36C2-5777-BED6-C23A98DF0637
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

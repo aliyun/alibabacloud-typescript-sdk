@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteTextbookAssistantDifficultyResponseBodyDataResult extends $dara.Model {
   /**
+   * @remarks
+   * The dialogue content after the difficulty adjustment.
+   * 
    * @example
    * Let\\"s look at the text again. Mike says, \\"I\\"m Mike Black.\\" Can you try saying it like Mike?
    */
@@ -30,6 +33,10 @@ export class ExecuteTextbookAssistantDifficultyResponseBodyDataResult extends $d
 }
 
 export class ExecuteTextbookAssistantDifficultyResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A container for the result data.
+   */
   result?: ExecuteTextbookAssistantDifficultyResponseBodyDataResult;
   static names(): { [key: string]: string } {
     return {
@@ -56,31 +63,47 @@ export class ExecuteTextbookAssistantDifficultyResponseBodyData extends $dara.Mo
 }
 
 export class ExecuteTextbookAssistantDifficultyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned on a successful request.
+   */
   data?: ExecuteTextbookAssistantDifficultyResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * null
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * Id of the request
+   * The unique ID of the request.
    * 
    * @example
    * 0D7D382F-9475-572E-BE83-DDFBF5C5EB24
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

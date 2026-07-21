@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAITeacherEnglishParaphraseChatMessageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID for the chat session.
+   * 
    * @example
    * 6788e0b475a4631ffc626722
    */
   chatId?: string;
   /**
    * @remarks
+   * The user\\"s chat message.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,17 +22,25 @@ export class ExecuteAITeacherEnglishParaphraseChatMessageRequest extends $dara.M
    */
   content?: string;
   /**
+   * @remarks
+   * The grade level.
+   * 
    * @example
    * 3
    */
   grade?: number;
   /**
+   * @remarks
+   * A unique identifier for the question.
+   * 
    * @example
    * xxxxxxxxx
    */
   questionId?: string;
   /**
    * @remarks
+   * The user\\"s question.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +49,8 @@ export class ExecuteAITeacherEnglishParaphraseChatMessageRequest extends $dara.M
   questionInfo?: string;
   /**
    * @remarks
+   * The response mode. Set this to `streaming` to receive the response as a stream of events.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +59,8 @@ export class ExecuteAITeacherEnglishParaphraseChatMessageRequest extends $dara.M
   responseMode?: string;
   /**
    * @remarks
+   * The user\\"s answer to the question.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +69,8 @@ export class ExecuteAITeacherEnglishParaphraseChatMessageRequest extends $dara.M
   userAnswer?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example

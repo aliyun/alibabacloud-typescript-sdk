@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTextbookAssistantBookDirectoriesRequest extends $dara.Model {
   /**
    * @remarks
+   * The API authorization token. You can obtain this token from the authorization API for the AI English teacher feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListTextbookAssistantBookDirectoriesRequest extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
+   * The book ID. You can obtain this ID from the API for retrieving English textbooks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListTextbookAssistantBookDirectoriesRequest extends $dara.Model {
   bookId?: string;
   /**
    * @remarks
+   * The exercise scenario.
+   * 
    * This parameter is required.
    * 
    * @example

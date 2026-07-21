@@ -5,30 +5,54 @@ import * as $dara from '@darabonba/typescript';
 export class AITeacherSyncPracticeTaskGenerateRequest extends $dara.Model {
   /**
    * @remarks
+   * The grade.
+   * 
    * This parameter is required.
    * 
    * @example
    * 13
    */
   grade?: string;
+  /**
+   * @remarks
+   * A list of key sentences.
+   */
   keySentences?: string[];
+  /**
+   * @remarks
+   * A list of keywords.
+   */
   keyWords?: string[];
   /**
+   * @remarks
+   * The learning objective.
+   * 
    * @example
    * Understanding unique professions such as dog walkers, hotel test sleepers, and food tasters, including their job responsibilities and the benefits or challenges associated with each role.
    */
   learningObject?: string;
   /**
    * @remarks
+   * The source text for generating questions.
+   * 
    * This parameter is required.
    * 
    * @example
    * Dog walker Dog walking, as a profession, originated in the US. Some may think that it\\"s a perfect job, because dog walkers won\\"t be imprisoned in an office. But it\\"s actually manual labour. At their busiest, dog walkers may have more than ten dogs to take care of in a day. Hotel test sleeper A hotel test sleeper, as the name suggests, has to write expert reviews about the facilities, locations, prices, dining and other services of hotels, in order to provide evaluations and guides for travelers. Hotel test sleepers don\\"t need to punch in for work and they get about ten thousand yuan as income every month. What a comfortable job! Food taster In ancient times, a food taster was a person who tasted foods (or drinks) to be served to someone else, to confirm that it was safe to eat. But now, those working as food tasters just get to taste various new foods and drinks aimed at specific regions across the world. They then give their opinions on these products to the companies and suggest improvements.
    */
   textContent?: string;
+  /**
+   * @remarks
+   * The textbook.
+   * 
+   * @example
+   * 英语（基础模块）修订版
+   */
   textbook?: string;
   /**
    * @remarks
+   * The dialogue topic.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +61,8 @@ export class AITeacherSyncPracticeTaskGenerateRequest extends $dara.Model {
   topic?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteTextbookAssistantTranslateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the assistant\\"s message.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExecuteTextbookAssistantTranslateRequest extends $dara.Model {
   assistant?: string;
   /**
    * @remarks
+   * The authorization token. Obtain this token by calling the authorization operation for the AI Textbook Assistant feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ExecuteTextbookAssistantTranslateRequest extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
+   * The conversation ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ExecuteTextbookAssistantTranslateRequest extends $dara.Model {
   chatId?: string;
   /**
    * @remarks
+   * The practice scenario. Valid values: SYNC for synchronous practice and EXPAND for extended practice.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The content associated with the event.
+   * 
+   * @example
+   * 春天里常见的景
+   */
   content?: string;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * message
    */
   event?: string;
   /**
+   * @remarks
+   * The unique ID for the request. This ID is useful for troubleshooting.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */

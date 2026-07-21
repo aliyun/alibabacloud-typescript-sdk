@@ -4,71 +4,113 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterUpdateBillingRuleResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The billing type.
+   * 
    * @example
    * token_tiered
    */
   billingType?: string;
   /**
+   * @remarks
+   * The deletion tag.
+   * 
    * @example
    * 0
    */
   deleteTag?: number;
   /**
+   * @remarks
+   * The time when the rule takes effect.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   effectiveTime?: string;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 2025-01-01T00:00:00Z
    */
   expireTime?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * qwen-plus
    */
   modelCode?: string;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * 1
    */
   modelId?: number;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * 通义千问Plus
    */
   modelName?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * chat
    */
   modelType?: string;
   /**
+   * @remarks
+   * The billing configuration.
+   * 
    * @example
    * {}
    */
   pricingConfig?: any;
   /**
+   * @remarks
+   * The vendor ID.
+   * 
    * @example
    * alibaba
    */
   symbol?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1
    */
@@ -121,28 +163,47 @@ export class ModelRouterUpdateBillingRuleResponseBodyData extends $dara.Model {
 }
 
 export class ModelRouterUpdateBillingRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ModelRouterUpdateBillingRuleResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

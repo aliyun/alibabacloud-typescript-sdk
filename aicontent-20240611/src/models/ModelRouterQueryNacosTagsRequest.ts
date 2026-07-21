@@ -9,41 +9,65 @@ export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
    */
   configType?: string;
   /**
+   * @remarks
+   * The field by which to group the results.
+   * 
    * @example
    * resourceId
    */
   groupBy?: string;
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Specifies whether to return the total count of results.
+   * 
    * @example
    * true
    */
   needTotalCount?: boolean;
   /**
+   * @remarks
+   * The token from a previous response to retrieve the next page of results.
+   * 
    * @example
    * 1
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The field by which to sort the results.
+   * 
    * @example
    * resourceId
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * DESC
    */
   orderDirection?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of results to return per page.
+   * 
    * @example
    * 10
    */

@@ -4,16 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class MetricDefRespDTO extends $dara.Model {
   /**
+   * @remarks
+   * Metric key name
+   * 
    * @example
    * total_calls
    */
   key?: string;
+  /**
+   * @remarks
+   * Metric display name
+   * 
+   * @example
+   * 调用次数
+   */
   label?: string;
   /**
+   * @remarks
+   * Is sortable
+   * 
    * @example
    * true
    */
   sortable?: boolean;
+  /**
+   * @remarks
+   * Metric unit
+   * 
+   * @example
+   * 次
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {

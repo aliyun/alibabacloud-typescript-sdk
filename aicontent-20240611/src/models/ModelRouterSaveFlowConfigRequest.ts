@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterSaveFlowConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The model ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,25 @@ export class ModelRouterSaveFlowConfigRequest extends $dara.Model {
    */
   modelId?: number;
   /**
+   * @remarks
+   * The maximum number of requests per minute (RPM).
+   * 
    * @example
    * 100
    */
   rpm?: number;
   /**
+   * @remarks
+   * Specifies whether to enable smooth flow control.
+   * 
    * @example
    * true
    */
   smoothFlowEnabled?: boolean;
   /**
+   * @remarks
+   * The maximum number of tokens per minute (TPM).
+   * 
    * @example
    * 10000
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterCreateApiKeyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client ID. A value of `null` represents the default client.
+   * 
    * @example
    * 1
    */

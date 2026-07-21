@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryBillingRuleListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Return only currently effective rules.
+   * 
    * @example
    * true
    */
@@ -17,16 +20,25 @@ export class ModelRouterQueryBillingRuleListRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Filter by model identifier.
+   * 
    * @example
    * qwen-plus
    */
   modelCode?: string;
   /**
+   * @remarks
+   * Filter by model ID (required).
+   * 
    * @example
    * 1
    */
   modelId?: number;
   /**
+   * @remarks
+   * Filter by model type.
+   * 
    * @example
    * chat
    */
@@ -40,16 +52,25 @@ export class ModelRouterQueryBillingRuleListRequest extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Page number. Default is 1.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * Page number (takes precedence).
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * Number of items per page. Default is 20.
+   * 
    * @example
    * 20
    */

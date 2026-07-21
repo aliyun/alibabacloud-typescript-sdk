@@ -4,11 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CostTabDTO extends $dara.Model {
   /**
+   * @remarks
+   * Tab UUID
+   * 
    * @example
    * all
    */
   key?: string;
+  /**
+   * @remarks
+   * Tab display name
+   * 
+   * @example
+   * 全部
+   */
   label?: string;
+  /**
+   * @remarks
+   * List of associated model types
+   */
   modelTypes?: string[];
   static names(): { [key: string]: string } {
     return {

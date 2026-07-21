@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAITeacherGrammarCheckRequest extends $dara.Model {
   /**
    * @remarks
+   * The sentence to check.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExecuteAITeacherGrammarCheckRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAITeacherExpansionDialogueTranslateResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The translation result.
+   * 
    * @example
    * 太好了，谢谢你过来，莉莉。你喜欢吃肉吗？
    */
@@ -31,31 +34,49 @@ export class ExecuteAITeacherExpansionDialogueTranslateResponseBodyData extends 
 
 export class ExecuteAITeacherExpansionDialogueTranslateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * []
    */
   data?: ExecuteAITeacherExpansionDialogueTranslateResponseBodyData;
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned when the request fails.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

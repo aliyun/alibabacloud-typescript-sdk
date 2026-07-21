@@ -4,26 +4,49 @@ import { ConversationDTO } from "./ConversationDto";
 
 
 export class ModelRouterQueryConversationListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of conversation objects.
+   */
   list?: ConversationDTO[];
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 10
+   */
   maxResult?: string;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. If this parameter is empty, all results have been returned.
+   * 
    * @example
    * None
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of conversations on the current page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of conversations.
+   * 
    * @example
-   * 0
+   * 100
    */
   total?: number;
   static names(): { [key: string]: string } {
@@ -62,31 +85,49 @@ export class ModelRouterQueryConversationListResponseBodyData extends $dara.Mode
 
 export class ModelRouterQueryConversationListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * []
    */
   data?: ModelRouterQueryConversationListResponseBodyData;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. A value of `true` indicates success.
+   * 
    * @example
    * true
    */

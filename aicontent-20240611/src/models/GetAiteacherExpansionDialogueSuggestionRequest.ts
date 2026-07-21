@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends $dara.Model {
   /**
    * @remarks
+   * The content of the assistant\\"s dialogue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends
    */
   assistant?: string;
   /**
+   * @remarks
+   * The translated content of the assistant\\"s dialogue.
+   * 
    * @example
    * 为什么有些人认为遛狗是份好差事?
    */
   assistantTranslate?: string;
   /**
    * @remarks
+   * The sequence number of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends
   order?: number;
   /**
    * @remarks
+   * The content of the user\\"s dialogue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +71,8 @@ export class GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks extends
 export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $dara.Model {
   /**
    * @remarks
+   * The content of the dialogue message.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,17 +80,25 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $dara
    */
   content?: string;
   /**
+   * @remarks
+   * Indicates if the user\\"s response has gone off-topic. This parameter controls the conversation flow based on dialogue history. The system sets this parameter to `true` to switch tasks if the user goes off-topic more than twice.
+   * 
    * @example
    * 跑题：true, 不跑题：false
    */
   isOffTopicControl?: boolean;
   /**
+   * @remarks
+   * Indicates if the response is on topic.
+   * 
    * @example
    * 扣题：true, 不扣题：false
    */
   isOnTopic?: boolean;
   /**
    * @remarks
+   * The sequence number of the message in the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88,10 +107,12 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $dara
   order?: number;
   /**
    * @remarks
+   * The role of the message author. Valid values:
+   * 
    * This parameter is required.
    * 
    * @example
-   * 老师：assistant；学生：user
+   * AI：assistant；用户：user
    */
   role?: string;
   static names(): { [key: string]: string } {
@@ -126,6 +147,8 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRecords extends $dara
 export class GetAITeacherExpansionDialogueSuggestionRequestRoleInfo extends $dara.Model {
   /**
    * @remarks
+   * The name of the AI assistant.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -134,6 +157,8 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRoleInfo extends $dar
   assistant?: string;
   /**
    * @remarks
+   * The name of the user.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -166,6 +191,8 @@ export class GetAITeacherExpansionDialogueSuggestionRequestRoleInfo extends $dar
 export class GetAITeacherExpansionDialogueSuggestionRequest extends $dara.Model {
   /**
    * @remarks
+   * The background of the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -174,31 +201,45 @@ export class GetAITeacherExpansionDialogueSuggestionRequest extends $dara.Model 
   background?: string;
   /**
    * @remarks
+   * An array of objects that define the dialogue tasks.
+   * 
    * This parameter is required.
    */
   dialogueTasks?: GetAITeacherExpansionDialogueSuggestionRequestDialogueTasks[];
   /**
+   * @remarks
+   * The language code, specified as a BCP 47 language tag. Valid values:
+   * 
    * @example
    * en-gb
    */
   languageCode?: string;
   /**
    * @remarks
+   * An array of dialogue records.
+   * 
    * This parameter is required.
    */
   records?: GetAITeacherExpansionDialogueSuggestionRequestRecords[];
   /**
    * @remarks
+   * Contains information about the roles in the conversation.
+   * 
    * This parameter is required.
    */
   roleInfo?: GetAITeacherExpansionDialogueSuggestionRequestRoleInfo;
   /**
+   * @remarks
+   * The opening sentence of the conversation.
+   * 
    * @example
    * Hello Lily, could you please come to the kitchen for a moment?
    */
   startSentence?: string;
   /**
    * @remarks
+   * The main topic of the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -207,6 +248,8 @@ export class GetAITeacherExpansionDialogueSuggestionRequest extends $dara.Model 
   topic?: string;
   /**
    * @remarks
+   * A unique identifier for the end user, used for monitoring and abuse detection.
+   * 
    * This parameter is required.
    * 
    * @example

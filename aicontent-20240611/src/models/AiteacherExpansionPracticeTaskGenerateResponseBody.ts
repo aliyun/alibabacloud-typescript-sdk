@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet extends $dara.Model {
   /**
+   * @remarks
+   * The name of the AI teacher.
+   * 
    * @example
    * Alex
    */
   assistant?: string;
   /**
+   * @remarks
+   * The name of the student.
+   * 
    * @example
    * Jamie
    */
@@ -38,11 +44,17 @@ export class AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet exten
 
 export class AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent extends $dara.Model {
   /**
+   * @remarks
+   * The AI teacher\\"s question.
+   * 
    * @example
    * Why might some people think dog walking is a great job?
    */
   assistant?: string;
   /**
+   * @remarks
+   * The student\\"s answer.
+   * 
    * @example
    * They think it\\"s great because they won\\"t be stuck in an office.
    */
@@ -72,18 +84,35 @@ export class AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent e
 
 export class AITeacherExpansionPracticeTaskGenerateResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The background of the conversation.
+   * 
    * @example
    * In a career counseling session, we are going to discuss our dream jobs and the responsibilities associated with them. Alex, who dreams of becoming a professional travel blogger, will share the tasks and skills required for this role, while Jamie, aspiring to be a wildlife photographer, will outline the responsibilities and challenges of capturing nature\\"s moments. Both will explore how their interests align with the practical aspects of their chosen careers, discussing the potential for travel, creativity, and the impact of their work on society and the environment.
    */
   backgroundDescription?: string;
+  /**
+   * @remarks
+   * The role settings.
+   */
   roleSet?: AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet;
   /**
+   * @remarks
+   * The opening sentence of the conversation.
+   * 
    * @example
    * Hey Jamie, do you know what a travel blogger does?
    */
   startSentence?: string;
+  /**
+   * @remarks
+   * A list of Q\\&A pairs.
+   */
   taskContent?: AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent[];
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * textbook_dialogue
    */
@@ -124,24 +153,47 @@ export class AITeacherExpansionPracticeTaskGenerateResponseBodyData extends $dar
 }
 
 export class AITeacherExpansionPracticeTaskGenerateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data object.
+   */
   data?: AITeacherExpansionPracticeTaskGenerateResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * 未知错误
+   */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the request was successful.
+   * 
    * @example
    * true
    */

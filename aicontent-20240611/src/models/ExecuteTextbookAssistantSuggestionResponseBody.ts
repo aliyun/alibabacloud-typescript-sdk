@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecuteTextbookAssistantSuggestionResponseBodyDataResult extends $dara.Model {
+  /**
+   * @remarks
+   * The response from the AI teacher in Chinese.
+   * 
+   * @example
+   * 根据文章，迈克·布莱克是如何介绍自己的？
+   */
   chineseResult?: string;
   /**
+   * @remarks
+   * The response from the AI teacher in English.
+   * 
    * @example
    * Good evening! From the book, how does Mike Black introduce himself?
    */
@@ -33,6 +43,10 @@ export class ExecuteTextbookAssistantSuggestionResponseBodyDataResult extends $d
 }
 
 export class ExecuteTextbookAssistantSuggestionResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The result data.
+   */
   result?: ExecuteTextbookAssistantSuggestionResponseBodyDataResult;
   static names(): { [key: string]: string } {
     return {
@@ -59,31 +73,47 @@ export class ExecuteTextbookAssistantSuggestionResponseBodyData extends $dara.Mo
 }
 
 export class ExecuteTextbookAssistantSuggestionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: ExecuteTextbookAssistantSuggestionResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpstatusCode?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0D7D382F-9475-572E-BE83-DDFBF5C5EB24
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

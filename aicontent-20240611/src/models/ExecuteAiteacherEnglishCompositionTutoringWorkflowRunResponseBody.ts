@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The content of the event.
+   * 
    * @example
    * hi
    */
   content?: string;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * message
    */
   event?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */

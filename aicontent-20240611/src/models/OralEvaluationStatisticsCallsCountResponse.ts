@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData extends $dara.Model {
   /**
    * @remarks
+   * The corresponding count.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDat
   count?: number;
   /**
    * @remarks
+   * The name of the statistic.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,10 +47,14 @@ export class OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDat
 }
 
 export class OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of data objects.
+   */
   data?: OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDataData[];
   /**
    * @remarks
-   * appkey
+   * The appkey.
    * 
    * This parameter is required.
    * 
@@ -81,9 +89,15 @@ export class OralEvaluationStatisticsCallsCountResponseProjectDataApplicationDat
 }
 
 export class OralEvaluationStatisticsCallsCountResponseProjectData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of application data objects.
+   */
   applicationData?: OralEvaluationStatisticsCallsCountResponseProjectDataApplicationData[];
   /**
    * @remarks
+   * The internal application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -119,11 +133,15 @@ export class OralEvaluationStatisticsCallsCountResponseProjectData extends $dara
 export class OralEvaluationStatisticsCallsCountResponse extends $dara.Model {
   /**
    * @remarks
+   * The project statistics.
+   * 
    * This parameter is required.
    */
   projectData?: OralEvaluationStatisticsCallsCountResponseProjectData;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example

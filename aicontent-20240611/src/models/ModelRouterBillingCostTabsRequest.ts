@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterBillingCostTabsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies the maximum number of results to return.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
    * @remarks
-   * nextToken
+   * The token to retrieve the next page of results.
    * 
    * @example
    * xxxx-xxx-xxxxx

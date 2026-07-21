@@ -4,31 +4,50 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelDTO extends $dara.Model {
   /**
+   * @remarks
+   * A masked preview of the API key.
+   * 
    * @example
    * sk-xxx****xxx
    */
   apiKeyPreview?: string;
   /**
    * @remarks
-   * Base URL
+   * The base URL for API requests.
    * 
    * @example
    * https://dashscope.aliyuncs.com
    */
   baseUrl?: string;
   /**
+   * @remarks
+   * Indicates the model\\"s status. A value of 0 means enabled, and a non-zero value means disabled.
+   * 
    * @example
    * 0
    */
   deleteTag?: number;
+  /**
+   * @remarks
+   * The model description.
+   * 
+   * @example
+   * 通义千问大模型
+   */
   description?: string;
   extensions?: string;
   /**
+   * @remarks
+   * The time when the model was created, in ISO 8601 format.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The time when the model was last updated, in ISO 8601 format.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -40,7 +59,7 @@ export class ModelDTO extends $dara.Model {
   hasBillingRule?: boolean;
   /**
    * @remarks
-   * ID
+   * The unique ID of the model.
    * 
    * @example
    * 1
@@ -48,43 +67,81 @@ export class ModelDTO extends $dara.Model {
   id?: number;
   inOut?: string;
   /**
+   * @remarks
+   * Indicates whether the model is custom.
+   * 
    * @example
    * false
    */
   isCustom?: boolean;
   /**
+   * @remarks
+   * The maximum input length.
+   * 
    * @example
    * 8192
    */
   maxInputLength?: string;
   /**
+   * @remarks
+   * The maximum output length.
+   * 
    * @example
    * 2048
    */
   maxOutputLength?: string;
   /**
+   * @remarks
+   * The model code.
+   * 
    * @example
    * qwen-turbo
    */
   modelCode?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * Chat
    */
   modelType?: string;
+  /**
+   * @remarks
+   * The model name.
+   * 
+   * @example
+   * 通义千问
+   */
   name?: string;
   /**
+   * @remarks
+   * The vendor symbol.
+   * 
    * @example
    * alibaba
    */
   symbol?: string;
+  /**
+   * @remarks
+   * The display names for the tags, separated by commas.
+   * 
+   * @example
+   * 对话,自然语言处理
+   */
   tagNames?: string;
   /**
+   * @remarks
+   * A comma-separated list of model tags.
+   * 
    * @example
    * chat,NLP
    */
   tags?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 0
    */

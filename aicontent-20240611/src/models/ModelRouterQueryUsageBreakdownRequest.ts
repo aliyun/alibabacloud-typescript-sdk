@@ -5,6 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   /**
    * @remarks
+   * Optional. Filters results by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
+   * 
+   * @example
+   * 100
+   */
+  apiKeyId?: number;
+  /**
+   * @remarks
+   * Optional. Filters results by department ID.
+   * 
+   * @example
+   * 1
+   */
+  clientId?: number;
+  /**
+   * @remarks
+   * The query end time, in UNIX timestamp (seconds).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +31,8 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
+   * The aggregation granularity. Valid values: hourly and daily.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,27 +40,41 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
    */
   granularity?: string;
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * xxxx-xxx-xxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Maximum value: 500.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The query start time, in UNIX timestamp (seconds).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +83,8 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      apiKeyId: 'apiKeyId',
+      clientId: 'clientId',
       endTime: 'endTime',
       granularity: 'granularity',
       maxResults: 'maxResults',
@@ -61,6 +97,8 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKeyId: 'number',
+      clientId: 'number',
       endTime: 'number',
       granularity: 'string',
       maxResults: 'number',

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class Personalizedtxt2imgQueryModelTrainStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The model ID.
+   * 
    * This parameter is required.
    * 
    * @example

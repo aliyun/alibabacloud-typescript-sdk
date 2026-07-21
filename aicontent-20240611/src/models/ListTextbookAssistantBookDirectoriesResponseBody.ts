@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic extends $dara.Model {
   /**
+   * @remarks
+   * The label ID.
+   * 
    * @example
    * 1323
    */
   labelId?: string;
+  /**
+   * @remarks
+   * The label name.
+   * 
+   * @example
+   * 身边事物环境
+   */
   labelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,7 +43,21 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTo
 }
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic extends $dara.Model {
+  /**
+   * @remarks
+   * The label ID.
+   * 
+   * @example
+   * 1329
+   */
   labelId?: string;
+  /**
+   * @remarks
+   * The label name.
+   * 
+   * @example
+   * 自我介绍
+   */
   labelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,9 +83,34 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUn
 }
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection extends $dara.Model {
+  /**
+   * @remarks
+   * Child nodes for backward compatibility. This property is optional.
+   * 
+   * @example
+   * 可能存在的子元素，兼容数据使用，不一定存在
+   */
   children?: any;
+  /**
+   * @remarks
+   * The directory ID.
+   * 
+   * @example
+   * 05758807ed8e11eebe6e0c42a106bb02
+   */
   directoryId?: string;
+  /**
+   * @remarks
+   * The directory name.
+   * 
+   * @example
+   * section 2
+   */
   directoryName?: string;
+  /**
+   * @remarks
+   * The topic.
+   */
   topic?: ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSectionTopic[];
   static names(): { [key: string]: string } {
     return {
@@ -94,7 +143,21 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUn
 }
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic extends $dara.Model {
+  /**
+   * @remarks
+   * The label ID.
+   * 
+   * @example
+   * 1326
+   */
   labelId?: string;
+  /**
+   * @remarks
+   * The label name.
+   * 
+   * @example
+   * 自我介绍
+   */
   labelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -120,9 +183,31 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUn
 }
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit extends $dara.Model {
+  /**
+   * @remarks
+   * The directory ID.
+   * 
+   * @example
+   * 05758807ed8e11eebe6e0c42a106bb02
+   */
   directoryId?: string;
+  /**
+   * @remarks
+   * The directory name.
+   * 
+   * @example
+   * unit 2
+   */
   directoryName?: string;
+  /**
+   * @remarks
+   * The section.
+   */
   section?: ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitSection[];
+  /**
+   * @remarks
+   * The topic.
+   */
   topic?: ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnitTopic[];
   static names(): { [key: string]: string } {
     return {
@@ -159,16 +244,30 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUn
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTree extends $dara.Model {
   /**
+   * @remarks
+   * The directory ID.
+   * 
    * @example
    * 05758807ed8e11eebe6e0c42a106bb02
    */
   directoryId?: string;
   /**
+   * @remarks
+   * The directory name.
+   * 
    * @example
    * 2 Jobs
    */
   directoryName?: string;
+  /**
+   * @remarks
+   * The topic.
+   */
   topic?: ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic[];
+  /**
+   * @remarks
+   * The unit.
+   */
   unit?: ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit[];
   static names(): { [key: string]: string } {
     return {
@@ -205,41 +304,76 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTree e
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyDataEditionInfo extends $dara.Model {
   /**
+   * @remarks
+   * The book ID.
+   * 
    * @example
    * 55857
    */
   bookId?: string;
   /**
+   * @remarks
+   * The book volume. `0` indicates a single-volume edition, `1` indicates Volume 1, and `2` indicates Volume 2.
+   * 
    * @example
    * 1
    */
   bookVolume?: string;
   /**
+   * @remarks
+   * The edition.
+   * 
    * @example
    * 2010-1(2)
    */
   edition?: string;
   /**
+   * @remarks
+   * The grade. Valid values: 1–9.
+   * 
    * @example
    * 3
    */
   grade?: string;
   /**
+   * @remarks
+   * The impression.
+   * 
    * @example
    * 2019-1(10)
    */
   impression?: string;
   /**
+   * @remarks
+   * The International Standard Book Number (ISBN).
+   * 
    * @example
    * 9787544413695
    */
   isbn?: string;
+  /**
+   * @remarks
+   * The publisher.
+   * 
+   * @example
+   * 人民教育出版社
+   */
   publisher?: string;
   /**
+   * @remarks
+   * The subject.
+   * 
    * @example
    * ENGLISH
    */
   subject?: string;
+  /**
+   * @remarks
+   * The version.
+   * 
+   * @example
+   * 人教版
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -279,7 +413,15 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataEditionInfo ext
 }
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The directory tree.
+   */
   directoryTree?: ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTree[];
+  /**
+   * @remarks
+   * The edition details.
+   */
   editionInfo?: ListTextbookAssistantBookDirectoriesResponseBodyDataEditionInfo;
   static names(): { [key: string]: string } {
     return {
@@ -311,27 +453,47 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyData extends $dara.
 }
 
 export class ListTextbookAssistantBookDirectoriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data object.
+   */
   data?: ListTextbookAssistantBookDirectoriesResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * B_USER_NOT_FOUND_EXCEPTION
    */
   errCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * 用户不存在
+   */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0A5E9849-A2F0-551D-A7D8-1A8118557BAB
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

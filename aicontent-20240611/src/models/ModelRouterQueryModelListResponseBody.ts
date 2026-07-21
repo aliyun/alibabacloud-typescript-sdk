@@ -4,28 +4,47 @@ import { ModelDTO } from "./ModelDto";
 
 
 export class ModelRouterQueryModelListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * An array of model objects.
+   */
   list?: ModelDTO[];
   /**
+   * @remarks
+   * The maximum number of results per page.
+   * 
    * @example
    * None
    */
   maxResults?: string;
   /**
+   * @remarks
+   * The pagination token used to retrieve the next page of results. An empty value indicates that no more results are available.
+   * 
    * @example
    * None
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of models per page.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of models that meet the filter criteria.
+   * 
    * @example
    * 5
    */
@@ -66,39 +85,57 @@ export class ModelRouterQueryModelListResponseBodyData extends $dara.Model {
 
 export class ModelRouterQueryModelListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Contains the paginated list of models and pagination metadata.
+   * 
    * @example
    * []
    */
   data?: ModelRouterQueryModelListResponseBodyData;
   /**
+   * @remarks
+   * The error code. Returned only when the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message. Returned only when the request fails.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * maxResults
+   * The maximum number of results per page.
    * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The unique identifier for the request.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

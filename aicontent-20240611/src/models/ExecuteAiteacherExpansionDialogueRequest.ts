@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAITeacherExpansionDialogueRequestDialogueTasks extends $dara.Model {
   /**
    * @remarks
+   * The message content from the assistant.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ExecuteAITeacherExpansionDialogueRequestDialogueTasks extends $dara
    */
   assistant?: string;
   /**
+   * @remarks
+   * The translated content of the assistant\\"s message.
+   * 
    * @example
    * 为什么有些人认为遛狗是份好差事?
    */
   assistantTranslate?: string;
   /**
    * @remarks
+   * The order of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ExecuteAITeacherExpansionDialogueRequestDialogueTasks extends $dara
   order?: number;
   /**
    * @remarks
+   * The user\\"s message content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +71,8 @@ export class ExecuteAITeacherExpansionDialogueRequestDialogueTasks extends $dara
 export class ExecuteAITeacherExpansionDialogueRequestRecords extends $dara.Model {
   /**
    * @remarks
+   * The message content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,17 +80,25 @@ export class ExecuteAITeacherExpansionDialogueRequestRecords extends $dara.Model
    */
   content?: string;
   /**
+   * @remarks
+   * Indicates whether the user\\"s response is off-topic. This parameter controls the dialogue flow. For example, if the user provides two consecutive off-topic responses, set this value to `true` to advance to the next dialogue task.
+   * 
    * @example
    * 跑题：true, 不跑题：false
    */
   isOffTopicControl?: boolean;
   /**
+   * @remarks
+   * Indicates whether the user\\"s response is on topic.
+   * 
    * @example
    * 扣题：true, 不扣题：false
    */
   isOnTopic?: boolean;
   /**
    * @remarks
+   * The order of the message in the dialogue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88,10 +107,12 @@ export class ExecuteAITeacherExpansionDialogueRequestRecords extends $dara.Model
   order?: number;
   /**
    * @remarks
+   * The role of the message author.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 老师：assistant；学生：user
+   * AI：assistant；用户：user
    */
   role?: string;
   static names(): { [key: string]: string } {
@@ -126,6 +147,8 @@ export class ExecuteAITeacherExpansionDialogueRequestRecords extends $dara.Model
 export class ExecuteAITeacherExpansionDialogueRequestRoleInfo extends $dara.Model {
   /**
    * @remarks
+   * The name of the AI assistant.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -134,6 +157,8 @@ export class ExecuteAITeacherExpansionDialogueRequestRoleInfo extends $dara.Mode
   assistant?: string;
   /**
    * @remarks
+   * The name of the user.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -166,6 +191,8 @@ export class ExecuteAITeacherExpansionDialogueRequestRoleInfo extends $dara.Mode
 export class ExecuteAITeacherExpansionDialogueRequest extends $dara.Model {
   /**
    * @remarks
+   * The background of the dialogue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -174,27 +201,43 @@ export class ExecuteAITeacherExpansionDialogueRequest extends $dara.Model {
   background?: string;
   /**
    * @remarks
+   * A list of dialogue tasks.
+   * 
    * This parameter is required.
    */
   dialogueTasks?: ExecuteAITeacherExpansionDialogueRequestDialogueTasks[];
   /**
+   * @remarks
+   * The language code for the conversation.
+   * 
    * @example
    * en-gb
    */
   languageCode?: string;
+  /**
+   * @remarks
+   * A list of dialogue records.
+   */
   records?: ExecuteAITeacherExpansionDialogueRequestRecords[];
   /**
    * @remarks
+   * Specifies the names of the participants in the dialogue.
+   * 
    * This parameter is required.
    */
   roleInfo?: ExecuteAITeacherExpansionDialogueRequestRoleInfo;
   /**
+   * @remarks
+   * The opening sentence of the dialogue.
+   * 
    * @example
    * Hello Lily, could you please come to the kitchen for a moment?
    */
   startSentence?: string;
   /**
    * @remarks
+   * The topic of the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -203,6 +246,8 @@ export class ExecuteAITeacherExpansionDialogueRequest extends $dara.Model {
   topic?: string;
   /**
    * @remarks
+   * The unique identifier for the user.
+   * 
    * This parameter is required.
    * 
    * @example

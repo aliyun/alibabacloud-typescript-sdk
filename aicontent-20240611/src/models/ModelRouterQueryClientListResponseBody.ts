@@ -54,31 +54,49 @@ export class ModelRouterQueryClientListResponseBodyData extends $dara.Model {
 
 export class ModelRouterQueryClientListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * A wrapper object for the paged response data.
+   * 
    * @example
    * []
    */
   data?: ModelRouterQueryClientListResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

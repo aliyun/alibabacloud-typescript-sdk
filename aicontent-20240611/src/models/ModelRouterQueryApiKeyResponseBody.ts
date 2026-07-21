@@ -5,31 +5,49 @@ import { ApiKeyDecryptedDTO } from "./ApiKeyDecryptedDto";
 
 export class ModelRouterQueryApiKeyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data object containing the API key details.
+   * 
    * @example
    * []
    */
   data?: ApiKeyDecryptedDTO;
   /**
+   * @remarks
+   * The error code, returned only if the request fails.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message, returned only if the request fails.
+   * 
    * @example
    * 未知错误
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Specifies if the request was successful.
+   * 
    * @example
    * true
    */

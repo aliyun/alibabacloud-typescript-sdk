@@ -4,6 +4,10 @@ import { OralEvaluationStatisticsErrorCountRequest } from "./OralEvaluationStati
 
 
 export class CountOralEvaluationStatisticsErrorRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body for retrieving error statistics for the oral evaluation service.
+   */
   body?: OralEvaluationStatisticsErrorCountRequest;
   static names(): { [key: string]: string } {
     return {

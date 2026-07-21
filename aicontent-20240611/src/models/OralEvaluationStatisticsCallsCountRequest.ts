@@ -12,21 +12,33 @@ export class OralEvaluationStatisticsCallsCountRequest extends $dara.Model {
    */
   applicationAccessId?: string;
   /**
+   * @remarks
+   * End Time
+   * 
    * @example
    * 2024-10-15 07:40:01
    */
   endTime?: string;
   /**
+   * @remarks
+   * Query granularity (hour, Day, month)
+   * 
    * @example
    * DAY
    */
   granularity?: string;
   /**
+   * @remarks
+   * project ID
+   * 
    * @example
    * 123
    */
   projectId?: string;
   /**
+   * @remarks
+   * Start Time
+   * 
    * @example
    * 2024-10-14 07:40:01
    */
