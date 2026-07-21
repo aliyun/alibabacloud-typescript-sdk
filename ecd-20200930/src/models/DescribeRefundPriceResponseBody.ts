@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRefundPriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * <props="china">Currency unit (CNY).
-   * <props="intl">Currency unit (USD).
+   * <props="china">The currency unit (CNY).
+   * <props="intl">The currency unit (USD).
    * 
    * @example
    * CNY
@@ -14,7 +14,7 @@ export class DescribeRefundPriceResponseBodyPriceInfo extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * This refund amount.
+   * The refund amount for this unsubscription.
    * 
    * @example
    * 3990.75
@@ -46,12 +46,12 @@ export class DescribeRefundPriceResponseBodyPriceInfo extends $dara.Model {
 export class DescribeRefundPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Price details.
+   * The price details.
    */
   priceInfo?: DescribeRefundPriceResponseBodyPriceInfo;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

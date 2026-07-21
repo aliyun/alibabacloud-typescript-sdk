@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCoordinatePrivilegeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C43EEAC3-84F8-5C1E-A067-4751C3D1422E

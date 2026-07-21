@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   /**
    * @remarks
-   * The image version. You can call the [DescribeImages](https://help.aliyun.com/document_detail/188895.html) operation to obtain the value of this parameter.
+   * The image version. You can call [DescribeImages](https://help.aliyun.com/document_detail/188895.html) to obtain this parameter.
    * 
    * @example
    * 0.0.1-D-20220513.143129
@@ -13,7 +13,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * To be hidden.
@@ -21,7 +21,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   fotaProject?: string;
   /**
    * @remarks
-   * The number of custom images that can be updated to this version.
+   * The number of custom images that can be upgraded to this version.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   pendingCustomImageCount?: number;
   /**
    * @remarks
-   * The number of cloud computers whose images can be updated to this version.
+   * The number of cloud desktops that can be upgraded to this version.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   pendingDesktopCount?: number;
   /**
    * @remarks
-   * The time when the image version available for update was published.
+   * The publish time of the upgrade version.
    * 
    * @example
    * 2022-05-31T04:28:48Z
@@ -45,7 +45,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   publishTime?: string;
   /**
    * @remarks
-   * The description of the image version available for update.
+   * The upgrade version description.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   releaseNote?: string;
   /**
    * @remarks
-   * The size of the update package. Unit: KB.
+   * The size of the upgrade package. Unit: KB.
    * 
    * @example
    * 568533470
@@ -61,12 +61,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Indicates whether the image update task is automatically pushed.
-   * 
-   * Valid values:
-   * 
-   * *   Running: automatically pushes the image update task.
-   * *   Pending: does not automatically push the image update task.
+   * Indicates whether the image upgrade task is automatically pushed.
    * 
    * @example
    * valid
@@ -120,7 +115,7 @@ export class DescribeFotaTasksResponseBodyFotaTasks extends $dara.Model {
 export class DescribeFotaTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message. If the request was successful, a `success` is returned. If the request failed, an error message is returned.
+   * The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -128,12 +123,12 @@ export class DescribeFotaTasksResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Details about the image update task.
+   * The image upgrade task information.
    */
   fotaTasks?: DescribeFotaTasksResponseBodyFotaTasks[];
   /**
    * @remarks
-   * The returned error message. This parameter is not returned if the Code value is a `success` message.
+   * The error message. This parameter is not returned if Code is `success`.
    * 
    * @example
    * The parameter is not specified.
@@ -141,7 +136,7 @@ export class DescribeFotaTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****

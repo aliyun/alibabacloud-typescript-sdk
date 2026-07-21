@@ -740,6 +740,11 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   fileTransfer?: string;
   fileTransferAddress?: string;
+  fileTransferInSize?: number;
+  fileTransferInUnit?: string;
+  fileTransferOutSize?: number;
+  fileTransferOutUnit?: string;
+  fileTransferSizeLimit?: string;
   fileTransferSpeed?: string;
   fileTransferSpeedLocation?: string;
   /**
@@ -1407,6 +1412,11 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       fileMigrate: 'FileMigrate',
       fileTransfer: 'FileTransfer',
       fileTransferAddress: 'FileTransferAddress',
+      fileTransferInSize: 'FileTransferInSize',
+      fileTransferInUnit: 'FileTransferInUnit',
+      fileTransferOutSize: 'FileTransferOutSize',
+      fileTransferOutUnit: 'FileTransferOutUnit',
+      fileTransferSizeLimit: 'FileTransferSizeLimit',
       fileTransferSpeed: 'FileTransferSpeed',
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
@@ -1555,6 +1565,11 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       fileMigrate: 'string',
       fileTransfer: 'string',
       fileTransferAddress: 'string',
+      fileTransferInSize: 'number',
+      fileTransferInUnit: 'string',
+      fileTransferOutSize: 'number',
+      fileTransferOutUnit: 'string',
+      fileTransferSizeLimit: 'string',
       fileTransferSpeed: 'string',
       fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',

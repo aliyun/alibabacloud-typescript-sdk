@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The command type.
-   * 
-   * Valid values:
-   * 
-   * *   RunPowerShellScript: the PowerShell command.
-   * *   RunBatScript: the Bat command.
+   * The command type of the O&M script.
    * 
    * @example
    * RunPowerShellScript
@@ -18,12 +13,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   commandType?: string;
   /**
    * @remarks
-   * The encoding method of the command content and outputs.
-   * 
-   * Valid values:
-   * 
-   * *   Base64 (default): returns the Base64-encoded command content and command outputs.
-   * *   PlainText: returns the original command content and outputs in plain text.
+   * The encoding method of the returned data.
    * 
    * @example
    * PlainText
@@ -31,7 +21,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * The cloud computer ID. If you specify a cloud computer, all command execution records of the cloud computer are queried.
+   * The cloud desktop ID. If you specify a cloud desktop, all script execution records for that cloud desktop are queried.
    * 
    * @example
    * ecd-7w78ozhjcwa3u****
@@ -39,9 +29,9 @@ export class DescribeInvocationsRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer IDs.
+   * The list of cloud desktop IDs.
    * 
-   * >  The `DesktopId` parameter will be deprecated. We recommend using the DesktopIds parameter to specify cloud computer IDs instead.
+   * > The `DesktopId` parameter will be deprecated. Use this parameter to pass the list of cloud desktop IDs.
    */
   desktopIds?: string[];
   /**
@@ -54,25 +44,12 @@ export class DescribeInvocationsRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * Specifies whether to return the execution results of the remote command on all cloud computers when executed across multiple cloud computers.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
+   * Specifies whether to return the execution results of all cloud desktops when a remote command is run on multiple cloud desktops.
    */
   includeInvokeDesktops?: boolean;
   /**
    * @remarks
-   * Specifies whether to return command outputs in the response.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false (default)
+   * Specifies whether to return the output of the script execution in the results.
    * 
    * @example
    * false
@@ -80,7 +57,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   includeOutput?: boolean;
   /**
    * @remarks
-   * The execution ID of the command. You can obtain the value by calling the [RunCommand](~~RunCommand~~) operation.
+   * The script execution ID. Obtained from the response of [RunCommand](~~RunCommand~~).
    * 
    * @example
    * t-hz0jdfwd9f****
@@ -88,15 +65,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The execution status of the command. The value of this parameter is determined by the execution states of the command on all participating cloud computers.
-   * 
-   * Valid values:
-   * 
-   * *   Finished: The command execution completes on all cloud computers. Alternatively, the command execution is manually stopped on some cloud computers while it completes on the others.
-   * *   Stopped: The command execution stops.
-   * *   Failed: The command execution failed on all cloud computers.
-   * *   Running: Once there is a command execution in progress, the execution status defaults to Running.
-   * *   PartialFailed: If the command execution failed on part of the cloud computers, the execution status is considered partially failed.
+   * The overall execution status of the script. The overall execution status depends on the combined execution status of one or more cloud desktops in the execution.
    * 
    * @example
    * Finished
@@ -104,10 +73,10 @@ export class DescribeInvocationsRequest extends $dara.Model {
   invokeStatus?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.    
    * 
-   * *   Valid values: 1 to 50.
-   * *   Default value: 10.
+   * - Maximum value: 50.
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -115,7 +84,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value that is returned from the last call to the previous DescribeInvocations operation.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -123,7 +92,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

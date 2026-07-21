@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
-   * The point in time at which the snapshot was created. The time follows the [ISO 8601](t10049.xdita#) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+   * The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-20T14:52:28Z
@@ -13,7 +13,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The user who creates the snapshot.
+   * The creator.
    * 
    * @example
    * Administrator
@@ -21,7 +21,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The snapshot creation time follows the [ISO 8601](t10049.xdita#) standard. It uses UTC+0 time and is formatted as `yyyy-mm-ddThh:mm:ssZ`.
+   * The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
    * 
    * @example
    * 2020-12-20T14:52:28Z
@@ -29,7 +29,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   deletionTime?: string;
   /**
    * @remarks
-   * The description of the snapshot.
+   * The snapshot description.
    * 
    * @example
    * testDescription
@@ -37,7 +37,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop to which the snapshot belongs.
+   * The ID of the cloud computer to which the snapshot belongs.
    * 
    * @example
    * ecd-g03l3tlm8djoj****
@@ -45,7 +45,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The cloud computer name.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The status of the cloud desktop.
+   * The cloud computer status.
    * 
    * @example
    * Running
@@ -61,7 +61,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * Status of the disk to which the snapshot belongs.
+   * The status of the cloud disk to which the snapshot belongs.
    * 
    * @example
    * Available
@@ -69,6 +69,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   diskStatus?: string;
   envId?: string;
   envType?: string;
+  jvsId?: string;
   /**
    * @remarks
    * The operating system type.
@@ -79,7 +80,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The progress of creating the snapshot. Unit: %.
+   * The snapshot creation progress. Unit: percent.
    * 
    * @example
    * 100%
@@ -95,9 +96,9 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The remaining time to complete snapshot creation. Unit: seconds.
+   * The remaining time required to create the snapshot. Unit: seconds.
    * 
-   * > When `Status` is `PROGRESSING`, the value of `RemainTime` is `-1`. This indicates that the system is calculating the remaining time.
+   * > When `Status` is `PROGRESSING`, a `RemainTime` value of `-1` indicates that the remaining time is being calculated.
    * 
    * @example
    * 30
@@ -105,7 +106,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   remainTime?: number;
   /**
    * @remarks
-   * The ID of the restore point.
+   * The restore point ID.
    * 
    * @example
    * rp-btgmaa20wkcju****
@@ -113,7 +114,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   restorePointId?: string;
   /**
    * @remarks
-   * The name of the restore point.
+   * The restore point name.
    * 
    * @example
    * 数据盘备份
@@ -129,7 +130,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The name of the snapshot.
+   * The snapshot name.
    * 
    * @example
    * testSnapshotName
@@ -137,7 +138,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotName?: string;
   /**
    * @remarks
-   * The type of the snapshot.
+   * The snapshot creation type.
    * 
    * @example
    * USER
@@ -145,7 +146,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The capacity of the source disk. Unit: GiB.
+   * The capacity of the source cloud disk. Unit: GiB.
    * 
    * @example
    * 150
@@ -153,7 +154,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskSize?: string;
   /**
    * @remarks
-   * The type of the source disk.
+   * The type of the source cloud disk.
    * 
    * @example
    * SYSTEM
@@ -161,7 +162,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The status of the snapshot.
+   * The snapshot status.
    * 
    * @example
    * ACCOMPLISHED
@@ -169,7 +170,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether disk encryption is enabled.
+   * Indicates whether cloud disk encryption is enabled.
    * 
    * @example
    * false
@@ -177,7 +178,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   volumeEncryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [](t22712.xdita#)operation to query the list of KMS keys.
+   * The ID of the Key Management Service (KMS) key used for cloud disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
    * 
    * @example
    * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
@@ -195,6 +196,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       diskStatus: 'DiskStatus',
       envId: 'EnvId',
       envType: 'EnvType',
+      jvsId: 'JvsId',
       osType: 'OsType',
       progress: 'Progress',
       protocolType: 'ProtocolType',
@@ -224,6 +226,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       diskStatus: 'string',
       envId: 'string',
       envType: 'string',
+      jvsId: 'string',
       osType: 'string',
       progress: 'string',
       protocolType: 'string',
@@ -253,7 +256,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
 export class DescribeSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that marks the start of the next page of results. If NextToken is empty, no more pages exist.
+   * The pagination token. If the NextToken parameter is empty, no next page exists.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -269,7 +272,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A collection of snapshots.
+   * The snapshot information.
    */
   snapshots?: DescribeSnapshotsResponseBodySnapshots[];
   static names(): { [key: string]: string } {

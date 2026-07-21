@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCoordinationForMonitoringRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of stream collaboration tasks.
+   * The list of coordination flow IDs.
    * 
    * This parameter is required.
    */
   coIds?: string[];
   /**
    * @remarks
-   * The ID of the end user that initiates stream collaboration. If the initiator is the administrator, skip this parameter.
+   * The ID of the end user who initiated the coordination flow. This parameter is not required if the request is initiated by an administrator.
    * 
    * @example
    * alice
@@ -20,7 +20,7 @@ export class CancelCoordinationForMonitoringRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -30,11 +30,7 @@ export class CancelCoordinationForMonitoringRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the user.
-   * 
-   * Valid value:
-   * 
-   * * TENANT_ADMIN: administrator.
+   * The user type.
    * 
    * @example
    * TENANT_ADMIN

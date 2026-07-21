@@ -18,7 +18,7 @@ export class RemoveFilePermissionShrinkRequest extends $dara.Model {
    * The ID of the end user.
    * 
    * @example
-   * alice
+   * user01
    */
   endUserId?: string;
   /**

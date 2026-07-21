@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEcdReportTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * The operation result. The value `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class CreateEcdReportTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned if the request failed. This parameter is not returned if the value of Code is success.
+   * The error message. This parameter is not returned when Code is success.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class CreateEcdReportTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True
@@ -37,7 +37,7 @@ export class CreateEcdReportTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the report export task.
+   * The report task ID.
    * 
    * @example
    * ret-g67ip******

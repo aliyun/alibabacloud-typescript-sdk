@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportDesktopGroupInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 24E05D3E-08F4-551E-B1F0-F6D84EE0BCCC
@@ -13,26 +13,17 @@ export class ExportDesktopGroupInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The download URL of the XLSX file that contains cloud computer shares. The XLSX file provides the following information:
+   * The download URL of the exported shared cloud desktop list file. The exported file contains the following details of shared cloud desktops:
    * 
-   * - Cloud computer share ID/name
-   * 
+   * - Shared cloud desktop ID/name
    * - Office network ID/name
-   * 
-   * - Cloud computer share template
-   * 
-   * - vCPUs/Memory size
-   * 
-   * - System disk/Data disk
-   * 
+   * - Shared cloud desktop template
+   * - CPU/memory
+   * - System cloud disk/data cloud disk
    * - Security policy name
-   * 
-   * - Number of authorized users
-   * 
+   * - Number of currently authorized users
    * - Billing method
-   * 
    * - Creation time
-   * 
    * - Expiration time
    * 
    * @example

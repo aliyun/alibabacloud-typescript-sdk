@@ -675,6 +675,11 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   externalDrive?: string;
   fileMigrate?: string;
   fileTransferAddress?: string;
+  fileTransferInSize?: string;
+  fileTransferInUnit?: string;
+  fileTransferOutSize?: string;
+  fileTransferOutUnit?: string;
+  fileTransferSizeLimit?: string;
   fileTransferSpeed?: string;
   fileTransferSpeedLocation?: string;
   /**
@@ -1320,6 +1325,11 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       externalDrive: 'ExternalDrive',
       fileMigrate: 'FileMigrate',
       fileTransferAddress: 'FileTransferAddress',
+      fileTransferInSize: 'FileTransferInSize',
+      fileTransferInUnit: 'FileTransferInUnit',
+      fileTransferOutSize: 'FileTransferOutSize',
+      fileTransferOutUnit: 'FileTransferOutUnit',
+      fileTransferSizeLimit: 'FileTransferSizeLimit',
       fileTransferSpeed: 'FileTransferSpeed',
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
@@ -1467,6 +1477,11 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       externalDrive: 'string',
       fileMigrate: 'string',
       fileTransferAddress: 'string',
+      fileTransferInSize: 'string',
+      fileTransferInUnit: 'string',
+      fileTransferOutSize: 'string',
+      fileTransferOutUnit: 'string',
+      fileTransferSizeLimit: 'string',
       fileTransferSpeed: 'string',
       fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',

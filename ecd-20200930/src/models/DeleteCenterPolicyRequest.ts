@@ -7,12 +7,6 @@ export class DeleteCenterPolicyRequest extends $dara.Model {
    * @remarks
    * The business type.
    * 
-   * Valid values:
-   * 
-   * - 1: public cloud.
-   * 
-   * - 8: commercial edition.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -21,14 +15,14 @@ export class DeleteCenterPolicyRequest extends $dara.Model {
   businessType?: number;
   /**
    * @remarks
-   * The policy IDs.
+   * The list of policy group IDs.
    * 
    * This parameter is required.
    */
   policyGroupIds?: string[];
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Wuying Cloud Computer.
    * 
    * This parameter is required.
    * 
@@ -39,12 +33,6 @@ export class DeleteCenterPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type.
-   * 
-   * Valid values:
-   * 
-   * - app: cloud applications.
-   * 
-   * - desktop: cloud computers.
    * 
    * This parameter is required.
    * 

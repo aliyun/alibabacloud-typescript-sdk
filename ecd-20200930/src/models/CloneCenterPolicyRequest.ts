@@ -7,12 +7,6 @@ export class CloneCenterPolicyRequest extends $dara.Model {
    * @remarks
    * The business type.
    * 
-   * Valid values:
-   * 
-   * - 1: public cloud
-   * 
-   * - 8: commercial edition.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -21,7 +15,7 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   businessType?: number;
   /**
    * @remarks
-   * The name of the cloud computer policy that you want to clone.
+   * The policy name.
    * 
    * This parameter is required.
    * 
@@ -31,7 +25,7 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the cloud computer policy that you want to clone.
+   * The ID of the target cloud computer policy to clone.
    * 
    * This parameter is required.
    * 
@@ -41,7 +35,7 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The region ID. Set the value to cn-shanghai.
+   * The region ID. This feature is region-independent. Set this parameter to cn-shanghai.
    * 
    * This parameter is required.
    * 
@@ -52,12 +46,6 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type.
-   * 
-   * Valid values:
-   * 
-   * - app: cloud applications.
-   * 
-   * - desktop: cloud computers.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCdsFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise drive.
+   * The enterprise cloud drive ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteCdsFileRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The ID of the user who uses the network disk.
+   * The ID of the user who uses the cloud drive.
    * 
    * @example
    * user01
@@ -23,7 +23,7 @@ export class DeleteCdsFileRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The file ID. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to query the ID of the file.
+   * The file ID. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the file.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DeleteCdsFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The ID of the team space.
+   * The team space ID.
    * 
    * @example
    * cg-i1ruuudp92qpj****
@@ -41,7 +41,7 @@ export class DeleteCdsFileRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

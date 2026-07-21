@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActivateOfficeSiteRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the convenience office network that is locked.
+   * The ID of the locked convenience office network.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ActivateOfficeSiteRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

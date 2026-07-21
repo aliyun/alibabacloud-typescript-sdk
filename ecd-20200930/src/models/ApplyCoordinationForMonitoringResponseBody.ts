@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the stream collaboration.
+   * The coordination flow ID.
    * 
    * @example
    * co-0sot77uale3****
@@ -13,17 +13,11 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
   coId?: string;
   /**
    * @remarks
-   * The current status of the collaboration task.
-   * 
-   * Valid values:
-   * 
-   * - COORDINATING: The collaboration task is being executed.
-   * 
-   * - TERMINATING: The collaboration task is being terminated.
-   * 
-   * - TERMINATED: The collaboration task is terminated.
-   * 
-   * - PENDING: The collaboration task is pending to be executed.
+   * The current coordination status.
+   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.COORDINATING  ]coordinating
+   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATING  ] terminating
+   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATED ]terminated
+   * [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.PENDING ]pending acceptance
    * 
    * @example
    * PENDING
@@ -31,7 +25,7 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
   coordinateStatus?: string;
   /**
    * @remarks
-   * The ticket that is used to establish the Adaptive Streaming Protocol (ASP)-based connection.
+   * The ticket used by ASP to establish a connection.
    * 
    * @example
    * 1VDQ0VTUw0KW0Rlc2t0b3BdDQpHV1Rva2VuPTAwTzgwL3liS25zUEVGdkF6eU1Pc1ExeHZWdmk4VEE3NFJvU1V1d0dPYm1BNkNJWklDMHVNQklWcjU2NS80S0ZQekQ4aGFTR0ZHelZqMTFGbkRpWWgvUFF1Zm1xSXNGdFRFNFRWMExJNit3TkU0L2RMb04wNXBBSE5Tc3M4dWFXY3lwWE****
@@ -39,15 +33,7 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
   coordinateTicket?: string;
   /**
    * @remarks
-   * The type of the initiator.
-   * 
-   * Valid values:
-   * 
-   * - ADMIN_INITIATE_FORCE: The administrator forcibly initiates the collaboration request.
-   * 
-   * - ADMIN_INITIATE: The administrator initiates the collaboration request.
-   * 
-   * - COORDINATOR_INITIATE_FORCE: The coordinator forcibly initiates the collaboration request.
+   * The initiator type.
    * 
    * @example
    * COORDINATOR_INITIATE_FORCE
@@ -55,7 +41,7 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
   initiatorType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account of the end user.
+   * The Alibaba Cloud account ID of the user on the user side.
    * 
    * @example
    * alice
@@ -63,7 +49,7 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
   ownerUserId?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-96vi03f9emqnl****
@@ -71,7 +57,7 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
   resourceId?: string;
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The cloud computer name.
    * 
    * @example
    * DemoComputer
@@ -113,7 +99,7 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
 export class ApplyCoordinationForMonitoringResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of stream collaboration models.
+   * The list of coordination flow data.
    */
   coordinateFlowModels?: ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels[];
   /**

@@ -34,7 +34,7 @@ export class DescribeClientEventsResponseBodyEventsTerminalInfo extends $dara.Mo
 export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account associated with the event.
+   * The Alibaba Cloud account associated with the event.
    * 
    * @example
    * 112259558861****
@@ -42,7 +42,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The number of bytes received.
+   * The number of bytes received. Unit: bytes.
    * 
    * @example
    * 8665
@@ -50,7 +50,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   bytesReceived?: string;
   /**
    * @remarks
-   * The number of bytes sent.
+   * The number of bytes sent. Unit: bytes.
    * 
    * @example
    * 2345
@@ -58,7 +58,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   bytesSend?: string;
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 100.68.*.*
@@ -66,7 +66,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The operating system of the client.
+   * The client operating system.
    * 
    * @example
    * Darwin 17.7.0 x64
@@ -82,7 +82,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   clientVersion?: string;
   /**
    * @remarks
-   * The description of the event.
+   * The description.
    * 
    * @example
    * test
@@ -90,7 +90,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The cloud computer pool ID.
    * 
    * @example
    * dg-kadkdfaf****
@@ -98,7 +98,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the desktop group.
+   * The cloud computer pool name.
    * 
    * @example
    * testName
@@ -106,7 +106,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-8fupvkhg0aayu****
@@ -114,7 +114,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The IP address of the cloud desktop.
+   * The IP address of the cloud computer.
    * 
    * @example
    * 10.10.XX.XX
@@ -122,7 +122,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   desktopIp?: string;
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The name of the cloud computer.
    * 
    * @example
    * test
@@ -130,7 +130,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop\\"s directory.
+   * The directory ID to which the cloud computer belongs.
    * 
    * @example
    * cn-hangzhou+dir-bh77qa8nmjot4****
@@ -146,7 +146,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   directoryType?: string;
   /**
    * @remarks
-   * The ID of the end user. The value can be the ID of a RAM user or the username of an AD user.
+   * The logon user information, which is a Resource Access Management (RAM) user ID or AD username.
    * 
    * @example
    * 28961708130834****
@@ -162,7 +162,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The time the event occurred.
+   * The time when the event occurred.
    * 
    * @example
    * 2020-11-30T06:32:31Z
@@ -178,7 +178,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop\\"s office site.
+   * The ID of the office network to which the cloud computer belongs.
    * 
    * @example
    * cn-hangzhou+dir-bh77qa8nmjot4****
@@ -186,7 +186,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office site.
+   * The name of the office network.
    * 
    * @example
    * test
@@ -194,7 +194,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * The type of account system for the office site.
+   * The account system type of the office network.
    * 
    * @example
    * SIMPLE
@@ -210,11 +210,9 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the event. This parameter is returned for `DESKTOP_DISCONNECT` and `GET_CONNECTION_TICKET` events. Valid values:
-   * 
-   * - `200`: Success.
-   * 
-   * - An error message, such as `FailedToGetConnectionTicket`.
+   * The status of the event action. This field typically appears in `DESKTOP_DISCONNECT` and `GET_CONNECTION_TICKET` events. Valid values:
+   * - 200: success.
+   * - A failure message is returned, such as FailedToGetConnectionTicket.
    * 
    * @example
    * 200
@@ -294,12 +292,12 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
 export class DescribeClientEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of user events.
+   * The user events.
    */
   events?: DescribeClientEventsResponseBodyEvents[];
   /**
    * @remarks
-   * The pagination token. If this parameter is empty, all results have been returned.
+   * The pagination token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -313,11 +311,13 @@ export class DescribeClientEventsResponseBody extends $dara.Model {
    * 28A40F12-F340-442B-A35F-46EF6A03227B
    */
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       events: 'Events',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -326,6 +326,7 @@ export class DescribeClientEventsResponseBody extends $dara.Model {
       events: { 'type': 'array', 'itemType': DescribeClientEventsResponseBodyEvents },
       nextToken: 'string',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 

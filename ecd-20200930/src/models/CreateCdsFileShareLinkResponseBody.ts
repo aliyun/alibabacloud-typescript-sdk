@@ -6,7 +6,7 @@ import { CdsFileShareLinkModel } from "./CdsFileShareLinkModel";
 export class CreateCdsFileShareLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation result. The value success indicates that the operation is successful. If the operation failed, an error message is returned.
+   * The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -19,7 +19,7 @@ export class CreateCdsFileShareLinkResponseBody extends $dara.Model {
   data?: CdsFileShareLinkModel;
   /**
    * @remarks
-   * The error message that is returned. This parameter is not returned if the value of Code is success.
+   * The error message. This parameter is not returned when Code is `success`.
    * 
    * @example
    * success
@@ -35,25 +35,10 @@ export class CreateCdsFileShareLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * Valid values:
-   * 
-   * - true
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - false
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
+   * - true: The operation is successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

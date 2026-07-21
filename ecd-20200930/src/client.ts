@@ -56,10 +56,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+   * Unlocks an office network that was automatically locked after being idle for a period of time.
    * 
    * @remarks
-   * If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+   * For office networks based on convenience accounts, if no cloud computers are created within 15 consecutive calendar days, the office network is automatically locked and VPC-related resources are released. To use the office network again, call this operation to unlock it.
    * 
    * @param request - ActivateOfficeSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -94,10 +94,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+   * Unlocks an office network that was automatically locked after being idle for a period of time.
    * 
    * @remarks
-   * If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+   * For office networks based on convenience accounts, if no cloud computers are created within 15 consecutive calendar days, the office network is automatically locked and VPC-related resources are released. To use the office network again, call this operation to unlock it.
    * 
    * @param request - ActivateOfficeSiteRequest
    * @returns ActivateOfficeSiteResponse
@@ -222,10 +222,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a shared folder to the network disk.
+   * Creates a shared folder in a cloud disk.
    * 
    * @remarks
-   * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+   * You can share a specified folder with other users and set access permissions for the folder.
    * 
    * @param tmpReq - AddFilePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -282,10 +282,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a shared folder to the network disk.
+   * Creates a shared folder in a cloud disk.
    * 
    * @remarks
-   * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+   * You can share a specified folder with other users and set access permissions for the folder.
    * 
    * @param request - AddFilePermissionRequest
    * @returns AddFilePermissionResponse
@@ -544,7 +544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for the coordinate permissions.
+   * Requests permissions for stream coordination operations.
    * 
    * @param request - ApplyCoordinatePrivilegeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -591,7 +591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for the coordinate permissions.
+   * Requests permissions for stream coordination operations.
    * 
    * @param request - ApplyCoordinatePrivilegeRequest
    * @returns ApplyCoordinatePrivilegeResponse
@@ -602,7 +602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+   * Sends a remote assistance request from an administrator to an end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
    * 
    * @param request - ApplyCoordinationForMonitoringRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -653,7 +653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+   * Sends a remote assistance request from an administrator to an end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
    * 
    * @param request - ApplyCoordinationForMonitoringRequest
    * @returns ApplyCoordinationForMonitoringResponse
@@ -664,10 +664,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allows you to upgrade images.
+   * Allows an image upgrade.
    * 
    * @remarks
-   * The cloud computers for which you want to allow image updates must be in the Running state.
+   * The cloud computer must be in the Running state.
    * 
    * @param request - ApproveFotaUpdateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -706,10 +706,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allows you to upgrade images.
+   * Allows an image upgrade.
    * 
    * @remarks
-   * The cloud computers for which you want to allow image updates must be in the Running state.
+   * The cloud computer must be in the Running state.
    * 
    * @param request - ApproveFotaUpdateRequest
    * @returns ApproveFotaUpdateResponse
@@ -778,7 +778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+   * Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one bindingrelationship with an office network.
    * 
    * @param request - AssociateNetworkPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -817,7 +817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+   * Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one bindingrelationship with an office network.
    * 
    * @param request - AssociateNetworkPackageRequest
    * @returns AssociateNetworkPackageResponse
@@ -1014,12 +1014,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns multiple cloud computers to users in a batch.
+   * Assigns users to multiple cloud computers in a batch.
    * 
    * @remarks
-   * - The target cloud computers must be in the Running state.
-   * - This is an asynchronous API. To check the assignment status, call [](t2167745.xdita#)and refer to the `ManagementFlags` parameter. A value of `ASSIGNING` means it is in progress; otherwise, it is complete.
-   * - Recommended polling interval: 2–5 seconds (max duration: 50s). The process usually takes 1–5 seconds.
+   * - The cloud computers must be in the Running state.
+   * - This operation immediately returns a result. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter: `ASSIGNING` indicates that the assignment is in progress, and other values indicate that the assignment is complete.
+   * - Check whether the assignment is complete every 2 to 5 seconds, for a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
    * 
    * @param request - BatchModifyEntitlementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1074,12 +1074,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns multiple cloud computers to users in a batch.
+   * Assigns users to multiple cloud computers in a batch.
    * 
    * @remarks
-   * - The target cloud computers must be in the Running state.
-   * - This is an asynchronous API. To check the assignment status, call [](t2167745.xdita#)and refer to the `ManagementFlags` parameter. A value of `ASSIGNING` means it is in progress; otherwise, it is complete.
-   * - Recommended polling interval: 2–5 seconds (max duration: 50s). The process usually takes 1–5 seconds.
+   * - The cloud computers must be in the Running state.
+   * - This operation immediately returns a result. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter: `ASSIGNING` indicates that the assignment is in progress, and other values indicate that the assignment is complete.
+   * - Check whether the assignment is complete every 2 to 5 seconds, for a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
    * 
    * @param request - BatchModifyEntitlementRequest
    * @returns BatchModifyEntitlementResponse
@@ -1190,7 +1190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a file sharing task.
+   * Cancels file sharing.
    * 
    * @param request - CancelCdsFileShareLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1225,7 +1225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a file sharing task.
+   * Cancels file sharing.
    * 
    * @param request - CancelCdsFileShareLinkRequest
    * @returns CancelCdsFileShareLinkResponse
@@ -1236,7 +1236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a remote assistance request to the end user.
+   * Cancels a remote assistance request initiated to an end user.
    * 
    * @param request - CancelCoordinationForMonitoringRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1279,7 +1279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a remote assistance request to the end user.
+   * Cancels a remote assistance request initiated to an end user.
    * 
    * @param request - CancelCoordinationForMonitoringRequest
    * @returns CancelCoordinationForMonitoringResponse
@@ -1290,7 +1290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the operation of copying an image to another region.
+   * Cancels an ongoing image copy operation to another region.
    * 
    * @param request - CancelCopyImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1325,7 +1325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the operation of copying an image to another region.
+   * Cancels an ongoing image copy operation to another region.
    * 
    * @param request - CancelCopyImageRequest
    * @returns CancelCopyImageResponse
@@ -1336,7 +1336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones a policy based on an existing global policy.
+   * Clones a policy based on an existing region-independent policy.
    * 
    * @param request - CloneCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1383,7 +1383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones a policy based on an existing global policy.
+   * Clones a policy based on an existing region-independent policy.
    * 
    * @param request - CloneCenterPolicyRequest
    * @returns CloneCenterPolicyResponse
@@ -1394,7 +1394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones an existing policy to quickly create a policy.
+   * Clones a cloud computer policy to quickly create a custom cloud computer policy.
    * 
    * @param request - ClonePolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,7 +1433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones an existing policy to quickly create a policy.
+   * Clones a cloud computer policy to quickly create a custom cloud computer policy.
    * 
    * @param request - ClonePolicyGroupRequest
    * @returns ClonePolicyGroupResponse
@@ -1506,7 +1506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+   * Configures a trust relationship for an AD office network. For office networks (formerly workspaces) that use the HDX protocol, you must configure conditional forwarders and trust relationships before the networks can function properly.
    * 
    * @param request - ConfigADConnectorTrustRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1549,7 +1549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+   * Configures a trust relationship for an AD office network. For office networks (formerly workspaces) that use the HDX protocol, you must configure conditional forwarders and trust relationships before the networks can function properly.
    * 
    * @param request - ConfigADConnectorTrustRequest
    * @returns ConfigADConnectorTrustResponse
@@ -1560,7 +1560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specify an organizational unit (OU) and administrator for the Active Directory (AD) office network (formerly known as workspace).
+   * Specifies the organizational unit (OU) and administrator for an AD office network (formerly workspace).
    * 
    * @param request - ConfigADConnectorUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1607,7 +1607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Specify an organizational unit (OU) and administrator for the Active Directory (AD) office network (formerly known as workspace).
+   * Specifies the organizational unit (OU) and administrator for an AD office network (formerly workspace).
    * 
    * @param request - ConfigADConnectorUserRequest
    * @returns ConfigADConnectorUserResponse
@@ -1618,7 +1618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a copy of a file or folder in the cloud drive.
+   * Creates a copy of a file or folder in a cloud drive.
    * 
    * @param request - CopyCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1681,7 +1681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a copy of a file or folder in the cloud drive.
+   * Creates a copy of a file or folder in a cloud drive.
    * 
    * @param request - CopyCdsFileRequest
    * @returns CopyCdsFileResponse
@@ -1692,7 +1692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+   * Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region first, and then share it.
    * 
    * @param request - CopyImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1739,7 +1739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+   * Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region first, and then share it.
    * 
    * @param request - CopyImageRequest
    * @returns CopyImageResponse
@@ -2360,7 +2360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a file share.
+   * Creates a file share.
    * 
    * @param request - CreateCdsFileShareLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2443,7 +2443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a file share.
+   * Creates a file share.
    * 
    * @param request - CreateCdsFileShareLinkRequest
    * @returns CreateCdsFileShareLinkResponse
@@ -2454,7 +2454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can create a region-independent cloud desktop policy.
+   * Creates a region-independent Cloud Desktop policy.
    * 
    * @param request - CreateCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2629,6 +2629,26 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileTransferAddress)) {
       query["FileTransferAddress"] = request.fileTransferAddress;
+    }
+
+    if (!$dara.isNull(request.fileTransferInSize)) {
+      query["FileTransferInSize"] = request.fileTransferInSize;
+    }
+
+    if (!$dara.isNull(request.fileTransferInUnit)) {
+      query["FileTransferInUnit"] = request.fileTransferInUnit;
+    }
+
+    if (!$dara.isNull(request.fileTransferOutSize)) {
+      query["FileTransferOutSize"] = request.fileTransferOutSize;
+    }
+
+    if (!$dara.isNull(request.fileTransferOutUnit)) {
+      query["FileTransferOutUnit"] = request.fileTransferOutUnit;
+    }
+
+    if (!$dara.isNull(request.fileTransferSizeLimit)) {
+      query["FileTransferSizeLimit"] = request.fileTransferSizeLimit;
     }
 
     if (!$dara.isNull(request.fileTransferSpeed)) {
@@ -3013,7 +3033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can create a region-independent cloud desktop policy.
+   * Creates a region-independent Cloud Desktop policy.
    * 
    * @param request - CreateCenterPolicyRequest
    * @returns CreateCenterPolicyResponse
@@ -4106,7 +4126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
+   * Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud drive encryption under the RAM user.
    * 
    * @param request - CreateDiskEncryptionServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4137,7 +4157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
+   * Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud drive encryption under the RAM user.
    * 
    * @param request - CreateDiskEncryptionServiceRequest
    * @returns CreateDiskEncryptionServiceResponse
@@ -5809,7 +5829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete files or folders from the network disk.
+   * Deletes a file or folder from a cloud drive.
    * 
    * @param request - DeleteCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5856,7 +5876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete files or folders from the network disk.
+   * Deletes a file or folder from a cloud drive.
    * 
    * @param request - DeleteCdsFileRequest
    * @returns DeleteCdsFileResponse
@@ -5867,7 +5887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a global policy.
+   * Deletes a non-region-specific policy.
    * 
    * @param request - DeleteCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5910,7 +5930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a global policy.
+   * Deletes a non-region-specific policy.
    * 
    * @param request - DeleteCenterPolicyRequest
    * @returns DeleteCenterPolicyResponse
@@ -7625,7 +7645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query end-user operation logs for events such as starting and stopping a WUYING Workspace, and disconnecting from sessions.
+   * Queries the operation logs of end users, including events such as cloud computer startup, shutdown, and session disconnection.
    * 
    * @param request - DescribeClientEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7656,6 +7676,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.endUserIds)) {
+      query["EndUserIds"] = request.endUserIds;
     }
 
     if (!$dara.isNull(request.eventType)) {
@@ -7716,7 +7740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query end-user operation logs for events such as starting and stopping a WUYING Workspace, and disconnecting from sessions.
+   * Queries the operation logs of end users, including events such as cloud computer startup, shutdown, and session disconnection.
    * 
    * @param request - DescribeClientEventsRequest
    * @returns DescribeClientEventsResponse
@@ -7941,7 +7965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the permission settings details of the enterprise cloud drive.
+   * Queries the permission settings of an enterprise cloud drive.
    * 
    * @param request - DescribeCloudDrivePermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7976,7 +8000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the permission settings details of the enterprise cloud drive.
+   * Queries the permission settings of an enterprise cloud drive.
    * 
    * @param request - DescribeCloudDrivePermissionsRequest
    * @returns DescribeCloudDrivePermissionsResponse
@@ -8431,10 +8455,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists cloud computers and their metadata from all regions.
+   * Queries the list and metadata of cloud desktops across all regions.
    * 
    * @remarks
-   * This operation is centralized, available only in the China (Shanghai) and Singapore regions.
+   * This is a centralized API that only supports queries from the Shanghai and Singapore sites.
    * 
    * @param request - DescribeDesktopMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8479,6 +8503,10 @@ export default class Client extends OpenApi {
       query["MaxResults"] = request.maxResults;
     }
 
+    if (!$dara.isNull(request.networkInterfaceIp)) {
+      query["NetworkInterfaceIp"] = request.networkInterfaceIp;
+    }
+
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
@@ -8517,10 +8545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists cloud computers and their metadata from all regions.
+   * Queries the list and metadata of cloud desktops across all regions.
    * 
    * @remarks
-   * This operation is centralized, available only in the China (Shanghai) and Singapore regions.
+   * This is a centralized API that only supports queries from the Shanghai and Singapore sites.
    * 
    * @param request - DescribeDesktopMetadataRequest
    * @returns DescribeDesktopMetadataResponse
@@ -8701,10 +8729,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed session information for cloud computers.
+   * Queries the detailed session information of a cloud computer.
    * 
    * @remarks
-   * You can retrieve data only from the last 30 days.
+   * Only data within the last 30 days can be queried.
    * 
    * @param request - DescribeDesktopSessionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8735,6 +8763,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endUserIdFilter)) {
       query["EndUserIdFilter"] = request.endUserIdFilter;
+    }
+
+    if (!$dara.isNull(request.endUserIds)) {
+      query["EndUserIds"] = request.endUserIds;
     }
 
     if (!$dara.isNull(request.fillHardwareInfo)) {
@@ -8795,10 +8827,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed session information for cloud computers.
+   * Queries the detailed session information of a cloud computer.
    * 
    * @remarks
-   * You can retrieve data only from the last 30 days.
+   * Only data within the last 30 days can be queried.
    * 
    * @param request - DescribeDesktopSessionsRequest
    * @returns DescribeDesktopSessionsResponse
@@ -8935,7 +8967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of your cloud computers.
+   * Queries the details of cloud computers.
    * 
    * @param request - DescribeDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9114,7 +9146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of your cloud computers.
+   * Queries the details of cloud computers.
    * 
    * @param request - DescribeDesktopsRequest
    * @returns DescribeDesktopsResponse
@@ -9657,7 +9689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of update tasks.
+   * Retrieves the list of image upgrade tasks.
    * 
    * @param request - DescribeFotaTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9712,7 +9744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of update tasks.
+   * Retrieves the list of image upgrade tasks.
    * 
    * @param request - DescribeFotaTasksRequest
    * @returns DescribeFotaTasksResponse
@@ -9723,13 +9755,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries basic information and usage duration for all recent Cloud Desktops.
+   * Queries the basic information of all recent cloud desktops and their usage duration records.
    * 
    * @remarks
-   * - Select China (Shanghai) for the Alibaba Cloud China site and Singapore for the Alibaba Cloud International site.
-   * - By default, this operation returns both active and deleted Cloud Desktops.
-   * - You can query only Cloud Desktops deleted within the last three months.
-   * - You cannot use the sort condition with other query conditions.
+   * - China site users should select Shanghai as the region. International site users should select Singapore.
+   * - By default, both deleted and non-deleted cloud desktops are queried.
+   * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
+   * - Sort conditions cannot be used together with other conditions.
    * 
    * @param request - DescribeGlobalDesktopRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9810,6 +9842,10 @@ export default class Client extends OpenApi {
       query["SubPayType"] = request.subPayType;
     }
 
+    if (!$dara.isNull(request.userNames)) {
+      query["UserNames"] = request.userNames;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9828,13 +9864,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries basic information and usage duration for all recent Cloud Desktops.
+   * Queries the basic information of all recent cloud desktops and their usage duration records.
    * 
    * @remarks
-   * - Select China (Shanghai) for the Alibaba Cloud China site and Singapore for the Alibaba Cloud International site.
-   * - By default, this operation returns both active and deleted Cloud Desktops.
-   * - You can query only Cloud Desktops deleted within the last three months.
-   * - You cannot use the sort condition with other query conditions.
+   * - China site users should select Shanghai as the region. International site users should select Singapore.
+   * - By default, both deleted and non-deleted cloud desktops are queried.
+   * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
+   * - Sort conditions cannot be used together with other conditions.
    * 
    * @param request - DescribeGlobalDesktopRecordsRequest
    * @returns DescribeGlobalDesktopRecordsResponse
@@ -10265,11 +10301,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Used to query the execution list and status of Cloud Assistant scripts.
+   * Queries the execution list and status of Cloud Assistant scripts.
    * 
    * @remarks
-   * - After you execute a command, it does not necessarily mean that the command was successfully executed or produced the expected effect. You must check the actual execution result based on the return value from the API, and the actual output result prevails.  
-   * - You can query execution information from the past two weeks, with a maximum retention limit of 100,000 records.
+   * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
+   * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
    * 
    * @param request - DescribeInvocationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10344,11 +10380,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Used to query the execution list and status of Cloud Assistant scripts.
+   * Queries the execution list and status of Cloud Assistant scripts.
    * 
    * @remarks
-   * - After you execute a command, it does not necessarily mean that the command was successfully executed or produced the expected effect. You must check the actual execution result based on the return value from the API, and the actual output result prevails.  
-   * - You can query execution information from the past two weeks, with a maximum retention limit of 100,000 records.
+   * - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
+   * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
    * 
    * @param request - DescribeInvocationsRequest
    * @returns DescribeInvocationsResponse
@@ -10459,7 +10495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the Upgrade/Downgrade price for monthly subscription cloud desktops with unlimited duration or Internet premium bandwidth.
+   * Queries the price for changing the specifications of a monthly-subscribed unlimited-duration cloud computer or premium Internet bandwidth.
    * 
    * @param request - DescribeModificationPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10534,7 +10570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the Upgrade/Downgrade price for monthly subscription cloud desktops with unlimited duration or Internet premium bandwidth.
+   * Queries the price for changing the specifications of a monthly-subscribed unlimited-duration cloud computer or premium Internet bandwidth.
    * 
    * @param request - DescribeModificationPriceRequest
    * @returns DescribeModificationPriceResponse
@@ -11437,7 +11473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the refund amount for monthly subscription WUYING Workspaces.
+   * Queries the unsubscription price of cloud computers purchased on a monthly basis.
    * 
    * @param request - DescribeRefundPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11480,7 +11516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the refund amount for monthly subscription WUYING Workspaces.
+   * Queries the unsubscription price of cloud computers purchased on a monthly basis.
    * 
    * @param request - DescribeRefundPriceRequest
    * @returns DescribeRefundPriceResponse
@@ -11897,7 +11933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the snapshots and their details for a cloud desktop.
+   * Queries the snapshot list and snapshot details of a cloud computer.
    * 
    * @param request - DescribeSnapshotsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11916,6 +11952,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.desktopName)) {
       query["DesktopName"] = request.desktopName;
+    }
+
+    if (!$dara.isNull(request.desktopScenario)) {
+      query["DesktopScenario"] = request.desktopScenario;
     }
 
     if (!$dara.isNull(request.endTime)) {
@@ -11976,7 +12016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the snapshots and their details for a cloud desktop.
+   * Queries the snapshot list and snapshot details of a cloud computer.
    * 
    * @param request - DescribeSnapshotsRequest
    * @returns DescribeSnapshotsResponse
@@ -12935,7 +12975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a premium bandwidth plan from an office network.
+   * Disassociates a premium Internet bandwidth plan from the office network to which it was previously bound.
    * 
    * @param request - DissociateNetworkPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12970,7 +13010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a premium bandwidth plan from an office network.
+   * Disassociates a premium Internet bandwidth plan from the office network to which it was previously bound.
    * 
    * @param request - DissociateNetworkPackageRequest
    * @returns DissociateNetworkPackageResponse
@@ -12981,7 +13021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the download link of the target file.
+   * Retrieves the download URL of a specified file.
    * 
    * @param request - DownloadCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13028,7 +13068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the download link of the target file.
+   * Retrieves the download URL of a specified file.
    * 
    * @param request - DownloadCdsFileRequest
    * @returns DownloadCdsFileResponse
@@ -13125,7 +13165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
+   * Exports the list of shared cloud desktops and saves it as an XLSX file. Each shared cloud desktop record includes the shared cloud desktop ID and name, office network ID and name, shared cloud desktop template, and security policy name.
    * 
    * @param request - ExportDesktopGroupInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13200,7 +13240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
+   * Exports the list of shared cloud desktops and saves it as an XLSX file. Each shared cloud desktop record includes the shared cloud desktop ID and name, office network ID and name, shared cloud desktop template, and security policy name.
    * 
    * @param request - ExportDesktopGroupInfoRequest
    * @returns ExportDesktopGroupInfoResponse
@@ -13211,25 +13251,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports a cloud computer list as a CSV file.
+   * Exports the cloud desktop list as a CSV file.
    * 
    * @remarks
-   * The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
-   * *   Cloud computer ID and name
-   * *   Office network ID and name
-   * *   The instance type, OS and protocol of the cloud computer
-   * *   System disk and data disk of the cloud computer
-   * *   The status
-   * *   Purchase method
-   * *   The time when the cloud computer expires
-   * *   Remaining duration and total duration
-   * *   Number of assigned users and number of current users
-   * *   Office network type
-   * *   The time when the cloud computer was created
-   * *   Tags
-   * *   Encryption status
-   * *   IP
-   * *   The hostname
+   * The cloud desktop list exported by calling this operation is saved as a CSV file. Each cloud desktop record includes the following fields:
+   * - Cloud desktop ID/Cloud desktop name
+   * - Office network ID/Office network name
+   * - Specifications/System/Protocol
+   * - System cloud disk/Data cloud disk
+   * - Status
+   * - Billing method
+   * - Expiration time
+   * - Remaining duration/Total duration
+   * - Number of assigned users/Current user
+   * - Office network type
+   * - Creation time
+   * - Tags
+   * - Encrypted or not
+   * - IP
+   * - Hostname
    * 
    * @param request - ExportDesktopListInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13316,25 +13356,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports a cloud computer list as a CSV file.
+   * Exports the cloud desktop list as a CSV file.
    * 
    * @remarks
-   * The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
-   * *   Cloud computer ID and name
-   * *   Office network ID and name
-   * *   The instance type, OS and protocol of the cloud computer
-   * *   System disk and data disk of the cloud computer
-   * *   The status
-   * *   Purchase method
-   * *   The time when the cloud computer expires
-   * *   Remaining duration and total duration
-   * *   Number of assigned users and number of current users
-   * *   Office network type
-   * *   The time when the cloud computer was created
-   * *   Tags
-   * *   Encryption status
-   * *   IP
-   * *   The hostname
+   * The cloud desktop list exported by calling this operation is saved as a CSV file. Each cloud desktop record includes the following fields:
+   * - Cloud desktop ID/Cloud desktop name
+   * - Office network ID/Office network name
+   * - Specifications/System/Protocol
+   * - System cloud disk/Data cloud disk
+   * - Status
+   * - Billing method
+   * - Expiration time
+   * - Remaining duration/Total duration
+   * - Number of assigned users/Current user
+   * - Office network type
+   * - Creation time
+   * - Tags
+   * - Encrypted or not
+   * - IP
+   * - Hostname
    * 
    * @param request - ExportDesktopListInfoRequest
    * @returns ExportDesktopListInfoResponse
@@ -13345,7 +13385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
+   * Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
    * 
    * @param request - GetAsyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13380,7 +13420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
+   * Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
    * 
    * @param request - GetAsyncTaskRequest
    * @returns GetAsyncTaskResponse
@@ -15063,7 +15103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a configuration that does not have a region-specific policy.
+   * Modifies the configuration of a region-free policy.
    * 
    * @param request - ModifyCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15238,6 +15278,26 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileTransferAddress)) {
       query["FileTransferAddress"] = request.fileTransferAddress;
+    }
+
+    if (!$dara.isNull(request.fileTransferInSize)) {
+      query["FileTransferInSize"] = request.fileTransferInSize;
+    }
+
+    if (!$dara.isNull(request.fileTransferInUnit)) {
+      query["FileTransferInUnit"] = request.fileTransferInUnit;
+    }
+
+    if (!$dara.isNull(request.fileTransferOutSize)) {
+      query["FileTransferOutSize"] = request.fileTransferOutSize;
+    }
+
+    if (!$dara.isNull(request.fileTransferOutUnit)) {
+      query["FileTransferOutUnit"] = request.fileTransferOutUnit;
+    }
+
+    if (!$dara.isNull(request.fileTransferSizeLimit)) {
+      query["FileTransferSizeLimit"] = request.fileTransferSizeLimit;
     }
 
     if (!$dara.isNull(request.fileTransferSpeed)) {
@@ -15630,7 +15690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a configuration that does not have a region-specific policy.
+   * Modifies the configuration of a region-free policy.
    * 
    * @param request - ModifyCenterPolicyRequest
    * @returns ModifyCenterPolicyResponse
@@ -18324,7 +18384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Move files or folders.
+   * Moves a file or folder in a cloud disk to a new location.
    * 
    * @param request - MoveCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18379,7 +18439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Move files or folders.
+   * Moves a file or folder in a cloud disk to a new location.
    * 
    * @param request - MoveCdsFileRequest
    * @returns MoveCdsFileResponse
@@ -19518,7 +19578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the coordinate permissions.
+   * Cancels the permission for stream coordination operations.
    * 
    * @param request - RevokeCoordinatePrivilegeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19565,7 +19625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the coordinate permissions.
+   * Cancels the permission for stream coordination operations.
    * 
    * @param request - RevokeCoordinatePrivilegeRequest
    * @returns RevokeCoordinatePrivilegeResponse
@@ -20712,10 +20772,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads your custom Windows image.
+   * Uploads a custom Windows image.
    * 
    * @remarks
-   * >  You can upload only Windows images.
+   * > Only Windows operating system images can be uploaded.
    * 
    * @param request - UploadImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20724,6 +20784,10 @@ export default class Client extends OpenApi {
   async uploadImageWithOptions(request: $_model.UploadImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadImageResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bootMode)) {
+      query["BootMode"] = request.bootMode;
+    }
+
     if (!$dara.isNull(request.dataDiskSize)) {
       query["DataDiskSize"] = request.dataDiskSize;
     }
@@ -20790,10 +20854,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads your custom Windows image.
+   * Uploads a custom Windows image.
    * 
    * @remarks
-   * >  You can upload only Windows images.
+   * > Only Windows operating system images can be uploaded.
    * 
    * @param request - UploadImageRequest
    * @returns UploadImageResponse

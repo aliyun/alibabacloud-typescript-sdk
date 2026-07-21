@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
-   * 无
+   * None.
    */
   downloadType?: string;
   /**
@@ -21,15 +21,15 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
-   * 无
+   * None.
    */
   expirationSecond?: string;
   /**
    * @remarks
-   * The validity period of the download URL.
+   * The expiration time of the file download URL.
    * 
    * @example
    * 2024-07-18T02:55:49.795Z
@@ -45,7 +45,7 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The size of the file. Unit: bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 1594642
@@ -53,10 +53,10 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * Deprecated.
    * 
    * @example
-   * 无
+   * None.
    */
   streamUrl?: string;
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
 export class DownloadCdsFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the file.
+   * The URL for downloading the file.
    */
   downloadFileModel?: DownloadCdsFileResponseBodyDownloadFileModel;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApproveFotaUpdateRequest extends $dara.Model {
   /**
    * @remarks
-   * Mirror version.
+   * The image version. You can call [DescribeImages](https://help.aliyun.com/document_detail/188895.html) to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ApproveFotaUpdateRequest extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The cloud computer ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ApproveFotaUpdateRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

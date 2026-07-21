@@ -104,7 +104,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the shared files are downloaded. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 10
+   * 0
    */
   downloadCount?: number;
   /**
@@ -112,7 +112,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The limit on the number of times that the shared files can be downloaded. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be downloaded.
    * 
    * @example
-   * 10
+   * 0
    */
   downloadLimit?: number;
   /**
@@ -128,7 +128,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the shared files are previewed. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 10
+   * 0
    */
   previewCount?: number;
   /**
@@ -144,7 +144,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the shared files are reported. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 10
+   * 0
    */
   reportCount?: number;
   /**
@@ -152,7 +152,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the shared files are dumped. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 10
+   * 0
    */
   saveCount?: number;
   /**
@@ -222,7 +222,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the videos are previewed in the shared files. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 10
+   * 0
    */
   videoPreviewCount?: number;
   static names(): { [key: string]: string } {

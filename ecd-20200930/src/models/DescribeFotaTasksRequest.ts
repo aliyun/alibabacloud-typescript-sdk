@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFotaTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * windows
@@ -13,12 +13,7 @@ export class DescribeFotaTasksRequest extends $dara.Model {
   fotaStatus?: string;
   /**
    * @remarks
-   * The language of the image version to update.
-   * 
-   * Valid values:
-   * 
-   * *   en: English.
-   * *   zh: Simplified Chinese.
+   * The language type of the upgrade version description.
    * 
    * @example
    * zh
@@ -26,10 +21,10 @@ export class DescribeFotaTasksRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
-   * *   Valid values: 1 to 100
-   * *   Default value: 20
+   * - Maximum value: 100.
+   * - Default value: 20.
    * 
    * @example
    * 20
@@ -37,7 +32,7 @@ export class DescribeFotaTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no next page exists.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -45,7 +40,7 @@ export class DescribeFotaTasksRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -55,17 +50,12 @@ export class DescribeFotaTasksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the image update tasks.
+   * The list of image upgrade tasks.
    */
   taskUid?: string[];
   /**
    * @remarks
-   * Specifies whether to automatically push the image update task.
-   * 
-   * Valid values:
-   * 
-   * *   Running: automatically pushes the image update task.
-   * *   Pending: does not automatically push the image update task.
+   * Specifies whether the image upgrade task is automatically pushed.
    * 
    * @example
    * Pending

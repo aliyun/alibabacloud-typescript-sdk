@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCdsFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * The execution result. The value `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -13,13 +13,7 @@ export class DeleteCdsFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the data is returned.
-   * 
-   * Valid value:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether data was returned successfully.
    * 
    * @example
    * true
@@ -27,7 +21,7 @@ export class DeleteCdsFileResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Error message. This parameter is not returned if the value of Code is `success`.
+   * The error message. This parameter is not returned if Code is `success`.
    * 
    * @example
    * success
@@ -44,12 +38,6 @@ export class DeleteCdsFileResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the operation was successful.
-   * 
-   * Valid value:
-   * 
-   * - true
-   * 
-   * - false
    * 
    * @example
    * true

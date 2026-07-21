@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopyCdsFileResponseBodyCopyCdsFileModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task. This parameter is not returned if you copy a file. This parameter is returned if you copy a folder in the backend in an asynchronous manner. You can call the GetAsyncTask operation to obtain the ID and details of an asynchronous task.
+   * The asynchronous task ID. This field is not returned when a file is copied. When a folder is copied, the copy operation is performed asynchronously in the background, so this field is returned. You can call [GetAsyncTask](https://help.aliyun.com/document_detail/2357404.html) and pass in this asynchronous task ID to obtain the task details.
    * 
    * @example
    * 4221bf6e6ab43a255edc4463bffa6f5f5d31****
@@ -13,7 +13,7 @@ export class CopyCdsFileResponseBodyCopyCdsFileModel extends $dara.Model {
   asyncTaskId?: string;
   /**
    * @remarks
-   * The ID of the copied file or folder.
+   * The ID of the new file or folder after the copy operation.
    * 
    * @example
    * 6400727cb878821bcb414615a609b4072463****
@@ -45,7 +45,7 @@ export class CopyCdsFileResponseBodyCopyCdsFileModel extends $dara.Model {
 export class CopyCdsFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation result. The value success indicates that the operation is successful. If the operation failed, an error message is returned.
+   * The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -53,12 +53,12 @@ export class CopyCdsFileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details about the file copying.
+   * The result of copying the file.
    */
   copyCdsFileModel?: CopyCdsFileResponseBodyCopyCdsFileModel;
   /**
    * @remarks
-   * The error message that is returned. This parameter is not returned if the value of Code is success.
+   * The error message. This parameter is not returned if Code is `success`.
    * 
    * @example
    * success
@@ -74,25 +74,7 @@ export class CopyCdsFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
-   * 
-   * Valid values:
-   * 
-   * - true
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - false
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

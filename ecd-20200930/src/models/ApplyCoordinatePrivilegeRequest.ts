@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyCoordinatePrivilegeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application for the coordinate permissions.
+   * The coordination stream ID. This value is the `Coid` returned by the [ApplyCoordinationForMonitoring](~~ApplyCoordinationForMonitoring~~) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ApplyCoordinatePrivilegeRequest extends $dara.Model {
   coId?: string;
   /**
    * @remarks
-   * The ID of the end user.
+   * The username of the end user.
    * 
    * @example
    * alice
@@ -23,7 +23,7 @@ export class ApplyCoordinatePrivilegeRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -33,9 +33,7 @@ export class ApplyCoordinatePrivilegeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of user who requires the coordinate permissions.
-   * 
-   * Valid value: TENANT_ADMIN.
+   * The type of the coordination user.
    * 
    * This parameter is required.
    * 
@@ -45,7 +43,7 @@ export class ApplyCoordinatePrivilegeRequest extends $dara.Model {
   userType?: string;
   /**
    * @remarks
-   * The unique identifier of the client. If you use an Alibaba Cloud Workspace client, click **About** on the client logon page to view the identifier of the client.
+   * The UUID (unique identifier) of the device.
    * 
    * @example
    * 3E14A18BD4D088504B9F8A8751AB****

@@ -13,7 +13,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -21,15 +21,16 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The cloud computer name.
    * 
    * @example
    * testName
    */
   desktopName?: string;
+  desktopScenario?: string;
   /**
    * @remarks
-   * The end time to query for snapshots. The time follows the [ISO 8601](t10049.xdita#) standard and is in UTC. The format is `yyyy-mm-ddthh:mm:ssz`.
+   * The end of the time range during which the snapshot was created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
    * 
    * @example
    * 2020-11-31T06:32:31Z
@@ -37,10 +38,9 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging.    
    * 
-   * - Maximum value: 100.
-   * 
+   * - Maximum value: 100.    
    * - Default value: 10.
    * 
    * @example
@@ -49,7 +49,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. This is the NextToken value from the previous API call.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * 8051af8d01b5479bec9f5ddf02e4a8fbd0ab6e7e43f8****
@@ -65,7 +65,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The ID of the region. Call [](t2167755.xdita#)to get a list of regions that support Elastic Desktop Service (EDS).
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The display name of the snapshot. The name must be 2 to 127 characters long. It must start with a letter. It can contain digits, underscores (_), and hyphens (-). The name cannot start with `auto` to avoid naming conflicts with automatic snapshots.
+   * The display name of the snapshot. The name must be 2 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter or Chinese character. The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
    * 
    * @example
    * Test data disk
@@ -99,7 +99,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The disk from which to create the snapshot.
+   * The type of the cloud disk for which to create the snapshot.
    * 
    * > The value is case-insensitive.
    * 
@@ -109,7 +109,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The start time to query for snapshots. The time follows the [ISO 8601](t10049.xdita#) standard and is in UTC. The format is `yyyy-mm-ddthh:mm:ssz`.
+   * The beginning of the time range during which the snapshot was created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
    * 
    * @example
    * 2020-11-30T06:32:31Z
@@ -120,6 +120,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
       creator: 'Creator',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
+      desktopScenario: 'DesktopScenario',
       endTime: 'EndTime',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -138,6 +139,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
       creator: 'string',
       desktopId: 'string',
       desktopName: 'string',
+      desktopScenario: 'string',
       endTime: 'string',
       maxResults: 'number',
       nextToken: 'string',

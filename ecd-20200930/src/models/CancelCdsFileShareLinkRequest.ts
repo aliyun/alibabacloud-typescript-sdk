@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCdsFileShareLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk.
+   * The enterprise drive ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CancelCdsFileShareLinkRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The ID of the file sharing task.
+   * The share ID.
    * 
    * This parameter is required.
    * 

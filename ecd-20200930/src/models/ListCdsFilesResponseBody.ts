@@ -32,7 +32,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
    * The file creator.
    * 
    * @example
-   * demo_user01@cn-shanghai.148875033399****
+   * user01
    */
   creator?: string;
   /**
@@ -109,7 +109,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
    * Modifier.
    * 
    * @example
-   * demo_user02@cn-shanghai.148875033399****
+   * user02
    */
   modifier?: string;
   /**
@@ -117,7 +117,7 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
    * The name of the file.
    * 
    * @example
-   * SampleFile.pdf
+   * fvt-appcenterp4qwa
    */
   name?: string;
   /**
@@ -251,7 +251,7 @@ export class ListCdsFilesResponseBody extends $dara.Model {
    * The total number of file list entries.
    * 
    * @example
-   * 2
+   * 0
    */
   count?: string;
   /**
@@ -272,7 +272,7 @@ export class ListCdsFilesResponseBody extends $dara.Model {
    * The token used to start the next query. If the `NextToken` is empty, the next query does not exist.
    * 
    * @example
-   * aGN4YzAxQGNuLWhhbmd6aG91LjExNzU5NTMyNjgzMTQ1****
+   * WyI2MzhmMjA2ZTFmZGZlZGVjZDk3OTRlNzVhZmIwMDFiZmM5NWQ3YTgwIiwibiIsIm4iLDEsLTEsMTY3MDMyNDMzNTAzMSwiNjM4ZjIwNmZjNDFkMzIwOTZmZWU0NGYxODkwY2I5ZjI0Mjg0NzM2****
    */
   nextToken?: string;
   /**

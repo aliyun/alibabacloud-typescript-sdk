@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportDesktopGroupInfoRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You cannot specify an empty string as a tag key. A tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * The tag key. This parameter cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class ExportDesktopGroupInfoRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify an empty string as a tag key. A tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -45,13 +45,7 @@ export class ExportDesktopGroupInfoRequestTag extends $dara.Model {
 export class ExportDesktopGroupInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the cloud computer share.
-   * 
-   * Valid values:
-   * 
-   * - PostPaid: pay-as-you-go.
-   * 
-   * - PrePaid: subscription.
+   * The billing method of the shared cloud desktops.
    * 
    * @example
    * PrePaid
@@ -59,12 +53,12 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The IDs of the cloud computer shares.
+   * The list of shared cloud desktop IDs.
    */
   desktopGroupId?: string[];
   /**
    * @remarks
-   * The name of the cloud computer share.
+   * The name of the shared cloud desktop.
    * 
    * @example
    * CloudComputerPool01
@@ -72,12 +66,12 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The IDs of the users to be authorized.
+   * The list of authorized user IDs for the shared cloud desktops.
    */
   endUserId?: string[];
   /**
    * @remarks
-   * The expiration date of the subscription cloud computer share.
+   * The expiration time of the subscription shared cloud desktops.
    * 
    * @example
    * 2022-12-31T15:59Z
@@ -85,7 +79,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh-CN
@@ -93,11 +87,10 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   langType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page for a paged query.    
    * 
-   * Maximum value: 100.
-   * 
-   * Default value: 10.
+   * - Maximum value: 100.
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -105,7 +98,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+   * The pagination token for the next query. An empty value indicates that no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -113,7 +106,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the office network.
+   * The ID of the office network to which the shared cloud desktops belong.
    * 
    * @example
    * cn-hangzhou+dir-467671****
@@ -121,7 +114,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The ID of the security policy.
+   * The ID of the policy associated with the shared cloud desktops.
    * 
    * @example
    * pg-53iyi2aar0nd6****
@@ -129,7 +122,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -139,7 +132,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tags. You can specify up to 20 tags.
+   * The list of tags. A maximum of 20 tags can be specified.
    */
   tag?: ExportDesktopGroupInfoRequestTag[];
   static names(): { [key: string]: string } {

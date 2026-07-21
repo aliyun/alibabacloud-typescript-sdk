@@ -13,12 +13,12 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   checkOsSession?: boolean;
   /**
    * @remarks
-   * The ID of the cloud computer. You can specify 1 to 100 IDs.
+   * The cloud computer IDs. You can specify 1 to 100 IDs.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The cloud computer name.
    * 
    * @example
    * DemoComputer
@@ -34,7 +34,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the end user.
+   * The end user ID.
    * 
    * @example
    * alice
@@ -42,20 +42,21 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The ID of the end user. This parameter is the same as the `EndUserId` parameter. Specify only one of them.
+   * The end user ID. This parameter is the same as EndUserId. You only need to specify one of them.
    * 
    * @example
    * alice
    */
   endUserIdFilter?: string;
+  endUserIds?: string[];
   /**
    * @remarks
-   * Specifies whether to return information about the terminal.
+   * Specifies whether to include terminal information in the response.
    */
   fillHardwareInfo?: boolean;
   /**
    * @remarks
-   * The language of the returned information.
+   * The language type of the response.
    * 
    * @example
    * zh-CN
@@ -63,7 +64,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -71,7 +72,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The page number for a paged query.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -79,7 +80,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries to return on each page for a paged query.
+   * The maximum number of rows per page in a paged query.
    * 
    * @example
    * 10
@@ -87,7 +88,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region. Call [](t2167755.xdita#)to obtain a list of regions that Elastic Desktop Service (EDS) supports.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -98,7 +99,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The connection status of the session.
+   * The session connection status.
    * 
    * @example
    * Connected
@@ -114,7 +115,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The billing method of the cloud computer.
+   * The purchase method of the cloud computer.
    * 
    * @example
    * monthPackage
@@ -128,6 +129,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
       endTime: 'EndTime',
       endUserId: 'EndUserId',
       endUserIdFilter: 'EndUserIdFilter',
+      endUserIds: 'EndUserIds',
       fillHardwareInfo: 'FillHardwareInfo',
       language: 'Language',
       officeSiteId: 'OfficeSiteId',
@@ -149,6 +151,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
       endTime: 'string',
       endUserId: 'string',
       endUserIdFilter: 'string',
+      endUserIds: { 'type': 'array', 'itemType': 'string' },
       fillHardwareInfo: 'boolean',
       language: 'string',
       officeSiteId: 'string',
@@ -165,6 +168,9 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.desktopId)) {
       $dara.Model.validateArray(this.desktopId);
+    }
+    if(Array.isArray(this.endUserIds)) {
+      $dara.Model.validateArray(this.endUserIds);
     }
     super.validate();
   }

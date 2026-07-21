@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneCenterPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the duplicated cloud computer policy.
+   * The ID of the cloned cloud computer policy.
    * 
    * @example
    * pg-gx2x1dhsmthe9****

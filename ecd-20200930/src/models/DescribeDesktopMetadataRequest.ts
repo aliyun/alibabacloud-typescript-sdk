@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopMetadataRequest extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the cloud computer. The time must be in the `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"` format and in UTC.
+   * The time when the cloud desktop was created. The time is in UTC format:
+   * `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
    * 
    * @example
    * 2025-01-01T12:00:00Z
@@ -13,12 +14,12 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   creationTimeStart?: string;
   /**
    * @remarks
-   * A list of cloud computer IDs.
+   * The list of cloud desktop IDs.
    */
   desktopIds?: string[];
   /**
    * @remarks
-   * The ID of the end user.
+   * The end user ID.
    * 
    * @example
    * test-user
@@ -26,7 +27,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * The shared cloud desktop ID.
    * 
    * @example
    * dg-i1ruuudp92qpj****
@@ -42,7 +43,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * m-gx2x1dhsmusr2****
@@ -50,7 +51,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Specifies whether to include cloud computers in cloud computer shares in the response.
+   * Specifies whether the response includes cloud desktops in shared cloud desktop groups.
    * 
    * @example
    * false
@@ -58,7 +59,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   includeDesktopGroup?: boolean;
   /**
    * @remarks
-   * > This parameter is not yet available.
+   * >This parameter is not yet available.
    * 
    * @example
    * ecd
@@ -66,15 +67,16 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page. Maximum: 100. Default: 10.
+   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
    */
   maxResults?: number;
+  networkInterfaceIp?: string;
   /**
    * @remarks
-   * The token returned from the previous call to retrieve the next page of results.
+   * The token for the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -82,7 +84,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the office network.
+   * The workspace ID.
    * 
    * @example
    * cn-hangzhou+dir-778418****
@@ -90,7 +92,8 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The start of the time range to query for operations. The time must be in the `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"` format and in UTC.
+   * The start time of the operation performed on the cloud desktop. The time is in UTC format:
+   * `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
    * 
    * @example
    * 2025-01-01T12:00:00Z
@@ -123,6 +126,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
       includeDesktopGroup: 'IncludeDesktopGroup',
       keyword: 'Keyword',
       maxResults: 'MaxResults',
+      networkInterfaceIp: 'NetworkInterfaceIp',
       nextToken: 'NextToken',
       officeSiteId: 'OfficeSiteId',
       operationTimeStart: 'OperationTimeStart',
@@ -142,6 +146,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
       includeDesktopGroup: 'boolean',
       keyword: 'string',
       maxResults: 'number',
+      networkInterfaceIp: 'string',
       nextToken: 'string',
       officeSiteId: 'string',
       operationTimeStart: 'string',

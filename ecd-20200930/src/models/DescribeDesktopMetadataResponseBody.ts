@@ -5,16 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
-   * A list of agents that the cloud computer supports.
+   * The agents supported by the current cloud desktop.
    */
   agentProviderList?: string[];
   /**
    * @remarks
-   * The billing method of the cloud desktop. Valid values:
-   * 
-   * - `PostPaid`: pay-as-you-go
-   * 
-   * - `PrePaid`: subscription
+   * The billing type of the cloud desktop. Valid values:
+   * - PostPaid: pay-as-you-go.
+   * - PrePaid: subscription.
    * 
    * @example
    * PostPaid
@@ -22,7 +20,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The creation time of the cloud desktop.
+   * The time when the cloud desktop was created.
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -30,7 +28,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The shared cloud desktop ID.
    * 
    * @example
    * dg-3uiojcc0j4kh7****
@@ -38,7 +36,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The cloud desktop ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -55,22 +53,14 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
    * The status of the cloud desktop. Valid values:
-   * 
-   * - `Stopped`
-   * 
-   * - `Starting`
-   * 
-   * - `Rebuilding`
-   * 
-   * - `Running`
-   * 
-   * - `Stopping`
-   * 
-   * - `Expired`
-   * 
-   * - `Deleted`
-   * 
-   * - `Pending`
+   * - Stopped
+   * - Starting
+   * - Rebuilding
+   * - Running
+   * - Stopping
+   * - Expired
+   * - Deleted
+   * - Pending
    * 
    * @example
    * Running
@@ -78,7 +68,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * The instance type of the cloud desktop.
+   * The cloud desktop specifications.
    * 
    * @example
    * eds.general.2c8g
@@ -86,7 +76,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The expiration time of the cloud desktop. This parameter is returned only for cloud desktops that use the subscription billing method.
+   * The time when the cloud desktop expires. This value is returned only for cloud desktops whose billable methods is subscription.
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -94,7 +84,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * m-4zfb6zj728hhr****
@@ -102,20 +92,20 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The local name of the region where the cloud desktop resides.
    * 
    * @example
-   * 华东2（上海）
+   * China (Shanghai)
    */
   localName?: string;
   /**
    * @remarks
-   * The management flags for the cloud computer.
+   * The management status of the cloud desktop.
    */
   managementFlags?: string[];
   /**
    * @remarks
-   * The private IP address of the instance\\"s network interface.
+   * The IP address of the member elastic network interface (ENI) of the instance.
    * 
    * @example
    * 192.168.2.1
@@ -123,7 +113,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   memberEniIp?: string;
   /**
    * @remarks
-   * The ID of the office network.
+   * The workspace ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -131,7 +121,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The operating system of the cloud desktop.
+   * The operating system platform information.
    * 
    * @example
    * Ubuntu
@@ -139,7 +129,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -147,7 +137,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-f3s3dgt8dtb0vlqc8
@@ -155,7 +145,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the resource group.
+   * The resource group name.
    * 
    * @example
    * serverless_new
@@ -163,7 +153,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The time when the cloud desktop started.
+   * The start time of the cloud desktop.
    * 
    * @example
    * 2020-11-06T08:31Z
@@ -240,7 +230,7 @@ export class DescribeDesktopMetadataResponseBody extends $dara.Model {
   desktops?: DescribeDesktopMetadataResponseBodyDesktops[];
   /**
    * @remarks
-   * The token used to retrieve the next page of results. If this parameter is empty, all results have been returned.
+   * The token for the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
