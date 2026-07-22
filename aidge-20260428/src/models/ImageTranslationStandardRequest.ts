@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationStandardRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the intervention glossary. This parameter is optional. Create the glossary in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
+   * The intervention glossary ID. Optional. You must create the glossary separately in the console and provide its ID. If the provided glossary ID is empty, the translation results will not be modified.
    * 
    * @example
    * glossary_1
@@ -13,7 +13,10 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * The URL of the original image. This parameter is required. Image requirements: the width and height cannot exceed 4000 × 4000 pixels, the file size cannot exceed 10 MB, and the supported formats are png, jpeg, jpg, bmp, and webp.
+   * - Image URL: Must be publicly accessible.
+   * - Format: png, jpeg, jpg, bmp, webp
+   * - Pixels: Width and height must not exceed 4000
+   * - File size: Original file ≤ 10 MB
    * 
    * This parameter is required.
    * 
@@ -23,7 +26,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate text on the product subject in the image. This parameter is optional. Default value: false. This helps protect information by preventing translation of embedded information such as product names.
+   * Specifies whether to translate text on the image subject. Optional. Default value: false. This helps protect information and avoids translating embedded information such as product names.
    * 
    * @example
    * false
@@ -31,7 +34,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   includingProductArea?: boolean;
   /**
    * @remarks
-   * The source language code. This parameter is required. For supported language directions, see the supported language directions list.
+   * The source language code. Required. For supported language directions, see the supported language direction list.
    * 
    * This parameter is required.
    * 
@@ -41,7 +44,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The target language code. This parameter is required. For supported language directions, see the supported language directions list.
+   * The target language code. Required. For supported language directions, see the supported language direction list.
    * 
    * This parameter is required.
    * 
@@ -51,12 +54,20 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate brand names on the image. This parameter is optional. Default value: false. This helps protect brand name information from being translated.
+   * Specifies whether to translate brand names on the image. Optional. Default value: false. This helps protect brand name information from being translated.
    * 
    * @example
    * false
    */
   translatingBrandInTheProduct?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return layer information such as text position, font, and color. When set to true, layer information is returned for secondary editing through an image editor. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  useImageEditor?: boolean;
   static names(): { [key: string]: string } {
     return {
       glossary: 'Glossary',
@@ -65,6 +76,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
       sourceLanguage: 'SourceLanguage',
       targetLanguage: 'TargetLanguage',
       translatingBrandInTheProduct: 'TranslatingBrandInTheProduct',
+      useImageEditor: 'UseImageEditor',
     };
   }
 
@@ -76,6 +88,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
       sourceLanguage: 'string',
       targetLanguage: 'string',
       translatingBrandInTheProduct: 'boolean',
+      useImageEditor: 'boolean',
     };
   }
 

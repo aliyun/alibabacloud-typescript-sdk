@@ -20,6 +20,12 @@ export { ImageTranslationProResponseBodyDataGenFilesResultList } from './ImageTr
 export { ImageTranslationProResponseBodyDataGenFiles } from './ImageTranslationProResponseBody';
 export { ImageTranslationProResponseBodyDataResultList } from './ImageTranslationProResponseBody';
 export { ImageTranslationProResponseBodyData } from './ImageTranslationProResponseBody';
+export { ImageTranslationStandardResponseBodyDataEditInfoGoodsRects } from './ImageTranslationStandardResponseBody';
+export { ImageTranslationStandardResponseBodyDataEditInfoTextAreasTextsImageRect } from './ImageTranslationStandardResponseBody';
+export { ImageTranslationStandardResponseBodyDataEditInfoTextAreasTextsTextRect } from './ImageTranslationStandardResponseBody';
+export { ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts } from './ImageTranslationStandardResponseBody';
+export { ImageTranslationStandardResponseBodyDataEditInfoTextAreas } from './ImageTranslationStandardResponseBody';
+export { ImageTranslationStandardResponseBodyDataEditInfo } from './ImageTranslationStandardResponseBody';
 export { ImageTranslationStandardResponseBodyData } from './ImageTranslationStandardResponseBody';
 export { LanguageDetectResponseBodyData } from './LanguageDetectResponseBody';
 export { MaterialInspectionResponseBodyDataResultSteps } from './MaterialInspectionResponseBody';

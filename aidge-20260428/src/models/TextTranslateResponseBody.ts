@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TextTranslateResponseBodyDataTranslations extends $dara.Model {
   /**
    * @remarks
-   * The number of characters in the source text.
+   * The source text character count.
    * 
    * @example
    * 11
@@ -24,7 +24,7 @@ export class TextTranslateResponseBodyDataTranslations extends $dara.Model {
    * The translated text.
    * 
    * @example
-   * 你好世界
+   * Hello World.
    */
   translatedText?: string;
   static names(): { [key: string]: string } {
@@ -98,7 +98,7 @@ export class TextTranslateResponseBodyData extends $dara.Model {
 export class TextTranslateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Returns "success" for successful calls.
+   * The response code. Returns "success" for normal calls.
    * 
    * @example
    * success
@@ -111,7 +111,7 @@ export class TextTranslateResponseBody extends $dara.Model {
   data?: TextTranslateResponseBodyData;
   /**
    * @remarks
-   * The error message. Returns "Success" for successful calls. Returns specific error information for exceptions, such as "The parameters contain sensitive information. Try other input."
+   * The error message. Returns "Success" for normal calls. Returns specific error information for exceptions, such as "The parameters contain sensitive information. Try other input."
    * 
    * @example
    * Success
