@@ -29,7 +29,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   dstIP?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to count only the traffic to AI services. The default value is false.
+   * Specifies whether to collect statistics only on traffic that accesses AI services. Default value: false.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   isAITraffic?: string;
   /**
    * @remarks
-   * The language of the response message.
+   * The language type of the received message.
    * 
    * @example
    * zh
@@ -71,7 +71,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The sorting order.
+   * The sort order.
    * 
    * @example
    * desc
@@ -79,7 +79,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -111,7 +111,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The security policy for the outbound connection.
+   * The security policy for Outbound Domain of outbound connections.
    * 
    * @example
    * pass
@@ -119,7 +119,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   securitySuggest?: string;
   /**
    * @remarks
-   * The field to use for sorting.
+   * The field by which to sort the results.
    * 
    * @example
    * InBytes
@@ -127,15 +127,17 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The IP address of the access source. (This field is deprecated.)
    * 
    * @example
    * 106.3.198.XXX
+   * 
+   * @deprecated
    */
   sourceIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

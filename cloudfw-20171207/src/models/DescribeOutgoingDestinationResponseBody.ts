@@ -65,7 +65,7 @@ export class DescribeOutgoingDestinationResponseBodyDstListTagList extends $dara
 export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model {
   /**
    * @remarks
-   * The recommended Access Control List (ACL) details.
+   * The recommended ACL content.
    * 
    * @example
    * test
@@ -81,7 +81,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
   aclStatus?: string;
   /**
    * @remarks
-   * The business to which the domain name belongs.
+   * The domain name business.
    * 
    * @example
    * example.com
@@ -97,7 +97,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
   categoryId?: string;
   /**
    * @remarks
-   * The category name of the service.
+   * The category name of the product.
    * 
    * @example
    * categor_test
@@ -153,7 +153,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
   inBytes?: number;
   /**
    * @remarks
-   * Indicates whether the destination is manually marked as normal.
+   * Indicates whether the entry is manually marked as normal by the user.
    * 
    * @example
    * false
@@ -177,7 +177,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
   sessionCount?: number;
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    */
   tagList?: DescribeOutgoingDestinationResponseBodyDstListTagList[];
   static names(): { [key: string]: string } {
@@ -235,12 +235,12 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
 export class DescribeOutgoingDestinationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the destination addresses.
+   * The destination address information.
    */
   dstList?: DescribeOutgoingDestinationResponseBodyDstList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A2845BA9-1642-5B27-9F04-8014DD94****

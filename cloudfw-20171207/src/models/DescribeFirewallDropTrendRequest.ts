@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallDropTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. Specify the value as a UNIX timestamp in seconds.
+   * Specifies the end time of the query. The value is a UNIX timestamp in seconds. This parameter is required and must be provided together with StartTime. The value must be a UNIX timestamp in seconds and must be later than StartTime. If this parameter is not provided, the API returns ErrorTimeError(400).
    * 
    * @example
    * 1758474000
@@ -13,10 +13,10 @@ export class DescribeFirewallDropTrendRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -24,7 +24,7 @@ export class DescribeFirewallDropTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the value as a UNIX timestamp in seconds.
+   * Specifies the start time of the query. The value is a UNIX timestamp in seconds. This parameter is required and must be provided together with EndTime. The value must be a UNIX timestamp in seconds and must be earlier than EndTime. If this parameter is not provided, the API returns ErrorTimeError(400).
    * 
    * @example
    * 1758470400

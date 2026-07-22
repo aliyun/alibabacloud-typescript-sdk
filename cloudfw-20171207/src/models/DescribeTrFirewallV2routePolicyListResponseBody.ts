@@ -85,12 +85,12 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
 export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies extends $dara.Model {
   /**
    * @remarks
-   * The list of destination traffic redirection instances.
+   * The list of secondary traffic redirection instances.
    */
   destCandidateList?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesDestCandidateList[];
   /**
    * @remarks
-   * The description of the policy.
+   * The policy description.
    * 
    * @example
    * Point to multipoint
@@ -98,7 +98,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   policyDescription?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
    * Singapore Point to Multipoint
@@ -106,19 +106,19 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   policyName?: string;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The policy status. Valid values:
    * 
-   * - creating: The policy is being created.
+   * - creating: being created
    * 
-   * - deleting: The policy is being deleted.
+   * - deleting: being deleted
    * 
-   * - opening: The policy is being enabled.
+   * - opening: being enabled
    * 
-   * - opened: The policy is enabled.
+   * - opened: enabled
    * 
-   * - closing: The policy is being disabled.
+   * - closing: being disabled
    * 
-   * - closed: The policy is disabled.
+   * - closed: disabled
    * 
    * @example
    * opened
@@ -126,9 +126,9 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   policyStatus?: string;
   /**
    * @remarks
-   * The type of traffic redirection scenario for the VPC firewall. The firewall is created for a transit router that belongs to an Enterprise Edition Cloud Enterprise Network (CEN) instance. Valid values:
+   * The traffic redirection scenario type for the virtual private cloud (VPC) firewall on CEN Enterprise Edition. Valid values:
    * 
-   * - **fullmesh**: full-mesh
+   * - **fullmesh**: multi-point interconnection
    * 
    * - **one_to_one**: point-to-point
    * 
@@ -140,7 +140,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   policyType?: string;
   /**
    * @remarks
-   * The list of source traffic redirection instances.
+   * The list of primary traffic redirection instances.
    */
   srcCandidateList?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesSrcCandidateList[];
   /**
@@ -201,7 +201,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1

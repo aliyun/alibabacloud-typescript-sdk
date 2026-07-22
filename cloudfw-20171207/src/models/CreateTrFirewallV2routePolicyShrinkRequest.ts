@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of secondary traffic redirection instances.
+   * The secondary traffic redirection instances.
    */
   destCandidateListShrink?: string;
   /**
    * @remarks
-   * The VPC border firewall instance ID.
+   * The ID of the virtual private cloud (VPC) firewall instance.
+   * > FirewallId is required. If it is not specified, ErrorParameters(400) is returned. You can call DescribeTrFirewallsV2List to obtain the instance ID.
    * 
    * @example
    * vfw-tr-f8ce36689b224f77****
@@ -18,7 +19,7 @@ export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language type for receiving messages. Valid values:
+   * The language of the content within the response. Valid values:
    * 
    * - **zh** (default): Chinese
    * - **en**: English
@@ -29,7 +30,7 @@ export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The traffic redirection description.
+   * The description of the traffic redirection configuration.
    * 
    * @example
    * Singapore Point to Multipoint
@@ -37,7 +38,7 @@ export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   policyDescription?: string;
   /**
    * @remarks
-   * The traffic redirection name.
+   * The name of the traffic redirection configuration.
    * 
    * @example
    * Singapore Point to Multipoint
@@ -45,13 +46,13 @@ export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The traffic redirection scenario type for the VPC border firewall with Cloud Enterprise Network Enterprise Edition. Valid values:
+   * The traffic redirection scenario type for the virtual private cloud (VPC) firewall on a Cloud Enterprise Network (CEN) Enterprise Edition transit router. Valid values:
    * 
-   * - **fullmesh**: Multi-point interconnection
+   * - **fullmesh**: multi-point interconnection
    * 
-   * - **one_to_one**: Point-to-point
+   * - **one_to_one**: point-to-point
    * 
-   * - **end_to_end**: Point-to-multipoint
+   * - **end_to_end**: point-to-multipoint
    * 
    * @example
    * fullmesh
@@ -59,7 +60,7 @@ export class CreateTrFirewallV2RoutePolicyShrinkRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The list of primary traffic redirection instances.
+   * The primary traffic redirection instances.
    */
   srcCandidateListShrink?: string;
   static names(): { [key: string]: string } {

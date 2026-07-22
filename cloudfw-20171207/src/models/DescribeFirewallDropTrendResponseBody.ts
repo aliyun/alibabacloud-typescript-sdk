@@ -23,7 +23,7 @@ export class DescribeFirewallDropTrendResponseBodyDataList extends $dara.Model {
    * @remarks
    * The time when the traffic occurred. The value is a UNIX timestamp in seconds.
    * 
-   * If the data at this point in time has not been processed, the values of all other fields are -1.
+   * If the data at this point in time has not been processed, the values of other fields are -1.
    * 
    * @example
    * 1758474000

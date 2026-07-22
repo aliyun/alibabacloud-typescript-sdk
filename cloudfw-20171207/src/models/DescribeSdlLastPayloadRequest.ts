@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSdlLastPayloadRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination IP address.
+   * The destination IP address. This is an optional parameter used to filter by destination IP address.
    * 
    * @example
    * 47.100.102.XXX
@@ -13,7 +13,7 @@ export class DescribeSdlLastPayloadRequest extends $dara.Model {
   dstIp?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the value as a UNIX timestamp in seconds.
+   * The end time of the query (UNIX timestamp in seconds). This parameter is required. If this parameter is not specified, the API returns an error.
    * 
    * @example
    * 1534408267
@@ -32,7 +32,7 @@ export class DescribeSdlLastPayloadRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of sensitive credential.
+   * The type of sensitive credential. This parameter is required. If this parameter is not specified, the API returns an error.
    * 
    * @example
    * id_card
@@ -40,7 +40,7 @@ export class DescribeSdlLastPayloadRequest extends $dara.Model {
   sensitiveCategory?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The source IP address. This is an optional parameter used to filter by source IP address.
    * 
    * @example
    * 121.40.84.XXX
@@ -48,7 +48,7 @@ export class DescribeSdlLastPayloadRequest extends $dara.Model {
   srcIp?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the value as a UNIX timestamp in seconds.
+   * The start time of the query (UNIX timestamp in seconds). This parameter is required. If this parameter is not specified, the API returns an error.
    * 
    * @example
    * 1656837360

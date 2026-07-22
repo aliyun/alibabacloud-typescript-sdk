@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDnsFirewallPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access control list.
+   * The unique ID of the access control policy.
    * 
    * @example
    * f88dae6f-XXX-XXX-613de9ab2be8

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroupsPrecheckEntities extends $dara.Model {
   /**
    * @remarks
-   * The information about the failed precheck.
+   * The information about the precheck failure.
    * 
    * @example
    * VPC Firewall Quota Full
@@ -13,7 +13,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   info?: string;
   /**
    * @remarks
-   * The name of the precheck item.
+   * The precheck item name.
    * 
    * @example
    * Precheck test
@@ -21,11 +21,11 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   name?: string;
   /**
    * @remarks
-   * The status of the precheck item. Valid values:
+   * The status of each precheck item. Valid values:
    * 
    * - **running**: The precheck is in progress.
    * 
-   * - **passed**: The precheck is passed.
+   * - **passed**: The precheck passed.
    * 
    * - **failed**: The precheck failed.
    * 
@@ -35,7 +35,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   status?: string;
   /**
    * @remarks
-   * The suggested solution.
+   * The suggested action.
    * 
    * @example
    * The VPC firewall quota is full. We recommend that you increase the firewall quota
@@ -71,7 +71,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
 export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed the precheck.
+   * The number of precheck rules that failed.
    * 
    * @example
    * 3
@@ -79,7 +79,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   failedCount?: number;
   /**
    * @remarks
-   * The name of the precheck instance.
+   * The precheck instance name.
    * 
    * @example
    * test
@@ -87,12 +87,12 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   name?: string;
   /**
    * @remarks
-   * The execution status of each precheck item.
+   * The execution details of each precheck item.
    */
   precheckEntities?: DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroupsPrecheckEntities[];
   /**
    * @remarks
-   * The status of the precheck group. Valid values:
+   * The precheck status. Valid values:
    * 
    * - **running**
    * 
@@ -137,7 +137,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
 export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail extends $dara.Model {
   /**
    * @remarks
-   * The ID of the firewall instance.
+   * The firewall instance ID.
    * 
    * @example
    * vfw-tr-7a9c8901ed394****
@@ -145,7 +145,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail extends
   firewallId?: string;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * @example
    * vpc-m5emh0w6v2e15****
@@ -153,16 +153,16 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail extends
   networkInstanceId?: string;
   /**
    * @remarks
-   * The list of precheck item groups.
+   * The list of precheck entity groups.
    */
   precheckEntityGroups?: DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroups[];
   /**
    * @remarks
-   * The status of the precheck. Valid values:
+   * The precheck status. Valid values:
    * 
    * - **running**: The precheck is in progress.
    * 
-   * - **passed**: The precheck is passed.
+   * - **passed**: The precheck passed.
    * 
    * - **failed**: The precheck failed.
    * 
@@ -172,7 +172,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail extends
   precheckStatus?: string;
   /**
    * @remarks
-   * The timestamp of the precheck.
+   * The precheck timestamp.
    * 
    * @example
    * 1715136000
@@ -231,12 +231,12 @@ export class DescribeVpcFirewallPrecheckDetailResponseBody extends $dara.Model {
   isFound?: boolean;
   /**
    * @remarks
-   * The details of the precheck.
+   * The precheck details.
    */
   precheckDetail?: DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4FB718F0-CC04-5A12-B17B-188CFC3F****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallTrafficTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds. This parameter is required. If this parameter is not specified, the API returns ErrorTimeError(400). The value must be a UNIX timestamp in seconds, and EndTime must be later than StartTime.
    * 
    * @example
    * 1758474000
@@ -13,7 +13,7 @@ export class DescribeFirewallTrafficTrendRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message.
    * 
    * - **zh** (default): Chinese
    * - **en**: English
@@ -24,7 +24,7 @@ export class DescribeFirewallTrafficTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The start time of the query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds. This parameter is required. If this parameter is not specified, the API returns ErrorTimeError(400). The value must be a UNIX timestamp in seconds, and StartTime must be earlier than EndTime.
    * 
    * @example
    * 1758470400

@@ -2,24 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdatePostpayUserVpcStatusResponseBody extends $dara.Model {
+export class DescribeTaskDispatchStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * 450D47F5-956E-543E-8502-2F71C8******
+   * 71209DFE-XXX-XXX-52B4A4E9DA3B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The execution status of the task. Valid values:
+   * - PENDING: pending execution.
+   * - RUNNING: running.
+   * - SUCCESS: succeeded.
+   * - FAILED: failed.
+   * - CANCELLED: cancelled.
+   * 
+   * @example
+   * SUCCESS
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      status: 'string',
     };
   }
 

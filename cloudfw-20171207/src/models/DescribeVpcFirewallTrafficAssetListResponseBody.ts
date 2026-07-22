@@ -13,7 +13,7 @@ export class DescribeVpcFirewallTrafficAssetListResponseBodyDataList extends $da
   IP?: string;
   /**
    * @remarks
-   * The number of intrusion prevention system (IPS) hits.
+   * The number of IPS hits.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DescribeVpcFirewallTrafficAssetListResponseBodyDataList extends $da
   sessionCount?: number;
   /**
    * @remarks
-   * The total traffic in bytes.
+   * The total traffic. Unit: bytes.
    * 
    * @example
    * 253023143
@@ -37,7 +37,7 @@ export class DescribeVpcFirewallTrafficAssetListResponseBodyDataList extends $da
   totalBytes?: number;
   /**
    * @remarks
-   * The VPC where the asset resides.
+   * The ID of the VPC where the asset resides.
    * 
    * @example
    * a.com
@@ -85,12 +85,12 @@ export class DescribeVpcFirewallTrafficAssetListResponseBodyDataList extends $da
 export class DescribeVpcFirewallTrafficAssetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The data list.
    */
   dataList?: DescribeVpcFirewallTrafficAssetListResponseBodyDataList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C5BE1AA4-934A-5085-89CC-9AD1CAC3****

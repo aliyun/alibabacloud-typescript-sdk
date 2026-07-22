@@ -5,17 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The asset category. If you leave this parameter empty, assets in all categories are queried. Valid values:
+   * The product category. Default value: empty. Valid values:
    * 
-   * - **All**: all categories
-   * 
-   * - **RiskDomain**: risky domain names
-   * 
-   * - **RiskIP**: risky IP addresses
-   * 
-   * - **AliYun**: Alibaba Cloud services
-   * 
-   * - **NotAliYun**: third-party services
+   * - **All**: All categories.
+   * - **RiskDomain**: Risky domain category.
+   * - **RiskIP**: Risky IP category.
+   * - **AliYun**: Alibaba Cloud product category.
+   * - **NotAliYun**: Non-Alibaba Cloud product category.
    * 
    * @example
    * All
@@ -23,9 +19,9 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number of the results to return in a paged query.
    * 
-   * Default value: 1.
+   * Default value: 1, which indicates the first page.
    * 
    * @example
    * 1
@@ -33,11 +29,10 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The source of traffic statistics. The default value is \\`internet\\`, which indicates Internet Firewall. Valid values:
+   * The source of the traffic statistics. Default value: Internet firewall. Valid values:
    * 
-   * - **internet**: Internet Firewall
-   * 
-   * - **nat**: NAT Firewall
+   * - **internet**: Internet firewall.
+   * - **nat**: NAT firewall.
    * 
    * @example
    * nat
@@ -45,7 +40,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The outbound domain name.
+   * The domain name of outbound connections.
    * 
    * @example
    * www.aliyundoc.com
@@ -53,7 +48,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The end of the time range to query. This is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -63,11 +58,10 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to count only traffic from accessing AI services. The default value is \\`false\\`. Valid values:
+   * Specifies whether to collect statistics only on traffic that accesses AI services. Default value: false. Valid values:
    * 
-   * - **true**: yes
-   * 
-   * - **false**: no
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -75,10 +69,9 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   isAITraffic?: string;
   /**
    * @remarks
-   * The language of the request and response. Valid values:
+   * The language type of the request message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -87,11 +80,10 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * - **asc**: ascending
-   * 
-   * - **desc** (default): descending
+   * - **asc**: ascending order.
+   * - **desc** (default): descending order.
    * 
    * @example
    * desc
@@ -99,7 +91,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page in a paged query.
    * 
    * Default value: 6. Maximum value: 100.
    * 
@@ -109,7 +101,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The public IP address of the Elastic Compute Service (ECS) instance that initiates the outbound connections.
+   * The public IP address of the ECS instance that initiates the outbound connection.
    * 
    * @example
    * 192.0.XX.XX
@@ -117,11 +109,10 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The field to sort by. Valid values:
+   * The field by which to sort the results. Valid values:
    * 
-   * - **SessionCount** (default): the number of requests
-   * 
-   * - **TotalBytes**: the total traffic
+   * - **SessionCount** (default): the number of requests.
+   * - **TotalBytes**: the total traffic volume.
    * 
    * @example
    * SessionCount
@@ -129,7 +120,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -139,81 +130,45 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the intelligence tag. Valid values:
+   * The intelligence tags label ID. Valid values:
    * 
-   * - **AliYun**: Alibaba Cloud service
-   * 
-   * - **RiskDomain**: Risky domain name
-   * 
-   * - **RiskIP**: Risky IP address
-   * 
-   * - **TrustedDomain**: Trusted website
-   * 
-   * - **AliPay**: Alipay
-   * 
-   * - **DingDing**: DingTalk
-   * 
-   * - **WeChat**: WeChat
-   * 
-   * - **QQ**: Tencent QQ
-   * 
-   * - **SecurityService**: Security service
-   * 
-   * - **Microsoft**: Microsoft
-   * 
-   * - **Amazon**: Amazon
-   * 
-   * - **Pan**: Cloud storage service
-   * 
-   * - **Map**: Map service
-   * 
-   * - **Code**: Code hosting service
-   * 
-   * - **SystemService**: System service
-   * 
-   * - **Taobao**: Taobao
-   * 
-   * - **Google**: Google
-   * 
-   * - **ThirdPartyService**: Third-party service
-   * 
-   * - **FirstFlow**: First-time access
-   * 
-   * - **Downloader**: Malicious downloader
-   * 
-   * - **Alexa Top 1M**: Popular website
-   * 
-   * - **Miner**: Mining pool
-   * 
-   * - **Intelligence**: Threat intelligence
-   * 
-   * - **DDoS**: DDoS trojan
-   * 
-   * - **Ransomware**: Ransomware
-   * 
-   * - **Spyware**: Spyware
-   * 
-   * - **Rogue**: Rogue software
-   * 
-   * - **Botnet**: Botnet
-   * 
-   * - **Suspicious**: Suspicious website
-   * 
-   * - **C\\&C**: Command and control (C\\&C)
-   * 
-   * - **Gang**: Gang-related activity
-   * 
-   * - **CVE**: CVE vulnerability
-   * 
-   * - **Backdoor**: Backdoor
-   * 
-   * - **Phishing**: Phishing website
-   * 
-   * - **APT**: Advanced Persistent Threat (APT) attack
-   * 
-   * - **Supply Chain Attack**: Supply chain attack
-   * 
-   * - **Malware**: Malicious software
+   * - **AliYun**: Alibaba Cloud product.
+   * - **RiskDomain**: Risky domain.
+   * - **RiskIP**: Risky IP.
+   * - **TrustedDomain**: Trusted website.
+   * - **AliPay**: Alipay.
+   * - **DingDing**: DingTalk.
+   * - **WeChat**: WeChat.
+   * - **QQ**: Tencent QQ.
+   * - **SecurityService**: Security service.
+   * - **Microsoft**: Microsoft.
+   * - **Amazon**: Amazon.
+   * - **Pan**: Cloud drive.
+   * - **Map**: Map.
+   * - **Code**: Code hosting.
+   * - **SystemService**: System service.
+   * - **Taobao**: Taobao.
+   * - **Google**: Google.
+   * - **ThirdPartyService**: Third-party platform service.
+   * - **FirstFlow**: First Visit.
+   * - **Downloader**: Malicious download.
+   * - **Alexa Top1M**: Popular website.
+   * - **Miner**: Miner Pool.
+   * - **Intelligence**: Threat intelligence.
+   * - **DDoS**: DDoS Trojan.
+   * - **Ransomware**: Ransomware.
+   * - **Spyware**: Spyware.
+   * - **Rogue**: Rogue software.
+   * - **Botnet**: Botnets.
+   * - **Suspicious**: Suspicious website.
+   * - **C&C**: Remote control.
+   * - **Gang**: Gang.
+   * - **CVE**: CVE vulnerability.
+   * - **Backdoor**: Backdoor Trojan.
+   * - **Phishing**: Phishing website.
+   * - **APT**: APT attack.
+   * - **Supply Chain Attack**: Supply chain attack.
+   * - **Malicious software**: Malware.
    * 
    * @example
    * AliYun

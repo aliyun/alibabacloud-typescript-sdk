@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The number of received bytes.
+   * The number of bytes received. Unit: bytes.
    * 
    * @example
    * 17845821669.0
@@ -13,7 +13,7 @@ export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.M
   inBytes?: number;
   /**
    * @remarks
-   * The number of sent bytes.
+   * The number of bytes sent. Unit: bytes.
    * 
    * @example
    * 1123
@@ -21,7 +21,7 @@ export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.M
   outBytes?: number;
   /**
    * @remarks
-   * The IP address of the peer asset.
+   * The source IP address of the peer.
    * 
    * @example
    * 10.125.1.XX
@@ -29,7 +29,7 @@ export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.M
   peerAssetIP?: string;
   /**
    * @remarks
-   * The instance ID of the peer asset.
+   * The instance ID of the peer.
    * 
    * @example
    * i-123451
@@ -37,7 +37,7 @@ export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.M
   peerAssetInstanceId?: string;
   /**
    * @remarks
-   * The instance name of the peer asset.
+   * The instance name of the peer.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.M
   peerAssetInstanceName?: string;
   /**
    * @remarks
-   * The ID of the peer VPC.
+   * The instance ID of the peer VPC.
    * 
    * @example
    * vpc-123411
@@ -53,7 +53,7 @@ export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.M
   peerVpcId?: string;
   /**
    * @remarks
-   * The ID of the region where the asset is located.
+   * The region ID of the instance.
    * 
    * @example
    * cn-shenzhen
@@ -115,12 +115,12 @@ export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.M
 export class DescribeVpcFirewallAccessDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data entries.
+   * The data list.
    */
   dataList?: DescribeVpcFirewallAccessDetailResponseBodyDataList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8EAC2347-E85A-5DFF-9F49-B8E1BAFB****

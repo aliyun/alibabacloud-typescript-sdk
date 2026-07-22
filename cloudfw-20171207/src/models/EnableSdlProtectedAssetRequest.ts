@@ -5,15 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class EnableSdlProtectedAssetRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of IP assets.
+   * The list of IP assets. At least one IP address is required to enable protection.
    */
   ipList?: string[];
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example

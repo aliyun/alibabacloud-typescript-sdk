@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the synchronization node.
+   * The synchronization node ID. You must specify at least one of TaskId and AccessInstanceId. If neither is specified, the API returns a 400 error.
    * 
    * @example
    * pdi-3bc2f91695ee48bd9377
@@ -13,7 +13,7 @@ export class DescribeAccessInstanceTaskRequest extends $dara.Model {
   accessInstanceId?: string;
   /**
    * @remarks
-   * The type of the synchronization node.
+   * The synchronization node type.
    * 
    * @example
    * AckClusterConnector
@@ -21,7 +21,7 @@ export class DescribeAccessInstanceTaskRequest extends $dara.Model {
   accessInstanceType?: string;
   /**
    * @remarks
-   * The language of the response messages.
+   * The language of the response message.
    * 
    * @example
    * zh
@@ -37,7 +37,7 @@ export class DescribeAccessInstanceTaskRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The task ID.
+   * The task ID. You must specify at least one of TaskId and AccessInstanceId. If neither is specified, the API returns a 400 error.
    * 
    * @example
    * task-c92d4544ef7b6a42

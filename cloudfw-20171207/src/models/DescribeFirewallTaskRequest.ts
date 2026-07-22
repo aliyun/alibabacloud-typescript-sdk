@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID. You must specify at least one of TaskId and ChildInstanceId. If neither is specified, the API returns ErrorParameters(400).
    * 
    * @example
    * vfw-tr-cd6000c588214403****
@@ -13,10 +13,9 @@ export class DescribeFirewallTaskRequest extends $dara.Model {
   childInstanceId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -25,7 +24,7 @@ export class DescribeFirewallTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The task ID.
+   * The task ID. You must specify at least one of TaskId and ChildInstanceId. If neither is specified, the API returns ErrorParameters(400).
    * 
    * @example
    * 199431783
@@ -35,9 +34,9 @@ export class DescribeFirewallTaskRequest extends $dara.Model {
    * @remarks
    * The type of the task. Valid values:
    * 
-   * - **NAT**: NAT border task
+   * - **NAT**: NAT firewall task
    * 
-   * - **VPC**: VPC border task
+   * - **VPC**: VPC firewall task
    * 
    * @example
    * VPC

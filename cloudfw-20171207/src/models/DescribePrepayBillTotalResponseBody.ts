@@ -37,7 +37,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   defaultBandwidth?: number;
   /**
    * @remarks
-   * The elastic bandwidth. Unit: Mbit/s.
+   * The elastic bandwidth value. Unit: Mbit/s.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   elasticBandwidth?: number;
   /**
    * @remarks
-   * The end time of the day. The value is a UNIX timestamp in seconds.
+   * The end time of the day. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1761667200
@@ -69,7 +69,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   internetTrafficBandwidth?: number;
   /**
    * @remarks
-   * The monthly free traffic quota for sensitive data detection. Unit: GB.
+   * The monthly free traffic for sensitive data detection. Unit: GB.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   natTrafficBandwidth?: number;
   /**
    * @remarks
-   * The timestamp when the maximum combined bandwidth (Internet + VPC + NAT) occurred on that day.
+   * The timestamp when the maximum bandwidth (Internet + VPC + NAT) of the day occurred.
    * 
    * @example
    * 1761588300
@@ -93,7 +93,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   overflowTime?: number;
   /**
    * @remarks
-   * The start time of the day. The value is a UNIX timestamp in seconds.
+   * The start time of the day. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1761580800
@@ -165,7 +165,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
 export class DescribePrepayBillTotalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The bill list, aggregated by day.
+   * The bill list, with each entry representing a day.
    */
   billList?: DescribePrepayBillTotalResponseBodyBillList[];
   /**

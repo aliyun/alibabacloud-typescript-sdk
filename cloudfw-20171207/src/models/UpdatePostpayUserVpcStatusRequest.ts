@@ -13,13 +13,10 @@ export class UpdatePostpayUserVpcStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the request and response.
-   * 
-   * Valid values:
+   * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
-   * - en: English
+   * - **en**: English
    * 
    * @example
    * zh
@@ -27,9 +24,8 @@ export class UpdatePostpayUserVpcStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The operation to perform. Currently, only the open operation is supported.
-   * 
-   * - open: Enables the VPC border firewall.
+   * The operation type. Currently, only the activation operation is supported. Valid values:
+   * - open: activation
    * 
    * @example
    * open

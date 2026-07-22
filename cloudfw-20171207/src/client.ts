@@ -374,10 +374,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a DNS firewall ACL
+   * Adds a DNS firewall access control list (ACL).
    * 
    * @remarks
-   * Use this API to create a policy that allows, denies, or observes traffic passing through a NAT firewall.
+   * Creates an access control policy that allows, denies, or monitors traffic that passes through a NAT firewall.
    * 
    * @param request - AddDnsFirewallPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -452,10 +452,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a DNS firewall ACL
+   * Adds a DNS firewall access control list (ACL).
    * 
    * @remarks
-   * Use this API to create a policy that allows, denies, or observes traffic passing through a NAT firewall.
+   * Creates an access control policy that allows, denies, or monitors traffic that passes through a NAT firewall.
    * 
    * @param request - AddDnsFirewallPolicyRequest
    * @returns AddDnsFirewallPolicyResponse
@@ -519,9 +519,9 @@ export default class Client extends OpenApi {
    * Adds member accounts to Cloud Firewall.
    * 
    * @remarks
-   * This operation is used to add member accounts to Cloud Firewall.
+   * Adds member accounts to Cloud Firewall. The caller must be a delegated administrator (DA) or management account (MA) of the resource directory. Call DescribeInstanceRdAccounts to verify your identity before calling this operation.
    * ## QPS limit
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. We recommend that you take note of the limit when you call this operation.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - AddInstanceMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -555,9 +555,9 @@ export default class Client extends OpenApi {
    * Adds member accounts to Cloud Firewall.
    * 
    * @remarks
-   * This operation is used to add member accounts to Cloud Firewall.
+   * Adds member accounts to Cloud Firewall. The caller must be a delegated administrator (DA) or management account (MA) of the resource directory. Call DescribeInstanceRdAccounts to verify your identity before calling this operation.
    * ## QPS limit
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. We recommend that you take note of the limit when you call this operation.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - AddInstanceMembersRequest
    * @returns AddInstanceMembersResponse
@@ -1023,7 +1023,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an association for private IP traffic tracing with the Intrusion Prevention System (IPS).
+   * Creates an IPS Private IP Tracing configuration. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
+   * 
+   * @remarks
+   * Creates an IPS private network association. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
    * 
    * @param request - CreateIpsPrivateAssocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1058,7 +1061,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an association for private IP traffic tracing with the Intrusion Prevention System (IPS).
+   * Creates an IPS Private IP Tracing configuration. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
+   * 
+   * @remarks
+   * Creates an IPS private network association. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
    * 
    * @param request - CreateIpsPrivateAssocRequest
    * @returns CreateIpsPrivateAssocResponse
@@ -1313,10 +1319,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a private DNS endpoint
+   * Creates a private DNS endpoint.
    * 
    * @remarks
-   * Creates a private DNS endpoint for traffic that passes through the NAT Firewall to allow, deny, or monitor the traffic.
+   * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
    * 
    * @param request - CreatePrivateDnsEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1399,10 +1405,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a private DNS endpoint
+   * Creates a private DNS endpoint.
    * 
    * @remarks
-   * Creates a private DNS endpoint for traffic that passes through the NAT Firewall to allow, deny, or monitor the traffic.
+   * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
    * 
    * @param request - CreatePrivateDnsEndpointRequest
    * @returns CreatePrivateDnsEndpointResponse
@@ -1545,7 +1551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a VPC firewall for a transit router.
+   * Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router is enabled. (3) The transit router is synchronized to Cloud Firewall.
    * 
    * @param request - CreateTrFirewallV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1632,7 +1638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a VPC firewall for a transit router.
+   * Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router is enabled. (3) The transit router is synchronized to Cloud Firewall.
    * 
    * @param request - CreateTrFirewallV2Request
    * @returns CreateTrFirewallV2Response
@@ -1643,7 +1649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a TR firewall routing rule.
+   * Creates a routing rule for a VPC firewall for a transit router. Prerequisites: Activate Cloud Firewall → Create a CEN instance → Create an Enterprise Edition transit router → Add VPCs to the transit router route table → Call CreateTrFirewallV2 to create a VPC firewall for the transit router.
    * 
    * @param tmpReq - CreateTrFirewallV2RoutePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1708,7 +1714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a TR firewall routing rule.
+   * Creates a routing rule for a VPC firewall for a transit router. Prerequisites: Activate Cloud Firewall → Create a CEN instance → Create an Enterprise Edition transit router → Add VPCs to the transit router route table → Call CreateTrFirewallV2 to create a VPC firewall for the transit router.
    * 
    * @param request - CreateTrFirewallV2RoutePolicyRequest
    * @returns CreateTrFirewallV2RoutePolicyResponse
@@ -1719,12 +1725,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
+   * Creates a virtual private cloud (VPC) firewall to protect mutual access traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
    * 
    * @remarks
-   * This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
+   * This operation is used to create a virtual private cloud (VPC) firewall for VPC-connected instances in a CEN instance. The VPC firewall protects mutual access traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect mutual access traffic between VBRs, between CCNs, or between VBRs and CCNs. **Prerequisites**: (1) Invoke the Cbn CreateCen operation to create a CEN instance. (2) Create at least two VPCs. (3) Invoke the Cbn AttachCenChildInstance operation to associate the VPCs with the CEN instance. (4) Ensure that no conflicting RouteMaps or transit router (TR) routing entries exist in the CEN instance. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+   * ## Rate limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
    * 
    * @param request - CreateVpcFirewallCenConfigureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1799,12 +1805,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
+   * Creates a virtual private cloud (VPC) firewall to protect mutual access traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
    * 
    * @remarks
-   * This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
+   * This operation is used to create a virtual private cloud (VPC) firewall for VPC-connected instances in a CEN instance. The VPC firewall protects mutual access traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect mutual access traffic between VBRs, between CCNs, or between VBRs and CCNs. **Prerequisites**: (1) Invoke the Cbn CreateCen operation to create a CEN instance. (2) Create at least two VPCs. (3) Invoke the Cbn AttachCenChildInstance operation to associate the VPCs with the CEN instance. (4) Ensure that no conflicting RouteMaps or transit router (TR) routing entries exist in the CEN instance. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+   * ## Rate limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
    * 
    * @param request - CreateVpcFirewallCenConfigureRequest
    * @returns CreateVpcFirewallCenConfigureResponse
@@ -1983,9 +1989,9 @@ export default class Client extends OpenApi {
    * Adds an access control policy to a specified VPC firewall policy group.
    * 
    * @remarks
-   * This operation is used to add an access control policy to a specified virtual private cloud (VPC) firewall policy group. Different access control policies are used when a VPC firewall protects traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
+   * This operation is used to add an access control policy to a specified virtual private cloud (VPC) firewall policy group. Different access control policies are used when a VPC firewall protects traffic between two VPCs connected through a Cloud Enterprise Network (CEN) instance or traffic between two VPCs connected through an Express Connect circuit.
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation properly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
    * 
    * @param request - CreateVpcFirewallControlPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2111,9 +2117,9 @@ export default class Client extends OpenApi {
    * Adds an access control policy to a specified VPC firewall policy group.
    * 
    * @remarks
-   * This operation is used to add an access control policy to a specified virtual private cloud (VPC) firewall policy group. Different access control policies are used when a VPC firewall protects traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
+   * This operation is used to add an access control policy to a specified virtual private cloud (VPC) firewall policy group. Different access control policies are used when a VPC firewall protects traffic between two VPCs connected through a Cloud Enterprise Network (CEN) instance or traffic between two VPCs connected through an Express Connect circuit.
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation properly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
    * 
    * @param request - CreateVpcFirewallControlPolicyRequest
    * @returns CreateVpcFirewallControlPolicyResponse
@@ -3243,8 +3249,9 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation is used to delete a virtual private cloud (VPC) firewall that protects traffic between two VPCs connected through Express Connect.
    * Before you invoke this operation, you must have already created a VPC firewall by invoking the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
-   * ## Rate limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+   * This operation is asynchronous. After a successful invocation, the status changes to deleting. Poll DescribeVpcFirewallList until the target VpcFirewallId no longer appears. The firewall to be deleted must be in the opened or closed state. Firewalls in the notconfigured or deleting state cannot be deleted, and the ErrorFirewallStatus error is returned.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
    * 
    * @param request - DeleteVpcFirewallConfigureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3288,8 +3295,9 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation is used to delete a virtual private cloud (VPC) firewall that protects traffic between two VPCs connected through Express Connect.
    * Before you invoke this operation, you must have already created a VPC firewall by invoking the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
-   * ## Rate limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+   * This operation is asynchronous. After a successful invocation, the status changes to deleting. Poll DescribeVpcFirewallList until the target VpcFirewallId no longer appears. The firewall to be deleted must be in the opened or closed state. Firewalls in the notconfigured or deleting state cannot be deleted, and the ErrorFirewallStatus error is returned.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
    * 
    * @param request - DeleteVpcFirewallConfigureRequest
    * @returns DeleteVpcFirewallConfigureResponse
@@ -3501,7 +3509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the progress of a synchronization task on a node.
+   * Queries the progress of a synchronization node task.
    * 
    * @param request - DescribeAccessInstanceTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3528,7 +3536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the progress of a synchronization task on a node.
+   * Queries the progress of a synchronization node task.
    * 
    * @param request - DescribeAccessInstanceTaskRequest
    * @returns DescribeAccessInstanceTaskResponse
@@ -4471,7 +4479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of asset risk levels.
+   * Retrieves the risk levels of assets.
    * 
    * @param request - DescribeAssetRiskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4514,7 +4522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of asset risk levels.
+   * Retrieves the risk levels of assets.
    * 
    * @param request - DescribeAssetRiskListRequest
    * @returns DescribeAssetRiskListResponse
@@ -5027,7 +5035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain name resolution results of an access control policy.
+   * Queries the domain name parse results of an access control policy.
    * 
    * @param request - DescribeControlPolicyDomainResolveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5054,7 +5062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain name resolution results of an access control policy.
+   * Queries the domain name parse results of an access control policy.
    * 
    * @param request - DescribeControlPolicyDomainResolveRequest
    * @returns DescribeControlPolicyDomainResolveResponse
@@ -5498,7 +5506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+   * Retrieves the overall firewall interception trends, including Internet, VPC, and NAT traffic.
    * 
    * @param request - DescribeFirewallDropTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5537,7 +5545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+   * Retrieves the overall firewall interception trends, including Internet, VPC, and NAT traffic.
    * 
    * @param request - DescribeFirewallDropTrendRequest
    * @returns DescribeFirewallDropTrendResponse
@@ -5548,11 +5556,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a firewall task.
+   * Retrieves a firewall task.
    * 
    * @remarks
    * ### QPS limit
-   * You can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeFirewallTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5599,11 +5607,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a firewall task.
+   * Retrieves a firewall task.
    * 
    * @remarks
    * ### QPS limit
-   * You can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeFirewallTaskRequest
    * @returns DescribeFirewallTaskResponse
@@ -7811,7 +7819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Overview - NAT firewall blocking trends
+   * Queries the NAT firewall interception trend on the overview page.
    * 
    * @param request - DescribeNatFirewallDropTrafficTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7838,7 +7846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Overview - NAT firewall blocking trends
+   * Queries the NAT firewall interception trend on the overview page.
    * 
    * @param request - DescribeNatFirewallDropTrafficTrendRequest
    * @returns DescribeNatFirewallDropTrafficTrendResponse
@@ -8537,7 +8545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries outbound destinations.
+   * Queries outbound connection destinations.
    * 
    * @param request - DescribeOutgoingDestinationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8640,7 +8648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries outbound destinations.
+   * Queries outbound connection destinations.
    * 
    * @param request - DescribeOutgoingDestinationRequest
    * @returns DescribeOutgoingDestinationResponse
@@ -8651,7 +8659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the categories of outbound connection destinations.
+   * Queries the destination categories of outbound connections.
    * 
    * @param request - DescribeOutgoingDestinationCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8710,7 +8718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the categories of outbound connection destinations.
+   * Queries the destination categories of outbound connections.
    * 
    * @param request - DescribeOutgoingDestinationCategoryRequest
    * @returns DescribeOutgoingDestinationCategoryResponse
@@ -8917,7 +8925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about outbound domain names.
+   * Queries domain name information about outbound connections.
    * 
    * @param request - DescribeOutgoingDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8996,7 +9004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about outbound domain names.
+   * Queries domain name information about outbound connections.
    * 
    * @param request - DescribeOutgoingDomainRequest
    * @returns DescribeOutgoingDomainResponse
@@ -9007,7 +9015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an outbound domain.
+   * Retrieves the details of outbound domains.
    * 
    * @param request - DescribeOutgoingDomainDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9102,7 +9110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an outbound domain.
+   * Retrieves the details of outbound domains.
    * 
    * @param request - DescribeOutgoingDomainDetailRequest
    * @returns DescribeOutgoingDomainDetailResponse
@@ -9543,7 +9551,7 @@ export default class Client extends OpenApi {
    * Queries pay-as-you-go 2.0 bills.
    * 
    * @remarks
-   * For pay-as-you-go users, the bill details are accurate to the specific resource instance level. For subscription users, only overall queries are supported.
+   * For pay-as-you-go users, the bill details are accurate to the specific resource instance granularity. For subscription users, only overall queries are supported.
    * 
    * @param request - DescribePostpayBillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9597,7 +9605,7 @@ export default class Client extends OpenApi {
    * Queries pay-as-you-go 2.0 bills.
    * 
    * @remarks
-   * For pay-as-you-go users, the bill details are accurate to the specific resource instance level. For subscription users, only overall queries are supported.
+   * For pay-as-you-go users, the bill details are accurate to the specific resource instance granularity. For subscription users, only overall queries are supported.
    * 
    * @param request - DescribePostpayBillRequest
    * @returns DescribePostpayBillResponse
@@ -11197,7 +11205,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeSdlLastPayloadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11252,7 +11260,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeSdlLastPayloadRequest
    * @returns DescribeSdlLastPayloadResponse
@@ -11695,6 +11703,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the execution status of a log configuration modification task.
+   * 
+   * @remarks
+   * Before calling this operation, call ModifySlsDispatchConfig to obtain the TaskId.
+   * 
+   * @param request - DescribeTaskDispatchStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTaskDispatchStatusResponse
+   */
+  async describeTaskDispatchStatusWithOptions(request: $_model.DescribeTaskDispatchStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTaskDispatchStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTaskDispatchStatus",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTaskDispatchStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTaskDispatchStatusResponse({}));
+  }
+
+  /**
+   * Queries the execution status of a log configuration modification task.
+   * 
+   * @remarks
+   * Before calling this operation, call ModifySlsDispatchConfig to obtain the TaskId.
+   * 
+   * @param request - DescribeTaskDispatchStatusRequest
+   * @returns DescribeTaskDispatchStatusResponse
+   */
+  async describeTaskDispatchStatus(request: $_model.DescribeTaskDispatchStatusRequest): Promise<$_model.DescribeTaskDispatchStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTaskDispatchStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the threat intelligence configuration information.
    * 
    * @remarks
@@ -11792,7 +11848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of routing policies for a VPC firewall for a transit router.
+   * Retrieves the list of routing policies for a VPC firewall for a transit router.
    * 
    * @param request - DescribeTrFirewallV2RoutePolicyListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11839,7 +11895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of routing policies for a VPC firewall for a transit router.
+   * Retrieves the list of routing policies for a VPC firewall for a transit router.
    * 
    * @param request - DescribeTrFirewallV2RoutePolicyListRequest
    * @returns DescribeTrFirewallV2RoutePolicyListResponse
@@ -11978,7 +12034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the route tables for a VPC firewall for a transit router.
+   * Retrieves the route table list of a VPC firewall for a transit router. Prerequisites: CEN → Enterprise Edition transit router → VPC connection → CreateTrFirewallV2 → routing policy.
    * 
    * @param request - DescribeTrFirewallsV2RouteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12025,7 +12081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the route tables for a VPC firewall for a transit router.
+   * Retrieves the route table list of a VPC firewall for a transit router. Prerequisites: CEN → Enterprise Edition transit router → VPC connection → CreateTrFirewallV2 → routing policy.
    * 
    * @param request - DescribeTrFirewallsV2RouteListRequest
    * @returns DescribeTrFirewallsV2RouteListResponse
@@ -12151,6 +12207,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryId)) {
+      query["QueryId"] = request.queryId;
     }
 
     if (!$dara.isNull(request.ruleId)) {
@@ -12681,11 +12741,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the access details of a VPC firewall.
+   * Retrieves the access details of a VPC firewall.
    * 
    * @remarks
-   * ## QPS limits
-   * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which can affect your business. We recommend that you call this API at a reasonable rate.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeVpcFirewallAccessDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12784,11 +12844,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the access details of a VPC firewall.
+   * Retrieves the access details of a VPC firewall.
    * 
    * @remarks
-   * ## QPS limits
-   * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which can affect your business. We recommend that you call this API at a reasonable rate.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeVpcFirewallAccessDetailRequest
    * @returns DescribeVpcFirewallAccessDetailResponse
@@ -13841,7 +13901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of vSwitches for a VPC firewall created in manual mode.
+   * Queries the vSwitch list in manual mode for a VPC firewall.
+   * 
+   * @remarks
+   * Queries the vSwitch list in manual mode for a firewall. **Required parameters**: If OwnerId (owner user ID, Long type) is empty, ErrorOwnerId is returned. If regionNo (region) is empty, ErrorRegionNoError is returned. If vpcId is empty, ErrorVpcIdError is returned. **Before you begin**: Call [DescribeVpcFirewallList](~~DescribeVpcFirewallList~~) to obtain VpcFirewallId, OwnerId (from LocalVpc.OwnerId or PeerVpc.OwnerId in the response), and VpcId (from LocalVpc.VpcId or PeerVpc.VpcId in the response).
    * 
    * @param request - DescribeVpcFirewallManualVSwitchListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13892,7 +13955,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of vSwitches for a VPC firewall created in manual mode.
+   * Queries the vSwitch list in manual mode for a VPC firewall.
+   * 
+   * @remarks
+   * Queries the vSwitch list in manual mode for a firewall. **Required parameters**: If OwnerId (owner user ID, Long type) is empty, ErrorOwnerId is returned. If regionNo (region) is empty, ErrorRegionNoError is returned. If vpcId is empty, ErrorVpcIdError is returned. **Before you begin**: Call [DescribeVpcFirewallList](~~DescribeVpcFirewallList~~) to obtain VpcFirewallId, OwnerId (from LocalVpc.OwnerId or PeerVpc.OwnerId in the response), and VpcId (from LocalVpc.VpcId or PeerVpc.VpcId in the response).
    * 
    * @param request - DescribeVpcFirewallManualVSwitchListRequest
    * @returns DescribeVpcFirewallManualVSwitchListResponse
@@ -13959,11 +14025,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a VPC firewall precheck.
+   * Retrieves the precheck details of a VPC firewall.
    * 
    * @remarks
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled. This may impact your business. Plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeVpcFirewallPrecheckDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14022,11 +14088,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a VPC firewall precheck.
+   * Retrieves the precheck details of a VPC firewall.
    * 
    * @remarks
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled. This may impact your business. Plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeVpcFirewallPrecheckDetailRequest
    * @returns DescribeVpcFirewallPrecheckDetailResponse
@@ -14095,7 +14161,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of assets that access domain names through a VPC firewall.
+   * Queries the list of assets that access domain names through a VPC firewall.
+   * 
+   * @remarks
+   * Queries asset information for VPC Access. When calling this operation, set IsAITraffic to "true". Otherwise, error code -340103 is returned.
    * 
    * @param request - DescribeVpcFirewallTrafficAssetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14166,7 +14235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of assets that access domain names through a VPC firewall.
+   * Queries the list of assets that access domain names through a VPC firewall.
+   * 
+   * @remarks
+   * Queries asset information for VPC Access. When calling this operation, set IsAITraffic to "true". Otherwise, error code -340103 is returned.
    * 
    * @param request - DescribeVpcFirewallTrafficAssetListRequest
    * @returns DescribeVpcFirewallTrafficAssetListResponse
@@ -14581,7 +14653,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables data breach protection for assets.
+   * Enables data leak protection for assets. Before calling this operation, ensure that the Sensitive Data Leak (SDL) feature is activated (query DescribeUserBuyVersion.Sdl, where 1 indicates activated).
+   * 
+   * @remarks
+   * Enables data leak detection (SDL) protection for specified assets.
    * 
    * @param request - EnableSdlProtectedAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14616,7 +14691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables data breach protection for assets.
+   * Enables data leak protection for assets. Before calling this operation, ensure that the Sensitive Data Leak (SDL) feature is activated (query DescribeUserBuyVersion.Sdl, where 1 indicates activated).
+   * 
+   * @remarks
+   * Enables data leak detection (SDL) protection for specified assets.
    * 
    * @param request - EnableSdlProtectedAssetRequest
    * @returns EnableSdlProtectedAssetResponse
@@ -15229,7 +15307,7 @@ export default class Client extends OpenApi {
    * Modifies a DNS firewall rule.
    * 
    * @remarks
-   * You can use this operation to modify a DNS firewall policy to accept, deny, or monitor traffic.
+   * Modifies a policy that allows, denies, or monitors traffic that passes through the DNS firewall.
    * 
    * @param request - ModifyDnsFirewallPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15303,7 +15381,7 @@ export default class Client extends OpenApi {
    * Modifies a DNS firewall rule.
    * 
    * @remarks
-   * You can use this operation to modify a DNS firewall policy to accept, deny, or monitor traffic.
+   * Modifies a policy that allows, denies, or monitors traffic that passes through the DNS firewall.
    * 
    * @param request - ModifyDnsFirewallPolicyRequest
    * @returns ModifyDnsFirewallPolicyResponse
@@ -15490,7 +15568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets Intrusion Prevention System (IPS) rules to the default settings.
+   * Resets IPS rules to default.
    * 
    * @param request - ModifyIpsRulesToDefaultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15545,7 +15623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets Intrusion Prevention System (IPS) rules to the default settings.
+   * Resets IPS rules to default.
    * 
    * @param request - ModifyIpsRulesToDefaultRequest
    * @returns ModifyIpsRulesToDefaultResponse
@@ -16042,6 +16120,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the configurations for log delivery to Simple Log Service (SLS).
+   * 
+   * @remarks
+   * Before calling this operation, call DescribeUserBuyVersion to obtain the LogVersion of the user.
+   * 
+   * @param request - ModifySlsDispatchConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySlsDispatchConfigResponse
+   */
+  async modifySlsDispatchConfigWithOptions(request: $_model.ModifySlsDispatchConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySlsDispatchConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.detailConfig)) {
+      query["DetailConfig"] = request.detailConfig;
+    }
+
+    if (!$dara.isNull(request.logVersion)) {
+      query["LogVersion"] = request.logVersion;
+    }
+
+    if (!$dara.isNull(request.modifyType)) {
+      query["ModifyType"] = request.modifyType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySlsDispatchConfig",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySlsDispatchConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifySlsDispatchConfigResponse({}));
+  }
+
+  /**
+   * Modifies the configurations for log delivery to Simple Log Service (SLS).
+   * 
+   * @remarks
+   * Before calling this operation, call DescribeUserBuyVersion to obtain the LogVersion of the user.
+   * 
+   * @param request - ModifySlsDispatchConfigRequest
+   * @returns ModifySlsDispatchConfigResponse
+   */
+  async modifySlsDispatchConfig(request: $_model.ModifySlsDispatchConfigRequest): Promise<$_model.ModifySlsDispatchConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySlsDispatchConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the log delivery settings for Simple Log Service (SLS).
    * 
    * @remarks
@@ -16150,7 +16284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a VPC firewall for a transit router.
+   * Modifies the configuration of a VPC firewall for a transit router. Prerequisites: Create a Cloud Enterprise Network (CEN) Enterprise Edition transit router, call CreateTrFirewallV2 to create a VPC firewall for the transit router, and obtain the FirewallId before calling this operation.
    * 
    * @param request - ModifyTrFirewallV2ConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16189,7 +16323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a VPC firewall for a transit router.
+   * Modifies the configuration of a VPC firewall for a transit router. Prerequisites: Create a Cloud Enterprise Network (CEN) Enterprise Edition transit router, call CreateTrFirewallV2 to create a VPC firewall for the transit router, and obtain the FirewallId before calling this operation.
    * 
    * @param request - ModifyTrFirewallV2ConfigurationRequest
    * @returns ModifyTrFirewallV2ConfigurationResponse
@@ -17226,12 +17360,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a firewall switch.
+   * Disables the firewall switch.
    * 
    * @remarks
-   * This operation disables a firewall switch. After a firewall switch is disabled, traffic is no longer routed through Cloud Firewall.
+   * Disables the firewall switch. After the firewall switch is disabled, traffic does not pass through Cloud Firewall.
    * ## QPS limit
-   * The QPS limit for this operation is 10 requests per second per user. Calls that exceed this limit are throttled, which may affect your business.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - PutDisableFwSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17240,6 +17374,14 @@ export default class Client extends OpenApi {
   async putDisableFwSwitchWithOptions(request: $_model.PutDisableFwSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutDisableFwSwitchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.ipVersion)) {
       query["IpVersion"] = request.ipVersion;
     }
@@ -17286,12 +17428,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a firewall switch.
+   * Disables the firewall switch.
    * 
    * @remarks
-   * This operation disables a firewall switch. After a firewall switch is disabled, traffic is no longer routed through Cloud Firewall.
+   * Disables the firewall switch. After the firewall switch is disabled, traffic does not pass through Cloud Firewall.
    * ## QPS limit
-   * The QPS limit for this operation is 10 requests per second per user. Calls that exceed this limit are throttled, which may affect your business.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - PutDisableFwSwitchRequest
    * @returns PutDisableFwSwitchResponse
@@ -17362,12 +17504,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable the firewall.
+   * Enables a firewall switch.
    * 
    * @remarks
-   * This API enables the firewall switch. Once enabled, traffic is routed through Cloud Firewall.
+   * Enables a firewall switch. Traffic passes through Cloud Firewall only after the firewall switch is enabled.
    * ## QPS limit
-   * The QPS limit for this API is 5 requests per second for a single user. If you exceed this limit, the system throttles API calls, which may affect your business.
+   * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - PutEnableFwSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17376,6 +17518,14 @@ export default class Client extends OpenApi {
   async putEnableFwSwitchWithOptions(request: $_model.PutEnableFwSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutEnableFwSwitchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.ipVersion)) {
       query["IpVersion"] = request.ipVersion;
     }
@@ -17422,12 +17572,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable the firewall.
+   * Enables a firewall switch.
    * 
    * @remarks
-   * This API enables the firewall switch. Once enabled, traffic is routed through Cloud Firewall.
+   * Enables a firewall switch. Traffic passes through Cloud Firewall only after the firewall switch is enabled.
    * ## QPS limit
-   * The QPS limit for this API is 5 requests per second for a single user. If you exceed this limit, the system throttles API calls, which may affect your business.
+   * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - PutEnableFwSwitchRequest
    * @returns PutEnableFwSwitchResponse
@@ -18054,7 +18204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of the VPC border firewall for a pay-as-you-go user.
+   * Updates the status of the virtual private cloud (VPC) firewall switch module for a pay-as-you-go user.
    * 
    * @param request - UpdatePostpayUserVpcStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18093,7 +18243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of the VPC border firewall for a pay-as-you-go user.
+   * Updates the status of the virtual private cloud (VPC) firewall switch module for a pay-as-you-go user.
    * 
    * @param request - UpdatePostpayUserVpcStatusRequest
    * @returns UpdatePostpayUserVpcStatusResponse

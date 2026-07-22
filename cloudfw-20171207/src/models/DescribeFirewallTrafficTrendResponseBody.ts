@@ -21,9 +21,9 @@ export class DescribeFirewallTrafficTrendResponseBodyDataList extends $dara.Mode
   natBps?: number;
   /**
    * @remarks
-   * The time when the traffic occurred. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the traffic occurred. The value is a UNIX timestamp in seconds.
    * 
-   * If the data at this point in time has not been processed, the values of all other fields are -1.
+   * If the data at this point in time has not been processed, the values of other fields are -1.
    * 
    * @example
    * 1758470400
@@ -142,7 +142,7 @@ export class DescribeFirewallTrafficTrendResponseBody extends $dara.Model {
   dataList?: DescribeFirewallTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The timestamp when the peak total traffic occurred. The value is a UNIX timestamp. Unit: seconds.
+   * The timestamp when the peak total traffic occurred. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1758470400

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList extends $dara.Model {
   /**
    * @remarks
-   * The description of the outbound connection category.
+   * The outbound connections categorization description.
    * 
    * @example
    * AliYun
@@ -13,7 +13,7 @@ export class DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList
   categoryDescribe?: string;
   /**
    * @remarks
-   * The ID of the outbound connection category.
+   * The outbound connections categorization ID.
    * 
    * @example
    * 123
@@ -21,7 +21,7 @@ export class DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList
   categoryId?: string;
   /**
    * @remarks
-   * The name of the outbound connection category.
+   * The outbound connections categorization name.
    * 
    * @example
    * AliYun
@@ -29,7 +29,7 @@ export class DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList
   categoryName?: string;
   /**
    * @remarks
-   * The classification ID of the outbound connection category.
+   * The outbound connections categorization level ID.
    * 
    * @example
    * Trusted
@@ -65,12 +65,12 @@ export class DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList
 export class DescribeOutgoingDestinationCategoryResponseBodyTypeList extends $dara.Model {
   /**
    * @remarks
-   * The list of outbound connection categories.
+   * The list of outbound connections categorizations.
    */
   categoryList?: DescribeOutgoingDestinationCategoryResponseBodyTypeListCategoryList[];
   /**
    * @remarks
-   * The description of the fixed category.
+   * The fixed category description.
    * 
    * @example
    * AliYun
@@ -86,7 +86,7 @@ export class DescribeOutgoingDestinationCategoryResponseBodyTypeList extends $da
   typeId?: string;
   /**
    * @remarks
-   * The name of the fixed category.
+   * The fixed category name.
    * 
    * @example
    * AliYun
@@ -125,7 +125,7 @@ export class DescribeOutgoingDestinationCategoryResponseBodyTypeList extends $da
 export class DescribeOutgoingDestinationCategoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C1ED80BC-FFC8-57DB-8151-705DC31****
@@ -141,7 +141,7 @@ export class DescribeOutgoingDestinationCategoryResponseBody extends $dara.Model
   totalCount?: number;
   /**
    * @remarks
-   * The list of outbound connection categories.
+   * The list of outbound connections categorizations.
    */
   typeList?: DescribeOutgoingDestinationCategoryResponseBodyTypeList[];
   static names(): { [key: string]: string } {

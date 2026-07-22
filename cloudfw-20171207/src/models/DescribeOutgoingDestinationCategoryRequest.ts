@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The category ID.
+   * The category ID. Valid values are predefined destination category enumerations (25+ in total), such as TrustedDomain (trusted websites), AliPay (Alipay products), and CDN (CDN services). For the complete list of enumeration values and their semantics, refer to the product documentation.
    * 
    * @example
    * All
@@ -13,7 +13,9 @@ export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The destination type.
+   * The destination type. This parameter is required. If this parameter is not specified, ErrorDstType is returned. Valid values:
+   * - Domain: domain name.
+   * - DstIP: IP address.
    * 
    * @example
    * domain
@@ -21,7 +23,7 @@ export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   dstType?: string;
   /**
    * @remarks
-   * The end time of the query. This is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. Specify the value as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -31,7 +33,7 @@ export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the response message.
+   * The language type of the response message.
    * 
    * @example
    * zh
@@ -39,15 +41,17 @@ export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the request.
    * 
    * @example
    * 59.82.45.XXX
+   * 
+   * @deprecated
    */
   sourceIp?: string;
   /**
    * @remarks
-   * The start time of the query. This is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. Specify the value as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

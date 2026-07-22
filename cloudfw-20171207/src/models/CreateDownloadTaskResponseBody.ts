@@ -15,7 +15,7 @@ export class CreateDownloadTaskResponseBody extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - finish: The task is complete. You can query the task to obtain the download URL of the task file.
+   * - finish: The task is completed. You can call a task query operation to obtain the download URL of the task file.
    * 
    * - start: The task has started.
    * 
@@ -23,13 +23,15 @@ export class CreateDownloadTaskResponseBody extends $dara.Model {
    * 
    * - expire: The task has expired. The task file is no longer valid and cannot be downloaded.
    * 
+   * This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned. Use a task query operation to obtain the real-time status.
+   * 
    * @example
    * start
    */
   status?: string;
   /**
    * @remarks
-   * The task ID, which uniquely identifies the task.
+   * The task ID, which uniquely identifies the task. This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned. Use a task query operation to obtain the task status and download URL.
    * 
    * @example
    * 132
@@ -37,7 +39,7 @@ export class CreateDownloadTaskResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the file download task.
+   * The name of the file download task. This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned.
    * 
    * @example
    * test-IPv4

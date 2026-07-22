@@ -21,7 +21,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The domain name.
+   * The destination domain name to query. You must specify at least one of Domain or DomainList. If neither is specified, the API returns ErrorDomainName.
    * 
    * @example
    * example.com
@@ -29,12 +29,12 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The list of domain names.
+   * The list of destination domain names to query. You must specify at least one of Domain or DomainList. If neither is specified, the API returns ErrorDomainName.
    */
   domainList?: string[];
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp in seconds.
+   * The end time of the query. Specify a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to query NAT private network outbound connections.
+   * Specifies whether to query outbound connections from NAT private IP addresses.
    * 
    * @example
    * NatPrivate
@@ -116,7 +116,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp in seconds.
+   * The start time of the query. Specify a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

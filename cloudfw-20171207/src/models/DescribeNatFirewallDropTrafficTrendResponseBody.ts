@@ -13,7 +13,7 @@ export class DescribeNatFirewallDropTrafficTrendResponseBodyDataList extends $da
   dropSession?: number;
   /**
    * @remarks
-   * The data timestamp. The value is a UNIX timestamp. Unit: seconds.
+   * The data timestamp. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1659405600
@@ -55,12 +55,12 @@ export class DescribeNatFirewallDropTrafficTrendResponseBodyDataList extends $da
 export class DescribeNatFirewallDropTrafficTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of data for the Overview page.
+   * The data list on the overview page.
    */
   dataList?: DescribeNatFirewallDropTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The peak number of dropped sessions for the specified period.
+   * The maximum number of dropped sessions (peak value) within the corresponding period.
    * 
    * @example
    * 62436
@@ -68,7 +68,7 @@ export class DescribeNatFirewallDropTrafficTrendResponseBody extends $dara.Model
   dropSessionMax?: number;
   /**
    * @remarks
-   * The timestamp that corresponds to the peak number of dropped sessions. The value is a UNIX timestamp. Unit: seconds.
+   * The period in which the maximum number of dropped sessions occurred. The value is a UNIX timestamp in seconds, which represents the number of seconds that have elapsed since January 1, 1970 (UTC).
    * 
    * @example
    * 1525662720
@@ -76,7 +76,7 @@ export class DescribeNatFirewallDropTrafficTrendResponseBody extends $dara.Model
   dropSessionMaxTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****

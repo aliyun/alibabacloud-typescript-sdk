@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   /**
    * @remarks
-   * The application that is affected by the attack.
+   * The attack application.
    * 
    * @example
    * PHP
@@ -13,11 +13,9 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   attackApp?: string;
   /**
    * @remarks
-   * The type of the Cloud Firewall. Valid values:
-   * 
-   * - **VpcFirewall**: VPC firewall.
-   * 
-   * - **InternetFirewall** (default): Internet firewall.
+   * The type of the cloud firewall. Valid values:
+   * - **VpcFirewall**: virtual private cloud (VPC) firewalls.
+   * - **InternetFirewall** (default): the Internet border firewall.
    * 
    * @example
    * InternetFirewall
@@ -37,10 +35,8 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
+   * The rule type. Valid values:
    * - **basicRule**
-   * 
    * - **customize**
    * 
    * This parameter is required.
@@ -51,7 +47,7 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The list of rules.
+   * The rule list. Conditional requirement: when RuleType is set to customize, you must specify at least one of this parameter or AttackApp. If you specify only RuleType without Rules or AttackApp, the API returns ErrorParameters.
    * 
    * @example
    * [
@@ -62,7 +58,7 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   rules?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the request.
    * 
    * @example
    * 140.205.118.XXX

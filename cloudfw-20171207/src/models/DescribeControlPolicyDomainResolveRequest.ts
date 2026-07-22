@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name.
+   * The domain name. This parameter is required.
    * 
    * @example
    * example.com
@@ -13,7 +13,7 @@ export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The Cloud Firewall type.
+   * The type of the cloud firewall.
    * 
    * @example
    * internet
@@ -21,7 +21,7 @@ export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   firewallType?: string;
   /**
    * @remarks
-   * The supported IP address version.
+   * The supported IP address version. This parameter is required.
    * 
    * @example
    * 4
@@ -29,9 +29,7 @@ export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   ipVersion?: number;
   /**
    * @remarks
-   * The language type. Valid values:
-   * - **en**: English
-   * - **zh**: Chinese.
+   * The language type.
    * 
    * @example
    * zh
@@ -39,7 +37,7 @@ export class DescribeControlPolicyDomainResolveRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. This parameter is required.
    * 
    * @example
    * cn-beijing

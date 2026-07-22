@@ -13,11 +13,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetListTagList extends $d
   classId?: string;
   /**
    * @remarks
-   * The risk level. Valid values:
-   * - **0**: no risk.
-   * - **1**: low risk.
-   * - **2**: medium risk.
-   * - **3**: high risk.
+   * The risk level.
    * 
    * @example
    * 0
@@ -135,7 +131,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   natGatewayId?: string;
   /**
    * @remarks
-   * The NAT gateway name.
+   * The name of the NAT gateway.
    * 
    * @example
    * ngw-test
@@ -191,7 +187,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   resourceInstanceName?: string;
   /**
    * @remarks
-   * The type of the public IP address of the asset.
+   * The public IP address type of the asset.
    * 
    * @example
    * NatEIP
@@ -236,7 +232,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   totalBytes?: string;
   /**
    * @remarks
-   * The VPC instance ID.
+   * The instance ID of the VPC-connected instance.
    * 
    * @example
    * vpc-9dp16jgwgyvn****

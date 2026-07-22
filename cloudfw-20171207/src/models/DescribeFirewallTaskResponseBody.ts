@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
   /**
    * @remarks
-   * The information about the task step.
+   * The task information.
    * 
    * @example
    * abcd
@@ -13,7 +13,7 @@ export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
   stepInfo?: string;
   /**
    * @remarks
-   * Creating the Cloud Firewall.
+   * The name of the Cloud Firewall security step.
    * 
    * @example
    * Create Firewall
@@ -31,7 +31,7 @@ export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
    * @remarks
    * The status of the task step. Valid values:
    * 
-   * - **init**
+   * - **init** 
    * 
    * - **running**
    * 
@@ -81,7 +81,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   isFound?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7D5483BF-2262-586D-8706-BDDB8B42****
@@ -89,7 +89,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The timestamp when the task was completed.
+   * The time when the task was completed.
    * 
    * @example
    * 17151381075
@@ -97,7 +97,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskFinishTimestamp?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 189997648
@@ -105,7 +105,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * egressgw
@@ -113,7 +113,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The timestamp when the task started.
+   * The time when the task was created.
    * 
    * @example
    * 17151361285
@@ -121,7 +121,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskStartTimestamp?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
    * 
    * - **init**
    * 
@@ -139,12 +139,12 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The steps of the task.
+   * The task steps.
    */
   taskSteps?: DescribeFirewallTaskResponseBodyTaskSteps[];
   /**
    * @remarks
-   * The waiting time in minutes.
+   * The waiting time, in minutes.
    * 
    * @example
    * 30

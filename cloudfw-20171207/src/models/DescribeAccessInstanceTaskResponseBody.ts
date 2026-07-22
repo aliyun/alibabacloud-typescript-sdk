@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceTaskResponseBodyTaskSteps extends $dara.Model {
   /**
    * @remarks
-   * The name of the step.
+   * The step name.
    * 
    * @example
    * Obtain ACK cluster information
@@ -13,7 +13,7 @@ export class DescribeAccessInstanceTaskResponseBodyTaskSteps extends $dara.Model
   stepName?: string;
   /**
    * @remarks
-   * The progress of the step.
+   * The step progress.
    * 
    * @example
    * 100%
@@ -21,7 +21,7 @@ export class DescribeAccessInstanceTaskResponseBodyTaskSteps extends $dara.Model
   stepProgress?: string;
   /**
    * @remarks
-   * The status of the step.
+   * The step status.
    * 
    * @example
    * finished
@@ -111,7 +111,7 @@ export class DescribeAccessInstanceTaskResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The steps of the task.
+   * The task steps.
    */
   taskSteps?: DescribeAccessInstanceTaskResponseBodyTaskSteps[];
   static names(): { [key: string]: string } {

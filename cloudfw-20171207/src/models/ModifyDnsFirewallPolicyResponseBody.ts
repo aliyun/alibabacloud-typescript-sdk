@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDnsFirewallPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9C50C2A9-4BBB-5504-8ADA-C41A79****

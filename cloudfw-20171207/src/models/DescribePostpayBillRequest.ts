@@ -13,7 +13,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the query, expressed as a UNIX timestamp in seconds.
+   * The end time of the bill query, expressed as a second-level UNIX timestamp. The value must be later than StartTime.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,10 @@ export class DescribePostpayBillRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time interval for querying data. This is an enumeration value. Valid values:
+   * Specifies the time interval for querying data. This is an enumeration value. This parameter is required. If this parameter is not specified, ERR_PARAMS_INVALID is returned. Valid values:
    * 
-   * - 3600: queries data at the hourly level.
-   * - 86400: queries data at the daily level.
+   * - 3600: queries hourly data.
+   * - 86400: queries daily data.
    * 
    * @example
    * 60
@@ -36,7 +36,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
    * @remarks
    * The language. This is an enumeration value.
    * Default value: zh.
-   * Valid values: en.
+   * Valid value: en.
    * 
    * @example
    * zh
@@ -52,7 +52,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query, expressed as a UNIX timestamp in seconds.
+   * The start time of the bill query, expressed as a second-level UNIX timestamp.
    * 
    * This parameter is required.
    * 

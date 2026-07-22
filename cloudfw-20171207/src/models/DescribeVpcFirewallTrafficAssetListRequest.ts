@@ -21,7 +21,7 @@ export class DescribeVpcFirewallTrafficAssetListRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The end time. The value is a Unix timestamp that is accurate to the second.
+   * The end time. This value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class DescribeVpcFirewallTrafficAssetListRequest extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * Specifies whether to count only the traffic that is used to access AI services.
+   * Specifies whether to collect only the traffic that accesses AI services. This parameter is required. Set this parameter to "true". Otherwise, a parameter error is returned.
    * 
    * @example
    * true
@@ -47,10 +47,9 @@ export class DescribeVpcFirewallTrafficAssetListRequest extends $dara.Model {
   isAITraffic?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -59,15 +58,12 @@ export class DescribeVpcFirewallTrafficAssetListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The field to sort by.
+   * The sort field. Valid values:
+   * 
+   * - TotalBytes: sorts by total traffic.
+   * - SessionCount: sorts by session count.
    * 
    * Default value: TotalBytes.
-   * 
-   * Valid values:
-   * 
-   * TotalBytes: Sorts by total traffic.
-   * 
-   * SessionCount: Sorts by the number of sessions.
    * 
    * @example
    * SessionCount
@@ -75,7 +71,7 @@ export class DescribeVpcFirewallTrafficAssetListRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -83,7 +79,7 @@ export class DescribeVpcFirewallTrafficAssetListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The sort order. Valid values: \\`asc\\`, \\`desc\\`.
+   * The sort order. Valid values: asc, desc.
    * 
    * @example
    * desc
@@ -91,7 +87,7 @@ export class DescribeVpcFirewallTrafficAssetListRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The start time. The value is a Unix timestamp that is accurate to the second.
+   * The start time. This value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -101,7 +97,7 @@ export class DescribeVpcFirewallTrafficAssetListRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The VPC where the asset resides.
+   * The ID of the VPC where the asset resides.
    * 
    * @example
    * vpc-m5ewlqkuf7orclr1****

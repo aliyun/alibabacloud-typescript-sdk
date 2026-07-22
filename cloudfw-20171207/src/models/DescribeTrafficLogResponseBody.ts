@@ -13,7 +13,7 @@ export class DescribeTrafficLogResponseBodyDataListDstVpc extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-8vba1c1em97h0ji71b****
@@ -155,7 +155,7 @@ export class DescribeTrafficLogResponseBodyDataListSrcVpc extends $dara.Model {
 export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The policy ID of the ACL pre-match. If this parameter is not specified, all policies are included.
+   * The policy ID of the ACL pre-match. If this parameter is empty, all policies are included.
    * 
    * @example
    * 2
@@ -173,11 +173,11 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
    * @remarks
    * The ACL pre-match status. Valid values:
    * 
-   * **app_unknown**: application not identified
+   * **app_unknown**: application not identified.
    * 
-   * **domain_unknown**: domain name not identified
+   * **domain_unknown**: domain name not identified.
    * 
-   * **normal**: normal
+   * **normal**: normal.
    * 
    * @example
    * normal
@@ -187,21 +187,21 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
    * @remarks
    * The application identification status. Valid values:
    * 
-   * **none**: initial state
+   * **none**: initial state.
    * 
-   * **policy_discard**: connection establishment failed because the connection was blocked by a user ACL or threat intelligence rule
+   * **policy_discard**: connection establishment failed because the connection was blocked by a user ACL or threat intelligence rule.
    * 
-   * **tcp_not_establish**: TCP connection establishment failed
+   * **tcp_not_establish**: TCP connection establishment failed.
    * 
-   * **no_payload**: connection established, but DPI has analyzed 0 payloads
+   * **no_payload**: connection established, but DPI has analyzed 0 payloads.
    * 
-   * **analysing**: identification in progress
+   * **analysing**: identification in progress.
    * 
-   * **unknown_loose**: loose mode, identification failed, continuing identification
+   * **unknown_loose**: loose mode. Identification failed. Identification continues.
    * 
-   * **unknown_strict**: strict mode, identification failed
+   * **unknown_strict**: strict mode. Identification failed.
    * 
-   * **success**: identification succeeded
+   * **success**: identification succeeded.
    * 
    * @example
    * success
@@ -291,7 +291,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The URL of the flow log.
+   * The URL in the flow log.
    * 
    * @example
    * xxx.com
@@ -328,7 +328,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Other extended data.
+   * The additional extended data.
    * 
    * @example
    * None
@@ -336,7 +336,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   ext?: string;
   /**
    * @remarks
-   * The inbound traffic.
+   * The inbound traffic in bytes.
    * 
    * @example
    * 125
@@ -392,7 +392,7 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The outbound traffic.
+   * The outbound traffic in bytes.
    * 
    * @example
    * 230
@@ -465,9 +465,9 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The final result of the traffic. Valid values:
-   * - **0**: Allow.
-   * - **1**: Alert.
-   * - **2**: Drop.
+   * - **0**: allowed.
+   * - **1**: alerted.
+   * - **2**: dropped.
    * 
    * @example
    * 0
@@ -475,12 +475,12 @@ export class DescribeTrafficLogResponseBodyDataList extends $dara.Model {
   ruleResult?: number;
   /**
    * @remarks
-   * The source of the matched detection rule. Valid values:
-   * - **0**: None.
-   * - **1**: Basic protection.
-   * - **2**: Virtual patches.
-   * - **3**: Access control.
-   * - **4**: Threat intelligence.
+   * The source of the hit detection rule. Valid values:
+   * - **0**: none.
+   * - **1**: basic protection.
+   * - **2**: Virtual Patches.
+   * - **3**: access control.
+   * - **4**: threat intelligence.
    * 
    * @example
    * 0
@@ -757,6 +757,14 @@ export class DescribeTrafficLogResponseBody extends $dara.Model {
   pageInfo?: DescribeTrafficLogResponseBodyPageInfo;
   /**
    * @remarks
+   * The query ID. If the query is too large, a query ID is returned first. Use this query ID to retrieve results in subsequent requests.
+   * 
+   * @example
+   * 398542bf-e001-47a3-aee2-b132b588e3c8
+   */
+  queryId?: string;
+  /**
+   * @remarks
    * The request ID.
    * 
    * @example
@@ -767,6 +775,7 @@ export class DescribeTrafficLogResponseBody extends $dara.Model {
     return {
       dataList: 'DataList',
       pageInfo: 'PageInfo',
+      queryId: 'QueryId',
       requestId: 'RequestId',
     };
   }
@@ -775,6 +784,7 @@ export class DescribeTrafficLogResponseBody extends $dara.Model {
     return {
       dataList: { 'type': 'array', 'itemType': DescribeTrafficLogResponseBodyDataList },
       pageInfo: DescribeTrafficLogResponseBodyPageInfo,
+      queryId: 'string',
       requestId: 'string',
     };
   }

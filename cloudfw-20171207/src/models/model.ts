@@ -130,6 +130,7 @@ export { DescribeOutgoingDestinationIPResponseBodyDstIPListTagList } from './Des
 export { DescribeOutgoingDestinationIPResponseBodyDstIPList } from './DescribeOutgoingDestinationIpresponseBody';
 export { DescribeOutgoingDestinationIPDetailResponseBodyAssetListTagList } from './DescribeOutgoingDestinationIpdetailResponseBody';
 export { DescribeOutgoingDestinationIPDetailResponseBodyAssetList } from './DescribeOutgoingDestinationIpdetailResponseBody';
+export { DescribeOutgoingDomainResponseBodyDomainListApplicationPortList } from './DescribeOutgoingDomainResponseBody';
 export { DescribeOutgoingDomainResponseBodyDomainListTagList } from './DescribeOutgoingDomainResponseBody';
 export { DescribeOutgoingDomainResponseBodyDomainList } from './DescribeOutgoingDomainResponseBody';
 export { DescribeOutgoingDomainDetailResponseBodyAssetListTagList } from './DescribeOutgoingDomainDetailResponseBody';
@@ -810,6 +811,9 @@ export { DescribeSlrGrantResponse } from './DescribeSlrGrantResponse';
 export { DescribeSlsAnalyzeOpenStatusRequest } from './DescribeSlsAnalyzeOpenStatusRequest';
 export { DescribeSlsAnalyzeOpenStatusResponseBody } from './DescribeSlsAnalyzeOpenStatusResponseBody';
 export { DescribeSlsAnalyzeOpenStatusResponse } from './DescribeSlsAnalyzeOpenStatusResponse';
+export { DescribeTaskDispatchStatusRequest } from './DescribeTaskDispatchStatusRequest';
+export { DescribeTaskDispatchStatusResponseBody } from './DescribeTaskDispatchStatusResponseBody';
+export { DescribeTaskDispatchStatusResponse } from './DescribeTaskDispatchStatusResponse';
 export { DescribeThreatIntelligenceSwitchResponseBody } from './DescribeThreatIntelligenceSwitchResponseBody';
 export { DescribeThreatIntelligenceSwitchResponse } from './DescribeThreatIntelligenceSwitchResponse';
 export { DescribeTrFirewallPolicyBackUpAssociationListRequest } from './DescribeTrFirewallPolicyBackUpAssociationListRequest';
@@ -997,6 +1001,9 @@ export { ModifyResourceTypeAutoEnableResponse } from './ModifyResourceTypeAutoEn
 export { ModifySensitiveSwitchRequest } from './ModifySensitiveSwitchRequest';
 export { ModifySensitiveSwitchResponseBody } from './ModifySensitiveSwitchResponseBody';
 export { ModifySensitiveSwitchResponse } from './ModifySensitiveSwitchResponse';
+export { ModifySlsDispatchConfigRequest } from './ModifySlsDispatchConfigRequest';
+export { ModifySlsDispatchConfigResponseBody } from './ModifySlsDispatchConfigResponseBody';
+export { ModifySlsDispatchConfigResponse } from './ModifySlsDispatchConfigResponse';
 export { ModifySlsDispatchStatusRequest } from './ModifySlsDispatchStatusRequest';
 export { ModifySlsDispatchStatusResponseBody } from './ModifySlsDispatchStatusResponseBody';
 export { ModifySlsDispatchStatusResponse } from './ModifySlsDispatchStatusResponse';

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrepayBillTotalRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing type. Valid values:
-   * - elastic_traffic: elastic traffic.
-   * - sdl: sensitive data leak detection traffic.
+   * The bill type of the user. This parameter is required. An error is returned if this parameter is not specified. Valid values:
+   * - elastic_traffic: elastic traffic
+   * - sdl: sensitive data leak detection traffic
    * 
    * @example
    * sdl
@@ -23,7 +23,7 @@ export class DescribePrepayBillTotalRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time. Specify a UNIX timestamp in seconds.
+   * The end time. The value is a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -33,11 +33,9 @@ export class DescribePrepayBillTotalRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language. Valid values:
-   * - zh
-   * - en
-   * 
+   * The language. Enumeration value.
    * Default value: zh.
+   * Valid value: en.
    * 
    * @example
    * zh
@@ -53,7 +51,7 @@ export class DescribePrepayBillTotalRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query. Specify a UNIX timestamp in seconds.
+   * The start time of the query. The value is a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 

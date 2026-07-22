@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PutEnableFwSwitchResponseBodyAbnormalResourceStatusList extends $dara.Model {
   /**
    * @remarks
-   * A message that provides details about why an asset was not synchronized. Valid value:
-   * 
-   * - `cloudfirewall do not sync this ip address`: Cloud Firewall does not synchronize the IP address of the asset.
+   * The message when the asset is not synchronized. Valid values:
+   * - cloudfirewall do not sync this ip address: Cloud Firewall has not synchronized this asset IP address.
    * 
    * @example
    * cloudfirewall do not sync this ip address
@@ -15,7 +14,7 @@ export class PutEnableFwSwitchResponseBodyAbnormalResourceStatusList extends $da
   msg?: string;
   /**
    * @remarks
-   * The IP address of the asset.
+   * The asset IP address.
    * 
    * @example
    * 203.0.113.0
@@ -23,9 +22,8 @@ export class PutEnableFwSwitchResponseBodyAbnormalResourceStatusList extends $da
   resource?: string;
   /**
    * @remarks
-   * The synchronization status of the asset. Valid value:
-   * 
-   * - `ip_not_sync`: The asset is not synchronized.
+   * The status of the asset that is not synchronized. Valid values:
+   * - ip_not_sync: The asset is not synchronized.
    * 
    * @example
    * ip_not_sync
@@ -59,9 +57,17 @@ export class PutEnableFwSwitchResponseBodyAbnormalResourceStatusList extends $da
 export class PutEnableFwSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information about unsynchronized assets.
+   * The status information list of assets that are not synchronized.
    */
   abnormalResourceStatusList?: PutEnableFwSwitchResponseBodyAbnormalResourceStatusList[];
+  /**
+   * @remarks
+   * Indicates that this is a successful dry run response. A value of true indicates that only the dry run was completed and no real changes were made. This field is not returned or is set to false for real calls.
+   * 
+   * @example
+   * true
+   */
+  dryRun?: boolean;
   /**
    * @remarks
    * The request ID.
@@ -73,6 +79,7 @@ export class PutEnableFwSwitchResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       abnormalResourceStatusList: 'AbnormalResourceStatusList',
+      dryRun: 'DryRun',
       requestId: 'RequestId',
     };
   }
@@ -80,6 +87,7 @@ export class PutEnableFwSwitchResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       abnormalResourceStatusList: { 'type': 'array', 'itemType': PutEnableFwSwitchResponseBodyAbnormalResourceStatusList },
+      dryRun: 'boolean',
       requestId: 'string',
     };
   }

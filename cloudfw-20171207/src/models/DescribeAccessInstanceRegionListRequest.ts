@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceRegionListRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the synchronization node.
+   * The status of the synchronization node. Used to filter by status.
    * 
    * @example
    * ready
@@ -15,7 +15,7 @@ export class DescribeAccessInstanceRegionListRequest extends $dara.Model {
    * @remarks
    * The type of the synchronization node. Valid values:
    * 
-   * - **PrivateDns**: Private DNS resolution.
+   * - **PrivateDns**: Private DNS. This is the default value if this parameter is not specified.
    * 
    * - **AckClusterConnector**: ACK cluster connector.
    * 

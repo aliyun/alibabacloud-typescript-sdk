@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   /**
    * @remarks
-   * The end time, expressed as a UNIX timestamp in seconds. The value is on the hour or on the day.
+   * The end time, expressed as a second-level UNIX timestamp. The value is on the hour or on the day.
    * 
    * @example
    * 1733710015
@@ -29,8 +29,8 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   internetTraffic?: number;
   /**
    * @remarks
-   * Indicates whether a deduction is applied. A value of 0 indicates that no deduction is applied. Any value greater than 0 indicates that a deduction is applied. If a deduction is applied, the bill is not generated.
-   * > This field is meaningful only when you query data at the hourly level.
+   * Indicates whether the bill is deducted. A value of 0 indicates that the bill is not deducted. Any value greater than 0 indicates that the bill is deducted. If the bill is deducted, it is not charged.
+   * > This field is meaningful only when you query hourly data.
    * 
    * @example
    * 0
@@ -38,7 +38,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   isDerated?: number;
   /**
    * @remarks
-   * The log service usage duration, in TB × hours.
+   * The log service usage duration, in T × h.
    * 
    * @example
    * 24
@@ -62,7 +62,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   natTraffic?: number;
   /**
    * @remarks
-   * The sensitive data leak detection usage duration, in hours.
+   * The data leak detection usage duration, in hours.
    * 
    * @example
    * 0
@@ -78,7 +78,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   sdlTraffic?: number;
   /**
    * @remarks
-   * The start time, expressed as a UNIX timestamp in seconds. The value is on the hour or on the day.
+   * The start time, expressed as a second-level UNIX timestamp. The value is on the hour or on the day.
    * 
    * @example
    * 1710206070000

@@ -13,13 +13,13 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The IP version of the asset that is protected by Cloud Firewall.
+   * The IP version of the asset protected by Cloud Firewall.
    * 
    * Valid values:
    * 
-   * - **4**: IPv4 address
+   * - **4**: IPv4
    * 
-   * - **6**: IPv6 address
+   * - **6**: IPv6
    * 
    * @example
    * 4
@@ -36,11 +36,8 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   /**
    * @remarks
    * The risk level. Valid values:
-   * 
    * - **low**: low risk
-   * 
    * - **middle**: medium risk
-   * 
    * - **high**: high risk
    * 
    * @example
@@ -82,7 +79,7 @@ export class DescribeAssetRiskListResponseBody extends $dara.Model {
   assetList?: DescribeAssetRiskListResponseBodyAssetList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 443C5781-1C03-5FCD-8EC5-FB9C0B9AC396

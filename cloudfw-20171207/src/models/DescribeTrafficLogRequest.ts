@@ -53,7 +53,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   attackType?: string;
   /**
    * @remarks
-   * The page number of the query.
+   * The page number.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The URL of the flow log.
+   * The URL in the flow log.
    * 
    * @example
    * example.com
@@ -167,7 +167,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The language type of the received message. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese
    * - **en**: English
    * 
@@ -185,7 +185,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The UID of the member accounts.
+   * The UID of one of the member accounts.
    * 
    * @example
    * 128599825273****
@@ -215,6 +215,14 @@ export class DescribeTrafficLogRequest extends $dara.Model {
    * 10
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The query ID. If the query is too large, a query ID is returned. Use this query ID to retrieve results in subsequent requests.
+   * 
+   * @example
+   * d158c8ed-bc57-40fd-86d3-468169d4cfe2
+   */
+  queryId?: string;
   /**
    * @remarks
    * The rule ID.
@@ -307,7 +315,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   srcVpcRegionNo?: string;
   /**
    * @remarks
-   * The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. A single query should not exceed one day.
+   * The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. We recommend that a single query span no more than one day.
    * 
    * This parameter is required.
    * 
@@ -367,6 +375,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
       natFirewallId: 'NatFirewallId',
       natGatewayId: 'NatGatewayId',
       pageSize: 'PageSize',
+      queryId: 'QueryId',
       ruleId: 'RuleId',
       ruleResult: 'RuleResult',
       ruleSource: 'RuleSource',
@@ -413,6 +422,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
       natFirewallId: 'string',
       natGatewayId: 'string',
       pageSize: 'string',
+      queryId: 'string',
       ruleId: 'string',
       ruleResult: 'string',
       ruleSource: 'string',

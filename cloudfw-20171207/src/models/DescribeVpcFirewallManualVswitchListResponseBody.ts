@@ -7,7 +7,7 @@ export class DescribeVpcFirewallManualVSwitchListResponseBodyVSwitchList extends
    * @remarks
    * The UID of the Alibaba Cloud account.
    * 
-   * > The root account of the Cloud Firewall member account.
+   * > The primary account of the Cloud Firewall member accounts.
    * 
    * @example
    * 122167357026****
@@ -31,7 +31,7 @@ export class DescribeVpcFirewallManualVSwitchListResponseBodyVSwitchList extends
   cidrBlock?: string;
   /**
    * @remarks
-   * The ID of the owner.
+   * The owner user ID.
    * 
    * @example
    * 137578716100****
@@ -47,7 +47,7 @@ export class DescribeVpcFirewallManualVSwitchListResponseBodyVSwitchList extends
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the associated route table.
+   * The ID of the associate a prefix list with a route table.
    * 
    * @example
    * vtb-2zet3gyk01o07so****
@@ -63,7 +63,7 @@ export class DescribeVpcFirewallManualVSwitchListResponseBodyVSwitchList extends
   status?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp10d0kcp907721z****
@@ -79,7 +79,7 @@ export class DescribeVpcFirewallManualVSwitchListResponseBodyVSwitchList extends
   vSwitchName?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-uf62kq7c364sil2z2****
@@ -137,7 +137,7 @@ export class DescribeVpcFirewallManualVSwitchListResponseBodyVSwitchList extends
 export class DescribeVpcFirewallManualVSwitchListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6EED3674-74E7-54DC-8FD4-6A374133****
@@ -153,7 +153,7 @@ export class DescribeVpcFirewallManualVSwitchListResponseBody extends $dara.Mode
   totalCount?: number;
   /**
    * @remarks
-   * The list of vSwitches.
+   * The vSwitch list.
    */
   vSwitchList?: DescribeVpcFirewallManualVSwitchListResponseBodyVSwitchList[];
   static names(): { [key: string]: string } {

@@ -9,7 +9,7 @@ export class CreateDownloadTaskRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - **zh**: (default) Chinese
+   * - **zh**: (default) Chinese.
    * - **en**: English.
    * 
    * @example
@@ -18,7 +18,7 @@ export class CreateDownloadTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The query conditions for the download task.
+   * The request query conditions for the download task. This parameter is required. If this parameter is not specified, the API returns error code -340408 (download task TaskData invalid).
    * 
    * @example
    * {\\"SearchItem\\":\\"\\",\\"UserType\\":\\"buy\\",\\"IpVersion\\":\\"4\\"}
@@ -26,7 +26,7 @@ export class CreateDownloadTaskRequest extends $dara.Model {
   taskData?: string;
   /**
    * @remarks
-   * The task type. For valid values, call the API operation that queries file download task types.
+   * The task type. For valid values, call the operation that queries file download task types.
    * 
    * @example
    * InternetFirewallAsset
@@ -34,7 +34,7 @@ export class CreateDownloadTaskRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The time zone for time information in the downloaded file. The value is an IANA time zone identifier. Default value: Asia/Shanghai (UTC+8).
+   * The time zone for time information in the downloaded file. Specify the value in IANA time zone identity format. Default value: Asia/Shanghai (UTC+8).
    * 
    * @example
    * Asia/Shanghai

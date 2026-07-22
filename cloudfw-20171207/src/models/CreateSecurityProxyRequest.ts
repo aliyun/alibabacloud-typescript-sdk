@@ -74,8 +74,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * The security protection switch. Valid values:
-   * - **open**: enabled
-   * - **close**: disabled.
+   * - **open**: Enabled.
+   * - **close**: Disabled.
    * 
    * @example
    * close
@@ -91,10 +91,10 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   fwVswitchZoneId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -163,8 +163,9 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use the automatic vSwitch mode. Valid values:
-   * - **true**: automatic mode
-   * - **false**: manual mode.
+   * - **true**: Automatic mode.
+   * - **false**: Manual mode.
+   * > The default value of VswitchAuto is true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
    * 
    * @example
    * true

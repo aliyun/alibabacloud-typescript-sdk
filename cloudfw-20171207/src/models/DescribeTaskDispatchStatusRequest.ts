@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdatePostpayUserVpcStatusResponseBody extends $dara.Model {
+export class DescribeTaskDispatchStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The task ID, which is the unique identifier of the log configuration modification task. Obtain this value from the TaskId response parameter of the ModifySlsDispatchConfig operation.
    * 
    * @example
-   * 450D47F5-956E-543E-8502-2F71C8******
+   * 65db4ce2418b44b3be7c3xxxxx
    */
-  requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      taskId: 'string',
     };
   }
 

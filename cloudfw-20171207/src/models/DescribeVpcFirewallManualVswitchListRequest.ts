@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallManualVSwitchListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of request and response messages.
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -13,7 +15,7 @@ export class DescribeVpcFirewallManualVSwitchListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 18820897691****
@@ -36,7 +38,7 @@ export class DescribeVpcFirewallManualVSwitchListRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID.
    * 
    * This parameter is required.
    * 

@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The action that is performed on traffic that hits the access control policy. Valid values:
-   * 
-   * - **accept**: Allow
-   * 
-   * - **drop**: Deny
-   * 
-   * - **log**: Monitor
+   * The action that Cloud Firewall performs on the traffic in the access control policy. Valid values:
+   * - **accept**: Allow.
+   * - **drop**: Deny.
+   * - **log**: Monitor.
    * 
    * @example
    * log
@@ -39,13 +36,10 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
    * @remarks
    * The destination address in the access control policy.
    * 
-   * - If **DestinationType** is set to net, **Destination** specifies the destination CIDR block. For example: 1.2.3.4/24
-   * 
-   * - If **DestinationType** is set to group, **Destination** specifies the name of the destination address book. For example: db_group
-   * 
-   * - If **DestinationType** is set to domain, **Destination** specifies the destination domain name. For example: \\*.aliyuncs.com
-   * 
-   * - If **DestinationType** is set to location, **Destination** specifies the destination region. For more information about the location codes, see the following description. For example: ["BJ11", "ZB"]
+   * - If **DestinationType** is set to net, **Destination** is a destination CIDR block. Example: 1.2.3.4/24.
+   * - If **DestinationType** is set to group, **Destination** is a destination address book name. Example: db_group.
+   * - If **DestinationType** is set to domain, **Destination** is a destination domain name. Example: *.aliyuncs.com.
+   * - If **DestinationType** is set to location, **Destination** is a destination area. For specific area positional encoding values, see the subsequent sections. Example: ["BJ11", "ZB"\\].
    * 
    * @example
    * db_group
@@ -57,11 +51,9 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - **net**: destination CIDR block (CIDR address)
-   * 
-   * - **group**: destination address book
-   * 
-   * - **domain**: destination domain name
+   * - **net**: destination CIDR block.
+   * - **group**: destination address book.
+   * - **domain**: destination domain name.
    * 
    * @example
    * net
@@ -69,7 +61,9 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:-**zh**: Chinese-**en**: English
+   * The language of the request and response. Valid values:
+   * - **zh**: Chinese
+   * - **en**: English
    * 
    * @example
    * zh
@@ -77,7 +71,7 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The priority of the access control policy before the modification.
+   * The policy priority of the access control policy before the modification.
    * 
    * @example
    * 1
@@ -85,11 +79,10 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The status of the access control policy. By default, the policy is enabled after it is created. Valid values:
+   * The enabled status of the access control policy. The policy is enabled by default after it is created. Valid values:
    * 
-   * - **true**: enables the access control policy.
-   * 
-   * - **false**: disables the access control policy.
+   * - **true**: Enable the access control policy.
+   * - **false**: Disable the access control policy.
    * 
    * @example
    * true
@@ -98,7 +91,7 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the request.
    * 
    * @example
    * 192.0.XX.XX
@@ -108,9 +101,9 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
    * @remarks
    * The type of the source address in the access control policy. Valid values:
    * 
-   * - **net**: source CIDR block (CIDR)
+   * - **net**: source CIDR block.
    * 
-   * - **group**: source address book
+   * - **group**: source address book.
    * 
    * @example
    * net

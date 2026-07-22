@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the local asset.
+   * The IP address of the local asset. You must specify at least one of AssetIP and Port. If both are left empty, the API returns a 400 error.
    * 
    * @example
    * 192.0.XX.XX
@@ -13,7 +13,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   assetIP?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number in a paging query. Settings this parameter to specify the current page for paging.
    * 
    * @example
    * 1
@@ -22,12 +22,10 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The traffic direction. Valid values:
+   * - **in**: inbound.
+   * - **out**: outbound.
    * 
-   * - **in**: inbound
-   * 
-   * - **out**: outbound
-   * 
-   * > If you do not specify this parameter, traffic in all directions is queried.
+   * >If this parameter is not specified in Settings, traffic in all directions is queried.
    * 
    * @example
    * in
@@ -35,7 +33,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp that is accurate to the second.
+   * The end time of the query. The value is a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -46,10 +44,8 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol type. Valid values:
-   * 
-   * - **tcp**: TCP
-   * 
-   * - **udp**: UDP
+   * - **tcp**: TCP protocol.
+   * - **udp**: UDP protocol.
    * 
    * @example
    * tcp
@@ -57,10 +53,9 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   IPProtocol?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -71,9 +66,8 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
-   * - **asc**: ascending
-   * 
-   * - **desc** (default): descending
+   * - **asc**: ascending order.
+   * -  **desc** (default): descending order.
    * 
    * @example
    * desc
@@ -81,7 +75,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -89,7 +83,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The IP address of the peer asset.
+   * The source IP address of the peer.
    * 
    * @example
    * 10.125.1.XX
@@ -113,7 +107,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   peerAssetInstanceName?: string;
   /**
    * @remarks
-   * The ID of the peer VPC.
+   * The instance ID of the peer VPC.
    * 
    * @example
    * vpc-90rq0anm6t8vbwbo****
@@ -121,7 +115,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   peerVpcId?: string;
   /**
    * @remarks
-   * The port number.
+   * The port number. You must specify at least one of AssetIP and Port. If both are left empty, the API returns a 400 error.
    * 
    * @example
    * 80
@@ -129,7 +123,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The risk level.
+   * The risk assessment level.
    * 
    * @example
    * 3
@@ -137,9 +131,9 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The sorting criterion. Valid values are:
+   * The sort field. Valid values:
    * 
-   * - **InBytes**
+   *  - **InBytes**
    * 
    * - **OutBytes**
    * 
@@ -157,7 +151,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The start of the time range to query. This value is a UNIX timestamp that is accurate to the second.
+   * The start time of the query. The value is a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -167,7 +161,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC-connected instance ID.
    * 
    * This parameter is required.
    * 

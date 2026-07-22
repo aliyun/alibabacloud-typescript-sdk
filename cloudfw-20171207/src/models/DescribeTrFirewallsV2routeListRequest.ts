@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrFirewallsV2RouteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number in a paging query. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,8 @@ export class DescribeTrFirewallsV2RouteListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall for the transit router.
+   * The instance ID of the virtual private cloud (VPC) firewalls.
+   * > FirewallId is required. If it is not specified, ErrorParameters(400) is returned. TrFirewallRoutePolicyId must be used together with FirewallId. If TrFirewallRoutePolicyId is specified without FirewallId, ErrorParameters(400) is returned. If the value is invalid or does not exist, ErrorTrFirewallPolicyNotFound is returned.
    * 
    * @example
    * vfw-tr-8bcfa0f2f12d411e****
@@ -24,7 +25,6 @@ export class DescribeTrFirewallsV2RouteListRequest extends $dara.Model {
    * The language of the response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -33,7 +33,7 @@ export class DescribeTrFirewallsV2RouteListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The maximum number of entries per page in a paging query. Default value: 10.
    * 
    * @example
    * 10

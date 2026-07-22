@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyIpsRulesToDefaultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B713361D-62E2-5FF0-9D29-BBFAAF40****
