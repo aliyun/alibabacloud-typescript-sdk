@@ -2,28 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitImageGenerationJobResponseBody extends $dara.Model {
+export class ListAssetCategoriesRequest extends $dara.Model {
   /**
    * @example
-   * ag_68ca759b4903b255*******
+   * 1
    */
-  jobId?: string;
+  pageNo?: number;
   /**
    * @example
-   * ******3B-0E1A-586A-AC29-742247******
+   * 10
    */
-  requestId?: string;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      requestId: 'RequestId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      requestId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
     };
   }
 

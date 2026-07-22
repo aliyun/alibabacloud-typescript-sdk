@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoGenerationJobResponseBody extends $dara.Model {
   /**
    * @example
-   * ****3e761e9d11edba640c42a1b7****
+   * ag_3e761e9d1140c42a1b7****
    */
   jobId?: string;
   /**

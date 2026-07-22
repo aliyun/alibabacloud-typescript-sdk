@@ -2,27 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitImageGenerationJobResponseBody extends $dara.Model {
+export class UpdateAssetCategoryResponseBody extends $dara.Model {
   /**
    * @example
-   * ag_68ca759b4903b255*******
-   */
-  jobId?: string;
-  /**
-   * @example
-   * ******3B-0E1A-586A-AC29-742247******
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
       requestId: 'string',
     };
   }

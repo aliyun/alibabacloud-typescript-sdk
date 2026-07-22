@@ -88,6 +88,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建分类
+   * 
+   * @remarks
+   * 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+   * 
+   * @param request - CreateAssetCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAssetCategoryResponse
+   */
+  async createAssetCategoryWithOptions(request: $_model.CreateAssetCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAssetCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryName)) {
+      query["CategoryName"] = request.categoryName;
+    }
+
+    if (!$dara.isNull(request.parentId)) {
+      query["ParentId"] = request.parentId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAssetCategory",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAssetCategoryResponse>(await this.callApi(params, req, runtime), new $_model.CreateAssetCategoryResponse({}));
+  }
+
+  /**
+   * 创建分类
+   * 
+   * @remarks
+   * 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+   * 
+   * @param request - CreateAssetCategoryRequest
+   * @returns CreateAssetCategoryResponse
+   */
+  async createAssetCategory(request: $_model.CreateAssetCategoryRequest): Promise<$_model.CreateAssetCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAssetCategoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除分类
+   * 
+   * @remarks
+   * 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+   * 
+   * @param request - DeleteAssetCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAssetCategoryResponse
+   */
+  async deleteAssetCategoryWithOptions(request: $_model.DeleteAssetCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAssetCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAssetCategory",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAssetCategoryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAssetCategoryResponse({}));
+  }
+
+  /**
+   * 删除分类
+   * 
+   * @remarks
+   * 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+   * 
+   * @param request - DeleteAssetCategoryRequest
+   * @returns DeleteAssetCategoryResponse
+   */
+  async deleteAssetCategory(request: $_model.DeleteAssetCategoryRequest): Promise<$_model.DeleteAssetCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAssetCategoryWithOptions(request, runtime);
+  }
+
+  /**
    * 删除媒资信息
    * 
    * @param request - DeleteMediasRequest
@@ -135,6 +235,48 @@ export default class Client extends OpenApi {
   async deleteMedias(request: $_model.DeleteMediasRequest): Promise<$_model.DeleteMediasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMediasWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询分类
+   * 
+   * @param request - GetAssetCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAssetCategoryResponse
+   */
+  async getAssetCategoryWithOptions(request: $_model.GetAssetCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAssetCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAssetCategory",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAssetCategoryResponse>(await this.callApi(params, req, runtime), new $_model.GetAssetCategoryResponse({}));
+  }
+
+  /**
+   * 查询分类
+   * 
+   * @param request - GetAssetCategoryRequest
+   * @returns GetAssetCategoryResponse
+   */
+  async getAssetCategory(request: $_model.GetAssetCategoryRequest): Promise<$_model.GetAssetCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAssetCategoryWithOptions(request, runtime);
   }
 
   /**
@@ -339,6 +481,10 @@ export default class Client extends OpenApi {
   async importMediaWithOptions(request: $_model.ImportMediaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportMediaResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
     if (!$dara.isNull(request.coverURL)) {
       query["CoverURL"] = request.coverURL;
     }
@@ -417,6 +563,122 @@ export default class Client extends OpenApi {
   async importMedia(request: $_model.ImportMediaRequest): Promise<$_model.ImportMediaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importMediaWithOptions(request, runtime);
+  }
+
+  /**
+   * 列出分类
+   * 
+   * @param request - ListAssetCategoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAssetCategoriesResponse
+   */
+  async listAssetCategoriesWithOptions(request: $_model.ListAssetCategoriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAssetCategoriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAssetCategories",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAssetCategoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListAssetCategoriesResponse({}));
+  }
+
+  /**
+   * 列出分类
+   * 
+   * @param request - ListAssetCategoriesRequest
+   * @returns ListAssetCategoriesResponse
+   */
+  async listAssetCategories(request: $_model.ListAssetCategoriesRequest): Promise<$_model.ListAssetCategoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAssetCategoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 搜索媒资
+   * 
+   * @param request - SearchMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMediaResponse
+   */
+  async searchMediaWithOptions(request: $_model.SearchMediaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMediaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.match)) {
+      query["Match"] = request.match;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scrollToken)) {
+      query["ScrollToken"] = request.scrollToken;
+    }
+
+    if (!$dara.isNull(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchMedia",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchMediaResponse>(await this.callApi(params, req, runtime), new $_model.SearchMediaResponse({}));
+  }
+
+  /**
+   * 搜索媒资
+   * 
+   * @param request - SearchMediaRequest
+   * @returns SearchMediaResponse
+   */
+  async searchMedia(request: $_model.SearchMediaRequest): Promise<$_model.SearchMediaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchMediaWithOptions(request, runtime);
   }
 
   /**
@@ -626,6 +888,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新媒资分类
+   * 
+   * @remarks
+   * 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+   * 
+   * @param request - UpdateAssetCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAssetCategoryResponse
+   */
+  async updateAssetCategoryWithOptions(request: $_model.UpdateAssetCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAssetCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.categoryName)) {
+      query["CategoryName"] = request.categoryName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAssetCategory",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAssetCategoryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAssetCategoryResponse({}));
+  }
+
+  /**
+   * 更新媒资分类
+   * 
+   * @remarks
+   * 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+   * 
+   * @param request - UpdateAssetCategoryRequest
+   * @returns UpdateAssetCategoryResponse
+   */
+  async updateAssetCategory(request: $_model.UpdateAssetCategoryRequest): Promise<$_model.UpdateAssetCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAssetCategoryWithOptions(request, runtime);
+  }
+
+  /**
    * UpdateMedia
    * 
    * @remarks
@@ -641,6 +955,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.appendTags)) {
       query["AppendTags"] = request.appendTags;
+    }
+
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
     }
 
     if (!$dara.isNull(request.coverURL)) {

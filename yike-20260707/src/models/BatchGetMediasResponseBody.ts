@@ -570,6 +570,8 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoList extends $dara.Mode
 }
 
 export class BatchGetMediasResponseBodyMediaInfosMediaBasicInfo extends $dara.Model {
+  categoryId?: number;
+  categoryName?: string;
   /**
    * @example
    * https://dtlive-bj.oss-cn-beijing.aliyuncs.com/cover/01e1271d-ff4f-4689-9c20-e1df81486859_open_live_cover.jpg
@@ -642,6 +644,8 @@ export class BatchGetMediasResponseBodyMediaInfosMediaBasicInfo extends $dara.Mo
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
       coverURL: 'CoverURL',
       createTime: 'CreateTime',
       description: 'Description',
@@ -661,6 +665,8 @@ export class BatchGetMediasResponseBodyMediaInfosMediaBasicInfo extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      categoryId: 'number',
+      categoryName: 'string',
       coverURL: 'string',
       createTime: 'string',
       description: 'string',

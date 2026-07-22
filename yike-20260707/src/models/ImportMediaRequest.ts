@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ImportMediaRequest extends $dara.Model {
+  categoryId?: number;
   /**
    * @example
    * https://outin-55c9ab3fb1b911ee817b00163e32b0a3.oss-cn-shanghai.aliyuncs.com/60425a2758a971f181385017f0e90102/covers/ice-generated/d4aee2d6c6f84769ac89f18c667699c6-cover.png
@@ -65,6 +66,7 @@ export class ImportMediaRequest extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryId: 'CategoryId',
       coverURL: 'CoverURL',
       description: 'Description',
       dynamicMetaData: 'DynamicMetaData',
@@ -82,6 +84,7 @@ export class ImportMediaRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categoryId: 'number',
       coverURL: 'string',
       description: 'string',
       dynamicMetaData: 'string',

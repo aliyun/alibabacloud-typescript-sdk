@@ -587,6 +587,8 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
    * general
    */
   businessType?: string;
+  categoryId?: number;
+  categoryName?: string;
   /**
    * @example
    * https://dtlive-vip.oss-cn-shanghai.aliyuncs.com/cover/4e88a055-75fc-4ff5-8b8a-f32224917514_open_live_cover.jpg
@@ -670,6 +672,8 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       businessType: 'BusinessType',
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
       coverURL: 'CoverURL',
       createTime: 'CreateTime',
       description: 'Description',
@@ -692,6 +696,8 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       businessType: 'string',
+      categoryId: 'number',
+      categoryName: 'string',
       coverURL: 'string',
       createTime: 'string',
       description: 'string',

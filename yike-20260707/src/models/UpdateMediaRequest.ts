@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMediaRequest extends $dara.Model {
   appendTags?: boolean;
+  categoryId?: number;
   /**
    * @example
    * https://bullet-time-20240910.oss-cn-shanghai.aliyuncs.com/ice-generated/a97255309a7c71f093d3e7f6d75a6302/snapshots/normal/2a4030b1950443048f3e3f81489d57eb-00001.jpg
@@ -47,6 +48,7 @@ export class UpdateMediaRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appendTags: 'AppendTags',
+      categoryId: 'CategoryId',
       coverURL: 'CoverURL',
       description: 'Description',
       dynamicMetaData: 'DynamicMetaData',
@@ -61,6 +63,7 @@ export class UpdateMediaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appendTags: 'boolean',
+      categoryId: 'number',
       coverURL: 'string',
       description: 'string',
       dynamicMetaData: 'string',
