@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListJobsResponseBodyDataRecords extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
    * The application name.
@@ -13,7 +14,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The retry interval, in seconds.
+   * The retry interval upon a fault. Unit: seconds.
    * 
    * @example
    * 30
@@ -45,7 +46,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   cleanMode?: string;
   /**
    * @remarks
-   * The ID of the user who created the job.
+   * The creator.
    * 
    * @example
    * 1963096506470832
@@ -54,14 +55,10 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The current execution status. Valid values:
-   * 
-   * - `0`: Not Started
-   * 
-   * - `1`: Running
-   * 
-   * - `2`: Queued
-   * 
-   * - `3`: Waiting
+   * - 0: not started
+   * - 1: running
+   * - 2: queued
+   * - 3: waiting
    * 
    * @example
    * 3
@@ -93,13 +90,10 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The executor blocking strategy. Valid values:
-   * 
-   * - `1`: Serial Execution
-   * 
-   * - `2`: Discard Later
-   * 
-   * - `3`: Cover Earlier
+   * The client-side blocking strategy. Valid values:
+   * - 1: serial execution on a single machine
+   * - 2: ignore subsequent triggers
+   * - 3: override previous triggers
    * 
    * @example
    * 1
@@ -107,7 +101,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   executorBlockStrategy?: string;
   /**
    * @remarks
-   * The name of the job handler.
+   * The jobhandler name.
    * 
    * @example
    * jobDemoHandler
@@ -131,7 +125,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The time when the last execution ended.
+   * The end time of the last execution.
    * 
    * @example
    * 2025-06-29 15:56:36
@@ -139,11 +133,9 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   lastExecuteEndTime?: string;
   /**
    * @remarks
-   * The status of the last execution. Valid values:
-   * 
-   * - `4`: Success
-   * 
-   * - `5`: Failure
+   * The result of the last execution. Valid values:
+   * - 4: succeeded
+   * - 5: failed
    * 
    * @example
    * 4
@@ -151,7 +143,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   lastExecuteStatus?: number;
   /**
    * @remarks
-   * The maximum number of retries for a failed job.
+   * The maximum number of retry attempts upon failure. Set this value based on your business requirements.
    * 
    * @example
    * 5
@@ -159,7 +151,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum concurrency.
+   * The maximum number of concurrent instances.
    * 
    * @example
    * 100
@@ -183,7 +175,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   nodeType?: number;
   /**
    * @remarks
-   * The notification configuration.
+   * The notice configuration.
    * 
    * @example
    * {"failLimitTimes":1,"failEnable":true,"timeoutKillEnable":false,"missWorkerEnable":true,"timeoutEnable":true,"sendChannel":"","timeout":300,"successNotice":false}
@@ -207,7 +199,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The job priority.
+   * The job execution priority.
    * 
    * @example
    * 1
@@ -216,22 +208,14 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The routing strategy. Valid values:
-   * 
-   * - `1`: Round-robin
-   * 
-   * - `2`: Random
-   * 
-   * - `3`: First
-   * 
-   * - `4`: Last
-   * 
-   * - `5`: Least Frequently Used
-   * 
-   * - `6`: Least Recently Used
-   * 
-   * - `7`: Consistent Hashing
-   * 
-   * - `8`: Sharded Broadcast
+   * - 1: round-robin
+   * - 2: random
+   * - 3: first
+   * - 4: last
+   * - 5: least frequently used
+   * - 6: least recently used
+   * - 7: consistent hashing
+   * - 8: shard broadcast
    * 
    * @example
    * 1
@@ -250,7 +234,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   script?: string;
   /**
    * @remarks
-   * The type of the start time.
+   * The start time type.
    * 
    * @example
    * 1
@@ -259,10 +243,8 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The job status. Valid values:
-   * 
-   * - `0`: Disabled
-   * 
-   * - `1`: Enabled
+   * - 0: disabled
+   * - 1: enabled
    * 
    * @example
    * 1
@@ -280,15 +262,11 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * @remarks
    * The time type. Valid values:
    * 
-   * - `-1`: none
-   * 
-   * - `1`: cron
-   * 
-   * - `3`: fix_rate
-   * 
-   * - `5`: one_time
-   * 
-   * - `100`: api
+   * - -1: none
+   * - 1: cron
+   * - 3: fix_rate
+   * - 5: one_time
+   * - 100: api
    * 
    * @example
    * 1
@@ -312,7 +290,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The ID of the user who last updated the job.
+   * The updater.
    * 
    * @example
    * 1963096506470832
@@ -337,8 +315,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The extended attributes.
-   * 
-   * > This parameter is not currently supported.
+   * > Not supported.
    * 
    * @example
    * 暂无
@@ -346,6 +323,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   xattrs?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       attemptInterval: 'AttemptInterval',
       calendar: 'Calendar',
@@ -387,6 +365,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       attemptInterval: 'number',
       calendar: 'string',
@@ -454,12 +433,12 @@ export class ListJobsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * - A list of jobs.
+   * -
    */
   records?: ListJobsResponseBodyDataRecords[];
   /**
    * @remarks
-   * The total number of jobs returned.
+   * The total number of entries.
    * 
    * @example
    * 65
@@ -498,7 +477,7 @@ export class ListJobsResponseBodyData extends $dara.Model {
 export class ListJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. A value of `200` indicates that the request was successful.
+   * The response code.
    * 
    * @example
    * 200
@@ -506,12 +485,12 @@ export class ListJobsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * - The returned data.
+   * -
    */
   data?: ListJobsResponseBodyData;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -519,7 +498,7 @@ export class ListJobsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A unique ID that Alibaba Cloud generates for each request. Use this ID to troubleshoot issues.
+   * The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 1DF6732E-15D8-5E1F-95E3-C10077F556B5
@@ -527,11 +506,9 @@ export class ListJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

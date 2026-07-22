@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateDisableJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates success.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OperateDisableJobsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message. Contains error details if the request fails.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -21,7 +21,7 @@ export class OperateDisableJobsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A unique ID generated for this request. If you encounter an issue, provide this ID for troubleshooting.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 29ED6209-5DE6-5E1D-89B0-B7B1D823A1BF
@@ -29,11 +29,9 @@ export class OperateDisableJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the request succeeded.
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

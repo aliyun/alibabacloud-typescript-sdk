@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test-app
@@ -13,7 +14,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The attempt number for this execution. `1` indicates the initial run.
+   * The number of failed attempts.
    * 
    * @example
    * 1
@@ -21,7 +22,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   attempt?: number;
   /**
    * @remarks
-   * The data timestamp for the job execution.
+   * The data timestamp of the job.
    * 
    * @example
    * 2024-11-12 14:52:42
@@ -29,7 +30,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   dataTime?: string;
   /**
    * @remarks
-   * The duration of the job execution.
+   * The total running duration.
    * 
    * @example
    * 10
@@ -37,7 +38,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The time when the job execution ended.
+   * The end time of the job.
    * 
    * @example
    * 2024-11-12 14:52:42
@@ -45,7 +46,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the executor.
+   * The executor ID.
    * 
    * @example
    * 1827811800526000
@@ -69,7 +70,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * test-job
@@ -77,7 +78,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The type of the job.
+   * The job type.
    * 
    * @example
    * xxljob
@@ -85,7 +86,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The parameters of the job.
+   * The job parameters.
    * 
    * @example
    * name=zhangsan
@@ -93,7 +94,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The execution result.
+   * The returned result.
    * 
    * @example
    * success
@@ -101,23 +102,15 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The strategy for routing the job to a worker. Valid values:
-   * 
-   * - 1: Round-robin
-   * 
-   * - 2: Random
-   * 
-   * - 3: First
-   * 
-   * - 4: Last
-   * 
-   * - 5: Least Frequently Used
-   * 
-   * - 6: Least Recently Used
-   * 
-   * - 7: Consistent Hashing
-   * 
-   * - 8: Sharded Broadcasting
+   * The routing strategy. Valid values:
+   * - 1: round-robin.
+   * - 2: random.
+   * - 3: first.
+   * - 4: last.
+   * - 5: least frequently used.
+   * - 6: least recently used.
+   * - 7: consistent hashing.
+   * - 8: shard broadcast.
    * 
    * @example
    * 1
@@ -125,7 +118,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   routeStrategy?: number;
   /**
    * @remarks
-   * The time when the job was scheduled.
+   * The scheduling time of the job.
    * 
    * @example
    * 2024-11-12 14:52:42
@@ -133,7 +126,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   scheduleTime?: string;
   /**
    * @remarks
-   * The IP address of the scheduler node.
+   * The scheduling node.
    * 
    * @example
    * 28.0.168.46
@@ -142,32 +135,19 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The job execution status. Valid values:
-   * 
-   * - 0: UNKNOWN
-   * 
-   * - 1: WAITING
-   * 
-   * - 2: READY
-   * 
-   * - 3: RUNNING
-   * 
-   * - 4: SUCCESS
-   * 
-   * - 5: FAILED
-   * 
-   * - 6: PAUSED
-   * 
-   * - 7: SUBMITTED
-   * 
-   * - 8: REJECTED
-   * 
-   * - 9: ACCEPTED
-   * 
-   * - 10: PARTIAL_FAILED
-   * 
-   * - 11: SKIPPED
-   * 
-   * - 12: REMOVED
+   * - 0: UNKNOWN.
+   * - 1: WAITING.
+   * - 2: READY.
+   * - 3: RUNNING.
+   * - 4: SUCCESS.
+   * - 5: FAILED.
+   * - 6: PAUSED.
+   * - 7: SUBMITTED.
+   * - 8: REJECTED.
+   * - 9: ACCEPTED.
+   * - 10: PARTIAL_FAILED.
+   * - 11: SKIPPED.
+   * - 12: REMOVED.
    * 
    * @example
    * 4
@@ -175,16 +155,11 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The scheduling type. Valid values:
-   * 
-   * - -1: none<br>
-   * 
-   * - 1: cron<br>
-   * 
-   * - 3: fix_rate<br>
-   * 
-   * - 5: one_time<br>
-   * 
+   * The time type. Valid values:
+   * - -1: none<br/>
+   * - 1: cron<br/>
+   * - 3: fix_rate<br/>
+   * - 5: one_time<br/>
    * - 100: api
    * 
    * @example
@@ -193,7 +168,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   timeType?: number;
   /**
    * @remarks
-   * The total number of tokens consumed by the job execution.
+   * The tokens consumed by the AI job.
    * 
    * @example
    * 1000
@@ -201,21 +176,14 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   totalTokens?: number;
   /**
    * @remarks
-   * The method that triggered the job. Valid values:
-   * 
-   * - 0: unknown
-   * 
-   * - 1: schedule
-   * 
-   * - 2: rerun
-   * 
-   * - 3: api
-   * 
-   * - 4: user_retry
-   * 
-   * - 5: system_retry
-   * 
-   * - 6: manual
+   * The job trigger type. Valid values:
+   * - 0: unknown.
+   * - 1: schedule.
+   * - 2: rerun.
+   * - 3: api.
+   * - 4: user_retry.
+   * - 5: system_retry.
+   * - 6: manual.
    * 
    * @example
    * 1
@@ -223,7 +191,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   triggerType?: number;
   /**
    * @remarks
-   * The address of the worker that executed the job instance.
+   * The machine on which the job instance runs.
    * 
    * @example
    * http://192.168.1.9:9999/
@@ -231,7 +199,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   workAddr?: string;
   /**
    * @remarks
-   * The ID of the parent workflow instance, if applicable.
+   * The workflow instance ID.
    * 
    * @example
    * 100
@@ -239,7 +207,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   workflowExecutionId?: string;
   /**
    * @remarks
-   * The ID of the parent workflow, if applicable.
+   * The workflow ID.
    * 
    * @example
    * 10
@@ -247,22 +215,20 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
   workflowId?: number;
   /**
    * @remarks
-   * The name of the parent workflow, if applicable.
+   * The workflow name.
    * 
    * @example
    * myWorkflow
    */
   workflowName?: string;
   /**
-   * @remarks
-   * The extended attributes.
-   * 
    * @example
    * {"sessionId":"ac21f9f6-5a88-4f97-abd1-b51989166035"}
    */
   XAttrs?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       attempt: 'Attempt',
       dataTime: 'DataTime',
@@ -292,6 +258,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       attempt: 'number',
       dataTime: 'string',
@@ -347,12 +314,12 @@ export class ListJobExecutionsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of job instances.
+   * The list of job instances.
    */
   records?: ListJobExecutionsResponseBodyDataRecords[];
   /**
    * @remarks
-   * The total number of entries found.
+   * The total number of entries.
    * 
    * @example
    * 20
@@ -404,7 +371,7 @@ export class ListJobExecutionsResponseBody extends $dara.Model {
   data?: ListJobExecutionsResponseBodyData;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * This parameter is required.
    * 
@@ -414,7 +381,7 @@ export class ListJobExecutionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier for the request. Alibaba Cloud generates this ID to help troubleshoot issues.
+   * The request ID generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * 6BCE89B3-E882-511D-9A75-D452A56EC4B1
@@ -422,11 +389,9 @@ export class ListJobExecutionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

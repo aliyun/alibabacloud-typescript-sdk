@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDesigateInfoRequest extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
    * The application name.
@@ -25,7 +26,7 @@ export class GetDesigateInfoRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -35,6 +36,7 @@ export class GetDesigateInfoRequest extends $dara.Model {
   jobId?: number;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       clusterId: 'ClusterId',
       jobId: 'JobId',
@@ -43,6 +45,7 @@ export class GetDesigateInfoRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       clusterId: 'string',
       jobId: 'number',

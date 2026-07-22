@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test-app
@@ -13,7 +13,7 @@ export class ListJobsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListJobsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The description of the job.
+   * The job description.
    * 
    * @example
    * job01单机任务
@@ -31,7 +31,7 @@ export class ListJobsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the job handler.
+   * The jobhandler name.
    * 
    * @example
    * jobDemoHandler
@@ -39,7 +39,7 @@ export class ListJobsRequest extends $dara.Model {
   jobHandler?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class ListJobsRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * job01
@@ -71,7 +71,7 @@ export class ListJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the job.
+   * The job status.
    * 
    * @example
    * 0
@@ -79,7 +79,7 @@ export class ListJobsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the workflow.
+   * The workflow ID.
    * 
    * @example
    * 1

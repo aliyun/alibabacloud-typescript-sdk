@@ -5,11 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class OperateDesignateExecutorsRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of machine addresses to designate.
+   * The address list.
    * 
    * This parameter is required.
    */
   addressList?: string[];
+  appGroupId?: number;
   /**
    * @remarks
    * The application name.
@@ -32,11 +33,9 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The designation type. Valid values:
-   * 
-   * - **1**: By worker.
-   * 
-   * - **2**: By label.
+   * The type of the designated machine. Valid values:
+   * - **1**: designated worker.
+   * - **2**: designated label.
    * 
    * This parameter is required.
    * 
@@ -46,7 +45,7 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   designateType?: number;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -65,6 +64,7 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addressList: 'AddressList',
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       clusterId: 'ClusterId',
       designateType: 'DesignateType',
@@ -76,6 +76,7 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addressList: { 'type': 'array', 'itemType': 'string' },
+      appGroupId: 'number',
       appName: 'string',
       clusterId: 'string',
       designateType: 'number',

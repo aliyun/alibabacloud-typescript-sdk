@@ -13,7 +13,7 @@ export class DeleteJobsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message. An error message is returned if the request is unsuccessful.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -21,7 +21,7 @@ export class DeleteJobsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. This ID is unique to each request and can be used for troubleshooting.
+   * The request ID. Alibaba Cloud generates a unique ID for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 91143E1D-E235-5BE0-9364-C2EE28FFB5A6
@@ -29,11 +29,9 @@ export class DeleteJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

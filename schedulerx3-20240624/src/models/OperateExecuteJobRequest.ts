@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateExecuteJobRequest extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
    * The application name.
@@ -25,7 +26,7 @@ export class OperateExecuteJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The custom parameters for the job instance.
+   * The instance parameters.
    * 
    * @example
    * name=zhangsan
@@ -33,7 +34,7 @@ export class OperateExecuteJobRequest extends $dara.Model {
   instanceParameters?: string;
   /**
    * @remarks
-   * The job ID.
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +44,7 @@ export class OperateExecuteJobRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The label used to select a specific worker.
+   * The label of the specified machine.
    * 
    * @example
    * gray
@@ -51,7 +52,7 @@ export class OperateExecuteJobRequest extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The address (`workerAddr`) of a specific worker.
+   * The workerAddr of the specified machine.
    * 
    * @example
    * http://192.168.***.5:9999/
@@ -59,6 +60,7 @@ export class OperateExecuteJobRequest extends $dara.Model {
   worker?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       clusterId: 'ClusterId',
       instanceParameters: 'InstanceParameters',
@@ -70,6 +72,7 @@ export class OperateExecuteJobRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       clusterId: 'string',
       instanceParameters: 'string',

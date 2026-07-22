@@ -2,44 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteJobsShrinkRequest extends $dara.Model {
-  appGroupId?: number;
+export class ImportAgentJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The application name.
-   * 
    * This parameter is required.
    * 
    * @example
-   * test-app
+   * 名称
    */
-  appName?: string;
+  agentName?: string;
   /**
    * @remarks
-   * The cluster ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * xxljob-b6ec1xxxx
+   * 2027179f-20b1-4e0b-841b-d86f2bc7ebf7
    */
   clusterId?: string;
-  jobIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  migrateStrategy?: number;
   static names(): { [key: string]: string } {
     return {
-      appGroupId: 'AppGroupId',
-      appName: 'AppName',
+      agentName: 'AgentName',
       clusterId: 'ClusterId',
-      jobIdsShrink: 'JobIds',
+      migrateStrategy: 'MigrateStrategy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appGroupId: 'number',
-      appName: 'string',
+      agentName: 'string',
       clusterId: 'string',
-      jobIdsShrink: 'string',
+      migrateStrategy: 'number',
     };
   }
 

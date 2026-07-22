@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateEnableJobsShrinkRequest extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class OperateEnableJobsShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -23,13 +24,10 @@ export class OperateEnableJobsShrinkRequest extends $dara.Model {
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
-  /**
-   * @remarks
-   * The IDs of the jobs to enable.
-   */
   jobIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       clusterId: 'ClusterId',
       jobIdsShrink: 'JobIds',
@@ -38,6 +36,7 @@ export class OperateEnableJobsShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       clusterId: 'string',
       jobIdsShrink: 'string',

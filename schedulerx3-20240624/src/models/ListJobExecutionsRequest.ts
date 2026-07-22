@@ -63,7 +63,7 @@ export class ListJobExecutionsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -80,31 +80,18 @@ export class ListJobExecutionsRequest extends $dara.Model {
   /**
    * @remarks
    * The job execution status. Valid values:
-   * 
    * - 0: **UNKNOWN**.
-   * 
    * - 1: **WAITING**.
-   * 
    * - 2: **READY**.
-   * 
    * - 3: **RUNNING**.
-   * 
    * - 4: **SUCCESS**.
-   * 
    * - 5: **FAILED**.
-   * 
    * - 6: **PAUSED**.
-   * 
    * - 7: **SUBMITTED**.
-   * 
    * - 8: **REJECTED**.
-   * 
    * - 9: **ACCEPTED**.
-   * 
    * - 10: **PARTIAL_FAILED**.
-   * 
    * - 11: **SKIPPED**.
-   * 
    * - 12: **REMOVED**.
    * 
    * @example
@@ -113,7 +100,7 @@ export class ListJobExecutionsRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The workflow execution ID.
+   * The workflow instance ID.
    * 
    * @example
    * 100

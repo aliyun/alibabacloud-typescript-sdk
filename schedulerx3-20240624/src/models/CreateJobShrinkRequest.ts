@@ -15,7 +15,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The retry interval upon failure. Unit: seconds. Default value: 30.
+   * The retry interval. Unit: seconds. Default value: 30.
    * 
    * @example
    * 3
@@ -23,7 +23,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   attemptInterval?: number;
   /**
    * @remarks
-   * The custom calendar. This parameter is available only for the cron time type.
+   * The custom calendar. This parameter is optional for the cron time type.
    * 
    * @example
    * workday
@@ -70,7 +70,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The client-side blocking strategy. Valid values:
+   * The client blocking strategy. Valid values:
    * - 1: serial execution on a single machine
    * - 2: ignore subsequent scheduling
    * - 3: override previous scheduling
@@ -81,7 +81,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   executorBlockStrategy?: number;
   /**
    * @remarks
-   * The JobHandler name.
+   * The jobhandler name.
    * 
    * @example
    * testJobVoidHandler
@@ -198,7 +198,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   startTimeType?: number;
   /**
    * @remarks
-   * The node status. Default value: enabled. Valid values:
+   * The node status. Default value: 1 (enabled). Valid values:
    * - 0: disabled
    * - 1: enabled
    * 
@@ -209,11 +209,11 @@ export class CreateJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The time expression. Set this parameter based on the selected time type.
-   * - **none**: no value required.
-   * - **cron**: a standard cron expression. Online verification is supported.
-   * - **api**: no value required.
-   * - **fixed_rate**: a fixed frequency value in seconds. For example, 200 indicates that the node is triggered every 200 seconds.
-   * - **one_time**: a scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+   * - **none**: No value is required.
+   * - **cron**: Specify a standard cron expression. Online verification is supported.
+   * - **api**: No value is required.
+   * - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 200 indicates that the node is triggered every 200 seconds.
+   * - **one_time**: Specify a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
    * 
    * @example
    * 0 0 4 ? * Mon/1
@@ -252,7 +252,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   weight?: number;
   /**
    * @remarks
-   * The extended attributes. This parameter is required for K8s node types.
+   * The configuration for K8s node types. Set this parameter if the node type is K8s.
    * Job node: {"resource":"job"}
    * Shell node: {"image":"busybox","resource":"shell"}
    * 

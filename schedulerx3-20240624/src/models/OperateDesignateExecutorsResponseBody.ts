@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateDesignateExecutorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of `200` indicates success.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OperateDesignateExecutorsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message that is returned if the request fails.
+   * The error message.
    * 
    * @example
    * Parameter check error
@@ -21,7 +21,7 @@ export class OperateDesignateExecutorsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID generated for the request. Use this ID for troubleshooting.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * AFD5B166-4A7D-50DF-91BF-EFAFD41F7335
@@ -29,11 +29,9 @@ export class OperateDesignateExecutorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

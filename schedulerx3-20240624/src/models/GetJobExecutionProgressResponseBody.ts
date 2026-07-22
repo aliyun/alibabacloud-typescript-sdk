@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobExecutionProgressResponseBodyDataRootProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of finished items in the root task.
+   * The number of finished items.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class GetJobExecutionProgressResponseBodyDataRootProgress extends $dara.M
   finished?: number;
   /**
    * @remarks
-   * The total number of items in the root task.
+   * The total count.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class GetJobExecutionProgressResponseBodyDataRootProgress extends $dara.M
 export class GetJobExecutionProgressResponseBodyDataShardingProgressStatusType extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The task status code.
    * 
    * @example
    * 5
@@ -53,7 +53,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgressStatusType e
   code?: string;
   /**
    * @remarks
-   * The name of the status.
+   * The status name.
    * 
    * @example
    * TaskStatus.FAILED
@@ -61,7 +61,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgressStatusType e
   name?: string;
   /**
    * @remarks
-   * Informational messages about the status.
+   * The tip information.
    */
   tips?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgressStatusType e
 export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $dara.Model {
   /**
    * @remarks
-   * The shard ID.
+   * ID。
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $da
   id?: number;
   /**
    * @remarks
-   * The execution ID of the sharding task.
+   * The shard execution ID.
    * 
    * @example
    * 1306189481388277762
@@ -111,7 +111,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $da
   jobExecutionId?: string;
   /**
    * @remarks
-   * The execution result of the sharding task.
+   * The shard execution result.
    * 
    * @example
    * 2,4,6,8,10
@@ -119,19 +119,13 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $da
   result?: string;
   /**
    * @remarks
-   * The execution status of the sharding task. Valid values:
-   * 
-   * - 0: UNKNOWN
-   * 
-   * - 1: INIT
-   * 
-   * - 2: PULLED
-   * 
-   * - 3: RUNNING
-   * 
-   * - 4: SUCCESS
-   * 
-   * - 5: FAILED
+   * The task execution status. Valid values:
+   * - 0: unknown.
+   * - 1: init.
+   * - 2: pulled.
+   * - 3: running.
+   * - 4: success.
+   * - 5: failed.
    * 
    * @example
    * 5
@@ -139,12 +133,12 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $da
   status?: number;
   /**
    * @remarks
-   * Detailed information about the execution status.
+   * The status type.
    */
   statusType?: GetJobExecutionProgressResponseBodyDataShardingProgressStatusType;
   /**
    * @remarks
-   * The address of the Worker.
+   * The worker address.
    * 
    * @example
    * http://192.168.***.9:9999/
@@ -195,7 +189,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
   failed?: number;
   /**
    * @remarks
-   * The name of the subtask.
+   * The task name.
    * 
    * @example
    * calendar_test_2
@@ -211,7 +205,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
   pulled?: number;
   /**
    * @remarks
-   * The number of items in the subtask\\"s queue.
+   * The number of items in the queue.
    * 
    * @example
    * 100
@@ -235,7 +229,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
   success?: number;
   /**
    * @remarks
-   * The total number of items in the subtask.
+   * The total count.
    * 
    * @example
    * 1000
@@ -277,7 +271,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
 export class GetJobExecutionProgressResponseBodyDataTotalProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of finished items in the job.
+   * The number of finished items.
    * 
    * @example
    * 15
@@ -285,7 +279,7 @@ export class GetJobExecutionProgressResponseBodyDataTotalProgress extends $dara.
   finished?: number;
   /**
    * @remarks
-   * The total number of items in the job.
+   * The total count.
    * 
    * @example
    * 30
@@ -317,7 +311,7 @@ export class GetJobExecutionProgressResponseBodyDataTotalProgress extends $dara.
 export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of items that failed on this Worker.
+   * The number of failed items.
    * 
    * @example
    * 20
@@ -325,7 +319,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   failed?: number;
   /**
    * @remarks
-   * The number of items pulled by this Worker.
+   * The number of pulled items.
    * 
    * @example
    * 20
@@ -333,7 +327,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   pulled?: number;
   /**
    * @remarks
-   * The number of items in this Worker\\"s queue.
+   * The number of items in the queue.
    * 
    * @example
    * 20
@@ -341,7 +335,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   queue?: number;
   /**
    * @remarks
-   * The number of items this Worker is currently running.
+   * The number of running items.
    * 
    * @example
    * 20
@@ -349,7 +343,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   running?: number;
   /**
    * @remarks
-   * The number of items successfully processed by this Worker.
+   * The number of successful items.
    * 
    * @example
    * 20
@@ -357,7 +351,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   success?: number;
   /**
    * @remarks
-   * The total number of items processed by this Worker.
+   * The total count.
    * 
    * @example
    * 100
@@ -373,7 +367,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   traceId?: string;
   /**
    * @remarks
-   * The address of the Worker.
+   * The worker address.
    * 
    * @example
    * 10.***.***.53:61941
@@ -417,7 +411,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
 export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The job end time, in Unix milliseconds.
+   * The end time.
    * 
    * @example
    * 1758594961000
@@ -425,7 +419,7 @@ export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The description of the job.
+   * The task description.
    * 
    * @example
    * 测试任务
@@ -433,17 +427,17 @@ export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The progress of the root task.
+   * The root task progress.
    */
   rootProgress?: GetJobExecutionProgressResponseBodyDataRootProgress;
   /**
    * @remarks
-   * A list of progress details for each sharding task.
+   * The sharding task progress.
    */
   shardingProgress?: GetJobExecutionProgressResponseBodyDataShardingProgress[];
   /**
    * @remarks
-   * The job start time, in Unix milliseconds.
+   * The start time.
    * 
    * @example
    * 1758506761000
@@ -451,17 +445,17 @@ export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * A list of progress details for each subtask.
+   * The subtask progress.
    */
   taskProgress?: GetJobExecutionProgressResponseBodyDataTaskProgress[];
   /**
    * @remarks
-   * The overall progress of the job.
+   * The overall task progress.
    */
   totalProgress?: GetJobExecutionProgressResponseBodyDataTotalProgress;
   /**
    * @remarks
-   * A list of execution progress details for each Worker.
+   * The execution progress by worker.
    */
   workerProgress?: GetJobExecutionProgressResponseBodyDataWorkerProgress[];
   static names(): { [key: string]: string } {
@@ -517,7 +511,7 @@ export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
 export class GetJobExecutionProgressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -525,12 +519,12 @@ export class GetJobExecutionProgressResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * - The data returned by the request.
+   * -
    */
   data?: GetJobExecutionProgressResponseBodyData;
   /**
    * @remarks
-   * The error message returned when the request fails.
+   * The error message.
    * 
    * @example
    * Parameter format error
@@ -538,7 +532,7 @@ export class GetJobExecutionProgressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier for the request, generated by Alibaba Cloud. Use this ID to troubleshoot issues.
+   * The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 9B57FDD7-ABBE-5030-B348-86EB9943DB59
@@ -546,10 +540,8 @@ export class GetJobExecutionProgressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
-   * 
-   * - **true**: The request succeeded.
-   * 
+   * Indicates whether the call was successful.
+   * - **true**: The call was successful.
    * - **false**: The call failed.
    * 
    * @example

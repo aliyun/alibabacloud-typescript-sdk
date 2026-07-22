@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateRerunJobRequest extends $dara.Model {
+  appId?: number;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The unique identifier of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +26,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The specific time of day for which to rerun the data. The format is `HH:mm:ss`.
+   * The data timestamp.
    * 
    * This parameter is required.
    * 
@@ -35,7 +36,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   dataTime?: string;
   /**
    * @remarks
-   * The end of the time range to rerun, specified as a Unix timestamp in milliseconds.
+   * The end time.
    * 
    * This parameter is required.
    * 
@@ -45,7 +46,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * The unique identifier of the job.
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +56,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The start of the time range to rerun, specified as a Unix timestamp in milliseconds.
+   * The start time.
    * 
    * This parameter is required.
    * 
@@ -65,6 +66,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       appName: 'AppName',
       clusterId: 'ClusterId',
       dataTime: 'DataTime',
@@ -76,6 +78,7 @@ export class OperateRerunJobRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'number',
       appName: 'string',
       clusterId: 'string',
       dataTime: 'string',

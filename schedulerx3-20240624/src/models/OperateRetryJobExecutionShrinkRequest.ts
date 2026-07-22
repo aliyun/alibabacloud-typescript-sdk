@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
-   * The Application Name.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +26,7 @@ export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The Job Execution ID.
+   * The job execution ID.
    * 
    * This parameter is required.
    * 
@@ -35,18 +36,18 @@ export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
   jobExecutionId?: string;
   /**
    * @remarks
-   * A list of Sub-task execution IDs for a Broadcast Sharding Job.
-   * 
-   * > To retry a specific Sub-task of a Broadcast Sharding Job, set this parameter to the execution ID of that Sub-task.
+   * The list of subtask execution IDs (for broadcast jobs).
+   * >To rerun a subtask of a broadcast job, set this field to the execution ID of the corresponding subtask.
    */
   taskListShrink?: string;
   /**
    * @remarks
-   * Specifies whether to trigger downstream jobs.
+   * Specifies whether to trigger downstream nodes.
    */
   triggerChild?: boolean;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       clusterId: 'ClusterId',
       jobExecutionId: 'JobExecutionId',
@@ -57,6 +58,7 @@ export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       clusterId: 'string',
       jobExecutionId: 'string',

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateJobShrinkRequest extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
    * The application name.
@@ -102,8 +103,8 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum number of concurrent instances of the node.
-   * >The maximum number of instances that can run at the same time for the same node. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
+   * The maximum number of concurrent instances for the node.
+   * >The maximum number of instances that can run simultaneously for the same node. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
    * 
    * @example
    * 1
@@ -137,7 +138,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The execution priority of the node. Valid values:
+   * The node execution priority. Valid values:
    * 
    * - 1: low
    * - 5: medium
@@ -150,7 +151,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The routing policy. Valid values:
+   * The routing strategy. Valid values:
    * 
    * - 1: round robin
    * - 2: random
@@ -167,7 +168,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   routeStrategy?: number;
   /**
    * @remarks
-   * The script for non-BEAN nodes. Use this field to configure the script.
+   * The script content for non-BEAN nodes. Use this field to configure the script.
    * 
    * @example
    * echo "hello world"
@@ -197,7 +198,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
    * - cron: Specify a standard cron expression. Online verification is supported.
    * - api: No value is required.
    * - fixed_rate: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
-   * - one_time: Specify a scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+   * - one_time: Specify a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
    * 
    * @example
    * 0 0 4 ? * Mon/1
@@ -220,7 +221,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The time zone.
-   * > By default, the time zone of the SchedulerX server is used.
+   * > The default value is the time zone of the SchedulerX server.
    * 
    * @example
    * Hongkong
@@ -241,6 +242,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
   XAttrs?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       attemptInterval: 'AttemptInterval',
       calendar: 'Calendar',
@@ -272,6 +274,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       attemptInterval: 'number',
       calendar: 'string',

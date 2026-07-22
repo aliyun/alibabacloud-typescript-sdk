@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetJobExecutionProgressRequest extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
    * The application name.
@@ -25,7 +26,7 @@ export class GetJobExecutionProgressRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The job execution ID.
+   * The task execution ID.
    * 
    * This parameter is required.
    * 
@@ -35,6 +36,7 @@ export class GetJobExecutionProgressRequest extends $dara.Model {
   jobExecutionId?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       clusterId: 'ClusterId',
       jobExecutionId: 'JobExecutionId',
@@ -43,6 +45,7 @@ export class GetJobExecutionProgressRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       clusterId: 'string',
       jobExecutionId: 'string',

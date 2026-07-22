@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateStopJobExecutionShrinkRequest extends $dara.Model {
+  appGroupId?: number;
   /**
    * @remarks
-   * The name of the Application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class OperateStopJobExecutionShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the Cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +26,7 @@ export class OperateStopJobExecutionShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the Job Execution.
+   * The job execution ID.
    * 
    * This parameter is required.
    * 
@@ -35,11 +36,12 @@ export class OperateStopJobExecutionShrinkRequest extends $dara.Model {
   jobExecutionId?: string;
   /**
    * @remarks
-   * A list of Task IDs.
+   * The subtask IDs.
    */
   taskListShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroupId: 'AppGroupId',
       appName: 'AppName',
       clusterId: 'ClusterId',
       jobExecutionId: 'JobExecutionId',
@@ -49,6 +51,7 @@ export class OperateStopJobExecutionShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroupId: 'number',
       appName: 'string',
       clusterId: 'string',
       jobExecutionId: 'string',

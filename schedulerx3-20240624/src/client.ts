@@ -1070,7 +1070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple jobs in a batch.
+   * Deletes nodes in batches.
    * 
    * @param tmpReq - DeleteJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1085,6 +1085,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appGroupId)) {
+      body["AppGroupId"] = request.appGroupId;
+    }
+
     if (!$dara.isNull(request.appName)) {
       body["AppName"] = request.appName;
     }
@@ -1115,7 +1119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple jobs in a batch.
+   * Deletes nodes in batches.
    * 
    * @param request - DeleteJobsRequest
    * @returns DeleteJobsResponse
@@ -1490,7 +1494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the designation information for a job.
+   * Retrieves the information about a specified machine.
    * 
    * @param request - GetDesigateInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1517,7 +1521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the designation information for a job.
+   * Retrieves the information about a specified machine.
    * 
    * @param request - GetDesigateInfoRequest
    * @returns GetDesigateInfoResponse
@@ -1640,13 +1644,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a sharding task execution.
+   * Retrieves the execution details of a sharding task.
    * 
    * @remarks
-   * # Add the enhancement plugin
-   * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
-   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
-   * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhanced plugin
+   * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
+   * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+   * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1673,13 +1677,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a sharding task execution.
+   * Retrieves the execution details of a sharding task.
    * 
    * @remarks
-   * # Add the enhancement plugin
-   * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
-   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
-   * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhanced plugin
+   * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
+   * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+   * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionProgressRequest
    * @returns GetJobExecutionProgressResponse
@@ -2111,6 +2115,118 @@ export default class Client extends OpenApi {
   async getWorkflowExecutionDAG(request: $_model.GetWorkflowExecutionDAGRequest): Promise<$_model.GetWorkflowExecutionDAGResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorkflowExecutionDAGWithOptions(request, runtime);
+  }
+
+  /**
+   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * 
+   * @remarks
+   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * 
+   * @param request - ImportAgentJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportAgentJobsResponse
+   */
+  async *importAgentJobsWithSSE(request: $_model.ImportAgentJobsRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ImportAgentJobsResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.migrateStrategy)) {
+      body["MigrateStrategy"] = request.migrateStrategy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportAgentJobs",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ImportAgentJobsResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ImportAgentJobsResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * 
+   * @remarks
+   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * 
+   * @param request - ImportAgentJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportAgentJobsResponse
+   */
+  async importAgentJobsWithOptions(request: $_model.ImportAgentJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportAgentJobsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.migrateStrategy)) {
+      body["MigrateStrategy"] = request.migrateStrategy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportAgentJobs",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportAgentJobsResponse>(await this.callApi(params, req, runtime), new $_model.ImportAgentJobsResponse({}));
+  }
+
+  /**
+   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * 
+   * @remarks
+   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * 
+   * @param request - ImportAgentJobsRequest
+   * @returns ImportAgentJobsResponse
+   */
+  async importAgentJobs(request: $_model.ImportAgentJobsRequest): Promise<$_model.ImportAgentJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importAgentJobsWithOptions(request, runtime);
   }
 
   /**
@@ -2728,7 +2844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists executors.
+   * Queries the list of executors.
    * 
    * @param request - ListExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2755,7 +2871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists executors.
+   * Queries the list of executors.
    * 
    * @param request - ListExecutorsRequest
    * @returns ListExecutorsResponse
@@ -2766,7 +2882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of task instances.
+   * Retrieves a list of job instances.
    * 
    * @param request - ListJobExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2837,7 +2953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of task instances.
+   * Retrieves a list of job instances.
    * 
    * @param request - ListJobExecutionsRequest
    * @returns ListJobExecutionsResponse
@@ -2906,7 +3022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a task list.
+   * Retrieves a list of jobs.
    * 
    * @param request - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2973,7 +3089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a task list.
+   * Retrieves a list of jobs.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -3564,7 +3680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Designates one or more executors for a job.
+   * Specifies the executor.
    * 
    * @param tmpReq - OperateDesignateExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3581,6 +3697,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addressListShrink)) {
       body["AddressList"] = request.addressListShrink;
+    }
+
+    if (!$dara.isNull(request.appGroupId)) {
+      body["AppGroupId"] = request.appGroupId;
     }
 
     if (!$dara.isNull(request.appName)) {
@@ -3621,7 +3741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Designates one or more executors for a job.
+   * Specifies the executor.
    * 
    * @param request - OperateDesignateExecutorsRequest
    * @returns OperateDesignateExecutorsResponse
@@ -3632,7 +3752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables multiple jobs.
+   * Disables nodes in batches.
    * 
    * @param tmpReq - OperateDisableJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3647,6 +3767,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appGroupId)) {
+      body["AppGroupId"] = request.appGroupId;
+    }
+
     if (!$dara.isNull(request.appName)) {
       body["AppName"] = request.appName;
     }
@@ -3677,7 +3801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables multiple jobs.
+   * Disables nodes in batches.
    * 
    * @param request - OperateDisableJobsRequest
    * @returns OperateDisableJobsResponse
@@ -3750,7 +3874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables multiple jobs in a batch.
+   * Starts nodes in batches.
    * 
    * @param tmpReq - OperateEnableJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3765,6 +3889,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appGroupId)) {
+      body["AppGroupId"] = request.appGroupId;
+    }
+
     if (!$dara.isNull(request.appName)) {
       body["AppName"] = request.appName;
     }
@@ -3795,7 +3923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables multiple jobs in a batch.
+   * Starts nodes in batches.
    * 
    * @param request - OperateEnableJobsRequest
    * @returns OperateEnableJobsResponse
@@ -3862,7 +3990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a job on demand.
+   * Runs a node once.
    * 
    * @param request - OperateExecuteJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3871,6 +3999,10 @@ export default class Client extends OpenApi {
   async operateExecuteJobWithOptions(request: $_model.OperateExecuteJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateExecuteJobResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appGroupId)) {
+      body["AppGroupId"] = request.appGroupId;
+    }
+
     if (!$dara.isNull(request.appName)) {
       body["AppName"] = request.appName;
     }
@@ -3913,7 +4045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a job on demand.
+   * Runs a node once.
    * 
    * @param request - OperateExecuteJobRequest
    * @returns OperateExecuteJobResponse
@@ -4180,7 +4312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns historical data for a job within a specified time range.
+   * Reruns historical data for a node.
    * 
    * @param request - OperateRerunJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4189,6 +4321,10 @@ export default class Client extends OpenApi {
   async operateRerunJobWithOptions(request: $_model.OperateRerunJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateRerunJobResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
     }
@@ -4231,7 +4367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns historical data for a job within a specified time range.
+   * Reruns historical data for a node.
    * 
    * @param request - OperateRerunJobRequest
    * @returns OperateRerunJobResponse
@@ -4242,7 +4378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a failed Job Instance.
+   * Reruns a failed job instance.
    * 
    * @param tmpReq - OperateRetryJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4257,6 +4393,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.appGroupId)) {
+      query["AppGroupId"] = request.appGroupId;
+    }
+
     if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
     }
@@ -4295,7 +4435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a failed Job Instance.
+   * Reruns a failed job instance.
    * 
    * @param request - OperateRetryJobExecutionRequest
    * @returns OperateRetryJobExecutionResponse
@@ -4410,7 +4550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a running Job Execution.
+   * Stops a running task instance.
    * 
    * @param tmpReq - OperateStopJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4425,6 +4565,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.appGroupId)) {
+      query["AppGroupId"] = request.appGroupId;
+    }
+
     if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
     }
@@ -4459,7 +4603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a running Job Execution.
+   * Stops a running task instance.
    * 
    * @param request - OperateStopJobExecutionRequest
    * @returns OperateStopJobExecutionResponse
@@ -5225,6 +5369,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appGroupId)) {
+      body["AppGroupId"] = request.appGroupId;
+    }
+
     if (!$dara.isNull(request.appName)) {
       body["AppName"] = request.appName;
     }
