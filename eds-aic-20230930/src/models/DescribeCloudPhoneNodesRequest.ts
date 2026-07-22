@@ -31,7 +31,7 @@ export class DescribeCloudPhoneNodesRequestTags extends $dara.Model {
 export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth plan instance.
+   * The instance ID of the bandwidth plan.
    * 
    * @example
    * cbwp-bp17psa7fhxqmm*****
@@ -47,7 +47,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing method. Only the subscription billing method is supported.
+   * The billing type. Only subscription is supported.
    * 
    * @example
    * PrePaid
@@ -55,7 +55,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
+   * The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -63,7 +63,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The token for the next query. If a query does not return all results, NextToken is not empty. Use the returned NextToken in your next query to continue.
+   * The pagination token for the next query. If the results of a query are not completely returned, the returned NextToken is not empty. You can pass the returned NextToken in the next request to continue the query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -71,12 +71,12 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of Cloud Phone matrix IDs.
+   * The list of cloud phone matrix IDs.
    */
   nodeIds?: string[];
   /**
    * @remarks
-   * The name of the Cloud Phone matrix.
+   * The name of the cloud phone matrix.
    * 
    * @example
    * node_name
@@ -85,15 +85,17 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   nodeNameList?: string[];
   /**
    * @remarks
-   * The instance type of the Cloud Phone matrix.
+   * The specifications of the cloud phone matrix.
    * 
    * @example
    * cpm.gx7.10xlarge
    */
   serverType?: string;
+  sortKey?: string;
+  sortType?: string;
   /**
    * @remarks
-   * The status of the Cloud Phone matrix.
+   * The status of the cloud phone matrix.
    * 
    * @example
    * CREATING
@@ -111,6 +113,8 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
       nodeName: 'NodeName',
       nodeNameList: 'NodeNameList',
       serverType: 'ServerType',
+      sortKey: 'SortKey',
+      sortType: 'SortType',
       status: 'Status',
       tags: 'Tags',
     };
@@ -127,6 +131,8 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
       nodeName: 'string',
       nodeNameList: { 'type': 'array', 'itemType': 'string' },
       serverType: 'string',
+      sortKey: 'string',
+      sortType: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesRequestTags },
     };

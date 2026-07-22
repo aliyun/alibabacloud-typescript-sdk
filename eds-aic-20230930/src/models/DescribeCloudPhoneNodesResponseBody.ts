@@ -45,7 +45,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelBizTags extends $dara.M
 export class DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth plan instance.
+   * The instance ID of the bandwidth plan.
    * 
    * @example
    * cbwp-hn3tj409amvamz8mf****
@@ -77,7 +77,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos extends $d
   networkType?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the virtual private cloud (VPC).
+   * The vSwitch ID in the VPC.
    * 
    * @example
    * vsw-j6cjgev6fv3ftw4f0****
@@ -115,7 +115,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos extends $d
 export class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the independent phone storage.
+   * The ID of the independent device storage.
    * 
    * @example
    * pd-dhusabisshj****
@@ -123,7 +123,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo extends $
   phoneDataId?: string;
   /**
    * @remarks
-   * The size of the independent phone storage. Unit: GiB.
+   * The storage capacity of the independent device storage. Unit: GiB.
    * 
    * @example
    * 20
@@ -181,7 +181,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelTags extends $dara.Mode
 export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth plan.
+   * The bandwidth plan ID.
    * 
    * @example
    * cbwp-7xvrl7axet2qg6yia******
@@ -189,7 +189,10 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The status of the bandwidth plan: 0 indicates initializing, 1 indicates normal, and 2 indicates deleted.
+   * The status of the bandwidth plan. Valid values:
+   * - 0: initializing
+   * - 1: normal
+   * - 2: deleted
    * 
    * @example
    * 1
@@ -205,12 +208,12 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   bandwidthPackageType?: string;
   /**
    * @remarks
-   * An array of tag information.
+   * The array of tag information.
    */
   bizTags?: DescribeCloudPhoneNodesResponseBodyNodeModelBizTags[];
   /**
    * @remarks
-   * The billing method.
+   * The billing type.
    * 
    * @example
    * PrePaid
@@ -234,7 +237,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The expiration time of the subscription-based matrix.
+   * The expiration time of the subscription matrix.
    * 
    * @example
    * 2025-03-09 02:00:34
@@ -242,7 +245,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   gmtExpired?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The time when the matrix was last modified.
    * 
    * @example
    * 2025-02-13 02:03:14
@@ -274,7 +277,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The network information.
+   * The network-related information.
    */
   networkInfos?: DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos[];
   /**
@@ -287,7 +290,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The Cloud Phone matrix ID.
+   * The cloud phone matrix ID.
    * 
    * @example
    * cpn-ehs0yoedq8ntm****
@@ -295,7 +298,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The name of the Cloud Phone matrix.
+   * The name of the cloud phone matrix.
    * 
    * @example
    * node_name
@@ -303,7 +306,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The number of instances in the Cloud Phone matrix.
+   * The number of instances provisioned under the cloud phone matrix.
    * 
    * @example
    * 25
@@ -311,7 +314,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   phoneCount?: number;
   /**
    * @remarks
-   * The information about the independent phone storage.
+   * The independent device storage information.
    */
   phoneDataInfo?: DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo;
   /**
@@ -340,7 +343,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   resolutionWidth?: number;
   /**
    * @remarks
-   * The instance type of the Cloud Phone matrix.
+   * The specifications of the cloud phone matrix.
    * 
    * @example
    * cpm.gx7.10xlarge
@@ -348,7 +351,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   serverType?: string;
   /**
    * @remarks
-   * The size of the shared phone storage. Unit: GiB.
+   * The size of the shared device storage. Unit: GiB.
    * 
    * @example
    * 100
@@ -356,7 +359,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   shareDataVolume?: number;
   /**
    * @remarks
-   * The status of the Cloud Phone matrix.
+   * The status of the cloud phone matrix.
    * 
    * @example
    * RUNNING
@@ -460,7 +463,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
 export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -468,11 +471,9 @@ export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query. Valid values:
-   * 
-   * - If **NextToken** is empty, there are no more results.
-   * 
-   * - If **NextToken** has a value, it indicates the token for the next query.
+   * Indicates whether a next pagination token exists. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** has a value, the value is the token for the next query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
@@ -480,7 +481,7 @@ export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The details of the Cloud Phone matrices.
+   * The details of the cloud phone matrix.
    */
   nodeModel?: DescribeCloudPhoneNodesResponseBodyNodeModel[];
   /**

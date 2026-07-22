@@ -13,7 +13,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the public network bandwidth throttling rule. This rule applies only to premium bandwidth.
+   * The ID of the public network bandwidth limit rule (applies only to premium bandwidth).
    * 
    * @example
    * qos-3kh93uu0vdbka****
@@ -45,12 +45,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules extends $dara.Model {
   /**
    * @remarks
-   * The public network bandwidth throttling rules bound to the instance.
+   * The public network bandwidth limit rule bound to the instance.
    */
   instanceQosRule?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule[];
   /**
    * @remarks
-   * The total number of public network bandwidth throttling rules for the instance group.
+   * The total number of public network bandwidth limit rules for the instance group.
    * 
    * @example
    * 2
@@ -85,7 +85,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosR
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks extends $dara.Model {
   /**
    * @remarks
-   * The disk size, in GB.
+   * The disk size (unit: GB).
    * 
    * @example
    * 32
@@ -181,9 +181,9 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   architectureType?: string;
   /**
    * @remarks
-   * The number of active instances.
+   * The number of available instances.
    * 
-   * > An instance is considered active if its instance status is not "Deleting" or "Deleted".
+   * > Available means the instance status is not "being deleted" or "deleted".
    * 
    * @example
    * 2
@@ -222,7 +222,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   bandwidthPackageType?: string;
   /**
    * @remarks
-   * The public network bandwidth throttling rules for the instance group.
+   * The public network bandwidth limit rules for the instance group.
    */
   bindQosRules?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules;
   channel?: string;
@@ -371,7 +371,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * @remarks
    * The network type of the instance.
    * 
-   * > This field is returned only for instance groups with a standard network.
+   * > This field is returned only for instance groups with standard networking.
    * 
    * @example
    * network_pro_ecd
@@ -412,7 +412,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   regionId?: string;
   /**
    * @remarks
-   * The rendering type of the instance group.
+   * The rendering method of the instance group.
    * 
    * @example
    * CPU
@@ -582,12 +582,12 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
 export class DescribeAndroidInstanceGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the instance group.
+   * The details of the instance groups.
    */
   instanceGroupModel?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel[];
   /**
    * @remarks
-   * The pagination token that indicates the position where the current call returns. An empty value indicates that all data has been read.
+   * The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****

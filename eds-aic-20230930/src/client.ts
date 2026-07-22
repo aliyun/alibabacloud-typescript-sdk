@@ -1604,6 +1604,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建定时任务
+   * 
+   * @param tmpReq - CreateScheduledTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScheduledTaskResponse
+   */
+  async createScheduledTaskWithOptions(tmpReq: $_model.CreateScheduledTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScheduledTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateScheduledTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.runConfig)) {
+      request.runConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runConfig, "RunConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.maxExecutions)) {
+      query["MaxExecutions"] = request.maxExecutions;
+    }
+
+    if (!$dara.isNull(request.runConfigShrink)) {
+      query["RunConfig"] = request.runConfigShrink;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.userPrompt)) {
+      query["UserPrompt"] = request.userPrompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScheduledTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScheduledTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateScheduledTaskResponse({}));
+  }
+
+  /**
+   * 创建定时任务
+   * 
+   * @param request - CreateScheduledTaskRequest
+   * @returns CreateScheduledTaskResponse
+   */
+  async createScheduledTask(request: $_model.CreateScheduledTaskRequest): Promise<$_model.CreateScheduledTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createScheduledTaskWithOptions(request, runtime);
+  }
+
+  /**
    * This asynchronous API operation generates a screenshot of a cloud phone.
    * 
    * @remarks
@@ -2100,6 +2168,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an agent scheduled task.
+   * 
+   * @param request - DeleteScheduledTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScheduledTaskResponse
+   */
+  async deleteScheduledTaskWithOptions(request: $_model.DeleteScheduledTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScheduledTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.scheduledId)) {
+      query["ScheduledId"] = request.scheduledId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteScheduledTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteScheduledTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScheduledTaskResponse({}));
+  }
+
+  /**
+   * Deletes an agent scheduled task.
+   * 
+   * @param request - DeleteScheduledTaskRequest
+   * @returns DeleteScheduledTaskResponse
+   */
+  async deleteScheduledTask(request: $_model.DeleteScheduledTaskRequest): Promise<$_model.DeleteScheduledTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteScheduledTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes system property templates.
    * 
    * @remarks
@@ -2190,7 +2300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cloud phone instance group.
+   * Queries the details of cloud phone instance groups.
    * 
    * @param request - DescribeAndroidInstanceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2239,6 +2349,14 @@ export default class Client extends OpenApi {
       query["SaleMode"] = request.saleMode;
     }
 
+    if (!$dara.isNull(request.sortKey)) {
+      query["SortKey"] = request.sortKey;
+    }
+
+    if (!$dara.isNull(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
@@ -2265,7 +2383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cloud phone instance group.
+   * Queries the details of cloud phone instance groups.
    * 
    * @param request - DescribeAndroidInstanceGroupsRequest
    * @returns DescribeAndroidInstanceGroupsResponse
@@ -2628,8 +2746,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of Cloud Phone matrices.
-   * In the Cloud Phone service, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. This physical server can be partitioned into multiple independent Cloud Phone instances that share the underlying computing, storage, and network resources of the matrix. Creating a matrix is equivalent to provisioning a physical server on which you can create Cloud Phone instances. The number of instances that you can create varies depending on the configuration.
+   * Queries the details of a cloud phone matrix.
+   * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
    * 
    * @param request - DescribeCloudPhoneNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2674,6 +2792,14 @@ export default class Client extends OpenApi {
       query["ServerType"] = request.serverType;
     }
 
+    if (!$dara.isNull(request.sortKey)) {
+      query["SortKey"] = request.sortKey;
+    }
+
+    if (!$dara.isNull(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
@@ -2700,8 +2826,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of Cloud Phone matrices.
-   * In the Cloud Phone service, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. This physical server can be partitioned into multiple independent Cloud Phone instances that share the underlying computing, storage, and network resources of the matrix. Creating a matrix is equivalent to provisioning a physical server on which you can create Cloud Phone instances. The number of instances that you can create varies depending on the configuration.
+   * Queries the details of a cloud phone matrix.
+   * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
    * 
    * @param request - DescribeCloudPhoneNodesRequest
    * @returns DescribeCloudPhoneNodesResponse
@@ -3481,6 +3607,142 @@ export default class Client extends OpenApi {
   async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the execution records of agent scheduled tasks.
+   * 
+   * @param request - DescribeScheduledTaskExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeScheduledTaskExecutionsResponse
+   */
+  async describeScheduledTaskExecutionsWithOptions(request: $_model.DescribeScheduledTaskExecutionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeScheduledTaskExecutionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.scheduledId)) {
+      query["ScheduledId"] = request.scheduledId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeScheduledTaskExecutions",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeScheduledTaskExecutionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeScheduledTaskExecutionsResponse({}));
+  }
+
+  /**
+   * Queries the execution records of agent scheduled tasks.
+   * 
+   * @param request - DescribeScheduledTaskExecutionsRequest
+   * @returns DescribeScheduledTaskExecutionsResponse
+   */
+  async describeScheduledTaskExecutions(request: $_model.DescribeScheduledTaskExecutionsRequest): Promise<$_model.DescribeScheduledTaskExecutionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeScheduledTaskExecutionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of scheduled tasks for an agent.
+   * 
+   * @param request - DescribeScheduledTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeScheduledTasksResponse
+   */
+  async describeScheduledTasksWithOptions(request: $_model.DescribeScheduledTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeScheduledTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scheduledIds)) {
+      query["ScheduledIds"] = request.scheduledIds;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeScheduledTasks",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeScheduledTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeScheduledTasksResponse({}));
+  }
+
+  /**
+   * Queries the list of scheduled tasks for an agent.
+   * 
+   * @param request - DescribeScheduledTasksRequest
+   * @returns DescribeScheduledTasksResponse
+   */
+  async describeScheduledTasks(request: $_model.DescribeScheduledTasksRequest): Promise<$_model.DescribeScheduledTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeScheduledTasksWithOptions(request, runtime);
   }
 
   /**
@@ -5317,6 +5579,82 @@ export default class Client extends OpenApi {
   async modifyPolicyGroup(request: $_model.ModifyPolicyGroupRequest): Promise<$_model.ModifyPolicyGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies an agent scheduled task.
+   * 
+   * @param tmpReq - ModifyScheduledTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyScheduledTaskResponse
+   */
+  async modifyScheduledTaskWithOptions(tmpReq: $_model.ModifyScheduledTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyScheduledTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyScheduledTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.runConfig)) {
+      request.runConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runConfig, "RunConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.runConfigShrink)) {
+      query["RunConfig"] = request.runConfigShrink;
+    }
+
+    if (!$dara.isNull(request.scheduledId)) {
+      query["ScheduledId"] = request.scheduledId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskVersion)) {
+      query["TaskVersion"] = request.taskVersion;
+    }
+
+    if (!$dara.isNull(request.userPrompt)) {
+      query["UserPrompt"] = request.userPrompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyScheduledTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyScheduledTaskResponse>(await this.callApi(params, req, runtime), new $_model.ModifyScheduledTaskResponse({}));
+  }
+
+  /**
+   * Modifies an agent scheduled task.
+   * 
+   * @param request - ModifyScheduledTaskRequest
+   * @returns ModifyScheduledTaskResponse
+   */
+  async modifyScheduledTask(request: $_model.ModifyScheduledTaskRequest): Promise<$_model.ModifyScheduledTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyScheduledTaskWithOptions(request, runtime);
   }
 
   /**

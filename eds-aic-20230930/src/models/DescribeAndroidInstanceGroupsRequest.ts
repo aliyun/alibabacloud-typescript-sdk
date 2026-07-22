@@ -6,7 +6,7 @@ export class DescribeAndroidInstanceGroupsRequestTags extends $dara.Model {
   /**
    * @remarks
    * The tag key. You can specify 1 to 20 tag keys.
-   * >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://..
+   * >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
    * 
    * @example
    * phone
@@ -15,7 +15,7 @@ export class DescribeAndroidInstanceGroupsRequestTags extends $dara.Model {
   /**
    * @remarks
    * The tag value.
-   * >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`..
+   * >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * 2025
@@ -56,7 +56,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The billing type.
-   * [_single.params.ChargeType.enum. PrePaid]Subscription.
+   * [_single.params.ChargeType.enum. PrePaid]subscription
    * 
    * @example
    * PostPaid
@@ -94,7 +94,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that indicates the position from which the current read operation starts. Leave this parameter empty to read from the beginning.
+   * The pagination token that indicates the position from which to start reading. An empty value indicates reading from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
@@ -116,6 +116,8 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
    * standard
    */
   saleMode?: string;
+  sortKey?: string;
+  sortType?: string;
   /**
    * @remarks
    * The instance group status.
@@ -141,6 +143,8 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
       nextToken: 'NextToken',
       policyGroupId: 'PolicyGroupId',
       saleMode: 'SaleMode',
+      sortKey: 'SortKey',
+      sortType: 'SortType',
       status: 'Status',
       tags: 'Tags',
     };
@@ -158,6 +162,8 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
       nextToken: 'string',
       policyGroupId: 'string',
       saleMode: 'string',
+      sortKey: 'string',
+      sortType: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsRequestTags },
     };
