@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartTrafficControlTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The target environment. Valid values:
+   * 
    * @example
    * Pre
    */
   environment?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pairec-123***
    */

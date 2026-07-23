@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateParamRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID. You can retrieve this ID by calling the ListInstances API.
+   * 
    * @example
    * pairec-cn-abcdefg1234
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The parameter\\"s value.
+   * 
    * @example
    * house
    */

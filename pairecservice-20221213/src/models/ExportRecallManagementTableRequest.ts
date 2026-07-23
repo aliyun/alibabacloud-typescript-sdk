@@ -4,30 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportRecallManagementTableRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pairec-test1
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The MaxCompute project name.
+   * 
    * @example
    * test
    */
   maxcomputeProjectName?: string;
   /**
    * @remarks
-   * maxcompute schema。
+   * The MaxCompute project schema.
    * 
    * @example
    * default
    */
   maxcomputeSchema?: string;
   /**
+   * @remarks
+   * The name of the destination table in MaxCompute.
+   * 
    * @example
    * table-1
    */
   maxcomputeTableName?: string;
+  /**
+   * @remarks
+   * The table partitions to export. The value must be a JSON object where each key is a partition field and its value is the corresponding partition value.
+   */
   partitions?: { [key: string]: string };
   /**
+   * @remarks
+   * The version ID of the recall management table. This parameter defaults to the current published version.
+   * 
    * @example
    * 20250213000000
    */

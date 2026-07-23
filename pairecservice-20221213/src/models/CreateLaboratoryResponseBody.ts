@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateLaboratoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The laboratory ID.
+   * 
    * @example
    * 3
    */
   laboratoryId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 42391E6D-822C-58F8-9F7E-D991BB86D6AD

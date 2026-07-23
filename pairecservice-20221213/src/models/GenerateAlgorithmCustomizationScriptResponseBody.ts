@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateAlgorithmCustomizationScriptResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The log ID.
+   * 
    * @example
    * 4
    */
   logId?: string;
   /**
+   * @remarks
+   * The OSS address of the generated package.
+   * 
    * @example
    * oss:xxxx
    */
   ossAddress?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6CF1E160-3F36-5E73-A170-C75504F05BBC
    */

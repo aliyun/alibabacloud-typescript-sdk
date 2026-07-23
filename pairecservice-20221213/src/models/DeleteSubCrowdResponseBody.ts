@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSubCrowdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EE97D06A-2AA0-5AD9-B6CF-8A267924D691

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTrafficControlTargetRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

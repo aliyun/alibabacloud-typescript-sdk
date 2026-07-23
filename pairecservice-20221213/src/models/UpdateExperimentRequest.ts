@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateExperimentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The experiment configuration, specified as a JSON string.
+   * 
    * @example
    * {"RankBy": "Score"}
    */
   config?: string;
   /**
+   * @remarks
+   * The ID of the debug crowd. To obtain this ID, call the ListCrowds operation.
+   * 
    * @example
    * 3
    */
   debugCrowdId?: string;
   /**
+   * @remarks
+   * The UIDs for debug users, specified as a comma-separated string. Each UID must belong to an Alibaba Cloud account or RAM user.
+   * 
    * @example
    * 1124512470******,1124512471******,1124512472******
    */
   debugUsers?: string;
   /**
    * @remarks
+   * The description of the experiment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,12 +38,17 @@ export class UpdateExperimentRequest extends $dara.Model {
    */
   description?: string;
   /**
+   * @remarks
+   * The percentage of traffic to allocate to the experiment.
+   * 
    * @example
    * 100
    */
   flowPercent?: number;
   /**
    * @remarks
+   * The ID of the instance. To obtain this ID, call the ListInstances operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +57,8 @@ export class UpdateExperimentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The name of the experiment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +67,8 @@ export class UpdateExperimentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The type of the experiment. Valid values: ● Baseline: A baseline experiment. ● Normal: A normal experiment.
+   * 
    * This parameter is required.
    * 
    * @example

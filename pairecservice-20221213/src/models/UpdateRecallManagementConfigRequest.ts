@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRecallManagementConfigRequestNetworkConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the VPC.
+   * 
    * @example
    * vpc-xxx
    */
   vpcId?: string;
   /**
+   * @remarks
+   * A map of availability zones to VSwitch IDs.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -41,12 +47,22 @@ export class UpdateRecallManagementConfigRequestNetworkConfigs extends $dara.Mod
 
 export class UpdateRecallManagementConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 1
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The network configuration.
+   */
   networkConfigs?: UpdateRecallManagementConfigRequestNetworkConfigs[];
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * 12345
    */

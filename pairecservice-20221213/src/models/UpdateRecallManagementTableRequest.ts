@@ -3,19 +3,49 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateRecallManagementTableRequestFields extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the role of the field. Valid values:
+   * 
+   * - `Primary`: The primary key field.
+   * 
+   * - `Item`: The item field.
+   * 
+   * - `Score`: The recall score field.
+   * 
+   * - `Vector`: The vector field.
+   * 
+   * - `Index`: The index field.
+   */
   attributes?: string[];
   /**
+   * @remarks
+   * The field name.
+   * 
    * @example
    * age
    */
   name?: string;
+  /**
+   * @remarks
+   * The data type of the field.
+   * 
+   * @example
+   * STRING(全大写)
+   */
   type?: string;
   /**
+   * @remarks
+   * The vector dimension.
+   * 
    * @example
    * 32
    */
   vectorDimension?: number;
   /**
+   * @remarks
+   * The vector metric type.
+   * 
    * @example
    * L2
    */
@@ -54,23 +84,38 @@ export class UpdateRecallManagementTableRequestFields extends $dara.Model {
 
 export class UpdateRecallManagementTableRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the data size fluctuation threshold.
+   * 
    * @example
    * true
    */
   enableDataSizeFluctuationThreshold?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable the row count fluctuation threshold.
+   * 
    * @example
    * true
    */
   enableRowCountFluctuationThreshold?: boolean;
+  /**
+   * @remarks
+   * A list of fields.
+   */
   fields?: UpdateRecallManagementTableRequestFields;
   /**
+   * @remarks
+   * The version ID of the table.
+   * 
    * @example
    * 20250701
    */
   indexVersionId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -78,21 +123,33 @@ export class UpdateRecallManagementTableRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The maximum value for the data size fluctuation threshold.
+   * 
    * @example
    * 100
    */
   maxDataSizeFluctuationThreshold?: number;
   /**
+   * @remarks
+   * The maximum value for the row count fluctuation threshold.
+   * 
    * @example
    * 100
    */
   maxRowCountFluctuationThreshold?: number;
   /**
+   * @remarks
+   * The minimum value for the data size fluctuation threshold.
+   * 
    * @example
    * 10
    */
   minDataSizeFluctuationThreshold?: number;
   /**
+   * @remarks
+   * The minimum value for the row count fluctuation threshold.
+   * 
    * @example
    * 10
    */

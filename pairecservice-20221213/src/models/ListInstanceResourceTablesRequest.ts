@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstanceResourceTablesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The MaxCompute schema.
+   * 
    * @example
    * jackal
    */

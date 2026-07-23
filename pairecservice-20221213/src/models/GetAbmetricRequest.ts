@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetABMetricRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID. To get this ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

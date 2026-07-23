@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTableMetaRequestFields extends $dara.Model {
+  /**
+   * @remarks
+   * The logical data type of the field.
+   * 
+   * @example
+   * primary_key
+   */
   dataType?: string;
   /**
    * @remarks
+   * Indicates whether the field is a dimension field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,11 +23,18 @@ export class CreateTableMetaRequestFields extends $dara.Model {
   isDimensionField?: boolean;
   /**
    * @remarks
+   * Indicates whether the field is a partition field.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * true
    */
   isPartitionField?: string;
   /**
    * @remarks
+   * The business definition of the field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +43,8 @@ export class CreateTableMetaRequestFields extends $dara.Model {
   meaning?: string;
   /**
    * @remarks
+   * The name of the field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +53,8 @@ export class CreateTableMetaRequestFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The data type of the field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,6 +95,8 @@ export class CreateTableMetaRequestFields extends $dara.Model {
 export class CreateTableMetaRequest extends $dara.Model {
   /**
    * @remarks
+   * The description of the data table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -83,11 +105,15 @@ export class CreateTableMetaRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The list of fields.
+   * 
    * This parameter is required.
    */
   fields?: CreateTableMetaRequestFields[];
   /**
    * @remarks
+   * The instance ID. To get this ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -96,6 +122,14 @@ export class CreateTableMetaRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The module to which the data table belongs.
+   * 
+   * - ABTest: The data table for A/B testing.
+   * 
+   * - ExperimentTool: The data table for the experiment tool.
+   * 
+   * - DataDiagnosis: The data table for data diagnosis.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -104,6 +138,8 @@ export class CreateTableMetaRequest extends $dara.Model {
   module?: string;
   /**
    * @remarks
+   * The name of the data table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -112,6 +148,8 @@ export class CreateTableMetaRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The resource ID. To get this ID, call the ListInstanceResources operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -120,6 +158,8 @@ export class CreateTableMetaRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
+   * The name of the table in the database.
+   * 
    * This parameter is required.
    * 
    * @example

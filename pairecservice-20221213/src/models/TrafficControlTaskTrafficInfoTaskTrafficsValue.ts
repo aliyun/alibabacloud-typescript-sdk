@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class TrafficControlTaskTrafficInfoTaskTrafficsValue extends $dara.Model {
   /**
+   * @remarks
+   * The reported traffic for this experiment.
+   * 
    * @example
    * 100
    */

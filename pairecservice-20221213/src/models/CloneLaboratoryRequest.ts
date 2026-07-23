@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CloneLaboratoryRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to clone the experiment groups.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CloneLaboratoryRequest extends $dara.Model {
   cloneExperimentGroup?: boolean;
   /**
    * @remarks
+   * The destination environment. Valid values: Daily, Pre (pre-release), and Prod (production).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CloneLaboratoryRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
+   * The instance ID. To obtain this ID, call the `ListInstances` operation.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateParamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The parameter ID.
+   * 
    * @example
    * 4
    */

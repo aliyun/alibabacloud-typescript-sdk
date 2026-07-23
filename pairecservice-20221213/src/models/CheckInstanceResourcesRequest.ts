@@ -6,6 +6,40 @@ export class CheckInstanceResourcesRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
+   * The resource type. Valid values:
+   * 
+   * - Hologres
+   * 
+   * - EAS
+   * 
+   * - BE
+   * 
+   * - Rec
+   * 
+   * - Platform
+   * 
+   * - SLS
+   * 
+   * - DataHub
+   * 
+   * - Kafka
+   * 
+   * - Flinkvvp
+   * 
+   * - ACR
+   * 
+   * - OSS
+   * 
+   * - DataWorks
+   * 
+   * - PAI
+   * 
+   * - MaxCompute
+   * 
+   * - GraphCompute
+   * 
+   * - Redis
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +47,9 @@ export class CheckInstanceResourcesRequest extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The resource URI.
+   * 
    * @example
    * bucket-test-123
    */

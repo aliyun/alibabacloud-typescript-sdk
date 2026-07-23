@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateTrafficControlTaskCodeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment type. Valid values: `Daily` (daily environment), `Pre` (pre-release environment), and `Prod` (production environment).
+   * 
    * @example
    * Daily
    */
   environment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

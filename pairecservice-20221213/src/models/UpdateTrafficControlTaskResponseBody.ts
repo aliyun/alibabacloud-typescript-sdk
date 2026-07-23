@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTrafficControlTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6CF1E160-3F36-5E73-A170-C75504F05BBC

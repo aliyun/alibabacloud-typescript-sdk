@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublishRecallManagementTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The recall management job ID.
+   * 
    * @example
    * 1
    */
   recallManagementJobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */

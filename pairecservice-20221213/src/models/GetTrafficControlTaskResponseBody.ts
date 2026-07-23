@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts extends $dara.Model {
+  /**
+   * @remarks
+   * The list of target value split points.
+   */
   setPoints?: number[];
+  /**
+   * @remarks
+   * The list of control target set values.
+   */
   setValues?: number[];
+  /**
+   * @remarks
+   * The time points for splitting the control target.
+   */
   timePoints?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -42,87 +54,142 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts ex
 
 export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dara.Model {
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2024-04-25
    */
   endTime?: string;
   /**
+   * @remarks
+   * The control target event.
+   * 
    * @example
    * click
    */
   event?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-03-25T06:04:28.441Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 2024-03-25T06:04:28.441Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The item conditions in array format.
+   * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
    */
   itemConditionArray?: string;
   /**
+   * @remarks
+   * The item conditions in expression format.
+   * 
    * @example
    * status=1
    */
   itemConditionExpress?: string;
   /**
+   * @remarks
+   * The item condition type.
+   * 
    * @example
    * Array
    */
   itemConditionType?: string;
   /**
+   * @remarks
+   * The name of the control target.
+   * 
    * @example
    * target-1
    */
   name?: string;
   /**
+   * @remarks
+   * Indicates whether this is a new product regulation.
+   * 
    * @example
    * false
    */
   newProductRegulation?: boolean;
   /**
+   * @remarks
+   * The recall Policy Name.
+   * 
    * @example
    * recall-1
    */
   recallName?: string;
+  /**
+   * @remarks
+   * The split configuration of the control target.
+   */
   splitParts?: GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2024-03-25
    */
   startTime?: string;
   /**
+   * @remarks
+   * The statistical period.
+   * 
    * @example
    * Daily
    */
   statisPeriod?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * Opened
    */
   status?: string;
   /**
+   * @remarks
+   * The tolerance range of the control target.
+   * 
    * @example
    * 10
    */
   toleranceValue?: number;
   /**
+   * @remarks
+   * The ID of the traffic control target.
+   * 
    * @example
    * 1
    */
   trafficControlTargetId?: string;
   /**
+   * @remarks
+   * The ID of the traffic control task.
+   * 
    * @example
    * 1
    */
   trafficControlTaskId?: string;
   /**
+   * @remarks
+   * The control target value.
+   * 
    * @example
    * 30
    */
@@ -187,175 +254,293 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
 
 export class GetTrafficControlTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The behavior table ID.
+   * 
    * @example
    * 1
    */
   behaviorTableMetaId?: string;
   /**
+   * @remarks
+   * The control granularity.
+   * 
    * @example
    * Global
    */
   controlGranularity?: string;
   /**
+   * @remarks
+   * The control logic.
+   * 
    * @example
    * Guaranteed
    */
   controlLogic?: string;
   /**
+   * @remarks
+   * The control type.
+   * 
    * @example
    * Percent
    */
   controlType?: string;
   /**
+   * @remarks
+   * The description of the traffic control task.
+   * 
    * @example
    * this is a test task
    */
   description?: string;
+  /**
+   * @remarks
+   * The list of effective scene IDs.
+   */
   effectiveSceneIds?: number[];
+  /**
+   * @remarks
+   * The list of effective scene names.
+   */
   effectiveSceneNames?: string[];
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2024-04-25
    */
   endTime?: string;
   /**
+   * @remarks
+   * Indicates whether the task has ever been published.
+   * 
    * @example
    * true
    */
   everPublished?: boolean;
   /**
+   * @remarks
+   * The execution time.
+   * 
    * @example
    * Permanent
    */
   executionTime?: string;
   /**
+   * @remarks
+   * The Flink resource ID.
+   * 
    * @example
    * resource-xxx
    */
   flinkResourceId?: string;
   /**
+   * @remarks
+   * The Flink resource name.
+   * 
    * @example
    * flink_test
    */
   flinkResourceName?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-01-11T02:27:38.208Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 2024-01-11T02:27:38.208Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The item conditions in array format.
+   * 
    * @example
    * [{"field":"status","option":"=","value":"1"}]
    */
   itemConditionArray?: string;
   /**
+   * @remarks
+   * The item conditions in expression format.
+   * 
    * @example
    * status=1
    */
   itemConditionExpress?: string;
   /**
+   * @remarks
+   * The item condition type.
+   * 
    * @example
    * Array
    */
   itemConditionType?: string;
   /**
+   * @remarks
+   * The item table ID.
+   * 
    * @example
    * 3
    */
   itemTableMetaId?: string;
   /**
+   * @remarks
+   * The name of the traffic control task.
+   * 
    * @example
    * task-1
    */
   name?: string;
   /**
+   * @remarks
+   * The experiment IDs in the staging environment.
+   * 
    * @example
    * 1,2,3
    */
   preExperimentIds?: string;
   /**
+   * @remarks
+   * The staging environment status.
+   * 
    * @example
    * Running
    */
   prepubStatus?: string;
   /**
+   * @remarks
+   * The experiment IDs in the production environment.
+   * 
    * @example
    * 4,5,6
    */
   prodExperimentIds?: string;
   /**
+   * @remarks
+   * The production environment status.
+   * 
    * @example
    * Running
    */
   productStatus?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
   /**
+   * @remarks
+   * The scene ID.
+   * 
    * @example
    * 2
    */
   sceneId?: string;
   /**
+   * @remarks
+   * The scene name.
+   * 
    * @example
    * scene-2
    */
   sceneName?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * 1
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The list of service IDs.
+   */
   serviceIds?: number[];
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2024-03-25
    */
   startTime?: string;
   /**
+   * @remarks
+   * The behavior statistics conditions in array format.
+   * 
    * @example
    * [{"field":"click","option":"<=","value":"30"}]
    */
   statisBehaviorConditionArray?: string;
   /**
+   * @remarks
+   * The behavior statistics conditions in expression format.
+   * 
    * @example
    * click=30
    */
   statisBehaviorConditionExpress?: string;
   /**
+   * @remarks
+   * The behavior statistics condition type.
+   * 
    * @example
    * Array
    */
   statisBehaviorConditionType?: string;
+  /**
+   * @remarks
+   * The list of traffic control targets.
+   */
   trafficControlTargets?: GetTrafficControlTaskResponseBodyTrafficControlTargets[];
   /**
+   * @remarks
+   * The ID of the traffic control task.
+   * 
    * @example
    * 1
    */
   trafficControlTaskId?: string;
   /**
+   * @remarks
+   * The target user group conditions in array format.
+   * 
    * @example
    * [{"field":"gender","option":"=","value":"male"}]
    */
   userConditionArray?: string;
   /**
+   * @remarks
+   * The target user group conditions in expression format.
+   * 
    * @example
    * age<=30&&(3<=level<=6)&&gender=male
    */
   userConditionExpress?: string;
   /**
+   * @remarks
+   * The condition type for the target user group.
+   * 
    * @example
    * Array
    */
   userConditionType?: string;
   /**
+   * @remarks
+   * The user table ID.
+   * 
    * @example
    * 2
    */

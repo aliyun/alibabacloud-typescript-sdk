@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListScenesResponseBodyScenesFlows extends $dara.Model {
   /**
+   * @remarks
+   * The code of the flow.
+   * 
    * @example
    * liuliang1
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The name of the flow.
+   * 
    * @example
    * 流量1
    */
@@ -38,17 +44,30 @@ export class ListScenesResponseBodyScenesFlows extends $dara.Model {
 
 export class ListScenesResponseBodyScenes extends $dara.Model {
   /**
+   * @remarks
+   * The description of the scene.
+   * 
    * @example
    * This is a test.
    */
   description?: string;
+  /**
+   * @remarks
+   * The list of flows associated with the scene.
+   */
   flows?: ListScenesResponseBodyScenesFlows[];
   /**
+   * @remarks
+   * The name of the scene.
+   * 
    * @example
    * scene1
    */
   name?: string;
   /**
+   * @remarks
+   * The unique ID of the scene.
+   * 
    * @example
    * 3
    */
@@ -86,14 +105,21 @@ export class ListScenesResponseBodyScenes extends $dara.Model {
 export class ListScenesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The unique identifier for the request.
    * 
    * @example
    * B8987BF7-6028-5B17-80E0-251B7BD67BBA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of scenes.
+   */
   scenes?: ListScenesResponseBodyScenes[];
   /**
+   * @remarks
+   * The total number of scenes.
+   * 
    * @example
    * 10
    */

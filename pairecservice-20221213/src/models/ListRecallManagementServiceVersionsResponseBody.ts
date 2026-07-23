@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServiceVersions extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the version is effective.
+   */
   isEffective?: boolean;
   /**
+   * @remarks
+   * The version name.
+   * 
    * @example
    * version-1
    */
   name?: string;
   /**
+   * @remarks
+   * The version ID of the Recall Management Service.
+   * 
    * @example
    * 1
    */
@@ -54,13 +70,23 @@ export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServ
 }
 
 export class ListRecallManagementServiceVersionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of Recall Management Service versions.
+   */
   recallManagementServiceVersions?: ListRecallManagementServiceVersionsResponseBodyRecallManagementServiceVersions[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 30
    */

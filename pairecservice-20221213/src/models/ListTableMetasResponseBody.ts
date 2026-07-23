@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTableMetasResponseBodyTableMetasFields extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the field is a dimension field.
+   * 
    * @example
    * false
    */
   isDimensionField?: boolean;
   /**
+   * @remarks
+   * The business meaning of the field.
+   * 
    * @example
    * the gender of people
    */
   meaning?: string;
   /**
+   * @remarks
+   * The name of the field.
+   * 
    * @example
    * gender
    */
   name?: string;
   /**
+   * @remarks
+   * The data type of the field.
+   * 
    * @example
    * BIGINT
    */
@@ -52,43 +64,84 @@ export class ListTableMetasResponseBodyTableMetasFields extends $dara.Model {
 
 export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the data table can be deleted. A value of `false` indicates that the table is in use by other resources.
+   * 
    * @example
    * true
    */
   canDelete?: boolean;
+  /**
+   * @remarks
+   * The additional configurations for the data table.
+   * 
+   * @example
+   * {"table_type":"item"}
+   */
   config?: string;
   /**
+   * @remarks
+   * The description of the data table.
+   * 
    * @example
    * this is a test table
    */
   description?: string;
+  /**
+   * @remarks
+   * The fields in the data table.
+   */
   fields?: ListTableMetasResponseBodyTableMetasFields[];
   /**
+   * @remarks
+   * The time when the data table was created.
+   * 
    * @example
    * 2021-12-12 12:24:33
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the fields were imported.
+   * 
    * @example
    * imprecation
    */
   gmtImportedTime?: string;
   /**
+   * @remarks
+   * The time when the data table was last modified.
+   * 
    * @example
    * 2021-12-12 12:24:33
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The module of the data table. Valid values:
+   * 
+   * - ABTest: A/B testing
+   * 
+   * - ExperimentTool: Experiment tool
+   * 
+   * - DataDiagnosis: data diagnosis
+   * 
    * @example
    * ABTest
    */
   module?: string;
   /**
+   * @remarks
+   * The name of the data table.
+   * 
    * @example
    * test_table
    */
   name?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * reso-2s416t***
    */
@@ -104,21 +157,37 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
    */
   resourceUri?: string;
   /**
+   * @remarks
+   * The ID of the data table.
+   * 
    * @example
    * 3
    */
   tableMetaId?: string;
   /**
+   * @remarks
+   * The name of the table in the database.
+   * 
    * @example
    * table_mysql
    */
   tableName?: string;
   /**
+   * @remarks
+   * The type of the data table. Valid values:
+   * 
+   * - MaxCompute
+   * 
+   * - Hologres
+   * 
    * @example
    * MaxCompute
    */
   type?: string;
   /**
+   * @remarks
+   * The URL of the table in Data Map. This parameter is returned only for MaxCompute data tables.
+   * 
    * @example
    * https://dmc-xxx.com/dm/table/xxx
    */
@@ -179,12 +248,22 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
 
 export class ListTableMetasResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of data tables.
+   */
   tableMetas?: ListTableMetasResponseBodyTableMetas[];
   /**
+   * @remarks
+   * The total number of data tables.
+   * 
    * @example
    * 20
    */

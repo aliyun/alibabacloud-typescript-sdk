@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReleaseTrafficControlTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
+   * 
    * @example
    * Daily
    */
   environment?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pairec_123****
    */

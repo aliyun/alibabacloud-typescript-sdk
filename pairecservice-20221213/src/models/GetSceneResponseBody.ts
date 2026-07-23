@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSceneResponseBodyFlows extends $dara.Model {
   /**
+   * @remarks
+   * The flow code.
+   * 
    * @example
    * liuliang1
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The flow name.
+   * 
    * @example
    * 流量1
    */
@@ -38,19 +44,29 @@ export class GetSceneResponseBodyFlows extends $dara.Model {
 
 export class GetSceneResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The scene description.
+   * 
    * @example
    * This is a test.
    */
   description?: string;
+  /**
+   * @remarks
+   * A list of flows.
+   */
   flows?: GetSceneResponseBodyFlows[];
   /**
+   * @remarks
+   * The scene name.
+   * 
    * @example
    * scene1
    */
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * B8987BF7-6028-5B17-80E0-251B7BD67BBA

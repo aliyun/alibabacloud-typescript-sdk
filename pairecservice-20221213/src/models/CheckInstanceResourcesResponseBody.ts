@@ -6,16 +6,61 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CheckInstanceResourcesResponseBodyResources extends $dara.Model {
   /**
+   * @remarks
+   * The access status. Valid values:
+   * 
+   * - Success
+   * 
+   * - Failure
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - Hologres
+   * 
+   * - EAS
+   * 
+   * - BE
+   * 
+   * - Rec
+   * 
+   * - Platform
+   * 
+   * - SLS
+   * 
+   * - DataHub
+   * 
+   * - Kafka
+   * 
+   * - Flinkvvp
+   * 
+   * - ACR
+   * 
+   * - OSS
+   * 
+   * - DataWorks
+   * 
+   * - PAI
+   * 
+   * - MaxCompute
+   * 
+   * - GraphCompute
+   * 
+   * - Redis
+   * 
    * @example
    * OSS
    */
   type?: string;
   /**
+   * @remarks
+   * The resource URI.
+   * 
    * @example
    * bucket-test-123
    */
@@ -47,10 +92,17 @@ export class CheckInstanceResourcesResponseBodyResources extends $dara.Model {
 
 export class CheckInstanceResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9763624B-5FBB-5E3A-9193-B1ADB554CEAE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of resources.
+   */
   resources?: CheckInstanceResourcesResponseBodyResources[];
   static names(): { [key: string]: string } {
     return {

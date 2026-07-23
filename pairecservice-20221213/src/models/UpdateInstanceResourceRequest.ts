@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateInstanceResourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The resource configuration.
+   * 
    * @example
    * {}
    */
   config?: string;
   /**
+   * @remarks
+   * The resource address.
+   * 
    * @example
    * bucket-test-123
    */

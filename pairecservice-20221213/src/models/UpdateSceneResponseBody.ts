@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * FC17887E-3C82-5096-8AA6-F4C2E7417245

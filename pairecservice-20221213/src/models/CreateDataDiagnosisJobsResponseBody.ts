@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDataDiagnosisJobsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of data diagnosis job IDs.
+   */
   dataDiagnosisJobIds?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */

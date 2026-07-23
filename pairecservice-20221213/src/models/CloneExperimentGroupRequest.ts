@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CloneExperimentGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The target environment for the experiment group. ● Daily: Daily environment ● Pre: pre-release environment ● Prod: production environment
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CloneExperimentGroupRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
+   * The instance ID. You can get this ID by calling the ListInstances operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CloneExperimentGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The layer ID. You can get this ID by calling the ListLayers operation.
+   * 
    * This parameter is required.
    * 
    * @example

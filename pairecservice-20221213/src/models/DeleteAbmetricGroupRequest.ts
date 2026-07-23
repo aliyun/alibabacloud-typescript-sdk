@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteABMetricGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance. You can obtain this value by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

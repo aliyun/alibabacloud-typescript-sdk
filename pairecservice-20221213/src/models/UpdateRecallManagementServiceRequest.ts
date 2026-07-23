@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRecallManagementServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the recall management service.
+   * 
    * @example
    * reso-2s416t146ffjc3yefx
    */
   description?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pairec-cn-test123
    */

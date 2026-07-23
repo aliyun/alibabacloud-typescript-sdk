@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataDiagnosisResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the data diagnosis task.
+   * 
    * @example
    * 1
    */
   dataDiagnosisId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A04CB8C0-E74A-5E83-BC61-64D153574EC7
    */

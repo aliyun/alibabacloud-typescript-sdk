@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagementTableInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The data version.
+   * 
+   * @example
+   * ds=20250701
+   */
   dataVersion?: string;
+  /**
+   * @remarks
+   * The table version ID.
+   * 
+   * @example
+   * 2
+   */
   recallManagementTableVersionId?: string;
+  /**
+   * @remarks
+   * The source table data size.
+   * 
+   * @example
+   * 100
+   */
   sourceTableDataSize?: string;
+  /**
+   * @remarks
+   * The source table row count.
+   * 
+   * @example
+   * 100
+   */
   sourceTableRowCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,21 +64,33 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
 
 export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagerTableInfo extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
    * @example
    * ds=20250701
    */
   dataVersion?: string;
   /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
    * @example
    * 2
    */
   recallManagementTableVersionId?: string;
   /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
    * @example
    * 1000
    */
   sourceTableDataSize?: string;
   /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
    * @example
    * 100
    */
@@ -84,23 +124,43 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManag
 
 export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the synchronization job.
+   * 
    * @example
    * 2025-03-28T10:24Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The synchronization job ID.
+   * 
    * @example
    * 1
    */
   recallManagementJobId?: string;
+  /**
+   * @remarks
+   * Information about the recall management table.
+   */
   recallManagementTableInfo?: ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagementTableInfo;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   recallManagerTableInfo?: ListRecallManagementJobsResponseBodyRecallManagementJobsRecallManagerTableInfo;
   /**
+   * @remarks
+   * The start time of the synchronization job.
+   * 
    * @example
    * 2025-01-28T10:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the synchronization job. Valid values: `Init` (initializing), `Running` (running), `Success` (succeeded), and `Failed` (failed).
+   * 
    * @example
    * Running
    */
@@ -144,22 +204,38 @@ export class ListRecallManagementJobsResponseBodyRecallManagementJobs extends $d
 
 export class ListRecallManagementJobsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Reserved.
+   * 
    * @example
    * 0
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Reserved.
+   * 
    * @example
    * ""
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * A list of synchronization jobs.
+   */
   recallManagementJobs?: ListRecallManagementJobsResponseBodyRecallManagementJobs[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count of synchronization jobs.
+   * 
    * @example
    * 30
    */

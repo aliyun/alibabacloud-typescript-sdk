@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRecallManagementConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID. You can call the ListInstances operation to obtain the instance ID.
+   * 
    * @example
    * learn-pairec-xxx
    */

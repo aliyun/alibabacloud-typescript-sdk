@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloneExperimentGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cloned experiment group.
+   * 
    * @example
    * 3
    */
   experimentGroupId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID, used for tracking and troubleshooting.
    * 
    * @example
    * 12A65C6C-AFA1-59B2-9A66-A9E0BB73F0E5

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SyncFeatureConsistencyCheckJobReplayLogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * C7D0B48F-0105-52B9-B60A-FA7606E2234D
    */

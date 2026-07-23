@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSubCrowdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9763624B-5FBB-5E3A-9193-B1ADB554CEAE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sub-crowd ID.
+   * 
    * @example
    * 3
    */

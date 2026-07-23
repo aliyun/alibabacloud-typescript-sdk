@@ -4,46 +4,77 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRecallManagementServiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the active version of the recall management service.
+   * 
    * @example
    * 1
    */
   currentRecallManagementServiceVersionId?: string;
   /**
+   * @remarks
+   * The name of the active version of the recall management service.
+   * 
    * @example
    * version-1
    */
   currentRecallManagementServiceVersionName?: string;
   /**
+   * @remarks
+   * The description of the recall management service.
+   * 
    * @example
    * this is a test recall
    */
   description?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The name of the recall management service.
+   * 
    * @example
    * hot_group_recall
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the recall management service.
+   * 
    * @example
    * 3
    */
   recallManagementServiceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the recall management service. Valid values:
+   * 
+   * - Online: The service is running and available.
+   * 
+   * - Offline: The service is stopped or unavailable.
+   * 
    * @example
    * Online
    */

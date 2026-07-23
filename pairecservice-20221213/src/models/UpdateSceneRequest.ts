@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSceneRequestFlows extends $dara.Model {
   /**
+   * @remarks
+   * The flow code.
+   * 
    * @example
    * liuliang1
    */
   flowCode?: string;
   /**
+   * @remarks
+   * The flow name.
+   * 
    * @example
    * 流量1
    */
@@ -38,17 +44,30 @@ export class UpdateSceneRequestFlows extends $dara.Model {
 
 export class UpdateSceneRequest extends $dara.Model {
   /**
+   * @remarks
+   * The scene description.
+   * 
    * @example
    * This is a test.
    */
   description?: string;
+  /**
+   * @remarks
+   * The flows.
+   */
   flows?: UpdateSceneRequestFlows[];
   /**
+   * @remarks
+   * The instance ID. To obtain the ID, call the `ListInstances` API.
+   * 
    * @example
    * pairec-cn-abcdefg1234
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The scene name.
+   * 
    * @example
    * scene1
    */

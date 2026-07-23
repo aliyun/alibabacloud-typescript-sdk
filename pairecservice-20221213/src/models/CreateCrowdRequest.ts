@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCrowdRequest extends $dara.Model {
   /**
    * @remarks
+   * The description of the crowd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateCrowdRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The instance ID. To get this ID, call the ListInstances operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class CreateCrowdRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The crowd label.
+   * 
    * @example
    * os=android
    */
   label?: string;
   /**
    * @remarks
+   * The crowd name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,11 +42,17 @@ export class CreateCrowdRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The source of the user data. Valid values: ● ManualInput: Users are provided in the Users parameter. ● UploadFile: Users are provided from an uploaded file.
+   * 
    * @example
    * ManualInput
    */
   source?: string;
   /**
+   * @remarks
+   * The users to include in the crowd. Separate multiple users with commas (,).
+   * 
    * @example
    * user1,user2,user3
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRecallManagementServiceVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the recall management service version.
+   * 
    * @example
    * 1
    */
   recallManagementServiceVersionId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */

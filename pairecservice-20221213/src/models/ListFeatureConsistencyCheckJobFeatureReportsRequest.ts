@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListFeatureConsistencyCheckJobFeatureReportsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance. To obtain the ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListFeatureConsistencyCheckJobFeatureReportsRequest extends $dara.M
   instanceId?: string;
   /**
    * @remarks
+   * The item ID used for feature comparison.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListFeatureConsistencyCheckJobFeatureReportsRequest extends $dara.M
   logItemId?: string;
   /**
    * @remarks
+   * The request ID used for feature comparison.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ListFeatureConsistencyCheckJobFeatureReportsRequest extends $dara.M
   logRequestId?: string;
   /**
    * @remarks
+   * The user ID used for feature comparison.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCalculationJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * A comma-separated list of A/B metric IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateCalculationJobsRequest extends $dara.Model {
   ABMetricIds?: string;
   /**
    * @remarks
+   * The end date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateCalculationJobsRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
+   * The instance ID. Call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to get this ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CreateCalculationJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The start date.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLaboratoriesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The laboratory environment.
+   * 
+   * - `Daily`: the daily environment
+   * 
+   * - `Pre`: the pre-production environment
+   * 
+   * - `Prod`: the production environment
+   * 
    * @example
    * Daily
    */
   environment?: string;
   /**
    * @remarks
+   * The ID of the instance. You can obtain this ID by calling the `ListInstances` API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +29,8 @@ export class ListLaboratoriesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the scene. You can obtain this ID by calling the `ListScenes` API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +38,13 @@ export class ListLaboratoriesRequest extends $dara.Model {
    */
   sceneId?: string;
   /**
+   * @remarks
+   * The laboratory status.
+   * 
+   * - `Offline`: The laboratory is offline.
+   * 
+   * - `Online`: The laboratory is online.
+   * 
    * @example
    * Offline
    */

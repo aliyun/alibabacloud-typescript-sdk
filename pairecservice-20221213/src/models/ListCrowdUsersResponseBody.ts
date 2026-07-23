@@ -5,17 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ListCrowdUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * F0AB6527-093F-5C44-B3BD-42C8C210C619
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 3
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of users.
+   */
   users?: string[];
   static names(): { [key: string]: string } {
     return {

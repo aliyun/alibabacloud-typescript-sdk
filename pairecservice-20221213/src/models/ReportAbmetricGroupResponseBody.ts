@@ -4,9 +4,20 @@ import { ExperimentReportValue } from "./ExperimentReportValue";
 
 
 export class ReportABMetricGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The experiment report.
+   */
   experimentReport?: { [key: string]: ExperimentReportValue };
+  /**
+   * @remarks
+   * The dimensions used for grouping the report data.
+   */
   groupDimension?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 59CE7EC6-F268-5D71-9215-32922CC50D72
    */

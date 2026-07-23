@@ -4,41 +4,69 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRecallManagementServicesResponseBodyRecallManagementServices extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the current recall management service version.
+   * 
    * @example
    * 1
    */
   currentRecallManagementServiceVersionId?: string;
   /**
+   * @remarks
+   * The name of the current recall management service version.
+   * 
    * @example
    * version-1
    */
   currentRecallManagementServiceVersionName?: string;
   /**
+   * @remarks
+   * The recall management service description.
+   * 
    * @example
    * this is a test recall
    */
   description?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The recall management service name.
+   * 
    * @example
    * hot_group_recall
    */
   name?: string;
   /**
+   * @remarks
+   * The recall management service ID.
+   * 
    * @example
    * 3
    */
   recallManagementServiceId?: string;
   /**
+   * @remarks
+   * The status. Valid values:
+   * 
+   * - Online: online.
+   * 
+   * - Offline: offline.
+   * 
    * @example
    * Online
    */
@@ -80,22 +108,38 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
 
 export class ListRecallManagementServicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is not yet available.
+   * 
    * @example
    * 0
    */
   maxResults?: number;
   /**
+   * @remarks
+   * This parameter is not yet available.
+   * 
    * @example
    * ""
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of recall management services.
+   */
   recallManagementServices?: ListRecallManagementServicesResponseBodyRecallManagementServices[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 10
    */

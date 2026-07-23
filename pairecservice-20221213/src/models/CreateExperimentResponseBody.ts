@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateExperimentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The experiment ID.
+   * 
    * @example
    * 3
    */
   experimentId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The unique identifier for the request.
    * 
    * @example
    * 3AAA45F6-0798-5461-9360-81D133823CE7

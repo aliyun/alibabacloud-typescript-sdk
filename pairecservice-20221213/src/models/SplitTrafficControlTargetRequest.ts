@@ -4,17 +4,39 @@ import * as $dara from '@darabonba/typescript';
 
 export class SplitTrafficControlTargetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment. Valid values:
+   * 
+   * - `Pre`: pre-production environment.
+   * 
+   * - `Prod`: production environment.
+   * 
    * @example
    * Prod
    */
   environment?: string;
   /**
+   * @remarks
+   * The instance ID. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * 
    * @example
    * learn-pairec-xxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   setPoints?: number[];
+  /**
+   * @remarks
+   * The target values that correspond to the time intervals defined by the `TimePoints` parameter.
+   */
   setValues?: number[];
+  /**
+   * @remarks
+   * The time points that define the traffic-splitting intervals.
+   */
   timePoints?: number[];
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataDiagnosisReportsRequest extends $dara.Model {
   /**
    * @remarks
+   * The end date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListDataDiagnosisReportsRequest extends $dara.Model {
    */
   endDate?: string;
   /**
+   * @remarks
+   * The feature name.
+   * 
    * @example
    * feature1
    */
   featureName?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,19 @@ export class ListDataDiagnosisReportsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The retention rate report type.
+   * 
+   * - Period: A report for the specified time period.
+   * 
    * @example
    * Period
    */
   remainRateType?: string;
   /**
    * @remarks
+   * The start date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +52,9 @@ export class ListDataDiagnosisReportsRequest extends $dara.Model {
    */
   startDate?: string;
   /**
+   * @remarks
+   * The number of top results to return.
+   * 
    * @example
    * 3
    */

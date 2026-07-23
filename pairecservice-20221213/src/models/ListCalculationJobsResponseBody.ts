@@ -4,37 +4,74 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model {
   /**
+   * @remarks
+   * The name of the A/B metric.
+   * 
    * @example
    * pv
    */
   ABMetricName?: string;
   /**
+   * @remarks
+   * The business date.
+   * 
    * @example
    * 2021-12-15
    */
   bizDate?: string;
   /**
+   * @remarks
+   * The calculation job ID.
+   * 
    * @example
    * 2
    */
   calculationJobId?: string;
   /**
+   * @remarks
+   * The job configuration.
+   * 
    * @example
    * {}
    */
   config?: string;
   /**
+   * @remarks
+   * The time when the job was run.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtRanTime?: string;
+  /**
+   * @remarks
+   * The job messages.
+   */
   jobMessage?: string[];
   /**
+   * @remarks
+   * The source of the job. Valid values:
+   * 
+   * - CronOffline: The job is an offline scheduled task.
+   * 
+   * - DataRerun: The job is a data rerun task.
+   * 
    * @example
    * CronOffline
    */
   jobSource?: string;
   /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * - Success
+   * 
+   * - Failure
+   * 
+   * - Initializing
+   * 
+   * - Running
+   * 
    * @example
    * Success
    */
@@ -78,13 +115,23 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $dara.Model 
 }
 
 export class ListCalculationJobsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of calculation jobs.
+   */
   calculationJobs?: ListCalculationJobsResponseBodyCalculationJobs[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */

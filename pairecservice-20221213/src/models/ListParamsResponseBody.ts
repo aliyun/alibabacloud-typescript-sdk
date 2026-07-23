@@ -4,26 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListParamsResponseBodyParams extends $dara.Model {
   /**
+   * @remarks
+   * The environment to which the parameter belongs. Valid values:
+   * 
+   * - Daily: A test environment for daily use.
+   * 
+   * - Prepub: A staging environment that mirrors the production environment.
+   * 
+   * - Product: The production environment.
+   * 
    * @example
    * Daily
    */
   environment?: string;
   /**
+   * @remarks
+   * The time when the parameter was last modified.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * home
    */
   name?: string;
   /**
+   * @remarks
+   * The parameter ID.
+   * 
    * @example
    * 4
    */
   paramId?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * house
    */
@@ -58,16 +79,23 @@ export class ListParamsResponseBodyParams extends $dara.Model {
 }
 
 export class ListParamsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of parameters.
+   */
   params?: ListParamsResponseBodyParams[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * A2D07551-38DA-531E-9B22-877D1D86A579
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of parameters.
+   * 
    * @example
    * 10
    */

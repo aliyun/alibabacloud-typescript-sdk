@@ -5,12 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListParamsRequest extends $dara.Model {
   encrypted?: boolean;
   /**
+   * @remarks
+   * The environment to which the parameter belongs. Valid values:
+   * 
+   * - Daily: A test environment for daily use.
+   * 
+   * - Prepub: A staging environment that mirrors the production environment.
+   * 
+   * - Product: The production environment.
+   * 
    * @example
    * Daily
    */
   environment?: string;
   /**
    * @remarks
+   * The instance ID. You can call the ListInstances operation to obtain it.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,22 +29,33 @@ export class ListParamsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * home
    */
   name?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
    * @remarks
+   * The scene ID. You can call the ListScenes operation to obtain it.
+   * 
    * This parameter is required.
    * 
    * @example

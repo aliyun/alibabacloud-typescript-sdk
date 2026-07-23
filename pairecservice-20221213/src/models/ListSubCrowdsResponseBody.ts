@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSubCrowdsResponseBodySubCrowds extends $dara.Model {
   /**
+   * @remarks
+   * The time when the subcrowd was created.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The number of users in the subcrowd.
+   * 
    * @example
    * 2
    */
   quantity?: number;
   /**
+   * @remarks
+   * The source of the subcrowd.<br>● ManualInput: Users were added manually.<br>● UploadFile: Users were added by uploading a file.<br><br>
+   * 
    * @example
    * ManualInput
    */
   source?: string;
   /**
+   * @remarks
+   * The subcrowd ID.
+   * 
    * @example
    * 3
    */
   subCrowdId?: string;
   /**
+   * @remarks
+   * The users in the subcrowd.
+   * 
    * @example
    * user1,user2
    */
@@ -60,14 +75,21 @@ export class ListSubCrowdsResponseBodySubCrowds extends $dara.Model {
 export class ListSubCrowdsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * C5AEB79E-FAA4-5DCE-8CD7-1CAF549ECC3E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of subcrowds.
+   */
   subCrowds?: ListSubCrowdsResponseBodySubCrowds[];
   /**
+   * @remarks
+   * The total number of subcrowds.
+   * 
    * @example
    * 10
    */

@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateExperimentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The experiment configuration.
+   * 
    * @example
    * {"RankBy": "Score"}
    */
   config?: string;
   /**
+   * @remarks
+   * The ID of the debug crowd. Call the ListCrowds operation to obtain this ID.
+   * 
    * @example
    * 3
    */
   debugCrowdId?: string;
   /**
+   * @remarks
+   * The UIDs of Alibaba Cloud accounts or RAM users for debugging. Separate multiple UIDs with a comma.
+   * 
    * @example
    * 1124512470******,1124512471******,1124512472******
    */
   debugUsers?: string;
   /**
    * @remarks
+   * The experiment description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +39,8 @@ export class CreateExperimentRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The ID of the experiment group. Call the ListExperimentGroups operation to obtain this ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,12 +48,17 @@ export class CreateExperimentRequest extends $dara.Model {
    */
   experimentGroupId?: string;
   /**
+   * @remarks
+   * The traffic distribution percentage.
+   * 
    * @example
    * 100
    */
   flowPercent?: number;
   /**
    * @remarks
+   * The instance ID. Call the ListInstances operation to obtain this ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +67,8 @@ export class CreateExperimentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The experiment name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +77,8 @@ export class CreateExperimentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The experiment type. Valid values:<br>● `Baseline`: Indicates a baseline experiment.<br>● `Normal`: Indicates a normal experiment.<br><br>
+   * 
    * This parameter is required.
    * 
    * @example

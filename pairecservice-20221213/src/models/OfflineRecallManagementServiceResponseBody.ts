@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineRecallManagementServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77

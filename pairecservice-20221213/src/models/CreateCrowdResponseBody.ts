@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCrowdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The crowd ID.
+   * 
    * @example
    * 3
    */
   crowdId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 59CE7EC6-F268-5D71-9215-32922CC50D72

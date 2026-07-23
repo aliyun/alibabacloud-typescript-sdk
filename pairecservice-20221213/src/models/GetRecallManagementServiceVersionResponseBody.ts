@@ -4,28 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRecallManagementServiceVersionResponseBodyConfigsMergeConfig extends $dara.Model {
   /**
+   * @remarks
+   * Reserved for future use.
+   * 
    * @example
    * ""
    */
   extendedConfig?: string;
   /**
+   * @remarks
+   * The filter expression.
+   * 
    * @example
    * age>20
    */
   filterExpression?: string;
+  /**
+   * @remarks
+   * The identifiers of the tables to filter.
+   */
   filterRecallManagementTableIds?: string[];
   /**
+   * @remarks
+   * The identifier of the item table.
+   * 
    * @example
    * 2
    */
   itemRecallManagementTableId?: string;
+  /**
+   * @remarks
+   * The output fields from the item table.
+   */
   itemTableFields?: string[];
   /**
+   * @remarks
+   * The merge type.
+   * 
    * @example
    * Weight
    */
   mergeType?: string;
   /**
+   * @remarks
+   * The identifier of the recall service version configuration.
+   * 
    * @example
    * 1
    */
@@ -71,16 +94,25 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsMergeConfig ext
 
 export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsFeatureConfig extends $dara.Model {
   /**
+   * @remarks
+   * The feature expression.
+   * 
    * @example
    * city = \\"hangzhou\\"
    */
   expression?: string;
   /**
+   * @remarks
+   * The feature name.
+   * 
    * @example
    * city
    */
   name?: string;
   /**
+   * @remarks
+   * The feature type.
+   * 
    * @example
    * STRING
    */
@@ -112,6 +144,9 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOp
 
 export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsFilterConfig extends $dara.Model {
   /**
+   * @remarks
+   * The filter expression.
+   * 
    * @example
    * age > 10
    */
@@ -139,12 +174,22 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOp
 
 export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsJoinConfig extends $dara.Model {
   /**
+   * @remarks
+   * The join field.
+   * 
    * @example
    * item_id
    */
   field?: string;
+  /**
+   * @remarks
+   * The fields to return.
+   */
   outputFields?: string[];
   /**
+   * @remarks
+   * The identifier of the join table.
+   * 
    * @example
    * 3
    */
@@ -179,21 +224,33 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOp
 
 export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsTriggerConfig extends $dara.Model {
   /**
+   * @remarks
+   * The field name.
+   * 
    * @example
    * user_id
    */
   field?: string;
   /**
+   * @remarks
+   * The maximum number of fields.
+   * 
    * @example
    * 20
    */
   fieldQuantityLimit?: number;
   /**
+   * @remarks
+   * Indicates whether to perform a random sort.
+   * 
    * @example
    * false
    */
   isRandSort?: boolean;
   /**
+   * @remarks
+   * The sort field.
+   * 
    * @example
    * create_time
    */
@@ -226,14 +283,33 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOp
 }
 
 export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperators extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration for the Feature operator.
+   */
   featureConfig?: GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsFeatureConfig;
+  /**
+   * @remarks
+   * The configuration for the Filter operator.
+   */
   filterConfig?: GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsFilterConfig;
+  /**
+   * @remarks
+   * The configuration for the Join operator.
+   */
   joinConfig?: GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsJoinConfig;
   /**
+   * @remarks
+   * The operator type.
+   * 
    * @example
    * Filter
    */
   operatorType?: string;
+  /**
+   * @remarks
+   * The configuration for the Trigger operator.
+   */
   triggerConfig?: GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperatorsTriggerConfig;
   static names(): { [key: string]: string } {
     return {
@@ -278,68 +354,118 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOp
 
 export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The recall description.
+   * 
    * @example
    * this is etrec recall
    */
   description?: string;
   /**
+   * @remarks
+   * Reserved for future use.
+   * 
    * @example
    * ""
    */
   extendedConfig?: string;
   /**
+   * @remarks
+   * The item conditions, specified as a string in JSON array format.
+   * 
    * @example
    * [{"option":"<","field":"category","type":"STRING","value":"10"}]
    */
   itemConditionArray?: string;
   /**
+   * @remarks
+   * The item condition expression.
+   * 
    * @example
    * age>20
    */
   itemConditionExpression?: string;
   /**
+   * @remarks
+   * The item vector field.
+   * 
    * @example
    * item_embedding
    */
   itemVectorField?: string;
   /**
+   * @remarks
+   * The identifier of the item vector recall table.
+   * 
    * @example
    * 4
    */
   itemVectorRecallManagementTableId?: string;
   /**
+   * @remarks
+   * The recall name.
+   * 
    * @example
    * etrec
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of operators to apply.
+   */
   operators?: GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOperators[];
   /**
+   * @remarks
+   * The priority. A smaller value indicates a higher priority.
+   * 
    * @example
    * 10
    */
   priority?: number;
   /**
+   * @remarks
+   * The identifier of the recall service version configuration.
+   * 
    * @example
    * 5
    */
   recallManagementServiceVersionConfigId?: string;
   /**
+   * @remarks
+   * The identifier of the recall management table.
+   * 
    * @example
    * 2
    */
   recallManagementTableId?: string;
   /**
+   * @remarks
+   * The recall type.
+   * 
    * @example
    * X2I
    */
   recallType?: string;
+  /**
+   * @remarks
+   * The sort fields.
+   * 
+   * @example
+   * name
+   */
   sortFields?: string;
   /**
+   * @remarks
+   * The user vector field.
+   * 
    * @example
    * user_embedding
    */
   userVectorField?: string;
   /**
+   * @remarks
+   * The identifier of the user vector recall table.
+   * 
    * @example
    * 3
    */
@@ -397,7 +523,15 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs e
 }
 
 export class GetRecallManagementServiceVersionResponseBodyConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The merge configuration.
+   */
   mergeConfig?: GetRecallManagementServiceVersionResponseBodyConfigsMergeConfig;
+  /**
+   * @remarks
+   * The recall service version configurations.
+   */
   recallConfigs?: GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs[];
   static names(): { [key: string]: string } {
     return {
@@ -429,31 +563,51 @@ export class GetRecallManagementServiceVersionResponseBodyConfigs extends $dara.
 }
 
 export class GetRecallManagementServiceVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration details.
+   */
   configs?: GetRecallManagementServiceVersionResponseBodyConfigs;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the current version is effective.
+   */
   isEffective?: boolean;
   /**
+   * @remarks
+   * The name of the recall service version.
+   * 
    * @example
    * V1
    */
   name?: string;
   /**
+   * @remarks
+   * The identifier of the recall service version.
+   * 
    * @example
    * 2
    */
   recallManagementServiceVersionId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * E15A1443-7917-5BE0-AE70-25538ECF398D

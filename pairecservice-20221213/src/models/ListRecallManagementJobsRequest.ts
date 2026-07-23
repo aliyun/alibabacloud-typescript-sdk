@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRecallManagementJobsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The filter condition. Filtering is supported only for the `Table` type. For example: `{"RecallManagementTableId":"1"}`
+   * 
    * @example
    * {"RecallManagementTableId":"1"}
    */
   condition?: { [key: string]: any };
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pairec-test1
    */
   instanceId?: string;
   /**
+   * @remarks
+   * This parameter is not used.
+   * 
    * @example
    * 0
    */
   maxResults?: number;
   /**
+   * @remarks
+   * This parameter is not used.
+   * 
    * @example
    * ""
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order. Valid values: `ASC` (ascending) and `DESC` (descending).
+   * 
    * @example
    * ASC
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting basis. Valid values: `GmtCreateTime` (creation time) and `GmtModifiedTime` (update time).
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * Table
    */

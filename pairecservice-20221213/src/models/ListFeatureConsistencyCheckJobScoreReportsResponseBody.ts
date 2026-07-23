@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScoreDiff extends $dara.Model {
   /**
+   * @remarks
+   * The item ID.
+   * 
    * @example
    * 4
    */
   logItemId?: string;
   /**
+   * @remarks
+   * The request ID recorded in the log.
+   * 
    * @example
    * 323
    */
   logRequestId?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 3
    */
   logUserId?: string;
   /**
+   * @remarks
+   * The score difference.
+   * 
    * @example
    * 0.00000234
    */
   scoreDiff?: string;
   /**
+   * @remarks
+   * The score difference details.
+   * 
    * @example
    * {}
    */
@@ -59,17 +74,30 @@ export class ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScor
 
 export class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data path.
+   * 
    * @example
    * http://*******
    */
   dataPath?: string;
   /**
+   * @remarks
+   * The OSS path.
+   * 
    * @example
    * oss://********
    */
   ossPath?: string;
+  /**
+   * @remarks
+   * A list of score difference reports.
+   */
   reportsOfScoreDiff?: ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScoreDiff[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F0AB6527-093F-5C44-B3BD-42C8C210C619
    */

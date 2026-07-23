@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstanceResourceSchemasResponseBodySchemas extends $dara.Model {
   /**
+   * @remarks
+   * The schema name.
+   * 
    * @example
    * default
    */
@@ -31,12 +34,22 @@ export class ListInstanceResourceSchemasResponseBodySchemas extends $dara.Model 
 
 export class ListInstanceResourceSchemasResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of schemas.
+   */
   schemas?: ListInstanceResourceSchemasResponseBodySchemas[];
   /**
+   * @remarks
+   * The total count of schemas.
+   * 
    * @example
    * 10
    */

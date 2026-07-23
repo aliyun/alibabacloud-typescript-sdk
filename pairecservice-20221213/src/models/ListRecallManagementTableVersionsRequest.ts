@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecallManagementTableVersionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,21 +14,33 @@ export class ListRecallManagementTableVersionsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The sort order. Valid values: `ASC` (ascending order) and `DESC` (descending order).
+   * 
    * @example
    * ASC
    */
   order?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The field to sort by. Valid values: `GmtCreateTime` (creation time) and `GmtModifiedTime` (update time).
+   * 
    * @example
    * GmtCreateTime
    */

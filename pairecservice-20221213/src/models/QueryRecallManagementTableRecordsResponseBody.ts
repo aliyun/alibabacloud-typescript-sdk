@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryRecallManagementTableRecordsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of the retrieved records.
+   */
   records?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7D59453C-48AA-5FC5-8848-2D373BD1A17F
    */

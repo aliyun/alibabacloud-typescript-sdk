@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateExperimentGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the experiment group.
+   * 
    * @example
    * 3
    */
   experimentGroupId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * A04CB8C0-E74A-5E83-BC61-64D153574EC7

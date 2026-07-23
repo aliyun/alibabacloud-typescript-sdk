@@ -4,28 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRecallManagementServiceVersionConfigRequestMergeConfig extends $dara.Model {
   /**
+   * @remarks
+   * Additional configurations for the merge. Reserved for future use.
+   * 
    * @example
    * {"":""}
    */
   extendedConfig?: string;
   /**
+   * @remarks
+   * The filter expression.
+   * 
    * @example
    * age>20
    */
   filterExpression?: string;
+  /**
+   * @remarks
+   * A list of recall management table IDs to use for filtering.
+   */
   filterRecallManagementTableIds?: string[];
   /**
+   * @remarks
+   * The ID of the item recall management table.
+   * 
    * @example
    * 2
    */
   itemRecallManagementTableId?: string;
+  /**
+   * @remarks
+   * The output fields from the item table.
+   */
   itemTableFields?: string[];
   /**
+   * @remarks
+   * The merge type. Valid values: `Weight` and `Alternate`.
+   * 
    * @example
    * Weight
    */
   mergeType?: string;
   /**
+   * @remarks
+   * The ID of the recall management service version configuration.
+   * 
    * @example
    * 4
    */
@@ -71,16 +94,25 @@ export class UpdateRecallManagementServiceVersionConfigRequestMergeConfig extend
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFeatureConfig extends $dara.Model {
   /**
+   * @remarks
+   * The feature expression.
+   * 
    * @example
    * category=3
    */
   expression?: string;
   /**
+   * @remarks
+   * The feature name.
+   * 
    * @example
    * city
    */
   name?: string;
   /**
+   * @remarks
+   * The feature type.
+   * 
    * @example
    * string
    */
@@ -112,6 +144,9 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFilterConfig extends $dara.Model {
   /**
+   * @remarks
+   * The filter expression.
+   * 
    * @example
    * age>20
    */
@@ -139,12 +174,22 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsJoinConfig extends $dara.Model {
   /**
+   * @remarks
+   * The join field.
+   * 
    * @example
    * item_id
    */
   field?: string;
+  /**
+   * @remarks
+   * The fields to return from the join.
+   */
   outputFields?: string[];
   /**
+   * @remarks
+   * The ID of the table to join.
+   * 
    * @example
    * 3
    */
@@ -179,21 +224,33 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsTriggerConfig extends $dara.Model {
   /**
+   * @remarks
+   * The field name.
+   * 
    * @example
    * user_id
    */
   field?: string;
   /**
+   * @remarks
+   * The maximum number of fields.
+   * 
    * @example
    * 20
    */
   fieldQuantityLimit?: number;
   /**
+   * @remarks
+   * Specifies whether to perform a random sort.
+   * 
    * @example
    * false
    */
   isRandSort?: boolean;
   /**
+   * @remarks
+   * The sort field.
+   * 
    * @example
    * create_time
    */
@@ -226,14 +283,33 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 }
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperators extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration for the `Feature` operator.
+   */
   featureConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFeatureConfig;
+  /**
+   * @remarks
+   * The configuration for the `Filter` operator.
+   */
   filterConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFilterConfig;
+  /**
+   * @remarks
+   * The configuration for the `Join` operator.
+   */
   joinConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsJoinConfig;
   /**
+   * @remarks
+   * The operator type.
+   * 
    * @example
    * Filter
    */
   operatorType?: string;
+  /**
+   * @remarks
+   * The configuration for the `Trigger` operator.
+   */
   triggerConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsTriggerConfig;
   static names(): { [key: string]: string } {
     return {
@@ -278,67 +354,110 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig extends $dara.Model {
   /**
+   * @remarks
+   * The recall description.
+   * 
    * @example
    * this is etrec recall
    */
   description?: string;
   /**
+   * @remarks
+   * The extended configuration. Reserved for future use.
+   * 
    * @example
    * {"":""}
    */
   extendedConfig?: string;
   /**
+   * @remarks
+   * The data format of the item condition.
+   * 
    * @example
    * ["type":"equal"]
    */
   itemConditionArray?: string;
   /**
+   * @remarks
+   * The item condition expression.
+   * 
    * @example
    * age>20
    */
   itemConditionExpression?: string;
   /**
+   * @remarks
+   * The item vector field.
+   * 
    * @example
    * item_embedding
    */
   itemVectorField?: string;
   /**
+   * @remarks
+   * The ID of the item vector recall management table.
+   * 
    * @example
    * 2
    */
   itemVectorRecallManagementTableId?: string;
   /**
+   * @remarks
+   * The recall name.
+   * 
    * @example
    * etrec
    */
   name?: string;
+  /**
+   * @remarks
+   * A list of operators.
+   */
   operators?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperators[];
   /**
+   * @remarks
+   * The priority. A smaller value indicates a higher priority.
+   * 
    * @example
    * 2
    */
   priority?: number;
   /**
+   * @remarks
+   * The ID of the recall management table.
+   * 
    * @example
    * 1
    */
   recallManagementTableId?: string;
   /**
+   * @remarks
+   * The recall type.
+   * 
    * @example
    * X2I
    */
   recallType?: string;
   /**
+   * @remarks
+   * The sort fields.
+   * 
    * @example
    * name
    */
   sortFields?: string;
   /**
+   * @remarks
+   * The user vector field.
+   * 
    * @example
    * user_embedding
    */
   userVectorField?: string;
   /**
+   * @remarks
+   * The ID of the user vector recall management table.
+   * 
    * @example
    * 3
    */
@@ -395,16 +514,30 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig exten
 
 export class UpdateRecallManagementServiceVersionConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the recall management version configuration. Valid values are `Recall` for the recall configuration and `Merge` for the merge configuration.
+   * 
    * @example
    * Recall
    */
   configType?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pairec-cn-test123
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The merge configuration.
+   */
   mergeConfig?: UpdateRecallManagementServiceVersionConfigRequestMergeConfig;
+  /**
+   * @remarks
+   * The recall configuration.
+   */
   recallConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfig;
   static names(): { [key: string]: string } {
     return {

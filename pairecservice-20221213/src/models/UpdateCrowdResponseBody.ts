@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCrowdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8C27790E-CCA5-56BB-BA17-646295DEC0A2

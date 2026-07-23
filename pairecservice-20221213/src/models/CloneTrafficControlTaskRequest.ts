@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloneTrafficControlTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * pairec_123****
    */

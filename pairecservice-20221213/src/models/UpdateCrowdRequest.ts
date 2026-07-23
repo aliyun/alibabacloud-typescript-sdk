@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCrowdRequest extends $dara.Model {
   /**
    * @remarks
+   * The crowd description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateCrowdRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The instance ID. To obtain this ID, call the ListInstances operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateCrowdRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The crowd name.
+   * 
    * This parameter is required.
    * 
    * @example

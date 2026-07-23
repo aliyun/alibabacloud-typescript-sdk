@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTrafficControlTaskItemReportRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryTrafficControlTaskItemReportRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The execution environment for the task. Valid values: Daily (development environment), Pre (staging environment), Prod (production environment).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class QueryTrafficControlTaskItemReportRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class QueryTrafficControlTaskItemReportRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The start time.
+   * 
    * This parameter is required.
    * 
    * @example

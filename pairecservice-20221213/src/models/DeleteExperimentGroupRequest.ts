@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteExperimentGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID, which can be obtained by calling the ListInstances API.
+   * 
    * This parameter is required.
    * 
    * @example

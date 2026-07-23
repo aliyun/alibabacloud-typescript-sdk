@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataDiagnosisJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,20 +14,41 @@ export class ListDataDiagnosisJobsShrinkRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * - Initializing: The job is being initialized.
+   * 
+   * - Running: The job is in progress.
+   * 
+   * - Success: The job succeeded.
+   * 
+   * - Failure: The job failed to complete.
+   * 
    * @example
    * Initializing
    */
   status?: string;
+  /**
+   * @remarks
+   * A list of data diagnosis types.
+   */
   typesShrink?: string;
   static names(): { [key: string]: string } {
     return {

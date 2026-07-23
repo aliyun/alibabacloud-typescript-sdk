@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class PushAllExperimentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID. Call the ListInstances API to obtain this ID.
+   * 
    * @example
    * pairec-cn-abcdefg1234
    */

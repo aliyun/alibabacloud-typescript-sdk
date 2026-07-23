@@ -3,19 +3,49 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRecallManagementTableRequestFields extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes of the field. Valid values:
+   * 
+   * - `Primary`: The primary key field.
+   * 
+   * - `Item`: The item field.
+   * 
+   * - `Score`: The recall score field.
+   * 
+   * - `Vector`: The vector field.
+   * 
+   * - `Index`: The index field.
+   */
   attributes?: string[];
   /**
+   * @remarks
+   * The name of the field.
+   * 
    * @example
    * age
    */
   name?: string;
+  /**
+   * @remarks
+   * The data type of the field.
+   * 
+   * @example
+   * STRING(全大写)
+   */
   type?: string;
   /**
+   * @remarks
+   * The vector dimension.
+   * 
    * @example
    * 32
    */
   vectorDimension?: number;
   /**
+   * @remarks
+   * The vector metric type.
+   * 
    * @example
    * L2
    */
@@ -54,33 +84,54 @@ export class CreateRecallManagementTableRequestFields extends $dara.Model {
 
 export class CreateRecallManagementTableRequest extends $dara.Model {
   /**
+   * @remarks
+   * Additional settings for the table.
+   * 
    * @example
    * {"":""}
    */
   config?: string;
   /**
+   * @remarks
+   * The data source.
+   * 
    * @example
    * MaxcomputeAndApiApi
    */
   dataSource?: string;
   /**
+   * @remarks
+   * **The description of the table.**
+   * 
    * @example
    * this is a test table
    */
   description?: string;
   /**
+   * @remarks
+   * Whether to enable the data size fluctuation threshold.
+   * 
    * @example
    * true
    */
   enableDataSizeFluctuationThreshold?: boolean;
   /**
+   * @remarks
+   * Whether to enable the row count fluctuation threshold.
+   * 
    * @example
    * true
    */
   enableRowCountFluctuationThreshold?: boolean;
+  /**
+   * @remarks
+   * The list of fields.
+   */
   fields?: CreateRecallManagementTableRequestFields[];
   /**
    * @remarks
+   * **The instance ID.**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88,51 +139,81 @@ export class CreateRecallManagementTableRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The maximum data size fluctuation threshold.
+   * 
    * @example
    * 100
    */
   maxDataSizeFluctuationThreshold?: number;
   /**
+   * @remarks
+   * The maximum row count fluctuation threshold.
+   * 
    * @example
    * 100
    */
   maxRowCountFluctuationThreshold?: number;
   /**
+   * @remarks
+   * The MaxCompute project.
+   * 
    * @example
    * test
    */
   maxcomputeProjectName?: string;
   /**
+   * @remarks
+   * **The schema in MaxCompute.**
+   * 
    * @example
    * default
    */
   maxcomputeSchema?: string;
   /**
+   * @remarks
+   * The name of the table in MaxCompute.
+   * 
    * @example
    * table-1
    */
   maxcomputeTableName?: string;
   /**
+   * @remarks
+   * The minimum data size fluctuation threshold.
+   * 
    * @example
    * 10
    */
   minDataSizeFluctuationThreshold?: number;
   /**
+   * @remarks
+   * The minimum row count fluctuation threshold.
+   * 
    * @example
    * 10
    */
   minRowCountFluctuationThreshold?: number;
   /**
+   * @remarks
+   * **The name of the table.**
+   * 
    * @example
    * table-123
    */
   name?: string;
   /**
+   * @remarks
+   * The recall type of the table.
+   * 
    * @example
    * X2I
    */
   recallType?: string;
   /**
+   * @remarks
+   * **The table type.**
+   * 
    * @example
    * Recall
    */

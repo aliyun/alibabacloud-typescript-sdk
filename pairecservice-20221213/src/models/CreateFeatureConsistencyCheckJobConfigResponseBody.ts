@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The feature consistency check job configuration ID.
+   * 
    * @example
    * 4
    */
   featureConsistencyCheckJobConfigId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E15A1443-7917-5BE0-AE70-25538ECF398D
    */

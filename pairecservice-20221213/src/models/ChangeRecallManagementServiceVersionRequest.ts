@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeRecallManagementServiceVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pairec-cn-test123
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The recall management service version ID.
+   * 
    * @example
    * 1
    */

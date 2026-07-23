@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceResourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The resource category. Valid values:
+   * 
+   * - DataManagement
+   * 
+   * - Engine
+   * 
+   * - Monitor
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +21,38 @@ export class CreateInstanceResourceRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
+   * The resource group.
+   * 
+   * If the resource category is DataManagement, valid values are:
+   * 
+   * - storage
+   * 
+   * - modelpipeline
+   * 
+   * - datastorage
+   * 
+   * - modeltrain
+   * 
+   * If the resource category is Engine, valid values are:
+   * 
+   * - feature
+   * 
+   * - predict
+   * 
+   * - recall
+   * 
+   * - recengine
+   * 
+   * If the resource category is Monitor, valid values are:
+   * 
+   * - logs
+   * 
+   * - logsback
+   * 
+   * - coldstart
+   * 
+   * - deploy
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +61,40 @@ export class CreateInstanceResourceRequest extends $dara.Model {
   group?: string;
   /**
    * @remarks
+   * The resource type. Valid values:
+   * 
+   * - Hologres
+   * 
+   * - EAS
+   * 
+   * - BE
+   * 
+   * - Rec
+   * 
+   * - Platform
+   * 
+   * - SLS
+   * 
+   * - DataHub
+   * 
+   * - ApsaraMQ for Kafka
+   * 
+   * - Realtime Compute for Apache Flink
+   * 
+   * - ACR
+   * 
+   * - OSS
+   * 
+   * - DataWorks
+   * 
+   * - PAI
+   * 
+   * - MaxCompute
+   * 
+   * - Graph Compute
+   * 
+   * - ApsaraDB for Redis
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +103,8 @@ export class CreateInstanceResourceRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
+   * The resource URI.
+   * 
    * This parameter is required.
    * 
    * @example

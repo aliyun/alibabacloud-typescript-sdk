@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLayerRequest extends $dara.Model {
   /**
    * @remarks
+   * The layer description.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateLayerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The instance ID. You can obtain this ID by calling the ListInstances operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateLayerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The layer name.
+   * 
    * This parameter is required.
    * 
    * @example

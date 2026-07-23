@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * FCF741D8-9C30-578E-807F-B935487DB34A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The scene ID.
+   * 
    * @example
    * 3
    */

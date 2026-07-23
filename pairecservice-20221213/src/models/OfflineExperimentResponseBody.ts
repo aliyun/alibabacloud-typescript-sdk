@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineExperimentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 872951C9-7755-5FA1-AACD-7F9375A6D27A

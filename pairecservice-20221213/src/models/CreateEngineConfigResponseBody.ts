@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEngineConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the engine config.
+   * 
    * @example
    * 1
    */
   engineConfigId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * E15A1443-7917-5BE0-AE70-25538ECF398D
    */

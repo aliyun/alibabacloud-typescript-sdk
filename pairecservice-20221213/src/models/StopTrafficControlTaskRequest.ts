@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopTrafficControlTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The environment. Valid values: `Daily` (daily environment), `Pre` (pre-production environment), and `Prod` (production environment).
+   * 
    * @example
    * Daily
    */
   environment?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pairec_123****
    */

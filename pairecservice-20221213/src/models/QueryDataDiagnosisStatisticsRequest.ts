@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryDataDiagnosisStatisticsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end date.
+   * 
    * @example
    * 2023-08-08
    */
   endDate?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * learn-pairec-xxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The retention rate report type.
+   * 
+   * - Period: A periodic report.
+   * 
    * @example
    * Period
    */
   remainRateType?: string;
   /**
+   * @remarks
+   * The start date.
+   * 
    * @example
    * 2023-08-01
    */

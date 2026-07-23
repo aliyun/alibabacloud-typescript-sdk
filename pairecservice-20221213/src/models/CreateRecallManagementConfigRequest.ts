@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRecallManagementConfigRequestNetworkConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * A map of availability zones to VSwitch IDs.
+   */
   vSwitchIds?: { [key: string]: string };
   /**
    * @remarks
-   * Vpc id
+   * The VPC ID.
    * 
    * @example
    * vpc-xxx
@@ -40,17 +44,30 @@ export class CreateRecallManagementConfigRequestNetworkConfigs extends $dara.Mod
 
 export class CreateRecallManagementConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * **The instance ID.**
+   * 
    * @example
    * learn-pairec-xxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * **The network configurations.**
+   */
   networkConfigs?: CreateRecallManagementConfigRequestNetworkConfigs[];
   /**
+   * @remarks
+   * **The password.**
+   * 
    * @example
    * 12345
    */
   password?: string;
   /**
+   * @remarks
+   * **The user name.**
+   * 
    * @example
    * zhhangsan
    */

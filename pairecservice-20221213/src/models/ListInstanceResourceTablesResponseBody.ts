@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstanceResourceTablesResponseBodyTables extends $dara.Model {
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * table-1
    */
@@ -32,14 +35,21 @@ export class ListInstanceResourceTablesResponseBodyTables extends $dara.Model {
 export class ListInstanceResourceTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 01D22D08-BA20-5F35-8302-99115F288220
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of data tables.
+   */
   tables?: ListInstanceResourceTablesResponseBodyTables[];
   /**
+   * @remarks
+   * The total count of data tables.
+   * 
    * @example
    * 30
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   /**
    * @remarks
+   * The feature consistency check job configuration ID. To obtain the configuration ID, call the [ListFeatureConsistencyCheckJobConfigs](https://help.aliyun.com/document_detail/2557567.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   featureConsistencyCheckJobConfigId?: string;
   /**
    * @remarks
+   * The instance ID. To obtain the instance ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The item features.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   itemFeatures?: string;
   /**
    * @remarks
+   * The item ID in the log.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   logItemId?: string;
   /**
    * @remarks
+   * The log request ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +55,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   logRequestId?: string;
   /**
    * @remarks
+   * The log request time (UNIX epoch timestamp).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +65,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   logRequestTime?: number;
   /**
    * @remarks
+   * The user ID in the log.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +75,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   logUserId?: string;
   /**
    * @remarks
+   * The scene name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +85,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
+   * The scores.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -78,6 +96,8 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
+   * The user features.
+   * 
    * This parameter is required.
    * 
    * @example

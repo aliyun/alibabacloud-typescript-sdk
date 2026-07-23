@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTrafficControlTargetTrafficHistoryRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end of the time range.
+   * 
    * @example
    * 2024-01-10 13:13:20
    */
   endTime?: string;
   /**
+   * @remarks
+   * The target environment. Valid values: Daily, Pre, and Prod.
+   * 
    * @example
    * Pre
    */
   environment?: string;
   /**
+   * @remarks
+   * The ID of the experiment group.
+   * 
    * @example
    * 2
    */
   experimentGroupId?: string;
   /**
+   * @remarks
+   * The ID of the experiment.
+   * 
    * @example
    * ER_All
    */
   experimentId?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * pairec-1324***
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the item.
+   * 
    * @example
    * 1001
    */
   itemId?: string;
   /**
+   * @remarks
+   * The start of the time range.
+   * 
    * @example
    * 2024-01-01 13:13:20
    */
   startTime?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 20
    */

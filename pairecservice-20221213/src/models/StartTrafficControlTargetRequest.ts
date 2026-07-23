@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartTrafficControlTargetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * pairec-1324***
    */

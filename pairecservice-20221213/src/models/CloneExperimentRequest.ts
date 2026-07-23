@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CloneExperimentRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID. Call the ListInstances operation to get the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

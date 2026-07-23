@@ -5,8 +5,15 @@ import { TrafficControlTaskTrafficInfoTargetTrafficsDataValue } from "./TrafficC
 
 
 export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed data reported for this traffic control target.
+   */
   data?: { [key: string]: TrafficControlTaskTrafficInfoTargetTrafficsDataValue };
   /**
+   * @remarks
+   * The traffic control target ID.
+   * 
    * @example
    * 2
    */
@@ -38,7 +45,15 @@ export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficIn
 }
 
 export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The traffic data for each traffic control target.
+   */
   targetTraffics?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfoTargetTraffics[];
+  /**
+   * @remarks
+   * The reported traffic data for the traffic control task.
+   */
   taskTraffics?: { [key: string]: TrafficControlTaskTrafficInfoTaskTrafficsValue };
   static names(): { [key: string]: string } {
     return {
@@ -71,10 +86,17 @@ export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficIn
 
 export class GetTrafficControlTaskTrafficResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6CF1E160-3F36-5E73-A170-C75504F05BBC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Details of the reported traffic data.
+   */
   trafficControlTaskTrafficInfo?: GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficInfo;
   static names(): { [key: string]: string } {
     return {

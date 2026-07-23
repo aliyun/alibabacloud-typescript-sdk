@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineLaboratoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID. Call the `ListInstances` operation to obtain this ID.
+   * 
    * This parameter is required.
    * 
    * @example

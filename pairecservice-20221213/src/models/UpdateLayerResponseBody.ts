@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLayerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0EA9215E-EC21-53AB-B8D9-D3DEA90D040A

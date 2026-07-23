@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloneTrafficControlTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
   /**
+   * @remarks
+   * Traffic control task ID.
+   * 
    * @example
    * 3
    */

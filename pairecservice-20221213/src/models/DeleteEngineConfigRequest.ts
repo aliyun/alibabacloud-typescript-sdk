@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteEngineConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete all engine configurations with the same name.
+   * 
+   * @example
+   * False
+   */
   deleteAll?: boolean;
   /**
+   * @remarks
+   * The instance ID. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * 
    * @example
    * pairec-cn-***test1
    */

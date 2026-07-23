@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLayerRequest extends $dara.Model {
   /**
    * @remarks
+   * The description of the layer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateLayerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The ID of the instance. Call the `ListInstances` operation to obtain this value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateLayerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the laboratory. Call the `ListLaboratories` operation to obtain this value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CreateLayerRequest extends $dara.Model {
   laboratoryId?: string;
   /**
    * @remarks
+   * The name of the layer.
+   * 
    * This parameter is required.
    * 
    * @example

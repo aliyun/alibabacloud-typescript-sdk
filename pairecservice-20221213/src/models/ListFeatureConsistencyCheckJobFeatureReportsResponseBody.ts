@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFeatureConsistencyCheckJobFeatureReportsResponseBodyReportsOfFeatureDiff extends $dara.Model {
   /**
+   * @remarks
+   * The feature name.
+   * 
    * @example
    * gender
    */
   featureName?: string;
   /**
+   * @remarks
+   * The item ID.
+   * 
    * @example
    * 9010
    */
   logItemId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
    */
   logRequestId?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1010
    */
   logUserId?: string;
   /**
+   * @remarks
+   * The offline value.
+   * 
    * @example
    * male
    */
   offlineValue?: string;
   /**
+   * @remarks
+   * The online value.
+   * 
    * @example
    * male
    */
@@ -66,17 +84,30 @@ export class ListFeatureConsistencyCheckJobFeatureReportsResponseBodyReportsOfFe
 
 export class ListFeatureConsistencyCheckJobFeatureReportsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data path.
+   * 
    * @example
    * https://********
    */
   dataPath?: string;
   /**
+   * @remarks
+   * The OSS path.
+   * 
    * @example
    * oss://********
    */
   ossPath?: string;
+  /**
+   * @remarks
+   * The feature comparison reports.
+   */
   reportsOfFeatureDiff?: ListFeatureConsistencyCheckJobFeatureReportsResponseBodyReportsOfFeatureDiff[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BBD41FBF-E75C-551A-92FA-CAD654AA006F
    */
