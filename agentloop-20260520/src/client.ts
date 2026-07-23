@@ -620,6 +620,178 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an experiment plan.
+   * 
+   * @remarks
+   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+   * 
+   * @param request - CreateExperimentPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExperimentPlanResponse
+   */
+  async createExperimentPlanWithOptions(agentSpace: string, request: $_model.CreateExperimentPlanRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExperimentPlanResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetId)) {
+      body["datasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.evaluators)) {
+      body["evaluators"] = request.evaluators;
+    }
+
+    if (!$dara.isNull(request.experimentType)) {
+      body["experimentType"] = request.experimentType;
+    }
+
+    if (!$dara.isNull(request.experiments)) {
+      body["experiments"] = request.experiments;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.planName)) {
+      body["planName"] = request.planName;
+    }
+
+    if (!$dara.isNull(request.querySql)) {
+      body["querySql"] = request.querySql;
+    }
+
+    if (!$dara.isNull(request.selectedItemIds)) {
+      body["selectedItemIds"] = request.selectedItemIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateExperimentPlan",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${$dara.URL.percentEncode(agentSpace)}/plans`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateExperimentPlanResponse>(await this.callApi(params, req, runtime), new $_model.CreateExperimentPlanResponse({}));
+  }
+
+  /**
+   * Creates an experiment plan.
+   * 
+   * @remarks
+   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+   * 
+   * @param request - CreateExperimentPlanRequest
+   * @returns CreateExperimentPlanResponse
+   */
+  async createExperimentPlan(agentSpace: string, request: $_model.CreateExperimentPlanRequest): Promise<$_model.CreateExperimentPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createExperimentPlanWithOptions(agentSpace, request, headers, runtime);
+  }
+
+  /**
+   * Executes an experiment.
+   * 
+   * @remarks
+   * Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+   * 
+   * @param request - CreateExperimentRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExperimentRunResponse
+   */
+  async createExperimentRunWithOptions(agentSpace: string, request: $_model.CreateExperimentRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExperimentRunResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.completedAt)) {
+      body["completedAt"] = request.completedAt;
+    }
+
+    if (!$dara.isNull(request.completedTasks)) {
+      body["completedTasks"] = request.completedTasks;
+    }
+
+    if (!$dara.isNull(request.executedAt)) {
+      body["executedAt"] = request.executedAt;
+    }
+
+    if (!$dara.isNull(request.experimentPlanId)) {
+      body["experimentPlanId"] = request.experimentPlanId;
+    }
+
+    if (!$dara.isNull(request.failedTasks)) {
+      body["failedTasks"] = request.failedTasks;
+    }
+
+    if (!$dara.isNull(request.offlineExperiments)) {
+      body["offlineExperiments"] = request.offlineExperiments;
+    }
+
+    if (!$dara.isNull(request.recordName)) {
+      body["recordName"] = request.recordName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.totalTasks)) {
+      body["totalTasks"] = request.totalTasks;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateExperimentRun",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experimentruns/${$dara.URL.percentEncode(agentSpace)}/execute`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateExperimentRunResponse>(await this.callApi(params, req, runtime), new $_model.CreateExperimentRunResponse({}));
+  }
+
+  /**
+   * Executes an experiment.
+   * 
+   * @remarks
+   * Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+   * 
+   * @param request - CreateExperimentRunRequest
+   * @returns CreateExperimentRunResponse
+   */
+  async createExperimentRun(agentSpace: string, request: $_model.CreateExperimentRunRequest): Promise<$_model.CreateExperimentRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createExperimentRunWithOptions(agentSpace, request, headers, runtime);
+  }
+
+  /**
    * Creates a pipeline.
    * 
    * @param request - CreatePipelineRequest
@@ -1026,6 +1198,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+  }
+
+  /**
+   * Deletes an experiment plan.
+   * 
+   * @remarks
+   * Calls DeleteExperimentPlan to delete a specified experiment plan. After deletion, no new executions can be initiated based on this plan. Existing experiment records can still be queried.
+   * 
+   * @param request - DeleteExperimentPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExperimentPlanResponse
+   */
+  async deleteExperimentPlanWithOptions(agentSpace: string, planId: string, request: $_model.DeleteExperimentPlanRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExperimentPlanResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteExperimentPlan",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${$dara.URL.percentEncode(agentSpace)}/plans/${$dara.URL.percentEncode(planId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteExperimentPlanResponse>(await this.callApi(params, req, runtime), new $_model.DeleteExperimentPlanResponse({}));
+  }
+
+  /**
+   * Deletes an experiment plan.
+   * 
+   * @remarks
+   * Calls DeleteExperimentPlan to delete a specified experiment plan. After deletion, no new executions can be initiated based on this plan. Existing experiment records can still be queried.
+   * 
+   * @param request - DeleteExperimentPlanRequest
+   * @returns DeleteExperimentPlanResponse
+   */
+  async deleteExperimentPlan(agentSpace: string, planId: string, request: $_model.DeleteExperimentPlanRequest): Promise<$_model.DeleteExperimentPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteExperimentPlanWithOptions(agentSpace, planId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes an experiment record.
+   * 
+   * @remarks
+   * Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+   * 
+   * @param request - DeleteExperimentRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExperimentRunResponse
+   */
+  async deleteExperimentRunWithOptions(agentSpace: string, recordId: string, request: $_model.DeleteExperimentRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExperimentRunResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteExperimentRun",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experimentruns/${$dara.URL.percentEncode(agentSpace)}/records/${$dara.URL.percentEncode(recordId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteExperimentRunResponse>(await this.callApi(params, req, runtime), new $_model.DeleteExperimentRunResponse({}));
+  }
+
+  /**
+   * Deletes an experiment record.
+   * 
+   * @remarks
+   * Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+   * 
+   * @param request - DeleteExperimentRunRequest
+   * @returns DeleteExperimentRunResponse
+   */
+  async deleteExperimentRun(agentSpace: string, recordId: string, request: $_model.DeleteExperimentRunRequest): Promise<$_model.DeleteExperimentRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteExperimentRunWithOptions(agentSpace, recordId, request, headers, runtime);
   }
 
   /**
@@ -1519,6 +1781,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+  }
+
+  /**
+   * Query an experiment plan
+   * 
+   * @remarks
+   * Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+   * 
+   * @param request - GetExperimentPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetExperimentPlanResponse
+   */
+  async getExperimentPlanWithOptions(agentSpace: string, planId: string, request: $_model.GetExperimentPlanRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetExperimentPlanResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetExperimentPlan",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${$dara.URL.percentEncode(agentSpace)}/plans/${$dara.URL.percentEncode(planId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetExperimentPlanResponse>(await this.callApi(params, req, runtime), new $_model.GetExperimentPlanResponse({}));
+  }
+
+  /**
+   * Query an experiment plan
+   * 
+   * @remarks
+   * Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+   * 
+   * @param request - GetExperimentPlanRequest
+   * @returns GetExperimentPlanResponse
+   */
+  async getExperimentPlan(agentSpace: string, planId: string, request: $_model.GetExperimentPlanRequest): Promise<$_model.GetExperimentPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getExperimentPlanWithOptions(agentSpace, planId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the details of an experiment run record.
+   * 
+   * @remarks
+   * Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+   * 
+   * @param request - GetExperimentRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetExperimentRunResponse
+   */
+  async getExperimentRunWithOptions(agentSpace: string, recordId: string, request: $_model.GetExperimentRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetExperimentRunResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetExperimentRun",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experimentruns/${$dara.URL.percentEncode(agentSpace)}/records/${$dara.URL.percentEncode(recordId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetExperimentRunResponse>(await this.callApi(params, req, runtime), new $_model.GetExperimentRunResponse({}));
+  }
+
+  /**
+   * Queries the details of an experiment run record.
+   * 
+   * @remarks
+   * Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+   * 
+   * @param request - GetExperimentRunRequest
+   * @returns GetExperimentRunResponse
+   */
+  async getExperimentRun(agentSpace: string, recordId: string, request: $_model.GetExperimentRunRequest): Promise<$_model.GetExperimentRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getExperimentRunWithOptions(agentSpace, recordId, request, headers, runtime);
   }
 
   /**
@@ -2114,6 +2466,156 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEvaluatorsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of experiment plans.
+   * 
+   * @remarks
+   * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+   * 
+   * @param request - ListExperimentPlansRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExperimentPlansResponse
+   */
+  async listExperimentPlansWithOptions(agentSpace: string, request: $_model.ListExperimentPlansRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListExperimentPlansResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.planName)) {
+      query["planName"] = request.planName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListExperimentPlans",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${$dara.URL.percentEncode(agentSpace)}/plans`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListExperimentPlansResponse>(await this.callApi(params, req, runtime), new $_model.ListExperimentPlansResponse({}));
+  }
+
+  /**
+   * Queries the list of experiment plans.
+   * 
+   * @remarks
+   * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+   * 
+   * @param request - ListExperimentPlansRequest
+   * @returns ListExperimentPlansResponse
+   */
+  async listExperimentPlans(agentSpace: string, request: $_model.ListExperimentPlansRequest): Promise<$_model.ListExperimentPlansResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listExperimentPlansWithOptions(agentSpace, request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of experiment run records.
+   * 
+   * @remarks
+   * Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+   * 
+   * @param request - ListExperimentRunsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExperimentRunsResponse
+   */
+  async listExperimentRunsWithOptions(agentSpace: string, request: $_model.ListExperimentRunsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListExperimentRunsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetId)) {
+      query["datasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.experimentName)) {
+      query["experimentName"] = request.experimentName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.planName)) {
+      query["planName"] = request.planName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListExperimentRuns",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experimentruns/${$dara.URL.percentEncode(agentSpace)}/records`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListExperimentRunsResponse>(await this.callApi(params, req, runtime), new $_model.ListExperimentRunsResponse({}));
+  }
+
+  /**
+   * Queries the list of experiment run records.
+   * 
+   * @remarks
+   * Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+   * 
+   * @param request - ListExperimentRunsRequest
+   * @returns ListExperimentRunsResponse
+   */
+  async listExperimentRuns(agentSpace: string, request: $_model.ListExperimentRunsRequest): Promise<$_model.ListExperimentRunsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listExperimentRunsWithOptions(agentSpace, request, headers, runtime);
   }
 
   /**
@@ -2995,6 +3497,174 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+  }
+
+  /**
+   * Updates an experiment plan.
+   * 
+   * @remarks
+   * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+   * 
+   * @param request - UpdateExperimentPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExperimentPlanResponse
+   */
+  async updateExperimentPlanWithOptions(agentSpace: string, planId: string, request: $_model.UpdateExperimentPlanRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateExperimentPlanResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetId)) {
+      body["datasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.datasetProject)) {
+      body["datasetProject"] = request.datasetProject;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.evaluators)) {
+      body["evaluators"] = request.evaluators;
+    }
+
+    if (!$dara.isNull(request.experimentType)) {
+      body["experimentType"] = request.experimentType;
+    }
+
+    if (!$dara.isNull(request.experiments)) {
+      body["experiments"] = request.experiments;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.planName)) {
+      body["planName"] = request.planName;
+    }
+
+    if (!$dara.isNull(request.querySql)) {
+      body["querySql"] = request.querySql;
+    }
+
+    if (!$dara.isNull(request.selectedItemIds)) {
+      body["selectedItemIds"] = request.selectedItemIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateExperimentPlan",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experiments/${$dara.URL.percentEncode(agentSpace)}/plans/${$dara.URL.percentEncode(planId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateExperimentPlanResponse>(await this.callApi(params, req, runtime), new $_model.UpdateExperimentPlanResponse({}));
+  }
+
+  /**
+   * Updates an experiment plan.
+   * 
+   * @remarks
+   * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+   * 
+   * @param request - UpdateExperimentPlanRequest
+   * @returns UpdateExperimentPlanResponse
+   */
+  async updateExperimentPlan(agentSpace: string, planId: string, request: $_model.UpdateExperimentPlanRequest): Promise<$_model.UpdateExperimentPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateExperimentPlanWithOptions(agentSpace, planId, request, headers, runtime);
+  }
+
+  /**
+   * Updates an experiment run.
+   * 
+   * @remarks
+   * Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+   * 
+   * @param request - UpdateExperimentRunRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExperimentRunResponse
+   */
+  async updateExperimentRunWithOptions(agentSpace: string, recordId: string, request: $_model.UpdateExperimentRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateExperimentRunResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.completedAt)) {
+      body["completedAt"] = request.completedAt;
+    }
+
+    if (!$dara.isNull(request.completedTasks)) {
+      body["completedTasks"] = request.completedTasks;
+    }
+
+    if (!$dara.isNull(request.executedAt)) {
+      body["executedAt"] = request.executedAt;
+    }
+
+    if (!$dara.isNull(request.failedTasks)) {
+      body["failedTasks"] = request.failedTasks;
+    }
+
+    if (!$dara.isNull(request.recordName)) {
+      body["recordName"] = request.recordName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.totalTasks)) {
+      body["totalTasks"] = request.totalTasks;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateExperimentRun",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/api/v1/experimentruns/${$dara.URL.percentEncode(agentSpace)}/records/${$dara.URL.percentEncode(recordId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateExperimentRunResponse>(await this.callApi(params, req, runtime), new $_model.UpdateExperimentRunResponse({}));
+  }
+
+  /**
+   * Updates an experiment run.
+   * 
+   * @remarks
+   * Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+   * 
+   * @param request - UpdateExperimentRunRequest
+   * @returns UpdateExperimentRunResponse
+   */
+  async updateExperimentRun(agentSpace: string, recordId: string, request: $_model.UpdateExperimentRunRequest): Promise<$_model.UpdateExperimentRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateExperimentRunWithOptions(agentSpace, recordId, request, headers, runtime);
   }
 
   /**
