@@ -7,13 +7,10 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The real-time log type. Valid values:
    * 
-   * - **dcdn_log_access_l1** (default): access log.
-   * 
-   * - **dcdn_log_er**: edge function log.
-   * 
-   * - **dcdn_log_waf**: WAF log.
-   * 
-   * - **dcdn_log_ipa**: Layer-4 acceleration log.
+   * - **dcdn_log_access_l1 (default)**: access logs.
+   * - **dcdn_log_er**: edge function logs.
+   * - **dcdn_log_waf**: security protection logs.
+   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * This parameter is required.
    * 
@@ -24,9 +21,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The data center. Valid values:
-   * 
    * - **cn**: Chinese mainland.
-   * 
    * - **sg**: global (excluding the Chinese mainland).
    * 
    * @example
@@ -35,19 +30,14 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The log delivery destination. Valid values:
+   * The delivery type. Valid values:
    * 
-   * - **sls**: Log Service (SLS).
-   * 
-   * - **http**: an HTTP service.
-   * 
-   * - **aws3**: Amazon S3.
-   * 
-   * - **oss**: Object Storage Service (OSS).
-   * 
-   * - **kafka**: Kafka.
-   * 
-   * - **aws3cmpt**: an S3-compatible service.
+   * - **sls**: Alibaba Cloud Simple Log Service.
+   * - **http**: HTTP service.
+   * - **aws3**: Amazon S3 service.
+   * - **oss**: Alibaba Cloud Object Storage Service.
+   * - **kafka**: Kafka service.
+   * - **aws3cmpt**: Amazon S3-compatible service.
    * 
    * This parameter is required.
    * 
@@ -58,7 +48,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
   details?: string;
   /**
    * @remarks
-   * The log discard rate. Defaults to 0.
+   * The discard rate. Default value: 0.
    * 
    * @example
    * 0
@@ -66,7 +56,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The fields to be delivered. Separate multiple fields with a comma.
+   * The fields to be selected, separated by commas (,).
    * 
    * This parameter is required.
    * 
@@ -77,27 +67,27 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
   filterVer?: string;
   /**
    * @remarks
-   * Configuration for delivering logs to an HTTP or HTTPS endpoint.
+   * The HTTP delivery configuration parameters.
    */
   httpDeliveryShrink?: string;
   /**
    * @remarks
-   * Configuration for delivering logs to Kafka.
+   * The Kafka delivery configuration parameters.
    */
   kafkaDeliveryShrink?: string;
   /**
    * @remarks
-   * Configuration for delivering logs to Object Storage Service (OSS).
+   * The OSS delivery configuration parameters.
    */
   ossDeliveryShrink?: string;
   /**
    * @remarks
-   * Configuration for delivering logs to Amazon S3 or an S3-compatible service.
+   * The S3 or S3-compatible delivery configuration parameters.
    */
   s3DeliveryShrink?: string;
   /**
    * @remarks
-   * Configuration for delivering logs to Log Service (SLS).
+   * The SLS delivery configuration.
    */
   slsDeliveryShrink?: string;
   /**

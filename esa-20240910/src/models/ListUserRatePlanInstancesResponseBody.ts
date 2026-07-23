@@ -62,8 +62,8 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
    * @remarks
    * The billing method. Valid values:
    * 
-   * - **PREPAY**: subscription.
-   * - **POSTPAY**: pay-as-you-go.
+   * - **PREPAY**: Subscription.
+   * - **POSTPAY**: Pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -71,11 +71,11 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   billingMode?: string;
   /**
    * @remarks
-   * If this field is empty, the plan does not include a bot protection instance. If a value is returned, the plan includes a bot protection instance. Valid values:
+   * If empty, the plan does not include a bot protection instance. If a value is returned, the plan includes a bot protection instance. Valid values:
    * 
-   * - enterprise_bot: Web Edition
+   * - enterprise_bot: Web edition.
    * 
-   * - enterprise_bot_with_app: App Edition.
+   * - enterprise_bot_with_app: App edition.
    * 
    * @example
    * enterprise_bot
@@ -83,7 +83,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   botInstanceLevel?: string;
   /**
    * @remarks
-   * The prepaid bot protection requests included in the plan, in units of 10,000.
+   * The prepaid bot protection requests included in the plan (in units of 10,000).
    * 
    * @example
    * 100
@@ -91,7 +91,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   botRequest?: string;
   /**
    * @remarks
-   * The acceleration regions to which sites can be bound under this plan instance. Multiple values are separated by commas (,). Valid values:
+   * The acceleration coverage areas for sites that can be bound to this plan instance. Multiple values are separated by commas (,). Valid values:
    * 
    * - **domestic**: China or the Chinese mainland.
    * - **overseas**: Global (excluding China or the Chinese mainland).
@@ -111,7 +111,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The prepaid China network acceleration traffic included in the plan, in GB.
+   * The prepaid China network acceleration traffic (GB) included in the plan.
    * 
    * @example
    * 100
@@ -135,7 +135,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   ddosBurstableOverseasProtection?: string;
   /**
    * @remarks
-   * If this field is empty, the plan does not include an Anti-DDoS instance. If a value is returned, the plan includes an Anti-DDoS instance. The value is `esa_ddos_instance`.
+   * If empty, the plan does not include an Anti-DDoS instance. If a value is returned, the plan includes an Anti-DDoS instance. The value is `esa_ddos_instance`.
    * 
    * @example
    * esa_ddos_instance
@@ -151,7 +151,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   duration?: number;
   /**
    * @remarks
-   * The prepaid Edge Routine (ER) requests included in the plan, in units of 10,000.
+   * The prepaid Edge Routine (ER) requests included in the plan (in units of 10,000).
    * 
    * @example
    * 100
@@ -159,7 +159,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   edgeRoutineRquest?: string;
   /**
    * @remarks
-   * The prepaid WAF requests included in the plan, in units of 10,000.
+   * The prepaid WAF requests included in the plan (in units of 10,000).
    * 
    * @example
    * 100
@@ -183,7 +183,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * The prepaid Layer 4 proxy traffic included in the plan, in GB, for the Chinese mainland.
+   * The prepaid Layer 4 proxy traffic (GB) included in the plan - Chinese mainland.
    * 
    * @example
    * 100
@@ -191,12 +191,13 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   layer4Traffic?: string;
   /**
    * @remarks
-   * The prepaid Layer 4 proxy traffic included in the plan, in GB, outside the Chinese mainland.
+   * The prepaid Layer 4 proxy traffic (GB) included in the plan - outside the Chinese mainland.
    * 
    * @example
    * 100
    */
   layer4TrafficIntl?: string;
+  ownerId?: string;
   /**
    * @remarks
    * The plan name associated with the plan instance.
@@ -207,7 +208,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   planName?: string;
   /**
    * @remarks
-   * The prepaid Layer 7 acceleration traffic included in the plan, in GB.
+   * The prepaid Layer 7 acceleration traffic (GB) included in the plan.
    * 
    * @example
    * 100
@@ -216,8 +217,8 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   /**
    * @remarks
    * The plan type associated with the plan instance. Valid values:
-   * - **normal**: fixed-version plan.
-   * - **enterprise**: Enterprise Edition plan.
+   * - **normal**: Fixed edition plan.
+   * - **enterprise**: Enterprise edition plan.
    * 
    * @example
    * normal
@@ -235,14 +236,16 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
    * @remarks
    * The auto-renewal status. Valid values:
    * 
-   * - nomal: normal
-   * - auto_renewal: auto-renewal enabled
-   * - not_renewal: auto-renewal disabled.
+   * - nomal: Normal.
+   * - auto_renewal: Auto-renewal enabled.
+   * - not_renewal: Auto-renewal disabled.
    * 
    * @example
    * nomal
    */
   renewalStatus?: string;
+  resourceOwner?: number;
+  shareType?: string;
   /**
    * @remarks
    * The site quota for the plan instance.
@@ -258,7 +261,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   sites?: ListUserRatePlanInstancesResponseBodyInstanceInfoSites[];
   /**
    * @remarks
-   * The prepaid smart routing requests included in the plan, in units of 10,000.
+   * The prepaid smart routing requests included in the plan (in units of 10,000).
    * 
    * @example
    * 100
@@ -266,7 +269,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   smartRoutingRequest?: string;
   /**
    * @remarks
-   * The prepaid HTTP requests included in the plan, in units of 10,000.
+   * The prepaid HTTP requests included in the plan (in units of 10,000).
    * 
    * @example
    * 100
@@ -275,9 +278,9 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **online**: The plan instance is in normal service.
-   * - **offline**: The plan instance has expired but has not exceeded the grace period and is not active.
-   * - **disable**: The plan instance has been released.
+   * - **online**: Normal service status.
+   * - **offline**: Expired but not overdue, in an inactive state.
+   * - **disable**: Released.
    * 
    * @example
    * online
@@ -287,12 +290,12 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
    * @remarks
    * The plan subscription type. Valid values:
    * 
-   * - entranceplan: Free Edition (Chinese mainland)
-   * - entranceplan_intl: Free Edition (International)
-   * - basicplan: Basic Edition
-   * - standardplan: Standard Edition
-   * - advancedplan: Premium Edition
-   * - enterpriseplan: Enterprise Edition.
+   * - Free Edition (Chinese mainland): entranceplan
+   * - Free Edition (International): entranceplan_intl
+   * - Basic Edition: basicplan
+   * - Standard Edition: standardplan
+   * - Premium Edition: advancedplan
+   * - Enterprise Edition: enterpriseplan
    * 
    * @example
    * basicplan
@@ -316,11 +319,14 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
       instanceId: 'InstanceId',
       layer4Traffic: 'Layer4Traffic',
       layer4TrafficIntl: 'Layer4TrafficIntl',
+      ownerId: 'OwnerId',
       planName: 'PlanName',
       planTraffic: 'PlanTraffic',
       planType: 'PlanType',
       renewalDuration: 'RenewalDuration',
       renewalStatus: 'RenewalStatus',
+      resourceOwner: 'ResourceOwner',
+      shareType: 'ShareType',
       siteQuota: 'SiteQuota',
       sites: 'Sites',
       smartRoutingRequest: 'SmartRoutingRequest',
@@ -348,11 +354,14 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
       instanceId: 'string',
       layer4Traffic: 'string',
       layer4TrafficIntl: 'string',
+      ownerId: 'string',
       planName: 'string',
       planTraffic: 'string',
       planType: 'string',
       renewalDuration: 'number',
       renewalStatus: 'string',
+      resourceOwner: 'number',
+      shareType: 'string',
       siteQuota: 'string',
       sites: { 'type': 'array', 'itemType': ListUserRatePlanInstancesResponseBodyInstanceInfoSites },
       smartRoutingRequest: 'string',
@@ -382,7 +391,7 @@ export class ListUserRatePlanInstancesResponseBody extends $dara.Model {
   instanceInfo?: ListUserRatePlanInstancesResponseBodyInstanceInfo[];
   /**
    * @remarks
-   * The current page number, which is the same as the PageNumber request parameter.
+   * The current page number, same as the PageNumber request parameter.
    * 
    * @example
    * 1

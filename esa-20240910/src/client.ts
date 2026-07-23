@@ -3869,6 +3869,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an Edge Routine (ER) build configuration.
+   * 
+   * @param tmpReq - CreateRoutineBuildConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoutineBuildConfigurationResponse
+   */
+  async createRoutineBuildConfigurationWithOptions(tmpReq: $_model.CreateRoutineBuildConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRoutineBuildConfigurationResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateRoutineBuildConfigurationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.environmentVariables)) {
+      request.environmentVariablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.environmentVariables, "EnvironmentVariables", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.assetsDirectory)) {
+      query["AssetsDirectory"] = request.assetsDirectory;
+    }
+
+    if (!$dara.isNull(request.buildBranches)) {
+      query["BuildBranches"] = request.buildBranches;
+    }
+
+    if (!$dara.isNull(request.buildCommand)) {
+      query["BuildCommand"] = request.buildCommand;
+    }
+
+    if (!$dara.isNull(request.environmentVariablesShrink)) {
+      query["EnvironmentVariables"] = request.environmentVariablesShrink;
+    }
+
+    if (!$dara.isNull(request.gitAccountId)) {
+      query["GitAccountId"] = request.gitAccountId;
+    }
+
+    if (!$dara.isNull(request.gitPlatform)) {
+      query["GitPlatform"] = request.gitPlatform;
+    }
+
+    if (!$dara.isNull(request.installCommand)) {
+      query["InstallCommand"] = request.installCommand;
+    }
+
+    if (!$dara.isNull(request.isPrivate)) {
+      query["IsPrivate"] = request.isPrivate;
+    }
+
+    if (!$dara.isNull(request.nodeVersion)) {
+      query["NodeVersion"] = request.nodeVersion;
+    }
+
+    if (!$dara.isNull(request.productionBranch)) {
+      query["ProductionBranch"] = request.productionBranch;
+    }
+
+    if (!$dara.isNull(request.repository)) {
+      query["Repository"] = request.repository;
+    }
+
+    if (!$dara.isNull(request.rootDirectory)) {
+      query["RootDirectory"] = request.rootDirectory;
+    }
+
+    if (!$dara.isNull(request.routineEntry)) {
+      query["RoutineEntry"] = request.routineEntry;
+    }
+
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRoutineBuildConfiguration",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRoutineBuildConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.CreateRoutineBuildConfigurationResponse({}));
+  }
+
+  /**
+   * Creates an Edge Routine (ER) build configuration.
+   * 
+   * @param request - CreateRoutineBuildConfigurationRequest
+   * @returns CreateRoutineBuildConfigurationResponse
+   */
+  async createRoutineBuildConfiguration(request: $_model.CreateRoutineBuildConfigurationRequest): Promise<$_model.CreateRoutineBuildConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRoutineBuildConfigurationWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a percentage-based canary deployment for a Routine code version in a specified environment.
    * 
    * @remarks
@@ -4247,7 +4351,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Before creating a site, you must have an active plan instance.
-   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a completed Internet Content Provider (ICP) filing.
+   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
    * - Each user can invoke this operation up to 100 times per hour.
    * 
    * @param request - CreateSiteRequest
@@ -4271,6 +4375,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwner)) {
+      query["ResourceOwner"] = request.resourceOwner;
     }
 
     if (!$dara.isNull(request.siteName)) {
@@ -4299,7 +4407,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Before creating a site, you must have an active plan instance.
-   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a completed Internet Content Provider (ICP) filing.
+   * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
    * - Each user can invoke this operation up to 100 times per hour.
    * 
    * @param request - CreateSiteRequest
@@ -4389,7 +4497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a real-time log shipping task.
+   * Creates a real-time log delivery task.
    * 
    * @param tmpReq - CreateSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4490,7 +4598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a real-time log shipping task.
+   * Creates a real-time log delivery task.
    * 
    * @param request - CreateSiteDeliveryTaskRequest
    * @returns CreateSiteDeliveryTaskResponse
@@ -4664,18 +4772,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom log shipping task to SLS, HTTP, OSS, S3, or Kafka.
+   * Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
    * 
    * @remarks
-   * Use this API to create a delivery task for specific log data. It supports multiple delivery destinations, including SLS, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can set a custom task name, select log fields, specify a data center, set the discard rate, choose a delivery type, and configure delivery details for the selected type.
-   * - **Field Filtering**: Use `FieldName` to specify the log fields to deliver.
-   * - **Filter Rules**: Use `FilterRules` to filter log data before delivery.
-   * - **Supported delivery destinations**: Deliver logs to various destinations, including SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka. Each method has specific configuration parameters.
-   * ## Notes
-   * - Ensure that your AccessKey and SecretKey have the required permissions for the delivery operation.
-   * - If a delivery method requires encryption or authentication, configure its security parameters accordingly.
-   * - Verify that the `FilterRules` syntax is correct.
-   * - Adjust advanced parameters, such as the number of retries and timeout, to optimize delivery efficiency and stability.
+   * This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
+   * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
+   * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
+   * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
+   * ## Usage notes
+   * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
+   * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
+   * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
+   * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
    * 
    * @param tmpReq - CreateUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4776,18 +4884,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom log shipping task to SLS, HTTP, OSS, S3, or Kafka.
+   * Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
    * 
    * @remarks
-   * Use this API to create a delivery task for specific log data. It supports multiple delivery destinations, including SLS, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can set a custom task name, select log fields, specify a data center, set the discard rate, choose a delivery type, and configure delivery details for the selected type.
-   * - **Field Filtering**: Use `FieldName` to specify the log fields to deliver.
-   * - **Filter Rules**: Use `FilterRules` to filter log data before delivery.
-   * - **Supported delivery destinations**: Deliver logs to various destinations, including SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka. Each method has specific configuration parameters.
-   * ## Notes
-   * - Ensure that your AccessKey and SecretKey have the required permissions for the delivery operation.
-   * - If a delivery method requires encryption or authentication, configure its security parameters accordingly.
-   * - Verify that the `FilterRules` syntax is correct.
-   * - Adjust advanced parameters, such as the number of retries and timeout, to optimize delivery efficiency and stability.
+   * This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
+   * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
+   * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
+   * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
+   * ## Usage notes
+   * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
+   * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
+   * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
+   * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
    * 
    * @param request - CreateUserDeliveryTaskRequest
    * @returns CreateUserDeliveryTaskResponse
@@ -7100,6 +7208,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the ER build configuration.
+   * 
+   * @param request - DeleteRoutineBuildConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoutineBuildConfigurationResponse
+   */
+  async deleteRoutineBuildConfigurationWithOptions(request: $_model.DeleteRoutineBuildConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRoutineBuildConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRoutineBuildConfiguration",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRoutineBuildConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRoutineBuildConfigurationResponse({}));
+  }
+
+  /**
+   * Deletes the ER build configuration.
+   * 
+   * @param request - DeleteRoutineBuildConfigurationRequest
+   * @returns DeleteRoutineBuildConfigurationResponse
+   */
+  async deleteRoutineBuildConfiguration(request: $_model.DeleteRoutineBuildConfigurationRequest): Promise<$_model.DeleteRoutineBuildConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRoutineBuildConfigurationWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a code version of a routine.
    * 
    * @param request - DeleteRoutineCodeVersionRequest
@@ -7378,7 +7528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a real-time log delivery task.
+   * Deletes an ongoing log delivery task.
    * 
    * @param request - DeleteSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7413,7 +7563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a real-time log delivery task.
+   * Deletes an ongoing log delivery task.
    * 
    * @param request - DeleteSiteDeliveryTaskRequest
    * @returns DeleteSiteDeliveryTaskResponse
@@ -7554,13 +7704,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log delivery task from your Alibaba Cloud account.
+   * Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
    * 
    * @remarks
-   * *****> 
-   * *   Deleted tasks cannot be restored. Proceed with caution.
-   * *   To call this operation, you must have an account that has the required permissions.
-   * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+   * This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+   * **Note:**
+   * - The deletion operation is irreversible. Proceed with caution.
+   * - Only accounts with the required permissions can call this operation.
+   * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
    * 
    * @param request - DeleteUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7591,13 +7742,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log delivery task from your Alibaba Cloud account.
+   * Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
    * 
    * @remarks
-   * *****> 
-   * *   Deleted tasks cannot be restored. Proceed with caution.
-   * *   To call this operation, you must have an account that has the required permissions.
-   * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+   * This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+   * **Note:**
+   * - The deletion operation is irreversible. Proceed with caution.
+   * - Only accounts with the required permissions can call this operation.
+   * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
    * 
    * @param request - DeleteUserDeliveryTaskRequest
    * @returns DeleteUserDeliveryTaskResponse
@@ -8933,10 +9085,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an instance that uses a plan.
+   * Queries the status of a plan instance.
    * 
    * @remarks
-   * You can query the status of an instance after you purchase a plan for the instance.
+   * You can query the status of a plan instance only after you purchase and create the instance.
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8947,6 +9099,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceOwner)) {
+      query["ResourceOwner"] = request.resourceOwner;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8967,10 +9123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an instance that uses a plan.
+   * Queries the status of a plan instance.
    * 
    * @remarks
-   * You can query the status of an instance after you purchase a plan for the instance.
+   * You can query the status of a plan instance only after you purchase and create the instance.
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @returns DescribeRatePlanInstanceStatusResponse
@@ -9761,7 +9917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit WAF Configuration for a Site
+   * Modifies the Web Application Firewall (WAF) configuration of a site. You can call this operation to update WAF settings for a site, such as modifying the client IP address identified by WAF.
    * 
    * @param tmpReq - EditSiteWafSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9808,7 +9964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit WAF Configuration for a Site
+   * Modifies the Web Application Firewall (WAF) configuration of a site. You can call this operation to update WAF settings for a site, such as modifying the client IP address identified by WAF.
    * 
    * @param request - EditSiteWafSettingsRequest
    * @returns EditSiteWafSettingsResponse
@@ -12699,6 +12855,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a single ER build task.
+   * 
+   * @param request - GetRoutineBuildRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineBuildResponse
+   */
+  async getRoutineBuildWithOptions(request: $_model.GetRoutineBuildRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRoutineBuildResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.routineBuildId)) {
+      query["RoutineBuildId"] = request.routineBuildId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRoutineBuild",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRoutineBuildResponse>(await this.callApi(params, req, runtime), new $_model.GetRoutineBuildResponse({}));
+  }
+
+  /**
+   * Queries a single ER build task.
+   * 
+   * @param request - GetRoutineBuildRequest
+   * @returns GetRoutineBuildResponse
+   */
+  async getRoutineBuild(request: $_model.GetRoutineBuildRequest): Promise<$_model.GetRoutineBuildResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRoutineBuildWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the build configuration.
+   * 
+   * @param request - GetRoutineBuildConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineBuildConfigurationResponse
+   */
+  async getRoutineBuildConfigurationWithOptions(request: $_model.GetRoutineBuildConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRoutineBuildConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRoutineBuildConfiguration",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRoutineBuildConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.GetRoutineBuildConfigurationResponse({}));
+  }
+
+  /**
+   * Retrieves the build configuration.
+   * 
+   * @param request - GetRoutineBuildConfigurationRequest
+   * @returns GetRoutineBuildConfigurationResponse
+   */
+  async getRoutineBuildConfiguration(request: $_model.GetRoutineBuildConfigurationRequest): Promise<$_model.GetRoutineBuildConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRoutineBuildConfigurationWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the code information of a specific version of an Edge Routine.
    * 
    * @param request - GetRoutineCodeVersionRequest
@@ -12845,11 +13085,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+   * Retrieves the upload information for uploading test version code of an Edge Routine to OSS.
    * 
    * @remarks
-   *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-   * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+   * - Each upload of test code for an Edge Routine generates a version number, which occupies one CodeRev code version slot. This is used for testing purposes only.
+   * - An Edge Routine can retain a maximum of 10 version numbers. After the limit is exceeded, manually call DeleteRoutineCodeRevision to delete unused versions.
    * 
    * @param request - GetRoutineStagingCodeUploadInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12884,11 +13124,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+   * Retrieves the upload information for uploading test version code of an Edge Routine to OSS.
    * 
    * @remarks
-   *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-   * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+   * - Each upload of test code for an Edge Routine generates a version number, which occupies one CodeRev code version slot. This is used for testing purposes only.
+   * - An Edge Routine can retain a maximum of 10 version numbers. After the limit is exceeded, manually call DeleteRoutineCodeRevision to delete unused versions.
    * 
    * @param request - GetRoutineStagingCodeUploadInfoRequest
    * @returns GetRoutineStagingCodeUploadInfoResponse
@@ -13199,16 +13439,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining quota for delivering a specific category of real-time logs in a website.
+   * Queries the remaining real-time log delivery quota for a specified site and business type.
    * 
    * @remarks
-   * Use this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
-   * **Take note of the following parameters:**
-   * - \\`\\`
-   * - `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
-   * - `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+   * You can call this operation to query the remaining quota of the real-time log delivery service for a specific site and business type under a specified Alibaba Cloud account. This is important for monitoring and managing your log delivery capacity to ensure that logs can be smoothly pushed to the destination storage and to prevent data loss or delays caused by insufficient quota.
+   * **Parameter notes:**
+   * - `BusinessType` is required. Specify the business type to obtain the corresponding quota information.
+   * - `SiteId` must be a valid site ID in integer format and must correspond to the site configured in Alibaba Cloud.
    * **Response:**
-   * - If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+   * - A successful response returns the delivery quota (`FreeQuota`), request ID (`RequestId`), site ID (`SiteId`), and business type (`BusinessType`) for confirmation and logging purposes.
    * 
    * @param request - GetSiteLogDeliveryQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13235,16 +13474,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining quota for delivering a specific category of real-time logs in a website.
+   * Queries the remaining real-time log delivery quota for a specified site and business type.
    * 
    * @remarks
-   * Use this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
-   * **Take note of the following parameters:**
-   * - \\`\\`
-   * - `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
-   * - `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+   * You can call this operation to query the remaining quota of the real-time log delivery service for a specific site and business type under a specified Alibaba Cloud account. This is important for monitoring and managing your log delivery capacity to ensure that logs can be smoothly pushed to the destination storage and to prevent data loss or delays caused by insufficient quota.
+   * **Parameter notes:**
+   * - `BusinessType` is required. Specify the business type to obtain the corresponding quota information.
+   * - `SiteId` must be a valid site ID in integer format and must correspond to the site configured in Alibaba Cloud.
    * **Response:**
-   * - If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+   * - A successful response returns the delivery quota (`FreeQuota`), request ID (`RequestId`), site ID (`SiteId`), and business type (`BusinessType`) for confirmation and logging purposes.
    * 
    * @param request - GetSiteLogDeliveryQuotaRequest
    * @returns GetSiteLogDeliveryQuotaResponse
@@ -13413,7 +13651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get WAF Configuration for a Site
+   * Retrieves the WAF configuration of a site.
    * 
    * @param request - GetSiteWafSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13452,7 +13690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get WAF Configuration for a Site
+   * Retrieves the WAF configuration of a site.
    * 
    * @param request - GetSiteWafSettingsRequest
    * @returns GetSiteWafSettingsResponse
@@ -16085,7 +16323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
+   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
    * 
    * @param tmpReq - ListPagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16130,7 +16368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
+   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
    * 
    * @param request - ListPagesRequest
    * @returns ListPagesResponse
@@ -16144,7 +16382,7 @@ export default class Client extends OpenApi {
    * Queries the list of pay-as-you-go plan instances.
    * 
    * @remarks
-   * Queries the list of pay-as-you-go plan instances under your account. You can filter and sort the results by multiple conditions.
+   * This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
    * 
    * @param request - ListPostpaidRatePlanInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16174,7 +16412,7 @@ export default class Client extends OpenApi {
    * Queries the list of pay-as-you-go plan instances.
    * 
    * @remarks
-   * Queries the list of pay-as-you-go plan instances under your account. You can filter and sort the results by multiple conditions.
+   * This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
    * 
    * @param request - ListPostpaidRatePlanInstancesRequest
    * @returns ListPostpaidRatePlanInstancesResponse
@@ -16381,6 +16619,110 @@ export default class Client extends OpenApi {
   async listRewriteUrlRules(request: $_model.ListRewriteUrlRulesRequest): Promise<$_model.ListRewriteUrlRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listRewriteUrlRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the build configurations for multiple routines by name.
+   * 
+   * @param request - ListRoutineBuildConfigurationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRoutineBuildConfigurationsResponse
+   */
+  async listRoutineBuildConfigurationsWithOptions(request: $_model.ListRoutineBuildConfigurationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRoutineBuildConfigurationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.routineNames)) {
+      query["RoutineNames"] = request.routineNames;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRoutineBuildConfigurations",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRoutineBuildConfigurationsResponse>(await this.callApi(params, req, runtime), new $_model.ListRoutineBuildConfigurationsResponse({}));
+  }
+
+  /**
+   * Lists the build configurations for multiple routines by name.
+   * 
+   * @param request - ListRoutineBuildConfigurationsRequest
+   * @returns ListRoutineBuildConfigurationsResponse
+   */
+  async listRoutineBuildConfigurations(request: $_model.ListRoutineBuildConfigurationsRequest): Promise<$_model.ListRoutineBuildConfigurationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRoutineBuildConfigurationsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of ER build tasks.
+   * 
+   * @param request - ListRoutineBuildsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRoutineBuildsResponse
+   */
+  async listRoutineBuildsWithOptions(request: $_model.ListRoutineBuildsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRoutineBuildsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRoutineBuilds",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRoutineBuildsResponse>(await this.callApi(params, req, runtime), new $_model.ListRoutineBuildsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of ER build tasks.
+   * 
+   * @param request - ListRoutineBuildsRequest
+   * @returns ListRoutineBuildsResponse
+   */
+  async listRoutineBuilds(request: $_model.ListRoutineBuildsRequest): Promise<$_model.ListRoutineBuildsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRoutineBuildsWithOptions(request, runtime);
   }
 
   /**
@@ -18477,11 +18819,65 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a plan by calling PurchaseRatePlan.
+   * 新购DDoS实例
+   * 
+   * @param request - PurchaseDDoSInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PurchaseDDoSInstanceResponse
+   */
+  async purchaseDDoSInstanceWithOptions(request: $_model.PurchaseDDoSInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PurchaseDDoSInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DDoSBillingMode)) {
+      query["DDoSBillingMode"] = request.DDoSBillingMode;
+    }
+
+    if (!$dara.isNull(request.DDoSBurstableDomesticProtection)) {
+      query["DDoSBurstableDomesticProtection"] = request.DDoSBurstableDomesticProtection;
+    }
+
+    if (!$dara.isNull(request.DDoSBurstableOverseasProtection)) {
+      query["DDoSBurstableOverseasProtection"] = request.DDoSBurstableOverseasProtection;
+    }
+
+    if (!$dara.isNull(request.siteInstanceId)) {
+      query["SiteInstanceId"] = request.siteInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PurchaseDDoSInstance",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PurchaseDDoSInstanceResponse>(await this.callApi(params, req, runtime), new $_model.PurchaseDDoSInstanceResponse({}));
+  }
+
+  /**
+   * 新购DDoS实例
+   * 
+   * @param request - PurchaseDDoSInstanceRequest
+   * @returns PurchaseDDoSInstanceResponse
+   */
+  async purchaseDDoSInstance(request: $_model.PurchaseDDoSInstanceRequest): Promise<$_model.PurchaseDDoSInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.purchaseDDoSInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Calls the PurchaseRatePlan operation to purchase a plan.
    * 
    * @remarks
-   * 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
-   * 2. If the acceleration region is not set to overseas, the site must have a valid China Internet Content Provider (ICP) filing.
+   * 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+   * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
    * 
    * @param request - PurchaseRatePlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18512,6 +18908,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.coverage)) {
       query["Coverage"] = request.coverage;
+    }
+
+    if (!$dara.isNull(request.overagePolicy)) {
+      query["OveragePolicy"] = request.overagePolicy;
     }
 
     if (!$dara.isNull(request.period)) {
@@ -18552,11 +18952,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a plan by calling PurchaseRatePlan.
+   * Calls the PurchaseRatePlan operation to purchase a plan.
    * 
    * @remarks
-   * 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
-   * 2. If the acceleration region is not set to overseas, the site must have a valid China Internet Content Provider (ICP) filing.
+   * 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+   * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
    * 
    * @param request - PurchaseRatePlanRequest
    * @returns PurchaseRatePlanResponse
@@ -18906,6 +19306,48 @@ export default class Client extends OpenApi {
 
     let putKvWithHighCapacityResp = await this.putKvWithHighCapacityWithOptions(putKvWithHighCapacityReq, runtime);
     return putKvWithHighCapacityResp;
+  }
+
+  /**
+   * Retries a task replication.
+   * 
+   * @param request - ReDoRoutineBuildRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReDoRoutineBuildResponse
+   */
+  async reDoRoutineBuildWithOptions(request: $_model.ReDoRoutineBuildRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReDoRoutineBuildResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.routineBuildId)) {
+      query["RoutineBuildId"] = request.routineBuildId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReDoRoutineBuild",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReDoRoutineBuildResponse>(await this.callApi(params, req, runtime), new $_model.ReDoRoutineBuildResponse({}));
+  }
+
+  /**
+   * Retries a task replication.
+   * 
+   * @param request - ReDoRoutineBuildRequest
+   * @returns ReDoRoutineBuildResponse
+   */
+  async reDoRoutineBuild(request: $_model.ReDoRoutineBuildRequest): Promise<$_model.ReDoRoutineBuildResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.reDoRoutineBuildWithOptions(request, runtime);
   }
 
   /**
@@ -19890,6 +20332,48 @@ export default class Client extends OpenApi {
   async startScheduledPreloadExecution(request: $_model.StartScheduledPreloadExecutionRequest): Promise<$_model.StartScheduledPreloadExecutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startScheduledPreloadExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops a task.
+   * 
+   * @param request - StopRoutineBuildRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopRoutineBuildResponse
+   */
+  async stopRoutineBuildWithOptions(request: $_model.StopRoutineBuildRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopRoutineBuildResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.routineBuildId)) {
+      query["RoutineBuildId"] = request.routineBuildId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopRoutineBuild",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopRoutineBuildResponse>(await this.callApi(params, req, runtime), new $_model.StopRoutineBuildResponse({}));
+  }
+
+  /**
+   * Stops a task.
+   * 
+   * @param request - StopRoutineBuildRequest
+   * @returns StopRoutineBuildResponse
+   */
+  async stopRoutineBuild(request: $_model.StopRoutineBuildRequest): Promise<$_model.StopRoutineBuildResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopRoutineBuildWithOptions(request, runtime);
   }
 
   /**
@@ -22837,7 +23321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the build configuration of an EdgeRoutine (ER).
+   * Modifies the ER build configuration.
    * 
    * @param tmpReq - UpdateRoutineBuildConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22870,6 +23354,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.gitAccountId)) {
       query["GitAccountId"] = request.gitAccountId;
+    }
+
+    if (!$dara.isNull(request.gitPlatform)) {
+      query["GitPlatform"] = request.gitPlatform;
     }
 
     if (!$dara.isNull(request.installCommand)) {
@@ -22922,7 +23410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the build configuration of an EdgeRoutine (ER).
+   * Modifies the ER build configuration.
    * 
    * @param request - UpdateRoutineBuildConfigurationRequest
    * @returns UpdateRoutineBuildConfigurationResponse
@@ -23430,6 +23918,56 @@ export default class Client extends OpenApi {
   async updateSiteDeliveryTaskStatus(request: $_model.UpdateSiteDeliveryTaskStatusRequest): Promise<$_model.UpdateSiteDeliveryTaskStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSiteDeliveryTaskStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the plan instance associated with a site.
+   * 
+   * @param request - UpdateSiteInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSiteInstanceResponse
+   */
+  async updateSiteInstanceWithOptions(request: $_model.UpdateSiteInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSiteInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.newInstanceId)) {
+      query["NewInstanceId"] = request.newInstanceId;
+    }
+
+    if (!$dara.isNull(request.resourceOwner)) {
+      query["ResourceOwner"] = request.resourceOwner;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSiteInstance",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSiteInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSiteInstanceResponse({}));
+  }
+
+  /**
+   * Changes the plan instance associated with a site.
+   * 
+   * @param request - UpdateSiteInstanceRequest
+   * @returns UpdateSiteInstanceResponse
+   */
+  async updateSiteInstance(request: $_model.UpdateSiteInstanceRequest): Promise<$_model.UpdateSiteInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSiteInstanceWithOptions(request, runtime);
   }
 
   /**

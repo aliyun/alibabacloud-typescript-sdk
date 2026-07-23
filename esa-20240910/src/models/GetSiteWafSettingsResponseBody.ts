@@ -6,7 +6,7 @@ import { WafSiteSettings } from "./WafSiteSettings";
 export class GetSiteWafSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -14,7 +14,7 @@ export class GetSiteWafSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of site WAF configuration.
+   * The site WAF configuration details.
    */
   settings?: WafSiteSettings;
   static names(): { [key: string]: string } {

@@ -26,7 +26,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites extends 
    * - pending: The site is pending configuration.
    * - active: The site is activated.
    * - offline: The site is offline.
-   * - moved: The site has been replaced.
+   * - moved: The site has been superseded.
    * 
    * @example
    * pending
@@ -71,7 +71,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
    * @remarks
    * The billing mode. Valid values:
    * 
-   *  * POSTPAY: pay-as-you-go.
+   *  * POSTPAY: Pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -79,11 +79,11 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   billingMode?: string;
   /**
    * @remarks
-   * The acceleration regions to which sites can be associated with this instance. Multiple values are separated by commas (,). Valid values:
+   * The acceleration regions to which the instance can bindable sites. Multiple values are separated by commas (,). Valid values:
    * 
-   * - domestic: the Chinese mainland.
-   * - overseas: global (excluding the Chinese mainland).
-   * - global: global (including the Chinese mainland).
+   * - domestic: The Chinese mainland.
+   * - overseas: Global (excluding the Chinese mainland).
+   * - global: Global (including the Chinese mainland).
    * 
    * @example
    * domestic
@@ -91,7 +91,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   coverages?: string;
   /**
    * @remarks
-   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the instance was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -99,7 +99,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   createTime?: string;
   /**
    * @remarks
-   * The scheduled specification change time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The scheduled specification change time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -113,9 +113,10 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
    * sp-xcdn-96wblslz****
    */
   instanceId?: string;
+  ownerId?: string;
   /**
    * @remarks
-   * The plan name in English.
+   * The English name of the plan.
    * 
    * @example
    * basic
@@ -123,7 +124,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   planName?: string;
   /**
    * @remarks
-   * The plan name in Chinese.
+   * The Chinese name of the plan.
    * 
    * @example
    * test-plan
@@ -139,6 +140,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
    * normal
    */
   planType?: string;
+  shareType?: string;
   /**
    * @remarks
    * The site quota.
@@ -168,9 +170,11 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
       createTime: 'CreateTime',
       expectedUpdateTime: 'ExpectedUpdateTime',
       instanceId: 'InstanceId',
+      ownerId: 'OwnerId',
       planName: 'PlanName',
       planNameCn: 'PlanNameCn',
       planType: 'PlanType',
+      shareType: 'ShareType',
       siteQuota: 'SiteQuota',
       sites: 'Sites',
       status: 'Status',
@@ -185,9 +189,11 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
       createTime: 'string',
       expectedUpdateTime: 'string',
       instanceId: 'string',
+      ownerId: 'string',
       planName: 'string',
       planNameCn: 'string',
       planType: 'string',
+      shareType: 'string',
       siteQuota: 'string',
       sites: { 'type': 'array', 'itemType': ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites },
       status: 'string',

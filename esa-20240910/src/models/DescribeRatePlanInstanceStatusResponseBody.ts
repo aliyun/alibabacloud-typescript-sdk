@@ -14,14 +14,13 @@ export class DescribeRatePlanInstanceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * 
-   * *   running: The instance is running.
-   * *   renewing: The instance is being renewed.
-   * *   upgrading: The configuration of the instance is being upgraded.
-   * *   releasePrepaidService: The instance is released due to expiration.
-   * *   creating: The instance is being created.
-   * *   downgrading: The configuration of the instance is being downgraded.
-   * *   ceasePrepaidService: The instance has expired.
+   * - running: Running.
+   * - renewing: Being renewed.
+   * - upgrading: Being upgraded.
+   * - releasePrepaidService: Released due to prepaid expiration.
+   * - creating: Being created.
+   * - downgrading: Being downgraded.
+   * - ceasePrepaidService: Suspended due to prepaid expiration.
    * 
    * @example
    * running

@@ -2,6 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListPagesResponseBodyPagesModeration extends $dara.Model {
+  /**
+   * @example
+   * []
+   */
+  reasons?: string[];
+  /**
+   * @example
+   * pending
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reasons: 'Reasons',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reasons: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.reasons)) {
+      $dara.Model.validateArray(this.reasons);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPagesResponseBodyPages extends $dara.Model {
   /**
    * @remarks
@@ -33,7 +70,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the custom response page. You can call the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation to obtain the ID.
+   * The ID of the custom response page. You can obtain this value by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
    * 
    * @example
    * 50000001
@@ -48,6 +85,11 @@ export class ListPagesResponseBodyPages extends $dara.Model {
    */
   kind?: string;
   /**
+   * @example
+   * {}
+   */
+  moderation?: ListPagesResponseBodyPagesModeration;
+  /**
    * @remarks
    * The name of the custom response page.
    * 
@@ -57,7 +99,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the custom response page was last modified.
+   * The last modification time of the custom response page.
    * 
    * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
    * 
@@ -74,6 +116,7 @@ export class ListPagesResponseBodyPages extends $dara.Model {
       description: 'Description',
       id: 'Id',
       kind: 'Kind',
+      moderation: 'Moderation',
       name: 'Name',
       updateTime: 'UpdateTime',
     };
@@ -86,12 +129,16 @@ export class ListPagesResponseBodyPages extends $dara.Model {
       description: 'string',
       id: 'number',
       kind: 'string',
+      moderation: ListPagesResponseBodyPagesModeration,
       name: 'string',
       updateTime: 'string',
     };
   }
 
   validate() {
+    if(this.moderation && typeof (this.moderation as any).validate === 'function') {
+      (this.moderation as any).validate();
+    }
     super.validate();
   }
 

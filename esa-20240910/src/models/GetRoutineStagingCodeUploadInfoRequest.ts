@@ -13,7 +13,7 @@ export class GetRoutineStagingCodeUploadInfoRequest extends $dara.Model {
   codeDescription?: string;
   /**
    * @remarks
-   * The routine name.
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 

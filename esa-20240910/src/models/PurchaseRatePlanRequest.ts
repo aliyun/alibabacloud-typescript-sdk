@@ -13,8 +13,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Specifies whether to enable automatic payment.
-   * Set this parameter to true when you directly call this operation.
+   * Specifies whether to enable automatic payment. Set this parameter to true when you directly call this operation.
    * 
    * @example
    * true
@@ -24,7 +23,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * - true: Auto-renewal is enabled.
-   * - false: Auto-renewal is disabled.
+   * - false: Auto-renewal is not enabled.
    * 
    * @example
    * true
@@ -43,6 +42,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * The billing method. Valid values:
    * - PREPAY: subscription.
    * - POSTPAY: pay-as-you-go.
+   * 
    * Set this parameter to PREPAY when you directly call this operation.
    * 
    * @example
@@ -60,10 +60,10 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * domestic
    */
   coverage?: string;
+  overagePolicy?: string;
   /**
    * @remarks
-   * The purchase period, in months.
-   * This parameter is required when you directly call this operation.
+   * The purchase period, in months. This parameter is required when you directly call this operation.
    * 
    * @example
    * 1
@@ -73,18 +73,18 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * @remarks
    * The plan code.
    * 
-   * China site
+   * Chinese site
    * 
    * - Free Edition: entranceplan
    * - Basic: basicplan
    * - Standard: standardplan
-   * - Premium: advancedplan
+   * - Advanced: advancedplan
    * 
    * International site
    * 
    * - Entrance: entranceplan
    * - Pro: standardplan
-   * - Premium: advancedpla.
+   * - Premium: advancedpla
    * 
    * @example
    * basicplan
@@ -94,12 +94,12 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * @remarks
    * The plan name.
    * 
-   * China site
+   * Chinese site
    * 
    * - Free Edition: entranceplan
    * - Basic: basic
    * - Standard: medium
-   * - Premium: high
+   * - Advanced: high
    * 
    * International site
    * 
@@ -107,7 +107,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * - Pro: basicplan_intl
    * - Premium: vipplan_intl
    * 
-   * > Note: For Enterprise Edition plans, the plan name is provided after backend configuration.
+   * Note: For Enterprise Edition plans, the plan name is provided after backend configuration.
    * 
    * @example
    * basic
@@ -139,6 +139,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
       channel: 'Channel',
       chargeType: 'ChargeType',
       coverage: 'Coverage',
+      overagePolicy: 'OveragePolicy',
       period: 'Period',
       planCode: 'PlanCode',
       planName: 'PlanName',
@@ -155,6 +156,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
       channel: 'string',
       chargeType: 'string',
       coverage: 'string',
+      overagePolicy: 'string',
       period: 'number',
       planCode: 'string',
       planName: 'string',

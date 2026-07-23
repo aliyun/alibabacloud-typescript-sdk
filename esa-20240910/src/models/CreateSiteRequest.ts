@@ -31,7 +31,7 @@ export class CreateSiteRequest extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * The instance ID. You can obtain the instance ID by calling the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation. You must specify at least one of the instance ID and site ID. If both are specified, the instance ID takes precedence.
+   * The instance ID. You can call the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation to obtain the instance ID. You must specify at least one of the instance ID and site ID. If both are specified, the instance ID takes precedence.
    * 
    * This parameter is required.
    * 
@@ -47,6 +47,7 @@ export class CreateSiteRequest extends $dara.Model {
    * rg-acfmw4znnok****
    */
   resourceGroupId?: string;
+  resourceOwner?: number;
   /**
    * @remarks
    * The site name.
@@ -63,6 +64,7 @@ export class CreateSiteRequest extends $dara.Model {
       coverage: 'Coverage',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
+      resourceOwner: 'ResourceOwner',
       siteName: 'SiteName',
     };
   }
@@ -73,6 +75,7 @@ export class CreateSiteRequest extends $dara.Model {
       coverage: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',
+      resourceOwner: 'number',
       siteName: 'string',
     };
   }

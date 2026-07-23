@@ -75,7 +75,7 @@ export class WafSiteSettingsBandwidthAbuseProtection extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The status of the bandwidth abuse protection rule.
+   * The switch status of the bandwidth abuse protection rule.
    * 
    * @example
    * on
@@ -426,12 +426,12 @@ export class WafSiteSettingsDisableSecurityModule extends $dara.Model {
 export class WafSiteSettingsRequestBodyInspection extends $dara.Model {
   /**
    * @remarks
-   * The action to take when the request body size exceeds SizeLimit.
+   * The action to take when the request body size exceeds `SizeLimit`.
    * 
-   * Common valid values (the complete list is determined by the server-side configuration):
-   * - allow: allows the request without performing deep packet inspection on the portion that exceeds the limit.
+   * Common values (the complete enumeration is subject to the server-side configuration):
+   * - `allow`: Allow directly without performing deep packet inspection on the excess portion.
    * 
-   * > The complete enumeration is determined by the WAF server-side configuration.
+   * > The complete enum is subject to the WAF server-side configuration.
    * 
    * @example
    * allow
@@ -439,7 +439,7 @@ export class WafSiteSettingsRequestBodyInspection extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The request body inspection rule ID, which is the unique identifier of the built-in rule. When request body inspection is enabled, the server uses this ID to associate the matching logic of the built-in inspection rule. The valid values are based on the built-in rule list of WAF.
+   * The request body inspection rule ID (unique identifier of the built-in rule). When request body inspection is enabled, the server uses this ID to associate the matching logic of the built-in inspection rule. The ID value is subject to the WAF built-in rule list.
    * 
    * @example
    * 10000001
@@ -449,10 +449,10 @@ export class WafSiteSettingsRequestBodyInspection extends $dara.Model {
    * @remarks
    * The maximum size of the request body to inspect, in bytes.
    * 
-   * - If the request body is less than or equal to this value, the entire content is subject to WAF matching.
-   * - If the request body exceeds this value, the action specified in the Action field is taken, such as inspecting only the first N bytes, rejecting the request, or allowing the request.
+   * - When the request body is less than or equal to this value, the entire content is subject to WAF matching.
+   * - When the request body exceeds this value, the action specified in the `Action` field is taken (for example, inspect only the first N bytes, reject, or allow directly).
    * 
-   * > The valid value range and default value are determined by the WAF server-side configuration.
+   * > The specific value range and default value are subject to the WAF server-side configuration.
    * 
    * @example
    * 16KB
@@ -484,6 +484,7 @@ export class WafSiteSettingsRequestBodyInspection extends $dara.Model {
 }
 
 export class WafSiteSettingsSecurityLevel extends $dara.Model {
+  id?: number;
   /**
    * @remarks
    * The security level value.
@@ -494,12 +495,14 @@ export class WafSiteSettingsSecurityLevel extends $dara.Model {
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      id: 'Id',
       value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'number',
       value: 'string',
     };
   }
@@ -541,17 +544,17 @@ export class WafSiteSettings extends $dara.Model {
   clientIpIdentifier?: WafSiteSettingsClientIpIdentifier;
   /**
    * @remarks
-   * The configuration for disabling the security module.
+   * The disable security module configuration.
    */
   disableSecurityModule?: WafSiteSettingsDisableSecurityModule;
   /**
    * @remarks
    * The request body inspection configuration. Controls the deep packet inspection behavior of WAF for HTTP request bodies. After this feature is enabled, content-based matching rules such as SQL injection and XSS detection take effect on request bodies.
    * 
-   * This structure can contain the following fields:
-   * - Id: The unique identifier of the built-in inspection rule.
-   * - SizeLimit: The maximum size of the request body to inspect.
-   * - Action: The action to take when the request body exceeds the size limit.
+   * This configuration can contain the following fields:
+   * - `Id`: The unique identifier of the built-in inspection rule.
+   * - `SizeLimit`: The maximum size of the request body to inspect.
+   * - `Action`: The action to take when the request body exceeds the size limit.
    */
   requestBodyInspection?: WafSiteSettingsRequestBodyInspection;
   /**

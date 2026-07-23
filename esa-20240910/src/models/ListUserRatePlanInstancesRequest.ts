@@ -16,15 +16,16 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   checkRemainingSiteQuota?: string;
   /**
    * @remarks
-   * The plan instance ID. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The plan instance ID. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * sp-xcdn-96wblslz****
    */
   instanceId?: string;
+  isShared?: boolean;
   /**
    * @remarks
-   * The page number to return in a paged query. Default value: **1**. Valid values: **1** to **100000**. Settings for paging take effect only when this parameter is specified.
+   * The page number settings for paging. Default value: **1**. Valid values: **1 to 100000**.
    * 
    * @example
    * 1
@@ -32,7 +33,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Valid values: 1 to 500. This parameter is used for paging.
+   * The number of entries per page for paging. Valid values: 1 to 500.
    * 
    * @example
    * 500
@@ -40,7 +41,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plan name in English.
+   * The plan name (English).
    * 
    * @example
    * entranceplan
@@ -50,8 +51,8 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
    * @remarks
    * The plan type. Valid values:
    * 
-   * - normal: fixed-version plan
-   * - enterprise: Enterprise Edition plan.
+   * - normal: fixed edition plan
+   * - enterprise: enterprise edition plan
    * 
    * @example
    * enterprise
@@ -65,12 +66,13 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
    * 30
    */
   remainingExpireDays?: number;
+  resourceOwner?: number;
   /**
    * @remarks
-   * The field by which to sort the results. By default, results are sorted by purchase time. Valid values:
+   * The sort field. By default, results are sorted by purchase time. Valid values:
    * 
-   * - **CreateTime**: purchase time.
-   * - **ExpireTime**: expiration time.
+   * - **CreateTime**: Purchase time.
+   * - **ExpireTime**: Expiration time.
    * 
    * @example
    * CreateTime
@@ -80,8 +82,8 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
    * @remarks
    * The sort order. Default value: desc. Valid values:
    * 
-   * - **asc**: ascending order.
-   * - **desc**: descending order.
+   * - **asc**: Ascending order.
+   * - **desc**: Descending order.
    * 
    * @example
    * asc
@@ -90,10 +92,10 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **online**: The plan instance is in normal service.
-   * - **offline**: The plan instance has expired but has not exceeded the grace period and is not active.
-   * - **disable**: The plan instance has been released.
-   * - **overdue**: The plan instance has an overdue payment.
+   * - **online**: Normal service status.
+   * - **offline**: Expired but not overdue, in an inactive state.
+   * - **disable**: Released.
+   * - **overdue**: Overdue payment.
    * 
    * @example
    * online
@@ -106,12 +108,12 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
    * @remarks
    * The plan subscription type. Valid values:
    * 
-   * - entranceplan: Free Edition (Chinese mainland)
-   * - entranceplan_intl: Free Edition (International)
-   * - basicplan: Basic Edition
-   * - standardplan: Standard Edition
-   * - advancedplan: Premium Edition
-   * - enterpriseplan: Enterprise Edition.
+   * - Free Edition (Chinese mainland): entranceplan
+   * - Free Edition (International): entranceplan_intl
+   * - Basic Edition: basicplan
+   * - Standard Edition: standardplan
+   * - Premium Edition: advancedplan
+   * - Enterprise Edition: enterpriseplan
    * 
    * @example
    * basicplan
@@ -121,11 +123,13 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
     return {
       checkRemainingSiteQuota: 'CheckRemainingSiteQuota',
       instanceId: 'InstanceId',
+      isShared: 'IsShared',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       planNameEn: 'PlanNameEn',
       planType: 'PlanType',
       remainingExpireDays: 'RemainingExpireDays',
+      resourceOwner: 'ResourceOwner',
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
       status: 'Status',
@@ -137,11 +141,13 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
     return {
       checkRemainingSiteQuota: 'string',
       instanceId: 'string',
+      isShared: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
       planNameEn: 'string',
       planType: 'string',
       remainingExpireDays: 'number',
+      resourceOwner: 'number',
       sortBy: 'string',
       sortOrder: 'string',
       status: 'string',

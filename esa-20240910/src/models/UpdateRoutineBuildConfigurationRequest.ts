@@ -13,7 +13,7 @@ export class UpdateRoutineBuildConfigurationRequest extends $dara.Model {
   assetsDirectory?: string;
   /**
    * @remarks
-   * The branches that trigger a build. Set this parameter to * for all branches. To specify multiple branches, separate branch names with commas.
+   * The branches that trigger a build. Set this to * for all branches. To specify multiple branches, separate branch names with commas.
    * 
    * @example
    * int,abc
@@ -24,12 +24,15 @@ export class UpdateRoutineBuildConfigurationRequest extends $dara.Model {
    * The build command.
    * 
    * @example
-   * npm xxx
+   * npm run build
    */
   buildCommand?: string;
   /**
    * @remarks
    * The environment variables.
+   * 
+   * @example
+   * 100
    */
   environmentVariables?: { [key: string]: string };
   /**
@@ -42,10 +45,18 @@ export class UpdateRoutineBuildConfigurationRequest extends $dara.Model {
   gitAccountId?: number;
   /**
    * @remarks
+   * The Git platform. Valid values: github, gitee, and upload.
+   * 
+   * @example
+   * github
+   */
+  gitPlatform?: string;
+  /**
+   * @remarks
    * The install command.
    * 
    * @example
-   * npm install xxx
+   * npm install
    */
   installCommand?: string;
   /**
@@ -60,7 +71,7 @@ export class UpdateRoutineBuildConfigurationRequest extends $dara.Model {
   isPrivate?: boolean;
   /**
    * @remarks
-   * The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, and `12.x`.
+   * The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, `12.x`.
    * 
    * @example
    * 22.x
@@ -92,7 +103,7 @@ export class UpdateRoutineBuildConfigurationRequest extends $dara.Model {
   rootDirectory?: string;
   /**
    * @remarks
-   * The path of the ER entry file.
+   * The ER entry file path.
    * 
    * @example
    * /home
@@ -115,6 +126,7 @@ export class UpdateRoutineBuildConfigurationRequest extends $dara.Model {
       buildCommand: 'BuildCommand',
       environmentVariables: 'EnvironmentVariables',
       gitAccountId: 'GitAccountId',
+      gitPlatform: 'GitPlatform',
       installCommand: 'InstallCommand',
       isPrivate: 'IsPrivate',
       nodeVersion: 'NodeVersion',
@@ -133,6 +145,7 @@ export class UpdateRoutineBuildConfigurationRequest extends $dara.Model {
       buildCommand: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gitAccountId: 'number',
+      gitPlatform: 'string',
       installCommand: 'string',
       isPrivate: 'boolean',
       nodeVersion: 'string',

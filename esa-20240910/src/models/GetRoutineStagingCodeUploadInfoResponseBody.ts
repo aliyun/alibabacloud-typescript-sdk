@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineStagingCodeUploadInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code version.
+   * The code version number.
    * 
    * @example
    * 1710120201067203242
@@ -13,18 +13,19 @@ export class GetRoutineStagingCodeUploadInfoResponseBody extends $dara.Model {
   codeVersion?: string;
   /**
    * @remarks
-   * The configuration information that can be used to upload to OSS.
+   * The configuration information for uploading a JavaScript file to OSS. When uploading to OSS, you must include the OSSAccessKeyId and x-oss-security-token parameters.
    * 
    * @example
-   * {
+   * "OssPostConfig": {
    *             "Url": "http://oss_fake_bucket_url",
    *             "OSSAccessKeyId": "xxx",
-   *             "key": "site_er_js/hello.1418586423220543.unstable.js",
-   *             "callback": "xxx==",
+   *             "XOssSecurityToken": "",
+   *             "key": "sp_esa_rwa/xxx/hello/unstable/routine/index.js",
+   *             "callback": "xxx=",
    *             "x:codeDescription": "xxx=",
-   *             "policy": "xxx",
+   *             "policy": "xxx=",
    *             "Signature": "xxx="
-   * }
+   *         }
    */
   ossPostConfig?: { [key: string]: any };
   /**

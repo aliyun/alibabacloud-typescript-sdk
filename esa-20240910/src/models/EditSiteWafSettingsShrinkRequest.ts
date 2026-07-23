@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class EditSiteWafSettingsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * WAF configuration information for the site, passed in JSON format.
+   * The WAF configuration of the site, passed in JSON format.
    */
   settingsShrink?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * @example
    * 1
@@ -18,7 +18,7 @@ export class EditSiteWafSettingsShrinkRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version.
+   * The site version.
    * 
    * @example
    * 0

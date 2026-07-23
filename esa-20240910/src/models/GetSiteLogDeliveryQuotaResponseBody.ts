@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteLogDeliveryQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The type of real-time logs. Valid values:
    * 
-   * 1. dcdn_log_access_l1 (default): access logs.
-   * 
-   * 2. dcdn_log_er: Edge Routine logs.
-   * 
-   * 3. dcdn_log_waf: firewall logs.
-   * 
-   * 4. dcdn_log_ipa: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1 (default)**: access logs.
+   * - **dcdn_log_er**: edge function logs.
+   * - **dcdn_log_waf**: security protection logs.
+   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * @example
    * dcdn_log_access_l1
@@ -37,7 +34,7 @@ export class GetSiteLogDeliveryQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456****

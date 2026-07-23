@@ -15,7 +15,7 @@ export class ListPagesRequestQueryArgs extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The keyword used for fuzzy matching against the name or description of custom pages.
+   * The fuzzy match string for the name or description of a custom page.
    * 
    * @example
    * example

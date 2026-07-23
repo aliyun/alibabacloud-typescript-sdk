@@ -17,7 +17,7 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
   checkRemainingSiteQuota?: string;
   /**
    * @remarks
-   * The instance ID. Specify this parameter to query a specific instance.
+   * The instance ID. Use this parameter to query a specific instance.
    * 
    * @example
    * sp-dps-xxxxxx
@@ -39,9 +39,10 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
    * 12
    */
   pageSize?: number;
+  resourceOwner?: number;
   /**
    * @remarks
-   * The field by which to sort the results. Valid values:
+   * The field by which to sort results. Valid values:
    * 
    * - CreateTime: sorted by creation time
    * 
@@ -89,6 +90,7 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceOwner: 'ResourceOwner',
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
       status: 'Status',
@@ -102,6 +104,7 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceOwner: 'number',
       sortBy: 'string',
       sortOrder: 'string',
       status: 'string',
