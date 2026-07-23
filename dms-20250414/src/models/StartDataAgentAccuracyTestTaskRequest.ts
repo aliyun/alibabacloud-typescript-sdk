@@ -13,7 +13,7 @@ export class StartDataAgentAccuracyTestTaskRequest extends $dara.Model {
   accuracyTestInsId?: string;
   /**
    * @remarks
-   * The accuracy test sample.
+   * The accuracy test sample file.
    * 
    * @example
    * 包含问题、答案[、SQL]的文件
@@ -37,7 +37,7 @@ export class StartDataAgentAccuracyTestTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 8wfig6l33n4f4xxxxxxxxxx

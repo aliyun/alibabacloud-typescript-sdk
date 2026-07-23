@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class FileUploadCallbackResponseBodyData extends $dara.Model {
+export class DeleteDataAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The file ID.
+   * Agent Id
    * 
    * @example
-   * f-8*******01m
+   * cu0cs*******mf
    */
-  fileId?: string;
+  agentId?: string;
+  /**
+   * @remarks
+   * The Agent status.
+   * 
+   * @example
+   * RUNNING
+   */
+  agentStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      fileId: 'FileId',
+      agentId: 'AgentId',
+      agentStatus: 'AgentStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileId: 'string',
+      agentId: 'string',
+      agentStatus: 'string',
     };
   }
 
@@ -32,18 +42,18 @@ export class FileUploadCallbackResponseBodyData extends $dara.Model {
   }
 }
 
-export class FileUploadCallbackResponseBody extends $dara.Model {
+export class DeleteDataAgentResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response struct.
    */
-  data?: FileUploadCallbackResponseBodyData;
+  data?: DeleteDataAgentResponseBodyData;
   /**
    * @remarks
    * The error code.
    * 
    * @example
-   * success
+   * InvalidTid
    */
   errorCode?: string;
   /**
@@ -51,7 +61,7 @@ export class FileUploadCallbackResponseBody extends $dara.Model {
    * The error message returned if the call failed.
    * 
    * @example
-   * Specified parameter Tid is not valid.
+   * UnknownError
    */
   errorMessage?: string;
   /**
@@ -59,14 +69,14 @@ export class FileUploadCallbackResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * 841BC14F-8E21-56B0-A7D6-593C5841AC84
+   * 67E910F2-4B62-5B0C-ACA3-7547695C****
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.                                 
+   * - **true**: The request is successful.                                 
    * - **false**: The request failed.
    * 
    * @example
@@ -85,7 +95,7 @@ export class FileUploadCallbackResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: FileUploadCallbackResponseBodyData,
+      data: DeleteDataAgentResponseBodyData,
       errorCode: 'string',
       errorMessage: 'string',
       requestId: 'string',

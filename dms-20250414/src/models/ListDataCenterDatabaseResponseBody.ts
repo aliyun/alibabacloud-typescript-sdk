@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The description of the database.
+   * The database description.
    * 
    * @example
    * This is a sample database.
@@ -13,9 +13,8 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   databaseDesc?: string;
   /**
    * @remarks
-   * The name of the database.
-   * 
-   * - If `ImportType` is `FILE`, this is the file name.
+   * The database name.
+   * - When ImportType is FILE, this parameter indicates the file name.
    * 
    * @example
    * diamonds.csv
@@ -23,7 +22,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The ID of the database.
+   * The database ID.
    * 
    * @example
    * 6kv159u9vtpvl**********b8
@@ -31,9 +30,8 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   dbId?: string;
   /**
    * @remarks
-   * - If `ImportType` is `FILE`:
-   * 
-   *   - The file format, such as `csv`, `xlsx`, or `xls`.
+   * - When ImportType is FILE:
+   *   - File type: dbType indicates the file format, such as csv, xlsx, or xls.
    * 
    * @example
    * csv
@@ -41,7 +39,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The time the database description was last updated.
+   * The time when the database description was last updated.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -49,9 +47,8 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   descUpdateTime?: string;
   /**
    * @remarks
-   * The ID of the database in DMS.
-   * 
-   * - This parameter is not returned if `ImportType` is `FILE`.
+   * The ID of the Data Management database that hosts the instance.
+   *   - This parameter is not returned when ImportType is FILE.
    * 
    * @example
    * 73088962
@@ -59,9 +56,8 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   dmsDbId?: number;
   /**
    * @remarks
-   * The ID of the DMS instance that manages the database.
-   * 
-   * - This parameter is not returned if `ImportType` is `FILE`.
+   * The ID of the Data Management instance that hosts the instance.
+   *   - This parameter is not returned when ImportType is FILE.
    * 
    * @example
    * 2740966
@@ -70,7 +66,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   downloadLink?: string;
   /**
    * @remarks
-   * The time the entry was created.
+   * The time when the file was created.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -78,19 +74,13 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The import type. Valid values:
-   * 
-   * - FILE
-   * 
-   * - RDS
-   * 
-   * - ADB
-   * 
-   * - PolarDB
-   * 
-   * - Hologres
-   * 
-   * - DMS
+   * The import type.
+   *   - FILE
+   *   - RDS
+   *   - ADB
+   *   - PolarDB
+   *   - Hologres
+   *   - DMS
    * 
    * @example
    * FILE
@@ -98,9 +88,8 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   importType?: string;
   /**
    * @remarks
-   * The name of the instance.
-   * 
-   * - If `ImportType` is `FILE`, this parameter specifies the file ID in the data center.
+   * The instance name.
+   * - When ImportType is FILE, this parameter indicates the file ID in the data center.
    * 
    * @example
    * f-ean8u5881qk4*********xh5y
@@ -110,9 +99,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the dataset is built-in. Valid values:
-   * 
    * - Y: The dataset is built-in.
-   * 
    * - N: The dataset is not built-in.
    * 
    * @example
@@ -122,7 +109,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The size of the file, in bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 999
@@ -183,12 +170,12 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
 export class ListDataCenterDatabaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of databases.
+   * The response struct.
    */
   data?: ListDataCenterDatabaseResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code returned if the request failed.
    * 
    * @example
    * success
@@ -196,7 +183,7 @@ export class ListDataCenterDatabaseResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -204,7 +191,7 @@ export class ListDataCenterDatabaseResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
@@ -214,8 +201,7 @@ export class ListDataCenterDatabaseResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
+   * - **true**: The request was successful.                                 
    * - **false**: The request failed.
    * 
    * @example

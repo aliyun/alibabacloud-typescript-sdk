@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FileUploadCallbackRequest extends $dara.Model {
   /**
    * @remarks
-   * For frontend use only.
+   * Used only by the frontend.
    * 
    * @example
    * TrailCenter
@@ -13,7 +13,7 @@ export class FileUploadCallbackRequest extends $dara.Model {
   callFrom?: string;
   /**
    * @remarks
-   * The current DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class FileUploadCallbackRequest extends $dara.Model {
   dmsUnit?: string;
   /**
    * @remarks
-   * The file size in bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 8110
@@ -40,15 +40,14 @@ export class FileUploadCallbackRequest extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The full path for the file upload.
-   * 
-   * - Format: This path is formed by appending the file name to the UploadDir value returned by the DescribeFileUploadSignature operation.
-   * 
+   * The full path of the uploaded file.
+   * - Format: The UploadDir field returned by the DescribeFileUploadSignature operation concatenated with the file name.
    * - Example: ${UploadDir}/${Filename}
    * 
    * This parameter is required.
    */
   uploadLocation?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       callFrom: 'CallFrom',
@@ -57,6 +56,7 @@ export class FileUploadCallbackRequest extends $dara.Model {
       filename: 'Filename',
       ossBucket: 'OssBucket',
       uploadLocation: 'UploadLocation',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -68,6 +68,7 @@ export class FileUploadCallbackRequest extends $dara.Model {
       filename: 'string',
       ossBucket: 'string',
       uploadLocation: 'string',
+      workspaceId: 'string',
     };
   }
 

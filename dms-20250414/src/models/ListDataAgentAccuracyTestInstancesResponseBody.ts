@@ -27,9 +27,10 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
    * 20282*****7591
    */
   creator?: string;
+  datasource?: string;
   /**
    * @remarks
-   * The test set file ID.
+   * The ID of the test set file.
    * 
    * @example
    * f-8*******01m
@@ -61,7 +62,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
   language?: string;
   /**
    * @remarks
-   * The maximum number of concurrent sessions during testing.
+   * The maximum number of concurrent sessions during the test.
    * 
    * @example
    * 5
@@ -85,7 +86,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * Specifies whether sessions are displayed after analysis. This feature is not currently supported.
+   * Specifies whether sessions are displayed after analysis. This parameter is not supported.
    * 
    * @example
    * true
@@ -104,6 +105,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
       accuracyTestInsId: 'AccuracyTestInsId',
       agentId: 'AgentId',
       creator: 'Creator',
+      datasource: 'Datasource',
       fileId: 'FileId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
@@ -121,6 +123,7 @@ export class ListDataAgentAccuracyTestInstancesResponseBodyData extends $dara.Mo
       accuracyTestInsId: 'string',
       agentId: 'string',
       creator: 'string',
+      datasource: 'string',
       fileId: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',

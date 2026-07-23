@@ -671,6 +671,10 @@ export default class Client extends OpenApi {
       query["Dataset"] = request.dataset;
     }
 
+    if (!$dara.isNull(request.datasource)) {
+      query["Datasource"] = request.datasource;
+    }
+
     if (!$dara.isNull(request.desc)) {
       query["Desc"] = request.desc;
     }
@@ -866,7 +870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DataAgent collaborative workspace.
+   * Creates a DataAgent workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -909,7 +913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DataAgent collaborative workspace.
+   * Creates a DataAgent workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
    * @returns CreateDataAgentWorkspaceResponse
@@ -1295,6 +1299,48 @@ export default class Client extends OpenApi {
   async deleteCustomAgent(request: $_model.DeleteCustomAgentRequest): Promise<$_model.DeleteCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases a DataAgent seat.
+   * 
+   * @param request - DeleteDataAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataAgentResponse
+   */
+  async deleteDataAgentWithOptions(request: $_model.DeleteDataAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataAgent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataAgentResponse({}));
+  }
+
+  /**
+   * Releases a DataAgent seat.
+   * 
+   * @param request - DeleteDataAgentRequest
+   * @returns DeleteDataAgentResponse
+   */
+  async deleteDataAgent(request: $_model.DeleteDataAgentRequest): Promise<$_model.DeleteDataAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataAgentWithOptions(request, runtime);
   }
 
   /**
@@ -1954,6 +2000,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries DataAgent metrics.
+   * 
+   * @param request - DescribeDataAgentMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataAgentMetricsResponse
+   */
+  async describeDataAgentMetricsWithOptions(request: $_model.DescribeDataAgentMetricsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataAgentMetricsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.metricNames)) {
+      query["MetricNames"] = request.metricNames;
+    }
+
+    if (!$dara.isNull(request.metricType)) {
+      query["MetricType"] = request.metricType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDataAgentMetrics",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDataAgentMetricsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDataAgentMetricsResponse({}));
+  }
+
+  /**
+   * Queries DataAgent metrics.
+   * 
+   * @param request - DescribeDataAgentMetricsRequest
+   * @returns DescribeDataAgentMetricsResponse
+   */
+  async describeDataAgentMetrics(request: $_model.DescribeDataAgentMetricsRequest): Promise<$_model.DescribeDataAgentMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDataAgentMetricsWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the description of a DataAgent session.
    * 
    * @param request - DescribeDataAgentSessionRequest
@@ -2050,7 +2150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeFileUploadSignature
+   * Retrieves the signature information for file uploads.
    * 
    * @param request - DescribeFileUploadSignatureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2065,6 +2165,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dmsUnit)) {
       query["DmsUnit"] = request.dmsUnit;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2085,7 +2189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeFileUploadSignature
+   * Retrieves the signature information for file uploads.
    * 
    * @param request - DescribeFileUploadSignatureRequest
    * @returns DescribeFileUploadSignatureResponse
@@ -2180,7 +2284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * FileUploadCallback
+   * Calls back after a file is uploaded.
    * 
    * @param request - FileUploadCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2213,6 +2317,10 @@ export default class Client extends OpenApi {
       query["UploadLocation"] = request.uploadLocation;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2231,7 +2339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * FileUploadCallback
+   * Calls back after a file is uploaded.
    * 
    * @param request - FileUploadCallbackRequest
    * @returns FileUploadCallbackResponse
@@ -2239,6 +2347,48 @@ export default class Client extends OpenApi {
   async fileUploadCallback(request: $_model.FileUploadCallbackRequest): Promise<$_model.FileUploadCallbackResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.fileUploadCallbackWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries agent information by install token.
+   * 
+   * @param request - GetAgenticAgentByInstallTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgenticAgentByInstallTokenResponse
+   */
+  async getAgenticAgentByInstallTokenWithOptions(request: $_model.GetAgenticAgentByInstallTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgenticAgentByInstallTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.installToken)) {
+      query["InstallToken"] = request.installToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgenticAgentByInstallToken",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgenticAgentByInstallTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetAgenticAgentByInstallTokenResponse({}));
+  }
+
+  /**
+   * Queries agent information by install token.
+   * 
+   * @param request - GetAgenticAgentByInstallTokenRequest
+   * @returns GetAgenticAgentByInstallTokenResponse
+   */
+  async getAgenticAgentByInstallToken(request: $_model.GetAgenticAgentByInstallTokenRequest): Promise<$_model.GetAgenticAgentByInstallTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgenticAgentByInstallTokenWithOptions(request, runtime);
   }
 
   /**
@@ -3446,11 +3596,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the running status of self-test tasks by paging.
+   * Queries the running status of accuracy test nodes by using paging.
    * 
    * @remarks
-   * Queries the running status of self-test tasks by paging.
-   * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+   * Queries the running status of self-test nodes by using paging. If AccuracyTestInsId or AccuracyTestTaskId is empty, all test nodes are queried.
    * 
    * @param request - ListDataAgentAccuracyTestTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3505,11 +3654,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the running status of self-test tasks by paging.
+   * Queries the running status of accuracy test nodes by using paging.
    * 
    * @remarks
-   * Queries the running status of self-test tasks by paging.
-   * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+   * Queries the running status of self-test nodes by using paging. If AccuracyTestInsId or AccuracyTestTaskId is empty, all test nodes are queried.
    * 
    * @param request - ListDataAgentAccuracyTestTasksRequest
    * @returns ListDataAgentAccuracyTestTasksResponse
@@ -3754,7 +3902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists user-uploaded files in a data center, excluding databases.
+   * Retrieves the list of files uploaded by users in the data center. Only file types are supported. Database types are not supported.
    * 
    * @param request - ListDataCenterDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3783,6 +3931,10 @@ export default class Client extends OpenApi {
       query["SearchKey"] = request.searchKey;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3801,7 +3953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists user-uploaded files in a data center, excluding databases.
+   * Retrieves the list of files uploaded by users in the data center. Only file types are supported. Database types are not supported.
    * 
    * @param request - ListDataCenterDatabaseRequest
    * @returns ListDataCenterDatabaseResponse
@@ -5314,10 +5466,10 @@ export default class Client extends OpenApi {
    * ## Request description
    * - `agent_id` and `session_id` are required fields.
    * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-   * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+   * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
    * - `quoted_message` can be used to quote the content of a previous user message.
-   * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
+   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5428,10 +5580,10 @@ export default class Client extends OpenApi {
    * ## Request description
    * - `agent_id` and `session_id` are required fields.
    * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-   * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+   * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
    * - When `message_type` is `additional`, the `question` field is required.
    * - `quoted_message` can be used to quote the content of a previous user message.
-   * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
+   * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse
@@ -5802,6 +5954,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dataset)) {
       query["Dataset"] = request.dataset;
+    }
+
+    if (!$dara.isNull(request.datasource)) {
+      query["Datasource"] = request.datasource;
     }
 
     if (!$dara.isNull(request.desc)) {

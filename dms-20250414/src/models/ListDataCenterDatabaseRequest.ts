@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataCenterDatabaseRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is for internal use.
+   * Used only by the frontend.
    * 
    * @example
    * Frontend only
@@ -13,7 +13,7 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
   callFrom?: string;
   /**
    * @remarks
-   * The DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou
@@ -22,8 +22,7 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
   /**
    * @remarks
    * The import type.
-   * 
-   * - FILE
+   *   - FILE
    * 
    * @example
    * FILE
@@ -31,7 +30,7 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
   importType?: string;
   /**
    * @remarks
-   * This parameter is for internal use.
+   * Used only by the frontend.
    * 
    * @example
    * Frontend only
@@ -39,12 +38,13 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The keyword for a fuzzy search for databases.
+   * The keyword for fuzzy match of databases.
    * 
    * @example
    * testdb
    */
   searchKey?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       callFrom: 'CallFrom',
@@ -52,6 +52,7 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
       importType: 'ImportType',
       language: 'Language',
       searchKey: 'SearchKey',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -62,6 +63,7 @@ export class ListDataCenterDatabaseRequest extends $dara.Model {
       importType: 'string',
       language: 'string',
       searchKey: 'string',
+      workspaceId: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom agent for which you want to run the accuracy test.
+   * The ID of the custom agent to be tested for accuracy.
    * 
    * @example
    * ca-xxxxxxxxxxxxxxxxxxxx
@@ -16,9 +16,15 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
    * The data source. We recommend that you configure this in the custom agent.
    * 
    * @example
-   * [{\\"DataSourceType\\":\\"database\\",\\"RegionId\\":\\"cn-hangzhou\\",\\"DmsInstanceId\\":\\"27xxx49\\",\\"DmsDatabaseId\\":\\"75xxx6\\",\\"Database\\":\\"employees\\",\\"Tables\\":[\\"employees\\",\\"salaries\\",\\"departments\\"]}]
+   * null
    */
   dataset?: string;
+  /**
+   * @example
+   * [{"isInternal":"N","TableIds":["51***70","51***71"],"DataSourceType":"database","Database":"internal_data_employees","DmsInstanceId":"27***5","DmsDatabaseId":"71***04","Tables":["employees","salaries"],"FileId":"rm-
+   * ***","DbName":"internal_data_employees","CatalogName":"def","RegionId":"cn-hangzhou","Engine":"mysql"}]
+   */
+  datasource?: string;
   /**
    * @remarks
    * The description.
@@ -85,7 +91,7 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether sessions are displayed after the analysis. This parameter is not supported.
+   * Specifies whether sessions are displayed after analysis. This parameter is not supported.
    * 
    * @example
    * null
@@ -111,6 +117,7 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
     return {
       customAgentId: 'CustomAgentId',
       dataset: 'Dataset',
+      datasource: 'Datasource',
       desc: 'Desc',
       dmsUnit: 'DmsUnit',
       evaluationPrompt: 'EvaluationPrompt',
@@ -129,6 +136,7 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
     return {
       customAgentId: 'string',
       dataset: 'string',
+      datasource: 'string',
       desc: 'string',
       dmsUnit: 'string',
       evaluationPrompt: 'string',

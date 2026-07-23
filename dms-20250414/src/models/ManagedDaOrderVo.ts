@@ -2,50 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DmsGatewayOrder extends $dara.Model {
-  bizType?: string;
-  chargeType?: string;
-  commodityCode?: string;
+export class ManagedDaOrderVO extends $dara.Model {
+  /**
+   * @remarks
+   * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+   */
   expireTime?: string;
-  freeOrder?: boolean;
+  /**
+   * @remarks
+   * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+   */
   gmtCreate?: string;
   instanceId?: string;
-  instanceType?: string;
   orderId?: number;
   payNum?: number;
   region?: string;
   state?: string;
+  subscriptionPlan?: string;
   static names(): { [key: string]: string } {
     return {
-      bizType: 'BizType',
-      chargeType: 'ChargeType',
-      commodityCode: 'CommodityCode',
-      expireTime: 'ExpireTime',
-      freeOrder: 'FreeOrder',
-      gmtCreate: 'GmtCreate',
-      instanceId: 'InstanceId',
-      instanceType: 'InstanceType',
-      orderId: 'OrderId',
-      payNum: 'PayNum',
-      region: 'Region',
-      state: 'State',
+      expireTime: 'expireTime',
+      gmtCreate: 'gmtCreate',
+      instanceId: 'instanceId',
+      orderId: 'orderId',
+      payNum: 'payNum',
+      region: 'region',
+      state: 'state',
+      subscriptionPlan: 'subscriptionPlan',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bizType: 'string',
-      chargeType: 'string',
-      commodityCode: 'string',
       expireTime: 'string',
-      freeOrder: 'boolean',
       gmtCreate: 'string',
       instanceId: 'string',
-      instanceType: 'string',
       orderId: 'number',
       payNum: 'number',
       region: 'string',
       state: 'string',
+      subscriptionPlan: 'string',
     };
   }
 

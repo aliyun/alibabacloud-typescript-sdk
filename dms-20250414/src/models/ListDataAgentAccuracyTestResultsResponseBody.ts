@@ -13,12 +13,13 @@ export class ListDataAgentAccuracyTestResultsResponseBodyDataContent extends $da
   accuracyTestTaskId?: string;
   /**
    * @remarks
-   * The actual answer returned by the agent.
+   * The actual answer from the agent.
    * 
    * @example
    * 在公司历史职位记录中，共有97,750名员工曾拥有Senior Engineer头衔。
    */
   agentResult?: string;
+  agentSql?: string;
   /**
    * @remarks
    * The expected answer.
@@ -29,7 +30,7 @@ export class ListDataAgentAccuracyTestResultsResponseBodyDataContent extends $da
   answerResult?: string;
   /**
    * @remarks
-   * The expected SQL statement.
+   * The expected SQL.
    * 
    * @example
    * SELECT COUNT(*) FROM titles WHERE title = \\"Senior Engineer\\";
@@ -75,6 +76,7 @@ export class ListDataAgentAccuracyTestResultsResponseBodyDataContent extends $da
    * at-emhnbwewfngrxxxxxxxxxx
    */
   resultId?: string;
+  sessionId?: string;
   /**
    * @remarks
    * The subtask ID.
@@ -87,6 +89,7 @@ export class ListDataAgentAccuracyTestResultsResponseBodyDataContent extends $da
     return {
       accuracyTestTaskId: 'AccuracyTestTaskId',
       agentResult: 'AgentResult',
+      agentSql: 'AgentSql',
       answerResult: 'AnswerResult',
       answerSql: 'AnswerSql',
       isTrue: 'IsTrue',
@@ -94,6 +97,7 @@ export class ListDataAgentAccuracyTestResultsResponseBodyDataContent extends $da
       reason: 'Reason',
       recommendation: 'Recommendation',
       resultId: 'ResultId',
+      sessionId: 'SessionId',
       subtaskId: 'SubtaskId',
     };
   }
@@ -102,6 +106,7 @@ export class ListDataAgentAccuracyTestResultsResponseBodyDataContent extends $da
     return {
       accuracyTestTaskId: 'string',
       agentResult: 'string',
+      agentSql: 'string',
       answerResult: 'string',
       answerSql: 'string',
       isTrue: 'boolean',
@@ -109,6 +114,7 @@ export class ListDataAgentAccuracyTestResultsResponseBodyDataContent extends $da
       reason: 'string',
       recommendation: 'string',
       resultId: 'string',
+      sessionId: 'string',
       subtaskId: 'string',
     };
   }
@@ -152,6 +158,7 @@ export class ListDataAgentAccuracyTestResultsResponseBodyData extends $dara.Mode
    * 9
    */
   correctCount?: number;
+  failedCount?: string;
   /**
    * @remarks
    * The page number.
@@ -168,6 +175,7 @@ export class ListDataAgentAccuracyTestResultsResponseBodyData extends $dara.Mode
    * 50
    */
   pageSize?: number;
+  pendingCount?: string;
   /**
    * @remarks
    * The total number of results.
@@ -190,8 +198,10 @@ export class ListDataAgentAccuracyTestResultsResponseBodyData extends $dara.Mode
       accuracyTestTaskId: 'AccuracyTestTaskId',
       content: 'Content',
       correctCount: 'CorrectCount',
+      failedCount: 'FailedCount',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      pendingCount: 'PendingCount',
       totalElements: 'TotalElements',
       totalPages: 'TotalPages',
     };
@@ -203,8 +213,10 @@ export class ListDataAgentAccuracyTestResultsResponseBodyData extends $dara.Mode
       accuracyTestTaskId: 'string',
       content: { 'type': 'array', 'itemType': ListDataAgentAccuracyTestResultsResponseBodyDataContent },
       correctCount: 'number',
+      failedCount: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      pendingCount: 'string',
       totalElements: 'number',
       totalPages: 'number',
     };

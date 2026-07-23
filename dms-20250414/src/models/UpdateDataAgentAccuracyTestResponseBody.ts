@@ -21,12 +21,14 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The data source. We recommend that you configure this in the custom agent.
+   * The data source. We recommend that you configure this parameter in a custom agent.
    * 
    * @example
    * [{\\"DataSourceType\\":\\"database\\",\\"RegionId\\":\\"cn-hangzhou\\",\\"DmsInstanceId\\":\\"27xxxxx\\",\\"DmsDatabaseId\\":\\"752xxxxx\\",\\"Database\\":\\"employees\\",\\"Tables\\":[\\"employees\\",\\"salaries\\",\\"departments\\"]}]
    */
   dataset?: string;
+  datasource?: string;
+  desc?: string;
   /**
    * @remarks
    * The accuracy evaluation criteria. An empty value indicates the default criteria.
@@ -43,6 +45,7 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
    * f-8*******01m
    */
   fileId?: string;
+  maxConcurrent?: number;
   /**
    * @remarks
    * The analysis mode.
@@ -51,6 +54,8 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
    * 0
    */
   mode?: number;
+  name?: string;
+  needDelete?: boolean;
   /**
    * @remarks
    * The workspace ID.
@@ -64,9 +69,14 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
       accuracyTest: 'AccuracyTest',
       agentId: 'AgentId',
       dataset: 'Dataset',
+      datasource: 'Datasource',
+      desc: 'Desc',
       evaluationPrompt: 'EvaluationPrompt',
       fileId: 'FileId',
+      maxConcurrent: 'MaxConcurrent',
       mode: 'Mode',
+      name: 'Name',
+      needDelete: 'NeedDelete',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -76,9 +86,14 @@ export class UpdateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
       accuracyTest: 'string',
       agentId: 'string',
       dataset: 'string',
+      datasource: 'string',
+      desc: 'string',
       evaluationPrompt: 'string',
       fileId: 'string',
+      maxConcurrent: 'number',
       mode: 'number',
+      name: 'string',
+      needDelete: 'boolean',
       workspaceId: 'string',
     };
   }

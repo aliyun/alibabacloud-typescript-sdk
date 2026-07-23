@@ -3,71 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OpenClawInstanceQuotaVO extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account UID.
-   */
   aliyunAccountUid?: string;
-  /**
-   * @remarks
-   * The total quota for deep research calls.
-   */
   deepResearchCallQuota?: string;
-  /**
-   * @remarks
-   * The number of deep research calls used.
-   */
   deepResearchCallUsed?: string;
-  /**
-   * @remarks
-   * The instance creation time.
-   */
+  instanceDesc?: string;
   instanceGmtCreate?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The instance name.
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The timestamp of the last metering event.
-   */
   lastMeteringTime?: string;
-  /**
-   * @remarks
-   * The total quota for model calls.
-   */
   modelCallQuota?: string;
-  /**
-   * @remarks
-   * The number of model calls used.
-   */
   modelCallUsed?: string;
-  /**
-   * @remarks
-   * The day of the month on which the quota refreshes.
-   */
   refreshDay?: string;
-  /**
-   * @remarks
-   * The total quota for skill plan calls.
-   */
   skillPlanCallQuota?: string;
-  /**
-   * @remarks
-   * The number of skill plan calls used.
-   */
   skillPlanCallUsed?: string;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
       aliyunAccountUid: 'AliyunAccountUid',
       deepResearchCallQuota: 'DeepResearchCallQuota',
       deepResearchCallUsed: 'DeepResearchCallUsed',
+      instanceDesc: 'InstanceDesc',
       instanceGmtCreate: 'InstanceGmtCreate',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -77,6 +32,7 @@ export class OpenClawInstanceQuotaVO extends $dara.Model {
       refreshDay: 'RefreshDay',
       skillPlanCallQuota: 'SkillPlanCallQuota',
       skillPlanCallUsed: 'SkillPlanCallUsed',
+      status: 'Status',
     };
   }
 
@@ -85,6 +41,7 @@ export class OpenClawInstanceQuotaVO extends $dara.Model {
       aliyunAccountUid: 'string',
       deepResearchCallQuota: 'string',
       deepResearchCallUsed: 'string',
+      instanceDesc: 'string',
       instanceGmtCreate: 'string',
       instanceId: 'string',
       instanceName: 'string',
@@ -94,6 +51,7 @@ export class OpenClawInstanceQuotaVO extends $dara.Model {
       refreshDay: 'string',
       skillPlanCallQuota: 'string',
       skillPlanCallUsed: 'string',
+      status: 'number',
     };
   }
 

@@ -11,10 +11,17 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
    * cn-hangzhou
    */
   DMSUnit?: string;
+  /**
+   * @remarks
+   * Specifies whether session sharing is enabled within the workspace.
+   * 
+   * @example
+   * true
+   */
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The description of the collaborative workspace.
+   * The description of the workspace.
    * 
    * @example
    * Space for test
@@ -22,7 +29,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   workspaceDesc?: string;
   /**
    * @remarks
-   * The name of the collaborative workspace.
+   * The name of the workspace.
    * 
    * @example
    * workspaceTest

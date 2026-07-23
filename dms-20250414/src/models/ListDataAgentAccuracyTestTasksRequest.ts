@@ -13,7 +13,7 @@ export class ListDataAgentAccuracyTestTasksRequest extends $dara.Model {
   accuracyTestInsId?: string;
   /**
    * @remarks
-   * The task ID used for exact filtering.
+   * Filters by the exact task ID.
    * 
    * @example
    * 692abb8f-xxxx-xxxx-xxxx-xxxxxxxxxxxx

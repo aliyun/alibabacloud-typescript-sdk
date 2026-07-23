@@ -10,6 +10,7 @@ export class DataAgentBillingInstance extends $dara.Model {
   commodityCode?: string;
   expireTime?: number;
   freeAgentSeats?: number;
+  freeLLM?: number;
   gmtCreated?: number;
   gmtModified?: number;
   isDefault?: boolean;
@@ -27,6 +28,7 @@ export class DataAgentBillingInstance extends $dara.Model {
       commodityCode: 'CommodityCode',
       expireTime: 'ExpireTime',
       freeAgentSeats: 'FreeAgentSeats',
+      freeLLM: 'FreeLLM',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       isDefault: 'IsDefault',
@@ -47,6 +49,7 @@ export class DataAgentBillingInstance extends $dara.Model {
       commodityCode: 'string',
       expireTime: 'number',
       freeAgentSeats: 'number',
+      freeLLM: 'number',
       gmtCreated: 'number',
       gmtModified: 'number',
       isDefault: 'boolean',

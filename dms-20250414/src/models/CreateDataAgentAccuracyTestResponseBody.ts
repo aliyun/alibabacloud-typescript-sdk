@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentAccuracyTestResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the accuracy test.
+   * The accuracy test instance ID.
    * 
    * @example
    * at-xxxxxxxxxxxxxxxxxxxx
@@ -48,7 +48,7 @@ export class CreateDataAgentAccuracyTestResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * UnknownError

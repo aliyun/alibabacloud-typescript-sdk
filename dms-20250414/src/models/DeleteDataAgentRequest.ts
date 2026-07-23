@@ -2,15 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeFileUploadSignatureRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter used only by the frontend.
-   * 
-   * @example
-   * 仅前端使用
-   */
-  callFrom?: string;
+export class DeleteDataAgentRequest extends $dara.Model {
   /**
    * @remarks
    * The current DMS unit.
@@ -18,21 +10,16 @@ export class DescribeFileUploadSignatureRequest extends $dara.Model {
    * @example
    * cn-hangzhou
    */
-  dmsUnit?: string;
-  workspaceId?: string;
+  DMSUnit?: string;
   static names(): { [key: string]: string } {
     return {
-      callFrom: 'CallFrom',
-      dmsUnit: 'DmsUnit',
-      workspaceId: 'WorkspaceId',
+      DMSUnit: 'DMSUnit',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      callFrom: 'string',
-      dmsUnit: 'string',
-      workspaceId: 'string',
+      DMSUnit: 'string',
     };
   }
 

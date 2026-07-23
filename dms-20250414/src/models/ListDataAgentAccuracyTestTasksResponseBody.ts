@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentAccuracyTestTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the accuracy test to which the task belongs.
+   * The accuracy test instance ID to which the task belongs.
    * 
    * @example
    * at-106n4rg17gv9fxxxxxxxxxx

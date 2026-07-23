@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class OpenClawInstanceVOImageInfo extends $dara.Model {
   imageId?: number;
   name?: string;
@@ -40,6 +38,7 @@ export class OpenClawInstanceVOImageInfo extends $dara.Model {
 }
 
 export class OpenClawInstanceVO extends $dara.Model {
+  agentType?: string;
   aliyunAccountUid?: string;
   authType?: string;
   basicAuthPassword?: string;
@@ -56,6 +55,8 @@ export class OpenClawInstanceVO extends $dara.Model {
   lastActiveTime?: string;
   lockTime?: string;
   memorySize?: number;
+  modelCallQuota?: number;
+  modelCallUsed?: number;
   openclawToken?: string;
   ownerUid?: string;
   publicDomain?: string;
@@ -66,6 +67,7 @@ export class OpenClawInstanceVO extends $dara.Model {
   variables?: string;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       aliyunAccountUid: 'AliyunAccountUid',
       authType: 'AuthType',
       basicAuthPassword: 'BasicAuthPassword',
@@ -82,6 +84,8 @@ export class OpenClawInstanceVO extends $dara.Model {
       lastActiveTime: 'LastActiveTime',
       lockTime: 'LockTime',
       memorySize: 'MemorySize',
+      modelCallQuota: 'ModelCallQuota',
+      modelCallUsed: 'ModelCallUsed',
       openclawToken: 'OpenclawToken',
       ownerUid: 'OwnerUid',
       publicDomain: 'PublicDomain',
@@ -95,6 +99,7 @@ export class OpenClawInstanceVO extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       aliyunAccountUid: 'string',
       authType: 'string',
       basicAuthPassword: 'string',
@@ -111,6 +116,8 @@ export class OpenClawInstanceVO extends $dara.Model {
       lastActiveTime: 'string',
       lockTime: 'string',
       memorySize: 'number',
+      modelCallQuota: 'number',
+      modelCallUsed: 'number',
       openclawToken: 'string',
       ownerUid: 'string',
       publicDomain: 'string',

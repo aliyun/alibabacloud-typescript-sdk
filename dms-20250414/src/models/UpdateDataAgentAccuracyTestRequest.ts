@@ -27,6 +27,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
    * [{\\"DataSourceType\\":\\"database\\",\\"RegionId\\":\\"cn-hangzhou\\",\\"DmsInstanceId\\":\\"27xxxxx\\",\\"DmsDatabaseId\\":\\"752xxxxx\\",\\"Database\\":\\"employees\\",\\"Tables\\":[\\"employees\\",\\"salaries\\",\\"departments\\"]}]
    */
   dataset?: string;
+  datasource?: string;
   /**
    * @remarks
    * The description.
@@ -37,7 +38,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The current DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou
@@ -112,6 +113,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
       accuracyTestInsId: 'AccuracyTestInsId',
       customerAgentId: 'CustomerAgentId',
       dataset: 'Dataset',
+      datasource: 'Datasource',
       desc: 'Desc',
       dmsUnit: 'DmsUnit',
       evaluationPrompt: 'EvaluationPrompt',
@@ -130,6 +132,7 @@ export class UpdateDataAgentAccuracyTestRequest extends $dara.Model {
       accuracyTestInsId: 'string',
       customerAgentId: 'string',
       dataset: 'string',
+      datasource: 'string',
       desc: 'string',
       dmsUnit: 'string',
       evaluationPrompt: 'string',

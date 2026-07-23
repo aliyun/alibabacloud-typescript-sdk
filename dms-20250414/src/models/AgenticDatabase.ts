@@ -21,11 +21,6 @@ export class AgenticDatabase extends $dara.Model {
   catalogUuid?: string;
   /**
    * @remarks
-   * The data source type, such as `MySQL` or `PostgreSQL`.
-   */
-  dataSourceType?: string;
-  /**
-   * @remarks
    * The database\\"s business attributes.
    */
   databaseBizAttrs?: { [key: string]: any };
@@ -34,6 +29,7 @@ export class AgenticDatabase extends $dara.Model {
    * The unique identifier of the database.
    */
   databaseUuid?: string;
+  dbType?: string;
   /**
    * @remarks
    * The database description.
@@ -84,9 +80,9 @@ export class AgenticDatabase extends $dara.Model {
       catalogName: 'CatalogName',
       catalogType: 'CatalogType',
       catalogUuid: 'CatalogUuid',
-      dataSourceType: 'DataSourceType',
       databaseBizAttrs: 'DatabaseBizAttrs',
       databaseUuid: 'DatabaseUuid',
+      dbType: 'DbType',
       description: 'Description',
       engineMeta: 'EngineMeta',
       name: 'Name',
@@ -104,9 +100,9 @@ export class AgenticDatabase extends $dara.Model {
       catalogName: 'string',
       catalogType: 'string',
       catalogUuid: 'string',
-      dataSourceType: 'string',
       databaseBizAttrs: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       databaseUuid: 'string',
+      dbType: 'string',
       description: 'string',
       engineMeta: AgenticDatabaseEngineMeta,
       name: 'string',
