@@ -754,6 +754,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 并行仲裁的仲裁结果上传
+   * 
+   * @param tmpReq - InterruptForArbitrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InterruptForArbitrationResponse
+   */
+  async interruptForArbitrationWithOptions(tmpReq: $_model.InterruptForArbitrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InterruptForArbitrationResponse> {
+    tmpReq.validate();
+    let request = new $_model.InterruptForArbitrationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.interrupt)) {
+      request.interruptShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interrupt, "Interrupt", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.chatId)) {
+      query["ChatId"] = request.chatId;
+    }
+
+    if (!$dara.isNull(request.hubRequestId)) {
+      query["HubRequestId"] = request.hubRequestId;
+    }
+
+    if (!$dara.isNull(request.interruptShrink)) {
+      query["Interrupt"] = request.interruptShrink;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InterruptForArbitration",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InterruptForArbitrationResponse>(await this.callApi(params, req, runtime), new $_model.InterruptForArbitrationResponse({}));
+  }
+
+  /**
+   * 并行仲裁的仲裁结果上传
+   * 
+   * @param request - InterruptForArbitrationRequest
+   * @returns InterruptForArbitrationResponse
+   */
+  async interruptForArbitration(request: $_model.InterruptForArbitrationRequest): Promise<$_model.InterruptForArbitrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.interruptForArbitrationWithOptions(request, runtime);
+  }
+
+  /**
    * 指令列表
    * 
    * @param request - ListCommandRequest

@@ -21,6 +21,7 @@ export { DescribeMmAppResponseBodyBindingConfig } from './DescribeMmAppResponseB
 export { DescribeMmAppResponseBodyConversationConfig } from './DescribeMmAppResponseBody';
 export { DescribeMmAppResponseBodyModelConfig } from './DescribeMmAppResponseBody';
 export { DevicePageResponseBodyDeviceList } from './DevicePageResponseBody';
+export { InterruptForArbitrationRequestInterrupt } from './InterruptForArbitrationRequest';
 export { ListCommandResponseBodyToolInfoListToolExamples } from './ListCommandResponseBody';
 export { ListCommandResponseBodyToolInfoListToolParams } from './ListCommandResponseBody';
 export { ListCommandResponseBodyToolInfoList } from './ListCommandResponseBody';
@@ -94,6 +95,10 @@ export { DevicePageResponse } from './DevicePageResponse';
 export { DeviceUpdateRequest } from './DeviceUpdateRequest';
 export { DeviceUpdateResponseBody } from './DeviceUpdateResponseBody';
 export { DeviceUpdateResponse } from './DeviceUpdateResponse';
+export { InterruptForArbitrationRequest } from './InterruptForArbitrationRequest';
+export { InterruptForArbitrationShrinkRequest } from './InterruptForArbitrationShrinkRequest';
+export { InterruptForArbitrationResponseBody } from './InterruptForArbitrationResponseBody';
+export { InterruptForArbitrationResponse } from './InterruptForArbitrationResponse';
 export { ListCommandRequest } from './ListCommandRequest';
 export { ListCommandResponseBody } from './ListCommandResponseBody';
 export { ListCommandResponse } from './ListCommandResponse';
