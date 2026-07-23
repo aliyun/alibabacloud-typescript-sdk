@@ -206,6 +206,7 @@ export { QueryMgsApirestResponseBodyResultContentValueMockRule } from './QueryMg
 export { QueryMgsApirestResponseBodyResultContentValueRequestParams } from './QueryMgsApirestResponseBody';
 export { QueryMgsApirestResponseBodyResultContentValue } from './QueryMgsApirestResponseBody';
 export { QueryMgsApirestResponseBodyResultContent } from './QueryMgsApirestResponseBody';
+export { QueryMiniGameInfoByAppResponseBodyContent } from './QueryMiniGameInfoByAppResponseBody';
 export { QueryMpsSchedulerListResponseBodyResultContentDataList } from './QueryMpsSchedulerListResponseBody';
 export { QueryMpsSchedulerListResponseBodyResultContentData } from './QueryMpsSchedulerListResponseBody';
 export { QueryMpsSchedulerListResponseBodyResultContent } from './QueryMpsSchedulerListResponseBody';
@@ -564,6 +565,9 @@ export { QueryMgsApirestResponse } from './QueryMgsApirestResponse';
 export { QueryMgsTestreqbodyautogenRequest } from './QueryMgsTestreqbodyautogenRequest';
 export { QueryMgsTestreqbodyautogenResponseBody } from './QueryMgsTestreqbodyautogenResponseBody';
 export { QueryMgsTestreqbodyautogenResponse } from './QueryMgsTestreqbodyautogenResponse';
+export { QueryMiniGameInfoByAppRequest } from './QueryMiniGameInfoByAppRequest';
+export { QueryMiniGameInfoByAppResponseBody } from './QueryMiniGameInfoByAppResponseBody';
+export { QueryMiniGameInfoByAppResponse } from './QueryMiniGameInfoByAppResponse';
 export { QueryMpsSchedulerListRequest } from './QueryMpsSchedulerListRequest';
 export { QueryMpsSchedulerListResponseBody } from './QueryMpsSchedulerListResponseBody';
 export { QueryMpsSchedulerListResponse } from './QueryMpsSchedulerListResponse';

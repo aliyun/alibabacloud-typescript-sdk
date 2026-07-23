@@ -6927,6 +6927,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询小游戏信息(含资质)
+   * 
+   * @param request - QueryMiniGameInfoByAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMiniGameInfoByAppResponse
+   */
+  async queryMiniGameInfoByAppWithOptions(request: $_model.QueryMiniGameInfoByAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMiniGameInfoByAppResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.miniProgramCode)) {
+      body["MiniProgramCode"] = request.miniProgramCode;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMiniGameInfoByApp",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMiniGameInfoByAppResponse>(await this.callApi(params, req, runtime), new $_model.QueryMiniGameInfoByAppResponse({}));
+  }
+
+  /**
+   * 查询小游戏信息(含资质)
+   * 
+   * @param request - QueryMiniGameInfoByAppRequest
+   * @returns QueryMiniGameInfoByAppResponse
+   */
+  async queryMiniGameInfoByApp(request: $_model.QueryMiniGameInfoByAppRequest): Promise<$_model.QueryMiniGameInfoByAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMiniGameInfoByAppWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryMpsSchedulerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMpsSchedulerListResponse
