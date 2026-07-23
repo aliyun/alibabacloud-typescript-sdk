@@ -4,13 +4,23 @@ import { Catalog } from "./Catalog";
 
 
 export class ListCatalogsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Catalog list
+   */
   catalogs?: Catalog[];
   /**
+   * @remarks
+   * Next page token
+   * 
    * @example
    * 10
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 1
    */
@@ -45,22 +55,38 @@ export class ListCatalogsResponseBodyData extends $dara.Model {
 
 export class ListCatalogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code, 200 indicates success
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data
+   */
   data?: ListCatalogsResponseBodyData;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * Operation success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the operation was successful
+   * 
    * @example
    * true
    */

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRuleResponseBodyDataTargetsConcurrentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of concurrent pushes.
+   * 
+   * @example
+   * 2
+   */
   concurrency?: number;
   static names(): { [key: string]: string } {
     return {
@@ -34,9 +41,25 @@ export class GetRuleResponseBodyDataTargetsDeadLetterQueue extends $dara.Model {
    * acs:eventbridge:cn-hangzhou:164901546557****:eventbus/my-event-bus/eventsource/myRocketMQ.source
    */
   arn?: string;
+  /**
+   * @remarks
+   * The network type of the dead-letter queue.
+   */
   network?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,7 +93,7 @@ export class GetRuleResponseBodyDataTargetsDeadLetterQueue extends $dara.Model {
 export class GetRuleResponseBodyDataTargetsParamList extends $dara.Model {
   /**
    * @remarks
-   * The format that is used by the event target parameter. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The format of the event target parameter. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * TEMPLATE
@@ -86,7 +109,7 @@ export class GetRuleResponseBodyDataTargetsParamList extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * The template based on which events are delivered to the event target.
+   * The template of the event target parameter.
    * 
    * @example
    * The value of ${key} is ${value}!
@@ -94,7 +117,7 @@ export class GetRuleResponseBodyDataTargetsParamList extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The event target.
+   * The value of the event target parameter.
    * 
    * @example
    * {\\"key\\"=\\"value\\"}
@@ -128,6 +151,10 @@ export class GetRuleResponseBodyDataTargetsParamList extends $dara.Model {
 }
 
 export class GetRuleResponseBodyDataTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The concurrency settings.
+   */
   concurrentConfig?: GetRuleResponseBodyDataTargetsConcurrentConfig;
   /**
    * @remarks
@@ -136,12 +163,12 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
   deadLetterQueue?: GetRuleResponseBodyDataTargetsDeadLetterQueue;
   /**
    * @remarks
-   * The information about the event target.
+   * The details of the event target.
    */
   detailMap?: { [key: string]: any };
   /**
    * @remarks
-   * The endpoint of the event target.
+   * The delivery endpoint for the event.
    * 
    * @example
    * acs:mns:cn-hangzhou:123456789098****:queues/myqueue
@@ -149,7 +176,11 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The fault tolerance policy. Valid values: ALL and NONE. ALL: Fault tolerance is allowed. If an error occurs in an event, event processing is not blocked. If the event fails to be sent after the maximum number of retries specified by the retry policy is reached, the event is delivered to the dead-letter queue or discarded based on your configurations. NONE: Fault tolerance is not allowed. If an error occurs in an event and the event fails to be sent after the maximum number of retries specified by the retry policy is reached, event processing is blocked.
+   * The fault tolerance policy. Valid values:
+   * 
+   * - **ALL**: Enables fault tolerance. Errors do not block event delivery. If all retries fail, the system sends the event to the specified dead-letter queue or discards it.
+   * 
+   * - **NONE**: Disables fault tolerance. If an error persists after all retries, the system blocks event delivery.
    * 
    * @example
    * ALL
@@ -157,20 +188,24 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
   errorsTolerance?: string;
   /**
    * @remarks
-   * The ID of the event target.
+   * The custom ID of the event target.
    * 
    * @example
-   * 1
+   * Mlm123456JHd2RsRoKw
    */
   id?: string;
   /**
    * @remarks
-   * The parameters that are configured for the event target.
+   * The list of parameters for the event target.
    */
   paramList?: GetRuleResponseBodyDataTargetsParamList[];
   /**
    * @remarks
-   * The retry policy that is used to push failed events. Valid values: BACKOFF_RETRY and EXPONENTIAL_DECAY_RETRY. BACKOFF_RETRY: backoff retry. A failed event can be retried up to three times. The interval between two consecutive retries is a random value between 10 seconds and 20 seconds. EXPONENTIAL_DECAY_RETRY: exponential decay retry. A failed event can be retried up to 176 times. The interval between two consecutive retries exponentially increases to a maximum of 512 seconds. The total retry time is 1 day. The specific retry intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, and 512 seconds. The interval of 512 seconds is used for 167 retries.
+   * The retry policy for pushing events. Valid values:
+   * 
+   * - **BACKOFF_RETRY**: A backoff retry policy. The event is retried 3 times at a random interval between 10 and 20 seconds.
+   * 
+   * - **EXPONENTIAL_DECAY_RETRY**: An exponential decay retry policy. The event is retried 176 times over one day. The retry interval starts at 1 second and exponentially increases to a maximum of 512 seconds. The specific retry intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, and then 512 for the remaining 167 retries.
    * 
    * @example
    * BACKOFF_RETRY
@@ -178,10 +213,10 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
   pushRetryStrategy?: string;
   /**
    * @remarks
-   * The transformer that is used to push events.
+   * The push selector.
    * 
    * @example
-   * MATCHED_EVENT
+   * PARAM_TRANSFORMER
    */
   pushSelector?: string;
   /**
@@ -246,7 +281,7 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
 export class GetRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The timestamp that indicates when the event rule was created.
+   * The creation timestamp of the rule.
    * 
    * @example
    * 1607071602000
@@ -254,7 +289,7 @@ export class GetRuleResponseBodyData extends $dara.Model {
   createdTimestamp?: number;
   /**
    * @remarks
-   * The description of the event rule.
+   * The description of the rule.
    * 
    * @example
    * test
@@ -270,9 +305,11 @@ export class GetRuleResponseBodyData extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * The event pattern, in JSON format. Valid values: stringEqual and stringExpression. You can specify up to five expressions in the map data structure in each field.
+   * The event pattern in JSON format. The following modes are supported:
    * 
-   * You can specify up to five expressions in the map data structure in each field.
+   * - **stringEqual mode**: In the map structure, each field can contain up to five expressions.
+   * 
+   * - **stringExpression mode**: In the map structure, each field can contain up to five expressions.
    * 
    * @example
    * {\\"source\\":[\\"acs.oss\\"],\\"type\\":[\\"oss:BucketQueried:GetBucketStat\\"]}
@@ -280,7 +317,7 @@ export class GetRuleResponseBodyData extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the event rule.
+   * The ARN of the rule.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:123456789098****:eventbus/default/rule/myRule3
@@ -288,7 +325,7 @@ export class GetRuleResponseBodyData extends $dara.Model {
   ruleARN?: string;
   /**
    * @remarks
-   * The name of the event rule.
+   * The name of the rule.
    * 
    * @example
    * ramrolechange-fc
@@ -296,7 +333,11 @@ export class GetRuleResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the event rule. Valid values: ENABLE (default): The event rule is enabled. DISABLE: The event rule is disabled.
+   * The status of the rule. Valid values:
+   * 
+   * - **ENABLE**: The rule is enabled. This is the default.
+   * 
+   * - **DISABLE**: The rule is disabled.
    * 
    * @example
    * ENABLE
@@ -304,7 +345,7 @@ export class GetRuleResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The event targets.
+   * The list of event targets.
    */
   targets?: GetRuleResponseBodyDataTargets[];
   static names(): { [key: string]: string } {
@@ -348,7 +389,11 @@ export class GetRuleResponseBodyData extends $dara.Model {
 export class GetRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value Success indicates that the request is successful. Other values indicate that the request failed. For a list of error codes, see Error codes.
+   * The response code. Valid values:
+   * 
+   * - **Success**: The request was successful.
+   * 
+   * - **Other values**: The request returned an error code. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -356,12 +401,12 @@ export class GetRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned parameters.
+   * The response data.
    */
   data?: GetRuleResponseBodyData;
   /**
    * @remarks
-   * The returned error message.
+   * The error message.
    * 
    * @example
    * The event rule not existed!
@@ -369,7 +414,7 @@ export class GetRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID generated by Alibaba Cloud.
    * 
    * @example
    * 2BC1857D-E633-5E79-B2C2-43EF5F7730D8
@@ -377,7 +422,7 @@ export class GetRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. If the operation is successful, the value true is returned.
+   * Indicates whether the operation was successful. A value of `true` indicates success.
    * 
    * @example
    * true

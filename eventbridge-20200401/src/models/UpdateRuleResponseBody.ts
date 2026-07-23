@@ -8,7 +8,7 @@ export class UpdateRuleResponseBody extends $dara.Model {
    * The response code. The value Success indicates that the request was successful. Other values indicate that the request failed. For information about error codes, see Error codes.
    * 
    * @example
-   * 200
+   * Success
    */
   code?: string;
   /**

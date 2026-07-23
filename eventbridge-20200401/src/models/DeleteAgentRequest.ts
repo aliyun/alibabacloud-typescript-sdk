@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAgentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the agent.
+   * 
+   * This parameter is required.
+   * 
    * @example
    * my-agent
    */

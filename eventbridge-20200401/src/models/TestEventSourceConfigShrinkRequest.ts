@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TestEventSourceConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are configured if you specify MySQL as the event source.
+   * The parameters for the MySQL source.
    */
   sourceMySQLParametersShrink?: string;
   static names(): { [key: string]: string } {

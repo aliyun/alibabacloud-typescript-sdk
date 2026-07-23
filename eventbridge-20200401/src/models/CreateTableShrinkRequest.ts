@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTableShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 表所属的数据目录名称。可通过 ListCatalogs 获取已有目录列表
+   * The data catalog to which the table belongs.
    * 
    * @example
    * my_catalog
@@ -13,7 +13,7 @@ export class CreateTableShrinkRequest extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * 用于保证请求幂等性的Token，防止因网络重试导致重复创建。建议使用 UUID
+   * The idempotency token.
    * 
    * @example
    * 1e9b8f60-3a2c-4d7e-9f1b-8c3d5e7a2b4f
@@ -21,7 +21,7 @@ export class CreateTableShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 表的列定义（JSON 数组）。每列包含 Name（列名，必填）、Type（数据类型，必填，如 STRING、INT32、INT64、FLOAT、DOUBLE、BOOLEAN、TIMESTAMP）、Comment（列备注，选填）
+   * The column definitions.
    * 
    * @example
    * [{"Name":"id","Type":"bigint","Comment":"主键"}]
@@ -29,7 +29,7 @@ export class CreateTableShrinkRequest extends $dara.Model {
   columnsShrink?: string;
   /**
    * @remarks
-   * 表的备注描述信息，无格式限制
+   * The description.
    * 
    * @example
    * 测试事件表
@@ -37,7 +37,7 @@ export class CreateTableShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * 事件表名称。以字母或数字开头，支持字母、数字、下划线和短横线，长度1~127。在同一命名空间下唯一
+   * The name of the table.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateTableShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 表所属的命名空间名称。可通过 ListNamespaces 获取已有命名空间列表
+   * The namespace to which the table belongs.
    * 
    * @example
    * my_namespace
@@ -55,7 +55,7 @@ export class CreateTableShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * 数据保留策略（JSON 对象）。包含 HotTTL（热数据保留天数，高性能查询）和 ColdTTL（冷数据保留天数，低成本存储）。不传则使用系统默认值
+   * The data retention policy.
    * 
    * @example
    * {"HotTTL":7,"ColdTTL":30}

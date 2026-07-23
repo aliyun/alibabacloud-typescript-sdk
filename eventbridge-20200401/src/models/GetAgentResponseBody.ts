@@ -5,26 +5,41 @@ import { Agent } from "./Agent";
 
 export class GetAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API status or POP error code. Valid values: Success: succeeded.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The returned result.
+   * 
    * @example
    * true
    */
   data?: Agent;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Agent with name \\"xxx\\" not found for account 1186xxx
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E0FFAB67-XXXXXX-CAD4D37448C4
    */
   requestId?: string;
   /**
+   * @remarks
+   * Returns true if the operation is successful.
+   * 
    * @example
    * true
    */

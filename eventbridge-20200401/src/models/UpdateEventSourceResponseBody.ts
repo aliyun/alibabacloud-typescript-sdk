@@ -11,7 +11,7 @@ export class UpdateEventSourceResponseBody extends $dara.Model {
    * *   Other codes: The request failed. For more information about error codes, see Error codes.
    * 
    * @example
-   * 200
+   * Success
    */
   code?: string;
   /**
@@ -35,7 +35,7 @@ export class UpdateEventSourceResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * c057d379-ea65-41ec-a8a8-90627a968204
+   * c057d379-ea65-41ec-a8a8-90627a9****
    */
   requestId?: string;
   /**

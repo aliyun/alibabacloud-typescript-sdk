@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventStreamingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the event stream.
+   * The Alibaba Cloud Resource Name (ARN) of the event stream.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:164901546557****:eventstreaming/myeventstreaming
@@ -35,13 +35,12 @@ export class CreateEventStreamingResponseBodyData extends $dara.Model {
 export class CreateEventStreamingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values:
-   * 
-   * *   Success: The request is successful.
-   * *   Other codes: The request failed. For more information about error codes, see Error codes.
+   * The returned code. Valid values:
+   * - Success: The request was successful.                                
+   * - Other values: An error occurred. For more information, see Error codes.
    * 
    * @example
-   * 200
+   * Success
    */
   code?: string;
   /**
@@ -51,7 +50,7 @@ export class CreateEventStreamingResponseBody extends $dara.Model {
   data?: CreateEventStreamingResponseBodyData;
   /**
    * @remarks
-   * The returned error message.
+   * The error message.
    * 
    * @example
    * The name [xxxx] of event streaming in request is already exist!
@@ -62,12 +61,12 @@ export class CreateEventStreamingResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * B896B484-F16D-59DE-9E23-DD0E5C361108
+   * B896B484-F16D-59DE-9E23-DD0E5C36****
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. The value true indicates that the operation is successful.
+   * Indicates whether the operation was successful. The value true is returned if the operation was successful.
    * 
    * @example
    * true

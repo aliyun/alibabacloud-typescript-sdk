@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DiscoverEventSourceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The MySQL source parameters.
+   */
   sourceMySQLParametersShrink?: string;
   static names(): { [key: string]: string } {
     return {

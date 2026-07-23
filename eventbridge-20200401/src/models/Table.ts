@@ -46,7 +46,7 @@ export class TableColumns extends $dara.Model {
 export class TableRetentionPolicy extends $dara.Model {
   /**
    * @remarks
-   * 冷数据保留天数，低成本归档存储
+   * Retention days for cold data, used for low-cost archival storage
    * 
    * @example
    * 30
@@ -54,7 +54,7 @@ export class TableRetentionPolicy extends $dara.Model {
   coldTTL?: number;
   /**
    * @remarks
-   * 热数据保留天数，高性能查询存储
+   * Retention days for hot data, used for high-performance query storage
    * 
    * @example
    * 7
@@ -86,7 +86,7 @@ export class TableRetentionPolicy extends $dara.Model {
 export class Table extends $dara.Model {
   /**
    * @remarks
-   * 表所属的数据目录名称
+   * The name of the data catalog to which the table belongs
    * 
    * @example
    * my_catalog
@@ -94,7 +94,7 @@ export class Table extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * 表的列定义列表。每列包含 Name（列名）、Type（数据类型）、Comment（备注）
+   * The column definition list of the table. Each column contains Name (column name), Type (data type), and Comment (remarks)
    * 
    * @example
    * [{"Name":"id","Type":"bigint","Comment":"主键"}]
@@ -102,7 +102,7 @@ export class Table extends $dara.Model {
   columns?: TableColumns[];
   /**
    * @remarks
-   * 表的备注描述信息
+   * Comment description of the table
    * 
    * @example
    * 测试事件表
@@ -110,7 +110,7 @@ export class Table extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * 表的创建时间（Unix 时间戳，毫秒）
+   * The creation time of the table (Unix timestamp, in milliseconds)
    * 
    * @example
    * 1717948800000
@@ -118,7 +118,7 @@ export class Table extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * 事件表的唯一标识名称
+   * The unique identifier name of the event table
    * 
    * @example
    * my_table
@@ -126,7 +126,7 @@ export class Table extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 表所属的命名空间名称
+   * The name of the namespace to which the table belongs
    * 
    * @example
    * my_namespace
@@ -134,12 +134,12 @@ export class Table extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * 数据保留策略。包含热数据和冷数据的保留天数
+   * Data retention policy. Includes the retention days for hot data and cold data
    */
   retentionPolicy?: TableRetentionPolicy;
   /**
    * @remarks
-   * 表的最后更新时间（Unix 时间戳，毫秒）
+   * The last update time of the table (Unix timestamp, in milliseconds)
    * 
    * @example
    * 1717948800000

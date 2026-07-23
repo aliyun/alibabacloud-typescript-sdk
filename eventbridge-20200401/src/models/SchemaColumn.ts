@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SchemaColumn extends $dara.Model {
   /**
+   * @remarks
+   * Column name
+   * 
    * @example
    * name
    */
   name?: string;
   /**
+   * @remarks
+   * Column type
+   * 
    * @example
    * VARCHAR
    */

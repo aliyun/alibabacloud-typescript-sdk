@@ -23,9 +23,7 @@ export class UpdateEventStreamingShrinkRequest extends $dara.Model {
   eventStreamingName?: string;
   /**
    * @remarks
-   * The rule that is used to filter events. If you leave this parameter empty, all events are matched.
-   * 
-   * This parameter is required.
+   * The event filtering rule. If you do not specify this parameter, all events are matched. For more information, see [https://www.alibabacloud.com/help/en/eventbridge/user-guide/event-patterns](https://www.alibabacloud.com/help/en/eventbridge/user-guide/event-patterns)
    * 
    * @example
    * {
@@ -47,31 +45,33 @@ export class UpdateEventStreamingShrinkRequest extends $dara.Model {
    * }
    */
   filterPattern?: string;
+  metadata?: string;
   /**
    * @remarks
-   * The parameters that are configured for the runtime environment.
+   * The runtime parameters.
    */
   runOptionsShrink?: string;
   /**
    * @remarks
-   * The event target. You must and can specify only one event target.
-   * 
-   * This parameter is required.
+   * The event target. You must select one and only one Sink type.
    */
   sinkShrink?: string;
   /**
    * @remarks
-   * The event provider, which is also known as the event source. You must and can specify only one event source.
-   * 
-   * This parameter is required.
+   * The event provider. You must select one and only one Source type.
    */
   sourceShrink?: string;
+  /**
+   * @remarks
+   * The Transform-related configurations.
+   */
   transformsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       eventStreamingName: 'EventStreamingName',
       filterPattern: 'FilterPattern',
+      metadata: 'Metadata',
       runOptionsShrink: 'RunOptions',
       sinkShrink: 'Sink',
       sourceShrink: 'Source',
@@ -84,6 +84,7 @@ export class UpdateEventStreamingShrinkRequest extends $dara.Model {
       description: 'string',
       eventStreamingName: 'string',
       filterPattern: 'string',
+      metadata: 'string',
       runOptionsShrink: 'string',
       sinkShrink: 'string',
       sourceShrink: 'string',

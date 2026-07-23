@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * 表所属的数据目录名称。可通过 ListCatalogs 获取
+   * Data catalog
    * 
    * @example
    * my_catalog
@@ -13,7 +13,7 @@ export class ListTablesRequest extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * 每页返回的最大数据条数。不传时默认 10，最大 100
+   * Items per page
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListTablesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * 表所属的命名空间名称。可通过 ListNamespaces 获取
+   * Namespace
    * 
    * @example
    * my_namespace
@@ -29,7 +29,7 @@ export class ListTablesRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * 分页查询的起始Token。首次查询不传或传 "0"；后续翻页使用上一次响应中返回的 NextToken 值
+   * Pagination token
    * 
    * @example
    * 0

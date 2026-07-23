@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEventStreamingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned response code. The value Success indicates that the request is successful.
+   * The return code. \\`Success\\` is returned if the request is successful. Otherwise, an error code is returned. For more information about error codes, see Error codes.
+   * 
+   * Success: The request is successful.
+   * 
+   * Other codes indicate that the request failed. For more information about error codes, see Error codes.
    * 
    * @example
    * Success
@@ -13,7 +17,7 @@ export class DeleteEventStreamingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned error message.
+   * The error message.
    * 
    * @example
    * The event streaming [xxxx] not existed!
@@ -29,7 +33,7 @@ export class DeleteEventStreamingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values: true and false.
+   * Returns true if the operation is successful.
    * 
    * @example
    * true

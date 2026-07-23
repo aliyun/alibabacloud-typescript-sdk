@@ -34,22 +34,42 @@ export class CreateAgentResponseBodyData extends $dara.Model {
 
 export class CreateAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. Valid values:
+   * 
+   * - Success: The request was successful.
+   * 
+   * - Other values: An error occurred. For more information, see Error codes.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateAgentResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Agent with name \\"XXX\\" already exists for account 12345
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B896B484-XXXXXX-DD0E5C361108
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
+   * 
    * @example
    * true
    */

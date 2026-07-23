@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the event rule. The ARN is used for authorization.
+   * The ARN of the event rule, which is used for authorization.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:123456789098****:eventbus/default/rule/MNSRule
@@ -35,20 +35,20 @@ export class CreateRuleResponseBodyData extends $dara.Model {
 export class CreateRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned HTTP status code. The HTTP status code 200 indicates that the request is successful.
+   * The response code. The value Success indicates that the request is successful. Other values indicate that the request failed. For more information about error codes, see Error codes.
    * 
    * @example
-   * 200
+   * Success
    */
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreateRuleResponseBodyData;
   /**
    * @remarks
-   * The returned error message.
+   * The error message.
    * 
    * @example
    * Remote error. requestId: [xxxx], error code: [xxx], message: [The target in event rule is invalid! Endpoint is xxx
@@ -64,7 +64,7 @@ export class CreateRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values: true and false.
+   * Indicates whether the operation is successful. A value of true indicates that the operation is successful.
    * 
    * @example
    * true

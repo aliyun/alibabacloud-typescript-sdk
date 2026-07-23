@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Response message of the API
+   * 
    * @example
    * Operation success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request was successful
+   * 
    * @example
    * true
    */

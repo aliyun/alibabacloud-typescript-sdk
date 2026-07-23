@@ -104,7 +104,7 @@ export class UpdateEventSourceRequestSourceKafkaParameters extends $dara.Model {
    * The ID of the Message Queue for Apache Kafka instance.
    * 
    * @example
-   * cbwp-bp1o3m66wcjgbkssm3k5m
+   * cbwp-bp1o3m66wcjgbkssm3****
    */
   instanceId?: string;
   /**
@@ -144,7 +144,7 @@ export class UpdateEventSourceRequestSourceKafkaParameters extends $dara.Model {
    * The ID of the security group to which the Message Queue for Apache Kafka instance belongs. This parameter is required only if you set Network to PublicNetwork.
    * 
    * @example
-   * sg-5wz3mjgo9wpvdnwpwnhkjdjwn
+   * sg-5wz3mjgo9wpvdnwpwnhkj****
    */
   securityGroupId?: string;
   /**
@@ -160,7 +160,7 @@ export class UpdateEventSourceRequestSourceKafkaParameters extends $dara.Model {
    * The ID of the vSwitch with which the Message Queue for Apache Kafka instance is associated. This parameter is required only if you set Network to PublicNetwork.
    * 
    * @example
-   * vsw-bp1xyntcxiwplhqxjybuk
+   * vsw-bp1xyntcxiwplhqxj****
    */
   vSwitchIds?: string;
   /**
@@ -168,7 +168,7 @@ export class UpdateEventSourceRequestSourceKafkaParameters extends $dara.Model {
    * The ID of the VPC in which the Message Queue for Apache Kafka instance resides. This parameter is required only if you set Network to PublicNetwork.
    * 
    * @example
-   * vpc-2zefu4vfmx6siogujmo0b
+   * vpc-2zefu4vfmx6sioguj****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -333,7 +333,7 @@ export class UpdateEventSourceRequestSourceRabbitMQParameters extends $dara.Mode
    * The ID of the Message Queue for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
-   * bastionhost-cn-7mz2zkyff09
+   * bastionhost-cn-7mz2zky****
    */
   instanceId?: string;
   /**
@@ -417,7 +417,7 @@ export class UpdateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
    * The ID of the Message Queue for Apache RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
-   * dbaudit-cn-i7m2nx2or01
+   * dbaudit-cn-i7m2nx****
    */
   instanceId?: string;
   /**
@@ -476,7 +476,7 @@ export class UpdateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
    * The ID of the virtual private cloud (VPC) in which the Message Queue for Apache RocketMQ instance resides.
    * 
    * @example
-   * vpc-bp1a4gmlk31hyg6ptl3ss
+   * vpc-bp1a4gmlk31hyg6pt****
    */
   instanceVpcId?: string;
   /**
@@ -690,6 +690,9 @@ export class UpdateEventSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the event source.
+   * 
+   * @example
+   * RabbitMQ event source
    */
   description?: string;
   /**

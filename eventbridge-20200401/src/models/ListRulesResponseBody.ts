@@ -27,7 +27,7 @@ export class ListRulesResponseBodyDataRulesTargets extends $dara.Model {
    * The ID of the custom event target.
    * 
    * @example
-   * 177
+   * Mlm123456JHd2Rs****
    */
   id?: string;
   /**
@@ -35,7 +35,7 @@ export class ListRulesResponseBodyDataRulesTargets extends $dara.Model {
    * The transformer that is used to push events.
    * 
    * @example
-   * MATCHED_EVENT
+   * PARAM_TRANSFORMER
    */
   pushSelector?: string;
   /**
@@ -271,7 +271,7 @@ export class ListRulesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * C7043799-F4DA-5290-9249-97C359876D97
+   * C7043799-F4DA-5290-9249-97C35987****
    */
   requestId?: string;
   /**

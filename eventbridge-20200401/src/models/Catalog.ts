@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Catalog extends $dara.Model {
   /**
    * @remarks
-   * 数据目录的备注描述信息
+   * The comment or description of the data catalog
    * 
    * @example
    * 测试数据目录
@@ -13,7 +13,7 @@ export class Catalog extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * 挂载类型 Catalog 关联的连接名称。仅 Provider 为 MySQL/PostgreSQL/Elasticsearch 时有值
+   * The connection name associated with a mounted-type Catalog. Only has a value when Provider is MySQL/PostgreSQL/Elasticsearch
    * 
    * @example
    * my_connection
@@ -21,7 +21,7 @@ export class Catalog extends $dara.Model {
   connectionName?: string;
   /**
    * @remarks
-   * 数据目录的唯一标识名称
+   * The unique identifier name of the data catalog
    * 
    * @example
    * my_catalog
@@ -29,7 +29,7 @@ export class Catalog extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 扩展属性（JSON 对象）。Elasticsearch 类型包含 IndexPattern 等信息
+   * Extended properties (JSON object). The Elasticsearch type contains information such as IndexPattern
    * 
    * @example
    * {"IndexPattern":"my-index-*"}
@@ -37,7 +37,7 @@ export class Catalog extends $dara.Model {
   properties?: { [key: string]: any };
   /**
    * @remarks
-   * 数据源提供方。EventHouse 为内置存储，MySQL/PostgreSQL/Elasticsearch 为外部挂载
+   * The data source provider. EventHouse is the built-in storage; MySQL/PostgreSQL/Elasticsearch are externally mounted
    * 
    * @example
    * EventHouse
@@ -45,7 +45,7 @@ export class Catalog extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * 数据目录类型，如 RELATIONAL
+   * The type of the data catalog, such as RELATIONAL
    * 
    * @example
    * RELATIONAL

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SourceRabbitMQMsgSyncParameters extends $dara.Model {
   bodyDataType?: string;
+  cloudMigrationTaskId?: string;
+  dstClusterHost?: string;
+  dstClusterType?: string;
   endpoint?: string;
   instanceId?: string;
   instanceType?: string;
@@ -11,7 +14,11 @@ export class SourceRabbitMQMsgSyncParameters extends $dara.Model {
   orderConsume?: string;
   password?: string;
   prefetchCount?: string;
+  regex?: string;
   securityGroupId?: string;
+  srcClusterHost?: string;
+  srcClusterType?: string;
+  syncMetaType?: string;
   username?: string;
   vSwitchIds?: string;
   virtualHostName?: string;
@@ -19,6 +26,9 @@ export class SourceRabbitMQMsgSyncParameters extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bodyDataType: 'BodyDataType',
+      cloudMigrationTaskId: 'CloudMigrationTaskId',
+      dstClusterHost: 'DstClusterHost',
+      dstClusterType: 'DstClusterType',
       endpoint: 'Endpoint',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
@@ -26,7 +36,11 @@ export class SourceRabbitMQMsgSyncParameters extends $dara.Model {
       orderConsume: 'OrderConsume',
       password: 'Password',
       prefetchCount: 'PrefetchCount',
+      regex: 'Regex',
       securityGroupId: 'SecurityGroupId',
+      srcClusterHost: 'SrcClusterHost',
+      srcClusterType: 'SrcClusterType',
+      syncMetaType: 'SyncMetaType',
       username: 'Username',
       vSwitchIds: 'VSwitchIds',
       virtualHostName: 'VirtualHostName',
@@ -37,6 +51,9 @@ export class SourceRabbitMQMsgSyncParameters extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bodyDataType: 'string',
+      cloudMigrationTaskId: 'string',
+      dstClusterHost: 'string',
+      dstClusterType: 'string',
       endpoint: 'string',
       instanceId: 'string',
       instanceType: 'string',
@@ -44,7 +61,11 @@ export class SourceRabbitMQMsgSyncParameters extends $dara.Model {
       orderConsume: 'string',
       password: 'string',
       prefetchCount: 'string',
+      regex: 'string',
       securityGroupId: 'string',
+      srcClusterHost: 'string',
+      srcClusterType: 'string',
+      syncMetaType: 'string',
       username: 'string',
       vSwitchIds: 'string',
       virtualHostName: 'string',

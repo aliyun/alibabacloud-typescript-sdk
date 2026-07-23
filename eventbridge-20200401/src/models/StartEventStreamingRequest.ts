@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartEventStreamingRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the event stream that you want to enable.
+   * The name of the event stream to enable.
    * 
    * This parameter is required.
    * 

@@ -43,8 +43,20 @@ export class EventCenterQueryEventsRequestBodyParametersCalculations extends $da
 }
 
 export class EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters extends $dara.Model {
+  /**
+   * @remarks
+   * The column name.
+   */
   column?: string;
+  /**
+   * @remarks
+   * The operator.
+   */
   op?: string;
+  /**
+   * @remarks
+   * A list of values to use with the operator.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -84,10 +96,17 @@ export class EventCenterQueryEventsRequestBodyParametersFilters extends $dara.Mo
    */
   column?: string;
   /**
+   * @remarks
+   * The logical operator for combining nested filters.
+   * 
    * @example
    * AND
    */
   nestedFilterCombination?: string;
+  /**
+   * @remarks
+   * A list of nested filters.
+   */
   nestedFilters?: EventCenterQueryEventsRequestBodyParametersFiltersNestedFilters[];
   /**
    * @remarks
@@ -99,7 +118,7 @@ export class EventCenterQueryEventsRequestBodyParametersFilters extends $dara.Mo
   op?: string;
   /**
    * @remarks
-   * The values that are used together with the operator.
+   * The values to use with the operator.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -148,7 +167,7 @@ export class EventCenterQueryEventsRequestBodyParametersOrders extends $dara.Mod
   column?: string;
   /**
    * @remarks
-   * Specifies whether to sort the query results in descending order.
+   * Specifies whether to sort the results in descending order.
    * 
    * @example
    * true
@@ -190,17 +209,17 @@ export class EventCenterQueryEventsRequestBodyParametersOrders extends $dara.Mod
 export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to further split the dataset based on the column name.
+   * An array of column names to use as dimensions for splitting the dataset.
    */
   breakdowns?: string[];
   /**
    * @remarks
-   * The operator that is used to calculate the specified column.
+   * The calculations to perform on specified columns.
    */
   calculations?: EventCenterQueryEventsRequestBodyParametersCalculations[];
   /**
    * @remarks
-   * The timestamp that specifies the end of the time range to query. Unit: milliseconds.
+   * The end timestamp for the event query. Unit: milliseconds.
    * 
    * @example
    * 1687861201814
@@ -208,7 +227,7 @@ export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The logic used to filter the combination of conditions.
+   * The logical operator for combining filter conditions.
    * 
    * @example
    * AND
@@ -216,12 +235,12 @@ export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   filterCombination?: string;
   /**
    * @remarks
-   * The filter conditions.
+   * A list of filter conditions.
    */
   filters?: EventCenterQueryEventsRequestBodyParametersFilters[];
   /**
    * @remarks
-   * The minimum time unit for querying time series data. Minimum value: 1. Unit: seconds. The value of this parameter is a recommended value. The actual value returned shall prevail.
+   * The time granularity, in seconds, for querying time series data. The minimum value is 1. This is a suggested value; the actual granularity is returned in the response.
    * 
    * @example
    * 30
@@ -229,7 +248,7 @@ export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   granularity?: number;
   /**
    * @remarks
-   * The maximum number of events to query. Valid values: 1 to 10000.
+   * The maximum number of events to query. Valid values: 1 to 10,000.
    * 
    * @example
    * 100
@@ -237,7 +256,7 @@ export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The offset of the start position for this query. The offset starts from 0.
+   * The starting position of the query. The count starts from 0.
    * 
    * @example
    * 0
@@ -245,12 +264,12 @@ export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The order of the query results. This parameter is valid only if you set QueryType to table.
+   * The sort order for the query results. This parameter applies only when QueryType is set to table.
    */
   orders?: EventCenterQueryEventsRequestBodyParametersOrders[];
   /**
    * @remarks
-   * The timestamp that specifies the beginning of the time range to query. Unit: milliseconds.
+   * The start timestamp for the event query. Unit: milliseconds.
    * 
    * @example
    * 1687860901814
@@ -258,7 +277,7 @@ export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The time range during which events are queried. Minimum value: 1000. Unit: milliseconds.
+   * The time range. Unit: milliseconds. The minimum value is 1,000.
    * 
    * @example
    * 1000000
@@ -329,9 +348,11 @@ export class EventCenterQueryEventsRequestBody extends $dara.Model {
    * @remarks
    * The query type. Valid values:
    * 
-   * *   **timeseries**: queries time series data.
-   * *   **table**: queries table data.
-   * *   **timeseries_and_table**: queries time series data and table data at the same time.
+   * - **timeseries**: queries time series data.
+   * 
+   * - **table**: queries table data.
+   * 
+   * - **timeseries_and_table**: queries both time series data and table data.
    * 
    * This parameter is required.
    * 
@@ -395,7 +416,7 @@ export class EventCenterQueryEventsRequest extends $dara.Model {
   busName?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 0 to 10000. Default value: 100.
+   * The maximum number of results to return. Valid values: 0 to 10,000. The default value is 100.
    * 
    * @example
    * 100
@@ -403,7 +424,7 @@ export class EventCenterQueryEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 用来标记当前开始读取的位置。置空表示从头开始。
+   * The token to retrieve the next page of results.
    * 
    * @example
    * 100

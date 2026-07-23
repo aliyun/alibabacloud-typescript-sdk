@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Namespace extends $dara.Model {
   /**
    * @remarks
-   * 命名空间所属的数据目录名称
+   * The name of the data catalog to which the namespace belongs
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class Namespace extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * 命名空间的备注描述信息
+   * The description information of the namespace
    * 
    * @example
    * 测试命名空间
@@ -23,7 +23,7 @@ export class Namespace extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * 命名空间的唯一标识名称
+   * The unique identifier name of the namespace
    * 
    * @example
    * my_namespace
@@ -31,7 +31,7 @@ export class Namespace extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 命名空间的扩展属性
+   * The extended properties of the namespace
    * 
    * @example
    * {"key":"value"}

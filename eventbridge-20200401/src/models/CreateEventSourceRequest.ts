@@ -5,36 +5,46 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventSourceRequestSourceHttpEventParameters extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block that is used for security settings. This parameter is required only if you set SecurityConfig to ip. You can enter a CIDR block or an IP address.
+   * The IP address range for security settings. This parameter is required only if you set `SecurityConfig` to `ip`. You can specify a single IP address or a CIDR block.
    */
   ip?: string[];
   /**
    * @remarks
-   * The HTTP request method supported by the generated webhook URL. You can select multiple values. Valid values:
+   * The HTTP request methods supported by the webhook. You can specify more than one method. Valid values:
    * 
-   * *   GET
-   * *   POST
-   * *   PUT
-   * *   PATCH
-   * *   DELETE
-   * *   HEAD
-   * *   OPTIONS
-   * *   TRACE
-   * *   CONNECT
+   * - `GET`
+   * 
+   * - `POST`
+   * 
+   * - `PUT`
+   * 
+   * - `PATCH`
+   * 
+   * - `DELETE`
+   * 
+   * - `HEAD`
+   * 
+   * - `OPTIONS`
+   * 
+   * - `TRACE`
+   * 
+   * - `CONNECT`
    */
   method?: string[];
   /**
    * @remarks
-   * The security domain name. This parameter is required only if you set SecurityConfig to referer. You can enter a domain name.
+   * The security domain names. This parameter is required only if you set `SecurityConfig` to `referer`. You can specify one or more domain names.
    */
   referer?: string[];
   /**
    * @remarks
-   * The type of security settings. Valid values:
+   * The type of security configuration. Valid values:
    * 
-   * *   none: No configuration is required.
-   * *   ip: CIDR block.
-   * *   referer: security domain name.
+   * - `none`: No configuration is required.
+   * 
+   * - `ip`: IP address range.
+   * 
+   * - `referer`: Security domain name.
    * 
    * @example
    * none
@@ -42,11 +52,13 @@ export class CreateEventSourceRequestSourceHttpEventParameters extends $dara.Mod
   securityConfig?: string;
   /**
    * @remarks
-   * The protocol type that is supported by the generated webhook URL. Valid values:
+   * The supported protocol for the webhook. Valid values:
    * 
-   * *   HTTP
-   * *   HTTPS
-   * *   HTTP\\&HTTPS
+   * - `HTTP`
+   * 
+   * - `HTTPS`
+   * 
+   * - `HTTP&HTTPS`
    * 
    * @example
    * HTTPS
@@ -93,23 +105,23 @@ export class CreateEventSourceRequestSourceHttpEventParameters extends $dara.Mod
 export class CreateEventSourceRequestSourceKafkaParameters extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer group that subscribes to the topic.
+   * The consumer group ID.
    * 
    * @example
-   * wechat_peer_prod
+   * wechat_peer_****
    */
   consumerGroup?: string;
   /**
    * @remarks
-   * The ID of the Message Queue for Apache Kafka instance.
+   * The instance ID.
    * 
    * @example
-   * pc-2zehmg67txzuyuuwlxv4f
+   * pc-2zehmg67txzuyuuwl****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of consumers.
+   * The concurrent consumption quota (number of consumers).
    * 
    * @example
    * 1
@@ -117,7 +129,7 @@ export class CreateEventSourceRequestSourceKafkaParameters extends $dara.Model {
   maximumTasks?: number;
   /**
    * @remarks
-   * The network. Valid values: Default and PublicNetwork. Default value: Default. The value PublicNetwork indicates a self-managed network.
+   * The network type. Valid values are `Default` and `PublicNetwork`. Specify `PublicNetwork` if the instance is in a VPC.
    * 
    * @example
    * Default
@@ -125,7 +137,7 @@ export class CreateEventSourceRequestSourceKafkaParameters extends $dara.Model {
   network?: string;
   /**
    * @remarks
-   * The consumer offset.
+   * The consumer offset reset policy.
    * 
    * @example
    * latest
@@ -133,7 +145,7 @@ export class CreateEventSourceRequestSourceKafkaParameters extends $dara.Model {
   offsetReset?: string;
   /**
    * @remarks
-   * The ID of the region where the Message Queue for Apache Kafka instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -141,34 +153,34 @@ export class CreateEventSourceRequestSourceKafkaParameters extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group to which the Message Queue for Apache Kafka instance belongs. This parameter is required only if you set Network to PublicNetwork.
+   * The security group ID. This parameter is required if `Network` is set to `PublicNetwork`.
    * 
    * @example
-   * sg-8vbf66aoyp0wfzrzxlmy
+   * sg-8vbf66aoyp0wfzrz****
    */
   securityGroupId?: string;
   /**
    * @remarks
-   * The name of the topic on the Message Queue for Apache Kafka instance.
+   * The topic name.
    * 
    * @example
-   * prod_ma_dispatch_center_call_record
+   * prod_ma_dispatch_center_call_re****
    */
   topic?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the Message Queue for Apache Kafka instance is associated. This parameter is required only if you set Network to PublicNetwork.
+   * The vSwitch ID. This parameter is required if `Network` is set to `PublicNetwork`.
    * 
    * @example
-   * vsw-bp127azpeirmwu4q9ttqi
+   * vsw-bp127azpeirmwu4q9****
    */
   vSwitchIds?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the Message Queue for Apache Kafka instance resides. This parameter is required only if you set Network to PublicNetwork.
+   * The VPC ID. This parameter is required if `Network` is set to `PublicNetwork`.
    * 
    * @example
-   * vpc-2ze5ejm986a73qq3vshlk
+   * vpc-2ze5ejm986a73qq3v****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -213,7 +225,7 @@ export class CreateEventSourceRequestSourceKafkaParameters extends $dara.Model {
 export class CreateEventSourceRequestSourceMNSParameters extends $dara.Model {
   /**
    * @remarks
-   * Specify whether to enable Base64 decoding. Valid values: true and false. If you set this parameter to true, Base64 decoding is enabled.
+   * Specifies whether to enable Base64 decoding. Valid values: `true` and `false`.
    * 
    * @example
    * true
@@ -221,7 +233,7 @@ export class CreateEventSourceRequestSourceMNSParameters extends $dara.Model {
   isBase64Decode?: boolean;
   /**
    * @remarks
-   * The name of the SMQ queue.
+   * The name of the queue in Message Service (MNS).
    * 
    * @example
    * MyQueue
@@ -229,7 +241,8 @@ export class CreateEventSourceRequestSourceMNSParameters extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The ID of the region where the SMQ queue resides. Valid values: cn-qingdao, cn-beijing, cn-zhangjiakou, cn-huhehaote, cn-wulanchabu, cn-hangzhou, cn-shanghai, cn-shenzhen, cn-guangzhou, cn-chengdu, cn-hongkong, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-5, ap-northeast-1, eu-central-1, us-west-1, us-east-1, ap-south-1, me-east-1, and cn-north-2-gov-1.
+   * The region where the Message Service (MNS) queue is located.
+   * You can specify the following regions: `cn-qingdao`, `cn-beijing`, `cn-zhangjiakou`, `cn-huhehaote`, `cn-wulanchabu`, `cn-hangzhou`, `cn-shanghai`, `cn-shenzhen`, `cn-guangzhou`, `cn-chengdu`, `cn-hongkong`, `ap-southeast-1`, `ap-southeast-2`, `ap-southeast-3`, `ap-southeast-5`, `ap-northeast-1`, `eu-central-1`, `us-west-1`, `us-east-1`, `ap-south-1`, `me-east-1`, and `cn-north-2-gov-1`.
    * 
    * @example
    * cn-hangzhou
@@ -261,9 +274,25 @@ export class CreateEventSourceRequestSourceMNSParameters extends $dara.Model {
 }
 
 export class CreateEventSourceRequestSourceOSSEventParametersMatchRules extends $dara.Model {
+  /**
+   * @remarks
+   * The prefix.
+   */
   prefix?: string;
+  /**
+   * @remarks
+   * The suffix.
+   */
   suffix?: string;
+  /**
+   * @remarks
+   * The name.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The match state.
+   */
   matchState?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -293,8 +322,20 @@ export class CreateEventSourceRequestSourceOSSEventParametersMatchRules extends 
 }
 
 export class CreateEventSourceRequestSourceOSSEventParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The list of event types.
+   */
   eventTypes?: string[];
+  /**
+   * @remarks
+   * The match rules.
+   */
   matchRules?: CreateEventSourceRequestSourceOSSEventParametersMatchRules[][];
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Security Token Service (STS) role.
+   */
   stsRoleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -346,7 +387,7 @@ export class CreateEventSourceRequestSourceRabbitMQParameters extends $dara.Mode
   queueName?: string;
   /**
    * @remarks
-   * The ID of the region where the Message Queue for RabbitMQ instance resides.
+   * The region where the Message Queue for RabbitMQ instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -354,7 +395,7 @@ export class CreateEventSourceRequestSourceRabbitMQParameters extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The name of the vhost of the Message Queue for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The name of the virtual host (vhost) of the Message Queue for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * eb-connect
@@ -390,7 +431,7 @@ export class CreateEventSourceRequestSourceRabbitMQParameters extends $dara.Mode
 export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The authentication type. You can set this parameter to ACL or leave this parameter empty.
+   * The authentication type. You can set this parameter to `ACL` or leave it empty.
    * 
    * @example
    * ACL
@@ -398,7 +439,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   authType?: string;
   /**
    * @remarks
-   * The ID of the consumer group on the Message Queue for Apache RocketMQ instance.
+   * The consumer group ID on the Message Queue for Apache RocketMQ instance.
    * 
    * @example
    * GID-test
@@ -406,7 +447,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   groupID?: string;
   /**
    * @remarks
-   * The endpoint that is used to access the Message Queue for Apache RocketMQ instance.
+   * The instance endpoint.
    * 
    * @example
    * registry-vpc****.aliyuncs.com
@@ -422,15 +463,12 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * None.
-   * 
-   * @example
-   * None
+   * This parameter is not in use.
    */
   instanceNetwork?: string;
   /**
    * @remarks
-   * The password that is used to access the Message Queue for Apache RocketMQ instance.
+   * The password for the instance.
    * 
    * @example
    * ******
@@ -438,18 +476,19 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   instancePassword?: string;
   /**
    * @remarks
-   * The ID of the security group to which the Message Queue for Apache RocketMQ instance belongs.
+   * The security group ID. This parameter is required if the instance is deployed in a VPC.
    * 
    * @example
-   * sg-catalog-eventlistener
+   * sg-catalog-eventlist****
    */
   instanceSecurityGroupId?: string;
   /**
    * @remarks
-   * The type of the Message Queue for Apache RocketMQ instance. Valid values:
+   * The instance type. Valid values:
    * 
-   * *   Cloud_4: Message Queue for Apache RocketMQ 4.0 instance.
-   * *   Cloud_5: Message Queue for Apache RocketMQ 5.0 instance.
+   * - `Cloud_4`: For v4.0 instances.
+   * 
+   * - `Cloud_5`: For v5.0 instances.
    * 
    * @example
    * Cloud_4
@@ -457,7 +496,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   instanceType?: string;
   /**
    * @remarks
-   * The username that is used to access the Message Queue for Apache RocketMQ instance.
+   * The username for the instance.
    * 
    * @example
    * root
@@ -465,7 +504,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   instanceUsername?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the Message Queue for Apache RocketMQ instance is associated.
+   * The vSwitch ID. This parameter is required if the instance is deployed in a VPC.
    * 
    * @example
    * vsw-bp10rbrt6rb6vrd89****
@@ -473,15 +512,15 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   instanceVSwitchIds?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the Message Queue for Apache RocketMQ instance resides.
+   * The ID of the virtual private cloud (VPC). This parameter is required if the instance is deployed in a VPC.
    * 
    * @example
-   * vpc-bp1a4gmlk31hyg6ptl3ss
+   * vpc-bp1a4gmlk31hyg6pt****
    */
   instanceVpcId?: string;
   /**
    * @remarks
-   * The offset from which message consumption starts. Valid values: CONSUME_FROM_LAST_OFFSET: Start message consumption from the latest offset. CONSUME_FROM_FIRST_OFFSET: Start message consumption from the earliest offset. CONSUME_FROM_TIMESTAMP: Start message consumption from the offset at the specified point in time. Default value: CONSUME_FROM_LAST_OFFSET.
+   * The consumer offset from which message consumption starts. Valid values:
    * 
    * @example
    * CONSUME_FROM_LAST_OFFSET
@@ -497,7 +536,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The tag that is used to filter messages.
+   * The tag used to filter messages.
    * 
    * @example
    * test
@@ -505,7 +544,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   tag?: string;
   /**
    * @remarks
-   * The timestamp that specifies the time from which messages are consumed. This parameter is valid only if you set Offset to CONSUME_FROM_TIMESTAMP.
+   * The point in time to start consumption, specified as a timestamp. This parameter is valid only if you set the `Offset` parameter to `CONSUME_FROM_TIMESTAMP`.
    * 
    * @example
    * 1636597951964
@@ -573,7 +612,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
 export class CreateEventSourceRequestSourceSLSParameters extends $dara.Model {
   /**
    * @remarks
-   * The starting consumer offset. The value begin specifies the earliest offset, and the value end specifies the latest offset. You can also specify a time in seconds to start consumption.
+   * The consumer offset. Specifies where to start consumption. Valid values are `begin` (earliest offset), `end` (latest offset), or a specific UNIX timestamp.
    * 
    * @example
    * end
@@ -581,7 +620,7 @@ export class CreateEventSourceRequestSourceSLSParameters extends $dara.Model {
   consumePosition?: string;
   /**
    * @remarks
-   * The Log Service Logstore.
+   * The Logstore in Simple Log Service.
    * 
    * @example
    * test-logstore
@@ -589,7 +628,7 @@ export class CreateEventSourceRequestSourceSLSParameters extends $dara.Model {
   logStore?: string;
   /**
    * @remarks
-   * The Log Service project.
+   * The Log Project in Simple Log Service.
    * 
    * @example
    * test-project
@@ -597,7 +636,7 @@ export class CreateEventSourceRequestSourceSLSParameters extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The role name. If you want to authorize EventBridge to use this role to read logs in Log Service, you must select Alibaba Cloud Service for Selected Trusted Entity and EventBridge for Select Trusted Service when you create the role in the Resource Access Management (RAM) console. For information about the permission policy of this role, see Create a custom event source of the Log Service type.
+   * The RAM role that EventBridge assumes to read logs from Simple Log Service. When you create this role in the RAM console, select **Alibaba Cloud Service** as the trusted entity and **EventBridge** as the trusted service. For more information about the permissions for this role, see Custom event sources for Simple Log Service (SLS).
    * 
    * @example
    * testRole
@@ -648,6 +687,9 @@ export class CreateEventSourceRequestSourceScheduledEventParameters extends $dar
    */
   timeZone?: string;
   /**
+   * @remarks
+   * A user-defined JSON string.
+   * 
    * @example
    * {"a": "b"}
    */
@@ -681,11 +723,14 @@ export class CreateEventSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the event source.
+   * 
+   * @example
+   * RabbitMQ event source
    */
   description?: string;
   /**
    * @remarks
-   * The name of the event bus with which the event source is associated.
+   * The name of the event bus associated with the event source.
    * 
    * This parameter is required.
    * 
@@ -705,7 +750,7 @@ export class CreateEventSourceRequest extends $dara.Model {
   eventSourceName?: string;
   /**
    * @remarks
-   * The configurations of the external data source.
+   * The configuration of the external data source.
    */
   externalSourceConfig?: { [key: string]: any };
   /**
@@ -718,7 +763,7 @@ export class CreateEventSourceRequest extends $dara.Model {
   externalSourceType?: Buffer;
   /**
    * @remarks
-   * Specify whether to connect to an external data source.
+   * Specifies whether to connect to an external data source.
    * 
    * @example
    * true
@@ -726,38 +771,42 @@ export class CreateEventSourceRequest extends $dara.Model {
   linkedExternalSource?: boolean;
   /**
    * @remarks
-   * The parameters that are configured if the event source is HTTP events.
+   * Parameters for an HTTP endpoint event source.
    */
   sourceHttpEventParameters?: CreateEventSourceRequestSourceHttpEventParameters;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Message Queue for Apache Kafka.
+   * Parameters for the Message Queue for Apache Kafka event source.
    */
   sourceKafkaParameters?: CreateEventSourceRequestSourceKafkaParameters;
   /**
    * @remarks
-   * The parameters that are configured if you specify Simple Message Queue (formerly MNS) (SMQ) as the event source. If you specify SMQ as the event source, you must configure RegionId, IsBase64Decode, and QueueName.
+   * Parameters for the Message Service (MNS) event source. The `RegionId`, `IsBase64Decode`, and `QueueName` parameters are required for this type.
    */
   sourceMNSParameters?: CreateEventSourceRequestSourceMNSParameters;
+  /**
+   * @remarks
+   * Parameters for the Object Storage Service (OSS) event source.
+   */
   sourceOSSEventParameters?: CreateEventSourceRequestSourceOSSEventParameters;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Message Queue for RabbitMQ.
+   * Parameters for the Message Queue for RabbitMQ event source.
    */
   sourceRabbitMQParameters?: CreateEventSourceRequestSourceRabbitMQParameters;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Message Queue for Apache RocketMQ.
+   * Parameters for the Message Queue for Apache RocketMQ event source.
    */
   sourceRocketMQParameters?: CreateEventSourceRequestSourceRocketMQParameters;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Log Service.
+   * Parameters for the Simple Log Service (SLS) event source.
    */
   sourceSLSParameters?: CreateEventSourceRequestSourceSLSParameters;
   /**
    * @remarks
-   * The parameters that are configured if you specify scheduled events as the event source.
+   * Parameters for a scheduled event source.
    */
   sourceScheduledEventParameters?: CreateEventSourceRequestSourceScheduledEventParameters;
   static names(): { [key: string]: string } {

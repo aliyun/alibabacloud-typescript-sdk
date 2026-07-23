@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEventStreamingRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the event stream that you want to delete.
+   * The name of the event stream to delete.
    * 
    * This parameter is required.
    * 

@@ -16,10 +16,15 @@ export class UpdateApiDestinationRequestHttpApiParameters extends $dara.Model {
    * The HTTP request method. Valid values:
    * 
    * - GET
+   * 
    * - POST
+   * 
    * - HEAD
+   * 
    * - DELETE
+   * 
    * - PUT
+   * 
    * - PATCH
    * 
    * @example

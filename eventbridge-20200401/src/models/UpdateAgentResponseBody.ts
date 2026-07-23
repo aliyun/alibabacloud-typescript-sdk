@@ -34,22 +34,40 @@ export class UpdateAgentResponseBodyData extends $dara.Model {
 
 export class UpdateAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. Valid values:
+   * - Success: The operation was successful.                                 
+   * - Other values: An error code was returned. For more information, see error codes.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   */
   data?: UpdateAgentResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * InvalidArgument
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 382E6272-XXXXX-A8AF0BFAC1A5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Returns true if the operation is successful.
+   * 
    * @example
    * true
    */

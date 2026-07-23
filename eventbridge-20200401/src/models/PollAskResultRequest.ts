@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PollAskResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the agent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class PollAskResultRequest extends $dara.Model {
   agentName?: string;
   /**
    * @remarks
+   * The message ID.
+   * 
    * This parameter is required.
    * 
    * @example

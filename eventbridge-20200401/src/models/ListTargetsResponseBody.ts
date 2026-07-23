@@ -275,7 +275,7 @@ export class ListTargetsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 5DAF96FB-A4B6-548C-B999-0BFDCB2261B9
+   * 5DAF96FB-A4B6-548C-B999-0BFDCB22****
    */
   requestId?: string;
   /**

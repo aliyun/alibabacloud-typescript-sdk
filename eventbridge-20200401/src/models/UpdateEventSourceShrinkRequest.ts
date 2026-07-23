@@ -6,6 +6,9 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the event source.
+   * 
+   * @example
+   * RabbitMQ event source
    */
   description?: string;
   /**

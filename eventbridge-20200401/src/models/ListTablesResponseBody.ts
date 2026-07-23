@@ -5,12 +5,22 @@ import { Table } from "./Table";
 
 export class ListTablesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Next page token
+   * 
    * @example
    * 10
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * Table entities. Each element represents a specific table, including but not limited to information such as table name and table ID.
+   */
   tables?: Table[];
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 1
    */
@@ -45,26 +55,41 @@ export class ListTablesResponseBodyData extends $dara.Model {
 
 export class ListTablesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Response data
+   * 
    * @example
    * {"Tables":[{"Name":"my_table","Comment":"测试事件表"}],"NextToken":"10","Total":1}
    */
   data?: ListTablesResponseBodyData;
   /**
+   * @remarks
+   * API response message
+   * 
    * @example
    * Operation success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether successful
+   * 
    * @example
    * true
    */

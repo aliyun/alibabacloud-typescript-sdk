@@ -5,20 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceLinkedRoleForProductResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned response code. The value Success indicates that the request is successful. Other values indicate that the request failed. For more information about error codes, see Error codes.
+   * The status code of the request. \\`Success\\` indicates that the request was successful. For more information about error codes, see the Error codes section.
    * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * - **2xx**: a 2xx status code.
+   * 
+   * - **3xx**: a 3xx status code.
+   * 
+   * - **4xx**: a 4xx status code.
+   * 
+   * - **5xx**: a 5xx status code.
+   * 
+   * If this parameter is not specified, all HTTP status codes are queried.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
    * @remarks
-   * The returned message. If the request is successful, success is returned.
+   * The returned message. If the request is successful, \\`success\\` is returned.
    * 
    * @example
    * success
@@ -26,7 +39,7 @@ export class CreateServiceLinkedRoleForProductResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C36345A1-75F3-5A1A-BFCF-33B8271971FA
@@ -34,7 +47,7 @@ export class CreateServiceLinkedRoleForProductResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. If the operation was successful, the value true is returned.
+   * Indicates whether the request was successful. If the request is successful, \\`true\\` is returned.
    * 
    * @example
    * true

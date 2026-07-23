@@ -5,10 +5,17 @@ import { ExecutionResult } from "./ExecutionResult";
 
 export class QueryAttachment extends $dara.Model {
   /**
+   * @remarks
+   * Query statement
+   * 
    * @example
    * "SELECT city, COUNT(*) AS cnt FROM events GROUP BY city"
    */
   query?: string;
+  /**
+   * @remarks
+   * Query execution result
+   */
   result?: ExecutionResult;
   static names(): { [key: string]: string } {
     return {

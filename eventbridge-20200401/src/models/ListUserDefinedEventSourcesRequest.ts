@@ -13,7 +13,7 @@ export class ListUserDefinedEventSourcesRequest extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * The maximum number of entries to be returned in a call. You can use this parameter and NextToken to implement paging. Note: Up to 100 entries can be returned in a call.
+   * The maximum number of entries to return per request. You can use this parameter with NextToken for pagination. The maximum value is 100.
    * 
    * @example
    * 50
@@ -21,7 +21,7 @@ export class ListUserDefinedEventSourcesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The name of the event source.
+   * The prefix of the event source name.
    * 
    * @example
    * testName
@@ -29,7 +29,7 @@ export class ListUserDefinedEventSourcesRequest extends $dara.Model {
   namePrefix?: string;
   /**
    * @remarks
-   * If you configure Limit and excess return values exist, this parameter is returned.
+   * The token used to retrieve the next page of results. Set this parameter to the NextToken value returned from a previous call.
    * 
    * @example
    * 100

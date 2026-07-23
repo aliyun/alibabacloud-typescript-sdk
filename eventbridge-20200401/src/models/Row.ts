@@ -4,6 +4,10 @@ import { Column } from "./Column";
 
 
 export class Row extends $dara.Model {
+  /**
+   * @remarks
+   * Column data for each row.
+   */
   columns?: Column[];
   static names(): { [key: string]: string } {
     return {

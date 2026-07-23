@@ -24,7 +24,7 @@ export class DisableRuleResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * C36345A1-75F3-5A1A-BFCF-33B8271971FA
+   * C36345A1-75F3-5A1A-BFCF-33B82719****
    */
   requestId?: string;
   /**

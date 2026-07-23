@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEventStreamingRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the event stream whose details you want to query.
+   * The name of the event stream to query.
    * 
    * This parameter is required.
    * 

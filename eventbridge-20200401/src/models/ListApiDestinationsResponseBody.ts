@@ -213,7 +213,7 @@ export class ListApiDestinationsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 96D7C0AB-DCE5-5E82-96B8-4725E1706BB1
+   * 96D7C0AB-DCE5-5E82-96B8-4725E170****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

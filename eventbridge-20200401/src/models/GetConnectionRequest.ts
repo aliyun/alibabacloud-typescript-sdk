@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The connection name.
+   * The name of the connection.
    * 
    * This parameter is required.
    * 

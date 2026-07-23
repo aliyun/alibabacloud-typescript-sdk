@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEventStreamingBusinessOptionRequest extends $dara.Model {
   /**
    * @remarks
+   * The billing mode. Valid values are CapacityUnitMode for the CU mode and EventNumMode for the pay-by-event mode.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * CapacityUnitMode
    */
   businessMode?: string;
   /**
    * @remarks
+   * The name of the event stream.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +24,17 @@ export class UpdateEventStreamingBusinessOptionRequest extends $dara.Model {
    */
   eventStreamingName?: string;
   /**
+   * @remarks
+   * The maximum number of CUs.
+   * 
    * @example
    * 2
    */
   maxCapacityUnitCount?: number;
   /**
+   * @remarks
+   * The minimum number of CUs.
+   * 
    * @example
    * 1
    */

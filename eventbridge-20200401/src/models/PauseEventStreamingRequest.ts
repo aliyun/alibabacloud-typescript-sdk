@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PauseEventStreamingRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the event stream that you want to stop.
+   * The name of the event stream to be paused.
    * 
    * This parameter is required.
    * 

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class Column extends $dara.Model {
   /**
+   * @remarks
+   * Whether the value is NULL. When true, it should be treated as NULL.
+   * 
    * @example
    * false
    */
   isNull?: boolean;
   /**
+   * @remarks
+   * Column name.
+   * 
    * @example
    * index
    */
   name?: string;
   /**
+   * @remarks
+   * Column type.
+   * 
    * @example
    * text
    */
   type?: string;
   /**
+   * @remarks
+   * Column value.
+   * 
    * @example
    * product_info
    */

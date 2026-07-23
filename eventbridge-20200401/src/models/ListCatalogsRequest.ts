@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCatalogsRequest extends $dara.Model {
   /**
    * @remarks
-   * 每页返回的最大数据条数。不传时默认 10，最大 100
+   * Items per page
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListCatalogsRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * 分页查询的起始Token。首次查询不传或传 "0"；后续翻页使用上一次响应中返回的 NextToken 值
+   * Pagination token
    * 
    * @example
    * 0

@@ -13,6 +13,7 @@ export class SourceRabbitMQMetaParameters extends $dara.Model {
   password?: string;
   regex?: string;
   securityGroupId?: string;
+  syncMetaType?: string;
   username?: string;
   vSwitchIds?: string;
   virtualHostName?: string;
@@ -29,6 +30,7 @@ export class SourceRabbitMQMetaParameters extends $dara.Model {
       password: 'Password',
       regex: 'Regex',
       securityGroupId: 'SecurityGroupId',
+      syncMetaType: 'SyncMetaType',
       username: 'Username',
       vSwitchIds: 'VSwitchIds',
       virtualHostName: 'VirtualHostName',
@@ -48,6 +50,7 @@ export class SourceRabbitMQMetaParameters extends $dara.Model {
       password: 'string',
       regex: 'string',
       securityGroupId: 'string',
+      syncMetaType: 'string',
       username: 'string',
       vSwitchIds: 'string',
       virtualHostName: 'string',

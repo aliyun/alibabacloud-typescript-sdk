@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTableShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 新增列定义（JSON 对象）。包含 Name（列名，必填）、Type（数据类型，必填，如 STRING、INT32、INT64、FLOAT、DOUBLE、BOOLEAN、TIMESTAMP）、Comment（列备注，选填）。每次调用只能新增一列
+   * Add column
    * 
    * @example
    * {"Name":"id","Type":"bigint","Comment":"主键"}
@@ -13,7 +13,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   addColumnShrink?: string;
   /**
    * @remarks
-   * 表所属的数据目录名称。可通过 ListCatalogs 获取
+   * Data catalog to which it belongs
    * 
    * @example
    * my_catalog
@@ -21,7 +21,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * 用于保证请求幂等性的Token。建议使用 UUID
+   * Idempotency token
    * 
    * @example
    * 1e9b8f60-3a2c-4d7e-9f1b-8c3d5e7a2b4f
@@ -29,7 +29,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 删除列定义（JSON 对象）。包含 Name（要删除的列名，必填）。删除后不可恢复，已有数据中该列的值将丢失。每次调用只能删除一列
+   * Delete column
    * 
    * @example
    * {"Name":"old_column"}
@@ -37,7 +37,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   deleteColumnShrink?: string;
   /**
    * @remarks
-   * 要修改的事件表名称。名称本身不可修改，此处用于定位目标表。需同时指定所属 Catalog 和 Namespace。可通过 ListTables 获取
+   * Table name
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 表所属的命名空间名称。可通过 ListNamespaces 获取
+   * Namespace to which it belongs
    * 
    * @example
    * my_namespace
@@ -55,7 +55,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * 重命名列（JSON 对象）。包含 Name（原列名，必填）、NewName（新列名，必填）。每次调用只能重命名一列
+   * Rename column
    * 
    * @example
    * {"Name":"old_name","NewName":"new_name"}
@@ -63,7 +63,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   renameColumnShrink?: string;
   /**
    * @remarks
-   * 修改列的备注信息（JSON 对象）。包含 Name（目标列名，必填）、Comment（新备注内容，必填，传空字符串可清除备注）。每次调用只能修改一列
+   * Update column comment
    * 
    * @example
    * {"Name":"id","Comment":"主键ID"}
@@ -71,7 +71,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   updateColumnCommentShrink?: string;
   /**
    * @remarks
-   * 修改列的数据类型（JSON 对象）。包含 Name（目标列名，必填）、Type（新数据类型，必填）。仅支持兼容类型转换，每次调用只能修改一列
+   * Update column type
    * 
    * @example
    * {"Name":"id","Type":"bigint"}
@@ -79,7 +79,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   updateColumnTypeShrink?: string;
   /**
    * @remarks
-   * 修改表的备注描述。传入新的备注内容替换原有备注，传空字符串可清除备注
+   * Update table comment
    * 
    * @example
    * 更新后的备注
@@ -87,7 +87,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
   updateComment?: string;
   /**
    * @remarks
-   * 修改数据保留策略（JSON 对象）。包含 HotTTL（热数据保留天数）、ColdTTL（冷数据保留天数）。传入后会替换原有策略
+   * Update retention policy
    * 
    * @example
    * {"HotTTL":7,"ColdTTL":30}

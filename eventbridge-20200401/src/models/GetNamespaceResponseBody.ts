@@ -5,22 +5,38 @@ import { Namespace } from "./Namespace";
 
 export class GetNamespaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API response code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Namespace details
+   */
   data?: Namespace;
   /**
+   * @remarks
+   * API response message
+   * 
    * @example
    * Operation success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful
+   * 
    * @example
    * true
    */

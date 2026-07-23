@@ -24,7 +24,7 @@ export class ListEventBusesResponseBodyDataEventBuses extends $dara.Model {
    * The Alibaba Cloud Resource Name (ARN) of the event bus.
    * 
    * @example
-   * acs:eventbridge:cn-hangzhou:123456789098***:eventbus/default
+   * acs:eventbridge:cn-hangzhou:12345678909****:eventbus/default
    */
   eventBusARN?: string;
   /**
@@ -142,7 +142,7 @@ export class ListEventBusesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * D1DCF64A-3F2C-5323-ADCB-3F4DF30FAD2D
+   * D1DCF64A-3F2C-5323-ADCB-3F4DF30F****
    */
   requestId?: string;
   /**

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAgentRequestMetadataAttachments extends $dara.Model {
   /**
+   * @remarks
+   * The ARN of the attached metadata object.
+   * 
    * @example
    * acs:eventbridge:cn-hangzhou:12345:eventhouse/system-rocketmq/namespace/rmq-cn-XXX/table/order
    */
   arn?: string;
   /**
+   * @remarks
+   * The object type of the attached metadata.
+   * 
    * @example
    * inner-resource/event-table
    */
@@ -37,6 +43,10 @@ export class CreateAgentRequestMetadataAttachments extends $dara.Model {
 }
 
 export class CreateAgentRequestMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The array of attached metadata objects.
+   */
   attachments?: CreateAgentRequestMetadataAttachments[];
   static names(): { [key: string]: string } {
     return {
@@ -63,13 +73,36 @@ export class CreateAgentRequestMetadata extends $dara.Model {
 }
 
 export class CreateAgentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the event bus.
+   * 
+   * @example
+   * 连接配置描述信息
+   */
   description?: string;
+  /**
+   * @remarks
+   * The associated metadata.
+   */
   metadata?: CreateAgentRequestMetadata;
   /**
+   * @remarks
+   * The name of the agent.
+   * 
+   * This parameter is required.
+   * 
    * @example
    * my-agent
    */
   name?: string;
+  /**
+   * @remarks
+   * You are an IoT data analytics assistant...
+   * 
+   * @example
+   * 我想要她，你这样增加请求头获取用户IP CF-Connecting-IP%3B
+   */
   prompt?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AguiMessageMetadataAttachments extends $dara.Model {
   /**
+   * @remarks
+   * The name of the extension data.
+   * 
    * @example
    * acs:eventbridge:cn-hangzhou:12345:eventhouse/system-rocketmq/namespace/rmq-cn-xxx/table/order
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the extension data.
+   * 
    * @example
    * inner-resource/event-table
    */
@@ -39,6 +45,10 @@ export class AguiMessageMetadataAttachments extends $dara.Model {
 }
 
 export class AguiMessageMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The extension data.
+   */
   attachments?: AguiMessageMetadataAttachments;
   static names(): { [key: string]: string } {
     return {
@@ -66,11 +76,17 @@ export class AguiMessageMetadata extends $dara.Model {
 
 export class AguiMessageToolCallsFunction extends $dara.Model {
   /**
+   * @remarks
+   * The arguments of the tool calling function.
+   * 
    * @example
    * {}
    */
   arguments?: string;
   /**
+   * @remarks
+   * The name of the tool calling function.
+   * 
    * @example
    * discoverMetadata
    */
@@ -99,13 +115,23 @@ export class AguiMessageToolCallsFunction extends $dara.Model {
 }
 
 export class AguiMessageToolCalls extends $dara.Model {
+  /**
+   * @remarks
+   * The tool calling function.
+   */
   function?: AguiMessageToolCallsFunction;
   /**
+   * @remarks
+   * The tool calling ID.
+   * 
    * @example
    * call_xxx
    */
   id?: string;
   /**
+   * @remarks
+   * The tool calling type.
+   * 
    * @example
    * function
    */
@@ -139,29 +165,55 @@ export class AguiMessageToolCalls extends $dara.Model {
 }
 
 export class AguiMessage extends $dara.Model {
+  /**
+   * @remarks
+   * The text content of the message.
+   * 
+   * @example
+   * 根据您的问题，我将查询过去7天的事件量...
+   */
   content?: string;
   /**
+   * @remarks
+   * The unique identifier of the message.
+   * 
    * @example
    * msg_123456_a1b2c3d4
    */
   id?: string;
-  metadata?: AguiMessageMetadata;
   /**
+   * @remarks
+   * The extension metadata.
+   */
+  metadata?: AguiMessageMetadata;
+  reasoning?: string;
+  /**
+   * @remarks
+   * The role of the message.
+   * 
    * @example
    * assistant
    */
   role?: string;
   /**
+   * @remarks
+   * The associated tool invocation ID.
+   * 
    * @example
    * call_xxx
    */
   toolCallId?: string;
+  /**
+   * @remarks
+   * The tool invocation list.
+   */
   toolCalls?: AguiMessageToolCalls[];
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       id: 'Id',
       metadata: 'Metadata',
+      reasoning: 'Reasoning',
       role: 'Role',
       toolCallId: 'ToolCallId',
       toolCalls: 'ToolCalls',
@@ -173,6 +225,7 @@ export class AguiMessage extends $dara.Model {
       content: 'string',
       id: 'string',
       metadata: AguiMessageMetadata,
+      reasoning: 'string',
       role: 'string',
       toolCallId: 'string',
       toolCalls: { 'type': 'array', 'itemType': AguiMessageToolCalls },

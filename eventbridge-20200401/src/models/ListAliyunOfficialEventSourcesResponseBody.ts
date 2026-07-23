@@ -8,7 +8,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceListEventT
    * The name of the event source.
    * 
    * @example
-   * name
+   * acs.arms
    */
   eventSourceName?: string;
   /**
@@ -16,7 +16,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceListEventT
    * The name of the group to which the event type belongs.
    * 
    * @example
-   * aliyuncvc:MeetingEvent
+   * ActionTrail
    */
   groupName?: string;
   /**
@@ -24,7 +24,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceListEventT
    * The full name of the event type.
    * 
    * @example
-   * aliyuncvc:MeetingEvent:MeetingStateEvent
+   * arms:ActionTrail:AliyunServiceEvent
    */
   name?: string;
   /**
@@ -32,7 +32,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceListEventT
    * The short name of the event type.
    * 
    * @example
-   * MeetingStateEvent
+   * AliyunServiceEven
    */
   shortName?: string;
   static names(): { [key: string]: string } {
@@ -68,7 +68,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceList exten
    * The Alibaba Cloud Resource Name (ARN) of the event bus.
    * 
    * @example
-   * acs:eventbridge:cn-hangzhou:SYSTEM:eventsource/acs.aliyuncvc
+   * acs:eventbridge:cn-hangzhou:SYSTEM:eventbus/default/eventsource/acs.arms
    */
   arn?: string;
   /**
@@ -76,12 +76,15 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceList exten
    * The time when the event source was created. Unit: milliseconds.
    * 
    * @example
-   * 1607071602000
+   * 1602730025890
    */
   ctime?: number;
   /**
    * @remarks
    * The description of the event source.
+   * 
+   * @example
+   * Elastic Compute Service
    */
   description?: string;
   /**
@@ -89,7 +92,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceList exten
    * The name of the event source to which the event type belongs.
    * 
    * @example
-   * acs.aliyuncvc
+   * default
    */
   eventBusName?: string;
   /**
@@ -102,7 +105,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceList exten
    * The full name of the event source.
    * 
    * @example
-   * E-MapReduce
+   * Application Real-Time Monitoring Service
    */
   fullName?: string;
   /**
@@ -110,7 +113,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceList exten
    * The name of the event source.
    * 
    * @example
-   * acs.aliyuncvc
+   * acs.arms
    */
   name?: string;
   /**
@@ -126,7 +129,7 @@ export class ListAliyunOfficialEventSourcesResponseBodyDataEventSourceList exten
    * The type of the event source.
    * 
    * @example
-   * 1
+   * AliyunOfficial
    */
   type?: string;
   static names(): { [key: string]: string } {

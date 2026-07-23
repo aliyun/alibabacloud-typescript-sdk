@@ -6,44 +6,83 @@ import { Content } from "./Content";
 
 export class AskLumaResult extends $dara.Model {
   /**
+   * @remarks
+   * Whether clarification is needed
+   * 
    * @example
    * false
    */
   clarificationNeeded?: boolean;
+  /**
+   * @remarks
+   * Clarification question text
+   * 
+   * @example
+   * 您指的是哪个数据库中的员工表？
+   */
   clarificationQuestion?: string;
+  /**
+   * @remarks
+   * Query constraints
+   */
   constraints?: Constraints;
+  /**
+   * @remarks
+   * Structured result body
+   */
   content?: Content;
   /**
+   * @remarks
+   * Conversation identifier, used for multi-turn follow-up questions
+   * 
    * @example
    * conv_xxx
    */
   conversationId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * ExecutionFailed, Timeout, RateLimited, InternalError, ConversationExpired
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error details
+   * 
    * @example
    * Agent with name \\"xxx\\" not found for account 1186xxx
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Whether it is an error. false = query succeeded or clarification (including empty result set); true = execution failed / timeout / rate limited / internal error
+   * 
    * @example
    * false
    */
   isError?: boolean;
   /**
+   * @remarks
+   * Message identifier, used for PollAskResult polling
+   * 
    * @example
    * msg_xxx
    */
   messageId?: string;
   /**
+   * @remarks
+   * Execution status
+   * 
    * @example
    * RUNNING, SUCCEEDED, FAILED, TIMEOUT
    */
   status?: string;
   /**
+   * @remarks
+   * Whether the result was truncated due to exceeding the storage limit. Only appears in large result set scenarios
+   * 
    * @example
    * true
    */

@@ -13,7 +13,7 @@ export class PutTargetsResponseBodyDataErrorEntries extends $dara.Model {
   entryId?: string;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * EventRuleTargetIdDuplicate
@@ -21,7 +21,7 @@ export class PutTargetsResponseBodyDataErrorEntries extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The description of the error.
    * 
    * @example
    * The id of event target is duplicate!
@@ -55,15 +55,16 @@ export class PutTargetsResponseBodyDataErrorEntries extends $dara.Model {
 export class PutTargetsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the failed event target.
+   * Details about the event targets that failed to be processed.
    */
   errorEntries?: PutTargetsResponseBodyDataErrorEntries[];
   /**
    * @remarks
-   * The number of failed event targets. Valid values:
+   * The number of event targets that failed to be processed. A value of 0 indicates that all event targets were processed successfully.
    * 
-   * *   0: All event targets succeeded.
-   * *   An integer other than 0: indicates the number of failed event targets.
+   * -
+   * 
+   * -
    * 
    * @example
    * 0
@@ -98,10 +99,11 @@ export class PutTargetsResponseBodyData extends $dara.Model {
 export class PutTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values:
+   * The response code.
    * 
-   * *   Success: The call succeeded.
-   * *   Other codes: The call failed. For more information about error codes, see Error codes.
+   * - Success: The request was successful.
+   * 
+   * - Other values indicate an error. For details, see Error codes.
    * 
    * @example
    * Success
@@ -109,12 +111,12 @@ export class PutTargetsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: PutTargetsResponseBodyData;
   /**
    * @remarks
-   * The error message that is returned if the request failed.
+   * The error message.
    * 
    * @example
    * The event rule not existed!
@@ -122,7 +124,7 @@ export class PutTargetsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID that Alibaba Cloud generates for the request.
    * 
    * @example
    * 6FB52207-7621-5292-BDF2-A17E2E984160
@@ -130,10 +132,7 @@ export class PutTargetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request is successful.
-   * *   **false**: The request failed.
+   * Returns true if the operation is successful.
    * 
    * @example
    * true

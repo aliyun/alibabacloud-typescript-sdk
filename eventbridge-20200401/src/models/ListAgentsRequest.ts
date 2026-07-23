@@ -4,16 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAgentsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the agent from which the next page of results starts.
+   * 
    * @example
    * my-agent
    */
   after?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return per request. You can use this parameter together with NextToken to implement paging.
+   * 
    * @example
    * 50
    */
   limit?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * - desc
+   * - asc.
+   * 
    * @example
    * acs
    */

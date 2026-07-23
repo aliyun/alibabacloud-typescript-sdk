@@ -44,6 +44,13 @@ export class CheckServiceLinkedRoleForProductResponseBodyData extends $dara.Mode
 
 export class CheckServiceLinkedRoleForProductResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of \\`Success\\` indicates that the request is successful. For more information about other error codes, see Error codes.
+   * 
+   * Success: The request is successful.
+   * 
+   * Other codes indicate that the request failed. For more information about error codes, see Error codes.
+   * 
    * @example
    * Success
    */
@@ -54,16 +61,25 @@ export class CheckServiceLinkedRoleForProductResponseBody extends $dara.Model {
    */
   data?: CheckServiceLinkedRoleForProductResponseBodyData;
   /**
+   * @remarks
+   * The returned message. If the request is successful, \\`Success\\` is returned. If the request fails, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. \\`true\\`: The request was successful. \\`false\\`: The request failed.
+   * 
    * @example
    * true
    */

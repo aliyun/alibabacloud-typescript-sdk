@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The list of allowed CIDR blocks.
+   */
   allowedCIDRs?: string;
   /**
    * @remarks
@@ -14,7 +18,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   databaseName?: string;
   /**
    * @remarks
-   * The endpoint of the database.
+   * The database endpoint.
    * 
    * @example
    * rm-bp1vxxx.mysql.rds.aliyuncs.com
@@ -24,18 +28,13 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
    * @remarks
    * The network type.
    * 
-   * Valid values:
-   * 
-   * *   PrivateNetwork
-   * *   PublicNetwork
-   * 
    * @example
    * PrivateNetwork
    */
   networkType?: string;
   /**
    * @remarks
-   * The password that is used for authentication.
+   * The password for the specified username.
    * 
    * @example
    * 1234xxx
@@ -43,7 +42,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   password?: string;
   /**
    * @remarks
-   * The port that is used to connect to the database.
+   * The database connection port.
    * 
    * @example
    * 80
@@ -59,16 +58,20 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-xxx
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The snapshot mode.
+   */
   snapshotMode?: string;
   /**
    * @remarks
-   * The table name. The name must be prefixed with the database name. ${DatabaseName}.${TableName}
+   * The table name. The name must be prefixed with the database name in the ${DatabaseName}.${TableName} format.
    * 
    * @example
    * database1.table1
@@ -76,7 +79,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   tableNames?: string;
   /**
    * @remarks
-   * The username that is used to log on to the database.
+   * The username for the database.
    * 
    * @example
    * user***
@@ -84,7 +87,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   user?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The vSwitch IDs.
    * 
    * @example
    * vsw-bp1gb7xxx
@@ -92,7 +95,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   vSwitchIds?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-xxx
@@ -146,7 +149,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
 export class TestEventSourceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are configured if you specify MySQL as the event source.
+   * The parameters for the MySQL source.
    */
   sourceMySQLParameters?: TestEventSourceConfigRequestSourceMySQLParameters;
   static names(): { [key: string]: string } {
