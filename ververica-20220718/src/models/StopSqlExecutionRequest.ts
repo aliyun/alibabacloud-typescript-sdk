@@ -2,23 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StartSqlExecutionResult extends $dara.Model {
-  newlyCreated?: boolean;
-  sqlExecutionId?: string;
-  success?: boolean;
+export class StopSqlExecutionRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
-      newlyCreated: 'newlyCreated',
-      sqlExecutionId: 'sqlExecutionId',
-      success: 'success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      newlyCreated: 'boolean',
-      sqlExecutionId: 'string',
-      success: 'boolean',
     };
   }
 

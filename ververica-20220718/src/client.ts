@@ -628,6 +628,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a SQL query script job file.
+   * 
+   * @remarks
+   * The original interface for creating deployment targets only supports creating deployment targets with fixed resources or elastic resources. The new interface supports creating deployment targets with fixed resources, elastic resources, or mixed pattern.
+   * 
+   * @param request - CreateSqlFileRequest
+   * @param headers - CreateSqlFileHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSqlFileResponse
+   */
+  async createSqlFileWithOptions(namespace: string, request: $_model.CreateSqlFileRequest, headers: $_model.CreateSqlFileHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSqlFileResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSqlFile",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-file`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSqlFileResponse>(await this.callApi(params, req, runtime), new $_model.CreateSqlFileResponse({}));
+  }
+
+  /**
+   * Creates a SQL query script job file.
+   * 
+   * @remarks
+   * The original interface for creating deployment targets only supports creating deployment targets with fixed resources or elastic resources. The new interface supports creating deployment targets with fixed resources, elastic resources, or mixed pattern.
+   * 
+   * @param request - CreateSqlFileRequest
+   * @returns CreateSqlFileResponse
+   */
+  async createSqlFile(namespace: string, request: $_model.CreateSqlFileRequest): Promise<$_model.CreateSqlFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CreateSqlFileHeaders({ });
+    return await this.createSqlFileWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
    * 
    * @param request - CreateUdfArtifactRequest
@@ -811,6 +866,66 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.DeleteDeploymentHeaders({ });
     return await this.deleteDeploymentWithOptions(namespace, deploymentId, headers, runtime);
+  }
+
+  /**
+   * Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name.
+   * 
+   * @remarks
+   * Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name. This operation is applicable to scenarios where you want to quickly locate job details by deployment identifier.
+   * 
+   * @param request - DeleteDeploymentByNameRequest
+   * @param headers - DeleteDeploymentByNameHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDeploymentByNameResponse
+   */
+  async deleteDeploymentByNameWithOptions(namespace: string, request: $_model.DeleteDeploymentByNameRequest, headers: $_model.DeleteDeploymentByNameHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDeploymentByNameResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deploymentName)) {
+      query["deploymentName"] = request.deploymentName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDeploymentByName",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/deleteDeployment/byName`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDeploymentByNameResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDeploymentByNameResponse({}));
+  }
+
+  /**
+   * Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name.
+   * 
+   * @remarks
+   * Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name. This operation is applicable to scenarios where you want to quickly locate job details by deployment identifier.
+   * 
+   * @param request - DeleteDeploymentByNameRequest
+   * @returns DeleteDeploymentByNameResponse
+   */
+  async deleteDeploymentByName(namespace: string, request: $_model.DeleteDeploymentByNameRequest): Promise<$_model.DeleteDeploymentByNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.DeleteDeploymentByNameHeaders({ });
+    return await this.deleteDeploymentByNameWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -1166,6 +1281,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a created SQL query script file.
+   * 
+   * @remarks
+   * Queries the list of deployed jobs that are associated with a specified job label and their details. Exact matching by labelKey and labelValue is supported.
+   * 
+   * @param request - DeleteSqlFileRequest
+   * @param headers - DeleteSqlFileHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSqlFileResponse
+   */
+  async deleteSqlFileWithOptions(namespace: string, sqlFileId: string, request: $_model.DeleteSqlFileRequest, headers: $_model.DeleteSqlFileHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSqlFileResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSqlFile",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-file/${$dara.URL.percentEncode(sqlFileId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSqlFileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSqlFileResponse({}));
+  }
+
+  /**
+   * Deletes a created SQL query script file.
+   * 
+   * @remarks
+   * Queries the list of deployed jobs that are associated with a specified job label and their details. Exact matching by labelKey and labelValue is supported.
+   * 
+   * @param request - DeleteSqlFileRequest
+   * @returns DeleteSqlFileResponse
+   */
+  async deleteSqlFile(namespace: string, sqlFileId: string, request: $_model.DeleteSqlFileRequest): Promise<$_model.DeleteSqlFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.DeleteSqlFileHeaders({ });
+    return await this.deleteSqlFileWithOptions(namespace, sqlFileId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a user-defined function (UDF) resource. You must delete all UDFs registered with the resource before you can delete the resource.
    * 
    * @param headers - DeleteUdfArtifactHeaders
@@ -1407,6 +1576,54 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.ExecuteSqlStatementHeaders({ });
     return await this.executeSqlStatementWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the execution result of an SQL data query submitted through the platform.
+   * 
+   * @param request - FetchSqlExecutionResultRequest
+   * @param headers - FetchSqlExecutionResultHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchSqlExecutionResultResponse
+   */
+  async fetchSqlExecutionResultWithOptions(namespace: string, sqlExecutionId: string, request: $_model.FetchSqlExecutionResultRequest, headers: $_model.FetchSqlExecutionResultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.FetchSqlExecutionResultResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchSqlExecutionResult",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-execution/${$dara.URL.percentEncode(sqlExecutionId)}%3AfetchSqlExecutionResult`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FetchSqlExecutionResultResponse>(await this.callApi(params, req, runtime), new $_model.FetchSqlExecutionResultResponse({}));
+  }
+
+  /**
+   * Retrieves the execution result of an SQL data query submitted through the platform.
+   * 
+   * @param request - FetchSqlExecutionResultRequest
+   * @returns FetchSqlExecutionResultResponse
+   */
+  async fetchSqlExecutionResult(namespace: string, sqlExecutionId: string, request: $_model.FetchSqlExecutionResultRequest): Promise<$_model.FetchSqlExecutionResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.FetchSqlExecutionResultHeaders({ });
+    return await this.fetchSqlExecutionResultWithOptions(namespace, sqlExecutionId, request, headers, runtime);
   }
 
   /**
@@ -2721,6 +2938,54 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetSessionClusterHeaders({ });
     return await this.getSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
+  }
+
+  /**
+   * Retrieves the details of a created SQL query script.
+   * 
+   * @param request - GetSqlFileRequest
+   * @param headers - GetSqlFileHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSqlFileResponse
+   */
+  async getSqlFileWithOptions(namespace: string, sqlFileId: string, request: $_model.GetSqlFileRequest, headers: $_model.GetSqlFileHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetSqlFileResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSqlFile",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-file/${$dara.URL.percentEncode(sqlFileId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSqlFileResponse>(await this.callApi(params, req, runtime), new $_model.GetSqlFileResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a created SQL query script.
+   * 
+   * @param request - GetSqlFileRequest
+   * @returns GetSqlFileResponse
+   */
+  async getSqlFile(namespace: string, sqlFileId: string, request: $_model.GetSqlFileRequest): Promise<$_model.GetSqlFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetSqlFileHeaders({ });
+    return await this.getSqlFileWithOptions(namespace, sqlFileId, request, headers, runtime);
   }
 
   /**
@@ -4140,6 +4405,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes an SQL query script task.
+   * 
+   * @param request - StopSqlExecutionRequest
+   * @param headers - StopSqlExecutionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopSqlExecutionResponse
+   */
+  async stopSqlExecutionWithOptions(namespace: string, sqlExecutionId: string, request: $_model.StopSqlExecutionRequest, headers: $_model.StopSqlExecutionHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StopSqlExecutionResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopSqlExecution",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-execution/${$dara.URL.percentEncode(sqlExecutionId)}%3Astop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopSqlExecutionResponse>(await this.callApi(params, req, runtime), new $_model.StopSqlExecutionResponse({}));
+  }
+
+  /**
+   * Executes an SQL query script task.
+   * 
+   * @param request - StopSqlExecutionRequest
+   * @returns StopSqlExecutionResponse
+   */
+  async stopSqlExecution(namespace: string, sqlExecutionId: string, request: $_model.StopSqlExecutionRequest): Promise<$_model.StopSqlExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.StopSqlExecutionHeaders({ });
+    return await this.stopSqlExecutionWithOptions(namespace, sqlExecutionId, request, headers, runtime);
+  }
+
+  /**
    * 提交sql调试
    * 
    * @param request - SubmitSqlPreviewRequest
@@ -4241,6 +4554,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.UpdateDeploymentHeaders({ });
     return await this.updateDeploymentWithOptions(namespace, deploymentId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the details and configuration parameters of a deployment job by its name.
+   * 
+   * @param request - UpdateDeploymentByNameRequest
+   * @param headers - UpdateDeploymentByNameHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDeploymentByNameResponse
+   */
+  async updateDeploymentByNameWithOptions(namespace: string, request: $_model.UpdateDeploymentByNameRequest, headers: $_model.UpdateDeploymentByNameHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeploymentByNameResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deploymentName)) {
+      query["deploymentName"] = request.deploymentName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDeploymentByName",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/updateDeployment/byName`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDeploymentByNameResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDeploymentByNameResponse({}));
+  }
+
+  /**
+   * Updates the details and configuration parameters of a deployment job by its name.
+   * 
+   * @param request - UpdateDeploymentByNameRequest
+   * @returns UpdateDeploymentByNameResponse
+   */
+  async updateDeploymentByName(namespace: string, request: $_model.UpdateDeploymentByNameRequest): Promise<$_model.UpdateDeploymentByNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.UpdateDeploymentByNameHeaders({ });
+    return await this.updateDeploymentByNameWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -4590,6 +4958,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.UpdateSessionClusterHeaders({ });
     return await this.updateSessionClusterWithOptions(namespace, sessionClusterName, request, headers, runtime);
+  }
+
+  /**
+   * Updates a created SQL query script.
+   * 
+   * @param request - UpdateSqlFileRequest
+   * @param headers - UpdateSqlFileHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSqlFileResponse
+   */
+  async updateSqlFileWithOptions(namespace: string, sqlFileId: string, request: $_model.UpdateSqlFileRequest, headers: $_model.UpdateSqlFileHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSqlFileResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSqlFile",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-file/${$dara.URL.percentEncode(sqlFileId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSqlFileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSqlFileResponse({}));
+  }
+
+  /**
+   * Updates a created SQL query script.
+   * 
+   * @param request - UpdateSqlFileRequest
+   * @returns UpdateSqlFileResponse
+   */
+  async updateSqlFile(namespace: string, sqlFileId: string, request: $_model.UpdateSqlFileRequest): Promise<$_model.UpdateSqlFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.UpdateSqlFileHeaders({ });
+    return await this.updateSqlFileWithOptions(namespace, sqlFileId, request, headers, runtime);
   }
 
   /**

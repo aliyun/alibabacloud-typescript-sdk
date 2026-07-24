@@ -1,28 +1,30 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { SqlFile } from "./SqlFile";
 
 
-export class StartSqlExecutionResult extends $dara.Model {
-  newlyCreated?: boolean;
-  sqlExecutionId?: string;
-  success?: boolean;
+export class UpdateSqlFileRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The SQL script information to update.
+   */
+  body?: SqlFile;
   static names(): { [key: string]: string } {
     return {
-      newlyCreated: 'newlyCreated',
-      sqlExecutionId: 'sqlExecutionId',
-      success: 'success',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      newlyCreated: 'boolean',
-      sqlExecutionId: 'string',
-      success: 'boolean',
+      body: SqlFile,
     };
   }
 
   validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
     super.validate();
   }
 
