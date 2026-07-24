@@ -112,7 +112,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   extFaceInfo?: FaceVerifyIntlResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The predicted reference age of the face. Prediction may fail and the value may not be returned.
+   * The estimated age of the face. This value may not be returned if the prediction fails.
    * 
    * @example
    * 30
@@ -121,8 +121,8 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the captured face involves a liveness attack. Valid values:
-   * - Y: attack detected.
-   * - N: no attack detected.
+   * - Y: Attack detected.
+   * - N: No attack detected.
    * 
    * This field is returned only when passive liveness detection is enabled.
    * 
@@ -148,9 +148,9 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   faceComparisonScore?: number;
   /**
    * @remarks
-   * The predicted gender of the face image. Prediction may fail and the value may not be returned. Valid values:
-   * - M: male.
-   * - F: female.
+   * The predicted gender of the face image. This value may not be returned if the prediction fails. Valid values:
+   * - M: Male.
+   * - F: Female.
    * 
    * @example
    * M
@@ -159,8 +159,8 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The final verification result. Valid values:
-   * - Y: passed.
-   * - N: not passed.
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * Y
@@ -168,7 +168,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   facePassed?: string;
   /**
    * @remarks
-   * The corresponding face ID returned only when the customer has enabled automatic registration and the face is registered successfully.
+   * The face ID returned only when the customer has enabled automatic registration and the face is registered successfully.
    * 
    * @example
    * 9e792ec84c8f0ca592a
@@ -177,8 +177,8 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The face registration result. Valid values: 
-   * - 0: failed. 
-   * - 1: succeeded.
+   * - 0: Failed. 
+   * - 1: Succeeded.
    * 
    * @example
    * 0
@@ -249,7 +249,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
 export class FaceVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -257,7 +257,7 @@ export class FaceVerifyIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success

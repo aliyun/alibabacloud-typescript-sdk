@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   /**
    * @remarks
-   * The predicted reference age of the face. The prediction may fail and return no value.
+   * The predicted reference age based on the face image. The prediction may fail, in which case no value is returned.
    * 
    * @example
    * 18
@@ -22,10 +22,10 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   faceAttributeInfo?: string;
   /**
    * @remarks
-   * The predicted gender of the face in the photo. The prediction may fail and return no value. Valid values:
+   * The predicted gender based on the face image. The prediction may fail, in which case no value is returned. Valid values:
    * 
-   * - M: Male.
-   * - F: Female.
+   * - M: male.
+   * - F: female.
    * 
    * @example
    * M
@@ -33,7 +33,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   faceGender?: string;
   /**
    * @remarks
-   * The face quality score (0 to 100). This parameter is returned only when the face quality score switch is enabled.
+   * The face quality score (0 to 100). This value is returned only when the face quality score switch is enabled in the request parameters.
    * 
    * @example
    * 87.19
@@ -57,7 +57,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   kaOcclusionScore?: number;
   /**
    * @remarks
-   * The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This parameter is returned only when the occlusion detection switch is enabled.
+   * The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This value is returned only when the occlusion detection switch is enabled in the request parameters.
    * 
    * @example
    * Y
@@ -126,10 +126,10 @@ export class FaceLivenessResponseBodyResult extends $dara.Model {
   extFaceInfo?: FaceLivenessResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * Indicates whether the authentication is passed. Valid values:
+   * Indicates whether the authentication passed. Valid values:
    * 
-   * - Y: Passed.
-   * - N: Not passed.
+   * - Y: passed.
+   * - N: not passed.
    * 
    * @example
    * N
@@ -192,7 +192,7 @@ export class FaceLivenessResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message returned with the result.
+   * The description of the return result.
    * 
    * @example
    * success

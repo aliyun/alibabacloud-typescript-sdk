@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class InitializeV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * <warning>This feature is **not supported by the Web SDK**. To use this feature, use the App SDK.</warning>
+   * <warning>This feature is **not supported by Web SDK**. To use this feature, use the App SDK.</warning>
    * 
    * Specifies whether to enable strict face quality detection:
    * - Y: enable (default)
-   * - N: disable.
+   * - N: do not enable
    * 
    * @example
    * N
@@ -23,6 +23,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * T
    */
   authorize?: string;
+  autoDocPageConfig?: string;
   /**
    * @remarks
    * Specifies whether to enable auto-registration.
@@ -41,7 +42,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   callbackToken?: string;
   /**
    * @remarks
-   * The callback URL for the authentication result. The callback request method is GET by default. The callback URL must start with https. After the authentication is complete, the platform calls back this URL and automatically appends the transactionId, passed, and subcode fields.
+   * The callback URL for authentication results. The default callback request method is GET, and the callback URL must start with https. After authentication is complete, the platform calls back this URL and automatically appends the transactionId, passed, and subcode fields.
    * 
    * @example
    * https://www.aliyun.com?callbackToken=1000004826&transactionId=shaxxxx&passed=Y&subCode=200
@@ -51,7 +52,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the adaptive color-changing window frame.
    * - **Y**: enable
-   * - **N**: disable.
+   * - **N**: do not enable
    * 
    * @example
    * N
@@ -77,7 +78,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   dateOfBirth?: string;
   /**
    * @remarks
-   * The expiration date on the document.
+   * The expiry date on the document.
    * 
    * Required when **MRTDInput** = 2.
    * 
@@ -90,7 +91,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * The real name of the user.
    * 
    * @example
-   * 张**
+   * Zhang**
    */
   docName?: string;
   /**
@@ -103,7 +104,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   docNo?: string;
   /**
    * @remarks
-   * The custom configuration for whether to capture additional pages.
+   * The custom configuration for collecting additional pages.
    * 
    * @example
    * OCR_ID_BACK
@@ -123,9 +124,9 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The document type.
-   * >For the eKYC_PRO and ID_OCR_MAX solutions, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
+   * >For eKYC_PRO and ID_OCR_MAX solutions, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
    * 
-   * >For the ID_OCR, eKYC, and eKYC_MIN solutions, see the document type list in the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7.
+   * >For ID_OCR, eKYC, and eKYC_MIN solutions, see the official documentation for the document type list: https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7
    * 
    * @example
    * 00000001
@@ -133,13 +134,13 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * Specifies whether to save an evidence video.
+   * Specifies whether to record an evidence video.
    * 
    * - N: not required (default).
    * 
-   * - Y: a face scanning video (1 to 2 seconds) is captured during the authentication process and returned through the query operation.
+   * - Y: a face verification video (1–2 seconds) is captured during authentication and returned through the query API.
    * 
-   * > Because video files are large, the system discards video files when the network is unstable to prioritize the transmission of images required for authentication.
+   * > Because video files are large, the system discards video files when the network is unstable to prioritize the transmission of essential authentication images.
    * 
    * @example
    * N
@@ -161,7 +162,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * 
    * - **0**: not editable
    * 
-   * - **1** (default): editable.
+   * - **1** (default): editable
    * 
    * @example
    * 0
@@ -186,6 +187,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * 9be7b7d0180041219e5ab03ac6dab5fb
    */
   experienceCode?: string;
+  faceAttributeCheck?: string;
   /**
    * @remarks
    * The face libraries for comparison.
@@ -257,7 +259,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * - 0: system default
    * - 1: strict mode
    * - 2: loose mode
-   * - 3 (default): disable quality detection.
+   * - 3 (default): disable quality detection
    * 
    * @example
    * 0
@@ -273,13 +275,13 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   languageConfig?: string;
   /**
    * @remarks
-   * The input source for MRTD verification parameters. This parameter is required to decrypt information when reading document chip information through NFC.
+   * The input source for MRTD verification parameters. This parameter is required for decrypting information when reading document chip data via NFC.
    * 
    * - **0**: user input
    * 
    * - **1**: OCR reading
    * 
-   * - **2**: passed in through the operation.
+   * - **2**: API input
    * 
    * @example
    * 0
@@ -295,7 +297,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you mask this field value in advance, for example, by hashing the value.
+   * A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize this field value in advance, for example, by hashing the value.
    * 
    * @example
    * 1221****6543
@@ -322,7 +324,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * The type of liveness detection:
+   * The type of liveness detection to perform:
    * 
    * - **LIVENESS** (default): blink action liveness detection.
    * 
@@ -350,7 +352,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * 
    * 0: no (default)
    * 
-   * 1: yes.
+   * 1: yes
    * 
    * @example
    * 0
@@ -358,10 +360,10 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   ocrValueStandard?: string;
   /**
    * @remarks
-   * The capture page configuration. Use commas to connect multiple pages. Valid values:
-   * - **01**: the portrait side of the document
+   * The collection page configuration. Use commas to connect multiple pages. Valid values:
+   * - **01**: document portrait page
    * 
-   * - **01,02**: the portrait side and the back side of the document
+   * - **01,02**: document portrait page and back page
    * 
    * > When this value is set to 01,02, only Chinese ID cards and Vietnamese ID cards are supported.
    * 
@@ -380,7 +382,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * 
    * > 
    * > - This switch is not supported on PC.
-   * > - If the common scenarios involve completing authentication within an in-app web page, set this parameter to keep to disallow URL degradation.
+   * > - If the business scenario involves completing authentication within an in-app web page, set this parameter to keep to disallow URL degradation.
    * 
    * @example
    * url
@@ -390,7 +392,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * @remarks
    * The product solution to use.
    * 
-   * >Note: For more information, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/product-introduction?spm=a2c63.p38356.0.i1.
+   * >Note: For more information, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/product-introduction?spm=a2c63.p38356.0.i1
    * 
    * @example
    * eKYC
@@ -398,12 +400,12 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The order of document and face capture:
+   * The order of document and face verification:
    * 
    * - DOC_FACE (default)
    * - FACE_DOC
    * 
-   * Note: Pass this parameter only when ProductCode is KYC_GLOBAL.
+   * Note: This parameter is required only when ProductCode is KYC_GLOBAL.
    * 
    * @example
    * DOC_FACE
@@ -458,7 +460,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * 
    * - **1**: display (default)
    * 
-   * - **0**: do not display.
+   * - **0**: do not display
    * 
    * @example
    * 1
@@ -470,7 +472,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * 
    * - **1**: display (default)
    * 
-   * - **0**: do not display.
+   * - **0**: do not display
    * 
    * @example
    * 1
@@ -482,7 +484,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * 
    * - **1**: display (default)
    * 
-   * - **0**: do not display.
+   * - **0**: do not display
    * 
    * @example
    * 1
@@ -511,7 +513,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   targetFacePicture?: string;
   /**
    * @remarks
-   * The file stream of the reference face image.
+   * The file stream of the target face image.
    * 
    * @example
    * InputStream
@@ -528,9 +530,9 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The custom action pool configuration for liveness detection.
-   * Pass this parameter when Model is set to TEMPLATE.
-   * Configuration rule: separate multiple action codes with commas. Best practices: include at least one frontal face action (such as blink) and no more than 3 actions in total.
-   * Action lookup table:
+   * Required when Model is TEMPLATE.
+   * Configuration rule: separate multiple action codes with commas. Best practice: include at least one frontal face action (such as blink), and do not exceed 3 actions in total.
+   * Action code table:
    * 
    * - Blink: 01
    * - Open Mouth: 02
@@ -538,7 +540,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
    * - Shake Head Right: 04
    * - Move Farther: 05
    * - Move Closer: 06
-   * - Photinus: 07.
+   * - Photinus: 07
    * 
    * @example
    * 01,02,07
@@ -546,8 +548,8 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   templateConfig?: string;
   /**
    * @remarks
-   * The number of actions randomly selected from TemplateConfig.
-   * This parameter takes effect only when TemplateType is set to Ran.
+   * The number of actions to randomly select from TemplateConfig.
+   * Takes effect only when TemplateType is Ran.
    * 
    * - Validation rules:
    * - The value must be greater than 1. The value must be less than or equal to the total number of actions configured in TemplateConfig. If not specified, the default value equals the total number of actions in TemplateConfig.
@@ -559,7 +561,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The execution order of liveness detection actions in TemplateConfig.
-   * Pass this parameter when Model is set to TEMPLATE.
+   * Required when Model is TEMPLATE.
    * 
    * - Seq: execute in the order configured in TemplateConfig from left to right.
    * - Ran: execute in random order. When this option is selected, TemplateConfig must contain more than one action.
@@ -571,8 +573,8 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable NFC verification when **DocType** = 01000000 (global passport).
-   * - **Y**: enable
-   * - **N**: disable.
+   * - **Y** (enable)
+   * - **N** (do not enable)
    * 
    * @example
    * N
@@ -590,6 +592,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
     return {
       appQualityCheck: 'AppQualityCheck',
       authorize: 'Authorize',
+      autoDocPageConfig: 'AutoDocPageConfig',
       autoRegistration: 'AutoRegistration',
       callbackToken: 'CallbackToken',
       callbackUrl: 'CallbackUrl',
@@ -607,6 +610,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
       editOcrResult: 'EditOcrResult',
       email: 'Email',
       experienceCode: 'ExperienceCode',
+      faceAttributeCheck: 'FaceAttributeCheck',
       faceGroupCodes: 'FaceGroupCodes',
       facePictureBase64: 'FacePictureBase64',
       facePictureFile: 'FacePictureFile',
@@ -653,6 +657,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
     return {
       appQualityCheck: 'string',
       authorize: 'string',
+      autoDocPageConfig: 'string',
       autoRegistration: 'string',
       callbackToken: 'string',
       callbackUrl: 'string',
@@ -670,6 +675,7 @@ export class InitializeV2ShrinkRequest extends $dara.Model {
       editOcrResult: 'string',
       email: 'string',
       experienceCode: 'string',
+      faceAttributeCheck: 'string',
       faceGroupCodes: 'string',
       facePictureBase64: 'string',
       facePictureFile: 'string',

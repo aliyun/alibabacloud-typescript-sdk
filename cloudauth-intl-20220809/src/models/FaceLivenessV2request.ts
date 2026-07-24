@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FaceLivenessV2Request extends $dara.Model {
+  faceAttributeCheck?: string;
   /**
    * @remarks
    * The Base64-encoded face image.
@@ -70,6 +71,7 @@ export class FaceLivenessV2Request extends $dara.Model {
   productCode?: string;
   static names(): { [key: string]: string } {
     return {
+      faceAttributeCheck: 'FaceAttributeCheck',
       facePictureBase64: 'FacePictureBase64',
       facePictureFile: 'FacePictureFile',
       facePictureUrl: 'FacePictureUrl',
@@ -82,6 +84,7 @@ export class FaceLivenessV2Request extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      faceAttributeCheck: 'string',
       facePictureBase64: 'string',
       facePictureFile: 'string',
       facePictureUrl: 'string',

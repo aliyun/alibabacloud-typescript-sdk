@@ -41,7 +41,7 @@ export class FaceLivenessV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   faceQualityScore?: number;
   /**
    * @remarks
-   * The algorithm score for illumination as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+   * The algorithm score for illumination, which is a sub-dimension of quality assessment. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 97.43
@@ -49,7 +49,7 @@ export class FaceLivenessV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   illuminationScore?: number;
   /**
    * @remarks
-   * The algorithm score for key area occlusion as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+   * The algorithm score for key area occlusion, which is a sub-dimension of quality assessment. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class FaceLivenessV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   occlusionResult?: string;
   /**
    * @remarks
-   * The algorithm score for occlusion as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+   * The algorithm score for occlusion, which is a sub-dimension of quality assessment. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 50.26
@@ -73,7 +73,7 @@ export class FaceLivenessV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   occlusionScore?: number;
   /**
    * @remarks
-   * The algorithm score for image sharpness as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+   * The image sharpness score, which is a sub-dimension of quality assessment. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 60.78
@@ -128,8 +128,8 @@ export class FaceLivenessV2ResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the authentication is passed. Valid values:
    * 
-   * - Y: passed.
-   * - N: not passed.
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * Y
@@ -184,7 +184,7 @@ export class FaceLivenessV2ResponseBodyResult extends $dara.Model {
 export class FaceLivenessV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The response code.
    * 
    * @example
    * Success
@@ -192,7 +192,7 @@ export class FaceLivenessV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return message.
+   * The response message.
    * 
    * @example
    * success

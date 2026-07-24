@@ -2752,7 +2752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+   * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2768,6 +2768,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoRegistration)) {
       body["AutoRegistration"] = request.autoRegistration;
+    }
+
+    if (!$dara.isNull(request.faceAttributeCheck)) {
+      body["FaceAttributeCheck"] = request.faceAttributeCheck;
     }
 
     if (!$dara.isNull(request.faceGroupCodes)) {
@@ -2849,7 +2853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+   * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @returns FaceDuplicationCheckIntlResponse
@@ -2918,7 +2922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the server-side passive liveness detection API.
+   * Provides the server-side API for passive liveness detection.
    * 
    * @param request - FaceLivenessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2929,6 +2933,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.crop)) {
       query["Crop"] = request.crop;
+    }
+
+    if (!$dara.isNull(request.faceAttributeCheck)) {
+      query["FaceAttributeCheck"] = request.faceAttributeCheck;
     }
 
     if (!$dara.isNull(request.facePictureUrl)) {
@@ -2983,7 +2991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the server-side passive liveness detection API.
+   * Provides the server-side API for passive liveness detection.
    * 
    * @param request - FaceLivenessRequest
    * @returns FaceLivenessResponse
@@ -2994,7 +3002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+   * Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
    * 
    * @remarks
    * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
@@ -3006,6 +3014,10 @@ export default class Client extends OpenApi {
   async faceLivenessV2WithOptions(request: $_model.FaceLivenessV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.FaceLivenessV2Response> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.faceAttributeCheck)) {
+      query["FaceAttributeCheck"] = request.faceAttributeCheck;
+    }
+
     if (!$dara.isNull(request.facePictureFile)) {
       query["FacePictureFile"] = request.facePictureFile;
     }
@@ -3054,7 +3066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+   * Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
    * 
    * @remarks
    * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
@@ -3154,7 +3166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
+   * Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
    * 
    * @remarks
    * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
@@ -3168,6 +3180,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.autoRegistration)) {
       query["AutoRegistration"] = request.autoRegistration;
+    }
+
+    if (!$dara.isNull(request.faceAttributeCheck)) {
+      query["FaceAttributeCheck"] = request.faceAttributeCheck;
     }
 
     if (!$dara.isNull(request.faceGroupCodes)) {
@@ -3246,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
+   * Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
    * 
    * @remarks
    * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
@@ -3757,6 +3773,10 @@ export default class Client extends OpenApi {
       query["Authorize"] = request.authorize;
     }
 
+    if (!$dara.isNull(request.autoDocPageConfig)) {
+      query["AutoDocPageConfig"] = request.autoDocPageConfig;
+    }
+
     if (!$dara.isNull(request.autoRegistration)) {
       query["AutoRegistration"] = request.autoRegistration;
     }
@@ -3823,6 +3843,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.experienceCode)) {
       query["ExperienceCode"] = request.experienceCode;
+    }
+
+    if (!$dara.isNull(request.faceAttributeCheck)) {
+      query["FaceAttributeCheck"] = request.faceAttributeCheck;
     }
 
     if (!$dara.isNull(request.faceGroupCodes)) {
@@ -4027,6 +4051,10 @@ export default class Client extends OpenApi {
       query["Authorize"] = request.authorize;
     }
 
+    if (!$dara.isNull(request.autoDocPageConfig)) {
+      query["AutoDocPageConfig"] = request.autoDocPageConfig;
+    }
+
     if (!$dara.isNull(request.autoRegistration)) {
       query["AutoRegistration"] = request.autoRegistration;
     }
@@ -4093,6 +4121,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.experienceCode)) {
       query["ExperienceCode"] = request.experienceCode;
+    }
+
+    if (!$dara.isNull(request.faceAttributeCheck)) {
+      query["FaceAttributeCheck"] = request.faceAttributeCheck;
     }
 
     if (!$dara.isNull(request.faceGroupCodes)) {
