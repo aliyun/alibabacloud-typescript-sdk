@@ -16,9 +16,11 @@ export class DescribeCreditDetailRequest extends $dara.Model {
    * The list of instance IDs.
    */
   instanceIds?: string[];
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
-   * The list of resource plan or credit booster pack IDs.
+   * The list of plan packages or credit top-up packages.
    */
   packageIds?: string[];
   /**
@@ -49,6 +51,8 @@ export class DescribeCreditDetailRequest extends $dara.Model {
     return {
       endTime: 'EndTime',
       instanceIds: 'InstanceIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       packageIds: 'PackageIds',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -60,6 +64,8 @@ export class DescribeCreditDetailRequest extends $dara.Model {
     return {
       endTime: 'number',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
       packageIds: { 'type': 'array', 'itemType': 'string' },
       pageNum: 'string',
       pageSize: 'string',

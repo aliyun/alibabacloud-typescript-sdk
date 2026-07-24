@@ -682,6 +682,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an AI cloud phone.
+   * 
+   * @param request - CreateAICloudPhoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAICloudPhoneResponse
+   */
+  async createAICloudPhoneWithOptions(request: $_model.CreateAICloudPhoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAICloudPhoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.instanceGroupName)) {
+      query["InstanceGroupName"] = request.instanceGroupName;
+    }
+
+    if (!$dara.isNull(request.instanceGroupSpec)) {
+      query["InstanceGroupSpec"] = request.instanceGroupSpec;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.policyGroupId)) {
+      query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAICloudPhone",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAICloudPhoneResponse>(await this.callApi(params, req, runtime), new $_model.CreateAICloudPhoneResponse({}));
+  }
+
+  /**
+   * Creates an AI cloud phone.
+   * 
+   * @param request - CreateAICloudPhoneRequest
+   * @returns CreateAICloudPhoneResponse
+   */
+  async createAICloudPhone(request: $_model.CreateAICloudPhoneRequest): Promise<$_model.CreateAICloudPhoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAICloudPhoneWithOptions(request, runtime);
+  }
+
+  /**
    * Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
    * 
    * @remarks
@@ -2855,6 +2937,14 @@ export default class Client extends OpenApi {
       query["InstanceIds"] = request.instanceIds;
     }
 
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.packageIds)) {
       query["PackageIds"] = request.packageIds;
     }
@@ -3502,7 +3592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of one or more node packages.
+   * Queries the details of node packages.
    * 
    * @param request - DescribeMobileAgentPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3553,7 +3643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of one or more node packages.
+   * Queries the details of node packages.
    * 
    * @param request - DescribeMobileAgentPackageRequest
    * @returns DescribeMobileAgentPackageResponse
@@ -5405,6 +5495,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.creditConfig)) {
       query["CreditConfig"] = request.creditConfig;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
     }
 
     if (!$dara.isNull(request.instanceIds)) {

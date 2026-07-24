@@ -9,6 +9,7 @@ export { CancelAgentTaskResponseBodyTasks } from './CancelAgentTaskResponseBody'
 export { ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos } from './ChangeCloudPhoneNodeResponseBody';
 export { ChangeCloudPhoneNodeResponseBodyNodeInfos } from './ChangeCloudPhoneNodeResponseBody';
 export { CheckResourceStockResponseBodyResourceStockModels } from './CheckResourceStockResponseBody';
+export { CreateAICloudPhoneResponseBodyData } from './CreateAicloudPhoneResponseBody';
 export { CreateAndroidInstanceGroupRequestNetworkInfo } from './CreateAndroidInstanceGroupRequest';
 export { CreateAndroidInstanceGroupRequestTag } from './CreateAndroidInstanceGroupRequest';
 export { CreateAndroidInstanceGroupShrinkRequestTag } from './CreateAndroidInstanceGroupShrinkRequest';
@@ -172,6 +173,9 @@ export { ChangeCloudPhoneNodeResponse } from './ChangeCloudPhoneNodeResponse';
 export { CheckResourceStockRequest } from './CheckResourceStockRequest';
 export { CheckResourceStockResponseBody } from './CheckResourceStockResponseBody';
 export { CheckResourceStockResponse } from './CheckResourceStockResponse';
+export { CreateAICloudPhoneRequest } from './CreateAicloudPhoneRequest';
+export { CreateAICloudPhoneResponseBody } from './CreateAicloudPhoneResponseBody';
+export { CreateAICloudPhoneResponse } from './CreateAicloudPhoneResponse';
 export { CreateAndroidInstanceGroupRequest } from './CreateAndroidInstanceGroupRequest';
 export { CreateAndroidInstanceGroupShrinkRequest } from './CreateAndroidInstanceGroupShrinkRequest';
 export { CreateAndroidInstanceGroupResponseBody } from './CreateAndroidInstanceGroupResponseBody';

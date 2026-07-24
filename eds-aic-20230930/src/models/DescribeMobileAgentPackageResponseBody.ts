@@ -18,7 +18,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   instanceIds?: string[];
   /**
    * @remarks
-   * The total package credit.
+   * The credit quota of the package.
    * 
    * @example
    * 8000
@@ -49,9 +49,11 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
    * ACTIVE
    */
   packageStatus?: string;
+  periodEndTime?: string;
+  periodStartTime?: string;
   /**
    * @remarks
-   * The amount of credit used.
+   * The number of credits that have been used.
    * 
    * @example
    * 1000
@@ -66,6 +68,8 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
       packageSpec: 'PackageSpec',
       packageSpecName: 'PackageSpecName',
       packageStatus: 'PackageStatus',
+      periodEndTime: 'PeriodEndTime',
+      periodStartTime: 'PeriodStartTime',
       usedCredit: 'UsedCredit',
     };
   }
@@ -79,6 +83,8 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
       packageSpec: 'string',
       packageSpecName: 'string',
       packageStatus: 'string',
+      periodEndTime: 'string',
+      periodStartTime: 'string',
       usedCredit: 'string',
     };
   }
@@ -98,7 +104,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
 export class DescribeMobileAgentPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -114,7 +120,7 @@ export class DescribeMobileAgentPackageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A list of packages.
+   * The list of package information.
    */
   packageList?: DescribeMobileAgentPackageResponseBodyPackageList[];
   /**

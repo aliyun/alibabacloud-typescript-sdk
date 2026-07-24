@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMobileAgentPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * An array of node instance IDs.
+   * The list of node instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * An array of package IDs.
+   * The list of package IDs.
    */
   packageIds?: string[];
   /**

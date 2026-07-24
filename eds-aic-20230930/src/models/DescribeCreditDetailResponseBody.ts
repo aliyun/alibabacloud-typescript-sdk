@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
+  apiKeyName?: string;
+  cachedTokens?: number;
   /**
    * @remarks
    * The time when the change occurred.
@@ -24,9 +26,10 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
    * The task description.
    * 
    * @example
-   * 打开小红书
+   * Open Xiaohongshu.
    */
   description?: string;
+  inputTokens?: number;
   /**
    * @remarks
    * The instance ID.
@@ -35,14 +38,18 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
    * acp-12oe0l75vl7o5****
    */
   instanceId?: string;
+  instanceName?: string;
+  modelId?: string;
+  outputTokens?: number;
   /**
    * @remarks
-   * The credit or resource plan ID.
+   * The ID of the credit or plan package.
    * 
    * @example
    * cmag-0c1g77wjljl9h****
    */
   packageId?: string;
+  requestId?: string;
   /**
    * @remarks
    * The task ID, which is globally unique.
@@ -51,25 +58,42 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
    * t-1fr0k51pozyr5****
    */
   taskId?: string;
+  totalTokens?: number;
   static names(): { [key: string]: string } {
     return {
+      apiKeyName: 'ApiKeyName',
+      cachedTokens: 'CachedTokens',
       changeTime: 'ChangeTime',
       creditChange: 'CreditChange',
       description: 'Description',
+      inputTokens: 'InputTokens',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      modelId: 'ModelId',
+      outputTokens: 'OutputTokens',
       packageId: 'PackageId',
+      requestId: 'RequestId',
       taskId: 'TaskId',
+      totalTokens: 'TotalTokens',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      apiKeyName: 'string',
+      cachedTokens: 'number',
       changeTime: 'string',
       creditChange: 'string',
       description: 'string',
+      inputTokens: 'number',
       instanceId: 'string',
+      instanceName: 'string',
+      modelId: 'string',
+      outputTokens: 'number',
       packageId: 'string',
+      requestId: 'string',
       taskId: 'string',
+      totalTokens: 'number',
     };
   }
 
@@ -88,6 +112,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
    * The credit change details.
    */
   details?: DescribeCreditDetailResponseBodyDataDetails[];
+  nextToken?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -123,6 +148,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       details: 'Details',
+      nextToken: 'NextToken',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
@@ -133,6 +159,7 @@ export class DescribeCreditDetailResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       details: { 'type': 'array', 'itemType': DescribeCreditDetailResponseBodyDataDetails },
+      nextToken: 'string',
       pageNum: 'number',
       pageSize: 'number',
       totalCount: 'number',

@@ -13,7 +13,11 @@ export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
   creditLimit?: number;
   /**
    * @remarks
-   * The credit limit period.
+   * The dimension of the current credit. Valid values:
+   * 
+   * - total: total usage limit.
+   * - month: monthly. The limit resets based on the resource activation time cycle.
+   * - day: daily. The limit resets at 00:00.
    * 
    * @example
    * day
@@ -53,17 +57,18 @@ export class ModifyJVSInstanceRequest extends $dara.Model {
   applyToAll?: boolean;
   /**
    * @remarks
-   * The credit limit configuration. New configurations overwrite existing ones.
+   * The credit limit configuration. Subsequent configurations overwrite previous ones.
    */
   creditConfig?: ModifyJVSInstanceRequestCreditConfig[];
+  imageId?: string;
   /**
    * @remarks
-   * A list of instance IDs.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The new instance name.
+   * The instance name.
    * 
    * @example
    * defaultInstanceName
@@ -73,6 +78,7 @@ export class ModifyJVSInstanceRequest extends $dara.Model {
     return {
       applyToAll: 'ApplyToAll',
       creditConfig: 'CreditConfig',
+      imageId: 'ImageId',
       instanceIds: 'InstanceIds',
       instanceName: 'InstanceName',
     };
@@ -82,6 +88,7 @@ export class ModifyJVSInstanceRequest extends $dara.Model {
     return {
       applyToAll: 'boolean',
       creditConfig: { 'type': 'array', 'itemType': ModifyJVSInstanceRequestCreditConfig },
+      imageId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       instanceName: 'string',
     };
