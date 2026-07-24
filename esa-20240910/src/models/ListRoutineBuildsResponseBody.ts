@@ -45,7 +45,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   commitMessage?: string;
   /**
    * @remarks
-   * The creation time, in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time, in the ISO 8601 format in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-03-26T02:19:34Z
@@ -93,7 +93,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   isPrivate?: boolean;
   /**
    * @remarks
-   * The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, and `12.x`.
+   * The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, `12.x`.
    * 
    * @example
    * 22.x
@@ -101,7 +101,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   nodeVersion?: string;
   /**
    * @remarks
-   * The pipeline ID.
+   * The Yunxiao pipeline ID.
    * 
    * @example
    * 3850166
@@ -109,7 +109,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   pipelineId?: number;
   /**
    * @remarks
-   * The pipeline execution ID.
+   * The Yunxiao build task ID.
    * 
    * @example
    * 70
@@ -188,7 +188,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The modification time, in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The modification time, in the ISO 8601 format in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-06-20T00:44:23Z
@@ -280,7 +280,7 @@ export class ListRoutineBuildsResponseBody extends $dara.Model {
   data?: ListRoutineBuildsResponseBodyData[];
   /**
    * @remarks
-   * The page number, same as the PageIndex request parameter.
+   * The page number, which is the same as the PageIndex request parameter.
    * 
    * @example
    * 1

@@ -13,7 +13,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   assetsDirectory?: string;
   /**
    * @remarks
-   * The build branch.
+   * The branch used for the build.
    * 
    * @example
    * dev
@@ -101,7 +101,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   nodeVersion?: string;
   /**
    * @remarks
-   * The pipeline ID.
+   * The pipeline ID in Yunxiao.
    * 
    * @example
    * 4371588
@@ -109,7 +109,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   pipelineId?: number;
   /**
    * @remarks
-   * The pipeline run ID.
+   * The build task ID in Yunxiao.
    * 
    * @example
    * 70

@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ReDoRoutineBuildResponseBody extends $dara.Model {
+export class CreateRoutineBuildResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the build task in Yunxiao.
+   * The build ID in Apsara Devops.
    * 
    * @example
-   * 70
+   * 1
    */
   pipeLineRunId?: number;
   /**
@@ -16,15 +16,15 @@ export class ReDoRoutineBuildResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * F8AA0364-0FDB-4AD5-AC74-D69FAB8924ED
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
   /**
    * @remarks
-   * The ID of the ER build task.
+   * The ER build task ID.
    * 
    * @example
-   * 156773519472872
+   * 159782040838348
    */
   routineBuildId?: number;
   static names(): { [key: string]: string } {

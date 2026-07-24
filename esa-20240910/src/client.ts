@@ -3869,6 +3869,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an ER build task.
+   * 
+   * @param request - CreateRoutineBuildRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoutineBuildResponse
+   */
+  async createRoutineBuildWithOptions(request: $_model.CreateRoutineBuildRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRoutineBuildResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.artifactUrl)) {
+      query["ArtifactUrl"] = request.artifactUrl;
+    }
+
+    if (!$dara.isNull(request.branch)) {
+      query["Branch"] = request.branch;
+    }
+
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRoutineBuild",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRoutineBuildResponse>(await this.callApi(params, req, runtime), new $_model.CreateRoutineBuildResponse({}));
+  }
+
+  /**
+   * Creates an ER build task.
+   * 
+   * @param request - CreateRoutineBuildRequest
+   * @returns CreateRoutineBuildResponse
+   */
+  async createRoutineBuild(request: $_model.CreateRoutineBuildRequest): Promise<$_model.CreateRoutineBuildResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRoutineBuildWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an Edge Routine (ER) build configuration.
    * 
    * @param tmpReq - CreateRoutineBuildConfigurationRequest
@@ -8657,6 +8707,56 @@ export default class Client extends OpenApi {
   async describeDDoSOverseasAttackCount(request: $_model.DescribeDDoSOverseasAttackCountRequest): Promise<$_model.DescribeDDoSOverseasAttackCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDDoSOverseasAttackCountWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the price of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeDDoSPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDoSPriceResponse
+   */
+  async describeDDoSPriceWithOptions(request: $_model.DescribeDDoSPriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDDoSPriceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DDoSBillingMode)) {
+      query["DDoSBillingMode"] = request.DDoSBillingMode;
+    }
+
+    if (!$dara.isNull(request.DDoSBurstableDomesticProtection)) {
+      query["DDoSBurstableDomesticProtection"] = request.DDoSBurstableDomesticProtection;
+    }
+
+    if (!$dara.isNull(request.DDoSBurstableOverseasProtection)) {
+      query["DDoSBurstableOverseasProtection"] = request.DDoSBurstableOverseasProtection;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDDoSPrice",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDDoSPriceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDDoSPriceResponse({}));
+  }
+
+  /**
+   * Queries the price of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeDDoSPriceRequest
+   * @returns DescribeDDoSPriceResponse
+   */
+  async describeDDoSPrice(request: $_model.DescribeDDoSPriceRequest): Promise<$_model.DescribeDDoSPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDDoSPriceWithOptions(request, runtime);
   }
 
   /**
@@ -19309,7 +19409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a task replication.
+   * Retries a routine replication task.
    * 
    * @param request - ReDoRoutineBuildRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19340,7 +19440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a task replication.
+   * Retries a routine replication task.
    * 
    * @param request - ReDoRoutineBuildRequest
    * @returns ReDoRoutineBuildResponse
