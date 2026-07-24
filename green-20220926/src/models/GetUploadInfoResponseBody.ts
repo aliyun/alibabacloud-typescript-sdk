@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUploadInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Upload authorization ID.
+   * The upload authorization ID.
    * 
    * @example
    * LTAI5t9HM*****EXQmw3DVH
@@ -13,7 +13,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   accessId?: string;
   /**
    * @remarks
-   * Error code, consistent with HTTP status.
+   * The error code, consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * In seconds.
+   * Unit: seconds.
    * 
    * @example
    * 900
@@ -29,7 +29,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   expire?: number;
   /**
    * @remarks
-   * Folder name.
+   * The file name.
    * 
    * @example
    * image/upload/xxx
@@ -37,7 +37,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   folder?: string;
   /**
    * @remarks
-   * Upload host.
+   * The upload host.
    * 
    * @example
    * https://oss-cip-shanghai.oss-cn-shanghai.aliyuncs.com
@@ -45,7 +45,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Key used for uploading files.
+   * The key used for file upload.
    * 
    * @example
    * image/upload/xxx
@@ -61,7 +61,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Further description of the error code.
+   * The further description of the error code.
    * 
    * @example
    * OK
@@ -69,7 +69,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Used for front-end image upload.
+   * Used for frontend image upload.
    * 
    * @example
    * 测试
@@ -77,7 +77,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * OSS upload file Policy.
+   * The OSS file upload policy.
    * 
    * @example
    * xxxx
@@ -85,15 +85,16 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
+  securityToken?: string;
   /**
    * @remarks
-   * Upload signature information.
+   * The upload signature information.
    * 
    * @example
    * iyu7VHblYj+mEF9p46cdGOlNPAw=
@@ -101,7 +102,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   signature?: string;
   /**
    * @remarks
-   * Success indicator.
+   * The success flag.
    * 
    * @example
    * True
@@ -120,6 +121,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
       name: 'Name',
       policy: 'Policy',
       requestId: 'RequestId',
+      securityToken: 'SecurityToken',
       signature: 'Signature',
       success: 'Success',
     };
@@ -138,6 +140,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
       name: 'string',
       policy: 'string',
       requestId: 'string',
+      securityToken: 'string',
       signature: 'string',
       success: 'boolean',
     };

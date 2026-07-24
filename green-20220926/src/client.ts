@@ -31,6 +31,11 @@ export default class Client extends OpenApi {
       'cn-shenzhen-finance-1': "green.aliyuncs.com",
       'cn-shanghai-finance-1': "green.aliyuncs.com",
       'cn-north-2-gov-1': "green.aliyuncs.com",
+      'cn-shenzhen': "green-cip.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "green-cip.cn-shanghai.aliyuncs.com",
+      'cn-hangzhou': "green-cip.cn-hangzhou.aliyuncs.com",
+      'cn-beijing': "green-cip.cn-beijing.aliyuncs.com",
+      'ap-southeast-1': "green-cip.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("green", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -50,7 +55,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加代答样本
+   * Adds a proxy answer.
    * 
    * @param request - AddAnswerSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93,7 +98,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加代答样本
+   * Adds a proxy answer.
    * 
    * @param request - AddAnswerSampleRequest
    * @returns AddAnswerSampleResponse
@@ -104,7 +109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Image Library
+   * Creates an image library.
    * 
    * @param request - AddImageLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -145,7 +150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Image Library
+   * Creates an image library.
    * 
    * @param request - AddImageLibRequest
    * @returns AddImageLibResponse
@@ -156,7 +161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add image to image lib
+   * Adds images in batches.
    * 
    * @param request - AddImages2LibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -197,7 +202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add image to image lib
+   * Adds images in batches.
    * 
    * @param request - AddImages2LibRequest
    * @returns AddImages2LibResponse
@@ -208,7 +213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create keyword library
+   * Creates a keyword library.
    * 
    * @param request - AddKeywordLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -261,7 +266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create keyword library
+   * Creates a keyword library.
    * 
    * @param request - AddKeywordLibRequest
    * @returns AddKeywordLibResponse
@@ -272,7 +277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add keywords
+   * Adds keywords.
    * 
    * @param request - AddKeywordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -321,7 +326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add keywords
+   * Adds keywords.
    * 
    * @param request - AddKeywordsRequest
    * @returns AddKeywordsResponse
@@ -332,7 +337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add keywords to keyword library.
+   * Adds keywords.
    * 
    * @param request - AddKeywordsToLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -385,7 +390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add keywords to keyword library.
+   * Adds keywords.
    * 
    * @param request - AddKeywordsToLibRequest
    * @returns AddKeywordsToLibResponse
@@ -396,7 +401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancel OSS detection task
+   * Cancels an OSS scan task.
    * 
    * @param request - CancelStockOssCheckTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -431,7 +436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancel OSS detection task
+   * Cancels an OSS scan task.
    * 
    * @param request - CancelStockOssCheckTaskRequest
    * @returns CancelStockOssCheckTaskResponse
@@ -442,7 +447,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * copy service config
+   * Confirms the activation of AI application protection.
+   * 
+   * @param request - ConfirmAiAppScanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmAiAppScanResponse
+   */
+  async confirmAiAppScanWithOptions(request: $_model.ConfirmAiAppScanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfirmAiAppScanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfirmAiAppScan",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfirmAiAppScanResponse>(await this.callApi(params, req, runtime), new $_model.ConfirmAiAppScanResponse({}));
+  }
+
+  /**
+   * Confirms the activation of AI application protection.
+   * 
+   * @param request - ConfirmAiAppScanRequest
+   * @returns ConfirmAiAppScanResponse
+   */
+  async confirmAiAppScan(request: $_model.ConfirmAiAppScanRequest): Promise<$_model.ConfirmAiAppScanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.confirmAiAppScanWithOptions(request, runtime);
+  }
+
+  /**
+   * Copies a service.
    * 
    * @param request - CopyServiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -491,7 +542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * copy service config
+   * Copies a service.
    * 
    * @param request - CopyServiceConfigRequest
    * @returns CopyServiceConfigResponse
@@ -502,7 +553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create stock oss check task
+   * Creates an OSS scan task.
    * 
    * @param request - CreatStockOssCheckTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -645,7 +696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create stock oss check task
+   * Creates an OSS scan task.
    * 
    * @param request - CreatStockOssCheckTaskRequest
    * @returns CreatStockOssCheckTaskResponse
@@ -656,7 +707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建代答库
+   * Creates a proxy answer library.
    * 
    * @param request - CreateAnswerLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -705,7 +756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建代答库
+   * Creates a proxy answer library.
    * 
    * @param request - CreateAnswerLibRequest
    * @returns CreateAnswerLibResponse
@@ -716,7 +767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new message notification
+   * Creates a message notification.
    * 
    * @param request - CreateCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -765,7 +816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new message notification
+   * Creates a message notification.
    * 
    * @param request - CreateCallbackRequest
    * @returns CreateCallbackResponse
@@ -776,7 +827,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建图库
+   * Creates an image library.
+   * 
+   * @remarks
+   * Before using this operation, complete the following steps:
+   * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+   * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+   * 3. For more information about API operations and parameters, see [API reference](https://help.aliyun.com/document_detail/467829.html).
    * 
    * @param request - CreateImageLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -817,7 +874,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建图库
+   * Creates an image library.
+   * 
+   * @remarks
+   * Before using this operation, complete the following steps:
+   * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+   * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+   * 3. For more information about API operations and parameters, see [API reference](https://help.aliyun.com/document_detail/467829.html).
    * 
    * @param request - CreateImageLibRequest
    * @returns CreateImageLibResponse
@@ -882,7 +945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check before creating an OSS scan task
+   * Performs a pre-check before creating an OSS scan task.
    * 
    * @param request - CreatePreCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -971,7 +1034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Check before creating an OSS scan task
+   * Performs a pre-check before creating an OSS scan task.
    * 
    * @param request - CreatePreCheckRequest
    * @returns CreatePreCheckResponse
@@ -982,7 +1045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除代答库
+   * Deletes a proxy answer library.
    * 
    * @param request - DeleteAnswerLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1017,7 +1080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除代答库
+   * Deletes a proxy answer library.
    * 
    * @param request - DeleteAnswerLibRequest
    * @returns DeleteAnswerLibResponse
@@ -1028,7 +1091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除代答答案
+   * Deletes proxy answers.
    * 
    * @param request - DeleteAnswerSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1069,7 +1132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除代答答案
+   * Deletes proxy answers.
    * 
    * @param request - DeleteAnswerSampleRequest
    * @returns DeleteAnswerSampleResponse
@@ -1080,7 +1143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete callback
+   * Deletes a message notification.
    * 
    * @param request - DeleteCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1117,7 +1180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete callback
+   * Deletes a message notification.
    * 
    * @param request - DeleteCallbackRequest
    * @returns DeleteCallbackResponse
@@ -1188,7 +1251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete images from library.
+   * Deletes images in batches.
    * 
    * @param request - DeleteImagesFromLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1229,7 +1292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete images from library.
+   * Deletes images in batches.
    * 
    * @param request - DeleteImagesFromLibRequest
    * @returns DeleteImagesFromLibResponse
@@ -1240,7 +1303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete keyword
+   * Deletes keywords.
    * 
    * @param request - DeleteKeywordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1289,7 +1352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete keyword
+   * Deletes keywords.
    * 
    * @param request - DeleteKeywordRequest
    * @returns DeleteKeywordResponse
@@ -1300,7 +1363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Keyword Library
+   * Deletes a keyword library.
    * 
    * @param request - DeleteKeywordLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1341,7 +1404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Keyword Library
+   * Deletes a keyword library.
    * 
    * @param request - DeleteKeywordLibRequest
    * @returns DeleteKeywordLibResponse
@@ -1398,7 +1461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询在线测试结果
+   * Queries the detection results of online moderation.
    * 
    * @param request - DescribeOnlineTestResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1437,7 +1500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询在线测试结果
+   * Queries the detection results of online moderation.
    * 
    * @param request - DescribeOnlineTestResultRequest
    * @returns DescribeOnlineTestResultResponse
@@ -1514,7 +1577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出代答答案
+   * Exports proxy answer responses.
    * 
    * @param request - ExportAnswerSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1551,7 +1614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出代答答案
+   * Exports proxy answer responses.
    * 
    * @param request - ExportAnswerSampleRequest
    * @returns ExportAnswerSampleResponse
@@ -1562,7 +1625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export Call Volume
+   * Exports call usage statistics.
    * 
    * @param request - ExportCipStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1631,7 +1694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export Call Volume
+   * Exports call usage statistics.
    * 
    * @param request - ExportCipStatsRequest
    * @returns ExportCipStatsResponse
@@ -1642,7 +1705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export Keywords
+   * Exports keywords.
    * 
    * @param request - ExportKeywordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1683,7 +1746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export Keywords
+   * Exports keywords.
    * 
    * @param request - ExportKeywordRequest
    * @returns ExportKeywordResponse
@@ -1694,7 +1757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS Usage Statistics Export
+   * Exports OSS usage statistics.
    * 
    * @param request - ExportOssCheckStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1743,7 +1806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS Usage Statistics Export
+   * Exports OSS usage statistics.
    * 
    * @param request - ExportOssCheckStatRequest
    * @returns ExportOssCheckStatResponse
@@ -1754,7 +1817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export OSS scan results
+   * Exports OSS scan results.
    * 
    * @param tmpReq - ExportResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1821,7 +1884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export OSS scan results
+   * Exports OSS scan results.
    * 
    * @param request - ExportResultRequest
    * @returns ExportResultResponse
@@ -1832,7 +1895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export scan results, Excel file
+   * Exports call results as an Excel file.
    * 
    * @param tmpReq - ExportScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1903,7 +1966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export scan results, Excel file
+   * Exports call results as an Excel file.
    * 
    * @param request - ExportScanResultRequest
    * @returns ExportScanResultResponse
@@ -1914,7 +1977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export text scan results, Excel file
+   * Exports call results as an Excel file.
    * 
    * @param tmpReq - ExportTextScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1965,7 +2028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Export text scan results, Excel file
+   * Exports call results as an Excel file.
    * 
    * @param request - ExportTextScanResultRequest
    * @returns ExportTextScanResultResponse
@@ -1976,7 +2039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取代答样本导入进度
+   * Retrieves the import progress of proxy answer samples.
    * 
    * @param request - GetAnswerImportProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2011,7 +2074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取代答样本导入进度
+   * Retrieves the import progress of proxy answer samples.
    * 
    * @param request - GetAnswerImportProgressRequest
    * @returns GetAnswerImportProgressResponse
@@ -2022,7 +2085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Evidence Transfer to Get User\\"s Bucket List
+   * Retrieves the list of user buckets for evidence dumping.
    * 
    * @param request - GetBackupBucketsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2053,7 +2116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Evidence Transfer to Get User\\"s Bucket List
+   * Retrieves the list of user buckets for evidence dumping.
    * 
    * @param request - GetBackupBucketsListRequest
    * @returns GetBackupBucketsListResponse
@@ -2114,7 +2177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * User Backup Authorization Verification
+   * Verifies user authorization.
    * 
    * @param request - GetBackupStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2145,7 +2208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * User Backup Authorization Verification
+   * Verifies user authorization.
    * 
    * @param request - GetBackupStatusRequest
    * @returns GetBackupStatusResponse
@@ -2156,7 +2219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get User OSS Scan Bucket List
+   * Lists buckets.
    * 
    * @param request - GetBucketsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2187,7 +2250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get User OSS Scan Bucket List
+   * Lists buckets.
    * 
    * @param request - GetBucketsListRequest
    * @returns GetBucketsListResponse
@@ -2198,7 +2261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Call Volume
+   * Queries the call volume.
    * 
    * @param request - GetCipStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2267,7 +2330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Call Volume
+   * Queries the call volume.
    * 
    * @param request - GetCipStatsRequest
    * @returns GetCipStatsResponse
@@ -2278,7 +2341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Scheduled  OSS Scan  Task Estimated Execution Time
+   * Retrieves the estimated execution time of a scheduled task.
    * 
    * @param request - GetExecuteTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2309,7 +2372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Scheduled  OSS Scan  Task Estimated Execution Time
+   * Retrieves the estimated execution time of a scheduled task.
    * 
    * @param request - GetExecuteTimeRequest
    * @returns GetExecuteTimeResponse
@@ -2320,7 +2383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Feature Configuration
+   * Retrieves feature configurations.
    * 
    * @param request - GetFeatureConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2369,7 +2432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Feature Configuration
+   * Retrieves feature configurations.
    * 
    * @param request - GetFeatureConfigRequest
    * @returns GetFeatureConfigResponse
@@ -2380,7 +2443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Image Rule Label Information
+   * Retrieves image rule tag information.
    * 
    * @param request - GetImageSceneLabelConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2411,7 +2474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Image Rule Label Information
+   * Retrieves image rule tag information.
    * 
    * @param request - GetImageSceneLabelConfRequest
    * @returns GetImageSceneLabelConfResponse
@@ -2422,7 +2485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Image Rule Label Information
+   * Retrieves image rule tag information.
    * 
    * @param request - GetImageSceneLabelListConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2457,7 +2520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Image Rule Label Information
+   * Retrieves image rule tag information.
    * 
    * @param request - GetImageSceneLabelListConfRequest
    * @returns GetImageSceneLabelListConfResponse
@@ -2468,7 +2531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS scheduled scan detection cycle query
+   * Queries the scheduled scan detection cycle for OSS.
    * 
    * @param tmpReq - GetJobNameListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2521,7 +2584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS scheduled scan detection cycle query
+   * Queries the scheduled scan detection cycle for OSS.
    * 
    * @param request - GetJobNameListRequest
    * @returns GetJobNameListResponse
@@ -2532,7 +2595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the result of keyword import
+   * Queries the result of a keyword import task.
    * 
    * @param request - GetKeywordImportResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2569,7 +2632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the result of keyword import
+   * Queries the result of a keyword import task.
    * 
    * @param request - GetKeywordImportResultRequest
    * @returns GetKeywordImportResultResponse
@@ -2580,7 +2643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Keyword Library Information
+   * Retrieves keyword library information.
    * 
    * @param request - GetKeywordLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2621,7 +2684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Keyword Library Information
+   * Retrieves keyword library information.
    * 
    * @param request - GetKeywordLibRequest
    * @returns GetKeywordLibResponse
@@ -2632,7 +2695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query OSS freeze result
+   * Queries the results of OSS scan and freeze operations.
    * 
    * @param tmpReq - GetOssCheckFreezeResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2701,7 +2764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query OSS freeze result
+   * Queries the results of OSS scan and freeze operations.
    * 
    * @param request - GetOssCheckFreezeResultRequest
    * @returns GetOssCheckFreezeResultResponse
@@ -2712,7 +2775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS result details
+   * Retrieves the detailed information of OSS check results.
    * 
    * @param request - GetOssCheckResultDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2767,7 +2830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS result details
+   * Retrieves the detailed information of OSS check results.
    * 
    * @param request - GetOssCheckResultDetailRequest
    * @returns GetOssCheckResultDetailResponse
@@ -2778,7 +2841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS Check Usage Statistics
+   * Queries OSS usage statistics.
    * 
    * @param request - GetOssCheckStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2827,7 +2890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS Check Usage Statistics
+   * Queries OSS usage statistics.
    * 
    * @param request - GetOssCheckStatRequest
    * @returns GetOssCheckStatResponse
@@ -2838,7 +2901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get User OSS check user status
+   * Queries the OSS detection status of a user.
    * 
    * @param request - GetOssCheckStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2869,7 +2932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get User OSS check user status
+   * Queries the OSS detection status of a user.
    * 
    * @param request - GetOssCheckStatusRequest
    * @returns GetOssCheckStatusResponse
@@ -2880,7 +2943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询oss扫描任务详情
+   * Queries the details of an OSS scan task.
    * 
    * @param request - GetOssCheckTaskInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2911,7 +2974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询oss扫描任务详情
+   * Queries the details of an OSS scan task.
    * 
    * @param request - GetOssCheckTaskInfoRequest
    * @returns GetOssCheckTaskInfoResponse
@@ -2922,7 +2985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 测试特性配置
+   * Tests the attribute configuration.
    * 
    * @param request - GetPromptTestResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2969,7 +3032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 测试特性配置
+   * Tests the attribute configuration.
    * 
    * @param request - GetPromptTestResultRequest
    * @returns GetPromptTestResultResponse
@@ -2980,7 +3043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * User OSS Check Task Pending Inspection Information
+   * Queries the information about files pending detection for a user.
    * 
    * @param request - GetScanNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3019,7 +3082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * User OSS Check Task Pending Inspection Information
+   * Queries the information about files pending detection for a user.
    * 
    * @param request - GetScanNumRequest
    * @returns GetScanNumResponse
@@ -3030,7 +3093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the Scan results
+   * Queries the detection results.
    * 
    * @param tmpReq - GetScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3101,7 +3164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the Scan results
+   * Queries the detection results.
    * 
    * @param request - GetScanResultRequest
    * @returns GetScanResultResponse
@@ -3112,7 +3175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a Single Service Configuration
+   * Get a Single Service
    * 
    * @param request - GetServiceConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3161,7 +3224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a Single Service Configuration
+   * Get a Single Service
    * 
    * @param request - GetServiceConfRequest
    * @returns GetServiceConfResponse
@@ -3172,7 +3235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a Single Service Configuration
+   * Retrieves a single service.
    * 
    * @param request - GetServiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3213,7 +3276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a Single Service Configuration
+   * Retrieves a single service.
    * 
    * @param request - GetServiceConfigRequest
    * @returns GetServiceConfigResponse
@@ -3224,7 +3287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the label configuration of a single service
+   * Retrieves the tag configuration of a single service.
    * 
    * @param request - GetServiceLabelConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3265,7 +3328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the label configuration of a single service
+   * Retrieves the tag configuration of a single service.
    * 
    * @param request - GetServiceLabelConfigRequest
    * @returns GetServiceLabelConfigResponse
@@ -3276,7 +3339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query OSS Scan Task List
+   * Queries the list of OSS scan tasks.
    * 
    * @param tmpReq - GetStockOssCheckTasksListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3347,7 +3410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query OSS Scan Task List
+   * Queries the list of OSS scan tasks.
    * 
    * @param request - GetStockOssCheckTasksListRequest
    * @returns GetStockOssCheckTasksListResponse
@@ -3358,7 +3421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the invocation result
+   * Queries the call results.
    * 
    * @param tmpReq - GetTextScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3425,7 +3488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the invocation result
+   * Queries the call results.
    * 
    * @param request - GetTextScanResultRequest
    * @returns GetTextScanResultResponse
@@ -3436,7 +3499,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取开关配置调优意见
+   * Retrieves tuning suggestions for switch configurations.
+   * 
+   * @remarks
+   * API operation is used together with the enhanced image moderation API. After you call the enhanced image moderation API, call API operation to retrieve additional detection information. API operation is free of charge.
    * 
    * @param request - GetTuneProposalByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3467,7 +3533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取开关配置调优意见
+   * Retrieves tuning suggestions for switch configurations.
+   * 
+   * @remarks
+   * API operation is used together with the enhanced image moderation API. After you call the enhanced image moderation API, call API operation to retrieve additional detection information. API operation is free of charge.
    * 
    * @param request - GetTuneProposalByIdRequest
    * @returns GetTuneProposalByIdResponse
@@ -3478,7 +3547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the corresponding information for file upload
+   * Retrieves the relevant information for file upload.
    * 
    * @param request - GetUploadInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3519,7 +3588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the corresponding information for file upload
+   * Retrieves the relevant information for file upload.
    * 
    * @param request - GetUploadInfoRequest
    * @returns GetUploadInfoResponse
@@ -3530,7 +3599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上传链接
+   * Obtain an upload link
    * 
    * @param request - GetUploadLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3561,7 +3630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上传链接
+   * Obtain an upload link
    * 
    * @param request - GetUploadLinkRequest
    * @returns GetUploadLinkResponse
@@ -3572,7 +3641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get User Purchase Status
+   * Retrieves the purchase status of a user.
    * 
    * @param request - GetUserBuyStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3609,7 +3678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get User Purchase Status
+   * Retrieves the purchase status of a user.
    * 
    * @param request - GetUserBuyStatusRequest
    * @returns GetUserBuyStatusResponse
@@ -3620,7 +3689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 代答库列表
+   * Queries the list of proxy answer libraries.
    * 
    * @param request - ListAnswerLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3651,7 +3720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 代答库列表
+   * Queries the list of proxy answer libraries.
    * 
    * @param request - ListAnswerLibRequest
    * @returns ListAnswerLibResponse
@@ -3662,7 +3731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Callback List
+   * Queries the list of message notifications.
    * 
    * @param request - ListCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3693,7 +3762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Callback List
+   * Queries the list of message notifications.
    * 
    * @param request - ListCallbackRequest
    * @returns ListCallbackResponse
@@ -3704,7 +3773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image Library List
+   * Queries the list of image libraries.
    * 
    * @param request - ListImageLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3741,7 +3810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image Library List
+   * Queries the list of image libraries.
    * 
    * @param request - ListImageLibRequest
    * @returns ListImageLibResponse
@@ -3752,7 +3821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Image List
+   * Queries a paginated list of images.
    * 
    * @param tmpReq - ListImagesFromLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3819,7 +3888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Image List
+   * Queries a paginated list of images.
    * 
    * @param request - ListImagesFromLibRequest
    * @returns ListImagesFromLibResponse
@@ -3830,7 +3899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Keyword Library List
+   * Queries the list of keyword libraries.
    * 
    * @param request - ListKeywordLibsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3865,7 +3934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Keyword Library List
+   * Queries the list of keyword libraries.
    * 
    * @param request - ListKeywordLibsRequest
    * @returns ListKeywordLibsResponse
@@ -3876,7 +3945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Keyword List
+   * Queries a list of keywords.
    * 
    * @param tmpReq - ListKeywordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3939,7 +4008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Keyword List
+   * Queries a list of keywords.
    * 
    * @param request - ListKeywordsRequest
    * @returns ListKeywordsResponse
@@ -3950,7 +4019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * query OSS scan result list
+   * Queries OSS scan results.
    * 
    * @param tmpReq - ListOssCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4019,7 +4088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * query OSS scan result list
+   * Queries OSS scan results.
    * 
    * @param request - ListOssCheckResultRequest
    * @returns ListOssCheckResultResponse
@@ -4030,7 +4099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Service List
+   * Retrieves the service list.
    * 
    * @param request - ListServiceConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4079,7 +4148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Service List
+   * Retrieves the service list.
    * 
    * @param request - ListServiceConfigsRequest
    * @returns ListServiceConfigsResponse
@@ -4271,7 +4340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新代答库
+   * Updates a proxy response library.
    * 
    * @param request - ModifyAnswerLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4310,7 +4379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新代答库
+   * Updates a proxy response library.
    * 
    * @param request - ModifyAnswerLibRequest
    * @returns ModifyAnswerLibResponse
@@ -4321,7 +4390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Message Notification
+   * Modifies a message notification.
    * 
    * @param request - ModifyCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4374,7 +4443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Message Notification
+   * Modifies a message notification.
    * 
    * @param request - ModifyCallbackRequest
    * @returns ModifyCallbackResponse
@@ -4385,7 +4454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save Feature Configuration
+   * Saves an attribute configuration.
    * 
    * @param request - ModifyFeatureConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4442,7 +4511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save Feature Configuration
+   * Saves an attribute configuration.
    * 
    * @param request - ModifyFeatureConfigRequest
    * @returns ModifyFeatureConfigResponse
@@ -4453,7 +4522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Service
+   * Edits a service.
    * 
    * @param request - ModifyServiceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4502,7 +4571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Service
+   * Edits a service.
    * 
    * @param request - ModifyServiceInfoRequest
    * @returns ModifyServiceInfoResponse
@@ -4513,7 +4582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS scan result query
+   * Retrieves the list of OSS detection results.
    * 
    * @param tmpReq - OssCheckResultListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4582,7 +4651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OSS scan result query
+   * Retrieves the list of OSS detection results.
    * 
    * @param request - OssCheckResultListRequest
    * @returns OssCheckResultListResponse
@@ -4593,7 +4662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询代答样本
+   * Queries proxy answer samples by paging.
    * 
    * @param tmpReq - QueryAnswerSampleByPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4650,7 +4719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询代答样本
+   * Queries proxy answer samples by paging.
    * 
    * @param request - QueryAnswerSampleByPageRequest
    * @returns QueryAnswerSampleByPageResponse
@@ -4661,7 +4730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Single Callback Configuration
+   * Queries a single callback configuration.
    * 
    * @param request - QueryCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4702,7 +4771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Single Callback Configuration
+   * Queries a single callback configuration.
    * 
    * @param request - QueryCallbackRequest
    * @returns QueryCallbackResponse
@@ -4713,7 +4782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginated Query of Message Notification List
+   * Message notification.
    * 
    * @param request - QueryCallbackByPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4754,7 +4823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginated Query of Message Notification List
+   * Message notification.
    * 
    * @param request - QueryCallbackByPageRequest
    * @returns QueryCallbackByPageResponse
@@ -4765,7 +4834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止在线测试
+   * Abort an online Detection Job
    * 
    * @param request - StopOnlineTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4804,7 +4873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止在线测试
+   * Abort an online Detection Job
    * 
    * @param request - StopOnlineTestRequest
    * @returns StopOnlineTestResponse
@@ -4815,7 +4884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Evidence Backup Configuration
+   * Updates the evidence transfer configuration.
    * 
    * @param request - UpdateBackupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4858,7 +4927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Evidence Backup Configuration
+   * Updates the evidence transfer configuration.
    * 
    * @param request - UpdateBackupConfigRequest
    * @returns UpdateBackupConfigResponse
@@ -4869,7 +4938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Image Library
+   * Edits an image library.
    * 
    * @param request - UpdateImageLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4918,7 +4987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Image Library
+   * Edits an image library.
    * 
    * @param request - UpdateImageLibRequest
    * @returns UpdateImageLibResponse
@@ -4929,7 +4998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Image Library Free Inspection Configuration
+   * Edits the inspection-exempt configuration of an image library.
    * 
    * @param tmpReq - UpdateImageLibFreeInspectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4976,7 +5045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Image Library Free Inspection Configuration
+   * Edits the inspection-exempt configuration of an image library.
    * 
    * @param request - UpdateImageLibFreeInspectionRequest
    * @returns UpdateImageLibFreeInspectionResponse
@@ -4987,7 +5056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Keyword Library
+   * Edits a keyword library.
    * 
    * @param request - UpdateKeywordLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5032,7 +5101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit Keyword Library
+   * Edits a keyword library.
    * 
    * @param request - UpdateKeywordLibRequest
    * @returns UpdateKeywordLibResponse
@@ -5043,7 +5112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量反馈任务
+   * Batch update OSS detection result feedback
    * 
    * @param request - UpdateOssCheckResultsBatchFeedbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5082,7 +5151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量反馈任务
+   * Batch update OSS detection result feedback
    * 
    * @param request - UpdateOssCheckResultsBatchFeedbackRequest
    * @returns UpdateOssCheckResultsBatchFeedbackResponse
@@ -5093,7 +5162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss结果反馈
+   * Update OSS detection result feedback
    * 
    * @param request - UpdateOssCheckResultsFeedBackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5140,7 +5209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss结果反馈
+   * Update OSS detection result feedback
    * 
    * @param request - UpdateOssCheckResultsFeedBackRequest
    * @returns UpdateOssCheckResultsFeedBackResponse
@@ -5151,7 +5220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量冻结任务
+   * Freezes OSS scan results in batches.
    * 
    * @param request - UpdateOssCheckResultsFreezeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5206,7 +5275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量冻结任务
+   * Freezes OSS scan results in batches.
    * 
    * @param request - UpdateOssCheckResultsFreezeRequest
    * @returns UpdateOssCheckResultsFreezeResponse
@@ -5217,7 +5286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量解冻任务
+   * Unfreezes OSS detection results in batches.
    * 
    * @param request - UpdateOssCheckResultsUnfreezeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5264,7 +5333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量解冻任务
+   * Unfreezes OSS detection results in batches.
    * 
    * @param request - UpdateOssCheckResultsUnfreezeRequest
    * @returns UpdateOssCheckResultsUnfreezeResponse
@@ -5275,7 +5344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Feedback on Scan Results
+   * Submits feedback on detection results.
    * 
    * @param request - UpdateScanResultFeedbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5328,7 +5397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Feedback on Scan Results
+   * Submits feedback on detection results.
    * 
    * @param request - UpdateScanResultFeedbackRequest
    * @returns UpdateScanResultFeedbackResponse
@@ -5339,7 +5408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务
+   * Updates a service.
    * 
    * @param request - UpdateServiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5412,7 +5481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新服务
+   * Updates a service.
    * 
    * @param request - UpdateServiceConfigRequest
    * @returns UpdateServiceConfigResponse

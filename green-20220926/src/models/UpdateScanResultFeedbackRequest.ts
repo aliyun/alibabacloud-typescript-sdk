@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScanResultFeedbackRequest extends $dara.Model {
   /**
    * @remarks
-   * Feedback
+   * The feedback.
    * 
    * @example
    * missOut
@@ -13,7 +13,7 @@ export class UpdateScanResultFeedbackRequest extends $dara.Model {
   feedback?: string;
   /**
    * @remarks
-   * Labels.
+   * The labels.
    * 
    * @example
    * abuse
@@ -21,7 +21,7 @@ export class UpdateScanResultFeedbackRequest extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 46232656-984E-****-A648-B1D0667B6C3E
@@ -29,7 +29,7 @@ export class UpdateScanResultFeedbackRequest extends $dara.Model {
   queryRequestId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -37,7 +37,7 @@ export class UpdateScanResultFeedbackRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource Type
+   * The resource type.
    * 
    * @example
    * text
@@ -45,7 +45,7 @@ export class UpdateScanResultFeedbackRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Risk Level
+   * The risk level.
    * 
    * @example
    * high

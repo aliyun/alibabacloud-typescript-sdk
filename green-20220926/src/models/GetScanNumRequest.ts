@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScanNumRequest extends $dara.Model {
   /**
    * @remarks
-   * Storage space.
+   * The storage space.
    * 
    * @example
    * tmpsample
@@ -13,15 +13,15 @@ export class GetScanNumRequest extends $dara.Model {
   buckets?: string;
   /**
    * @remarks
-   * Media type.
+   * The media asset type.
    * 
    * @example
-   * image
+   * 1
    */
   mediaType?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserBuyStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Bid.
+   * Bid。
    * 
    * @example
    * 26842
@@ -13,7 +13,7 @@ export class GetUserBuyStatusResponseBodyData extends $dara.Model {
   bid?: number;
   /**
    * @remarks
-   * Indicates whether the product has been activated on Alibaba Cloud.
+   * Indicates whether the commodity is activated on Alibaba Cloud.
    * 
    * @example
    * True
@@ -21,16 +21,23 @@ export class GetUserBuyStatusResponseBodyData extends $dara.Model {
   buy?: boolean;
   /**
    * @remarks
-   * Indicates whether there is an outstanding payment.
+   * Indicates whether there is an overdue payment.
    * 
    * @example
    * False
    */
   indebt?: boolean;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * xxx-xxx-xxx
+   */
   instanceId?: string;
   /**
    * @remarks
-   * Tag.
+   * The label.
    * 
    * @example
    * bailian
@@ -68,7 +75,7 @@ export class GetUserBuyStatusResponseBodyData extends $dara.Model {
 export class GetUserBuyStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -76,12 +83,12 @@ export class GetUserBuyStatusResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetUserBuyStatusResponseBodyData;
   /**
    * @remarks
-   * Further description of the error code.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -89,7 +96,7 @@ export class GetUserBuyStatusResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. This ID can be used to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -97,7 +104,7 @@ export class GetUserBuyStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * The success flag.
    * 
    * @example
    * True

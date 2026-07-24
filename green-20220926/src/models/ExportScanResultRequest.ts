@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportScanResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ExportScanResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-03-11 10:00:00
@@ -21,7 +21,7 @@ export class ExportScanResultRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -29,12 +29,12 @@ export class ExportScanResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Query content.
+   * The query content.
    */
   query?: { [key: string]: string };
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -42,7 +42,7 @@ export class ExportScanResultRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
@@ -50,12 +50,12 @@ export class ExportScanResultRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Sort fields.
+   * The sort field.
    */
   sort?: { [key: string]: string };
   /**
    * @remarks
-   * Start time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-03-10 10:00:00

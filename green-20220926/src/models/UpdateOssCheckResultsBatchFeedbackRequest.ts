@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateOssCheckResultsBatchFeedbackRequest extends $dara.Model {
   /**
+   * @remarks
+   * Feedback.
+   * 
    * @example
    * misreport
    */
   feedback?: string;
   /**
+   * @remarks
+   * Result items.
+   * 
    * @example
    * []
    */
   items?: string;
   /**
+   * @remarks
+   * Parent job ID.
+   * 
    * @example
    * P_XHDUS
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTextScanResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetTextScanResultShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End date and time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -21,7 +21,7 @@ export class GetTextScanResultShrinkRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -29,12 +29,12 @@ export class GetTextScanResultShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Search criteria.
+   * The search condition.
    */
   queryShrink?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -42,12 +42,12 @@ export class GetTextScanResultShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Sort fields.
+   * The sort field.
    */
   sortShrink?: string;
   /**
    * @remarks
-   * Start date and time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19

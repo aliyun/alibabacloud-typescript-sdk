@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFeatureConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Query conditions.
+   * The query condition.
    * 
    * @example
    * {\\"Lang\\":\\"zh\\",\\"CategoryType\\":1,\\"Default\\":false,\\"ParentCategoryId\\":1720}
@@ -13,7 +13,7 @@ export class GetFeatureConfigRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -21,7 +21,7 @@ export class GetFeatureConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
@@ -29,7 +29,7 @@ export class GetFeatureConfigRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * llm_query_moderation
@@ -37,7 +37,7 @@ export class GetFeatureConfigRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Type
+   * The type.
    * 
    * @example
    * custom_llm_template

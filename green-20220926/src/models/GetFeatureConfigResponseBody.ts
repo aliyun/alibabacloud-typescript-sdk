@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetFeatureConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of feature configurations
+   * The list of feature configurations.
    */
   featureConf?: { [key: string]: any }[];
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
@@ -18,7 +18,7 @@ export class GetFeatureConfigResponseBodyData extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * llm_query_moderation
@@ -26,7 +26,7 @@ export class GetFeatureConfigResponseBodyData extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Type
+   * The type.
    * 
    * @example
    * custom_llm_template
@@ -34,7 +34,7 @@ export class GetFeatureConfigResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * UID.
+   * UID。
    * 
    * @example
    * 1643953****74290
@@ -75,7 +75,7 @@ export class GetFeatureConfigResponseBodyData extends $dara.Model {
 export class GetFeatureConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * 200
@@ -83,12 +83,12 @@ export class GetFeatureConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetFeatureConfigResponseBodyData;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -96,7 +96,7 @@ export class GetFeatureConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message for this request.
+   * The response message for this request.
    * 
    * @example
    * success
@@ -104,7 +104,7 @@ export class GetFeatureConfigResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -112,7 +112,7 @@ export class GetFeatureConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

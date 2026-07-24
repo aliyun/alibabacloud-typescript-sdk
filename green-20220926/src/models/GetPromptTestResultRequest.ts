@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPromptTestResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * The configuration item.
+   * 
    * @example
    * {\\"enable\\":false}
    */
   config?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * image
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The service code.
+   * 
    * @example
    * baselineCheck
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * The text content.
+   * 
+   * @example
+   * 测试文本
+   */
   text?: string;
   /**
+   * @remarks
+   * The business type.
+   * 
    * @example
    * custom_llm_template
    */

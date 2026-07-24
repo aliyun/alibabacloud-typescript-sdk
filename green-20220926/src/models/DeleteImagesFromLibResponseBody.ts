@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImagesFromLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The error code, which is the same as the HTTP status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteImagesFromLibResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    * 
    * @example
    * True
@@ -21,7 +21,7 @@ export class DeleteImagesFromLibResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DeleteImagesFromLibResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class DeleteImagesFromLibResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -45,7 +45,7 @@ export class DeleteImagesFromLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True

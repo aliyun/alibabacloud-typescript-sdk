@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateOssCheckResultsFreezeResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of invalid records.
+   * 
    * @example
    * 1
    */
   invalidCount?: number;
   /**
+   * @remarks
+   * The number of duplicate records.
+   * 
    * @example
    * 1
    */
   repeatCount?: number;
   /**
+   * @remarks
+   * The number of successful operations.
+   * 
    * @example
    * 5
    */
   successCount?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 5
    */
@@ -51,8 +63,15 @@ export class UpdateOssCheckResultsFreezeResponseBodyData extends $dara.Model {
 }
 
 export class UpdateOssCheckResultsFreezeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: UpdateOssCheckResultsFreezeResponseBodyData;
   /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

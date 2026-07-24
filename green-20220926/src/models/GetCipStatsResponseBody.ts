@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCipStatsResponseBodyDataLabelStatChartImageTreeChar extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 未检测出风险
+   */
   description?: string;
+  /**
+   * @remarks
+   * The label.
+   * 
+   * @example
+   * nonLabel
+   */
   name?: string;
+  /**
+   * @remarks
+   * The label proportion.
+   * 
+   * @example
+   * 0.0274
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +53,29 @@ export class GetCipStatsResponseBodyDataLabelStatChartImageTreeChar extends $dar
 }
 
 export class GetCipStatsResponseBodyDataLabelStatChartTextTreeChart extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 未检测出风险
+   */
   description?: string;
+  /**
+   * @remarks
+   * The label.
+   * 
+   * @example
+   * nonLabel
+   */
   name?: string;
+  /**
+   * @remarks
+   * The proportion.
+   * 
+   * @example
+   * 0.0274
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,13 +103,26 @@ export class GetCipStatsResponseBodyDataLabelStatChartTextTreeChart extends $dar
 }
 
 export class GetCipStatsResponseBodyDataLabelStatChartTreeChart extends $dara.Model {
+  /**
+   * @remarks
+   * The label description.
+   * 
+   * @example
+   * 疑似政治人物
+   */
   description?: string;
   /**
+   * @remarks
+   * The label.
+   * 
    * @example
    * nickNameDetection
    */
   name?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 99.91
    */
@@ -98,13 +153,26 @@ export class GetCipStatsResponseBodyDataLabelStatChartTreeChart extends $dara.Mo
 }
 
 export class GetCipStatsResponseBodyDataLabelStatChartVoiceTreeChart extends $dara.Model {
+  /**
+   * @remarks
+   * The label description.
+   * 
+   * @example
+   * 疑似特定歌曲
+   */
   description?: string;
   /**
+   * @remarks
+   * The label.
+   * 
    * @example
    * nickNameDetection
    */
   name?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 99.91
    */
@@ -135,8 +203,15 @@ export class GetCipStatsResponseBodyDataLabelStatChartVoiceTreeChart extends $da
 }
 
 export class GetCipStatsResponseBodyDataLabelStatChartY extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: number[];
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * nickNameDetection
    */
@@ -168,21 +243,51 @@ export class GetCipStatsResponseBodyDataLabelStatChartY extends $dara.Model {
 }
 
 export class GetCipStatsResponseBodyDataLabelStatChart extends $dara.Model {
+  /**
+   * @remarks
+   * The image label statistics.
+   */
   imageTreeChar?: GetCipStatsResponseBodyDataLabelStatChartImageTreeChar[];
   /**
+   * @remarks
+   * The service code.
+   * 
    * @example
    * nickNameDetection
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * The text label statistics.
+   */
   textTreeChart?: GetCipStatsResponseBodyDataLabelStatChartTextTreeChart[];
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 117
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The tree view.
+   */
   treeChart?: GetCipStatsResponseBodyDataLabelStatChartTreeChart[];
+  /**
+   * @remarks
+   * The audio tree view.
+   */
   voiceTreeChart?: GetCipStatsResponseBodyDataLabelStatChartVoiceTreeChart[];
+  /**
+   * @remarks
+   * The X value of the coordinate point.
+   */
   x?: string[];
+  /**
+   * @remarks
+   * The Y value of the coordinate point.
+   */
   y?: GetCipStatsResponseBodyDataLabelStatChartY[];
   static names(): { [key: string]: string } {
     return {
@@ -238,8 +343,15 @@ export class GetCipStatsResponseBodyDataLabelStatChart extends $dara.Model {
 }
 
 export class GetCipStatsResponseBodyDataY extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: number[];
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * nickNameDetection
    */
@@ -271,8 +383,15 @@ export class GetCipStatsResponseBodyDataY extends $dara.Model {
 }
 
 export class GetCipStatsResponseBodyDataZ extends $dara.Model {
+  /**
+   * @remarks
+   * The count.
+   */
   data?: number[];
   /**
+   * @remarks
+   * The service code.
+   * 
    * @example
    * nickNameDetection
    */
@@ -304,11 +423,35 @@ export class GetCipStatsResponseBodyDataZ extends $dara.Model {
 }
 
 export class GetCipStatsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The label usage chart.
+   */
   labelStatChart?: GetCipStatsResponseBodyDataLabelStatChart[];
+  /**
+   * @remarks
+   * The total count by category.
+   */
   totalStat?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * The list of UIDs.
+   */
   uids?: string[];
+  /**
+   * @remarks
+   * The X value of the coordinate point.
+   */
   x?: string[];
+  /**
+   * @remarks
+   * The Y value of the coordinate point.
+   */
   y?: GetCipStatsResponseBodyDataY[];
+  /**
+   * @remarks
+   * The hit data.
+   */
   z?: GetCipStatsResponseBodyDataZ[];
   static names(): { [key: string]: string } {
     return {
@@ -361,27 +504,46 @@ export class GetCipStatsResponseBodyData extends $dara.Model {
 
 export class GetCipStatsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code, which is the same as the HTTP status code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetCipStatsResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * The request ID assigned by the backend. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */

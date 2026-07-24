@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTuneProposalByIdResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The response data in JSON format.
+   * 
    * @example
    * {"example":"xxxx"}
    */
@@ -31,12 +34,22 @@ export class GetTuneProposalByIdResponseBodyData extends $dara.Model {
 
 export class GetTuneProposalByIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetTuneProposalByIdResponseBodyData;
   /**
+   * @remarks
+   * The description of the error code.
+   * 
    * @example
    * success
    */

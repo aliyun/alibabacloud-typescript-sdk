@@ -13,7 +13,7 @@ export class GetBackupConfigResponseBody extends $dara.Model {
   backupMode?: number;
   /**
    * @remarks
-   * File server OSS Bucket.
+   * File server OSS bucket.
    * 
    * @example
    * buckect_test
@@ -21,9 +21,9 @@ export class GetBackupConfigResponseBody extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * Whether it is enabled. Values:
-   * - **true**: Enabled
-   * - **false**: Disabled
+   * Indicates whether the feature is enabled. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -31,7 +31,7 @@ export class GetBackupConfigResponseBody extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Whether to enable backup.
+   * Indicates whether backup is enabled.
    * 
    * @example
    * True
@@ -39,7 +39,7 @@ export class GetBackupConfigResponseBody extends $dara.Model {
   enableBackup?: boolean;
   /**
    * @remarks
-   * Whether to enable audio backup.
+   * Indicates whether audio backup is enabled.
    * 
    * @example
    * True
@@ -47,7 +47,7 @@ export class GetBackupConfigResponseBody extends $dara.Model {
   enableBackupVoice?: boolean;
   /**
    * @remarks
-   * Expiration time in seconds.
+   * Expiration time, in seconds.
    * 
    * @example
    * 300
@@ -87,7 +87,7 @@ export class GetBackupConfigResponseBody extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

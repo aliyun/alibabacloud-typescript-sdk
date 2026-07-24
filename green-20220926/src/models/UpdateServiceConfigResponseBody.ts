@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateServiceConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code, which is consistent with the HTTP status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */

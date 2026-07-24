@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAnswerLibRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the proxy response library.
+   * 
    * @example
    * custom_xxxx
    */
   libId?: string;
+  /**
+   * @remarks
+   * The name of the library.
+   * 
+   * @example
+   * 测试库
+   */
   libName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */

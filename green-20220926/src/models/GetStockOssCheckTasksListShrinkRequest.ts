@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-06-18 02:08:00
@@ -21,7 +21,7 @@ export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Whether it is a scheduled scan task.
+   * Specifies whether the task is a scheduled scan task.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   isInc?: boolean;
   /**
    * @remarks
-   * Media type.
+   * The media asset type.
    * 
    * @example
    * image
@@ -37,7 +37,7 @@ export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   mediaType?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -53,12 +53,12 @@ export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Sort field.
+   * The sort field.
    */
   sortShrink?: string;
   /**
    * @remarks
-   * Start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-06-17 02:08:00
@@ -66,7 +66,7 @@ export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Task type.
+   * The task type.
    * 
    * @example
    * batch

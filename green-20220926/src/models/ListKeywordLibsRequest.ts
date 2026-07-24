@@ -5,12 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class ListKeywordLibsRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The library code.
+   * 
+   * - desensitize: desensitization library.
+   * 
+   * @example
+   * desensitize
+   */
   tenantCode?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class LlmStreamChatRequest extends $dara.Model {
   /**
+   * @remarks
+   * channel
+   * 
    * @example
    * guardCustomTest
    */

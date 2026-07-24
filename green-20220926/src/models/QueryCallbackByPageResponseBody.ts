@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Encryption algorithm.
+   * The encryption algorithm.
    * 
    * @example
    * SHA256
@@ -13,7 +13,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   cryptType?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -21,7 +21,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -29,7 +29,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 1697
@@ -37,7 +37,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * 消息通知
@@ -45,7 +45,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Result scope.
+   * The result scope.
    * 
    * @example
    * all
@@ -53,7 +53,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Seed.
+   * Seed。
    * 
    * @example
    * cb6gYS8GXj4Vn4Y4FN0Y8R5M-1x46Mq
@@ -61,7 +61,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   seed?: string;
   /**
    * @remarks
-   * UID.
+   * UID。
    * 
    * @example
    * 12161*****398900
@@ -69,7 +69,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * Callback URL.
+   * The callback URL.
    * 
    * @example
    * https://console.aliyun.com/
@@ -115,7 +115,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
 export class QueryCallbackByPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -123,12 +123,12 @@ export class QueryCallbackByPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Data of the current page.
+   * The data on the current page.
    */
   items?: QueryCallbackByPageResponseBodyItems[];
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -136,7 +136,7 @@ export class QueryCallbackByPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -144,7 +144,7 @@ export class QueryCallbackByPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 10

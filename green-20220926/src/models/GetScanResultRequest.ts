@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScanResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetScanResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -21,7 +21,7 @@ export class GetScanResultRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -29,12 +29,12 @@ export class GetScanResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Search criteria.
+   * The search condition.
    */
   query?: { [key: string]: string };
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -42,7 +42,7 @@ export class GetScanResultRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * image
@@ -50,12 +50,12 @@ export class GetScanResultRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Sort fields.
+   * The sort field.
    */
   sort?: { [key: string]: string };
   /**
    * @remarks
-   * Start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19

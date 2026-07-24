@@ -4,48 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateServiceConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The document configuration.
+   * 
    * @example
    * {}
    */
   fileConfig?: string;
   /**
+   * @remarks
+   * The keyword filter libraries.
+   * 
    * @example
    * []
    */
   keywordFilterLibs?: string;
   /**
+   * @remarks
+   * The keyword hit libraries.
+   * 
    * @example
    * []
    */
   keywordHitLibs?: string;
+  /**
+   * @remarks
+   * The machine-assisted moderation configuration.
+   * 
+   * @example
+   * {}
+   */
   manualMachineConfig?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * image
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The moderation scenario.
+   * 
    * @example
    * pornographic
    */
   scene?: string;
   /**
+   * @remarks
+   * The scenario configuration.
+   * 
    * @example
    * {}
    */
   sceneConfig?: string;
   /**
+   * @remarks
+   * The service code.
+   * 
    * @example
    * baselineCheck
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * The service configuration.
+   * 
+   * @example
+   * {}
+   */
   serviceConfig?: string;
   /**
+   * @remarks
+   * The video configuration.
+   * 
    * @example
    * {}
    */

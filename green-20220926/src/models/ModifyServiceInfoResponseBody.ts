@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyServiceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    * 
    * @example
    * True
@@ -13,7 +13,7 @@ export class ModifyServiceInfoResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAnswerSampleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The IDs of the proxy answers to delete.
+   * 
    * @example
    * [15463605]
    */
   ids?: string;
   /**
+   * @remarks
+   * The ID of the proxy answer library.
+   * 
    * @example
    * alxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */

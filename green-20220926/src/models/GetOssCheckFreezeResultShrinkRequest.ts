@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-05-19 10:05:11
@@ -21,7 +21,7 @@ export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Number of completed tasks.
+   * The number of completed tasks.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   finishNum?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Query condition.
+   * The query condition.
    * 
    * @example
    * {\\"TaskId\\":\\"P_O3SI0I\\"}
@@ -45,7 +45,7 @@ export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -53,12 +53,12 @@ export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Sort field.
+   * The sort field.
    */
   sortShrink?: string;
   /**
    * @remarks
-   * Start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-01-09 10:28:54
@@ -66,7 +66,7 @@ export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * Task status.
+   * The task status.
    * 
    * @example
    * 1

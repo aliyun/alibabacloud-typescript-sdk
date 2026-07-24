@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKeywordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ids\\" list of keywords.
+   * The IDs of the keywords to delete.
    * 
    * @example
    * [6715465]
@@ -13,7 +13,7 @@ export class DeleteKeywordRequest extends $dara.Model {
   keywordIdList?: string;
   /**
    * @remarks
-   * The ids of keywords.
+   * The IDs of the keywords to delete.
    * 
    * @example
    * [16754493]
@@ -21,7 +21,7 @@ export class DeleteKeywordRequest extends $dara.Model {
   keywordIds?: string;
   /**
    * @remarks
-   * Library id
+   * The ID of the keyword library.
    * 
    * @example
    * customxx_xxxx
@@ -29,12 +29,21 @@ export class DeleteKeywordRequest extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The code of the keyword library.
+   * 
+   * - desensitize: masking keyword library.
+   * 
+   * @example
+   * desensitize
+   */
   tenantCode?: string;
   static names(): { [key: string]: string } {
     return {

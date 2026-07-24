@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatePreCheckRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter configuration for each bucket. The value can be parsed as a JSON map. The key is the bucket name, and the value is the filter configuration, which includes prefix/suffix filters and a list of filter strings.
+   * 
+   * @example
+   * "{\\"test-bucket1\\":{\\"prefixFilterType\\":\\"include\\",\\"prefixFilters\\":[\\"test1\\"]},\\"test-bucket2\\":{\\"prefixFilterType\\":\\"exclude\\",\\"prefixFilters\\":[\\"test2\\"]}}"
+   */
   bucketPrefixFilterConfig?: string;
   /**
    * @remarks
-   * Buckets.
+   * The OSS buckets.
    * 
    * @example
    * [{\\"Bucket\\":\\"bucket01-test\\",\\"Region\\":\\"cn-beijing\\"}]
@@ -14,7 +21,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   buckets?: string;
   /**
    * @remarks
-   * Whether to deduplicate historical detected tasks.
+   * Specifies whether to deduplicate against historically scanned tasks.
    * 
    * @example
    * true
@@ -22,7 +29,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   distinctHistoryTasks?: boolean;
   /**
    * @remarks
-   * Task end time.
+   * The task end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-12-18 10:08:00
@@ -30,7 +37,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Whether it is a scheduled scan task.
+   * Specifies whether the task is a scheduled scan task.
    * 
    * @example
    * false
@@ -38,7 +45,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   isInc?: boolean;
   /**
    * @remarks
-   * Media type.
+   * The media asset type.
    * 
    * @example
    * 1
@@ -46,7 +53,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   mediaType?: number;
   /**
    * @remarks
-   * Prefix filter type.
+   * The prefix filter type.
    * 
    * @example
    * all
@@ -54,7 +61,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   prefixFilterType?: string;
   /**
    * @remarks
-   * Prefixes.
+   * The prefixes.
    * 
    * @example
    * dir1,dir2
@@ -62,7 +69,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   prefixFilters?: string;
   /**
    * @remarks
-   * Priority.
+   * The priority.
    * 
    * @example
    * 0
@@ -70,7 +77,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -78,7 +85,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Scan limit count.
+   * The maximum number of items to scan.
    * 
    * @example
    * 10
@@ -86,7 +93,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   scanLimit?: number;
   /**
    * @remarks
-   * Whether to scan images without file extensions.
+   * Specifies whether to scan images without file extensions.
    * 
    * @example
    * true
@@ -94,7 +101,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   scanNoFileType?: boolean;
   /**
    * @remarks
-   * Scan service code.
+   * The scan service code.
    * 
    * @example
    * baselineCheck
@@ -102,7 +109,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   scanService?: string;
   /**
    * @remarks
-   * Task start time.
+   * The task start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-12-17 10:08:00
@@ -110,7 +117,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Task name.
+   * The task name.
    * 
    * @example
    * 图片任务 20240709101602004

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceConfigsResponseBodyDataCustomServiceConfRulesImageScanRule extends $dara.Model {
   /**
    * @remarks
-   * Image services.
+   * The image service.
    */
   services?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConfRulesImageScanRu
 export class ListServiceConfigsResponseBodyDataCustomServiceConfRulesTextScanRule extends $dara.Model {
   /**
    * @remarks
-   * Text services.
+   * The text services.
    */
   services?: string[];
   static names(): { [key: string]: string } {
@@ -65,12 +65,12 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConfRulesTextScanRul
 export class ListServiceConfigsResponseBodyDataCustomServiceConfRules extends $dara.Model {
   /**
    * @remarks
-   * Image review rule.
+   * The image moderation rule.
    */
   imageScanRule?: ListServiceConfigsResponseBodyDataCustomServiceConfRulesImageScanRule;
   /**
    * @remarks
-   * Index.
+   * The ordinal number.
    * 
    * @example
    * 1
@@ -78,7 +78,7 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConfRules extends $d
   index?: number;
   /**
    * @remarks
-   * Text review rule.
+   * The text moderation rule.
    */
   textScanRule?: ListServiceConfigsResponseBodyDataCustomServiceConfRulesTextScanRule;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConfRules extends $d
 export class ListServiceConfigsResponseBodyDataCustomServiceConf extends $dara.Model {
   /**
    * @remarks
-   * Audio service.
+   * The audio service.
    * 
    * @example
    * audio_media_detection
@@ -123,27 +123,27 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConf extends $dara.M
   audioService?: string;
   /**
    * @remarks
-   * Image services.
+   * The image service.
    */
   imageService?: string[];
   /**
    * @remarks
-   * Ignored word libraries.
+   * The ignored keyword library.
    */
   keywordFilterLibs?: string[];
   /**
    * @remarks
-   * Hit word libraries.
+   * The hit keyword library.
    */
   keywordHitLibs?: string[];
   /**
    * @remarks
-   * Service rules
+   * The service rules.
    */
   rules?: ListServiceConfigsResponseBodyDataCustomServiceConfRules[];
   /**
    * @remarks
-   * Hit similar text libraries.
+   * The hit similar text library.
    */
   similarTextHitLibs?: string[];
   static names(): { [key: string]: string } {
@@ -195,7 +195,7 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConf extends $dara.M
 export class ListServiceConfigsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Category.
+   * The classification.
    * 
    * @example
    * guard-scene
@@ -203,7 +203,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * Main service.
+   * The primary service.
    * 
    * @example
    * nickname_detection
@@ -211,12 +211,12 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   copyFrom?: string;
   /**
    * @remarks
-   * Service configuration.
+   * The service configuration.
    */
   customServiceConf?: ListServiceConfigsResponseBodyDataCustomServiceConf;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2023-07-11 15:40:04
@@ -224,7 +224,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Options.
+   * The options.
    * 
    * @example
    * {}
@@ -232,16 +232,27 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   option?: { [key: string]: any };
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The scene type. Valid values:
+   * 
+   * - recommended_scene: recommended scenario.
+   * 
+   * - all_scene: all scenarios.
+   * 
+   * @example
+   * all_scene
+   */
   sceneType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * nickname_detection
@@ -249,7 +260,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Service description.
+   * The service description.
    * 
    * @example
    * 服务描述
@@ -257,7 +268,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   serviceDesc?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 服务名称
@@ -265,7 +276,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Service type.
+   * The service type.
    * 
    * @example
    * plus
@@ -273,7 +284,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * UID.
+   * UID。
    * 
    * @example
    * 1674*****0071291
@@ -281,7 +292,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * Usage status
+   * The usage status.
    * 
    * @example
    * in
@@ -341,7 +352,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
 export class ListServiceConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 400
@@ -349,12 +360,12 @@ export class ListServiceConfigsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: ListServiceConfigsResponseBodyData[];
   /**
    * @remarks
-   * Further description of the error code.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -362,7 +373,7 @@ export class ListServiceConfigsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -370,7 +381,7 @@ export class ListServiceConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

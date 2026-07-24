@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUploadInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Upload name.
+   * The upload name.
    * 
    * @example
    * 测试
@@ -13,7 +13,7 @@ export class GetUploadInfoRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -21,7 +21,7 @@ export class GetUploadInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * image

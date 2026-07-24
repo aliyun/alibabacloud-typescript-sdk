@@ -4,20 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAnswerLibResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of proxy answers.
+   * 
    * @example
    * 100
    */
   answerCount?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2024-06-03 18:15:01
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The ID of the proxy answer library.
+   * 
    * @example
    * alxxx
    */
   libId?: string;
+  /**
+   * @remarks
+   * The name of the library.
+   * 
+   * @example
+   * 代答库名称
+   */
   libName?: string;
   /**
    * @remarks
@@ -57,8 +73,15 @@ export class ListAnswerLibResponseBodyData extends $dara.Model {
 }
 
 export class ListAnswerLibResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListAnswerLibResponseBodyData[];
   /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobNameListShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * End date.
+   * The end time. Format: `YYYY-MM-DD HH:mm:ss`.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -13,7 +13,7 @@ export class GetJobNameListShrinkRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Query condition.
+   * The query condition.
    * 
    * @example
    * {"TaskId":"P_11TL5T"}
@@ -21,7 +21,7 @@ export class GetJobNameListShrinkRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -29,12 +29,12 @@ export class GetJobNameListShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Sort field.
+   * The sort field.
    */
   sortShrink?: string;
   /**
    * @remarks
-   * Start date.
+   * The start time. Format: `YYYY-MM-DD HH:mm:ss`.
    * 
    * @example
    * 2023-08-11 09:00:19

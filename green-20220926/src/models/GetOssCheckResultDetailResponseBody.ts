@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckResultDetailResponseBodyDataLabelDetails extends $dara.Model {
   /**
    * @remarks
-   * Confidence score, 0 to 100, retained to two decimal places.
+   * The confidence score, ranging from 0 to 100, rounded to two decimal places.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class GetOssCheckResultDetailResponseBodyDataLabelDetails extends $dara.M
   confidence?: number;
   /**
    * @remarks
-   * Label description.
+   * The label description.
    * 
    * @example
    * 涉政
@@ -21,7 +21,7 @@ export class GetOssCheckResultDetailResponseBodyDataLabelDetails extends $dara.M
   description?: string;
   /**
    * @remarks
-   * Label.
+   * The labels.
    * 
    * @example
    * politics
@@ -55,7 +55,7 @@ export class GetOssCheckResultDetailResponseBodyDataLabelDetails extends $dara.M
 export class GetOssCheckResultDetailResponseBodyDataLabelDetails2 extends $dara.Model {
   /**
    * @remarks
-   * Confidence score, 0 to 100, retained to two decimal places.
+   * The confidence score, ranging from 0 to 100, rounded to two decimal places.
    * 
    * @example
    * 50
@@ -63,7 +63,7 @@ export class GetOssCheckResultDetailResponseBodyDataLabelDetails2 extends $dara.
   confidence?: number;
   /**
    * @remarks
-   * Label description.
+   * The label description.
    * 
    * @example
    * 涉政
@@ -71,7 +71,7 @@ export class GetOssCheckResultDetailResponseBodyDataLabelDetails2 extends $dara.
   description?: string;
   /**
    * @remarks
-   * Label.
+   * The labels.
    * 
    * @example
    * politics
@@ -105,7 +105,7 @@ export class GetOssCheckResultDetailResponseBodyDataLabelDetails2 extends $dara.
 export class GetOssCheckResultDetailResponseBodyDataScanServiceInfos extends $dara.Model {
   /**
    * @remarks
-   * Main service.
+   * The primary service.
    * 
    * @example
    * audio_media_detection
@@ -113,7 +113,7 @@ export class GetOssCheckResultDetailResponseBodyDataScanServiceInfos extends $da
   copyFrom?: string;
   /**
    * @remarks
-   * Whether to copy.
+   * Indicates whether the content is copied.
    * 
    * @example
    * true
@@ -121,7 +121,7 @@ export class GetOssCheckResultDetailResponseBodyDataScanServiceInfos extends $da
   isCopy?: boolean;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * audio_media_detection_01
@@ -129,7 +129,7 @@ export class GetOssCheckResultDetailResponseBodyDataScanServiceInfos extends $da
   serviceCode?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 服务名称
@@ -165,7 +165,7 @@ export class GetOssCheckResultDetailResponseBodyDataScanServiceInfos extends $da
 export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Bucket name.
+   * The storage bucket.
    * 
    * @example
    * oss-tmp
@@ -173,7 +173,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * Error code, consistent with HTTP status.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -181,7 +181,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Audio and video detection type.
+   * The audio and video detection type.
    * 
    * @example
    * audio
@@ -189,7 +189,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Primary service.
+   * The primary service.
    * 
    * @example
    * audio_media_detection
@@ -197,7 +197,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   copyFrom?: string;
   /**
    * @remarks
-   * Freeze status.
+   * The freeze status.
    * 
    * @example
    * UNFREEZED
@@ -205,7 +205,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   freezeStatus?: string;
   /**
    * @remarks
-   * Freeze type.
+   * The freeze type.
    * 
    * @example
    * COPY
@@ -213,7 +213,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   freezeType?: string;
   /**
    * @remarks
-   * Image URL.
+   * The image URL.
    * 
    * @example
    * http://www.aliyuncs.com/test.jpg
@@ -221,7 +221,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Whether to copy.
+   * Indicates whether the content is copied.
    * 
    * @example
    * true
@@ -229,7 +229,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   isCopy?: boolean;
   /**
    * @remarks
-   * Job name.
+   * The task name.
    * 
    * @example
    * dhT20X2310
@@ -237,27 +237,27 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * Labels.
+   * The labels.
    */
   labelDetails?: GetOssCheckResultDetailResponseBodyDataLabelDetails[];
   /**
    * @remarks
-   * Labels.
+   * The labels.
    */
   labelDetails2?: GetOssCheckResultDetailResponseBodyDataLabelDetails2[];
   /**
    * @remarks
-   * Image labels.
+   * The image labels.
    */
   labels?: string[];
   /**
    * @remarks
-   * Text labels.
+   * The text labels.
    */
   labels2?: string[];
   /**
    * @remarks
-   * Manual handling status.
+   * The manual disposition status.
    * 
    * @example
    * FREEZE
@@ -265,7 +265,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   manualFreezeAction?: string;
   /**
    * @remarks
-   * Handling time.
+   * The disposition time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-08-09 12:00:00
@@ -273,7 +273,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   manualOperateTime?: string;
   /**
    * @remarks
-   * Handler.
+   * The operator who performed the disposition.
    * 
    * @example
    * xx
@@ -281,7 +281,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   manualOperator?: string;
   /**
    * @remarks
-   * File MD5.
+   * The MD5 hash of the file.
    * 
    * @example
    * f6e2e1946f06310c8a0cc443a05819f3
@@ -289,7 +289,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * Further description of the error code.
+   * The further description of the error code.
    * 
    * @example
    * success
@@ -297,7 +297,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Object name.
+   * The object name.
    * 
    * @example
    * 1748396909030.jpg
@@ -305,7 +305,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   object?: string;
   /**
    * @remarks
-   * Image risk level
+   * The image risk level.
    * 
    * @example
    * high
@@ -313,7 +313,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * Overall risk level.
+   * The overall risk level.
    * 
    * @example
    * low
@@ -321,7 +321,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   riskLevel0?: string;
   /**
    * @remarks
-   * Text risk level
+   * The text risk level.
    * 
    * @example
    * medium
@@ -329,7 +329,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   riskLevel2?: string;
   /**
    * @remarks
-   * Detailed scan results.
+   * The result details.
    * 
    * @example
    * {}
@@ -337,12 +337,12 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   scanResult?: string;
   /**
    * @remarks
-   * Detection service information
+   * The detection service information.
    */
   scanServiceInfos?: GetOssCheckResultDetailResponseBodyDataScanServiceInfos[];
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * audio_media_detection_01
@@ -350,7 +350,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 服务名称
@@ -358,7 +358,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * P_Z7OLMN
@@ -366,7 +366,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task URL.
+   * The task URL.
    * 
    * @example
    * http://www.aliyuncs.com/test.mp3
@@ -465,7 +465,7 @@ export class GetOssCheckResultDetailResponseBodyData extends $dara.Model {
 export class GetOssCheckResultDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code, consistent with HTTP status.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -473,12 +473,12 @@ export class GetOssCheckResultDetailResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Detailed data.
+   * The details data.
    */
   data?: GetOssCheckResultDetailResponseBodyData;
   /**
    * @remarks
-   * Further description of the error code.
+   * The further description of the error code.
    * 
    * @example
    * success
@@ -486,7 +486,7 @@ export class GetOssCheckResultDetailResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Backend-assigned ID used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
    * 
    * @example
    * 62E97001-1255-50A9-8E1E-4FD05473D952
@@ -494,7 +494,7 @@ export class GetOssCheckResultDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

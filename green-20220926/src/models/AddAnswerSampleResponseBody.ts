@@ -6,43 +6,75 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddAnswerSampleResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The internationalization key.
+   * 
    * @example
    * xxx
    */
   i18nKey?: string;
+  /**
+   * @remarks
+   * The collection of samples whose length is too long or too short.
+   */
   illegalLengthSamples?: string[];
   /**
+   * @remarks
+   * The number of invalid records.
+   * 
    * @example
    * 118
    */
   invalidCount?: number;
   /**
+   * @remarks
+   * The ID of the proxy answer library.
+   * 
    * @example
    * alxxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * The progress. For example, 90 indicates 90%.
+   * 
    * @example
    * 100
    */
   progress?: number;
   /**
+   * @remarks
+   * The number of duplicate records.
+   * 
    * @example
    * 98
    */
   repeatCount?: number;
+  /**
+   * @remarks
+   * The collection of duplicate samples.
+   */
   repeatSamples?: string[];
   /**
+   * @remarks
+   * The number of successful records.
+   * 
    * @example
    * 318
    */
   successCount?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * alAxbbxxxx-xxx
    */
   taskId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 534
    */
@@ -94,17 +126,30 @@ export class AddAnswerSampleResponseBodyResult extends $dara.Model {
 
 export class AddAnswerSampleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the proxy answer library.
+   * 
    * @example
    * alxxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: AddAnswerSampleResponseBodyResult;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * alAxbbxxxx-xxx
    */

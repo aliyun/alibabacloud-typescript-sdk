@@ -8,15 +8,15 @@ export class AddImageLibRequest extends $dara.Model {
    * The remarks of the image library.
    * 
    * @example
-   * Explicit_Content_Blacklist_Image_lib
+   * 色情内容黑名单图库
    */
   comment?: string;
   /**
    * @remarks
-   * The name of image library
+   * The name of the image library.
    * 
    * @example
-   * test_image_lib
+   * 测试图库
    */
   libName?: string;
   /**

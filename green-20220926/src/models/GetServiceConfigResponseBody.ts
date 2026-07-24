@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig extends $dara.Model {
   /**
    * @remarks
-   * Risk levels.
+   * The risk levels.
    */
   auditRiskLevels?: string[];
   /**
    * @remarks
-   * Callback notification ID
+   * The callback notification ID.
    * 
    * @example
    * 123
@@ -18,9 +18,10 @@ export class GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfi
   callbackId?: number;
   /**
    * @remarks
-   * Whether to enable. Values:
-   * - **true**: Enabled
-   * - **false**: Disabled
+   * Specifies whether to enable the feature. Valid values:
+   * 
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -28,7 +29,7 @@ export class GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfi
   enable?: boolean;
   /**
    * @remarks
-   * Manual review service
+   * The manual review service.
    * 
    * @example
    * imageManualCheck
@@ -67,22 +68,22 @@ export class GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfi
 export class GetServiceConfigResponseBodyDataCustomServiceConf extends $dara.Model {
   /**
    * @remarks
-   * Ignore word libraries.
+   * The ignored keyword libraries.
    */
   keywordFilterLibs?: string[];
   /**
    * @remarks
-   * Hit word libraries.
+   * The hit keyword libraries.
    */
   keywordHitLibs?: string[];
   /**
    * @remarks
-   * Human-machine review configuration.
+   * The machine-assisted moderation configuration.
    */
   manualMachineConfig?: GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig;
   /**
    * @remarks
-   * Hit similar text libraries.
+   * The hit similar text libraries.
    */
   similarTextHitLibs?: string[];
   static names(): { [key: string]: string } {
@@ -127,12 +128,12 @@ export class GetServiceConfigResponseBodyDataCustomServiceConf extends $dara.Mod
 export class GetServiceConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Custom service details
+   * The custom service details.
    */
   customServiceConf?: GetServiceConfigResponseBodyDataCustomServiceConf;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2024-05-06 03:07:44
@@ -140,7 +141,7 @@ export class GetServiceConfigResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
@@ -148,7 +149,7 @@ export class GetServiceConfigResponseBodyData extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * nickname_detection
@@ -156,7 +157,7 @@ export class GetServiceConfigResponseBodyData extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * UID.
+   * UID。
    * 
    * @example
    * 165379****31937
@@ -197,7 +198,7 @@ export class GetServiceConfigResponseBodyData extends $dara.Model {
 export class GetServiceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -205,12 +206,12 @@ export class GetServiceConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetServiceConfigResponseBodyData;
   /**
    * @remarks
-   * Further description of the error code.
+   * The further description of the error code.
    * 
    * @example
    * OK
@@ -218,7 +219,7 @@ export class GetServiceConfigResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -226,7 +227,7 @@ export class GetServiceConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * The success flag.
    * 
    * @example
    * True

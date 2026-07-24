@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceConfRequest extends $dara.Model {
   /**
    * @remarks
-   * Query default configuration
+   * Queries the default configuration.
    * 
    * @example
    * False
@@ -29,7 +29,7 @@ export class GetServiceConfRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Audit scenario.
+   * Moderation scenario.
    * 
    * @example
    * pornographic

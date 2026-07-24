@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCallbackRequest extends $dara.Model {
   /**
    * @remarks
-   * Encryption algorithm.
+   * The encryption algorithm.
    * 
    * @example
    * SHA256
@@ -13,7 +13,7 @@ export class ModifyCallbackRequest extends $dara.Model {
   cryptType?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ModifyCallbackRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * 回调通知
@@ -31,7 +31,7 @@ export class ModifyCallbackRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -39,7 +39,7 @@ export class ModifyCallbackRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Result scope.
+   * The result scope.
    * 
    * @example
    * all
@@ -47,7 +47,7 @@ export class ModifyCallbackRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Callback URL.
+   * The callback URL.
    * 
    * @example
    * https://www.aliyuncs.com

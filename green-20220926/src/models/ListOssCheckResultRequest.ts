@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOssCheckResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListOssCheckResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End date.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -21,7 +21,7 @@ export class ListOssCheckResultRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Number of completed tasks.
+   * The number of completed tasks.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class ListOssCheckResultRequest extends $dara.Model {
   finishNum?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListOssCheckResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Search condition.
+   * The search condition.
    * 
    * @example
    * {"TaskId":"P_11TL5T"}
@@ -45,7 +45,7 @@ export class ListOssCheckResultRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -53,12 +53,12 @@ export class ListOssCheckResultRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Sort field.
+   * The sort field.
    */
   sort?: { [key: string]: string };
   /**
    * @remarks
-   * Start date.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19
@@ -66,7 +66,7 @@ export class ListOssCheckResultRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * Task status.
+   * The task status.
    * 
    * @example
    * 4

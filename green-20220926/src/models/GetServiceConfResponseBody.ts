@@ -13,7 +13,7 @@ export class GetServiceConfResponseBody extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * Error code, consistent with HTTP status.
+   * Error code, consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class GetServiceConfResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Service details
+   * Service details.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class GetServiceConfResponseBody extends $dara.Model {
   option?: { [key: string]: any };
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
    * 
    * @example
    * 6CF2815C-****-****-B52E-FF6E2****492
@@ -85,7 +85,7 @@ export class GetServiceConfResponseBody extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * Success indicator
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

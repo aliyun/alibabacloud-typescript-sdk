@@ -3,12 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPromptTestResultResponseBodyResultLabelDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The label description.
+   * 
+   * @example
+   * 暴恐
+   */
   description?: string;
   /**
+   * @remarks
+   * The labels.
+   * 
    * @example
    * terrorism
    */
   label?: string;
+  /**
+   * @remarks
+   * The reason why the model determined this risk level for the text.
+   * 
+   * @example
+   * 该文本涉及暴力恐怖信息
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,9 +53,31 @@ export class GetPromptTestResultResponseBodyResultLabelDetails extends $dara.Mod
 }
 
 export class GetPromptTestResultResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The content.
+   * 
+   * @example
+   * 测试文本
+   */
   content?: string;
+  /**
+   * @remarks
+   * The labels.
+   */
   labelDetails?: GetPromptTestResultResponseBodyResultLabelDetails[];
   /**
+   * @remarks
+   * The risk level, which is returned based on the configured high and low risk scores. Valid values:
+   * 
+   * - high: High risk.
+   * 
+   * - medium: Medium risk.
+   *  
+   * - low: Low risk.
+   * 
+   *  - none: No risk detected.
+   * 
    * @example
    * high
    */
@@ -73,10 +112,17 @@ export class GetPromptTestResultResponseBodyResult extends $dara.Model {
 
 export class GetPromptTestResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: GetPromptTestResultResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

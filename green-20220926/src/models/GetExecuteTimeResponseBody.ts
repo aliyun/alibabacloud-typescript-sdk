@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetExecuteTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    * 
    * @example
    * 02:24:30
@@ -13,7 +13,7 @@ export class GetExecuteTimeResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. This ID can be used to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

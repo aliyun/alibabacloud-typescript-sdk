@@ -5,17 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageLibFreeInspectionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration.
+   * The configuration.
+   * 
+   * @example
+   * {\\"2833014490001\\":0}
    */
   configShrink?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The selected service identifier.
+   * 
+   * @example
+   * response_security_check
+   */
   serviceCode?: string;
   static names(): { [key: string]: string } {
     return {

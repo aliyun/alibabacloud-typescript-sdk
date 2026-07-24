@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCallbackResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Encryption algorithm.
+   * The encryption algorithm.
    * 
    * @example
    * SHA256
@@ -13,7 +13,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   cryptType?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -21,7 +21,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -29,7 +29,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 11234
@@ -37,7 +37,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * 回调通知
@@ -45,7 +45,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Result scope.
+   * The result scope.
    * 
    * @example
    * all
@@ -53,7 +53,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Seed.
+   * Seed。
    * 
    * @example
    * cbupVnpBjkgjFxfINMHKkrHS-1zZPUm
@@ -61,7 +61,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   seed?: string;
   /**
    * @remarks
-   * UID.
+   * UID。
    * 
    * @example
    * 16537*****831937
@@ -69,7 +69,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * Callback URL.
+   * The callback URL.
    * 
    * @example
    * https://console.aliyun.com/
@@ -115,12 +115,12 @@ export class ListCallbackResponseBodyData extends $dara.Model {
 export class ListCallbackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: ListCallbackResponseBodyData[];
   /**
    * @remarks
-   * Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

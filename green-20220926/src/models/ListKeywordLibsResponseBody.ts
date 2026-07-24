@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKeywordLibsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2022-11-30 16:30:29
@@ -13,7 +13,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Number of keywords.
+   * The number of keywords.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
   keywordCount?: string;
   /**
    * @remarks
-   * Library ID.
+   * The library ID.
    * 
    * @example
    * custom_xxxxx
@@ -29,7 +29,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Library name.
+   * The library name.
    * 
    * @example
    * 测试
@@ -37,7 +37,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
   libName?: string;
   /**
    * @remarks
-   * Service codes.
+   * The service codes.
    * 
    * @example
    * service1,service2
@@ -45,7 +45,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
   serviceCodes?: string;
   /**
    * @remarks
-   * UID.
+   * UID。
    * 
    * @example
    * 19964*****086772
@@ -85,7 +85,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
 export class ListKeywordLibsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -93,12 +93,12 @@ export class ListKeywordLibsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: ListKeywordLibsResponseBodyData[];
   /**
    * @remarks
-   * Further description of the error code.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -106,7 +106,7 @@ export class ListKeywordLibsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -114,7 +114,7 @@ export class ListKeywordLibsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -13,7 +13,7 @@ export class GetServiceConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
@@ -21,7 +21,7 @@ export class GetServiceConfigRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * nickname_detection

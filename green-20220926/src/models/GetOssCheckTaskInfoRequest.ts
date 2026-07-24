@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetOssCheckTaskInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The parent task ID.
+   * 
    * @example
    * P_AAA**
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelStockOssCheckTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai

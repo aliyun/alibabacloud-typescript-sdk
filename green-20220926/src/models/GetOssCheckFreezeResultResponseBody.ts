@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckFreezeResultResponseBodyItemsLabelDetails extends $dara.Model {
   /**
    * @remarks
-   * Confidence.
+   * The confidence level.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class GetOssCheckFreezeResultResponseBodyItemsLabelDetails extends $dara.
   confidence?: number;
   /**
    * @remarks
-   * Label description.
+   * The label description.
    * 
    * @example
    * 涉政
@@ -21,7 +21,7 @@ export class GetOssCheckFreezeResultResponseBodyItemsLabelDetails extends $dara.
   description?: string;
   /**
    * @remarks
-   * Label.
+   * The label details.
    * 
    * @example
    * politics
@@ -55,7 +55,7 @@ export class GetOssCheckFreezeResultResponseBodyItemsLabelDetails extends $dara.
 export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Storage space.
+   * The OSS bucket.
    * 
    * @example
    * tmp
@@ -63,7 +63,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * Error code, consistent with HTTP status.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -71,7 +71,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Audio and video detection type.
+   * The audio or video scan type.
    * 
    * @example
    * audio
@@ -79,7 +79,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Primary service.
+   * The primary service.
    * 
    * @example
    * audio_media_detection
@@ -87,7 +87,9 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   copyFrom?: string;
   /**
    * @remarks
-   * Feedback.
+   * The feedback. Valid values:
+   * - misreport: False positive (not a violation).
+   * - missOut: Missed violation.
    * 
    * @example
    * misreport
@@ -95,7 +97,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   feedback?: string;
   /**
    * @remarks
-   * Whether frozen.
+   * Indicates whether the object is frozen.
    * 
    * @example
    * true
@@ -103,7 +105,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   freeze?: boolean;
   /**
    * @remarks
-   * Freeze status.
+   * The freeze status.
    * 
    * @example
    * FREEZED
@@ -111,7 +113,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   freezeStatus?: string;
   /**
    * @remarks
-   * Freeze type.
+   * The freeze type.
    * 
    * @example
    * ACL
@@ -119,7 +121,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   freezeType?: string;
   /**
    * @remarks
-   * Image URL address.
+   * The URL of the image.
    * 
    * @example
    * http://www.aliyuncs.com/test.jpg
@@ -127,7 +129,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Whether to copy.
+   * Indicates whether the task is copied.
    * 
    * @example
    * true
@@ -135,7 +137,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   isCopy?: boolean;
   /**
    * @remarks
-   * Job name.
+   * The task name.
    * 
    * @example
    * dhT20X2310
@@ -143,22 +145,24 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * Labels.
+   * The label details.
    */
   labelDetails?: GetOssCheckFreezeResultResponseBodyItemsLabelDetails[];
   /**
    * @remarks
-   * Image labels.
+   * The image labels.
    */
   labels?: string[];
   /**
    * @remarks
-   * Text labels.
+   * The text labels.
    */
   labels2?: string[];
   /**
    * @remarks
-   * Manual disposal status.
+   * The manual action status. Valid values:
+   * - FREEZE: Frozen.
+   * - UNFREEZE: Unfrozen.
    * 
    * @example
    * FREEZE
@@ -166,7 +170,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   manualFreezeAction?: string;
   /**
    * @remarks
-   * Disposal time.
+   * The action time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-08-09 12:00:00
@@ -174,7 +178,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   manualOperateTime?: string;
   /**
    * @remarks
-   * Operator.
+   * The operator who performed the action.
    * 
    * @example
    * xx
@@ -182,7 +186,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   manualOperator?: string;
   /**
    * @remarks
-   * File\\"s MD5.
+   * The MD5 hash of the file.
    * 
    * @example
    * 54416c9b159df4a60ae03c04ccb94cb5
@@ -190,7 +194,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * Further description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * success
@@ -198,7 +202,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Object name.
+   * The object name.
    * 
    * @example
    * 1713014531569_958.png.jpeg
@@ -206,7 +210,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   object?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * F0A594BB-FA7A-580F-AE9E-A4188E092823
@@ -214,7 +218,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Image risk level.
+   * The image risk level.
    * 
    * @example
    * high
@@ -222,7 +226,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * Overall risk level.
+   * The overall risk level.
    * 
    * @example
    * low
@@ -230,7 +234,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   riskLevel0?: string;
   /**
    * @remarks
-   * Text risk level.
+   * The text risk level.
    * 
    * @example
    * none
@@ -238,7 +242,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   riskLevel2?: string;
   /**
    * @remarks
-   * Details of the result.
+   * The scan result details.
    * 
    * @example
    * {}
@@ -246,7 +250,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   scanResult?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * audio_media_detection_01
@@ -254,7 +258,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 服务名称
@@ -262,7 +266,12 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * System disposal status.
+   * The system action status. Valid values:
+   * - FREEZING: Freezing in progress.
+   * - FREEZED: Frozen.
+   * - UNFREEZED: Unfrozen.
+   * - NONE: No action taken.
+   * - UNFREEZING: Unfreezing in progress.
    * 
    * @example
    * FREEZED
@@ -270,7 +279,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   sysDisposalStatus?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * P_BT3FHS
@@ -278,7 +287,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task URL.
+   * The task URL.
    * 
    * @example
    * http://www.aliyuncs.com/test.mp3
@@ -375,7 +384,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
 export class GetOssCheckFreezeResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -383,12 +392,12 @@ export class GetOssCheckFreezeResultResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Data of the current page.
+   * The data on the current page.
    */
   items?: GetOssCheckFreezeResultResponseBodyItems[];
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -396,7 +405,7 @@ export class GetOssCheckFreezeResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * F0A594BB-FA7A-580F-AE9E-A4188E092823
@@ -404,7 +413,7 @@ export class GetOssCheckFreezeResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 29

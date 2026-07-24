@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Bid.
+   * Bid。
    * 
    * @example
    * 26842
@@ -13,7 +13,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   bid?: string;
   /**
    * @remarks
-   * Whether a product has been activated on Alibaba Cloud.
+   * Indicates whether the service is activated on Alibaba Cloud.
    * 
    * @example
    * True
@@ -21,7 +21,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   buy?: boolean;
   /**
    * @remarks
-   * Commodity code.
+   * The commodity code.
    * 
    * @example
    * xxx
@@ -29,7 +29,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * Whether there is an outstanding payment.
+   * Indicates whether the account has an overdue payment.
    * 
    * @example
    * False
@@ -37,7 +37,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   indebt?: boolean;
   /**
    * @remarks
-   * Whether internal security is authorized.
+   * Indicates whether Security Center is authorized.
    * 
    * @example
    * True
@@ -45,7 +45,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   ramStatus?: string;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -53,7 +53,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether log analysis function is authorized.
+   * Indicates whether the log analysis feature is authorized.
    * 
    * @example
    * True

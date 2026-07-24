@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTuneProposalByIdRequest extends $dara.Model {
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * prop-xxxxxxxx
    */

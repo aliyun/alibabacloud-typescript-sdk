@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OssCheckResultListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Data of the current page.
+   * The name of the OSS bucket.
    * 
    * @example
    * tmp
@@ -13,7 +13,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * Service code.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Primary service.
+   * The audio and video detection type.
    * 
    * @example
    * audio
@@ -29,7 +29,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Whether to copy.
+   * The primary service.
    * 
    * @example
    * audio_media_detection
@@ -37,7 +37,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   copyFrom?: string;
   /**
    * @remarks
-   * Details of the result.
+   * The URL of the image.
    * 
    * @example
    * http://www.aliyuncs.com/test.jpg
@@ -45,7 +45,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Service name.
+   * Indicates whether the task is copied.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   isCopy?: boolean;
   /**
    * @remarks
-   * Image URL.
+   * The task name.
    * 
    * @example
    * dhT20X2310
@@ -61,17 +61,17 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * Further description of the error code.
+   * The image labels.
    */
   labels?: string[];
   /**
    * @remarks
-   * Job name.
+   * The text labels.
    */
   labels2?: string[];
   /**
    * @remarks
-   * Object name.
+   * The MD5 hash of the file.
    * 
    * @example
    * 54416c9b159df4a60ae03c04ccb94cb5
@@ -79,7 +79,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * Status code. 200 indicates success.
+   * The description of the error code.
    * 
    * @example
    * success
@@ -87,7 +87,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * OSS Bucket name.
+   * The object name.
    * 
    * @example
    * 1713014531569_958.png.jpeg
@@ -95,7 +95,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   object?: string;
   /**
    * @remarks
-   * Image labels.
+   * The result details.
    * 
    * @example
    * {}
@@ -103,7 +103,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   scanResult?: string;
   /**
    * @remarks
-   * File MD5.
+   * The service code.
    * 
    * @example
    * audio_media_detection_01
@@ -111,7 +111,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Task ID.
+   * The service name.
    * 
    * @example
    * 服务名称
@@ -119,7 +119,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Task URL.
+   * The task ID.
    * 
    * @example
    * P_XHDUS
@@ -127,7 +127,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Text labels.
+   * The task URL.
    * 
    * @example
    * http://www.aliyuncs.com/test.mp3
@@ -195,7 +195,7 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
 export class OssCheckResultListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+   * The authorization status.
    * 
    * @example
    * OK
@@ -203,7 +203,7 @@ export class OssCheckResultListResponseBody extends $dara.Model {
   authStatus?: string;
   /**
    * @remarks
-   * Page size.
+   * The current page number.
    * 
    * @example
    * 1
@@ -211,12 +211,12 @@ export class OssCheckResultListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Current page number.
+   * The data on the current page.
    */
   items?: OssCheckResultListResponseBodyItems[];
   /**
    * @remarks
-   * Total number of records.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -224,7 +224,7 @@ export class OssCheckResultListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Task status.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -232,7 +232,7 @@ export class OssCheckResultListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Authorization status.
+   * The total number of records.
    * 
    * @example
    * 10

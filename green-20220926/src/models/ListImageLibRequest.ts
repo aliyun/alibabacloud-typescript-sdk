@@ -5,12 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageLibRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The selected service identifier.
+   * 
+   * @example
+   * response_security_check
+   */
   serviceCode?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model {
   /**
    * @remarks
-   * Internationalization key.
+   * The internationalization key.
    * 
    * @example
    * xxx
@@ -13,12 +13,12 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
   i18nKey?: string;
   /**
    * @remarks
-   * List of keywords that are too long or too short.
+   * The list of keywords with illegal length (too long or too short).
    */
   illegalLengthKeywords?: string[];
   /**
    * @remarks
-   * Invalid keyword count.
+   * The number of invalid keywords.
    * 
    * @example
    * 1
@@ -26,12 +26,12 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
   invalidCount?: number;
   /**
    * @remarks
-   * List of invalid keywords
+   * The list of invalid keywords.
    */
   invalidKeywords?: string[];
   /**
    * @remarks
-   * The id of the keyword library.
+   * The keyword library ID.
    * 
    * @example
    * customxx_xxxx
@@ -39,7 +39,7 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
   libId?: string;
   /**
    * @remarks
-   * The progress percentage of the task.
+   * The task progress percentage.
    * 
    * @example
    * 100
@@ -47,7 +47,7 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
   progress?: number;
   /**
    * @remarks
-   * Duplicate keyword count
+   * The number of duplicate keywords.
    * 
    * @example
    * 1
@@ -55,12 +55,12 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
   repeatCount?: number;
   /**
    * @remarks
-   * List of duplicate keywords
+   * The list of duplicate keywords.
    */
   repeatKeywords?: string[];
   /**
    * @remarks
-   * The success count of keywords.
+   * The number of successful keywords.
    * 
    * @example
    * 8
@@ -68,7 +68,7 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
   successCount?: number;
   /**
    * @remarks
-   * The total count of keywords.
+   * The total count.
    * 
    * @example
    * 10
@@ -125,12 +125,12 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
 export class AddKeywordsToLibResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Result.
+   * The result.
    */
   keywordsResult?: AddKeywordsToLibResponseBodyDataKeywordsResult;
   /**
    * @remarks
-   * The id of the keyword library.
+   * The keyword library ID.
    * 
    * @example
    * customxx_xxxx
@@ -175,12 +175,12 @@ export class AddKeywordsToLibResponseBodyData extends $dara.Model {
 export class AddKeywordsToLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: AddKeywordsToLibResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

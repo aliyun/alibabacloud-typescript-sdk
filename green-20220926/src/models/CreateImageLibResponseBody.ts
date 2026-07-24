@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateImageLibResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the custom image library.
+   * 
    * @example
    * 138xxxxx
    */
@@ -31,27 +34,46 @@ export class CreateImageLibResponseBodyData extends $dara.Model {
 
 export class CreateImageLibResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code, which is consistent with the HTTP status code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateImageLibResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The further description of the error code.
+   * 
    * @example
    * success
    */
   msg?: string;
   /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */

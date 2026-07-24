@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAnswerImportProgressRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * alAxbbxxxx-xxx
    */

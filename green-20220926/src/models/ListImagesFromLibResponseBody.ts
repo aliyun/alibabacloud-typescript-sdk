@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImagesFromLibResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2022-11-30 16:30:29
@@ -13,7 +13,7 @@ export class ListImagesFromLibResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Image ID.
+   * The image ID.
    * 
    * @example
    * 112
@@ -21,7 +21,7 @@ export class ListImagesFromLibResponseBodyItems extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Image URL.
+   * The URL of the image.
    * 
    * @example
    * https://oss-cip-shanghai.oss-cn-shanghai.aliyuncs.com/image/upload/IMG_2123.jpg
@@ -29,7 +29,7 @@ export class ListImagesFromLibResponseBodyItems extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Thumbnail URL.
+   * The URL of the thumbnail.
    * 
    * @example
    * https://oss-cip-shanghai.oss-cn-shanghai.aliyuncs.com/image/upload/IMG_2123.jpg
@@ -65,7 +65,7 @@ export class ListImagesFromLibResponseBodyItems extends $dara.Model {
 export class ListImagesFromLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code, consistent with HTTP status.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -73,7 +73,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -89,12 +89,12 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Data of the current page.
+   * The data on the current page.
    */
   items?: ListImagesFromLibResponseBodyItems[];
   /**
    * @remarks
-   * Further description of the error code.
+   * The further description of the error code.
    * 
    * @example
    * OK
@@ -102,7 +102,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -110,7 +110,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -118,7 +118,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * The success flag.
    * 
    * @example
    * True
@@ -126,7 +126,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of images.
+   * The total number of images.
    * 
    * @example
    * 10

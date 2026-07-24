@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportKeywordRequest extends $dara.Model {
   /**
    * @remarks
-   * Keyword library ID.
+   * The keyword library ID.
    * 
    * @example
    * customxx_xxxx
@@ -13,12 +13,21 @@ export class ExportKeywordRequest extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The vocabulary encoding.
+   * 
+   * - desensitize: sensitive data masking vocabulary
+   * 
+   * @example
+   * desensitize
+   */
   tenantCode?: string;
   static names(): { [key: string]: string } {
     return {

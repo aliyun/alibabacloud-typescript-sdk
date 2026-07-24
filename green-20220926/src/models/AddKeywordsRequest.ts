@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class AddKeywordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The keywords to be added.
+   * The keywords. Separate multiple keywords with 
+   * .
    * 
    * @example
-   * keywords
+   * Keyword1\\nKeyword2
    */
   keywords?: string;
   /**
    * @remarks
-   * The name of the keyword file.
+   * The keyword file name.
    * 
    * @example
    * upload/1e5353c0-0d91-40ba-9d41-ae7abd3fe561.txt
@@ -21,7 +22,7 @@ export class AddKeywordsRequest extends $dara.Model {
   keywordsObject?: string;
   /**
    * @remarks
-   * The id of keyword library.
+   * The keyword library ID.
    * 
    * @example
    * customxx_xxxx
@@ -29,12 +30,21 @@ export class AddKeywordsRequest extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The library code.
+   * 
+   * - desensitize: masking library
+   * 
+   * @example
+   * desensitize
+   */
   tenantCode?: string;
   static names(): { [key: string]: string } {
     return {

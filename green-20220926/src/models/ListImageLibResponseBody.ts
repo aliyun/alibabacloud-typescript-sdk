@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageLibResponseBodyLibList extends $dara.Model {
   /**
    * @remarks
-   * Comment.
+   * The remarks.
    * 
    * @example
    * 备注
@@ -13,7 +13,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Exempt from inspection configuration.
+   * The review-free configuration.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   freeInspection?: number;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -29,7 +29,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -37,7 +37,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Number of images in the library.
+   * The number of images in the library.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   imageNum?: number;
   /**
    * @remarks
-   * Library ID.
+   * The image library ID.
    * 
    * @example
    * custom_xxxx
@@ -53,7 +53,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Library name.
+   * The image library name.
    * 
    * @example
    * 测试
@@ -95,7 +95,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
 export class ListImageLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code, consistent with HTTP status.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -103,7 +103,7 @@ export class ListImageLibResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -111,13 +111,20 @@ export class ListImageLibResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * List of image library information.
+   * The list of image library information.
    */
   libList?: ListImageLibResponseBodyLibList[];
+  /**
+   * @remarks
+   * The maximum number of libraries supported.
+   * 
+   * @example
+   * 5
+   */
   maxLibCount?: number;
   /**
    * @remarks
-   * Further description of the error code.
+   * The further description of the error code.
    * 
    * @example
    * OK
@@ -125,7 +132,7 @@ export class ListImageLibResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -133,7 +140,7 @@ export class ListImageLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * The success flag.
    * 
    * @example
    * True

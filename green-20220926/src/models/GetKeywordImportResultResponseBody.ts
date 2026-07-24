@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Internationalization key.
+   * The internationalization key.
    * 
    * @example
    * xxx
@@ -13,12 +13,12 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   i18nKey?: string;
   /**
    * @remarks
-   * List of keywords with illegal length (too long or too short).
+   * The list of keywords that are too long or too short.
    */
   illegalLengthKeywords?: string[];
   /**
    * @remarks
-   * Invalid count.
+   * The number of invalid keywords.
    * 
    * @example
    * 1
@@ -26,12 +26,12 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   invalidCount?: number;
   /**
    * @remarks
-   * List of invalid keywords.
+   * The list of invalid keywords.
    */
   invalidKeywords?: string[];
   /**
    * @remarks
-   * Keyword library ID.
+   * The keyword library ID.
    * 
    * @example
    * customxx_xxx
@@ -39,7 +39,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Task progress percentage.
+   * The task progress percentage.
    * 
    * @example
    * 100
@@ -47,7 +47,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * Repeat count.
+   * The number of duplicate keywords.
    * 
    * @example
    * 1
@@ -55,12 +55,12 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   repeatCount?: number;
   /**
    * @remarks
-   * List of repeated keywords.
+   * The list of duplicate keywords.
    */
   repeatKeywords?: string[];
   /**
    * @remarks
-   * Success count.
+   * The number of successfully imported keywords.
    * 
    * @example
    * 8
@@ -68,7 +68,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * Tips message.
+   * The prompt information.
    * 
    * @example
    * xxx
@@ -76,7 +76,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   tips?: string;
   /**
    * @remarks
-   * Total count.
+   * The total count.
    * 
    * @example
    * 10
@@ -135,7 +135,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
 export class GetKeywordImportResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -143,12 +143,12 @@ export class GetKeywordImportResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: GetKeywordImportResultResponseBodyData;
   /**
    * @remarks
-   * Further description of the error code.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -156,7 +156,7 @@ export class GetKeywordImportResultResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request, which can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -164,7 +164,7 @@ export class GetKeywordImportResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

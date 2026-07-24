@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Page number of the query result. Default is 1.
+   * The page number of the paginated query results. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ExportResultShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * End date.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -21,7 +21,7 @@ export class ExportResultShrinkRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Number of items per page in the query result.
+   * The number of entries per page in the paginated query results.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ExportResultShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Query condition.
+   * The query condition.
    * 
    * @example
    * {"TaskId":"P_11TL5T"}
@@ -37,7 +37,7 @@ export class ExportResultShrinkRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -45,12 +45,12 @@ export class ExportResultShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Sort field.
+   * The sort field.
    */
   sortShrink?: string;
   /**
    * @remarks
-   * Operation source.
+   * The operation source.
    * 
    * @example
    * disposal
@@ -58,7 +58,7 @@ export class ExportResultShrinkRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Start date.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19

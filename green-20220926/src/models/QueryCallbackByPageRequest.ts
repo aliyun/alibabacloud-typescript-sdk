@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCallbackByPageRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class QueryCallbackByPageRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class QueryCallbackByPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai

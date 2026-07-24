@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCallbackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Encryption algorithm.
+   * The encryption algorithm.
    * 
    * @example
    * SHA256
@@ -13,7 +13,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   cryptType?: string;
   /**
    * @remarks
-   * Whether there is an OSS detection task.
+   * Indicates whether an OSS detection task exists.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   existsOssCheckTask?: boolean;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2022-11-30 16:30:29
@@ -29,7 +29,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -37,7 +37,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 11234
@@ -45,7 +45,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * 回调通知
@@ -53,7 +53,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -61,7 +61,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result scope.
+   * The result scope.
    * 
    * @example
    * all
@@ -69,7 +69,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Seed.
+   * Seed。
    * 
    * @example
    * cb2MysbJTAAIf6gB3u4vpIEU-1ySnnf
@@ -77,7 +77,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   seed?: string;
   /**
    * @remarks
-   * UID.
+   * UID。
    * 
    * @example
    * 19964*****086772
@@ -85,7 +85,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * Callback URL.
+   * The callback URL.
    * 
    * @example
    * https://www.aliyuncs.com

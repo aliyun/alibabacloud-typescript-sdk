@@ -3,18 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAnswerSampleByPageResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The answer.
+   * 
+   * @example
+   * 答案
+   */
   answer?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2023-07-31 06:16:06
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 1666
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the proxy answer library.
+   * 
    * @example
    * custom_xxxx
    */
@@ -58,22 +74,38 @@ export class QueryAnswerSampleByPageResponseBodyItems extends $dara.Model {
 
 export class QueryAnswerSampleByPageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The data on the current page.
+   */
   items?: QueryAnswerSampleByPageResponseBodyItems[];
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 58
    */

@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ExportCipStatsRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to support monthly indexing. Values: -**true**: Supported. -**false**: Not supported.
+   * Specifies whether monthly indexing is supported. Valid values:
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -13,7 +15,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   byMonth?: boolean;
   /**
    * @remarks
-   * The end time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-04-16 09:00:00
@@ -21,7 +23,9 @@ export class ExportCipStatsRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Export type. Values: -**level**: Export by risk level. -**label**: Export by label.
+   * The export type. Valid values:
+   * - **level**: export by risk level.
+   * - **label**: export by label.
    * 
    * @example
    * label
@@ -29,7 +33,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   exportType?: string;
   /**
    * @remarks
-   * The label of the task to be exported.
+   * The task label to export.
    * 
    * @example
    * xx
@@ -37,7 +41,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -45,7 +49,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
@@ -53,7 +57,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * baselineCheck
@@ -61,7 +65,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The start time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-04-15 09:00:00
@@ -69,7 +73,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * Sub-account UID.
+   * The UID of the RAM user.
    * 
    * @example
    * 268220485413130979
@@ -77,7 +81,12 @@ export class ExportCipStatsRequest extends $dara.Model {
   subUid?: string;
   /**
    * @remarks
-   * Type, values: -**cip**: Content Security Invocation Count Statistics. -**risk_level**: Content Security Risk Level Statistics. -**content_moderation**: AI Safety Guardrail Content Compliance Risk Level and Label Statistics. -**sensitive_data**: AI Safety Guardrail Sensitive Data Risk Level and Label Statistics. -**prompt_attack**: AI Safety Guardrail Prompt Word Risk Level and Label Statistics.
+   * The type. Valid values:
+   * - **cip**: Content Moderation invocation volume statistics.
+   * - **risk_level**: Content Moderation risk level statistics.
+   * - **content_moderation**: AI safety guardrail content compliance risk level and tag statistics.
+   * - **sensitive_data**: AI safety guardrail sensitive data risk level and tag statistics.
+   * - **prompt_attack**: AI safety guardrail prompt risk level and tag statistics.
    * 
    * @example
    * risk_level

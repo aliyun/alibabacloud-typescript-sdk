@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ExportOssCheckStatRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to support monthly indexing. Values: -true: supported. -false: not supported.
+   * Specifies whether monthly indexing is supported. Valid values:
+   * - true: Supported.
+   * - false: Not supported.
    * 
    * @example
    * true
@@ -13,7 +15,7 @@ export class ExportOssCheckStatRequest extends $dara.Model {
   byMonth?: boolean;
   /**
    * @remarks
-   * End time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-03-11 10:00:00
@@ -21,7 +23,7 @@ export class ExportOssCheckStatRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * OSS detection task ID.
+   * The ID of the OSS scan task.
    * 
    * @example
    * P_UX0K5X
@@ -29,7 +31,7 @@ export class ExportOssCheckStatRequest extends $dara.Model {
   parentTaskId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -37,7 +39,7 @@ export class ExportOssCheckStatRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Start time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-03-10 10:00:00

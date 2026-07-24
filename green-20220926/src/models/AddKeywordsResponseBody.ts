@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   /**
    * @remarks
-   * Internationalization key.
+   * The internationalization key.
    * 
    * @example
    * xxx
@@ -13,12 +13,12 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   i18nKey?: string;
   /**
    * @remarks
-   * List of keywords that are too long or too short.
+   * The list of keywords with excessive or insufficient length.
    */
   illegalLengthKeywords?: string[];
   /**
    * @remarks
-   * Invalid keyword count
+   * The number of invalid keywords.
    * 
    * @example
    * 1
@@ -26,7 +26,7 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   invalidCount?: number;
   /**
    * @remarks
-   * List of invalid keywords
+   * The list of invalid keywords.
    */
   invalidKeywords?: string[];
   /**
@@ -39,7 +39,7 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * The progress percentage of the task.
+   * The task progress percentage.
    * 
    * @example
    * 100
@@ -47,7 +47,7 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * Duplicate keyword count
+   * The number of duplicate keywords.
    * 
    * @example
    * 1
@@ -55,12 +55,12 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   repeatCount?: number;
   /**
    * @remarks
-   * List of duplicate keywords
+   * The list of duplicate keywords.
    */
   repeatKeywords?: string[];
   /**
    * @remarks
-   * The success count of the keywords.
+   * The number of successful additions.
    * 
    * @example
    * 6
@@ -68,7 +68,7 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The tips.
+   * The prompt information.
    * 
    * @example
    * xxxxx
@@ -76,7 +76,7 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   tips?: string;
   /**
    * @remarks
-   * The total count of the keywords.
+   * The total count.
    * 
    * @example
    * 8
@@ -135,12 +135,12 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
 export class AddKeywordsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Result.
+   * The result.
    */
   keywordsResult?: AddKeywordsResponseBodyDataKeywordsResult;
   /**
    * @remarks
-   * The ID of the keyword library.
+   * The keyword library ID.
    * 
    * @example
    * customxx_xxxx
@@ -185,7 +185,7 @@ export class AddKeywordsResponseBodyData extends $dara.Model {
 export class AddKeywordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code. A return of 200 represents success.
+   * The error code.
    * 
    * @example
    * 200
@@ -193,12 +193,12 @@ export class AddKeywordsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: AddKeywordsResponseBodyData;
   /**
    * @remarks
-   * The message that is returned in response to the request.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -206,7 +206,7 @@ export class AddKeywordsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -214,7 +214,7 @@ export class AddKeywordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageLibRequest extends $dara.Model {
   /**
    * @remarks
-   * Comment information for the library.
+   * The remarks of the image library.
    * 
    * @example
    * 备注
@@ -13,7 +13,7 @@ export class UpdateImageLibRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Exemption from review configuration.
+   * The review-free configuration.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class UpdateImageLibRequest extends $dara.Model {
   freeInspection?: number;
   /**
    * @remarks
-   * Library ID.
+   * The ID of the image library.
    * 
    * @example
    * custom_xxxx
@@ -29,7 +29,7 @@ export class UpdateImageLibRequest extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Library name.
+   * The name of the image library.
    * 
    * @example
    * 测试图库
@@ -37,7 +37,7 @@ export class UpdateImageLibRequest extends $dara.Model {
   libName?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai

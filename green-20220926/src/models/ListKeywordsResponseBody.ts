@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListKeywordsResponseBodyDataItemsProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The properties.
+   * 
+   * @example
+   * xxx
+   */
   attribute?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,7 +35,7 @@ export class ListKeywordsResponseBodyDataItemsProperties extends $dara.Model {
 export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2023-06-03 14:43:03
@@ -36,7 +43,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2023-06-03 14:43:03
@@ -44,7 +51,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Primary key ID.
+   * The primary key ID.
    * 
    * @example
    * 112
@@ -52,7 +59,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Keyword library ID.
+   * The keyword library ID.
    * 
    * @example
    * custom_xxxx
@@ -60,16 +67,20 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   keywordLibId?: string;
   /**
    * @remarks
-   * Keyword data ID.
+   * The keyword data ID.
    * 
    * @example
    * 4205334
    */
   keywordMd5Id?: number;
+  /**
+   * @remarks
+   * The properties.
+   */
   properties?: ListKeywordsResponseBodyDataItemsProperties;
   /**
    * @remarks
-   * Keyword.
+   * The keyword.
    * 
    * @example
    * 测试词
@@ -114,7 +125,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
 export class ListKeywordsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -122,12 +133,12 @@ export class ListKeywordsResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Data of the current page.
+   * The data on the current page.
    */
   items?: ListKeywordsResponseBodyDataItems[];
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -135,7 +146,7 @@ export class ListKeywordsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries.
    * 
    * @example
    * 23
@@ -174,7 +185,7 @@ export class ListKeywordsResponseBodyData extends $dara.Model {
 export class ListKeywordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -182,12 +193,12 @@ export class ListKeywordsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: ListKeywordsResponseBodyData;
   /**
    * @remarks
-   * Further description of the error code.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -195,7 +206,7 @@ export class ListKeywordsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -203,7 +214,7 @@ export class ListKeywordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success flag.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportTextScanResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * End time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-03-11 10:00:00
@@ -13,12 +13,12 @@ export class ExportTextScanResultShrinkRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Query conditions.
+   * The query condition.
    */
   queryShrink?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -26,7 +26,7 @@ export class ExportTextScanResultShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Start time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-03-10 10:00:00

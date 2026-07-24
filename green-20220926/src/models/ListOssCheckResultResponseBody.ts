@@ -2,10 +2,90 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListOssCheckResultResponseBodyItemsLabelDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the label.
+   * 
+   * @example
+   * 影音娱乐类
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The label hit by the video frame.
+   * 
+   * @example
+   * logo_streaming
+   */
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      label: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOssCheckResultResponseBodyItemsLabelDetails2 extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the label.
+   * 
+   * @example
+   * 辱骂内容
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The label hit by the audio.
+   * 
+   * @example
+   * abuse
+   */
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      label: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Storage space.
+   * The OSS bucket.
    * 
    * @example
    * tmp
@@ -13,7 +93,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * Error code, consistent with HTTP status.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +101,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Audio and video detection type.
+   * The audio and video detection type.
    * 
    * @example
    * audio
@@ -29,7 +109,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Primary service.
+   * The primary service.
    * 
    * @example
    * audio_media_detection
@@ -37,7 +117,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   copyFrom?: string;
   /**
    * @remarks
-   * Freeze status.
+   * The freeze status.
    * 
    * @example
    * FREEZED
@@ -45,7 +125,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   freezeStatus?: string;
   /**
    * @remarks
-   * Freeze type.
+   * The freeze type.
    * 
    * @example
    * ACL
@@ -53,7 +133,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   freezeType?: string;
   /**
    * @remarks
-   * Image URL address.
+   * The URL of the image.
    * 
    * @example
    * http://www.aliyuncs.com/test.jpg
@@ -61,7 +141,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Whether to copy.
+   * Indicates whether the task is copied.
    * 
    * @example
    * true
@@ -69,7 +149,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   isCopy?: boolean;
   /**
    * @remarks
-   * Job name.
+   * The task name.
    * 
    * @example
    * dhT20X2310
@@ -77,17 +157,27 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * Image labels.
+   * The list of labels hit by video frames.
+   */
+  labelDetails?: ListOssCheckResultResponseBodyItemsLabelDetails[];
+  /**
+   * @remarks
+   * The list of labels hit by video audio.
+   */
+  labelDetails2?: ListOssCheckResultResponseBodyItemsLabelDetails2[];
+  /**
+   * @remarks
+   * The image labels.
    */
   labels?: string[];
   /**
    * @remarks
-   * Text labels.
+   * The text labels.
    */
   labels2?: string[];
   /**
    * @remarks
-   * File MD5.
+   * The MD5 hash of the file.
    * 
    * @example
    * 54416c9b159df4a60ae03c04ccb94cb5
@@ -95,7 +185,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * Further description of the error code.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -103,7 +193,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Object name.
+   * The object name.
    * 
    * @example
    * 1713014531569_958.png.jpeg
@@ -111,7 +201,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   object?: string;
   /**
    * @remarks
-   * Image risk level
+   * The image risk level.
    * 
    * @example
    * high
@@ -119,7 +209,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * Overall risk level
+   * The overall risk level.
    * 
    * @example
    * low
@@ -127,7 +217,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   riskLevel0?: string;
   /**
    * @remarks
-   * Text risk level
+   * The text risk level.
    * 
    * @example
    * none
@@ -135,7 +225,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   riskLevel2?: string;
   /**
    * @remarks
-   * Details of the result.
+   * The scan result details.
    * 
    * @example
    * {}
@@ -143,7 +233,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   scanResult?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * audio_media_detection_01
@@ -151,7 +241,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 服务名称
@@ -159,7 +249,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * EP6TI7_au_Zo25ITvCbkocNuF801QOQX
@@ -167,7 +257,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task URL.
+   * The task URL.
    * 
    * @example
    * http://www.aliyuncs.com/test.mp3
@@ -184,6 +274,8 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
       imageUrl: 'ImageUrl',
       isCopy: 'IsCopy',
       jobName: 'JobName',
+      labelDetails: 'LabelDetails',
+      labelDetails2: 'LabelDetails2',
       labels: 'Labels',
       labels2: 'Labels2',
       md5: 'Md5',
@@ -211,6 +303,8 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
       imageUrl: 'string',
       isCopy: 'boolean',
       jobName: 'string',
+      labelDetails: { 'type': 'array', 'itemType': ListOssCheckResultResponseBodyItemsLabelDetails },
+      labelDetails2: { 'type': 'array', 'itemType': ListOssCheckResultResponseBodyItemsLabelDetails2 },
       labels: { 'type': 'array', 'itemType': 'string' },
       labels2: { 'type': 'array', 'itemType': 'string' },
       md5: 'string',
@@ -228,6 +322,12 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.labelDetails)) {
+      $dara.Model.validateArray(this.labelDetails);
+    }
+    if(Array.isArray(this.labelDetails2)) {
+      $dara.Model.validateArray(this.labelDetails2);
+    }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
     }
@@ -245,7 +345,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
 export class ListOssCheckResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -253,12 +353,12 @@ export class ListOssCheckResultResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Data of the current page.
+   * The data on the current page.
    */
   items?: ListOssCheckResultResponseBodyItems[];
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -266,7 +366,7 @@ export class ListOssCheckResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -274,7 +374,7 @@ export class ListOssCheckResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 13

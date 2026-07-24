@@ -5,16 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * Category.
+   * The classification.
    * 
    * @example
    * guard-scene
    */
   classify?: string;
+  /**
+   * @remarks
+   * The protection type. Valid values:
+   * 
+   * - modelProtection: model protection.
+   * 
+   * - agentRealtimeProtection: agent real-time protection.
+   * 
+   * - agentBehaviorAudit: agent behavior audit.
+   * 
+   * @example
+   * modelProtection
+   */
   protectionType?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -22,7 +35,7 @@ export class ListServiceConfigsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
@@ -30,7 +43,7 @@ export class ListServiceConfigsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Usage status.
+   * The usage status.
    * 
    * @example
    * in

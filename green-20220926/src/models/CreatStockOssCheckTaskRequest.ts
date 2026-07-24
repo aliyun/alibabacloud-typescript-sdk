@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatStockOssCheckTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter configuration for each bucket. The value can be parsed as a JSON map. The key is the bucket name, and the value is the filter configuration, which includes prefix/suffix filters and a list of filter strings.
+   * 
+   * @example
+   * "{\\"test-bucket1\\":{\\"prefixFilterType\\":\\"include\\",\\"prefixFilters\\":[\\"test1\\"]},\\"test-bucket2\\":{\\"prefixFilterType\\":\\"exclude\\",\\"prefixFilters\\":[\\"test2\\"]}}"
+   */
   bucketPrefixFilterConfig?: string;
   /**
    * @remarks
-   * OSS buckets
+   * The storage buckets.
    * 
    * @example
    * [{\\"Bucket\\":\\"bucket01-test\\",\\"Region\\":\\"cn-beijing\\"}]
@@ -14,7 +21,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   buckets?: string;
   /**
    * @remarks
-   * Callback ID
+   * The notification callback ID.
    * 
    * @example
    * 1751
@@ -22,7 +29,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   callbackId?: string;
   /**
    * @remarks
-   * Flag for deduplicating against previously detected tasks.
+   * Specifies whether to deduplicate against historically scanned tasks.
    * 
    * @example
    * true
@@ -30,7 +37,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   distinctHistoryTasks?: boolean;
   /**
    * @remarks
-   * The end time of the task.
+   * The task end time. Format: `YYYY-MM-DD HH:mm:ss`.
    * 
    * @example
    * 2023-12-18 10:08:00
@@ -38,7 +45,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Execute date of scheduled task.
+   * The execution date of the scheduled task. The value is in integer format.
    * 
    * @example
    * 1
@@ -46,7 +53,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   executeDate?: number;
   /**
    * @remarks
-   * Execute time of scheduled task.
+   * The expected execution time of the scheduled task. Format: `HH:mm:ss-HH:mm:ss`.
    * 
    * @example
    * 01:09:30-01:19:30
@@ -54,7 +61,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   executeTime?: string;
   /**
    * @remarks
-   * Freeze indicator
+   * Specifies whether to freeze files.
    * 
    * @example
    * true
@@ -62,7 +69,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   freeze?: boolean;
   /**
    * @remarks
-   * Freeze High-Risk Images
+   * Specifies whether to freeze high-risk images.
    * 
    * @example
    * true
@@ -70,7 +77,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   freezeHighRisk1?: boolean;
   /**
    * @remarks
-   * Freeze High-Risk Audio and Text
+   * Specifies whether to freeze high-risk audio and text.
    * 
    * @example
    * true
@@ -78,7 +85,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   freezeHighRisk2?: boolean;
   /**
    * @remarks
-   * Freeze Medium-Risk Images
+   * Specifies whether to freeze medium-risk images.
    * 
    * @example
    * true
@@ -86,7 +93,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   freezeMediumRisk1?: boolean;
   /**
    * @remarks
-   * Freeze Medium-Risk Audio and Text
+   * Specifies whether to freeze medium-risk audio and text.
    * 
    * @example
    * true
@@ -94,7 +101,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   freezeMediumRisk2?: boolean;
   /**
    * @remarks
-   * Freeze Restore Path
+   * The path to which frozen files are transferred.
    * 
    * @example
    * test
@@ -102,7 +109,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   freezeRestorePath?: string;
   /**
    * @remarks
-   * Freeze type
+   * The freeze type.
    * 
    * @example
    * ACL
@@ -110,7 +117,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   freezeType?: string;
   /**
    * @remarks
-   * Indicator for scheduled task.
+   * Specifies whether the task is a scheduled scan task.
    * 
    * @example
    * false
@@ -118,7 +125,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   isInc?: boolean;
   /**
    * @remarks
-   * Media type.
+   * The media asset type.
    * 
    * @example
    * 1
@@ -126,7 +133,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   mediaType?: number;
   /**
    * @remarks
-   * Prefix filter type.
+   * The prefix filter type.
    * 
    * @example
    * all
@@ -134,7 +141,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   prefixFilterType?: string;
   /**
    * @remarks
-   * Prefix filters
+   * The prefixes.
    * 
    * @example
    * dir1,dir2
@@ -142,7 +149,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   prefixFilters?: string;
   /**
    * @remarks
-   * The priority of the task.
+   * The priority.
    * 
    * @example
    * 0
@@ -150,7 +157,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * Referer.
+   * Referer。
    * 
    * @example
    * https://www.aliyun.com
@@ -158,7 +165,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   referer?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -166,7 +173,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The scan limit of the task.
+   * The maximum number of files to scan.
    * 
    * @example
    * 10
@@ -174,7 +181,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   scanLimit?: number;
   /**
    * @remarks
-   * Indicator for scanning files without file type.
+   * Specifies whether to scan images without file extensions.
    * 
    * @example
    * true
@@ -182,7 +189,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   scanNoFileType?: boolean;
   /**
    * @remarks
-   * Scan resource type.
+   * The type of files to scan.
    * 
    * @example
    * 0
@@ -190,7 +197,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   scanResourceType?: string;
   /**
    * @remarks
-   * The code of scan service.
+   * The scan service code.
    * 
    * @example
    * baselineCheck
@@ -198,7 +205,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   scanService?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The task start time. Format: `YYYY-MM-DD HH:mm:ss`.
    * 
    * @example
    * 2023-12-17 10:08:00
@@ -206,7 +213,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Task Cycle
+   * The scheduling cycle.
    * 
    * @example
    * 0
@@ -214,15 +221,15 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   taskCycle?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
-   * image task 20240709101602004
+   * 图片任务 20240709101602004
    */
   taskName?: string;
   /**
    * @remarks
-   * Task type.
+   * The task type.
    * 
    * @example
    * batch

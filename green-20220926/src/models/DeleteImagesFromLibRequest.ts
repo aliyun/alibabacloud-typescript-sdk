@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImagesFromLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the images.
+   * The IDs of the images to delete.
    * 
    * @example
    * [158794]
@@ -13,7 +13,7 @@ export class DeleteImagesFromLibRequest extends $dara.Model {
   imageIds?: string;
   /**
    * @remarks
-   * Library ID.
+   * The ID of the image library.
    * 
    * @example
    * customxx_xxxx
@@ -21,7 +21,7 @@ export class DeleteImagesFromLibRequest extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBackupConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Evidence backup configuration.
+   * The evidence transfer configuration.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class UpdateBackupConfigRequest extends $dara.Model {
   backupConfig?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -21,7 +21,7 @@ export class UpdateBackupConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * video
@@ -29,7 +29,7 @@ export class UpdateBackupConfigRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * videoDetection

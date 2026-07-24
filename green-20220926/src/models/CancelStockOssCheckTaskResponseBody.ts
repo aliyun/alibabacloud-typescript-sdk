@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelStockOssCheckTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * True
@@ -13,7 +13,7 @@ export class CancelStockOssCheckTaskResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

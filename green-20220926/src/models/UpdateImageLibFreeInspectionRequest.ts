@@ -5,17 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageLibFreeInspectionRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration.
+   * The configuration.
+   * 
+   * @example
+   * {\\"2833014490001\\":0}
    */
   config?: { [key: string]: number };
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The selected service identifier.
+   * 
+   * @example
+   * response_security_check
+   */
   serviceCode?: string;
   static names(): { [key: string]: string } {
     return {

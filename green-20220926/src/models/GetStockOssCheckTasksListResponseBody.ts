@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStockOssCheckTasksListResponseBodyItemsConfigScanServiceInfos extends $dara.Model {
   /**
    * @remarks
-   * Primary service.
+   * The primary service.
    * 
    * @example
    * baselineCheck
@@ -13,7 +13,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfigScanServiceInfos ex
   copyFrom?: string;
   /**
    * @remarks
-   * Whether to copy.
+   * Indicates whether the service is a copy.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfigScanServiceInfos ex
   isCopy?: boolean;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * baselineCheck_01
@@ -29,7 +29,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfigScanServiceInfos ex
   serviceCode?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 通用基线检测
@@ -65,7 +65,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfigScanServiceInfos ex
 export class GetStockOssCheckTasksListResponseBodyItemsConfigUserFreezeConfig extends $dara.Model {
   /**
    * @remarks
-   * Storage path for transfer
+   * The transfer path.
    * 
    * @example
    * /backup
@@ -73,7 +73,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfigUserFreezeConfig ex
   freezeRestorePath?: string;
   /**
    * @remarks
-   * Freeze type
+   * The freeze type.
    * 
    * @example
    * ACL
@@ -105,7 +105,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfigUserFreezeConfig ex
 export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Model {
   /**
    * @remarks
-   * Callback notification ID
+   * The callback notification ID.
    * 
    * @example
    * 3942
@@ -113,7 +113,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   callbackId?: number;
   /**
    * @remarks
-   * Whether to deduplicate historical detected tasks.
+   * Specifies whether to deduplicate historically scanned tasks.
    * 
    * @example
    * false
@@ -121,7 +121,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   distinctHistoryTasks?: boolean;
   /**
    * @remarks
-   * End time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-10 11:42:31
@@ -129,7 +129,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   endTime?: string;
   /**
    * @remarks
-   * Scheduled task execution date.
+   * The execution date of the scheduled task.
    * 
    * @example
    * 1
@@ -137,7 +137,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   executeDate?: number;
   /**
    * @remarks
-   * Scheduled task expected execution time.
+   * The expected execution time of the scheduled task. Format: HH:mm:ss.
    * 
    * @example
    * 02:00:00
@@ -145,7 +145,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   executeTime?: string;
   /**
    * @remarks
-   * Whether to freeze
+   * Specifies whether to freeze files.
    * 
    * @example
    * false
@@ -153,7 +153,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   freeze?: boolean;
   /**
    * @remarks
-   * Freeze high-risk images
+   * Specifies whether to freeze high-risk images.
    * 
    * @example
    * true
@@ -161,7 +161,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   freezeHighRisk1?: boolean;
   /**
    * @remarks
-   * Freeze high-risk audio and text
+   * Specifies whether to freeze high-risk audio and text.
    * 
    * @example
    * true
@@ -169,7 +169,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   freezeHighRisk2?: boolean;
   /**
    * @remarks
-   * Freeze medium-risk images
+   * Specifies whether to freeze medium-risk images.
    * 
    * @example
    * true
@@ -177,7 +177,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   freezeMediumRisk1?: boolean;
   /**
    * @remarks
-   * Freeze medium-risk audio and text
+   * Specifies whether to freeze medium-risk audio and text.
    * 
    * @example
    * true
@@ -185,7 +185,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   freezeMediumRisk2?: boolean;
   /**
    * @remarks
-   * Storage path for transfer
+   * The transfer path.
    * 
    * @example
    * /backup
@@ -193,7 +193,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   freezeRestorePath?: string;
   /**
    * @remarks
-   * Freeze type
+   * The freeze type.
    * 
    * @example
    * ACL
@@ -201,7 +201,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   freezeType?: string;
   /**
    * @remarks
-   * Prefix filter type.
+   * The prefix filter type.
    * 
    * @example
    * all
@@ -209,12 +209,12 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   prefixFilterType?: string;
   /**
    * @remarks
-   * Prefixes.
+   * The prefix.
    */
   prefixFilters?: string[];
   /**
    * @remarks
-   * Priority.
+   * The priority.
    * 
    * @example
    * 1
@@ -222,7 +222,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   priority?: number;
   /**
    * @remarks
-   * Referer
+   * Referer。
    * 
    * @example
    * *
@@ -230,7 +230,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   referer?: string;
   /**
    * @remarks
-   * Scan limit quantity.
+   * The maximum number of files to scan.
    * 
    * @example
    * 10
@@ -238,7 +238,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   scanLimit?: number;
   /**
    * @remarks
-   * Whether to scan images without file extensions.
+   * Specifies whether to scan images without file name extensions.
    * 
    * @example
    * true
@@ -246,7 +246,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   scanNoFileType?: boolean;
   /**
    * @remarks
-   * Scanned file type.
+   * The type of files to scan.
    * 
    * @example
    * 0
@@ -254,17 +254,17 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   scanResourceType?: number;
   /**
    * @remarks
-   * Scan service code
+   * The scan service code.
    */
   scanService?: string[];
   /**
    * @remarks
-   * Scan service information
+   * The scan service information.
    */
   scanServiceInfos?: GetStockOssCheckTasksListResponseBodyItemsConfigScanServiceInfos[];
   /**
    * @remarks
-   * Start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-12-21 15:30:19
@@ -272,7 +272,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   startTime?: string;
   /**
    * @remarks
-   * Scheduling date.
+   * The scheduling date.
    * 
    * @example
    * 0
@@ -280,7 +280,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   taskCycle?: number;
   /**
    * @remarks
-   * Manual freeze configuration
+   * The manual freeze configuration.
    */
   userFreezeConfig?: GetStockOssCheckTasksListResponseBodyItemsConfigUserFreezeConfig;
   static names(): { [key: string]: string } {
@@ -365,7 +365,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
 export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Storage space.
+   * The OSS bucket.
    * 
    * @example
    * tmp
@@ -373,12 +373,12 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   buckets?: string;
   /**
    * @remarks
-   * Configuration items.
+   * The configuration item.
    */
   config?: GetStockOssCheckTasksListResponseBodyItemsConfig;
   /**
    * @remarks
-   * End time.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-10 11:42:31
@@ -386,7 +386,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Number of completed tasks.
+   * The number of completed tasks.
    * 
    * @example
    * 2
@@ -394,7 +394,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   finishNum?: number;
   /**
    * @remarks
-   * Whether it is a scheduled scan task
+   * Indicates whether the task is a scheduled scan task.
    * 
    * @example
    * false
@@ -402,7 +402,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   isInc?: boolean;
   /**
    * @remarks
-   * Next execution time of the scheduled task
+   * The next execution time of the scheduled task. Format: HH:mm:ss.
    * 
    * @example
    * 02:00:00
@@ -410,7 +410,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   lastExecuteDate?: string;
   /**
    * @remarks
-   * Media type.
+   * The media asset type.
    * 
    * @example
    * video
@@ -418,7 +418,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   mediaType?: number;
   /**
    * @remarks
-   * Last execution time of the scheduled task
+   * The last execution time of the scheduled task. Format: HH:mm:ss.
    * 
    * @example
    * 02:00:00
@@ -426,7 +426,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   nextExecuteDate?: string;
   /**
    * @remarks
-   * Total number of files in the bucket
+   * The total number of files in the bucket.
    * 
    * @example
    * 10
@@ -434,7 +434,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   objectNum?: number;
   /**
    * @remarks
-   * Number of scan tasks.
+   * The number of scan tasks.
    * 
    * @example
    * 10
@@ -442,7 +442,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   searchNum?: number;
   /**
    * @remarks
-   * Start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-12-21 15:30:19
@@ -450,7 +450,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Task status.
+   * The task status.
    * 
    * @example
    * 4
@@ -458,7 +458,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * P_XHDUS
@@ -466,7 +466,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task name.
+   * The task name.
    * 
    * @example
    * 图片定时任务20231205135716797
@@ -474,7 +474,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * Task type
+   * The task type.
    * 
    * @example
    * batch
@@ -535,7 +535,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
 export class GetStockOssCheckTasksListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -543,12 +543,12 @@ export class GetStockOssCheckTasksListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Data of the current page.
+   * The data on the current page.
    */
   items?: GetStockOssCheckTasksListResponseBodyItems[];
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -556,7 +556,7 @@ export class GetStockOssCheckTasksListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Backend-assigned ID used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -564,7 +564,7 @@ export class GetStockOssCheckTasksListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 10

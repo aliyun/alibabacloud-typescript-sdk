@@ -5,20 +5,36 @@ import { ConfigBucketPrefixFilterConfigValue } from "./ConfigBucketPrefixFilterC
 
 export class GetOssCheckTaskInfoResponseBodyConfigScanServiceInfos extends $dara.Model {
   /**
+   * @remarks
+   * The primary service.
+   * 
    * @example
    * oss_baselineCheck
    */
   copyFrom?: string;
   /**
+   * @remarks
+   * Indicates whether the service is a copy.
+   * 
    * @example
    * false
    */
   isCopy?: boolean;
   /**
+   * @remarks
+   * The service code.
+   * 
    * @example
    * oss_baselineCheck
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * 内容检测
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -49,11 +65,17 @@ export class GetOssCheckTaskInfoResponseBodyConfigScanServiceInfos extends $dara
 
 export class GetOssCheckTaskInfoResponseBodyConfigUserFreezeConfig extends $dara.Model {
   /**
+   * @remarks
+   * The transfer directory.
+   * 
    * @example
    * test
    */
   freezeRestorePath?: string;
   /**
+   * @remarks
+   * The freeze type.
+   * 
    * @example
    * ACL
    */
@@ -82,74 +104,124 @@ export class GetOssCheckTaskInfoResponseBodyConfigUserFreezeConfig extends $dara
 }
 
 export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The filter configuration for each bucket. The key is the bucket name, and the value is the filter configuration, which includes prefix and suffix filters and filter character lists.
+   */
   bucketPrefixFilterConfig?: { [key: string]: ConfigBucketPrefixFilterConfigValue };
   /**
+   * @remarks
+   * The callback notification ID.
+   * 
    * @example
    * 188
    */
   callbackId?: number;
   /**
+   * @remarks
+   * Indicates whether to deduplicate historically scanned tasks.
+   * 
    * @example
    * true
    */
   distinctHistoryTasks?: boolean;
   /**
+   * @remarks
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2025-07-09 10:30:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The execution date of the scheduled task. The value is an integer.
+   * 
    * @example
    * 1
    */
   executeDate?: number;
   /**
+   * @remarks
+   * The estimated execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2025-07-09 10:30:00
    */
   executeTime?: string;
   /**
+   * @remarks
+   * Indicates whether freezing is enabled.
+   * 
    * @example
    * true
    */
   freeze?: boolean;
   /**
+   * @remarks
+   * Indicates whether to freeze high-risk images.
+   * 
    * @example
    * true
    */
   freezeHighRisk1?: boolean;
   /**
+   * @remarks
+   * Indicates whether to freeze high-risk audio and text.
+   * 
    * @example
    * true
    */
   freezeHighRisk2?: boolean;
   /**
+   * @remarks
+   * Indicates whether to freeze medium-risk images.
+   * 
    * @example
    * true
    */
   freezeMediumRisk1?: boolean;
   /**
+   * @remarks
+   * Indicates whether to freeze medium-risk audio and text.
+   * 
    * @example
    * false
    */
   freezeMediumRisk2?: boolean;
   /**
+   * @remarks
+   * The transfer path.
+   * 
    * @example
    * test
    */
   freezeRestorePath?: string;
   /**
+   * @remarks
+   * The freeze type.
+   * 
    * @example
    * ACL
    */
   freezeType?: string;
   /**
+   * @remarks
+   * The prefix filter type.
+   * 
    * @example
    * all
    */
   prefixFilterType?: string;
+  /**
+   * @remarks
+   * The prefixes.
+   */
   prefixFilters?: string[];
   /**
+   * @remarks
+   * The priority.
+   * 
    * @example
    * 1
    */
@@ -163,32 +235,59 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
    */
   referer?: string;
   /**
+   * @remarks
+   * The scan limit.
+   * 
    * @example
    * 100
    */
   scanLimit?: number;
   /**
+   * @remarks
+   * Indicates whether to scan images without file extensions.
+   * 
    * @example
    * true
    */
   scanNoFileType?: boolean;
   /**
+   * @remarks
+   * The type of files to scan.
+   * 
    * @example
    * 0
    */
   scanResourceType?: number;
+  /**
+   * @remarks
+   * The scan service code.
+   */
   scanService?: string[];
+  /**
+   * @remarks
+   * The scan service information.
+   */
   scanServiceInfos?: GetOssCheckTaskInfoResponseBodyConfigScanServiceInfos[];
   /**
+   * @remarks
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2023-08-21 16:08:38
    */
   startTime?: string;
   /**
+   * @remarks
+   * The scheduling date.
+   * 
    * @example
    * 1
    */
   taskCycle?: number;
+  /**
+   * @remarks
+   * The user freeze configuration.
+   */
   userFreezeConfig?: GetOssCheckTaskInfoResponseBodyConfigUserFreezeConfig;
   static names(): { [key: string]: string } {
     return {
@@ -276,73 +375,126 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
 
 export class GetOssCheckTaskInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The OSS buckets.
+   * 
    * @example
    * [{\\"Bucket\\":\\"aileshijie\\",\\"Region\\":\\"cn-hangzhou\\"}]
    */
   buckets?: string;
+  /**
+   * @remarks
+   * The configuration item.
+   */
   config?: GetOssCheckTaskInfoResponseBodyConfig;
   /**
+   * @remarks
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2025-07-09 10:30:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The number of completed tasks.
+   * 
    * @example
    * 56
    */
   finishNum?: number;
   /**
+   * @remarks
+   * Indicates whether this is a scheduled scan task.
+   * 
    * @example
    * false
    */
   isInc?: boolean;
   /**
+   * @remarks
+   * The next execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2025-07-09 10:30:00
    */
   lastExecuteDate?: string;
   /**
+   * @remarks
+   * The media asset type.
+   * 
    * @example
    * 1
    */
   mediaType?: number;
   /**
+   * @remarks
+   * The previous execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2025-07-08 10:30:00
    */
   nextExecuteDate?: string;
   /**
+   * @remarks
+   * The total number of files in the bucket.
+   * 
    * @example
    * 100
    */
   objectNum?: number;
   /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of scan tasks.
+   * 
    * @example
    * 100
    */
   searchNum?: number;
   /**
+   * @remarks
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2023-08-21 16:08:38
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * Success
    */
   status?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * xxxx-xxx
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * 文档存量任务 20240914100517757
+   */
   taskName?: string;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * increment
    */

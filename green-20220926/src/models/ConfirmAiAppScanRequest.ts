@@ -2,10 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetBucketsListRequest extends $dara.Model {
+export class ConfirmAiAppScanRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * The commodity code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The ID of the region where the application resides.
    * 
    * @example
    * cn-shanghai
@@ -13,12 +23,14 @@ export class GetBucketsListRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      commodityCode: 'CommodityCode',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      commodityCode: 'string',
       regionId: 'string',
     };
   }

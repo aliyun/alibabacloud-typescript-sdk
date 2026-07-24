@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopyServiceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -13,7 +13,7 @@ export class CopyServiceConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * text
@@ -21,7 +21,7 @@ export class CopyServiceConfigRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * nickname_detection
@@ -29,10 +29,10 @@ export class CopyServiceConfigRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Service description
+   * The service description.
    * 
    * @example
-   * test
+   * 服务备注
    */
   serviceDesc?: string;
   /**
@@ -40,7 +40,7 @@ export class CopyServiceConfigRequest extends $dara.Model {
    * The service name.
    * 
    * @example
-   * test_name
+   * 用户昵称检测
    */
   serviceName?: string;
   static names(): { [key: string]: string } {

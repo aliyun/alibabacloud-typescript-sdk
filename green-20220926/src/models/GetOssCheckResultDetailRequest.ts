@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckResultDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Bucket name.
+   * The storage bucket.
    * 
    * @example
    * oss-tmp
@@ -13,7 +13,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * Media type.
+   * The media asset type.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   mediaType?: number;
   /**
    * @remarks
-   * Object name.
+   * The object name.
    * 
    * @example
    * 1748396909030.jpg
@@ -29,7 +29,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   object?: string;
   /**
    * @remarks
-   * Parent task ID.
+   * The parent task ID.
    * 
    * @example
    * P_RZQ66T
@@ -37,7 +37,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   parentTaskId?: string;
   /**
    * @remarks
-   * Query request ID.
+   * The request ID of the query.
    * 
    * @example
    * 62E97001-1255-50A9-8E1E-4FD05473D952
@@ -45,7 +45,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   queryRequestId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -53,7 +53,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * audio_media_detection_01

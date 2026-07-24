@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKeywordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned status code.
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteKeywordResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * True
@@ -21,7 +21,7 @@ export class DeleteKeywordResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Response message for this request.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class DeleteKeywordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

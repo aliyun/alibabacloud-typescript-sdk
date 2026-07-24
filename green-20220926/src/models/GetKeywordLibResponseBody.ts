@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKeywordLibResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Last modified time.
+   * The last modification time.
    * 
    * @example
    * 2024-01-29 10:26:00
@@ -13,7 +13,7 @@ export class GetKeywordLibResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Number of keywords.
+   * The number of keywords.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class GetKeywordLibResponseBodyData extends $dara.Model {
   keywordCount?: string;
   /**
    * @remarks
-   * Keyword library ID.
+   * The keyword library ID.
    * 
    * @example
    * customxx_xxx
@@ -29,15 +29,15 @@ export class GetKeywordLibResponseBodyData extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Library name
+   * The library name.
    * 
    * @example
-   * 测试词库
+   * TestLibrary.
    */
   libName?: string;
   /**
    * @remarks
-   * Primary account ID
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1825457112123838
@@ -75,7 +75,7 @@ export class GetKeywordLibResponseBodyData extends $dara.Model {
 export class GetKeywordLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -83,12 +83,12 @@ export class GetKeywordLibResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data content.
+   * The returned data.
    */
   data?: GetKeywordLibResponseBodyData;
   /**
    * @remarks
-   * Further description of the error code.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -96,7 +96,7 @@ export class GetKeywordLibResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -104,7 +104,7 @@ export class GetKeywordLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckStatResponseBodyBarChartY extends $dara.Model {
   /**
    * @remarks
-   * Data.
+   * The data.
    */
   data?: number[];
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * document_detection
@@ -45,12 +45,12 @@ export class GetOssCheckStatResponseBodyBarChartY extends $dara.Model {
 export class GetOssCheckStatResponseBodyBarChart extends $dara.Model {
   /**
    * @remarks
-   * X values of the coordinates.
+   * The X value of the coordinate point.
    */
   x?: string[];
   /**
    * @remarks
-   * Y values of the coordinates.
+   * The Y value of the coordinate point.
    */
   y?: GetOssCheckStatResponseBodyBarChartY[];
   static names(): { [key: string]: string } {
@@ -85,12 +85,12 @@ export class GetOssCheckStatResponseBodyBarChart extends $dara.Model {
 export class GetOssCheckStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Bar chart
+   * The bar chart data.
    */
   barChart?: GetOssCheckStatResponseBodyBarChart;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

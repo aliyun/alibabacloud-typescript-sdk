@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ExportResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    * 
    * @example
    * https://oss-cip-shanghai.oss-cn-shanghai.aliyuncs.com/console_data/production/scanResult/osscheck/ossCheckResult_aliiGGXhSMvmIvsS7Lrl3LaUZ-1A9%24oZ.xlsx
@@ -21,7 +21,7 @@ export class ExportResultResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Further description of the error code.
+   * The description of the error code.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class ExportResultResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -37,7 +37,7 @@ export class ExportResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success flag.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

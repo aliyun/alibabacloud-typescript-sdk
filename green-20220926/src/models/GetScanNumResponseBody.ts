@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScanNumResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Upper limit of the quantity.
+   * The upper limit on the number.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class GetScanNumResponseBody extends $dara.Model {
   limitNumber?: number;
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -21,7 +21,7 @@ export class GetScanNumResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of files pending inspection.
+   * The total number of files pending detection.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class GetScanNumResponseBody extends $dara.Model {
   scanNumber?: number;
   /**
    * @remarks
-   * Total number of files.
+   * The total number of files.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class GetScanNumResponseBody extends $dara.Model {
   sumNumber?: number;
   /**
    * @remarks
-   * Whether it is a whitelist user.
+   * Indicates whether the user is a whitelisted user.
    * 
    * @example
    * True

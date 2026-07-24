@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateOssCheckResultsFeedBackRequest extends $dara.Model {
   /**
+   * @remarks
+   * Feedback.
+   * 
    * @example
    * misreport
    */
   feedback?: string;
   /**
+   * @remarks
+   * The request ID to query.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   queryRequestId?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * baselineCheck
    */
   serviceCode?: string;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * P_7SCUK8
    */

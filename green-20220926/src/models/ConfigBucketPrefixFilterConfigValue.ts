@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConfigBucketPrefixFilterConfigValue extends $dara.Model {
+  /**
+   * @remarks
+   * The prefix filter type.
+   * 
+   * @example
+   * all
+   */
   prefixFilterType?: string;
+  /**
+   * @remarks
+   * The prefix list.
+   */
   prefixFilters?: string[];
   static names(): { [key: string]: string } {
     return {

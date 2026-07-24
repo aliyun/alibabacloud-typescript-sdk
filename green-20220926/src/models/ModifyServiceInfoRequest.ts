@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyServiceInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -13,7 +13,7 @@ export class ModifyServiceInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * image
@@ -21,7 +21,7 @@ export class ModifyServiceInfoRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * baselineCheck
@@ -29,7 +29,7 @@ export class ModifyServiceInfoRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Service description.
+   * The service description.
    * 
    * @example
    * 描述
@@ -37,7 +37,7 @@ export class ModifyServiceInfoRequest extends $dara.Model {
   serviceDesc?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * 通用基线检测

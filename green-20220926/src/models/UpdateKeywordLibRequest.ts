@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKeywordLibRequest extends $dara.Model {
   /**
    * @remarks
-   * Library ID.
+   * The ID of the keyword library.
    * 
    * @example
    * custom_xxxx
@@ -13,20 +13,29 @@ export class UpdateKeywordLibRequest extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Keyword library name.
+   * The name of the keyword library.
    * 
    * @example
-   * 测试库
+   * TestLibrary.
    */
   libName?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The keyword library code.
+   * 
+   * - desensitize: desensitization keyword library
+   * 
+   * @example
+   * desensitize
+   */
   tenantCode?: string;
   static names(): { [key: string]: string } {
     return {

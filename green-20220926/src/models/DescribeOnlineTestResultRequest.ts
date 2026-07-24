@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOnlineTestResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * image
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The service code.
+   * 
    * @example
-   * VideoModeration
+   * videoDetection
    */
   serviceCode?: string;
   /**
+   * @remarks
+   * The ID of the detection task.
+   * 
    * @example
    * xxxxx-xxxxx
    */

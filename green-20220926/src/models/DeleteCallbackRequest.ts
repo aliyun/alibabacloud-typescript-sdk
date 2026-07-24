@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCallbackRequest extends $dara.Model {
   /**
    * @remarks
-   * callback id.
+   * The ID of the message notification data.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteCallbackRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-shanghai

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKeywordsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListKeywordsShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Library ID.
+   * The keyword library ID.
    * 
    * @example
    * custom_xxxx
@@ -21,7 +21,7 @@ export class ListKeywordsShrinkRequest extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListKeywordsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -37,13 +37,25 @@ export class ListKeywordsShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Sort field.
+   * The sort field.
+   * 
+   * @example
+   * {\\"GmtCreate\\":\\"desc\\"}
    */
   sortShrink?: string;
+  /**
+   * @remarks
+   * The keyword library code. Valid values:
+   * 
+   * - desensitize: desensitization keyword library.
+   * 
+   * @example
+   * desensitize
+   */
   tenantCode?: string;
   /**
    * @remarks
-   * Keyword.
+   * The keyword.
    * 
    * @example
    * 测试词
