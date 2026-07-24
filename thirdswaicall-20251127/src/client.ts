@@ -30,6 +30,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发起实时外呼
+   * 
+   * @param request - CreateCallOutboundInstantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCallOutboundInstantResponse
+   */
+  async createCallOutboundInstantWithOptions(request: $_model.CreateCallOutboundInstantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCallOutboundInstantResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.calledNumber)) {
+      body["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!$dara.isNull(request.customerName)) {
+      body["CustomerName"] = request.customerName;
+    }
+
+    if (!$dara.isNull(request.encryptCall)) {
+      body["EncryptCall"] = request.encryptCall;
+    }
+
+    if (!$dara.isNull(request.promptVariables)) {
+      body["PromptVariables"] = request.promptVariables;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCallOutboundInstant",
+      version: "2025-11-27",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCallOutboundInstantResponse>(await this.callApi(params, req, runtime), new $_model.CreateCallOutboundInstantResponse({}));
+  }
+
+  /**
+   * 发起实时外呼
+   * 
+   * @param request - CreateCallOutboundInstantRequest
+   * @returns CreateCallOutboundInstantResponse
+   */
+  async createCallOutboundInstant(request: $_model.CreateCallOutboundInstantRequest): Promise<$_model.CreateCallOutboundInstantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCallOutboundInstantWithOptions(request, runtime);
+  }
+
+  /**
    * 查询当前任务的并发数
    * 
    * @param request - QueryTaskConcurrencyRequest

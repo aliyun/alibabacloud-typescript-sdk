@@ -1,6 +1,10 @@
+export { CreateCallOutboundInstantResponseBodyData } from './CreateCallOutboundInstantResponseBody';
 export { QueryTaskConcurrencyResponseBodyData } from './QueryTaskConcurrencyResponseBody';
 export { ReadOutboundTaskCallListResponseBodyRecordsDialogueList } from './ReadOutboundTaskCallListResponseBody';
 export { ReadOutboundTaskCallListResponseBodyRecords } from './ReadOutboundTaskCallListResponseBody';
+export { CreateCallOutboundInstantRequest } from './CreateCallOutboundInstantRequest';
+export { CreateCallOutboundInstantResponseBody } from './CreateCallOutboundInstantResponseBody';
+export { CreateCallOutboundInstantResponse } from './CreateCallOutboundInstantResponse';
 export { QueryTaskConcurrencyRequest } from './QueryTaskConcurrencyRequest';
 export { QueryTaskConcurrencyResponseBody } from './QueryTaskConcurrencyResponseBody';
 export { QueryTaskConcurrencyResponse } from './QueryTaskConcurrencyResponse';

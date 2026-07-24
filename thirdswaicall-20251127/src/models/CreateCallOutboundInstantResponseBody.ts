@@ -2,35 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryTaskConcurrencyResponseBodyData extends $dara.Model {
+/**
+ */
+export class CreateCallOutboundInstantResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 5
+   * call_123456
    */
-  availableConcurrency?: number;
+  callId?: string;
   /**
    * @example
-   * 5
+   * CALLING
    */
-  currentConcurrency?: number;
+  callStatus?: string;
   /**
    * @example
-   * 5
+   * OK
    */
-  maxConcurrency?: number;
+  message?: string;
+  /**
+   * @example
+   * 9B19DF17-D5C4-5893-B8FF-4EBAADCDC6A1
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      availableConcurrency: 'AvailableConcurrency',
-      currentConcurrency: 'CurrentConcurrency',
-      maxConcurrency: 'MaxConcurrency',
+      callId: 'CallId',
+      callStatus: 'CallStatus',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      availableConcurrency: 'number',
-      currentConcurrency: 'number',
-      maxConcurrency: 'number',
+      callId: 'string',
+      callStatus: 'string',
+      message: 'string',
+      requestId: 'string',
     };
   }
 
@@ -43,9 +52,9 @@ export class QueryTaskConcurrencyResponseBodyData extends $dara.Model {
   }
 }
 
-export class QueryTaskConcurrencyResponseBody extends $dara.Model {
+export class CreateCallOutboundInstantResponseBody extends $dara.Model {
   code?: string;
-  data?: QueryTaskConcurrencyResponseBodyData;
+  data?: CreateCallOutboundInstantResponseBodyData;
   message?: string;
   requestId?: string;
   success?: boolean;
@@ -66,7 +75,7 @@ export class QueryTaskConcurrencyResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: QueryTaskConcurrencyResponseBodyData,
+      data: CreateCallOutboundInstantResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
