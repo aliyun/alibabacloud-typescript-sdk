@@ -38,6 +38,7 @@ export { DeleteRuleResponseBodyMessages } from './DeleteRuleResponseBody';
 export { DeleteRuleV4ResponseBodyMessages } from './DeleteRuleV4responseBody';
 export { DeleteSchemeTaskConfigResponseBodyMessages } from './DeleteSchemeTaskConfigResponseBody';
 export { ExecuteAgentResponseBodyData } from './ExecuteAgentResponseBody';
+export { GetAgentTaskResultResponseBodyDataDialogues } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseFieldResponse } from './GetAgentTaskResultResponseBody';

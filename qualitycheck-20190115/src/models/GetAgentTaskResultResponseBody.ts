@@ -2,13 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetAgentTaskResultResponseBodyDataDialogues extends $dara.Model {
+  begin?: number;
+  emotionValue?: number;
+  end?: number;
+  hourMinSec?: string;
+  role?: string;
+  speechRate?: number;
+  words?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'Begin',
+      emotionValue: 'EmotionValue',
+      end: 'End',
+      hourMinSec: 'HourMinSec',
+      role: 'Role',
+      speechRate: 'SpeechRate',
+      words: 'Words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      emotionValue: 'number',
+      end: 'number',
+      hourMinSec: 'string',
+      role: 'string',
+      speechRate: 'number',
+      words: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse extends $dara.Model {
   /**
    * @remarks
    * The result returned by the large language model.
    * 
    * @example
-   * 175/xl面料摸着很舒服,穿起来看着也挺修身的挺好的好衣服超好看,质量手感没得说一级棒,很满意的一次购物。
+   * 175/xl the fabric feels very comfortable, looks slim when worn, great clothes super good-looking, quality and feel are top-notch, very satisfied with this purchase.
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -35,7 +76,7 @@ export class GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse ex
 export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList extends $dara.Model {
   /**
    * @remarks
-   * The property name.
+   * The field name.
    * 
    * @example
    * phone
@@ -51,12 +92,12 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList 
    * The reasoning for the judgment.
    * 
    * @example
-   * 通过客服第一句话判断
+   * Determined by the first sentence of the agent.
    */
   remarks?: string;
   /**
    * @remarks
-   * The property value.
+   * The field value.
    * 
    * @example
    * 1234561
@@ -95,7 +136,7 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList 
 export class GetAgentTaskResultResponseBodyDataResponseFieldResponse extends $dara.Model {
   /**
    * @remarks
-   * The list of properties.
+   * The list of fields.
    */
   fieldVoList?: GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList[];
   static names(): { [key: string]: string } {
@@ -128,12 +169,12 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
    * The inspection dimension.
    * 
    * @example
-   * 服务态度
+   * Service attitude.
    */
   dimension?: string;
   /**
    * @remarks
-   * Indicates whether a match is found.
+   * Indicates whether the tag is matched.
    * 
    * @example
    * true
@@ -149,7 +190,7 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
    * The reasoning for the judgment.
    * 
    * @example
-   * 通过客服第一句话判断
+   * Determined by the first sentence of the agent.
    */
   remarks?: string;
   static names(): { [key: string]: string } {
@@ -215,15 +256,15 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
 export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCategoryVoList extends $dara.Model {
   /**
    * @remarks
-   * The label dimension.
+   * The tag dimension.
    * 
    * @example
-   * 客户意图
+   * Customer intent.
    */
   dimension?: string;
   /**
    * @remarks
-   * Indicates whether a match is found.
+   * Indicates whether the tag is matched.
    * 
    * @example
    * true
@@ -239,7 +280,7 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCat
    * The reasoning for the judgment.
    * 
    * @example
-   * 通过客服第一句话判断
+   * Determined by the first sentence of the agent.
    */
   remarks?: string;
   /**
@@ -285,7 +326,7 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCat
 export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse extends $dara.Model {
   /**
    * @remarks
-   * The list of labels.
+   * The list of tags.
    */
   tagCategoryVoList?: GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCategoryVoList[];
   static names(): { [key: string]: string } {
@@ -320,7 +361,7 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
   customerPromptResponse?: GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse;
   /**
    * @remarks
-   * The property extraction result.
+   * The field extraction result.
    */
   fieldResponse?: GetAgentTaskResultResponseBodyDataResponseFieldResponse;
   /**
@@ -373,6 +414,8 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
 }
 
 export class GetAgentTaskResultResponseBodyData extends $dara.Model {
+  dialogues?: GetAgentTaskResultResponseBodyDataDialogues[];
+  errorMessage?: string;
   /**
    * @remarks
    * The number of input tokens.
@@ -399,7 +442,7 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
   outputTokens?: string;
   /**
    * @remarks
-   * The result of the computing task.
+   * The result of the computation task.
    */
   response?: GetAgentTaskResultResponseBodyDataResponse;
   /**
@@ -457,6 +500,8 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
   vid?: string;
   static names(): { [key: string]: string } {
     return {
+      dialogues: 'Dialogues',
+      errorMessage: 'ErrorMessage',
       inputTokens: 'InputTokens',
       llmRequestId: 'LlmRequestId',
       outputTokens: 'OutputTokens',
@@ -472,6 +517,8 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dialogues: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataDialogues },
+      errorMessage: 'string',
       inputTokens: 'string',
       llmRequestId: 'string',
       outputTokens: 'string',
@@ -486,6 +533,9 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dialogues)) {
+      $dara.Model.validateArray(this.dialogues);
+    }
     if(this.response && typeof (this.response as any).validate === 'function') {
       (this.response as any).validate();
     }
@@ -529,7 +579,7 @@ export class GetAgentTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. You can use this field to determine whether the request was successful:
+   * Indicates whether the request was successful. You can use this field to determine whether the request succeeded:
    * 
    * - **true**: The request was successful.
    * - **false/null**: The request failed.

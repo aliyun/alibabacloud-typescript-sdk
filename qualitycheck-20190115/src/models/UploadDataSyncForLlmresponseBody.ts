@@ -249,12 +249,14 @@ export class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit e
 export class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo extends $dara.Model {
   conditionInfo?: UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo;
   hit?: UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit;
+  name?: string;
   rid?: string;
   tid?: string;
   static names(): { [key: string]: string } {
     return {
       conditionInfo: 'ConditionInfo',
       hit: 'Hit',
+      name: 'Name',
       rid: 'Rid',
       tid: 'Tid',
     };
@@ -264,6 +266,7 @@ export class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo exte
     return {
       conditionInfo: UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo,
       hit: UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit,
+      name: 'string',
       rid: 'string',
       tid: 'string',
     };
@@ -372,10 +375,38 @@ export class UploadDataSyncForLLMResponseBodyData extends $dara.Model {
 }
 
 export class UploadDataSyncForLLMResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result code. A value of 200 indicates success. Other values indicate failure. You can use this field to determine the cause of failure.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   data?: UploadDataSyncForLLMResponseBodyData;
+  /**
+   * @remarks
+   * The error message if the request fails. The value is **successful** if the request succeeds.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3CEA0495-341B-4482-9AD9-8191EF4***
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true: The request was successful. false/null: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -276,6 +276,7 @@ export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfo extends $d
   conditionInfo?: UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo;
   hit?: UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHit;
   llmResponse?: string;
+  name?: string;
   rid?: string;
   tid?: string;
   static names(): { [key: string]: string } {
@@ -283,6 +284,7 @@ export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfo extends $d
       conditionInfo: 'ConditionInfo',
       hit: 'Hit',
       llmResponse: 'LlmResponse',
+      name: 'Name',
       rid: 'Rid',
       tid: 'Tid',
     };
@@ -293,6 +295,7 @@ export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfo extends $d
       conditionInfo: UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo,
       hit: UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHit,
       llmResponse: 'string',
+      name: 'string',
       rid: 'string',
       tid: 'string',
     };
@@ -409,7 +412,7 @@ export class UploadDataSyncResponseBodyData extends $dara.Model {
 export class UploadDataSyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result `code`. A value of **200** indicates that the request was successful. Other values indicate failure. Use this field to identify the cause of the failure.
+   * The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of failure.
    * 
    * @example
    * 200
@@ -418,7 +421,7 @@ export class UploadDataSyncResponseBody extends $dara.Model {
   data?: UploadDataSyncResponseBodyData;
   /**
    * @remarks
-   * The response message. If the request succeeds, the value is **successful**. Otherwise, this parameter provides error details.
+   * The error details when an error occurs. The value is **successful** when the request succeeds.
    * 
    * @example
    * successful
@@ -426,7 +429,7 @@ export class UploadDataSyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The `request ID`.
+   * The request ID.
    * 
    * @example
    * 4987D326-83D9-4A42-B9A5-0B27F9B***
@@ -434,7 +437,7 @@ export class UploadDataSyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the request succeeded. `true` indicates success; `false` or `null` indicates failure.
+   * Indicates whether the request was successful. Valid values: true and false/null.
    * 
    * @example
    * true

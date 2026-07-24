@@ -10,7 +10,7 @@ export class UploadDataSyncRequest extends $dara.Model {
   baseMeAgentId?: number;
   /**
    * @remarks
-   * A JSON string that contains the custom parameters for the operation. See the **jsonStr attributes** section for details.
+   * A JSON string that contains all custom parameters for this operation. For more information, see the **jsonStr property description** below.
    * 
    * This parameter is required.
    * 
