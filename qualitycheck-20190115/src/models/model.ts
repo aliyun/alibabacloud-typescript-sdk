@@ -46,6 +46,10 @@ export { GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponseServ
 export { GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCategoryVoList } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogueAdditions } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogue } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseErrors } from './GetAgentTaskResultResponseBody';
+export { GetAgentTaskResultResponseBodyDataResponseVoiceprintResponse } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyDataResponse } from './GetAgentTaskResultResponseBody';
 export { GetAgentTaskResultResponseBodyData } from './GetAgentTaskResultResponseBody';
 export { GetAsrVocabResponseBodyDataWordsWord } from './GetAsrVocabResponseBody';

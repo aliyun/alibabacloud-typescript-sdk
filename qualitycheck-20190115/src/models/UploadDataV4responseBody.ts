@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadDataV4ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. A value of 200 indicates success. Other values indicate failure. Use this field to determine the cause of a failure.
+   * The result code. A value of 200 indicates success. Other values indicate failure. You can use this field to determine the cause of failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UploadDataV4ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The taskId of the task.
    * 
    * @example
    * 6F5934C7-C223-4F0F-BBF3-5B3594***
@@ -21,7 +21,7 @@ export class UploadDataV4ResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The details of the error if the request fails. If the request is successful, the value is "successful".
+   * The error details when the request fails. The value is "successful" when the request succeeds.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class UploadDataV4ResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. This is a unique identifier for the request that can be used for tracking.
+   * The request ID. A unique identifier for the request that can be used to locate and trace the request.
    * 
    * @example
    * 6F5934C7-C223-4F0F-BBF3-5B3594***
@@ -37,7 +37,7 @@ export class UploadDataV4ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Use this field to determine if the request succeeded. A value of true indicates success. A value of false or null indicates failure.
+   * Indicates whether the request was successful. Valid values: true: successful. false/null: failed.
    * 
    * @example
    * true

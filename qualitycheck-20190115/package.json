@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/qualitycheck20190115",
-  "version": "9.2.1",
+  "version": "9.2.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -49,7 +49,7 @@ export class GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse ex
    * The result returned by the large language model.
    * 
    * @example
-   * 175/xl the fabric feels very comfortable, looks slim when worn, great clothes super good-looking, quality and feel are top-notch, very satisfied with this purchase.
+   * 175/xl the fabric feels very comfortable, looks quite slim when worn, great clothes super good-looking, quality and feel are top-notch, very satisfied with this purchase.
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -92,7 +92,7 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList 
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined by the first sentence of the agent.
+   * Determined based on the first sentence of the agent.
    */
   remarks?: string;
   /**
@@ -190,7 +190,7 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined by the first sentence of the agent.
+   * Determined based on the first sentence of the agent.
    */
   remarks?: string;
   static names(): { [key: string]: string } {
@@ -280,7 +280,7 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCat
    * The reasoning for the judgment.
    * 
    * @example
-   * Determined by the first sentence of the agent.
+   * Determined based on the first sentence of the agent.
    */
   remarks?: string;
   /**
@@ -353,6 +353,149 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse exten
   }
 }
 
+export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogueAdditions extends $dara.Model {
+  age?: string;
+  ageGroup?: string;
+  ageScore?: number;
+  bestVoiceprintScore?: number;
+  emotion?: string;
+  emotionScore?: number;
+  gender?: string;
+  genderScore?: number;
+  isKnownVoiceprint?: boolean;
+  speaker?: string;
+  static names(): { [key: string]: string } {
+    return {
+      age: 'Age',
+      ageGroup: 'AgeGroup',
+      ageScore: 'AgeScore',
+      bestVoiceprintScore: 'BestVoiceprintScore',
+      emotion: 'Emotion',
+      emotionScore: 'EmotionScore',
+      gender: 'Gender',
+      genderScore: 'GenderScore',
+      isKnownVoiceprint: 'IsKnownVoiceprint',
+      speaker: 'Speaker',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      age: 'string',
+      ageGroup: 'string',
+      ageScore: 'number',
+      bestVoiceprintScore: 'number',
+      emotion: 'string',
+      emotionScore: 'number',
+      gender: 'string',
+      genderScore: 'number',
+      isKnownVoiceprint: 'boolean',
+      speaker: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogue extends $dara.Model {
+  additions?: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogueAdditions;
+  begin?: number;
+  end?: number;
+  words?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additions: 'Additions',
+      begin: 'Begin',
+      end: 'End',
+      words: 'Words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additions: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogueAdditions,
+      begin: 'number',
+      end: 'number',
+      words: 'string',
+    };
+  }
+
+  validate() {
+    if(this.additions && typeof (this.additions as any).validate === 'function') {
+      (this.additions as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseErrors extends $dara.Model {
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentTaskResultResponseBodyDataResponseVoiceprintResponse extends $dara.Model {
+  dialogue?: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogue[];
+  errors?: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseErrors[];
+  static names(): { [key: string]: string } {
+    return {
+      dialogue: 'Dialogue',
+      errors: 'Errors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogue: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseDialogue },
+      errors: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataResponseVoiceprintResponseErrors },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dialogue)) {
+      $dara.Model.validateArray(this.dialogue);
+    }
+    if(Array.isArray(this.errors)) {
+      $dara.Model.validateArray(this.errors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
   /**
    * @remarks
@@ -374,12 +517,14 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
    * The tag categorization result.
    */
   tagCategoryResponse?: GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse;
+  voiceprintResponse?: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponse;
   static names(): { [key: string]: string } {
     return {
       customerPromptResponse: 'CustomerPromptResponse',
       fieldResponse: 'FieldResponse',
       serviceInspectionResponse: 'ServiceInspectionResponse',
       tagCategoryResponse: 'TagCategoryResponse',
+      voiceprintResponse: 'VoiceprintResponse',
     };
   }
 
@@ -389,6 +534,7 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
       fieldResponse: GetAgentTaskResultResponseBodyDataResponseFieldResponse,
       serviceInspectionResponse: GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse,
       tagCategoryResponse: GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse,
+      voiceprintResponse: GetAgentTaskResultResponseBodyDataResponseVoiceprintResponse,
     };
   }
 
@@ -404,6 +550,9 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
     }
     if(this.tagCategoryResponse && typeof (this.tagCategoryResponse as any).validate === 'function') {
       (this.tagCategoryResponse as any).validate();
+    }
+    if(this.voiceprintResponse && typeof (this.voiceprintResponse as any).validate === 'function') {
+      (this.voiceprintResponse as any).validate();
     }
     super.validate();
   }
@@ -581,7 +730,7 @@ export class GetAgentTaskResultResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. You can use this field to determine whether the request succeeded:
    * 
-   * - **true**: The request was successful.
+   * - **true**: The request succeeded.
    * - **false/null**: The request failed.
    * 
    * @example
