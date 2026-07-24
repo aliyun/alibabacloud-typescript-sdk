@@ -7,7 +7,7 @@ import { DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappi
 export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $dara.Model {
   /**
    * @remarks
-   * arrival airport code (capitalized)
+   * The three-letter code of the arrival airport (uppercase).
    * 
    * @example
    * MFM
@@ -15,7 +15,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   arrivalAirport?: string;
   /**
    * @remarks
-   * arrival city code (capitalized)
+   * The three-letter code of the arrival city (uppercase).
    * 
    * @example
    * MFM
@@ -23,7 +23,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   arrivalCity?: string;
   /**
    * @remarks
-   * arrival terminal
+   * The arrival terminal.
    * 
    * @example
    * T1
@@ -31,7 +31,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   arrivalTerminal?: string;
   /**
    * @remarks
-   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * The arrival date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -39,7 +39,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   arrivalTime?: string;
   /**
    * @remarks
-   * available seats (for reference only)
+   * The number of remaining seats. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, and A. A indicates that more than 9 seats are available.
    * 
    * @example
    * 7
@@ -47,7 +47,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   availability?: string;
   /**
    * @remarks
-   * RBD
+   * The booking class.
    * 
    * @example
    * V
@@ -55,7 +55,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   cabin?: string;
   /**
    * @remarks
-   * cabin class
+   * The cabin class.
    * 
    * @example
    * Y
@@ -63,7 +63,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   cabinClass?: string;
   /**
    * @remarks
-   * code share or not
+   * Indicates whether the flight is a codeshare flight.
    * 
    * @example
    * false
@@ -71,7 +71,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   codeShare?: boolean;
   /**
    * @remarks
-   * departure airport code (capitalized)
+   * The three-letter code of the departure airport (uppercase).
    * 
    * @example
    * PVG
@@ -79,7 +79,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   departureAirport?: string;
   /**
    * @remarks
-   * departure city code (capitalized)
+   * The three-letter code of the departure city (uppercase).
    * 
    * @example
    * SHA
@@ -87,7 +87,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   departureCity?: string;
   /**
    * @remarks
-   * departure terminal
+   * The departure terminal.
    * 
    * @example
    * T2
@@ -95,7 +95,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   departureTerminal?: string;
   /**
    * @remarks
-   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * The departure date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -103,7 +103,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   departureTime?: string;
   /**
    * @remarks
-   * equipment type
+   * The aircraft type.
    * 
    * @example
    * 32Q
@@ -111,7 +111,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   equipType?: string;
   /**
    * @remarks
-   * flight time, unit: minute
+   * The flight duration. Unit: minutes.
    * 
    * @example
    * 165
@@ -119,7 +119,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   flightDuration?: number;
   /**
    * @remarks
-   * marketing airline code (ex.: KA)
+   * The marketing airline (such as KA).
    * 
    * @example
    * HO
@@ -127,7 +127,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   marketingAirline?: string;
   /**
    * @remarks
-   * marketing airline flight no. (ex.: KA5809)
+   * The marketing flight number (such as KA5809).
    * 
    * @example
    * HO1295
@@ -135,7 +135,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   marketingFlightNo?: string;
   /**
    * @remarks
-   * marketing airline integer flight no. (ex.: 5809)
+   * The numeric marketing flight number (such as 5809).
    * 
    * @example
    * 1259
@@ -143,7 +143,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   marketingFlightNoInt?: number;
   /**
    * @remarks
-   * operating airline code (ex.: CX)
+   * The operating airline (such as CX).
    * 
    * @example
    * HO
@@ -151,7 +151,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   operatingAirline?: string;
   /**
    * @remarks
-   * operating airline flight no. (ex.: CX601)
+   * The operating flight number (such as CX601).
    * 
    * @example
    * HO1295
@@ -159,7 +159,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   operatingFlightNo?: string;
   /**
    * @remarks
-   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * The segment ID. Format: flight number + departure airport + arrival airport + departure date (MMdd).
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -167,8 +167,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   segmentId?: string;
   /**
    * @remarks
-   * stop city list
-   * when stop_quantity > 1, use “,” for seperation
+   * The list of stopover cities. This parameter has a value when stopQuantity is greater than 0. Multiple values are separated by commas.
    * 
    * @example
    * MFM,PVG
@@ -176,7 +175,7 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   stopCityList?: string;
   /**
    * @remarks
-   * number of stops
+   * The number of stopover cities.
    * 
    * @example
    * 0
@@ -248,12 +247,12 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
 export class SearchResponseBodyDataSolutionListJourneyList extends $dara.Model {
   /**
    * @remarks
-   * segment Info
+   * The segment information.
    */
   segmentList?: SearchResponseBodyDataSolutionListJourneyListSegmentList[];
   /**
    * @remarks
-   * number of transfers
+   * The number of transfers.
    * 
    * @example
    * 0
@@ -288,11 +287,7 @@ export class SearchResponseBodyDataSolutionListJourneyList extends $dara.Model {
 export class SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList extends $dara.Model {
   /**
    * @remarks
-   * through check-in baggage policy type
-   * 1. baggage through check-in between segments
-   * 2. baggage re-check-in needed between segments
-   * 3. baggage through check-in at stop city ( applies for stop flight )
-   * 4. baggage re-checkin needed at stop city ( applies for stop flight )
+   * The baggage through-check rule type. Valid values: 1: baggage is checked through between segments. 2: baggage must be rechecked between segments. 3: baggage is checked through at stopover cities. 4: baggage must be rechecked at stopover cities.
    * 
    * @example
    * 1
@@ -300,8 +295,7 @@ export class SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList ext
   luggageDirectInfoType?: number;
   /**
    * @remarks
-   * segment id list. 
-   * all the listed segment ids share the same baggage through check-in  policy
+   * The list of segment IDs. These segments share the same baggage through-check rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -333,13 +327,12 @@ export class SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList ext
 export class SearchResponseBodyDataSolutionListSegmentBaggageMappingList extends $dara.Model {
   /**
    * @remarks
-   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   * The mapping between passenger types and free baggage allowances.
    */
   passengerBaggageAllowanceMapping?: { [key: string]: DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue };
   /**
    * @remarks
-   * segment id list. 
-   * all the listed segment id share the same baggage rule
+   * The list of segment IDs. These segments share the same free baggage rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -374,13 +367,12 @@ export class SearchResponseBodyDataSolutionListSegmentBaggageMappingList extends
 export class SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList extends $dara.Model {
   /**
    * @remarks
-   * change and refund policy mapping, key is passenger type, value is change and refund policy details
+   * The mapping between passenger types and refund and change rules.
    */
   refundChangeRuleMap?: { [key: string]: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue };
   /**
    * @remarks
-   * segment id list. 
-   * all the listed segment ids share the same change and refund policy
+   * The list of segment IDs. These segments share the same refund and change rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -413,15 +405,7 @@ export class SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingLis
 }
 
 export class SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Issue ticket type: 1: after payment; 2: before departure; -1: unknown
-   */
   issueTicketType?: number;
-  /**
-   * @remarks
-   * Estimated issue ticket time, unit: minutes
-   */
   issueTimeLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -447,14 +431,10 @@ export class SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo ex
 }
 
 export class SearchResponseBodyDataSolutionListSolutionAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * Issue ticket time related
-   */
   issueTimeInfo?: SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo;
   /**
    * @remarks
-   * Supply source type 1: Self-operated; 2: Agent; 3: Flagship store
+   * The supply source type. Valid values: 1: self-operated. 2: agent. 3: flagship store.
    * 
    * @example
    * 1
@@ -489,7 +469,7 @@ export class SearchResponseBodyDataSolutionListSolutionAttribute extends $dara.M
 export class SearchResponseBodyDataSolutionList extends $dara.Model {
   /**
    * @remarks
-   * adult fare
+   * The unit price for an adult.
    * 
    * @example
    * 600
@@ -497,7 +477,7 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
   adultPrice?: number;
   /**
    * @remarks
-   * adult tax
+   * The tax for an adult.
    * 
    * @example
    * 11
@@ -505,7 +485,7 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
   adultTax?: number;
   /**
    * @remarks
-   * child fare
+   * The unit price for a child.
    * 
    * @example
    * 500
@@ -513,7 +493,7 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
   childPrice?: number;
   /**
    * @remarks
-   * child tax
+   * The tax for a child.
    * 
    * @example
    * 10
@@ -521,7 +501,7 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
   childTax?: number;
   /**
    * @remarks
-   * infant fare
+   * The unit price for an infant.
    * 
    * @example
    * 400
@@ -529,7 +509,7 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
   infantPrice?: number;
   /**
    * @remarks
-   * infant tax
+   * The tax for an infant.
    * 
    * @example
    * 9
@@ -537,32 +517,32 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
   infantTax?: number;
   /**
    * @remarks
-   * segment list
+   * The journey.
    */
   journeyList?: SearchResponseBodyDataSolutionListJourneyList[];
   /**
    * @remarks
-   * through check-in baggage policy
+   * The baggage through-check rules.
    */
   segmentBaggageCheckInInfoList?: SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
   /**
    * @remarks
-   * baggage rule
+   * The free baggage rules.
    */
   segmentBaggageMappingList?: SearchResponseBodyDataSolutionListSegmentBaggageMappingList[];
   /**
    * @remarks
-   * change and refund policy
+   * The refund and change rules.
    */
   segmentRefundChangeRuleMappingList?: SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList[];
   /**
    * @remarks
-   * Quotation attributes
+   * The quote attributes.
    */
   solutionAttribute?: SearchResponseBodyDataSolutionListSolutionAttribute;
   /**
    * @remarks
-   * solution ID
+   * solution_id
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
@@ -629,7 +609,7 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
 export class SearchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * solution list
+   * The search quote results.
    */
   solutionList?: SearchResponseBodyDataSolutionList[];
   static names(): { [key: string]: string } {
@@ -659,7 +639,7 @@ export class SearchResponseBodyData extends $dara.Model {
 export class SearchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request ID
+   * The request ID.
    * 
    * @example
    * 2236993B-7BE7-5F92-B179-21FF08570165
@@ -667,36 +647,36 @@ export class SearchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * data
+   * The data returned for a successful request.
    */
   data?: SearchResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
-   * ""
+   * null
    */
   errorCode?: string;
   /**
    * @remarks
-   * error data
+   * The data returned with the error.
    * 
    * @example
-   * {}
+   * null
    */
   errorData?: any;
   /**
    * @remarks
-   * error message
+   * The error message.
    * 
    * @example
-   * ""
+   * null
    */
   errorMsg?: string;
   /**
    * @remarks
-   * http request has been processed successfully，status code is 200
+   * The HTTP status code. The value is always 200 for successful HTTP requests.
    * 
    * @example
    * 200
@@ -704,7 +684,7 @@ export class SearchResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

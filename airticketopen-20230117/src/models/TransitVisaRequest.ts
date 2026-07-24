@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
   /**
    * @remarks
+   * The three-letter IATA code of the arrival airport.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
    */
   arrivalAirport?: string;
   /**
+   * @remarks
+   * The arrival terminal.
+   * 
    * @example
    * T1
    */
   arrivalTerminal?: string;
   /**
    * @remarks
+   * The arrival time. A 13-digit UNIX timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
   arrivalTime?: number;
   /**
    * @remarks
+   * Indicates whether the flight is a codeshare flight.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
   codeShare?: boolean;
   /**
    * @remarks
+   * The three-letter IATA code of the departure airport.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,12 +52,17 @@ export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
    */
   departureAirport?: string;
   /**
+   * @remarks
+   * The departure terminal.
+   * 
    * @example
    * T1
    */
   departureTerminal?: string;
   /**
    * @remarks
+   * The departure time. A 13-digit UNIX timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +71,8 @@ export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
   departureTime?: number;
   /**
    * @remarks
+   * The marketing airline.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +81,8 @@ export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
   marketingAirline?: string;
   /**
    * @remarks
+   * The flight number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,16 +90,25 @@ export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
    */
   marketingFlightNo?: string;
   /**
+   * @remarks
+   * The operating airline.
+   * 
    * @example
    * CZ
    */
   operatingAirline?: string;
   /**
+   * @remarks
+   * The three-letter IATA codes of stopover cities.
+   * 
    * @example
    * SEL,HKG
    */
   stopCityList?: string;
   /**
+   * @remarks
+   * The ticketing airline.
+   * 
    * @example
    * CZ
    */
@@ -128,6 +157,10 @@ export class TransitVisaRequestFlightSegmentParamList extends $dara.Model {
 }
 
 export class TransitVisaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of flight segments that constitute an itinerary. Maximum size: 2.
+   */
   flightSegmentParamList?: TransitVisaRequestFlightSegmentParamList[];
   static names(): { [key: string]: string } {
     return {

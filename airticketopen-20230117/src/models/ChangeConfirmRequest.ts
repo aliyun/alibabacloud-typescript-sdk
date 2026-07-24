@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeConfirmRequest extends $dara.Model {
   /**
    * @remarks
+   * The change order number.
+   * 
    * This parameter is required.
    * 
    * @example

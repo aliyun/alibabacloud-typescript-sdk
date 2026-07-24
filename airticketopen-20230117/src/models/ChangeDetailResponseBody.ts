@@ -5,15 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee extends $dara.Model {
   /**
    * @remarks
-   * fare penalty
+   * The service fee.
    * 
    * @example
    * 50
    */
   serviceFee?: number;
+  suezServiceFee?: number;
   /**
    * @remarks
-   * tax penalty
+   * The change tax fee.
    * 
    * @example
    * 20
@@ -21,7 +22,7 @@ export class ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee extends $dara
   taxFee?: number;
   /**
    * @remarks
-   * price difference
+   * The upgrade fee.
    * 
    * @example
    * 30
@@ -30,6 +31,7 @@ export class ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee extends $dara
   static names(): { [key: string]: string } {
     return {
       serviceFee: 'service_fee',
+      suezServiceFee: 'suez_service_fee',
       taxFee: 'tax_fee',
       upgradeFee: 'upgrade_fee',
     };
@@ -38,6 +40,7 @@ export class ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee extends $dara
   static types(): { [key: string]: any } {
     return {
       serviceFee: 'number',
+      suezServiceFee: 'number',
       taxFee: 'number',
       upgradeFee: 'number',
     };
@@ -55,7 +58,7 @@ export class ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee extends $dara
 export class ChangeDetailResponseBodyDataChangeFeeDetailsPassenger extends $dara.Model {
   /**
    * @remarks
-   * Document number
+   * The document number.
    * 
    * @example
    * 411***********4411
@@ -63,7 +66,7 @@ export class ChangeDetailResponseBodyDataChangeFeeDetailsPassenger extends $dara
   document?: string;
   /**
    * @remarks
-   * Passenger\\"s first name
+   * The first name of the passenger.
    * 
    * @example
    * SAN
@@ -71,7 +74,7 @@ export class ChangeDetailResponseBodyDataChangeFeeDetailsPassenger extends $dara
   firstName?: string;
   /**
    * @remarks
-   * Passenger\\"s last name
+   * The last name of the passenger.
    * 
    * @example
    * ZHANG
@@ -105,12 +108,12 @@ export class ChangeDetailResponseBodyDataChangeFeeDetailsPassenger extends $dara
 export class ChangeDetailResponseBodyDataChangeFeeDetails extends $dara.Model {
   /**
    * @remarks
-   * Change fee details for the passenger
+   * The change fee details for the passenger.
    */
   changeFee?: ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee;
   /**
    * @remarks
-   * Information of the passenger for the change
+   * The passenger information for the change.
    */
   passenger?: ChangeDetailResponseBodyDataChangeFeeDetailsPassenger;
   static names(): { [key: string]: string } {
@@ -145,7 +148,7 @@ export class ChangeDetailResponseBodyDataChangeFeeDetails extends $dara.Model {
 export class ChangeDetailResponseBodyDataChangePassengers extends $dara.Model {
   /**
    * @remarks
-   * Document number
+   * The document number.
    * 
    * @example
    * 411***********4411
@@ -153,7 +156,7 @@ export class ChangeDetailResponseBodyDataChangePassengers extends $dara.Model {
   document?: string;
   /**
    * @remarks
-   * Passenger first name
+   * The first name of the passenger.
    * 
    * @example
    * SAN
@@ -161,7 +164,7 @@ export class ChangeDetailResponseBodyDataChangePassengers extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
-   * Passenger last name
+   * The last name of the passenger.
    * 
    * @example
    * ZHANG
@@ -195,7 +198,7 @@ export class ChangeDetailResponseBodyDataChangePassengers extends $dara.Model {
 export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dara.Model {
   /**
    * @remarks
-   * Arrival airport three-letter code (uppercase)
+   * The three-letter IATA code of the arrival airport (uppercase).
    * 
    * @example
    * MFM
@@ -203,7 +206,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   arrivalAirport?: string;
   /**
    * @remarks
-   * Arrival city three-letter code (uppercase)
+   * The three-letter IATA code of the arrival city (uppercase).
    * 
    * @example
    * MFM
@@ -211,7 +214,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   arrivalCity?: string;
   /**
    * @remarks
-   * Arrival terminal of the flight
+   * The arrival terminal.
    * 
    * @example
    * T1
@@ -219,7 +222,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   arrivalTerminal?: string;
   /**
    * @remarks
-   * Flight arrival date and time, in the format (yyyy-MM-dd HH:mm:ss)
+   * The arrival date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -227,7 +230,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   arrivalTime?: string;
   /**
    * @remarks
-   * Number of available seats
+   * The number of remaining seats.
    * 
    * @example
    * 7
@@ -235,7 +238,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   availability?: string;
   /**
    * @remarks
-   * RBD
+   * The cabin code.
    * 
    * @example
    * V
@@ -243,7 +246,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   cabin?: string;
   /**
    * @remarks
-   * service class ( compartment )
+   * The cabin class.
    * 
    * @example
    * Y
@@ -251,7 +254,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   cabinClass?: string;
   /**
    * @remarks
-   * Whether it is a code-share flight
+   * Indicates whether the flight is a codeshare flight.
    * 
    * @example
    * false
@@ -259,7 +262,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   codeShare?: boolean;
   /**
    * @remarks
-   * Departure airport three-letter code (uppercase)
+   * The three-letter IATA code of the departure airport (uppercase).
    * 
    * @example
    * PVG
@@ -267,7 +270,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   departureAirport?: string;
   /**
    * @remarks
-   * Departure city three-letter code (uppercase)
+   * The three-letter IATA code of the departure city (uppercase).
    * 
    * @example
    * SHA
@@ -275,7 +278,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   departureCity?: string;
   /**
    * @remarks
-   * Departure terminal of the flight
+   * The departure terminal.
    * 
    * @example
    * T2
@@ -283,7 +286,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   departureTerminal?: string;
   /**
    * @remarks
-   * Flight departure date and time, in the format (yyyy-MM-dd HH:mm:ss)
+   * The departure date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -291,7 +294,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   departureTime?: string;
   /**
    * @remarks
-   * Aircraft type
+   * The aircraft type.
    * 
    * @example
    * 32Q
@@ -299,7 +302,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   equipType?: string;
   /**
    * @remarks
-   * Flight duration in minutes
+   * The flight duration, in minutes.
    * 
    * @example
    * 165
@@ -307,7 +310,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   flightDuration?: number;
   /**
    * @remarks
-   * Market airline (e.g., HO)
+   * The marketing airline code (such as HO).
    * 
    * @example
    * HO
@@ -315,7 +318,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   marketingAirline?: string;
   /**
    * @remarks
-   * Marketing flight number (e.g., HO1295)
+   * The marketing flight number (such as HO1295).
    * 
    * @example
    * HO1295
@@ -323,7 +326,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   marketingFlightNo?: string;
   /**
    * @remarks
-   * Marketing flight number (e.g., 1295)
+   * The numeric marketing flight number (such as 1295).
    * 
    * @example
    * 1295
@@ -331,7 +334,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   marketingFlightNoInt?: number;
   /**
    * @remarks
-   * Operating airline (e.g., CX)
+   * The operating airline code (such as CX).
    * 
    * @example
    * HO
@@ -339,7 +342,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   operatingAirline?: string;
   /**
    * @remarks
-   * Operating flight number (e.g., CX601)
+   * The operating flight number (such as CX601).
    * 
    * @example
    * HO1295
@@ -347,7 +350,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   operatingFlightNo?: string;
   /**
    * @remarks
-   * Segment ID format: flight number + departure airport + arrival airport + departure date (MMdd)
+   * The segment ID. Format: flight number + departure airport + arrival airport + departure date (MMdd).
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -355,7 +358,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   segmentId?: string;
   /**
    * @remarks
-   * List of stop cities, with values when stopQuantity > 0, separated by commas
+   * The list of stopover cities. This parameter has a value when stopQuantity is greater than 0. Multiple cities are separated by commas.
    * 
    * @example
    * SEL,HKG
@@ -363,7 +366,7 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
   stopCityList?: string;
   /**
    * @remarks
-   * Number of stop cities
+   * The number of stopover cities.
    * 
    * @example
    * 0
@@ -435,12 +438,12 @@ export class ChangeDetailResponseBodyDataChangedJourneysSegmentList extends $dar
 export class ChangeDetailResponseBodyDataChangedJourneys extends $dara.Model {
   /**
    * @remarks
-   * Segment information
+   * The segment information.
    */
   segmentList?: ChangeDetailResponseBodyDataChangedJourneysSegmentList[];
   /**
    * @remarks
-   * Number of transfers
+   * The number of transfers.
    * 
    * @example
    * 0
@@ -475,7 +478,7 @@ export class ChangeDetailResponseBodyDataChangedJourneys extends $dara.Model {
 export class ChangeDetailResponseBodyDataContact extends $dara.Model {
   /**
    * @remarks
-   * Email address
+   * The email address.
    * 
    * @example
    * gao******@gmail.com
@@ -483,7 +486,7 @@ export class ChangeDetailResponseBodyDataContact extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Country code
+   * The country calling code.
    * 
    * @example
    * 86
@@ -491,7 +494,7 @@ export class ChangeDetailResponseBodyDataContact extends $dara.Model {
   mobileCountryCode?: string;
   /**
    * @remarks
-   * Contact\\"s mobile phone number
+   * The mobile phone number of the contact.
    * 
    * @example
    * 183*****92
@@ -525,7 +528,7 @@ export class ChangeDetailResponseBodyDataContact extends $dara.Model {
 export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.Model {
   /**
    * @remarks
-   * Arrival airport three-letter code (uppercase)
+   * The three-letter IATA code of the arrival airport (uppercase).
    * 
    * @example
    * MFM
@@ -533,7 +536,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   arrivalAirport?: string;
   /**
    * @remarks
-   * Arrival city three-letter code (uppercase)
+   * The three-letter IATA code of the arrival city (uppercase).
    * 
    * @example
    * MFM
@@ -541,7 +544,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   arrivalCity?: string;
   /**
    * @remarks
-   * Arrival terminal of the flight
+   * The arrival terminal.
    * 
    * @example
    * T1
@@ -549,7 +552,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   arrivalTerminal?: string;
   /**
    * @remarks
-   * Flight arrival date and time, in the format (yyyy-MM-dd HH:mm:ss)
+   * The arrival date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -557,7 +560,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   arrivalTime?: string;
   /**
    * @remarks
-   * Number of available seats
+   * The number of remaining seats.
    * 
    * @example
    * 7
@@ -565,7 +568,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   availability?: string;
   /**
    * @remarks
-   * RBD
+   * The cabin code.
    * 
    * @example
    * V
@@ -573,7 +576,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   cabin?: string;
   /**
    * @remarks
-   * service class ( compartment )
+   * The cabin class.
    * 
    * @example
    * Y
@@ -581,7 +584,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   cabinClass?: string;
   /**
    * @remarks
-   * Whether it is a codeshare flight
+   * Indicates whether the flight is a codeshare flight.
    * 
    * @example
    * false
@@ -589,7 +592,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   codeShare?: boolean;
   /**
    * @remarks
-   * Departure airport three-letter code (uppercase)
+   * The three-letter IATA code of the departure airport (uppercase).
    * 
    * @example
    * PVG
@@ -597,7 +600,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   departureAirport?: string;
   /**
    * @remarks
-   * Departure city three-letter code (uppercase)
+   * The three-letter IATA code of the departure city (uppercase).
    * 
    * @example
    * SHA
@@ -605,7 +608,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   departureCity?: string;
   /**
    * @remarks
-   * Departure terminal of the flight
+   * The departure terminal.
    * 
    * @example
    * T2
@@ -613,7 +616,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   departureTerminal?: string;
   /**
    * @remarks
-   * Flight departure date and time, in the format (yyyy-MM-dd HH:mm:ss)
+   * The departure date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -621,7 +624,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   departureTime?: string;
   /**
    * @remarks
-   * Aircraft type
+   * The aircraft type.
    * 
    * @example
    * 32Q
@@ -629,7 +632,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   equipType?: string;
   /**
    * @remarks
-   * Flight duration in minutes
+   * The flight duration, in minutes.
    * 
    * @example
    * 165
@@ -637,7 +640,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   flightDuration?: number;
   /**
    * @remarks
-   * Marketing airline (e.g., HO)
+   * The marketing airline code (such as HO).
    * 
    * @example
    * HO
@@ -645,7 +648,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   marketingAirline?: string;
   /**
    * @remarks
-   * Marketing flight number (e.g., HO1295)
+   * The marketing flight number (such as HO1295).
    * 
    * @example
    * HO1295
@@ -653,7 +656,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   marketingFlightNo?: string;
   /**
    * @remarks
-   * Marketing flight number (e.g., 1295)
+   * The numeric marketing flight number (such as 1295).
    * 
    * @example
    * 1295
@@ -661,7 +664,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   marketingFlightNoInt?: number;
   /**
    * @remarks
-   * Operating airline (e.g., CX)
+   * The operating airline code (such as CX).
    * 
    * @example
    * HO
@@ -669,7 +672,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   operatingAirline?: string;
   /**
    * @remarks
-   * Operating flight number (e.g., CX601)
+   * The operating flight number (such as CX601).
    * 
    * @example
    * HO1295
@@ -677,7 +680,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   operatingFlightNo?: string;
   /**
    * @remarks
-   * Segment ID format: flight number + departure airport + arrival airport + departure date (MMdd)
+   * The segment ID. Format: flight number + departure airport + arrival airport + departure date (MMdd).
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -685,7 +688,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   segmentId?: string;
   /**
    * @remarks
-   * List of stop cities, with values when stopQuantity > 0, separated by commas
+   * The list of stopover cities. This parameter has a value when stopQuantity is greater than 0. Multiple cities are separated by commas.
    * 
    * @example
    * SEL,HKG
@@ -693,7 +696,7 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
   stopCityList?: string;
   /**
    * @remarks
-   * Number of stop cities
+   * The number of stopover cities.
    * 
    * @example
    * 0
@@ -765,12 +768,12 @@ export class ChangeDetailResponseBodyDataLastJourneysSegmentList extends $dara.M
 export class ChangeDetailResponseBodyDataLastJourneys extends $dara.Model {
   /**
    * @remarks
-   * Segment information
+   * The segment information.
    */
   segmentList?: ChangeDetailResponseBodyDataLastJourneysSegmentList[];
   /**
    * @remarks
-   * Number of transfers
+   * The number of transfers.
    * 
    * @example
    * 0
@@ -805,7 +808,7 @@ export class ChangeDetailResponseBodyDataLastJourneys extends $dara.Model {
 export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $dara.Model {
   /**
    * @remarks
-   * Arrival airport three-letter code (uppercase)
+   * The three-letter IATA code of the arrival airport (uppercase).
    * 
    * @example
    * MFM
@@ -813,7 +816,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   arrivalAirport?: string;
   /**
    * @remarks
-   * Arrival city three-letter code (uppercase)
+   * The three-letter IATA code of the arrival city (uppercase).
    * 
    * @example
    * MFM
@@ -821,7 +824,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   arrivalCity?: string;
   /**
    * @remarks
-   * Arrival terminal of the flight
+   * The arrival terminal.
    * 
    * @example
    * T1
@@ -829,7 +832,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   arrivalTerminal?: string;
   /**
    * @remarks
-   * Flight arrival date and time in string format (yyyy-MM-dd HH:mm:ss)
+   * The arrival date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -837,7 +840,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   arrivalTime?: string;
   /**
    * @remarks
-   * Number of available seats
+   * The number of remaining seats.
    * 
    * @example
    * 7
@@ -845,7 +848,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   availability?: string;
   /**
    * @remarks
-   * RBD
+   * The cabin code.
    * 
    * @example
    * V
@@ -853,7 +856,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   cabin?: string;
   /**
    * @remarks
-   * service class ( compartment )
+   * The cabin class.
    * 
    * @example
    * Y
@@ -861,7 +864,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   cabinClass?: string;
   /**
    * @remarks
-   * Whether it is a codeshare flight
+   * Indicates whether the flight is a codeshare flight.
    * 
    * @example
    * false
@@ -869,7 +872,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   codeShare?: boolean;
   /**
    * @remarks
-   * Departure airport three-letter code (uppercase)
+   * The three-letter IATA code of the departure airport (uppercase).
    * 
    * @example
    * PVG
@@ -877,7 +880,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   departureAirport?: string;
   /**
    * @remarks
-   * Departure city three-letter code (uppercase)
+   * The three-letter IATA code of the departure city (uppercase).
    * 
    * @example
    * SHA
@@ -885,7 +888,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   departureCity?: string;
   /**
    * @remarks
-   * Departure terminal of the flight
+   * The departure terminal.
    * 
    * @example
    * T2
@@ -893,7 +896,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   departureTerminal?: string;
   /**
    * @remarks
-   * Flight departure date and time in string format (yyyy-MM-dd HH:mm:ss)
+   * The departure date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -901,7 +904,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   departureTime?: string;
   /**
    * @remarks
-   * Aircraft type
+   * The aircraft type.
    * 
    * @example
    * 32Q
@@ -909,7 +912,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   equipType?: string;
   /**
    * @remarks
-   * Flight duration in minutes
+   * The flight duration, in minutes.
    * 
    * @example
    * 165
@@ -917,7 +920,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   flightDuration?: number;
   /**
    * @remarks
-   * Marketing airline (e.g., HO)
+   * The marketing airline code (such as HO).
    * 
    * @example
    * HO
@@ -925,7 +928,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   marketingAirline?: string;
   /**
    * @remarks
-   * Marketing flight number (e.g., HO1295)
+   * The marketing flight number (such as HO1295).
    * 
    * @example
    * HO1295
@@ -933,7 +936,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   marketingFlightNo?: string;
   /**
    * @remarks
-   * Marketing airline\\"s numeric flight number (e.g., 1295)
+   * The numeric marketing flight number (such as 1295).
    * 
    * @example
    * 1295
@@ -941,7 +944,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   marketingFlightNoInt?: number;
   /**
    * @remarks
-   * Operating airline (e.g., CX)
+   * The operating airline code (such as CX).
    * 
    * @example
    * HO
@@ -949,7 +952,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   operatingAirline?: string;
   /**
    * @remarks
-   * Operating airline\\"s flight number (e.g., CX601)
+   * The operating flight number (such as CX601).
    * 
    * @example
    * HO1295
@@ -957,7 +960,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   operatingFlightNo?: string;
   /**
    * @remarks
-   * Segment ID format: flight number + departure airport + arrival airport + departure date (yyyyMMdd)
+   * The segment ID. Format: flight number + departure airport + arrival airport + departure date (MMdd).
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -965,7 +968,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   segmentId?: string;
   /**
    * @remarks
-   * List of stop cities, with values when stopQuantity > 0, separated by commas
+   * The list of stopover cities. This parameter has a value when stopQuantity is greater than 0. Multiple cities are separated by commas.
    * 
    * @example
    * SEL,HKG
@@ -973,7 +976,7 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
   stopCityList?: string;
   /**
    * @remarks
-   * Number of stop cities
+   * The number of stopover cities.
    * 
    * @example
    * 0
@@ -1045,12 +1048,12 @@ export class ChangeDetailResponseBodyDataOriginalJourneysSegmentList extends $da
 export class ChangeDetailResponseBodyDataOriginalJourneys extends $dara.Model {
   /**
    * @remarks
-   * Segment information
+   * The segment information.
    */
   segmentList?: ChangeDetailResponseBodyDataOriginalJourneysSegmentList[];
   /**
    * @remarks
-   * Number of transfers
+   * The number of transfers.
    * 
    * @example
    * 0
@@ -1085,12 +1088,12 @@ export class ChangeDetailResponseBodyDataOriginalJourneys extends $dara.Model {
 export class ChangeDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Change fee details, per passenger
+   * The change fee details at the passenger level.
    */
   changeFeeDetails?: ChangeDetailResponseBodyDataChangeFeeDetails[];
   /**
    * @remarks
-   * Change order number
+   * The change order number.
    * 
    * @example
    * 4988430***950
@@ -1098,15 +1101,15 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   changeOrderNum?: number;
   /**
    * @remarks
-   * List of passengers for the change
+   * The list of passengers for the flight change.
    */
   changePassengers?: ChangeDetailResponseBodyDataChangePassengers[];
   /**
    * @remarks
-   * Change reason type. 
-   * 0: Voluntary change; 
-   * 1: Involuntary change, due to flight delay or cancellation, schedule changes, or other airline reasons; 
-   * 2: Involuntary change, due to health reasons with a medical report
+   * The type of the change reason. Valid values:
+   * - 0: voluntary date change
+   * - 1: flight schedule change or flight cancellation
+   * - 2: change due to pandemic.
    * 
    * @example
    * 1
@@ -1114,12 +1117,12 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   changeReasonType?: number;
   /**
    * @remarks
-   * New journeys
+   * The journeys after the change.
    */
   changedJourneys?: ChangeDetailResponseBodyDataChangedJourneys[];
   /**
    * @remarks
-   * Reason for closing the change order
+   * The reason for closing the change order.
    * 
    * @example
    * reason desc
@@ -1127,7 +1130,7 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   closeReason?: string;
   /**
    * @remarks
-   * The time when the order was closed, in UTC timestamp
+   * The time when the order was closed, in UTC timestamp.
    * 
    * @example
    * 1677415244000
@@ -1135,12 +1138,12 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   closeUtcTime?: number;
   /**
    * @remarks
-   * Contact information for the change request
+   * The contact information for the change order.
    */
   contact?: ChangeDetailResponseBodyDataContact;
   /**
    * @remarks
-   * Creation time of the change order, UTC timestamp
+   * The creation time of the change order, in UTC timestamp.
    * 
    * @example
    * 1677415276000
@@ -1148,7 +1151,7 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   createUtcTime?: number;
   /**
    * @remarks
-   * Latest payment time for the buyer, UTC timestamp
+   * The latest payment deadline for the buyer, in UTC timestamp.
    * 
    * @example
    * 1677415278000
@@ -1156,12 +1159,12 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   lastConfirmUtcTime?: number;
   /**
    * @remarks
-   * The itinerary of the last change
+   * The journeys from the previous change.
    */
   lastJourneys?: ChangeDetailResponseBodyDataLastJourneys[];
   /**
    * @remarks
-   * Ticketing Order number
+   * The order number.
    * 
    * @example
    * 5988430***541
@@ -1169,7 +1172,12 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * Change order status 0: Initial state; 1: Pending payment; 2: Payment successful; 3: Change successful; 4: Change closed
+   * The status of the change order. Valid values:
+   * - 0: initial state
+   * - 1: pending payment
+   * - 2: payment successful
+   * - 3: change successful
+   * - 4: change closed.
    * 
    * @example
    * 2
@@ -1177,12 +1185,17 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   orderStatus?: number;
   /**
    * @remarks
-   * Original journeys
+   * The original journeys.
    */
   originalJourneys?: ChangeDetailResponseBodyDataOriginalJourneys[];
   /**
    * @remarks
-   * Payment status 0: initial state; 1: pending payment; 2: payment successful; 4: successfully closed paid order; 5: successfully closed unpaid order
+   * The payment status. Valid values:
+   * - 0: initial state
+   * - 1: pending payment
+   * - 2: payment successful
+   * - 4: paid order closed successfully
+   * - 5: unpaid order closed successfully.
    * 
    * @example
    * 2
@@ -1190,7 +1203,7 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   payStatus?: number;
   /**
    * @remarks
-   * The time when the buyer successfully paid, in UTC timestamp
+   * The time when the buyer completed the payment, in UTC timestamp.
    * 
    * @example
    * 1677415255000
@@ -1198,7 +1211,7 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   paySuccessUtcTime?: number;
   /**
    * @remarks
-   * Total payment amount for the change order
+   * The total payment amount of the change order.
    * 
    * @example
    * 300
@@ -1206,7 +1219,7 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
   totalAmount?: number;
   /**
    * @remarks
-   * Transaction serial number
+   * The transaction number.
    * 
    * @example
    * hkduendkd-2023-dj0
@@ -1288,7 +1301,7 @@ export class ChangeDetailResponseBodyData extends $dara.Model {
 export class ChangeDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -1296,12 +1309,12 @@ export class ChangeDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Correctly processed return data
+   * The data returned for a successful request.
    */
   data?: ChangeDetailResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -1309,7 +1322,7 @@ export class ChangeDetailResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Data carried in error handling
+   * The data returned with the error.
    * 
    * @example
    * null
@@ -1317,7 +1330,7 @@ export class ChangeDetailResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * null
@@ -1325,7 +1338,7 @@ export class ChangeDetailResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * HTTP request successful, status value is 200
+   * The HTTP status code. The value is always 200 for successful HTTP requests.
    * 
    * @example
    * 200
@@ -1333,7 +1346,7 @@ export class ChangeDetailResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Whether it is successful
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

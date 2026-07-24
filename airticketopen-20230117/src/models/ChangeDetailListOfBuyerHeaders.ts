@@ -6,7 +6,7 @@ export class ChangeDetailListOfBuyerHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * The access_token.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,9 @@ export class ChangeDetailListOfBuyerHeaders extends $dara.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * The language. Default value: the language configured for the buyer account.
+   * 
    * @example
    * en_US
    */

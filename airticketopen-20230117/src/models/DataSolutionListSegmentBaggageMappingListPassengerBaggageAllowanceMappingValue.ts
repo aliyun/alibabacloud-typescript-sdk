@@ -13,7 +13,7 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   baggageAmount?: number;
   /**
    * @remarks
-   * Weight of checked baggage
+   * Checked baggage weight
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   baggageWeight?: number;
   /**
    * @remarks
-   * Unit of checked baggage weight (KG)
+   * Checked baggage weight unit KG
    * 
    * @example
    * KG
@@ -29,7 +29,7 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   baggageWeightUnit?: string;
   /**
    * @remarks
-   * Whether the weight applies to all checked baggage
+   * Whether it is total checked baggage weight
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   carryOnAmount?: number;
   /**
    * @remarks
-   * Weight of carry-on baggage
+   * Carry-on baggage weight
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   carryOnWeight?: number;
   /**
    * @remarks
-   * Carry-on luggage weight unit KG
+   * Carry-on baggage weight unit KG
    * 
    * @example
    * KG
@@ -61,72 +61,48 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   carryOnWeightUnit?: string;
   /**
    * @remarks
-   * Whether it is the total carry-on luggage weight
+   * Whether it is total carry-on baggage weight
    * 
    * @example
    * true
    */
   isAllCarryOnWeight?: boolean;
   /**
-   * @remarks
-   * Carry-on luggage length (unit: centimeters)
-   * 
    * @example
    * 55
    */
   carryLength?: number;
   /**
-   * @remarks
-   * Carry-on luggage width (unit: centimeters)
-   * 
    * @example
    * 40
    */
   carryWidth?: number;
   /**
-   * @remarks
-   * Carry-on luggage height (unit: centimeters)
-   * 
    * @example
    * 20
    */
   carryHeight?: number;
   /**
-   * @remarks
-   * Sum of three sides of the Carry-on luggage (unit: centimeters)
-   * 
    * @example
    * 115
    */
   carrySumOfLengthWidthHeight?: number;
   /**
-   * @remarks
-   * Check-in luggage length (unit: centimeters)
-   * 
    * @example
    * 60
    */
   length?: number;
   /**
-   * @remarks
-   * Check-in luggage width (unit: centimeters)
-   * 
    * @example
    * 40
    */
   width?: number;
   /**
-   * @remarks
-   * Check-in luggage height (unit: centimeters)
-   * 
    * @example
    * 60
    */
   height?: number;
   /**
-   * @remarks
-   * Sum of three sides of the Check-in luggage (unit: centimeters)
-   * 
    * @example
    * 200
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $dara.Model {
   /**
    * @remarks
-   * Document number
+   * The document number of the passenger.
    * 
    * @example
    * 411***********4411
@@ -13,7 +13,7 @@ export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $d
   document?: string;
   /**
    * @remarks
-   * Passenger first name
+   * The first name of the passenger.
    * 
    * @example
    * SAN
@@ -21,7 +21,7 @@ export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $d
   firstName?: string;
   /**
    * @remarks
-   * Passenger last name
+   * The last name of the passenger.
    * 
    * @example
    * ZHANG
@@ -55,7 +55,7 @@ export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $d
 export class RefundApplyResponseBodyDataRefundResults extends $dara.Model {
   /**
    * @remarks
-   * Reason for refund application failure
+   * The reason for the refund application failure.
    * 
    * @example
    * desc reason
@@ -63,7 +63,7 @@ export class RefundApplyResponseBodyDataRefundResults extends $dara.Model {
   failReason?: string;
   /**
    * @remarks
-   * Refund order number
+   * The refund order number.
    * 
    * @example
    * 4966***617202
@@ -71,12 +71,14 @@ export class RefundApplyResponseBodyDataRefundResults extends $dara.Model {
   refundOrderNum?: number;
   /**
    * @remarks
-   * List of passengers for the refund order
+   * The list of passengers included in the refund order.
    */
   refundPassengers?: RefundApplyResponseBodyDataRefundResultsRefundPassengers[];
   /**
    * @remarks
-   * Refund order status 0: Refund order created successfully; 1: Refund order creation failed
+   * The refund order status. Valid values:
+   * - 0: The refund order is created.
+   * - 1: The refund order failed to be created.
    * 
    * @example
    * 0
@@ -115,7 +117,7 @@ export class RefundApplyResponseBodyDataRefundResults extends $dara.Model {
 export class RefundApplyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Order number
+   * The order number.
    * 
    * @example
    * 4966***617111
@@ -123,7 +125,7 @@ export class RefundApplyResponseBodyData extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * List of refund application results
+   * The list of refund application results.
    */
   refundResults?: RefundApplyResponseBodyDataRefundResults[];
   static names(): { [key: string]: string } {
@@ -155,7 +157,7 @@ export class RefundApplyResponseBodyData extends $dara.Model {
 export class RefundApplyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -163,12 +165,12 @@ export class RefundApplyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Correctly processed return data
+   * The data returned for a successful request.
    */
   data?: RefundApplyResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -176,7 +178,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Data carried in error handling
+   * The data returned with the error.
    * 
    * @example
    * null
@@ -184,7 +186,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * null
@@ -192,7 +194,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * HTTP request successful, status value is always 200
+   * The HTTP status code. The value is always 200 for successful requests.
    * 
    * @example
    * 200
@@ -200,7 +202,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

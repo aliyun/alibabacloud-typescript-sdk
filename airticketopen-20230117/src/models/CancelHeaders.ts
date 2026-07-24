@@ -6,7 +6,7 @@ export class CancelHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access token
+   * access_token.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class CancelHeaders extends $dara.Model {
   xAcsAirticketAccessToken?: string;
   /**
    * @remarks
-   * language code(refer to ISO_639), defaults to buyer account configuration
+   * The language. The buyer account configuration is used by default.
    * 
    * @example
    * en_US

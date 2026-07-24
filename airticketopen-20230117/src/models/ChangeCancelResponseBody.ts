@@ -9,31 +9,49 @@ export class ChangeCancelResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The data returned for a successful request.
+   * 
    * @example
    * null
    */
   data?: any;
   /**
+   * @remarks
+   * Business error code
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The data returned for a failed request.
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * If the HTTP request is successful, the status value is 200.
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

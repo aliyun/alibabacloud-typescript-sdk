@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OrderListResponseBodyDataListPassengerListCredential extends $dara.Model {
   /**
    * @remarks
-   * issuing place (two-letter code)
+   * The place of issue, represented as a two-letter code.
    * 
    * @example
    * CN
@@ -13,7 +13,7 @@ export class OrderListResponseBodyDataListPassengerListCredential extends $dara.
   certIssuePlace?: string;
   /**
    * @remarks
-   * credential number
+   * The credential number.
    * 
    * @example
    * E1***5674
@@ -21,7 +21,25 @@ export class OrderListResponseBodyDataListPassengerListCredential extends $dara.
   credentialNum?: string;
   /**
    * @remarks
-   * credential type , only support "1"(1 means passport) currently.
+   * The credential type. Valid values:
+   * - 0: ID card.
+   * - 1: passport.
+   * - 2: student ID.
+   * - 3: military ID.
+   * - 4: Home Return Permit.
+   * - 5: Taiwan Compatriot Permit.
+   * - 6: Hong Kong and Macao Travel Permit.
+   * - 7: international seafarer certificate.
+   * - 8: Foreigner Permanent Residence Card.
+   * - 10: police officer ID.
+   * - 11: soldier ID.
+   * - 12: Taiwan Travel Permit.
+   * - 13: Taiwan Entry Permit.
+   * - 14: household register.
+   * - 15: birth certificate.
+   * - 16: driver license.
+   * - 17: Hong Kong and Macao Resident Residence Permit.
+   * - 18: Taiwan Resident Residence Permit.
    * 
    * @example
    * 1
@@ -29,7 +47,7 @@ export class OrderListResponseBodyDataListPassengerListCredential extends $dara.
   credentialType?: number;
   /**
    * @remarks
-   * credential expiration date
+   * The credential expiration date.
    * 
    * @example
    * 20290101
@@ -65,7 +83,7 @@ export class OrderListResponseBodyDataListPassengerListCredential extends $dara.
 export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
   /**
    * @remarks
-   * date of birth (yyyyMMdd)
+   * The date of birth in the yyyyMMdd format.
    * 
    * @example
    * 20020301
@@ -73,12 +91,12 @@ export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
   birthday?: string;
   /**
    * @remarks
-   * credential
+   * The credential information.
    */
   credential?: OrderListResponseBodyDataListPassengerListCredential;
   /**
    * @remarks
-   * first name
+   * The first name.
    * 
    * @example
    * SAN
@@ -86,7 +104,9 @@ export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
-   * gender 0: MALE; 1: FEMALE
+   * The gender. Valid values:
+   * - 0: MALE.
+   * - 1: FEMALE.
    * 
    * @example
    * 0
@@ -94,7 +114,7 @@ export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
   gender?: number;
   /**
    * @remarks
-   * last name
+   * The last name.
    * 
    * @example
    * ZHANG
@@ -102,7 +122,7 @@ export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
   lastName?: string;
   /**
    * @remarks
-   * mobile country code
+   * The country code of the mobile phone number.
    * 
    * @example
    * 86
@@ -110,7 +130,7 @@ export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
   mobileCountryCode?: string;
   /**
    * @remarks
-   * mobile phone number
+   * The mobile phone number.
    * 
    * @example
    * 183******96
@@ -118,7 +138,7 @@ export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
   mobilePhoneNumber?: string;
   /**
    * @remarks
-   * nationality (two-letter code)
+   * The two-letter nationality code.
    * 
    * @example
    * CN
@@ -126,7 +146,10 @@ export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
   nationality?: string;
   /**
    * @remarks
-   * passenger type 0: adult; 1: child; 8: infant
+   * The passenger type. Valid values:
+   * - 0: adult.
+   * - 1: child.
+   * - 8: infant.
    * 
    * @example
    * 0
@@ -175,7 +198,7 @@ export class OrderListResponseBodyDataListPassengerList extends $dara.Model {
 export class OrderListResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * book time(timestamp)
+   * The booking time (order creation time). The value is a 13-digit UNIX timestamp.
    * 
    * @example
    * 1677210784000
@@ -183,7 +206,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   bookTime?: number;
   /**
    * @remarks
-   * order number created by book
+   * The order number.
    * 
    * @example
    * 4966***617111
@@ -191,17 +214,11 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * order status
-   * 
-   * 1: order reservation in process
-   * 
-   * 2: order reservation successful
-   * 
-   * 3: order paid
-   * 
-   * 4: order successful
-   * 
-   * 5: order closed
+   * The order status. Valid values:
+   * - 2: order creation succeeded.
+   * - 3: order paid.
+   * - 4: order succeeded.
+   * - 5: order closed.
    * 
    * @example
    * 4
@@ -209,7 +226,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   orderStatus?: string;
   /**
    * @remarks
-   * external order number(customized by buyer when book)
+   * The external order number.
    * 
    * @example
    * x091-2023-0220-j-0001
@@ -217,20 +234,16 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   outOrderNum?: string;
   /**
    * @remarks
-   * the information about all passenger of current order
+   * The passenger list.
    */
   passengerList?: OrderListResponseBodyDataListPassengerList[];
   /**
    * @remarks
-   * payment status
-   * 
-   * 1: payment in process
-   * 
-   * 2: deduction successful
-   * 
-   * 3: paid to the seller
-   * 
-   * 4: transaction closed
+   * The payment status. Valid values:
+   * - 0: initialized.
+   * - 1: creation succeeded.
+   * - 2: payment succeeded.
+   * - 4: transaction closed.
    * 
    * @example
    * 2
@@ -238,7 +251,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   payStatus?: string;
   /**
    * @remarks
-   * pay time(timestamp)
+   * The payment time. The value is a 13-digit UNIX timestamp.
    * 
    * @example
    * 1677210788000
@@ -246,7 +259,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   payTime?: number;
   /**
    * @remarks
-   * discount amount
+   * The discount amount. Unit: yuan.
    * 
    * @example
    * 10
@@ -254,7 +267,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   promotionPrice?: number;
   /**
    * @remarks
-   * actual payment amount
+   * The actual payment amount. Unit: yuan.
    * 
    * @example
    * 3000
@@ -262,7 +275,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   realPayPrice?: number;
   /**
    * @remarks
-   * buyer nickname
+   * The buyer nickname.
    * 
    * @example
    * nick
@@ -270,7 +283,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   sessionNick?: string;
   /**
    * @remarks
-   * order success time(timestamp)
+   * The ticketing time. The value is a 13-digit UNIX timestamp.
    * 
    * @example
    * 1677210786000
@@ -278,7 +291,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   succeedTime?: number;
   /**
    * @remarks
-   * total price of current order
+   * The total price of the order. Unit: yuan.
    * 
    * @example
    * 3000
@@ -286,7 +299,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
   totalPrice?: number;
   /**
    * @remarks
-   * transaction number
+   * The transaction serial number.
    * 
    * @example
    * hkduendkd-2023-dj0
@@ -343,7 +356,7 @@ export class OrderListResponseBodyDataList extends $dara.Model {
 export class OrderListResponseBodyDataPagination extends $dara.Model {
   /**
    * @remarks
-   * current page index
+   * The current page number.
    * 
    * @example
    * 1
@@ -351,7 +364,7 @@ export class OrderListResponseBodyDataPagination extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * page size
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -359,7 +372,7 @@ export class OrderListResponseBodyDataPagination extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * the number of total orders
+   * The total number of records.
    * 
    * @example
    * 5
@@ -367,7 +380,7 @@ export class OrderListResponseBodyDataPagination extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * the number of total pages
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -403,12 +416,12 @@ export class OrderListResponseBodyDataPagination extends $dara.Model {
 export class OrderListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * order list
+   * The data list.
    */
   list?: OrderListResponseBodyDataList[];
   /**
    * @remarks
-   * information of pagination
+   * The pagination information.
    */
   pagination?: OrderListResponseBodyDataPagination;
   static names(): { [key: string]: string } {
@@ -443,7 +456,7 @@ export class OrderListResponseBodyData extends $dara.Model {
 export class OrderListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request ID
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -451,12 +464,12 @@ export class OrderListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * data
+   * The data returned for a successful request.
    */
   data?: OrderListResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -464,7 +477,7 @@ export class OrderListResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error data
+   * The data returned with the error.
    * 
    * @example
    * null
@@ -472,7 +485,7 @@ export class OrderListResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * error message
+   * The error message.
    * 
    * @example
    * null
@@ -480,7 +493,7 @@ export class OrderListResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http reqeust has been processed successfully，status code is 200
+   * The HTTP status code. The value is always 200 for successful requests.
    * 
    * @example
    * 200
@@ -488,7 +501,7 @@ export class OrderListResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

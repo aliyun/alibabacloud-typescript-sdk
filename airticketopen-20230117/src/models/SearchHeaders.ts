@@ -6,7 +6,7 @@ export class SearchHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access token
+   * The access token.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class SearchHeaders extends $dara.Model {
   xAcsAirticketAccessToken?: string;
   /**
    * @remarks
-   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * The language. The default value is the language configured for the buyer account.
    * 
    * @example
    * en_US

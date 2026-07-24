@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TicketingRequest extends $dara.Model {
   /**
    * @remarks
-   * order number
+   * The order number.
    * 
    * This parameter is required.
    * 

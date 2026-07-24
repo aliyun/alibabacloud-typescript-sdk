@@ -6,7 +6,7 @@ export class RefundDetailHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * The access_token.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class RefundDetailHeaders extends $dara.Model {
   xAcsAirticketAccessToken?: string;
   /**
    * @remarks
-   * Multi-language, default to buyer account configuration
+   * The language. Defaults to the buyer account configuration.
    * 
    * @example
    * en_US

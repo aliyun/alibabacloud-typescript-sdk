@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList extends $dara.Model {
   /**
    * @remarks
-   * type: 0 - fully-unused ticket; 1 - partially used ticket
+   * 该退票规则适用航程使用类型 0:全程未使用; 1:部分未使用
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   type?: number;
   /**
    * @remarks
-   * time unit: day/hour
+   * 时间单位：day/hour
    * 
    * @example
    * hour
@@ -21,7 +21,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   timeUnit?: string;
   /**
    * @remarks
-   * applicable refund rule start time, time unit (day/hour)
+   * 该退票规则适用于的退票时间区间开始时间，单位（天/小时）
    * 
    * @example
    * 36
@@ -29,7 +29,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   ruleStartTime?: number;
   /**
    * @remarks
-   * applicable refund rule end time, time unit (day/hour)
+   * 该退票规则适用于的退票时间区间结束时间，单位（天/小时）
    * 
    * @example
    * 12
@@ -37,7 +37,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   ruleEndTime?: number;
   /**
    * @remarks
-   * whether refundable X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 可否退票
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   canRefund?: boolean;
   /**
    * @remarks
-   * refund fee X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 退票手续费
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   refundFee?: number;
   /**
    * @remarks
-   * whether tax is fully refundable X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 是否全额退税
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   canReturnAllTax?: boolean;
   /**
    * @remarks
-   * tax amount refundable X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 可部分退税金额
    * 
    * @example
    * 100
@@ -105,7 +105,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList extends $dara.Model {
   /**
    * @remarks
-   * type: 0 - fully-unused ticket; 1 - partially used ticket
+   * 该退票规则适用航程使用类型 0:全程未使用; 1:部分未使用
    * 
    * @example
    * 0
@@ -113,7 +113,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   type?: number;
   /**
    * @remarks
-   * time unit: day/hour
+   * 时间单位：day/hour
    * 
    * @example
    * hour
@@ -121,7 +121,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   timeUnit?: string;
   /**
    * @remarks
-   * applicable refund rule start time, time unit (day/hour)
+   * 该退票规则适用于的退票时间区间开始时间，单位（天/小时）
    * 
    * @example
    * 36
@@ -129,7 +129,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   ruleStartTime?: number;
   /**
    * @remarks
-   * applicable refund rule end time, time unit (day/hour)
+   * 该退票规则适用于的退票时间区间结束时间，单位（天/小时）
    * 
    * @example
    * 12
@@ -137,7 +137,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   ruleEndTime?: number;
   /**
    * @remarks
-   * whether refundable X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 可否退票
    * 
    * @example
    * true
@@ -145,7 +145,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   canRefund?: boolean;
   /**
    * @remarks
-   * refund fee X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 退票手续费
    * 
    * @example
    * 200
@@ -153,7 +153,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   refundFee?: number;
   /**
    * @remarks
-   * whether tax is fully refundable X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 是否全额退税
    * 
    * @example
    * true
@@ -161,7 +161,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   canReturnAllTax?: boolean;
   /**
    * @remarks
-   * tax amount refundable X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 可部分退税金额
    * 
    * @example
    * 100
@@ -205,7 +205,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList extends $dara.Model {
   /**
    * @remarks
-   * type: 2 - outbound segment unused; 3 - inbound segment unused
+   * 该改签规则适用航程使用类型 2:去程未使用; 3:回程未使用
    * 
    * @example
    * 2
@@ -213,7 +213,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   type?: number;
   /**
    * @remarks
-   * time unit: day/hour
+   * 时间单位：day/hour
    * 
    * @example
    * hour
@@ -221,7 +221,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   timeUnit?: string;
   /**
    * @remarks
-   * applicable change rule start time, time unit (day/hour)
+   * 该退票规则适用于的退票时间区间开始时间，单位（天/小时）
    * 
    * @example
    * 36
@@ -229,7 +229,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   ruleStartTime?: number;
   /**
    * @remarks
-   * applicable change rule end time, time unit (day/hour)
+   * 该退票规则适用于的退票时间区间结束时间，单位（天/小时）
    * 
    * @example
    * 12
@@ -237,7 +237,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   ruleEndTime?: number;
   /**
    * @remarks
-   * whether changeable X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 可否可以改签
    * 
    * @example
    * true
@@ -245,7 +245,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   canChange?: boolean;
   /**
    * @remarks
-   * change fee X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 改签费
    * 
    * @example
    * 100
@@ -285,7 +285,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList extends $dara.Model {
   /**
    * @remarks
-   * type: 2 - outbound segment unused; 3 - inbound segment unused
+   * 该改签规则适用航程使用类型 2:去程未使用; 3:回程未使用
    * 
    * @example
    * 2
@@ -293,7 +293,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   type?: number;
   /**
    * @remarks
-   * time unit: day/hour
+   * 时间单位：day/hour
    * 
    * @example
    * hour
@@ -301,7 +301,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   timeUnit?: string;
   /**
    * @remarks
-   * applicable change rule start time, time unit (day/hour)
+   * 该退票规则适用于的退票时间区间开始时间，单位（天/小时）
    * 
    * @example
    * 36
@@ -309,7 +309,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   ruleStartTime?: number;
   /**
    * @remarks
-   * applicable change rule end time, time unit (day/hour)
+   * 该退票规则适用于的退票时间区间结束时间，单位（天/小时）
    * 
    * @example
    * 12
@@ -317,7 +317,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   ruleEndTime?: number;
   /**
    * @remarks
-   * whether changeable X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 可否可以改签
    * 
    * @example
    * true
@@ -325,7 +325,7 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
   canChange?: boolean;
   /**
    * @remarks
-   * change fee X-Y hour(day) before departure
+   * 起飞前X-Y小时(天) 改签费
    * 
    * @example
    * 100
@@ -365,22 +365,22 @@ export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 export class DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue extends $dara.Model {
   /**
    * @remarks
-   * refund rule for fully-unused tickets
+   * 全程未使用退票规则
    */
   refundRuleAllUnusedList?: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList[];
   /**
    * @remarks
-   * refund rule for partially-used tickets
+   * 部分未使用退票规则
    */
   refundRulePartUnusedList?: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList[];
   /**
    * @remarks
-   * change rule for inbound segment unused tickets
+   * 回程未使用改签规则
    */
   changeRuleInUnusedList?: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList[];
   /**
    * @remarks
-   * change rule for outbound-flight-unused tickets
+   * 去程未使用改签规则
    */
   changeRuleOutUnusedList?: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList[];
   static names(): { [key: string]: string } {

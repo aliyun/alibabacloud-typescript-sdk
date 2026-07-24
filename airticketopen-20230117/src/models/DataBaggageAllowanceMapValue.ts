@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataBaggageAllowanceMapValue extends $dara.Model {
   /**
    * @remarks
-   * checked baggage quantity
+   * 托运行李件数
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DataBaggageAllowanceMapValue extends $dara.Model {
   baggageAmount?: number;
   /**
    * @remarks
-   * checked baggage weight
+   * 托运行李重量
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DataBaggageAllowanceMapValue extends $dara.Model {
   baggageWeight?: number;
   /**
    * @remarks
-   * checked baggage weight unit
+   * 托运行李重量单位
    * 
    * @example
    * KG
@@ -29,7 +29,7 @@ export class DataBaggageAllowanceMapValue extends $dara.Model {
   baggageWeightUnit?: string;
   /**
    * @remarks
-   * Whether the weight is for all baggages
+   * 是否所有托运行李重量
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DataBaggageAllowanceMapValue extends $dara.Model {
   isAllWeight?: boolean;
   /**
    * @remarks
-   * carry-on baggage quantity
+   * 手提行李件数
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DataBaggageAllowanceMapValue extends $dara.Model {
   carryOnAmount?: number;
   /**
    * @remarks
-   * carry-on baggage weight
+   * 手提行李重量
    * 
    * @example
    * 5
@@ -53,7 +53,7 @@ export class DataBaggageAllowanceMapValue extends $dara.Model {
   carryOnWeight?: number;
   /**
    * @remarks
-   * carry-on baggage weight unit
+   * 手提行李重量单位
    * 
    * @example
    * KG
@@ -61,7 +61,7 @@ export class DataBaggageAllowanceMapValue extends $dara.Model {
   carryOnWeightUnit?: string;
   /**
    * @remarks
-   * Whether the weight is for all baggages
+   * 是否所有手提行李重量
    * 
    * @example
    * true

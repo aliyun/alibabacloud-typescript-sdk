@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeApplyRequestChangePassengerList extends $dara.Model {
   /**
+   * @remarks
+   * The document number.
+   * 
    * @example
    * 411***********4411
    */
   document?: string;
   /**
    * @remarks
+   * The first name of the passenger.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ChangeApplyRequestChangePassengerList extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
+   * The last name of the passenger.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,12 +58,17 @@ export class ChangeApplyRequestChangePassengerList extends $dara.Model {
 
 export class ChangeApplyRequestChangedJourneysSegmentList extends $dara.Model {
   /**
+   * @remarks
+   * The three-letter IATA code of the arrival airport.
+   * 
    * @example
    * MFM
    */
   arrivalAirport?: string;
   /**
    * @remarks
+   * The three-letter IATA code of the arrival city.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,28 +76,49 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $dara.Model {
    */
   arrivalCity?: string;
   /**
+   * @remarks
+   * The arrival terminal of the flight.
+   * 
    * @example
    * T1
    */
   arriveTerminal?: string;
   /**
+   * @remarks
+   * (该属性废弃)航班到达日期时间，utc时间戳
+   * 
    * @example
    * 1677232999000
    */
   arriveTime?: number;
+  /**
+   * @remarks
+   * (必填参数)航班到达日期时间，航班的旅行时间，格式：yyyy-MM-dd HH:mm:ss
+   * 
+   * @example
+   * 2024-03-20 12:30:00
+   */
   arriveTimeStr?: string;
   /**
+   * @remarks
+   * Indicates whether the flight is a codeshare flight.
+   * 
    * @example
    * false
    */
   codeShare?: boolean;
   /**
+   * @remarks
+   * The three-letter IATA code of the departure airport.
+   * 
    * @example
    * PVG
    */
   departureAirport?: string;
   /**
    * @remarks
+   * The three-letter IATA code of the departure city.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -94,6 +127,12 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $dara.Model {
   departureCity?: string;
   /**
    * @remarks
+   * The departure date (for example, yyyyMMdd).
+   * [_single.params.changed_journeys.items.segment_list.items.departure_time.desc](Deprecated) The departure date and time of the flight, in UTC timestamp.
+   * [_single.params.changed_journeys.items.segment_list.items.departure_time_str.desc](Required) The departure date and time of the flight, in local travel time. Format: yyyy-MM-dd HH:mm:ss.
+   * [_single.params.changed_journeys.items.segment_list.items.arrive_time.desc](Deprecated) The arrival date and time of the flight, in UTC timestamp.
+   * [_single.params.changed_journeys.items.segment_list.items.arrive_time_str.desc](Required) The arrival date and time of the flight, in local travel time. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -101,18 +140,33 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $dara.Model {
    */
   departureDate?: string;
   /**
+   * @remarks
+   * The departure terminal of the flight.
+   * 
    * @example
    * T2
    */
   departureTerminal?: string;
   /**
+   * @remarks
+   * (该属性废弃)航班起飞日期，utc时间戳
+   * 
    * @example
    * 1677232998000
    */
   departureTime?: number;
+  /**
+   * @remarks
+   * (必填参数)航班起飞日期时间，航班的旅行时间，格式：yyyy-MM-dd HH:mm:ss
+   * 
+   * @example
+   * 2024-03-20 09:30:00
+   */
   departureTimeStr?: string;
   /**
    * @remarks
+   * The marketing flight number (such as KA5809).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -120,6 +174,9 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $dara.Model {
    */
   marketingFlightNo?: string;
   /**
+   * @remarks
+   * The operating flight number (such as CX601).
+   * 
    * @example
    * HO1295
    */
@@ -172,6 +229,10 @@ export class ChangeApplyRequestChangedJourneysSegmentList extends $dara.Model {
 }
 
 export class ChangeApplyRequestChangedJourneys extends $dara.Model {
+  /**
+   * @remarks
+   * The list of target segments for the change.
+   */
   segmentList?: ChangeApplyRequestChangedJourneysSegmentList[];
   static names(): { [key: string]: string } {
     return {
@@ -199,16 +260,25 @@ export class ChangeApplyRequestChangedJourneys extends $dara.Model {
 
 export class ChangeApplyRequestContact extends $dara.Model {
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * gao******@gmail.com
    */
   email?: string;
   /**
+   * @remarks
+   * The country calling code.
+   * 
    * @example
    * 86
    */
   mobileCountryCode?: string;
   /**
+   * @remarks
+   * The mobile phone number of the contact.
+   * 
    * @example
    * 183*****92
    */
@@ -241,21 +311,29 @@ export class ChangeApplyRequestContact extends $dara.Model {
 export class ChangeApplyRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of passengers for the change.
+   * 
    * This parameter is required.
    */
   changePassengerList?: ChangeApplyRequestChangePassengerList[];
   /**
    * @remarks
+   * The target journey for the change.
+   * 
    * This parameter is required.
    */
   changedJourneys?: ChangeApplyRequestChangedJourneys[];
   /**
    * @remarks
+   * The contact information for the change.
+   * 
    * This parameter is required.
    */
   contact?: ChangeApplyRequestContact;
   /**
    * @remarks
+   * The order number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -263,12 +341,19 @@ export class ChangeApplyRequest extends $dara.Model {
    */
   orderNum?: number;
   /**
+   * @remarks
+   * The buyer remarks.
+   * 
    * @example
    * remark desc
    */
   remark?: string;
   /**
    * @remarks
+   * The change type. Valid values:
+   * - 0: voluntary change
+   * - 1: flight schedule change or flight cancellation.
+   * 
    * This parameter is required.
    * 
    * @example

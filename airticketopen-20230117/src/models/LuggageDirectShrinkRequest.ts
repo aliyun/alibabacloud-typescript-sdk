@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LuggageDirectShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of flight segments that constitute an itinerary. Maximum size: 2.
+   */
   flightSegmentParamListShrink?: string;
   static names(): { [key: string]: string } {
     return {

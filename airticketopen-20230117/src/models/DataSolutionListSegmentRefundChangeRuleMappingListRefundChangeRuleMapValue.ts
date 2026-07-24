@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList extends $dara.Model {
   /**
    * @remarks
-   * The type of itinerary this refund rule applies to 0: fully unused; 1: partially unused
+   * Refund rule applicable journey usage type 0: fully unused; 1: partially unused
    * 
    * @example
    * 0
@@ -23,7 +23,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   timeUnit?: string;
   /**
    * @remarks
-   * The start time of the refund time interval for this refund rule, in units of (days/hours)
+   * Start time of the refund time interval applicable to this refund rule, unit (day/hour)
    * 
    * @example
    * 36
@@ -31,7 +31,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   ruleStartTime?: number;
   /**
    * @remarks
-   * The end time of the refund time interval for this refund rule, in units of (days/hours)
+   * End time of the refund time interval applicable to this refund rule, unit (day/hour)
    * 
    * @example
    * 12
@@ -39,7 +39,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   ruleEndTime?: number;
   /**
    * @remarks
-   * Whether a refund is allowed X-Y hours (days) before departure
+   * Whether refund is allowed X-Y hours (days) before departure
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   refundFee?: number;
   /**
    * @remarks
-   * Whether full tax refund is allowed X-Y hours (days) before departure
+   * Whether full tax refund is available X-Y hours (days) before departure
    * 
    * @example
    * true
@@ -107,7 +107,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList extends $dara.Model {
   /**
    * @remarks
-   * The type of itinerary usage for this refund rule. 0: Entirely unused; 1: Partially unused
+   * Refund rule applicable journey usage type 0: fully unused; 1: partially unused
    * 
    * @example
    * 1
@@ -123,7 +123,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   timeUnit?: string;
   /**
    * @remarks
-   * The start time of the refund time interval for this refund rule, in units of days/hours
+   * Start time of the refund time interval applicable to this refund rule, unit (day/hour)
    * 
    * @example
    * 36
@@ -131,7 +131,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   ruleStartTime?: number;
   /**
    * @remarks
-   * The end time of the refund time interval for this refund rule, in units of days/hours
+   * End time of the refund time interval applicable to this refund rule, unit (day/hour)
    * 
    * @example
    * 12
@@ -139,7 +139,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   ruleEndTime?: number;
   /**
    * @remarks
-   * Whether a refund is allowed X-Y hours (days) before departure
+   * Whether refund is allowed X-Y hours (days) before departure
    * 
    * @example
    * true
@@ -155,7 +155,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   refundFee?: number;
   /**
    * @remarks
-   * Whether full tax refund is allowed X-Y hours (days) before departure
+   * Whether full tax refund is available X-Y hours (days) before departure
    * 
    * @example
    * 30
@@ -207,7 +207,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList extends $dara.Model {
   /**
    * @remarks
-   * Type of itinerary usage for the change rule 2: outbound unused; 3: return unused
+   * Change rule applicable journey usage type 2: outbound unused; 3: return/inbound unused
    * 
    * @example
    * 2
@@ -223,7 +223,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   timeUnit?: string;
   /**
    * @remarks
-   * Start time of the refund time interval, in units of days/hours, to which this refund rule applies
+   * Start time of the refund time interval applicable to this refund rule, unit (day/hour)
    * 
    * @example
    * 36
@@ -231,7 +231,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   ruleStartTime?: number;
   /**
    * @remarks
-   * End time of the refund time interval, in units of days/hours, to which this refund rule applies
+   * End time of the refund time interval applicable to this refund rule, unit (day/hour)
    * 
    * @example
    * 12
@@ -239,7 +239,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   ruleEndTime?: number;
   /**
    * @remarks
-   * Whether it is possible to change the ticket X-Y hours (days) before departure
+   * Whether rebooking is allowed X-Y hours (days) before departure
    * 
    * @example
    * true
@@ -247,7 +247,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   canChange?: boolean;
   /**
    * @remarks
-   * Change fee X-Y hours (days) before departure
+   * Rebooking fee X-Y hours (days) before departure
    * 
    * @example
    * 20
@@ -287,7 +287,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList extends $dara.Model {
   /**
    * @remarks
-   * The type of itinerary usage for this change rule 2: unused outbound; 3: unused return
+   * Change rule applicable journey usage type 2: outbound unused; 3: return/inbound unused
    * 
    * @example
    * 2
@@ -303,7 +303,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   timeUnit?: string;
   /**
    * @remarks
-   * Start time of the refund time interval for this refund rule, in days/hours
+   * Start time of the refund time interval applicable to this refund rule, unit (day/hour)
    * 
    * @example
    * 36
@@ -311,7 +311,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   ruleStartTime?: number;
   /**
    * @remarks
-   * End time of the refund time interval for this refund rule, in days/hours
+   * End time of the refund time interval applicable to this refund rule, unit (day/hour)
    * 
    * @example
    * 12
@@ -319,7 +319,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   ruleEndTime?: number;
   /**
    * @remarks
-   * Whether it is possible to change the ticket X-Y hours (days) before departure
+   * Whether rebooking is allowed X-Y hours (days) before departure
    * 
    * @example
    * true
@@ -327,7 +327,7 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
   canChange?: boolean;
   /**
    * @remarks
-   * Change fee X-Y hours (days) before departure
+   * Rebooking fee X-Y hours (days) before departure
    * 
    * @example
    * 10
@@ -367,22 +367,22 @@ export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleM
 export class DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue extends $dara.Model {
   /**
    * @remarks
-   * Full unused ticket refund rules
+   * Fully unused refund rules
    */
   refundRuleAllUnusedList?: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList[];
   /**
    * @remarks
-   * Partial unused ticket refund rules
+   * Partially unused refund rules
    */
   refundRulePartUnusedList?: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList[];
   /**
    * @remarks
-   * Unused return flight change rules
+   * Return/inbound unused change rules
    */
   changeRuleInUnusedList?: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList[];
   /**
    * @remarks
-   * Unused outbound change rules
+   * Outbound unused change rules
    */
   changeRuleOutUnusedList?: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList[];
   static names(): { [key: string]: string } {

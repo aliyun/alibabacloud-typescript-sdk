@@ -6,7 +6,7 @@ export class ChangeConfirmHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * access_token.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,9 @@ export class ChangeConfirmHeaders extends $dara.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * The language. The buyer account configuration is used by default.
+   * 
    * @example
    * en_US
    */

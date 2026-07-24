@@ -4,66 +4,107 @@ import * as $dara from '@darabonba/typescript';
 
 export class FlightChangeOfOrderResponseBodyDataFlightChangeDetail extends $dara.Model {
   /**
+   * @remarks
+   * The reason for the flight change.
+   * 
    * @example
    * 天气
    */
   changeReason?: string;
   /**
+   * @remarks
+   * The time of the flight change in string format (yyyy-MM-dd HH:mm:ss).
+   * 
    * @example
    * 2023-02-01 10:01:00
    */
   changeTime?: string;
   /**
+   * @remarks
+   * The type of the flight change. Valid values:
+   * - 1: cancellation
+   * - 2: schedule change.
+   * 
    * @example
    * 1
    */
   changeType?: number;
   /**
+   * @remarks
+   * The three-letter IATA code of the new arrival airport (uppercase).
+   * 
    * @example
    * MFM
    */
   newArrivalAirport?: string;
   /**
+   * @remarks
+   * The arrival date and time of the new flight in string format (yyyy-MM-dd HH:mm:ss).
+   * 
    * @example
    * 2023-02-01 15:01:00
    */
   newArrivalTime?: string;
   /**
+   * @remarks
+   * The three-letter IATA code of the new departure airport (uppercase).
+   * 
    * @example
    * PVG
    */
   newDepartureAirport?: string;
   /**
+   * @remarks
+   * The departure date and time of the new flight in string format (yyyy-MM-dd HH:mm:ss).
+   * 
    * @example
    * 2023-02-01 13:01:00
    */
   newDepartureTime?: string;
   /**
+   * @remarks
+   * The new flight number.
+   * 
    * @example
    * HO1295
    */
   newFlightNo?: string;
   /**
+   * @remarks
+   * The three-letter IATA code of the original arrival airport (uppercase).
+   * 
    * @example
    * MFM
    */
   oldArrivalAirport?: string;
   /**
+   * @remarks
+   * The arrival date and time of the original flight in string format (yyyy-MM-dd HH:mm:ss).
+   * 
    * @example
    * 023-02-01 14:01:00
    */
   oldArrivalTime?: string;
   /**
+   * @remarks
+   * The three-letter IATA code of the original departure airport (uppercase).
+   * 
    * @example
    * PVG
    */
   oldDepartureAirport?: string;
   /**
+   * @remarks
+   * The departure date and time of the original flight in string format (yyyy-MM-dd HH:mm:ss).
+   * 
    * @example
    * 2023-02-01 12:01:00
    */
   oldDepartureTime?: string;
   /**
+   * @remarks
+   * The original flight number.
+   * 
    * @example
    * HO1295
    */
@@ -114,8 +155,15 @@ export class FlightChangeOfOrderResponseBodyDataFlightChangeDetail extends $dara
 }
 
 export class FlightChangeOfOrderResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The flight change information.
+   */
   flightChangeDetail?: FlightChangeOfOrderResponseBodyDataFlightChangeDetail;
   /**
+   * @remarks
+   * The order number.
+   * 
    * @example
    * 4966***617111
    */
@@ -152,28 +200,47 @@ export class FlightChangeOfOrderResponseBody extends $dara.Model {
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The data returned for a successful request.
+   */
   data?: FlightChangeOfOrderResponseBodyData[];
   /**
+   * @remarks
+   * The business error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The data returned with the error.
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The HTTP status code. The value is always 200 for successful requests.
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

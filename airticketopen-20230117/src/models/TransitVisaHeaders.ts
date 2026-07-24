@@ -6,7 +6,7 @@ export class TransitVisaHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * The access token.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,9 @@ export class TransitVisaHeaders extends $dara.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * The language. Defaults to the buyer account configuration.
+   * 
    * @example
    * en_US
    */

@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("airticketopen", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 账号资金流水
+   * Queries the account fund flow list.
    * 
    * @param request - AccountFlowListRequest
    * @param headers - AccountFlowListHeaders
@@ -88,7 +88,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 账号资金流水
+   * Queries the account fund flow list.
    * 
    * @param request - AccountFlowListRequest
    * @returns AccountFlowListResponse
@@ -100,10 +100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ancillary - Suggestion
-   * 
-   * @remarks
-   * search ancillary for selected solution, you should enter the solution_id returned by enrich.
+   * Recommends ancillary products.
    * 
    * @param request - AncillarySuggestRequest
    * @param headers - AncillarySuggestHeaders
@@ -149,10 +146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ancillary - Suggestion
-   * 
-   * @remarks
-   * search ancillary for selected solution, you should enter the solution_id returned by enrich.
+   * Recommends ancillary products.
    * 
    * @param request - AncillarySuggestRequest
    * @returns AncillarySuggestResponse
@@ -164,13 +158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction-Reservation
-   * 
-   * @remarks
-   * Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
-   * There are two issues should be noticed:
-   * 1. the solution_id must be processed by pricing.
-   * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
+   * Creates a booking order.
    * 
    * @param tmpReq - BookRequest
    * @param headers - BookHeaders
@@ -246,13 +234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction-Reservation
-   * 
-   * @remarks
-   * Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
-   * There are two issues should be noticed:
-   * 1. the solution_id must be processed by pricing.
-   * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
+   * Creates a booking order.
    * 
    * @param request - BookRequest
    * @returns BookResponse
@@ -264,10 +246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction - Unpaid Cancellation
-   * 
-   * @remarks
-   * close an unpaid order
+   * Cancels an unpaid order.
    * 
    * @param request - CancelRequest
    * @param headers - CancelHeaders
@@ -313,10 +292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction - Unpaid Cancellation
-   * 
-   * @remarks
-   * close an unpaid order
+   * Cancels an unpaid order.
    * 
    * @param request - CancelRequest
    * @returns CancelResponse
@@ -328,7 +304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签-Apply
+   * Submits a change application.
    * 
    * @param tmpReq - ChangeApplyRequest
    * @param headers - ChangeApplyHeaders
@@ -408,7 +384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签-Apply
+   * Submits a change application.
    * 
    * @param request - ChangeApplyRequest
    * @returns ChangeApplyResponse
@@ -420,7 +396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签-取消
+   * Cancel the change order.
    * 
    * @param request - ChangeCancelRequest
    * @param headers - ChangeCancelHeaders
@@ -466,7 +442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签-取消
+   * Cancel the change order.
    * 
    * @param request - ChangeCancelRequest
    * @returns ChangeCancelResponse
@@ -478,7 +454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签-确认
+   * Confirms a flight change order.
    * 
    * @param request - ChangeConfirmRequest
    * @param headers - ChangeConfirmHeaders
@@ -524,7 +500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签-确认
+   * Confirms a flight change order.
    * 
    * @param request - ChangeConfirmRequest
    * @returns ChangeConfirmResponse
@@ -536,7 +512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change-Detail
+   * Retrieves the details of a flight change order.
    * 
    * @param request - ChangeDetailRequest
    * @param headers - ChangeDetailHeaders
@@ -582,7 +558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Change-Detail
+   * Retrieves the details of a flight change order.
    * 
    * @param request - ChangeDetailRequest
    * @returns ChangeDetailResponse
@@ -594,7 +570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签单列表-关于买家账号
+   * Queries a paging list of change order summaries by buyer account.
    * 
    * @param request - ChangeDetailListOfBuyerRequest
    * @param headers - ChangeDetailListOfBuyerHeaders
@@ -652,7 +628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签单列表-关于买家账号
+   * Queries a paging list of change order summaries by buyer account.
    * 
    * @param request - ChangeDetailListOfBuyerRequest
    * @returns ChangeDetailListOfBuyerResponse
@@ -664,7 +640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签单列表-关于正向订单
+   * Queries the list of change orders by the original order number.
    * 
    * @param request - ChangeDetailListOfOrderNumRequest
    * @param headers - ChangeDetailListOfOrderNumHeaders
@@ -718,7 +694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签单列表-关于正向订单
+   * Queries the list of change orders by the original order number.
    * 
    * @param request - ChangeDetailListOfOrderNumRequest
    * @returns ChangeDetailListOfOrderNumResponse
@@ -730,7 +706,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 数据收集-低价航班信息
+   * Collects lowest-price flight information.
+   * 
+   * @remarks
+   * Collects lowest-price flight information.
    * 
    * @param tmpReq - CollectFlightLowestPriceRequest
    * @param headers - CollectFlightLowestPriceHeaders
@@ -782,7 +761,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 数据收集-低价航班信息
+   * Collects lowest-price flight information.
+   * 
+   * @remarks
+   * Collects lowest-price flight information.
    * 
    * @param request - CollectFlightLowestPriceRequest
    * @returns CollectFlightLowestPriceResponse
@@ -794,10 +776,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search-Enrich
+   * Find richer quote information for the itinerary, including free baggage allowance, refund and change rules, and baggage through-check rules.
    * 
    * @remarks
-   * Choose either `solution_id` or `journey_param_list` in the parameters, and `solution_id` needs to be obtained from the Search interface.
+   * In the input parameters, choose either solution_id or journey_param_list. solution_id must be obtained from the Search API.
    * 
    * @param tmpReq - EnrichRequest
    * @param headers - EnrichHeaders
@@ -869,10 +851,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search-Enrich
+   * Find richer quote information for the itinerary, including free baggage allowance, refund and change rules, and baggage through-check rules.
    * 
    * @remarks
-   * Choose either `solution_id` or `journey_param_list` in the parameters, and `solution_id` needs to be obtained from the Search interface.
+   * In the input parameters, choose either solution_id or journey_param_list. solution_id must be obtained from the Search API.
    * 
    * @param request - EnrichRequest
    * @returns EnrichResponse
@@ -884,7 +866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 附件上传
+   * Uploads a file as an attachment image. The file size is limited to 300 KB or less.
    * 
    * @param request - FileUploadRequest
    * @param headers - FileUploadHeaders
@@ -934,7 +916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 附件上传
+   * Uploads a file as an attachment image. The file size is limited to 300 KB or less.
    * 
    * @param request - FileUploadRequest
    * @returns FileUploadResponse
@@ -946,7 +928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 航变信息-关于订单
+   * Queries flight change information by order number.
    * 
    * @param request - FlightChangeOfOrderRequest
    * @param headers - FlightChangeOfOrderHeaders
@@ -992,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 航变信息-关于订单
+   * Queries flight change information by order number.
    * 
    * @param request - FlightChangeOfOrderRequest
    * @returns FlightChangeOfOrderResponse
@@ -1004,7 +986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Token
+   * Obtains a token for API calls. The token is valid for 2 hours.
    * 
    * @param request - GetTokenRequest
    * @param headers - map
@@ -1041,7 +1023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Token
+   * Obtains a token for API calls. The token is valid for 2 hours.
    * 
    * @param request - GetTokenRequest
    * @returns GetTokenResponse
@@ -1053,7 +1035,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 航程行李直挂
+   * Queries luggage through-check information for an itinerary.
+   * 
+   * @remarks
+   * Queries luggage through-check information for an itinerary. Provide itinerary information as input, and the API returns whether luggage through-check is supported for the itinerary. Luggage through-check applies to transfer and stopover scenarios.
    * 
    * @param tmpReq - LuggageDirectRequest
    * @param headers - LuggageDirectHeaders
@@ -1105,7 +1090,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 航程行李直挂
+   * Queries luggage through-check information for an itinerary.
+   * 
+   * @remarks
+   * Queries luggage through-check information for an itinerary. Provide itinerary information as input, and the API returns whether luggage through-check is supported for the itinerary. Luggage through-check applies to transfer and stopover scenarios.
    * 
    * @param request - LuggageDirectRequest
    * @returns LuggageDirectResponse
@@ -1117,10 +1105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trade-Order Details
-   * 
-   * @remarks
-   * query order detail
+   * Queries order details.
    * 
    * @param request - OrderDetailRequest
    * @param headers - OrderDetailHeaders
@@ -1170,10 +1155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trade-Order Details
-   * 
-   * @remarks
-   * query order detail
+   * Queries order details.
    * 
    * @param request - OrderDetailRequest
    * @returns OrderDetailResponse
@@ -1185,10 +1167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trade - Order List
-   * 
-   * @remarks
-   * query order list
+   * Queries the order list.
    * 
    * @param request - OrderListRequest
    * @param headers - OrderListHeaders
@@ -1250,10 +1229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trade - Order List
-   * 
-   * @remarks
-   * query order list
+   * Queries the order list.
    * 
    * @param request - OrderListRequest
    * @returns OrderListResponse
@@ -1265,10 +1241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction - Seat and Price Verification
-   * 
-   * @remarks
-   * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
+   * Verifies seat availability and pricing. If the price has changed, the developer can proceed with Book at the updated price. If the price has not changed, the order is placed at the original price.
    * 
    * @param request - PricingRequest
    * @param headers - PricingHeaders
@@ -1314,10 +1287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction - Seat and Price Verification
-   * 
-   * @remarks
-   * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
+   * Verifies seat availability and pricing. If the price has changed, the developer can proceed with Book at the updated price. If the price has not changed, the order is placed at the original price.
    * 
    * @param request - PricingRequest
    * @returns PricingResponse
@@ -1329,7 +1299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ticket Refund - Application
+   * Submits a refund application for an air ticket.
    * 
    * @param tmpReq - RefundApplyRequest
    * @param headers - RefundApplyHeaders
@@ -1401,7 +1371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ticket Refund - Application
+   * Submits a refund application for an air ticket.
    * 
    * @param request - RefundApplyRequest
    * @returns RefundApplyResponse
@@ -1413,7 +1383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refund - Detail
+   * Retrieves the details of a refund order.
    * 
    * @param request - RefundDetailRequest
    * @param headers - RefundDetailHeaders
@@ -1459,7 +1429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refund - Detail
+   * Retrieves the details of a refund order.
    * 
    * @param request - RefundDetailRequest
    * @returns RefundDetailResponse
@@ -1471,7 +1441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refund - Detail List
+   * Queries the details of refund orders.
    * 
    * @param request - RefundDetailListRequest
    * @param headers - RefundDetailListHeaders
@@ -1533,7 +1503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refund - Detail List
+   * Queries the details of refund orders.
    * 
    * @param request - RefundDetailListRequest
    * @returns RefundDetailListResponse
@@ -1545,10 +1515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search
-   * 
-   * @remarks
-   * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
+   * Searches for flight quotes and returns the lowest price across multiple flights. Note that the response of this operation does not include refund and change rules, free baggage allowance, or baggage through-check rules.
    * 
    * @param tmpReq - SearchRequest
    * @param headers - SearchHeaders
@@ -1624,10 +1591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search
-   * 
-   * @remarks
-   * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
+   * Searches for flight quotes and returns the lowest price across multiple flights. Note that the response of this operation does not include refund and change rules, free baggage allowance, or baggage through-check rules.
    * 
    * @param request - SearchRequest
    * @returns SearchResponse
@@ -1639,7 +1603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 标准搜索
+   * Search and quote prices, currently providing the lowest price across multiple flights. Note that this API response includes refund/change rules, free baggage allowance, and baggage through-check rules.
    * 
    * @param tmpReq - StandardSearchRequest
    * @param headers - StandardSearchHeaders
@@ -1715,7 +1679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 标准搜索
+   * Search and quote prices, currently providing the lowest price across multiple flights. Note that this API response includes refund/change rules, free baggage allowance, and baggage through-check rules.
    * 
    * @param request - StandardSearchRequest
    * @returns StandardSearchResponse
@@ -1727,7 +1691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction - Payment and Ticket Issuance
+   * Pays for and issues a ticket.
    * 
    * @param request - TicketingRequest
    * @param headers - TicketingHeaders
@@ -1773,7 +1737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction - Payment and Ticket Issuance
+   * Pays for and issues a ticket.
    * 
    * @param request - TicketingRequest
    * @returns TicketingResponse
@@ -1785,10 +1749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction - Pre-payment verification
+   * Performs a pre-ticketing check. This operation is optional.
    * 
    * @remarks
-   * Pre-check for Ticketing, this interface is optional to use.
+   * Performs a pre-ticketing check. This operation is optional.
    * 
    * @param request - TicketingCheckRequest
    * @param headers - TicketingCheckHeaders
@@ -1834,10 +1798,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transaction - Pre-payment verification
+   * Performs a pre-ticketing check. This operation is optional.
    * 
    * @remarks
-   * Pre-check for Ticketing, this interface is optional to use.
+   * Performs a pre-ticketing check. This operation is optional.
    * 
    * @param request - TicketingCheckRequest
    * @returns TicketingCheckResponse
@@ -1849,7 +1813,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 航程过境签
+   * Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
+   * 
+   * @remarks
+   * Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
    * 
    * @param tmpReq - TransitVisaRequest
    * @param headers - TransitVisaHeaders
@@ -1901,7 +1868,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 航程过境签
+   * Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
+   * 
+   * @remarks
+   * Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
    * 
    * @param request - TransitVisaRequest
    * @returns TransitVisaResponse

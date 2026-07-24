@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefundApplyRequestRefundJourneysSegmentList extends $dara.Model {
   /**
    * @remarks
-   * Three-letter code of the arrival airport (uppercase)
+   * The three-letter IATA code of the arrival airport (uppercase).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $dara.Model {
   arrivalAirport?: string;
   /**
    * @remarks
-   * Three-letter code of the arrival city (uppercase)
+   * The three-letter IATA code of the arrival city (uppercase).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $dara.Model {
   arrivalCity?: string;
   /**
    * @remarks
-   * Three-letter code of the departure airport (uppercase)
+   * The three-letter IATA code of the departure airport (uppercase).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $dara.Model {
   departureAirport?: string;
   /**
    * @remarks
-   * Three-letter code of the departure city (uppercase)
+   * The three-letter IATA code of the departure city (uppercase).
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class RefundApplyRequestRefundJourneysSegmentList extends $dara.Model {
 export class RefundApplyRequestRefundJourneys extends $dara.Model {
   /**
    * @remarks
-   * Flight segment information
+   * The segment information.
    * 
    * This parameter is required.
    */
@@ -105,7 +105,7 @@ export class RefundApplyRequestRefundJourneys extends $dara.Model {
 export class RefundApplyRequestRefundPassengerList extends $dara.Model {
   /**
    * @remarks
-   * Document number
+   * The document number of the passenger.
    * 
    * @example
    * 411***********4411
@@ -113,7 +113,7 @@ export class RefundApplyRequestRefundPassengerList extends $dara.Model {
   document?: string;
   /**
    * @remarks
-   * Passenger\\"s first name
+   * The first name of the passenger.
    * 
    * This parameter is required.
    * 
@@ -123,7 +123,7 @@ export class RefundApplyRequestRefundPassengerList extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
-   * Passenger\\"s last name
+   * The last name of the passenger.
    * 
    * This parameter is required.
    * 
@@ -159,7 +159,7 @@ export class RefundApplyRequestRefundPassengerList extends $dara.Model {
 export class RefundApplyRequestRefundType extends $dara.Model {
   /**
    * @remarks
-   * Array of attachment file URLs. First, upload the files using a separate file upload interface to get the file URLs.
+   * The array of attachment file URLs. Upload files first by using the dedicated file upload operation to obtain the file URLs.
    * 
    * @example
    * [xxx,yyy]
@@ -167,9 +167,12 @@ export class RefundApplyRequestRefundType extends $dara.Model {
   file?: string[];
   /**
    * @remarks
-   * 2: Voluntary (I want to change my travel plan/I don\\"t want to fly). 
-   * 5: Involuntary, due to flight delay or cancellation, schedule changes, or other airline reasons. 
-   * 6: Involuntary, due to health reasons with a medical report from a hospital of at least secondary level A or above.
+   * The refund type. Valid values:
+   * - 2: Voluntary refund (change of travel plans or decision not to fly).
+   * - 5: Involuntary refund due to airline reasons such as flight delay, cancellation, or schedule change.
+   * - 6: Involuntary refund due to medical reasons with a certificate from a Grade II Class A hospital or above.
+   * 
+   * Note: Attachments are not mandatory, but providing attachments for involuntary refunds can improve the success rate of the refund application.
    * 
    * This parameter is required.
    * 
@@ -179,7 +182,7 @@ export class RefundApplyRequestRefundType extends $dara.Model {
   refundTypeId?: number;
   /**
    * @remarks
-   * Remark: detailed description about the refund application
+   * The remarks.
    * 
    * @example
    * remark desc
@@ -216,7 +219,7 @@ export class RefundApplyRequestRefundType extends $dara.Model {
 export class RefundApplyRequest extends $dara.Model {
   /**
    * @remarks
-   * Order number
+   * The order number.
    * 
    * This parameter is required.
    * 
@@ -226,22 +229,21 @@ export class RefundApplyRequest extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * Itinerary for which a refund is being requested
+   * The journeys for the refund application.
    * 
    * This parameter is required.
    */
   refundJourneys?: RefundApplyRequestRefundJourneys[];
   /**
    * @remarks
-   * List of passengers applying for a refund
+   * The list of passengers for the refund application.
    * 
    * This parameter is required.
    */
   refundPassengerList?: RefundApplyRequestRefundPassengerList[];
   /**
    * @remarks
-   * Refund type - involuntary or voluntary. 
-   * attachments are required for involuntary refund application.
+   * The refund type. Attachments are required for involuntary refund applications.
    * 
    * This parameter is required.
    */

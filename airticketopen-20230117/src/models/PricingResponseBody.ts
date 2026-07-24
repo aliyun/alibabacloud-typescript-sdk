@@ -7,7 +7,7 @@ import { DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingVa
 export class PricingResponseBodyDataChangedPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * adult fare
+   * The unit price per adult.
    * 
    * @example
    * 100
@@ -15,7 +15,7 @@ export class PricingResponseBodyDataChangedPriceInfo extends $dara.Model {
   adultPrice?: number;
   /**
    * @remarks
-   * adult tax
+   * The tax per adult.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class PricingResponseBodyDataChangedPriceInfo extends $dara.Model {
   adultTax?: number;
   /**
    * @remarks
-   * child fare
+   * The unit price per child.
    * 
    * @example
    * 100
@@ -31,7 +31,7 @@ export class PricingResponseBodyDataChangedPriceInfo extends $dara.Model {
   childPrice?: number;
   /**
    * @remarks
-   * child tax
+   * The tax per child.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class PricingResponseBodyDataChangedPriceInfo extends $dara.Model {
   childTax?: number;
   /**
    * @remarks
-   * infant fare
+   * The unit price per infant.
    * 
    * @example
    * 100
@@ -47,7 +47,7 @@ export class PricingResponseBodyDataChangedPriceInfo extends $dara.Model {
   infantPrice?: number;
   /**
    * @remarks
-   * infant tax
+   * The tax per infant.
    * 
    * @example
    * 10
@@ -87,7 +87,7 @@ export class PricingResponseBodyDataChangedPriceInfo extends $dara.Model {
 export class PricingResponseBodyDataOriginalPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * adult fare
+   * The unit price per adult.
    * 
    * @example
    * 200
@@ -95,7 +95,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $dara.Model {
   adultPrice?: number;
   /**
    * @remarks
-   * adult tax
+   * The tax per adult.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $dara.Model {
   adultTax?: number;
   /**
    * @remarks
-   * child fare
+   * The unit price per child.
    * 
    * @example
    * 200
@@ -111,7 +111,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $dara.Model {
   childPrice?: number;
   /**
    * @remarks
-   * child tax
+   * The tax per child.
    * 
    * @example
    * 20
@@ -119,7 +119,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $dara.Model {
   childTax?: number;
   /**
    * @remarks
-   * infant fare
+   * The unit price per infant.
    * 
    * @example
    * 200
@@ -127,7 +127,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $dara.Model {
   infantPrice?: number;
   /**
    * @remarks
-   * infant tax
+   * The tax per infant.
    * 
    * @example
    * 20
@@ -167,7 +167,7 @@ export class PricingResponseBodyDataOriginalPriceInfo extends $dara.Model {
 export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara.Model {
   /**
    * @remarks
-   * arrival airport code (capitalized)
+   * The three-letter IATA code of the arrival airport (uppercase).
    * 
    * @example
    * MFM
@@ -175,7 +175,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   arrivalAirport?: string;
   /**
    * @remarks
-   * arrival city code (capitalized)
+   * The three-letter IATA code of the arrival city (uppercase).
    * 
    * @example
    * MFM
@@ -183,7 +183,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   arrivalCity?: string;
   /**
    * @remarks
-   * arrival terminal
+   * The arrival terminal.
    * 
    * @example
    * T1
@@ -191,7 +191,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   arrivalTerminal?: string;
   /**
    * @remarks
-   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * The arrival date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -199,7 +199,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   arrivalTime?: string;
   /**
    * @remarks
-   * available seats (for reference only)
+   * The number of remaining seats.
    * 
    * @example
    * 7
@@ -207,7 +207,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   availability?: string;
   /**
    * @remarks
-   * RBD
+   * The cabin code.
    * 
    * @example
    * V
@@ -215,7 +215,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   cabin?: string;
   /**
    * @remarks
-   * cabin class
+   * The cabin class.
    * 
    * @example
    * ALL_CABIN
@@ -223,7 +223,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   cabinClass?: string;
   /**
    * @remarks
-   * code share or not
+   * Indicates whether the flight is a codeshare flight.
    * 
    * @example
    * false
@@ -231,7 +231,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   codeShare?: boolean;
   /**
    * @remarks
-   * departure airport code (capitalized)
+   * The three-letter IATA code of the departure airport (uppercase).
    * 
    * @example
    * PVG
@@ -239,7 +239,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   departureAirport?: string;
   /**
    * @remarks
-   * departure city code (capitalized)
+   * The three-letter IATA code of the departure city (uppercase).
    * 
    * @example
    * SHA
@@ -247,7 +247,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   departureCity?: string;
   /**
    * @remarks
-   * departure terminal
+   * The departure terminal.
    * 
    * @example
    * T2
@@ -255,7 +255,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   departureTerminal?: string;
   /**
    * @remarks
-   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * The departure date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -263,7 +263,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   departureTime?: string;
   /**
    * @remarks
-   * equipment type
+   * The aircraft type.
    * 
    * @example
    * 32Q
@@ -271,7 +271,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   equipType?: string;
   /**
    * @remarks
-   * flight time, unit: minute
+   * The flight duration in minutes.
    * 
    * @example
    * 165
@@ -279,7 +279,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   flightDuration?: number;
   /**
    * @remarks
-   * marketing airline code (eg: KA)
+   * The marketing airline code (for example, KA).
    * 
    * @example
    * HO
@@ -287,7 +287,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   marketingAirline?: string;
   /**
    * @remarks
-   * marketing airline flight no. (eg: KA5809)
+   * The marketing flight number (for example, KA5809).
    * 
    * @example
    * HO1295
@@ -295,7 +295,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   marketingFlightNo?: string;
   /**
    * @remarks
-   * marketing airline flight no. (eg: 5809)
+   * The numeric marketing flight number (for example, 5809).
    * 
    * @example
    * 1295
@@ -303,7 +303,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   marketingFlightNoInt?: number;
   /**
    * @remarks
-   * operating airline code (eg: CX)
+   * The operating airline code (for example, CX).
    * 
    * @example
    * HO
@@ -311,7 +311,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   operatingAirline?: string;
   /**
    * @remarks
-   * operating airline flight no. (eg: CX601)
+   * The operating flight number (for example, CX601).
    * 
    * @example
    * HO1295
@@ -319,7 +319,7 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   operatingFlightNo?: string;
   /**
    * @remarks
-   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * The segment ID in the format: flight number + departure airport + arrival airport + departure date (MMdd).
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -327,15 +327,15 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
   segmentId?: string;
   /**
    * @remarks
-   * stop city list. when stop_quantity > 1 , use “,” for seperation
+   * The list of stopover cities. This field has a value when stopQuantity is greater than 0. Multiple cities are separated by commas.
    * 
    * @example
-   * MFM,PVG
+   * ""
    */
   stopCityList?: string;
   /**
    * @remarks
-   * number of stops
+   * The number of stopover cities.
    * 
    * @example
    * 0
@@ -407,12 +407,12 @@ export class PricingResponseBodyDataSolutionJourneyListSegmentList extends $dara
 export class PricingResponseBodyDataSolutionJourneyList extends $dara.Model {
   /**
    * @remarks
-   * segment list
+   * The segment information.
    */
   segmentList?: PricingResponseBodyDataSolutionJourneyListSegmentList[];
   /**
    * @remarks
-   * number of transfers
+   * The number of transfers.
    * 
    * @example
    * 0
@@ -447,12 +447,7 @@ export class PricingResponseBodyDataSolutionJourneyList extends $dara.Model {
 export class PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList extends $dara.Model {
   /**
    * @remarks
-   * through check-in baggage policy type
-   * 
-   * 1. baggage through check-in between segments
-   * 2. baggage re-check-in needed between segments
-   * 3. baggage through check-in at stop city ( applies for stop flight )
-   * 4. baggage re-checkin needed at stop city ( applies for stop flight )
+   * The baggage through-check rule type. Valid values: 1: baggage is checked through between segments. 2: baggage must be rechecked between segments. 3: baggage is checked through at stopover cities. 4: baggage must be rechecked at stopover cities.
    * 
    * @example
    * 1
@@ -460,7 +455,7 @@ export class PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList extend
   luggageDirectInfoType?: number;
   /**
    * @remarks
-   * segment id list. all the listed segment ids share the same baggage through check-in policy
+   * The list of segment IDs that share the same baggage through-check rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -492,12 +487,12 @@ export class PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList extend
 export class PricingResponseBodyDataSolutionSegmentBaggageMappingList extends $dara.Model {
   /**
    * @remarks
-   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   * The mapping between passenger types and free baggage allowances.
    */
   passengerBaggageAllowanceMapping?: { [key: string]: DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue };
   /**
    * @remarks
-   * segment id list all the listed segment id share the same baggage rule
+   * The list of segment IDs that share the same free baggage allowance rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -532,12 +527,12 @@ export class PricingResponseBodyDataSolutionSegmentBaggageMappingList extends $d
 export class PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList extends $dara.Model {
   /**
    * @remarks
-   * change and refund policy mapping, key is passenger type, value is change and refund policy detail
+   * The mapping between passenger types and refund and change rules.
    */
   refundChangeRuleMap?: { [key: string]: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue };
   /**
    * @remarks
-   * segment id list. all the listed segment ids share the same change and refund policy
+   * The list of segment IDs that share the same refund and change rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -570,15 +565,7 @@ export class PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList e
 }
 
 export class PricingResponseBodyDataSolutionSolutionAttributeIssueTimeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Issue ticket type: 1: after payment; 2: before departure; -1: unknown
-   */
   issueTicketType?: number;
-  /**
-   * @remarks
-   * Estimated issue ticket time, unit: minutes
-   */
   issueTimeLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -604,15 +591,7 @@ export class PricingResponseBodyDataSolutionSolutionAttributeIssueTimeInfo exten
 }
 
 export class PricingResponseBodyDataSolutionSolutionAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * Issue ticket time related
-   */
   issueTimeInfo?: PricingResponseBodyDataSolutionSolutionAttributeIssueTimeInfo;
-  /**
-   * @remarks
-   * Supply source type 1: Self-operated; 2: Agent; 3: Flagship store
-   */
   supplySourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -643,7 +622,7 @@ export class PricingResponseBodyDataSolutionSolutionAttribute extends $dara.Mode
 export class PricingResponseBodyDataSolution extends $dara.Model {
   /**
    * @remarks
-   * adult fare
+   * The unit price per adult.
    * 
    * @example
    * 300
@@ -651,7 +630,7 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
   adultPrice?: number;
   /**
    * @remarks
-   * adult tax
+   * The tax per adult.
    * 
    * @example
    * 30
@@ -659,7 +638,7 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
   adultTax?: number;
   /**
    * @remarks
-   * child fare
+   * The unit price per child.
    * 
    * @example
    * 200
@@ -667,7 +646,7 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
   childPrice?: number;
   /**
    * @remarks
-   * child tax
+   * The tax per child.
    * 
    * @example
    * 20
@@ -675,7 +654,7 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
   childTax?: number;
   /**
    * @remarks
-   * infant fare
+   * The unit price per infant.
    * 
    * @example
    * 200
@@ -683,7 +662,7 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
   infantPrice?: number;
   /**
    * @remarks
-   * infant tax
+   * The tax per infant.
    * 
    * @example
    * 10
@@ -691,32 +670,28 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
   infantTax?: number;
   /**
    * @remarks
-   * journey list
+   * The journey list.
    */
   journeyList?: PricingResponseBodyDataSolutionJourneyList[];
   /**
    * @remarks
-   * through check-in baggage policy
+   * The baggage through-check rules.
    */
   segmentBaggageCheckInInfoList?: PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList[];
   /**
    * @remarks
-   * baggage rule list
+   * The free baggage allowance rules.
    */
   segmentBaggageMappingList?: PricingResponseBodyDataSolutionSegmentBaggageMappingList[];
   /**
    * @remarks
-   * change and refund policy
+   * The refund and change rules.
    */
   segmentRefundChangeRuleMappingList?: PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
-  /**
-   * @remarks
-   * Quotation attributes
-   */
   solutionAttribute?: PricingResponseBodyDataSolutionSolutionAttribute;
   /**
    * @remarks
-   * solution_id, equals to solution_id in request
+   * solution_id
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
@@ -783,12 +758,12 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
 export class PricingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * price information after the price change
+   * The price information after the price change.
    */
   changedPriceInfo?: PricingResponseBodyDataChangedPriceInfo;
   /**
    * @remarks
-   * whether the price has changed
+   * Indicates whether the price has changed.
    * 
    * @example
    * true
@@ -796,12 +771,12 @@ export class PricingResponseBodyData extends $dara.Model {
   isChanged?: boolean;
   /**
    * @remarks
-   * the price information before the change, only available when is_changed = true
+   * The price information before the price change. This field has a value only when isChanged is true.
    */
   originalPriceInfo?: PricingResponseBodyDataOriginalPriceInfo;
   /**
    * @remarks
-   * remaining seats: A indicates more than 9, 0-9 represents the specific number
+   * The number of remaining seats. A indicates more than 9. Values 0 through 9 represent the exact number.
    * 
    * @example
    * A
@@ -809,7 +784,7 @@ export class PricingResponseBodyData extends $dara.Model {
   remainSeats?: string;
   /**
    * @remarks
-   * the solution represented by the solution_id in request
+   * solution
    */
   solution?: PricingResponseBodyDataSolution;
   static names(): { [key: string]: string } {
@@ -853,7 +828,7 @@ export class PricingResponseBodyData extends $dara.Model {
 export class PricingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request ID
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -861,12 +836,12 @@ export class PricingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * data
+   * The data returned for a successful request.
    */
   data?: PricingResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -874,7 +849,7 @@ export class PricingResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error data
+   * The data returned with the error.
    * 
    * @example
    * null
@@ -882,7 +857,7 @@ export class PricingResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * error message
+   * The error message.
    * 
    * @example
    * null
@@ -890,7 +865,7 @@ export class PricingResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http request has been processed successfully，status code is 200
+   * The HTTP status code. The value is always 200 for successful HTTP requests.
    * 
    * @example
    * 200
@@ -898,7 +873,7 @@ export class PricingResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

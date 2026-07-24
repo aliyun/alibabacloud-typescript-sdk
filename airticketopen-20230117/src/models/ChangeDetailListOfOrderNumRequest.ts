@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeDetailListOfOrderNumRequest extends $dara.Model {
   /**
    * @remarks
+   * The order number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ChangeDetailListOfOrderNumRequest extends $dara.Model {
    */
   orderNum?: number;
   /**
+   * @remarks
+   * The page index.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 20
    */

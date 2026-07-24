@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * adult passenger amount 1-9
+   * The number of adult passengers. Valid values: 1 to 9.
    * 
    * @example
    * 2
@@ -13,20 +13,14 @@ export class SearchShrinkRequest extends $dara.Model {
   adults?: number;
   /**
    * @remarks
-   * itinerary list
+   * The journey array.
    * 
    * This parameter is required.
    */
   airLegsShrink?: string;
   /**
    * @remarks
-   * cabin class
-   * 1. **ALL_CABIN** : all cabin class
-   * 2. **Y** : economy class
-   * 3. **FC** : first class and business class
-   * 4. **S** : premium economy class
-   * 5. **YS** : economy class and premium economy class
-   * 6. **YSC** : economy class, premium economy class and business class
+   * The cabin class. Valid values: ALL_CABIN: all cabin classes. Y: economy class. FC: first class and business class. S: premium economy class. YS: economy class and premium economy class. YSC: economy class, premium economy class, and business class.
    * 
    * @example
    * ALL_CABIN
@@ -34,7 +28,7 @@ export class SearchShrinkRequest extends $dara.Model {
   cabinClass?: string;
   /**
    * @remarks
-   * child passenger amount 0-9
+   * The number of child passengers. Valid values: 0 to 9.
    * 
    * @example
    * 1
@@ -42,7 +36,7 @@ export class SearchShrinkRequest extends $dara.Model {
   children?: number;
   /**
    * @remarks
-   * infant passenger amount 0-9
+   * The number of infant passengers. Valid values: 0 to 9.
    * 
    * @example
    * 1
@@ -50,7 +44,7 @@ export class SearchShrinkRequest extends $dara.Model {
   infants?: number;
   /**
    * @remarks
-   * search controls
+   * The search control options. This parameter is optional.
    */
   searchControlOptionsShrink?: string;
   static names(): { [key: string]: string } {

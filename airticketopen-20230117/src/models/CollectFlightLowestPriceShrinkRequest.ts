@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CollectFlightLowestPriceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The lowest-price flight information.
+   * 
    * This parameter is required.
    */
   lowestPriceFlightInfoListShrink?: string;

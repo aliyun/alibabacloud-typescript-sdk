@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class FlightChangeOfOrderRequest extends $dara.Model {
   /**
    * @remarks
+   * The order number.
+   * 
    * This parameter is required.
    * 
    * @example

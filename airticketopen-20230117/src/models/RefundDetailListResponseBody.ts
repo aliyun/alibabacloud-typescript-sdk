@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefundDetailListResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Whether it is a supplementary refund
+   * Indicates whether this is a supplementary refund order.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class RefundDetailListResponseBodyDataList extends $dara.Model {
   isMultiRefund?: boolean;
   /**
    * @remarks
-   * Order number （ Ticketing Order Number）
+   * The order number.
    * 
    * @example
    * 49884*****2345
@@ -21,7 +21,7 @@ export class RefundDetailListResponseBodyDataList extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * Refund order number
+   * The refund order number.
    * 
    * @example
    * 49884*****950
@@ -29,7 +29,11 @@ export class RefundDetailListResponseBodyDataList extends $dara.Model {
   refundOrderNum?: number;
   /**
    * @remarks
-   * Refund order status: 0: Refund application; 1: Refund in progress; 2: Refund failed; 3: Refund succeeded
+   * The refund order status. Valid values:
+   * - 0: refund requested.
+   * - 1: refund being processed.
+   * - 2: refund failed.
+   * - 3: refund succeeded.
    * 
    * @example
    * 1
@@ -37,7 +41,7 @@ export class RefundDetailListResponseBodyDataList extends $dara.Model {
   refundOrderStatus?: number;
   /**
    * @remarks
-   * The original refund order number associated with this supplementary refund. Only present for supplementary refunds, indicating the ID of the original refund order.
+   * The refund order number of the original order associated with this supplementary refund order. This field is returned only for supplementary refund orders and indicates the refund order ID of the associated original order.
    * 
    * @example
    * 49884*****2387
@@ -45,7 +49,7 @@ export class RefundDetailListResponseBodyDataList extends $dara.Model {
   relatedRefundOrderNum?: string;
   /**
    * @remarks
-   * Transaction serial number
+   * The transaction number.
    * 
    * @example
    * 49884**tde-95za
@@ -53,7 +57,7 @@ export class RefundDetailListResponseBodyDataList extends $dara.Model {
   transactionNo?: string;
   /**
    * @remarks
-   * Creation time, UTC timestamp
+   * The creation time. The value is a UTC timestamp.
    * 
    * @example
    * 1677229002000
@@ -95,7 +99,7 @@ export class RefundDetailListResponseBodyDataList extends $dara.Model {
 export class RefundDetailListResponseBodyDataPagination extends $dara.Model {
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -103,7 +107,7 @@ export class RefundDetailListResponseBodyDataPagination extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of items per page
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -111,7 +115,7 @@ export class RefundDetailListResponseBodyDataPagination extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total count
+   * The total number of records.
    * 
    * @example
    * 5
@@ -119,7 +123,7 @@ export class RefundDetailListResponseBodyDataPagination extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Total pages
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -155,12 +159,12 @@ export class RefundDetailListResponseBodyDataPagination extends $dara.Model {
 export class RefundDetailListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   list?: RefundDetailListResponseBodyDataList[];
   /**
    * @remarks
-   * Pagination information
+   * The pagination information.
    */
   pagination?: RefundDetailListResponseBodyDataPagination;
   static names(): { [key: string]: string } {
@@ -195,7 +199,7 @@ export class RefundDetailListResponseBodyData extends $dara.Model {
 export class RefundDetailListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -203,12 +207,12 @@ export class RefundDetailListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Properly processed return data
+   * The data returned for a successful request.
    */
   data?: RefundDetailListResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -216,7 +220,7 @@ export class RefundDetailListResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Data carried in error handling
+   * The data returned with the error.
    * 
    * @example
    * null
@@ -224,7 +228,7 @@ export class RefundDetailListResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * null
@@ -232,7 +236,7 @@ export class RefundDetailListResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * HTTP request successful, status value is 200
+   * The HTTP status code. The value is always 200 for successful requests.
    * 
    * @example
    * 200
@@ -240,7 +244,7 @@ export class RefundDetailListResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Whether the operation was successful
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

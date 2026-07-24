@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnrichShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Number of adult passengers (1-9)
+   * Number of adult passengers 1-9
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class EnrichShrinkRequest extends $dara.Model {
   adults?: number;
   /**
    * @remarks
-   * Cabin class: ALL_CABIN: All cabin classes; Y: Economy; FC: First Class and Business Class; S: Premium Economy; YS: Economy and Premium Economy; YSC: Economy, Premium Economy, and Business Class;
+   * Cabin class ALL_CABIN: all cabin classes; Y: economy; FC: first class and business class; S: premium economy; YS: economy and premium economy; YSC: economy, premium economy, and business class;
    * 
    * @example
    * ALL_CABIN
@@ -21,7 +21,7 @@ export class EnrichShrinkRequest extends $dara.Model {
   cabinClass?: string;
   /**
    * @remarks
-   * Number of child passengers (0-9)
+   * Number of child passengers 0-9
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class EnrichShrinkRequest extends $dara.Model {
   children?: number;
   /**
    * @remarks
-   * Number of infant passengers (0-9)
+   * Number of infant passengers 0-9
    * 
    * @example
    * 1
@@ -37,12 +37,12 @@ export class EnrichShrinkRequest extends $dara.Model {
   infants?: number;
   /**
    * @remarks
-   * Trip information
+   * Journey information
    */
   journeyParamListShrink?: string;
   /**
    * @remarks
-   * The `solution_id` returned by the Search interface
+   * solution_id returned by Search
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ

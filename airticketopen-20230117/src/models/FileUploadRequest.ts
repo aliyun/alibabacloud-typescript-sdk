@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class FileUploadRequest extends $dara.Model {
   /**
    * @remarks
+   * The Base64-encoded string of the attachment image file. Supported image types: .jpg, .png, and .jpeg.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +17,8 @@ export class FileUploadRequest extends $dara.Model {
   fileContent?: string;
   /**
    * @remarks
+   * The forward order number.
+   * 
    * This parameter is required.
    * 
    * @example

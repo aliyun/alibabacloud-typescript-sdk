@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class BookShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * contact information
+   * The contact information.
    * 
    * This parameter is required.
    */
   contactShrink?: string;
   /**
    * @remarks
-   * external order number(buyer customization)
+   * The external order number.
    * 
    * This parameter is required.
    * 
@@ -22,19 +22,19 @@ export class BookShrinkRequest extends $dara.Model {
   outOrderNum?: string;
   /**
    * @remarks
-   * passenger-ancillary purchase relationship
+   * The mapping between passengers and ancillary purchases.
    */
   passengerAncillaryPurchaseMapListShrink?: string;
   /**
    * @remarks
-   * passenger list
+   * The list of passengers.
    * 
    * This parameter is required.
    */
   passengerListShrink?: string;
   /**
    * @remarks
-   * solution_id returned by Enrich
+   * solution_id.
    * 
    * This parameter is required.
    * 

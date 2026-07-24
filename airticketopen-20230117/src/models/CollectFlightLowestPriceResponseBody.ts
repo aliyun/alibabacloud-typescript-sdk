@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class CollectFlightLowestPriceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
   /**
+   * @remarks
+   * The data returned for a successful request.
+   * 
    * @example
    * null
    */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The business error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The data returned for a failed request.
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The HTTP status code. The value is always 200 for successful HTTP requests.
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

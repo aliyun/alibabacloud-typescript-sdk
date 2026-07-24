@@ -80,7 +80,7 @@ export class BookResponseBodyDataOrderList extends $dara.Model {
   orderAttribute?: BookResponseBodyDataOrderListOrderAttribute;
   /**
    * @remarks
-   * order number
+   * The order number.
    * 
    * @example
    * 4966***617111
@@ -115,7 +115,7 @@ export class BookResponseBodyDataOrderList extends $dara.Model {
 export class BookResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * order information list
+   * The list of order information.
    */
   orderList?: BookResponseBodyDataOrderList[];
   static names(): { [key: string]: string } {
@@ -220,7 +220,7 @@ export class BookResponseBodyErrorDataOrderList extends $dara.Model {
   orderAttribute?: BookResponseBodyErrorDataOrderListOrderAttribute;
   /**
    * @remarks
-   * order number
+   * The order number.
    * 
    * @example
    * 4966***617111
@@ -255,7 +255,7 @@ export class BookResponseBodyErrorDataOrderList extends $dara.Model {
 export class BookResponseBodyErrorData extends $dara.Model {
   /**
    * @remarks
-   * order information list. When the same input parameters are used to repeat a Book, if the booking has already been successful, the order number will be returned.
+   * The list of order information. If you call the Book operation again with the same parameters after a successful booking, the order number is returned.
    */
   orderList?: BookResponseBodyErrorDataOrderList[];
   static names(): { [key: string]: string } {
@@ -285,7 +285,7 @@ export class BookResponseBodyErrorData extends $dara.Model {
 export class BookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request ID
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -293,12 +293,12 @@ export class BookResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * data
+   * The data returned for a successful request.
    */
   data?: BookResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -306,7 +306,7 @@ export class BookResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error data
+   * The data returned with the error.
    * 
    * @example
    * null
@@ -314,7 +314,7 @@ export class BookResponseBody extends $dara.Model {
   errorData?: BookResponseBodyErrorData;
   /**
    * @remarks
-   * error message
+   * The error message.
    * 
    * @example
    * null
@@ -322,7 +322,7 @@ export class BookResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http reqeust has been processed successfully，status code is 200
+   * The HTTP status code. The value is always 200 for successful HTTP requests.
    * 
    * @example
    * 200
@@ -330,7 +330,7 @@ export class BookResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

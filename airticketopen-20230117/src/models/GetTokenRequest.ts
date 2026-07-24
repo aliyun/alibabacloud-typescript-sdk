@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * appKey
+   * The appKey.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetTokenRequest extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * appSecret
+   * The appSecret.
    * 
    * This parameter is required.
    * 

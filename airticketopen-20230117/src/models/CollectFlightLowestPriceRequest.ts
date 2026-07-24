@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $dara.Model {
   /**
    * @remarks
+   * The arrival city.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $d
   arrivalCity?: string;
   /**
    * @remarks
+   * The departure city.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $d
   departureCity?: string;
   /**
    * @remarks
+   * The departure date. Format: yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $d
   departureDate?: string;
   /**
    * @remarks
+   * The list of outbound flight numbers. Multiple segments are split by commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $d
   departureFlightNumber?: string;
   /**
    * @remarks
+   * The lowest competitor price in the market, including fare and taxes. The currency is USD.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,22 +54,33 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $d
    */
   marketTotalPrice?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 123456789dacd
    */
   requestId?: string;
   /**
+   * @remarks
+   * The return date for round-trip scenarios. Format: yyyy-MM-dd.
+   * 
    * @example
    * 2024-11-11
    */
   returnDate?: string;
   /**
+   * @remarks
+   * The list of return flight numbers. Multiple segments are split by commas (,).
+   * 
    * @example
    * CA123,CA456
    */
   returnFlightNumber?: string;
   /**
    * @remarks
+   * The solution_id returned by Search/Enrich.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,6 +89,8 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $d
   solutionId?: string;
   /**
    * @remarks
+   * The Suez quoted price, including fare and taxes. The currency is USD.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -76,6 +99,10 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $d
   suezTotalPrice?: number;
   /**
    * @remarks
+   * The trip type. Valid values:
+   * - 1: one-way
+   * - 2: round-trip.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -126,6 +153,8 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $d
 export class CollectFlightLowestPriceRequest extends $dara.Model {
   /**
    * @remarks
+   * The lowest-price flight information.
+   * 
    * This parameter is required.
    */
   lowestPriceFlightInfoList?: CollectFlightLowestPriceRequestLowestPriceFlightInfoList[];

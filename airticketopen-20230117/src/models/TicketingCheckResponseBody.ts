@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TicketingCheckResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * order number
+   * The order number.
    * 
    * @example
    * 496***2617111
@@ -35,7 +35,7 @@ export class TicketingCheckResponseBodyData extends $dara.Model {
 export class TicketingCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request ID
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -43,12 +43,12 @@ export class TicketingCheckResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * data
+   * The data returned for a successful request.
    */
   data?: TicketingCheckResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -56,7 +56,7 @@ export class TicketingCheckResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error data
+   * The data returned for a failed request.
    * 
    * @example
    * null
@@ -64,7 +64,7 @@ export class TicketingCheckResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * error message
+   * The error message.
    * 
    * @example
    * null
@@ -72,7 +72,7 @@ export class TicketingCheckResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http reqeust has been processed successfully，status code is 200
+   * The HTTP status code. The value is always 200 for successful requests.
    * 
    * @example
    * 200
@@ -80,7 +80,7 @@ export class TicketingCheckResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

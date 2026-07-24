@@ -5,35 +5,35 @@ import * as $dara from '@darabonba/typescript';
 export class OrderListRequest extends $dara.Model {
   /**
    * @remarks
-   * latest booking time (timestamp)
+   * The query end time. The value is a 13-digit UNIX timestamp.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1677229006000
+   */
+  bookTimeEnd?: number;
+  /**
+   * @remarks
+   * The query start time. The value is a 13-digit UNIX timestamp.
    * 
    * This parameter is required.
    * 
    * @example
    * 1677229005000
    */
-  bookTimeEnd?: number;
-  /**
-   * @remarks
-   * earliest book time(timestamp)
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1677227005000
-   */
   bookTimeStart?: number;
   /**
    * @remarks
-   * pagination query parameters, from which page to start querying,querying starts with 0
+   * The page index. The value starts from 1.
    * 
    * @example
-   * 0
+   * 1
    */
   pageIndex?: number;
   /**
    * @remarks
-   * pagination query parameters, how many orders to return
+   * The page size.
    * 
    * @example
    * 20
@@ -41,17 +41,11 @@ export class OrderListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * which order status will be query
-   * 
-   * 1: order reservation in process
-   * 
-   * 2: order reservation successful
-   * 
-   * 3: order paid
-   * 
-   * 4: order successful
-   * 
-   * 5: order closed
+   * The order status. Valid values:
+   * - 2: order creation succeeded.
+   * - 3: order paid.
+   * - 4: order succeeded.
+   * - 5: order closed.
    * 
    * @example
    * 4

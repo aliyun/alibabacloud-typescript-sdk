@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggageAncillary extends $dara.Model {
   /**
    * @remarks
-   * baggage quantity, values such as: 3, 2, 1, 0, -2.     -2 indicates weight-based
+   * The number of baggage pieces. Valid values: 3, 2, 1, 0, and -2. A value of -2 indicates weight-based calculation.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
   baggageAmount?: number;
   /**
    * @remarks
-   * Baggage weight, 0-50. When isAllWeight=true, it represents the total weight of all baggages.
+   * The baggage weight, ranging from 0 to 50. If isAllWeight is set to true, this value represents the total weight of all pieces.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
   baggageWeight?: number;
   /**
    * @remarks
-   * Unit of baggage weight
+   * The unit of baggage weight.
    * 
    * @example
    * KG
@@ -29,7 +29,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
   baggageWeightUnit?: string;
   /**
    * @remarks
-   * Whether the weight is for all baggages
+   * Indicates whether the weight represents the total weight of all baggage pieces.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
   isAllWeight?: boolean;
   /**
    * @remarks
-   * Total price
+   * The total price.
    * 
    * @example
    * 10.0
@@ -75,7 +75,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggage
 export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary extends $dara.Model {
   /**
    * @remarks
-   * Ancillary product ID
+   * The ancillary product ID.
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU
@@ -83,7 +83,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary extend
   ancillaryId?: string;
   /**
    * @remarks
-   * Ancillary product type. currently supports 4: paid luggage
+   * The ancillary product type. Currently supported value: 4 (paid baggage).
    * 
    * @example
    * 4
@@ -91,7 +91,7 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary extend
   ancillaryType?: number;
   /**
    * @remarks
-   * Baggage details
+   * The baggage ancillary details.
    */
   baggageAncillary?: AncillarySuggestResponseBodyDataSegAncillaryMapListAncillaryBaggageAncillary;
   static names(): { [key: string]: string } {
@@ -125,12 +125,12 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary extend
 export class AncillarySuggestResponseBodyDataSegAncillaryMapList extends $dara.Model {
   /**
    * @remarks
-   * Ancillary product
+   * The ancillary product.
    */
   ancillary?: AncillarySuggestResponseBodyDataSegAncillaryMapListAncillary;
   /**
    * @remarks
-   * Segment ID list, these segments share the same ancillary
+   * The list of segment IDs. These segments share the same ancillary product.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -165,12 +165,12 @@ export class AncillarySuggestResponseBodyDataSegAncillaryMapList extends $dara.M
 export class AncillarySuggestResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * ancillary detail list
+   * The mapping between flights and ancillary products.
    */
   segAncillaryMapList?: AncillarySuggestResponseBodyDataSegAncillaryMapList[];
   /**
    * @remarks
-   * solution_id, equals to solution_id in request
+   * The solution_id of the flight.
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
@@ -205,7 +205,7 @@ export class AncillarySuggestResponseBodyData extends $dara.Model {
 export class AncillarySuggestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -213,12 +213,12 @@ export class AncillarySuggestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Properly processed return data
+   * The data returned for a successful request.
    */
   data?: AncillarySuggestResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -226,7 +226,7 @@ export class AncillarySuggestResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Data carried in error handling
+   * The data returned with the error.
    * 
    * @example
    * null
@@ -234,7 +234,7 @@ export class AncillarySuggestResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * null
@@ -242,7 +242,7 @@ export class AncillarySuggestResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http request successful, status value is always 200
+   * The HTTP status code. The value is always 200 for successful requests.
    * 
    * @example
    * 200
@@ -250,7 +250,7 @@ export class AncillarySuggestResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

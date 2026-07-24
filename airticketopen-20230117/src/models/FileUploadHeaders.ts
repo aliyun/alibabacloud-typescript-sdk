@@ -6,7 +6,7 @@ export class FileUploadHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * The access_token.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,9 @@ export class FileUploadHeaders extends $dara.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * The language setting. Uses the buyer account configuration by default.
+   * 
    * @example
    * en_US
    */

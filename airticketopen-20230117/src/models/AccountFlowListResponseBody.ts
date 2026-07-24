@@ -4,61 +4,103 @@ import * as $dara from '@darabonba/typescript';
 
 export class AccountFlowListResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The available balance after the operation, in CNY.
+   * 
    * @example
    * 1000
    */
   afterAvailableAmount?: number;
   /**
+   * @remarks
+   * The available balance before the operation, in CNY.
+   * 
    * @example
    * 1950.5
    */
   beforeAvailableAmount?: number;
   /**
+   * @remarks
+   * The change order number. This value is not empty if the flow is related to a ticket change.
+   * 
    * @example
    * 49880***971
    */
   changeOrderNum?: number;
   /**
+   * @remarks
+   * The flow ID.
+   * 
    * @example
    * 1627239841225842666
    */
   flowId?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1676799185000
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1676966530000
    */
   gmtModified?: number;
   /**
+   * @remarks
+   * The operation amount, in CNY.
+   * 
    * @example
    * 950.5
    */
   opAmount?: number;
   /**
+   * @remarks
+   * The operation type. Valid values:
+   * - 1: payment
+   * - 2: refund
+   * - 3: top-up.
+   * 
    * @example
    * 2
    */
   opType?: number;
   /**
+   * @remarks
+   * The original order number.
+   * 
    * @example
    * 4988430***971
    */
   orderNum?: number;
   /**
+   * @remarks
+   * The order type. Valid values:
+   * - 0: original transaction
+   * - 1: change order payment
+   * - 2: refund.
+   * 
    * @example
    * 1
    */
   orderType?: number;
   /**
+   * @remarks
+   * The external order number of the original order.
+   * 
    * @example
    * 4988430***971
    */
   outOrderNum?: string;
   /**
+   * @remarks
+   * The refund order number. This value is not empty if the flow is related to a refund.
+   * 
    * @example
    * 48430***971
    */
@@ -108,21 +150,33 @@ export class AccountFlowListResponseBodyDataList extends $dara.Model {
 
 export class AccountFlowListResponseBodyDataPagination extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 5
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */
@@ -155,7 +209,15 @@ export class AccountFlowListResponseBodyDataPagination extends $dara.Model {
 }
 
 export class AccountFlowListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The data list.
+   */
   list?: AccountFlowListResponseBodyDataList[];
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagination?: AccountFlowListResponseBodyDataPagination;
   static names(): { [key: string]: string } {
     return {
@@ -188,32 +250,54 @@ export class AccountFlowListResponseBodyData extends $dara.Model {
 
 export class AccountFlowListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The data returned for a successful request.
+   */
   data?: AccountFlowListResponseBodyData;
   /**
+   * @remarks
+   * The business error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The data returned with the error.
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The HTTP status code. The value is always 200 for successful HTTP requests.
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

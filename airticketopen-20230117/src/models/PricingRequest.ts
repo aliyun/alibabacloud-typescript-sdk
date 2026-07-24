@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PricingRequest extends $dara.Model {
   /**
    * @remarks
-   * solution_id returned by Enrich
+   * solution_id.
    * 
    * This parameter is required.
    * 

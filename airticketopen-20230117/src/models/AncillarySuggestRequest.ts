@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AncillarySuggestRequest extends $dara.Model {
   /**
    * @remarks
-   * solution_id returned by enrich
+   * The solution_id of the flight.
    * 
    * This parameter is required.
    * 

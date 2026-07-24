@@ -4,31 +4,60 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeDetailListOfBuyerResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The change order number.
+   * 
    * @example
    * 4988430***950
    */
   changeOrderNum?: number;
   /**
+   * @remarks
+   * The order number.
+   * 
    * @example
    * 4988430***971
    */
   orderNum?: number;
   /**
+   * @remarks
+   * The application order status. Valid values:
+   * - 0: initial state
+   * - 1: pending payment
+   * - 2: payment successful
+   * - 3: change successful
+   * - 4: change closed.
+   * 
    * @example
    * 2
    */
   orderStatus?: number;
   /**
+   * @remarks
+   * The payment status. Valid values:
+   * - 0: initial state
+   * - 1: pending payment
+   * - 2: payment successful
+   * - 3: transaction successful
+   * - 4: paid order closed successfully
+   * - 5: unpaid order closed successfully.
+   * 
    * @example
    * 2
    */
   payStatus?: number;
   /**
+   * @remarks
+   * The transaction number.
+   * 
    * @example
    * hkduendkd-2023-dj0
    */
   transactionNo?: string;
   /**
+   * @remarks
+   * The order creation time. The value is a UTC timestamp.
+   * 
    * @example
    * 1677415274000
    */
@@ -66,21 +95,33 @@ export class ChangeDetailListOfBuyerResponseBodyDataList extends $dara.Model {
 
 export class ChangeDetailListOfBuyerResponseBodyDataPagination extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 5
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */
@@ -113,7 +154,15 @@ export class ChangeDetailListOfBuyerResponseBodyDataPagination extends $dara.Mod
 }
 
 export class ChangeDetailListOfBuyerResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The data list.
+   */
   list?: ChangeDetailListOfBuyerResponseBodyDataList[];
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagination?: ChangeDetailListOfBuyerResponseBodyDataPagination;
   static names(): { [key: string]: string } {
     return {
@@ -150,28 +199,47 @@ export class ChangeDetailListOfBuyerResponseBody extends $dara.Model {
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The data returned for a successful request.
+   */
   data?: ChangeDetailListOfBuyerResponseBodyData;
   /**
+   * @remarks
+   * The business error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The data returned with the error.
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The HTTP status code. The value is always 200 for successful HTTP requests.
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

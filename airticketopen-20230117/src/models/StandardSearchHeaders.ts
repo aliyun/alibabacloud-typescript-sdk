@@ -15,6 +15,9 @@ export class StandardSearchHeaders extends $dara.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * Language setting, defaults to buyer account configuration
+   * 
    * @example
    * en_US
    */

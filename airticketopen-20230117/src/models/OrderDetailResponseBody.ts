@@ -9,7 +9,7 @@ import { DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingVa
 export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageAncillary extends $dara.Model {
   /**
    * @remarks
-   * Number of luggage pieces. Values can be: 3, 2, 1, 0, -2. -2 indicates weight-based calculation.
+   * The number of baggage pieces. Valid values: 3, 2, 1, 0, and -2. A value of -2 indicates weight-based calculation.
    * 
    * @example
    * 0
@@ -17,7 +17,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageA
   baggageAmount?: number;
   /**
    * @remarks
-   * Luggage weight, 0-50. When isAllWeght=true, it indicates the total weight of all items.
+   * The baggage weight, ranging from 0 to 50. When isAllWeight is set to true, this value represents the total weight of all pieces.
    * 
    * @example
    * 0
@@ -25,7 +25,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageA
   baggageWeight?: number;
   /**
    * @remarks
-   * Unit of luggage weight
+   * The baggage weight unit.
    * 
    * @example
    * KG
@@ -33,12 +33,12 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageA
   baggageWeightUnit?: string;
   /**
    * @remarks
-   * whether all luggage weight
+   * Indicates whether the weight represents the total weight of all baggage pieces.
    */
   isAllWeight?: boolean;
   /**
    * @remarks
-   * Total Price
+   * The total price.
    * 
    * @example
    * 10.0
@@ -76,7 +76,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageA
 export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends $dara.Model {
   /**
    * @remarks
-   * ancillay_id
+   * The ancillary product ID.
    * 
    * @example
    * MDY2NTAxLCJleHAiOjE2NxNzM3MDEsIm5ix
@@ -84,7 +84,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends
   ancillaryId?: string;
   /**
    * @remarks
-   * ancillary product type currently supports 4: paid luggage
+   * The ancillary product type. Currently supported value: 4 (paid baggage).
    * 
    * @example
    * 4
@@ -92,7 +92,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends
   ancillaryType?: number;
   /**
    * @remarks
-   * Ancillary Service Details
+   * The baggage ancillary details.
    */
   baggageAncillary?: OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageAncillary;
   static names(): { [key: string]: string } {
@@ -126,7 +126,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends
 export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredential extends $dara.Model {
   /**
    * @remarks
-   * place of issue, two-letter code
+   * The place of issuance, represented as a two-letter code.
    * 
    * @example
    * CN
@@ -134,7 +134,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredenti
   certIssuePlace?: string;
   /**
    * @remarks
-   * travel document number
+   * The credential number.
    * 
    * @example
    * E1***5674
@@ -142,7 +142,14 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredenti
   credentialNum?: string;
   /**
    * @remarks
-   * travel document type , only support "1"(1 means passport) currently.
+   * The credential type. Valid values:
+   * - 0: ID card.
+   * - 1: passport.
+   * - 4: Home Return Permit.
+   * - 5: Mainland Travel Permit for Taiwan Residents.
+   * - 6: Exit-Entry Permit for Hong Kong and Macao Residents.
+   * - 12: Taiwan Travel Permit.
+   * - 19: no credential.
    * 
    * @example
    * 1
@@ -150,7 +157,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredenti
   credentialType?: number;
   /**
    * @remarks
-   * expiration date
+   * The credential expiration date.
    * 
    * @example
    * 20290101
@@ -186,7 +193,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredenti
 export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends $dara.Model {
   /**
    * @remarks
-   * date of birth (yyyyMMdd)
+   * The date of birth in yyyyMMdd format.
    * 
    * @example
    * 20020301
@@ -194,12 +201,12 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
   birthday?: string;
   /**
    * @remarks
-   * travel document
+   * The credential information.
    */
   credential?: OrderDetailResponseBodyDataAncillaryItemDetailListPassengerCredential;
   /**
    * @remarks
-   * first name
+   * The first name.
    * 
    * @example
    * SAN
@@ -207,7 +214,9 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
   firstName?: string;
   /**
    * @remarks
-   * gender 0: male; 1: female
+   * The gender. Valid values:
+   * - 0: MALE.
+   * - 1: FEMALE.
    * 
    * @example
    * 0
@@ -215,7 +224,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
   gender?: number;
   /**
    * @remarks
-   * last name
+   * The last name.
    * 
    * @example
    * ZHANG
@@ -223,7 +232,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
   lastName?: string;
   /**
    * @remarks
-   * country code for mobile phone number
+   * The country code of the mobile phone number.
    * 
    * @example
    * 86
@@ -231,7 +240,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
   mobileCountryCode?: string;
   /**
    * @remarks
-   * mobile phone number
+   * The mobile phone number.
    * 
    * @example
    * 183******96
@@ -239,7 +248,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
   mobilePhoneNumber?: string;
   /**
    * @remarks
-   * nationality
+   * The two-letter nationality code.
    * 
    * @example
    * CN
@@ -247,7 +256,10 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
   nationality?: string;
   /**
    * @remarks
-   * passenger type 0: adult; 1: child; 8: infant
+   * The passenger type. Valid values:
+   * - 0: adult.
+   * - 1: child.
+   * - 8: infant.
    * 
    * @example
    * 0
@@ -296,17 +308,17 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListPassenger extends
 export class OrderDetailResponseBodyDataAncillaryItemDetailList extends $dara.Model {
   /**
    * @remarks
-   * the ancillary buyer booked
+   * The ancillary product details.
    */
   ancillary?: OrderDetailResponseBodyDataAncillaryItemDetailListAncillary;
   /**
    * @remarks
-   * passenger
+   * The passenger information.
    */
   passenger?: OrderDetailResponseBodyDataAncillaryItemDetailListPassenger;
   /**
    * @remarks
-   * segment ID list, these segments share the same ancillary
+   * The segment IDs to which the ancillary product applies.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -346,7 +358,7 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailList extends $dara.Mo
 export class OrderDetailResponseBodyDataFlightItemDetailListFlightPrice extends $dara.Model {
   /**
    * @remarks
-   * selling price
+   * The selling price. Unit: CNY.
    * 
    * @example
    * 300
@@ -354,7 +366,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightPrice extends 
   sellPrice?: number;
   /**
    * @remarks
-   * tax
+   * The tax.
    * 
    * @example
    * 10
@@ -386,7 +398,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightPrice extends 
 export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRelation extends $dara.Model {
   /**
    * @remarks
-   * RBD
+   * The cabin.
    * 
    * @example
    * V
@@ -394,7 +406,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRe
   cabin?: string;
   /**
    * @remarks
-   * cabin class
+   * The cabin class.
    * 
    * @example
    * Y
@@ -402,7 +414,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRe
   cabinClass?: string;
   /**
    * @remarks
-   * cabin class description
+   * The cabin class description.
    * 
    * @example
    * economy class
@@ -410,7 +422,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRe
   cabinClassName?: string;
   /**
    * @remarks
-   * availability
+   * The number of available tickets.
    * 
    * @example
    * A
@@ -418,7 +430,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRe
   cabinQuantity?: string;
   /**
    * @remarks
-   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(yyMMddHHmm)
+   * The segment ID.
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -456,7 +468,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRe
 export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential extends $dara.Model {
   /**
    * @remarks
-   * place of issue, two-letter code
+   * The place of issuance, represented as a two-letter code.
    * 
    * @example
    * CN
@@ -464,7 +476,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential 
   certIssuePlace?: string;
   /**
    * @remarks
-   * travel document number
+   * The credential number.
    * 
    * @example
    * E1***5674
@@ -472,7 +484,14 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential 
   credentialNum?: string;
   /**
    * @remarks
-   * travel document type , only support "1"(1 means passport) currently.
+   * The credential type. Valid values:
+   * - 0: ID card.
+   * - 1: passport.
+   * - 4: Home Return Permit.
+   * - 5: Mainland Travel Permit for Taiwan Residents.
+   * - 6: Exit-Entry Permit for Hong Kong and Macao Residents.
+   * - 12: Taiwan Travel Permit.
+   * - 19: no credential.
    * 
    * @example
    * 1
@@ -480,7 +499,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential 
   credentialType?: number;
   /**
    * @remarks
-   * expiration date
+   * The credential expiration date.
    * 
    * @example
    * 20290101
@@ -516,7 +535,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential 
 export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $dara.Model {
   /**
    * @remarks
-   * date of birth (yyyyMMdd)
+   * The date of birth in yyyyMMdd format.
    * 
    * @example
    * 20020301
@@ -524,12 +543,12 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $d
   birthday?: string;
   /**
    * @remarks
-   * travel document
+   * The credential information.
    */
   credential?: OrderDetailResponseBodyDataFlightItemDetailListPassengerCredential;
   /**
    * @remarks
-   * first name
+   * The first name.
    * 
    * @example
    * SAN
@@ -537,7 +556,9 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $d
   firstName?: string;
   /**
    * @remarks
-   * gender 0: MALE; 1: FEMALE
+   * The gender. Valid values:
+   * - 0: MALE.
+   * - 1: FEMALE.
    * 
    * @example
    * 0
@@ -545,7 +566,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $d
   gender?: number;
   /**
    * @remarks
-   * last name
+   * The last name.
    * 
    * @example
    * ZHANG
@@ -553,7 +574,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $d
   lastName?: string;
   /**
    * @remarks
-   * mobile country code
+   * The country code of the mobile phone number.
    * 
    * @example
    * 86
@@ -561,7 +582,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $d
   mobileCountryCode?: string;
   /**
    * @remarks
-   * mobile phone number
+   * The mobile phone number.
    * 
    * @example
    * 183******96
@@ -569,7 +590,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $d
   mobilePhoneNumber?: string;
   /**
    * @remarks
-   * nationality (two-letter code)
+   * The two-letter nationality code.
    * 
    * @example
    * CN
@@ -577,7 +598,10 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $d
   nationality?: string;
   /**
    * @remarks
-   * passenger type 0: adult; 1: child; 8: infant
+   * The passenger type. Valid values:
+   * - 0: adult.
+   * - 1: child.
+   * - 8: infant.
    * 
    * @example
    * 0
@@ -626,32 +650,32 @@ export class OrderDetailResponseBodyDataFlightItemDetailListPassenger extends $d
 export class OrderDetailResponseBodyDataFlightItemDetailList extends $dara.Model {
   /**
    * @remarks
-   * b PNR(airline booking code) list
+   * The list of bPnr values.
    */
   bPnrList?: string[];
   /**
    * @remarks
-   * c PNR(airline booking code) list
+   * The list of cPnr values.
    */
   cPnrList?: string[];
   /**
    * @remarks
-   * flight price information for current passenger
+   * The passenger price information.
    */
   flightPrice?: OrderDetailResponseBodyDataFlightItemDetailListFlightPrice;
   /**
    * @remarks
-   * RBD information in flight segment dimension
+   * The list of segment-cabin information.
    */
   flightSegmentCabinRelation?: OrderDetailResponseBodyDataFlightItemDetailListFlightSegmentCabinRelation[];
   /**
    * @remarks
-   * passenger
+   * The passenger information.
    */
   passenger?: OrderDetailResponseBodyDataFlightItemDetailListPassenger;
   /**
    * @remarks
-   * ticketing airline
+   * The ticketing airline. Multiple ticketing airlines may be concatenated.
    * 
    * @example
    * HO
@@ -659,7 +683,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailList extends $dara.Model
   ticketAirLine?: string;
   /**
    * @remarks
-   * ticket number list
+   * The list of ticket numbers.
    */
   ticketNos?: string[];
   static names(): { [key: string]: string } {
@@ -716,7 +740,7 @@ export class OrderDetailResponseBodyDataFlightItemDetailList extends $dara.Model
 export class OrderDetailResponseBodyDataPassengerListCredential extends $dara.Model {
   /**
    * @remarks
-   * place of issue, two-letter code
+   * The place of issuance, represented as a two-letter code.
    * 
    * @example
    * CN
@@ -724,7 +748,7 @@ export class OrderDetailResponseBodyDataPassengerListCredential extends $dara.Mo
   certIssuePlace?: string;
   /**
    * @remarks
-   * travel document number
+   * The credential number.
    * 
    * @example
    * E1***5674
@@ -732,7 +756,14 @@ export class OrderDetailResponseBodyDataPassengerListCredential extends $dara.Mo
   credentialNum?: string;
   /**
    * @remarks
-   * travel document type , only support "1"(1 means passport) currently.
+   * The credential type. Valid values:
+   * - 0: ID card.
+   * - 1: passport.
+   * - 4: Home Return Permit.
+   * - 5: Mainland Travel Permit for Taiwan Residents.
+   * - 6: Exit-Entry Permit for Hong Kong and Macao Residents.
+   * - 12: Taiwan Travel Permit.
+   * - 19: no credential.
    * 
    * @example
    * 1
@@ -740,7 +771,7 @@ export class OrderDetailResponseBodyDataPassengerListCredential extends $dara.Mo
   credentialType?: number;
   /**
    * @remarks
-   * expiration date
+   * The credential expiration date.
    * 
    * @example
    * 20290101
@@ -776,7 +807,7 @@ export class OrderDetailResponseBodyDataPassengerListCredential extends $dara.Mo
 export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
   /**
    * @remarks
-   * date of birth (yyyyMMdd)
+   * The date of birth in yyyyMMdd format.
    * 
    * @example
    * 20020301
@@ -784,12 +815,12 @@ export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
   birthday?: string;
   /**
    * @remarks
-   * travel document
+   * The credential information.
    */
   credential?: OrderDetailResponseBodyDataPassengerListCredential;
   /**
    * @remarks
-   * first name
+   * The first name.
    * 
    * @example
    * SAN
@@ -797,7 +828,9 @@ export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
-   * gender 0: MALE; 1: FEMALE
+   * The gender. Valid values:
+   * - 0: MALE.
+   * - 1: FEMALE.
    * 
    * @example
    * 0
@@ -805,7 +838,7 @@ export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
   gender?: number;
   /**
    * @remarks
-   * last name
+   * The last name.
    * 
    * @example
    * ZHANG
@@ -813,7 +846,7 @@ export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
   lastName?: string;
   /**
    * @remarks
-   * mobile country code
+   * The country code of the mobile phone number.
    * 
    * @example
    * 86
@@ -821,7 +854,7 @@ export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
   mobileCountryCode?: string;
   /**
    * @remarks
-   * mobile phone number
+   * The mobile phone number.
    * 
    * @example
    * 183******96
@@ -829,7 +862,7 @@ export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
   mobilePhoneNumber?: string;
   /**
    * @remarks
-   * nationality (two-letter code)
+   * The two-letter nationality code.
    * 
    * @example
    * CN
@@ -837,7 +870,10 @@ export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
   nationality?: string;
   /**
    * @remarks
-   * passenger type 0: adult; 1: child; 8: infant
+   * The passenger type. Valid values:
+   * - 0: adult.
+   * - 1: child.
+   * - 8: infant.
    * 
    * @example
    * 0
@@ -886,7 +922,7 @@ export class OrderDetailResponseBodyDataPassengerList extends $dara.Model {
 export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $dara.Model {
   /**
    * @remarks
-   * arrival airport code (capitalized)
+   * The three-letter IATA code of the arrival airport (uppercase).
    * 
    * @example
    * MFM
@@ -894,7 +930,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   arrivalAirport?: string;
   /**
    * @remarks
-   * arrival city code (capitalized)
+   * The three-letter IATA code of the arrival city (uppercase).
    * 
    * @example
    * MFM
@@ -902,7 +938,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   arrivalCity?: string;
   /**
    * @remarks
-   * arrival terminal
+   * The arrival terminal.
    * 
    * @example
    * T1
@@ -910,7 +946,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   arrivalTerminal?: string;
   /**
    * @remarks
-   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * The arrival date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -918,7 +954,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   arrivalTime?: string;
   /**
    * @remarks
-   * availability
+   * The number of remaining seats.
    * 
    * @example
    * 7
@@ -926,7 +962,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   availability?: string;
   /**
    * @remarks
-   * RBD
+   * The cabin.
    * 
    * @example
    * V
@@ -934,7 +970,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   cabin?: string;
   /**
    * @remarks
-   * cabin class
+   * The cabin class.
    * 
    * @example
    * Y
@@ -942,7 +978,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   cabinClass?: string;
   /**
    * @remarks
-   * code share or not
+   * Indicates whether the flight is a codeshare flight.
    * 
    * @example
    * false
@@ -950,7 +986,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   codeShare?: boolean;
   /**
    * @remarks
-   * departure airport code (capitalized)
+   * The three-letter IATA code of the departure airport (uppercase).
    * 
    * @example
    * PVG
@@ -958,7 +994,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   departureAirport?: string;
   /**
    * @remarks
-   * departure city code (capitalized)
+   * The three-letter IATA code of the departure city (uppercase).
    * 
    * @example
    * SHA
@@ -966,7 +1002,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   departureCity?: string;
   /**
    * @remarks
-   * departure terminal
+   * The departure terminal.
    * 
    * @example
    * T2
@@ -974,7 +1010,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   departureTerminal?: string;
   /**
    * @remarks
-   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * The departure date and time in string format (yyyy-MM-dd HH:mm:ss).
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -982,7 +1018,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   departureTime?: string;
   /**
    * @remarks
-   * equipment type
+   * The aircraft type.
    * 
    * @example
    * 32Q
@@ -990,7 +1026,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   equipType?: string;
   /**
    * @remarks
-   * flight time, unit: minute
+   * The flight duration. Unit: minutes.
    * 
    * @example
    * 165
@@ -998,7 +1034,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   flightDuration?: number;
   /**
    * @remarks
-   * marketing airline code (eg: KA)
+   * The marketing airline code (for example, HO).
    * 
    * @example
    * HO
@@ -1006,7 +1042,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   marketingAirline?: string;
   /**
    * @remarks
-   * marketing airline flight no. (eg: KA5809)
+   * The marketing flight number (for example, HO1295).
    * 
    * @example
    * HO1295
@@ -1014,7 +1050,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   marketingFlightNo?: string;
   /**
    * @remarks
-   * marketing airline flight no. (eg: 5809)
+   * The numeric marketing flight number (for example, 1295).
    * 
    * @example
    * 1295
@@ -1022,7 +1058,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   marketingFlightNoInt?: number;
   /**
    * @remarks
-   * operating airline code (eg: CX)
+   * The operating airline code (for example, CX).
    * 
    * @example
    * HO
@@ -1030,7 +1066,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   operatingAirline?: string;
   /**
    * @remarks
-   * operating airline flight no. (eg: CX601)
+   * The operating flight number (for example, CX601).
    * 
    * @example
    * HO1295
@@ -1038,7 +1074,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   operatingFlightNo?: string;
   /**
    * @remarks
-   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * The segment ID. Format: flight number + departure airport + arrival airport + departure date (MMdd).
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -1046,7 +1082,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   segmentId?: string;
   /**
    * @remarks
-   * stop city list when stop_quantity > 1 , use “,” for seperation
+   * The list of stopover cities. This parameter has a value when stopQuantity is greater than 0. Multiple cities are separated by commas.
    * 
    * @example
    * SEL,HKG
@@ -1054,7 +1090,7 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
   stopCityList?: string;
   /**
    * @remarks
-   * number of stops
+   * The number of stopover cities.
    * 
    * @example
    * 0
@@ -1126,12 +1162,12 @@ export class OrderDetailResponseBodyDataSolutionJourneyListSegmentList extends $
 export class OrderDetailResponseBodyDataSolutionJourneyList extends $dara.Model {
   /**
    * @remarks
-   * segment list
+   * The segment information.
    */
   segmentList?: OrderDetailResponseBodyDataSolutionJourneyListSegmentList[];
   /**
    * @remarks
-   * number of transfers
+   * The number of transfers.
    * 
    * @example
    * 0
@@ -1166,12 +1202,11 @@ export class OrderDetailResponseBodyDataSolutionJourneyList extends $dara.Model 
 export class OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList extends $dara.Model {
   /**
    * @remarks
-   * through check-in baggage policy type
-   * 
-   * 1. baggage through check-in between segments
-   * 2. baggage re-check-in needed between segments
-   * 3. baggage through check-in at stop city ( applies for stop flight )
-   * 4. baggage re-checkin needed at stop city ( applies for stop flight )
+   * The baggage through-check rule type. Valid values:
+   * - 1: baggage is checked through between segments.
+   * - 2: baggage must be rechecked between segments.
+   * - 3: baggage is checked through at stopover cities.
+   * - 4: baggage must be rechecked at stopover cities.
    * 
    * @example
    * 1
@@ -1179,7 +1214,7 @@ export class OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList ex
   luggageDirectInfoType?: number;
   /**
    * @remarks
-   * segment id list. all the listed segment ids share the same baggage through check-in policy
+   * The list of segment IDs. These segments share the same baggage through-check rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -1211,12 +1246,12 @@ export class OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList ex
 export class OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList extends $dara.Model {
   /**
    * @remarks
-   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   * The mapping of passenger types to complimentary baggage allowances.
    */
   passengerBaggageAllowanceMapping?: { [key: string]: DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue };
   /**
    * @remarks
-   * segment id list. all the listed segment ids share the same baggage rule
+   * The list of segment IDs. These segments share the same complimentary baggage rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -1251,12 +1286,12 @@ export class OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList extend
 export class OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList extends $dara.Model {
   /**
    * @remarks
-   * change and refund policy mapping, key is passenger type, value is change and refund policy details
+   * The mapping of passenger types to refund and change rules.
    */
   refundChangeRuleMap?: { [key: string]: DataSolutionSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue };
   /**
    * @remarks
-   * segment id list. all the listed segment ids share the same change and refund policy
+   * The list of segment IDs. These segments share the same refund and change rule.
    */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
@@ -1289,15 +1324,7 @@ export class OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingLi
 }
 
 export class OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Issue ticket type: 1: after payment; 2: before departure; -1: unknown
-   */
   issueTicketType?: number;
-  /**
-   * @remarks
-   * Estimated issue ticket time, unit: minutes
-   */
   issueTimeLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1323,15 +1350,7 @@ export class OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo e
 }
 
 export class OrderDetailResponseBodyDataSolutionSolutionAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * Issue ticket time related
-   */
   issueTimeInfo?: OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo;
-  /**
-   * @remarks
-   * Supply source type 1: Self-operated; 2: Agent; 3: Flagship store
-   */
   supplySourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1362,7 +1381,7 @@ export class OrderDetailResponseBodyDataSolutionSolutionAttribute extends $dara.
 export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   /**
    * @remarks
-   * adult fare
+   * The unit price for an adult.
    * 
    * @example
    * 300
@@ -1370,7 +1389,7 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   adultPrice?: number;
   /**
    * @remarks
-   * adult tax
+   * The tax for an adult.
    * 
    * @example
    * 30
@@ -1378,7 +1397,7 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   adultTax?: number;
   /**
    * @remarks
-   * child fare
+   * The unit price for a child.
    * 
    * @example
    * 200
@@ -1386,7 +1405,7 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   childPrice?: number;
   /**
    * @remarks
-   * child tax
+   * The tax for a child.
    * 
    * @example
    * 20
@@ -1394,7 +1413,7 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   childTax?: number;
   /**
    * @remarks
-   * infant fare
+   * The unit price for an infant.
    * 
    * @example
    * 100
@@ -1402,7 +1421,7 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   infantPrice?: number;
   /**
    * @remarks
-   * infant tax
+   * The tax for an infant.
    * 
    * @example
    * 10
@@ -1410,28 +1429,24 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   infantTax?: number;
   /**
    * @remarks
-   * journey list
+   * The journey list.
    */
   journeyList?: OrderDetailResponseBodyDataSolutionJourneyList[];
   /**
    * @remarks
-   * through check-in baggage policy
+   * The baggage through-check rules.
    */
   segmentBaggageCheckInInfoList?: OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList[];
   /**
    * @remarks
-   * baggage rule list
+   * The complimentary baggage rules.
    */
   segmentBaggageMappingList?: OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList[];
   /**
    * @remarks
-   * change and refund policy
+   * The refund and change rules.
    */
   segmentRefundChangeRuleMappingList?: OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
-  /**
-   * @remarks
-   * Quotation Attributes
-   */
   solutionAttribute?: OrderDetailResponseBodyDataSolutionSolutionAttribute;
   /**
    * @remarks
@@ -1502,17 +1517,17 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
 export class OrderDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * ancillary product fulfillment details
+   * The ancillary product fulfillment details.
    */
   ancillaryItemDetailList?: OrderDetailResponseBodyDataAncillaryItemDetailList[];
   /**
    * @remarks
-   * baggage rule mapping, key is passenger type, value is baggage allowance details
+   * The mapping of passenger types to baggage rules.
    */
   baggageAllowanceMap?: { [key: string]: DataBaggageAllowanceMapValue };
   /**
    * @remarks
-   * book time(timestamp)
+   * The booking time (order creation time). The value is a 13-digit timestamp.
    * 
    * @example
    * 1677210784000
@@ -1520,12 +1535,12 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   bookTime?: number;
   /**
    * @remarks
-   * flight product fulfillment details
+   * The flight ticket fulfillment details.
    */
   flightItemDetailList?: OrderDetailResponseBodyDataFlightItemDetailList[];
   /**
    * @remarks
-   * order number created by book
+   * The order number.
    * 
    * @example
    * 4966***617111
@@ -1533,17 +1548,12 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * order status 
-   * 
-   * 1: order creation in process; 
-   * 
-   * 2: order creation successful; 
-   * 
-   * 3: order paid; 
-   * 
-   * 4: order successful; 
-   * 
-   * 5: order closed
+   * The order status. Valid values:
+   * - 1: Booking in progress.
+   * - 2: Booking succeeded.
+   * - 3: Order paid.
+   * - 4: Order succeeded.
+   * - 5: Order closed.
    * 
    * @example
    * 4
@@ -1551,7 +1561,7 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   orderStatus?: number;
   /**
    * @remarks
-   * external order number(customized by buyer when book)
+   * The external order number.
    * 
    * @example
    * x091-2023-0220-j-0001
@@ -1559,20 +1569,16 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   outOrderNum?: string;
   /**
    * @remarks
-   * the information about all passenger of current order
+   * The passenger list.
    */
   passengerList?: OrderDetailResponseBodyDataPassengerList[];
   /**
    * @remarks
-   * payment status 
-   * 
-   * 1: payment in process; 
-   * 
-   * 2: deduction successful; 
-   * 
-   * 3: paid to the seller; 
-   * 
-   * 4: transaction closed
+   * The payment status. Valid values:
+   * - 0: Initialized.
+   * - 1: Created.
+   * - 2: Payment succeeded.
+   * - 4: Transaction closed.
    * 
    * @example
    * 2
@@ -1580,7 +1586,7 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   payStatus?: number;
   /**
    * @remarks
-   * pay time(timestamp)
+   * The payment time. The value is a 13-digit timestamp.
    * 
    * @example
    * 1677210788000
@@ -1588,7 +1594,7 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   payTime?: number;
   /**
    * @remarks
-   * discount amount
+   * The discount amount. Unit: CNY.
    * 
    * @example
    * 10
@@ -1596,7 +1602,7 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   promotionPrice?: number;
   /**
    * @remarks
-   * actual payment amount
+   * The actual payment amount. Unit: CNY.
    * 
    * @example
    * 3000
@@ -1604,12 +1610,12 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   realPayPrice?: number;
   /**
    * @remarks
-   * change and refund policy mapping, key is passenger type, value is change and refund policy details
+   * The mapping of passenger types to refund and change rules.
    */
   refundChangeRuleMap?: { [key: string]: DataRefundChangeRuleMapValue };
   /**
    * @remarks
-   * buyer nickname
+   * The buyer nickname.
    * 
    * @example
    * nick
@@ -1617,12 +1623,12 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   sessionNick?: string;
   /**
    * @remarks
-   * the solution buyer booked
+   * The flight information.
    */
   solution?: OrderDetailResponseBodyDataSolution;
   /**
    * @remarks
-   * order success time(timestamp)
+   * The ticketing time. The value is a 13-digit timestamp. This parameter has a value only after ticketing is complete.
    * 
    * @example
    * 1677210786000
@@ -1630,7 +1636,7 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   succeedTime?: number;
   /**
    * @remarks
-   * total price of current order
+   * The total order price. Unit: CNY.
    * 
    * @example
    * 3000
@@ -1638,7 +1644,7 @@ export class OrderDetailResponseBodyData extends $dara.Model {
   totalPrice?: number;
   /**
    * @remarks
-   * transaction number
+   * The transaction number.
    * 
    * @example
    * hkduendkd-2023-dj0
@@ -1720,7 +1726,7 @@ export class OrderDetailResponseBodyData extends $dara.Model {
 export class OrderDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request ID
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -1728,12 +1734,12 @@ export class OrderDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * data
+   * The data returned for a successful request.
    */
   data?: OrderDetailResponseBodyData;
   /**
    * @remarks
-   * error code
+   * The business error code.
    * 
    * @example
    * null
@@ -1741,7 +1747,7 @@ export class OrderDetailResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error data
+   * The data returned with the error.
    * 
    * @example
    * null
@@ -1749,7 +1755,7 @@ export class OrderDetailResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * error message
+   * The error message.
    * 
    * @example
    * null
@@ -1757,7 +1763,7 @@ export class OrderDetailResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http request has been processed successfully，status code is 200
+   * The HTTP status code. The value is always 200 for successful requests.
    * 
    * @example
    * 200
@@ -1765,7 +1771,7 @@ export class OrderDetailResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

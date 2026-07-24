@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BookRequestContact extends $dara.Model {
   /**
    * @remarks
-   * email address
+   * The email address.
    * 
    * @example
    * gao******@gmail.com
@@ -13,7 +13,7 @@ export class BookRequestContact extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * first name
+   * The first name.
    * 
    * @example
    * SAN
@@ -21,7 +21,7 @@ export class BookRequestContact extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
-   * last name
+   * The last name.
    * 
    * @example
    * ZHANG
@@ -29,7 +29,7 @@ export class BookRequestContact extends $dara.Model {
   lastName?: string;
   /**
    * @remarks
-   * country code
+   * The country calling code.
    * 
    * @example
    * 86
@@ -37,7 +37,7 @@ export class BookRequestContact extends $dara.Model {
   mobileCountryCode?: string;
   /**
    * @remarks
-   * mobile phone number
+   * The mobile phone number.
    * 
    * @example
    * 183******96
@@ -75,7 +75,7 @@ export class BookRequestContact extends $dara.Model {
 export class BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem extends $dara.Model {
   /**
    * @remarks
-   * ancillary product ID, returned by AncillarySuggest.
+   * The ancillary product ID.
    * 
    * @example
    * MDY2NTAxLCJleHAiOjE2NxNzM3MDEsIm5ix
@@ -83,7 +83,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem ex
   ancillaryId?: string;
   /**
    * @remarks
-   * type of ancillary product, only support "4"(4 means paid baggage) currently.
+   * The ancillary product type. Currently supported value: 4 (paid baggage). More types will be supported in the future.
    * 
    * @example
    * 4
@@ -115,7 +115,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem ex
 export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential extends $dara.Model {
   /**
    * @remarks
-   * place of issue, two-letter code
+   * The place of issue. Use a two-letter country code.
    * 
    * @example
    * CN
@@ -123,7 +123,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential
   certIssuePlace?: string;
   /**
    * @remarks
-   * travel document number
+   * The credential number.
    * 
    * @example
    * E1***5673
@@ -131,7 +131,25 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential
   credentialNum?: string;
   /**
    * @remarks
-   * travel document type , only support "1"(1 means passport) currently
+   * The credential type. Valid values:
+   * - 0: ID card
+   * - 1: passport
+   * - 2: student ID
+   * - 3: military ID
+   * - 4: Home Return Permit
+   * - 5: Taiwan Compatriot Permit
+   * - 6: Hong Kong and Macau Travel Permit
+   * - 7: international seafarer certificate
+   * - 8: foreigner permanent residence permit
+   * - 10: police officer certificate
+   * - 11: soldier certificate
+   * - 12: Taiwan Travel Permit
+   * - 13: Taiwan Entry Permit
+   * - 14: household register
+   * - 15: birth certificate
+   * - 16: driver license
+   * - 17: Hong Kong and Macau resident residence permit
+   * - 18: Taiwan resident residence permit.
    * 
    * @example
    * 1
@@ -139,7 +157,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential
   credentialType?: number;
   /**
    * @remarks
-   * expiration date
+   * The expiration date of the credential.
    * 
    * @example
    * 20290102
@@ -175,7 +193,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential
 export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $dara.Model {
   /**
    * @remarks
-   * date of birth (yyyyMMdd)
+   * The date of birth in yyyyMMdd format.
    * 
    * @example
    * 20020320
@@ -183,12 +201,12 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   birthday?: string;
   /**
    * @remarks
-   * travel document
+   * The credential information.
    */
   credential?: BookRequestPassengerAncillaryPurchaseMapListPassengerListCredential;
   /**
    * @remarks
-   * first name
+   * The first name.
    * 
    * This parameter is required.
    * 
@@ -198,7 +216,9 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   firstName?: string;
   /**
    * @remarks
-   * gender 0: male; 1: female
+   * The gender. Valid values:
+   * - 0: MALE
+   * - 1: FEMALE.
    * 
    * @example
    * 1
@@ -206,7 +226,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   gender?: number;
   /**
    * @remarks
-   * last name
+   * The last name.
    * 
    * This parameter is required.
    * 
@@ -216,7 +236,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   lastName?: string;
   /**
    * @remarks
-   * country code for mobile phone number
+   * The country calling code for the mobile phone number.
    * 
    * This parameter is required.
    * 
@@ -226,7 +246,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   mobileCountryCode?: string;
   /**
    * @remarks
-   * mobile phone number
+   * The mobile phone number.
    * 
    * This parameter is required.
    * 
@@ -236,7 +256,7 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   mobilePhoneNumber?: string;
   /**
    * @remarks
-   * nationality
+   * The nationality.
    * 
    * @example
    * CN
@@ -244,7 +264,10 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
   nationality?: string;
   /**
    * @remarks
-   * passenger type 0: adult; 1: child; 8: Infant
+   * The passenger type. Valid values:
+   * - 0: adult
+   * - 1: child
+   * - 8: infant.
    * 
    * This parameter is required.
    * 
@@ -295,12 +318,12 @@ export class BookRequestPassengerAncillaryPurchaseMapListPassengerList extends $
 export class BookRequestPassengerAncillaryPurchaseMapList extends $dara.Model {
   /**
    * @remarks
-   * ancillary information
+   * The ancillary product object for the booking request.
    */
   bookAncillaryReqItem?: BookRequestPassengerAncillaryPurchaseMapListBookAncillaryReqItem;
   /**
    * @remarks
-   * passenger list for unified ancillary purchases
+   * The list of passengers who purchase the same ancillary product.
    */
   passengerList?: BookRequestPassengerAncillaryPurchaseMapListPassengerList[];
   static names(): { [key: string]: string } {
@@ -335,7 +358,7 @@ export class BookRequestPassengerAncillaryPurchaseMapList extends $dara.Model {
 export class BookRequestPassengerListCredential extends $dara.Model {
   /**
    * @remarks
-   * place of issue, two-letter code
+   * The place of issue. Use a two-letter country code.
    * 
    * @example
    * CN
@@ -343,7 +366,7 @@ export class BookRequestPassengerListCredential extends $dara.Model {
   certIssuePlace?: string;
   /**
    * @remarks
-   * travel document number
+   * The credential number.
    * 
    * @example
    * E1***5674
@@ -351,7 +374,14 @@ export class BookRequestPassengerListCredential extends $dara.Model {
   credentialNum?: string;
   /**
    * @remarks
-   * travel document type , only support "1"(1 means passport) currently.
+   * The credential type. Valid values:
+   * - 0: ID card
+   * - 1: passport
+   * - 4: Home Return Permit
+   * - 5: Taiwan Compatriot Permit
+   * - 6: Hong Kong and Macau Travel Permit
+   * - 12: Taiwan Travel Permit
+   * - 19: no credential.
    * 
    * @example
    * 1
@@ -359,7 +389,7 @@ export class BookRequestPassengerListCredential extends $dara.Model {
   credentialType?: number;
   /**
    * @remarks
-   * expiration date
+   * The expiration date of the credential.
    * 
    * @example
    * 20290101
@@ -395,7 +425,7 @@ export class BookRequestPassengerListCredential extends $dara.Model {
 export class BookRequestPassengerList extends $dara.Model {
   /**
    * @remarks
-   * date of birth (yyyyMMdd)
+   * The date of birth in yyyyMMdd format.
    * 
    * @example
    * 20200320
@@ -403,12 +433,12 @@ export class BookRequestPassengerList extends $dara.Model {
   birthday?: string;
   /**
    * @remarks
-   * travel document
+   * The credential information.
    */
   credential?: BookRequestPassengerListCredential;
   /**
    * @remarks
-   * first name
+   * The first name.
    * 
    * This parameter is required.
    * 
@@ -418,7 +448,9 @@ export class BookRequestPassengerList extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
-   * gender 0: MALE; 1: FEMALE
+   * The gender. Valid values:
+   * - 0: MALE
+   * - 1: FEMALE.
    * 
    * @example
    * 0
@@ -426,7 +458,7 @@ export class BookRequestPassengerList extends $dara.Model {
   gender?: number;
   /**
    * @remarks
-   * last name
+   * The last name.
    * 
    * This parameter is required.
    * 
@@ -436,7 +468,7 @@ export class BookRequestPassengerList extends $dara.Model {
   lastName?: string;
   /**
    * @remarks
-   * mobile country code
+   * The country calling code for the mobile phone number.
    * 
    * This parameter is required.
    * 
@@ -446,7 +478,7 @@ export class BookRequestPassengerList extends $dara.Model {
   mobileCountryCode?: string;
   /**
    * @remarks
-   * mobile phone number
+   * The mobile phone number.
    * 
    * This parameter is required.
    * 
@@ -456,7 +488,7 @@ export class BookRequestPassengerList extends $dara.Model {
   mobilePhoneNumber?: string;
   /**
    * @remarks
-   * nationality (two-letter code)
+   * The nationality. Use a two-letter country code.
    * 
    * @example
    * CN
@@ -464,7 +496,10 @@ export class BookRequestPassengerList extends $dara.Model {
   nationality?: string;
   /**
    * @remarks
-   * passenger type 0: adult; 1: child; 8: infant
+   * The passenger type. Valid values:
+   * - 0: adult
+   * - 1: child
+   * - 8: infant.
    * 
    * This parameter is required.
    * 
@@ -515,14 +550,14 @@ export class BookRequestPassengerList extends $dara.Model {
 export class BookRequest extends $dara.Model {
   /**
    * @remarks
-   * contact information
+   * The contact information.
    * 
    * This parameter is required.
    */
   contact?: BookRequestContact;
   /**
    * @remarks
-   * external order number(buyer customization)
+   * The external order number.
    * 
    * This parameter is required.
    * 
@@ -532,19 +567,19 @@ export class BookRequest extends $dara.Model {
   outOrderNum?: string;
   /**
    * @remarks
-   * passenger-ancillary purchase relationship
+   * The mapping between passengers and ancillary purchases.
    */
   passengerAncillaryPurchaseMapList?: BookRequestPassengerAncillaryPurchaseMapList[];
   /**
    * @remarks
-   * passenger list
+   * The list of passengers.
    * 
    * This parameter is required.
    */
   passengerList?: BookRequestPassengerList[];
   /**
    * @remarks
-   * solution_id returned by Enrich
+   * solution_id.
    * 
    * This parameter is required.
    * 

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeApplyResponseBodyDataChangeOrdersPassengers extends $dara.Model {
   /**
+   * @remarks
+   * The document number.
+   * 
    * @example
    * 411***********4411
    */
   document?: string;
   /**
+   * @remarks
+   * The first name of the passenger.
+   * 
    * @example
    * SAN
    */
   firstName?: string;
   /**
+   * @remarks
+   * The last name of the passenger.
+   * 
    * @example
    * ZHANG
    */
@@ -45,20 +54,35 @@ export class ChangeApplyResponseBodyDataChangeOrdersPassengers extends $dara.Mod
 
 export class ChangeApplyResponseBodyDataChangeOrders extends $dara.Model {
   /**
+   * @remarks
+   * The change order number.
+   * 
    * @example
    * 49884*****950
    */
   changeOrderNum?: number;
   /**
+   * @remarks
+   * The change order status. Valid values:
+   * - 0: Change order created.
+   * - 5: Change order creation failed.
+   * 
    * @example
    * 0
    */
   changeOrderStatus?: number;
   /**
+   * @remarks
+   * The reason for the change order creation failure.
+   * 
    * @example
    * desc reason
    */
   failReason?: string;
+  /**
+   * @remarks
+   * The passenger information of the change order.
+   */
   passengers?: ChangeApplyResponseBodyDataChangeOrdersPassengers[];
   static names(): { [key: string]: string } {
     return {
@@ -91,8 +115,15 @@ export class ChangeApplyResponseBodyDataChangeOrders extends $dara.Model {
 }
 
 export class ChangeApplyResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of change order application results.
+   */
   changeOrders?: ChangeApplyResponseBodyDataChangeOrders[];
   /**
+   * @remarks
+   * The order number.
+   * 
    * @example
    * 4988430***950
    */
@@ -125,32 +156,54 @@ export class ChangeApplyResponseBodyData extends $dara.Model {
 
 export class ChangeApplyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The data returned for a successful request.
+   */
   data?: ChangeApplyResponseBodyData;
   /**
+   * @remarks
+   * The business error code.
+   * 
    * @example
    * null
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The data returned with the error.
+   * 
    * @example
    * null
    */
   errorData?: any;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The HTTP status code. The value is always 200 for successful requests.
+   * 
    * @example
    * 200
    */
   status?: number;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

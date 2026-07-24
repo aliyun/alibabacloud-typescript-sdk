@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   /**
    * @remarks
-   * Flight arrival airport three-letter code (uppercase)
+   * Flight arrival airport code (3-letter uppercase)
    * 
    * @example
    * MFM
@@ -13,7 +13,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   arrivalAirport?: string;
   /**
    * @remarks
-   * Flight arrival city three-letter code (uppercase)
+   * Flight arrival city code (3-letter uppercase)
    * 
    * @example
    * MFM
@@ -21,7 +21,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   arrivalCity?: string;
   /**
    * @remarks
-   * Cabin
+   * Booking class
    * 
    * @example
    * V
@@ -29,7 +29,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   cabin?: string;
   /**
    * @remarks
-   * Child cabin
+   * Child booking class
    * 
    * @example
    * E
@@ -37,7 +37,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   childCabin?: string;
   /**
    * @remarks
-   * Flight departure airport three-letter code (uppercase)
+   * Flight departure airport code (3-letter uppercase)
    * 
    * @example
    * PVG
@@ -45,16 +45,13 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   departureAirport?: string;
   /**
    * @remarks
-   * Flight departure city three-letter code (uppercase)
+   * Flight departure city code (3-letter uppercase)
    * 
    * @example
    * SHA
    */
   departureCity?: string;
   /**
-   * @remarks
-   * String, flight departure date (yyyy-MM-dd), either departure_date or departure_time, with departure_time preferred for greater accuracy
-   * 
    * @example
    * 2023-03-10
    */
@@ -69,7 +66,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   departureTime?: string;
   /**
    * @remarks
-   * Marketing flight number (e.g., KA5809)
+   * Marketing carrier flight number (e.g., KA5809)
    * 
    * This parameter is required.
    * 
@@ -117,7 +114,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
 export class EnrichRequestJourneyParamList extends $dara.Model {
   /**
    * @remarks
-   * Arrival city three-letter code (uppercase)
+   * Arrival city code (3-letter uppercase)
    * 
    * This parameter is required.
    * 
@@ -127,7 +124,7 @@ export class EnrichRequestJourneyParamList extends $dara.Model {
   arrivalCity?: string;
   /**
    * @remarks
-   * Departure city three-letter code (uppercase)
+   * Departure city code (3-letter uppercase)
    * 
    * This parameter is required.
    * 
@@ -147,7 +144,7 @@ export class EnrichRequestJourneyParamList extends $dara.Model {
   departureDate?: string;
   /**
    * @remarks
-   * Specified segment information for this trip
+   * Specified segment information for this journey
    * 
    * This parameter is required.
    */
@@ -185,7 +182,7 @@ export class EnrichRequestJourneyParamList extends $dara.Model {
 export class EnrichRequest extends $dara.Model {
   /**
    * @remarks
-   * Number of adult passengers (1-9)
+   * Number of adult passengers 1-9
    * 
    * @example
    * 1
@@ -193,7 +190,7 @@ export class EnrichRequest extends $dara.Model {
   adults?: number;
   /**
    * @remarks
-   * Cabin class: ALL_CABIN: All cabin classes; Y: Economy; FC: First Class and Business Class; S: Premium Economy; YS: Economy and Premium Economy; YSC: Economy, Premium Economy, and Business Class;
+   * Cabin class ALL_CABIN: all cabin classes; Y: economy; FC: first class and business class; S: premium economy; YS: economy and premium economy; YSC: economy, premium economy, and business class;
    * 
    * @example
    * ALL_CABIN
@@ -201,7 +198,7 @@ export class EnrichRequest extends $dara.Model {
   cabinClass?: string;
   /**
    * @remarks
-   * Number of child passengers (0-9)
+   * Number of child passengers 0-9
    * 
    * @example
    * 1
@@ -209,7 +206,7 @@ export class EnrichRequest extends $dara.Model {
   children?: number;
   /**
    * @remarks
-   * Number of infant passengers (0-9)
+   * Number of infant passengers 0-9
    * 
    * @example
    * 1
@@ -217,12 +214,12 @@ export class EnrichRequest extends $dara.Model {
   infants?: number;
   /**
    * @remarks
-   * Trip information
+   * Journey information
    */
   journeyParamList?: EnrichRequestJourneyParamList[];
   /**
    * @remarks
-   * The `solution_id` returned by the Search interface
+   * solution_id returned by Search
    * 
    * @example
    * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ

@@ -15,6 +15,9 @@ export class ChangeCancelHeaders extends $dara.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
+   * @remarks
+   * Language. Uses the buyer account configuration by default.
+   * 
    * @example
    * en_US
    */

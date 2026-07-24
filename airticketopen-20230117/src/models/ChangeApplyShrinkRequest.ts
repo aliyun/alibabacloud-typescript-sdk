@@ -5,21 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeApplyShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of passengers for the change.
+   * 
    * This parameter is required.
    */
   changePassengerListShrink?: string;
   /**
    * @remarks
+   * The target journey for the change.
+   * 
    * This parameter is required.
    */
   changedJourneysShrink?: string;
   /**
    * @remarks
+   * The contact information for the change.
+   * 
    * This parameter is required.
    */
   contactShrink?: string;
   /**
    * @remarks
+   * The order number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,12 +35,19 @@ export class ChangeApplyShrinkRequest extends $dara.Model {
    */
   orderNum?: number;
   /**
+   * @remarks
+   * The buyer remarks.
+   * 
    * @example
    * remark desc
    */
   remark?: string;
   /**
    * @remarks
+   * The change type. Valid values:
+   * - 0: voluntary change
+   * - 1: flight schedule change or flight cancellation.
+   * 
    * This parameter is required.
    * 
    * @example

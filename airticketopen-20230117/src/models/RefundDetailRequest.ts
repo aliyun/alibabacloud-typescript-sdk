@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefundDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * Refund order number
+   * The refund order number.
    * 
    * This parameter is required.
    * 

@@ -6,7 +6,7 @@ export class AncillarySuggestHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access_token
+   * The access_token.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class AncillarySuggestHeaders extends $dara.Model {
   xAcsAirticketAccessToken?: string;
   /**
    * @remarks
-   * Language Code(refer to ISO_639)
+   * The language setting. Defaults to the buyer account configuration.
    * 
    * @example
    * en_US

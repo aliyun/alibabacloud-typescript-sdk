@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OrderDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * order number created by book
+   * The order number.
    * 
    * @example
    * 4966***617111
@@ -13,7 +13,7 @@ export class OrderDetailRequest extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * external order number(customized by buyer when book)
+   * The external order number.
    * 
    * @example
    * x091-2023-0220-j-0001

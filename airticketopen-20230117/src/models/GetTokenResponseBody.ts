@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Remaining valid time of the token in seconds
+   * The remaining validity period of the token. Unit: seconds.
    * 
    * @example
    * 7200
@@ -13,7 +13,7 @@ export class GetTokenResponseBodyData extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * Timestamp of token generation in seconds
+   * The UNIX timestamp when the token was generated. Unit: seconds.
    * 
    * @example
    * 1677055176
@@ -55,7 +55,7 @@ export class GetTokenResponseBodyData extends $dara.Model {
 export class GetTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request RequestId
+   * The request ID.
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -63,12 +63,12 @@ export class GetTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Correctly processed return data
+   * The data returned for a successful request.
    */
   data?: GetTokenResponseBodyData;
   /**
    * @remarks
-   * Business error code
+   * The business error code.
    * 
    * @example
    * null
@@ -76,7 +76,7 @@ export class GetTokenResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Data carried during error handling
+   * The data returned with an error response.
    * 
    * @example
    * null
@@ -84,7 +84,7 @@ export class GetTokenResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * null
@@ -92,7 +92,7 @@ export class GetTokenResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * When the HTTP request is successful, the status value is 200.
+   * The HTTP status code. The value is always 200 for successful HTTP requests.
    * 
    * @example
    * 200
@@ -100,7 +100,7 @@ export class GetTokenResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Whether it is correct
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
