@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateComputeInstanceResponseBodyData extends $dara.Model {
   instanceId?: string;
   orderId?: string;
