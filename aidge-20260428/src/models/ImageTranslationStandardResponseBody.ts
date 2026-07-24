@@ -215,14 +215,6 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
   lineCount?: number;
   /**
    * @remarks
-   * The OVIS error message.
-   * 
-   * @example
-   * desc
-   */
-  ovisErrMsg?: string;
-  /**
-   * @remarks
    * The text area.
    */
   textRect?: ImageTranslationStandardResponseBodyDataEditInfoTextAreasTextsTextRect;
@@ -239,7 +231,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
    * The text value.
    * 
    * @example
-   * Solid wood wardrobe.
+   * Solid Wood Wardrobe.
    */
   value?: string;
   /**
@@ -258,7 +250,6 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
       imageRect: 'ImageRect',
       language: 'Language',
       lineCount: 'LineCount',
-      ovisErrMsg: 'OvisErrMsg',
       textRect: 'TextRect',
       valid: 'Valid',
       value: 'Value',
@@ -274,7 +265,6 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
       imageRect: ImageTranslationStandardResponseBodyDataEditInfoTextAreasTextsImageRect,
       language: 'string',
       lineCount: 'number',
-      ovisErrMsg: 'string',
       textRect: ImageTranslationStandardResponseBodyDataEditInfoTextAreasTextsTextRect,
       valid: 'boolean',
       value: 'string',
@@ -398,7 +388,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   font?: string[];
   /**
    * @remarks
-   * The product area rectangle.
+   * The product area rectangles.
    */
   goodsRects?: ImageTranslationStandardResponseBodyDataEditInfoGoodsRects;
   /**
@@ -538,7 +528,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The usage information, including the number of processed images.
+   * The usage information, including the number of images processed.
    * 
    * @example
    * {"ProcessedImageCount":1}
@@ -591,7 +581,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   data?: ImageTranslationStandardResponseBodyData;
   /**
    * @remarks
-   * The error message. Returns "Success" for successful calls and specific error information for exceptions.
+   * The error message. Returns "Success" for successful calls, and returns specific error information for failed calls.
    * 
    * @example
    * Success
@@ -599,7 +589,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, used to identify a unique request call.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * 1CEC4D94-905A-1ED1-A7B4-1BFEFFB3D850
@@ -607,7 +597,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

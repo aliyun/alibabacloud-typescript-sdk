@@ -215,7 +215,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTe
 export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts extends $dara.Model {
   /**
    * @remarks
-   * The color of the translated text.
+   * The text color after translation.
    * 
    * @example
    * #515151
@@ -260,14 +260,6 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   lineCount?: number;
   /**
    * @remarks
-   * The Ovis model error message and execution time.
-   * 
-   * @example
-   * | ovis time: 0.748
-   */
-  ovisErrMsg?: string;
-  /**
-   * @remarks
    * The coordinates of the text box area.
    */
   textRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect;
@@ -303,7 +295,6 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
       imageRect: 'ImageRect',
       language: 'Language',
       lineCount: 'LineCount',
-      ovisErrMsg: 'OvisErrMsg',
       textRect: 'TextRect',
       valid: 'Valid',
       value: 'Value',
@@ -319,7 +310,6 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
       imageRect: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsImageRect,
       language: 'string',
       lineCount: 'number',
-      ovisErrMsg: 'string',
       textRect: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect,
       valid: 'boolean',
       value: 'string',
@@ -356,7 +346,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
    * The original text before translation.
    * 
    * @example
-   * 萌趣造型·清脆响铃
+   * Cute Shape · Crisp Bell.
    */
   content?: string;
   /**
@@ -385,7 +375,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   lineCount?: number;
   /**
    * @remarks
-   * The list of translated texts. Each element corresponds to the translation result for one target language.
+   * The list of translated texts. Each element corresponds to the translation result for a target language.
    */
   texts?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts[];
   /**
@@ -445,12 +435,12 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   goodsRects?: ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects;
   /**
    * @remarks
-   * The list of translation target languages.
+   * The list of target languages for translation.
    */
   languages?: string[];
   /**
    * @remarks
-   * The URL of the image with all text removed.
+   * The URL of the image after all text has been erased.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/repaired.png
@@ -463,7 +453,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   resultImageIds?: string[];
   /**
    * @remarks
-   * The list of text boxes, including all recognized text area information.
+   * The list of text boxes, which contains information about all recognized text areas.
    */
   textAreas?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas[];
   static names(): { [key: string]: string } {
@@ -523,7 +513,7 @@ export class ImageTranslationProResponseBodyDataGenFilesResultList extends $dara
   fileUrl?: string;
   /**
    * @remarks
-   * The translation target language.
+   * The target language for translation.
    * 
    * @example
    * en
@@ -555,7 +545,7 @@ export class ImageTranslationProResponseBodyDataGenFilesResultList extends $dara
 export class ImageTranslationProResponseBodyDataGenFiles extends $dara.Model {
   /**
    * @remarks
-   * The editor information, including recognized text areas, product areas, fonts, and other information.
+   * The editor information, which contains recognition information such as text areas, product areas, and fonts.
    */
   editInfo?: ImageTranslationProResponseBodyDataGenFilesEditInfo;
   /**
@@ -613,7 +603,7 @@ export class ImageTranslationProResponseBodyDataResultList extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * The target language of the image translation.
+   * The target language for image translation.
    * 
    * @example
    * en
@@ -645,7 +635,7 @@ export class ImageTranslationProResponseBodyDataResultList extends $dara.Model {
 export class ImageTranslationProResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The editor protocol, including translation result files and editing information.
+   * The editor protocol, which contains translation result files and editing information.
    */
   genFiles?: ImageTranslationProResponseBodyDataGenFiles[];
   /**
@@ -655,7 +645,7 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
   resultList?: ImageTranslationProResponseBodyDataResultList[];
   /**
    * @remarks
-   * The asynchronous task ID. Not returned for synchronous calls.
+   * The asynchronous task ID. This parameter is not returned for synchronous calls.
    * 
    * @example
    * abc123-task-id
@@ -663,7 +653,7 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The usage information, including the number of processed images.
+   * The usage information, which contains the number of processed images.
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -705,7 +695,7 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
 export class ImageTranslationProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. 200 indicates a successful call. For other response codes, see the error code information.
+   * The response code. 200 indicates a successful call. For other response codes, refer to the error code information.
    * 
    * @example
    * 200
@@ -713,12 +703,12 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The translation result data. ResultList contains the URL of the translation result. GenFiles contains EditInfo with the recognized text information.
+   * The translation result data. ResultList contains the URLs of translation results, and GenFiles contains EditInfo with the recognized text information.
    */
   data?: ImageTranslationProResponseBodyData;
   /**
    * @remarks
-   * The error message. Returns "Success" for successful calls. Returns specific error information for exceptions, such as "The content contains sensitive data. Try other input."
+   * The error message. "Success" is returned for successful calls. Specific error information is returned for failed calls, such as "The content contains sensitive data. Try other input."
    * 
    * @example
    * Success
@@ -734,7 +724,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. true indicates success. false indicates failure.
+   * Indicates whether the call is successful. true indicates success, and false indicates failure.
    * 
    * @example
    * true

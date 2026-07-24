@@ -13,7 +13,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The task status.
+   * The status of the task.
    * 
    * @example
    * COMPLETED
@@ -21,7 +21,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The downstream task ID.
+   * The ID of the downstream task.
    * 
    * @example
    * task-xxxxx
@@ -73,7 +73,7 @@ export class QueryAsyncTaskResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The asynchronous task result.
+   * The asynchronous node result.
    */
   data?: QueryAsyncTaskResultResponseBodyData;
   /**
