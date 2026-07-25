@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeYikeStoryboardJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task ID. You can obtain this value from the response parameters of the [Submit a packaging task](https://help.aliyun.com/document_detail/461964.html) operation.
+   * The job ID. You can obtain this value from the response parameters of [SubmitPackageJob](https://help.aliyun.com/document_detail/461964.html).
    * 
    * @example
    * ****a046-263c-3560-978a-fb287782****

@@ -2,33 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateYikeEditingProjectResponseBody extends $dara.Model {
+export class GetYikeJobCreditResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the online editing project.
-   * 
    * @example
-   * ***545bc38a94aa9840c89aff017b***
+   * success
    */
-  editingProjectId?: string;
+  creditStatus?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
+   * @example
+   * 20
+   */
+  jobCreditCost?: number;
+  /**
+   * @example
+   * ag_12412424****
+   */
+  jobId?: string;
+  /**
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      editingProjectId: 'EditingProjectId',
+      creditStatus: 'CreditStatus',
+      jobCreditCost: 'JobCreditCost',
+      jobId: 'JobId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      editingProjectId: 'string',
+      creditStatus: 'string',
+      jobCreditCost: 'number',
+      jobId: 'string',
       requestId: 'string',
     };
   }

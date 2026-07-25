@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ResumeYikeStoryboardJobRequest extends $dara.Model {
+export class GetYikeJobCreditRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the screenshot job.
+   * This parameter is required.
    * 
    * @example
-   * ****20b48fb04483915d4f2cd8ac****
+   * ag_12412424****
    */
   jobId?: string;
   static names(): { [key: string]: string } {

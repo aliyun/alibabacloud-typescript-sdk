@@ -256,7 +256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一刻云剪辑工程
+   * Creates a cloud editing project.
    * 
    * @param request - CreateYikeEditingProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -301,7 +301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一刻云剪辑工程
+   * Creates a cloud editing project.
    * 
    * @param request - CreateYikeEditingProjectRequest
    * @returns CreateYikeEditingProjectResponse
@@ -511,8 +511,7 @@ export default class Client extends OpenApi {
    * Queries an image generation task.
    * 
    * @remarks
-   * ## Request description
-   * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
    * 
    * @param request - GetImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -546,8 +545,7 @@ export default class Client extends OpenApi {
    * Queries an image generation task.
    * 
    * @remarks
-   * ## Request description
-   * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
    * 
    * @param request - GetImageGenerationJobRequest
    * @returns GetImageGenerationJobResponse
@@ -558,7 +556,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a video generation task.
+   * Queries an AI video generation task.
+   * 
+   * @remarks
+   * The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -589,7 +590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a video generation task.
+   * Queries an AI video generation task.
+   * 
+   * @remarks
+   * The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @returns GetVideoGenerationJobResponse
@@ -719,6 +723,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询一刻口播任务预估积分
+   * 
+   * @param request - GetYikeAgentJobEstimatedCreditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeAgentJobEstimatedCreditResponse
+   */
+  async getYikeAgentJobEstimatedCreditWithOptions(request: $_model.GetYikeAgentJobEstimatedCreditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeAgentJobEstimatedCreditResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobAction)) {
+      body["JobAction"] = request.jobAction;
+    }
+
+    if (!$dara.isNull(request.jobParams)) {
+      body["JobParams"] = request.jobParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeAgentJobEstimatedCredit",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeAgentJobEstimatedCreditResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeAgentJobEstimatedCreditResponse({}));
+  }
+
+  /**
+   * 查询一刻口播任务预估积分
+   * 
+   * @param request - GetYikeAgentJobEstimatedCreditRequest
+   * @returns GetYikeAgentJobEstimatedCreditResponse
+   */
+  async getYikeAgentJobEstimatedCredit(request: $_model.GetYikeAgentJobEstimatedCreditRequest): Promise<$_model.GetYikeAgentJobEstimatedCreditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeAgentJobEstimatedCreditWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the content information of a media asset.
    * 
    * @param request - GetYikeAssetMediaInfoRequest
@@ -758,6 +808,48 @@ export default class Client extends OpenApi {
   async getYikeAssetMediaInfo(request: $_model.GetYikeAssetMediaInfoRequest): Promise<$_model.GetYikeAssetMediaInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getYikeAssetMediaInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询一刻任务实际消耗积分
+   * 
+   * @param request - GetYikeJobCreditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeJobCreditResponse
+   */
+  async getYikeJobCreditWithOptions(request: $_model.GetYikeJobCreditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeJobCreditResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeJobCredit",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeJobCreditResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeJobCreditResponse({}));
+  }
+
+  /**
+   * 查询一刻任务实际消耗积分
+   * 
+   * @param request - GetYikeJobCreditRequest
+   * @returns GetYikeJobCreditResponse
+   */
+  async getYikeJobCredit(request: $_model.GetYikeJobCreditRequest): Promise<$_model.GetYikeJobCreditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeJobCreditWithOptions(request, runtime);
   }
 
   /**
@@ -1267,7 +1359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes the execution of a storyboard task.
+   * Resumes the execution of a storyboard job.
    * 
    * @param request - ResumeYikeStoryboardJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1298,7 +1390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes the execution of a storyboard task.
+   * Resumes the execution of a storyboard job.
    * 
    * @param request - ResumeYikeStoryboardJobRequest
    * @returns ResumeYikeStoryboardJobResponse
@@ -1450,8 +1542,7 @@ export default class Client extends OpenApi {
    * Submits an image generation task.
    * 
    * @remarks
-   * ## Request description
-   * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1521,8 +1612,7 @@ export default class Client extends OpenApi {
    * Submits an image generation task.
    * 
    * @remarks
-   * ## Request description
-   * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @returns SubmitImageGenerationJobResponse
@@ -1533,11 +1623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video generation task.
+   * Submits an AI video generation task.
    * 
    * @remarks
-   * ## Request description
-   * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
    * 
    * @param request - SubmitVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1608,11 +1697,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video generation task.
+   * Submits an AI video generation task.
    * 
    * @remarks
-   * ## Request description
-   * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
    * 
    * @param request - SubmitVideoGenerationJobRequest
    * @returns SubmitVideoGenerationJobResponse
@@ -2035,7 +2123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a Yike project
+   * Updates a China Short Video (Yike) project.
    * 
    * @param request - UpdateYikeProductionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2070,7 +2158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a Yike project
+   * Updates a China Short Video (Yike) project.
    * 
    * @param request - UpdateYikeProductionRequest
    * @returns UpdateYikeProductionResponse

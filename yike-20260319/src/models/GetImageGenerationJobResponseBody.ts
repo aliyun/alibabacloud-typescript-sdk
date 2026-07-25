@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.Model {
   /**
    * @remarks
-   * The video aspect ratio.
+   * The aspect ratio of the video.
    * 
    * @example
    * 16:9
@@ -13,7 +13,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   aspectRatio?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned only when the task is in the Failed state.
+   * The error message. The value is of the String type. This parameter is returned when the task is in the Failed state.
    * 
    * @example
    * Input file not found.
@@ -37,7 +37,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   jobId?: string;
   /**
    * @remarks
-   * The task feature configuration. No configuration is required at this time.
+   * The task feature configuration. You do not need to set this parameter.
    * 
    * @example
    * {}
@@ -69,10 +69,10 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   n?: string;
   /**
    * @remarks
-   * The generation result in JSON string format. Fields:
-   * - Medias: a list of media information (Media objects). Fields of a Media object:
-   *   - MediaId: String. The media asset ID.
-   *   - OutputUrl: String. The media URL (with authentication string).
+   * The generation result. The value is a JSON string that contains the following fields:
+   * - Medias: a list of media information (Media objects). A Media object contains the following fields:
+   *   - MediaId: the media asset ID. The value is of the String type.
+   *   - OutputUrl: the media URL (with an authentication string). The value is of the String type.
    * 
    * @example
    * {"Medias":[{"MediaId":"***e3700761971f19c32e7e7d5496***","OutputUrl":"https://**bucket**.oss-ap-southeast-1.aliyuncs.com/xxx.prd"}]}
@@ -88,7 +88,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   resolution?: string;
   /**
    * @remarks
-   * The scenario type. Currently, only `general` is supported.
+   * The scene type. Currently, only `general` is supported.
    * 
    * @example
    * general
@@ -109,7 +109,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The custom business information.
+   * The user business information.
    * 
    * @example
    * {}

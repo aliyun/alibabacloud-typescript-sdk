@@ -13,7 +13,7 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
   aspectRatio?: string;
   /**
    * @remarks
-   * The idempotency parameter.
+   * The idempotency token.
    * 
    * @example
    * ****3e761e9d11edba640c42a1b7****
@@ -22,9 +22,9 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
   /**
    * @remarks
    * The task input, in JSON string format. The following fields are included:
-   * - Prompt: String. Required. The prompt text.
-   * - Medias: a list of media items. Required when the task type is `image_to_image`. A maximum of 9 items are supported.
-   * > The Media structure contains: Type, the media type, String, valid value: image; URL, the media download URL, String.
+   * - Prompt: String. Required. The prompt.
+   * - Medias: the media list. Required when the task type is `image_to_image`. A maximum of 9 items are supported.
+   * > The Media struct contains: Type, the media type, String, valid value: image. URL, the media download URL, String.
    * >
    * 
    * @example
@@ -33,7 +33,7 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
   input?: string;
   /**
    * @remarks
-   * The task function parameters, in JSON string format. No configuration is required at this time.
+   * The task feature parameters, in JSON string format. No configuration is required at this time.
    * 
    * @example
    * {}
@@ -43,8 +43,8 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
    * @remarks
    * The type of the generation task. Valid values:
    * 
-   * - text_to_image: text-to-image generation.
-   * - image_to_image: image-to-image generation.
+   * - text_to_image: text-to-image.
+   * - image_to_image: image-to-image.
    * 
    * @example
    * text_to_image
@@ -76,7 +76,7 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
   resolution?: string;
   /**
    * @remarks
-   * The scenario. This is an enumeration type. Currently, only `general` is supported.
+   * The scene. This is an enumeration type. Currently, only `general` is supported.
    * 
    * @example
    * general

@@ -2,24 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ResumeYikeStoryboardJobRequest extends $dara.Model {
+export class GetYikeAgentJobEstimatedCreditResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the screenshot job.
-   * 
    * @example
-   * ****20b48fb04483915d4f2cd8ac****
+   * 20.1
    */
-  jobId?: string;
+  estimatedCreditCost?: number;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
+      estimatedCreditCost: 'EstimatedCreditCost',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
+      estimatedCreditCost: 'number',
+      requestId: 'string',
     };
   }
 

@@ -21,7 +21,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   duration?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned only when the task is in the Failed state.
+   * The error message. This parameter is returned when the task is in the Failed state.
    * 
    * @example
    * Input file not found.
@@ -45,7 +45,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   jobId?: string;
   /**
    * @remarks
-   * The task feature configuration. This parameter does not need to be set.
+   * The task feature configuration. You do not need to set this parameter.
    * 
    * @example
    * {}
@@ -79,9 +79,9 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
    * @remarks
    * The generation result. The value is a JSON string that contains the following fields:
    * 
-   * Medias: a list of Media objects. Each Media object contains the following fields:
+   * Medias: a list of media information (Media objects). A Media object contains the following fields:
    * MediaId: String. The media asset ID.
-   * OutputUrl: String. The media URL (with the authentication string).
+   * OutputUrl: String. The media URL (with an authentication string).
    * 
    * @example
    * {\\"Medias\\":[{\\"MediaId\\":\\"*****470732171f1bfcaf7f6d44*****\\",\\"OutputUrl\\":\\"https://xxxxxxx/.../xxxxx.mp4?Expires=xxxx&OSSAccessKeyId=xxx&Signature=xxxx\\"}]}
@@ -118,7 +118,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The user business information.
+   * The custom business information.
    * 
    * @example
    * {}

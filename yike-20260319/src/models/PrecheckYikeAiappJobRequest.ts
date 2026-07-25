@@ -13,7 +13,7 @@ export class PrecheckYikeAIAppJobRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The input parameters for running the AI application. The value is a JSON-serialized string.
+   * The input parameters for running the AI application. The value is a string obtained after JSON serialize of the sequence.
    * 
    * @example
    * {\\"LoadImage.1.TargetImage\\":\\"MediaId1\\"}
