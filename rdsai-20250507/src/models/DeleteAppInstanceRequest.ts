@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The client token that is used to ensure the idempotence of the request. The client generates the value of this parameter to prevent duplicate requests from being submitted.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -13,7 +13,12 @@ export class DeleteAppInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The region ID.
+   * Specifies whether to delete the corresponding database instance.
+   */
+  deleteDBInstance?: boolean;
+  /**
+   * @remarks
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -21,7 +26,7 @@ export class DeleteAppInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DeleteAppInstance**.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -30,6 +35,7 @@ export class DeleteAppInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      deleteDBInstance: 'DeleteDBInstance',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
@@ -38,6 +44,7 @@ export class DeleteAppInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      deleteDBInstance: 'boolean',
       instanceName: 'string',
       regionId: 'string',
     };

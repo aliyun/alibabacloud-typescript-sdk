@@ -37,12 +37,15 @@ export class ModifyAppInstanceRequestComponents extends $dara.Model {
 }
 
 export class ModifyAppInstanceRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
   components?: ModifyAppInstanceRequestComponents[];
+  DBInstanceName?: string;
+  instanceClass?: string;
   /**
    * @example
    * ra-8moov5lxba****
@@ -55,8 +58,11 @@ export class ModifyAppInstanceRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       clientToken: 'ClientToken',
       components: 'Components',
+      DBInstanceName: 'DBInstanceName',
+      instanceClass: 'InstanceClass',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
@@ -64,8 +70,11 @@ export class ModifyAppInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       clientToken: 'string',
       components: { 'type': 'array', 'itemType': ModifyAppInstanceRequestComponents },
+      DBInstanceName: 'string',
+      instanceClass: 'string',
       instanceName: 'string',
       regionId: 'string',
     };

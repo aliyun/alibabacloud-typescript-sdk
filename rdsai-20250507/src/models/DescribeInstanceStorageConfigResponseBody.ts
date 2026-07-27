@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceStorageConfigResponseBodyConfigList extends $dara.Model {
   /**
    * @remarks
-   * The configuration item name. Valid values:
+   * The name of the configuration item. Valid values:
    * 
-   * *   **AWS_SESSION_TOKEN**: temporary OSS access token (session token).
-   * *   **AWS_ACCESS_KEY_ID**: the AccessKey ID of OSS.
-   * *   **AWS_SECRET_ACCESS_KEY**: the AccessKey secret of OSS.
-   * *   **GLOBAL_S3_BUCKET**: the name of the OSS bucket.
-   * *   **TENANT_ID**: the tenant ID of the OSS Prefix (prefix or directory).
-   * *   **GLOBAL_S3_ENDPOINT**: the endpoint of OSS.
-   * *   **REGION**: the region of OSS.
+   * - **AWS_SESSION_TOKEN**: the temporary access token (Session Token) of OSS.
+   * - **AWS_ACCESS_KEY_ID**: the AccessKey ID of OSS.
+   * - **AWS_SECRET_ACCESS_KEY**: the AccessKey Secret of OSS.
+   * - **GLOBAL_S3_BUCKET**: the bucket name of OSS.
+   * - **TENANT_ID**: the tenant ID of the OSS prefix (prefix or directory).
+   * - **GLOBAL_S3_ENDPOINT**: the endpoint of OSS.
+   * - **REGION**: the region of OSS.
    * 
    * @example
    * REGION
@@ -51,14 +51,15 @@ export class DescribeInstanceStorageConfigResponseBodyConfigList extends $dara.M
 }
 
 export class DescribeInstanceStorageConfigResponseBody extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The storage configurations.
+   * The list of storage configurations.
    */
   configList?: DescribeInstanceStorageConfigResponseBodyConfigList[];
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -74,6 +75,7 @@ export class DescribeInstanceStorageConfigResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       configList: 'ConfigList',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
@@ -82,6 +84,7 @@ export class DescribeInstanceStorageConfigResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       configList: { 'type': 'array', 'itemType': DescribeInstanceStorageConfigResponseBodyConfigList },
       instanceName: 'string',
       requestId: 'string',

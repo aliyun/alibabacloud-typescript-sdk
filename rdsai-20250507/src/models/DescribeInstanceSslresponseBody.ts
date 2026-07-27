@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceSSLResponseBody extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The type of the certificate. Set the value to **custom**, which indicates that a custom certificate is used.
+   * The certificate type. The value is **custom**, which indicates that a custom certificate is used.
    * 
    * @example
    * custom
@@ -13,7 +14,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   CAType?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -29,10 +30,9 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether to enable SSL encryption. Valid values:
-   * 
-   * *   **1**: enables SSL encryption.
-   * *   **0**: disables SSL encryption.
+   * Indicates whether SSL is enabled. Valid values:
+   * * **1**: Enabled.
+   * * **0**: Disabled.
    * 
    * @example
    * 1
@@ -40,7 +40,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   SSLEnabled?: string;
   /**
    * @remarks
-   * The content of the custom certificate.
+   * The custom certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----MIID*****QqEP-----END CERTIFICATE-----
@@ -56,6 +56,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   serverKey?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       CAType: 'CAType',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
@@ -67,6 +68,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       CAType: 'string',
       instanceName: 'string',
       requestId: 'string',

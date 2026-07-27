@@ -80,10 +80,12 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
    * supabase
    */
   appType?: string;
+  branchName?: string;
+  branchingEnabled?: string;
   components?: DescribeAppInstanceAttributeResponseBodyComponents[];
   /**
    * @remarks
-   * The instance ID of the ApsaraDB RDS for PostgreSQL database to which the AI application is connected.
+   * The instance ID of the RDS PostgreSQL database to which the AI application is connected.
    * 
    * @example
    * pgm-2ze49qv594vi****
@@ -183,6 +185,8 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
     return {
       appName: 'AppName',
       appType: 'AppType',
+      branchName: 'BranchName',
+      branchingEnabled: 'BranchingEnabled',
       components: 'Components',
       DBInstanceName: 'DBInstanceName',
       eipId: 'EipId',
@@ -212,6 +216,8 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
     return {
       appName: 'string',
       appType: 'string',
+      branchName: 'string',
+      branchingEnabled: 'string',
       components: { 'type': 'array', 'itemType': DescribeAppInstanceAttributeResponseBodyComponents },
       DBInstanceName: 'string',
       eipId: 'string',

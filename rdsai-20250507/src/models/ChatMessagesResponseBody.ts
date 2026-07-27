@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ChatMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content of the generated answer.
+   * The answer content.
    * 
    * @example
-   * 您询问的实例rm-bp14as9914vd3**** 磁盘使用率为23%，暂时不需要进行扩容。如果您需要进一步查看某个实例的详细配置、性能监控或进行其他操作，请告诉我你的具体需求！
+   * The disk usage of instance rm-bp14as9914vd3**** is 23%, and capacity expansion is not required at this time. If you need to view the detailed configuration or performance monitoring of an instance, or perform other operations, let me know your specific requirements!
    */
   answer?: string;
   /**
    * @remarks
-   * The ID of the conversation.
+   * The conversation ID.
    * 
    * @example
    * 9cbbe885-b240-4803-9d15-6781a3fd****
@@ -21,7 +21,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The time when the message was created. This value is a UNIX timestamp.
+   * The creation time.
    * 
    * @example
    * 1763986004
@@ -29,7 +29,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The event associated with the message.
+   * The event.
    * 
    * @example
    * MysqlIOException
@@ -37,7 +37,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The ID of the message, which is distinct from `MessageId`.
+   * The message ID.
    * 
    * @example
    * 60b335ca-124d-4ee1-864b-de554987****
@@ -45,7 +45,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The unique ID of the message.
+   * The message ID.
    * 
    * @example
    * oas8pwy2-slxw-sf98-bx83-cb2hkktl****
@@ -56,12 +56,12 @@ export class ChatMessagesResponseBody extends $dara.Model {
    * The query mode.
    * 
    * @example
-   * 以后会下线，不用关注。
+   * This field will be deprecated. Ignore it.
    */
   mode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
@@ -69,7 +69,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the asynchronous task.
+   * The asynchronous task ID.
    * 
    * @example
    * 01c3d43d-9466-4bd5-8196-4cbbce08****

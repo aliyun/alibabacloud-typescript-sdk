@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
+   * The number of input tokens that hit the cache.
+   * 
+   * @example
+   * 8000
+   */
+  cacheTokens?: number;
+  /**
+   * @remarks
    * The consumer associated with the API key.
    * 
    * @example
@@ -77,6 +85,7 @@ export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
   totalTokens?: number;
   static names(): { [key: string]: string } {
     return {
+      cacheTokens: 'CacheTokens',
       consumerName: 'ConsumerName',
       extraInfo: 'ExtraInfo',
       inputTokens: 'InputTokens',
@@ -91,6 +100,7 @@ export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cacheTokens: 'number',
       consumerName: 'string',
       extraInfo: 'string',
       inputTokens: 'number',
@@ -115,7 +125,7 @@ export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
 export class DescribeMOTokenUsageDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cursor for the next page. An empty value indicates the last page.
+   * The cursor for the next page. An empty value indicates that the current page is the last page.
    * 
    * @example
    * eyJpZCI6MTIzNDUsInRzIjoiMjAyNi0wNC0wOFQwMDowMDowMFoifQ==
@@ -139,7 +149,7 @@ export class DescribeMOTokenUsageDetailResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of records returned.
+   * The list of records in the response.
    */
   records?: DescribeMOTokenUsageDetailResponseBodyRecords[];
   /**
@@ -152,7 +162,7 @@ export class DescribeMOTokenUsageDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the query conditions.
+   * The total number of records that match the query conditions. This parameter is optional and may not be returned by default.
    * 
    * @example
    * 20

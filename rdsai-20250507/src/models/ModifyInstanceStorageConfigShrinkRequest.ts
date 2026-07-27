@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceStorageConfigShrinkRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, which ensures that the request is not repeated.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -13,12 +14,12 @@ export class ModifyInstanceStorageConfigShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The list of storage configurations.
    */
   configListShrink?: string;
   /**
    * @remarks
-   * The region ID.
+   * The instance ID of the AI application.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class ModifyInstanceStorageConfigShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **ModifyInstanceStorageConfig**.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -36,6 +37,7 @@ export class ModifyInstanceStorageConfigShrinkRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       clientToken: 'ClientToken',
       configListShrink: 'ConfigList',
       instanceName: 'InstanceName',
@@ -45,6 +47,7 @@ export class ModifyInstanceStorageConfigShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       clientToken: 'string',
       configListShrink: 'string',
       instanceName: 'string',

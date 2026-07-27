@@ -7,13 +7,13 @@ export class ModifyInstanceStorageConfigRequestConfigList extends $dara.Model {
    * @remarks
    * The name of the configuration item. Valid values:
    * 
-   * - **AWS_SESSION_TOKEN** (optional): The temporary session token for OSS. If this parameter is not provided, validation is performed using the AccessKey ID and AccessKey secret.
-   * - **AWS_ACCESS_KEY_ID**: The AccessKey ID for OSS.
-   * - **AWS_SECRET_ACCESS_KEY**: The AccessKey secret for OSS.
-   * - **GLOBAL_S3_BUCKET**: The bucket name in OSS.
-   * - **TENANT_ID**: The folder name in OSS. No manual creation is required.
-   * - **GLOBAL_S3_ENDPOINT**: The endpoint (access domain name) for OSS.
-   * - **REGION**: The region of OSS.
+   * - **AWS_SESSION_TOKEN** (optional): the temporary access token (Session Token) for OSS. If this parameter is not specified, AccessKey ID and AccessKey Secret are used for authentication.
+   * - **AWS_ACCESS_KEY_ID**: the AccessKey ID for OSS.
+   * - **AWS_SECRET_ACCESS_KEY**: the AccessKey Secret for OSS.
+   * - **GLOBAL_S3_BUCKET**: the bucket name of OSS.
+   * - **TENANT_ID**: the OSS directory name. You do not need to create it in advance.
+   * - **GLOBAL_S3_ENDPOINT**: the endpoint of OSS.
+   * - **REGION**: the region of OSS.
    * 
    * @example
    * TENANT_ID
@@ -51,9 +51,10 @@ export class ModifyInstanceStorageConfigRequestConfigList extends $dara.Model {
 }
 
 export class ModifyInstanceStorageConfigRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, which ensures that the request is not repeated.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -61,12 +62,12 @@ export class ModifyInstanceStorageConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The list of storage configurations.
    */
   configList?: ModifyInstanceStorageConfigRequestConfigList[];
   /**
    * @remarks
-   * The region ID.
+   * The instance ID of the AI application.
    * 
    * This parameter is required.
    * 
@@ -76,7 +77,7 @@ export class ModifyInstanceStorageConfigRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **ModifyInstanceStorageConfig**.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -84,6 +85,7 @@ export class ModifyInstanceStorageConfigRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       clientToken: 'ClientToken',
       configList: 'ConfigList',
       instanceName: 'InstanceName',
@@ -93,6 +95,7 @@ export class ModifyInstanceStorageConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       clientToken: 'string',
       configList: { 'type': 'array', 'itemType': ModifyInstanceStorageConfigRequestConfigList },
       instanceName: 'string',

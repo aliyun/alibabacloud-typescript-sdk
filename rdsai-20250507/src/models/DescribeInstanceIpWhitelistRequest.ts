@@ -3,10 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceIpWhitelistRequest extends $dara.Model {
+  branchName?: string;
+  /**
+   * @remarks
+   * The group name.
+   * 
+   * @example
+   * default
+   */
   groupName?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -14,7 +22,7 @@ export class DescribeInstanceIpWhitelistRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DescribeInstanceIpWhitelist**.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -22,6 +30,7 @@ export class DescribeInstanceIpWhitelistRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       groupName: 'GroupName',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
@@ -30,6 +39,7 @@ export class DescribeInstanceIpWhitelistRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       groupName: 'string',
       instanceName: 'string',
       regionId: 'string',

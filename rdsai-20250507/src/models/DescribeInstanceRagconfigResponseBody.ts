@@ -43,14 +43,15 @@ export class DescribeInstanceRAGConfigResponseBodyConfigList extends $dara.Model
 }
 
 export class DescribeInstanceRAGConfigResponseBody extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The RAG agent configurations.
+   * The list of RAG Agent configurations.
    */
   configList?: DescribeInstanceRAGConfigResponseBodyConfigList[];
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -66,10 +67,9 @@ export class DescribeInstanceRAGConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the RAG agent.
-   * 
-   * *   **true**: RAG agent is enabled.
-   * *   **false**: RAG agent is disabled.
+   * The RAG Agent status. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -77,6 +77,7 @@ export class DescribeInstanceRAGConfigResponseBody extends $dara.Model {
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       configList: 'ConfigList',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
@@ -86,6 +87,7 @@ export class DescribeInstanceRAGConfigResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       configList: { 'type': 'array', 'itemType': DescribeInstanceRAGConfigResponseBodyConfigList },
       instanceName: 'string',
       requestId: 'string',

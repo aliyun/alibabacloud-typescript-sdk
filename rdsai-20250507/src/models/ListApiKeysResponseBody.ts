@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   /**
    * @remarks
-   * The API key.
+   * API Key
    * 
    * @example
    * sk-rds-*****
@@ -18,7 +18,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * Specifies if the API key is rate-limited.
+   * Indicates whether the key is throttled.
    * 
    * @example
    * false
@@ -26,7 +26,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   isRateLimited?: boolean;
   /**
    * @remarks
-   * The key name.
+   * The name of the API key.
    * 
    * @example
    * api-*****
@@ -34,7 +34,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * The limit, specified as a ratio in decimal format. This parameter is used when LimitType is ratio.
+   * The quota ratio.
    * 
    * @example
    * 0.2
@@ -42,13 +42,10 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The limit type. Valid values:
-   * 
-   * - **fixed**: A fixed value.
-   * 
-   * - **ratio**: A percentage of the total quota.
-   * 
-   * - **auto**: The quota is allocated automatically.
+   * The quota type. Valid values:
+   * - **fixed**: fixed value.
+   * - **ratio**: percentage.
+   * - **auto**: automatic allocation.
    * 
    * @example
    * fixed
@@ -56,7 +53,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   limitType?: string;
   /**
    * @remarks
-   * The alarm threshold percentage. For example, a value of 80 indicates that an alarm is triggered when usage reaches 80% of the quota. The alarm clears when usage falls below this threshold.
+   * The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
    * 
    * @example
    * 80
@@ -64,7 +61,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   thresholdPercent?: number;
   /**
    * @remarks
-   * The token quota.
+   * The quota of the current key.
    * 
    * @example
    * 10000
@@ -108,7 +105,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
 export class ListApiKeysResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The base URL for model calls.
+   * The URL for model invocation.
    * 
    * @example
    * http://xxx.yy/v1
@@ -116,7 +113,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * The custom API key list.
+   * The list of custom API keys.
    */
   customKeyList?: ListApiKeysResponseBodyDataCustomKeyList[];
   /**
@@ -126,7 +123,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * Specifies if the system-generated key is rate-limited.
+   * Indicates whether the key is throttled.
    * 
    * @example
    * false
@@ -142,7 +139,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -158,7 +155,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   systemApiKey?: string;
   /**
    * @remarks
-   * The alarm threshold percentage for the SystemApiKey. For example, a value of 80 indicates that an alarm is triggered when usage reaches 80% of the quota. The alarm clears when usage falls below this threshold.
+   * The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
    * 
    * @example
    * 80
@@ -166,7 +163,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   thresholdPercent?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 138
@@ -215,7 +212,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
 export class ListApiKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The query result.
    */
   data?: ListApiKeysResponseBodyData;
   /**
@@ -228,7 +225,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
@@ -236,7 +233,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the request succeeded.
+   * The request result.
    * 
    * @example
    * true

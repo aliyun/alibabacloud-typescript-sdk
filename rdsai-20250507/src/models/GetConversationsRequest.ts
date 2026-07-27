@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConversationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **GetConversations**.
+   * The ID of the last conversation record.
    * 
    * @example
    * 77be60cd-237b-4ca9-9c46-48b663cb****
@@ -13,7 +13,7 @@ export class GetConversationsRequest extends $dara.Model {
   lastId?: string;
   /**
    * @remarks
-   * The ID of the last conversation.
+   * The number of entries per page for a paged query. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class GetConversationsRequest extends $dara.Model {
   limit?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The favorite pinning flag for the application.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GetConversationsRequest extends $dara.Model {
   pinned?: string;
   /**
    * @remarks
-   * Specifies whether to pin the application.
+   * The sorting criterion.
    * 
    * @example
    * CreatedAt

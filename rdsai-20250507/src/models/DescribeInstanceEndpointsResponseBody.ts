@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the RDS instance.
+   * The endpoint.
    * 
    * @example
    * pgm-xxxx.rds.aliyuncs.com
@@ -13,10 +13,10 @@ export class DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints extends $d
   connectionString?: string;
   /**
    * @remarks
-   * The network type of the RDS instance. Valid values:
+   * The network type. Valid values:
    * 
-   * *   **public**: Internet
-   * *   **vpc**: VPC
+   * - **public**: Internet.
+   * - **vpc**: private network.
    * 
    * @example
    * vpc
@@ -24,7 +24,7 @@ export class DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints extends $d
   ipType?: string;
   /**
    * @remarks
-   * The port used to access the RDS instance.
+   * The connection port.
    * 
    * @example
    * 5432
@@ -58,7 +58,7 @@ export class DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints extends $d
 export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the RDS Supabase instance.
+   * The endpoint.
    * 
    * @example
    * 8.152.XXX.XXX:8000
@@ -66,7 +66,7 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
   connectionString?: string;
   /**
    * @remarks
-   * The IP address used to access the RDS Supabase instance.
+   * The IP address.
    * 
    * @example
    * 8.152.XXX.XXX
@@ -74,10 +74,10 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
   IP?: string;
   /**
    * @remarks
-   * The network type of the RDS Supabase instance. Valid values:
+   * The network type. Valid values:
    * 
-   * *   **public**: Internet
-   * *   **vpc**: VPC
+   * - **public**: Internet.
+   * - **vpc**: private network.
    * 
    * @example
    * public
@@ -85,7 +85,7 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
   ipType?: string;
   /**
    * @remarks
-   * The port used to access the RDS Supabase instance.
+   * The connection port.
    * 
    * @example
    * 8000
@@ -119,19 +119,20 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
 }
 
 export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The information about the endpoints of the RDS instance.
+   * The endpoints of the database instance.
    */
   DBInstanceEndpoints?: DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints[];
   /**
    * @remarks
-   * The information about the endpoints of the RDS Supabase instance.
+   * The endpoints of the AI application instance.
    */
   instanceEndpoints?: DescribeInstanceEndpointsResponseBodyInstanceEndpoints[];
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -147,6 +148,7 @@ export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       DBInstanceEndpoints: 'DBInstanceEndpoints',
       instanceEndpoints: 'InstanceEndpoints',
       instanceName: 'InstanceName',
@@ -156,6 +158,7 @@ export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       DBInstanceEndpoints: { 'type': 'array', 'itemType': DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints },
       instanceEndpoints: { 'type': 'array', 'itemType': DescribeInstanceEndpointsResponseBodyInstanceEndpoints },
       instanceName: 'string',

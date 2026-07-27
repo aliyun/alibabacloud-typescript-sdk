@@ -3,14 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceAuthConfigShrinkRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The list of authentication configurations.
    */
   configListShrink?: string;
   /**
    * @remarks
-   * The region ID.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -18,7 +19,7 @@ export class ModifyInstanceAuthConfigShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **ModifyInstanceAuthConfig**.
+   * The region.
    * 
    * @example
    * cn-beijing
@@ -26,6 +27,7 @@ export class ModifyInstanceAuthConfigShrinkRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       configListShrink: 'ConfigList',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
@@ -34,6 +36,7 @@ export class ModifyInstanceAuthConfigShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       configListShrink: 'string',
       instanceName: 'string',
       regionId: 'string',

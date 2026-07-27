@@ -37,6 +37,7 @@ export class ModifyAppInstanceResponseBodyComponents extends $dara.Model {
 }
 
 export class ModifyAppInstanceResponseBody extends $dara.Model {
+  branchName?: string;
   components?: ModifyAppInstanceResponseBodyComponents[];
   /**
    * @example
@@ -50,6 +51,7 @@ export class ModifyAppInstanceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       components: 'Components',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
@@ -58,6 +60,7 @@ export class ModifyAppInstanceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       components: { 'type': 'array', 'itemType': ModifyAppInstanceResponseBodyComponents },
       instanceName: 'string',
       requestId: 'string',

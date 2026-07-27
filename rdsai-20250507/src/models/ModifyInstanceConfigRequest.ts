@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceConfigRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The idempotency parameter.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -13,7 +14,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The name of the configuration item to modify. This parameter is used together with ConfigValue.
    * 
    * @example
    * eip、nat
@@ -21,7 +22,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   configName?: string;
   /**
    * @remarks
-   * The name of the configuration item that you want to modify. Configure this parameter together with the ConfigValue parameter.
+   * The value of the configuration item to modify. This parameter is used together with ConfigName.
    * 
    * @example
    * on、off
@@ -29,7 +30,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The instance ID of the AI application.
    * 
    * This parameter is required.
    * 
@@ -39,7 +40,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **ModifyInstanceConfig**.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -47,6 +48,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       clientToken: 'ClientToken',
       configName: 'ConfigName',
       configValue: 'ConfigValue',
@@ -57,6 +59,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       clientToken: 'string',
       configName: 'string',
       configValue: 'string',

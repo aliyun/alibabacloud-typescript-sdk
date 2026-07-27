@@ -21,7 +21,7 @@ export class DescribeMOTokenUsageDetailRequest extends $dara.Model {
   consumerName?: string;
   /**
    * @remarks
-   * The cursor-based pagination token. This parameter takes priority over Page. Leave this parameter empty for the first call. For subsequent calls, use the NextCursor value returned in the previous response.
+   * The cursor-based pagination token. This parameter takes priority over Page. Leave this parameter empty for the first request. For subsequent requests, use the NextCursor value returned in the previous response.
    * 
    * @example
    * eyJpZCI6MTIzNDUsInRzIjoiMjAyNi0wNC0wOFQwMDowMDowMFoifQ==

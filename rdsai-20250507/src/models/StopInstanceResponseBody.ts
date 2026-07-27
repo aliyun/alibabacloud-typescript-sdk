@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StopInstanceResponseBody extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -21,6 +22,7 @@ export class StopInstanceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
     };
@@ -28,6 +30,7 @@ export class StopInstanceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       instanceName: 'string',
       requestId: 'string',
     };

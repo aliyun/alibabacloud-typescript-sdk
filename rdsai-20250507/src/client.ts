@@ -46,7 +46,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends chat messages.
+   * Sends a conversation message.
    * 
    * @param tmpReq - ChatMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -113,7 +113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends chat messages.
+   * Sends a conversation message.
    * 
    * @param tmpReq - ChatMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends chat messages.
+   * Sends a conversation message.
    * 
    * @param request - ChatMessagesRequest
    * @returns ChatMessagesResponse
@@ -219,11 +219,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a custom API key.
+   * Creates a custom API key.
    * 
    * @remarks
-   * ### Supported engines
-   * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - CreateApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -278,11 +278,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a custom API key.
+   * Creates a custom API key.
    * 
    * @remarks
-   * ### Supported engines
-   * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - CreateApiKeyRequest
    * @returns CreateApiKeyResponse
@@ -556,6 +556,76 @@ export default class Client extends OpenApi {
   async createInspectionTask(request: $_model.CreateInspectionTaskRequest): Promise<$_model.CreateInspectionTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createInspectionTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 触发 MO 用量明细 CSV 异步导出任务
+   * 
+   * @remarks
+   * ### 适用引擎
+   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * 
+   * @param request - CreateMOUsageDetailExportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMOUsageDetailExportResponse
+   */
+  async createMOUsageDetailExportWithOptions(request: $_model.CreateMOUsageDetailExportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMOUsageDetailExportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.usageType)) {
+      query["UsageType"] = request.usageType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMOUsageDetailExport",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMOUsageDetailExportResponse>(await this.callApi(params, req, runtime), new $_model.CreateMOUsageDetailExportResponse({}));
+  }
+
+  /**
+   * 触发 MO 用量明细 CSV 异步导出任务
+   * 
+   * @remarks
+   * ### 适用引擎
+   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * 
+   * @param request - CreateMOUsageDetailExportRequest
+   * @returns CreateMOUsageDetailExportResponse
+   */
+  async createMOUsageDetailExport(request: $_model.CreateMOUsageDetailExportRequest): Promise<$_model.CreateMOUsageDetailExportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMOUsageDetailExportWithOptions(request, runtime);
   }
 
   /**
@@ -851,15 +921,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an RDS Supabase instance.
+   * Deletes an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable DPI engine
    * RDS PostgreSQL
-   * ### 相关功能文档
-   * >Warning: 该API操作涉及费用，请仔细阅读相关功能文档后再进行操作。
+   * ### Related feature documentation
+   * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * >Notice: 删除RDS Supabase项目并不会自动删除在创建该项目时所生成的RDS PostgreSQL实例及开通的NAT网关，您需要[手动释放该实例](https://help.aliyun.com/document_detail/96749.html)，并删除[公网NAT网关](https://help.aliyun.com/document_detail/121139.html)和[EIP](https://help.aliyun.com/document_detail/121527.html)。
+   * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
    * 
    * @param request - DeleteAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -870,6 +940,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deleteDBInstance)) {
+      query["DeleteDBInstance"] = request.deleteDBInstance;
     }
 
     if (!$dara.isNull(request.instanceName)) {
@@ -898,15 +972,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an RDS Supabase instance.
+   * Deletes an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable DPI engine
    * RDS PostgreSQL
-   * ### 相关功能文档
-   * >Warning: 该API操作涉及费用，请仔细阅读相关功能文档后再进行操作。
+   * ### Related feature documentation
+   * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * >Notice: 删除RDS Supabase项目并不会自动删除在创建该项目时所生成的RDS PostgreSQL实例及开通的NAT网关，您需要[手动释放该实例](https://help.aliyun.com/document_detail/96749.html)，并删除[公网NAT网关](https://help.aliyun.com/document_detail/121139.html)和[EIP](https://help.aliyun.com/document_detail/121527.html)。
+   * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
    * 
    * @param request - DeleteAppInstanceRequest
    * @returns DeleteAppInstanceResponse
@@ -1120,6 +1194,10 @@ export default class Client extends OpenApi {
   async describeAppInstanceAttributeWithOptions(request: $_model.DescribeAppInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAppInstanceAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -1372,6 +1450,10 @@ export default class Client extends OpenApi {
   async describeInstanceAuthInfoWithOptions(request: $_model.DescribeInstanceAuthInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceAuthInfoResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -1415,12 +1497,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the endpoint of an RDS Supabase instance.
+   * Queries the endpoint information of an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeInstanceEndpointsRequest
@@ -1430,6 +1512,10 @@ export default class Client extends OpenApi {
   async describeInstanceEndpointsWithOptions(request: $_model.DescribeInstanceEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceEndpointsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -1456,12 +1542,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the endpoint of an RDS Supabase instance.
+   * Queries the endpoint information of an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeInstanceEndpointsRequest
@@ -1473,12 +1559,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address whitelists of an RDS Supabase instance.
+   * Queries the IP whitelist of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeInstanceIpWhitelistRequest
@@ -1488,6 +1574,10 @@ export default class Client extends OpenApi {
   async describeInstanceIpWhitelistWithOptions(request: $_model.DescribeInstanceIpWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceIpWhitelistResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
@@ -1518,12 +1608,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address whitelists of an RDS Supabase instance.
+   * Queries the IP whitelist of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeInstanceIpWhitelistRequest
@@ -1535,7 +1625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the RAG agent configurations of an RDS Supabase instance.
+   * Queries the RAG Agent configuration of an RDS AI application instance.
    * 
    * @param request - DescribeInstanceRAGConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1544,6 +1634,10 @@ export default class Client extends OpenApi {
   async describeInstanceRAGConfigWithOptions(request: $_model.DescribeInstanceRAGConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceRAGConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -1570,7 +1664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the RAG agent configurations of an RDS Supabase instance.
+   * Queries the RAG Agent configuration of an RDS AI application instance.
    * 
    * @param request - DescribeInstanceRAGConfigRequest
    * @returns DescribeInstanceRAGConfigResponse
@@ -1581,12 +1675,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SSL settings of an RDS Supabase instance.
+   * Queries the SSL configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeInstanceSSLRequest
@@ -1596,6 +1690,10 @@ export default class Client extends OpenApi {
   async describeInstanceSSLWithOptions(request: $_model.DescribeInstanceSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceSSLResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -1622,12 +1720,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SSL settings of an RDS Supabase instance.
+   * Queries the SSL configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeInstanceSSLRequest
@@ -1639,14 +1737,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage configurations of an RDS Supabase instance.
+   * Queries the storage configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * > 当前仅支持对象存储OSS。
+   * > Currently, only Object Storage Service (OSS) is supported.
    * 
    * @param request - DescribeInstanceStorageConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1655,6 +1753,10 @@ export default class Client extends OpenApi {
   async describeInstanceStorageConfigWithOptions(request: $_model.DescribeInstanceStorageConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceStorageConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -1681,14 +1783,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage configurations of an RDS Supabase instance.
+   * Queries the storage configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * > 当前仅支持对象存储OSS。
+   * > Currently, only Object Storage Service (OSS) is supported.
    * 
    * @param request - DescribeInstanceStorageConfigRequest
    * @returns DescribeInstanceStorageConfigResponse
@@ -1703,7 +1805,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Applicable engine
-   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra).
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeMOTokenUsageDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1778,7 +1880,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Applicable engine
-   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra).
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeMOTokenUsageDetailRequest
    * @returns DescribeMOTokenUsageDetailResponse
@@ -1786,6 +1888,56 @@ export default class Client extends OpenApi {
   async describeMOTokenUsageDetail(request: $_model.DescribeMOTokenUsageDetailRequest): Promise<$_model.DescribeMOTokenUsageDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeMOTokenUsageDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
+   * 
+   * @remarks
+   * ### 适用引擎
+   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * 
+   * @param request - DescribeMOUsageDetailExportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMOUsageDetailExportResponse
+   */
+  async describeMOUsageDetailExportWithOptions(request: $_model.DescribeMOUsageDetailExportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMOUsageDetailExportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMOUsageDetailExport",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMOUsageDetailExportResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMOUsageDetailExportResponse({}));
+  }
+
+  /**
+   * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
+   * 
+   * @remarks
+   * ### 适用引擎
+   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * 
+   * @param request - DescribeMOUsageDetailExportRequest
+   * @returns DescribeMOUsageDetailExportResponse
+   */
+  async describeMOUsageDetailExport(request: $_model.DescribeMOUsageDetailExportRequest): Promise<$_model.DescribeMOUsageDetailExportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMOUsageDetailExportWithOptions(request, runtime);
   }
 
   /**
@@ -1839,11 +1991,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves monitoring data for an RDS AI Assistant Ultimate Edition instance.
+   * Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
-   * ### Supported engines
-   * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param tmpReq - DescribeMonitorDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1900,11 +2052,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves monitoring data for an RDS AI Assistant Ultimate Edition instance.
+   * Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
-   * ### Supported engines
-   * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeMonitorDataRequest
    * @returns DescribeMonitorDataResponse
@@ -1915,12 +2067,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the sandbox templates you can use to create Supabase sandboxes.
+   * Queries the list of sandbox templates used to create Supabase sandboxes.
    * 
    * @remarks
    * ### Applicable engine
    * RDS Supabase
-   * ### Related documents
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeSandboxTemplatesRequest
@@ -1930,6 +2082,10 @@ export default class Client extends OpenApi {
   async describeSandboxTemplatesWithOptions(request: $_model.DescribeSandboxTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSandboxTemplatesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -1976,12 +2132,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the sandbox templates you can use to create Supabase sandboxes.
+   * Queries the list of sandbox templates used to create Supabase sandboxes.
    * 
    * @remarks
    * ### Applicable engine
    * RDS Supabase
-   * ### Related documents
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeSandboxTemplatesRequest
@@ -2043,11 +2199,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the sandbox and edge function capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess the business risks before you proceed.
+   * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
    * 
    * @remarks
-   * Disables the sandbox and edge function capabilities for a Supabase instance.
-   * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess the business risks before you proceed.
+   * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
+   * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
    * 
    * @param request - DisableAgentRuntimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2056,6 +2212,10 @@ export default class Client extends OpenApi {
   async disableAgentRuntimeWithOptions(request: $_model.DisableAgentRuntimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableAgentRuntimeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -2086,11 +2246,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the sandbox and edge function capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess the business risks before you proceed.
+   * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
    * 
    * @remarks
-   * Disables the sandbox and edge function capabilities for a Supabase instance.
-   * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess the business risks before you proceed.
+   * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
+   * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
    * 
    * @param request - DisableAgentRuntimeRequest
    * @returns DisableAgentRuntimeResponse
@@ -2115,6 +2275,10 @@ export default class Client extends OpenApi {
   async enableAgentRuntimeWithOptions(request: $_model.EnableAgentRuntimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableAgentRuntimeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -2227,7 +2391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the history conversations of a user.
+   * Queries the historical conversations of a user.
    * 
    * @param request - GetConversationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2270,7 +2434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the history conversations of a user.
+   * Queries the historical conversations of a user.
    * 
    * @param request - GetConversationsRequest
    * @returns GetConversationsResponse
@@ -2680,11 +2844,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View Custom API Key
+   * Queries custom API keys.
    * 
    * @remarks
-   * ### Supported engines
-   * [DAS Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - ListApiKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2723,11 +2887,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View Custom API Key
+   * Queries custom API keys.
    * 
    * @remarks
-   * ### Supported engines
-   * [DAS Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - ListApiKeysRequest
    * @returns ListApiKeysResponse
@@ -3002,12 +3166,24 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.componentsShrink)) {
       query["Components"] = request.componentsShrink;
+    }
+
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.instanceClass)) {
+      query["InstanceClass"] = request.instanceClass;
     }
 
     if (!$dara.isNull(request.instanceName)) {
@@ -3053,12 +3229,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the authentication configurations of an RDS Supabase instance.
+   * Modifies the authentication configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable Engine
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### Related Function Documentation
+   * ### Related documentation
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param tmpReq - ModifyInstanceAuthConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3073,6 +3250,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.configListShrink)) {
       query["ConfigList"] = request.configListShrink;
     }
@@ -3103,12 +3284,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the authentication configurations of an RDS Supabase instance.
+   * Modifies the authentication configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable Engine
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### Related Function Documentation
+   * ### Related documentation
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifyInstanceAuthConfigRequest
    * @returns ModifyInstanceAuthConfigResponse
@@ -3119,7 +3301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the general configurations of an instance, such as the EIP and NAT settings.
+   * Modifies the general configurations of an instance, such as network EIP and NAT configurations.
    * 
    * @param request - ModifyInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3128,6 +3310,10 @@ export default class Client extends OpenApi {
   async modifyInstanceConfigWithOptions(request: $_model.ModifyInstanceConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -3166,7 +3352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the general configurations of an instance, such as the EIP and NAT settings.
+   * Modifies the general configurations of an instance, such as network EIP and NAT configurations.
    * 
    * @param request - ModifyInstanceConfigRequest
    * @returns ModifyInstanceConfigResponse
@@ -3177,12 +3363,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP address whitelist of an RDS Supabase instance.
+   * Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifyInstanceIpWhitelistRequest
@@ -3192,6 +3378,10 @@ export default class Client extends OpenApi {
   async modifyInstanceIpWhitelistWithOptions(request: $_model.ModifyInstanceIpWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceIpWhitelistResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -3234,12 +3424,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP address whitelist of an RDS Supabase instance.
+   * Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifyInstanceIpWhitelistRequest
@@ -3251,7 +3441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the RAG agent configurations of an RDS Supabase instance.
+   * Modifies the RAG Agent configuration of an RDS AI application instance.
    * 
    * @param tmpReq - ModifyInstanceRAGConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3266,6 +3456,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -3304,7 +3498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the RAG agent configurations of an RDS Supabase instance.
+   * Modifies the RAG Agent configuration of an RDS AI application instance.
    * 
    * @param request - ModifyInstanceRAGConfigRequest
    * @returns ModifyInstanceRAGConfigResponse
@@ -3315,12 +3509,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the SSL settings of an RDS Supabase instance.
+   * Modifies the SSL configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifyInstanceSSLRequest
@@ -3330,6 +3524,10 @@ export default class Client extends OpenApi {
   async modifyInstanceSSLWithOptions(request: $_model.ModifyInstanceSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceSSLResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.CAType)) {
       query["CAType"] = request.CAType;
     }
@@ -3372,12 +3570,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the SSL settings of an RDS Supabase instance.
+   * Modifies the SSL configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifyInstanceSSLRequest
@@ -3389,12 +3587,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the storage configurations of an RDS Supabase instance.
+   * Modifies the storage configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Supported Engine
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### Related Function Documentation
+   * ### Related documentation
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+   * > Currently, only Object Storage Service (OSS) is supported.
    * 
    * @param tmpReq - ModifyInstanceStorageConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3409,6 +3609,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -3443,12 +3647,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the storage configurations of an RDS Supabase instance.
+   * Modifies the storage configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Supported Engine
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### Related Function Documentation
+   * ### Related documentation
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+   * > Currently, only Object Storage Service (OSS) is supported.
    * 
    * @param request - ModifyInstanceStorageConfigRequest
    * @returns ModifyInstanceStorageConfigResponse
@@ -3903,14 +4109,72 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the logon password of the RDS Supabase instance and the access password of the database.
+   * 重置RDS AI实例的Keys
    * 
    * @remarks
    * ### 适用引擎
    * RDS PostgreSQL
    * ### 相关功能文档
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * > 当前仅支持修改RDS Supabase Dashboard用户的密码。
+   * 
+   * @param request - ResetInstanceKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetInstanceKeysResponse
+   */
+  async resetInstanceKeysWithOptions(request: $_model.ResetInstanceKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetInstanceKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetInstanceKeys",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetInstanceKeysResponse>(await this.callApi(params, req, runtime), new $_model.ResetInstanceKeysResponse({}));
+  }
+
+  /**
+   * 重置RDS AI实例的Keys
+   * 
+   * @remarks
+   * ### 适用引擎
+   * RDS PostgreSQL
+   * ### 相关功能文档
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+   * 
+   * @param request - ResetInstanceKeysRequest
+   * @returns ResetInstanceKeysResponse
+   */
+  async resetInstanceKeys(request: $_model.ResetInstanceKeysRequest): Promise<$_model.ResetInstanceKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetInstanceKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+   * 
+   * @remarks
+   * ### Applicable engine
+   * RDS PostgreSQL
+   * ### Related documentation
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+   * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
    * 
    * @param request - ResetInstancePasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3919,6 +4183,10 @@ export default class Client extends OpenApi {
   async resetInstancePasswordWithOptions(request: $_model.ResetInstancePasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetInstancePasswordResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.dashboardPassword)) {
       query["DashboardPassword"] = request.dashboardPassword;
     }
@@ -3953,14 +4221,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the logon password of the RDS Supabase instance and the access password of the database.
+   * Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * > 当前仅支持修改RDS Supabase Dashboard用户的密码。
+   * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
    * 
    * @param request - ResetInstancePasswordRequest
    * @returns ResetInstancePasswordResponse
@@ -3971,12 +4239,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an RDS Supabase instance that is in the Running state.
+   * Restarts an ApsaraDB RDS AI application instance that is in the Running state.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - RestartInstanceRequest
@@ -3986,6 +4254,10 @@ export default class Client extends OpenApi {
   async restartInstanceWithOptions(request: $_model.RestartInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -4012,12 +4284,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an RDS Supabase instance that is in the Running state.
+   * Restarts an ApsaraDB RDS AI application instance that is in the Running state.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - RestartInstanceRequest
@@ -4029,12 +4301,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a stopped RDS Supabase instance.
+   * Starts an RDS AI application instance that is in the Stopped state.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - StartInstanceRequest
@@ -4044,6 +4316,10 @@ export default class Client extends OpenApi {
   async startInstanceWithOptions(request: $_model.StartInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -4070,12 +4346,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a stopped RDS Supabase instance.
+   * Starts an RDS AI application instance that is in the Stopped state.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - StartInstanceRequest
@@ -4087,12 +4363,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a running RDS Supabase instance.
+   * Pauses an RDS AI application instance that is in the Running state.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - StopInstanceRequest
@@ -4102,6 +4378,10 @@ export default class Client extends OpenApi {
   async stopInstanceWithOptions(request: $_model.StopInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.branchName)) {
+      query["BranchName"] = request.branchName;
+    }
+
     if (!$dara.isNull(request.force)) {
       query["Force"] = request.force;
     }
@@ -4132,12 +4412,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a running RDS Supabase instance.
+   * Pauses an RDS AI application instance that is in the Running state.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - StopInstanceRequest

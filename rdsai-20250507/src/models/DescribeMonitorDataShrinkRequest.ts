@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMonitorDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The names of the API keys to use for filtering the data. If this parameter is not specified, data from all keys is returned.
+   * The API key name.
    */
   apiKeyNameShrink?: string;
   /**
    * @remarks
-   * The end of the query time range, specified as a Unix timestamp in seconds.
+   * The end time. Format: Timestamp.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class DescribeMonitorDataShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
    * rds_copilot***_public_cn-*********6
@@ -28,7 +28,7 @@ export class DescribeMonitorDataShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The aggregation interval for monitoring data, in seconds. Default: 15.
+   * The statistical period. Default value: 15s.
    * 
    * @example
    * 15
@@ -36,19 +36,22 @@ export class DescribeMonitorDataShrinkRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The metric to query. Valid values:
+   * The metric to query.
    * 
-   * - `pv`
+   * - pv
+   * - uv
    * 
-   * - `uv`
+   * - qps
    * 
-   * - `qps`
+   * - success_rate
    * 
-   * - `success_rate`
+   * - rt
    * 
-   * - `rt`
+   * - rate_limited_count
    * 
-   * - `rate_limited_count`
+   * - tpm
+   * 
+   * - cache
    * 
    * This parameter is required.
    * 
@@ -58,7 +61,7 @@ export class DescribeMonitorDataShrinkRequest extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * The start of the query time range, specified as a Unix timestamp in seconds.
+   * The start time. Format: Timestamp.
    * 
    * This parameter is required.
    * 

@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSandboxTemplatesRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * This parameter is reserved.
+   * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
    * None
@@ -23,7 +24,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page of results. You do not need to specify this parameter for the first request.
+   * The pagination token.
    * 
    * @example
    * gAAAAABo-D-ze1Zog63nWMa8eDDMkqUoBB5-FDsHDUMiNIDSDZeP9g0LwJEozulOPG_LbsGwLRgmDFvTHZeSU90YsukT0pHtnA==
@@ -39,7 +40,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -57,7 +58,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the sandbox template.
+   * The sandbox template name.
    * 
    * @example
    * code-interpreter
@@ -65,6 +66,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       instanceName: 'InstanceName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -77,6 +79,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       instanceName: 'string',
       maxResults: 'number',
       nextToken: 'string',

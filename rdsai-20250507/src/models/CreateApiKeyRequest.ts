@@ -10,7 +10,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
    * rds_copilot***_public_cn-*********6
@@ -18,7 +18,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The API key name.
+   * The name of the API key.
    * 
    * @example
    * api-*****
@@ -26,7 +26,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * The proportion of the total quota to allocate. This parameter applies only when `LimitType` is set to `ratio`.
+   * The quota percentage.
    * 
    * @example
    * 0.2
@@ -34,13 +34,10 @@ export class CreateApiKeyRequest extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The limit type. Valid values:
-   * 
-   * - `ratio`: Sets the limit as a ratio of the total available quota.
-   * 
-   * - `fixed`: Sets the limit to a fixed number of tokens.
-   * 
-   * - `auto`: Automatically allocates the quota.
+   * The quota type. Valid values:
+   * - ratio: by percentage.
+   * - fixed: by fixed value.
+   * - auto: automatic allocation.
    * 
    * @example
    * fixed
@@ -56,7 +53,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * The fixed token quota for the API key. This parameter applies only when `LimitType` is set to `fixed`.
+   * The quota for the current key.
    * 
    * @example
    * 100000

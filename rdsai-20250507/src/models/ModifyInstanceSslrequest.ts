@@ -3,12 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceSSLRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * Enables or disables SSL. Valid values:
-   * 
-   * *   **1**: enables SSL.
-   * *   **0**: disables SSL.
+   * The certificate type. Currently, only **custom** is supported, which indicates that a custom certificate is used.
+   * > This parameter is required when **SSLEnabled** is set to **1**.
    * 
    * @example
    * custom
@@ -16,7 +15,7 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
   CAType?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The instance ID of the AI application.
    * 
    * This parameter is required.
    * 
@@ -26,7 +25,7 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **ModifyInstanceSSL**.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -34,7 +33,9 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * Specifies whether to enable or disable SSL. Valid values:
+   * * **1**: Enable SSL.
+   * * **0**: Disable SSL.
    * 
    * This parameter is required.
    * 
@@ -44,9 +45,9 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
   SSLEnabled?: number;
   /**
    * @remarks
-   * The certificate type. Only **custom** is supported.
+   * The content of the custom certificate.
    * 
-   * >  This parameter is required if **SSLEnabled** is set to **1**.
+   * > This parameter is required when **CAType** is set to **custom**.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----MIID*****QqEP-----END CERTIFICATE-----
@@ -54,9 +55,9 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
   serverCert?: string;
   /**
    * @remarks
-   * The content of the custom certificate.
+   * The private key of the certificate.
    * 
-   * >  This parameter is required if **CAType** is set to **custom**.
+   * > This parameter is required when **CAType** is set to **custom**.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----MIIE****ihfg==-----END PRIVATE KEY-----
@@ -64,6 +65,7 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
   serverKey?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       CAType: 'CAType',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
@@ -75,6 +77,7 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       CAType: 'string',
       instanceName: 'string',
       regionId: 'string',

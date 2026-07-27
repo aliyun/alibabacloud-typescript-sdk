@@ -2,10 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeInstanceIpWhitelistResponseBodyDbIpWhiteListGroups extends $dara.Model {
+  groupName?: string;
+  ipWhitelist?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      ipWhitelist: 'IpWhitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      ipWhitelist: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups extends $dara.Model {
   /**
    * @remarks
-   * The IP address whitelist name.
+   * The group name.
    * 
    * @example
    * default
@@ -13,7 +39,7 @@ export class DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups extends $d
   groupName?: string;
   /**
    * @remarks
-   * The IP addresses or CIDR blocks in the whitelist.
+   * The list of IP addresses.
    * 
    * @example
    * 192.168.XXX.XXX/24,10.0.XXX.XXX/24
@@ -43,9 +69,11 @@ export class DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups extends $d
 }
 
 export class DescribeInstanceIpWhitelistResponseBody extends $dara.Model {
+  branchName?: string;
+  dbIpWhiteListGroups?: DescribeInstanceIpWhitelistResponseBodyDbIpWhiteListGroups[];
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -53,7 +81,7 @@ export class DescribeInstanceIpWhitelistResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The IP address whitelists.
+   * The IP whitelist groups.
    */
   ipWhiteListGroups?: DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups[];
   /**
@@ -66,6 +94,8 @@ export class DescribeInstanceIpWhitelistResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
+      dbIpWhiteListGroups: 'DbIpWhiteListGroups',
       instanceName: 'InstanceName',
       ipWhiteListGroups: 'IpWhiteListGroups',
       requestId: 'RequestId',
@@ -74,6 +104,8 @@ export class DescribeInstanceIpWhitelistResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
+      dbIpWhiteListGroups: { 'type': 'array', 'itemType': DescribeInstanceIpWhitelistResponseBodyDbIpWhiteListGroups },
       instanceName: 'string',
       ipWhiteListGroups: { 'type': 'array', 'itemType': DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups },
       requestId: 'string',
@@ -81,6 +113,9 @@ export class DescribeInstanceIpWhitelistResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dbIpWhiteListGroups)) {
+      $dara.Model.validateArray(this.dbIpWhiteListGroups);
+    }
     if(Array.isArray(this.ipWhiteListGroups)) {
       $dara.Model.validateArray(this.ipWhiteListGroups);
     }

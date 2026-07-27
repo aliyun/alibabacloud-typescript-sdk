@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceStorageConfigRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The instance ID of the AI application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class DescribeInstanceStorageConfigRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DescribeInstanceStorageConfig**.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -23,6 +24,7 @@ export class DescribeInstanceStorageConfigRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
@@ -30,6 +32,7 @@ export class DescribeInstanceStorageConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       instanceName: 'string',
       regionId: 'string',
     };

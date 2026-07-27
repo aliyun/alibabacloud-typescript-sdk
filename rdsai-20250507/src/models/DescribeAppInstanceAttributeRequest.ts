@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAppInstanceAttributeRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
    * The instance ID of the AI application.
@@ -21,6 +22,7 @@ export class DescribeAppInstanceAttributeRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
@@ -28,6 +30,7 @@ export class DescribeAppInstanceAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       instanceName: 'string',
       regionId: 'string',
     };

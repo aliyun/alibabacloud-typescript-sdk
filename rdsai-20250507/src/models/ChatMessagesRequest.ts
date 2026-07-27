@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatMessagesRequestInputs extends $dara.Model {
   /**
    * @remarks
-   * The custom agent ID.
+   * The user-specific agent ID.
    * 
    * @example
    * d1b7d639-f34e-44c7-8231-987da14d****
@@ -16,7 +16,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
   enableThinking?: string;
   /**
    * @remarks
-   * The language of the conversation.
+   * The conversation language.
    * 
    * @example
    * zh-cn
@@ -24,7 +24,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -73,7 +73,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
 export class ChatMessagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the conversation.
+   * The conversation ID.
    * 
    * @example
    * fea7bdca-e848-44dd-b1ae-852472b8****
@@ -82,12 +82,12 @@ export class ChatMessagesRequest extends $dara.Model {
   eventMode?: string;
   /**
    * @remarks
-   * The inputs for the task.
+   * The task inputs.
    */
   inputs?: ChatMessagesRequestInputs;
   /**
    * @remarks
-   * The ID of the parent message.
+   * The parent message ID.
    * 
    * @example
    * 84dc9f9b-424a-404d-9c36-35e9d000****
@@ -95,12 +95,12 @@ export class ChatMessagesRequest extends $dara.Model {
   parentMessageId?: string;
   /**
    * @remarks
-   * The content of the query.
+   * The query content.
    * 
    * This parameter is required.
    * 
    * @example
-   * 实例rm-bp14as9914vd3**** 磁盘使用率，是否需要进行扩容
+   * The disk usage of instance rm-bp14as9914vd3****. Is capacity expansion required?
    */
   query?: string;
   static names(): { [key: string]: string } {

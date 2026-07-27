@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMonitorDataResponseBodyDataValue extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the data point.
+   * The point in time.
    * 
    * @example
    * 1774972800
@@ -13,7 +13,7 @@ export class DescribeMonitorDataResponseBodyDataValue extends $dara.Model {
   time?: string;
   /**
    * @remarks
-   * The value of the metric at the specified timestamp.
+   * The returned value.
    * 
    * @example
    * 60
@@ -53,7 +53,7 @@ export class DescribeMonitorDataResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * An array of data points for the metric.
+   * The metric details.
    */
   value?: DescribeMonitorDataResponseBodyDataValue[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class DescribeMonitorDataResponseBodyData extends $dara.Model {
 export class DescribeMonitorDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The result.
    */
   data?: DescribeMonitorDataResponseBodyData[];
   /**
@@ -98,7 +98,7 @@ export class DescribeMonitorDataResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
@@ -106,7 +106,7 @@ export class DescribeMonitorDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true

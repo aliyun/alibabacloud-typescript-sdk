@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DisableAgentRuntimeResponseBody extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The ID of the AI application instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -13,7 +14,7 @@ export class DisableAgentRuntimeResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * D984FD38-6C2D-55DF-B0D7-8BCAC2E1F8C2
@@ -21,6 +22,7 @@ export class DisableAgentRuntimeResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
     };
@@ -28,6 +30,7 @@ export class DisableAgentRuntimeResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       instanceName: 'string',
       requestId: 'string',
     };

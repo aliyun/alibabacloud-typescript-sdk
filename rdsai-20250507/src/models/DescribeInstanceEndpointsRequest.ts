@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceEndpointsRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -13,7 +14,7 @@ export class DescribeInstanceEndpointsRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DescribeInstanceEndpoints**.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -21,6 +22,7 @@ export class DescribeInstanceEndpointsRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
@@ -28,6 +30,7 @@ export class DescribeInstanceEndpointsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       instanceName: 'string',
       regionId: 'string',
     };

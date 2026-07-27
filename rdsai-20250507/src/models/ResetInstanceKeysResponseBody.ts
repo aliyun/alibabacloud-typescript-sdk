@@ -2,42 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StopInstanceRequest extends $dara.Model {
-  branchName?: string;
-  force?: boolean;
+export class ResetInstanceKeysResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The instance ID of the AI application.
-   * 
-   * This parameter is required.
-   * 
    * @example
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
   /**
-   * @remarks
-   * The region ID.
-   * 
    * @example
-   * cn-beijing
+   * FE9C65D7-930F-57A5-A207-8C396329****
    */
-  regionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      branchName: 'BranchName',
-      force: 'Force',
       instanceName: 'InstanceName',
-      regionId: 'RegionId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      branchName: 'string',
-      force: 'boolean',
       instanceName: 'string',
-      regionId: 'string',
+      requestId: 'string',
     };
   }
 

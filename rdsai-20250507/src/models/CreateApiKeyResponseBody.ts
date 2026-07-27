@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
   /**
    * @remarks
-   * The API key.
+   * Api Key
    * 
    * @example
    * sk-rds-*****
@@ -14,7 +14,7 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * The API key name.
+   * The name of the API key.
    * 
    * @example
    * api-*****
@@ -22,7 +22,7 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * The quota ratio. This parameter takes effect only when **LimitType** is set to **ratio**.
+   * The quota percentage.
    * 
    * @example
    * 0.2
@@ -30,13 +30,13 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The quota allocation method. Valid values:
+   * The quota type. Valid values:
    * 
-   * - **fixed**: The quota is a fixed value.
+   * - **fixed**: by fixed value.
    * 
-   * - **ratio**: The quota is specified as a ratio of the total available resources.
+   * - **ratio**: by percentage.
    * 
-   * - **auto**: The quota is automatically allocated.
+   * - **auto**: automatic allocation.
    * 
    * @example
    * fixed
@@ -44,7 +44,7 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
   limitType?: string;
   /**
    * @remarks
-   * The token quota for the API key.
+   * The quota for the current key.
    * 
    * @example
    * 100000
@@ -84,7 +84,7 @@ export class CreateApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
 export class CreateApiKeyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint for model invocation.
+   * The URL for model invocation.
    * 
    * @example
    * http://xxx.yy/v1
@@ -97,7 +97,7 @@ export class CreateApiKeyResponseBodyData extends $dara.Model {
   customKeyList?: CreateApiKeyResponseBodyDataCustomKeyList[];
   /**
    * @remarks
-   * The system-generated API key.
+   * The system-generated key.
    * 
    * @example
    * sk-rds-xxx
@@ -134,12 +134,12 @@ export class CreateApiKeyResponseBodyData extends $dara.Model {
 export class CreateApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: CreateApiKeyResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -147,7 +147,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
@@ -155,7 +155,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConversationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the conversation.
+   * The creation time.
    * 
    * @example
    * 1764055092
@@ -13,7 +13,7 @@ export class GetConversationsResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The ID of the history conversation.
+   * The ID of the historical conversation.
    * 
    * @example
    * 60b335ca-124d-4ee1-864b-de554987****
@@ -21,26 +21,30 @@ export class GetConversationsResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The introduction to the conversation.
+   * The conversation introduction.
    * 
    * @example
    * 测试搜索RDS资源
    */
   introduction?: string;
+  isRunning?: boolean;
   /**
    * @remarks
-   * The name of the history conversation.
+   * The name of the historical conversation.
    * 
    * @example
    * 搜索RDS资源。
    */
   name?: string;
+  updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'CreatedAt',
       id: 'Id',
       introduction: 'Introduction',
+      isRunning: 'IsRunning',
       name: 'Name',
+      updatedAt: 'UpdatedAt',
     };
   }
 
@@ -49,7 +53,9 @@ export class GetConversationsResponseBodyData extends $dara.Model {
       createdAt: 'string',
       id: 'string',
       introduction: 'string',
+      isRunning: 'boolean',
       name: 'string',
+      updatedAt: 'string',
     };
   }
 
@@ -65,12 +71,12 @@ export class GetConversationsResponseBodyData extends $dara.Model {
 export class GetConversationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned results.
+   * The request result.
    */
   data?: GetConversationsResponseBodyData[];
   /**
    * @remarks
-   * Indicates whether the current page is followed by a page.
+   * Indicates whether there is a next page.
    * 
    * @example
    * true
@@ -78,7 +84,7 @@ export class GetConversationsResponseBody extends $dara.Model {
   hasMore?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 100.
+   * The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
    * 
    * @example
    * 100

@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DisableAgentRuntimeRequest extends $dara.Model {
+  branchName?: string;
   /**
    * @remarks
-   * An idempotent parameter.
+   * The idempotence parameter.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88**********
@@ -13,7 +14,7 @@ export class DisableAgentRuntimeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the AI application instance.
+   * The instance ID of the AI application.
    * 
    * This parameter is required.
    * 
@@ -23,7 +24,7 @@ export class DisableAgentRuntimeRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The ID of the region where the instance is located.
+   * The region ID of the instance.
    * 
    * @example
    * cn-beijing
@@ -31,6 +32,7 @@ export class DisableAgentRuntimeRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchName: 'BranchName',
       clientToken: 'ClientToken',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
@@ -39,6 +41,7 @@ export class DisableAgentRuntimeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchName: 'string',
       clientToken: 'string',
       instanceName: 'string',
       regionId: 'string',

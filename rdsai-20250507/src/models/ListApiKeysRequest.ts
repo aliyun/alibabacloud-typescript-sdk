@@ -21,7 +21,7 @@ export class ListApiKeysRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 10
