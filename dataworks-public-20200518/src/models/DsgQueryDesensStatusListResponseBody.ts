@@ -4,26 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class DsgQueryDesensStatusListResponseBodyDataPageData extends $dara.Model {
   /**
+   * @remarks
+   * Switch status
+   * 1: Enabled
+   * 0: Disabled
+   * 
    * @example
    * 1
    */
   desensStatus?: number;
   /**
+   * @remarks
+   * Represents project space name or workspace ID depending on the scenario
+   * 
    * @example
    * 1
    */
   handleSpace?: string;
   /**
+   * @remarks
+   * Switch ID
+   * 
    * @example
    * 56207
    */
   id?: number;
   /**
+   * @remarks
+   * Workspace unique identifier
+   * 
    * @example
    * test_space
    */
   workspaceIdentifier?: string;
   /**
+   * @remarks
+   * Workspace name
+   * 
    * @example
    * test_space
    */
@@ -58,18 +75,32 @@ export class DsgQueryDesensStatusListResponseBodyDataPageData extends $dara.Mode
 }
 
 export class DsgQueryDesensStatusListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Data masking rule type.
+   */
   pageData?: DsgQueryDesensStatusListResponseBodyDataPageData[];
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of records displayed per page
+   * .
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 100
    */
@@ -105,28 +136,48 @@ export class DsgQueryDesensStatusListResponseBodyData extends $dara.Model {
 }
 
 export class DsgQueryDesensStatusListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response data details.
+   */
   data?: DsgQueryDesensStatusListResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 400010
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message
+   * .
+   * 
    * @example
    * param error
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * AASFDFSDFG-DFSDF-DFSDFD-SDFSDF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the call was successful.
+   * 
    * @example
    * true
    */

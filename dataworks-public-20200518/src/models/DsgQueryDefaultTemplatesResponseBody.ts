@@ -6,7 +6,7 @@ import { DataDesensPlanTemplateValue } from "./DataDesensPlanTemplateValue";
 export class DsgQueryDefaultTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The sensitive field type.
+   * The Sensitive Data Type.
    * 
    * @example
    * phone
@@ -14,7 +14,7 @@ export class DsgQueryDefaultTemplatesResponseBodyData extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The supported data masking methods and parameter descriptions.
+   * A list of supported Desensitization Methods and their parameter descriptions.
    */
   desensPlanTemplate?: { [key: string]: DataDesensPlanTemplateValue[] };
   static names(): { [key: string]: string } {
@@ -51,7 +51,7 @@ export class DsgQueryDefaultTemplatesResponseBody extends $dara.Model {
   data?: DsgQueryDefaultTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request fails.
    * 
    * @example
    * 1029030003
@@ -59,7 +59,7 @@ export class DsgQueryDefaultTemplatesResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request fails.
    * 
    * @example
    * param error
@@ -67,7 +67,7 @@ export class DsgQueryDefaultTemplatesResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code returned.
    * 
    * @example
    * 400
@@ -75,7 +75,7 @@ export class DsgQueryDefaultTemplatesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * The Request ID. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 102400001
@@ -85,8 +85,9 @@ export class DsgQueryDefaultTemplatesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

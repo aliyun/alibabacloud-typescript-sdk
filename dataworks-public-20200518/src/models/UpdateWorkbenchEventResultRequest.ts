@@ -38,7 +38,7 @@ export class UpdateWorkbenchEventResultRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 03400b03-b721-4c34-8727-2d6884077091
+   * 03400b03-b721-4c34-8727-2****1
    */
   messageId?: string;
   static names(): { [key: string]: string } {

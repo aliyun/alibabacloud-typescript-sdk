@@ -33,7 +33,7 @@ export class TestNetworkConnectionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10000
+   * 100001
    */
   projectId?: number;
   /**

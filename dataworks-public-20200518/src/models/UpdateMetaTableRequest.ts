@@ -16,7 +16,7 @@ export class UpdateMetaTableRequest extends $dara.Model {
    * The display name of the table.
    * 
    * @example
-   * test
+   * 中文名
    */
   caption?: string;
   /**

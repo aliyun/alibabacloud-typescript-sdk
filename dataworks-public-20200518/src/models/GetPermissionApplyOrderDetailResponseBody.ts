@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveAccountList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to process the permission request order.
+   * The UID of the Alibaba Cloud account that approved the request order.
    * 
    * @example
    * 182293110403****
@@ -36,7 +36,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   columnActions?: string[];
   /**
    * @remarks
-   * The description of the column on which you request permissions.
+   * The description of the requested column.
    * 
    * @example
    * Field description
@@ -44,7 +44,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   columnComment?: string;
   /**
    * @remarks
-   * The name of the column on which you request permissions.
+   * The name of the requested column.
    * 
    * @example
    * aColumnName
@@ -52,7 +52,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   columnName?: string;
   /**
    * @remarks
-   * The security level of the column on which you request permissions. Valid values: 0 to 9.
+   * The security level of the requested column. Valid values: 0 to 9.
    * 
    * @example
    * 9
@@ -92,12 +92,12 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   actions?: string[];
   /**
    * @remarks
-   * The information about the column fields in the object on which you request permissions.
+   * The column field information of the requested object.
    */
   columnMetaList?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMetaObjectMetaListColumnMetaList[];
   /**
    * @remarks
-   * The name of the table on which you request permissions.
+   * The name of the requested table.
    * 
    * @example
    * aTableName
@@ -137,7 +137,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
 export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMeta extends $dara.Model {
   /**
    * @remarks
-   * The MaxCompute project to which the object on which you request permissions belongs.
+   * The MaxCompute project in which the requested object resides.
    * 
    * @example
    * aMaxComputeProject
@@ -145,15 +145,15 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   maxComputeProjectName?: string;
   /**
    * @remarks
-   * The details about the object on which you request permissions.
+   * The detailed information about the requested objects.
    */
   objectMetaList?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMetaObjectMetaList[];
   /**
    * @remarks
-   * The ID of the DataWorks workspace that is associated with the object on which you request permissions.
+   * The ID of the DataWorks workspace in which the requested object resides.
    * 
    * @example
-   * 12345
+   * 123456
    */
   workspaceId?: number;
   static names(): { [key: string]: string } {
@@ -187,7 +187,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
 export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent extends $dara.Model {
   /**
    * @remarks
-   * The reason of the permission request. The administrator processes the request based on the reason.
+   * The reason for the request, used as a reference for the administrator during approval.
    * 
    * @example
    * I need to use this table
@@ -195,7 +195,8 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   applyReason?: string;
   /**
    * @remarks
-   * The expiration time of the permissions that you request. The value is a UNIX timestamp. If LabelSecurity is disabled for the MaxCompute project in which you want to request permissions on the fields of a table, or the security level of the fields is 0 or is lower than or equal to the security level of the Alibaba Cloud account for which you want to request permissions, you can request only permanent permissions.
+   * The expiration time of the requested permissions, displayed as a UNIX timestamp.
+   * If the MaxCompute project does not have LabelSecurity enabled, or the security level of the requested table field is 0 or less than or equal to the security level of the requesting account, only permanent permissions can be requested.
    * 
    * @example
    * 1617115071885
@@ -203,7 +204,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   deadline?: number;
   /**
    * @remarks
-   * The type of the permission request order. The parameter value is 1 and cannot be changed. This value indicates ACL-based authorization.
+   * The type of the request order. Currently, only the value 1 is supported, indicating an object ACL permission request.
    * 
    * @example
    * 1
@@ -211,7 +212,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   orderType?: number;
   /**
    * @remarks
-   * The information about the project and workspace that are associated with the object on which you request permissions.
+   * The information about the project and workspace to which the requested object belongs.
    */
   projectMeta?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMeta;
   static names(): { [key: string]: string } {
@@ -247,18 +248,17 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
 export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailGranteeObjectList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the account that is used to request permissions.
+   * The UID of the Alibaba Cloud account that requested permissions.
    * 
    * @example
-   * 267842600408993176
+   * 26784260040899****
    */
   granteeId?: string;
   /**
    * @remarks
-   * The name of the account that is used to request permissions. The name is in the same format as that of the account used to access the MaxCompute project.
-   * 
-   * *   If the account is an Alibaba Cloud account, the value is in the ALIYUN$+Account name format.
-   * *   If the account is a RAM user, the value is in the RAM$+Account name format.
+   * The name of the Alibaba Cloud account that requested permissions. The format is consistent with the MaxCompute account format.
+   * - Primary account: ALIYUN$+account name.
+   * - RAM user: RAM$+account name.
    * 
    * @example
    * RAM$dataworks_3h1_1:StsRamUser(StsRamUser)
@@ -266,7 +266,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailGranteeObj
   granteeName?: string;
   /**
    * @remarks
-   * The type of the subject that requests permissions. The value is fixed as 1, which indicates users.
+   * The type of the entity that requested permissions. Currently, only 1 (user) is supported.
    * 
    * @example
    * 1
@@ -274,11 +274,10 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailGranteeObj
   granteeType?: number;
   /**
    * @remarks
-   * The subtype of the subject that requests permissions. Valid values:
-   * 
-   * *   101: production account
-   * *   103: individual account
-   * *   105: account that requests permissions for others
+   * The subtype of the entity that requested permissions. Valid values:
+   * - 101: Production Alibaba Cloud account.
+   * - 103: Personal Alibaba Cloud account.
+   * - 105: Alibaba Cloud account applied on behalf of another user.
    * 
    * @example
    * 103
@@ -314,15 +313,15 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailGranteeObj
 export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that was used to submit the permission request order.
+   * The UID of the Alibaba Cloud account that submitted the request order.
    * 
    * @example
-   * 267842600408993176
+   * 26784260040899****
    */
   applyBaseId?: string;
   /**
    * @remarks
-   * The time when the permission request order was submitted. The value is a UNIX timestamp.
+   * The time when the request order was submitted, displayed as a UNIX timestamp.
    * 
    * @example
    * 1615284086000
@@ -330,40 +329,46 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $
   applyTimestamp?: number;
   /**
    * @remarks
-   * The list of Alibaba Cloud accounts that are used to process the permission request order.
+   * The list of Alibaba Cloud accounts that approved the request order.
    */
   approveAccountList?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveAccountList[];
   /**
    * @remarks
-   * The content of the permission request.
+   * The specific content of the request.
    */
   approveContent?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent;
   /**
+   * @remarks
+   * The time when the final approval was completed, displayed as a UNIX timestamp.
+   * 
    * @example
    * 1757496687000
    */
   finishAapprovalTimestamp?: number;
   /**
+   * @remarks
+   * The final approval comment.
+   * 
    * @example
    * agree
    */
   finishApprovalComment?: string;
   /**
    * @remarks
-   * The ID of the permission request order.
+   * The ID of the request order.
    * 
    * @example
-   * ad8da78d-8135-455e-9486-27cf213fc140
+   * ad8da78d-8135-455e-9486-27cf213f****
    */
   flowId?: string;
   /**
    * @remarks
-   * The status of the permission request order. Valid values:
-   * 
-   * *   1: to be processed
-   * *   2: approved and authorized
-   * *   3: approved but authorization failed
-   * *   4: rejected
+   * The status of the request order. Valid values:
+   * - 1: Pending approval.
+   * - 2: Approved and authorization succeeded.
+   * - 3: Approved but authorization failed.
+   * - 4: Rejected.
+   * - 5: Withdrawn.
    * 
    * @example
    * 2
@@ -371,7 +376,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $
   flowStatus?: number;
   /**
    * @remarks
-   * The information about the account that is used to request permissions.
+   * The information about the accounts that requested permissions.
    */
   granteeObjectList?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailGranteeObjectList[];
   static names(): { [key: string]: string } {
@@ -423,7 +428,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $
 export class GetPermissionApplyOrderDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the permission request order.
+   * The details of the request order.
    */
   applyOrderDetail?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail;
   /**

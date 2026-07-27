@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaTablePartitionRequestSortCriterion extends $dara.Model {
   /**
    * @remarks
-   * The order in which partitions in the metatable are sorted. Valid values: asc and desc. Default value: desc.
+   * The sort order. Valid values: **asc** and **desc**. Default value: **desc**.
    * 
    * @example
    * desc
@@ -13,7 +13,7 @@ export class GetMetaTablePartitionRequestSortCriterion extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field that is used to sort partitions in the metatable. Valid values: name and modify_time. By default, partitions in the metatable are sorted based on their creation time.
+   * The field used to sort the partitions. Valid values: **name** and **modify_time**. Default value: the creation time of the partition.
    * 
    * @example
    * name
@@ -45,9 +45,9 @@ export class GetMetaTablePartitionRequestSortCriterion extends $dara.Model {
 export class GetMetaTablePartitionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+   * The ID of the EMR cluster. Required only if **DataSourceType** is **EMR**.
    * 
-   * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID.
+   * Log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the cluster ID.
    * 
    * @example
    * abc
@@ -55,7 +55,7 @@ export class GetMetaTablePartitionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps and emr.
+   * The data source type. Valid values: ODPS and EMR.
    * 
    * @example
    * emr
@@ -63,9 +63,9 @@ export class GetMetaTablePartitionRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The name of the database. This parameter is required only if you set the DataSourceType parameter to emr.
+   * The name of the database. Required only if **DataSourceType** is **EMR**.
    * 
-   * You can call the [ListMetaDB](https://help.aliyun.com/document_detail/2780105.html) operation to query the name of the metadatabase.
+   * Call the [ListMetaDB](https://help.aliyun.com/document_detail/2780105.html) operation to query the database name.
    * 
    * @example
    * abc
@@ -89,12 +89,12 @@ export class GetMetaTablePartitionRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The logic for sorting partitions in the metatable.
+   * The partition sorting logic.
    */
   sortCriterion?: GetMetaTablePartitionRequestSortCriterion;
   /**
    * @remarks
-   * The unique identifier of the metatable.
+   * The unique identifier of the table.
    * 
    * @example
    * odps.engine_name.table_name
@@ -102,9 +102,9 @@ export class GetMetaTablePartitionRequest extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The name of the metatable in the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+   * The name of the EMR table. Required only if **DataSourceType** is **EMR**.
    * 
-   * You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the name of the metatable.
+   * Call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the table name.
    * 
    * @example
    * abc

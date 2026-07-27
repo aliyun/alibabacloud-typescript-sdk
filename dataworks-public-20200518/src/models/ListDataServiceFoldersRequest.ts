@@ -8,7 +8,7 @@ export class ListDataServiceFoldersRequest extends $dara.Model {
    * The keyword in folder names. The keyword is used to search for folders whose names contain this keyword.
    * 
    * @example
-   * Keyword in folder names
+   * Folder name keyword
    */
   folderNameKeyword?: string;
   /**

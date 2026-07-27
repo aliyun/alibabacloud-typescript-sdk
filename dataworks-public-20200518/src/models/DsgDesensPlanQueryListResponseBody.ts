@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DsgDesensPlanQueryListResponseBodyPageDataDataDesensPlan extends $dara.Model {
   /**
    * @remarks
-   * The type of the data masking rule.
+   * The type of the desensitization plan.
    * 
    * @example
    * hash
@@ -13,7 +13,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataDataDesensPlan extends $d
   desensPlanType?: string;
   /**
    * @remarks
-   * The parameters for the data masking rule. For more information about the parameters, see the [DsgDesensPlanAddOrUpdate](https://help.aliyun.com/document_detail/2786295.html) API reference.
+   * The parameters for the desensitization rule. For details, see the [DsgDesensPlanAddOrUpdate](https://help.aliyun.com/document_detail/2786295.html) operation.
    */
   extParam?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -77,10 +77,11 @@ export class DsgDesensPlanQueryListResponseBodyPageDataDataColumns extends $dara
 export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a watermark is added. Valid values:
+   * Indicates whether to add a watermark. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: A watermark is added.
+   * 
+   * - false: No watermark is added.
    * 
    * @example
    * true
@@ -88,7 +89,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   checkWatermark?: boolean;
   /**
    * @remarks
-   * The sensitive field type.
+   * The sensitive data type.
    * 
    * @example
    * phone
@@ -96,7 +97,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   dataType?: string;
   /**
    * @remarks
-   * The type of the data masking method.
+   * The desensitization method.
    * 
    * @example
    * HASH
@@ -104,12 +105,12 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   desenMode?: string;
   /**
    * @remarks
-   * The details of the data masking rule.
+   * The details of the desensitization plan.
    */
   desensPlan?: DsgDesensPlanQueryListResponseBodyPageDataDataDesensPlan;
   /**
    * @remarks
-   * The data masking rule.
+   * The desensitization rule.
    * 
    * @example
    * HASH
@@ -117,7 +118,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   desensRule?: string;
   /**
    * @remarks
-   * The data masking method.
+   * The desensitization method.
    * 
    * @example
    * HASH
@@ -125,7 +126,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   desensWay?: string;
   /**
    * @remarks
-   * The time when the data masking rule was created.
+   * The time when the rule was created.
    * 
    * @example
    * 2024-05-09 15:46:20
@@ -133,7 +134,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the data masking rule was modified.
+   * The time when the rule was last modified.
    * 
    * @example
    * 2024-05-09 15:46:20
@@ -141,7 +142,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the data masking rule.
+   * The ID of the desensitization rule.
    * 
    * @example
    * 123
@@ -149,7 +150,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * The owner of the data masking rule.
+   * The owner of the desensitization rule.
    * 
    * @example
    * user1
@@ -157,7 +158,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   owner?: string;
   /**
    * @remarks
-   * The name of the data masking rule.
+   * The name of the desensitization rule.
    * 
    * @example
    * phone_hash
@@ -165,14 +166,19 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   ruleName?: string;
   /**
    * @remarks
-   * The code of the level-1 data masking scenario to which the rule belongs. Valid values:
+   * The level-1 desensitization scene code. Valid values:
    * 
-   * *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
-   * *   maxcompute_desense_code: data masking at the MaxCompute compute engine layer
-   * *   maxcompute_new_desense_code: data masking at the MaxCompute compute engine layer (new)
-   * *   hologres_display_desense_code: data masking at the Hologres compute engine layer
-   * *   dataworks_data_integration_desense_code: static data masking in Data Integration
-   * *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
+   * - Desensitization for display in Data Development and Data Map: dataworks_display_desense_code
+   * 
+   * - Desensitization at the MaxCompute engine layer: maxcompute_desense_code
+   * 
+   * - Desensitization at the MaxCompute engine layer (New): maxcompute_new_desense_code
+   * 
+   * - Desensitization at the Hologres engine layer: hologres_display_desense_code
+   * 
+   * - Static desensitization in Data Integration: dataworks_data_integration_desense_code
+   * 
+   * - Desensitization for display in Data Analysis: dataworks_analysis_desense_code
    * 
    * @example
    * dataworks_display_desense_code
@@ -180,7 +186,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   sceneCode?: string;
   /**
    * @remarks
-   * The name of the level-2 data masking scenario to which the data masking rule belongs.
+   * The name of the level-2 desensitization scene.
    * 
    * @example
    * test_scene
@@ -188,10 +194,11 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
   sceneName?: string;
   /**
    * @remarks
-   * The status of the data masking rule. Valid values:
+   * The status of the rule. Valid values:
    * 
-   * *   0: expired
-   * *   1: effective
+   * - 0: Inactive.
+   * 
+   * - 1: Active.
    * 
    * @example
    * 1
@@ -259,7 +266,7 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
 export class DsgDesensPlanQueryListResponseBodyPageData extends $dara.Model {
   /**
    * @remarks
-   * The information about the data masking rule.
+   * The details of the desensitization rules.
    */
   data?: DsgDesensPlanQueryListResponseBodyPageDataData[];
   /**
@@ -280,7 +287,7 @@ export class DsgDesensPlanQueryListResponseBodyPageData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of data masking rules.
+   * The total number of matching desensitization rules.
    * 
    * @example
    * 100
@@ -343,12 +350,12 @@ export class DsgDesensPlanQueryListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The pagination information.
+   * The paginated data.
    */
   pageData?: DsgDesensPlanQueryListResponseBodyPageData;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 102400001
@@ -358,8 +365,9 @@ export class DsgDesensPlanQueryListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityFollowerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the subscriber was successfully deleted. Valid values:
+   * Indicates whether the follower of the partition filter expression was deleted. Valid values:
    * 
-   * *   true: The subscriber was successfully deleted.
-   * *   false: The subscriber failed to be deleted. You can troubleshoot errors based on the error message returned.
+   * - `true`: The follower was deleted.
+   * 
+   * - `false`: The follower failed to be deleted. You can troubleshoot the issue based on the error message.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class DeleteQualityFollowerResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the subscriber failed to be deleted.
+   * The error message returned if the follower of the partition filter expression fails to be deleted.
    * 
    * @example
    * You have no permission.
@@ -40,7 +41,7 @@ export class DeleteQualityFollowerResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can troubleshoot errors based on the ID.
+   * The request ID. This parameter is used to troubleshoot issues.
    * 
    * @example
    * 6d739ef6-098a-47****
@@ -50,8 +51,9 @@ export class DeleteQualityFollowerResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

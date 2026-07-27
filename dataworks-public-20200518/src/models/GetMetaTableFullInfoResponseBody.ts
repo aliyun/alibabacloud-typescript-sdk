@@ -47,8 +47,9 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
    * @remarks
    * Indicates whether the field is a foreign key. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -58,8 +59,9 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
    * @remarks
    * Indicates whether the field is a partition field. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -69,8 +71,9 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
    * @remarks
    * Indicates whether the field is a primary key. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -171,8 +174,9 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the environment. Valid values:
    * 
-   * *   0: indicates that the table resides in the development environment.
-   * *   1: indicates that the table resides in the production environment.
+   * - 0: indicates that the table resides in the development environment.
+   * 
+   * - 1: indicates that the table resides in the production environment.
    * 
    * @example
    * 1
@@ -182,10 +186,13 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
    * @remarks
    * The scope in which the table is visible. Valid values:
    * 
-   * *   0: indicates that the table is visible to workspace members.
-   * *   1: indicates that the table is visible to users within a tenant.
-   * *   2: indicates that the table is visible to all tenants.
-   * *   3: indicates that the table is visible only to the table owner.
+   * - 0: indicates that the table is visible to workspace members.
+   * 
+   * - 1: indicates that the table is visible to users within a tenant.
+   * 
+   * - 2: indicates that the table is visible to all tenants.
+   * 
+   * - 3: indicates that the table is visible only to the table owner.
    * 
    * @example
    * 1

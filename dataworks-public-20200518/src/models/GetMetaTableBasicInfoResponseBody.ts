@@ -8,7 +8,7 @@ export class GetMetaTableBasicInfoResponseBodyData extends $dara.Model {
    * The display name of the metatable.
    * 
    * @example
-   * test
+   * 中文名
    */
   caption?: string;
   /**
@@ -63,8 +63,9 @@ export class GetMetaTableBasicInfoResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the environment. Valid values:
    * 
-   * *   0: development environment
-   * *   1: production environment
+   * - 0: development environment
+   * 
+   * - 1: production environment
    * 
    * @example
    * 1
@@ -82,8 +83,9 @@ export class GetMetaTableBasicInfoResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the metatable is a partitioned table. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -93,8 +95,9 @@ export class GetMetaTableBasicInfoResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the metatable is a view. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * false
@@ -104,10 +107,13 @@ export class GetMetaTableBasicInfoResponseBodyData extends $dara.Model {
    * @remarks
    * The scope in which the metatable is visible. Valid values:
    * 
-   * *   0: The metatable is visible to workspace members.
-   * *   1: The metatable is visible to users within the tenant.
-   * *   2: The metatable is visible to all tenants.
-   * *   3: The metatable is visible only to the metatable owner.
+   * - 0: The metatable is visible to workspace members.
+   * 
+   * - 1: The metatable is visible to users within the tenant.
+   * 
+   * - 2: The metatable is visible to all tenants.
+   * 
+   * - 3: The metatable is visible only to the metatable owner.
    * 
    * @example
    * 1
@@ -141,7 +147,7 @@ export class GetMetaTableBasicInfoResponseBodyData extends $dara.Model {
    * @remarks
    * The lifecycle of the table. Unit: day.
    * 
-   * >  If the lifecycle is not set for a MaxCompute table, the return value is 0, indicating that the table is permanently valid.
+   * > If the lifecycle is not set for a MaxCompute table, the return value is 0, indicating that the table is permanently valid.
    * 
    * @example
    * 5

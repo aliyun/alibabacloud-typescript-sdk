@@ -8,7 +8,7 @@ export class GetMetaTableIntroWikiResponseBodyData extends $dara.Model {
    * The description of the metatable.
    * 
    * @example
-   * \\# Business requirements\\n\\n\\&lt;a name=\\&quot;xiw5n\\&quot;
+   * # Business requirements\\n\\n&lt;a name=&quot;xiw5n&quot;
    */
   content?: string;
   /**

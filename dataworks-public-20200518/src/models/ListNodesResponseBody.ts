@@ -24,7 +24,7 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * The name of the resource group.
    * 
    * @example
-   * odps_first
+   * odps_source
    */
   connection?: string;
   /**
@@ -79,7 +79,7 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * @remarks
    * The file ID. You can call the ListFiles operation to query the ID.
    * 
-   * **
+   * \\*\\*
    * 
    * **Warning** This field is deprecated.
    * 
@@ -213,7 +213,7 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * The ID of the workflow.
    * 
    * @example
-   * The ID of the request. You can use the ID to query logs and troubleshoot issues.
+   * Default resource group
    */
   resGroupName?: string;
   /**

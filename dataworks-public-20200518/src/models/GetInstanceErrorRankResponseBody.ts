@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceErrorRankResponseBodyInstanceErrorRankErrorRank extends $dara.Model {
   /**
    * @remarks
-   * The number of errors that occurred on the node.
+   * The number of errors of the node.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class GetInstanceErrorRankResponseBodyInstanceErrorRankErrorRank extends 
   count?: number;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * 9527
@@ -22,11 +22,14 @@ export class GetInstanceErrorRankResponseBodyInstanceErrorRankErrorRank extends 
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the node owner.
+   * The Alibaba Cloud UID of the node owner.
    * 
    * @example
    * 952795279527
@@ -34,7 +37,7 @@ export class GetInstanceErrorRankResponseBodyInstanceErrorRankErrorRank extends 
   owner?: string;
   /**
    * @remarks
-   * The type of the node.
+   * The type of the node task.
    * 
    * @example
    * 10
@@ -42,7 +45,7 @@ export class GetInstanceErrorRankResponseBodyInstanceErrorRankErrorRank extends 
   prgType?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 9527
@@ -82,12 +85,12 @@ export class GetInstanceErrorRankResponseBodyInstanceErrorRankErrorRank extends 
 export class GetInstanceErrorRankResponseBodyInstanceErrorRank extends $dara.Model {
   /**
    * @remarks
-   * The ranking data of nodes on which errors occurred within the last month.
+   * The error ranking data of nodes in the last month.
    */
   errorRank?: GetInstanceErrorRankResponseBodyInstanceErrorRankErrorRank[];
   /**
    * @remarks
-   * The timestamp at which the rankings were updated.
+   * The timestamp when the error ranking was updated.
    * 
    * @example
    * 1600963200000
@@ -122,12 +125,12 @@ export class GetInstanceErrorRankResponseBodyInstanceErrorRank extends $dara.Mod
 export class GetInstanceErrorRankResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ranking data of nodes on which errors occurred.
+   * The error ranking data of nodes.
    */
   instanceErrorRank?: GetInstanceErrorRankResponseBodyInstanceErrorRank;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID generated for each request.
    * 
    * @example
    * 952795279527****

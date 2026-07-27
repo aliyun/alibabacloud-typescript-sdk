@@ -16,7 +16,7 @@ export class ListNodeInputOrOutputResponseBodyData extends $dara.Model {
    * The node ID.
    * 
    * @example
-   * 1234667
+   * 12314567
    */
   nodeId?: number;
   /**

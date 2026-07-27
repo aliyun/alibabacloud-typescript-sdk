@@ -8,7 +8,7 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
    * The end time.
    * 
    * @example
-   * 2022-02-12 0:32:12
+   * 2020-01-01 00:01:00
    */
   endTime?: string;
   /**
@@ -16,7 +16,7 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
    * The workspace ID.
    * 
    * @example
-   * 128
+   * 333
    */
   projectId?: number;
   /**
@@ -24,7 +24,7 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
    * The start time.
    * 
    * @example
-   * 2022-02-12 0:34:13
+   * 2020-01-01 00:00:00
    */
   startTime?: string;
   /**
@@ -32,7 +32,7 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
    * The GUID of the MaxCompute table.
    * 
    * @example
-   * odps.sample_project.sample_table
+   * odps.engine_name.table_name
    */
   tableGuid?: string;
   /**
@@ -48,7 +48,7 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
    * The instance ID.
    * 
    * @example
-   * 987654321
+   * 3521
    */
   taskInstanceId?: number;
   /**
@@ -56,7 +56,7 @@ export class GetMetaTableOutputResponseBodyDataDataEntityList extends $dara.Mode
    * The waiting time.
    * 
    * @example
-   * 3
+   * 323
    */
   waitTime?: string;
   static names(): { [key: string]: string } {
@@ -119,7 +119,7 @@ export class GetMetaTableOutputResponseBodyData extends $dara.Model {
    * The total number of entries returned.
    * 
    * @example
-   * 128
+   * 100
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -163,7 +163,7 @@ export class GetMetaTableOutputResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * 0
+   * 1031203110005
    */
   errorCode?: string;
   /**
@@ -171,7 +171,7 @@ export class GetMetaTableOutputResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * SUCCESS
+   * The specified parameters are invalid.
    */
   errorMessage?: string;
   /**
@@ -187,7 +187,7 @@ export class GetMetaTableOutputResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 0000-0000-0000-000
+   * 0bc1ec92159376****
    */
   requestId?: string;
   /**

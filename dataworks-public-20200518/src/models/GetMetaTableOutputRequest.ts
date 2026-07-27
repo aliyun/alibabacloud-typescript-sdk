@@ -10,7 +10,7 @@ export class GetMetaTableOutputRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2022-02-15
+   * 2020-05-27
    */
   endDate?: string;
   /**
@@ -36,7 +36,7 @@ export class GetMetaTableOutputRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2020-02-02
+   * 2020-06-27
    */
   startDate?: string;
   /**
@@ -46,7 +46,7 @@ export class GetMetaTableOutputRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * odps.sample_project.sample_table
+   * odps.engine_name.table_name
    */
   tableGuid?: string;
   /**

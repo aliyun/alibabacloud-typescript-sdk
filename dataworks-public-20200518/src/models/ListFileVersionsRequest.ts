@@ -34,7 +34,7 @@ export class ListFileVersionsRequest extends $dara.Model {
    * The DataWorks workspace ID. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace page and view the workspace ID.
    * 
    * @example
-   * 10000
+   * 100001
    */
   projectId?: number;
   /**

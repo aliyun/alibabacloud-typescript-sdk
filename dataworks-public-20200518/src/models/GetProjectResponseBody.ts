@@ -8,7 +8,7 @@ export class GetProjectResponseBodyDataTags extends $dara.Model {
    * The tag key.
    * 
    * @example
-   * Env
+   * key
    */
   key?: string;
   /**
@@ -16,7 +16,7 @@ export class GetProjectResponseBodyDataTags extends $dara.Model {
    * The tag value.
    * 
    * @example
-   * Test
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -166,7 +166,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
    * The description of the workspace.
    * 
    * @example
-   * abc
+   * test_describe
    */
   projectDescription?: string;
   /**
@@ -174,7 +174,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
    * The ID of the workspace.
    * 
    * @example
-   * 27
+   * 466230
    */
   projectId?: number;
   /**
@@ -182,7 +182,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
    * The name of the workspace.
    * 
    * @example
-   * abc
+   * test_project
    */
   projectIdentifier?: string;
   /**
@@ -201,7 +201,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
    * The display name of the workspace.
    * 
    * @example
-   * abc
+   * test_project
    */
   projectName?: string;
   /**
@@ -239,7 +239,7 @@ export class GetProjectResponseBodyData extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmzbn7pti3zfa
+   * rg-acfmzbn7****
    */
   resourceManagerResourceGroupId?: string;
   /**
@@ -413,7 +413,7 @@ export class GetProjectResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 0bc1411515937635973****
+   * 1AFAE64E-D1BE-432B-A9****
    */
   requestId?: string;
   /**

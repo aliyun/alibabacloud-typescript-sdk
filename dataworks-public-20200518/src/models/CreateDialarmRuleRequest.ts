@@ -12,8 +12,9 @@ export class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels ex
    * @remarks
    * The severity level. Valid values:
    * 
-   * *   Warning
-   * *   Critical
+   * - Warning
+   * 
+   * - Critical
    * 
    * @example
    * Warning
@@ -50,8 +51,9 @@ export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers e
    * @remarks
    * The recipient type. Valid values: AliyunUid and DingToken.
    * 
-   * *   If the alert notification method is Mail, Phone, or Sms, set this parameter to **AliyunUid**, which specifies the Alibaba Cloud account ID.
-   * *   If the alert notification method is Ding, set this parameter to **DingToken**, which indicates the DingTalk chatbot token.
+   * - If the alert notification method is Mail, Phone, or Sms, set this parameter to **AliyunUid**, which specifies the Alibaba Cloud account ID.
+   * 
+   * - If the alert notification method is Ding, set this parameter to **DingToken**, which indicates the DingTalk chatbot token.
    * 
    * @example
    * DingToken
@@ -155,8 +157,9 @@ export class CreateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
    * @remarks
    * The severity level. Valid values:
    * 
-   * *   Warning
-   * *   Critical
+   * - Warning
+   * 
+   * - Critical
    * 
    * @example
    * Warning
@@ -166,9 +169,11 @@ export class CreateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
    * @remarks
    * The alert threshold.
    * 
-   * *   If the alert rule is for task status, you do not need to specify a threshold.
-   * *   If the alert rule is for failovers, specify the number of failovers.
-   * *   If the alert rule is for latency, the threshold is the latency duration, in seconds.
+   * - If the alert rule is for task status, you do not need to specify a threshold.
+   * 
+   * - If the alert rule is for failovers, specify the number of failovers.
+   * 
+   * - If the alert rule is for latency, the threshold is the latency duration, in seconds.
    * 
    * @example
    * 5
@@ -230,9 +235,11 @@ export class CreateDIAlarmRuleRequest extends $dara.Model {
    * @remarks
    * The metric type in the alert rule. Valid values:
    * 
-   * *   Heartbeat
-   * *   FailoverCount
-   * *   Delay
+   * - Heartbeat
+   * 
+   * - FailoverCount
+   * 
+   * - Delay
    * 
    * This parameter is required.
    * 

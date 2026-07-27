@@ -5,19 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ApprovePermissionApplyOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The action for the permission request order. Valid values:
-   * 
-   * *   1: approve
-   * *   2: reject
-   * 
-   * <!---->
-   * 
-   * *   0
-   * *   1
-   * *   2\\.
-   * *   3\\.
-   * *   4
-   * *   5
+   * The approval action to perform. Valid values:
+   * - 1: Approve.
+   * - 2: Reject.
    * 
    * This parameter is required.
    * 
@@ -27,7 +17,7 @@ export class ApprovePermissionApplyOrderRequest extends $dara.Model {
   approveAction?: number;
   /**
    * @remarks
-   * The comment on the order.
+   * The remarks for the approval.
    * 
    * This parameter is required.
    * 
@@ -37,7 +27,7 @@ export class ApprovePermissionApplyOrderRequest extends $dara.Model {
   approveComment?: string;
   /**
    * @remarks
-   * The ID of the permission request order. You can call the ListPermissionApplyOrders operation to obtain the order ID.
+   * The ID of the permission request order to approve. You can call the [ListPermissionApplyOrders](https://help.aliyun.com/document_detail/211008.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

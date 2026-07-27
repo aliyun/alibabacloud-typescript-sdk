@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityFollowerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The alert mode. The value is as follows:
+   * The alarm notification method. Valid values:
    * 
-   * - 1 (Mail)
-   * - 2 (email and SMS)
-   * - 4 (DingTalk groups of robots or hook)
-   * - 5 (DingTalk groups of robots @ ALL)
+   * - 1: by email
+   * 
+   * - 2: by email and SMS
+   * 
+   * - 4: by DingTalk chatbot or webhook
+   * 
+   * - 5: by DingTalk chatbot with the @all keyword
    * 
    * @example
    * 1
@@ -18,7 +21,7 @@ export class GetQualityFollowerResponseBodyData extends $dara.Model {
   alarmMode?: number;
   /**
    * @remarks
-   * The time when the data quality rule subscription configuration was created.
+   * The time when the subscription was created. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1541576644000
@@ -34,7 +37,7 @@ export class GetQualityFollowerResponseBodyData extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The subscriber to receive alert information.
+   * The follower who receives alarm notifications.
    * 
    * @example
    * 1234
@@ -42,7 +45,7 @@ export class GetQualityFollowerResponseBodyData extends $dara.Model {
   follower?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account name of the subscriber.
+   * The Alibaba Cloud account name of the follower.
    * 
    * @example
    * test
@@ -50,7 +53,7 @@ export class GetQualityFollowerResponseBodyData extends $dara.Model {
   followerAccountName?: string;
   /**
    * @remarks
-   * The ID of the subscription relationship.
+   * The subscription ID.
    * 
    * @example
    * 123
@@ -58,7 +61,7 @@ export class GetQualityFollowerResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The update time of the data quality rule subscription configuration.
+   * The time when the subscription was last updated. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1541576644000
@@ -120,7 +123,7 @@ export class GetQualityFollowerResponseBodyData extends $dara.Model {
 export class GetQualityFollowerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the subscription relationship.
+   * An array of follower objects.
    */
   data?: GetQualityFollowerResponseBodyData[];
   /**
@@ -141,7 +144,7 @@ export class GetQualityFollowerResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP return code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -149,7 +152,7 @@ export class GetQualityFollowerResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 38cbdef0-f6cf-49
@@ -157,7 +160,7 @@ export class GetQualityFollowerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the call is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

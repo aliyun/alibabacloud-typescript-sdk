@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DsgUserGroupQueryListRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword of the user group name. A fuzzy match is performed based on the keyword to search for the user group.
+   * A keyword for the user group name. The service performs a fuzzy search to find matching user groups.
    * 
    * @example
    * yun_group
@@ -21,7 +21,7 @@ export class DsgUserGroupQueryListRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The page number.
+   * The number of the page to return.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class DsgUserGroupQueryListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the compute engine. If you want to query the information about a MaxCompute user group, you need to configure this parameter.
+   * The name of the MaxCompute project to query for user groups.
    * 
    * @example
    * dev_project

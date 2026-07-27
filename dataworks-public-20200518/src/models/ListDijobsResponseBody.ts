@@ -31,12 +31,17 @@ export class ListDIJobsResponseBodyDIJobPagingDIJobs extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   Finished
-   * *   Initialized
-   * *   Stopped
-   * *   Failed
-   * *   Running
-   * *   Stopping
+   * - Finished
+   * 
+   * - Initialized
+   * 
+   * - Stopped
+   * 
+   * - Failed
+   * 
+   * - Running
+   * 
+   * - Stopping
    * 
    * @example
    * Finished
@@ -46,9 +51,11 @@ export class ListDIJobsResponseBodyDIJobPagingDIJobs extends $dara.Model {
    * @remarks
    * The synchronization type. Valid values:
    * 
-   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-   * *   RealtimeIncremental: real-time incremental synchronization
-   * *   Full: one-time full synchronization
+   * - FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+   * 
+   * - RealtimeIncremental: real-time incremental synchronization
+   * 
+   * - Full: one-time full synchronization
    * 
    * @example
    * Full

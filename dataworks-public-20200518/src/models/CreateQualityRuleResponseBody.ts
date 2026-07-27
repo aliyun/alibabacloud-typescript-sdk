@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQualityRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the monitoring rule that you created.
+   * The ID of the new rule.
    * 
    * @example
    * 12345
@@ -45,7 +45,7 @@ export class CreateQualityRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Whether the request succeeded.
    * 
    * @example
    * true

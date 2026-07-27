@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePermissionApplyOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request order ID.
+   * The list of flow IDs.
    */
   flowId?: string[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * Indicates whether the partition expression was successfully deleted.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DeleteQualityEntityResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request fails.
    * 
    * @example
    * 401
@@ -21,7 +21,7 @@ export class DeleteQualityEntityResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request fails.
    * 
    * @example
    * You have no permission.
@@ -37,7 +37,7 @@ export class DeleteQualityEntityResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ecb967ec-c137-48****

@@ -48,7 +48,7 @@ export class ListTopicsResponseBodyDataTopics extends $dara.Model {
    * The name of the node.
    * 
    * @example
-   * Node Name
+   * Node name
    */
   nodeName?: string;
   /**
@@ -80,7 +80,7 @@ export class ListTopicsResponseBodyDataTopics extends $dara.Model {
    * The name of the event.
    * 
    * @example
-   * 1234 Error
+   * Error 1234
    */
   topicName?: string;
   /**

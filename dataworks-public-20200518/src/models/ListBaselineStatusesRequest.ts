@@ -70,7 +70,7 @@ export class ListBaselineStatusesRequest extends $dara.Model {
    * The keyword of the baseline name used to search for the baseline.
    * 
    * @example
-   * Keyword of the baseline name
+   * Keyword
    */
   searchText?: string;
   /**

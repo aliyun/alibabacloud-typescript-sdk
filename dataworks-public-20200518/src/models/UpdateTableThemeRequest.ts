@@ -10,7 +10,7 @@ export class UpdateTableThemeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * table folder name
+   * Topic name
    */
   name?: string;
   /**

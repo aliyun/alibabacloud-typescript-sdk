@@ -15,8 +15,9 @@ export class DeleteDISyncTaskResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the synchronization task is deleted. Valid values:
    * 
-   * *   success: The synchronization task is deleted.
-   * *   fail: The synchronization task fails to be deleted. You can troubleshoot the issue based on the failure reason.
+   * - success: The synchronization task is deleted.
+   * 
+   * - fail: The synchronization task fails to be deleted. You can troubleshoot the issue based on the failure reason.
    * 
    * @example
    * fail
@@ -63,8 +64,9 @@ export class DeleteDISyncTaskResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

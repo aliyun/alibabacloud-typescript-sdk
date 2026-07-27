@@ -18,6 +18,9 @@ export class GetSensitiveDataResponseBody extends $dara.Model {
    * *   guid: the ID of the metadata of the tenant. For example, the ID of the metadata in the MaxCompute compute engine is in the Project name.Table name.Column name format.
    * *   sensType: the type of the sensitive data.
    * *   sensLevel: the sensitivity level of the sensitive data
+   * 
+   * @example
+   * {      "sensDatas": [       {         "sensLevel": "L1",         "guid": "dsg_demo.animal.dog",         "sensType": " Name"       }      ],     "totalCount": 2171 }
    */
   sensitiveData?: { [key: string]: any };
   static names(): { [key: string]: string } {

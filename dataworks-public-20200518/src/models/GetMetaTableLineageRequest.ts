@@ -42,7 +42,7 @@ export class GetMetaTableLineageRequest extends $dara.Model {
    * The logic of paging. Configure this parameter based on the value of the response parameter NextPrimaryKey when the value of the response parameter HasNext is true in the previous request.
    * 
    * @example
-   * odps.engine_name.table_name1
+   * next_primary_key
    */
   nextPrimaryKey?: string;
   /**

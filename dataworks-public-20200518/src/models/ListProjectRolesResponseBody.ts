@@ -24,7 +24,7 @@ export class ListProjectRolesResponseBodyProjectRoleList extends $dara.Model {
    * The name of the role in the DataWorks workspace.
    * 
    * @example
-   * visitor
+   * Visitor
    */
   projectRoleName?: string;
   /**

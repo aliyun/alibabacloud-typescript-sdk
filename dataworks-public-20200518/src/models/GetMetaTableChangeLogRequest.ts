@@ -15,8 +15,9 @@ export class GetMetaTableChangeLogRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
    * 
-   * *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-   * *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+   * - By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
+   * 
+   * - If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
    * 
    * @example
    * 2020-06-02 00:00:00
@@ -50,8 +51,9 @@ export class GetMetaTableChangeLogRequest extends $dara.Model {
    * @remarks
    * The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
    * 
-   * *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-   * *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+   * - By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
+   * 
+   * - If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
    * 
    * @example
    * 2020-06-01 00:00:00

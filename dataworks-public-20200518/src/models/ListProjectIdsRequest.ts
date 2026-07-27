@@ -12,7 +12,7 @@ export class ListProjectIdsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 171111
+   * 139699392458****
    */
   userId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the partition filter expression.
+   * The ID of the partition expression.
    * 
    * This parameter is required.
    * 
@@ -15,26 +15,17 @@ export class DeleteQualityEntityRequest extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The type of the compute engine or data source. The following types are supported: E-MapReduce (EMR), Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka, and DataHub.
-   * 
-   * Valid values:
-   * 
-   * *   odps
-   * *   emr
-   * *   hadoop
-   * *   cdh
-   * *   hybriddb_for_postgresql
-   * *   holodb
+   * The type of the engine or data source. Valid values: E-MapReduce (EMR), Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka, and DataHub.
    * 
    * This parameter is required.
    * 
    * @example
-   * ODPS
+   * odps
    */
   envType?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 12345
@@ -42,7 +33,7 @@ export class DeleteQualityEntityRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the compute engine or data source.
+   * The name of the engine or data source.
    * 
    * This parameter is required.
    * 

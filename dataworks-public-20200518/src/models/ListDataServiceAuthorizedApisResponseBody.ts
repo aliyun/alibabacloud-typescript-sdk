@@ -16,7 +16,7 @@ export class ListDataServiceAuthorizedApisResponseBodyDataApiAuthorizedList exte
    * The name of the API.
    * 
    * @example
-   * My API Name
+   * My API name
    */
   apiName?: string;
   /**

@@ -8,7 +8,7 @@ export class ListShiftSchedulesRequest extends $dara.Model {
    * The Alibaba Cloud account ID. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to view the ID.
    * 
    * @example
-   * 1933790683****
+   * 1933790683*****
    */
   owner?: string;
   /**

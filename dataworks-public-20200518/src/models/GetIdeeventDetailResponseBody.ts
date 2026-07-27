@@ -24,7 +24,7 @@ export class GetIDEEventDetailResponseBodyEventDetailCommittedFileFilePropertyCo
    * The name of the data source with which the file is associated.
    * 
    * @example
-   * odps_first
+   * odps_source
    */
   dataSourceName?: string;
   /**
@@ -502,7 +502,7 @@ export class GetIDEEventDetailResponseBodyEventDetailDeletedFile extends $dara.M
    * The name of the data source with which the file is associated.
    * 
    * @example
-   * odps_first
+   * odps_source
    */
   dataSourceName?: string;
   /**
@@ -633,7 +633,7 @@ export class GetIDEEventDetailResponseBodyEventDetailFileExecutionCommand extend
    * The name of the data source with which the file is associated.
    * 
    * @example
-   * odps_first
+   * odps_source
    */
   dataSourceName?: string;
   /**
@@ -761,7 +761,7 @@ export class GetIDEEventDetailResponseBodyEventDetailTableModel extends $dara.Mo
    * The name of the data source to which the table belongs.
    * 
    * @example
-   * odps_first
+   * odps_source
    */
   dataSourceName?: string;
   /**

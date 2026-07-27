@@ -8,7 +8,7 @@ export class ListTableLevelResponseBodyTableLevelInfoLevelList extends $dara.Mod
    * The description of the table level.
    * 
    * @example
-   * test
+   * Level description
    */
   description?: string;
   /**
@@ -32,7 +32,7 @@ export class ListTableLevelResponseBodyTableLevelInfoLevelList extends $dara.Mod
    * The name of the table level.
    * 
    * @example
-   * test
+   * Level 1
    */
   name?: string;
   /**

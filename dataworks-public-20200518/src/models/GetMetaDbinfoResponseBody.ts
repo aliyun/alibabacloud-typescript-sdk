@@ -24,7 +24,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
    * The comment.
    * 
    * @example
-   * The ID of the compute engine instance. The ID is in the Engine type.Engine name format.
+   * Remarks
    */
   comment?: string;
   /**
@@ -80,7 +80,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
    * The ID of the Alibaba Cloud account used by the workspace owner.
    * 
    * @example
-   * 23
+   * userId
    */
   ownerId?: string;
   /**
@@ -88,7 +88,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
    * The name of the workspace owner.
    * 
    * @example
-   * 323
+   * my_name
    */
   ownerName?: string;
   /**
@@ -112,7 +112,7 @@ export class GetMetaDBInfoResponseBodyData extends $dara.Model {
    * The display name of the workspace.
    * 
    * @example
-   * The storage path of the metadatabase of the EMR cluster.
+   * 测试项目
    */
   projectNameCn?: string;
   /**

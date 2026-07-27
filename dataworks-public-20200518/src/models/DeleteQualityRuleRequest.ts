@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID.
+   * The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID.
    * 
    * @example
    * 10000
@@ -23,7 +23,7 @@ export class DeleteQualityRuleRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The monitoring rule ID.
+   * The ID of the data quality rule.
    * 
    * This parameter is required.
    * 

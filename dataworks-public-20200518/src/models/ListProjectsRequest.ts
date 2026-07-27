@@ -8,7 +8,7 @@ export class ListProjectsRequestTags extends $dara.Model {
    * The key of tag N to add to the workspace.
    * 
    * @example
-   * Env
+   * key
    */
   key?: string;
   /**
@@ -16,7 +16,7 @@ export class ListProjectsRequestTags extends $dara.Model {
    * The value of tag N to add to the workspace.
    * 
    * @example
-   * Test
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -64,7 +64,7 @@ export class ListProjectsRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmzbn7pti3zfa
+   * rg-acfmzbn7pt****
    */
   resourceManagerResourceGroupId?: string;
   /**

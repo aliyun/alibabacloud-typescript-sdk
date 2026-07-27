@@ -39,8 +39,9 @@ export class UpdateTableThemeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -50,8 +51,9 @@ export class UpdateTableThemeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the update result is returned. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

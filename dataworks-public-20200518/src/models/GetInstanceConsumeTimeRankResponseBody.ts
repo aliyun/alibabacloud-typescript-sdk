@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRankConsumeTimeRank extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp of the instance.
+   * The data timestamp on which the instance was run.
    * 
    * @example
    * 1600963200000
@@ -21,7 +21,7 @@ export class GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRankConsum
   consumed?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * 95279527
@@ -29,7 +29,7 @@ export class GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRankConsum
   instanceId?: number;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the task node.
    * 
    * @example
    * 9527
@@ -38,11 +38,14 @@ export class GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRankConsum
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the node owner.
+   * The Alibaba Cloud UID of the node owner.
    * 
    * @example
    * 952795279527
@@ -50,7 +53,7 @@ export class GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRankConsum
   owner?: string;
   /**
    * @remarks
-   * The type of the node.
+   * The type of the task.
    * 
    * @example
    * 10
@@ -92,7 +95,7 @@ export class GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRankConsum
 export class GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRank extends $dara.Model {
   /**
    * @remarks
-   * The ranking data of the running durations of instances.
+   * The ranking data of instance running durations.
    */
   consumeTimeRank?: GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRankConsumeTimeRank[];
   /**
@@ -132,12 +135,12 @@ export class GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRank exten
 export class GetInstanceConsumeTimeRankResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ranking record of the running durations of instances.
+   * The ranking records of instance running durations.
    */
   instanceConsumeTimeRank?: GetInstanceConsumeTimeRankResponseBodyInstanceConsumeTimeRank;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID generated for each request.
    * 
    * @example
    * 6347364dadsfadf****

@@ -159,7 +159,7 @@ export class UpdateDataSourceRequest extends $dara.Model {
    *         }
    * 
    * @example
-   * {"accessId":"xssssss","accessKey":"xsaxsaxsa","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}
+   * {"accessId":"*****","accessKey":"*****","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}
    */
   content?: string;
   /**

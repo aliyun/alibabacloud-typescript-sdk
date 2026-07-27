@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaTablePartitionResponseBodyDataDataEntityList extends $dara.Model {
   /**
    * @remarks
-   * The comment.
+   * The remarks.
    * 
    * @example
-   * test
+   * Remarks
    */
   comment?: string;
   /**
    * @remarks
-   * The time when the partition was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The creation time. Unit: milliseconds.
    * 
    * @example
    * 1590032868000
@@ -21,7 +21,7 @@ export class GetMetaTablePartitionResponseBodyDataDataEntityList extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The size of the partition. Unit: bytes.
+   * The partition size. Unit: bytes.
    * 
    * @example
    * 19
@@ -29,7 +29,7 @@ export class GetMetaTablePartitionResponseBodyDataDataEntityList extends $dara.M
   dataSize?: number;
   /**
    * @remarks
-   * The time when the partition was modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The modification time. Unit: milliseconds.
    * 
    * @example
    * 1590032868000
@@ -37,7 +37,7 @@ export class GetMetaTablePartitionResponseBodyDataDataEntityList extends $dara.M
   modifiedTime?: number;
   /**
    * @remarks
-   * The GUID of the partition.
+   * The unique identifier of the partition.
    * 
    * @example
    * odps.engine_name.table_name.pt=20170614
@@ -61,7 +61,7 @@ export class GetMetaTablePartitionResponseBodyDataDataEntityList extends $dara.M
   partitionName?: string;
   /**
    * @remarks
-   * The path of the partition.
+   * The directory of the partition.
    * 
    * @example
    * abc
@@ -77,7 +77,7 @@ export class GetMetaTablePartitionResponseBodyDataDataEntityList extends $dara.M
   partitionType?: string;
   /**
    * @remarks
-   * The number of entries in the partition.
+   * The record count.
    * 
    * @example
    * 233
@@ -85,7 +85,7 @@ export class GetMetaTablePartitionResponseBodyDataDataEntityList extends $dara.M
   recordCount?: number;
   /**
    * @remarks
-   * The unique identifier of the metatable.
+   * The unique identifier of the table.
    * 
    * @example
    * odps.engine_name.table_name
@@ -195,12 +195,12 @@ export class GetMetaTablePartitionResponseBodyData extends $dara.Model {
 export class GetMetaTablePartitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: GetMetaTablePartitionResponseBodyData;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -208,7 +208,7 @@ export class GetMetaTablePartitionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The connection does not exist.
@@ -216,7 +216,7 @@ export class GetMetaTablePartitionResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200

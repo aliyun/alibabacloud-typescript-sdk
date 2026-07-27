@@ -74,7 +74,7 @@ export class CreateRemindRequest extends $dara.Model {
    * *   If the RemindType parameter is set to TIMEOUT, set this parameter to the timeout period. Unit: seconds. Example: 1800. This value indicates that an alert is reported if the node has run for more than 30 minutes.
    * 
    * @example
-   * {"hour":23,"minu":59}
+   * {"hour":"23","minu":"59"}
    */
   detail?: string;
   /**

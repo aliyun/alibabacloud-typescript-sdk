@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DsgQuerySensResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the field.
+   * The field name.
    * 
    * @example
    * col
@@ -13,11 +13,10 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   col?: string;
   /**
    * @remarks
-   * The type of the database. Valid values:
-   * 
-   * *   **ODPS.ODPS**
-   * *   **HOLO.POSTGRES**
-   * *   **EMR**
+   * The database type. Valid values:
+   * - **ODPS.ODPS**
+   * - **HOLO.POSTGRES**
+   * - **EMR**
    * 
    * @example
    * ODPS.ODPS
@@ -33,7 +32,7 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The name of a data category.
+   * The classification node name.
    * 
    * @example
    * Personal information
@@ -41,10 +40,9 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The sorting method. Valid values:
-   * 
-   * *   DESC
-   * *   ASC
+   * The sort order. Valid values:
+   * - DESC: descending.
+   * - ASC: ascending.
    * 
    * @example
    * DESC
@@ -52,10 +50,9 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field used for sorting.
-   * 
-   * *   gmt_create
-   * *   gmt_modified
+   * The field used for sorting. Valid values:
+   * - gmt_create
+   * - gmt_modified
    * 
    * @example
    * gmt_create
@@ -63,7 +60,7 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   orderField?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. Minimum value: 1.
    * 
    * @example
    * 1
@@ -79,7 +76,7 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace name.
+   * The name of the DataWorks workspace. Log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace name.
    * 
    * @example
    * project
@@ -87,7 +84,7 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The name of the schema.
+   * The schema name.
    * 
    * @example
    * schema
@@ -95,10 +92,11 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The sensitivity status of the field.
+   * The sensitivity status of the field. Valid values:
    * 
-   * *   1: indicates sensitive.
-   * *   \\-1: indicates non-sensitive.
+   * - sensitive: sensitive.
+   * - noIdentify: not identified.
+   * - noResult: no result.
    * 
    * @example
    * 1
@@ -106,7 +104,7 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   sensStatus?: string;
   /**
    * @remarks
-   * The sensitive field ID.
+   * The ID of the sensitive field.
    * 
    * @example
    * 10241024
@@ -122,7 +120,7 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   sensitiveName?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * table
@@ -130,13 +128,27 @@ export class DsgQuerySensResultRequest extends $dara.Model {
   table?: string;
   /**
    * @remarks
-   * The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
+   * The tenant ID. Log on to the [DataWorks console](https://workbench.data.aliyun.com/console), go to the DataStudio page, click the username in the upper-right corner, and choose Menu > User Info to obtain the tenant ID.
    * 
    * @example
    * 10241024
    */
   tenantId?: string;
+  /**
+   * @remarks
+   * The query end time in the format of yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2026-05-19
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The query start time in the format of yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2026-05-19
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {

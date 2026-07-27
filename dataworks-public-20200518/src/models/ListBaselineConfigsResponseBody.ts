@@ -88,7 +88,7 @@ export class ListBaselineConfigsResponseBodyDataBaselines extends $dara.Model {
    * The ID of the workspace to which the baseline belongs.
    * 
    * @example
-   * 9527
+   * 100001
    */
   projectId?: number;
   /**

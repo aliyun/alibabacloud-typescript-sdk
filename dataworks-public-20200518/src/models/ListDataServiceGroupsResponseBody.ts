@@ -32,7 +32,7 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResultGroups extends $d
    * The description of the business process.
    * 
    * @example
-   * Test
+   * Workflow description
    */
   description?: string;
   /**
@@ -48,7 +48,7 @@ export class ListDataServiceGroupsResponseBodyGroupPagingResultGroups extends $d
    * The name of the business process.
    * 
    * @example
-   * Test
+   * Workflow name
    */
   groupName?: string;
   /**

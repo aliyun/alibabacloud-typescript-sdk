@@ -7,8 +7,10 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
    * @remarks
    * The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
    * 
-   * *   1: The monitoring rule is a strong rule.
-   * *   0: The monitoring rule is a weak rule. You can specify the strength of a monitoring rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+   * - `1`: The monitoring rule is a strong rule.
+   * 
+   * - `0`: The monitoring rule is a weak rule.
+   *   You can specify a monitoring rule as a strong rule based on your business requirements. If a strong rule is triggered, a critical alert is reported and the scheduling of the task is blocked.
    * 
    * @example
    * 0
@@ -32,7 +34,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+   * The threshold for a critical alert. The threshold specifies the deviation of a monitoring result from the expected value. You can customize the threshold based on your business requirements. If a strong rule is used and a critical alert is triggered, the scheduling of the task is blocked.
    * 
    * @example
    * 40
@@ -56,7 +58,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   expectValue?: string;
   /**
    * @remarks
-   * Indicates whether the monitoring is performed based on a fixed value.
+   * Indicates whether a fixed value is used for the check.
    * 
    * @example
    * true
@@ -80,7 +82,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   historyWarningThreshold?: string;
   /**
    * @remarks
-   * The monitoring rule ID.
+   * The ID of the monitoring rule.
    * 
    * @example
    * 1234
@@ -96,7 +98,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   matchExpression?: string;
   /**
    * @remarks
-   * The ID of the task that is associated with the partition filter expression.
+   * The ID of the method used to collect sample data.
    * 
    * @example
    * 21
@@ -104,7 +106,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   methodId?: number;
   /**
    * @remarks
-   * The method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+   * The name of the method used to collect sample data, such as `avg`, `count`, `sum`, `min`, `max`, `count_distinct`, `user_defined`, `table_count`, `table_size`, `table_dt_load_count`, `table_dt_refuseload_count`, `null_value`, `null_value/table_count`, `(table_count-count_distinct)/table_count`, or `table_count-count_distinct`.
    * 
    * @example
    * count/table_count
@@ -112,7 +114,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   methodName?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account that is used to configure the monitoring rule.
+   * The ID of the Alibaba Cloud account that is used to configure the monitoring rule.
    * 
    * @example
    * 1912****
@@ -144,7 +146,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   property?: string;
   /**
    * @remarks
-   * The field that is used to associate with monitoring rules at the frontend. This parameter can be ignored.
+   * This parameter is not used. You can ignore this parameter.
    * 
    * @example
    * table_count
@@ -152,7 +154,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   propertyKey?: string;
   /**
    * @remarks
-   * The ID of the task that is associated with the partition filter expression.
+   * The internal association ID for the rule details.
    * 
    * @example
    * 132323
@@ -168,11 +170,13 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule type:
+   * The type of the monitoring rule. Valid values:
    * 
-   * *   0: System template rule
-   * *   1: Custom SQL rule
-   * *   1: Custom template rule
+   * - `0`: The monitoring rule is created by the system.
+   * 
+   * - `1`: The monitoring rule is created by a user.
+   * 
+   * - `2`: The monitoring rule is a workspace-level rule.
    * 
    * @example
    * 0
@@ -212,7 +216,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   trend?: string;
   /**
    * @remarks
-   * The threshold for a warning alert. The threshold specifies the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements.
+   * The threshold for a warning alert. The threshold specifies the deviation of a monitoring result from the expected value. You can customize the threshold based on your business requirements.
    * 
    * @example
    * 10
@@ -300,7 +304,7 @@ export class ListQualityRulesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The number of entries per page. A valid value is 1 to 100. Default value: 10.
    * 
    * @example
    * 20
@@ -308,7 +312,7 @@ export class ListQualityRulesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The details of the validation rule.
+   * The details of the quality rule.
    */
   rules?: ListQualityRulesResponseBodyDataRules[];
   /**
@@ -352,7 +356,7 @@ export class ListQualityRulesResponseBodyData extends $dara.Model {
 export class ListQualityRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of retrieved rules.
+   * The paginated list of quality rules.
    */
   data?: ListQualityRulesResponseBodyData;
   /**
@@ -381,7 +385,7 @@ export class ListQualityRulesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can troubleshoot errors based on the ID.
+   * The ID of the request.
    * 
    * @example
    * 38cbdef0-f6cf-49****
@@ -391,8 +395,9 @@ export class ListQualityRulesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

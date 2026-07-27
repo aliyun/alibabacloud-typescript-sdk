@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaDBTableListResponseBodyDataTableEntityList extends $dara.Model {
   /**
    * @remarks
-   * The name of the metadatabase.
+   * The name of the database.
    * 
    * @example
    * abc
@@ -13,7 +13,7 @@ export class GetMetaDBTableListResponseBodyDataTableEntityList extends $dara.Mod
   databaseName?: string;
   /**
    * @remarks
-   * The GUID of the metatable.
+   * The unique identifier of the table.
    * 
    * @example
    * odps.engine_name.tname
@@ -21,7 +21,7 @@ export class GetMetaDBTableListResponseBodyDataTableEntityList extends $dara.Mod
   tableGuid?: string;
   /**
    * @remarks
-   * The name of the metatable.
+   * The name of the table.
    * 
    * @example
    * tname
@@ -63,7 +63,7 @@ export class GetMetaDBTableListResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -71,12 +71,12 @@ export class GetMetaDBTableListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of metatables in the compute engine instance.
+   * A list of table details.
    */
   tableEntityList?: GetMetaDBTableListResponseBodyDataTableEntityList[];
   /**
    * @remarks
-   * The total number of compute engine instances returned.
+   * The total number of tables.
    * 
    * @example
    * 20
@@ -115,12 +115,12 @@ export class GetMetaDBTableListResponseBodyData extends $dara.Model {
 export class GetMetaDBTableListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The metatable information in a compute engine instance.
+   * Information about the tables in the engine instance.
    */
   data?: GetMetaDBTableListResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID for this request.
    * 
    * @example
    * 0bc1ec92159376

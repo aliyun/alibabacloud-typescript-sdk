@@ -152,7 +152,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
    * The ID of the workspace to which the node that triggered the event belongs.
    * 
    * @example
-   * 1234
+   * 123456
    */
   projectId?: number;
   /**

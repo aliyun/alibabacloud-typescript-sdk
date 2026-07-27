@@ -24,7 +24,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * The environment of the workspace. Valid values: PROD and DEV.
    * 
    * @example
-   * odps_first_dev
+   * odps_source_dev
    */
   connection?: string;
   /**
@@ -79,7 +79,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * @remarks
    * The file ID.
    * 
-   * **
+   * \\*\\*
    * 
    * **Warning** The field is deprecated.
    * 
@@ -123,13 +123,16 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * @remarks
    * The scheduling type of the node. Valid values:
    * 
-   * *   NORMAL: The node is an auto triggered node.
-   * *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
-   * *   PAUSE: The node is a paused node.
-   * *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+   * - NORMAL: The node is an auto triggered node.
+   * 
+   * - MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
+   * 
+   * - PAUSE: The node is a paused node.
+   * 
+   * - SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
    * 
    * @example
-   * The ID of the baseline.
+   * Sql node
    */
   nodeName?: string;
   /**
@@ -217,7 +220,7 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
-   * The table and partition filter expression in Data Quality that are associated with the node.
+   * Default resource group
    */
   resGroupName?: string;
   /**

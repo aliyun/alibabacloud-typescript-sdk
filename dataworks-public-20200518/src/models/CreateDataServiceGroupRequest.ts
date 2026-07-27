@@ -18,7 +18,7 @@ export class CreateDataServiceGroupRequest extends $dara.Model {
    * The description of the business process.
    * 
    * @example
-   * Test business process
+   * Test workflow
    */
   description?: string;
   /**
@@ -28,7 +28,7 @@ export class CreateDataServiceGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Business process name
+   * Workflow name
    */
   groupName?: string;
   /**

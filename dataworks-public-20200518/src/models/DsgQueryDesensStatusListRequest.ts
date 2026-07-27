@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DsgQueryDesensStatusListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Query keyword
+   * 
    * @example
    * my
    */
   keyword?: string;
   /**
    * @remarks
+   * Page number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DsgQueryDesensStatusListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class DsgQueryDesensStatusListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * Primary scene code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +42,9 @@ export class DsgQueryDesensStatusListRequest extends $dara.Model {
    */
   sceneCode?: string;
   /**
+   * @remarks
+   * Scene ID. Only required when querying project workspace switch data.
+   * 
    * @example
    * 124
    */

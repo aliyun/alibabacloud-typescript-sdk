@@ -10,7 +10,7 @@ export class TopTenErrorTimesInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 9527
+   * 10000001
    */
   projectId?: number;
   static names(): { [key: string]: string } {

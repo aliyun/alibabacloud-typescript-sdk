@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deployment package ID. The ID is used as the value of a specific request parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment operation.
+   * The deployment ID. Call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation with this ID to query the deployment details.
    * 
    * @example
    * 3000001
@@ -37,7 +37,7 @@ export class SubmitFileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used for troubleshooting.
    * 
    * @example
    * 0000-ABCD-EFG****

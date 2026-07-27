@@ -16,7 +16,7 @@ export class CheckMetaPartitionRequest extends $dara.Model {
    * The type of the data source. Set the value to odps.
    * 
    * @example
-   * emr
+   * odps
    */
   dataSourceType?: string;
   /**

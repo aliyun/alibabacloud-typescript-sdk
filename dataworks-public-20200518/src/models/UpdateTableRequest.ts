@@ -16,6 +16,9 @@ export class UpdateTableRequestColumns extends $dara.Model {
   /**
    * @remarks
    * The display name of the field.
+   * 
+   * @example
+   * 中文
    */
   columnNameCn?: string;
   /**
@@ -33,7 +36,7 @@ export class UpdateTableRequestColumns extends $dara.Model {
    * The comment of the field.
    * 
    * @example
-   * comment
+   * 备注
    */
   comment?: string;
   /**
@@ -160,15 +163,16 @@ export class UpdateTableRequest extends $dara.Model {
    * The comment.
    * 
    * @example
-   * comment
+   * Remarks
    */
   comment?: string;
   /**
    * @remarks
    * Specifies whether the table exists. Valid values:
    * 
-   * *   true: The table exists.
-   * *   false: The table does not exist.
+   * - true: The table exists.
+   * 
+   * - false: The table does not exist.
    * 
    * This parameter is deprecated. Do not use this parameter.
    * 

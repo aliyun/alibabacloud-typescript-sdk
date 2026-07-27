@@ -12,8 +12,9 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotific
    * @remarks
    * The severity level. Valid values:
    * 
-   * *   Warning
-   * *   Critical
+   * - Warning
+   * 
+   * - Critical
    * 
    * @example
    * Warning
@@ -50,8 +51,9 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesNotific
    * @remarks
    * The recipient type. Valid values: AliyunUid and DingToken.
    * 
-   * *   If the alert notification method is Mail, Phone, or Sms, the value of this parameter is **AliyunUid**, which indicates the Alibaba Cloud account ID.
-   * *   If the alert notification method is Ding, the value of this parameter is **DingToken**, which indicates the DingTalk chatbot token.
+   * - If the alert notification method is Mail, Phone, or Sms, the value of this parameter is **AliyunUid**, which indicates the Alibaba Cloud account ID.
+   * 
+   * - If the alert notification method is Ding, the value of this parameter is **DingToken**, which indicates the DingTalk chatbot token.
    * 
    * @example
    * DingToken
@@ -151,8 +153,9 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTrigger
    * @remarks
    * The severity level. Valid values:
    * 
-   * *   Warning
-   * *   Critical
+   * - Warning
+   * 
+   * - Critical
    * 
    * @example
    * Warning
@@ -162,9 +165,11 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRulesTrigger
    * @remarks
    * The alert threshold.
    * 
-   * *   If the alert rule is for task status, no threshold is used.
-   * *   If the alert rule is for failovers, the threshold is the number of failovers.
-   * *   If the alert rule is for latency, the threshold is the latency duration, in seconds.
+   * - If the alert rule is for task status, no threshold is used.
+   * 
+   * - If the alert rule is for failovers, the threshold is the number of failovers.
+   * 
+   * - If the alert rule is for latency, the threshold is the latency duration, in seconds.
    * 
    * @example
    * 5
@@ -232,9 +237,11 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules extend
    * @remarks
    * The metric type in the alert rule. Valid values:
    * 
-   * *   Heartbeat
-   * *   FailoverCount
-   * *   Delay
+   * - Heartbeat
+   * 
+   * - FailoverCount
+   * 
+   * - Delay
    * 
    * @example
    * Heartbeat
@@ -360,7 +367,7 @@ export class ListDIAlarmRulesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 74C2FECD-5B3A-554A-BCF5-351A36DE9815
+   * 74C2FECD-5B3A-554A-BCF5-35****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

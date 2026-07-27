@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRemindResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the custom alert rule is deleted. Valid values: true and false. The value true indicates that the custom alert rule is deleted. The value false indicates that the custom alert rule fails to be deleted.
+   * Indicates whether the deletion was successful. Valid values: true (success) and false (failure).
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DeleteRemindResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * 1031203110005
@@ -21,7 +21,7 @@ export class DeleteRemindResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The specified parameters are invalid.
@@ -29,7 +29,7 @@ export class DeleteRemindResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class DeleteRemindResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to troubleshoot issues.
+   * The unique request ID. Use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG****

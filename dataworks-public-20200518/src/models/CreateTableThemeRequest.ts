@@ -20,7 +20,7 @@ export class CreateTableThemeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * Topic name
    */
   name?: string;
   /**

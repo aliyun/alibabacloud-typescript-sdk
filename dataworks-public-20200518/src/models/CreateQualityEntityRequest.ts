@@ -7,28 +7,13 @@ export class CreateQualityEntityRequest extends $dara.Model {
    * @remarks
    * This parameter is deprecated.
    * 
-   * The value 0 indicates that the partition filter expression is at the SQL level, and the system checks data quality after each SQL statement is executed.
-   * 
-   * * 0
-   * * 1
-   * 
    * @example
    * 0
    */
   entityLevel?: number;
   /**
    * @remarks
-   * The type of the compute engine or data source.
-   * 
-   * Valid values:
-   * 
-   * *   odps
-   * *   emr
-   * *   hadoop
-   * *   cdh
-   * *   analyticdb_for_mysql
-   * *   hybriddb_for_postgresql
-   * *   holodb
+   * The type of the engine or data source. Valid values: ODPS, EMR, CDH, and HOLO.
    * 
    * This parameter is required.
    * 
@@ -38,7 +23,7 @@ export class CreateQualityEntityRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The partition filter expression.
+   * The partition expression.
    * 
    * This parameter is required.
    * 
@@ -48,7 +33,7 @@ export class CreateQualityEntityRequest extends $dara.Model {
   matchExpression?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the DataWorks console to query the ID.
+   * The ID of the DataWorks workspace. You can go to the DataWorks console to obtain the workspace ID.
    * 
    * @example
    * 123
@@ -56,7 +41,7 @@ export class CreateQualityEntityRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the compute engine or data source.
+   * The name of the engine or data source.
    * 
    * This parameter is required.
    * 

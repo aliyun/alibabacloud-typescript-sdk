@@ -13,7 +13,8 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   administrator?: string;
   /**
    * @remarks
-   * - ALBUM: data album 
+   * - ALBUM: data album
+   * 
    * - ALBUM_CATEGORY: category in a data album
    * 
    * This parameter is required.
@@ -43,7 +44,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
    * The keyword.
    * 
    * @example
-   * test
+   * Keyword
    */
   keyword?: string;
   /**
@@ -59,7 +60,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
    * The name of the sorting field.
    * 
    * @example
-   * test
+   * Sort field
    */
   orderBy?: string;
   /**

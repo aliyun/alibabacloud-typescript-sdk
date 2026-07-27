@@ -16,15 +16,16 @@ export class CreateDISyncTaskResponseBodyData extends $dara.Model {
    * The error message that is returned if the data synchronization task fails to be created. If the data synchronization task is successfully created, this parameter is not returned. If the data synchronization task fails to be created, an error message in the "Invalid path: Workflow/xxxx/Data Integration" format is returned.
    * 
    * @example
-   * Invalid path: Business Flow/xxxx/Data Integration
+   * Invalid directory path: workflow/xxxx/data integration.
    */
   message?: string;
   /**
    * @remarks
    * The creation status of the data synchronization task. Valid values:
    * 
-   * *   success
-   * *   fail
+   * - success
+   * 
+   * - fail
    * 
    * @example
    * success

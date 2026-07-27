@@ -10,7 +10,7 @@ export class GetBusinessRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1000000001
+   * 1000000111
    */
   businessId?: number;
   /**

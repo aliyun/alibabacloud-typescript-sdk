@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaDBTableListRequest extends $dara.Model {
   /**
    * @remarks
-   * The GUID of the MaxCompute project. Specify the GUID in the `odps.{projectName}` format. You must configure this parameter only if you set the DataSourceType parameter to odps.
+   * The unique identifier for the project, in the format `odps.{projectName}`. This parameter is required only if the `DataSourceType` is set to `odps`.
    * 
    * @example
    * odps.testProjectName
@@ -13,7 +13,7 @@ export class GetMetaDBTableListRequest extends $dara.Model {
   appGuid?: string;
   /**
    * @remarks
-   * The E-MapReduce (EMR) cluster ID. You must configure this parameter only if you set the DataSourceType parameter to emr.
+   * The ID of the E-MapReduce (EMR) cluster. This parameter is required only if the `DataSourceType` is set to `emr`.
    * 
    * @example
    * abc
@@ -21,7 +21,7 @@ export class GetMetaDBTableListRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps and emr.
+   * The type of the data source. Valid values: `odps` and `emr`.
    * 
    * @example
    * odps
@@ -29,7 +29,7 @@ export class GetMetaDBTableListRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The name of the metadatabase.
+   * The name of the database.
    * 
    * @example
    * abc
@@ -37,7 +37,7 @@ export class GetMetaDBTableListRequest extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number to return.
    * 
    * @example
    * 1
@@ -45,10 +45,10 @@ export class GetMetaDBTableListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 1,000.
    * 
    * @example
-   * 10
+   * 100
    */
   pageSize?: number;
   static names(): { [key: string]: string } {

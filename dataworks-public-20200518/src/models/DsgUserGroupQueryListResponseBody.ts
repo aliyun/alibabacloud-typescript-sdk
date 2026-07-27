@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DsgUserGroupQueryListResponseBodyPageDataData extends $dara.Model {
   /**
    * @remarks
-   * The usernames in the user group.
+   * A list of usernames in the user group.
    */
   accounts?: string[];
   /**
@@ -18,7 +18,7 @@ export class DsgUserGroupQueryListResponseBodyPageDataData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the user group was modified.
+   * The time when the user group was last modified.
    * 
    * @example
    * 2024-05-10 17:14:44
@@ -26,7 +26,7 @@ export class DsgUserGroupQueryListResponseBodyPageDataData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * 123
@@ -88,7 +88,10 @@ export class DsgUserGroupQueryListResponseBodyPageDataData extends $dara.Model {
 export class DsgUserGroupQueryListResponseBodyPageData extends $dara.Model {
   /**
    * @remarks
-   * The user groups.
+   * A list of user groups.
+   * 
+   * @example
+   * {     "accounts": [         "role_project_scheduler"     ],     "gmtCreate": "2024-05-10 15:22:18",     "gmtModified": "2024-05-10 15:22:18",     "id": 1955,     "name": "dsg_fin_test-copy",     "owner": "UAT" }
    */
   data?: DsgUserGroupQueryListResponseBodyPageDataData[];
   /**
@@ -109,7 +112,7 @@ export class DsgUserGroupQueryListResponseBodyPageData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of user groups returned.
+   * The total number of user groups.
    * 
    * @example
    * 100
@@ -172,7 +175,7 @@ export class DsgUserGroupQueryListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The pagination information.
+   * The paginated query results.
    */
   pageData?: DsgUserGroupQueryListResponseBodyPageData;
   /**
@@ -187,8 +190,9 @@ export class DsgUserGroupQueryListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

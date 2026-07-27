@@ -10,7 +10,7 @@ export class DeleteFileRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10000001
+   * 10000201
    */
   fileId?: number;
   /**

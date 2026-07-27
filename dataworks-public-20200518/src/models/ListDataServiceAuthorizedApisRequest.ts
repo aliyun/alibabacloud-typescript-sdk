@@ -8,7 +8,7 @@ export class ListDataServiceAuthorizedApisRequest extends $dara.Model {
    * The keyword in API names. The keyword is used to search for the APIs whose names contain the keyword.
    * 
    * @example
-   * My API Name
+   * My API name
    */
   apiNameKeyword?: string;
   /**
@@ -16,7 +16,7 @@ export class ListDataServiceAuthorizedApisRequest extends $dara.Model {
    * The page number. Pages start from page 1. Default value: 1.
    * 
    * @example
-   * 1
+   * PageNumber
    */
   pageNumber?: number;
   /**

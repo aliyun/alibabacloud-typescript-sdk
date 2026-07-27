@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityResultsByEntityResponseBodyDataRuleChecksReferenceValue extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp. In most cases, if the monitored business entity is offline data, the value is one day before the monitoring is performed.
+   * The business date. If the monitored data is offline, the business date is typically the day before the check is performed.
    * 
    * @example
    * 2020-12-03
@@ -13,7 +13,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecksReferenceValue 
   bizDate?: string;
   /**
    * @remarks
-   * The values of the sample field that are grouped by using the GROUP BY clause. For example, the values of the Gender field are grouped by using the GROUP BY clause. In this case, the values of the DiscreteProperty parameter are Male, Female, and null.
+   * The value of the sample field when a `group by` clause is used. For example, if you group by the gender field, the values for `DiscreteProperty` can be male, female, or null.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecksReferenceValue 
   discreteProperty?: string;
   /**
    * @remarks
-   * The check result.
+   * The result of a single check.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecksReferenceValue 
   singleCheckResult?: number;
   /**
    * @remarks
-   * The threshold.
+   * The threshold that was applied to this historical data point.
    * 
    * @example
    * 0.5
@@ -37,7 +37,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecksReferenceValue 
   threshold?: number;
   /**
    * @remarks
-   * The check value.
+   * The historical check value.
    * 
    * @example
    * 19
@@ -75,7 +75,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecksReferenceValue 
 export class ListQualityResultsByEntityResponseBodyDataRuleChecksSampleValue extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp. In most cases, if the monitored business entity is offline data, the value is one day before the monitoring is performed.
+   * The business date. If the monitored data is offline, the business date is typically the day before the check is performed.
    * 
    * @example
    * 2020-12-03
@@ -83,7 +83,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecksSampleValue ext
   bizDate?: string;
   /**
    * @remarks
-   * The values of the sample field that are grouped by using the GROUP BY clause. For example, the values of the Gender field are grouped by using the GROUP BY clause. In this case, the values of the DiscreteProperty parameter are Male, Female, and null.
+   * The value of the sample field when a `group by` clause is used. For example, if you group by the gender field, the values for `DiscreteProperty` can be male, female, or null.
    * 
    * @example
    * 0
@@ -125,7 +125,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecksSampleValue ext
 export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.Model {
   /**
    * @remarks
-   * The monitored partition in the data source table.
+   * The expression that specifies the data partition that was checked.
    * 
    * @example
    * ds=20200912
@@ -133,7 +133,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   actualExpression?: string;
   /**
    * @remarks
-   * The time when the monitoring started.
+   * The start time of the check. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1600704000000
@@ -141,7 +141,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   beginTime?: number;
   /**
    * @remarks
-   * The data timestamp. In most cases, if the monitored business entity is offline data, the value is one day before the monitoring is performed.
+   * The business date. If the monitored data is offline, the business date is typically the day before the check is performed.
    * 
    * @example
    * 1600704000000
@@ -149,10 +149,11 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   bizDate?: number;
   /**
    * @remarks
-   * The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
+   * The strength of the monitoring rule. Valid values:
    * 
-   * *   1: the monitoring rule is a strong rule.
-   * *   0: the monitoring rule is a weak rule. You can specify whether a monitoring rule is a strong rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+   * - 1: Strong Rule. If a Strong Rule check generates a critical alert, the associated Scheduling Task is blocked.
+   * 
+   * - 0: Weak Rule.
    * 
    * @example
    * 0
@@ -160,11 +161,13 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   blockType?: number;
   /**
    * @remarks
-   * The check result. The value of this parameter is the same as the value of the CheckResultStatus parameter. Valid values:
+   * The check result. This parameter usually has the same value as `CheckResultStatus`. Valid values:
    * 
-   * *   0: indicates that the data source table is normal.
-   * *   1: indicates that a warning alert is reported.
-   * *   2: indicates that a critical alert is reported.
+   * - 0: Normal
+   * 
+   * - 1: Warning
+   * 
+   * - 2: Critical
    * 
    * @example
    * 0
@@ -172,11 +175,13 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   checkResult?: number;
   /**
    * @remarks
-   * The check result of the monitoring rule. Valid values:
+   * The status of the check result. This parameter corresponds to the status displayed in the UI. Valid values:
    * 
-   * *   0: indicates that the data source table is normal.
-   * *   1: indicates that a warning alert is reported.
-   * *   2: indicates that a critical alert is reported.
+   * - 0: Normal
+   * 
+   * - 1: Warning
+   * 
+   * - 2: Critical
    * 
    * @example
    * 0
@@ -184,7 +189,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   checkResultStatus?: number;
   /**
    * @remarks
-   * The checker ID.
+   * The ID of the checker.
    * 
    * @example
    * 7
@@ -200,11 +205,13 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   checkerName?: string;
   /**
    * @remarks
-   * The check type. Valid values:
+   * The type of the checker. Valid values:
    * 
-   * *   0: indicates that the monitoring is performed based on a fixed value.
-   * *   1: indicates that the monitoring is performed based on a non-fixed value.
-   * *   2: indicates that the monitoring is performed based on a dynamic threshold.
+   * - 0: Fixed Value
+   * 
+   * - 1: Fluctuation
+   * 
+   * - 2: Dynamic Threshold
    * 
    * @example
    * 1
@@ -220,7 +227,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   comment?: string;
   /**
    * @remarks
-   * The threshold for a critical alert. The threshold indicates the deviation of the check result from the expected value. You can specify a value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+   * The acceptable deviation from the expected value that triggers a critical alert. This threshold is customizable. If a critical alert is triggered for a Strong Rule, the associated Scheduling Task is blocked.
    * 
    * @example
    * 0.5
@@ -228,7 +235,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   criticalThreshold?: number;
   /**
    * @remarks
-   * The scheduling frequency. In most cases, the value of this parameter is YMD. This value indicates year, month, and day.
+   * The scheduling cycle. A common value is YMD, which represents year, month, and day.
    * 
    * @example
    * YMD
@@ -236,10 +243,11 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   dateType?: string;
   /**
    * @remarks
-   * Indicates whether the monitoring is discrete monitoring. Valid values:
+   * Specifies whether the check is a discrete check. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The check is a discrete check.
+   * 
+   * - false: The check is not a discrete check.
    * 
    * @example
    * true
@@ -247,7 +255,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   discreteCheck?: boolean;
   /**
    * @remarks
-   * The deadline for querying the check result.
+   * The end time of the check. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1600704000000
@@ -271,7 +279,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   expectValue?: number;
   /**
    * @remarks
-   * The node ID.
+   * The Node ID of the Scheduling Task.
    * 
    * @example
    * 1112323123
@@ -279,7 +287,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   externalId?: string;
   /**
    * @remarks
-   * The type of the scheduling system. Only CWF scheduling systems are supported.
+   * The type of the scheduling system. Currently, only CWF is supported.
    * 
    * @example
    * CWF2
@@ -287,10 +295,11 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   externalType?: string;
   /**
    * @remarks
-   * Indicates whether the monitoring is performed based on a fixed value. Valid values:
+   * Specifies whether the check is based on a fixed value. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The check is based on a fixed value.
+   * 
+   * - false: The check is not based on a fixed value.
    * 
    * @example
    * false
@@ -298,7 +307,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   fixedCheck?: boolean;
   /**
    * @remarks
-   * The primary key ID.
+   * The unique ID of the check result.
    * 
    * @example
    * 121212121
@@ -306,10 +315,11 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   id?: number;
   /**
    * @remarks
-   * Indicates whether the check result is the same as the predicted result. Valid values:
+   * Specifies whether the result is a predicted value. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The result is a predicted value.
+   * 
+   * - false: The result is not a predicted value.
    * 
    * @example
    * true
@@ -317,7 +327,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   isPrediction?: boolean;
   /**
    * @remarks
-   * The lower limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specify.
+   * The predicted lower limit. This value is automatically generated after you set a threshold.
    * 
    * @example
    * 2344
@@ -333,7 +343,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   matchExpression?: string;
   /**
    * @remarks
-   * The method used to collect sample data, such as such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+   * The method for collecting sample data. Valid values include `avg`, `count`, `sum`, `min`, `max`, `count_distinct`, `user_defined`, `table_count`, `table_size`, `table_dt_load_count`, `table_dt_refuseload_count`, `null_value`, `null_value/table_count`, `(table_count-count_distinct)/table_count`, and `table_count-count_distinct`.
    * 
    * @example
    * count_distinct
@@ -349,7 +359,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   op?: string;
   /**
    * @remarks
-   * The name of the compute engine or data source for which data quality is monitored.
+   * The name of the monitored compute engine or Data Source.
    * 
    * @example
    * autotest
@@ -357,7 +367,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   projectName?: string;
   /**
    * @remarks
-   * The field whose data quality is checked based on the monitoring rule. This field is a column in the data source table that is monitored.
+   * The name of the monitored column in the Data Source table.
    * 
    * @example
    * type
@@ -370,7 +380,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   referenceValue?: ListQualityResultsByEntityResponseBodyDataRuleChecksReferenceValue[];
   /**
    * @remarks
-   * The string of the check result.
+   * The check result, returned as a string.
    * 
    * @example
    * test
@@ -378,7 +388,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   resultString?: string;
   /**
    * @remarks
-   * The ID of the monitoring rule.
+   * The monitoring rule ID.
    * 
    * @example
    * 123123232
@@ -394,7 +404,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   ruleName?: string;
   /**
    * @remarks
-   * The current sample value.
+   * The current sample values.
    */
   sampleValue?: ListQualityResultsByEntityResponseBodyDataRuleChecksSampleValue[];
   /**
@@ -407,7 +417,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   tableName?: string;
   /**
    * @remarks
-   * The monitoring task ID.
+   * The ID of the check task.
    * 
    * @example
    * 16008552981681a0d6****
@@ -415,7 +425,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   taskId?: string;
   /**
    * @remarks
-   * The ID of the monitoring template.
+   * The ID of the rule template.
    * 
    * @example
    * 5
@@ -423,7 +433,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   templateId?: number;
   /**
    * @remarks
-   * The name of the monitoring template.
+   * The name of the rule template.
    * 
    * @example
    * Expected value verification
@@ -431,7 +441,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   templateName?: string;
   /**
    * @remarks
-   * The time that was taken to run the monitoring task. Unit: seconds.
+   * The time taken to run the check, in seconds.
    * 
    * @example
    * 202
@@ -447,7 +457,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   trend?: string;
   /**
    * @remarks
-   * The upper limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specify.
+   * The predicted upper limit. This value is automatically generated after you set a threshold.
    * 
    * @example
    * 25555
@@ -455,7 +465,7 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   upperValue?: number;
   /**
    * @remarks
-   * The threshold for a warning alert. The threshold indicates the deviation of the check result from the expected value. You can customize this threshold based on your business requirements.
+   * The warning threshold. This value indicates the acceptable deviation from the expected value. You can customize this threshold based on your business requirements.
    * 
    * @example
    * 0.1
@@ -595,12 +605,12 @@ export class ListQualityResultsByEntityResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The returned check results.
+   * The monitoring rule check results.
    */
   ruleChecks?: ListQualityResultsByEntityResponseBodyDataRuleChecks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 50
@@ -639,7 +649,7 @@ export class ListQualityResultsByEntityResponseBodyData extends $dara.Model {
 export class ListQualityResultsByEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data structure of the check results.
+   * The data object that contains the quality check results.
    */
   data?: ListQualityResultsByEntityResponseBodyData;
   /**
@@ -668,7 +678,7 @@ export class ListQualityResultsByEntityResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CBA58543-00D4-41****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DsgDesensPlanAddOrUpdateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution result of adding or modifying a data masking rule.
+   * Indicates whether the add or update operation was successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DsgDesensPlanAddOrUpdateResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The request ID. You can use the ID to trace logs and troubleshoot issues.
    * 
    * @example
    * 102400001
@@ -45,7 +45,7 @@ export class DsgDesensPlanAddOrUpdateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true false
+   * Indicates whether the request was successful. A value of `true` indicates that the request was successful. A value of `false` indicates that the request failed.
    * 
    * @example
    * true

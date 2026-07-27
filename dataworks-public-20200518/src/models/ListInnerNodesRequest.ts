@@ -18,7 +18,7 @@ export class ListInnerNodesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1234
+   * 12345
    */
   outerNodeId?: number;
   /**

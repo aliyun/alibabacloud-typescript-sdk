@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateQualityRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the monitoring rule is updated.
+   * Indicates whether the validation rule was successfully updated.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class UpdateQualityRuleResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code.
+   * The error code returned when the request fails.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class UpdateQualityRuleResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned when the request fails.
    * 
    * @example
    * You have no permission.
@@ -37,7 +37,7 @@ export class UpdateQualityRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can troubleshoot issues based on the ID.
+   * The ID of the request, used for troubleshooting.
    * 
    * @example
    * 576b9457-2cf5-4****
@@ -45,7 +45,7 @@ export class UpdateQualityRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

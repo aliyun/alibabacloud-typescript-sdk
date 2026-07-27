@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQualityFollowerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the subscription relationship.
+   * The subscription ID.
    * 
    * @example
    * 12345

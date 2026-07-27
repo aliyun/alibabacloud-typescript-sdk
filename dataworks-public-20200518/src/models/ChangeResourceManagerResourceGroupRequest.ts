@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceManagerResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The ID of the resource. The value of this parameter depends on the value of the ResourceType parameter:
+   * 
+   * - If ResourceType is set to project, this parameter specifies the name of the workspace (ProjectIdentifier). You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to obtain the workspace name.
+   * 
+   * - If ResourceType is set to tenantresourcegroup, this parameter specifies the identifier of the exclusive resource group (Identifier). You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/2780075.html) operation to obtain the identifier. This applies only to resource groups of type 7, 8, or 9.
    * 
    * This parameter is required.
    * 
@@ -15,7 +19,7 @@ export class ChangeResourceManagerResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * ChangeResourceManagerResourceGroup
+   * The ID of the destination resource group.
    * 
    * This parameter is required.
    * 
@@ -25,7 +29,11 @@ export class ChangeResourceManagerResourceGroupRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The resource type. Valid values:
+   * 
+   * - project: a workspace. Select this value to change the resource group for a DataWorks edition.
+   * 
+   * - tenantresourcegroup: an exclusive resource group. Select this value to change the resource group for a DataWorks exclusive resource group.
    * 
    * This parameter is required.
    * 

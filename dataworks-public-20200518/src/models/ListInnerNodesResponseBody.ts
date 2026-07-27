@@ -24,7 +24,7 @@ export class ListInnerNodesResponseBodyPagingNodes extends $dara.Model {
    * The connection string.
    * 
    * @example
-   * odps_first
+   * odps_source
    */
   connection?: string;
   /**
@@ -143,10 +143,13 @@ export class ListInnerNodesResponseBodyPagingNodes extends $dara.Model {
    * @remarks
    * The scheduling type of the inner node. Valid values:
    * 
-   * *   NORMAL: The inner node is an auto triggered node.
-   * *   MANUAL: The inner node is a manually triggered node. The scheduling system does not run the node on a regular basis.
-   * *   PAUSE: The inner node is a paused node.
-   * *   SKIP: The inner node is a dry-run node. Dry-run nodes are started as scheduled, but the scheduling system sets the status of the nodes to successful when it starts to run them.
+   * - NORMAL: The inner node is an auto triggered node.
+   * 
+   * - MANUAL: The inner node is a manually triggered node. The scheduling system does not run the node on a regular basis.
+   * 
+   * - PAUSE: The inner node is a paused node.
+   * 
+   * - SKIP: The inner node is a dry-run node. Dry-run nodes are started as scheduled, but the scheduling system sets the status of the nodes to successful when it starts to run them.
    * 
    * @example
    * NORMAL

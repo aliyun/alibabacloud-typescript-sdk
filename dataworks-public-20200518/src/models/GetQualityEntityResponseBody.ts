@@ -15,8 +15,9 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
    * @remarks
    * The level of the partition filter expression. Valid values:
    * 
-   * *   0: The partition filter expression is at the SQL level. This indicates that the system checks data quality after each SQL statement is executed.
-   * *   1: The partition filter expression is at the node level. This indicates that the system checks data quality after all the SQL statements for a node are executed.
+   * - 0 (SQL-level): A data quality check is triggered after each SQL statement is run.
+   * 
+   * - 1 (Task-level): A data quality check is triggered after all SQL statements are run.
    * 
    * @example
    * 0
@@ -24,7 +25,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   entityLevel?: number;
   /**
    * @remarks
-   * The type of the compute engine instance or data source.
+   * The type of the engine or data source.
    * 
    * @example
    * odps
@@ -32,7 +33,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to receive alert notifications.
+   * The subscribers who receive alert notifications. The value is the ID of an Alibaba Cloud account.
    * 
    * @example
    * 1822931****
@@ -40,10 +41,11 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   followers?: string;
   /**
    * @remarks
-   * Indicates whether the partition filter expression is associated with a node. Valid values:
+   * Indicates whether the partition filter expression is associated with a scheduling node. Valid values:
    * 
-   * *   true: The partition filter expression is associated with a node.
-   * *   false: The partition filter expression is not associated with a node.
+   * - true: The partition filter expression is associated with a scheduling node.
+   * 
+   * - false: The partition filter expression is not associated with a scheduling node.
    * 
    * @example
    * true
@@ -67,7 +69,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   matchExpression?: string;
   /**
    * @remarks
-   * The time when the partition filter expression was modified.
+   * The time when the partition filter expression was last updated.
    * 
    * @example
    * 1593964800000
@@ -75,7 +77,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to modify the partition filter expression.
+   * The user who updates the partition filter expression. The value is the ID of an Alibaba Cloud account.
    * 
    * @example
    * 1822931****
@@ -83,7 +85,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   modifyUser?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to configure the partition filter expression.
+   * The owner who configures the partition filter expression. The value is the ID of an Alibaba Cloud account.
    * 
    * @example
    * 1822931****
@@ -91,7 +93,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   onDuty?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account that is used to configure the partition filter expression.
+   * The name of the Alibaba Cloud account of the owner.
    * 
    * @example
    * test
@@ -99,7 +101,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   onDutyAccountName?: string;
   /**
    * @remarks
-   * The name of the compute engine instance or data source.
+   * The name of the engine or data source.
    * 
    * @example
    * autotest
@@ -107,10 +109,11 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The information about the node with which the partition filter expression is associated. The information includes the following items:
+   * The scheduling node that is associated with the partition filter expression. This parameter includes the following sub-parameters:
    * 
-   * *   ProjectName: the name of the workspace to which the node belongs.
-   * *   NodeID: the ID of the node.
+   * - ProjectName: The name of the workspace to which the scheduling node belongs.
+   * 
+   * - NodeID: The ID of the scheduling node.
    * 
    * @example
    * [{"projectName":"xc_DP****","nodeId":7000026****}]
@@ -118,7 +121,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   relativeNode?: string;
   /**
    * @remarks
-   * Indicates that the partition filter expression is at the SQL level.
+   * The SQL-level partition filter expression.
    * 
    * @example
    * 0
@@ -134,7 +137,7 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The node.
+   * The task node.
    * 
    * @example
    * 0
@@ -194,12 +197,12 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
 export class GetQualityEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the partition filter expression.
+   * The data returned.
    */
   data?: GetQualityEntityResponseBodyData[];
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * 401
@@ -207,7 +210,7 @@ export class GetQualityEntityResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * You have no permission.
@@ -215,7 +218,7 @@ export class GetQualityEntityResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -223,7 +226,7 @@ export class GetQualityEntityResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6d739ef6-098a-47****
@@ -231,7 +234,7 @@ export class GetQualityEntityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request succeeded.
    * 
    * @example
    * true

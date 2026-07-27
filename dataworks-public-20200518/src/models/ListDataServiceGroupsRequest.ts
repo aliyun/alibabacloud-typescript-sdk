@@ -8,7 +8,7 @@ export class ListDataServiceGroupsRequest extends $dara.Model {
    * The keyword of a business process name. The keyword is used to search for business processes whose names contain this keyword.
    * 
    * @example
-   * Test business process
+   * Test workflow
    */
   groupNameKeyword?: string;
   /**

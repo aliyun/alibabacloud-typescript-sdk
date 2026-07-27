@@ -8,7 +8,7 @@ export class GetMetaTableThemeLevelResponseBodyEntityLevel extends $dara.Model {
    * The description of the level.
    * 
    * @example
-   * test
+   * Description
    */
   description?: string;
   /**
@@ -31,8 +31,9 @@ export class GetMetaTableThemeLevelResponseBodyEntityLevel extends $dara.Model {
    * @remarks
    * The type of the level. Valid values:
    * 
-   * *   1: indicates the logical level.
-   * *   2: indicates the physical level.
+   * - 1: indicates the logical level.
+   * 
+   * - 2: indicates the physical level.
    * 
    * @example
    * 1
@@ -70,8 +71,9 @@ export class GetMetaTableThemeLevelResponseBodyEntityTheme extends $dara.Model {
    * @remarks
    * The level of the theme. Valid values:
    * 
-   * *   1
-   * *   2
+   * - 1
+   * 
+   * - 2
    * 
    * @example
    * 1

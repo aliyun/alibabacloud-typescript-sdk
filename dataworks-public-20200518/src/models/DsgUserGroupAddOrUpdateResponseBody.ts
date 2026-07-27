@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DsgUserGroupAddOrUpdateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation result. Valid values:
+   * The result of the operation. Valid values:
    * 
-   * *   true: The operation is successful.
-   * *   false: The operation fails.
+   * - `true`: The operation succeeded.
+   * 
+   * - `false`: The operation failed.
    * 
    * @example
    * true
@@ -16,7 +17,7 @@ export class DsgUserGroupAddOrUpdateResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code.
+   * The error code that is returned if the request fails.
    * 
    * @example
    * 1029030003
@@ -24,7 +25,7 @@ export class DsgUserGroupAddOrUpdateResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message that is returned if the request fails.
    * 
    * @example
    * param error
@@ -40,7 +41,7 @@ export class DsgUserGroupAddOrUpdateResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * The ID of the request. This is a common parameter. We recommend that you save this ID. If an issue occurs, you can use the ID to locate logs for troubleshooting.
    * 
    * @example
    * 102400001
@@ -48,10 +49,11 @@ export class DsgUserGroupAddOrUpdateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The request succeeded.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

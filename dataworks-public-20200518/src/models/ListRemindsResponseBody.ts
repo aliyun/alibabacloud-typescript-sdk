@@ -78,7 +78,7 @@ export class ListRemindsResponseBodyDataReminds extends $dara.Model {
    * The name of the custom alert rule.
    * 
    * @example
-   * Alert Rule
+   * Rule name
    */
   remindName?: string;
   /**

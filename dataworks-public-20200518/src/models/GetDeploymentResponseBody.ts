@@ -8,7 +8,7 @@ export class GetDeploymentResponseBodyDataDeployedItems extends $dara.Model {
    * The file ID.
    * 
    * @example
-   * 507642378
+   * 5076****
    */
   fileId?: number;
   /**

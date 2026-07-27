@@ -24,7 +24,7 @@ export class ListDataServiceApisRequest extends $dara.Model {
    * The ID of the Alibaba Cloud account used by the creator of the APIs. The ID is used to search for the APIs created by the creator.
    * 
    * @example
-   * 12345
+   * 123456
    */
   creatorId?: string;
   /**

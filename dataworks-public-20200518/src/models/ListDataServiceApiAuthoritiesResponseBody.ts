@@ -295,7 +295,7 @@ export class ListDataServiceApiAuthoritiesResponseBody extends $dara.Model {
    * Indicates whether the request was successful.
    * 
    * @example
-   * true
+   * Boolean
    */
   success?: boolean;
   static names(): { [key: string]: string } {

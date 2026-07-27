@@ -696,6 +696,12 @@ export { DsgDesensPlanUpdateStatusRequest } from './DsgDesensPlanUpdateStatusReq
 export { DsgDesensPlanUpdateStatusShrinkRequest } from './DsgDesensPlanUpdateStatusShrinkRequest';
 export { DsgDesensPlanUpdateStatusResponseBody } from './DsgDesensPlanUpdateStatusResponseBody';
 export { DsgDesensPlanUpdateStatusResponse } from './DsgDesensPlanUpdateStatusResponse';
+export { DsgGetVisitDetailRequest } from './DsgGetVisitDetailRequest';
+export { DsgGetVisitDetailResponseBody } from './DsgGetVisitDetailResponseBody';
+export { DsgGetVisitDetailResponse } from './DsgGetVisitDetailResponse';
+export { DsgGetVisitStatRequest } from './DsgGetVisitStatRequest';
+export { DsgGetVisitStatResponseBody } from './DsgGetVisitStatResponseBody';
+export { DsgGetVisitStatResponse } from './DsgGetVisitStatResponse';
 export { DsgPlatformQueryProjectsAndSchemaFromMetaRequest } from './DsgPlatformQueryProjectsAndSchemaFromMetaRequest';
 export { DsgPlatformQueryProjectsAndSchemaFromMetaResponseBody } from './DsgPlatformQueryProjectsAndSchemaFromMetaResponseBody';
 export { DsgPlatformQueryProjectsAndSchemaFromMetaResponse } from './DsgPlatformQueryProjectsAndSchemaFromMetaResponse';
@@ -705,6 +711,12 @@ export { DsgQueryDefaultTemplatesResponse } from './DsgQueryDefaultTemplatesResp
 export { DsgQueryDesensStatusListRequest } from './DsgQueryDesensStatusListRequest';
 export { DsgQueryDesensStatusListResponseBody } from './DsgQueryDesensStatusListResponseBody';
 export { DsgQueryDesensStatusListResponse } from './DsgQueryDesensStatusListResponse';
+export { DsgQueryDetailsRequest } from './DsgQueryDetailsRequest';
+export { DsgQueryDetailsResponseBody } from './DsgQueryDetailsResponseBody';
+export { DsgQueryDetailsResponse } from './DsgQueryDetailsResponse';
+export { DsgQueryRowDetailRequest } from './DsgQueryRowDetailRequest';
+export { DsgQueryRowDetailResponseBody } from './DsgQueryRowDetailResponseBody';
+export { DsgQueryRowDetailResponse } from './DsgQueryRowDetailResponse';
 export { DsgQuerySensResultRequest } from './DsgQuerySensResultRequest';
 export { DsgQuerySensResultResponseBody } from './DsgQuerySensResultResponseBody';
 export { DsgQuerySensResultResponse } from './DsgQuerySensResultResponse';

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataDesensPlanTemplateValue extends $dara.Model {
   /**
    * @remarks
-   * The name of the data masking method.
+   * The name of the Desensitization Method.
    * 
    * @example
    * hash
@@ -13,10 +13,11 @@ export class DataDesensPlanTemplateValue extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether a watermark is added. Valid values:
+   * Indicates whether watermarking is supported. Valid values:
    * 
-   * *   true: allow
-   * *   false: disallow
+   * - true: Watermarking is supported.
+   * 
+   * - false: Watermarking is not supported.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class DataDesensPlanTemplateValue extends $dara.Model {
   supportWaterMark?: boolean;
   /**
    * @remarks
-   * The data masking parameters and their descriptions.
+   * A list of Desensitization Parameters and their descriptions.
    */
   extParamTemplate?: any[];
   static names(): { [key: string]: string } {

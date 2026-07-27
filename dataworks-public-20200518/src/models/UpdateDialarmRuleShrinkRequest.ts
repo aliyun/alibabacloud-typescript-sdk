@@ -33,9 +33,11 @@ export class UpdateDIAlarmRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The metric type in the alert rule. Valid values:
    * 
-   * *   Heartbeat
-   * *   FailoverCount
-   * *   Delay
+   * - Heartbeat
+   * 
+   * - FailoverCount
+   * 
+   * - Delay
    * 
    * This parameter is required.
    * 

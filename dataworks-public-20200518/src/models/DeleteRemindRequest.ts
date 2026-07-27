@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRemindRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom alert rule.
+   * The ID of the custom monitoring alert rule.
    * 
    * This parameter is required.
    * 

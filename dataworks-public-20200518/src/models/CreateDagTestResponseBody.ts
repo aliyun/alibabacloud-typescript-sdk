@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDagTestResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the workflow.
+   * 
    * @example
    * 3333333
    */
   data?: number;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The connection does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * E6F0DBDD-5AD****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */

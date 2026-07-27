@@ -29,7 +29,7 @@ export class ListAlertMessagesRequest extends $dara.Model {
    * The ID of the Alibaba Cloud account used by the alert recipient.
    * 
    * @example
-   * 123456
+   * 12345
    */
   alertUser?: string;
   /**

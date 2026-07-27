@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeOnBaselineRequest extends $dara.Model {
   /**
    * @remarks
-   * The baseline ID.
+   * The ID of the baseline.
    * 
    * This parameter is required.
    * 

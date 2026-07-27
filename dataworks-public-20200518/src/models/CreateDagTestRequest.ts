@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDagTestRequest extends $dara.Model {
   /**
    * @remarks
+   * The business date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateDagTestRequest extends $dara.Model {
   bizdate?: string;
   /**
    * @remarks
+   * The name of the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateDagTestRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The ID of the node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,12 +34,17 @@ export class CreateDagTestRequest extends $dara.Model {
    */
   nodeId?: number;
   /**
+   * @remarks
+   * The parameters of the node.
+   * 
    * @example
    * bizdate=$bizdate tbods=$tbods
    */
   nodeParams?: string;
   /**
    * @remarks
+   * The environment of the workspace. Valid values: PROD and DEV.
+   * 
    * This parameter is required.
    * 
    * @example

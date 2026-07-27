@@ -8,7 +8,7 @@ export class GetProjectRequest extends $dara.Model {
    * The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
    * 
    * @example
-   * 27
+   * 466230
    */
   projectId?: number;
   /**

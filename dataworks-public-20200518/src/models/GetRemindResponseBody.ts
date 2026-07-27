@@ -539,7 +539,7 @@ export class GetRemindResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 0000-ABCD-EFGH-IJKLMNOPQ
+   * 0000-ABCD-EFGH-IJK****
    */
   requestId?: string;
   /**

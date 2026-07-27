@@ -154,7 +154,7 @@ export class GetExtensionResponseBodyExtension extends $dara.Model {
    * The workspace for testing. If the extension is being tested, the extension can be used only in the workspace for testing.
    * 
    * @example
-   * 13552
+   * 1355211
    */
   projectTesting?: number;
   /**

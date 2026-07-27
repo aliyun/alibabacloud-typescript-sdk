@@ -5,19 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class DsgSceneQuerySceneListByNameResponseBodyDataProjects extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EMR cluster. This parameter is returned only when the data scope that takes effect in the data masking scenario is an EMR compute engine.
+   * The ID of the E-MapReduce (EMR) cluster. This parameter is returned only if the `DbType` is `EMR`.
    * 
    * @example
-   * c-1234
+   * c-123456
    */
   clusterId?: string;
   /**
    * @remarks
-   * The type of the compute engine. Valid values:
+   * The engine type. Valid values:
    * 
-   * *   ODPS: ODPS.ODPS
-   * *   HOLO: HOLO.POSTGRES
-   * *   EMR: EMR
+   * - MaxCompute: `ODPS.ODPS`
+   * 
+   * - Hologres: `HOLO.POSTGRES`
+   * 
+   * - E-MapReduce (EMR): `EMR`
    * 
    * @example
    * ODPS.ODPS
@@ -25,7 +27,7 @@ export class DsgSceneQuerySceneListByNameResponseBodyDataProjects extends $dara.
   dbType?: string;
   /**
    * @remarks
-   * The name of the compute engine.
+   * The name of the engine instance.
    * 
    * @example
    * dev_project
@@ -59,7 +61,7 @@ export class DsgSceneQuerySceneListByNameResponseBodyDataProjects extends $dara.
 export class DsgSceneQuerySceneListByNameResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about multiple levels of data masking scenarios.
+   * The nested data masking scenarios.
    */
   children?: any[];
   /**
@@ -80,19 +82,24 @@ export class DsgSceneQuerySceneListByNameResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The information about the compute engine for which the data masking scenario takes effect.
+   * The engine instances to which the data masking scenario applies.
    */
   projects?: DsgSceneQuerySceneListByNameResponseBodyDataProjects[];
   /**
    * @remarks
-   * The code of the level-1 data masking scenario. Valid values:
+   * The code for the level-1 scenario. Valid values:
    * 
-   * *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
-   * *   maxcompute_desense_code: data masking at the MaxCompute compute engine layer
-   * *   maxcompute_new_desense_code: data masking at the MaxCompute compute engine layer (new)
-   * *   hologres_display_desense_code: data masking at the Hologres compute engine layer
-   * *   dataworks_data_integration_desense_code: static data masking in Data Integration
-   * *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
+   * - Data masking in Data Map and DataStudio: `dataworks_display_desense_code`
+   * 
+   * - Data masking at the MaxCompute engine layer: `maxcompute_desense_code`
+   * 
+   * - Data masking at the MaxCompute engine layer (new): `maxcompute_new_desense_code`
+   * 
+   * - Data masking at the Hologres engine layer: `hologres_display_desense_code`
+   * 
+   * - Static data masking in Data Integration: `dataworks_data_integration_desense_code`
+   * 
+   * - Data masking in Data Analysis: `dataworks_analysis_desense_code`
    * 
    * @example
    * dataworks_display_desense_code
@@ -102,8 +109,9 @@ export class DsgSceneQuerySceneListByNameResponseBodyData extends $dara.Model {
    * @remarks
    * The level of the data masking scenario. Valid values:
    * 
-   * *   0: level-1 data masking scenario
-   * *   1: level-2 data masking scenario
+   * - `0`: level-1 scenario
+   * 
+   * - `1`: level-2 scenario
    * 
    * @example
    * 1
@@ -119,7 +127,7 @@ export class DsgSceneQuerySceneListByNameResponseBodyData extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * The list of user groups in the data masking scenario. Separate user groups with commas (,).
+   * The user groups to which the data masking scenario applies. Multiple user group names are separated by a comma (,).
    * 
    * @example
    * user1,user2
@@ -172,7 +180,7 @@ export class DsgSceneQuerySceneListByNameResponseBodyData extends $dara.Model {
 export class DsgSceneQuerySceneListByNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The list of data masking scenarios.
    */
   data?: DsgSceneQuerySceneListByNameResponseBodyData[];
   /**
@@ -201,7 +209,7 @@ export class DsgSceneQuerySceneListByNameResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 102400001
@@ -211,8 +219,9 @@ export class DsgSceneQuerySceneListByNameResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

@@ -81,7 +81,7 @@ export class GetMetaTableLineageResponseBodyData extends $dara.Model {
    * The logic of paging. If the value true is returned for the HasNext parameter and a value is returned for the NextPrimaryKey parameter in the response of the previous request, you must use the value of the NextPrimaryKey parameter for the next request.
    * 
    * @example
-   * odps | retail_e_commerce_2 | retail_e_commerce_2 | dws_ec_trd__cate_commodity_gmv_kpy_fy
+   * odps.tt.2
    */
   nextPrimaryKey?: string;
   static names(): { [key: string]: string } {

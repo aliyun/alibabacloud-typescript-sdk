@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DsgUserGroupAddOrUpdateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about the user group.
+   * The user groups.
    * 
    * This parameter is required.
    */

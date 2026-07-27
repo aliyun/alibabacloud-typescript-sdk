@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQualityRelativeNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the node is disassociated from the partition filter expression.
+   * Indicates whether the scheduling association was successfully deleted.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DeleteQualityRelativeNodeResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * 401
@@ -21,7 +21,7 @@ export class DeleteQualityRelativeNodeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * You have no permission.
@@ -29,7 +29,7 @@ export class DeleteQualityRelativeNodeResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class DeleteQualityRelativeNodeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6d739ef6-098a-47****
@@ -45,7 +45,7 @@ export class DeleteQualityRelativeNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the API call was successful.
    * 
    * @example
    * true

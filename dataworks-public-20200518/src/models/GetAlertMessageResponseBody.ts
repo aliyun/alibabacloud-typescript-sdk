@@ -8,7 +8,7 @@ export class GetAlertMessageResponseBodyDataInstances extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * 12312312
+   * 12312****
    */
   instanceId?: number;
   /**

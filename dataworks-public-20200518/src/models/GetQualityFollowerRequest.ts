@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityFollowerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the partition filter expression.
+   * The ID of the partition expression.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1234
+   * 12345
    */
   entityId?: number;
   /**

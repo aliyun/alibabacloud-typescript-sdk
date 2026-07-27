@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DsgSceneQuerySceneListByNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the data masking scenario. A fuzzy match is performed in the platform based on a keyword to search for the data masking scenario.
+   * The keyword for a fuzzy search of data masking scenario names.
    * 
    * @example
    * dev_

@@ -183,7 +183,7 @@ export class ListTablesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * E25887B7-579C-54A5-9C4F-83A0DE367DD
+   * E25887B7-579C-54A5-9C4F-83A****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

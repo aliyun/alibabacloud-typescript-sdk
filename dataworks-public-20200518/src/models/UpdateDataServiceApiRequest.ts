@@ -10,7 +10,7 @@ export class UpdateDataServiceApiRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * API description
+   * Test API description
    */
   apiDescription?: string;
   /**

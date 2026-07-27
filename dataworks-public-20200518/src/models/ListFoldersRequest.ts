@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFoldersRequest extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The number of the page to return. This parameter is used for pagination.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListFoldersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The number of entries per page. The default value is 10. The maximum value is 100.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListFoldersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 0000-ABCD-EFG****
+   * The path of the parent folder.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ListFoldersRequest extends $dara.Model {
   parentFolderPath?: string;
   /**
    * @remarks
-   * The error message.
+   * The ID of the DataWorks workspace. Log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID. You must set either this parameter or ProjectIdentifier to specify the DataWorks workspace for this API call.
    * 
    * @example
    * 10000
@@ -43,7 +43,7 @@ export class ListFoldersRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The request ID. You can troubleshoot issues based on the ID.
+   * The name of the DataWorks workspace. Log on to the DataWorks console and go to the Workspace Management page to obtain the workspace name. You must set either this parameter or ProjectId to specify the DataWorks workspace for this API call.
    * 
    * @example
    * dw_project

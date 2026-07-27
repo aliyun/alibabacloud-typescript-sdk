@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveContentProjectMetaObjectMetaList extends $dara.Model {
   /**
    * @remarks
-   * The operation type.
+   * The action types.
    */
   actions?: string[];
   /**
    * @remarks
-   * The name of the requested table.
+   * The name of the applied table.
    * 
    * @example
    * aTableName
@@ -45,12 +45,12 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveCo
 export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveContentProjectMeta extends $dara.Model {
   /**
    * @remarks
-   * The information about the requested object.
+   * The information about the applied objects.
    */
   objectMetaList?: ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveContentProjectMetaObjectMetaList[];
   /**
    * @remarks
-   * The name of the DataWorks workspace that contains the MaxCompute project for which permissions are requested.
+   * The name of the DataWorks workspace to which the MaxCompute project with the requested permissions belongs.
    * 
    * @example
    * aWorkspaceName
@@ -85,7 +85,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveCo
 export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveContent extends $dara.Model {
   /**
    * @remarks
-   * The reason for the permission request, which is used by administrators for evaluation and approval.
+   * The reason for the application, used by the administrator for evaluation and approval.
    * 
    * @example
    * I need to use this table
@@ -93,7 +93,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveCo
   applyReason?: string;
   /**
    * @remarks
-   * The type of permission request. Only the value 1 is supported, which indicates an ACL permission request for objects.
+   * The application order type. Currently, only the value 1 is supported, indicating an object ACL permission application.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveCo
   orderType?: number;
   /**
    * @remarks
-   * The content of the requested object.
+   * The content of the applied object.
    */
   projectMeta?: ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveContentProjectMeta;
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveCo
 export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the user who submitted the permission request.
+   * The Alibaba Cloud user UID that submitted the application order.
    * 
    * @example
    * 267842600408993176
@@ -143,7 +143,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
   applyBaseId?: string;
   /**
    * @remarks
-   * The time when the permission request was submitted, in Unix timestamp format.
+   * The submission time of the application order, displayed as a UNIX timestamp.
    * 
    * @example
    * 1615284086000
@@ -151,7 +151,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
   applyTimestamp?: number;
   /**
    * @remarks
-   * The content of the permission request.
+   * The content of the application order.
    */
   approveContent?: ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveContent;
   /**
@@ -164,7 +164,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
   finishApprovalComment?: string;
   /**
    * @remarks
-   * The final approval timestamp. Displayed as a Unix timestamp.
+   * The final approval completion time, displayed as a UNIX timestamp.
    * 
    * @example
    * 1757496687000
@@ -172,7 +172,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
   finishApprovalTimestamp?: number;
   /**
    * @remarks
-   * The permission request ID.
+   * The application order ID.
    * 
    * @example
    * ad8da78d-8135-455e-9486-27cf213fc140
@@ -180,12 +180,12 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
   flowId?: string;
   /**
    * @remarks
-   * The status of the permission request. Valid values:
-   * 
-   * *   1: Pending approval
-   * *   2: Approved and authorization succeeded
-   * *   3: Approved but authorization failed
-   * *   4: Rejected
+   * The status of the application order. Valid values:
+   * - 1: Pending approval.
+   * - 2: Approved, authorization succeeded.
+   * - 3: Approved, authorization failed.
+   * - 4: Rejected.
+   * - 5: Withdrawn.
    * 
    * @example
    * 2
@@ -230,7 +230,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
 export class ListPermissionApplyOrdersResponseBodyApplyOrders extends $dara.Model {
   /**
    * @remarks
-   * The list of permission requests.
+   * The list of permission application orders.
    */
   applyOrder?: ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder[];
   /**
@@ -251,7 +251,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrders extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The total number of permission requests returned.
+   * The total number of permission application orders returned.
    * 
    * @example
    * 150
@@ -290,7 +290,7 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrders extends $dara.Mode
 export class ListPermissionApplyOrdersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paginated query results of permission requests.
+   * The paginated query results of permission application orders.
    */
   applyOrders?: ListPermissionApplyOrdersResponseBodyApplyOrders;
   /**

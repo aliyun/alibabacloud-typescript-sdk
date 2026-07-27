@@ -77,7 +77,7 @@ export class CreateResourceFileAdvanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10000
+   * 10111
    */
   projectId?: number;
   /**

@@ -18,7 +18,7 @@ export class UpdateTableAddColumnRequestColumn extends $dara.Model {
    * The display name of the field.
    * 
    * @example
-   * Chinese
+   * 中文
    */
   columnNameCn?: string;
   /**

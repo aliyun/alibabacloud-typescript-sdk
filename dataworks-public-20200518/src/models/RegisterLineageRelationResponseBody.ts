@@ -87,15 +87,16 @@ export class RegisterLineageRelationResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * EE50E05E-028C-182B-9xxx
+   * EE50E05E-028C-182B-****
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

@@ -16,7 +16,7 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
    * The description of the synchronization task.
    * 
    * @example
-   * Synchronize mysql to hologres
+   * Synchronize MySQL to Hologres
    */
   description?: string;
   /**

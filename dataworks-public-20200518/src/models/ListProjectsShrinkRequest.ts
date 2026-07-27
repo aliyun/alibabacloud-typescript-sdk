@@ -24,7 +24,7 @@ export class ListProjectsShrinkRequest extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmzbn7pti3zfa
+   * rg-acfmzbn7pt****
    */
   resourceManagerResourceGroupId?: string;
   /**

@@ -208,7 +208,7 @@ export class GetNodeParentsResponseBody extends $dara.Model {
    * The request ID. You can troubleshoot issues based on the ID.
    * 
    * @example
-   * asfasdfs-adfasdf-asfas-dfasdf-asdf
+   * asfsdfas-adfasdf-asfas-dfasdf-asdf
    */
   requestId?: string;
   /**

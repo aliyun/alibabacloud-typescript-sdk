@@ -15,7 +15,7 @@ export class CreateQualityRelativeNodeRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The partition filter expression.
+   * The partition expression.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateQualityRelativeNodeRequest extends $dara.Model {
   matchExpression?: string;
   /**
    * @remarks
-   * The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
+   * The ID of the scheduling node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) API to obtain the node ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateQualityRelativeNodeRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateQualityRelativeNodeRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the compute engine or data source.
+   * The name of the compute engine instance or data source.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CreateQualityRelativeNodeRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the node belongs.
+   * The ID of the project to which the node belongs.
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class CreateQualityRelativeNodeRequest extends $dara.Model {
   targetNodeProjectId?: number;
   /**
    * @remarks
-   * The name of the workspace to which the node to be associated with the partition filter expression belongs.
+   * The name of the project to which the scheduling node belongs.
    * 
    * This parameter is required.
    * 

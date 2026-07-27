@@ -8,7 +8,7 @@ export class UpdateTableLevelRequest extends $dara.Model {
    * The description of the table level.
    * 
    * @example
-   * level description
+   * Level description
    */
   description?: string;
   /**
@@ -34,7 +34,7 @@ export class UpdateTableLevelRequest extends $dara.Model {
    * The name of the table level.
    * 
    * @example
-   * level name
+   * Level name
    */
   name?: string;
   /**

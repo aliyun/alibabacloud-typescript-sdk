@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQualityRelativeNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the node is associated with the partition filter expression.
+   * Indicates whether the association was created successfully.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CreateQualityRelativeNodeResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request fails.
    * 
    * @example
    * 401
@@ -21,7 +21,7 @@ export class CreateQualityRelativeNodeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request fails.
    * 
    * @example
    * You have no permission.

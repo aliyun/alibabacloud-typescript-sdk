@@ -40,7 +40,7 @@ export class GetBaselineStatusResponseBodyDataBlockInstance extends $dara.Model 
    * The name of the node.
    * 
    * @example
-   * Node name
+   * 节点名称
    */
   nodeName?: string;
   /**

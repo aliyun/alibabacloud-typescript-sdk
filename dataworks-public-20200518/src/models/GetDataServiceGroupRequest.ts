@@ -20,7 +20,7 @@ export class GetDataServiceGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 10001
+   * 10002
    */
   projectId?: number;
   /**
@@ -28,7 +28,7 @@ export class GetDataServiceGroupRequest extends $dara.Model {
    * The tenant ID. This parameter is deprecated.
    * 
    * @example
-   * 10002
+   * 10001
    */
   tenantId?: number;
   static names(): { [key: string]: string } {

@@ -10,7 +10,7 @@ export class GetIDEEventDetailRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   * 8abcb91f-d266-4073-b907-2ed67****1
    */
   messageId?: string;
   /**

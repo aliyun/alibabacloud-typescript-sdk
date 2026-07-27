@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateQualityFollowerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the update is successful.
+   * Indicates whether the update was successful.
    * 
    * @example
    * true

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFoldersResponseBodyDataFolders extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the folder.
+   * 
    * @example
    * 2735c2****
    */
   folderId?: string;
   /**
+   * @remarks
+   * The path of the folder.
+   * 
    * @example
    * Business_process/my_first_business_process/MaxCompute/ods_layer
    */
@@ -37,10 +43,14 @@ export class ListFoldersResponseBodyDataFolders extends $dara.Model {
 }
 
 export class ListFoldersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of folders.
+   */
   folders?: ListFoldersResponseBodyDataFolders[];
   /**
    * @remarks
-   * The folder ID.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -48,7 +58,7 @@ export class ListFoldersResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * http://100.67.165.184/business/api/folders/list
+   * The number of entries on the returned page.
    * 
    * @example
    * 10
@@ -56,7 +66,7 @@ export class ListFoldersResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ListFolders
+   * The total number of entries that meet the filter criteria.
    * 
    * @example
    * 13
@@ -95,12 +105,12 @@ export class ListFoldersResponseBodyData extends $dara.Model {
 export class ListFoldersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The path of the folder.
+   * A list of folders that meet the specified criteria.
    */
   data?: ListFoldersResponseBodyData;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The error code.
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -108,7 +118,7 @@ export class ListFoldersResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The page number.
+   * The error message.
    * 
    * @example
    * The connection does not exist.
@@ -116,7 +126,7 @@ export class ListFoldersResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The information about the folders.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -124,7 +134,7 @@ export class ListFoldersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The ID of the request. Use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-****
@@ -132,7 +142,7 @@ export class ListFoldersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of folders.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

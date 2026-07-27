@@ -95,10 +95,13 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
    * @remarks
    * The status of the DAG. Valid values:
    * 
-   * *   CREATED
-   * *   RUNNING
-   * *   FAILURE
-   * *   SUCCESS
+   * - CREATED
+   * 
+   * - RUNNING
+   * 
+   * - FAILURE
+   * 
+   * - SUCCESS
    * 
    * @example
    * FAILURE
@@ -108,10 +111,13 @@ export class ListDagsResponseBodyDataDags extends $dara.Model {
    * @remarks
    * The type of the DAG. Valid values:
    * 
-   * *   MANUAL: DAG for a manually triggered workflow
-   * *   SMOKE_TEST: DAG for a smoke testing workflow
-   * *   SUPPLY_DATA: DAG for a data backfill instance
-   * *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+   * - MANUAL: DAG for a manually triggered workflow
+   * 
+   * - SMOKE_TEST: DAG for a smoke testing workflow
+   * 
+   * - SUPPLY_DATA: DAG for a data backfill instance
+   * 
+   * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
    * 
    * @example
    * MANUAL_FLOW

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeOnBaselineResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * 1234
@@ -14,11 +14,14 @@ export class GetNodeOnBaselineResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the node owner.
+   * The Alibaba Cloud UID of the node owner.
    * 
    * @example
    * 9527952****
@@ -62,7 +65,7 @@ export class GetNodeOnBaselineResponseBodyData extends $dara.Model {
 export class GetNodeOnBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of nodes.
+   * The list of nodes on the baseline.
    */
   data?: GetNodeOnBaselineResponseBodyData[];
   /**
@@ -91,7 +94,7 @@ export class GetNodeOnBaselineResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-E****

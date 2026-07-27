@@ -40,15 +40,16 @@ export class QueryRecognizeRuleDetailResponseBody extends $dara.Model {
    * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
-   * 10000001
+   * 100000012
    */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the request was successful.
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

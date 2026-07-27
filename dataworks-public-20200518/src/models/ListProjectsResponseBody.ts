@@ -8,7 +8,7 @@ export class ListProjectsResponseBodyPageResultProjectListTags extends $dara.Mod
    * The key of tag N added to the workspace.
    * 
    * @example
-   * Env
+   * key
    */
   key?: string;
   /**
@@ -16,7 +16,7 @@ export class ListProjectsResponseBodyPageResultProjectListTags extends $dara.Mod
    * The value of tag N added to the workspace.
    * 
    * @example
-   * Test
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -78,7 +78,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
    * The workspace ID.
    * 
    * @example
-   * 1212
+   * 466230
    */
   projectId?: number;
   /**
@@ -86,7 +86,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
    * The name of the workspace.
    * 
    * @example
-   * test
+   * test_project
    */
   projectIdentifier?: string;
   /**
@@ -102,7 +102,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
    * The ID of the user used by the workspace owner.
    * 
    * @example
-   * 122222
+   * 13969939245****
    */
   projectOwnerBaseId?: string;
   /**
@@ -148,7 +148,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-acfmzbn7pti3zfa
+   * rg-acfmzbn7****
    */
   resourceManagerResourceGroupId?: string;
   /**
@@ -253,7 +253,7 @@ export class ListProjectsResponseBodyPageResult extends $dara.Model {
    * The total number of entries returned.
    * 
    * @example
-   * 123
+   * 68
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -297,7 +297,7 @@ export class ListProjectsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 20658801***
+   * 20658801****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

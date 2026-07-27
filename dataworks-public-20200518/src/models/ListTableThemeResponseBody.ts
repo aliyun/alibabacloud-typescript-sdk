@@ -32,7 +32,7 @@ export class ListTableThemeResponseBodyDataThemeList extends $dara.Model {
    * The name of the table level.
    * 
    * @example
-   * test
+   * Level name
    */
   name?: string;
   /**

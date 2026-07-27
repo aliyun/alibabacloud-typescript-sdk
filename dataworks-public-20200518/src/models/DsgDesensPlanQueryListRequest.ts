@@ -37,7 +37,7 @@ export class DsgDesensPlanQueryListRequestColumns extends $dara.Model {
 export class DsgDesensPlanQueryListRequest extends $dara.Model {
   /**
    * @remarks
-   * The owner of the data masking rule.
+   * The owner of the desensitization rule.
    * 
    * @example
    * user1
@@ -55,7 +55,7 @@ export class DsgDesensPlanQueryListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The number of entries to return on each page. The maximum value is 100.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class DsgDesensPlanQueryListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the sensitive field.
+   * The name of the desensitization rule.
    * 
    * @example
    * phone
@@ -73,7 +73,7 @@ export class DsgDesensPlanQueryListRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The ID of the level-2 data masking scenario. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to query the list of IDs.
+   * The ID of the Level-2 data desensitization scene. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to obtain this ID.
    * 
    * This parameter is required.
    * 
@@ -83,10 +83,11 @@ export class DsgDesensPlanQueryListRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * The status of the data masking rule. Valid values:
+   * The status of the desensitization rule. Valid values:
    * 
-   * *   0: expired
-   * *   1: effective
+   * - 0: Inactive
+   * 
+   * - 1: Active
    * 
    * @example
    * 1

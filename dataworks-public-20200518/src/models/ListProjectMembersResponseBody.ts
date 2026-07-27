@@ -24,15 +24,16 @@ export class ListProjectMembersResponseBodyDataProjectMemberListProjectRoleList 
    * The name of the role. DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
    * 
    * @example
-   * test
+   * Visitor
    */
   projectRoleName?: string;
   /**
    * @remarks
    * The type of the role. Valid values:
    * 
-   * *   0: SYSTEM, which indicates that the role is a built-in role.
-   * *   2: USER_CUSTOM, which indicates that the role is a custom role.
+   * - 0: SYSTEM, which indicates that the role is a built-in role.
+   * 
+   * - 2: USER_CUSTOM, which indicates that the role is a custom role.
    * 
    * @example
    * 0
@@ -87,16 +88,18 @@ export class ListProjectMembersResponseBodyDataProjectMemberList extends $dara.M
    * The name of the member.
    * 
    * @example
-   * zhangsan
+   * John Doe
    */
   projectMemberName?: string;
   /**
    * @remarks
    * The type of the member. Valid values:
    * 
-   * *   1: USER_ALIYUN, which indicates that the member is an Alibaba Cloud account.
-   * *   5: USER_UBACCOUNT, which indicates that the member is a RAM user.
-   * *   6: USER_STS_ROLE, which indicates that the member is a RAM role.
+   * - 1: USER_ALIYUN, which indicates that the member is an Alibaba Cloud account.
+   * 
+   * - 5: USER_UBACCOUNT, which indicates that the member is a RAM user.
+   * 
+   * - 6: USER_STS_ROLE, which indicates that the member is a RAM role.
    * 
    * @example
    * 1
@@ -111,9 +114,11 @@ export class ListProjectMembersResponseBodyDataProjectMemberList extends $dara.M
    * @remarks
    * The status of the member. Valid values:
    * 
-   * *   0: NORMAL, which indicates that the member is in a normal state.
-   * *   1: FORBIDDEN, which indicates that the member is disabled.
-   * *   2: DELETED, which indicates that the member is deleted.
+   * - 0: NORMAL, which indicates that the member is in a normal state.
+   * 
+   * - 1: FORBIDDEN, which indicates that the member is disabled.
+   * 
+   * - 2: DELETED, which indicates that the member is deleted.
    * 
    * @example
    * 0

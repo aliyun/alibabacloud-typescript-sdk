@@ -32,7 +32,7 @@ export class GetDataServiceGroupResponseBodyGroup extends $dara.Model {
    * The description of the business process.
    * 
    * @example
-   * Test
+   * Workflow description
    */
   description?: string;
   /**
@@ -48,7 +48,7 @@ export class GetDataServiceGroupResponseBodyGroup extends $dara.Model {
    * The name of the business process.
    * 
    * @example
-   * Test
+   * Workflow name
    */
   groupName?: string;
   /**

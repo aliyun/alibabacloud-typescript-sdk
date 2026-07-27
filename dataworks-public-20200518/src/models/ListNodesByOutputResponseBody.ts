@@ -16,7 +16,7 @@ export class ListNodesByOutputResponseBodyDataNodeList extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * odps_first
+   * odps_source
    */
   connection?: string;
   /**

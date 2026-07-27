@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQualityEntityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The partition filter expression ID.
+   * The ID of the created partition expression.
    * 
    * @example
    * 12345

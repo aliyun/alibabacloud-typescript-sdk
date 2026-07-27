@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 12345
@@ -13,7 +13,7 @@ export class GetQualityRuleRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the compute engine or data source.
+   * The name of the engine or data source.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetQualityRuleRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The monitoring rule ID. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID.
+   * The ID of the quality rule. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

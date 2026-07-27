@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApprovePermissionApplyOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the permission request order is processed.
+   * Indicates whether the approval is successful.
    * 
    * @example
    * true

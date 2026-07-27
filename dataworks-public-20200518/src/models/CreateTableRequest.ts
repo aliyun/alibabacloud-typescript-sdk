@@ -18,7 +18,7 @@ export class CreateTableRequestColumns extends $dara.Model {
    * The display name of the field.
    * 
    * @example
-   * columnName in chinese
+   * 中文名
    */
   columnNameCn?: string;
   /**
@@ -36,7 +36,7 @@ export class CreateTableRequestColumns extends $dara.Model {
    * The comment of the field.
    * 
    * @example
-   * comment
+   * 备注
    */
   comment?: string;
   /**
@@ -158,7 +158,7 @@ export class CreateTableRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * reserved
+   * Reserved field
    */
   clientToken?: string;
   /**
@@ -173,7 +173,7 @@ export class CreateTableRequest extends $dara.Model {
    * The comment.
    * 
    * @example
-   * comment
+   * Remarks
    */
   comment?: string;
   /**
@@ -188,8 +188,9 @@ export class CreateTableRequest extends $dara.Model {
    * @remarks
    * The environment type of the DataWorks workspace. Valid values:
    * 
-   * *   0: development environment
-   * *   1: production environment
+   * - 0: development environment
+   * 
+   * - 1: production environment
    * 
    * @example
    * 1
@@ -199,10 +200,13 @@ export class CreateTableRequest extends $dara.Model {
    * @remarks
    * The storage type of the external table. Valid values:
    * 
-   * *   0: Object Storage Service (OSS)
-   * *   1: Tablestore
-   * *   2: Volume
-   * *   3: MySQL
+   * - 0: Object Storage Service (OSS)
+   * 
+   * - 1: Tablestore
+   * 
+   * - 2: Volume
+   * 
+   * - 3: MySQL
    * 
    * @example
    * 0
@@ -220,8 +224,9 @@ export class CreateTableRequest extends $dara.Model {
    * @remarks
    * Specifies whether to create a view or table. Valid values:
    * 
-   * *   0: Create a table.
-   * *   1: Create a view.
+   * - 0: Create a table.
+   * 
+   * - 1: Create a view.
    * 
    * @example
    * 0
@@ -298,9 +303,11 @@ export class CreateTableRequest extends $dara.Model {
    * @remarks
    * Specifies whether the table or workspace is visible. Valid values:
    * 
-   * *   0: Both the table and workspace are invisible.
-   * *   1: Both the table and workspace are visible.
-   * *   2: Only the workspace is visible.
+   * - 0: Both the table and workspace are invisible.
+   * 
+   * - 1: Both the table and workspace are visible.
+   * 
+   * - 2: Only the workspace is visible.
    * 
    * @example
    * 1

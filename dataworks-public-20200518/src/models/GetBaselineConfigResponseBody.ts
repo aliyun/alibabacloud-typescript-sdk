@@ -88,7 +88,7 @@ export class GetBaselineConfigResponseBodyData extends $dara.Model {
    * The ID of the workspace.
    * 
    * @example
-   * 1234
+   * 123456
    */
   projectId?: number;
   /**

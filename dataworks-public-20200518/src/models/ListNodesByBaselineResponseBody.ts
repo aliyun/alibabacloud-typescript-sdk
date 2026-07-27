@@ -8,7 +8,7 @@ export class ListNodesByBaselineResponseBodyData extends $dara.Model {
    * The node ID.
    * 
    * @example
-   * 1234
+   * 12345
    */
   nodeId?: number;
   /**
@@ -32,7 +32,7 @@ export class ListNodesByBaselineResponseBodyData extends $dara.Model {
    * The ID of the workspace to which the node belongs.
    * 
    * @example
-   * 1234
+   * 12345
    */
   projectId?: number;
   static names(): { [key: string]: string } {

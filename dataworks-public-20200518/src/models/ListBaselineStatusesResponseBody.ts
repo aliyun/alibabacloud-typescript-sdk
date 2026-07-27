@@ -24,7 +24,7 @@ export class ListBaselineStatusesResponseBodyDataBaselineStatuses extends $dara.
    * The type of the baseline, including DAILY and HOURLY. Separate multiple types with commas (,).
    * 
    * @example
-   * DAILY,HOURLY
+   * Baseline type
    */
   baselineType?: string;
   /**

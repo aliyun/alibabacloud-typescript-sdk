@@ -11,9 +11,6 @@ export class ListTablesRequest extends $dara.Model {
    * 
    * @example
    * odps
-   * emr
-   * mysql
-   * holo
    */
   dataSourceType?: string;
   /**

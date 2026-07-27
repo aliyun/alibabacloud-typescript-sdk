@@ -4,39 +4,48 @@ import * as $dara from '@darabonba/typescript';
 
 export class LineageEntityVO extends $dara.Model {
   /**
+   * @remarks
+   * A map of additional key-value attributes for the entity.
+   * 
    * @example
    * attribute map
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
-   * Detail url of entity
+   * A URL for more details about the entity.
    * 
    * @example
    * http://domain.test.url/entity
    */
   detailUrl?: string;
   /**
+   * @remarks
+   * The type of the entity.
+   * 
    * @example
    * maxcompute-table
    */
   entityType?: string;
   /**
    * @remarks
-   * Name of entity
+   * The human-readable name of the entity.
    * 
    * @example
    * tableName
    */
   name?: string;
   /**
+   * @remarks
+   * The owner of the entity.
+   * 
    * @example
    * owner
    */
   owner?: string;
   /**
    * @remarks
-   * Parent name of entity
+   * The name of the entity\\"s parent container, such as a database.
    * 
    * @example
    * dbName
@@ -44,7 +53,7 @@ export class LineageEntityVO extends $dara.Model {
   parentName?: string;
   /**
    * @remarks
-   * Unique identifier of entity
+   * The unique, fully qualified name of the entity.
    * 
    * @example
    * maxcompute-table.projectName.tablename

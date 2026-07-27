@@ -8,7 +8,7 @@ export class CreateTableLevelRequest extends $dara.Model {
    * The description of the table level.
    * 
    * @example
-   * The HTTP status code returned.
+   * Level description
    */
   description?: string;
   /**
@@ -28,7 +28,7 @@ export class CreateTableLevelRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The description of the table level.
+   * Level 1
    */
   name?: string;
   /**

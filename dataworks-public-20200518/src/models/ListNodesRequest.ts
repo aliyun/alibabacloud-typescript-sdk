@@ -75,9 +75,11 @@ export class ListNodesRequest extends $dara.Model {
    * @remarks
    * The scheduling type. Valid values:
    * 
-   * *   NORMAL: Nodes are scheduled as expected.
-   * *   PAUSE: Nodes are paused.
-   * *   SKIP: Nodes are dry-run. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
+   * - NORMAL: Nodes are scheduled as expected.
+   * 
+   * - PAUSE: Nodes are paused.
+   * 
+   * - SKIP: Nodes are dry-run. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
    * 
    * @example
    * NORMAL

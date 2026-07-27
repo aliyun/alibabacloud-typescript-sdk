@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityResultsByEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * The end of the business date range. The value must be in the `yyyy-MM-dd HH:mm:ss` format.
    * 
    * This parameter is required.
    * 
@@ -15,17 +15,17 @@ export class ListQualityResultsByEntityRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The ID of the partition filter expression. You can call the [GetQualityEntity](https://help.aliyun.com/document_detail/174003.html) operation to query the ID.
+   * The ID of the partition expression. You can call the [GetQualityEntity](https://help.aliyun.com/document_detail/174003.html) operation to obtain this ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 152322134
+   * 15232
    */
   entityId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number to return.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ListQualityResultsByEntityRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 20.
+   * The number of entries to return per page. The default is 10, and the maximum is 20.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ListQualityResultsByEntityRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 12345
@@ -53,7 +53,7 @@ export class ListQualityResultsByEntityRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the compute engine or data source. You can obtain the name from data source configurations.
+   * The name of the engine or data source. You can find this name on the Data Source Configuration page.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ListQualityResultsByEntityRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+   * The start of the business date range. The value must be in the `yyyy-MM-dd HH:mm:ss` format.
    * 
    * This parameter is required.
    * 

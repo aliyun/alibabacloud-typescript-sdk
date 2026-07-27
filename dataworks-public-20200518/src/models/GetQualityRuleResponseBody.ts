@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
+   * The severity of the quality rule. Valid values:
    * 
-   * *   1: the monitoring rule is a strong rule.
-   * *   0: the monitoring rule is a weak rule. You can specify whether a monitoring rule is a strong rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+   * - `1`: Strong Rule. If a Strong Rule triggers a critical Alert, the associated Scheduling Task is blocked.
+   * 
+   * - `0`: Weak Rule.
    * 
    * @example
    * 1
@@ -16,7 +17,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   blockType?: number;
   /**
    * @remarks
-   * The checker ID. The value of this parameter corresponds to the ID at the frontend and is converted from the ID of the primary key.
+   * The checker ID, which is derived from a primary key and used for front-end identification.
    * 
    * @example
    * 9
@@ -32,7 +33,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   checkerName?: string;
   /**
    * @remarks
-   * The description of the monitoring rule.
+   * The comment for the rule.
    * 
    * @example
    * Verify that the primary key is unique
@@ -40,7 +41,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The threshold for a critical alert. The threshold indicates the deviation of the check result from the expected value. You can specify a value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+   * The threshold for a critical Alert, which defines the maximum acceptable deviation from the Expected Value. If this threshold is met for a Strong Rule, the associated Scheduling Task is blocked.
    * 
    * @example
    * 20
@@ -48,7 +49,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   criticalThreshold?: string;
   /**
    * @remarks
-   * The ID of the partition filter expression.
+   * The ID of the partition expression.
    * 
    * @example
    * 165523
@@ -64,7 +65,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   expectValue?: string;
   /**
    * @remarks
-   * Indicates whether the monitoring is performed based on a fixed value.
+   * Indicates whether to validate against a fixed value.
    * 
    * @example
    * true
@@ -72,7 +73,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   fixCheck?: boolean;
   /**
    * @remarks
-   * The monitoring rule ID.
+   * The ID of the rule.
    * 
    * @example
    * 123232
@@ -80,7 +81,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the task that is associated with the partition filter expression.
+   * The ID of the method used to collect sample data.
    * 
    * @example
    * 8
@@ -88,7 +89,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   methodId?: number;
   /**
    * @remarks
-   * The method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+   * The name of the method used to collect sample data. Valid values include `avg`, `count`, `sum`, `min`, `max`, `count_distinct`, `user_defined`, `table_count`, `table_size`, `table_dt_load_count`, `table_dt_refuseload_count`, `null_value`, `null_value/table_count`, `(table_count-count_distinct)/table_count`, and `table_count-count_distinct`.
    * 
    * @example
    * table_count
@@ -96,7 +97,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   methodName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to configure the monitoring rule.
+   * The ID of the Alibaba Cloud account that configured the rule.
    * 
    * @example
    * 1822931****
@@ -104,7 +105,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   onDuty?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account that is used to configure the monitoring rule.
+   * The name of the Alibaba Cloud account that configured the rule.
    * 
    * @example
    * test
@@ -112,7 +113,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   onDutyAccountName?: string;
   /**
    * @remarks
-   * Indicates whether the monitoring rule is enabled.
+   * Indicates whether the rule is enabled.
    * 
    * @example
    * true
@@ -120,7 +121,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   openSwitch?: boolean;
   /**
    * @remarks
-   * The comparison operator of the monitoring rule.
+   * The comparison operator.
    * 
    * @example
    * >=
@@ -128,10 +129,11 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * Indicates whether the threshold is a dynamic threshold. Valid values:
+   * Indicates whether the threshold is dynamic. Valid values:
    * 
-   * *   0: The threshold is not a dynamic threshold.
-   * *   1: The threshold is a dynamic threshold.
+   * - `0`: The threshold is static.
+   * 
+   * - `1`: The threshold is dynamic.
    * 
    * @example
    * 0
@@ -139,7 +141,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   predictType?: number;
   /**
    * @remarks
-   * The field whose data quality is checked based on the monitoring rule. This field is a column in the data source table that is monitored.
+   * The column in the data source table to which the rule applies.
    * 
    * @example
    * id
@@ -147,7 +149,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   property?: string;
   /**
    * @remarks
-   * The name of the monitoring rule.
+   * The name of the rule.
    * 
    * @example
    * View table fluctuations
@@ -155,11 +157,13 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule type:
+   * The type of the quality rule. Valid values:
    * 
-   * *   0: System template rule
-   * *   1: Custom SQL rule
-   * *   4: Custom template rule
+   * - `0`: A rule based on a system template.
+   * 
+   * - `1`: A rule based on a custom SQL statement.
+   * 
+   * - `4`: A rule based on a custom template.
    * 
    * @example
    * 0
@@ -167,7 +171,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   ruleType?: number;
   /**
    * @remarks
-   * The variable settings inserted before the custom rule. Format: x=a,y=b.
+   * The variable settings inserted before a custom rule. The format is x=a,y=b.
    * 
    * @example
    * x=a,y=b
@@ -175,7 +179,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   taskSetting?: string;
   /**
    * @remarks
-   * The ID of the monitoring template.
+   * The ID of the template used.
    * 
    * @example
    * 7
@@ -183,7 +187,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The name of the monitoring template.
+   * The name of the template used.
    * 
    * @example
    * SQL task table rows, 1,7, 30 days fluctuation test
@@ -191,7 +195,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The trend of the check result.
+   * The trend of the validation result.
    * 
    * @example
    * abs
@@ -199,7 +203,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   trend?: string;
   /**
    * @remarks
-   * The threshold for a warning alert. The threshold indicates the deviation of the check result from the expected value. You can customize this threshold based on your business requirements.
+   * The threshold for a warning Alert. This value specifies the acceptable deviation from the Expected Value and can be customized.
    * 
    * @example
    * 10
@@ -207,7 +211,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   warningThreshold?: string;
   /**
    * @remarks
-   * The filter condition or custom SQL statement that is used for monitoring.
+   * The filter condition or custom SQL statement used for validation.
    * 
    * @example
    * id>10
@@ -285,7 +289,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
 export class GetQualityRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information about the retrieved rule.
+   * The quality rule details.
    */
   data?: GetQualityRuleResponseBodyData;
   /**

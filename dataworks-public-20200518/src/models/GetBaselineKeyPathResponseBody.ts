@@ -184,7 +184,7 @@ export class GetBaselineKeyPathResponseBodyData extends $dara.Model {
    * The ID of the instance.
    * 
    * @example
-   * 12345
+   * 123456
    */
   instanceId?: number;
   /**

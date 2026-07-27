@@ -3,9 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RelationshipVO extends $dara.Model {
+  /**
+   * @remarks
+   * Additional attributes.
+   */
   attributes?: { [key: string]: string };
+  /**
+   * @remarks
+   * The unique identifier for the relationship.
+   */
   relationshipGuid?: string;
   /**
+   * @remarks
+   * The type of the relationship.
+   * 
    * @example
    * sql
    */

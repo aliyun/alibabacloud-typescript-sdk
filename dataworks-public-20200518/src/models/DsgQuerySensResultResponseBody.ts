@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DsgQuerySensResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * 1234
@@ -13,7 +13,7 @@ export class DsgQuerySensResultResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * The error code. The value is the same as that of ErrorCode.
+   * The error code. The value is the same as ErrorCode.
    * 
    * @example
    * 400
@@ -21,7 +21,7 @@ export class DsgQuerySensResultResponseBody extends $dara.Model {
   dynamicErrorCode?: string;
   /**
    * @remarks
-   * The error message. The value is the same as that of ErrorMessage.
+   * The error message. The value is the same as ErrorMessage.
    * 
    * @example
    * Missing parameter
@@ -53,7 +53,7 @@ export class DsgQuerySensResultResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. It is a unique identifier for the request.
    * 
    * @example
    * 900000001
@@ -61,10 +61,9 @@ export class DsgQuerySensResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the call was successful. Valid values:
+   * - true: successful.
+   * - false: failed.
    * 
    * @example
    * true

@@ -11,14 +11,14 @@ export class UpdateClusterConfigsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1234
+   * 12345
    */
   clusterId?: number;
   /**
    * @remarks
    * The configuration type of the cluster. Valid values:
    * 
-   * *   SPARK_CONF: SPARK parameters
+   * - SPARK_CONF: SPARK parameters
    * 
    * This parameter is required.
    * 

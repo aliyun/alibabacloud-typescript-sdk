@@ -60,7 +60,7 @@ export class ListRemindsRequest extends $dara.Model {
    * The keyword in a rule name that is used to search for the rule. Fuzzy search is supported.
    * 
    * @example
-   * Keyword
+   * Fuzzy search rule name
    */
   searchText?: string;
   static names(): { [key: string]: string } {

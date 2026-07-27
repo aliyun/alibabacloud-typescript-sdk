@@ -7,8 +7,9 @@ export class UpdateClusterConfigsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the update was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -50,8 +51,9 @@ export class UpdateClusterConfigsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

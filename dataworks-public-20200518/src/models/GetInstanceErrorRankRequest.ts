@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceErrorRankRequest extends $dara.Model {
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * This parameter is required.
    * 

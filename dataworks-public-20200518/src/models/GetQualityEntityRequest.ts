@@ -5,15 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the compute engine or data source. Valid values:
+   * The type of the engine or data source. Valid values:
    * 
-   * *   cdh
-   * *   analyticdb_for_mysql
-   * *   odps
-   * *   emr
-   * *   hadoop
-   * *   holodb
-   * *   hybriddb_for_postgresql
+   * - `cdh`
+   * 
+   * - `analyticdb_for_mysql`
+   * 
+   * - `odps`
+   * 
+   * - `emr`
+   * 
+   * - `hadoop`
+   * 
+   * - `holodb`
+   * 
+   * - `hybriddb_for_postgresql`
    * 
    * This parameter is required.
    * 
@@ -23,7 +29,7 @@ export class GetQualityEntityRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The partition filter expression.
+   * The partition expression.
    * 
    * @example
    * dt=$[yyyymmdd]
@@ -31,15 +37,15 @@ export class GetQualityEntityRequest extends $dara.Model {
   matchExpression?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The ID of the DataWorks workspace. To find the workspace ID, log in to the [DataWorks Console](https://workbench.data.aliyun.com/console) and go to the Workspace Configurations page.
    * 
    * @example
-   * 12345
+   * 123456
    */
   projectId?: number;
   /**
    * @remarks
-   * The name of the compute engine instance or data source. You can obtain the name from data source configurations.
+   * The name of the engine or data source. You can find this name on the Data Source Configuration page.
    * 
    * This parameter is required.
    * 
@@ -49,7 +55,7 @@ export class GetQualityEntityRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The name of the partitioned table. You can call the [GetMetaTablePartition](https://help.aliyun.com/document_detail/173923.html) operation to obtain the name.
+   * The name of the partitioned table. You can call the [GetMetaTablePartition](https://help.aliyun.com/document_detail/173923.html) operation to get the table name.
    * 
    * This parameter is required.
    * 

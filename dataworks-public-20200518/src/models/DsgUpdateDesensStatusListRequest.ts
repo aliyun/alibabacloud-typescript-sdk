@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DsgUpdateDesensStatusListRequest extends $dara.Model {
   /**
    * @remarks
+   * The switch status. Valid values:
+   * 1: enabled
+   * 0: disabled
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class DsgUpdateDesensStatusListRequest extends $dara.Model {
   desensStatus?: number;
   /**
    * @remarks
+   * The list of switch IDs.
+   * 
    * This parameter is required.
    */
   ids?: number[];

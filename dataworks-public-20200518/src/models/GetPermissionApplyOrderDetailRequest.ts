@@ -10,7 +10,7 @@ export class GetPermissionApplyOrderDetailRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 48f36729-05f9-4a40-9286-933fd940f30a
+   * 48f36729-05f9-4a40-9286-933fd940****
    */
   flowId?: string;
   static names(): { [key: string]: string } {

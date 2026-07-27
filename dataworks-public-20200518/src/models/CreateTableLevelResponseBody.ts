@@ -40,7 +40,7 @@ export class CreateTableLevelResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * The error message returned.
+   * Request ID
    */
   requestId?: string;
   /**

@@ -5,15 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class DsgDesensPlanAddOrUpdateRequestDesensRulesDesensPlan extends $dara.Model {
   /**
    * @remarks
-   * The masking method configured in the data masking rule. Valid values:
+   * The data masking method. Valid values:
    * 
-   * *   hash
-   * *   mapping
-   * *   mask
-   * *   charreplacement
-   * *   intervalselect
-   * *   decimalpoint
-   * *   emptydesens
+   * - hash: hashing
+   * 
+   * - mapping: pseudonymization
+   * 
+   * - mask: masking
+   * 
+   * - charreplacement: character replacement
+   * 
+   * - intervalselect: interval transformation
+   * 
+   * - decimalpoint: rounding
+   * 
+   * - emptydesens: nullification
    * 
    * This parameter is required.
    * 
@@ -23,7 +29,7 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRulesDesensPlan extends $dara.
   desensPlanType?: string;
   /**
    * @remarks
-   * The parameters for the data masking rule.
+   * The parameters for the data masking method.
    */
   extParam?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -55,22 +61,42 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRulesDesensPlan extends $dara.
 export class DsgDesensPlanAddOrUpdateRequestDesensRulesColumns extends $dara.Model {
   /**
    * @remarks
+   * The column name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test_col_dev
    */
   column?: string;
   /**
    * @remarks
+   * The data source type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ODPS.ODPS
    */
   dbType?: string;
   /**
    * @remarks
+   * The name of the DataWorks workspace.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test_dev
    */
   project?: string;
   /**
    * @remarks
+   * The table name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test_table_dev
    */
   table?: string;
   static names(): { [key: string]: string } {
@@ -105,8 +131,9 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
    * @remarks
    * Specifies whether to add a watermark. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Adds a watermark.
+   * 
+   * - false: Does not add a watermark.
    * 
    * @example
    * true
@@ -114,7 +141,7 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
   checkWatermark?: boolean;
   /**
    * @remarks
-   * The sensitive field type.
+   * The sensitive data type.
    * 
    * @example
    * phone
@@ -122,14 +149,14 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The data masking rule.
+   * The configuration of the data masking method.
    * 
    * This parameter is required.
    */
   desensPlan?: DsgDesensPlanAddOrUpdateRequestDesensRulesDesensPlan;
   /**
    * @remarks
-   * The ID of the data masking rule. You can call the [DsgDesensPlanQueryList](https://help.aliyun.com/document_detail/2786578.html) operation to query the ID of the data masking rule.
+   * The data masking rule ID. You can call the [DsgDesensPlanQueryList](https://help.aliyun.com/document_detail/2786578.html) operation to obtain it.
    * 
    * @example
    * 123
@@ -157,7 +184,7 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The level-2 data masking scenario.
+   * The secondary data masking scenes.
    * 
    * This parameter is required.
    */
@@ -166,13 +193,18 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
    * @remarks
    * The status of the data masking rule. Valid values:
    * 
-   * *   0: expired
-   * *   1: effective
+   * - 0: Disabled
+   * 
+   * - 1: Enabled
    * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The associated columns for masking.
+   */
   columns?: DsgDesensPlanAddOrUpdateRequestDesensRulesColumns[];
   emptyNotDesens?: boolean;
   static names(): { [key: string]: string } {
@@ -226,7 +258,7 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
 export class DsgDesensPlanAddOrUpdateRequest extends $dara.Model {
   /**
    * @remarks
-   * A collection of data masking rules that you want to add or modify.
+   * The collection of data masking rules to add or update.
    * 
    * This parameter is required.
    */

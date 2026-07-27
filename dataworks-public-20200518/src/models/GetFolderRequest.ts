@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFolderRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The ID of the folder. You must set either this parameter or FolderPath. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to obtain the folder ID.
    * 
    * @example
    * 273****
@@ -13,7 +13,7 @@ export class GetFolderRequest extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The details of the folder.
+   * The path of the folder. You must set either this parameter or FolderId. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to obtain the folder path.
    * 
    * @example
    * Business_process/my_first_business_process/MaxCompute/ods_layer
@@ -21,7 +21,7 @@ export class GetFolderRequest extends $dara.Model {
   folderPath?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the DataWorks workspace. Log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID. You must set either this parameter or ProjectIdentifier to specify the DataWorks workspace for the API call.
    * 
    * @example
    * 1000011
@@ -29,7 +29,7 @@ export class GetFolderRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The error code.
+   * The name of the DataWorks workspace. Log on to the DataWorks console and go to the Workspace Management page to obtain the workspace name. You must set either this parameter or ProjectId to specify the DataWorks workspace for the API call.
    * 
    * @example
    * dw_project

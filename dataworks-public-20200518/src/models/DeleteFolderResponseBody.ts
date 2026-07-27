@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFolderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The connection does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The ID of the request. You can use the ID to troubleshoot issues.
+   * 
    * @example
    * 0000-ABCD-EFG****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
