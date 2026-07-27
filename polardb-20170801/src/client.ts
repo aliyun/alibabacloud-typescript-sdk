@@ -70,9 +70,7 @@ export default class Client extends OpenApi {
       'ap-southeast-6': "polardb.ap-southeast-6.aliyuncs.com",
       'ap-southeast-5': "polardb.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "polardb.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-2': "polardb.ap-southeast-2.aliyuncs.com",
       'ap-southeast-1': "polardb.ap-southeast-1.aliyuncs.com",
-      'ap-south-1': "polardb.ap-south-1.aliyuncs.com",
       'ap-northeast-2': "polardb.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "polardb.ap-northeast-1.aliyuncs.com",
     };
@@ -3080,6 +3078,11 @@ export default class Client extends OpenApi {
   /**
    * Creates API keys in batches.
    * 
+   * @remarks
+   * > * Each cluster can have a maximum of three manually created backups at the same time.
+   * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before calling this operation.
+   * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+   * 
    * @param request - CreateBatchConsumerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateBatchConsumerResponse
@@ -3097,6 +3100,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.count)) {
       query["Count"] = request.count;
+    }
+
+    if (!$dara.isNull(request.creditToken)) {
+      query["CreditToken"] = request.creditToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!$dara.isNull(request.gwClusterId)) {
@@ -3126,6 +3137,11 @@ export default class Client extends OpenApi {
 
   /**
    * Creates API keys in batches.
+   * 
+   * @remarks
+   * > * Each cluster can have a maximum of three manually created backups at the same time.
+   * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before calling this operation.
+   * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
    * 
    * @param request - CreateBatchConsumerRequest
    * @returns CreateBatchConsumerResponse
@@ -3646,6 +3662,9 @@ export default class Client extends OpenApi {
   /**
    * Creates a PolarDB cluster.
    * 
+   * @remarks
+   * DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster to a self-managed PostgreSQL database on an ECS instance. You can use DBLink to query data across clusters.
+   * 
    * @param request - CreateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDBClusterResponse
@@ -3936,6 +3955,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a PolarDB cluster.
+   * 
+   * @remarks
+   * DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster to a self-managed PostgreSQL database on an ECS instance. You can use DBLink to query data across clusters.
    * 
    * @param request - CreateDBClusterRequest
    * @returns CreateDBClusterResponse
@@ -5067,6 +5089,68 @@ export default class Client extends OpenApi {
   async createGlobalSecurityIPGroup(request: $_model.CreateGlobalSecurityIPGroupRequest): Promise<$_model.CreateGlobalSecurityIPGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Places an order to purchase a token resource plan and activates a redemption code.
+   * 
+   * @param request - CreateGwConsumerOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGwConsumerOrderResponse
+   */
+  async createGwConsumerOrderWithOptions(request: $_model.CreateGwConsumerOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGwConsumerOrderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.keyCount)) {
+      query["KeyCount"] = request.keyCount;
+    }
+
+    if (!$dara.isNull(request.packageSpec)) {
+      query["PackageSpec"] = request.packageSpec;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGwConsumerOrder",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGwConsumerOrderResponse>(await this.callApi(params, req, runtime), new $_model.CreateGwConsumerOrderResponse({}));
+  }
+
+  /**
+   * Places an order to purchase a token resource plan and activates a redemption code.
+   * 
+   * @param request - CreateGwConsumerOrderRequest
+   * @returns CreateGwConsumerOrderResponse
+   */
+  async createGwConsumerOrder(request: $_model.CreateGwConsumerOrderRequest): Promise<$_model.CreateGwConsumerOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGwConsumerOrderWithOptions(request, runtime);
   }
 
   /**
@@ -10516,7 +10600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log details of an AI application.
+   * Queries the details of AI application logs.
    * 
    * @param request - DescribeApplicationLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10599,7 +10683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log details of an AI application.
+   * Queries the details of AI application logs.
    * 
    * @param request - DescribeApplicationLogsRequest
    * @returns DescribeApplicationLogsResponse
@@ -10662,7 +10746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying PolarDB AI application performance.
+   * Queries the performance of a PolarDB AI application.
    * 
    * @param request - DescribeApplicationPerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10737,7 +10821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Querying PolarDB AI application performance.
+   * Queries the performance of a PolarDB AI application.
    * 
    * @param request - DescribeApplicationPerformanceRequest
    * @returns DescribeApplicationPerformanceResponse
@@ -24274,7 +24358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+   * Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
    * 
    * @param request - ModifyDBClusterSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24283,6 +24367,10 @@ export default class Client extends OpenApi {
   async modifyDBClusterSSLWithOptions(request: $_model.ModifyDBClusterSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterSSLResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.certValidDays)) {
+      query["CertValidDays"] = request.certValidDays;
+    }
+
     if (!$dara.isNull(request.connectionString)) {
       query["ConnectionString"] = request.connectionString;
     }
@@ -24345,7 +24433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+   * Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
    * 
    * @param request - ModifyDBClusterSSLRequest
    * @returns ModifyDBClusterSSLResponse

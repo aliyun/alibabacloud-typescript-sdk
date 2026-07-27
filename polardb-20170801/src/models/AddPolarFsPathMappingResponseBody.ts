@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddPolarFsPathMappingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * CDB3258F-B5DE-43C4-8935-CBA0CA******

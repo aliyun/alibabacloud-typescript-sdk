@@ -584,6 +584,9 @@ export { CreateGlobalDatabaseNetworkResponse } from './CreateGlobalDatabaseNetwo
 export { CreateGlobalSecurityIPGroupRequest } from './CreateGlobalSecurityIpgroupRequest';
 export { CreateGlobalSecurityIPGroupResponseBody } from './CreateGlobalSecurityIpgroupResponseBody';
 export { CreateGlobalSecurityIPGroupResponse } from './CreateGlobalSecurityIpgroupResponse';
+export { CreateGwConsumerOrderRequest } from './CreateGwConsumerOrderRequest';
+export { CreateGwConsumerOrderResponseBody } from './CreateGwConsumerOrderResponseBody';
+export { CreateGwConsumerOrderResponse } from './CreateGwConsumerOrderResponse';
 export { CreateModelApiRequest } from './CreateModelApiRequest';
 export { CreateModelApiResponseBody } from './CreateModelApiResponseBody';
 export { CreateModelApiResponse } from './CreateModelApiResponse';

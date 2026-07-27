@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterSSLRequest extends $dara.Model {
   /**
    * @example
+   * 1095
+   */
+  certValidDays?: string;
+  /**
+   * @example
    * xxx
    */
   connectionString?: string;
@@ -23,7 +28,7 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
    * The endpoint ID.
    * 
    * >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-   * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
+   * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. Secure Sockets Layer (SSL) encryption is enabled for all endpoints by default.
    * >* You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to query endpoint details.
    * 
    * @example
@@ -32,13 +37,13 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
   DBEndpointId?: string;
   /**
    * @remarks
-   * The network type of the endpoint. The value must be the same as the network type of the endpoint specified by **DBEndpointId**. Valid values:
+   * The network type of the endpoint. The value must be consistent with the network type of the endpoint specified by the **DBEndpointId** parameter. Valid values:
    * * **Public**: public network
    * * **Private**: private network
    * * **Inner**: private network (classic network)
    * 
    * >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-   * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
+   * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. Secure Sockets Layer (SSL) encryption is enabled for all endpoints by default.
    * 
    * @example
    * Public
@@ -57,9 +62,9 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic SSL certificate rotation. Valid values:
    * 
-   * - **Enable**: enables automatic SSL certificate rotation.
+   * - **Enable**: Enables automatic rotation.
    * 
-   * - **Disable**: disables automatic SSL certificate rotation.
+   * - **Disable**: Disables automatic rotation.
    * 
    * @example
    * Enable
@@ -68,11 +73,11 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
   /**
    * @remarks
    * The SSL status. Valid values:
-   * * **Disable**: shutdown SSL encryption.
-   * * **Enable**: enables SSL encryption.
-   * * **Update**: updates the CA certificate.
+   * * **Disable**: Shutdown of Secure Sockets Layer (SSL) encryption.
+   * * **Enable**: Enables Secure Sockets Layer (SSL) encryption.
+   * * **Update**: Updates the CA certificate.
    * 
-   * > After you enable SSL encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
+   * > After you enable Secure Sockets Layer (SSL) encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
    * 
    * @example
    * Enable
@@ -80,6 +85,7 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
   SSLEnabled?: string;
   static names(): { [key: string]: string } {
     return {
+      certValidDays: 'CertValidDays',
       connectionString: 'ConnectionString',
       DBClusterId: 'DBClusterId',
       DBEndpointId: 'DBEndpointId',
@@ -96,6 +102,7 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certValidDays: 'string',
       connectionString: 'string',
       DBClusterId: 'string',
       DBEndpointId: 'string',

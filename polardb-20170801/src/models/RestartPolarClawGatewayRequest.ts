@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RestartPolarClawGatewayRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,11 @@ export class RestartPolarClawGatewayRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The restart mode. Valid values:
+   * - in-process: lightweight restart without applying environment variable changes. This is the default value.
+   * - pkill: cold start that applies environment variable changes.
+   * 
    * @example
    * in-process
    */

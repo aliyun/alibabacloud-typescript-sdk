@@ -140,17 +140,20 @@ export class DescribeApplicationPerformanceResponseBody extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * The end time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The end of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2025-05-23T02:21:00Z
    */
   endTime?: string;
-  interval?: string;
   /**
    * @remarks
-   * The performance metrics.
+   * The data granularity.
+   * 
+   * @example
+   * 60
    */
+  interval?: string;
   performanceKeys?: DescribeApplicationPerformanceResponseBodyPerformanceKeys;
   /**
    * @remarks
@@ -162,7 +165,7 @@ export class DescribeApplicationPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The beginning of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
    * 
    * @example
    * 2022-11-15T16:00Z

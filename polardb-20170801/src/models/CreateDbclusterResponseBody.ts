@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDBClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The Agentic cluster description.
+   * 
+   * @example
+   * pagc-***************
+   */
   agenticDbClusterDescription?: string;
+  /**
+   * @remarks
+   * The Agentic cluster ID.
+   * 
+   * @example
+   * pagc-***************
+   */
   agenticDbClusterId?: string;
   /**
    * @remarks

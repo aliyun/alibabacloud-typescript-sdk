@@ -7,12 +7,14 @@ import * as $dara from '@darabonba/typescript';
 export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * Bucket1
    */
   bucket?: string;
+  bucketAccessKeyId?: string;
+  bucketAccessKeySecret?: string;
   /**
    * @remarks
    * The custom storage path.
@@ -24,6 +26,8 @@ export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       bucket: 'Bucket',
+      bucketAccessKeyId: 'BucketAccessKeyId',
+      bucketAccessKeySecret: 'BucketAccessKeySecret',
       path: 'Path',
     };
   }
@@ -31,6 +35,8 @@ export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       bucket: 'string',
+      bucketAccessKeyId: 'string',
+      bucketAccessKeySecret: 'string',
       path: 'string',
     };
   }
@@ -47,12 +53,12 @@ export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Mode
 export class AddPolarFsPathMappingRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of objects, each containing a bucket and its corresponding path.
+   * The bucket and corresponding path information.
    */
   customBucketPathList?: AddPolarFsPathMappingRequestCustomBucketPathList[];
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -62,7 +68,7 @@ export class AddPolarFsPathMappingRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the PolarFS instance.
+   * The PolarFS instance ID.
    * 
    * This parameter is required.
    * 

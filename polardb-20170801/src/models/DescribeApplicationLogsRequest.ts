@@ -15,7 +15,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The instance ID of the subcomponent.
+   * The subcomponent instance ID.
    * 
    * @example
    * pac-xxx
@@ -41,7 +41,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The search keyword. This parameter is used for PolarClaw instances.
+   * The search keyword. This parameter is used for polarclaw instances.
    * 
    * @example
    * Config
@@ -49,7 +49,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The log level. This parameter is used for PolarClaw instances.
+   * The log level. This parameter is used for polarclaw instances.
    * 
    * @example
    * WARN
@@ -96,7 +96,7 @@ export class DescribeApplicationLogsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The log type. This parameter is used for PolarClaw instances. Currently, only gateway is supported.
+   * The log type. This parameter is used for polarclaw instances. Currently, only gateway is supported.
    * 
    * @example
    * gateway
