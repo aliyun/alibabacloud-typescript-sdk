@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceAttributeResponseBodyDataMultiZones extends $dara.Model {
   /**
    * @remarks
-   * An array of vSwitch IDs.
+   * The array of vSwitch IDs.
    */
   vSwitchIds?: string[];
   /**
@@ -45,7 +45,7 @@ export class DescribeDBInstanceAttributeResponseBodyDataMultiZones extends $dara
 export class DescribeDBInstanceAttributeResponseBodyDataNodes extends $dara.Model {
   /**
    * @remarks
-   * The status of the node.
+   * The running status of the node.
    * 
    * @example
    * active
@@ -141,9 +141,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   bid?: string;
   /**
    * @remarks
-   * The edition of the cluster. Valid value:
-   * 
-   * - `enterprise`: enterprise edition
+   * The category. Valid values:
    * 
    * @example
    * enterprise
@@ -151,8 +149,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The billing method of the cluster.
-   * enterprise edition clusters are billed on a pay-as-you-go basis.
+   * The billing method.
    * 
    * @example
    * POSTPAY
@@ -160,7 +157,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The status of the ClickObserve service.
+   * The ClickObserve service status.
    * 
    * @example
    * activation
@@ -168,7 +165,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   clickObserveServiceStatus?: string;
   /**
    * @remarks
-   * The creation time of the cluster, in `YYYY-MM-DDTHH:mm:ssZ` format.
+   * The creation time of the cluster. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-09-14T08:14:48Z
@@ -184,7 +181,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Whether deletion protection is enabled.
+   * Indicates whether deletion protection is enabled.
    * 
    * @example
    * 0/1
@@ -192,13 +189,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The deployment architecture of the cluster. Valid values: `single_az` and `multi_az`.
-   * 
-   * - `single_az`: The nodes are deployed in the primary zone specified by `ZoneId`.
-   * 
-   * - `multi_az`: The nodes are deployed across the zones specified in `MultiZones`.
-   * 
-   * Keeper nodes are always deployed across the zones specified in `MultiZones`.
+   * The zone deployment status of the cluster. Valid values: single_az and multi_az.
    * 
    * @example
    * single_az
@@ -214,7 +205,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * A comma-separated list of disabled database ports.
+   * The disabled database ports. Multiple ports are separated by commas (,).
    * 
    * @example
    * 9001,8123
@@ -222,7 +213,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   disabledPorts?: string;
   /**
    * @remarks
-   * The engine.
+   * The engine type.
    * 
    * @example
    * clickhouse
@@ -238,7 +229,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   engineMinorVersion?: string;
   /**
    * @remarks
-   * The engine version.
+   * The DPI engine version.
    * 
    * @example
    * 23.8
@@ -246,9 +237,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time of the cluster, in `YYYY-MM-DDTHH:mm:ssZ` format.
-   * 
-   * > Pay-as-you-go clusters do not expire. An empty string is returned.
+   * The expiration time of the cluster. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2024-04-17T08:14:48Z
@@ -256,12 +245,12 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * A list of Langfuse instance IDs.
+   * The list of Langfuse instance IDs.
    */
   langfuseInstanceIds?: string[];
   /**
    * @remarks
-   * The latest minor version of the cluster engine.
+   * The latest minor engine version.
    * 
    * @example
    * 23.8.1.41495_6
@@ -277,7 +266,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The reason for the lock.
+   * The lock reason.
    * 
    * @example
    * nolock
@@ -301,7 +290,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   maintainStartTime?: string;
   /**
    * @remarks
-   * The zones for a multi-zone deployment.
+   * The multi-zone information.
    */
   multiZones?: DescribeDBInstanceAttributeResponseBodyDataMultiZones[];
   /**
@@ -314,7 +303,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   nodeCount?: string;
   /**
    * @remarks
-   * The maximum number of nodes for auto scaling of a serverless cluster.
+   * The maximum elastic scaling value for serverless nodes.
    * 
    * @example
    * 32
@@ -322,7 +311,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   nodeScaleMax?: string;
   /**
    * @remarks
-   * The minimum number of nodes for auto scaling of a serverless cluster.
+   * The minimum elastic scaling value for serverless nodes.
    * 
    * @example
    * 4
@@ -330,12 +319,12 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   nodeScaleMin?: string;
   /**
    * @remarks
-   * The cluster nodes.
+   * The node information.
    */
   nodes?: DescribeDBInstanceAttributeResponseBodyDataNodes[];
   /**
    * @remarks
-   * The storage capacity of Object Storage Service (OSS).
+   * The object storage size.
    * 
    * @example
    * 13
@@ -359,7 +348,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The maximum value for serverless auto scaling.
+   * The maximum scaling value for serverless elastic scaling.
    * 
    * @example
    * 32
@@ -367,7 +356,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum value for serverless auto scaling.
+   * The minimum scaling value for serverless elastic scaling.
    * 
    * @example
    * 8
@@ -375,7 +364,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   scaleMin?: number;
   /**
    * @remarks
-   * The status of the instance.
+   * The instance status.
    * 
    * @example
    * ACTIVATION
@@ -383,7 +372,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The provisioned storage, in GB.
+   * The pre-purchased storage quota, in GB.
    * 
    * @example
    * 100
@@ -391,7 +380,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   storageQuota?: string;
   /**
    * @remarks
-   * The storage space, in GB.
+   * The storage size. Unit: GB.
    * 
    * @example
    * 12
@@ -407,7 +396,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The cluster tags.
+   * The tag information.
    */
   tags?: DescribeDBInstanceAttributeResponseBodyDataTags[];
   /**
@@ -420,7 +409,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * VPC ID。
    * 
    * @example
    * vpc-wz9duj8xd6r1gzhsg*****
@@ -553,7 +542,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
 export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DescribeDBInstanceAttributeResponseBodyData;
   /**

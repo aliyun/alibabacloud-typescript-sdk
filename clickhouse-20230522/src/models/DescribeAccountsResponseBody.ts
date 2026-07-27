@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
   /**
    * @remarks
-   * The username of the database account.
+   * The database account.
    * 
    * @example
    * test
@@ -14,10 +14,8 @@ export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
   /**
    * @remarks
    * The type of the database account. Valid values:
-   * 
-   * - **1**: standard account
-   * 
-   * - **6**: privileged account
+   * - **1**: Standard account.
+   * - **6**: Privileged account.
    * 
    * @example
    * 1
@@ -25,7 +23,7 @@ export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The description.
+   * The description of the account.
    * 
    * @example
    * For testing
@@ -33,13 +31,13 @@ export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The state of the database account. Valid values:
+   * The account status. Valid values:
    * 
-   * - **0**: The database account is being created.
+   * - **0**: Being created.
    * 
-   * - **1**: The database account is in use.
+   * - **1**: In use.
    * 
-   * - **3**: The database account is being deleted.
+   * - **3**: Being deleted.
    * 
    * @example
    * 1
@@ -75,7 +73,7 @@ export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
 export class DescribeAccountsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The database accounts.
+   * The list of accounts.
    */
   accounts?: DescribeAccountsResponseBodyDataAccounts[];
   /**
@@ -89,11 +87,8 @@ export class DescribeAccountsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -102,7 +97,7 @@ export class DescribeAccountsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -141,7 +136,7 @@ export class DescribeAccountsResponseBodyData extends $dara.Model {
 export class DescribeAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result returned.
+   * The returned result.
    */
   data?: DescribeAccountsResponseBodyData;
   /**

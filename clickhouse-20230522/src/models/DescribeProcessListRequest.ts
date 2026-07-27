@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProcessListRequest extends $dara.Model {
   /**
    * @remarks
-   * The computing group ID.
+   * The compute group ID.
    * 
    * @example
    * cc-gs5j3sua77******-clickhouse
@@ -39,7 +39,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   initialUser?: string;
   /**
    * @remarks
-   * The keyword in the query statement.
+   * The keyword of the query statement.
    * 
    * @example
    * SELECT
@@ -55,7 +55,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -63,7 +63,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The minimum query execution duration, in milliseconds (ms). Only queries that run for this duration or longer are returned. The minimum value is 1,000.
+   * The execution duration of slow SQL statements. Unit: ms. Minimum value: 1000 ms.
    * 
    * @example
    * 1000
@@ -71,13 +71,13 @@ export class DescribeProcessListRequest extends $dara.Model {
   queryDurationMs?: string;
   /**
    * @remarks
-   * The criteria by which to sort the results. The results are sorted in descending order. Valid values:
+   * Sorts the results in descending order by the specified columns.
    * 
-   * - 0: Sorts by `query_duration_ms`.
+   * - 0: sorts by query_duration_ms only.
    * 
-   * - 1: Sorts by `query_duration_ms` and `query_start_time`.
+   * - 1: sorts by query_duration_ms and query_start_time.
    * 
-   * - 2: Sorts by `query_duration_ms`, `query_start_time`, and `user`.
+   * - 2: sorts by query_duration_ms, query_start_time, and user.
    * 
    * @example
    * 0
@@ -86,6 +86,8 @@ export class DescribeProcessListRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * cn-beijing

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The computing group ID.
+   * The compute group ID.
    * 
    * @example
    * cc-*****-clickhouse
@@ -24,6 +24,8 @@ export class DescribeEndpointsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * cn-beijing

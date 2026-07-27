@@ -61,7 +61,7 @@ export default class Client extends OpenApi {
       'eu-west-1': "clickhouse.eu-west-1.aliyuncs.com",
       'eu-central-1': "clickhouse.eu-central-1.aliyuncs.com",
       'cn-zhangjiakou': "clickhouse.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "clickhouse.aliyuncs.com",
+      'cn-wulanchabu': "clickhouse.cn-wulanchabu.aliyuncs.com",
       'cn-huhehaote': "clickhouse.cn-huhehaote.aliyuncs.com",
       'cn-guangzhou': "clickhouse.cn-guangzhou.aliyuncs.com",
       'cn-chengdu': "clickhouse.cn-chengdu.aliyuncs.com",
@@ -1466,7 +1466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries database accounts for an ApsaraDB for ClickHouse cluster.
+   * Queries the list of database accounts for a specified ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1513,7 +1513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries database accounts for an ApsaraDB for ClickHouse cluster.
+   * Queries the list of database accounts for a specified ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
@@ -1636,7 +1636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
+   * Queries the details of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1671,7 +1671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
+   * Queries the details of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -1886,7 +1886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * To retrieve the cluster endpoints, call DescribeEndpoints.
+   * Calls the DescribeEndpoints operation to query the endpoints of a cluster.
    * 
    * @param request - DescribeEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1925,7 +1925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * To retrieve the cluster endpoints, call DescribeEndpoints.
+   * Calls the DescribeEndpoints operation to query the endpoints of a cluster.
    * 
    * @param request - DescribeEndpointsRequest
    * @returns DescribeEndpointsResponse
@@ -2364,7 +2364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes currently running queries.
+   * Calls the DescribeProcessList operation to view queries that are currently running.
    * 
    * @param request - DescribeProcessListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2431,7 +2431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes currently running queries.
+   * Calls the DescribeProcessList operation to view queries that are currently running.
    * 
    * @param request - DescribeProcessListRequest
    * @returns DescribeProcessListResponse
@@ -2473,7 +2473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a whitelist.
+   * Queries the IP address whitelist of a cluster by calling the DescribeSecurityIPList operation.
    * 
    * @param request - DescribeSecurityIPListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2508,7 +2508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a whitelist.
+   * Queries the IP address whitelist of a cluster by calling the DescribeSecurityIPList operation.
    * 
    * @param request - DescribeSecurityIPListRequest
    * @returns DescribeSecurityIPListResponse

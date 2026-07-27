@@ -21,7 +21,7 @@ export class DescribeSecurityIPListResponseBodyDataGroupItems extends $dara.Mode
   groupTag?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist group.
+   * The list of IP addresses in the whitelist group.
    * 
    * @example
    * 127.0.XX.XX
@@ -29,7 +29,7 @@ export class DescribeSecurityIPListResponseBodyDataGroupItems extends $dara.Mode
   securityIPList?: string;
   /**
    * @remarks
-   * The IP address type.
+   * The type of the IP address.
    * 
    * @example
    * ipv4
@@ -91,7 +91,7 @@ export class DescribeSecurityIPListResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The whitelist groups.
+   * The list of whitelist groups.
    */
   groupItems?: DescribeSecurityIPListResponseBodyDataGroupItems[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class DescribeSecurityIPListResponseBodyData extends $dara.Model {
 export class DescribeSecurityIPListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: DescribeSecurityIPListResponseBodyData;
   /**

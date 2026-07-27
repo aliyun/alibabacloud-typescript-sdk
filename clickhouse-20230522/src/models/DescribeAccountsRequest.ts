@@ -20,24 +20,21 @@ export class DescribeAccountsRequest extends $dara.Model {
    * @example
    * 1
    */
-  pageNumber?: string;
+  pageNumber?: number;
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
    * 30
    */
-  pageSize?: string;
+  pageSize?: number;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The product code.
    * 
    * @example
    * clickhouse
@@ -64,8 +61,8 @@ export class DescribeAccountsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       product: 'string',
       regionId: 'string',
     };

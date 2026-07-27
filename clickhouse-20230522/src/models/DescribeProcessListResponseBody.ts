@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   /**
    * @remarks
-   * The address from which the query was initiated.
+   * The query address.
    * 
    * @example
    * 0:0:0:0:0:ffff:1edd65ea
@@ -21,7 +21,7 @@ export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   initialQueryId?: string;
   /**
    * @remarks
-   * The user who initiated the query.
+   * The query user.
    * 
    * @example
    * bany
@@ -29,7 +29,7 @@ export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   initialUser?: string;
   /**
    * @remarks
-   * The query statement.
+   * The statement that is being queried.
    * 
    * @example
    * select * from test
@@ -37,7 +37,7 @@ export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The execution duration of the query, in milliseconds (ms).
+   * The minimum query duration. Minimum value: **1000**. Unit: milliseconds.
    * 
    * @example
    * 1000
@@ -45,7 +45,7 @@ export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
   queryDurationMs?: number;
   /**
    * @remarks
-   * The start time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when the query started. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2023-07-23T10:13:23Z
@@ -106,7 +106,7 @@ export class DescribeProcessListResponseBodyData extends $dara.Model {
   resultSet?: DescribeProcessListResponseBodyDataResultSet[];
   /**
    * @remarks
-   * The total number of entries that match the filter criteria.
+   * The total number of records.
    * 
    * @example
    * 1
@@ -145,7 +145,7 @@ export class DescribeProcessListResponseBodyData extends $dara.Model {
 export class DescribeProcessListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data object.
+   * The returned result.
    */
   data?: DescribeProcessListResponseBodyData;
   /**
