@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns extends $dara.Model {
   /**
    * @remarks
-   * The description of the mapping column.
+   * The description of the mapping field.
    * 
    * @example
-   * 控制业务ID字段
+   * Controls the business ID field.
    */
   columnDesc?: string;
   /**
    * @remarks
-   * The name of the mapping column.
+   * The name of the mapping field.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns 
   columnName?: string;
   /**
    * @remarks
-   * The type of the mapping column.
+   * The type of the mapping field.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandMappingColumns 
 export class CreateRowPermissionRequestCreateRowPermissionCommandRulesExpressions extends $dara.Model {
   /**
    * @remarks
-   * The name of the mapping column.
+   * The name of the mapping field.
    * 
    * This parameter is required.
    * 
@@ -96,9 +96,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRulesExpression
   type?: string;
   /**
    * @remarks
-   * The expression operation values.
-   * 
-   * This parameter is required.
+   * The operation values of the expression.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -225,7 +223,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
   expressions?: CreateRowPermissionRequestCreateRowPermissionCommandRulesExpressions[];
   /**
    * @remarks
-   * Specifies whether to delete the rule.
+   * Specifies whether the rule is deleted.
    * 
    * @example
    * 1
@@ -238,7 +236,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
    * This parameter is required.
    * 
    * @example
-   * 中台
+   * MiddlePlatform.
    */
   ruleName?: string;
   /**
@@ -254,8 +252,6 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
   /**
    * @remarks
    * The status of the rule.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1
@@ -306,7 +302,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandRules extends $
 export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends $dara.Model {
   /**
    * @remarks
-   * The column of the table.
+   * The field of the table.
    * 
    * This parameter is required.
    * 
@@ -316,7 +312,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends 
   columnName?: string;
   /**
    * @remarks
-   * The name of the mapping column.
+   * The name of the mapping field.
    * 
    * This parameter is required.
    * 
@@ -362,7 +358,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommandTables extends 
 export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.Model {
   /**
    * @remarks
-   * The mapping columns.
+   * The mapping fields.
    * 
    * This parameter is required.
    */
@@ -372,7 +368,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.
    * The description of the row-level permission.
    * 
    * @example
-   * 管控业务数据
+   * Control business data.
    */
   rowPermissionDesc?: string;
   /**
@@ -382,7 +378,7 @@ export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.
    * This parameter is required.
    * 
    * @example
-   * 业务管控
+   * BusinessControl.
    */
   rowPermissionName?: string;
   /**
@@ -436,14 +432,14 @@ export class CreateRowPermissionRequestCreateRowPermissionCommand extends $dara.
 export class CreateRowPermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * Request command.
+   * The request command.
    * 
    * This parameter is required.
    */
   createRowPermissionCommand?: CreateRowPermissionRequestCreateRowPermissionCommand;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

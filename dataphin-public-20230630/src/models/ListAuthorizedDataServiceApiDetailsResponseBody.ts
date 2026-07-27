@@ -21,7 +21,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   isAuthorized?: number;
   /**
    * @remarks
-   * The parameter type.
+   * The parameter data type.
    * 
    * @example
    * 0
@@ -91,7 +91,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   isAuthorized?: number;
   /**
    * @remarks
-   * The parameter type.
+   * The parameter data type.
    * 
    * @example
    * 0
@@ -172,17 +172,17 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
    * The permission type.
    * 
    * @example
-   * 使用权限
+   * Usage permission.
    */
   authType?: string;
   /**
    * @remarks
-   * The list of fields authorized for the API in the development environment.
+   * The list of authorized fields for the API in the development environment.
    */
   authorizedDevReturnParameters?: ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedDevReturnParameters[];
   /**
    * @remarks
-   * The list of fields authorized for the API in the production environment.
+   * The list of authorized fields for the API in the production environment.
    */
   authorizedProdReturnParameters?: ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedProdReturnParameters[];
   /**
@@ -324,12 +324,12 @@ export class ListAuthorizedDataServiceApiDetailsResponseBody extends $dara.Model
    * The error message.
    * 
    * @example
-   * 非法入参
+   * Invalid input parameter.
    */
   message?: string;
   /**
    * @remarks
-   * The request ID. It is a unique identifier for the request.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -343,6 +343,9 @@ export class ListAuthorizedDataServiceApiDetailsResponseBody extends $dara.Model
   /**
    * @remarks
    * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

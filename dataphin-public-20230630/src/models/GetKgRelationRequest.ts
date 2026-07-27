@@ -1,0 +1,64 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetKgRelationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc-xxx
+   */
+  relationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BELONG_TO
+   */
+  relationType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f1d4559a4db044158305e2d89bccf81f
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opTenantId: 'OpTenantId',
+      relationId: 'RelationId',
+      relationType: 'RelationType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opTenantId: 'number',
+      relationId: 'string',
+      relationType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

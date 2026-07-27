@@ -597,6 +597,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates knowledge graph entity records in batches. Online version: v6.1.1.
+   * 
+   * @param tmpReq - BatchCreateKgEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateKgEntityResponse
+   */
+  async batchCreateKgEntityWithOptions(tmpReq: $_model.BatchCreateKgEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCreateKgEntityResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchCreateKgEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCreateKgEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCreateKgEntityResponse>(await this.callApi(params, req, runtime), new $_model.BatchCreateKgEntityResponse({}));
+  }
+
+  /**
+   * Creates knowledge graph entity records in batches. Online version: v6.1.1.
+   * 
+   * @param request - BatchCreateKgEntityRequest
+   * @returns BatchCreateKgEntityResponse
+   */
+  async batchCreateKgEntity(request: $_model.BatchCreateKgEntityRequest): Promise<$_model.BatchCreateKgEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCreateKgEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+   * 
+   * @param tmpReq - BatchCreateKgRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateKgRelationResponse
+   */
+  async batchCreateKgRelationWithOptions(tmpReq: $_model.BatchCreateKgRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCreateKgRelationResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchCreateKgRelationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCreateKgRelation",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCreateKgRelationResponse>(await this.callApi(params, req, runtime), new $_model.BatchCreateKgRelationResponse({}));
+  }
+
+  /**
+   * Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+   * 
+   * @param request - BatchCreateKgRelationRequest
+   * @returns BatchCreateKgRelationResponse
+   */
+  async batchCreateKgRelation(request: $_model.BatchCreateKgRelationRequest): Promise<$_model.BatchCreateKgRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCreateKgRelationWithOptions(request, runtime);
+  }
+
+  /**
    * Checks the connectivity of a compute source.
    * 
    * @param tmpReq - CheckComputeSourceConnectivityRequest
@@ -948,6 +1064,60 @@ export default class Client extends OpenApi {
   async createAdHocFile(request: $_model.CreateAdHocFileRequest): Promise<$_model.CreateAdHocFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAdHocFileWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a Basic (single-environment) project.
+   * 
+   * @param tmpReq - CreateBasicProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBasicProjectResponse
+   */
+  async createBasicProjectWithOptions(tmpReq: $_model.CreateBasicProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBasicProjectResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateBasicProjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBasicProject",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBasicProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateBasicProjectResponse({}));
+  }
+
+  /**
+   * Creates a Basic (single-environment) project.
+   * 
+   * @param request - CreateBasicProjectRequest
+   * @returns CreateBasicProjectResponse
+   */
+  async createBasicProject(request: $_model.CreateBasicProjectRequest): Promise<$_model.CreateBasicProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBasicProjectWithOptions(request, runtime);
   }
 
   /**
@@ -1567,6 +1737,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a Dev-Prod (dual-environment) project.
+   * 
+   * @param tmpReq - CreateDevProdProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDevProdProjectResponse
+   */
+  async createDevProdProjectWithOptions(tmpReq: $_model.CreateDevProdProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDevProdProjectResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDevProdProjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDevProdProject",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDevProdProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateDevProdProjectResponse({}));
+  }
+
+  /**
+   * Creates a Dev-Prod (dual-environment) project.
+   * 
+   * @param request - CreateDevProdProjectRequest
+   * @returns CreateDevProdProjectResponse
+   */
+  async createDevProdProject(request: $_model.CreateDevProdProjectRequest): Promise<$_model.CreateDevProdProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDevProdProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
    * 
    * @param tmpReq - CreateDirectoryRequest
@@ -1618,6 +1842,122 @@ export default class Client extends OpenApi {
   async createDirectory(request: $_model.CreateDirectoryRequest): Promise<$_model.CreateDirectoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDirectoryWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a knowledge graph entity record. Online version: v6.1.1.
+   * 
+   * @param tmpReq - CreateKgEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKgEntityResponse
+   */
+  async createKgEntityWithOptions(tmpReq: $_model.CreateKgEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKgEntityResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateKgEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKgEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKgEntityResponse>(await this.callApi(params, req, runtime), new $_model.CreateKgEntityResponse({}));
+  }
+
+  /**
+   * Creates a knowledge graph entity record. Online version: v6.1.1.
+   * 
+   * @param request - CreateKgEntityRequest
+   * @returns CreateKgEntityResponse
+   */
+  async createKgEntity(request: $_model.CreateKgEntityRequest): Promise<$_model.CreateKgEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKgEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a knowledge graph relationship record. Online version: v6.1.1.
+   * 
+   * @param tmpReq - CreateKgRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKgRelationResponse
+   */
+  async createKgRelationWithOptions(tmpReq: $_model.CreateKgRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKgRelationResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateKgRelationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKgRelation",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKgRelationResponse>(await this.callApi(params, req, runtime), new $_model.CreateKgRelationResponse({}));
+  }
+
+  /**
+   * Creates a knowledge graph relationship record. Online version: v6.1.1.
+   * 
+   * @param request - CreateKgRelationRequest
+   * @returns CreateKgRelationResponse
+   */
+  async createKgRelation(request: $_model.CreateKgRelationRequest): Promise<$_model.CreateKgRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKgRelationWithOptions(request, runtime);
   }
 
   /**
@@ -1918,7 +2258,7 @@ export default class Client extends OpenApi {
    * Creates a row-level permission.
    * 
    * @remarks
-   * You can query detailed information about published APIs based on the appKey.
+   * Queries the details of published APIs by appKey.
    * 
    * @param tmpReq - CreateRowPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1964,7 +2304,7 @@ export default class Client extends OpenApi {
    * Creates a row-level permission.
    * 
    * @remarks
-   * You can query detailed information about published APIs based on the appKey.
+   * Queries the details of published APIs by appKey.
    * 
    * @param request - CreateRowPermissionRequest
    * @returns CreateRowPermissionResponse
@@ -3413,6 +3753,160 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an entity record. Online version: v6.1.1.
+   * 
+   * @param request - DeleteKgEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKgEntityResponse
+   */
+  async deleteKgEntityWithOptions(request: $_model.DeleteKgEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKgEntityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKgEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKgEntityResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKgEntityResponse({}));
+  }
+
+  /**
+   * Deletes an entity record. Online version: v6.1.1.
+   * 
+   * @param request - DeleteKgEntityRequest
+   * @returns DeleteKgEntityResponse
+   */
+  async deleteKgEntity(request: $_model.DeleteKgEntityRequest): Promise<$_model.DeleteKgEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKgEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a relationship record. Online version: v6.1.1.
+   * 
+   * @param request - DeleteKgRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKgRelationResponse
+   */
+  async deleteKgRelationWithOptions(request: $_model.DeleteKgRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKgRelationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.relationId)) {
+      query["RelationId"] = request.relationId;
+    }
+
+    if (!$dara.isNull(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKgRelation",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKgRelationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKgRelationResponse({}));
+  }
+
+  /**
+   * Deletes a relationship record. Online version: v6.1.1.
+   * 
+   * @param request - DeleteKgRelationRequest
+   * @returns DeleteKgRelationResponse
+   */
+  async deleteKgRelation(request: $_model.DeleteKgRelationRequest): Promise<$_model.DeleteKgRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKgRelationWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a project (applicable to both Basic and Dev-Prod projects).
+   * 
+   * @param request - DeleteProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
+   */
+  async deleteProjectWithOptions(request: $_model.DeleteProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProject",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProjectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProjectResponse({}));
+  }
+
+  /**
+   * Deletes a project (applicable to both Basic and Dev-Prod projects).
+   * 
+   * @param request - DeleteProjectRequest
+   * @returns DeleteProjectResponse
+   */
+  async deleteProject(request: $_model.DeleteProjectRequest): Promise<$_model.DeleteProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes quality rule objects in batches.
    * Release version: v5.4.2.
    * 
@@ -4481,6 +4975,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a custom Cypher query. Online version: v6.2.0.
+   * 
+   * @param tmpReq - ExecKgCypherRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecKgCypherResponse
+   */
+  async execKgCypherWithOptions(tmpReq: $_model.ExecKgCypherRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecKgCypherResponse> {
+    tmpReq.validate();
+    let request = new $_model.ExecKgCypherShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.execCommand)) {
+      request.execCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.execCommand, "ExecCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.execCommandShrink)) {
+      body["ExecCommand"] = request.execCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecKgCypher",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecKgCypherResponse>(await this.callApi(params, req, runtime), new $_model.ExecKgCypherResponse({}));
+  }
+
+  /**
+   * Executes a custom Cypher query. Online version: v6.2.0.
+   * 
+   * @param request - ExecKgCypherRequest
+   * @returns ExecKgCypherResponse
+   */
+  async execKgCypher(request: $_model.ExecKgCypherRequest): Promise<$_model.ExecKgCypherResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.execKgCypherWithOptions(request, runtime);
+  }
+
+  /**
    * Executes an ad hoc query task.
    * 
    * @param tmpReq - ExecuteAdHocTaskRequest
@@ -4652,6 +5204,60 @@ export default class Client extends OpenApi {
   async executeTriggerNode(request: $_model.ExecuteTriggerNodeRequest): Promise<$_model.ExecuteTriggerNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeTriggerNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 导出知识图谱定义。
+   * 
+   * @param request - ExportKgSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportKgSchemaResponse
+   */
+  async exportKgSchemaWithOptions(request: $_model.ExportKgSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportKgSchemaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      query["OutputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportKgSchema",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportKgSchemaResponse>(await this.callApi(params, req, runtime), new $_model.ExportKgSchemaResponse({}));
+  }
+
+  /**
+   * 导出知识图谱定义。
+   * 
+   * @param request - ExportKgSchemaRequest
+   * @returns ExportKgSchemaResponse
+   */
+  async exportKgSchema(request: $_model.ExportKgSchemaRequest): Promise<$_model.ExportKgSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.exportKgSchemaWithOptions(request, runtime);
   }
 
   /**
@@ -5243,7 +5849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定离线模板ID版本列表。
+   * Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
    * 
    * @param request - GetBatchTemplateVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5286,7 +5892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定离线模板ID版本列表。
+   * Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
    * 
    * @param request - GetBatchTemplateVersionsRequest
    * @returns GetBatchTemplateVersionsResponse
@@ -6893,6 +7499,230 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取知识图谱实体记录。
+   * 
+   * @param request - GetKgEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKgEntityResponse
+   */
+  async getKgEntityWithOptions(request: $_model.GetKgEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKgEntityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKgEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKgEntityResponse>(await this.callApi(params, req, runtime), new $_model.GetKgEntityResponse({}));
+  }
+
+  /**
+   * 获取知识图谱实体记录。
+   * 
+   * @param request - GetKgEntityRequest
+   * @returns GetKgEntityResponse
+   */
+  async getKgEntity(request: $_model.GetKgEntityRequest): Promise<$_model.GetKgEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKgEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取图谱模型邻居节点。
+   * 
+   * @param tmpReq - GetKgNeighborRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKgNeighborResponse
+   */
+  async getKgNeighborWithOptions(tmpReq: $_model.GetKgNeighborRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKgNeighborResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetKgNeighborShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.neighborsQuery)) {
+      request.neighborsQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.neighborsQuery, "NeighborsQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.entityDataId)) {
+      query["EntityDataId"] = request.entityDataId;
+    }
+
+    if (!$dara.isNull(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.neighborsQueryShrink)) {
+      body["NeighborsQuery"] = request.neighborsQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKgNeighbor",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKgNeighborResponse>(await this.callApi(params, req, runtime), new $_model.GetKgNeighborResponse({}));
+  }
+
+  /**
+   * 获取图谱模型邻居节点。
+   * 
+   * @param request - GetKgNeighborRequest
+   * @returns GetKgNeighborResponse
+   */
+  async getKgNeighbor(request: $_model.GetKgNeighborRequest): Promise<$_model.GetKgNeighborResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKgNeighborWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取知识图谱关系记录。
+   * 
+   * @param request - GetKgRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKgRelationResponse
+   */
+  async getKgRelationWithOptions(request: $_model.GetKgRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKgRelationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.relationId)) {
+      query["RelationId"] = request.relationId;
+    }
+
+    if (!$dara.isNull(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKgRelation",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKgRelationResponse>(await this.callApi(params, req, runtime), new $_model.GetKgRelationResponse({}));
+  }
+
+  /**
+   * 获取知识图谱关系记录。
+   * 
+   * @param request - GetKgRelationRequest
+   * @returns GetKgRelationResponse
+   */
+  async getKgRelation(request: $_model.GetKgRelationRequest): Promise<$_model.GetKgRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKgRelationWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取图谱模型发布结果。
+   * 
+   * @param request - GetKgSchemaPublishResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKgSchemaPublishResultResponse
+   */
+  async getKgSchemaPublishResultWithOptions(request: $_model.GetKgSchemaPublishResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKgSchemaPublishResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKgSchemaPublishResult",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKgSchemaPublishResultResponse>(await this.callApi(params, req, runtime), new $_model.GetKgSchemaPublishResultResponse({}));
+  }
+
+  /**
+   * 获取图谱模型发布结果。
+   * 
+   * @param request - GetKgSchemaPublishResultRequest
+   * @returns GetKgSchemaPublishResultResponse
+   */
+  async getKgSchemaPublishResult(request: $_model.GetKgSchemaPublishResultRequest): Promise<$_model.GetKgSchemaPublishResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKgSchemaPublishResultWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of the latest pending submit record.
    * 
    * @param tmpReq - GetLatestSubmitDetailRequest
@@ -7113,7 +7943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据Id查询运行记录
+   * Queries an operation log by ID. Available since v6.2.0.
    * 
    * @param tmpReq - GetOperationRecordByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7156,7 +7986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据Id查询运行记录
+   * Queries an operation log by ID. Available since v6.2.0.
    * 
    * @param request - GetOperationRecordByIdRequest
    * @returns GetOperationRecordByIdResponse
@@ -8635,7 +9465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Release version: v5.4.2.
+   * Retrieves row permissions by table GUIDs. Online version: v5.4.2.
    * 
    * @param tmpReq - GetRowPermissionByTableGuidsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8678,7 +9508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Release version: v5.4.2.
+   * Retrieves row permissions by table GUIDs. Online version: v5.4.2.
    * 
    * @param request - GetRowPermissionByTableGuidsRequest
    * @returns GetRowPermissionByTableGuidsResponse
@@ -10095,6 +10925,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入知识图谱定义。
+   * 
+   * @param tmpReq - ImportKgSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportKgSchemaResponse
+   */
+  async importKgSchemaWithOptions(tmpReq: $_model.ImportKgSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportKgSchemaResponse> {
+    tmpReq.validate();
+    let request = new $_model.ImportKgSchemaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.importCommand)) {
+      request.importCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.importCommand, "ImportCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.importCommandShrink)) {
+      body["ImportCommand"] = request.importCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportKgSchema",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportKgSchemaResponse>(await this.callApi(params, req, runtime), new $_model.ImportKgSchemaResponse({}));
+  }
+
+  /**
+   * 导入知识图谱定义。
+   * 
+   * @param request - ImportKgSchemaRequest
+   * @returns ImportKgSchemaResponse
+   */
+  async importKgSchema(request: $_model.ImportKgSchemaRequest): Promise<$_model.ImportKgSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importKgSchemaWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
    * 
    * @param request - ListAddableRolesRequest
@@ -10359,7 +11247,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of specific fields for APIs that an application has requested.
+   * Queries the specific field list of APIs that an application has requested.
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
    * 
    * @param tmpReq - ListAuthorizedDataServiceApiDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10402,7 +11294,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of specific fields for APIs that an application has requested.
+   * Queries the specific field list of APIs that an application has requested.
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
    * 
    * @param request - ListAuthorizedDataServiceApiDetailsRequest
    * @returns ListAuthorizedDataServiceApiDetailsResponse
@@ -11420,6 +12316,130 @@ export default class Client extends OpenApi {
   async listInstances(request: $_model.ListInstancesRequest): Promise<$_model.ListInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries knowledge graph entity records with paging. Online version: v6.1.1.
+   * 
+   * @param tmpReq - ListKgEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKgEntityResponse
+   */
+  async listKgEntityWithOptions(tmpReq: $_model.ListKgEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKgEntityResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListKgEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKgEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKgEntityResponse>(await this.callApi(params, req, runtime), new $_model.ListKgEntityResponse({}));
+  }
+
+  /**
+   * Queries knowledge graph entity records with paging. Online version: v6.1.1.
+   * 
+   * @param request - ListKgEntityRequest
+   * @returns ListKgEntityResponse
+   */
+  async listKgEntity(request: $_model.ListKgEntityRequest): Promise<$_model.ListKgEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKgEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询知识图谱关系记录。
+   * 
+   * @param tmpReq - ListKgRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKgRelationResponse
+   */
+  async listKgRelationWithOptions(tmpReq: $_model.ListKgRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKgRelationResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListKgRelationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.relationType)) {
+      query["RelationType"] = request.relationType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKgRelation",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKgRelationResponse>(await this.callApi(params, req, runtime), new $_model.ListKgRelationResponse({}));
+  }
+
+  /**
+   * 分页查询知识图谱关系记录。
+   * 
+   * @param request - ListKgRelationRequest
+   * @returns ListKgRelationResponse
+   */
+  async listKgRelation(request: $_model.ListKgRelationRequest): Promise<$_model.ListKgRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKgRelationWithOptions(request, runtime);
   }
 
   /**
@@ -13261,6 +14281,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Publishes a knowledge graph model. Online version: v6.2.0.
+   * 
+   * @param tmpReq - PublishKgSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishKgSchemaResponse
+   */
+  async publishKgSchemaWithOptions(tmpReq: $_model.PublishKgSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PublishKgSchemaResponse> {
+    tmpReq.validate();
+    let request = new $_model.PublishKgSchemaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.publishCommand)) {
+      request.publishCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.publishCommand, "PublishCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.publishCommandShrink)) {
+      body["PublishCommand"] = request.publishCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishKgSchema",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishKgSchemaResponse>(await this.callApi(params, req, runtime), new $_model.PublishKgSchemaResponse({}));
+  }
+
+  /**
+   * Publishes a knowledge graph model. Online version: v6.2.0.
+   * 
+   * @param request - PublishKgSchemaRequest
+   * @returns PublishKgSchemaResponse
+   */
+  async publishKgSchema(request: $_model.PublishKgSchemaRequest): Promise<$_model.PublishKgSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.publishKgSchemaWithOptions(request, runtime);
+  }
+
+  /**
    * Publishes objects in batches.
    * 
    * @param tmpReq - PublishObjectListRequest
@@ -14425,6 +15503,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+   * 
+   * @param tmpReq - UpdateBasicProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBasicProjectResponse
+   */
+  async updateBasicProjectWithOptions(tmpReq: $_model.UpdateBasicProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBasicProjectResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateBasicProjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBasicProject",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBasicProjectResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBasicProjectResponse({}));
+  }
+
+  /**
+   * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+   * 
+   * @param request - UpdateBasicProjectRequest
+   * @returns UpdateBasicProjectResponse
+   */
+  async updateBasicProject(request: $_model.UpdateBasicProjectRequest): Promise<$_model.UpdateBasicProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateBasicProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Updates an offline compute node.
    * 
    * @param tmpReq - UpdateBatchTaskRequest
@@ -15157,6 +16289,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Edits a Dev-Prod (dual-environment) project.
+   * 
+   * @param tmpReq - UpdateDevProdProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDevProdProjectResponse
+   */
+  async updateDevProdProjectWithOptions(tmpReq: $_model.UpdateDevProdProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDevProdProjectResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDevProdProjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDevProdProject",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDevProdProjectResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDevProdProjectResponse({}));
+  }
+
+  /**
+   * Edits a Dev-Prod (dual-environment) project.
+   * 
+   * @param request - UpdateDevProdProjectRequest
+   * @returns UpdateDevProdProjectResponse
+   */
+  async updateDevProdProject(request: $_model.UpdateDevProdProjectRequest): Promise<$_model.UpdateDevProdProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDevProdProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Moves the file position in the menu tree.
    * 
    * @param request - UpdateFileDirectoryRequest
@@ -15262,6 +16448,122 @@ export default class Client extends OpenApi {
   async updateFileName(request: $_model.UpdateFileNameRequest): Promise<$_model.UpdateFileNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFileNameWithOptions(request, runtime);
+  }
+
+  /**
+   * Edits a knowledge graph entity record. Online version: v6.1.1.
+   * 
+   * @param tmpReq - UpdateKgEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKgEntityResponse
+   */
+  async updateKgEntityWithOptions(tmpReq: $_model.UpdateKgEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKgEntityResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateKgEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKgEntity",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKgEntityResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKgEntityResponse({}));
+  }
+
+  /**
+   * Edits a knowledge graph entity record. Online version: v6.1.1.
+   * 
+   * @param request - UpdateKgEntityRequest
+   * @returns UpdateKgEntityResponse
+   */
+  async updateKgEntity(request: $_model.UpdateKgEntityRequest): Promise<$_model.UpdateKgEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKgEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * Edits a knowledge graph relationship record. Online version: v6.1.1.
+   * 
+   * @param tmpReq - UpdateKgRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKgRelationResponse
+   */
+  async updateKgRelationWithOptions(tmpReq: $_model.UpdateKgRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKgRelationResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateKgRelationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKgRelation",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKgRelationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKgRelationResponse({}));
+  }
+
+  /**
+   * Edits a knowledge graph relationship record. Online version: v6.1.1.
+   * 
+   * @param request - UpdateKgRelationRequest
+   * @returns UpdateKgRelationResponse
+   */
+  async updateKgRelation(request: $_model.UpdateKgRelationRequest): Promise<$_model.UpdateKgRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKgRelationWithOptions(request, runtime);
   }
 
   /**
@@ -15613,7 +16915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a row-level permission.
+   * Updates row-level permissions.
    * 
    * @param tmpReq - UpdateRowPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15656,7 +16958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a row-level permission.
+   * Updates row-level permissions.
    * 
    * @param request - UpdateRowPermissionRequest
    * @returns UpdateRowPermissionResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRowPermissionByTableGuidsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Row permission description
+   * The row permission description.
    * 
    * @example
    * Restrict query region
@@ -13,7 +13,7 @@ export class GetRowPermissionByTableGuidsResponseBodyData extends $dara.Model {
   rowPermissionDesc?: string;
   /**
    * @remarks
-   * Row permission ID
+   * The row permission ID.
    * 
    * @example
    * 300000001
@@ -21,7 +21,7 @@ export class GetRowPermissionByTableGuidsResponseBodyData extends $dara.Model {
   rowPermissionId?: string;
   /**
    * @remarks
-   * Row permission name
+   * The row permission name.
    * 
    * @example
    * Region
@@ -55,7 +55,7 @@ export class GetRowPermissionByTableGuidsResponseBodyData extends $dara.Model {
 export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. A value of OK indicates that the request was successful
+   * The error code. A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -63,12 +63,12 @@ export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data
+   * The returned data.
    */
   data?: GetRowPermissionByTableGuidsResponseBodyData[];
   /**
    * @remarks
-   * HTTP status code of the backend response
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -76,7 +76,7 @@ export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message
+   * The error message returned if the request failed.
    * 
    * @example
    * successful
@@ -84,7 +84,7 @@ export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -92,7 +92,7 @@ export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful
+   * Indicates whether the request was successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

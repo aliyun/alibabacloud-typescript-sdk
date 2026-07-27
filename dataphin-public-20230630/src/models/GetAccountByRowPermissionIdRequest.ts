@@ -16,8 +16,6 @@ export class GetAccountByRowPermissionIdRequestGetAccountByRowPermissionIdQuery 
   /**
    * @remarks
    * The row-level permission rule IDs.
-   * 
-   * This parameter is required.
    */
   ruleIds?: number[];
   static names(): { [key: string]: string } {

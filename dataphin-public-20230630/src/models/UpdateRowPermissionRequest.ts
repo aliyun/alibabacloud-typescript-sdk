@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandMappingColumns extends $dara.Model {
   /**
    * @remarks
-   * The description of the mapping field.
+   * The mapping column description.
    * 
    * @example
-   * 业务ID
+   * Business ID.
    */
   columnDesc?: string;
   /**
    * @remarks
-   * The name of the mapping field.
+   * The mapping column name.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandMappingColumns 
   columnName?: string;
   /**
    * @remarks
-   * The type of the mapping field.
+   * The mapping column type.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandMappingColumns 
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpressions extends $dara.Model {
   /**
    * @remarks
-   * The name of the mapping field.
+   * The mapping column name.
    * 
    * This parameter is required.
    * 
@@ -96,9 +96,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpression
   type?: string;
   /**
    * @remarks
-   * The operation values of the expression.
-   * 
-   * This parameter is required.
+   * The expression operation values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -139,7 +137,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesExpression
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappingListAccounts extends $dara.Model {
   /**
    * @remarks
-   * The ID of the account associated with the rule.
+   * The ID of the account bound to the rule.
    * 
    * This parameter is required.
    * 
@@ -171,7 +169,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappin
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappingList extends $dara.Model {
   /**
    * @remarks
-   * The type of the account associated with the rule.
+   * The type of the account bound to the rule.
    * 
    * This parameter is required.
    * 
@@ -181,7 +179,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappin
   accountType?: string;
   /**
    * @remarks
-   * The accounts associated with the rule.
+   * The accounts bound to the rule.
    * 
    * This parameter is required.
    */
@@ -235,12 +233,12 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRules extends $
    * This parameter is required.
    * 
    * @example
-   * 管控业务ID大于100
+   * Control business ID greater than 100
    */
   ruleName?: string;
   /**
    * @remarks
-   * The scope type of the rule.
+   * The rule scope type.
    * 
    * This parameter is required.
    * 
@@ -252,15 +250,13 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRules extends $
    * @remarks
    * The rule status.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
   status?: number;
   /**
    * @remarks
-   * The accounts associated with the rule.
+   * The accounts bound to the rule.
    */
   userMappingList?: UpdateRowPermissionRequestUpdateRowPermissionCommandRulesUserMappingList[];
   static names(): { [key: string]: string } {
@@ -303,7 +299,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandRules extends $
 export class UpdateRowPermissionRequestUpdateRowPermissionCommandTables extends $dara.Model {
   /**
    * @remarks
-   * The table field.
+   * The table column.
    * 
    * This parameter is required.
    * 
@@ -313,7 +309,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandTables extends 
   columnName?: string;
   /**
    * @remarks
-   * The name of the mapping field.
+   * The mapping column name.
    * 
    * This parameter is required.
    * 
@@ -359,7 +355,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommandTables extends 
 export class UpdateRowPermissionRequestUpdateRowPermissionCommand extends $dara.Model {
   /**
    * @remarks
-   * The mapping fields.
+   * The mapping columns.
    * 
    * This parameter is required.
    */
@@ -369,7 +365,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommand extends $dara.
    * The row-level permission description.
    * 
    * @example
-   * 管控业务数据
+   * Control business data.
    */
   rowPermissionDesc?: string;
   /**
@@ -389,7 +385,7 @@ export class UpdateRowPermissionRequestUpdateRowPermissionCommand extends $dara.
    * This parameter is required.
    * 
    * @example
-   * 业务管控
+   * BusinessControl.
    */
   rowPermissionName?: string;
   /**

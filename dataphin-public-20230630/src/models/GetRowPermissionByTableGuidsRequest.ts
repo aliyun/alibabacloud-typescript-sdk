@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRowPermissionByTableGuidsRequestGetRowPermissionByTableGuidsQuery extends $dara.Model {
   /**
    * @remarks
-   * List of table GUIDs
+   * The list of table GUIDs.
    * 
    * This parameter is required.
    */
@@ -37,14 +37,14 @@ export class GetRowPermissionByTableGuidsRequestGetRowPermissionByTableGuidsQuer
 export class GetRowPermissionByTableGuidsRequest extends $dara.Model {
   /**
    * @remarks
-   * Request command
+   * The request command.
    * 
    * This parameter is required.
    */
   getRowPermissionByTableGuidsQuery?: GetRowPermissionByTableGuidsRequestGetRowPermissionByTableGuidsQuery;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

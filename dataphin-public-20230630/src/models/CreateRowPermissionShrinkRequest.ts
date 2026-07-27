@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRowPermissionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Request command.
+   * The request command.
    * 
    * This parameter is required.
    */
   createRowPermissionCommandShrink?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

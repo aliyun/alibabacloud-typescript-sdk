@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccountByRowPermissionIdResponseBodyDataUserMappingListAccounts extends $dara.Model {
   /**
    * @remarks
-   * The ID of the account associated with the rule.
+   * The ID of the account bound to the rule.
    * 
    * @example
    * 300901111
@@ -13,10 +13,10 @@ export class GetAccountByRowPermissionIdResponseBodyDataUserMappingListAccounts 
   accountId?: string;
   /**
    * @remarks
-   * The name of the account associated with the rule.
+   * The name of the account bound to the rule.
    * 
    * @example
-   * 张三
+   * John.
    */
   accountName?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class GetAccountByRowPermissionIdResponseBodyDataUserMappingListAccounts 
 export class GetAccountByRowPermissionIdResponseBodyDataUserMappingList extends $dara.Model {
   /**
    * @remarks
-   * The type of the account associated with the rule.
+   * The type of the account bound to the rule.
    * 
    * @example
    * PERSONAL
@@ -53,7 +53,7 @@ export class GetAccountByRowPermissionIdResponseBodyDataUserMappingList extends 
   accountType?: string;
   /**
    * @remarks
-   * The accounts associated with the rule.
+   * The accounts bound to the rule.
    */
   accounts?: GetAccountByRowPermissionIdResponseBodyDataUserMappingListAccounts[];
   static names(): { [key: string]: string } {
@@ -93,7 +93,7 @@ export class GetAccountByRowPermissionIdResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The accounts associated with the rule.
+   * The accounts bound to the rule.
    */
   userMappingList?: GetAccountByRowPermissionIdResponseBodyDataUserMappingList[];
   static names(): { [key: string]: string } {
@@ -146,7 +146,7 @@ export class GetAccountByRowPermissionIdResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * successful

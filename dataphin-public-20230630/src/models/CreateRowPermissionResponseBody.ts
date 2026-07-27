@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRowPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code of the request. OK indicates a successful request.
+   * The error code. A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class CreateRowPermissionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message of the request.
+   * The error message returned if the request failed.
    * 
    * @example
    * successful

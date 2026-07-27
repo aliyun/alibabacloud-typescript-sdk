@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetOperationRecordByIdRequestDetailCommand extends $dara.Model {
   /**
    * @remarks
+   * The operation log ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetOperationRecordByIdRequestDetailCommand extends $dara.Model {
   operationId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +49,15 @@ export class GetOperationRecordByIdRequestDetailCommand extends $dara.Model {
 export class GetOperationRecordByIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The query command.
+   * 
    * This parameter is required.
    */
   detailCommand?: GetOperationRecordByIdRequestDetailCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

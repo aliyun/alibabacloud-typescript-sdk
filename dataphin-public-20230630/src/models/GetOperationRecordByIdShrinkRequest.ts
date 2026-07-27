@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetOperationRecordByIdShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The query command.
+   * 
    * This parameter is required.
    */
   detailCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example

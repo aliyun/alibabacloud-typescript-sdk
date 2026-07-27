@@ -6,7 +6,6 @@ export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.M
   /**
    * @remarks
    * The application key.
-   * >Notice: Deprecated. Use AppKeyStr instead.</notice>.
    * 
    * @example
    * 200000000

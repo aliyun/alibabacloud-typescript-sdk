@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBatchTemplateVersionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment. Valid values:
+   * 
+   * - DEV: development environment.
+   * - PROD: production environment.
+   * 
+   * Default value for dev_prod projects: DEV.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +28,8 @@ export class GetBatchTemplateVersionsRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +38,8 @@ export class GetBatchTemplateVersionsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
