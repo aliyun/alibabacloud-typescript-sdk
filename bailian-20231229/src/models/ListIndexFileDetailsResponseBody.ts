@@ -13,7 +13,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   chunkMode?: string;
   /**
    * @remarks
-   * The segment length, which is the number of characters in each text chunk.
+   * The chunk length, which is the number of characters in a text chunk.
    * 
    * @example
    * 600
@@ -21,7 +21,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   chunkSize?: string;
   /**
    * @remarks
-   * The error status code for file import.
+   * The file import error status code.
    * 
    * @example
    * 110002
@@ -29,7 +29,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
+   * The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, EXCEL.
    * 
    * @example
    * pdf
@@ -45,7 +45,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   enableHeaders?: string;
   /**
    * @remarks
-   * The time when the file was imported to the knowledge base, in UNIX timestamp format.
+   * The time when the file was imported to the knowledge base, in Unix timestamp format.
    * 
    * @example
    * 1744856423000
@@ -61,23 +61,24 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The error message for file import.
+   * The file import error message.
    * 
    * @example
    * check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
    */
   message?: string;
+  metaExtractInfo?: string;
   /**
    * @remarks
    * The file name.
    * 
    * @example
-   * 翻译平台运维文档
+   * TranslationPlatformO&MDocument.
    */
   name?: string;
   /**
    * @remarks
-   * The overlap length between segments.
+   * The chunk overlap length.
    * 
    * @example
    * 100
@@ -130,6 +131,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
       gmtModified: 'GmtModified',
       id: 'Id',
       message: 'Message',
+      metaExtractInfo: 'MetaExtractInfo',
       name: 'Name',
       overlapSize: 'OverlapSize',
       size: 'Size',
@@ -149,6 +151,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
       gmtModified: 'number',
       id: 'string',
       message: 'string',
+      metaExtractInfo: 'string',
       name: 'string',
       overlapSize: 'string',
       size: 'number',
@@ -183,7 +186,7 @@ export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   indexId?: string;
   /**
    * @remarks
-   * The returned page number.
+   * The specified page number.
    * 
    * @example
    * 1
@@ -191,7 +194,7 @@ export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The returned number of entries per page.
+   * The specified number of entries per page.
    * 
    * @example
    * 10
@@ -248,7 +251,7 @@ export class ListIndexFileDetailsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data field returned by the operation.
+   * The business data field of the operation.
    */
   data?: ListIndexFileDetailsResponseBodyData;
   /**

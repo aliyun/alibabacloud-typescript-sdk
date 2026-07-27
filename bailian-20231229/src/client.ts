@@ -106,11 +106,10 @@ export default class Client extends OpenApi {
    * Adds chunks to a document search (document), data query (table), or image Q&A (image) knowledge base.
    * 
    * @remarks
-   * - This operation adds chunk content to a specified knowledge base of the document search (document), data query (table), or image Q&A (image) type. Operations on multimedia search (multimedia) knowledge bases are not supported. For data query and image Q&A knowledge bases, this operation takes effect only when the data source is a spreadsheet connector (excel).
+   * - This operation adds chunk content to a specified knowledge base of the document search (document), data query (table), or image Q&A (image) type. Related operations on multimedia search (multimedia) knowledge bases are not supported. For data query and image Q&A knowledge bases, this operation takes effect only when the data source is a spreadsheet connector (excel).
    * - Resource Access Management (RAM) users must first obtain [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Model Studio (requiring `AliyunBailianDataFullAccess`, which includes the sfm:ChunkList permission) and [join a workspace](https://help.aliyun.com/document_detail/2851098.html) before invoking this operation. Alibaba Cloud accounts can invoke this operation directly without authorization. Use the latest [Model Studio SDK](https://api.aliyun.com/api-tools/sdk/bailian?version=2023-12-29)[Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to invoke this operation.
    * - Before invoking this operation, make sure that your knowledge base has been created and has not been deleted (that is, the knowledge base ID `IndexId` is valid).
    * - This operation has idempotence.
-   * **Related operations:**
    * **Throttling:**
    * This operation is throttled if called too frequently. Do not exceed 10 calls per second. If throttled, retry later.
    * 
@@ -162,11 +161,10 @@ export default class Client extends OpenApi {
    * Adds chunks to a document search (document), data query (table), or image Q&A (image) knowledge base.
    * 
    * @remarks
-   * - This operation adds chunk content to a specified knowledge base of the document search (document), data query (table), or image Q&A (image) type. Operations on multimedia search (multimedia) knowledge bases are not supported. For data query and image Q&A knowledge bases, this operation takes effect only when the data source is a spreadsheet connector (excel).
+   * - This operation adds chunk content to a specified knowledge base of the document search (document), data query (table), or image Q&A (image) type. Related operations on multimedia search (multimedia) knowledge bases are not supported. For data query and image Q&A knowledge bases, this operation takes effect only when the data source is a spreadsheet connector (excel).
    * - Resource Access Management (RAM) users must first obtain [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Model Studio (requiring `AliyunBailianDataFullAccess`, which includes the sfm:ChunkList permission) and [join a workspace](https://help.aliyun.com/document_detail/2851098.html) before invoking this operation. Alibaba Cloud accounts can invoke this operation directly without authorization. Use the latest [Model Studio SDK](https://api.aliyun.com/api-tools/sdk/bailian?version=2023-12-29)[Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to invoke this operation.
    * - Before invoking this operation, make sure that your knowledge base has been created and has not been deleted (that is, the knowledge base ID `IndexId` is valid).
    * - This operation has idempotence.
-   * **Related operations:**
    * **Throttling:**
    * This operation is throttled if called too frequently. Do not exceed 10 calls per second. If throttled, retry later.
    * 
@@ -849,17 +847,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use this API to create two types of knowledge bases: unstructured knowledge bases for documents, audio, or video, and structured knowledge bases for data queries or image Q&A.
+   * Creates a knowledge base, either an unstructured knowledge base based on documents or audio/video, or a structured knowledge base for data queries or image-based Q&A.
    * 
    * @remarks
-   * - **Permissions**:
-   *   - **RAM user**: A RAM user must obtain the required [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Alibaba Cloud Model Studio and [join a workspace](https://help.aliyun.com/document_detail/2851098.html) before calling this operation. You can use the `AliyunBailianDataFullAccess` policy, which includes the \\`sfm:CreateIndex\\` permission required for this operation.
-   *   - **Alibaba Cloud account**: By default, Alibaba Cloud accounts have the required permissions and can call this operation directly.
-   * - **How to call**: Use the latest version of the <props="intl">[Alibaba Cloud Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation. The SDK handles the complex signature calculation logic to simplify the process.
-   * - **What to do next**: This operation only initializes a knowledge base creation job. After calling this operation, you must call the **SubmitIndexJob** operation to complete the creation. Otherwise, an empty knowledge base is created. For related code examples, see [Knowledge base API guide](https://help.aliyun.com/document_detail/2852772.html).
-   * - **Idempotence**: This operation is not idempotent. Repeated calls may create multiple knowledge bases with the same name. To ensure idempotence, query for the knowledge base before you create it.
-   * **Rate limiting:**
-   * Frequent calls to this operation are subject to rate limiting. Do not exceed a frequency of 10 calls per second. If you encounter rate limiting, retry the call later.
+   * - **Permission requirements**:
+   *   - **Resource Access Management (RAM) user**: Obtain [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Alibaba Cloud Model Studio first (you can use the `AliyunBailianDataFullAccess` policy, which includes the sfm:CreateIndex permission required by this operation), and [join a workspace](https://help.aliyun.com/document_detail/2851098.html) before invoking this operation.
+   *   - **Alibaba Cloud account**: Has permissions by default and can invoke this operation directly.
+   * - **Calling method**: Use the latest <props="china">[Alibaba Cloud Model Studio SDK](https://api.aliyun.com/api-tools/sdk/bailian?version=2023-12-29)<props="intl">[Alibaba Cloud Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29). The SDK has encapsulated the complex signature calculation logic and simplifies the invocation procedure.
+   * - **What to do next**: This operation only performs initialization of the knowledge base creation job. After invoking this operation, you must invoke the **SubmitIndexJob** operation to complete the creation (otherwise, you will get an empty knowledge base). For code examples, refer to [Knowledge Base API Guide](https://help.aliyun.com/document_detail/2852772.html).
+   * - **Idempotence**: This operation does not have idempotence. Repeated invocations may create multiple knowledge bases with the same name. Implement idempotent invocations by querying first and then creating.
+   * **Rate limit:**
+   * This operation is subject to rate limiting. Do not exceed 10 calls per second. If you are throttled, retry later.
    * 
    * @param tmpReq - CreateIndexRequest
    * @param headers - map
@@ -1046,17 +1044,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use this API to create two types of knowledge bases: unstructured knowledge bases for documents, audio, or video, and structured knowledge bases for data queries or image Q&A.
+   * Creates a knowledge base, either an unstructured knowledge base based on documents or audio/video, or a structured knowledge base for data queries or image-based Q&A.
    * 
    * @remarks
-   * - **Permissions**:
-   *   - **RAM user**: A RAM user must obtain the required [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Alibaba Cloud Model Studio and [join a workspace](https://help.aliyun.com/document_detail/2851098.html) before calling this operation. You can use the `AliyunBailianDataFullAccess` policy, which includes the \\`sfm:CreateIndex\\` permission required for this operation.
-   *   - **Alibaba Cloud account**: By default, Alibaba Cloud accounts have the required permissions and can call this operation directly.
-   * - **How to call**: Use the latest version of the <props="intl">[Alibaba Cloud Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation. The SDK handles the complex signature calculation logic to simplify the process.
-   * - **What to do next**: This operation only initializes a knowledge base creation job. After calling this operation, you must call the **SubmitIndexJob** operation to complete the creation. Otherwise, an empty knowledge base is created. For related code examples, see [Knowledge base API guide](https://help.aliyun.com/document_detail/2852772.html).
-   * - **Idempotence**: This operation is not idempotent. Repeated calls may create multiple knowledge bases with the same name. To ensure idempotence, query for the knowledge base before you create it.
-   * **Rate limiting:**
-   * Frequent calls to this operation are subject to rate limiting. Do not exceed a frequency of 10 calls per second. If you encounter rate limiting, retry the call later.
+   * - **Permission requirements**:
+   *   - **Resource Access Management (RAM) user**: Obtain [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Alibaba Cloud Model Studio first (you can use the `AliyunBailianDataFullAccess` policy, which includes the sfm:CreateIndex permission required by this operation), and [join a workspace](https://help.aliyun.com/document_detail/2851098.html) before invoking this operation.
+   *   - **Alibaba Cloud account**: Has permissions by default and can invoke this operation directly.
+   * - **Calling method**: Use the latest <props="china">[Alibaba Cloud Model Studio SDK](https://api.aliyun.com/api-tools/sdk/bailian?version=2023-12-29)<props="intl">[Alibaba Cloud Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29). The SDK has encapsulated the complex signature calculation logic and simplifies the invocation procedure.
+   * - **What to do next**: This operation only performs initialization of the knowledge base creation job. After invoking this operation, you must invoke the **SubmitIndexJob** operation to complete the creation (otherwise, you will get an empty knowledge base). For code examples, refer to [Knowledge Base API Guide](https://help.aliyun.com/document_detail/2852772.html).
+   * - **Idempotence**: This operation does not have idempotence. Repeated invocations may create multiple knowledge bases with the same name. Implement idempotent invocations by querying first and then creating.
+   * **Rate limit:**
+   * This operation is subject to rate limiting. Do not exceed 10 calls per second. If you are throttled, retry later.
    * 
    * @param request - CreateIndexRequest
    * @returns CreateIndexResponse
@@ -2852,9 +2850,9 @@ export default class Client extends OpenApi {
    * Retrieves the files in a specified knowledge base along with their details.
    * 
    * @remarks
-   * - Resource Access Management (RAM) users must first obtain [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Alibaba Cloud Model Studio (`AliyunBailianDataFullAccess` is required, which includes the sfm:ListIndexFiles permission), before invoking this operation. Alibaba Cloud accounts can invoke this operation directly without authorization. Use the latest <props="china">[Alibaba Cloud Model Studio SDK](https://api.aliyun.com/api-tools/sdk/bailian?version=2023-12-29)<props="intl">[Alibaba Cloud Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to invoke this operation.
-   * - Before invoking this operation, make sure that your knowledge base has been created and has not been deleted (that is, the knowledge base ID `IndexId` is valid).
-   * - This operation has idempotence.
+   * - RAM users must first obtain [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Alibaba Cloud Model Studio (requires `AliyunBailianDataFullAccess`, which includes the sfm:ListIndexFiles permission), before calling this operation. Alibaba Cloud accounts can call this operation directly without authorization. Use the latest <props="china">[Alibaba Cloud Model Studio SDK](https://api.aliyun.com/api-tools/sdk/bailian?version=2023-12-29)<props="intl">[Alibaba Cloud Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+   * - Before calling this operation, make sure that your knowledge base has been created and has not been deleted (that is, the knowledge base ID `IndexId` is valid).
+   * - This operation is idempotent.
    * 
    * @param request - ListIndexFileDetailsRequest
    * @param headers - map
@@ -2910,9 +2908,9 @@ export default class Client extends OpenApi {
    * Retrieves the files in a specified knowledge base along with their details.
    * 
    * @remarks
-   * - Resource Access Management (RAM) users must first obtain [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Alibaba Cloud Model Studio (`AliyunBailianDataFullAccess` is required, which includes the sfm:ListIndexFiles permission), before invoking this operation. Alibaba Cloud accounts can invoke this operation directly without authorization. Use the latest <props="china">[Alibaba Cloud Model Studio SDK](https://api.aliyun.com/api-tools/sdk/bailian?version=2023-12-29)<props="intl">[Alibaba Cloud Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to invoke this operation.
-   * - Before invoking this operation, make sure that your knowledge base has been created and has not been deleted (that is, the knowledge base ID `IndexId` is valid).
-   * - This operation has idempotence.
+   * - RAM users must first obtain [API permissions](https://help.aliyun.com/document_detail/2848578.html) for Alibaba Cloud Model Studio (requires `AliyunBailianDataFullAccess`, which includes the sfm:ListIndexFiles permission), before calling this operation. Alibaba Cloud accounts can call this operation directly without authorization. Use the latest <props="china">[Alibaba Cloud Model Studio SDK](https://api.aliyun.com/api-tools/sdk/bailian?version=2023-12-29)<props="intl">[Alibaba Cloud Model Studio SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+   * - Before calling this operation, make sure that your knowledge base has been created and has not been deleted (that is, the knowledge base ID `IndexId` is valid).
+   * - This operation is idempotent.
    * 
    * @param request - ListIndexFileDetailsRequest
    * @returns ListIndexFileDetailsResponse

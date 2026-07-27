@@ -5,24 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ListIndexFileDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the returned file details list by file name. Default value: empty, which means no filtering by file name.
+   * Filters the returned file details list by file name. Default value: empty, which means the results are not filtered by file name.
    * 
    * @example
-   * 翻译平台运维文档
+   * TranslationPlatformO&MDocument.
    */
   documentName?: string;
   /**
    * @remarks
    * Filters the returned file list by file import status. Valid values:
    * 
-   * - INSERT_ERROR: Failed to import to the index.
+   * - INSERT_ERROR: Import to index failed.
    * - RUNNING: Index building in progress.
    * - DELETED: Deleted.
    * - FINISH: Index building succeeded.
    * - PARSE_FAILED: Parsing failed.
    * - DOC_PARSING: Parsing in progress.
    * 
-   * Default value: empty, which means no filtering by file import status.
+   * Default value: empty, which means the results are not filtered by file import status.
    * 
    * @example
    * FINISH
@@ -59,7 +59,7 @@ export class ListIndexFileDetailsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of files to display per page for paging. Maximum value: 10.
+   * The number of files to display per page in a paginated query. Maximum value: 10.
    * 
    * @example
    * 10
