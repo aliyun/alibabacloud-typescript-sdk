@@ -2,17 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StatusFilter extends $dara.Model {
-  eq?: string;
+export class PrometheusNamedQueryEntry extends $dara.Model {
+  expr?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      eq: 'eq',
+      expr: 'expr',
+      name: 'name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eq: 'string',
+      expr: 'string',
+      name: 'string',
     };
   }
 

@@ -2,17 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StatusFilter extends $dara.Model {
-  eq?: string;
+export class SlsJoinCondition extends $dara.Model {
+  lhsField?: string;
+  operator?: string;
+  rhsField?: string;
   static names(): { [key: string]: string } {
     return {
-      eq: 'eq',
+      lhsField: 'lhsField',
+      operator: 'operator',
+      rhsField: 'rhsField',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eq: 'string',
+      lhsField: 'string',
+      operator: 'string',
+      rhsField: 'string',
     };
   }
 

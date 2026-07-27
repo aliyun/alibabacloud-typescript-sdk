@@ -2,17 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StatusFilter extends $dara.Model {
-  eq?: string;
+export class PrometheusSimpleExpression extends $dara.Model {
+  operator?: string;
+  queryName?: string;
+  threshold?: number;
   static names(): { [key: string]: string } {
     return {
-      eq: 'eq',
+      operator: 'operator',
+      queryName: 'queryName',
+      threshold: 'threshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eq: 'string',
+      operator: 'string',
+      queryName: 'string',
+      threshold: 'number',
     };
   }
 

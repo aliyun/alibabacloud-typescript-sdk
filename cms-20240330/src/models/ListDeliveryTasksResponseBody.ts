@@ -40,7 +40,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksSinkList extends $dara.Mo
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The type of the delivery target.
+   * The delivery target type.
    * 
    * @example
    * Prometheus
@@ -116,6 +116,8 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   /**
    * @remarks
    * The creation time.
+   * 
+   * The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -207,6 +209,8 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   /**
    * @remarks
    * The update time.
+   * 
+   * The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 

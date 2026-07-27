@@ -5,136 +5,53 @@ import { ArmsIntegrationConfig } from "./ArmsIntegrationConfig";
 import { ConditionConfigUnified } from "./ConditionConfigUnified";
 import { DatasourceConfigUnified } from "./DatasourceConfigUnified";
 import { NotifyConfigUnified } from "./NotifyConfigUnified";
+import { ObserveResourceConfig } from "./ObserveResourceConfig";
 import { QueryConfigUnified } from "./QueryConfigUnified";
+import { AlertRuleRcaConfig } from "./AlertRuleRcaConfig";
 import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 
 
 export class AlertRuleV2 extends $dara.Model {
-  /**
-   * @remarks
-   * Configuration for action integrations, such as webhooks, that execute when an alert is triggered.
-   */
   actionIntegrationConfig?: ActionIntegrationConfig;
-  /**
-   * @remarks
-   * A set of key-value pairs that serve as annotations, providing additional, non-identifying information, such as a description or a runbook link.
-   */
   annotations?: { [key: string]: string };
-  /**
-   * @remarks
-   * The configuration for integrating the alert rule with Application Real-Time Monitoring Service (ARMS).
-   */
   armsIntegrationConfig?: ArmsIntegrationConfig;
-  /**
-   * @remarks
-   * The configuration for the conditions that trigger an alert.
-   */
+  bizSource?: string;
   conditionConfig?: ConditionConfigUnified;
-  /**
-   * @remarks
-   * The template for the alert notification content.
-   */
   contentTemplate?: string;
-  /**
-   * @remarks
-   * The time the alert rule was created.
-   */
   createdAt?: string;
-  /**
-   * @remarks
-   * The configuration for the data source to be evaluated.
-   */
   datasourceConfig?: DatasourceConfigUnified;
-  /**
-   * @remarks
-   * The data source type. Examples: `sls`, `prometheus`.
-   */
   datasourceType?: string;
-  /**
-   * @remarks
-   * The user-defined display name for the alert rule.
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * Indicates whether the alert rule is active. Set to `true` to enable the rule, or `false` to disable it.
-   */
   enabled?: boolean;
-  /**
-   * @remarks
-   * A set of key-value pairs that serve as labels to filter and group alert rules.
-   */
   labels?: { [key: string]: string };
-  /**
-   * @remarks
-   * The configuration for sending notifications when an alert is triggered.
-   */
   notifyConfig?: NotifyConfigUnified;
-  /**
-   * @remarks
-   * The ID of the notification strategy to use for this alert rule.
-   */
   notifyStrategyId?: string;
+  observeResourceConfig?: ObserveResourceConfig;
   /**
-   * @remarks
-   * Indicates whether the alert rule monitors all resources of the specified type. If `true`, the rule applies globally within the workspace.
+   * @deprecated
    */
   observeResourceGlobalScope?: boolean;
-  /**
-   * @remarks
-   * A list of specific resource IDs to monitor, used only when `observeResourceGlobalScope` is `false`.
-   */
   observeResourceList?: string[];
   /**
-   * @remarks
-   * The type of resource that the alert rule monitors.
+   * @deprecated
    */
   observeResourceType?: string;
-  /**
-   * @remarks
-   * The partition key used to group alerts. Alerts with the same partition key are treated as a single incident.
-   */
   partitionKey?: string;
-  /**
-   * @remarks
-   * The configuration for querying and processing data from the data source.
-   */
   queryConfig?: QueryConfigUnified;
-  /**
-   * @remarks
-   * The configuration for how often the alert rule is evaluated.
-   */
+  rcaConfig?: AlertRuleRcaConfig;
+  regionId?: string;
   scheduleConfig?: ScheduleConfigUnified;
-  /**
-   * @remarks
-   * The severity level of the alert. Examples: `critical`, `warning`.
-   */
   severityLevels?: string;
-  /**
-   * @remarks
-   * The current status of the alert rule. Examples: `RUNNING`, `STOPPED`.
-   */
   status?: string;
-  /**
-   * @remarks
-   * The time the alert rule was last updated.
-   */
   updatedAt?: string;
-  /**
-   * @remarks
-   * The unique identifier for the alert rule.
-   */
   uuid?: string;
-  /**
-   * @remarks
-   * The ID of the workspace that contains the alert rule.
-   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
       actionIntegrationConfig: 'actionIntegrationConfig',
       annotations: 'annotations',
       armsIntegrationConfig: 'armsIntegrationConfig',
+      bizSource: 'bizSource',
       conditionConfig: 'conditionConfig',
       contentTemplate: 'contentTemplate',
       createdAt: 'createdAt',
@@ -145,11 +62,14 @@ export class AlertRuleV2 extends $dara.Model {
       labels: 'labels',
       notifyConfig: 'notifyConfig',
       notifyStrategyId: 'notifyStrategyId',
+      observeResourceConfig: 'observeResourceConfig',
       observeResourceGlobalScope: 'observeResourceGlobalScope',
       observeResourceList: 'observeResourceList',
       observeResourceType: 'observeResourceType',
       partitionKey: 'partitionKey',
       queryConfig: 'queryConfig',
+      rcaConfig: 'rcaConfig',
+      regionId: 'regionId',
       scheduleConfig: 'scheduleConfig',
       severityLevels: 'severityLevels',
       status: 'status',
@@ -164,6 +84,7 @@ export class AlertRuleV2 extends $dara.Model {
       actionIntegrationConfig: ActionIntegrationConfig,
       annotations: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       armsIntegrationConfig: ArmsIntegrationConfig,
+      bizSource: 'string',
       conditionConfig: ConditionConfigUnified,
       contentTemplate: 'string',
       createdAt: 'string',
@@ -174,11 +95,14 @@ export class AlertRuleV2 extends $dara.Model {
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notifyConfig: NotifyConfigUnified,
       notifyStrategyId: 'string',
+      observeResourceConfig: ObserveResourceConfig,
       observeResourceGlobalScope: 'boolean',
       observeResourceList: { 'type': 'array', 'itemType': 'string' },
       observeResourceType: 'string',
       partitionKey: 'string',
       queryConfig: QueryConfigUnified,
+      rcaConfig: AlertRuleRcaConfig,
+      regionId: 'string',
       scheduleConfig: ScheduleConfigUnified,
       severityLevels: 'string',
       status: 'string',
@@ -210,11 +134,17 @@ export class AlertRuleV2 extends $dara.Model {
     if(this.notifyConfig && typeof (this.notifyConfig as any).validate === 'function') {
       (this.notifyConfig as any).validate();
     }
+    if(this.observeResourceConfig && typeof (this.observeResourceConfig as any).validate === 'function') {
+      (this.observeResourceConfig as any).validate();
+    }
     if(Array.isArray(this.observeResourceList)) {
       $dara.Model.validateArray(this.observeResourceList);
     }
     if(this.queryConfig && typeof (this.queryConfig as any).validate === 'function') {
       (this.queryConfig as any).validate();
+    }
+    if(this.rcaConfig && typeof (this.rcaConfig as any).validate === 'function') {
+      (this.rcaConfig as any).validate();
     }
     if(this.scheduleConfig && typeof (this.scheduleConfig as any).validate === 'function') {
       (this.scheduleConfig as any).validate();

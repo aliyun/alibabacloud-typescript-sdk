@@ -51,7 +51,6 @@ export default class Client extends OpenApi {
       'ap-southeast-6': "metrics.ap-southeast-6.aliyuncs.com",
       'ap-southeast-5': "metrics.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "metrics.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-2': "metrics.ap-southeast-2.aliyuncs.com",
       'ap-southeast-1': "metrics.ap-southeast-1.aliyuncs.com",
       'ap-south-1': "metrics.ap-south-1.aliyuncs.com",
       'ap-northeast-2': "metrics.ap-northeast-2.aliyuncs.com",
@@ -5469,9 +5468,6 @@ export default class Client extends OpenApi {
   /**
    * Retrieves the list of data delivery tasks.
    * 
-   * @remarks
-   * Deletes a specified site monitoring task.
-   * 
    * @param tmpReq - ListDeliveryTasksRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5526,9 +5522,6 @@ export default class Client extends OpenApi {
 
   /**
    * Retrieves the list of data delivery tasks.
-   * 
-   * @remarks
-   * Deletes a specified site monitoring task.
    * 
    * @param request - ListDeliveryTasksRequest
    * @returns ListDeliveryTasksResponse
@@ -6794,6 +6787,11 @@ export default class Client extends OpenApi {
       request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
     }
 
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callSource)) {
+      query["callSource"] = request.callSource;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.bodyShrink)) {
       body["body"] = request.bodyShrink;
@@ -6801,6 +6799,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -6925,7 +6924,7 @@ export default class Client extends OpenApi {
    * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param tmpReq - QueryAlertRulesRequest
    * @param headers - map
@@ -6951,6 +6950,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.queryJson)) {
+      query["queryJson"] = request.queryJson;
     }
 
     let body : {[key: string ]: any} = { };
@@ -6981,7 +6984,7 @@ export default class Client extends OpenApi {
    * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - QueryAlertRulesRequest
    * @returns QueryAlertRulesResponse
@@ -7771,10 +7774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
-   * 
-   * @remarks
-   * Deletes a specified site monitoring task.
+   * Updates a data delivery task.
    * 
    * @param request - UpdateDeliveryTaskRequest
    * @param headers - map
@@ -7839,10 +7839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
-   * 
-   * @remarks
-   * Deletes a specified site monitoring task.
+   * Updates a data delivery task.
    * 
    * @param request - UpdateDeliveryTaskRequest
    * @returns UpdateDeliveryTaskResponse

@@ -2,23 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UmodelLabelFilter extends $dara.Model {
-  name?: string;
+export class TriggerConditions extends $dara.Model {
+  expressionType?: string;
+  max?: number;
+  min?: number;
   operator?: string;
-  value?: string;
+  queryName?: string;
+  threshold?: number;
   static names(): { [key: string]: string } {
     return {
-      name: 'name',
+      expressionType: 'expressionType',
+      max: 'max',
+      min: 'min',
       operator: 'operator',
-      value: 'value',
+      queryName: 'queryName',
+      threshold: 'threshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
+      expressionType: 'string',
+      max: 'number',
+      min: 'number',
       operator: 'string',
-      value: 'string',
+      queryName: 'string',
+      threshold: 'number',
     };
   }
 

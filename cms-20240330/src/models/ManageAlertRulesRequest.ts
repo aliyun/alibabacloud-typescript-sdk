@@ -9,15 +9,18 @@ export class ManageAlertRulesRequest extends $dara.Model {
    * The request body for managing alert rules. This body is shared by CREATE, UPDATE, PATCH, and BATCH_DELETE operations. Specify fields based on the action.
    */
   body?: ManageAlertRulesUnifiedActionInput;
+  callSource?: string;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
+      callSource: 'callSource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       body: ManageAlertRulesUnifiedActionInput,
+      callSource: 'string',
     };
   }
 

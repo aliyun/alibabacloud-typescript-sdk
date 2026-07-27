@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeliveryTasksShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Fuzzy search by task name or task ID (LIKE semantics).
+   * Fuzzy search by task name or task ID (like semantics).
    * 
    * @example
    * test-task
@@ -21,7 +21,7 @@ export class ListDeliveryTasksShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, pass the nextToken value returned in the previous response.
+   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, pass in the nextToken value returned in the previous response.
    * 
    * @example
    * sjC5rekx93Ew7K7VcmI3wkBZBYQ-GphB2ilQu3zJCGxoZuicwyJznfo2riTjr-lq

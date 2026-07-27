@@ -27,18 +27,20 @@ export class QueryAlertRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the position from which you want to start reading data. If you leave this parameter empty, data is read from the beginning.
+   * The token that marks the position from which you want to start reading. If this parameter is left empty, data is read from the beginning.
    * 
    * @example
    * 123456
    */
   nextToken?: string;
+  queryJson?: string;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
       clientToken: 'clientToken',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      queryJson: 'queryJson',
     };
   }
 
@@ -48,6 +50,7 @@ export class QueryAlertRulesRequest extends $dara.Model {
       clientToken: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      queryJson: 'string',
     };
   }
 

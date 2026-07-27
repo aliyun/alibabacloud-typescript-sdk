@@ -13,6 +13,8 @@ export class AlertRuleTemplate extends $dara.Model {
   id?: number;
   isSystem?: number;
   labels?: string;
+  namespace?: string;
+  productCategory?: string;
   ruleConfigs?: string;
   scenes?: string;
   schemaVersion?: string;
@@ -34,6 +36,8 @@ export class AlertRuleTemplate extends $dara.Model {
       id: 'id',
       isSystem: 'isSystem',
       labels: 'labels',
+      namespace: 'namespace',
+      productCategory: 'productCategory',
       ruleConfigs: 'ruleConfigs',
       scenes: 'scenes',
       schemaVersion: 'schemaVersion',
@@ -58,6 +62,8 @@ export class AlertRuleTemplate extends $dara.Model {
       id: 'number',
       isSystem: 'number',
       labels: 'string',
+      namespace: 'string',
+      productCategory: 'string',
       ruleConfigs: 'string',
       scenes: 'string',
       schemaVersion: 'string',

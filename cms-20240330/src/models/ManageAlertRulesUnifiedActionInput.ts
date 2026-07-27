@@ -5,7 +5,9 @@ import { ArmsIntegrationConfig } from "./ArmsIntegrationConfig";
 import { ConditionConfigUnified } from "./ConditionConfigUnified";
 import { DatasourceConfigUnified } from "./DatasourceConfigUnified";
 import { NotifyConfigUnified } from "./NotifyConfigUnified";
+import { ObserveResourceConfig } from "./ObserveResourceConfig";
 import { QueryConfigUnified } from "./QueryConfigUnified";
+import { AlertRuleRcaConfig } from "./AlertRuleRcaConfig";
 import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 
 
@@ -18,6 +20,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   actionIntegrationConfig?: ActionIntegrationConfig;
   annotations?: { [key: string]: string };
   armsIntegrationConfig?: ArmsIntegrationConfig;
+  bizSource?: string;
   conditionConfig?: ConditionConfigUnified;
   contentTemplate?: string;
   datasourceConfig?: DatasourceConfigUnified;
@@ -25,9 +28,18 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   enabled?: boolean;
   labels?: { [key: string]: string };
   notifyConfig?: NotifyConfigUnified;
+  observeResourceConfig?: ObserveResourceConfig;
+  /**
+   * @deprecated
+   */
   observeResourceInstanceId?: string;
+  /**
+   * @deprecated
+   */
   observeResourceType?: string;
   queryConfig?: QueryConfigUnified;
+  rcaConfig?: AlertRuleRcaConfig;
+  regionId?: string;
   scheduleConfig?: ScheduleConfigUnified;
   uuid?: string;
   uuidList?: string[];
@@ -38,6 +50,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
       actionIntegrationConfig: 'actionIntegrationConfig',
       annotations: 'annotations',
       armsIntegrationConfig: 'armsIntegrationConfig',
+      bizSource: 'bizSource',
       conditionConfig: 'conditionConfig',
       contentTemplate: 'contentTemplate',
       datasourceConfig: 'datasourceConfig',
@@ -45,9 +58,12 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
       enabled: 'enabled',
       labels: 'labels',
       notifyConfig: 'notifyConfig',
+      observeResourceConfig: 'observeResourceConfig',
       observeResourceInstanceId: 'observeResourceInstanceId',
       observeResourceType: 'observeResourceType',
       queryConfig: 'queryConfig',
+      rcaConfig: 'rcaConfig',
+      regionId: 'regionId',
       scheduleConfig: 'scheduleConfig',
       uuid: 'uuid',
       uuidList: 'uuidList',
@@ -61,6 +77,7 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
       actionIntegrationConfig: ActionIntegrationConfig,
       annotations: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       armsIntegrationConfig: ArmsIntegrationConfig,
+      bizSource: 'string',
       conditionConfig: ConditionConfigUnified,
       contentTemplate: 'string',
       datasourceConfig: DatasourceConfigUnified,
@@ -68,9 +85,12 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
       enabled: 'boolean',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notifyConfig: NotifyConfigUnified,
+      observeResourceConfig: ObserveResourceConfig,
       observeResourceInstanceId: 'string',
       observeResourceType: 'string',
       queryConfig: QueryConfigUnified,
+      rcaConfig: AlertRuleRcaConfig,
+      regionId: 'string',
       scheduleConfig: ScheduleConfigUnified,
       uuid: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
@@ -100,8 +120,14 @@ export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
     if(this.notifyConfig && typeof (this.notifyConfig as any).validate === 'function') {
       (this.notifyConfig as any).validate();
     }
+    if(this.observeResourceConfig && typeof (this.observeResourceConfig as any).validate === 'function') {
+      (this.observeResourceConfig as any).validate();
+    }
     if(this.queryConfig && typeof (this.queryConfig as any).validate === 'function') {
       (this.queryConfig as any).validate();
+    }
+    if(this.rcaConfig && typeof (this.rcaConfig as any).validate === 'function') {
+      (this.rcaConfig as any).validate();
     }
     if(this.scheduleConfig && typeof (this.scheduleConfig as any).validate === 'function') {
       (this.scheduleConfig as any).validate();

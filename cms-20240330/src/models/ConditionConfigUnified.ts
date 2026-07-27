@@ -1,17 +1,18 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ApmCompositeCompareConfig } from "./ApmCompositeCompareConfig";
+import { CompareList } from "./CompareList";
 import { CloudMonitoringCompositeEscalation } from "./CloudMonitoringCompositeEscalation";
 import { CloudMonitoringExpressEscalation } from "./CloudMonitoringExpressEscalation";
 import { CloudMonitoringPrometheusEscalation } from "./CloudMonitoringPrometheusEscalation";
 import { CloudMonitoringSimpleEscalation } from "./CloudMonitoringSimpleEscalation";
-import { ApmThresholdConfig } from "./ApmThresholdConfig";
-import { MetricSetMultiTrigger } from "./MetricSetMultiTrigger";
+import { ThresholdList } from "./ThresholdList";
+import { Triggers } from "./Triggers";
 
 
 export class ConditionConfigUnified extends $dara.Model {
   aggregate?: string;
-  compareList?: ApmCompositeCompareConfig[];
+  alertCount?: number;
+  compareList?: CompareList[];
   compositeEscalation?: CloudMonitoringCompositeEscalation;
   countOperator?: string;
   countThreshold?: number;
@@ -26,6 +27,9 @@ export class ConditionConfigUnified extends $dara.Model {
   matchValue?: string;
   max?: number;
   min?: number;
+  noDataAlertLevel?: string;
+  noDataAlertSeverity?: string;
+  noDataAppendValue?: number;
   noDataPolicy?: string;
   operator?: string;
   prometheus?: CloudMonitoringPrometheusEscalation;
@@ -33,8 +37,8 @@ export class ConditionConfigUnified extends $dara.Model {
   severity?: string;
   simpleEscalation?: CloudMonitoringSimpleEscalation;
   threshold?: number;
-  thresholdList?: ApmThresholdConfig[];
-  triggers?: MetricSetMultiTrigger[];
+  thresholdList?: ThresholdList[];
+  triggers?: Triggers[];
   /**
    * @remarks
    * This parameter is required.
@@ -45,6 +49,7 @@ export class ConditionConfigUnified extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       aggregate: 'aggregate',
+      alertCount: 'alertCount',
       compareList: 'compareList',
       compositeEscalation: 'compositeEscalation',
       countOperator: 'countOperator',
@@ -60,6 +65,9 @@ export class ConditionConfigUnified extends $dara.Model {
       matchValue: 'matchValue',
       max: 'max',
       min: 'min',
+      noDataAlertLevel: 'noDataAlertLevel',
+      noDataAlertSeverity: 'noDataAlertSeverity',
+      noDataAppendValue: 'noDataAppendValue',
       noDataPolicy: 'noDataPolicy',
       operator: 'operator',
       prometheus: 'prometheus',
@@ -78,7 +86,8 @@ export class ConditionConfigUnified extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       aggregate: 'string',
-      compareList: { 'type': 'array', 'itemType': ApmCompositeCompareConfig },
+      alertCount: 'number',
+      compareList: { 'type': 'array', 'itemType': CompareList },
       compositeEscalation: CloudMonitoringCompositeEscalation,
       countOperator: 'string',
       countThreshold: 'number',
@@ -93,6 +102,9 @@ export class ConditionConfigUnified extends $dara.Model {
       matchValue: 'string',
       max: 'number',
       min: 'number',
+      noDataAlertLevel: 'string',
+      noDataAlertSeverity: 'string',
+      noDataAppendValue: 'number',
       noDataPolicy: 'string',
       operator: 'string',
       prometheus: CloudMonitoringPrometheusEscalation,
@@ -100,8 +112,8 @@ export class ConditionConfigUnified extends $dara.Model {
       severity: 'string',
       simpleEscalation: CloudMonitoringSimpleEscalation,
       threshold: 'number',
-      thresholdList: { 'type': 'array', 'itemType': ApmThresholdConfig },
-      triggers: { 'type': 'array', 'itemType': MetricSetMultiTrigger },
+      thresholdList: { 'type': 'array', 'itemType': ThresholdList },
+      triggers: { 'type': 'array', 'itemType': Triggers },
       type: 'string',
       yoyTimeUnit: 'string',
       yoyTimeValue: 'number',

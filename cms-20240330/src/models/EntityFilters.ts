@@ -2,17 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StatusFilter extends $dara.Model {
-  eq?: string;
+export class EntityFilters extends $dara.Model {
+  field?: string;
+  operator?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      eq: 'eq',
+      field: 'field',
+      operator: 'operator',
+      value: 'value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eq: 'string',
+      field: 'string',
+      operator: 'string',
+      value: 'string',
     };
   }
 

@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StatusFilter extends $dara.Model {
+export class BizSourceFilter extends $dara.Model {
   eq?: string;
   static names(): { [key: string]: string } {
     return {

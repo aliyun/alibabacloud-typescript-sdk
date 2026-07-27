@@ -2,17 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StatusFilter extends $dara.Model {
-  eq?: string;
+export class PrometheusMetricFilterValue extends $dara.Model {
+  dim?: string;
+  opt?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      eq: 'eq',
+      dim: 'dim',
+      opt: 'opt',
+      value: 'value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eq: 'string',
+      dim: 'string',
+      opt: 'string',
+      value: 'string',
     };
   }
 

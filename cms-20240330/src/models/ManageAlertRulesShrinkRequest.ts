@@ -8,15 +8,18 @@ export class ManageAlertRulesShrinkRequest extends $dara.Model {
    * The request body for managing alert rules. This body is shared by CREATE, UPDATE, PATCH, and BATCH_DELETE operations. Specify fields based on the action.
    */
   bodyShrink?: string;
+  callSource?: string;
   static names(): { [key: string]: string } {
     return {
       bodyShrink: 'body',
+      callSource: 'callSource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bodyShrink: 'string',
+      callSource: 'string',
     };
   }
 
