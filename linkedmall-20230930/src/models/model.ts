@@ -8,6 +8,7 @@ export { CategoryListQuery } from './CategoryListQuery';
 export { CategoryListResult } from './CategoryListResult';
 export { ConfirmDisburseCmd } from './ConfirmDisburseCmd';
 export { ConfirmDisburseResult } from './ConfirmDisburseResult';
+export { ConfirmReceiptCmd } from './ConfirmReceiptCmd';
 export { CooperationShop } from './CooperationShop';
 export { CreateAliPayUrlRequest } from './CreateAliPayUrlRequest';
 export { CreateAliPayUrlResult } from './CreateAliPayUrlResult';

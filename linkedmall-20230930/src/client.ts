@@ -918,10 +918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of orders.
+   * Lists orders.
    * 
    * @remarks
-   * Queries a list of orders.
+   * Lists orders.
    * 
    * @param request - QueryOrdersRequest
    * @param headers - map
@@ -949,10 +949,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of orders.
+   * Lists orders.
    * 
    * @remarks
-   * Queries a list of orders.
+   * Lists orders.
    * 
    * @param request - QueryOrdersRequest
    * @returns QueryOrdersResponse

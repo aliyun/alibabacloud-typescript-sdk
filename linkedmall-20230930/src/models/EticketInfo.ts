@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EticketInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of available units.
+   * The number of unredeemed voucher electronic credentials.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class EticketInfo extends $dara.Model {
   availableNum?: number;
   /**
    * @remarks
-   * The unique code for the e-ticket.
+   * The code of the voucher electronic credential.
    * 
    * @example
    * taobao******tpg
@@ -21,19 +21,12 @@ export class EticketInfo extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The status of the e-ticket.
-   * 
-   * > Valid enum values:
-   * >
+   * The status of the voucher electronic credential.
+   * > Valid values:
    * > - 1: valid
-   * >
    * > - -1: redeemed
-   * >
    * > - -2: expired
-   * >
-   * > - -5: expired
-   * >
-   * > - -8: expired
+   * > - 100: locked
    * 
    * @example
    * -1
@@ -41,7 +34,7 @@ export class EticketInfo extends $dara.Model {
   codeStatus?: number;
   /**
    * @remarks
-   * The end time of the e-ticket validity period.
+   * The end time of the validity period for the voucher electronic credential.
    * 
    * @example
    * 2026-08-02T23:59:59.000+08:00
@@ -49,7 +42,7 @@ export class EticketInfo extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of locked units.
+   * The number of voucher electronic credentials in locked status.
    * 
    * @example
    * 0
@@ -57,9 +50,7 @@ export class EticketInfo extends $dara.Model {
   lockNum?: number;
   /**
    * @remarks
-   * The URL of the QR code image for the e-ticket.
-   * 
-   * > This field is not currently populated. Distributors must generate the QR code using the `code` field.
+   * The URL of the QR code image for the voucher electronic credential.
    * 
    * @example
    * http://qrcode.alicdn.com/img.jpg
@@ -67,7 +58,7 @@ export class EticketInfo extends $dara.Model {
   qrcodeUrl?: string;
   /**
    * @remarks
-   * The start time of the e-ticket validity period.
+   * The start time of the validity period for the voucher electronic credential.
    * 
    * @example
    * 2026-02-04T00:00:00.000+08:00
@@ -75,7 +66,7 @@ export class EticketInfo extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The time the e-ticket was redeemed.
+   * The redemption time of the voucher electronic credential.
    * 
    * @example
    * 2026-02-04T15:07:59.000+08:00
@@ -83,7 +74,7 @@ export class EticketInfo extends $dara.Model {
   useTime?: string;
   /**
    * @remarks
-   * The number of redeemed units.
+   * The number of redeemed voucher electronic credentials.
    * 
    * @example
    * 1

@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class OrderPageQuery extends $dara.Model {
   /**
    * @remarks
-   * Collection of primary order IDs
+   * The collection of primary order IDs.
    */
   orderIdList?: string[];
   /**
    * @remarks
-   * Page number
+   * The external purchase order ID.
+   * 
+   * @example
+   * 6692****56121
+   */
+  outPurchaseOrderId?: string;
+  /**
+   * @remarks
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -20,7 +28,7 @@ export class OrderPageQuery extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Quantity per page
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -30,7 +38,7 @@ export class OrderPageQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Purchase order ID
+   * The purchase order ID.
    * 
    * @example
    * 6692****5696
@@ -39,6 +47,7 @@ export class OrderPageQuery extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       orderIdList: 'orderIdList',
+      outPurchaseOrderId: 'outPurchaseOrderId',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       purchaseOrderId: 'purchaseOrderId',
@@ -48,6 +57,7 @@ export class OrderPageQuery extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       orderIdList: { 'type': 'array', 'itemType': 'string' },
+      outPurchaseOrderId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       purchaseOrderId: 'string',

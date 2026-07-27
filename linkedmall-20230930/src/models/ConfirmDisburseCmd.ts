@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConfirmDisburseCmd extends $dara.Model {
-  disputeId?: string;
   /**
    * @remarks
    * The primary distribution order ID.
@@ -22,7 +21,6 @@ export class ConfirmDisburseCmd extends $dara.Model {
   purchaseOrderId?: string;
   static names(): { [key: string]: string } {
     return {
-      disputeId: 'disputeId',
       orderId: 'orderId',
       purchaseOrderId: 'purchaseOrderId',
     };
@@ -30,7 +28,6 @@ export class ConfirmDisburseCmd extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      disputeId: 'string',
       orderId: 'string',
       purchaseOrderId: 'string',
     };
