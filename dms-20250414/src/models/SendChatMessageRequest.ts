@@ -2,6 +2,86 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class SendChatMessageRequestDataSourcePermissionTables extends $dara.Model {
+  /**
+   * @remarks
+   * The list of columns that are allowed to be queried in the current table. If this parameter is not specified, all columns can be queried. If this parameter is specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure the analysis effectiveness of DataAgent, avoid specifying columns that exceed the allowed scope in the prompts, knowledge, or instructions modules of DataAgent. Otherwise, SQL statements without the required permissions are generated and blocked, which reduces the analysis speed and effectiveness of DataAgent.
+   */
+  allowedColumns?: string[];
+  /**
+   * @remarks
+   * The required row filter condition for the current table. If this parameter is not specified, it is ignored. If this parameter is specified, the query condition is appended to all SQL statements that involve this table. Verify the validity of the condition before specifying it.
+   * 
+   * @example
+   * region = \\"east\\"
+   */
+  requiredRowFilter?: string;
+  /**
+   * @remarks
+   * The name of the table to which the permission constraint rule applies.
+   * 
+   * @example
+   * sample_table
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedColumns: 'AllowedColumns',
+      requiredRowFilter: 'RequiredRowFilter',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedColumns: { 'type': 'array', 'itemType': 'string' },
+      requiredRowFilter: 'string',
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowedColumns)) {
+      $dara.Model.validateArray(this.allowedColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatMessageRequestDataSourcePermission extends $dara.Model {
+  /**
+   * @remarks
+   * The table-level permission constraints for querying the current data source. Each item in the list represents the permission constraints for a table.
+   */
+  tables?: SendChatMessageRequestDataSourcePermissionTables[];
+  static names(): { [key: string]: string } {
+    return {
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tables: { 'type': 'array', 'itemType': SendChatMessageRequestDataSourcePermissionTables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatMessageRequestDataSource extends $dara.Model {
   /**
    * @remarks
@@ -77,6 +157,11 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   location?: string;
   /**
    * @remarks
+   * The permission constraints for querying the current data source. The permission constraint feature is available through a canary release. This parameter does not take effect for users who are not included in the canary release.
+   */
+  permission?: SendChatMessageRequestDataSourcePermission;
+  /**
+   * @remarks
    * The region ID.
    * 
    * @example
@@ -99,6 +184,7 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
       engine: 'Engine',
       fileId: 'FileId',
       location: 'Location',
+      permission: 'Permission',
       regionId: 'RegionId',
       tables: 'Tables',
     };
@@ -115,8 +201,92 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
       engine: 'string',
       fileId: 'string',
       location: 'string',
+      permission: SendChatMessageRequestDataSourcePermission,
       regionId: 'string',
       tables: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.permission && typeof (this.permission as any).validate === 'function') {
+      (this.permission as any).validate();
+    }
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatMessageRequestDataSourcesPermissionTables extends $dara.Model {
+  /**
+   * @remarks
+   * The list of columns that are allowed to be queried in the current table. If this parameter is not specified, all columns can be queried. If this parameter is specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure the analysis effectiveness of DataAgent, avoid specifying columns that exceed the allowed scope in the prompts, knowledge, or instructions modules of DataAgent. Otherwise, SQL statements without the required permissions are generated and blocked, which reduces the analysis speed and effectiveness of DataAgent.
+   */
+  allowedColumns?: string[];
+  /**
+   * @remarks
+   * The required row filter condition for the current table. If this parameter is not specified, it is ignored. If this parameter is specified, the query condition is appended to all SQL statements that involve this table. Verify the validity of the condition before specifying it.
+   * 
+   * @example
+   * region = \\"east\\"
+   */
+  requiredRowFilter?: string;
+  /**
+   * @remarks
+   * The name of the table to which the permission constraint rule applies.
+   * 
+   * @example
+   * sample_table
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedColumns: 'AllowedColumns',
+      requiredRowFilter: 'RequiredRowFilter',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedColumns: { 'type': 'array', 'itemType': 'string' },
+      requiredRowFilter: 'string',
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowedColumns)) {
+      $dara.Model.validateArray(this.allowedColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatMessageRequestDataSourcesPermission extends $dara.Model {
+  /**
+   * @remarks
+   * The table-level permission constraints for querying the current data source. Each item in the list represents the permission constraints for a table.
+   */
+  tables?: SendChatMessageRequestDataSourcesPermissionTables[];
+  static names(): { [key: string]: string } {
+    return {
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tables: { 'type': 'array', 'itemType': SendChatMessageRequestDataSourcesPermissionTables },
     };
   }
 
@@ -207,6 +377,11 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
   location?: string;
   /**
    * @remarks
+   * The permission constraints for querying the current data source. The permission constraint feature is available through a canary release. This parameter does not take effect for users who are not included in the canary release.
+   */
+  permission?: SendChatMessageRequestDataSourcesPermission;
+  /**
+   * @remarks
    * The region ID.
    * 
    * @example
@@ -229,6 +404,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
       engine: 'Engine',
       fileId: 'FileId',
       location: 'Location',
+      permission: 'Permission',
       regionId: 'RegionId',
       tables: 'Tables',
     };
@@ -245,12 +421,16 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
       engine: 'string',
       fileId: 'string',
       location: 'string',
+      permission: SendChatMessageRequestDataSourcesPermission,
       regionId: 'string',
       tables: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(this.permission && typeof (this.permission as any).validate === 'function') {
+      (this.permission as any).validate();
+    }
     if(Array.isArray(this.tables)) {
       $dara.Model.validateArray(this.tables);
     }
@@ -265,7 +445,7 @@ export class SendChatMessageRequestDataSources extends $dara.Model {
 export class SendChatMessageRequestSessionConfig extends $dara.Model {
   /**
    * @remarks
-   * Deprecated. Use the input parameters of CreateAgentSession instead.
+   * Deprecated. Use the input parameter of CreateAgentSession instead.
    * 
    * @example
    * null
@@ -273,7 +453,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * Deprecated. Use the input parameters of CreateAgentSession instead.
+   * Deprecated. Use the input parameter of CreateAgentSession instead.
    * 
    * @example
    * null
@@ -297,7 +477,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   kbUuidList?: string;
   /**
    * @remarks
-   * Only Chinese and English are supported. The default value is Chinese. Only uppercase values are supported.
+   * Only Chinese and English are supported. Default value: Chinese. Only uppercase values are supported.
    * 
    * @example
    * ENGLISH
@@ -313,10 +493,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   mcpServerIds?: string;
   /**
    * @remarks
-   * The mode. Valid values:
-   *  - **ASK_DATA**: data query mode.
-   *  - **ANALYSIS**: analysis mode.
-   *  - **INSIGHT**: insight mode.
+   * The mode:
    * 
    * @example
    * ANALYSIS
@@ -335,7 +512,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
    * The text of up to 64 characters that is used as a watermark in the generated PDF report.
    * 
    * @example
-   * 示例水印
+   * SampleWatermark.
    */
   reportWaterMark?: string;
   /**
@@ -364,7 +541,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report generation confirmation.
+   * Specifies whether to skip the web report rendering confirmation.
    * 
    * @example
    * True
@@ -434,7 +611,7 @@ export class SendChatMessageRequestTaskConfigReportConfig extends $dara.Model {
   reportTheme?: string;
   /**
    * @remarks
-   * The service type. Valid values: TextReport and WebReport, indicating that the task generates a text report or a web report. Only WebReport is supported.
+   * The service type. Valid values: TextReport and WebReport, indicating that the task generates a text report or a web report. Only WebReport is currently supported.
    * 
    * @example
    * WebReport
@@ -498,7 +675,7 @@ export class SendChatMessageRequestTaskConfig extends $dara.Model {
 export class SendChatMessageRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID. This parameter is required. You can obtain the current agent ID from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the agent ID that you specify in each request may change.
+   * The agent ID. This parameter is required. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
    * 
    * @example
    * agent_***
@@ -506,7 +683,7 @@ export class SendChatMessageRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can go to the Data Management console to view your current Data Management unit. If you are a user of the Alibaba Cloud China Website, set this parameter to ap-southeast-1.
+   * The Data Management unit you are currently in. If you select an analytics database, this information is used to correctly connect to your Data Management instance through Data Management. You can go to the DAS console to view your current Data Management unit. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to cn-hangzhou.
    * 
    * @example
    * cn-hangzhou
@@ -514,7 +691,7 @@ export class SendChatMessageRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The data source information. This parameter is optional. You can pass only one data source in this parameter. Use the DataSources parameter instead.
+   * The data source information. This parameter can be left empty. Only one data source can be specified for this parameter. Use the DataSources parameter instead.
    * 
    * @example
    * null
@@ -522,7 +699,7 @@ export class SendChatMessageRequest extends $dara.Model {
   dataSource?: SendChatMessageRequestDataSource;
   /**
    * @remarks
-   * The detailed data source information. This parameter is optional.
+   * The detailed data source information. This parameter can be left empty.
    */
   dataSources?: SendChatMessageRequestDataSources[];
   /**
@@ -537,15 +714,7 @@ export class SendChatMessageRequest extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The message type. Default value: `[primary]`.  
-   * 
-   * - In normal cases, set the message type to `[primary]` when interacting with the agent.
-   * 
-   * - When the message is a response to a human-in-the-loop question from the agent, set the type to `[additional]`.
-   * 
-   * - When the message is intended to trigger report generation, set the type to `[report]`.
-   * 
-   * - When the message is intended to cancel the current session, set the type to `[cancel]`.
+   * The message type. Default value: `[primary]`.
    * 
    * @example
    * primary
@@ -561,10 +730,10 @@ export class SendChatMessageRequest extends $dara.Model {
   parentSessionId?: string;
   /**
    * @remarks
-   * The specific question that the agent asks the user through human-in-the-loop. This parameter is required when the message type is `additional`.
+   * The specific question that the agent asks the user through Human-in-Loop. This parameter is required when the message type is `additional`.
    * 
    * @example
-   * 请提供计算GMV的口径。
+   * Please provide the criteria for calculating GMV.
    */
   question?: string;
   /**
@@ -579,17 +748,13 @@ export class SendChatMessageRequest extends $dara.Model {
    * @remarks
    * **Important**
    * 
-   * When this message is a reply to an agent message (for example, the agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried in that agent message. If this message is not a targeted reply, such as requesting the agent to perform further in-depth analysis after analysis is complete, you can leave reply_to empty or set it to "0".  
-   * 
-   * This field affects how the agent decides to process the message. Passing an incorrect value may cause the analysis results to be less effective than expected.
-   * 
    * @example
    * 0
    */
   replyTo?: string;
   /**
    * @remarks
-   * The special configuration for this session. Only the configuration passed in the first SendMessage call within the same session takes effect.
+   * The special configuration for the current session. For the same session, only the configuration specified in the first SendMessage call takes effect.
    * 
    * **if can be null:**
    * true
@@ -597,7 +762,7 @@ export class SendChatMessageRequest extends $dara.Model {
   sessionConfig?: SendChatMessageRequestSessionConfig;
   /**
    * @remarks
-   * The session ID. This parameter is required. You can call the CreateAgentSession operation to obtain the session ID.
+   * The session ID. This parameter is required. You can obtain the SessionId by calling the CreateAgentSession operation.
    * 
    * @example
    * sess_***
@@ -610,7 +775,7 @@ export class SendChatMessageRequest extends $dara.Model {
   taskConfig?: SendChatMessageRequestTaskConfig;
   /**
    * @remarks
-   * The OSS bucket of the user. If this parameter is not specified, the analysis process is securely stored in built-in storage.
+   * The OSS bucket of the user. If this parameter is not specified, the analysis data is securely stored in the built-in storage.
    * 
    * @example
    * my-bucket

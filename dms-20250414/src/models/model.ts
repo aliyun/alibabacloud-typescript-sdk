@@ -89,7 +89,11 @@ export { OperateCustomAgentResponseBodyData } from './OperateCustomAgentResponse
 export { RetrieveKnowledgeBaseResponseBodyDataMatches } from './RetrieveKnowledgeBaseResponseBody';
 export { RetrieveKnowledgeBaseResponseBodyDataResults } from './RetrieveKnowledgeBaseResponseBody';
 export { RetrieveKnowledgeBaseResponseBodyData } from './RetrieveKnowledgeBaseResponseBody';
+export { SendChatMessageRequestDataSourcePermissionTables } from './SendChatMessageRequest';
+export { SendChatMessageRequestDataSourcePermission } from './SendChatMessageRequest';
 export { SendChatMessageRequestDataSource } from './SendChatMessageRequest';
+export { SendChatMessageRequestDataSourcesPermissionTables } from './SendChatMessageRequest';
+export { SendChatMessageRequestDataSourcesPermission } from './SendChatMessageRequest';
 export { SendChatMessageRequestDataSources } from './SendChatMessageRequest';
 export { SendChatMessageRequestSessionConfig } from './SendChatMessageRequest';
 export { SendChatMessageRequestTaskConfigReportConfig } from './SendChatMessageRequest';

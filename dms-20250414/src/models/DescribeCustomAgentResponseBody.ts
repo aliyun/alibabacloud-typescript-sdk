@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCustomAgentResponseBodyDataCallbackConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The callback arguments.
-   */
   callbackArgs?: string;
-  /**
-   * @remarks
-   * The callback prompt.
-   */
   callbackPrompt?: string;
-  /**
-   * @remarks
-   * The callback time.
-   */
   callbackTime?: number;
-  /**
-   * @remarks
-   * The tool ID.
-   */
   toolId?: string;
-  /**
-   * @remarks
-   * The callback type.
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60,7 +40,7 @@ export class DescribeCustomAgentResponseBodyDataCallbackConfig extends $dara.Mod
 export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to disable prompts that require human intervention.
+   * Specifies whether to disable user inquiries during the process.
    * 
    * @example
    * false
@@ -84,7 +64,7 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip confirmation before a web report is generated.
+   * Specifies whether to skip the web report rendering confirmation.
    * 
    * @example
    * false
@@ -118,20 +98,8 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
 }
 
 export class DescribeCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.Model {
-  /**
-   * @remarks
-   * The access type.
-   */
   accessType?: string;
-  /**
-   * @remarks
-   * The UUID of the knowledge base.
-   */
   kbUuid?: string;
-  /**
-   * @remarks
-   * The ID of the MCP server.
-   */
   mcpServerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -161,7 +129,7 @@ export class DescribeCustomAgentResponseBodyDataKnowledgeConfigList extends $dar
 export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for the scheduled task.
+   * The cron expression for timed scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -169,15 +137,15 @@ export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara
   cronExpression?: string;
   /**
    * @remarks
-   * The task query.
+   * The query of the periodic task.
    * 
    * @example
-   * 分析一下这份数据，给出简报
+   * Analyze this data and provide a brief report.
    */
   query?: string;
   /**
    * @remarks
-   * The ID of the related historical session.
+   * The referenced historical session ID.
    * 
    * @example
    * 4m24*****mg7j2v
@@ -211,7 +179,7 @@ export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara
 export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the parent Alibaba Cloud account.
+   * The Alibaba Cloud account ID of the parent account.
    * 
    * @example
    * 16738266********
@@ -225,14 +193,10 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * 20372822********
    */
   aliyunUid?: string;
-  /**
-   * @remarks
-   * The callback configuration.
-   */
   callbackConfig?: DescribeCustomAgentResponseBodyDataCallbackConfig;
   /**
    * @remarks
-   * The username of the creator.
+   * The name of the creator.
    * 
    * @example
    * HaoY*****
@@ -240,23 +204,20 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   creatorUserName?: string;
   /**
    * @remarks
-   * The ID of the custom agent.
+   * The custom agent ID.
    * 
    * @example
    * ca-4y3ca4khkcu**********ysf
    */
   customAgentId?: string;
   /**
-   * @remarks
-   * The current DMS unit.
-   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   /**
    * @remarks
-   * The data scope, formatted as a JSON string.
+   * The specified data scope in JSON string format.
    * 
    * @example
    * {
@@ -265,25 +226,21 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "测试表格******.xlsx",
+   *     "Database" : "TestTable******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
-   *     "RegionId" : "cn-hangzhou"
+   *     "RegionId" : "ap-southeast-1"
    *   }
    * }
    */
   dataJson?: string;
-  /**
-   * @remarks
-   * Indicates whether this is the default agent.
-   */
   defaultAgent?: number;
   /**
    * @remarks
    * The description of the custom agent.
    * 
    * @example
-   * Agent测试描述
+   * Agent test description.
    */
   description?: string;
   /**
@@ -301,7 +258,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   executionConfig?: DescribeCustomAgentResponseBodyDataExecutionConfig;
   /**
    * @remarks
-   * The time when the agent was created.
+   * The creation time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -309,7 +266,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the agent was last modified.
+   * The modification time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -317,18 +274,18 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The instruction for the agent\\"s analysis.
+   * The instruction.
    * 
    * @example
-   * 分析框架：
-   * 1、需按日、周、月维度监控核心指标（GMV、订单量、UV、转化率），分析趋势变化及同比/环比波动；
-   * 2、划分新老客、渠道、地域进行拆解，识别增长来源与短板；
-   * 3、结合用户行为路径（浏览→加购→支付）开展漏斗分析，定位流失环节；
+   * Analysis framework:
+   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) by day, week, and month dimensions, and analyze trends and year-over-year/month-over-month fluctuations;
+   * 2. Segment by new/existing customers, channels, and regions to identify growth sources and weaknesses;
+   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → payment) to locate drop-off points;
    */
   instruction?: string;
   /**
    * @remarks
-   * Indicates whether a scheduled task is configured.
+   * Specifies whether a periodic task is configured.
    * 
    * @example
    * true
@@ -336,24 +293,20 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   isScheduleTask?: boolean;
   /**
    * @remarks
-   * The domain knowledge for the agent.
+   * The knowledge.
    * 
    * @example
-   * 核心指标定义：
-   * 1、GMV（成交总额）指订单金额总和，含已支付及未支付成功订单；
-   * 2、订单量为每日有效下单笔数；
-   * 3、UV（独立访客）指访问网站或APP的去重用户数；
-   * 4、转化率=支付订单数 / UV，反映流量转化效率；
+   * Core metric definitions:
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including paid and unpaid orders;
+   * 2. Order volume is the number of valid orders placed per day;
+   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app;
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency;
    */
   knowledge?: string;
-  /**
-   * @remarks
-   * The knowledge configurations.
-   */
   knowledgeConfigList?: DescribeCustomAgentResponseBodyDataKnowledgeConfigList[];
   /**
    * @remarks
-   * The ID of the user who last modified the agent.
+   * The modifier.
    * 
    * @example
    * 20372822********
@@ -361,7 +314,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The username of the modifier.
+   * The name of the modifier.
    * 
    * @example
    * HaoY*****
@@ -372,12 +325,12 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * Agent测试名称
+   * Agent test name.
    */
   name?: string;
   /**
    * @remarks
-   * The next scheduled execution time.
+   * The next run time of the periodic task.
    * 
    * @example
    * 1767715200
@@ -385,7 +338,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   nextRuntime?: number;
   /**
    * @remarks
-   * The time when the agent was taken offline.
+   * The offline time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -400,29 +353,22 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    */
   region?: string;
   /**
-   * @remarks
-   * The ID of the related historical session.
-   * 
    * @example
    * 5xyz...
    */
   relatedSessionId?: string;
   /**
    * @remarks
-   * The release time.
+   * The publish time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
    */
   releaseTime?: string;
-  /**
-   * @remarks
-   * The configuration of the scheduled task.
-   */
   scheduleTaskConfig?: DescribeCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
    * @remarks
-   * The status of the custom agent. Valid values:
+   * The status of the custom agent.
    * 
    * @example
    * RELEASED
@@ -430,23 +376,24 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The formatting requirements for the text report.
+   * The text report format.
    * 
    * @example
-   * 文字报告要求所有数字不使用阿拉伯数字，全部转为中文数字
+   * The text report requires all numbers to be converted from Arabic numerals to Chinese numerals.
    */
   textReportConfig?: string;
   /**
    * @remarks
-   * The formatting requirements for the web report.
+   * The web report format.
    * 
    * @example
-   * 网页报告要求所有数字不使用阿拉伯数字，全部转为中文数字
+   * The web report requires all numbers to be converted from Arabic numerals to Chinese numerals.
    */
   webReportConfig?: string;
+  webReportTheme?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 56kv1pvl9uvt9**********bb
@@ -483,6 +430,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
       status: 'Status',
       textReportConfig: 'TextReportConfig',
       webReportConfig: 'WebReportConfig',
+      webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -518,6 +466,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
       status: 'string',
       textReportConfig: 'string',
       webReportConfig: 'string',
+      webReportTheme: 'string',
       workspaceId: 'string',
     };
   }
@@ -546,12 +495,12 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
 export class DescribeCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the custom agent.
+   * The response struct.
    */
   data?: DescribeCustomAgentResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code.
    * 
    * @example
    * success
@@ -559,7 +508,7 @@ export class DescribeCustomAgentResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned when the call fails.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -567,7 +516,7 @@ export class DescribeCustomAgentResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
@@ -577,8 +526,7 @@ export class DescribeCustomAgentResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
+   * - **true**: The request was successful.                                 
    * - **false**: The request failed.
    * 
    * @example

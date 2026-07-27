@@ -40,7 +40,7 @@ export class CreateCustomAgentRequestCallbackConfig extends $dara.Model {
 export class CreateCustomAgentRequestExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to skip asking the user for input during execution.
+   * Specifies whether to disable user inquiries during the process.
    * 
    * @example
    * true
@@ -56,7 +56,7 @@ export class CreateCustomAgentRequestExecutionConfig extends $dara.Model {
   skipPlan?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip all SQL confirmation steps.
+   * Specifies whether to skip all SQL confirmations.
    * 
    * @example
    * true
@@ -64,7 +64,7 @@ export class CreateCustomAgentRequestExecutionConfig extends $dara.Model {
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report confirmation step.
+   * Specifies whether to skip the web report rendering confirmation.
    * 
    * @example
    * true
@@ -102,8 +102,6 @@ export class CreateCustomAgentRequestKnowledgeConfigList extends $dara.Model {
    * @remarks
    * The access type.
    * 
-   * - `mcp`: Access via an MCP server.
-   * 
    * @example
    * mcp
    */
@@ -111,7 +109,7 @@ export class CreateCustomAgentRequestKnowledgeConfigList extends $dara.Model {
   kbUuid?: string;
   /**
    * @remarks
-   * The ID of the MCP server.
+   * The ID of the MCP Server.
    * 
    * @example
    * nhdpt9adf6ac**********ca
@@ -145,7 +143,7 @@ export class CreateCustomAgentRequestKnowledgeConfigList extends $dara.Model {
 export class CreateCustomAgentRequestScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for the scheduled task.
+   * The cron expression for the time-based scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -156,12 +154,12 @@ export class CreateCustomAgentRequestScheduleTaskConfig extends $dara.Model {
    * The query for the scheduled task.
    * 
    * @example
-   * 分析一下这份数据，给出简报
+   * Analyze this data and provide a brief report.
    */
   query?: string;
   /**
    * @remarks
-   * The ID of a previous session to use for reference.
+   * The ID of the referenced historical session.
    * 
    * @example
    * 4m24*****mg7j2v
@@ -196,7 +194,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
   callbackConfig?: CreateCustomAgentRequestCallbackConfig;
   /**
    * @remarks
-   * The ID of the DMS unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -204,107 +202,10 @@ export class CreateCustomAgentRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The data range, specified as a **JSON string**.
-   * 
-   * - General parameters
-   * 
-   *   - `tableFlag`: Set to `true` to specify a data range.
-   * 
-   *   - `scope`: The value must be `personal`.
-   * 
-   *   - `personal`: Contains the parameters for a file or database.
-   * 
-   * **File type**: Use the following parameters.
-   * 
-   * - `DataSourceType`: The value must be `remote_data_center`.
-   * 
-   * - `FileId`: The ID of the file.
-   * 
-   * - `Database`: The name of the database returned by the `ListDataCenterTable` operation. This is typically the file name.
-   * 
-   * - `Tables`: The names of the tables returned by the `ListDataCenterTable` operation.
-   * 
-   * - `TableIds`: The table IDs returned by the `ListDataCenterTable` operation.
-   * 
-   * - `RegionId`: The current region.
-   * 
-   * ```
-   * {
-   *   "tableFlag": true,
-   *   "scope": "personal",
-   *   "personal": {
-   *     "DataSourceType": "remote_data_center",
-   *     "FileId": "f-f0jksn001ibmkoo********6v2zn6",
-   *     "Database": "diamonds.csv",
-   *     "Tables": [
-   *       "diamonds"
-   *     ],
-   *     "TableIds": [
-   *       "35hfn94pxl********50pi"
-   *     ],
-   *     "RegionId": "cn-hangzhou"
-   *   }
-   * }
-   * ```
-   * 
-   * **Database type**: Use the following parameters.
-   * 
-   * - `DataSourceType`: The value must be `database`.
-   * 
-   * - `DmsInstanceId`: The ID of the DMS instance returned by the data center API.
-   * 
-   * - `DmsDatabaseId`: The ID of the DMS database returned by the data center API.
-   * 
-   * - `FileId`: The instance name. This parameter is deprecated.
-   * 
-   * - `DbName`: The name of the database returned by the data center API.
-   * 
-   * - `Database`: The name of the database returned by the data center API.
-   * 
-   * - `Tables`: The names of the tables returned by the data center API.
-   * 
-   * - `TableIds`: The table IDs returned by the data center API.
-   * 
-   * - `Engine`: The database engine. Valid values: `mysql` and `postgresql`.
-   * 
-   * - `RegionId`: The current region.
-   * 
-   * ```
-   * {
-   *   "tableFlag": true,
-   *   "scope": "personal",
-   *   "personal": {
-   *     "DataSourceType": "database",
-   *     "DmsInstanceId": "284***8",
-   *     "DmsDatabaseId": "769***45",
-   *     "FileId": "pgm-bp15095e*******6t",
-   *     "DbName": "pg_catalog",
-   *     "Database": "pg_catalog",
-   *     "Tables": [
-   *       "pg_aggregate"
-   *     ],
-   *     "TableIds": [
-   *       "5263****31"
-   *     ],
-   *     "Engine": "postgresql",
-   *     "RegionId": "cn-hangzhou"
-   *   }
-   * }
-   * ```
+   * The specified data scope, in **JSON string format**.
    * 
    * @example
    * {
-   *   "tableFlag" : true,
-   *   "scope" : "personal",
-   *   "personal" : {
-   *     "DataSourceType" : "remote_data_center",
-   *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "测试表格******.xlsx",
-   *     "Tables" : [ "Sheet1" ],
-   *     "TableIds" : [ "******" ],
-   *     "RegionId" : "cn-hangzhou"
-   *   }
-   * }
    */
   dataJson?: string;
   /**
@@ -312,7 +213,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * Agent测试描述
+   * AgentTestDescription.
    */
   description?: string;
   /**
@@ -322,35 +223,23 @@ export class CreateCustomAgentRequest extends $dara.Model {
   executionConfig?: CreateCustomAgentRequestExecutionConfig;
   /**
    * @remarks
-   * The instruction for the custom agent.
-   * 
-   * - Maximum length: 10,000 characters.
+   * The instruction.
    * 
    * @example
-   * 核心指标定义：
-   * 1、GMV（成交总额）指订单金额总和，含已支付及未支付成功订单；
-   * 2、订单量为每日有效下单笔数；
-   * 3、UV（独立访客）指访问网站或APP的去重用户数；
-   * 4、转化率=支付订单数 / UV，反映流量转化效率；
+   * Core metric definitions:
    */
   instruction?: string;
   /**
    * @remarks
-   * The knowledge for the custom agent.
-   * 
-   * - Maximum length: 10,000 characters.
+   * The knowledge.
    * 
    * @example
-   * 核心指标定义：
-   * 1、GMV（成交总额）指订单金额总和，含已支付及未支付成功订单；
-   * 2、订单量为每日有效下单笔数；
-   * 3、UV（独立访客）指访问网站或APP的去重用户数；
-   * 4、转化率=支付订单数 / UV，反映流量转化效率；
+   * Core metric definitions:
    */
   knowledge?: string;
   /**
    * @remarks
-   * A list of external knowledge bases.
+   * The external knowledge base configurations.
    */
   knowledgeConfigList?: CreateCustomAgentRequestKnowledgeConfigList[];
   /**
@@ -358,34 +247,35 @@ export class CreateCustomAgentRequest extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * Agent测试名称
+   * AgentTestName.
    */
   name?: string;
   relatedSessionId?: string;
   /**
    * @remarks
-   * The configuration for the scheduled task.
+   * The scheduled task configuration.
    */
   scheduleTaskConfig?: CreateCustomAgentRequestScheduleTaskConfig;
   /**
    * @remarks
-   * The formatting requirements for the text report.
+   * The text report format.
    * 
    * @example
-   * 文字报告要求所有数字不使用阿拉伯数字，全部转为中文数字
+   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals.
    */
   textReportConfig?: string;
   /**
    * @remarks
-   * The formatting requirements for the web report.
+   * The web report format.
    * 
    * @example
-   * 网页报告要求所有数字不使用阿拉伯数字，全部转为中文数字
+   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals.
    */
   webReportConfig?: string;
+  webReportTheme?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 56kv1pvl9uvt9**********bb
@@ -406,6 +296,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
       scheduleTaskConfig: 'ScheduleTaskConfig',
       textReportConfig: 'TextReportConfig',
       webReportConfig: 'WebReportConfig',
+      webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -425,6 +316,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
       scheduleTaskConfig: CreateCustomAgentRequestScheduleTaskConfig,
       textReportConfig: 'string',
       webReportConfig: 'string',
+      webReportTheme: 'string',
       workspaceId: 'string',
     };
   }

@@ -393,6 +393,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    * 网页报告要求所有数字不使用阿拉伯数字，全部转为中文数字
    */
   webReportConfig?: string;
+  webReportTheme?: string;
   /**
    * @remarks
    * The workspace ID.
@@ -432,6 +433,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
       status: 'Status',
       textReportConfig: 'TextReportConfig',
       webReportConfig: 'WebReportConfig',
+      webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -467,6 +469,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
       status: 'string',
       textReportConfig: 'string',
       webReportConfig: 'string',
+      webReportTheme: 'string',
       workspaceId: 'string',
     };
   }

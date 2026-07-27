@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyCustomAgentResponseBodyDataCallbackConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The callback arguments.
-   */
   callbackArgs?: string;
-  /**
-   * @remarks
-   * The callback prompt.
-   */
   callbackPrompt?: string;
-  /**
-   * @remarks
-   * The callback timestamp.
-   */
   callbackTime?: number;
-  /**
-   * @remarks
-   * The ID of the tool to be called.
-   */
   toolId?: string;
-  /**
-   * @remarks
-   * The callback type.
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60,7 +40,7 @@ export class ModifyCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
 export class ModifyCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to skip asking for human input during execution.
+   * Specifies whether to disable user inquiries during the process.
    * 
    * @example
    * true
@@ -68,7 +48,7 @@ export class ModifyCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   skipAskHuman?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip plan confirmation.
+   * Specifies whether to skip the plan confirmation step.
    * 
    * @example
    * true
@@ -84,7 +64,7 @@ export class ModifyCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip web report confirmation.
+   * Specifies whether to skip the web report rendering confirmation.
    * 
    * @example
    * true
@@ -122,20 +102,14 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
    * @remarks
    * The access type.
    * 
-   * - mcp: Connects via MCP.
-   * 
    * @example
    * mcp
    */
   accessType?: string;
-  /**
-   * @remarks
-   * The knowledge base UUID.
-   */
   kbUuid?: string;
   /**
    * @remarks
-   * The MCP server ID.
+   * The ID of the MCP Server.
    * 
    * @example
    * nhdpt9adf6ac**********ca
@@ -169,7 +143,7 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
 export class ModifyCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for the task.
+   * The cron expression for time-based scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -177,15 +151,15 @@ export class ModifyCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
   cronExpression?: string;
   /**
    * @remarks
-   * The query for the task.
+   * The query for the scheduled task.
    * 
    * @example
-   * 分析一下这份数据，给出简报
+   * Analyze this data and provide a brief report.
    */
   query?: string;
   /**
    * @remarks
-   * The ID of a reference session.
+   * The ID of the referenced historical session.
    * 
    * @example
    * 4m24*****mg7j2v
@@ -219,7 +193,7 @@ export class ModifyCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
 export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The main Alibaba Cloud account ID.
+   * The Alibaba Cloud account ID of the primary account.
    * 
    * @example
    * 16738266********
@@ -233,14 +207,10 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * 20372822********
    */
   aliyunUid?: string;
-  /**
-   * @remarks
-   * The callback configuration.
-   */
   callbackConfig?: ModifyCustomAgentResponseBodyDataCallbackConfig;
   /**
    * @remarks
-   * Name of the user who created the agent.
+   * The name of the creator.
    * 
    * @example
    * HaoY*****
@@ -264,29 +234,18 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The data scope in JSON format.
+   * The specified data range in JSON string format.
    * 
    * @example
    * {
-   *   "tableFlag" : true,
-   *   "scope" : "personal",
-   *   "personal" : {
-   *     "DataSourceType" : "remote_data_center",
-   *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "测试表格******.xlsx",
-   *     "Tables" : [ "Sheet1" ],
-   *     "TableIds" : [ "******" ],
-   *     "RegionId" : "cn-hangzhou"
-   *   }
-   * }
    */
   dataJson?: string;
   /**
    * @remarks
-   * The custom agent description.
+   * The description of the custom agent.
    * 
    * @example
-   * Agent测试描述
+   * AgentTestDescription.
    */
   description?: string;
   /**
@@ -312,7 +271,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The modification time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -320,18 +279,15 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The instruction for the agent.
+   * The instruction.
    * 
    * @example
-   * 分析框架：
-   * 1、需按日、周、月维度监控核心指标（GMV、订单量、UV、转化率），分析趋势变化及同比/环比波动；
-   * 2、划分新老客、渠道、地域进行拆解，识别增长来源与短板；
-   * 3、结合用户行为路径（浏览→加购→支付）开展漏斗分析，定位流失环节；
+   * Analysis framework:
    */
   instruction?: string;
   /**
    * @remarks
-   * Indicates whether a scheduled task is configured.
+   * Indicates whether a periodic task is configured.
    * 
    * @example
    * false
@@ -339,24 +295,20 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   isScheduleTask?: boolean;
   /**
    * @remarks
-   * The text-based knowledge for the agent.
+   * The knowledge.
    * 
    * @example
-   * 核心指标定义：
-   * 1、GMV（成交总额）指订单金额总和，含已支付及未支付成功订单；
-   * 2、订单量为每日有效下单笔数；
-   * 3、UV（独立访客）指访问网站或APP的去重用户数；
-   * 4、转化率=支付订单数 / UV，反映流量转化效率；
+   * Core metric definitions:
    */
   knowledge?: string;
   /**
    * @remarks
-   * Configurations for external knowledge bases.
+   * The external knowledge bases.
    */
   knowledgeConfigList?: ModifyCustomAgentResponseBodyDataKnowledgeConfigList[];
   /**
    * @remarks
-   * ID of the last modifier.
+   * The modifier.
    * 
    * @example
    * 20372822********
@@ -364,7 +316,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * Name of the user who last modified the agent.
+   * The name of the modifier.
    * 
    * @example
    * HaoY*****
@@ -372,17 +324,15 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   modifierUserName?: string;
   /**
    * @remarks
-   * The custom agent name.
+   * The name of the custom agent.
    * 
    * @example
-   * Agent测试名称
+   * AgentTestName.
    */
   name?: string;
   /**
    * @remarks
-   * The next runtime for the scheduled task.
-   * 
-   * - This value is a UNIX timestamp.
+   * The next run time of the periodic task.
    * 
    * @example
    * 1767715200
@@ -398,20 +348,16 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   offlineTime?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-hangzhou
    */
   region?: string;
-  /**
-   * @remarks
-   * The ID of a reference session.
-   */
   relatedSessionId?: string;
   /**
    * @remarks
-   * The release time.
+   * The publish time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -419,12 +365,12 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   releaseTime?: string;
   /**
    * @remarks
-   * The scheduled task configuration.
+   * The periodic task configuration.
    */
   scheduleTaskConfig?: ModifyCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
    * @remarks
-   * The agent status.
+   * The status of the custom agent.
    * 
    * @example
    * RELEASED
@@ -432,20 +378,21 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Formatting requirements for the text report.
+   * The text report format.
    * 
    * @example
-   * 文字报告要求所有数字不使用阿拉伯数字，全部转为中文数字
+   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals.
    */
   textReportConfig?: string;
   /**
    * @remarks
-   * Formatting requirements for the web report.
+   * The web report format.
    * 
    * @example
-   * 网页报告要求所有数字不使用阿拉伯数字，全部转为中文数字
+   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals.
    */
   webReportConfig?: string;
+  webReportTheme?: string;
   /**
    * @remarks
    * The workspace ID.
@@ -484,6 +431,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       status: 'Status',
       textReportConfig: 'TextReportConfig',
       webReportConfig: 'WebReportConfig',
+      webReportTheme: 'WebReportTheme',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -518,6 +466,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       status: 'string',
       textReportConfig: 'string',
       webReportConfig: 'string',
+      webReportTheme: 'string',
       workspaceId: 'string',
     };
   }
@@ -546,7 +495,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
 export class ModifyCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The response struct.
    */
   data?: ModifyCustomAgentResponseBodyData;
   /**
@@ -559,7 +508,7 @@ export class ModifyCustomAgentResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the call failed.
    * 
    * @example
    * Specified parameter Tid is not valid.
@@ -567,7 +516,7 @@ export class ModifyCustomAgentResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
@@ -575,11 +524,7 @@ export class ModifyCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the request was successful. Valid values:
    * 
    * @example
    * true

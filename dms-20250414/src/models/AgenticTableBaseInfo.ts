@@ -5,6 +5,7 @@ import { AgenticTableEngineMeta } from "./AgenticTableEngineMeta";
 
 export class AgenticTableBaseInfo extends $dara.Model {
   catalogType?: string;
+  databaseQualifiedName?: string;
   databaseUuid?: string;
   description?: string;
   engineMeta?: AgenticTableEngineMeta;
@@ -14,6 +15,7 @@ export class AgenticTableBaseInfo extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       catalogType: 'CatalogType',
+      databaseQualifiedName: 'DatabaseQualifiedName',
       databaseUuid: 'DatabaseUuid',
       description: 'Description',
       engineMeta: 'EngineMeta',
@@ -26,6 +28,7 @@ export class AgenticTableBaseInfo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       catalogType: 'string',
+      databaseQualifiedName: 'string',
       databaseUuid: 'string',
       description: 'string',
       engineMeta: AgenticTableEngineMeta,

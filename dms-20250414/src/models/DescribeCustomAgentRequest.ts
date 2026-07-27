@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom agent.
+   * The custom agent ID.
    * 
    * @example
    * ca-4y3ca4khkcu**********ysf
@@ -13,7 +13,7 @@ export class DescribeCustomAgentRequest extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 56kv1pvl9uvt9**********bb
