@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CreateChatRequestMessagesContents extends $dara.Model {
   /**
+   * @remarks
+   * The content type.
+   * 
    * @example
    * text
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the content.
+   * 
    * @example
    * test
    */
@@ -39,17 +45,31 @@ export class CreateChatRequestMessagesContents extends $dara.Model {
 }
 
 export class CreateChatRequestMessages extends $dara.Model {
+  /**
+   * @remarks
+   * The multimodal content of the message.
+   */
   contents?: CreateChatRequestMessagesContents[];
   /**
+   * @remarks
+   * A unique identifier for the message.
+   * 
    * @example
    * message_id02
    */
   messageId?: string;
   /**
+   * @remarks
+   * The role of the message.
+   * 
    * @example
    * system
    */
   role?: string;
+  /**
+   * @remarks
+   * The tool call list.
+   */
   tools?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -86,22 +106,38 @@ export class CreateChatRequestMessages extends $dara.Model {
 
 export class CreateChatRequest extends $dara.Model {
   /**
+   * @remarks
+   * The operation type. Valid values: `create` (default), `reconnect`, and `stop`.
+   * 
    * @example
    * create
    */
   action?: string;
   /**
+   * @remarks
+   * The name of the digital employee.
+   * 
    * @example
    * test
    */
   digitalEmployeeName?: string;
+  /**
+   * @remarks
+   * The message list.
+   */
   messages?: CreateChatRequestMessages[];
   /**
+   * @remarks
+   * The session thread ID.
+   * 
    * @example
    * thread_id01
    */
   threadId?: string;
   /**
+   * @remarks
+   * The set of variables.
+   * 
    * @example
    * {
    *   "workspace": "test",

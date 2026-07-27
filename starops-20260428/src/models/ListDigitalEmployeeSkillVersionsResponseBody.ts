@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDigitalEmployeeSkillVersionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The time when the skill version was created.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -12,32 +14,49 @@ export class ListDigitalEmployeeSkillVersionsResponseBodyData extends $dara.Mode
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * test
    */
   displayName?: string;
   /**
+   * @remarks
+   * Indicates whether the skill version is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The remark for the skill version.
+   * 
    * @example
    * remark
    */
   remark?: string;
   /**
+   * @remarks
+   * The skill name.
+   * 
    * @example
    * test
    */
   skillName?: string;
   /**
    * @remarks
+   * The time when the skill version was last updated.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -45,6 +64,9 @@ export class ListDigitalEmployeeSkillVersionsResponseBodyData extends $dara.Mode
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1770386951147366810
    */
@@ -85,8 +107,15 @@ export class ListDigitalEmployeeSkillVersionsResponseBodyData extends $dara.Mode
 }
 
 export class ListDigitalEmployeeSkillVersionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of previous skill versions.
+   */
   data?: ListDigitalEmployeeSkillVersionsResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8
    */

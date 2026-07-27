@@ -12,7 +12,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-beijing': "starops.cn-beijing.aliyuncs.com",
+      'ap-southeast-1': "starops.ap-southeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("starops", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -31,7 +35,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建对话
+   * 创建产物上传凭证
+   * 
+   * @remarks
+   * 获取上传内容所需链接，适用于大文件。
+   * 
+   * @param request - CreateArtifactUploadTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateArtifactUploadTokenResponse
+   */
+  async createArtifactUploadTokenWithOptions(name: string, request: $_model.CreateArtifactUploadTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateArtifactUploadTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.artifactPath)) {
+      query["artifactPath"] = request.artifactPath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateArtifactUploadToken",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/artifacts/uploadToken`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateArtifactUploadTokenResponse>(await this.callApi(params, req, runtime), new $_model.CreateArtifactUploadTokenResponse({}));
+  }
+
+  /**
+   * 创建产物上传凭证
+   * 
+   * @remarks
+   * 获取上传内容所需链接，适用于大文件。
+   * 
+   * @param request - CreateArtifactUploadTokenRequest
+   * @returns CreateArtifactUploadTokenResponse
+   */
+  async createArtifactUploadToken(name: string, request: $_model.CreateArtifactUploadTokenRequest): Promise<$_model.CreateArtifactUploadTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createArtifactUploadTokenWithOptions(name, request, headers, runtime);
+  }
+
+  /**
+   * New conversation
+   * 
+   * @remarks
+   * Starts a session.
    * 
    * @param request - CreateChatRequest
    * @param headers - map
@@ -94,7 +152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建对话
+   * New conversation
+   * 
+   * @remarks
+   * Starts a session.
    * 
    * @param request - CreateChatRequest
    * @param headers - map
@@ -143,7 +204,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建对话
+   * New conversation
+   * 
+   * @remarks
+   * Starts a session.
    * 
    * @param request - CreateChatRequest
    * @returns CreateChatResponse
@@ -155,7 +219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建DigitalEmployee
+   * Creates a digital employee.
+   * 
+   * @remarks
+   * Creates a digital employee.
    * 
    * @param request - CreateDigitalEmployeeRequest
    * @param headers - map
@@ -197,6 +264,10 @@ export default class Client extends OpenApi {
       body["roleArn"] = request.roleArn;
     }
 
+    if (!$dara.isNull(request.sandboxNetworkPolicy)) {
+      body["sandboxNetworkPolicy"] = request.sandboxNetworkPolicy;
+    }
+
     if (!$dara.isNull(request.tags)) {
       body["tags"] = request.tags;
     }
@@ -224,7 +295,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建DigitalEmployee
+   * Creates a digital employee.
+   * 
+   * @remarks
+   * Creates a digital employee.
    * 
    * @param request - CreateDigitalEmployeeRequest
    * @returns CreateDigitalEmployeeResponse
@@ -236,7 +310,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建技能
+   * Creates a skill for a digital employee.
+   * 
+   * @remarks
+   * Creates a new skill for a specified digital employee.
    * 
    * @param request - CreateDigitalEmployeeSkillRequest
    * @param headers - map
@@ -289,7 +366,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建技能
+   * Creates a skill for a digital employee.
+   * 
+   * @remarks
+   * Creates a new skill for a specified digital employee.
    * 
    * @param request - CreateDigitalEmployeeSkillRequest
    * @returns CreateDigitalEmployeeSkillResponse
@@ -301,7 +381,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 MCP 服务
+   * Creates an MCP service.
+   * 
+   * @remarks
+   * Creates an MCP service.
    * 
    * @param request - CreateMcpServiceRequest
    * @param headers - map
@@ -358,7 +441,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 MCP 服务
+   * Creates an MCP service.
+   * 
+   * @remarks
+   * Creates an MCP service.
    * 
    * @param request - CreateMcpServiceRequest
    * @returns CreateMcpServiceResponse
@@ -370,7 +456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建会话
+   * Creates a thread.
+   * 
+   * @remarks
+   * Creates a thread for a specified digital employee.
    * 
    * @param request - CreateThreadRequest
    * @param headers - map
@@ -411,7 +500,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建会话
+   * Creates a thread.
+   * 
+   * @remarks
+   * Creates a thread for a specified digital employee.
    * 
    * @param request - CreateThreadRequest
    * @returns CreateThreadResponse
@@ -423,7 +515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建票据
+   * Creates a ticket.
    * 
    * @param request - CreateTicketRequest
    * @param headers - map
@@ -460,7 +552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建票据
+   * Creates a ticket.
    * 
    * @param request - CreateTicketRequest
    * @returns CreateTicketResponse
@@ -472,7 +564,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DigitalEmployee
+   * Deletes a digital employee.
+   * 
+   * @remarks
+   * Deletes a digital employee.
    * 
    * @param request - DeleteDigitalEmployeeRequest
    * @param headers - map
@@ -499,7 +594,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DigitalEmployee
+   * Deletes a digital employee.
+   * 
+   * @remarks
+   * Deletes a digital employee.
    * 
    * @param request - DeleteDigitalEmployeeRequest
    * @returns DeleteDigitalEmployeeResponse
@@ -511,7 +609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除技能
+   * Deletes a skill from a digital employee.
+   * 
+   * @remarks
+   * Deletes a skill from the specified digital employee.
    * 
    * @param request - DeleteDigitalEmployeeSkillRequest
    * @param headers - map
@@ -538,7 +639,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除技能
+   * Deletes a skill from a digital employee.
+   * 
+   * @remarks
+   * Deletes a skill from the specified digital employee.
    * 
    * @param request - DeleteDigitalEmployeeSkillRequest
    * @returns DeleteDigitalEmployeeSkillResponse
@@ -550,7 +654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 MCP 服务
+   * Deletes an MCP service.
    * 
    * @param request - DeleteMcpServiceRequest
    * @param headers - map
@@ -577,7 +681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 MCP 服务
+   * Deletes an MCP service.
    * 
    * @param request - DeleteMcpServiceRequest
    * @returns DeleteMcpServiceResponse
@@ -589,7 +693,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除会话
+   * This operation deletes a thread.
+   * 
+   * @remarks
+   * This operation deletes a specified thread.
    * 
    * @param request - DeleteThreadRequest
    * @param headers - map
@@ -616,7 +723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除会话
+   * This operation deletes a thread.
+   * 
+   * @remarks
+   * This operation deletes a specified thread.
    * 
    * @param request - DeleteThreadRequest
    * @returns DeleteThreadResponse
@@ -628,7 +738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预览远端 MCP 工具列表
+   * Retrieves the tool list from a remote MCP server.
    * 
    * @param request - FetchRemoteMcpToolsRequest
    * @param headers - map
@@ -665,7 +775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预览远端 MCP 工具列表
+   * Retrieves the tool list from a remote MCP server.
    * 
    * @param request - FetchRemoteMcpToolsRequest
    * @returns FetchRemoteMcpToolsResponse
@@ -677,7 +787,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下载小型产物文件
+   * Retrieves the content of an artifact.
+   * 
+   * @remarks
+   * Retrieves the content of an artifact.
    * 
    * @param request - GetArtifactRequest
    * @param headers - map
@@ -727,7 +840,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下载小型产物文件
+   * Retrieves the content of an artifact.
+   * 
+   * @remarks
+   * Retrieves the content of an artifact.
    * 
    * @param request - GetArtifactRequest
    * @returns GetArtifactResponse
@@ -739,7 +855,55 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 DigitalEmployee
+   * 获取产物下载链接
+   * 
+   * @param request - GetArtifactDownloadUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetArtifactDownloadUrlResponse
+   */
+  async getArtifactDownloadUrlWithOptions(name: string, request: $_model.GetArtifactDownloadUrlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetArtifactDownloadUrlResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.artifactPath)) {
+      query["artifactPath"] = request.artifactPath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetArtifactDownloadUrl",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/artifacts/downloadUrl`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetArtifactDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetArtifactDownloadUrlResponse({}));
+  }
+
+  /**
+   * 获取产物下载链接
+   * 
+   * @param request - GetArtifactDownloadUrlRequest
+   * @returns GetArtifactDownloadUrlResponse
+   */
+  async getArtifactDownloadUrl(name: string, request: $_model.GetArtifactDownloadUrlRequest): Promise<$_model.GetArtifactDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getArtifactDownloadUrlWithOptions(name, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a digital employee.
+   * 
+   * @remarks
+   * Retrieves a digital employee.
    * 
    * @param request - GetDigitalEmployeeRequest
    * @param headers - map
@@ -766,7 +930,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 DigitalEmployee
+   * Retrieves a digital employee.
+   * 
+   * @remarks
+   * Retrieves a digital employee.
    * 
    * @param request - GetDigitalEmployeeRequest
    * @returns GetDigitalEmployeeResponse
@@ -778,7 +945,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取技能详情
+   * Retrieves the details of a specific skill.
+   * 
+   * @remarks
+   * Retrieves the details of a specified skill for a digital employee.
    * 
    * @param request - GetDigitalEmployeeSkillRequest
    * @param headers - map
@@ -811,7 +981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取技能详情
+   * Retrieves the details of a specific skill.
+   * 
+   * @remarks
+   * Retrieves the details of a specified skill for a digital employee.
    * 
    * @param request - GetDigitalEmployeeSkillRequest
    * @returns GetDigitalEmployeeSkillResponse
@@ -823,7 +996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 MCP 服务
+   * Queries an MCP service.
    * 
    * @param request - GetMcpServiceRequest
    * @param headers - map
@@ -850,7 +1023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 MCP 服务
+   * Queries an MCP service.
    * 
    * @param request - GetMcpServiceRequest
    * @returns GetMcpServiceResponse
@@ -862,7 +1035,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话
+   * Retrieves a thread.
+   * 
+   * @remarks
+   * Retrieves the details of a thread.
    * 
    * @param request - GetThreadRequest
    * @param headers - map
@@ -889,7 +1065,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话
+   * Retrieves a thread.
+   * 
+   * @remarks
+   * Retrieves the details of a thread.
    * 
    * @param request - GetThreadRequest
    * @returns GetThreadResponse
@@ -901,7 +1080,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话数据
+   * Get session data
+   * 
+   * @remarks
+   * Gets session data.
    * 
    * @param request - GetThreadDataRequest
    * @param headers - map
@@ -938,7 +1120,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话数据
+   * Get session data
+   * 
+   * @remarks
+   * Gets session data.
    * 
    * @param request - GetThreadDataRequest
    * @returns GetThreadDataResponse
@@ -950,7 +1135,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出产物文件
+   * Lists artifacts.
+   * 
+   * @remarks
+   * Lists the artifacts for a specified digital employee.
    * 
    * @param request - ListArtifactsRequest
    * @param headers - map
@@ -991,7 +1179,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出产物文件
+   * Lists artifacts.
+   * 
+   * @remarks
+   * Lists the artifacts for a specified digital employee.
    * 
    * @param request - ListArtifactsRequest
    * @returns ListArtifactsResponse
@@ -1003,7 +1194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出技能版本
+   * Lists the versions of a skill.
+   * 
+   * @remarks
+   * Lists the previous versions of a skill.
    * 
    * @param request - ListDigitalEmployeeSkillVersionsRequest
    * @param headers - map
@@ -1030,7 +1224,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出技能版本
+   * Lists the versions of a skill.
+   * 
+   * @remarks
+   * Lists the previous versions of a skill.
    * 
    * @param request - ListDigitalEmployeeSkillVersionsRequest
    * @returns ListDigitalEmployeeSkillVersionsResponse
@@ -1042,7 +1239,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出技能
+   * Lists the skills of a digital employee.
+   * 
+   * @remarks
+   * Lists the skills of a specified digital employee.
    * 
    * @param request - ListDigitalEmployeeSkillsRequest
    * @param headers - map
@@ -1083,7 +1283,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出技能
+   * Lists the skills of a digital employee.
+   * 
+   * @remarks
+   * Lists the skills of a specified digital employee.
    * 
    * @param request - ListDigitalEmployeeSkillsRequest
    * @returns ListDigitalEmployeeSkillsResponse
@@ -1095,7 +1298,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出资源DigitalEmployee
+   * Returns a list of digital employees.
+   * 
+   * @remarks
+   * Lists digital employees.
    * 
    * @param tmpReq - ListDigitalEmployeesRequest
    * @param headers - map
@@ -1158,7 +1364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出资源DigitalEmployee
+   * Returns a list of digital employees.
+   * 
+   * @remarks
+   * Lists digital employees.
    * 
    * @param request - ListDigitalEmployeesRequest
    * @returns ListDigitalEmployeesResponse
@@ -1170,7 +1379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数字员工下的 MCP 服务列表
+   * Queries the list of MCP services.
    * 
    * @param request - ListMcpServicesRequest
    * @param headers - map
@@ -1207,7 +1416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数字员工下的 MCP 服务列表
+   * Queries the list of MCP services.
    * 
    * @param request - ListMcpServicesRequest
    * @returns ListMcpServicesResponse
@@ -1219,7 +1428,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出会话
+   * List sessions
+   * 
+   * @remarks
+   * List sessions
    * 
    * @param tmpReq - ListThreadsRequest
    * @param headers - map
@@ -1278,7 +1490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出会话
+   * List sessions
+   * 
+   * @remarks
+   * List sessions
    * 
    * @param request - ListThreadsRequest
    * @returns ListThreadsResponse
@@ -1290,7 +1505,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新UpdateDigitalEmployee
+   * Updates a digital employee.
+   * 
+   * @remarks
+   * Updates a digital employee.
    * 
    * @param request - UpdateDigitalEmployeeRequest
    * @param headers - map
@@ -1324,6 +1542,10 @@ export default class Client extends OpenApi {
       body["roleArn"] = request.roleArn;
     }
 
+    if (!$dara.isNull(request.sandboxNetworkPolicy)) {
+      body["sandboxNetworkPolicy"] = request.sandboxNetworkPolicy;
+    }
+
     if (!$dara.isNull(request.toolPolicy)) {
       body["toolPolicy"] = request.toolPolicy;
     }
@@ -1347,7 +1569,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新UpdateDigitalEmployee
+   * Updates a digital employee.
+   * 
+   * @remarks
+   * Updates a digital employee.
    * 
    * @param request - UpdateDigitalEmployeeRequest
    * @returns UpdateDigitalEmployeeResponse
@@ -1359,7 +1584,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新技能
+   * Updates a skill for a digital employee.
+   * 
+   * @remarks
+   * This operation updates a skill for a specified digital employee.
    * 
    * @param request - UpdateDigitalEmployeeSkillRequest
    * @param headers - map
@@ -1408,7 +1636,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新技能
+   * Updates a skill for a digital employee.
+   * 
+   * @remarks
+   * This operation updates a skill for a specified digital employee.
    * 
    * @param request - UpdateDigitalEmployeeSkillRequest
    * @returns UpdateDigitalEmployeeSkillResponse
@@ -1420,7 +1651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 MCP 服务
+   * Updates an MCP service.
    * 
    * @param request - UpdateMcpServiceRequest
    * @param headers - map
@@ -1473,7 +1704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 MCP 服务
+   * Updates an MCP service.
    * 
    * @param request - UpdateMcpServiceRequest
    * @returns UpdateMcpServiceResponse
@@ -1485,7 +1716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新会话
+   * Updates a thread.
+   * 
+   * @remarks
+   * Updates a thread.
    * 
    * @param request - UpdateThreadRequest
    * @param headers - map
@@ -1526,7 +1760,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新会话
+   * Updates a thread.
+   * 
+   * @remarks
+   * Updates a thread.
    * 
    * @param request - UpdateThreadRequest
    * @returns UpdateThreadResponse

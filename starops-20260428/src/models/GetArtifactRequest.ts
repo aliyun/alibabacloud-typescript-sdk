@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetArtifactRequest extends $dara.Model {
   /**
    * @remarks
+   * The path to the artifact.
+   * 
    * This parameter is required.
    * 
    * @example

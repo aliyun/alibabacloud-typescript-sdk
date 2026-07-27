@@ -5,21 +5,33 @@ import { Tag } from "./Tag";
 
 export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model {
   /**
+   * @remarks
+   * The knowledge base attributes.
+   * 
    * @example
    * test
    */
   attributes?: string;
   /**
+   * @remarks
+   * The Bailian index ID.
+   * 
    * @example
    * index-xxxx
    */
   indexId?: string;
   /**
+   * @remarks
+   * The region of the knowledge base.
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * The Bailian workspace ID.
+   * 
    * @example
    * llm-xxxxx
    */
@@ -52,7 +64,15 @@ export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model
 }
 
 export class GetDigitalEmployeeResponseBodyKnowledges extends $dara.Model {
+  /**
+   * @remarks
+   * The Bailian knowledge base list.
+   */
   bailian?: GetDigitalEmployeeResponseBodyKnowledgesBailian[];
+  /**
+   * @remarks
+   * The SOP knowledge base list.
+   */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -83,10 +103,60 @@ export class GetDigitalEmployeeResponseBodyKnowledges extends $dara.Model {
   }
 }
 
+export class GetDigitalEmployeeResponseBodySandboxNetworkPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The list of allowed CIDRs or IP addresses.
+   */
+  allowCidrs?: string[];
+  /**
+   * @remarks
+   * The list of allowed FQDNs.
+   */
+  allowFqdns?: string[];
+  /**
+   * @remarks
+   * Indicates whether the sandbox network ACL is enabled.
+   * 
+   * @example
+   * false
+   */
+  enableAcl?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowCidrs: 'allowCidrs',
+      allowFqdns: 'allowFqdns',
+      enableAcl: 'enableAcl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCidrs: { 'type': 'array', 'itemType': 'string' },
+      allowFqdns: { 'type': 'array', 'itemType': 'string' },
+      enableAcl: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowCidrs)) {
+      $dara.Model.validateArray(this.allowCidrs);
+    }
+    if(Array.isArray(this.allowFqdns)) {
+      $dara.Model.validateArray(this.allowFqdns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $dara.Model {
   /**
    * @remarks
-   * Aliyun OpenAPI Action 列表，格式为 product:ApiName、product:Prefix* 或 product:*。
+   * The list of RAM actions.
    * 
    * @example
    * ["log:GetProject","log:CreateDashboard"]
@@ -94,17 +164,17 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
   actions?: string[];
   /**
    * @remarks
-   * 本条语句对应的 Aliyun OpenAPI API 版本。
-   * 
-   * This parameter is required.
+   * The API version.
    * 
    * @example
    * 2020-12-30
+   * 
+   * @deprecated
    */
   apiVersion?: string;
   /**
    * @remarks
-   * 命中该 API 后的执行策略。
+   * The execution policy.
    * 
    * @example
    * user_ack
@@ -112,7 +182,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
   decision?: string;
   /**
    * @remarks
-   * 本条语句对应的 Aliyun OpenAPI 产品名。
+   * The cloud product code.
    * 
    * This parameter is required.
    * 
@@ -153,7 +223,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
 export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * 是否启用 Aliyun MCP 工具策略。
+   * Indicates whether the policy is enabled.
    * 
    * @example
    * true
@@ -161,7 +231,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   enable?: boolean;
   /**
    * @remarks
-   * Aliyun OpenAPI 工具策略语句列表。
+   * The list of Aliyun CLI tool policy statements.
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
@@ -196,7 +266,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
 export class GetDigitalEmployeeResponseBodyToolPolicy extends $dara.Model {
   /**
    * @remarks
-   * Aliyun MCP 工具调用安全策略配置。
+   * The security policy configuration for Aliyun CLI tool calling.
    * 
    * @example
    * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
@@ -227,9 +297,15 @@ export class GetDigitalEmployeeResponseBodyToolPolicy extends $dara.Model {
 }
 
 export class GetDigitalEmployeeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes.
+   */
   attributes?: { [key: string]: string };
   /**
    * @remarks
+   * The creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -237,55 +313,98 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The default rule of the digital employee.
+   * 
    * @example
    * test
    */
   defaultRule?: string;
   /**
+   * @remarks
+   * The description of the digital employee.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the digital employee.
+   * 
    * @example
    * test
    */
   displayName?: string;
   /**
+   * @remarks
+   * The type of the digital employee.
+   * 
    * @example
    * custom
    */
   employeeType?: string;
+  /**
+   * @remarks
+   * The knowledge base list.
+   */
   knowledges?: GetDigitalEmployeeResponseBodyKnowledges;
   /**
+   * @remarks
+   * The name of the digital employee.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-************
    */
   requestId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-ae******ey
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The ARN of the RAM role.
+   * 
    * @example
    * acs:ram::12345678912:role/testrole
    */
   roleArn?: string;
+  /**
+   * @remarks
+   * The sandbox network ACL policy configuration for the digital employee.
+   * 
+   * @example
+   * {"allowFqdns":["api.example.com"],"allowCidrs":["1.2.3.0/24","8.8.8.8"],"enableAcl":false}
+   */
+  sandboxNetworkPolicy?: GetDigitalEmployeeResponseBodySandboxNetworkPolicy;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: Tag[];
   /**
    * @remarks
-   * 数字员工工具调用安全策略配置。
+   * The tool policy.
    * 
    * @example
    * {"aliyun":{"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}
@@ -293,6 +412,8 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   toolPolicy?: GetDigitalEmployeeResponseBodyToolPolicy;
   /**
    * @remarks
+   * The update time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -313,6 +434,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
       requestId: 'requestId',
       resourceGroupId: 'resourceGroupId',
       roleArn: 'roleArn',
+      sandboxNetworkPolicy: 'sandboxNetworkPolicy',
       tags: 'tags',
       toolPolicy: 'toolPolicy',
       updateTime: 'updateTime',
@@ -333,6 +455,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       roleArn: 'string',
+      sandboxNetworkPolicy: GetDigitalEmployeeResponseBodySandboxNetworkPolicy,
       tags: { 'type': 'array', 'itemType': Tag },
       toolPolicy: GetDigitalEmployeeResponseBodyToolPolicy,
       updateTime: 'string',
@@ -345,6 +468,9 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
     }
     if(this.knowledges && typeof (this.knowledges as any).validate === 'function') {
       (this.knowledges as any).validate();
+    }
+    if(this.sandboxNetworkPolicy && typeof (this.sandboxNetworkPolicy as any).validate === 'function') {
+      (this.sandboxNetworkPolicy as any).validate();
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

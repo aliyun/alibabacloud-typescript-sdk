@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateThreadResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request id.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The thread id.
+   * 
    * @example
    * thread_id01
    */

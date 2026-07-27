@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDigitalEmployeeSkillResponseBodyFiles extends $dara.Model {
   /**
+   * @remarks
+   * The file content.
+   * 
    * @example
    * ---
    * name: skill
@@ -16,6 +19,9 @@ export class GetDigitalEmployeeSkillResponseBodyFiles extends $dara.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * SKILL.md
    */
@@ -46,6 +52,8 @@ export class GetDigitalEmployeeSkillResponseBodyFiles extends $dara.Model {
 export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The time when the skill was created.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -53,41 +61,62 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the skill.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the skill.
+   * 
    * @example
    * test
    */
   displayName?: string;
   /**
+   * @remarks
+   * Indicates whether the skill is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The file list of the skill.
+   */
   files?: GetDigitalEmployeeSkillResponseBodyFiles[];
   /**
+   * @remarks
+   * A user-provided remark about the skill.
+   * 
    * @example
    * remark
    */
   remark?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The name of the skill.
+   * 
    * @example
    * test
    */
   skillName?: string;
   /**
    * @remarks
+   * The time when the skill was last updated.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -95,6 +124,9 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The version of the skill.
+   * 
    * @example
    * 1770386951147366810
    */

@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListThreadsResponseBodyThreadsVariables extends $dara.Model {
   /**
    * @remarks
-   * SLS project。
+   * The project in SLS.
    * 
    * @example
    * project
    */
   project?: string;
   /**
+   * @remarks
+   * The workspace.
+   * 
    * @example
    * workspace
    */
@@ -40,39 +43,68 @@ export class ListThreadsResponseBodyThreadsVariables extends $dara.Model {
 }
 
 export class ListThreadsResponseBodyThreads extends $dara.Model {
+  /**
+   * @remarks
+   * A map of key-value pairs that you can attach to the thread.
+   */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The creation time of the thread, in ISO 8601 format.
+   * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The digital employee name.
+   * 
    * @example
    * test
    */
   digitalEmployeeName?: string;
   /**
+   * @remarks
+   * The thread status.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The thread ID.
+   * 
    * @example
    * thread-123123
    */
   threadId?: string;
   /**
+   * @remarks
+   * The thread title.
+   * 
    * @example
    * test
    */
   title?: string;
   /**
+   * @remarks
+   * The last update time of the thread, in ISO 8601 format.
+   * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The thread variables.
+   */
   variables?: ListThreadsResponseBodyThreadsVariables;
   /**
+   * @remarks
+   * The thread version.
+   * 
    * @example
    * 123123
    */
@@ -122,30 +154,46 @@ export class ListThreadsResponseBodyThreads extends $dara.Model {
 
 export class ListThreadsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of results to return. The maximum value is 200.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A token to retrieve the next page of results. If this parameter is absent, no more results are available.
+   * 
    * @example
    * xxxxxxxxxx
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The thread ID.
+   * 
    * @example
    * thread-123123
    */
   threadId?: string;
+  /**
+   * @remarks
+   * A list of threads.
+   */
   threads?: ListThreadsResponseBodyThreads[];
   /**
+   * @remarks
+   * The total number of threads.
+   * 
    * @example
    * 1
    */

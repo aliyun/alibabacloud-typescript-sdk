@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDigitalEmployeeSkillsResponseBodySkills extends $dara.Model {
   /**
    * @remarks
+   * The time at which the skill was created.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -12,27 +14,41 @@ export class ListDigitalEmployeeSkillsResponseBodySkills extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the skill.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the skill.
+   * 
    * @example
    * test
    */
   displayName?: string;
   /**
+   * @remarks
+   * Indicates whether the skill is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The name of the skill.
+   * 
    * @example
    * test
    */
   skillName?: string;
   /**
    * @remarks
+   * The time at which the skill was last updated.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -72,25 +88,38 @@ export class ListDigitalEmployeeSkillsResponseBodySkills extends $dara.Model {
 
 export class ListDigitalEmployeeSkillsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token to retrieve the next page of results. If this parameter is not returned, it indicates that no more results are available.
+   * 
    * @example
    * sjC5rekx93Ew7K7VcmI3wkBZBYQ-GphB2ilQu3zJCGxoZuicwyJznfo2riTjr-lq
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0CEC5375-XXXX-XXXX-XXXX-9A629907C1F0
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of skills.
+   */
   skills?: ListDigitalEmployeeSkillsResponseBodySkills[];
   /**
+   * @remarks
+   * The total number of entries that match the query.
+   * 
    * @example
    * 15
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   /**
+   * @remarks
+   * The attributes of the knowledge base.
+   * 
    * @example
    * test
    */
   attributes?: string;
   /**
+   * @remarks
+   * The Bailian index ID.
+   * 
    * @example
    * index-xxxx
    */
   indexId?: string;
   /**
+   * @remarks
+   * The region of the knowledge base.
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * The Bailian workspace ID.
+   * 
    * @example
    * llm-xxxx
    */
@@ -51,7 +63,15 @@ export class UpdateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
 }
 
 export class UpdateDigitalEmployeeRequestKnowledges extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Bailian knowledge bases.
+   */
   bailian?: UpdateDigitalEmployeeRequestKnowledgesBailian[];
+  /**
+   * @remarks
+   * The list of SOP knowledge bases.
+   */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -82,10 +102,60 @@ export class UpdateDigitalEmployeeRequestKnowledges extends $dara.Model {
   }
 }
 
+export class UpdateDigitalEmployeeRequestSandboxNetworkPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The list of CIDRs or IP addresses that are allowed to be accessed.
+   */
+  allowCidrs?: string[];
+  /**
+   * @remarks
+   * The list of FQDNs that are allowed to be accessed.
+   */
+  allowFqdns?: string[];
+  /**
+   * @remarks
+   * Specifies whether to enable the sandbox network ACL.
+   * 
+   * @example
+   * false
+   */
+  enableAcl?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      allowCidrs: 'allowCidrs',
+      allowFqdns: 'allowFqdns',
+      enableAcl: 'enableAcl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCidrs: { 'type': 'array', 'itemType': 'string' },
+      allowFqdns: { 'type': 'array', 'itemType': 'string' },
+      enableAcl: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allowCidrs)) {
+      $dara.Model.validateArray(this.allowCidrs);
+    }
+    if(Array.isArray(this.allowFqdns)) {
+      $dara.Model.validateArray(this.allowFqdns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dara.Model {
   /**
    * @remarks
-   * Aliyun OpenAPI Action 列表，格式为 product:ApiName、product:Prefix* 或 product:*。
+   * RAM action
    * 
    * @example
    * ["log:GetProject","log:CreateDashboard"]
@@ -93,15 +163,17 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   actions?: string[];
   /**
    * @remarks
-   * 本条语句对应的 Aliyun OpenAPI API 版本。
+   * The API version. This parameter is deprecated.
    * 
    * @example
-   * 2020-12-30
+   * 2024-03-30
+   * 
+   * @deprecated
    */
   apiVersion?: string;
   /**
    * @remarks
-   * 命中该 API 后的执行策略。
+   * The execution policy.
    * 
    * @example
    * user_ack
@@ -109,10 +181,10 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   decision?: string;
   /**
    * @remarks
-   * 本条语句对应的 Aliyun OpenAPI 产品名。
+   * The cloud service code.
    * 
    * @example
-   * Sls
+   * Cms
    */
   product?: string;
   static names(): { [key: string]: string } {
@@ -148,7 +220,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
 export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * 是否启用 Aliyun MCP 工具策略。
+   * Specifies whether to enable the policy.
    * 
    * @example
    * true
@@ -156,7 +228,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Aliyun OpenAPI 工具策略语句列表。
+   * The list of Aliyun CLI tool policy statements.
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
@@ -191,7 +263,7 @@ export class UpdateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
 export class UpdateDigitalEmployeeRequestToolPolicy extends $dara.Model {
   /**
    * @remarks
-   * Aliyun MCP 工具调用安全策略配置。
+   * The security policy configuration for Aliyun CLI tool calling.
    * 
    * @example
    * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
@@ -222,31 +294,59 @@ export class UpdateDigitalEmployeeRequestToolPolicy extends $dara.Model {
 }
 
 export class UpdateDigitalEmployeeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes.
+   */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The default rule of the digital employee.
+   * 
    * @example
    * test
    */
   defaultRule?: string;
   /**
+   * @remarks
+   * The description of the digital employee.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the digital employee.
+   * 
    * @example
    * test
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The list of knowledge bases.
+   */
   knowledges?: UpdateDigitalEmployeeRequestKnowledges;
   /**
+   * @remarks
+   * The ARN of the RAM role.
+   * 
    * @example
    * acs:ram::12345678912:role/testrole
    */
   roleArn?: string;
   /**
    * @remarks
-   * 数字员工工具调用安全策略配置。
+   * The list of CIDRs or IP addresses that are allowed to be accessed.
+   * 
+   * @example
+   * {"allowFqdns":["api.example.com"],"allowCidrs":["1.2.3.0/24","8.8.8.8"],"enableAcl":false}
+   */
+  sandboxNetworkPolicy?: UpdateDigitalEmployeeRequestSandboxNetworkPolicy;
+  /**
+   * @remarks
+   * The security policy configuration for tool calling of the digital employee.
    * 
    * @example
    * {"aliyun":{"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}
@@ -260,6 +360,7 @@ export class UpdateDigitalEmployeeRequest extends $dara.Model {
       displayName: 'displayName',
       knowledges: 'knowledges',
       roleArn: 'roleArn',
+      sandboxNetworkPolicy: 'sandboxNetworkPolicy',
       toolPolicy: 'toolPolicy',
     };
   }
@@ -272,6 +373,7 @@ export class UpdateDigitalEmployeeRequest extends $dara.Model {
       displayName: 'string',
       knowledges: UpdateDigitalEmployeeRequestKnowledges,
       roleArn: 'string',
+      sandboxNetworkPolicy: UpdateDigitalEmployeeRequestSandboxNetworkPolicy,
       toolPolicy: UpdateDigitalEmployeeRequestToolPolicy,
     };
   }
@@ -282,6 +384,9 @@ export class UpdateDigitalEmployeeRequest extends $dara.Model {
     }
     if(this.knowledges && typeof (this.knowledges as any).validate === 'function') {
       (this.knowledges as any).validate();
+    }
+    if(this.sandboxNetworkPolicy && typeof (this.sandboxNetworkPolicy as any).validate === 'function') {
+      (this.sandboxNetworkPolicy as any).validate();
     }
     if(this.toolPolicy && typeof (this.toolPolicy as any).validate === 'function') {
       (this.toolPolicy as any).validate();

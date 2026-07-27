@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateThreadRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes of the thread.
+   */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The status of the thread.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The title of the thread.
+   * 
    * @example
    * title
    */

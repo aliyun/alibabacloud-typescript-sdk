@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDigitalEmployeeSkillRequestFiles extends $dara.Model {
   /**
+   * @remarks
+   * The content of the skill file.
+   * 
    * @example
    * ---
    * name: skill
@@ -16,6 +19,9 @@ export class UpdateDigitalEmployeeSkillRequestFiles extends $dara.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The name of the skill file.
+   * 
    * @example
    * SKILL.md
    */
@@ -45,17 +51,25 @@ export class UpdateDigitalEmployeeSkillRequestFiles extends $dara.Model {
 
 export class UpdateDigitalEmployeeSkillRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the skill.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the skill.
+   * 
    * @example
    * test
    */
   displayName?: string;
   /**
    * @remarks
+   * Specifies whether the skill is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,10 +78,15 @@ export class UpdateDigitalEmployeeSkillRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
+   * An array of skill files.
+   * 
    * This parameter is required.
    */
   files?: UpdateDigitalEmployeeSkillRequestFiles[];
   /**
+   * @remarks
+   * Notes or comments about the skill.
+   * 
    * @example
    * remark
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateThreadRequestVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Log Service project.
+   * 
    * @example
    * project
    */
   project?: string;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * workspace
    */
@@ -37,12 +43,23 @@ export class CreateThreadRequestVariables extends $dara.Model {
 }
 
 export class CreateThreadRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Key-value pairs that you can attach to the thread.
+   */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The title of the thread.
+   * 
    * @example
    * test
    */
   title?: string;
+  /**
+   * @remarks
+   * The variables for the thread. You can use them to pass custom data to the digital employee.
+   */
   variables?: CreateThreadRequestVariables;
   static names(): { [key: string]: string } {
     return {

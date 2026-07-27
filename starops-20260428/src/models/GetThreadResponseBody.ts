@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetThreadResponseBodyVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the SLS project.
+   * 
    * @example
    * test
    */
   project?: string;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * test
    */
@@ -37,47 +43,76 @@ export class GetThreadResponseBodyVariables extends $dara.Model {
 }
 
 export class GetThreadResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The thread\\"s attributes.
+   */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * The thread\\"s creation time, in ISO 8601 format.
+   * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The name of the digital employee.
+   * 
    * @example
    * test
    */
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The thread\\"s status.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The thread ID.
+   * 
    * @example
    * thread_id01
    */
   threadId?: string;
   /**
+   * @remarks
+   * The thread\\"s title.
+   * 
    * @example
    * testLive
    */
   title?: string;
   /**
+   * @remarks
+   * The thread\\"s last update time, in ISO 8601 format.
+   * 
    * @example
    * 2025-12-19T15:19:55.040403272+08:00
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The thread\\"s variables.
+   */
   variables?: GetThreadResponseBodyVariables;
   /**
+   * @remarks
+   * The thread\\"s version.
+   * 
    * @example
    * 1231
    */

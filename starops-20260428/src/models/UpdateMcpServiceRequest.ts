@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMcpServiceRequestConnectionAuth extends $dara.Model {
   /**
+   * @remarks
+   * The request body parameters.
+   * 
    * @example
    * {"token":"example-token"}
    */
   keyInfo?: { [key: string]: string };
   /**
+   * @remarks
+   * The authentication type. Currently, only bearer is supported.
+   * 
    * @example
    * bearer
    */
@@ -40,17 +46,26 @@ export class UpdateMcpServiceRequestConnectionAuth extends $dara.Model {
 }
 
 export class UpdateMcpServiceRequestConnection extends $dara.Model {
+  /**
+   * @remarks
+   * The request body parameters.
+   */
   auth?: UpdateMcpServiceRequestConnectionAuth;
   /**
    * @remarks
+   * The access endpoint of the MCP service.
+   * 
    * This parameter is required.
    * 
    * @example
    * https://example.com/mcp
    */
   endpoint?: string;
+  headers?: { [key: string]: string };
   /**
    * @remarks
+   * The platform type of the MCP service. Valid values: AIGateway and Custom.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,12 +73,17 @@ export class UpdateMcpServiceRequestConnection extends $dara.Model {
    */
   platform?: string;
   /**
+   * @remarks
+   * The timeout period for requests to the MCP service. Unit: milliseconds.
+   * 
    * @example
    * 5000
    */
   timeout?: number;
   /**
    * @remarks
+   * The transport protocol of the MCP service. Valid values: http and sse.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -74,6 +94,7 @@ export class UpdateMcpServiceRequestConnection extends $dara.Model {
     return {
       auth: 'auth',
       endpoint: 'endpoint',
+      headers: 'headers',
       platform: 'platform',
       timeout: 'timeout',
       transport: 'transport',
@@ -84,6 +105,7 @@ export class UpdateMcpServiceRequestConnection extends $dara.Model {
     return {
       auth: UpdateMcpServiceRequestConnectionAuth,
       endpoint: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       platform: 'string',
       timeout: 'number',
       transport: 'string',
@@ -93,6 +115,9 @@ export class UpdateMcpServiceRequestConnection extends $dara.Model {
   validate() {
     if(this.auth && typeof (this.auth as any).validate === 'function') {
       (this.auth as any).validate();
+    }
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
     }
     super.validate();
   }
@@ -104,27 +129,41 @@ export class UpdateMcpServiceRequestConnection extends $dara.Model {
 
 export class UpdateMcpServiceRequestNetwork extends $dara.Model {
   /**
+   * @remarks
+   * The IP address used to access the MCP service over the VPC network.
+   * 
    * @example
    * 10.0.0.12
    */
   accessIp?: string;
   /**
+   * @remarks
+   * The port used to access the MCP service over the VPC network. Valid values: 1 to 65535.
+   * 
    * @example
    * 8080
    */
   accessPort?: number;
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * gw-xxx
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The MCP Server instance ID.
+   * 
    * @example
    * mcp-xxx
    */
   mcpServerId?: string;
   /**
    * @remarks
+   * The network access mode of the MCP service. Valid values: public and vpc.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -132,21 +171,33 @@ export class UpdateMcpServiceRequestNetwork extends $dara.Model {
    */
   mode?: string;
   /**
+   * @remarks
+   * The region where the VPC network resides.
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-xxx
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-xxx
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-xxx
    */
@@ -190,34 +241,65 @@ export class UpdateMcpServiceRequestNetwork extends $dara.Model {
 
 export class UpdateMcpServiceRequestTools extends $dara.Model {
   /**
+   * @remarks
+   * The request body parameters.
+   * 
    * @example
    * {}
    */
   annotations?: { [key: string]: any };
   /**
+   * @remarks
+   * Specifies whether user confirmation is required before calling the MCP tool.
+   * 
    * @example
    * false
    */
   confirm?: boolean;
+  /**
+   * @remarks
+   * The description of the MCP tool.
+   * 
+   * @example
+   * 查询指定日志库中的日志。
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the MCP tool.
+   * 
+   * @example
+   * 日志查询工具
+   */
   displayName?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the MCP tool.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The request body parameters.
+   * 
    * @example
    * {}
    */
   execution?: { [key: string]: any };
   /**
+   * @remarks
+   * The list of MCP tool icons.
+   * 
    * @example
    * []
    */
   icons?: { [key: string]: any }[];
   /**
    * @remarks
+   * The request body parameters.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -226,6 +308,8 @@ export class UpdateMcpServiceRequestTools extends $dara.Model {
   inputSchema?: { [key: string]: any };
   /**
    * @remarks
+   * The name of the MCP tool.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -233,10 +317,20 @@ export class UpdateMcpServiceRequestTools extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The request body parameters.
+   * 
    * @example
    * {"type":"object"}
    */
   outputSchema?: { [key: string]: any };
+  /**
+   * @remarks
+   * The title of the MCP tool.
+   * 
+   * @example
+   * 查询日志
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -297,13 +391,31 @@ export class UpdateMcpServiceRequestTools extends $dara.Model {
 export class UpdateMcpServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The request body parameters.
+   * 
    * This parameter is required.
    */
   connection?: UpdateMcpServiceRequestConnection;
+  /**
+   * @remarks
+   * The description of the MCP service.
+   * 
+   * @example
+   * 通过 MCP 调用日志查询工具。
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the MCP service.
+   * 
+   * @example
+   * 日志查询
+   */
   displayName?: string;
   /**
    * @remarks
+   * Specifies whether to enable the MCP service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -312,11 +424,15 @@ export class UpdateMcpServiceRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
+   * The request body parameters.
+   * 
    * This parameter is required.
    */
   network?: UpdateMcpServiceRequestNetwork;
   /**
    * @remarks
+   * The list of MCP tools.
+   * 
    * This parameter is required.
    * 
    * @example

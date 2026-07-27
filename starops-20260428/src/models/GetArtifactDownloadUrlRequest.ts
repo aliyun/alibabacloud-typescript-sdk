@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteDigitalEmployeeSkillResponseBody extends $dara.Model {
+export class GetArtifactDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * This parameter is required.
    * 
    * @example
-   * 0CEC5375-XXXX-XXXX-XXXX-9A629907C1F0
+   * reports/summary.pdf
    */
-  requestId?: string;
+  artifactPath?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      artifactPath: 'artifactPath',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      artifactPath: 'string',
     };
   }
 

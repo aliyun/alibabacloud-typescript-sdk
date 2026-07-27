@@ -2,24 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteDigitalEmployeeSkillResponseBody extends $dara.Model {
+export class CreateArtifactUploadTokenRequest extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the request.
-   * 
    * @example
-   * 0CEC5375-XXXX-XXXX-XXXX-9A629907C1F0
+   * upload/2026-05-25/
    */
-  requestId?: string;
+  artifactPath?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      artifactPath: 'artifactPath',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      artifactPath: 'string',
     };
   }
 

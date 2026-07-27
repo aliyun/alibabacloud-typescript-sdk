@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteThreadResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 123-0F43-23423-AC43-34234

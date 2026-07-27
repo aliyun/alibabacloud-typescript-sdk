@@ -5,18 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateThreadResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the thread.
+   * 
    * @example
    * thread-12313
    */
   threadId?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 123123
    */

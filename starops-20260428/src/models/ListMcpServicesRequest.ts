@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMcpServicesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries to return in this query.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token for the next query.
+   * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
    */

@@ -3,47 +3,91 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateChatResponseBodyMessages extends $dara.Model {
+  /**
+   * @remarks
+   * A list of invoked agents.
+   */
   agents?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * A list of generated artifacts.
+   */
   artifacts?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The ID of the current call.
+   * 
    * @example
    * call_search_001
    */
   callId?: string;
+  /**
+   * @remarks
+   * A list of content objects.
+   */
   contents?: { [key: string]: any }[];
   /**
+   * @remarks
+   * Message details.
+   * 
    * @example
    * test
    */
   detail?: string;
+  /**
+   * @remarks
+   * A list of events.
+   */
   events?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The ID of the parent call.
+   * 
    * @example
    * sess_abc123
    */
   parentCallId?: string;
   /**
+   * @remarks
+   * The role of the message sender.
+   * 
    * @example
    * tool
    */
   role?: string;
   /**
+   * @remarks
+   * The message sequence number.
+   * 
    * @example
    * 1
    */
   seq?: number;
   /**
+   * @remarks
+   * The timestamp, in nanoseconds.
+   * 
    * @example
    * 1765000005
    */
   timestamp?: string;
+  /**
+   * @remarks
+   * A list of tool calls.
+   */
   tools?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The message type.
+   * 
    * @example
    * done
    */
   type?: string;
   /**
+   * @remarks
+   * The message version.
+   * 
    * @example
    * v0.1.0
    */
@@ -109,13 +153,23 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
 }
 
 export class CreateChatResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of message objects in the session.
+   */
   messages?: CreateChatResponseBodyMessages[];
   /**
+   * @remarks
+   * A unique identifier for the API request, useful for troubleshooting.
+   * 
    * @example
    * 0CEC5375-XXXX-XXXX-XXXX-9A629907C1F0
    */
   requestId?: string;
   /**
+   * @remarks
+   * Uniquely identifies the request chain for tracing.
+   * 
    * @example
    * 21504600000008405622576e3b48
    */

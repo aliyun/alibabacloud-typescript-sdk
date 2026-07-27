@@ -3,47 +3,91 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetThreadDataResponseBodyDataMessages extends $dara.Model {
+  /**
+   * @remarks
+   * A list of called agents.
+   */
   agents?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * A list of generated artifacts.
+   */
   artifacts?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The current call ID.
+   * 
    * @example
    * 3b5287b7176360
    */
   callId?: string;
+  /**
+   * @remarks
+   * The contents of the message.
+   */
   contents?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The message details.
+   * 
    * @example
    * context of model exceed
    */
   detail?: string;
+  /**
+   * @remarks
+   * A list of events.
+   */
   events?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The parent call ID.
+   * 
    * @example
    * 3b5287b7176360
    */
   parentCallId?: string;
   /**
+   * @remarks
+   * The role that initiates the message.
+   * 
    * @example
    * user
    */
   role?: string;
   /**
+   * @remarks
+   * The sequence number of the message.
+   * 
    * @example
    * 0
    */
   seq?: number;
   /**
+   * @remarks
+   * The message creation time in nanoseconds since the Unix epoch.
+   * 
    * @example
    * 1768702985000000000
    */
   timestamp?: string;
+  /**
+   * @remarks
+   * A list of tools used to generate the message.
+   */
   tools?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The message type.
+   * 
    * @example
    * task_finished
    */
   type?: string;
   /**
+   * @remarks
+   * The message data version.
+   * 
    * @example
    * v0.1.0
    */
@@ -109,13 +153,23 @@ export class GetThreadDataResponseBodyDataMessages extends $dara.Model {
 }
 
 export class GetThreadDataResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of messages in the thread.
+   */
   messages?: GetThreadDataResponseBodyDataMessages[];
   /**
+   * @remarks
+   * The ID of the original request that generated this message.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The unique ID that identifies the entire trace of a request.
+   * 
    * @example
    * 3b5287b717636040171772050d0095
    */
@@ -149,28 +203,47 @@ export class GetThreadDataResponseBodyData extends $dara.Model {
 }
 
 export class GetThreadDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The message data.
+   */
   data?: GetThreadDataResponseBodyData[];
   /**
+   * @remarks
+   * The name of the current digital employee.
+   * 
    * @example
    * test
    */
   digitalEmployeeName?: string;
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 2
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. If this parameter is not returned, there are no more results.
+   * 
    * @example
    * xxxxxxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The unique ID for this GetThreadData API request.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The unique ID of the thread.
+   * 
    * @example
    * thread_id01
    */

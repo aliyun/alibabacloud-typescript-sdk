@@ -3,24 +3,44 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListThreadsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filters the results. If this parameter is omitted, the operation returns all threads in the instance.
+   */
   filterShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to include threads created by missions.
+   */
   includeMission?: boolean;
   /**
+   * @remarks
+   * The maximum number of results to return. Maximum value: 200.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * xxxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The status of the thread.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The thread ID.
+   * 
    * @example
    * thread-123123
    */
