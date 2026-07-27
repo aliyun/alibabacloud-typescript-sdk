@@ -2896,6 +2896,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Binds an Agent to a Squad.
+   * 
+   * @param request - CreateApplicationAgentRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationAgentRelationResponse
+   */
+  async createApplicationAgentRelationWithOptions(request: $_model.CreateApplicationAgentRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationAgentRelationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationAgentRelation",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationAgentRelationResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationAgentRelationResponse({}));
+  }
+
+  /**
+   * Binds an Agent to a Squad.
+   * 
+   * @param request - CreateApplicationAgentRelationRequest
+   * @returns CreateApplicationAgentRelationResponse
+   */
+  async createApplicationAgentRelation(request: $_model.CreateApplicationAgentRelationRequest): Promise<$_model.CreateApplicationAgentRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationAgentRelationWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a connection address for a specified application.
    * 
    * @param request - CreateApplicationEndpointAddressRequest
@@ -20725,6 +20775,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the Lakebase tenant token (SPG tenant mount URL).
+   * 
+   * @param request - GetLakebaseTenantTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLakebaseTenantTokenResponse
+   */
+  async getLakebaseTenantTokenWithOptions(request: $_model.GetLakebaseTenantTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLakebaseTenantTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.subdir)) {
+      query["Subdir"] = request.subdir;
+    }
+
+    if (!$dara.isNull(request.tenant)) {
+      query["Tenant"] = request.tenant;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLakebaseTenantToken",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLakebaseTenantTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetLakebaseTenantTokenResponse({}));
+  }
+
+  /**
+   * Retrieves the Lakebase tenant token (SPG tenant mount URL).
+   * 
+   * @param request - GetLakebaseTenantTokenRequest
+   * @returns GetLakebaseTenantTokenResponse
+   */
+  async getLakebaseTenantToken(request: $_model.GetLakebaseTenantTokenRequest): Promise<$_model.GetLakebaseTenantTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLakebaseTenantTokenWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a chat record.
    * 
    * @param request - GetPolarAgentRequest
@@ -27779,6 +27883,48 @@ export default class Client extends OpenApi {
   async resetGlobalDatabaseNetwork(request: $_model.ResetGlobalDatabaseNetworkRequest): Promise<$_model.ResetGlobalDatabaseNetworkResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetGlobalDatabaseNetworkWithOptions(request, runtime);
+  }
+
+  /**
+   * Restarts an AI cluster.
+   * 
+   * @param request - RestartAIDBClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartAIDBClusterResponse
+   */
+  async restartAIDBClusterWithOptions(request: $_model.RestartAIDBClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartAIDBClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartAIDBCluster",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartAIDBClusterResponse>(await this.callApi(params, req, runtime), new $_model.RestartAIDBClusterResponse({}));
+  }
+
+  /**
+   * Restarts an AI cluster.
+   * 
+   * @param request - RestartAIDBClusterRequest
+   * @returns RestartAIDBClusterResponse
+   */
+  async restartAIDBCluster(request: $_model.RestartAIDBClusterRequest): Promise<$_model.RestartAIDBClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartAIDBClusterWithOptions(request, runtime);
   }
 
   /**
