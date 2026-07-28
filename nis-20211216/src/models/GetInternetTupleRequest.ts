@@ -38,7 +38,7 @@ export class GetInternetTupleRequest extends $dara.Model {
    * >  In most cases, the value is Alibaba or Alibaba Cloud.
    * 
    * @example
-   * Alibaba
+   * 阿里巴巴
    */
   cloudIsp?: string;
   /**
@@ -109,7 +109,7 @@ export class GetInternetTupleRequest extends $dara.Model {
    * >  This parameter is required only if you set **TupleType** to **2** or **5**.
    * 
    * @example
-   * Hangzhou
+   * 杭州市
    */
   otherCity?: string;
   /**
@@ -119,7 +119,7 @@ export class GetInternetTupleRequest extends $dara.Model {
    * >  This parameter is required only if you set **TupleType** to **2** or **5**.
    * 
    * @example
-   * China
+   * 中国
    */
   otherCountry?: string;
   /**
@@ -139,7 +139,7 @@ export class GetInternetTupleRequest extends $dara.Model {
    * > This parameter is required if you want to view the information about the remote ISP.
    * 
    * @example
-   * China Mobile
+   * 移动
    */
   otherIsp?: string;
   /**

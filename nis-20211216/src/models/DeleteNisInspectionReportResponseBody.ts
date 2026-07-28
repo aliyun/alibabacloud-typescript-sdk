@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteNisInspectionReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result of the deletion.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D5E98683-355B-5867-8D3D-A24755F6895B
    */

@@ -8,7 +8,7 @@ export class GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN extends $
    * The account ID.
    * 
    * @example
-   * 118639953821xxxx
+   * 118639953821****
    */
   accountId?: string;
   /**

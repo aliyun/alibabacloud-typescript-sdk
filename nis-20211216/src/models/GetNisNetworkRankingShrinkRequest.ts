@@ -3,14 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNisNetworkRankingShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The member account IDs explicitly passed.
+   */
   accountIds?: string[];
   /**
+   * @remarks
+   * The start timestamp, in **ms**. If not specified, the last hour is queried by default.
+   * 
    * @example
    * 1684373600099
    */
   beginTime?: number;
   /**
    * @remarks
+   * The network traffic direction based on Alibaba Cloud resources. Valid values:
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,13 +27,22 @@ export class GetNisNetworkRankingShrinkRequest extends $dara.Model {
    */
   direction?: string;
   /**
+   * @remarks
+   * The end timestamp, in **ms**. If not specified, the last hour is queried by default. If only BeginTime is specified, the one hour after BeginTime is queried.
+   * 
    * @example
    * 1684379093000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * Specifies filter conditions for focused network traffic analysis.
+   */
   filterShrink?: string;
   /**
    * @remarks
+   * The dimension for metric ranking. Valid values vary by scenario:
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +51,8 @@ export class GetNisNetworkRankingShrinkRequest extends $dara.Model {
   groupBy?: string;
   /**
    * @remarks
+   * The metric for ranking Internet traffic. Case-sensitive. Valid values:
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,7 +61,7 @@ export class GetNisNetworkRankingShrinkRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * This parameter is required.
+   * The region where the resource resides.
    * 
    * @example
    * cn-beijing
@@ -49,6 +69,8 @@ export class GetNisNetworkRankingShrinkRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
+   * The Alibaba Cloud network resource type used for traffic forwarding. Valid values:
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,16 +78,25 @@ export class GetNisNetworkRankingShrinkRequest extends $dara.Model {
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The sort order. Default value: desc. Valid values:
+   * 
    * @example
    * desc
    */
   sort?: string;
   /**
+   * @remarks
+   * The number of top-ranked entries to display. Default value: **10**. Maximum value: **100**.
+   * 
    * @example
    * 10
    */
   topN?: number;
   /**
+   * @remarks
+   * Specifies whether to use multi-account access mode. This is a reserved parameter and is not currently supported.
+   * 
    * @example
    * false
    */

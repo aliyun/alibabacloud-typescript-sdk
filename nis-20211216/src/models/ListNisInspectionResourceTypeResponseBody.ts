@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNisInspectionResourceTypeResponseBodyResourceTypeList extends $dara.Model {
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * EIP
    */
@@ -31,10 +34,17 @@ export class ListNisInspectionResourceTypeResponseBodyResourceTypeList extends $
 
 export class ListNisInspectionResourceTypeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * D5E98683-355B-5867-8D3D-A24755F6895B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource types for inspection.
+   */
   resourceTypeList?: ListNisInspectionResourceTypeResponseBodyResourceTypeList[];
   static names(): { [key: string]: string } {
     return {

@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNisInspectionRecommendationResourcesResponseBodyResourceList extends $dara.Model {
   /**
+   * @remarks
+   * The details of the abnormal item.
+   * 
    * @example
    * {ResourceId: "ngw-p0wn04hi4****q2us6q7q"}
    */
   analysisData?: string;
   /**
+   * @remarks
+   * The ID of the abnormal instance.
+   * 
    * @example
    * ngw-p0wn04hi4****q2us6q7q
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * Public NAT gateway
+   */
   resourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,27 +54,46 @@ export class DescribeNisInspectionRecommendationResourcesResponseBodyResourceLis
 
 export class DescribeNisInspectionRecommendationResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the inspection report.
+   * 
    * @example
    * nir-ffd1af****196d0
    */
   inspectionReportId?: string;
   /**
+   * @remarks
+   * The maximum number of entries returned on each page. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to start the next query.
+   * 
    * @example
    * qt0DqY2lXxwBt9/ROQoS/7J9p90D1vF2vFbwzb/1oSWr3AxcM6/KpObZ7Z1PZdcV
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A7F0D6EC-E19E-58AC-AC9F-08036763960F
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of resources.
+   */
   resourceList?: DescribeNisInspectionRecommendationResourcesResponseBodyResourceList[];
   /**
+   * @remarks
+   * The total number of resources.
+   * 
    * @example
    * 192
    */

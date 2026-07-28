@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateNisInspectionTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The update result.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A7F0D6EC-E19E-58AC-AC9F-08036763960F
    */

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNisInspectionReportCheckItemsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The category of the check item.
+   * 
    * @example
    * stability
    */
   categoryCode?: string;
   /**
    * @remarks
+   * The ID of the inspection report.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,21 +22,38 @@ export class DescribeNisInspectionReportCheckItemsRequest extends $dara.Model {
    */
   inspectionReportId?: string;
   /**
+   * @remarks
+   * The language of the content. Valid values: zh-CN and en-US.
+   * 
    * @example
    * zh-CN
    */
   language?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Set this parameter to the NextToken value returned from the previous call.
+   * 
    * @example
    * hKrS+MVXkuOgztXnvdml16/uO3mvCyHxSjzdhx9VRUC+8umDTIV2Wg9TTOUrR7ve
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The resource type.
+   */
   resourceType?: string[];
+  /**
+   * @remarks
+   * A collection of risk levels.
+   */
   riskLevel?: string[];
   static names(): { [key: string]: string } {
     return {

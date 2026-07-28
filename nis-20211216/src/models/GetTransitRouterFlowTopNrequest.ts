@@ -13,7 +13,7 @@ export class GetTransitRouterFlowTopNRequest extends $dara.Model {
    * The ID of the CEN bandwidth plan.
    * 
    * @example
-   * cenbwp-ia8kw1zjv4hyal*****
+   * cenbwp-ia8kw1zjv4hyal****
    */
   bandwithPackageId?: string;
   /**

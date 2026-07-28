@@ -54,7 +54,7 @@ export class CreateNetworkPathRequest extends $dara.Model {
    * The description of the network path.
    * 
    * @example
-   * Analyze the path from ECS to ECS
+   * Analysis ECS to ECS path
    */
   networkPathDescription?: string;
   /**
@@ -71,9 +71,11 @@ export class CreateNetworkPathRequest extends $dara.Model {
    * @remarks
    * The protocol type. Valid values:
    * 
-   * *   **tcp**: Transmission Control Protocol (TCP)
-   * *   **udp**: User Datagram Protocol (UDP)
-   * *   **icmp**: Internet Control Message Protocol (ICMP)
+   * - **tcp**: Transmission Control Protocol (TCP)
+   * 
+   * - **udp**: User Datagram Protocol (UDP)
+   * 
+   * - **icmp**: Internet Control Message Protocol (ICMP)
    * 
    * @example
    * tcp
@@ -125,11 +127,15 @@ export class CreateNetworkPathRequest extends $dara.Model {
    * @remarks
    * The type of the source resource. Valid values:
    * 
-   * *   **ecs**: the Elastic Compute Service (ECS) instance
-   * *   **internetIp**: the public IP address
-   * *   **vsw**: the vSwitch
-   * *   **vpn**: the VPN gateway
-   * *   **vbr**: the virtual border router (VBR)
+   * - **ecs**: the Elastic Compute Service (ECS) instance
+   * 
+   * - **internetIp**: the public IP address
+   * 
+   * - **vsw**: the vSwitch
+   * 
+   * - **vpn**: the VPN gateway
+   * 
+   * - **vbr**: the virtual border router (VBR)
    * 
    * This parameter is required.
    * 
@@ -155,7 +161,7 @@ export class CreateNetworkPathRequest extends $dara.Model {
    * The destination IP address.
    * 
    * @example
-   * 192.168.0.210
+   * 192.168.XX.XX
    */
   targetIpAddress?: string;
   /**
@@ -170,12 +176,17 @@ export class CreateNetworkPathRequest extends $dara.Model {
    * @remarks
    * The type of the destination resource. Valid values:
    * 
-   * *   **ecs**: the ECS instance
-   * *   **internetIp**: the public IP address
-   * *   **vsw**: the vSwitch
-   * *   **vpn**: the VPN gateway
-   * *   **vbr**: the VBR
-   * *   **clb**: the Classic Load Balancer (CLB) instance
+   * - **ecs**: the ECS instance
+   * 
+   * - **internetIp**: the public IP address
+   * 
+   * - **vsw**: the vSwitch
+   * 
+   * - **vpn**: the VPN gateway
+   * 
+   * - **vbr**: the VBR
+   * 
+   * - **clb**: the Classic Load Balancer (CLB) instance
    * 
    * @example
    * ecs

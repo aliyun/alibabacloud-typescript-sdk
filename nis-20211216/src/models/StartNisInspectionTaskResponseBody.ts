@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartNisInspectionTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The inspection report ID.
+   * 
    * @example
-   * nir-9923e262c106461d86ad
+   * nir-9923e262c106461d****
    */
   inspectionReportId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A7F0D6EC-E19E-58AC-AC9F-08036763960F
    */

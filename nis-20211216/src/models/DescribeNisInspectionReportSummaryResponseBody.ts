@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary extends $dara.Model {
   /**
+   * @remarks
+   * The pass rate.
+   * 
    * @example
    * 0.98
    */
   passRate?: number;
   /**
+   * @remarks
+   * The scope of the pass rate.
+   * 
    * @example
    * Stability
    */
@@ -38,21 +44,33 @@ export class DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummar
 
 export class DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary extends $dara.Model {
   /**
+   * @remarks
+   * The number of resources associated with the risk.
+   * 
    * @example
    * 0
    */
   resourceCount?: number;
   /**
+   * @remarks
+   * The number of risks.
+   * 
    * @example
    * 3
    */
   riskCount?: number;
   /**
+   * @remarks
+   * The risk level.
+   * 
    * @example
    * HighRisk
    */
   riskLevel?: string;
   /**
+   * @remarks
+   * The risk type.
+   * 
    * @example
    * StabilityRisk
    */
@@ -86,16 +104,30 @@ export class DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary ex
 
 export class DescribeNisInspectionReportSummaryResponseBodySummary extends $dara.Model {
   /**
+   * @remarks
+   * The number of inspection items.
+   * 
    * @example
    * 11
    */
   checkItemCount?: number;
   /**
+   * @remarks
+   * The number of inspected resources.
+   * 
    * @example
    * 123
    */
   checkResourceCount?: number;
+  /**
+   * @remarks
+   * The pass rate summary.
+   */
   passRateSummary?: DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary[];
+  /**
+   * @remarks
+   * The risk summary.
+   */
   riskSummary?: DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary[];
   static names(): { [key: string]: string } {
     return {
@@ -132,35 +164,65 @@ export class DescribeNisInspectionReportSummaryResponseBodySummary extends $dara
 
 export class DescribeNisInspectionReportSummaryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2024-06-03 09:36:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The ID of the inspection report.
+   * 
    * @example
    * nir-38abb318b27b49cc9a01
    */
   inspectionReportId?: string;
   /**
+   * @remarks
+   * The ID of the inspection task.
+   * 
    * @example
    * ni-8svmpe0yso2bhzr7fh79
    */
   inspectionTaskId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4838F3F2-30E1-5D82-B25A-B9FE33BC3E25
    */
   requestId?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2024-06-03 09:35:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * - Creating
+   * 
+   * - Active
+   * 
+   * - Running
+   * 
+   * - Inactive
+   * 
    * @example
    * Active
    */
   status?: string;
+  /**
+   * @remarks
+   * The summary information.
+   */
   summary?: DescribeNisInspectionReportSummaryResponseBodySummary;
   static names(): { [key: string]: string } {
     return {

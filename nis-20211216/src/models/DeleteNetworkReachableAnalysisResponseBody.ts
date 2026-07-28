@@ -6,11 +6,10 @@ export class DeleteNetworkReachableAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
    * Result of operation.
-   * - **true**: Delete Success.
-   * - **false**: Delete Fail.
    * 
-   * @example
-   * true
+   * - **true**: Delete Success.
+   * 
+   * - **false**: Delete Fail.
    */
   data?: boolean;
   /**

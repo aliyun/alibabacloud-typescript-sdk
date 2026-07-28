@@ -34,7 +34,7 @@ export class GetInternetTupleResponseBodyData extends $dara.Model {
    * The local city.
    * 
    * @example
-   * Nanjing
+   * 南京市
    */
   cloudCity?: string;
   /**
@@ -42,7 +42,7 @@ export class GetInternetTupleResponseBodyData extends $dara.Model {
    * The local country or region.
    * 
    * @example
-   * China
+   * 中国
    */
   cloudCountry?: string;
   /**
@@ -58,7 +58,7 @@ export class GetInternetTupleResponseBodyData extends $dara.Model {
    * The local ISP.
    * 
    * @example
-   * China Mobile
+   * 移动
    */
   cloudIsp?: string;
   /**
@@ -82,7 +82,7 @@ export class GetInternetTupleResponseBodyData extends $dara.Model {
    * The local province.
    * 
    * @example
-   * Jiangsu
+   * 江苏省
    */
   cloudProvince?: string;
   /**
@@ -141,7 +141,7 @@ export class GetInternetTupleResponseBodyData extends $dara.Model {
    * The remote city. In most cases, this parameter is empty if you set **OtherCountry** to a country except China.
    * 
    * @example
-   * Austin
+   * 奥斯汀
    */
   otherCity?: string;
   /**
@@ -149,7 +149,7 @@ export class GetInternetTupleResponseBodyData extends $dara.Model {
    * The remote country or region.
    * 
    * @example
-   * United States
+   * 美国
    */
   otherCountry?: string;
   /**
@@ -189,7 +189,7 @@ export class GetInternetTupleResponseBodyData extends $dara.Model {
    * The remote province. In most cases, this parameter is empty if you set **OtherCountry** to a country except China.
    * 
    * @example
-   * Texas
+   * 得克萨斯州
    */
   otherProvince?: string;
   /**

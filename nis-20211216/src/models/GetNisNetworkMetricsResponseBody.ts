@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNisNetworkMetricsResponseBodyDataMetrics extends $dara.Model {
   /**
+   * @remarks
+   * The timestamp of the data in milliseconds.
+   * 
    * @example
    * 1690684091100
    */
   timeStamp?: number;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 88
    */
@@ -37,8 +43,15 @@ export class GetNisNetworkMetricsResponseBodyDataMetrics extends $dara.Model {
 }
 
 export class GetNisNetworkMetricsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of metric trends data.
+   */
   metrics?: GetNisNetworkMetricsResponseBodyDataMetrics[];
   /**
+   * @remarks
+   * The unit.
+   * 
    * @example
    * Bits/Second
    */
@@ -70,8 +83,15 @@ export class GetNisNetworkMetricsResponseBodyData extends $dara.Model {
 }
 
 export class GetNisNetworkMetricsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The cloud network metric trends data object.
+   */
   data?: GetNisNetworkMetricsResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D5E98683-355B-5867-8D3D-A24755F6895B
    */

@@ -8,10 +8,8 @@ export class DeleteNetworkPathResponseBody extends $dara.Model {
    * Result of operation.
    * 
    * - **true**: Delete Success.
-   * - **false**: Delete Fail.
    * 
-   * @example
-   * true
+   * - **false**: Delete Fail.
    */
   data?: boolean;
   /**

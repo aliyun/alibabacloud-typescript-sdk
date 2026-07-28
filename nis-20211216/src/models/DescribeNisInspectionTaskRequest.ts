@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNisInspectionTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the inspection task.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListNisInspectionTaskReportsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the inspection task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class ListNisInspectionTaskReportsRequest extends $dara.Model {
    */
   inspectionTaskId?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first query.
+   * 
    * @example
    * hKrS+MVXkuOgztXnvdml194Cz/lMNdmr+DEh0th6dVlNEo/F148UPCh2itDku7Qj
    */

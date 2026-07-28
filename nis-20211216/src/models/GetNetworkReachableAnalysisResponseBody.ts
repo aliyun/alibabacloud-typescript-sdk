@@ -335,10 +335,13 @@ export class GetNetworkReachableAnalysisResponseBody extends $dara.Model {
    * @remarks
    * The state of the task for analyzing network reachability. Valid values:
    * 
-   * *   **init**: The task is in progress.
-   * *   **finish**: The task is complete.
-   * *   **error**: An analysis error occurred.
-   * *   **timeout**: The task timed out.
+   * - **init**: The task is in progress.
+   * 
+   * - **finish**: The task is complete.
+   * 
+   * - **error**: An analysis error occurred.
+   * 
+   * - **timeout**: The task timed out.
    * 
    * @example
    * finish
@@ -348,8 +351,9 @@ export class GetNetworkReachableAnalysisResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the network path is reachable. Valid values:
    * 
-   * *   **true**: The network path is reachable.
-   * *   **false**: The network path is unreachable.
+   * - **true**: The network path is reachable.
+   * 
+   * - **false**: The network path is unreachable.
    * 
    * @example
    * true
