@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups extends $dara.Model {
   /**
+   * @remarks
+   * The allocation unit.
+   * 
    * @example
    * 1
    */
   allocateUnit?: string;
   /**
+   * @remarks
+   * The name of the worker group.
+   * 
    * @example
    * test
    */
   groupName?: string;
   /**
+   * @remarks
+   * The maximum number of workers.
+   * 
    * @example
    * 2
    */
   maxWorkerQuantity?: number;
   /**
+   * @remarks
+   * The minimum number of workers.
+   * 
    * @example
    * 1
    */
   minWorkerQuantity?: number;
   /**
+   * @remarks
+   * The disk size of the worker node.
+   * 
    * @example
    * 100G
    */
   workerDiskCapacity?: string;
   /**
+   * @remarks
+   * The node specifications of the worker node.
+   * 
    * @example
    * xlarge
    */
   workerSpecName?: string;
   /**
+   * @remarks
+   * The resource type of the worker node.
+   * 
    * @example
    * CPU
    */
@@ -73,15 +94,29 @@ export class CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups extends $dara.
 
 export class CreateEmbodiedAIPlatformRequestRayConfig extends $dara.Model {
   /**
+   * @remarks
+   * The Ray cluster type. Valid values:
+   * 
+   * - BASIC: basic type, non-high-availability.
+   * 
+   * - HIGH_AVAILABILITY: high-availability type.
+   * 
    * @example
    * BASIC
    */
   category?: string;
   /**
+   * @remarks
+   * The node specifications of the head node.
+   * 
    * @example
    * xlarge
    */
   headSpec?: string;
+  /**
+   * @remarks
+   * The list of Ray worker group configurations.
+   */
   workerGroups?: CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {
     return {
@@ -113,16 +148,25 @@ export class CreateEmbodiedAIPlatformRequestRayConfig extends $dara.Model {
 
 export class CreateEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs extends $dara.Model {
   /**
+   * @remarks
+   * The allocation unit.
+   * 
    * @example
    * "1"
    */
   allocateUnit?: string;
   /**
+   * @remarks
+   * The number of GPU cards.
+   * 
    * @example
    * 1
    */
   count?: number;
   /**
+   * @remarks
+   * The GPU model.
+   * 
    * @example
    * ADB.MLGrand.4
    */
@@ -154,12 +198,22 @@ export class CreateEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs extends $dara
 
 export class CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfig extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the image repository.
+   * 
    * @example
    * cri-***
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The list of namespaces.
+   */
   namespaces?: string[];
   /**
+   * @remarks
+   * The address of the image repository instance.
+   * 
    * @example
    * example-vpc.example-region.cr.aliyuncs.com
    */
@@ -193,6 +247,10 @@ export class CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfi
 }
 
 export class CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The image repository configuration.
+   */
   acrConfig?: CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfig;
   static names(): { [key: string]: string } {
     return {
@@ -219,8 +277,20 @@ export class CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfig extends
 }
 
 export class CreateEmbodiedAIPlatformRequestRayTrainConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPU ACUs to purchase.
+   */
   cpuAcu?: number;
+  /**
+   * @remarks
+   * The list of GPU model specifications to purchase.
+   */
   gpuSpecs?: CreateEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs[];
+  /**
+   * @remarks
+   * The development machine configuration.
+   */
   terminalConfig?: CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfig;
   static names(): { [key: string]: string } {
     return {
@@ -256,6 +326,8 @@ export class CreateEmbodiedAIPlatformRequestRayTrainConfig extends $dara.Model {
 export class CreateEmbodiedAIPlatformRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -263,22 +335,40 @@ export class CreateEmbodiedAIPlatformRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The ontology count.
+   * 
    * @example
    * 3
    */
   deviceCount?: number;
   /**
    * @remarks
+   * The name of the embodied intelligence multimodal data platform.
+   * > The name can contain lowercase letters, digits, and underscores. It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
    * platform1
    */
   platformName?: string;
+  /**
+   * @remarks
+   * The Ray specification information of the platform.
+   */
   rayConfig?: CreateEmbodiedAIPlatformRequestRayConfig;
+  /**
+   * @remarks
+   * The development and training resource configuration.
+   */
   rayTrainConfig?: CreateEmbodiedAIPlatformRequestRayTrainConfig;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -286,6 +376,9 @@ export class CreateEmbodiedAIPlatformRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The webserver specification of the platform.
+   * 
    * @example
    * large
    */

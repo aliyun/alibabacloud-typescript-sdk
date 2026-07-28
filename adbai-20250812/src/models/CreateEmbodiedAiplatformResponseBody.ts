@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEmbodiedAIPlatformResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 19E994DC-A816-56DB-9F90-5F8E403DD19D
    */

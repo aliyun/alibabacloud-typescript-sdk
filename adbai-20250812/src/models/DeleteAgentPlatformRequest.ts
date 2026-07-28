@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgentPlatformRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteAgentPlatformRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the intelligent alert event recording. The name must be fewer than 48 characters in length and can contain letters, digits, and the following special characters: hyphens (-), underscores (_), at signs (@), periods (.), and colons (:).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class DeleteAgentPlatformRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+   * 
    * This parameter is required.
    * 
    * @example

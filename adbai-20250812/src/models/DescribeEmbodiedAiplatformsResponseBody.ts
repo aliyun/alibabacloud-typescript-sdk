@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsEapConfig extends $dara.Model {
   /**
+   * @remarks
+   * The public network access address of the platform webserver.
+   * 
    * @example
    * http://amv-2z******-***-roboto.ads.example.com:80
    */
   webserverAddress?: string;
   /**
+   * @remarks
+   * The webserver specification of the platform.
+   * 
    * @example
    * large
    */
@@ -38,36 +44,57 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsEapConfig extends $
 
 export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfigWorkerGroups extends $dara.Model {
   /**
+   * @remarks
+   * The allocation unit.
+   * 
    * @example
    * 1
    */
   allocateUnit?: string;
   /**
+   * @remarks
+   * The name of the worker group.
+   * 
    * @example
    * worker1
    */
   groupName?: string;
   /**
+   * @remarks
+   * The maximum number of workers.
+   * 
    * @example
    * 2
    */
   maxWorkerQuantity?: number;
   /**
+   * @remarks
+   * The minimum number of workers.
+   * 
    * @example
    * 1
    */
   minWorkerQuantity?: number;
   /**
+   * @remarks
+   * The disk size of each worker.
+   * 
    * @example
    * 100G
    */
   workerDiskCapacity?: string;
   /**
+   * @remarks
+   * The worker resource model.
+   * 
    * @example
    * large
    */
   workerSpecName?: string;
   /**
+   * @remarks
+   * The Ray worker resource type.
+   * 
    * @example
    * CPU
    */
@@ -107,40 +134,68 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfigWorkerGrou
 
 export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig extends $dara.Model {
   /**
+   * @remarks
+   * The Ray cluster type. Valid values:
+   * 
+   * - BASIC: basic type without high availability.
+   * - HIGH_AVAILABILITY: high-availability type.
+   * 
    * @example
    * BASIC
    */
   category?: string;
   /**
+   * @remarks
+   * The disk size of the head node.
+   * 
    * @example
    * 100G
    */
   headDiskCapacity?: string;
   /**
+   * @remarks
+   * The node specifications of the head node.
+   * 
    * @example
    * large
    */
   headSpec?: string;
   /**
+   * @remarks
+   * The resource type of the head node.
+   * 
    * @example
    * CPU
    */
   headSpecType?: string;
   /**
+   * @remarks
+   * The Ray cluster address.
+   * 
    * @example
    * http://ray-cluster-address.example.com
    */
   rayClusterAddress?: string;
   /**
+   * @remarks
+   * The Ray Dashboard address.
+   * 
    * @example
    * http://ray-dashboard-address.example.com
    */
   rayDashboardAddress?: string;
   /**
+   * @remarks
+   * The Ray Grafana address.
+   * 
    * @example
    * http://ray-grafana-address.example.com
    */
   rayGrafanaAddress?: string;
+  /**
+   * @remarks
+   * The list of Ray worker group configurations.
+   */
   workerGroups?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {
     return {
@@ -324,24 +379,44 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfig exte
 
 export class DescribeEmbodiedAIPlatformsResponseBodyPlatforms extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-12-01 14:55:36
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The webserver configuration of the platform.
+   */
   eapConfig?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsEapConfig;
   /**
+   * @remarks
+   * The lake storage name.
+   * 
    * @example
    * adb-lake-cn-beijing-5q1w******
    */
   ossBucketName?: string;
   /**
+   * @remarks
+   * The platform name.
+   * 
    * @example
    * platform1
    */
   platformName?: string;
+  /**
+   * @remarks
+   * The Ray specification information of the platform.
+   */
   rayConfig?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig;
   rayTrainConfig?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfig;
   /**
+   * @remarks
+   * The running status.
+   * 
    * @example
    * running
    */
@@ -390,32 +465,54 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatforms extends $dara.Mode
 
 export class DescribeEmbodiedAIPlatformsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Use the paged query parameters PageSize, PageNumber, and TotalCount for paging.
+   * 
    * @example
    * 30
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Use the paged query parameters PageSize, PageNumber, and TotalCount for paging.
+   * 
    * @example
-   * 298a7d5473b128dfe0b5e8707e******
+   * 9c3158c2e8acf616501bd5ee05******
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of embodied intelligence multimodal data platforms.
+   */
   platforms?: DescribeEmbodiedAIPlatformsResponseBodyPlatforms[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B47EED99-BFA5-529D-8D85-A6642421D390
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of platforms.
+   * 
    * @example
    * 50
    */

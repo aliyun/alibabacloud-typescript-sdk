@@ -7,6 +7,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentPlatformRequestAiPlatformConfig extends $dara.Model {
   /**
    * @remarks
+   * The API key of the model for the inference service that the metric analysis platform depends on.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +17,8 @@ export class CreateAgentPlatformRequestAiPlatformConfig extends $dara.Model {
   serveApiKey?: string;
   /**
    * @remarks
+   * The endpoint of the embedding model for the inference service that the metric analysis platform depends on.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +27,8 @@ export class CreateAgentPlatformRequestAiPlatformConfig extends $dara.Model {
   serveEmbeddingEndpoint?: string;
   /**
    * @remarks
+   * The name of the embedding model for the inference service that the metric analysis platform depends on.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +37,8 @@ export class CreateAgentPlatformRequestAiPlatformConfig extends $dara.Model {
   serveEmbeddingModelName?: string;
   /**
    * @remarks
+   * The endpoint of the base model for the inference service that the metric analysis platform depends on.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +47,8 @@ export class CreateAgentPlatformRequestAiPlatformConfig extends $dara.Model {
   serveEndpoint?: string;
   /**
    * @remarks
+   * The name of the base model for the inference service that the metric analysis platform depends on.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +57,8 @@ export class CreateAgentPlatformRequestAiPlatformConfig extends $dara.Model {
   serveModelName?: string;
   /**
    * @remarks
+   * The specifications of the metric analysis platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -87,11 +99,15 @@ export class CreateAgentPlatformRequestAiPlatformConfig extends $dara.Model {
 export class CreateAgentPlatformRequest extends $dara.Model {
   /**
    * @remarks
+   * The parameters required to create the metric analysis platform.
+   * 
    * This parameter is required.
    */
   aiPlatformConfig?: CreateAgentPlatformRequestAiPlatformConfig;
   /**
    * @remarks
+   * The instance cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -100,6 +116,8 @@ export class CreateAgentPlatformRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the metric analysis platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -107,6 +125,11 @@ export class CreateAgentPlatformRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+   * 
    * @example
    * cn-beijing
    */

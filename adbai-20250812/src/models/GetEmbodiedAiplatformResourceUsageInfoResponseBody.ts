@@ -35,13 +35,26 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails extend
 }
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The GPU allocation unit.
+   * 
+   * @example
+   * 1
+   */
   allocatedUnit?: number;
   /**
+   * @remarks
+   * The GPU model.
+   * 
    * @example
    * ADB.MLLarge.2
    */
   gpuModel?: string;
   /**
+   * @remarks
+   * The number of GPUs of this model currently in use.
+   * 
    * @example
    * 1
    */
@@ -73,11 +86,17 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails extend
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic extends $dara.Model {
   /**
+   * @remarks
+   * The upstream bandwidth traffic over the public network. Unit: bytes.
+   * 
    * @example
    * 0
    */
   totalBytesIn?: number;
   /**
+   * @remarks
+   * The downstream bandwidth traffic over the public network. Unit: bytes.
+   * 
    * @example
    * 0
    */
@@ -107,6 +126,9 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic extend
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageNas extends $dara.Model {
   /**
+   * @remarks
+   * The NAS standard storage usage. Unit: bytes.
+   * 
    * @example
    * 0
    */
@@ -134,6 +156,9 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageNas e
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageOss extends $dara.Model {
   /**
+   * @remarks
+   * The OSS standard storage usage. Unit: bytes.
+   * 
    * @example
    * 0
    */
@@ -160,7 +185,15 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageOss e
 }
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage extends $dara.Model {
+  /**
+   * @remarks
+   * The NAS storage usage.
+   */
   nas?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageNas;
+  /**
+   * @remarks
+   * The OSS storage usage.
+   */
   oss?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageOss;
   static names(): { [key: string]: string } {
     return {
@@ -193,13 +226,23 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage exte
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends $dara.Model {
   acuDetails?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails;
+  /**
+   * @remarks
+   * The GPU usage details.
+   */
   gpuDetails?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails[];
   /**
+   * @remarks
+   * The maximum number of embodiments that can be registered.
+   * 
    * @example
    * 3
    */
   maxRegisteredDevices?: number;
   /**
+   * @remarks
+   * The number of registered embodiments.
+   * 
    * @example
    * 1
    */
@@ -212,7 +255,15 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends $dara.Mo
    * B47EED99-BFA5-529D-8D85-A6642421D390
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The network resource usage information.
+   */
   slbTraffic?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic;
+  /**
+   * @remarks
+   * The storage resource usage information.
+   */
   storageUsage?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage;
   static names(): { [key: string]: string } {
     return {

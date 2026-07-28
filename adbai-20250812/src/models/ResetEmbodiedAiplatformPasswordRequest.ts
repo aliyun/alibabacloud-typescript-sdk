@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResetEmbodiedAIPlatformPasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ResetEmbodiedAIPlatformPasswordRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The new password for the admin user of the embodied intelligence platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ResetEmbodiedAIPlatformPasswordRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
+   * The name of the embodied intelligence multimodal data platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,10 @@ export class ResetEmbodiedAIPlatformPasswordRequest extends $dara.Model {
   platformName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
+   * > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+   * 
    * This parameter is required.
    * 
    * @example

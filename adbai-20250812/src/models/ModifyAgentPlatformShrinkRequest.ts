@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyAgentPlatformShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters required for upgrading or downgrading the metric platform.
+   */
   aiPlatformConfigShrink?: string;
   /**
    * @remarks
+   * The instance cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class ModifyAgentPlatformShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the metric platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +30,10 @@ export class ModifyAgentPlatformShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+   * 
    * This parameter is required.
    * 
    * @example

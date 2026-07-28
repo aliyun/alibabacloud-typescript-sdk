@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentPlatformShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The parameters required to create the metric analysis platform.
+   * 
    * This parameter is required.
    */
   aiPlatformConfigShrink?: string;
   /**
    * @remarks
+   * The instance cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +22,8 @@ export class CreateAgentPlatformShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the metric analysis platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +31,11 @@ export class CreateAgentPlatformShrinkRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+   * 
    * @example
    * cn-beijing
    */

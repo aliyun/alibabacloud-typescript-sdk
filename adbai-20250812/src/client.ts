@@ -11,7 +11,15 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-shenzhen': "adbai.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai': "adbai.cn-shanghai.aliyuncs.com",
+      'cn-hangzhou': "adbai.cn-hangzhou.aliyuncs.com",
+      'cn-beijing': "adbai.cn-beijing.aliyuncs.com",
+      'ap-southeast-1': "adbai.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "adbai.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("adbai", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +38,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建指标平台
+   * Creates a metric analysis platform.
    * 
    * @param tmpReq - CreateAgentPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -79,7 +87,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建指标平台
+   * Creates a metric analysis platform.
    * 
    * @param request - CreateAgentPlatformRequest
    * @returns CreateAgentPlatformResponse
@@ -90,7 +98,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建具身智能平台
+   * Creates an embodied intelligence multimodal data platform.
+   * 
+   * @remarks
+   * Queries the actual resource amount corresponding to the backend of the instance ontology count.
    * 
    * @param tmpReq - CreateEmbodiedAIPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -155,7 +166,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建具身智能平台
+   * Creates an embodied intelligence multimodal data platform.
+   * 
+   * @remarks
+   * Queries the actual resource amount corresponding to the backend of the instance ontology count.
    * 
    * @param request - CreateEmbodiedAIPlatformRequest
    * @returns CreateEmbodiedAIPlatformResponse
@@ -166,7 +180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指标平台
+   * Deletes a metrics platform.
    * 
    * @param request - DeleteAgentPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -205,7 +219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指标平台
+   * Deletes a metrics platform.
    * 
    * @param request - DeleteAgentPlatformRequest
    * @returns DeleteAgentPlatformResponse
@@ -216,7 +230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除具身智能平台
+   * Deletes an embodied intelligence platform.
    * 
    * @param request - DeleteEmbodiedAIPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -255,7 +269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除具身智能平台
+   * Deletes an embodied intelligence platform.
    * 
    * @param request - DeleteEmbodiedAIPlatformRequest
    * @returns DeleteEmbodiedAIPlatformResponse
@@ -266,7 +280,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+   * Queries multi-turn conversations for instance kernel diagnostics.
+   * 
+   * @remarks
+   * Queries multi-turn conversations for instance kernel diagnostics.
    * 
    * @param request - DescribeChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -285,6 +302,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionId)) {
       query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.skill)) {
+      query["Skill"] = request.skill;
     }
 
     if (!$dara.isNull(request.timezone)) {
@@ -323,7 +344,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+   * Queries multi-turn conversations for instance kernel diagnostics.
+   * 
+   * @remarks
+   * Queries multi-turn conversations for instance kernel diagnostics.
    * 
    * @param request - DescribeChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -342,6 +366,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionId)) {
       query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.skill)) {
+      query["Skill"] = request.skill;
     }
 
     if (!$dara.isNull(request.timezone)) {
@@ -366,7 +394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+   * Queries multi-turn conversations for instance kernel diagnostics.
+   * 
+   * @remarks
+   * Queries multi-turn conversations for instance kernel diagnostics.
    * 
    * @param request - DescribeChatMessageRequest
    * @returns DescribeChatMessageResponse
@@ -377,7 +408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询具身智能平台设备资源分配方案
+   * Query the resource allocation plan for Embodied Intelligence platform devices
+   * 
+   * @remarks
+   * Used to view the actual resource amount corresponding to the backend of the instance ontology count
    * 
    * @param request - DescribeEapDeviceResourceAllocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -416,7 +450,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询具身智能平台设备资源分配方案
+   * Query the resource allocation plan for Embodied Intelligence platform devices
+   * 
+   * @remarks
+   * Used to view the actual resource amount corresponding to the backend of the instance ontology count
    * 
    * @param request - DescribeEapDeviceResourceAllocationRequest
    * @returns DescribeEapDeviceResourceAllocationResponse
@@ -427,7 +464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询具身智能平台
+   * Queries embodied intelligence multimodal data platforms.
    * 
    * @param request - DescribeEmbodiedAIPlatformsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -494,7 +531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询具身智能平台
+   * Queries embodied intelligence multimodal data platforms.
    * 
    * @param request - DescribeEmbodiedAIPlatformsRequest
    * @returns DescribeEmbodiedAIPlatformsResponse
@@ -505,7 +542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询具身智能平台资源用量
+   * Queries the resource usage information of an embodied intelligence platform.
    * 
    * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -552,7 +589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询具身智能平台资源用量
+   * Queries the resource usage information of an embodied intelligence platform.
    * 
    * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
    * @returns GetEmbodiedAIPlatformResourceUsageInfoResponse
@@ -563,7 +600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解锁具身智能平台
+   * Locks an embodied intelligence platform.
    * 
    * @param request - LockEmbodiedAIPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -602,7 +639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解锁具身智能平台
+   * Locks an embodied intelligence platform.
    * 
    * @param request - LockEmbodiedAIPlatformRequest
    * @returns LockEmbodiedAIPlatformResponse
@@ -613,7 +650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改变配指标平台
+   * Upgrades or downgrades the specifications of a metric platform.
    * 
    * @param tmpReq - ModifyAgentPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -662,7 +699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改变配指标平台
+   * Upgrades or downgrades the specifications of a metric platform.
    * 
    * @param request - ModifyAgentPlatformRequest
    * @returns ModifyAgentPlatformResponse
@@ -673,7 +710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 变配具身智能平台
+   * Modifies the specifications of an embodied intelligence platform.
    * 
    * @param tmpReq - ModifyEmbodiedAIPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -738,7 +775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 变配具身智能平台
+   * Modifies the specifications of an embodied intelligence platform.
    * 
    * @param request - ModifyEmbodiedAIPlatformRequest
    * @returns ModifyEmbodiedAIPlatformResponse
@@ -749,7 +786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置具身智能平台密码
+   * Resets the admin password for the embodied intelligence platform.
    * 
    * @param request - ResetEmbodiedAIPlatformPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -792,7 +829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置具身智能平台密码
+   * Resets the admin password for the embodied intelligence platform.
    * 
    * @param request - ResetEmbodiedAIPlatformPasswordRequest
    * @returns ResetEmbodiedAIPlatformPasswordResponse
@@ -803,7 +840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解锁具身智能平台
+   * Unlocks an embodied intelligence platform.
    * 
    * @param request - UnlockEmbodiedAIPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -842,7 +879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解锁具身智能平台
+   * Unlocks an embodied intelligence platform.
    * 
    * @param request - UnlockEmbodiedAIPlatformRequest
    * @returns UnlockEmbodiedAIPlatformResponse

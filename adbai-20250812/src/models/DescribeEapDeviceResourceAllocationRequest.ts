@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEapDeviceResourceAllocationRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,19 @@ export class DescribeEapDeviceResourceAllocationRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * Total number of devices
+   * 
    * @example
    * 3
    */
   deviceCount?: number;
   /**
    * @remarks
+   * Region ID where the instance is located.
+   * 
+   * > You can invoke the DescribeRegions API to view the region ID of a specified Data Lakehouse Edition cluster.
+   * 
    * This parameter is required.
    * 
    * @example

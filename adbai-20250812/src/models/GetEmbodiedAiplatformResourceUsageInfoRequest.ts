@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetEmbodiedAIPlatformResourceUsageInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetEmbodiedAIPlatformResourceUsageInfoRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The end of the time range for querying network resource usage. Format: yyyy-MM-ddTHH:mmZ.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -20,12 +24,19 @@ export class GetEmbodiedAIPlatformResourceUsageInfoRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The name of the embodied intelligence platform.
+   * 
    * @example
    * platform1
    */
   platformName?: string;
   /**
    * @remarks
+   * The region ID of the instance.
+   * 
+   * > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +45,8 @@ export class GetEmbodiedAIPlatformResourceUsageInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The start of the time range for querying network resource usage. Format: yyyy-MM-ddTHH:mmZ.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
