@@ -145,6 +145,7 @@ export class CreateMmAppRequestConversationConfig extends $dara.Model {
 }
 
 export class CreateMmAppRequestModelConfig extends $dara.Model {
+  appType?: string;
   /**
    * @example
    * 5
@@ -163,6 +164,7 @@ export class CreateMmAppRequestModelConfig extends $dara.Model {
   textModal?: string;
   static names(): { [key: string]: string } {
     return {
+      appType: 'AppType',
       historyLimit: 'HistoryLimit',
       modelType: 'ModelType',
       openWebSearch: 'OpenWebSearch',
@@ -172,6 +174,7 @@ export class CreateMmAppRequestModelConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appType: 'string',
       historyLimit: 'number',
       modelType: 'string',
       openWebSearch: 'boolean',

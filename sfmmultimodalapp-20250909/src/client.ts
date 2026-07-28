@@ -880,6 +880,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 指令类型列表查询
+   * 
+   * @param request - ListDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDomainResponse
+   */
+  async listDomainWithOptions(request: $_model.ListDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDomainResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDomain",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDomainResponse>(await this.callApi(params, req, runtime), new $_model.ListDomainResponse({}));
+  }
+
+  /**
+   * 指令类型列表查询
+   * 
+   * @param request - ListDomainRequest
+   * @returns ListDomainResponse
+   */
+  async listDomain(request: $_model.ListDomainRequest): Promise<$_model.ListDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDomainWithOptions(request, runtime);
+  }
+
+  /**
    * 获取多模态应用列表
    * 
    * @param request - ListMmAppRequest
